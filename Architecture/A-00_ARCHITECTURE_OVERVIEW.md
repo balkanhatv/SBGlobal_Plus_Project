@@ -1,13 +1,15 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
-**Document ID:** A-00 · **Version:** 1.0 · **Status:** ARCHITECTURE BASELINE (CP-A1-001) · **Date:** 09-09-2026
+**Document ID:** A-00 · **Version:** 1.1 · **Status:** ARCHITECTURE BASELINE (CP-A1-001) · **Date:** 09-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** CP-F1-005 (FOUNDATION CERTIFIED) · **Phase:** Architecture (HOW). Foundation (WHAT/WHY/WHO) is authoritative and unmodified.
 
 ---
 
 ## 1. Purpose & Boundary
-This document set (A-00…A-12) defines the high-level enterprise architecture of SBGlobal Plus: boundaries, components, responsibilities, interactions, flows, ownership, security boundaries and technology choices. It contains no Detailed Design (endpoint-level contracts, schemas/migrations, screen inventories, code) — those are deferred per §26A/§26B and named per document under "Deferred to Detailed Design".
+This document set defines the high-level enterprise architecture of SBGlobal Plus: boundaries, components, responsibilities, interactions, flows, ownership, security boundaries and technology choices. It contains no Detailed Design (endpoint-level contracts, schemas/migrations, screen inventories, code) — those are deferred per §26A/§26B and named per document under "Deferred to Detailed Design".
 
 Non-duplication rule (inherited from F-00 §3): each architectural fact lives in exactly one A-document; all others cross-reference it (`→ A-xx §y`). Foundation facts are referenced (`→ F-xx §y`), never restated as authority.
+
+**Repository-state rule:** the Architecture directory currently contains **A-00 through A-03 only**. A-04 through A-12 are planned architecture documents referenced by the target architecture map but are **not yet present in this branch** and must not be represented as completed/available until actually created and verified.
 
 ## 2. Architecture Vision
 One Unified Enterprise Core → Multiple First-Class Industries → Multiple Tenants → Configurable & Modular Management Systems → Secure Web/Mobile/Desktop Experiences → AI-Powered Business Operations.
@@ -58,27 +60,31 @@ Every request descends through L6→L5→L4 with the Tenant Context established 
 7. **Evidence-based status** — no scope claims a status above its evidence (§33A; → A-12 §5).
 8. **Deployable two ways** — managed SaaS and self-hosted VPS/PM2 from the same application artifacts; Docker and Vercel are optional and never mandatory (→ A-10).
 
-## 5. Document Map
-| ID | Owns |
-|---|---|
-| A-00 | This overview: layered model, principles, context, map |
-| A-01 | Unified Core: module catalog, boundaries, contracts, request flow |
-| A-02 | Multi-tenancy: context resolution, isolation, residency, tenant lifecycle |
-| A-03 | Identity, AuthN (Clerk), RBAC+ABAC, security zones, compliance |
-| A-04 | Commercial: plan/subscription/license/entitlement enforcement |
-| A-05 | Data: categories, ownership, storage topology, lifecycle, governance |
-| A-06 | API (tRPC/REST), events (outbox), integrations, webhooks |
-| A-07 | AI: gateway, provider abstraction, RAG, agents, guardrails |
-| A-08 | Experience: web (Next.js), mobile (React Native/Expo), desktop (Tauri 2.0), admin (Shadcn UI), CMS (Payload 3) |
-| A-09 | Industry suites on the Unified Core; MS activation model |
-| A-10 | Infrastructure, deployment topologies, scalability, resilience |
-| A-11 | Observability, audit, operations |
-| A-12 | Decisions (ADR-001…), dependencies, constraints, trade-offs |
+## 5. Architecture Document Map
+**Target architecture set:** A-00…A-12. **Current repository availability:** A-00…A-03 only.
 
-Registers: `Architecture/Registers/A-INDEX.md`, `A-TRACEABILITY.md`, `ARCHITECTURE_GATE_AUDIT_CP-A1-001.md`.
+| ID | Owns | Repository status |
+|---|---|---|
+| A-00 | This overview: layered model, principles, context, map | PRESENT · BASELINE |
+| A-01 | Unified Core: module catalog, boundaries, contracts, request flow | PRESENT · BASELINE |
+| A-02 | Multi-tenancy: context resolution, isolation, residency, tenant lifecycle | PRESENT · BASELINE |
+| A-03 | Identity, AuthN (Clerk), RBAC+ABAC, security zones, compliance | PRESENT · BASELINE |
+| A-04 | Commercial: plan/subscription/license/entitlement enforcement | PLANNED · NOT PRESENT |
+| A-05 | Data: categories, ownership, storage topology, lifecycle, governance | PLANNED · NOT PRESENT |
+| A-06 | API (tRPC/REST), events (outbox), integrations, webhooks | PLANNED · NOT PRESENT |
+| A-07 | AI: gateway, provider abstraction, RAG, agents, guardrails | PLANNED · NOT PRESENT |
+| A-08 | Experience: web (Next.js), mobile (React Native/Expo), desktop (Tauri 2.0), admin (Shadcn UI), CMS (Payload 3) | PLANNED · NOT PRESENT |
+| A-09 | Industry suites on the Unified Core; MS activation model | PLANNED · NOT PRESENT |
+| A-10 | Infrastructure, deployment topologies, scalability, resilience | PLANNED · NOT PRESENT |
+| A-11 | Observability, audit, operations | PLANNED · NOT PRESENT |
+| A-12 | Decisions (ADR-001…), dependencies, constraints, trade-offs | PLANNED · NOT PRESENT |
+
+Architecture registers/audit documents are likewise **not yet present under `Architecture/` in this branch**; they must be created as part of the Architecture governance package before being referenced as repository artifacts.
 
 ## 6. System Context (external actors & systems)
 Actors: Platform Operator staff · Tenant admins/staff/end-customers per industry (F-02 actors) · Visitors. External systems: identity provider (Clerk), payment gateways, AI providers, email/SMS/push providers (Expo Push/FCM), government/industry integrations per suite (→ A-06 §5), object storage, DNS/CDN.
 
 ## 7. Traceability & Phase Boundary
-Every A-document carries a "Traces to" header and a traceability row in `Registers/A-TRACEABILITY.md` mapping to F-00…F-14. Architecture introduces no new business scope: where an architectural completion was required, it is labelled as a decision in A-12 (provenance `[AC]`-equivalent for the Architecture phase). Detailed Design, Development, Testing and Deployment remain future phases (§26A).
+Every A-document carries a "Traces to" header and a traceability row in the Architecture traceability register once that register is created. Architecture introduces no new business scope: where an architectural completion is required, it must be labelled as a decision in A-12 (provenance `[AC]`-equivalent for the Architecture phase). Detailed Design, Development, Testing and Deployment remain future phases (§26A).
+
+**Current technology governance:** UD-TECH-01 in `Registers/D-DECISIONS.md` is the active user-directed technology baseline for this Architecture branch. RawSourceCorpus remains immutable historical/source corpus and is not rewritten to match it.
