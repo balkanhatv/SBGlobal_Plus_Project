@@ -17,17 +17,20 @@ All nine industries (F-07…F-09, F-12, F-13) are first-class and equal. There i
 ## 3. Layered System Model (canonical)
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ L6 EXPERIENCE   Public Site (Next.js+Payload) · Platform App    │
-│                 (Next.js) · Tenant App (Next.js) · Mobile       │
-│                 (Expo/RN) · Desktop (Tauri 2) · Ops Admin       │
-│                 (Refine)                                        │
+│ L6 EXPERIENCE   Public Site (Next.js 15 + Payload CMS 3)       │
+│                 Platform App (Next.js 15) · Tenant App          │
+│                 (Next.js 15) · Mobile (React Native / Expo)     │
+│                 · Desktop (Tauri 2.0) · Ops Admin              │
+│                 (Next.js 15 + Shadcn UI)                        │
 ├─────────────────────────────────────────────────────────────────┤
-│ L5 EXPERIENCE-API  tRPC (first-party) · REST/OpenAPI (external) │
-│                    Webhooks out · Push (Expo/OneSignal)         │
+│ L5 EXPERIENCE-API  tRPC (first-party) · REST/OpenAPI            │
+│                    compatibility for external integrations      │
+│                    · Webhooks out · Push (Expo Push / FCM)      │
 ├─────────────────────────────────────────────────────────────────┤
-│ L4 UNIFIED CORE (NestJS modular monolith)                       │
-│    Identity·Tenancy·AuthZ(RBAC+ABAC)·Entitlement·Billing·       │
-│    Config·Workflow·Notification·Document·Search·Audit           │
+│ L4 UNIFIED CORE (Next.js 15 application core)                   │
+│    TypeScript 5.x · Node.js 22 · Identity·Tenancy·AuthZ         │
+│    (RBAC+ABAC)·Entitlement·Billing·Config·Workflow·Notification │
+│    ·Document·Search·Audit                                       │
 ├─────────────────────────────────────────────────────────────────┤
 │ L3 INDUSTRY CAPABILITY MODULES (9 suites; Management Systems    │
 │    as Core-hosted modules, entitlement-activated per tenant)    │
@@ -38,8 +41,9 @@ All nine industries (F-07…F-09, F-12, F-13) are first-class and equal. There i
 │ L1 DATA          PostgreSQL (RLS multi-tenant) · Object storage │
 │                  · Outbox/Event log · Regional Data Homes       │
 ├─────────────────────────────────────────────────────────────────┤
-│ L0 INFRASTRUCTURE  Vercel (web) · Coolify Dockerized VPS        │
-│                    (Core, DB, AI) · Observability stack         │
+│ L0 INFRASTRUCTURE  PM2-managed VPS / compatible hosting         │
+│                    (no mandatory Docker or Vercel dependency)   │
+│                    · Observability stack                        │
 └─────────────────────────────────────────────────────────────────┘
 ```
 Every request descends through L6→L5→L4 with the Tenant Context established at L5 entry and enforced at L4 and L1 (→ A-02). Industry modules (L3) run inside the Core process boundary but behind module contracts (→ A-01 §4).
@@ -52,7 +56,7 @@ Every request descends through L6→L5→L4 with the Tenant Context established 
 5. **Entitlement gates everything commercial** — plan→subscription→license→entitlement→runtime guard (→ A-04).
 6. **AI is a platform capability, not a bolt-on** — every AI use passes the AI Gateway; providers are swappable (→ A-07).
 7. **Evidence-based status** — no scope claims a status above its evidence (§33A; → A-12 §5).
-8. **Deployable two ways** — managed SaaS (Vercel + Coolify VPS) and self-hosted (Coolify only) from the same artifacts (→ A-10).
+8. **Deployable two ways** — managed SaaS and self-hosted VPS/PM2 from the same application artifacts; Docker and Vercel are optional and never mandatory (→ A-10).
 
 ## 5. Document Map
 | ID | Owns |
@@ -60,12 +64,12 @@ Every request descends through L6→L5→L4 with the Tenant Context established 
 | A-00 | This overview: layered model, principles, context, map |
 | A-01 | Unified Core: module catalog, boundaries, contracts, request flow |
 | A-02 | Multi-tenancy: context resolution, isolation, residency, tenant lifecycle |
-| A-03 | Identity, AuthN (Clerk/Auth.js), RBAC+ABAC, security zones, compliance |
+| A-03 | Identity, AuthN (Clerk), RBAC+ABAC, security zones, compliance |
 | A-04 | Commercial: plan/subscription/license/entitlement enforcement |
 | A-05 | Data: categories, ownership, storage topology, lifecycle, governance |
 | A-06 | API (tRPC/REST), events (outbox), integrations, webhooks |
 | A-07 | AI: gateway, provider abstraction, RAG, agents, guardrails |
-| A-08 | Experience: web, mobile (Expo), desktop (Tauri), admin (Refine), CMS |
+| A-08 | Experience: web (Next.js), mobile (React Native/Expo), desktop (Tauri 2.0), admin (Shadcn UI), CMS (Payload 3) |
 | A-09 | Industry suites on the Unified Core; MS activation model |
 | A-10 | Infrastructure, deployment topologies, scalability, resilience |
 | A-11 | Observability, audit, operations |
@@ -74,7 +78,7 @@ Every request descends through L6→L5→L4 with the Tenant Context established 
 Registers: `Architecture/Registers/A-INDEX.md`, `A-TRACEABILITY.md`, `ARCHITECTURE_GATE_AUDIT_CP-A1-001.md`.
 
 ## 6. System Context (external actors & systems)
-Actors: Platform Operator staff · Tenant admins/staff/end-customers per industry (F-02 actors) · Visitors. External systems: identity provider (Clerk), payment gateways, AI providers, email/SMS/push providers (Expo Push/OneSignal), government/industry integrations per suite (→ A-06 §5), object storage, DNS/CDN.
+Actors: Platform Operator staff · Tenant admins/staff/end-customers per industry (F-02 actors) · Visitors. External systems: identity provider (Clerk), payment gateways, AI providers, email/SMS/push providers (Expo Push/FCM), government/industry integrations per suite (→ A-06 §5), object storage, DNS/CDN.
 
 ## 7. Traceability & Phase Boundary
 Every A-document carries a "Traces to" header and a traceability row in `Registers/A-TRACEABILITY.md` mapping to F-00…F-14. Architecture introduces no new business scope: where an architectural completion was required, it is labelled as a decision in A-12 (provenance `[AC]`-equivalent for the Architecture phase). Detailed Design, Development, Testing and Deployment remain future phases (§26A).
