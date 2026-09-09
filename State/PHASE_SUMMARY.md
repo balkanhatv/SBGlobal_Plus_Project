@@ -1,7 +1,9 @@
-# PHASE_SUMMARY — Project Foundation, Certification Pass (CP-F1-005)
-1. Forensic baseline: CP-F1-004 commits (3c83fd6, 55f1243) verified in history; F-07 v0.2 content-verified; all F-00…F-13 + 9 registers + 4 state files read in full; Governing/ verified untouched since last forensic verification; RawSourceCorpus/ verified untouched in history.
-2. Audit Pass 1 findings: commercial-model depth (→ F-14, AC-18); Pro/Premium route governance (→ F-14 §7, [UD]); stale F-00/README/manifest statuses (→ F-00 §11 + rewrites); traceability extension for F-13/F-14. FF-01/FF-02 dispositions re-verified against actual content — held.
-3. Audit Pass 2 (independent, adversarial): Healthcare leakage, entitlement loopholes, lifecycle gaps, isolation gaps, residency contradictions, stale claims — none found post-correction. PASS.
-4. Certification: FOUNDATION CERTIFIED recorded (Foundation only). Sole open delivery item: recovery ZIP v1.2 (environment could not package/verify the full corpus this session). Architecture not begun; merge not performed.
-5. Correction (04-09-2026): commit b83bea9 (unnecessary brand/color canonicalization, AC-19/RR-03) reverted via history-preserving revert efd16eb6; F-06 back to v0.1; registers restored; RR-03 withdrawn; owner-directed corpus edit a811a1ab preserved as ACTIVE owner intent. Certification unaffected. Recovery ZIP v1.2 remains the sole open delivery item, now to be built from the post-revert HEAD.
-6. Delivery closure (04-09-2026, revision C): recovery ZIP v1.2 built from the final post-revert HEAD and open-and-compare verified (36/36 files, corpus byte-identical to the owner-directed a811a1ab state); BACKUP_METADATA.json and registers/state synchronized. Foundation phase has no open delivery items; merge and Architecture remain approval-gated.
+# PHASE_SUMMARY — Foundation Certified → Architecture Bootstrap
+1. Foundation certification: CP-F1-005 remains valid. Foundation evidence remains 372 units / 2,965 items / 0 unmapped, No-Loss PASS, dual final audit.
+2. RawSourceCorpus remains immutable. Historical Laravel/Flutter/JWT/etc. references are preserved as source/history and are not rewritten to match the current technology baseline.
+3. Architecture bootstrap 09-09-2026: CP-A1-001 established. Repository inspection confirmed A-00…A-03 present; A-04…A-12 are target documents only and were not falsely marked available.
+4. Targeted technology corrections completed: F-01 API catalog now makes tRPC primary for internal first-party operations and REST/OpenAPI external-only interoperability; F-03 uses the Clerk identity/session/access-token boundary; F-06 uses React Native + Expo + Expo Push/FCM; F-10 uses Tauri 2.0 + Clerk + tRPC.
+5. Governance correction completed: D-DECISIONS now contains active user-directed technology decision `UD-TECH-01`, establishing the canonical Architecture-branch stack and preserving RawSourceCorpus immutability.
+6. State correction completed: README_FOUNDATION, PROJECT_STATE, PROJECT_MANIFEST and HANDOFF_NOTE now reflect Architecture STARTED at CP-A1-001 rather than "NOT started".
+7. Architecture scope remains incomplete: A-04…A-12 and Architecture-specific registers/audit artifacts must be created and verified before Architecture completion/certification can be claimed.
+8. Governance Masters remain unchanged. No merge to `main` and no history rewrite.
