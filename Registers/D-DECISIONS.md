@@ -1,5 +1,5 @@
-# D-DECISIONS — Decision Register (Foundation Builds 1–2)
-Seeded from MASTER_INSTRUCTION v2.5 §29 (conflict resolutions CR) plus this project's ARCHITECTURAL-COMPLETION log (AC) and residency decision (DR). All CR resolutions below are inherited ACTIVE governance decisions; both sides preserved in traceability, never deleted.
+# D-DECISIONS — Decision Register (Foundation Builds 1–2 + Architecture Bootstrap)
+Seeded from MASTER_INSTRUCTION v2.5 §29 (conflict resolutions CR) plus this project's ARCHITECTURAL-COMPLETION log (AC), residency decision (DR), and the explicit user-directed technology baseline for the Architecture branch (UD). All CR resolutions below are inherited ACTIVE governance decisions; both sides preserved in traceability, never deleted.
 
 ## Inherited conflict resolutions (CR)
 | ID | Conflict | Resolution (ACTIVE) |
@@ -39,5 +39,12 @@ Seeded from MASTER_INSTRUCTION v2.5 §29 (conflict resolutions CR) plus this pro
 | AC-16 | F-12 | Remaining §9-standard dimensions completed for all 9 suites | Equal-depth requirement (LG-04); per-suite content industry-specific; zero Healthcare copying (pattern-reuse note recorded for IWM) |
 | AC-17 | F-13 | FF-01/FF-02 depth completion: HLT-HMS/RIS/PMS/CMS at Foundation depth; EDU-CTM, RTL-RSM, MFG-IWM, PSV-SDM at sibling depth; NGO-DMS review closed | Resolves the depth findings that revoked certification at CP-F1-003. Healthcare anchors `[SD]`, operational detail `[AC]`; zero Healthcare copying (LG-03) |
 | AC-18 | F-14 | Commercial Foundation: per-plan definitions (5 tiers, all mandated dimensions, no invented numeric values), subscription lifecycle state machine with transitions/exceptions, license model, entitlement computation (sources/precedence/conflict/recalculation), effective access semantics, upgrade/downgrade/renewal/expiry/grace/suspension lifecycles, governed self-serve vs sales-assisted routes (Pro/Premium dual-route `[UD]` — refines CR-01 operational note, tier set unchanged) | Final-audit Pass 1 finding P1-01/P1-02: commercial model below mandated Foundation depth. `[SD]` anchors: S2.2 §26/§26A/§38, CR-01. Depends: plan-version schema, entitlement snapshot storage, dunning/proration values — Architecture phase |
+
+## Architecture-branch user-directed technology decision
+| ID | Scope | Decision | Status |
+|---|---|---|---|
+| UD-TECH-01 | F-01 §7–§8, F-03, F-06, F-10, Architecture A-00…A-03 and subsequent A-docs | **Canonical technology baseline for the current Architecture branch:** Next.js 15 · TypeScript 5.x / Node.js 22 · React 19 · Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · React Native + Expo for mobile · Expo Push / FCM for push delivery · Tauri 2.0 for desktop · **Clerk for the Core identity boundary** · **tRPC as primary internal first-party API** · REST/OpenAPI only for external interoperability · webhooks · PM2-compatible VPS deployment; no mandatory Docker/Vercel dependency. Existing RawSourceCorpus technology references remain immutable historical source and are not rewritten. | **ACTIVE — USER-DIRECTED** |
+
+**Governance effect:** canonical architecture/foundation documents must align to UD-TECH-01 where they describe the current approved stack. RawSourceCorpus remains immutable. Historical source references may be cited as historical/provenance but must not silently override the current canonical stack. Future stack changes require a new explicit user-directed decision and a new D-DECISIONS entry.
 
 Legacy Register LG-01..LG-14 verified absent from ACTIVE architecture in this package (see NO_LOSS_AUDIT §3).
