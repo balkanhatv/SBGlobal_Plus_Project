@@ -1,22 +1,48 @@
 {
   "project": "SBGlobal Plus",
-  "phase": "Project Foundation — FOUNDATION CERTIFIED",
-  "checkpoint": "CP-F1-005 (revision C)",
-  "updated": "2026-09-04 (UTC)",
+  "phase": "Project Foundation — FOUNDATION CERTIFIED; Architecture STARTED",
+  "checkpoint": "CP-A1-001 (Architecture baseline)",
+  "updated": "2026-09-09 (UTC)",
   "governed_by": ["MASTER_INSTRUCTION v2.5", "MASTER_PROMPT v2.5"],
-  "foundation_documents": ["F-00 (v1.2)","F-01","F-02","F-03","F-04","F-05","F-06","F-07 (v0.2)","F-08","F-09","F-10","F-11","F-12","F-13","F-14"],
-  "certification": {
+  "foundation_certification": {
     "foundation_certified": true,
     "granted_at": "CP-F1-005",
-    "evidence": "Registers/FINAL_AUDIT_CP-F1-005.md (Pass 1 corrected→PASS; Pass 2 PASS)",
-    "boundary": "Foundation only — not Architecture/Design/Implementation/Production",
-    "prior_revocation": "CP-F1-003 (FF-01/FF-02) — resolved via F-13 (CP-F1-004) and re-verified at CP-F1-005"
+    "boundary": "Foundation only — not Architecture/Design/Implementation/Production"
   },
-  "history_corrections": "04-09-2026: commit b83bea9 (unnecessary brand/color canonicalization, AC-19/RR-03) reverted via history-preserving revert efd16eb6; F-06 restored to v0.1; registers restored; RR-03 withdrawn. Owner-directed corpus edit a811a1ab preserved as ACTIVE owner intent. No history rewrite; main not merged.",
-  "verified_evidence": { "traceability": { "units": 372, "items": 2965, "unmapped": 0, "extension": "TRACEABILITY_EXT_CP-F1-005.md" }, "no_loss": "PASS", "corpus_state": "owner-directed a811a1ab state, history preserved", "governance_unchanged": true },
+  "architecture": {
+    "baseline": "CP-A1-001",
+    "status": "STARTED",
+    "available_documents": ["A-00", "A-01", "A-02", "A-03"],
+    "planned_documents_not_present": ["A-04", "A-05", "A-06", "A-07", "A-08", "A-09", "A-10", "A-11", "A-12"]
+  },
+  "technology_baseline": {
+    "decision_id": "UD-TECH-01",
+    "status": "ACTIVE — USER-DIRECTED",
+    "stack": [
+      "Next.js 15",
+      "TypeScript 5.x / Node.js 22",
+      "React 19",
+      "Tailwind CSS + Shadcn UI",
+      "PostgreSQL",
+      "Payload CMS 3",
+      "React Native + Expo",
+      "Expo Push / FCM",
+      "Tauri 2.0",
+      "Clerk",
+      "tRPC primary internal API",
+      "REST/OpenAPI external interoperability",
+      "webhooks",
+      "PM2-compatible VPS deployment"
+    ],
+    "raw_source_policy": "RawSourceCorpus remains immutable; historical technology references are not rewritten."
+  },
+  "verified_foundation_evidence": {
+    "traceability": { "units": 372, "items": 2965, "unmapped": 0 },
+    "no_loss": "PASS",
+    "governance_unchanged": true
+  },
   "open_blockers": [],
   "open_delivery_items": [],
-  "backup": "SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip (built from the final post-revert HEAD; open-and-compare verified — 36/36 files)",
-  "github": { "repo": "yadavjalsingh192/SBGlobal_Plus_Project", "branch": "docs/foundation-build-2", "pr": "#1 open, unmerged" },
-  "next_phase": "Architecture — gated on explicit user approval"
+  "github": { "repo": "yadavjalsingh192/SBGlobal_Plus_Project", "branch": "docs/architecture-branch-2", "main_merge": "not performed — explicit approval required" },
+  "next_phase_gate": "Complete and evidence A-04…A-12 plus Architecture-specific registers/audit artifacts before claiming Architecture completion."
 }
