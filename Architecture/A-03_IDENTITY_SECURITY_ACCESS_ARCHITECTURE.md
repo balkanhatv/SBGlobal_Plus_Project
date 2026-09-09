@@ -5,22 +5,22 @@
 ---
 
 ## 1. Identity Architecture (ADR-003)
-**AuthN provider:** **Clerk** for the managed SaaS deployment (hosted identity, MFA, social/enterprise SSO, session management). **Auth.js** replaces Clerk in the **self-hosted** deployment (Coolify), where an external SaaS IdP is architecturally unsuitable (data-sovereignty, air-gap). Both are hidden behind the Core's **Identity module contract**: `verifyIdpToken() → PlatformPrincipal`; no module or experience ever talks to the IdP directly. This keeps the IdP swappable and the self-hosted build first-class.
+**AuthN provider:** **Clerk** for the managed SaaS and self-hosted deployments, subject to Clerk availability and tenant/deployment policy. Clerk provides hosted identity, MFA, social/enterprise SSO and session management. Clerk is hidden behind the Core's **Identity module contract**: `verifyIdpToken() → PlatformPrincipal`; no module or experience ever talks to the IdP directly. This keeps the IdP integration isolated behind a replaceable contract while retaining Clerk as the approved platform authentication technology.
 
 Identity domains: (a) **Platform identities** (operator staff), (b) **Tenant identities** (tenant staff/users), (c) **End-customer identities** per industry (patients, students, guests, citizens, donors…) — all one User model with membership records binding user→tenant→roles→OrgUnits; one human may hold memberships in many tenants.
 
 ## 2. Session & Token Flow
 ```
-Login (Clerk/Auth.js) → IdP token
-  → Core token exchange: validate IdP token → load memberships
-  → issue PLATFORM CONTEXT TOKEN (short-lived JWT: userId, tenantId,
-    orgUnitPath, roleIds, tokenVersion, aud per surface)
-Request → L5 verifies signature+expiry → kernel re-validates membership
+Login (Clerk) → Clerk session / access token
+  → Core authentication boundary: validate Clerk token → load memberships
+  → establish PLATFORM CONTEXT (userId, tenantId, orgUnitPath,
+    roleIds, token/session version, aud per surface)
+Request → L5 verifies Clerk session/token → kernel re-validates membership
   & tenant status (A-02 §3) → RequestContext
-Revocation: tokenVersion bump (user/tenant) invalidates outstanding
-  tokens at validation time; sessions killable per user, per tenant.
+Revocation: Clerk session revocation plus platform token/session version
+  invalidation (user/tenant) prevents continued access at validation time.
 ```
-Mobile/desktop use the same exchange with refresh handled by the IdP SDK; external API consumers use scoped API keys bound to a tenant + role set (never a human session).
+Mobile/desktop use the same Clerk authentication boundary with refresh/session handling through the Clerk SDK or approved platform integration; external API consumers use scoped API keys bound to a tenant + role set (never a human session).
 
 ## 3. Authorization — RBAC primary, ABAC complementary (ADR-004)
 **PDP (policy decision point)** lives in the Core Authorization module; **PEPs (enforcement points)** are the kernel guard (every request), the workflow engine (transition guards), and the event/webhook dispatcher (subscription scope).
@@ -36,12 +36,12 @@ Mobile/desktop use the same exchange with refresh handled by the IdP SDK; extern
 | Zone | Contents | Boundary controls |
 |---|---|---|
 | Public | Public site, docs, status | CDN/WAF, no tenant data |
-| Experience | Next.js apps, mobile/desktop clients | AuthN required beyond login; no direct DB access |
-| API edge | tRPC/REST termination | TLS 1.2+, rate limits, token verification, input validation |
-| Core | NestJS service + workers | Private network only; egress allow-list (IdP, payment, AI, mail) |
-| Data | Postgres, object storage, backups | Private network; RLS; encryption at rest; no public endpoints |
+| Experience | Next.js apps, React Native/Expo, Tauri 2.0 clients | AuthN required beyond login; no direct DB access |
+| API edge | tRPC termination + REST interoperability endpoints where required | TLS 1.2+, rate limits, token verification, input validation |
+| Core | Next.js 15 / Node.js 22 application + workers | Private network where deployed; egress allow-list (IdP, payment, AI, mail) |
+| Data | PostgreSQL, object storage, backups | Private network; RLS; encryption at rest; no public endpoints |
 | AI egress | AI Gateway → providers | Redaction/guardrails (→ A-07 §6); provider allow-list per tenant/residency |
-Secrets: platform secrets in the deployment platform's secret store (Vercel/Coolify); tenant-scoped integration credentials encrypted per-tenant (envelope encryption) in the Config module; never in code or logs. Transport: TLS everywhere, mTLS/private networking between Core and data zone. Data at rest: storage-level encryption + column-level encryption for designated sensitive classes (F-04 sensitivity taxonomy).
+Secrets: platform secrets in the VPS/deployment secret store; tenant-scoped integration credentials encrypted per-tenant (envelope encryption) in the Config module; never in code or logs. Transport: TLS everywhere, mTLS/private networking between application and data zone where supported. Data at rest: storage-level encryption + column-level encryption for designated sensitive classes (F-04 sensitivity taxonomy).
 
 ## 6. Platform-Operator Access & Compliance Boundaries
 Operator access to tenant data is: role-gated (dedicated operator roles), purpose-bound (reason captured), time-boxed (elevation expires), fully audited (→ A-11 §4), and tenant-visible where the compliance regime requires disclosure. Compliance framework (F-03 §5–§8) maps to architecture as: per-industry compliance profiles activated with the industry (e.g. health-data handling for Healthcare, PCI-scope minimization by delegating card data to the payment gateway, public-sector audit retention), enforced via sensitivity classes (A-05 §7), residency pinning (A-02 §5) and audit retention policies (A-11 §4).
