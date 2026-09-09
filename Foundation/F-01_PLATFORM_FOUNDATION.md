@@ -1,5 +1,5 @@
 # F-01 — PLATFORM FOUNDATION
-**Document ID:** F-01 · **Version:** 0.1 · **Status:** SPECIFIED (partial) · Cross-refs: F-00 (authority), F-02 (lifecycle), F-03 (identity/security), F-04 (data), F-05 (AI), F-06 (experiences).
+**Document ID:** F-01 · **Version:** 0.2 · **Status:** SPECIFIED (partial) · Cross-refs: F-00 (authority), F-02 (lifecycle), F-03 (identity/security), F-04 (data), F-05 (AI), F-06 (experiences).
 
 ---
 
@@ -19,7 +19,7 @@ One Core Platform serves every Industry Suite and every Tenant. **Industry** = r
 | **Tenant Admin** | Tenant-wide | Configures branding, domains, users, roles, modules, workflows, notifications, integrations, sync policy, affiliate/payout settings within plan entitlements `[SD: S1 §9]` |
 | **Tenant business users** | Industry/Module/Role | Defined per Industry Suite (F-07…F-09); full authoritative platform user-type list preserved from S2.2 §5 |
 | **End customers** (Patient/Student/Customer/Citizen/Donor/Guest…) | User-scoped | Consume Published Tenant Experiences (F-06) |
-| **API Client / Service Account** | Tenant- or Platform-scoped | Machine access via API tokens under the same identity system (F-03) |
+| **API Client / Service Account** | Tenant- or Platform-scoped | Machine access via scoped API credentials under the same Core identity boundary (F-03); not a human session |
 
 ## 3. Application Surface Model `[SD: MI §12]` — ACTIVE
 
@@ -64,13 +64,13 @@ Configurable domains (Super Admin platform-wide; Tenant Admin tenant-scope withi
 
 ## 7. Core Platform Capability Catalog (industry-neutral only `[SD: MI §6]`)
 
-Identity & Access (F-03) · Workflow Engine · Notification/Communication Engine (channels: Email/SMS/WhatsApp/Push/In-App; provider registry with priority & failover; retry, queues, DLQ, delivery tracking `[SD: S2.2 §25, §54]`) · Document Management (categories, versioning, OCR-ready, secure storage `[SD: S2.2 §48]`) · Reporting & BI (report builder, dashboard builder, scheduled reports, pivot, KPI builder, exports `[SD: S2.2 §42]`) · AI Services (F-05) · Audit & Versioning (entity change history, config version history, soft delete/restore, activity history `[SD: S2.2 §46]`) · Configuration & Metadata Platform (§6) · API Platform (REST, versioning, JWT/API-key/OAuth2, webhooks, OpenAPI/Swagger, sandbox/production, analytics/logs/health `[SD: S2.2 §28]`) · Integration Management (profiles, credentials, mapping/sync/import/export/retry rules, IP whitelisting, rate limits, logs, connectivity testing `[SD: S2.2 §29]`) · Automation & Scheduler · Analytics (F-04 §8) · Billing/Subscription/Licensing (§5) · Affiliate/Referral/Commission engine (§5) · Master/Seed/Demo/Media data frameworks (F-04) · Search & Productivity (global search, saved filters, bulk ops, import/export wizards `[SD: S2.2 §47]`) · Localization (multi-language/currency/timezone, RTL, regional formats `[SD: S2.2 §49]`) · Monitoring & Diagnostics (`[SD: S2.2 §36]`) · Backup & DR (RPO/RTO, retention, verification, recovery testing `[SD: S2.2 §37, §43]`).
+Identity & Access (F-03) · Workflow Engine · Notification/Communication Engine (channels: Email/SMS/WhatsApp/Push/In-App; provider registry with priority & failover; retry, queues, DLQ, delivery tracking `[SD: S2.2 §25, §54]`) · Document Management (categories, versioning, OCR-ready, secure storage `[SD: S2.2 §48]`) · Reporting & BI (report builder, dashboard builder, scheduled reports, pivot, KPI builder, exports `[SD: S2.2 §42]`) · AI Services (F-05) · Audit & Versioning (entity change history, config version history, soft delete/restore, activity history `[SD: S2.2 §46]`) · Configuration & Metadata Platform (§6) · **API Platform (tRPC primary for internal first-party application operations; REST/OpenAPI compatibility surface for external interoperability; versioning, scoped API credentials, webhooks, sandbox/production, analytics/logs/health `[SD: S2.2 §28]`)** · Integration Management (profiles, credentials, mapping/sync/import/export/retry rules, IP whitelisting, rate limits, logs, connectivity testing `[SD: S2.2 §29]`) · Automation & Scheduler · Analytics (F-04 §8) · Billing/Subscription/Licensing (§5) · Affiliate/Referral/Commission engine (§5) · Master/Seed/Demo/Media data frameworks (F-04) · Search & Productivity (global search, saved filters, bulk ops, import/export wizards `[SD: S2.2 §47]`) · Localization (multi-language/currency/timezone, RTL, regional formats `[SD: S2.2 §49]`) · Monitoring & Diagnostics (`[SD: S2.2 §36]`) · Backup & DR (RPO/RTO, retention, verification, recovery testing `[SD: S2.2 §37, §43]`).
 
 **Zero industry-specific content rule:** anything Healthcare/Education/etc.-specific lives only in F-07…F-09. Verified in this build's No-Loss audit scope check.
 
 ## 8. Technology Stack Baseline `[SD: MI §22, S2.1 §18]`
 
-Next.js 15 · TypeScript 5.x (Node 22) · React 19 + Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · React Native (Android/iOS, Expo Push/FCM, offline-ready) · Tauri 2.0 Desktop (.exe/.msi, auto-update) · tRPC + Clerk (API) + webhooks · PM2-compatible / VPS deployment, optional advanced cloud; no mandatory Docker/Vercel dependency. Stack changes only by explicit user instruction recorded in D-DECISIONS. Reference repositories remain inspiration-only: never copy code, never merge external code, never import license conflicts.
+Next.js 15 · TypeScript 5.x (Node 22) · React 19 + Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · React Native (Android/iOS, Expo Push/FCM, offline-ready) · Tauri 2.0 Desktop (.exe/.msi, auto-update) · **tRPC primary internal API + Clerk identity boundary** · REST/OpenAPI only for external interoperability · webhooks · PM2-compatible / VPS deployment, optional advanced cloud; no mandatory Docker/Vercel dependency. **This technology baseline is canonical for the current Architecture branch. Stack changes require an explicit user-directed decision recorded in D-DECISIONS.** Reference repositories remain inspiration-only: never copy code, never merge external code, never import license conflicts.
 
 ## 9. Non-Functional Baseline `[SD: S2.3 §1, S2.2 §50]`
 
