@@ -1,51 +1,53 @@
 # SBGlobal Plus — A-04 COMMERCIAL & ENTITLEMENT ARCHITECTURE
-**Document ID:** A-04 · **Version:** 1.0 · **Status:** ARCHITECTURE BASELINE (CP-A1-002) · **Date:** 09-09-2026
-**Traces to:** F-14 (plans, subscription, license, entitlements, effective access, lifecycles, routes), F-01 §5 (subscription/entitlement anchor, BR-SUB-01…04), F-02 W-03/W-04 (acquisition & provisioning), F-10 §4 (offline revalidation), F-11 (residency selection) · **Decisions:** ADR-008 (→ A-12)
+**Document ID:** A-04 · **Version:** 1.0 · **Status:** ARCHITECTURE COMPLETE (CP-A1-002) · **Date:** 09-09-2026
+**Traces to:** F-14 (Commercial Foundation: plans, subscription, license, entitlements, effective access, lifecycles, routes), F-01 §5 (subscription/entitlement anchor, BR-SUB-01…04), F-02 W-03/W-04 (subscribe/provision workflows) · **Decisions:** ADR-007 (→ A-12)
 
 ---
 
-## 1. Commercial Object Model
+## 1. Commercial Chain — Architectural Placement
+F-14's chain `Plan → Subscription → License → Entitlement → Effective Access` maps onto the Core as follows: the **Entitlement module** (A-01 §2) owns the entire chain's data and computation; the **Billing module** owns money movement only (invoices, payments, dunning); the **kernel guard** (A-01 §3 step 3) is the sole runtime consumer of computed entitlements. No other module ever interprets plans or subscriptions directly — they ask the guard/entitlement contract. This keeps commercial semantics in exactly one place.
+
+## 2. Plan Catalog & Versioning
+- Plans are **versioned, immutable records**: `Plan(planId) → PlanVersion(n)` with dimensions per F-14 §2 (modules, MS activations, limits, AI quotas, support class, residency options, route). A subscription always pins a specific PlanVersion.
+- Publishing a new PlanVersion never mutates existing subscriptions; migration between versions is an explicit lifecycle operation (upgrade/downgrade per F-14 §7 semantics with BR-SUB-04 downgrade guard from AC-01).
+- Platform-level catalog is global (region-neutral directory data, A-02 §5); per-tenant negotiated overrides (Enterprise route) are stored as **EntitlementAdjustments** bound to the subscription, never as forked plans.
+
+## 3. Subscription Lifecycle — Runtime Realization
+The F-14 §6 state machine (`TRIAL → ACTIVE → PAST_DUE → GRACE → SUSPENDED → CANCELLED/EXPIRED`, with reactivation paths) is executed by the **Workflow module** as a platform workflow definition, giving every transition the same guard/audit treatment as business workflows (F-02 per-step audit). Transition triggers: payment webhooks (→ A-06 §6), scheduled evaluators (renewal/expiry/grace timers run as Core scheduled jobs, → A-10 §5), and operator/tenant actions (route-governed per F-14 §7). Every transition emits a domain event (`subscription.transitioned`) through the outbox (→ A-06 §4) which drives entitlement recompilation (§4 below) and notifications.
+
+## 4. Entitlement Compilation Pipeline (ADR-007)
+Entitlements are **compiled, not evaluated ad hoc**:
 ```
-PlanVersion (immutable) ← Plan (5 tiers: Free/Starter/Pro/Premium/Enterprise, CR-01)
-   → Subscription (tenant ↔ plan version, lifecycle state)
-      → License (seat/branch/device/named-capacity grants)
-         → Entitlement (computed, per tenant)
-            → Effective Access (entitlement ∩ RBAC ∩ ABAC, → A-03 §3)
+Sources: PlanVersion dimensions → License grants → EntitlementAdjustments
+         → tenant industry activations → suspension/grace overlays
+Compile: apply F-14 §5 precedence; conflicts resolve DENY-WINS;
+         output = EntitlementSnapshot{tenantId, version, moduleMap,
+         featureMap, limitMap, aiQuotaMap, validity}
+Triggers: subscription transition · plan version migration · license
+          change · adjustment change · industry activation change
+Store:    snapshot persisted per tenant (current + history for audit);
+          snapshot version stamped into RequestContext (A-02 §3)
 ```
-- **Plans are versioned and immutable once published.** A tenant subscription pins a PlanVersion; plan changes create new versions, never mutate history — pricing/limit disputes are resolvable from the record alone.
-- A **Subscription** is the commercial contract instance and owns the lifecycle state machine (F-14 §6). One active subscription per tenant; add-ons attach to it.
-- **Licenses** quantify capacity (seats, branches, devices, MS activations) inside the subscribed plan. Licenses never widen plan scope; they instantiate it.
-- **Entitlements** are computed facts, never hand-edited data. Plan alone grants no access (F-14 negation preserved): access requires the full chain to evaluate true at runtime.
+- **Read path:** kernel guard reads the current snapshot from a per-instance cache keyed by `(tenantId, snapshotVersion)`; cache invalidation is by version bump carried on the `entitlement.recompiled` event — stale reads are bounded to seconds and always fail toward the *older* (already-valid) snapshot, never toward an uncomputed state.
+- **Deny-wins and server-authoritative semantics** (F-14 §4/§5) are properties of the compiler, verified by contract tests at Detailed Design.
 
-## 2. Entitlement Computation (ADR-008)
-- **Sources & precedence (high → low):** platform policy (kill-switch/compliance) → PlanVersion definition → subscription state modifiers (trial/grace/suspended) → license quantities → tenant-admin narrowing (may only narrow, mirror of ABAC rule A-03 §4).
-- **Deny-wins:** any source that denies a capability denies it finally; conflicts never resolve upward.
-- **Recalculation triggers:** subscription lifecycle transition, plan-version migration, license change, add-on change, platform policy change, manual operator correction (reason-captured, audited). Recalculation is transactional and emits `entitlement.recalculated` via the outbox (→ A-06 §3).
+## 5. Runtime Enforcement Points
+| Point | Enforces | Behavior on denial |
+|---|---|---|
+| Kernel guard step 3 (A-01 §3) | Module/feature enabled for tenant | `ENTITLEMENT_DENIED` error class, audited |
+| Limit counters | Numeric limits (users, branches, storage, transactions) | Soft-warn at threshold, hard-deny at limit; counters maintained transactionally with the guarded write |
+| AI Gateway (→ A-07 §7) | AI quotas/model classes per plan | Deny + quota-exhausted signal to UI |
+| Experience shells (→ A-08 §6) | Navigation/feature visibility | UI hides what the snapshot denies; UI state is advisory only — server remains authoritative |
+| Webhook/event dispatcher | Integration entitlements | Subscriptions to non-entitled events rejected |
+Suspension overlay (F-14 §6): `SUSPENDED` compiles to a minimal snapshot exposing only tenant-admin billing scope (A-02 §6), realized by the same mechanism — no special-case code paths.
 
-## 3. Entitlement Snapshot & Distribution
-The computed result is materialized as a **versioned per-tenant Entitlement Snapshot** (monotonic version counter). The kernel loads it into `RequestContext.entitlementSnapshot` (→ A-01 §5) from cache; the `entitlement.recalculated` event invalidates caches on all Core replicas. Offline-capable surfaces (desktop POS, mobile) carry a snapshot with TTL and **must revalidate on reconnect; expiry degrades to read-only per F-10 §4** — server remains authoritative, client copies are advisory.
+## 6. Billing & Payment Integration
+- Payment gateways sit behind a **PaymentPort** adapter contract (→ A-06 §6): create-checkout, capture, refund, webhook-verify. Card data never touches the Core (PCI scope minimization per A-03 §6); the gateway hosts the payment surface.
+- Invoices are generated by Billing from subscription events; financial records are immutable post-approval with reversal-based correction (AC-05) — enforced at the data layer via append-only posting tables (→ A-05 §7).
+- Dunning: scheduled evaluator drives `PAST_DUE → GRACE → SUSPENDED` per F-14 timings (values are configuration, not code; → A-01 Configuration module). Proration amounts are computed by Billing at transition time and recorded on the invoice line with the formula inputs (auditability).
 
-## 4. Runtime Enforcement
-Enforced at kernel guard step 3 (→ A-01 §3), before authorization, on every entry point:
-1. **Activation gate** — is the industry/MS/module enabled for this tenant?
-2. **Feature gate** — is the specific capability in the snapshot?
-3. **Quantitative limits** — seats/records/storage/AI-usage counters checked atomically against the limit at the moment of consumption (Postgres row-level counters per tenant + limit; no read-then-write races).
-Denials raise the distinct `ENTITLEMENT_DENIAL` error class (not an AuthZ error), are user-explainable (which limit/plan), audited, and feed upgrade prompts in the experience layer (→ A-08).
-
-## 5. Plan-Change & Subscription Lifecycle
-Architecture realization of the F-14 §6 state machine; states and transitions are Workflow-module definitions, not code branches.
-- **Upgrade:** immediate; recalculation + proration record; no data impact.
-- **Downgrade:** guarded (BR-SUB-04 / AC-01): a **downgrade feasibility check** runs against live usage (seats in use, active MS, storage); blocking excess is reported to the tenant admin for resolution — the platform never silently deletes or hides data.
-- **Trial → paid, renewal, failed-renewal → grace → suspension → reactivation, cancellation → expiry:** each transition recalculates entitlements and pauses/resumes integrations per A-02 §6 (suspension keeps tenant-admin billing scope alive).
-- **Routes:** Free/Starter self-serve; Pro/Premium governed dual-route; Enterprise sales-assisted (F-14 §7, CR-01) — route logic lives in the commercial workflow definitions, not in Core code.
-
-## 6. Billing & Payment Architecture
-- **Gateway adapter contract** in the Billing module; concrete gateways (region-appropriate per data home, → F-11) are pluggable adapters. Card data never enters the Core: tokenization at the gateway keeps the platform out of PCI scope beyond SAQ-A posture (F-03 compliance mapping).
-- Invoices are generated from subscription + metering facts and are **immutable post-approval; corrections are reversal documents (AC-05).**
-- **Dunning** is a Workflow-module state machine bound to failed-renewal events; notification via A-06 §6 channels.
-
-## 7. Metering
-Usage counters (API calls, storage, AI tokens, seats, documents) are derived from audit/usage events into the metering store (→ A-05 §6 read models); they feed limit enforcement (§4), billing (§6) and operator analytics (→ A-11 §5). Metering is eventually consistent; **hard limits use the transactional counters, not metering aggregates.**
+## 7. Offline & Edge Revalidation
+Desktop (Tauri 2.0, F-10 §4) and mobile clients cache the entitlement snapshot for offline operation. Architecture rule: cached snapshots carry `validity` (max offline age per plan); on expiry the client degrades to read-only local mode until revalidation. Revalidation is a lightweight snapshot-version check, not a recompile. Server-authoritative rule (F-14 §4) is preserved: any synced offline transaction is re-guarded server-side on ingest (→ A-08 §7).
 
 ## 8. Deferred to Detailed Design
-Plan/PlanVersion/Subscription/License/Entitlement schemas; proration formulas and currency handling; gateway selection matrix per region; dunning timing values; upgrade-prompt UX; per-plan numeric limit values (owner-priced, never invented — F-14 rule).
+Plan/PlanVersion/EntitlementSnapshot entity fields; limit-counter table design and contention strategy; proration formulas and dunning timing values; gateway adapter catalog per region; checkout UX flows; entitlement contract test suite.

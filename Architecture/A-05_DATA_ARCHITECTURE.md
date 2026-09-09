@@ -1,47 +1,48 @@
 # SBGlobal Plus — A-05 DATA ARCHITECTURE
-**Document ID:** A-05 · **Version:** 1.0 · **Status:** ARCHITECTURE BASELINE (CP-A1-002) · **Date:** 09-09-2026
-**Traces to:** F-04 (11 data categories, demo/media governance), F-11 (Regional Data Homes), F-00 §6 (scale ledger), F-03 §6 (erasure/retention, sensitivity) · **Decisions:** ADR-009 (→ A-12)
+**Document ID:** A-05 · **Version:** 1.0 · **Status:** ARCHITECTURE COMPLETE (CP-A1-002) · **Date:** 09-09-2026
+**Traces to:** F-04 (11 data categories, master/demo/media governance), F-11 (Regional Data Home), F-00 §6 (scale ledger targets), F-03 §6 (erasure/retention, AC-04) · **Decisions:** ADR-008 (→ A-12)
 
 ---
 
-## 1. Canonical Store & Topology (ADR-009)
-**PostgreSQL is the single canonical store.** Every Regional Data Home (→ A-02 §5) runs its own Postgres (primary + streaming replicas) plus object storage. In-database capabilities are preferred over new infrastructure at v1: **pgvector** for embeddings (→ A-07 §4), Postgres full-text search for tenant search, transactional outbox table for events (→ A-06 §3), advisory-locked counters for limits (→ A-04 §4). Trade-off recorded in ADR-009: one engine maximizes operational simplicity and transactional integrity on VPS-class hosting; dedicated search/vector/queue engines remain named extraction seams if scale demands.
+## 1. Canonical Store & Topology (ADR-008)
+**PostgreSQL is the single canonical store** for all structured data. Per Regional Data Home (A-02 §5): one primary + streaming replicas; the platform directory (tenants, routing, plan catalog) lives in a small global cluster containing no tenant business data. Within one data home, the default is one shared database (RLS isolation, ADR-002); dedicated-DB tenants get their own database with the identical schema. Full-text search uses Postgres FTS; vector search uses **pgvector** in the same cluster (→ A-07 §4). A separate search/vector engine is deliberately not introduced at v1 — trade-off recorded in ADR-008 with the extraction seam (Search module facade, A-01 §2) that permits one later without consumer change.
 
-## 2. Data Category Mapping (F-04 §1–§12)
-| F-04 category | Store | Home | Lifecycle owner |
-|---|---|---|---|
-| Platform/system data | Postgres (global directory) | Region-neutral | Platform modules |
-| Tenant master & config | Postgres | Tenant data home | Tenancy/Config |
-| Industry reference data | Postgres (platform-seeded) | Replicated to homes | Industry modules |
-| Transactional business data | Postgres | Tenant data home | Owning MS module |
-| Financial records | Postgres (immutable + reversals, AC-05) | Tenant data home | Billing/MS finance |
-| Documents & media | Object storage (metadata in Postgres) | Tenant data home | Document module |
-| Demo data | Postgres, `DEMO`-flagged | Tenant data home | Config (reset service) |
-| Audit & security events | Postgres append-only (→ A-11 §4) | Tenant data home | Audit module |
-| AI/derived data (embeddings, indexes) | pgvector/projection tables | Tenant data home | AI Gateway |
-| Analytics/read models | Postgres projection schemas | Tenant data home | Projection consumers |
-| Backups/exports | Encrypted object storage | Same jurisdiction | Ops (→ A-11) |
+## 2. Data Category → Storage Class Mapping (F-04)
+| F-04 category | Storage class | Notes |
+|---|---|---|
+| Platform reference data | Global directory DB | Region-neutral, replicated read-only to data homes |
+| Industry reference/master data | Tenant data home, `master` class tables | Seeded at activation (A-02 §6), tenant-extensible per config |
+| Tenant configuration | Tenant data home | Layered resolution via Config module |
+| Operational/transactional data | Tenant data home | RLS, workflow-bound, audit-linked |
+| Financial records | Tenant data home, append-only posting tables | Immutable post-approval, reversal-only correction (AC-05) |
+| Documents/media | Object storage `tenant/{id}/…` + `DocumentMeta` in DB | Signed scoped URLs (A-02 §4) |
+| Demo data | Same tables, `is_demo` flag | F-04 §9 reset rules: demo purge is a governed bulk operation, never touches non-demo rows |
+| Audit events | Tenant data home, append-only partitioned tables | Retention per compliance profile (→ A-11 §4) |
+| AI/RAG derived data | pgvector tables + AI usage ledger | Derived → rebuildable; tenant + source ACL scoped (→ A-07 §4) |
+| Search indexes | Postgres FTS (generated columns/tsvector) | Derived → rebuildable |
+| Analytics/read models | Projection tables per data home | Event-sourced from outbox (§6) |
 
-## 3. Ownership & Boundaries
-Each module owns a schema namespace; **tables belong to exactly one module** (A-01 §4). Cross-module data needs are met by (a) the owner's typed contract or (b) **event-projected read models** — never foreign joins across ownership boundaries. Industry modules own their MS tables; platform modules never reference industry tables. Every tenant-owned table carries `tenant_id` + RLS policy (A-02 §4); OrgUnit-scoped tables additionally carry the OrgUnit path.
+## 3. Schema Organization & Ownership
+- Postgres schemas partition by ownership: `core_*` (platform modules) and `ind_<suite>_*` (nine industry suites, e.g. `ind_hlt`, `ind_edu`, `ind_rtl`, `ind_hsp`, `ind_mfg`, `ind_psv`, `ind_gov`, `ind_ngo`, `ind_sfm`). Ownership follows the module catalog (A-01 §2): the owning module is the only writer; cross-module access is via contracts or projections, never cross-schema joins across ownership boundaries (A-01 §4).
+- Every tenant-owned table carries `tenant_id` (RLS), standard audit columns, and optimistic-concurrency versioning. `is_demo` is present on demo-capable operational tables (F-04 §9).
+- All nine industry schemas follow one **structural convention** (masters / operational / posting / projection table classes); the convention is structural only — each suite's entities derive from its own F-07…F-09/F-12/F-13 specification, never from Healthcare's (LG-03 preserved at architecture level).
 
-## 4. Master, Reference & Demo Data
-Three seed layers at provisioning (F-04, A-02 §6): platform masters → industry reference packs (activated suites only) → tenant-editable masters cloned from templates. **Demo data is `DEMO`-flagged at row level**; the reset service deletes by flag within tenant scope, never touching real data (F-04 §9). Master changes are versioned and audited.
+## 4. Migration Architecture
+One ordered, forward-only migration stream per schema-owning module, composed into a single release migration set. **Expand–contract** discipline: additive change → deploy code reading both → backfill → contract. Migrations run per data home (and per dedicated-DB tenant) by the deployment pipeline (→ A-10 §6) with pre-flight RLS-policy verification: a release fails closed if any tenant-owned table lacks its RLS policy — this makes ADR-002's guarantee mechanically enforced rather than review-dependent.
 
-## 5. Documents & Media
-Object storage per data home; keys `tenant/{tenantId}/{module}/{uuid}`; access only via short-lived signed URLs issued after the full guard chain. Upload pipeline: quarantine → scan → metadata commit (Postgres) → available. Media governance per F-04 §10: type/size policies per tenant config, storage counted against entitlement limits (→ A-04 §4).
+## 5. Object Storage & Media
+Object storage per data home (residency-pinned). Keys: `tenant/{tenantId}/{module}/{docId}`. All access via the Document module: upload → virus/type scan → `DocumentMeta` row (owner, sensitivity class, retention class) → storage write, in that order (no orphan objects). Downloads use short-lived signed URLs scoped to a single object. Media governance rules of F-04 §10 (formats, size classes, derivative generation) execute as Document-module pipelines; derivatives are cache-class data (rebuildable).
 
-## 6. Read Models, Search & Metering Stores
-Projection consumers (→ A-06 §3) maintain denormalized read models: tenant search indexes (Postgres FTS), dashboards/KPI aggregates (per-MS definitions from F-12), metering aggregates (→ A-04 §7). Projections are rebuildable from the event log + canonical tables; they are cache, not truth.
+## 6. Read Models & Projections
+Cross-module read needs (dashboards, lists spanning ownership boundaries, analytics) are served by **projection tables** built from outbox events (A-06 §4): at-least-once delivery + idempotent projectors keyed by event id. Projections are per data home, tenant-scoped, and rebuildable from the event log + owning tables. This is the only sanctioned way one module reads another's data shape (A-01 §4).
 
-## 7. Lifecycle, Retention & Erasure
-Every entity class maps to a **sensitivity class** (F-04 taxonomy) and a **retention class** (per compliance profile, per industry — F-03 §5–§8). Architecture rules: financial data immutable post-approval, corrections by reversal (AC-05); erasure requests satisfied by **pseudonymization + audit skeleton** where retention law forbids deletion (AC-04); retention expiry drives archival → purge with destruction certificate (A-02 §6). Column-level encryption for designated sensitive classes on top of at-rest encryption (A-03 §5).
+## 7. Sensitivity, Encryption, Retention & Erasure
+- **Sensitivity classes** (F-04 taxonomy) are declared per column/entity in the module's data contract; classes drive column-level encryption (A-03 §5), masking in logs (→ A-11 §2), AI-egress redaction (→ A-07 §6) and export handling.
+- **Retention classes** per entity: operational / financial / audit / regulated-industry profiles; retention values are per-tenant-compliance-profile configuration (A-03 §6).
+- **Erasure vs retention** (AC-04): erasure requests execute as pseudonymization — identity fields overwritten, audit/financial skeleton preserved with an `erased` marker and an audit record of the erasure itself. Implemented as a Document/Data-governance workflow so every erasure is itself audited.
 
-## 8. Migrations & Evolution
-Forward-only, **expand-and-contract** migrations (add → backfill → switch → remove) so replicas and rolling deploys never break; one migration stream applied per data home with a version gate — a Core replica refuses to serve a database whose schema version it does not support. RLS policies ship inside the same migration as the table they protect.
+## 8. Backup & Recovery
+Per data home: continuous WAL archiving (PITR) + scheduled base backups + object-storage versioning; backup encryption keys per region (residency: backups never leave the region, F-11). Restore classes: single-tenant logical export/restore (also serves offboarding export, A-02 §6) and full-cell PITR. Recovery objectives are set per plan tier in F-14 dimensions; verification restores are an operations-calendar duty (→ A-11 §5).
 
-## 9. Backup & Recovery
-Per data home: WAL-based PITR + daily encrypted full backups to jurisdiction-local object storage; restore verification drills are an operations requirement (→ A-11 §6). RPO ≤ 5 min (WAL shipping), RTO tiered by plan (Enterprise cells first). Tenant export (offboarding, A-02 §6) reuses the same export pipeline.
-
-## 10. Deferred to Detailed Design
-Full table catalog (F-00 §6 ledger targets, 500+ tables), index/partitioning plans, RLS policy catalog, per-industry retention schedules, projection schemas, backup sizing/runbooks.
+## 9. Deferred to Detailed Design
+Full entity catalogs per module (F-00 §6 ledger: 500+ tables target); RLS policy catalog; partition/index strategy per high-volume table; projector catalog; per-industry seed packs; sensitivity/retention class assignment tables; backup runbooks.
