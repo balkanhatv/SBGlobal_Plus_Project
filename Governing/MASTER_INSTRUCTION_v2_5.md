@@ -237,7 +237,7 @@ Tiers: **Free · Starter · Pro · Premium · Enterprise** — self-serve signup
 
 ## 22. Technology Stack Baseline
 
-Laravel 13 · PHP 8.4 · Blade + Tailwind CSS + Alpine.js · MySQL · Filament 5 · Flutter (Android/iOS, FCM, offline-ready) · Windows 10/11 Desktop (.exe/.msi, auto-update) · REST API + JWT (API) + webhooks · cPanel-compatible / VPS deployment, optional advanced cloud; no mandatory Docker/Vercel dependency. Stack changes only by explicit user instruction recorded in D-DECISIONS. Reference repositories remain inspiration-only: never copy code, never merge external code, never import license conflicts.
+Next.js 15 · TypeScript 5.x (Node 22) · React 19 + Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · React Native (Android/iOS, Expo Push/FCM, offline-ready) · Tauri 2.0 Desktop (.exe/.msi, auto-update) · tRPC + Clerk (API) + webhooks · PM2-compatible / VPS deployment, optional advanced cloud; no mandatory Docker/Vercel dependency. Stack changes only by explicit user instruction recorded in D-DECISIONS. Reference repositories remain inspiration-only: never copy code, never merge external code, never import license conflicts.
 
 ---
 
