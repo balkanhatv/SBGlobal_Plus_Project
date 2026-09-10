@@ -1,5 +1,5 @@
 # SBGlobal Plus — A-01 CORE PLATFORM ARCHITECTURE
-**Document ID:** A-01 · **Version:** 1.0 · **Status:** ARCHITECTURE BASELINE (CP-A1-001) · **Date:** 09-09-2026
+**Document ID:** A-01 · **Version:** 1.1 · **Status:** ARCHITECTURE BASELINE (CP-A1-002) · **Date:** 10-09-2026
 **Traces to:** F-01 (platform model, Core capability catalog), F-02 (end-to-end workflow), F-00 §5 (canonical business model) · **Decisions:** ADR-001, ADR-005, ADR-006 (→ A-12)
 
 ---
@@ -49,7 +49,7 @@ Steps 1–4 are cross-cutting guards implemented once in the Core kernel and app
 Core kernel provides: request context (tenant, user, roles, entitlements) as an immutable per-request object; guard pipeline (steps 1–4 above); transaction manager (write + outbox + audit atomically); validation chain executor (F-03's chain: schema → business rules → tenant rules → policy); error taxonomy (user error / policy denial / entitlement denial / system fault — distinct, audit-logged classes).
 
 ## 6. Technology Mapping
-Next.js 15 · React 19 · TypeScript 5.x · Node.js 22 · tRPC · Clerk · PostgreSQL · Payload CMS 3 · Tailwind CSS + Shadcn UI · React Native / Expo for mobile · Tauri 2.0 for Windows desktop · PM2-compatible VPS deployment. REST/OpenAPI remains available only where required for external interoperability; it is not the primary internal application API. Optional Docker or Vercel etc. dependency. PostgreSQL is the single canonical store (→ A-05) · No message broker at v1: Postgres outbox + dispatcher (ADR-006, upgrade seam to a broker recorded in A-12).
+Next.js 15 · React 19 · TypeScript 5.x · Node.js 22 · tRPC · Clerk · PostgreSQL · Payload CMS 3 · Tailwind CSS + Shadcn UI · React Native / Expo for mobile · **Tauri 2.0 for Windows/macOS/Linux desktop** · Vercel for suitable web workloads · Coolify + Dockerized VPS for self-hosted workloads. REST/OpenAPI remains available where required for external interoperability; it is not the primary internal application API. PostgreSQL is the single canonical store (→ A-05) · No message broker at v1: Postgres outbox + dispatcher (ADR-006, upgrade seam to a broker recorded in A-12).
 
 ## 7. Deferred to Detailed Design
 Per-module service contract signatures; entity field lists (F-00 §6 ledger targets, e.g. 500+ tables); endpoint-level API contracts (§26B); workflow definitions per Management System; permission matrix instantiation (1000+ permissions target).
