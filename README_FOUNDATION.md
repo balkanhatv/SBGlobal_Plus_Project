@@ -17,7 +17,7 @@
 - `BACKUP_METADATA.json` — Foundation recovery package record
 
 ## Current technology baseline
-The active user-directed Architecture-branch baseline is recorded as `UD-TECH-01` in `Registers/D-DECISIONS.md`: Next.js 15 · TypeScript 5.x / Node.js 22 · React 19 · Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · React Native + Expo · Expo Push / FCM · Tauri 2.0 · Clerk identity boundary · tRPC primary internal API · REST/OpenAPI for external interoperability · webhooks · PM2-compatible VPS deployment; no mandatory Docker/Vercel dependency.
+The active user-directed Architecture-branch baseline is recorded as `UD-TECH-01` in `Registers/D-DECISIONS.md`: Next.js 15 · TypeScript 5.x / Node.js 22 · React 19 · Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · React Native + Expo · Expo Push / FCM · Tauri 2.0 · Clerk identity boundary · tRPC primary internal API · REST/OpenAPI for external interoperability · webhooks · PM2-compatible VPS deployment; Optional Docker/Vercel etc. dependency.
 
 ## Verified Foundation evidence
 Unit-level traceability 372 units / 2,965 items / 0 unmapped · No-Loss PASS · dual final audit records · all 9 industry suites and every Foundational MS specified at Foundation depth · full commercial model (F-14).
