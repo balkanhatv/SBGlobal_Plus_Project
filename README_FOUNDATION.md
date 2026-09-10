@@ -1,31 +1,36 @@
 # SBGlobal Plus — Project Foundation / Architecture Branch
 
-**Status: FOUNDATION CERTIFIED + ARCHITECTURE BASELINE STARTED** — Foundation certification remains valid for CP-F1-005. Architecture baseline **CP-A1-001** is now present on `docs/architecture-branch-2` with A-00…A-03 currently available. This branch does not claim A-04…A-12 are complete or present. Governed by MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 (unchanged).
+**Current status: FOUNDATION SUBSTANTIVE TRUTH REVALIDATION + ARCHITECTURE IN PROGRESS / PROVISIONAL** on `docs/architecture-branch-2`.
 
-**04-09-2026 correction history:** commit `b83bea9` (unnecessary brand/color canonicalization — F-06 §6.1, AC-19, RR-03) was reverted via history-preserving revert `efd16eb6`; F-06 was restored to v0.1 and RR-03 withdrawn. The owner-directed corpus edit `a811a1ab` remains intact as ACTIVE owner intent. No history rewrite; `main` not merged.
+> **SBGlobal Plus — A World-Class, AI-Ready, AI-Extensible, AI-Powered, Enterprise-Grade, Multi-Tenant, Multi-Industry SaaS Platform.**
+>
+> **One Unified Enterprise Core → Multiple First-Class Industries → Multiple Tenants → Configurable & Modular Management Systems → Secure Web/Mobile/Desktop Experiences → AI-Powered Business Operations.**
 
-> "SBGlobal Plus is an AI-Ready, AI-Extensible, AI-Powered, Enterprise-Grade, Multi-Tenant, Multi-Industry SaaS Platform."
-> Tagline: **One Intelligent Platform. Every Industry. Infinite Possibilities.**
+All nine supported industries are first-class and equal. Healthcare is not a template, benchmark or default architecture.
 
-## Package layout
-- `Foundation/` — canonical Foundation documents F-00…F-14 (F-13 MS depth completion; F-14 Commercial Foundation)
-- `Architecture/` — **current architecture baseline A-00…A-03**; A-04…A-12 are planned and not yet present in this branch
-- `Registers/` — Foundation governance registers; architecture-specific registers are not yet present under `Architecture/`
-- `State/` — PROJECT_STATE, PHASE_SUMMARY, HANDOFF_NOTE, PROJECT_MANIFEST
-- `Governing/` — MASTER_INSTRUCTION v2.5, MASTER_PROMPT v2.5 (preserved verbatim)
-- `RawSourceCorpus/` — immutable historical/source corpus; old technology references remain unchanged by design
-- `BACKUP_METADATA.json` — Foundation recovery package record
+## Current truth
+CP-F1-005 is preserved as a historical Foundation gate event, but the 2026-09-10 truth audit reopened the current Foundation status because prior certification evidence relied partly on grouped traceability, summary/reference coverage and an invalid RawSourceCorpus “untouched” assertion. Current authority for this revalidation is `Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md` plus `Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md`.
 
-## Current technology baseline
-The active user-directed Architecture-branch baseline is recorded as `UD-TECH-01` in `Registers/D-DECISIONS.md`: Next.js 15 · TypeScript 5.x / Node.js 22 · React 19 · Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · React Native + Expo · Expo Push / FCM · Tauri 2.0 · Clerk identity boundary · tRPC primary internal API · REST/OpenAPI for external interoperability · webhooks · PM2-compatible VPS deployment; Optional Docker/Vercel etc. dependency.
+RawSourceCorpus was restored on this branch to the accepted immutable `main` source blobs in commit `548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c`. Earlier divergent edits remain preserved in Git history only.
 
-## Verified Foundation evidence
-Unit-level traceability 372 units / 2,965 items / 0 unmapped · No-Loss PASS · dual final audit records · all 9 industry suites and every Foundational MS specified at Foundation depth · full commercial model (F-14).
+## Repository layout
+- `Governing/` — MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 process/governance framework.
+- `RawSourceCorpus/` — immutable source/history boundary.
+- `Foundation/` — F-00…F-15; F-15 owns the current substantive revalidation status.
+- `Architecture/` — A-00…A-09 currently present; A-10…A-12 not yet present.
+- `Registers/` — source, decisions, traceability, audit, changelog and checkpoint records.
+- `State/` — current project continuity files.
+- `BACKUP_METADATA.json` — historical Foundation recovery-package metadata; no new ZIP is requested for this audit.
 
-## Current Architecture state
-- Architecture baseline: **STARTED / CP-A1-001**
-- Available architecture documents: **A-00, A-01, A-02, A-03**
-- A-04…A-12: **PLANNED / NOT PRESENT**
-- Architecture-specific traceability/audit package: **PENDING** until the corresponding governance artifacts are created
-- RawSourceCorpus: **UNCHANGED / IMMUTABLE**
-- Merge to `main`: **not performed; explicit approval remains required**
+## Active technology baseline — UD-TECH-01
+Next.js 15 · NestJS where a dedicated backend/service boundary is justified · TypeScript 5.x / Node.js 22+ · React 19 · Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · Refine where internal CRUD/admin is more appropriate · React Native + Expo · Tauri 2.0 for Windows/macOS/Linux · tRPC for first-party typed APIs where appropriate · REST/OpenAPI for external interoperability · Clerk preferred / Auth.js where unsuitable · Webhooks · Expo Push Notifications / OneSignal · Vercel for suitable web workloads · Coolify + Dockerized VPS for self-hosted workloads.
+
+Old Laravel/PHP/Filament/MySQL-primary/Flutter/PM2/cPanel assumptions are not current architecture. They may remain only as immutable historical/source statements or explicitly superseded history.
+
+## Foundation evidence rule
+Existing F-01…F-14 contains substantial useful canonical content, but document presence, headings, generic inheritance, summaries, references, numeric counts and prior gate labels are not sufficient evidence. Current revalidation must prove repository-resident source→canonical traceability and substantive Foundation **WHAT / WHY / WHO** at the owning scope.
+
+## Architecture state
+A-00…A-09 are retained as useful Architecture work but are provisional until revalidated against corrected Foundation truth. A-10…A-12, consolidated ADR evidence, Architecture traceability, Architecture No-Loss/depth audit and final cross-document reconciliation remain required before any Architecture gate claim.
+
+Do not modify or merge `main` without explicit approval.
