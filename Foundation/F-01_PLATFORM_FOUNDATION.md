@@ -70,7 +70,7 @@ Identity & Access (F-03) · Workflow Engine · Notification/Communication Engine
 
 ## 8. Technology Stack Baseline `[SD: MI §22, S2.1 §18]`
 
-Next.js 15 · TypeScript 5.x (Node 22) · React 19 + Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · React Native (Android/iOS, Expo Push/FCM, offline-ready) · Tauri 2.0 Desktop (.exe/.msi, auto-update) · **tRPC primary internal API + Clerk identity boundary** · REST/OpenAPI only for external interoperability · webhooks · PM2-compatible / VPS deployment, optional advanced cloud; no mandatory Docker/Vercel dependency. **This technology baseline is canonical for the current Architecture branch. Stack changes require an explicit user-directed decision recorded in D-DECISIONS.** Reference repositories remain inspiration-only: never copy code, never merge external code, never import license conflicts.
+Next.js 15 · TypeScript 5.x (Node 22) · React 19 + Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · React Native (Android/iOS, Expo Push/FCM, offline-ready) · Tauri 2.0 Desktop (.exe/.msi, auto-update) · **tRPC primary internal API + Clerk identity boundary** · REST/OpenAPI only for external interoperability · webhooks · PM2-compatible / VPS deployment, optional advanced cloud; | Optional Docker/Vercel etc. dependency. **This technology baseline is canonical for the current Architecture branch. Stack changes require an explicit user-directed decision recorded in D-DECISIONS.** Reference repositories remain inspiration-only: never copy code, never merge external code, never import license conflicts.
 
 ## 9. Non-Functional Baseline `[SD: S2.3 §1, S2.2 §50]`
 
