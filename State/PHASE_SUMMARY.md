@@ -1,10 +1,10 @@
-# PHASE_SUMMARY — Foundation Certified → Architecture In Progress
-1. Foundation certification: CP-F1-005 remains valid. Foundation evidence remains 372 units / 2,965 items / 0 unmapped, No-Loss PASS, dual final audit.
-2. RawSourceCorpus remains immutable. Historical technology references are preserved as source/history and are not rewritten to match the current technology baseline.
-3. Architecture branch: `docs/architecture-branch-2`. Current Architecture documents A-00…A-09 are present; A-10…A-12 and Architecture-specific gate/audit artifacts remain required.
-4. Targeted Architecture correction: A-00 repository map and deployment topology were aligned to the actual A-00…A-09 branch state and current Vercel/Coolify + Dockerized VPS baseline.
-5. A-01 technology mapping was aligned to the current approved stack, including Tauri 2.0 for Windows/macOS/Linux and approved deployment topologies.
-6. `UD-TECH-01` in D-DECISIONS was updated to the current user-directed Architecture technology baseline, including approved alternatives and selection rule; RawSourceCorpus remains immutable.
-7. Project state was synchronized to reflect Architecture in progress and the actual remaining gate scope.
-8. Architecture gate remains open until A-10…A-12, ADR consolidation, Architecture traceability, No-Loss audit, cross-document consistency and required gate evidence are created and verified.
-9. No merge to `main` and no history rewrite.
+# PHASE_SUMMARY — Foundation Truth Revalidation → Architecture Provisional
+1. CP-F1-005 is preserved as historical gate evidence; current Foundation status is **IN PROGRESS — SUBSTANTIVE TRUTH REVALIDATION** per F-15 and the 2026-09-10 Project Truth Audit.
+2. RawSourceCorpus was restored to the accepted immutable `main` source blobs in commit `548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c`; divergent prior edits remain in Git history only.
+3. The prior 372 / 2,965 / 0-unmapped accounting is not accepted as current substantive certification evidence because S2 traceability is grouped and points outside the repository to a recovery ZIP for atomic rows.
+4. Existing F-01…F-14 contain substantial useful Foundation content, but each owning scope must now prove canonical WHAT/WHY/WHO depth rather than rely on headings, generic inheritance, summaries or references.
+5. Architecture branch `docs/architecture-branch-2` contains A-00…A-09. They are retained but provisional until revalidated against corrected Foundation truth. A-10…A-12 and Architecture-specific decision/traceability/audit evidence remain missing.
+6. Active stack is `UD-TECH-01`: Next.js 15 / TypeScript 5.x / Node.js 22+ / React 19 / Tailwind + Shadcn UI / PostgreSQL / Payload CMS 3 / Refine where suitable / NestJS where justified / tRPC first-party / REST external / Clerk preferred with Auth.js fallback / React Native + Expo / Tauri 2.0 Windows-macOS-Linux / Expo Push or OneSignal / Vercel / Coolify + Dockerized VPS.
+7. Old PM2/cPanel/Laravel/PHP/Filament/MySQL-primary/Flutter assumptions are historical only unless explicitly preserved as source. Conflicting active references require targeted reconciliation.
+8. Mandatory next evidence: atomic repository-resident traceability; substantive Foundation depth audit/corrections; fresh No-Loss/adversarial pass; synchronized registers/state; then Architecture revalidation and remaining Architecture artifacts.
+9. `main` is not modified or merged. No backup ZIP is requested for this audit.
