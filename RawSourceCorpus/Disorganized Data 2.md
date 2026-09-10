@@ -284,21 +284,20 @@ Regression verification shall be completed before phase completion.
 
 > This is the authoritative version of this policy platform-wide. Product Specification Requirement Section 40A cross-references this section rather than repeating it.
 
-The default deployment method shall remain simple and suitable for PM2-compatible single-server VPS deployments.
+The default deployment method shall remain simple and suitable for cPanel, shared hosting and single-server VPS deployments.
 
 Standard deployment workflow:
 
 1. Project Download / Build
 2. Upload Project to Server
-3. Install Node.js 22 Dependencies
-4. Create PostgreSQL Database
+3. Create Database
+4. Import Database (or Fresh Install)
 5. Configure .env
-6. Configure Clerk / Application Secrets
-7. Run Database Migrations / Seeders (if required)
-8. Build Next.js / Payload Application
-9. Start / Restart Application with PM2
-10. Configure Reverse Proxy / HTTPS
-11. Project Website and APIs Live
+6. Enter Database Credentials
+7. Run Migration / Seeder (if required)
+8. Create Storage Link
+9. Clear & Optimize Cache
+10. Project Website Live
 
 Advanced infrastructure including:
 
@@ -332,7 +331,7 @@ All code shall be:
 • Properly Documented
 • Maintainable
 
-> Detailed coding standards (Next.js, TypeScript, React, Tailwind CSS, component architecture, service layer, repository pattern where appropriate, etc.): see Engineering Standards — Section 3 Coding Standards (authoritative).
+> Detailed coding standards (Laravel practices, PSR-12, SOLID, service layer, repository pattern, etc.): see Engineering Standards — Section 3 Coding Standards (authoritative).
 
 ---
 
@@ -398,52 +397,51 @@ Otherwise development shall continue automatically.
 
 The following technology stack is the default baseline for SBGlobal Plus and shall not be changed without an explicit user instruction.
 
-## Web Application / Backend
+## Backend
 
-• Next.js 15
-• TypeScript 5.x
-• Node.js 22
-• React 19
+• Laravel 13
+• PHP 8.4
+
+## Frontend
+
+• Blade
 • Tailwind CSS
-• Shadcn UI
+• Alpine.js
 
 ## Database
 
-• PostgreSQL
+• MySQL
 
-## CMS / Admin Platform
+## Admin Panel
 
-• Payload CMS 3
+• Filament 5
 
-## Authentication & API
+## Authentication
 
-• Clerk Authentication
+• Laravel Authentication (Web)
 • OTP Authentication
-• tRPC API
+• JWT Authentication (API Only)
 • Role & Permission Management
-• Enterprise SSO
-• OAuth 2.0
-• OpenID Connect (OIDC)
-• SAML 2.0
-• LDAP / Active Directory
-• Passkeys (FIDO2/WebAuthn)
-• Multi-Factor Authentication (MFA)
-• Biometric Authentication
-• PKI / Digital Certificates
-• Aadhaar eSign
-• DigiLocker Integration
-• Enterprise Identity Federation
+• 🆕 Enterprise SSO
+• 🆕 OAuth 2.0
+• 🆕 OpenID Connect (OIDC)
+• 🆕 SAML 2.0
+• 🆕 LDAP / Active Directory
+• 🆕 Passkeys (FIDO2/WebAuthn)
+• 🆕 Multi-Factor Authentication (MFA)
+• 🆕 Biometric Authentication
+• 🆕 PKI / Digital Certificates
+• 🆕 Aadhaar eSign
+• 🆕 DigiLocker Integration
+• 🆕 Enterprise Identity Federation
 
-> Business-capability detail and technical security-control depth for these methods: see Product Specification Requirement — Section 35 (Security & Compliance) and Engineering Standards — Section 4 (Security Standards).
+> 🆕 Business-capability detail (which methods surface to which user types, compliance framing) and technical security-control depth (protocol implementation, token handling): see Product Specification Requirement — Section 35 (Security & Compliance) and Engineering Standards — Section 4 (Security Standards). Those documents require their own follow-up integration pass to reflect this expanded baseline.
 
 ## Deployment Constraints
 
-• PM2 Compatible
-• VPS Compatible
-• Linux Compatible
-• Optional Docker Dependency
-• Optional Vercel Dependency
-• Optional Advanced Cloud Infrastructure
+• cPanel Compatible
+• No Docker Dependency (Docker remains optional per Section 12)
+• No Vercel Dependency
 
 > 🆕 Desktop application distribution (.exe/.msi to end-user machines) is separate from, and does not conflict with, this server-side deployment simplicity policy.
 
@@ -451,12 +449,7 @@ The following technology stack is the default baseline for SBGlobal Plus and sha
 
 Framework:
 
-• React Native
-• Expo
-
-Language:
-
-• TypeScript 5.x
+• Flutter (Latest Stable)
 
 Platforms:
 
@@ -465,10 +458,9 @@ Platforms:
 
 Architecture:
 
-• tRPC API
-• Clerk Authentication
+• REST API
+• JWT Authentication
 • Offline Ready
-• Expo Push Notifications
 • Firebase Cloud Messaging (FCM)
 
 Deployment:
@@ -486,10 +478,6 @@ Platform:
 
 • 🆕 Windows 10/11
 
-Framework:
-
-• 🆕 Tauri 2.0
-
 Packaging:
 
 • 🆕 Native Installer (.exe / .msi)
@@ -497,8 +485,8 @@ Packaging:
 
 Architecture:
 
-• 🆕 tRPC API
-• 🆕 Clerk Authentication
+• 🆕 REST API
+• 🆕 JWT Authentication
 • 🆕 Offline Ready
 • 🆕 Secure Local Storage
 
@@ -510,6 +498,8 @@ Deployment:
 Desktop application development runs in parallel with the corresponding portal phases (see Section 20).
 
 > 🆕 Full desktop technical architecture — packaging framework, local database, background sync, and security model — is not yet defined at the depth Mobile Architecture Standards defines for mobile. A dedicated Desktop Architecture Standards document may be warranted once implementation details are decided; not created at this time.
+
+---
 
 # 19. Reference Architecture
 
@@ -551,11 +541,11 @@ Development shall proceed through the following phases in order. Each phase shal
 07. 🆕 Tenant Web Portal – Core Modules
 08. 🆕 Tenant Web Portal – Customer/User Modules
 08A. Mobile API Foundation
-08B. 🆕 React Native / Expo Tenant User/Customer App
+08B. 🆕 Flutter Tenant User/Customer App
 09. 🆕 Tenant Web Portal – Staff Modules
-09A. 🆕 React Native / Expo Tenant Staff App (Doctor Modules)
+09A. 🆕 Flutter Tenant Staff App (Doctor Modules)
 10. LIS Core
-10A. 🆕 React Native / Expo Tenant Staff App (Lab Staff Modules)
+10A. 🆕 Flutter Tenant Staff App (Lab Staff Modules)
 11. Reports + PDF + QR
 12. Billing
 13. Inventory
@@ -596,7 +586,7 @@ Mobile application development (08A/08B/09A/10A/21A) runs in parallel with the c
 
 Before preparing the final production delivery package, verify the full Acceptance Criteria (Business Requirement, Section 58) plus:
 
-• All Development Phases (Section 20) • Architecture • Authentication • Multi-Tenant • Super Admin Portal • 🆕 Tenant Web Portal • SaaS Website • Lab Website • LIS • Billing • Inventory • AI (all providers including Amazon Bedrock) • Reports • QR • Communication • Security • Performance • Documentation • PROJECT_STATE.md • PROJECT_MANIFEST.json • CHANGELOG.md • PHASE_SUMMARY.md • ZIP Integrity • Mobile APIs • 🆕 React Native / Expo Tenant User/Customer/Tenant Staff/Super Admin Apps • Push Notifications • API Documentation • 🆕 Windows Desktop Application
+• All Development Phases (Section 20) • Architecture • Authentication • Multi-Tenant • Super Admin Portal • 🆕 Tenant Web Portal • SaaS Website • Lab Website • LIS • Billing • Inventory • AI (all providers including Amazon Bedrock) • Reports • QR • Communication • Security • Performance • Documentation • PROJECT_STATE.md • PROJECT_MANIFEST.json • CHANGELOG.md • PHASE_SUMMARY.md • ZIP Integrity • Mobile APIs • 🆕 Flutter Tenant User/Customer/Tenant Staff/Super Admin Apps • Push Notifications • API Documentation • 🆕 Windows Desktop Application
 
 The Final Production Delivery Package shall include:
 
@@ -1895,7 +1885,7 @@ WhatsApp Providers:
 
 Push Providers:
 
-- Expo Push Notifications / Firebase Cloud Messaging (FCM)
+- Firebase Cloud Messaging (FCM)
 
 Support:
 
@@ -2019,7 +2009,7 @@ Enterprise API shall support:
 
 - REST API
 - API Versioning
-- Clerk Authentication
+- JWT Authentication
 - API Key Authentication
 - OAuth2 Ready
 - Webhooks
@@ -2059,7 +2049,7 @@ Super Admin shall manage:
 - Integration Profiles
 - API Credentials
 - API Keys
-- Clerk Authentication Configuration
+- JWT Configuration
 - OAuth Configuration
 - Webhooks
 - Mapping Rules
@@ -2094,7 +2084,7 @@ Applications:
 - 🆕 Tenant User/Customer App (serves the Patient/Customer role)
 - Super Admin App (platform-level, not tenant-scoped)
 
-Headline business capabilities required across these apps (technical detail owned by Mobile Architecture Standards): tRPC API access, offline-capable operation, push notifications, QR/Barcode scanning, appointment management, billing & payments, dashboards, and AI features.
+Headline business capabilities required across these apps (technical detail owned by Mobile Architecture Standards): REST API access, offline-capable operation, push notifications, QR/Barcode scanning, appointment management, billing & payments, dashboards, and AI features.
 
 🆕 > For the Windows Desktop Application — the platform's third client surface alongside Web and Mobile — see Master Development Instruction Section 18 (Technology Stack).
 
@@ -2226,7 +2216,7 @@ Authentication:
 
 - Web Authentication
 - OTP Authentication
-- Clerk Authentication
+- JWT Authentication
 - API Key Authentication
 - 🆕 Multi-Factor Authentication (MFA)
 - 🆕 Enterprise Single Sign-On (SSO)
@@ -2441,8 +2431,7 @@ The platform shall be:
 - Secure
 - Modular
 - Recoverable
-- PM2 Compatible
-- VPS Compatible
+- cPanel Compatible
 - Linux Compatible
 - Cloud Ready
 - Docker Optional
@@ -2452,7 +2441,7 @@ The platform shall be:
 
 > The full standard deployment workflow, optional enterprise feature list, and deployment guarantee are owned by SBGlobalPlus_Master_Development_Instruction.md — Section 12 Deployment Simplicity Policy (authoritative; identical policy — not repeated here to avoid drift between documents).
 
-This section confirms the same policy applies at the product-requirement level: the platform shall support a simple, developer-friendly deployment process suitable for personal use, single-server VPS hosting and PM2-managed Node.js deployments, and shall not require Docker, Kubernetes, Microservices, Event Sourcing, CQRS, Vercel, or any enterprise infrastructure as a default.
+This section confirms the same policy applies at the product-requirement level: the platform shall support a simple, developer-friendly deployment process suitable for personal use, single-server hosting, VPS, and cPanel environments, and shall not require Docker, Kubernetes, Microservices, Event Sourcing, CQRS, or any enterprise infrastructure as a default.
 
 Section 55 (CI/CD & Release Management) describes optional release-engineering capability for larger teams; it does not replace or complicate the Standard Deployment Workflow defined in the Master Development Instruction, which remains valid and sufficient for production use at all times.
 
@@ -2782,7 +2771,7 @@ The product shall be considered complete only when:
 - Multi-tenancy is verified.
 - Security validation is complete.
 - API validation is complete.
-- Mobile tRPC APIs are complete.
+- Mobile APIs are complete.
 - AI providers are operational.
 - Enterprise integrations are ready.
 - Dynamic configuration is fully operational.
@@ -2806,7 +2795,7 @@ SBGlobal Plus shall be a premium AI-powered 🆕 enterprise Multi-Tenant, Multi-
 - Super Admin controls the complete SaaS ecosystem.
 - 🆕 Every tenant — across Healthcare & Diagnostics and every supported Industry Vertical Suite — operates independently with strict tenant isolation.
 - Patients, Doctors, Staff, Branches and Enterprise Partners collaborate securely.
-- Mobile applications consume secure tRPC APIs.
+- Mobile applications consume secure REST APIs.
 - AI assists business and medical workflows.
 - Enterprise integrations support hospitals, clinics and healthcare systems 🆕 and other supported Industry Vertical Suites.
 - Business configuration requires no developer intervention wherever reasonably possible.
@@ -2913,10 +2902,10 @@ The platform shall satisfy the following enterprise-grade quality attributes.
 
 # 3. Coding Standards
 
-All development shall follow modern Next.js, TypeScript and React engineering practices.
+All development shall follow modern Laravel engineering practices.
 
-- Next.js / React Best Practices
-- TypeScript / ESLint Coding Standards
+- Laravel Best Practices
+- PSR-12 Coding Standard
 - SOLID Principles
 - Clean Architecture
 - Service Layer Architecture
@@ -2935,8 +2924,8 @@ All development shall follow modern Next.js, TypeScript and React engineering pr
 ## Code Quality
 
 - Static Code Analysis
-- TypeScript Strict Type Checking
-- Prettier Formatting
+- PHPStan Compliance
+- Laravel Pint Formatting
 - Dead Code Detection
 - Duplicate Code Detection
 - Technical Debt Monitoring
@@ -2947,7 +2936,7 @@ All development shall follow modern Next.js, TypeScript and React engineering pr
 - License Compatibility Verification
 - Security Vulnerability Scanning
 - Regular Dependency Updates
-- Node Package Lockfile Validation
+- Composer Lock File Validation
 
 ---
 
@@ -2976,7 +2965,7 @@ The platform shall comply with modern application security practices.
 - Secure file uploads
 - Audit logging
 - API security
-- Clerk Authentication / Session Security
+- JWT security
 - API Key security
 - IP Whitelisting support
 
@@ -3114,7 +3103,9 @@ Applies to:
 
 ## Database Engine
 
-- PostgreSQL (Default)
+- MySQL (Default)
+- MariaDB
+- PostgreSQL (Future Support)
 
 ## Architecture
 
@@ -3277,11 +3268,11 @@ Applies to:
 
 ## Framework
 
-- React Native + Expo
+- Flutter (Latest Stable)
 
 ## Language
 
-- TypeScript
+- Dart
 
 ## Architecture
 
@@ -3297,13 +3288,15 @@ Applies to:
 
 ## State Management
 
-- React state management (project-standard implementation)
+- Riverpod (Default)
+- Future Support: Bloc, Cubit
 
 ## Local Storage
 
-- Expo SQLite / SQLite
+- SQLite
+- Hive
 - Secure Storage
-- AsyncStorage / equivalent device persistence
+- Shared Preferences
 
 ## Cache
 
@@ -3314,10 +3307,10 @@ Applies to:
 
 ## Network
 
-- tRPC
+- REST API
 - JSON
 - HTTPS
-- Clerk Authentication
+- JWT
 - Multipart Upload
 - Retry Mechanism
 
@@ -3338,7 +3331,7 @@ Applies to:
 
 ## Notifications
 
-- Expo Push Notifications / Firebase Cloud Messaging (FCM)
+- Firebase Cloud Messaging (FCM)
 - Push Notification
 - Local Notification
 - SMS Trigger
@@ -3348,7 +3341,8 @@ Applies to:
 ## Authentication
 
 - OTP Login
-- Clerk Session / Token Management
+- JWT
+- Refresh Token
 - Biometric Login
 - Fingerprint
 - Face ID
@@ -4999,7 +4993,7 @@ Invoice Templates, Receipt Templates, Estimate Templates, Medical Reports, Lab R
 
 ## Phase 11 — Enterprise API Platform
 
-tRPC, Clerk, OAuth, API Key, OpenAPI, Rate Limiting, Tenant Isolation, Webhook, API Logs, API Analytics, Versioning, Response Formatter, Error Formatter.
+REST API, JWT, OAuth, API Key, Swagger, OpenAPI, Rate Limiting, Tenant Isolation, Webhook, API Logs, API Analytics, Versioning, Response Formatter, Error Formatter.
 
 ---
 

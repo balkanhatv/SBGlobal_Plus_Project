@@ -1,4 +1,4 @@
-# SBGlobal Plus — Enterprise SaaS
+﻿# SBGlobal Plus — Enterprise SaaS
 **Master Enterprise Architecture & Product Requirements Source — Final v1.1**
 
 ---
@@ -43,7 +43,7 @@ A review of both source documents against current enterprise multi-tenant SaaS b
 |---|--------|-----------------|------------------|
 | 1 | **ADD** | Data Privacy & Regulatory Compliance Framework (GDPR, India DPDP Act 2023, HIPAA-readiness for Healthcare tenants, SOC 2 Type II / ISO 27001 alignment, Consent Management, Data Processing Agreements) | The current draft says "Privacy First" as an adjective but has no dedicated compliance framework, consent tracking, or certification roadmap — a hard requirement for enterprise buyers and for any tenant operating in regulated industries (Healthcare, Government). |
 | 2 | **ADD** | Secrets & Key Management (centralized Key Vault / HSM, automatic key rotation, encrypted secrets store, per-tenant key isolation) | "Everything Encrypted" is listed as a principle, but there is no mechanism defined for how encryption keys and API/service secrets are generated, rotated, or isolated per tenant. Without this, "Encrypted" is just a slogan. |
-| 3 | **ADD** | API Threat Protection Layer (Rate Limiting, API Gateway, WAF, DDoS Protection, Bot/Abuse Protection) | The document defines API Authorization thoroughly but has no layer addressing volumetric/API abuse attacks — essential for a platform that is explicitly "API First" and exposes tRPC + webhooks to every tenant. |
+| 3 | **ADD** | API Threat Protection Layer (Rate Limiting, API Gateway, WAF, DDoS Protection, Bot/Abuse Protection) | The document defines API Authorization thoroughly but has no layer addressing volumetric/API abuse attacks — essential for a platform that is explicitly "API First" and exposes REST APIs + Webhooks to every tenant. |
 | 4 | **ADD** | Vulnerability & Incident Response Program (scheduled penetration testing, responsible disclosure / bug bounty policy, security incident response plan, breach notification SLA) | Zero Trust and Security-First are stated as goals, but there is no operational program to discover or respond to vulnerabilities — this is what enterprise security questionnaires actually check for. |
 | 5 | **ADD** | Data Residency & Sovereignty Controls (per-tenant/per-region data storage selection) | For a Multi-Tenant, Multi-Industry, global-facing SaaS, several prospective enterprise/government tenants will require contractual guarantees about which country/region their data is stored in. Not addressed in the current tenant isolation language. |
 
@@ -64,10 +64,10 @@ The consolidated sections below already reflect all 9 changes.
 
 SBGlobal Plus is being transformed into an **Enterprise-Grade, Multi-Tenant, Multi-Brand, Multi-Industry SaaS Platform** that is:
 
-- AI Ready • AI Extensible • AI Powered
-- API First • Event Driven • Configuration & Metadata Driven
-- Modular • Plugin Ready
-- Cloud Native • Hybrid Cloud Ready
+- AI Ready · AI Extensible · AI Powered
+- API First · Event Driven · Configuration & Metadata Driven
+- Modular · Plugin Ready
+- Cloud Native · Hybrid Cloud Ready
 - Cross Platform — Web Ready, Mobile Ready, Windows Desktop Ready (native `.exe` / `.msi`)
 - Offline First with a single **Synchronization Policy** governing Automatic Background Sync, Real-Time Sync and Conflict Resolution across Web, Mobile and Desktop
 - Security First, Privacy First, Zero Trust Ready (now backed by a dedicated Compliance Framework 🆕 — see §6.4)
@@ -81,7 +81,7 @@ SBGlobal Plus is being transformed into an **Enterprise-Grade, Multi-Tenant, Mul
 
 ## 3. Core Principles
 
-Everything: Configurable • Dynamic • Modular • Extensible • Permission Based • API Driven • Tenant Aware • Metadata Driven • Event Driven • Documented • Version Controlled • Auditable • Observable • Secure by Default • Offline Capable • License Controlled • Authenticated • Authorized • Server Validated • Device Registered • Encrypted • Synchronizable.
+Everything: Configurable · Dynamic · Modular · Extensible · Permission Based · API Driven · Tenant Aware · Metadata Driven · Event Driven · Documented · Version Controlled · Auditable · Observable · Secure by Default · Offline Capable · License Controlled · Authenticated · Authorized · Server Validated · Device Registered · Encrypted · Synchronizable.
 
 ---
 
@@ -90,24 +90,24 @@ Everything: Configurable • Dynamic • Modular • Extensible • Permission B
 ```
 Single Enterprise Core
    ↓ Tenant chooses Subscription Plan (Free / Starter / Premium / Enterprise) 🆕 self-serve for Free & Starter
-   ↓ Tenant receives: Website (Staff & Users) • CMS • ERP Dashboard •
-     Mobile App (Android/iOS) • Tauri 2.0 Windows Desktop App (.exe/.msi) •
-     tRPC • Webhooks • API Documentation
-   ↓ Tenant configures: Branding • Themes • Modules • Workflows • Notifications • Integrations
+   ↓ Tenant receives: Website (Staff & Users) · CMS · ERP Dashboard ·
+     Mobile App (Android/iOS) · Windows Desktop App (.exe/.msi) ·
+     REST API · Webhooks · API Documentation
+   ↓ Tenant configures: Branding · Themes · Modules · Workflows · Notifications · Integrations
    ↓ Ready to Live
 ```
 
 **User access flow:**
 ```
-User → Web / Mobile / Windows Desktop → Secure Login → HTTPS / tRPC API
+User → Web / Mobile / Windows Desktop → Secure Login → HTTPS / REST API
    → Authentication Service → Tenant Validation → Subscription Validation
    → License Validation → Device Registration Validation → RBAC Permission Validation
-   → Clerk Session / Access Token → Refresh Token → Platform Access Granted
+   → JWT Access Token → Refresh Token → Platform Access Granted
 ```
 
 Without successful authentication, authorization, tenant validation, license validation and server verification, the application shall not access protected resources. The platform follows a **Server-Authoritative Architecture** — clients never access protected business resources directly.
 
-All business operations require: User Authentication • Tenant Validation • Subscription Validation • License Validation • Device Registration Validation • Role & Permission Validation • Clerk Session / Access Token Validation • API Authorization.
+All business operations require: User Authentication · Tenant Validation · Subscription Validation · License Validation · Device Registration Validation · Role & Permission Validation · JWT Access Token Validation · API Authorization.
 
 Offline mode is available only for previously-authenticated, authorized users under configurable sync/security policy.
 
@@ -117,11 +117,11 @@ Offline mode is available only for previously-authenticated, authorized users un
 
 The platform supports a **pluggable Identity and Authentication Framework**, configurable per Tenant, Role, Device, Platform and Subscription Plan, with providers enabled/disabled entirely through configuration (no code changes).
 
-**Supported authentication methods:** Username/Email/Mobile + Password • Mobile OTP • Email OTP • Google Sign-In • Microsoft Entra ID (Azure AD) • Apple Sign-In • Passkeys (FIDO2/WebAuthn) • Authenticator Apps (TOTP) • Hardware Security Keys • Face / Fingerprint / Iris / Biometric Authentication • SSO • LDAP / Active Directory • OAuth 2.0 • OpenID Connect (OIDC) • SAML 2.0 • API Token & Service Account Authentication • QR Code Login • Magic Link • Passwordless.
+**Supported authentication methods:** Username/Email/Mobile + Password · Mobile OTP · Email OTP · Google Sign-In · Microsoft Entra ID (Azure AD) · Apple Sign-In · Passkeys (FIDO2/WebAuthn) · Authenticator Apps (TOTP) · Hardware Security Keys · Face / Fingerprint / Iris / Biometric Authentication · SSO · LDAP / Active Directory · OAuth 2.0 · OpenID Connect (OIDC) · SAML 2.0 · API Token & Service Account Authentication · QR Code Login · Magic Link · Passwordless.
 
-**Risk-based adaptive authentication:** Trusted Devices • Unknown Device Detection • Impossible Travel Detection • Geo-Fencing • Geo-Restriction • Login Time Restrictions • Concurrent Session Control • MFA • Step-Up Authentication.
+**Risk-based adaptive authentication:** Trusted Devices · Unknown Device Detection · Impossible Travel Detection · Geo-Fencing · Geo-Restriction · Login Time Restrictions · Concurrent Session Control · MFA · Step-Up Authentication.
 
-**Digital Identity & Digital Signature providers (configurable):** Aadhaar eSign • DigiLocker • USB eToken • Digital Signature Certificates (DSC) • PKI Certificates • Government Identity Providers • Enterprise PKI • Organization Certificates.
+**Digital Identity & Digital Signature providers (configurable):** Aadhaar eSign · DigiLocker · USB eToken · Digital Signature Certificates (DSC) · PKI Certificates · Government Identity Providers · Enterprise PKI · Organization Certificates.
 
 Authentication policies are configurable per Tenant, User, User Group, Department, Organization, Device, Platform, Module, Location and Subscription Plan.
 
@@ -133,7 +133,7 @@ Authentication policies are configurable per Tenant, User, User Group, Departmen
 Configurable attributes: GPS Location, Latitude/Longitude, Address, Time Zone, Device ID, Device Fingerprint, Operating System, Browser Info, App Version, Public/Private IP, Network Type, Login Timestamp.
 
 ### 6.2 Trust Services
-Configurable: Digital Identity • Digital Signature • Digital Certificate Validation • Timestamp Validation • Certificate Revocation Checking (OCSP/CRL) • Certificate Transparency Validation • Audit Evidence • Non-Repudiation.
+Configurable: Digital Identity · Digital Signature · Digital Certificate Validation · Timestamp Validation · Certificate Revocation Checking (OCSP/CRL) · Certificate Transparency Validation · Audit Evidence · Non-Repudiation.
 
 ### 6.3 🆕 Secrets & Key Management *(Recommendation #2)*
 - Centralized Key Vault / HSM-backed key storage
@@ -219,7 +219,7 @@ Each foundational Management System shall itself be designed as a complete enter
 
 ## 8. Super Admin Philosophy
 
-Super Admin governs the entire: Platform • Marketplace • Subscription • Branding Standards • Security Policies • Tenant Lifecycle • Module Ecosystem • AI Ecosystem • API Ecosystem • Deployment Policies • Identity Management • Authentication/Authorization Policies • License Management • Device Management • API Security • Session Management • Affiliate Program (Commission Rules, Referral Policies, Payout Management).
+Super Admin governs the entire: Platform · Marketplace · Subscription · Branding Standards · Security Policies · Tenant Lifecycle · Module Ecosystem · AI Ecosystem · API Ecosystem · Deployment Policies · Identity Management · Authentication/Authorization Policies · License Management · Device Management · API Security · Session Management · Affiliate Program (Commission Rules, Referral Policies, Payout Management).
 
 ---
 
@@ -227,7 +227,7 @@ Super Admin governs the entire: Platform • Marketplace • Subscription • Br
 
 Tenants independently configure, per their subscription plan, without modifying source code:
 
-Branding • Domains • Website • CMS • Dashboard • Mobile & Desktop Applications • Themes • Business Modules • API Key Integrations • AI Provider Keys • Third-Party Service Keys • Database Connections (where architecture permits) • Automation • Notifications • Workflows • Reports • Desktop Settings & Auto Updates • **Synchronization Policy** (offline/online sync rules, background sync, local storage policy — consolidated per Recommendation #9) • Deployment Policies • Device Registration & Management • Authorization Policies • License Management • API Endpoint Configuration • Authentication Settings • **Affiliate & Payout Settings** (Affiliate Program, Commission Configuration, Referral Reward Rules, Payout Methods — deduplicated per Recommendation #9).
+Branding · Domains · Website · CMS · Dashboard · Mobile & Desktop Applications · Themes · Business Modules · API Key Integrations · AI Provider Keys · Third-Party Service Keys · Database Connections (where architecture permits) · Automation · Notifications · Workflows · Reports · Desktop Settings & Auto Updates · **Synchronization Policy** (offline/online sync rules, background sync, local storage policy — consolidated per Recommendation #9) · Deployment Policies · Device Registration & Management · Authorization Policies · License Management · API Endpoint Configuration · Authentication Settings · **Affiliate & Payout Settings** (Affiliate Program, Commission Configuration, Referral Reward Rules, Payout Methods — deduplicated per Recommendation #9).
 
 ---
 
@@ -263,16 +263,16 @@ Design: Premium SaaS style, Glassmorphism, 3D animation, fast-loading optimized,
 ```
 HOME
 Vision | Company
-Platform → Architecture • AI Platform • Security • API Platform
-Industries → Healthcare • Education • Retail • Manufacturing • Hospitality • Government
-Solutions → Web App • Mobile App • Windows Desktop App
-Subscription → Free • Starter • Premium • Enterprise
+Platform → Architecture · AI Platform · Security · API Platform
+Industries → Healthcare · Education · Retail · Manufacturing · Hospitality · Government
+Solutions → Web App · Mobile App · Windows Desktop App
+Subscription → Free · Starter · Premium · Enterprise
 Pricing | Book Demo | Request Quote | 🆕 Start Free / Self-Serve Signup
 Customers | Partners | Marketplace
-Compare → Legacy ERP • Traditional Software • Open Source Solutions
-Resources → Documentation • Blog • FAQ
-🆕 Trust Center → Security Status • Compliance Certifications • Uptime/Status Page
-🆕 Legal → Terms of Service • Privacy Policy • Cookie Policy • SLA • Data Processing Agreement
+Compare → Legacy ERP · Traditional Software · Open Source Solutions
+Resources → Documentation · Blog · FAQ
+🆕 Trust Center → Security Status · Compliance Certifications · Uptime/Status Page
+🆕 Legal → Terms of Service · Privacy Policy · Cookie Policy · SLA · Data Processing Agreement
 ```
 
 ### 11.3 Homepage Structure
@@ -283,30 +283,30 @@ Resources → Documentation • Blog • FAQ
 
 **AI & Automation:** AI-Ready Architecture, AI Automation Showcase
 
-**Multi-Industry:** Healthcare • Education • Retail • Manufacturing • Hospitality • Government
+**Multi-Industry:** Healthcare · Education · Retail · Manufacturing · Hospitality · Government
 
-**Enterprise Security:** Zero Trust • Authentication • RBAC • Device Security, 🆕 backed visibly by the Trust Center badges (SOC 2 / ISO 27001 / GDPR / live Uptime SLA) rather than claims alone (Recommendation #6).
+**Enterprise Security:** Zero Trust · Authentication · RBAC · Device Security, 🆕 backed visibly by the Trust Center badges (SOC 2 / ISO 27001 / GDPR / live Uptime SLA) rather than claims alone (Recommendation #6).
 
 ### 11.4 Additional Website Components
-Video background section • Customer testimonial slider • Feature cards • Pricing section • Partner logo carousel • CEO/Founder/Team profile slider • FAQ accordion • Demo booking popup • AI capability showcase • Security showcase • Architecture animation • Industry showcase • App download section • Email subscription • Promo video section • Dark/Light mode switch • Language toggle (default English) • 🆕 Live Chat / AI Chatbot widget for real-time visitor engagement (Recommendation #6 — demo popup alone leaves self-serve visitors with no immediate help) • 🆕 Cookie Consent Banner / Privacy Preference Center (Recommendation #7, feeds Compliance §6.4).
+Video background section · Customer testimonial slider · Feature cards · Pricing section · Partner logo carousel · CEO/Founder/Team profile slider · FAQ accordion · Demo booking popup · AI capability showcase · Security showcase · Architecture animation · Industry showcase · App download section · Email subscription · Promo video section · Dark/Light mode switch · Language toggle (default English) · 🆕 Live Chat / AI Chatbot widget for real-time visitor engagement (Recommendation #6 — demo popup alone leaves self-serve visitors with no immediate help) · 🆕 Cookie Consent Banner / Privacy Preference Center (Recommendation #7, feeds Compliance §6.4).
 
 ### 11.5 Enterprise Announcement Bar
 Configurable, sticky top bar on every public page for: Product Updates, New Features, AI Announcements, Platform Releases, Security Updates, Maintenance Notices, Events/Webinars, Special Offers, Free Trial Promotions, Pricing Updates, Industry Launches, Partner Announcements, Marketplace Updates, Customer Success Stories.
 
-**Features:** Sticky bar • configurable banner • optional auto-scrolling ticker • static mode • multi-announcement rotation • priority levels (Info/Success/Warning/Critical) • CTA buttons (Book Demo, Start Free Trial, Request Quote, Learn More, Contact Sales) • scheduled publishing (start/end date) • multi-language ready • dark/light mode compatible • fully responsive • accessibility compliant • smooth animation • tenant-aware (optional) • analytics-ready (click & impression tracking).
+**Features:** Sticky bar · configurable banner · optional auto-scrolling ticker · static mode · multi-announcement rotation · priority levels (Info/Success/Warning/Critical) · CTA buttons (Book Demo, Start Free Trial, Request Quote, Learn More, Contact Sales) · scheduled publishing (start/end date) · multi-language ready · dark/light mode compatible · fully responsive · accessibility compliant · smooth animation · tenant-aware (optional) · analytics-ready (click & impression tracking).
 
 **Super Admin controls:** create/edit/delete/schedule announcements, configure priority/CTA/animation/duration, enable/disable auto-scroll, configure visibility rules, preview before publish, view analytics, archive past announcements.
 
 **Future enhancements:** AI-generated announcements, personalized visitor messages, industry/tenant-specific announcements, geo-targeted notifications, campaign/marketing-automation/CRM integration, A/B testing.
 
 ### 11.6 Legal & Compliance Pages 🆕 *(Recommendation #7)*
-Terms of Service • Privacy Policy • Cookie Policy • Service Level Agreement (SLA) • Data Processing Agreement (DPA) — linked from every page footer and referenced by the Cookie Consent Banner.
+Terms of Service · Privacy Policy · Cookie Policy · Service Level Agreement (SLA) · Data Processing Agreement (DPA) — linked from every page footer and referenced by the Cookie Consent Banner.
 
 ---
 
 ## 12. Branding & Visual Identity Direction
 
-**Brand style:** Enterprise Grade • Premium SaaS • Multi-Tenant Platform • Future Ready • AI-Native • Clean & Minimal • Luxury Digital Experience • Global Business Identity • Modern Corporate • Trust & Security Focused.
+**Brand style:** Enterprise Grade · Premium SaaS · Multi-Tenant Platform · Future Ready · AI-Native · Clean & Minimal · Luxury Digital Experience · Global Business Identity · Modern Corporate · Trust & Security Focused.
 
 **Website theme:** Hyper-Realistic UI, 8K visuals, Glassmorphism, Soft Neumorphism, Aurora Gradient, Dark+Light Mode, Isometric 3D Graphics, Floating UI Cards, Animated Mesh Background, Micro-Interactions, Premium Typography, Interactive Scroll Experience.
 
@@ -324,7 +324,7 @@ Terms of Service • Privacy Policy • Cookie Policy • Service Level Agreemen
 Public meaning: *Smart Business Global Plus*. Internal founder meaning: *Shyam Baba Global Plus*. Visual meaning: guidance, protection, trust, positive energy, unlimited possibilities — represented through **abstract visual language only**, no direct religious symbols in enterprise branding.
 
 **Primary tagline:** *Guided by Trust. Built for Tomorrow.*
-Alternatives: *One Core. Infinite Possibilities.* • *Intelligence Without Boundaries.* • *Securely Connected. Infinitely Scalable.* • *Powering Every Possibility.*
+Alternatives: *One Core. Infinite Possibilities.* · *Intelligence Without Boundaries.* · *Securely Connected. Infinitely Scalable.* · *Powering Every Possibility.*
 
 ---
 
@@ -339,11 +339,11 @@ Alternatives: *One Core. Infinite Possibilities.* • *Intelligence Without Boun
 
 ## 14. Implementation Roadmap
 
-**Phase 1:** Homepage • Loader Animation • Platform Pages • Architecture Page • AI Page • Security Page 🆕 (now including Trust Center badges) • Book Demo 🆕 + Self-Serve Signup • 🆕 Legal & Cookie Consent (must ship with Phase 1 for compliance, not deferred).
+**Phase 1:** Homepage · Loader Animation · Platform Pages · Architecture Page · AI Page · Security Page 🆕 (now including Trust Center badges) · Book Demo 🆕 + Self-Serve Signup · 🆕 Legal & Cookie Consent (must ship with Phase 1 for compliance, not deferred).
 
-**Phase 2:** Industry Pages • Solution Pages • Pricing • Compare Pages.
+**Phase 2:** Industry Pages · Solution Pages · Pricing · Compare Pages.
 
-**Phase 3:** Customers • Partners • Marketplace • Blog • Advanced marketing sections.
+**Phase 3:** Customers · Partners · Marketplace · Blog · Advanced marketing sections.
 
 ---
 
@@ -351,9 +351,9 @@ Alternatives: *One Core. Infinite Possibilities.* • *Intelligence Without Boun
 
 The final knowledge base represents SBGlobal Plus as a **World-Class Enterprise Multi-Tenant SaaS Platform**, independent of any single industry, powered by a unified Enterprise Core capable of supporting multiple management systems under one architecture — with a consistent experience across Web, Mobile and Windows Desktop, Offline-First operation, secure local storage, intelligent conflict resolution, automatic background synchronization, and now (post gap-review) a documented **Compliance, Secrets Management, API Threat Protection, Incident Response and Data Residency** posture that matches what enterprise buyers actually evaluate.
 
-**Guiding principle:** Configuration over Customization • Metadata over Hardcoding • Policies over Source Code modification.
+**Guiding principle:** Configuration over Customization · Metadata over Hardcoding · Policies over Source Code modification.
 
-Tauri 2.0 Desktop (.exe), React Native Mobile and Next.js Web applications all require successful server authentication before accessing protected resources; offline mode remains available only to previously-authenticated, authorized users under configurable synchronization and security policy.
+Desktop (.exe), Mobile and Web applications all require successful server authentication before accessing protected resources; offline mode remains available only to previously-authenticated, authorized users under configurable synchronization and security policy.
 
 ---
 
