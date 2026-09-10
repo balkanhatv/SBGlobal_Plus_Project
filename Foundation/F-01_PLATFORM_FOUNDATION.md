@@ -1,5 +1,5 @@
 # F-01 — PLATFORM FOUNDATION
-**Document ID:** F-01 · **Version:** 0.2 · **Status:** SPECIFIED (partial) · Cross-refs: F-00 (authority), F-02 (lifecycle), F-03 (identity/security), F-04 (data), F-05 (AI), F-06 (experiences).
+**Document ID:** F-01 · **Version:** 0.3 · **Status:** SPECIFIED (partial) — SUBSTANTIVE REVALIDATION REQUIRED · Cross-refs: F-00 (authority/current status), F-02 (lifecycle), F-03 (identity/security), F-04 (data), F-05 (AI), F-06 (experiences), F-15 (truth revalidation).
 
 ---
 
@@ -68,10 +68,17 @@ Identity & Access (F-03) · Workflow Engine · Notification/Communication Engine
 
 **Zero industry-specific content rule:** anything Healthcare/Education/etc.-specific lives only in F-07…F-09. Verified in this build's No-Loss audit scope check.
 
-## 8. Technology Stack Baseline `[SD: MI §22, S2.1 §18]`
+## 8. Current Technology Direction `[UD: UD-TECH-01]`
 
-Next.js 15 · TypeScript 5.x (Node 22) · React 19 + Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · React Native (Android/iOS, Expo Push/FCM, offline-ready) · Tauri 2.0 Desktop (.exe/.msi, auto-update) · **tRPC primary internal API + Clerk identity boundary** · REST/OpenAPI only for external interoperability · webhooks · PM2-compatible / VPS deployment, optional advanced cloud; | Optional Docker/Vercel etc. dependency. **This technology baseline is canonical for the current Architecture branch. Stack changes require an explicit user-directed decision recorded in D-DECISIONS.** Reference repositories remain inspiration-only: never copy code, never merge external code, never import license conflicts.
+The RawSourceCorpus contains historical technology requirements, but current explicit user direction supersedes those as the active Architecture technology baseline. Foundation records the constraint only; implementation HOW belongs to Architecture/Detailed Design.
+
+**Active baseline:** Next.js 15 · TypeScript 5.x · Node.js 22+ · React 19 + Tailwind CSS + Shadcn UI · PostgreSQL · Payload CMS 3 · Refine where an internal CRUD/admin console is more appropriate · Next.js server capabilities, with NestJS where a dedicated backend/service boundary is architecturally justified · React Native + Expo · Tauri 2.0 for Windows/macOS/Linux · tRPC for first-party typed APIs where appropriate · REST/OpenAPI for external interoperability · Clerk as preferred managed identity boundary, Auth.js where Clerk is unsuitable · Webhooks · Expo Push Notifications / OneSignal · Vercel for suitable web workloads · Coolify + Dockerized VPS for self-hosted workloads.
+
+**Supersession rule:** Laravel/PHP/Filament/MySQL-primary/Flutter/PM2/cPanel-centric assumptions are not active architecture. They remain immutable only where they occur in RawSourceCorpus or explicitly historical records. Any alternative selected inside current Architecture must record rationale/trade-offs in the Architecture decision record.
 
 ## 9. Non-Functional Baseline `[SD: S2.3 §1, S2.2 §50]`
 
 99.9% availability target · API/dashboard response-time targets (quantified at Architecture phase) · horizontal scalability ready · queue-first background processing · caching (config/route/view/query; Redis-ready) · CDN & auto-scaling ready · observability (tracing-ready, metrics) · capacity planning & performance SLA documentation. Environments Development/Staging/Production strictly separated; no data/secret mixing.
+
+## 10. Truth-Revalidation qualification `[UD: 2026-09-10 Project Truth Audit]`
+This document contains substantive Foundation content and remains the canonical Platform Foundation owner. Its prior SPECIFIED label is not itself evidence of complete source coverage. During F-15 revalidation, each source requirement mapped here must be checked against the actual canonical content above; a summary/reference or generic inherited statement does not satisfy a requirement that needs additional WHAT/WHY/WHO detail.
