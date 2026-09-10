@@ -441,8 +441,8 @@ The following technology stack is the default baseline for SBGlobal Plus and sha
 • PM2 Compatible
 • VPS Compatible
 • Linux Compatible
-• No Mandatory Docker Dependency
-• No Mandatory Vercel Dependency
+• Optional Docker Dependency
+• Optional Vercel Dependency
 • Optional Advanced Cloud Infrastructure
 
 > 🆕 Desktop application distribution (.exe/.msi to end-user machines) is separate from, and does not conflict with, this server-side deployment simplicity policy.
