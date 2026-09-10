@@ -44,7 +44,7 @@ All nine industries (F-07…F-09, F-12, F-13) are first-class and equal. There i
 │                  · Outbox/Event log · Regional Data Homes       │
 ├─────────────────────────────────────────────────────────────────┤
 │ L0 INFRASTRUCTURE  PM2-managed VPS / compatible hosting         │
-│                    (no mandatory Docker or Vercel dependency)   │
+│                    (Optional Docker or Vercel etc. dependency)   │
 │                    · Observability stack                        │
 └─────────────────────────────────────────────────────────────────┘
 ```
