@@ -1,13 +1,11 @@
 # PROJECT_STATE — SBGlobal Plus
-- Updated: 2026-09-09 (UTC)
-- Phase: Project Foundation — **FOUNDATION CERTIFIED at CP-F1-005**; Architecture **STARTED at CP-A1-001** on branch `docs/architecture-branch-2`
-- Foundation certification remains valid and unchanged. Foundation evidence: dual audit at CP-F1-005, traceability 372/2,965/0, No-Loss PASS.
-- 04-09-2026: commit b83bea9 (unnecessary brand/color canonicalization, AC-19/RR-03) reverted via history-preserving revert efd16eb6; owner-directed corpus edit a811a1ab preserved as ACTIVE owner intent; no history rewrite; main not merged.
-- Architecture bootstrap 09-09-2026: A-00, A-01, A-02 and A-03 established as the current architecture baseline. A-04…A-12 are target/planned documents and are not yet present in this branch.
-- Technology baseline: active user-directed decision `UD-TECH-01` — Next.js 15, TypeScript 5.x/Node 22, React 19, PostgreSQL, Payload 3, React Native/Expo, Expo Push/FCM, Tauri 2.0, Clerk, tRPC primary internal API, REST/OpenAPI external interoperability, PM2/VPS.
-- Targeted corrections completed: F-01 API distinction; F-03 Clerk identity/token language; F-06 React Native/Expo mobile language; F-10 Tauri 2.0 + Clerk + tRPC language; D-DECISIONS technology decision record; README/state synchronization.
-- RawSourceCorpus: **IMMUTABLE — no technology-reference rewrite permitted.**
+- Updated: 2026-09-10 (UTC)
+- Phase: Project Foundation — FOUNDATION CERTIFIED at CP-F1-005; Architecture IN PROGRESS on branch `docs/architecture-branch-2`
+- Foundation certification remains valid and unchanged. Foundation evidence: dual audit at CP-F1-005, traceability 372/2,965/0 unmapped, No-Loss PASS.
+- Architecture currently contains A-00 through A-09. A-10, A-11 and A-12 plus Architecture-specific gate/audit artifacts remain required.
+- A-00 and A-01 received targeted corrections for current repository state and deployment technology alignment.
+- Technology baseline: active user-directed decision `UD-TECH-01` — Next.js 15; NestJS where a dedicated backend/service boundary is required; TypeScript 5.x / Node.js 22+; React 19; Tailwind CSS + Shadcn UI; PostgreSQL; Payload CMS 3; Refine where appropriate for internal CRUD/admin; React Native + Expo; Tauri 2.0 for Windows/macOS/Linux; tRPC for first-party APIs where appropriate; REST/OpenAPI for external interoperability; Clerk preferred identity boundary; Auth.js where Clerk is unsuitable; webhooks; Expo Push Notifications / OneSignal; Vercel for suitable web workloads; Coolify + Dockerized VPS for self-hosted workloads.
+- RawSourceCorpus: IMMUTABLE — historical technology references are not rewritten.
 - Governance: MASTER_INSTRUCTION/MASTER_PROMPT v2.5 unchanged.
-- Latest Foundation backup: SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip
 - GitHub: current work branch `docs/architecture-branch-2`; merge to `main` requires explicit approval.
-- Architecture next gate: create/verify A-04…A-12 and Architecture-specific registers/audit artifacts according to evidence; do not claim availability before files exist.
+- Architecture gate work remaining: A-10, A-11, A-12; architecture traceability; no-loss audit; ADR consolidation; cross-document consistency audit; gate evidence and synchronized state.
