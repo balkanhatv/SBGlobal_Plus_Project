@@ -1,10 +1,12 @@
-# D-CHECKPOINT — CP-F1-005 (revision C) → Architecture Bootstrap CP-A1-001
-- Foundation checkpoint: CP-F1-005 (revision C) — Foundation **CERTIFIED**, granted 02-09-2026 on dual-audit evidence. Foundation certification boundary remains unchanged.
-- 04-09-2026 corrective action preserved: b83bea9 reverted via efd16eb6; owner-directed RawSourceCorpus edit a811a1ab remains active; no history rewrite.
-- Foundation recovery ZIP v1.2 remains verified; no Foundation delivery items remain.
-- **09-09-2026 Architecture bootstrap:** CP-A1-001 established on `docs/architecture-branch-2` after explicit Architecture-phase start. A-00…A-03 are present baseline documents. A-04…A-12 are planned/not present and are not treated as completed.
-- **Technology governance:** `UD-TECH-01` is the active user-directed technology baseline: Next.js 15, TypeScript 5.x/Node 22, React 19, PostgreSQL, Payload CMS 3, React Native/Expo, Expo Push/FCM, Tauri 2.0, Clerk identity boundary, tRPC primary internal API, REST/OpenAPI external interoperability, webhooks, PM2/VPS.
-- Targeted corrections applied to F-01/F-03/F-06/F-10 and state documentation to eliminate technology/state inconsistencies.
-- **RawSourceCorpus remains immutable.** Old technology references are historical/source material and must not be rewritten.
-- Architecture completion is **not** claimed. Next gate: create and evidence A-04…A-12 plus Architecture-specific traceability/audit artifacts.
-- Merge to `main`: not performed; explicit approval remains required.
+# D-CHECKPOINT — PROJECT TRUTH REVALIDATION (2026-09-10)
+- Current Foundation status: **IN PROGRESS — SUBSTANTIVE TRUTH REVALIDATION**. CP-F1-005 remains historical gate evidence only; it is not current Foundation-wide substantive certification.
+- Current truth authority: `Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md` + `Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md`.
+- RawSourceCorpus integrity correction: both source files restored to the accepted immutable `main` blobs in commit `548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c`. Earlier divergent edits remain in Git history.
+- Evidence defect: `TRACEABILITY_MATRIX_UNIT.md` contains explicit S1 rows but largely grouped S2 ranges and points to a recovery ZIP for full per-unit rows. Therefore prior 372/2,965/0 totals are historical accounting, not sufficient current repository-resident substantive evidence.
+- Foundation F-01…F-14 contains substantial useful content, but every owning scope must now be verified against actual source requirements and §9A evidence depth; summaries, generic inheritance and cross-references cannot stand in for canonical WHAT/WHY/WHO.
+- Architecture on `docs/architecture-branch-2`: **A-00…A-09 present; A-10…A-12 absent**. Existing Architecture is retained as provisional work while Foundation truth revalidation is open.
+- Active stack: `UD-TECH-01` — Next.js 15; NestJS where justified; TypeScript 5.x/Node.js 22+; React 19; Tailwind/Shadcn; PostgreSQL; Payload CMS 3; Refine where suitable; React Native/Expo; Tauri 2.0 Windows/macOS/Linux; tRPC first-party; REST/OpenAPI external; Clerk preferred/Auth.js fallback; Webhooks; Expo Push/OneSignal; Vercel; Coolify + Dockerized VPS.
+- Old PM2/cPanel/Laravel/PHP/Filament/MySQL-primary/Flutter assumptions are not active architecture. Historical source text remains immutable.
+- MASTER_INSTRUCTION/MASTER_PROMPT v2.5 remain the process framework; conflicting older technology/deployment clauses are superseded for current work by explicit user direction/UD-TECH-01 and require formal lockstep reconciliation before a new project-wide certification claim.
+- Mandatory next evidence: atomic repository-resident source→canonical traceability; substantive Foundation depth corrections; fresh No-Loss/depth audit; independent adversarial pass; synchronized registers/state; then Architecture revalidation and A-10…A-12/ADR/evidence work.
+- `main`: unchanged/unmerged. Merge requires explicit approval. No backup ZIP requested for this audit.
