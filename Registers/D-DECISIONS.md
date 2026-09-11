@@ -55,7 +55,7 @@ These are authoritative Foundation decision records; shorthand references elsewh
 | UD-TRUTH-04 | Current Architecture A-00…A-09 was built against a Foundation status now under revalidation | **Retain Architecture content but treat it as provisional until Foundation truth is stable and the Architecture is revalidated.** | Avoids discarding useful work while preventing inheritance of an unsupported Foundation gate. A-10…A-12 and Architecture evidence still remain future work. |
 
 ## Architecture decisions
-ADR-001 through ADR-016 referenced by A-00…A-09 are Architecture decisions and must be consolidated with **Context, Decision, Alternatives/Options and trade-offs, Consequences** in A-12 before any Architecture gate claim. Until then, references to those ADR IDs are provisional decision anchors rather than complete ADR evidence.
+**A-12 is the authoritative Architecture ADR register.** ADR-001 through ADR-018 are current and contain Context, Decision, Alternatives/Options, trade-offs, Consequences, risks, dependencies, affected documents and reversibility/evolution seams where relevant. A-00…A-11 cross-reference those records and do not create competing ADR authorities. Architecture certification evidence is completed by `ARCHITECTURE_TRACEABILITY_MATRIX.md`, `ARCHITECTURE_NO_LOSS_AUDIT.md` and `ARCHITECTURE_FINAL_AUDIT.md`.
 
 
 ## 2026-09-11 Targeted Reconciliation Decisions
