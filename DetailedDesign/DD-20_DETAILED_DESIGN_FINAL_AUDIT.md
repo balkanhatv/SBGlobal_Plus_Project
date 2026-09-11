@@ -1,18 +1,12 @@
 # DD-20 — DETAILED DESIGN AUDIT HIERARCHY
-**Date:** 2026-09-11 · **Current status:** REMEDIATION / RECERTIFICATION REQUIRED
+**Date:** 2026-09-12 · **Current status:** DD-F5-RECERTIFIED
 
-This file is the authoritative audit hierarchy. The previous combined DD-20 content is preserved unchanged in `DD-20H_LEGACY_COMBINED_AUDIT_HISTORY.md` and is historical evidence only.
-
-## Audit scopes
-| Audit | Artifact | Status | Certification authority |
+| Audit | Artifact | Status | Authority |
 |---|---|---|---|
-| Wave 1 historical audit | DD-20A_WAVE1_AUDIT.md | HISTORICAL | no current overall certification |
-| Wave 2 historical audit | DD-20B_WAVE2_AUDIT.md | HISTORICAL | no current overall certification |
-| Wave 3 fresh audit | DD-20C_WAVE3_F5_AUDIT.md | PENDING fresh remediation audit | Wave-3 evidence only |
-| Overall DD fresh audit | DD-20D_OVERALL_F5_AUDIT.md | PENDING fresh remediation audit | sole current final DD certification audit |
+| Wave 1 historical | DD-20A_WAVE1_AUDIT.md | HISTORICAL PASS | Wave-1 history |
+| Wave 2 historical | DD-20B_WAVE2_AUDIT.md | HISTORICAL PASS | Wave-2 history |
+| Legacy combined | DD-20H_LEGACY_COMBINED_AUDIT_HISTORY.md | HISTORICAL / non-current | provenance only |
+| Wave 3 fresh | DD-20C_WAVE3_ADVERSARIAL_AUDIT.md | PASS | current Wave-3 evidence |
+| Overall fresh | DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md | PASS | sole current final DD certification audit |
 
-## Supersession rule
-The fresh Overall audit may certify Detailed Design only after Wave-3 audit, requirement-ID traceability, fresh final isolation audit, determinism audit and REVIEW_REQUIRED sweep pass with P0=0 and P1=0. Historical PASS text never overrides a current blocker.
-
-## Current gate
-**DETAILED DESIGN REMEDIATION REQUIRED · DEVELOPMENT BLOCKED**.
+Current final gate: **REQUIREMENT SET COMPLETE — SUPPORTED · DETAILED DESIGN COMPLETE — SUPPORTED · READY FOR DEVELOPMENT — SUPPORTED.**

@@ -1,13 +1,13 @@
 # DD PHASE STATE
-**Date:** 2026-09-11
+**Date:** 2026-09-12 · **Checkpoint:** `DD-F5-RECERTIFIED`
 
 - Foundation: **CERTIFIED**.
 - Architecture: **CERTIFIED**.
-- Historical DD Wave 1: COMPLETE — preserved evidence.
-- Historical DD Wave 2: COMPLETE — preserved evidence.
-- Historical DD Wave 3 / DD-COMPLETE certification: **REOPENED BY FABLE 5 REQUIREMENTS AUDIT**.
-- Current phase truth: **DETAILED DESIGN — REMEDIATION / RECERTIFICATION REQUIRED**.
-- Development: **BLOCKED**.
-- Current remediation baseline: `0b4ae1dd0569bddee2bed82acbaf249f93702c37`.
-- Active blockers: P0/P1 acceptance-contract, workflow-determinism, certification-evidence and industry-domain determinism findings from the Fable 5 audit.
-- Previous DD-COMPLETE remains historical evidence only; it is not current authorization.
+- DD Wave 1: **COMPLETE**.
+- DD Wave 2: **COMPLETE**.
+- DD Wave 3: **COMPLETE**.
+- Detailed Design: **COMPLETE — SUPPORTED BY FRESH FABLE RECERTIFICATION**.
+- Development: **READY / AUTHORIZED AS NEXT PHASE; NOT YET PERFORMED**.
+- Final substantive design HEAD: `810e43c9c75e3750f52cc7e1954db8f341e6d79b`.
+- Final authority: DD-20D + DD-20C + DD-29/DD-30/DD-31 + final isolation matrix.
+- Historical `DD-COMPLETE` remains evidence/history and is not silently reused as the new checkpoint.

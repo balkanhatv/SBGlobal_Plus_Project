@@ -1,38 +1,27 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-11 · **Current gate:** FABLE 5 REMEDIATION ACTIVE · DEVELOPMENT BLOCKED
+**Updated:** 2026-09-12 · **Checkpoint:** `DD-F5-RECERTIFIED`
 
-| ID | Artifact | Wave | Status |
-|---|---|---:|---|
-| DD-00 | Detailed Design Overview | 1 | COMPLETE |
-| DD-01 | Domain Module Boundaries | 1 | COMPLETE |
-| DD-02 | Tenant Industry Context Design | 1 | COMPLETE |
-| DD-03 | Identity Authorization Design | 1 | COMPLETE |
-| DD-04 | Commercial Entitlement Design | 1 | COMPLETE |
-| DD-05 | Data Model and Database/RLS Design | 1 | COMPLETE |
-| DD-06 | API tRPC REST + Integration Design | 1–2 | COMPLETE |
-| DD-07 | Event Outbox Webhook Design | 1 | COMPLETE |
-| DD-08 | Document Storage Design | 1 | COMPLETE |
-| DD-09 | AI/RAG/Agent Design | 2 | COMPLETE |
-| DD-10 | Experience/Application Design | 2 | COMPLETE |
-| DD-11 | Mobile Offline Sync Design | 2 | COMPLETE |
-| DD-12 | Desktop Design | 2 | COMPLETE |
-| DD-13 | Industry Suite / 41-MS Design | 3 | COMPLETE — 41/41 |
-| DD-14 | Infrastructure Deployment Design | 2 | COMPLETE |
-| DD-15 | Observability/Audit | 1–2 | COMPLETE |
-| DD-16 | Security/Compliance Design | 2 | COMPLETE |
-| DD-17 | Test Acceptance Contracts | 1–3 | COMPLETE |
-| DD-18 | Detailed Design Decisions | 1–3 | BASELINE COMPLETE · ACTIVE CHANGE CONTROL |
-| DD-19 | Detailed Design Traceability | 1–3 | COMPLETE · 0 ORPHAN REQUIRED CONTRACTS |
-| DD-20 | Audit hierarchy | 1–3 | FRESH WAVE-3/OVERALL AUDITS PENDING |
-| DD-RR | Review Required | 1–3 | OPEN — FABLE 5 REMEDIATION |
-| W3-MS | Wave-3 MS Completeness Matrix | 3 | 41/41 PASS |
-| W3-XI | Cross-Industry Consistency Audit | 3 | PASS |
+| Range | Status |
+|---|---|
+| DD-00…DD-08 | Wave 1 COMPLETE |
+| DD-09…DD-16 | Wave 2 COMPLETE |
+| DD-17…DD-19 | COMPLETE / final acceptance-decision-traceability authority |
+| DD-20A/B | HISTORICAL Wave audit evidence |
+| DD-20C | WAVE 3 ADVERSARIAL PASS |
+| DD-20D | OVERALL ADVERSARIAL PASS / final certification authority |
+| DD-21 | 41-MS acceptance contracts COMPLETE |
+| DD-22 | 41 exact major workflow matrices COMPLETE |
+| DD-23/23A | behavioral catalogs/indexes/field registry COMPLETE |
+| DD-24 | industry domain-rule decisions COMPLETE |
+| DD-25/DD-28 | KPI contracts + final named coverage COMPLETE |
+| DD-26 | canonical surfaces/MS identifiers COMPLETE |
+| DD-27 | determinism evidence COMPLETE |
+| DD-29 | final ambiguity sweep PASS |
+| DD-30 | final requirement traceability PASS |
+| DD-31 | Development/QA determinism PASS |
+| DD-REVIEW_REQUIRED | CLOSED · P0=0 · P1=0 · REAL_DD_GAP=0 |
 
 ## Current gate
-**DD WAVE 1 COMPLETE · DD WAVE 2 COMPLETE · DD WAVE 3 COMPLETE · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT.**
+**FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DD WAVE 1 COMPLETE · DD WAVE 2 COMPLETE · DD WAVE 3 COMPLETE · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT.**
 
-Detailed Design completion means implementation contracts are ready. It does not mean implemented, tested, security validated, production ready, deployed or operational.
-
-
-## Fable 5 current-state override
-Any historical COMPLETE/PASS row above is retained as scope history, not current readiness evidence. Current overall state is **DETAILED DESIGN REMEDIATION REQUIRED · DEVELOPMENT BLOCKED** until the fresh Fable 5 gate passes.
+Historical `DD-COMPLETE` and Fable reopen evidence remain preserved as history. Current recertification checkpoint is `DD-F5-RECERTIFIED`.

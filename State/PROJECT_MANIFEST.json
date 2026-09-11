@@ -1,135 +1,56 @@
 {
   "project": "SBGlobal Plus",
-  "phase": "Foundation CERTIFIED; Architecture CERTIFIED; DETAILED DESIGN REMEDIATION REQUIRED; DEVELOPMENT BLOCKED",
-  "checkpoint": "FABLE5-REM-START",
-  "updated": "2026-09-11",
-  "governed_by": [
-    "MASTER_INSTRUCTION v2.5 + 2026-09-11 targeted reconciliation",
-    "MASTER_PROMPT v2.5 + 2026-09-11 targeted reconciliation",
-    "current explicit user direction",
-    "UD-TECH-01",
-    "UD-PHASE-01",
-    "UD-SOURCE-01",
-    "UD-COMM-01"
-  ],
+  "updated": "2026-09-12",
+  "branch": "docs/architecture-branch-2",
+  "phase": "FOUNDATION CERTIFIED; ARCHITECTURE CERTIFIED; DD WAVE 1 COMPLETE; DD WAVE 2 COMPLETE; DD WAVE 3 COMPLETE; DETAILED DESIGN COMPLETE; READY FOR DEVELOPMENT",
+  "checkpoint": "DD-F5-RECERTIFIED",
+  "final_substantive_head": "810e43c9c75e3750f52cc7e1954db8f341e6d79b",
   "foundation": {
-    "current_status": "FOUNDATION CERTIFIED — POST-REMEDIATION EVIDENCE-BACKED",
-    "foundation_certified": true,
-    "unmapped_units": 0,
-    "authority": [
-      "Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md",
-      "Registers/TRACEABILITY_MATRIX_UNIT.md",
-      "Registers/TRACEABILITY_MATRIX_REQUIREMENTS.md",
-      "Registers/MS_COMPLETENESS_MATRIX.md",
-      "Registers/NO_LOSS_AUDIT.md"
-    ],
-    "atomic_traceability_qualification": "372 rows are parent/source-heading inventory only; requirement-level child evidence is the no-loss authority.",
-    "parent_source_units": 372,
-    "requirement_child_rows": 2962,
-    "requirement_verified": 2555,
-    "requirement_gaps": 0,
-    "requirement_deferred": 396,
-    "requirement_superseded": 11,
-    "management_systems_verified": 41
+    "certified": true
   },
   "architecture": {
-    "status": "ARCHITECTURE CERTIFIED — READY FOR DETAILED DESIGN",
-    "available_documents": [
-      "A-00",
-      "A-01",
-      "A-02",
-      "A-03",
-      "A-04",
-      "A-05",
-      "A-06",
-      "A-07",
-      "A-08",
-      "A-09",
-      "A-10",
-      "A-11",
-      "A-12"
-    ],
-    "planned_documents_not_present": [],
-    "adr_range": "ADR-001..ADR-018",
-    "evidence": [
-      "Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md",
-      "Registers/ISOLATION_ATTACK_MATRIX.md",
-      "Registers/ARCHITECTURE_NO_LOSS_AUDIT.md",
-      "Registers/ARCHITECTURE_FINAL_AUDIT.md"
-    ],
-    "certified": true,
-    "blockers": []
+    "certified": true
   },
-  "technology_baseline": {
-    "decision_id": "UD-TECH-01",
-    "status": "ACTIVE — USER-DIRECTED",
-    "stack": [
-      "Next.js 15",
-      "TypeScript 5.x / Node.js 22+",
-      "React 19",
-      "Tailwind CSS + Shadcn UI",
-      "PostgreSQL",
-      "Payload CMS 3",
-      "Refine where suitable",
-      "NestJS only where a dedicated backend/service boundary is architecturally justified",
-      "tRPC first-party typed APIs",
-      "REST/OpenAPI external interoperability",
-      "Clerk preferred identity boundary",
-      "Auth.js where Clerk is unsuitable",
-      "React Native + Expo",
-      "Tauri 2.0 Windows/macOS/Linux",
-      "Expo Push Notifications / OneSignal",
-      "Webhooks",
-      "Vercel suitable workloads",
-      "Coolify + Dockerized VPS self-hosted/regional workloads"
-    ]
+  "detailed_design": {
+    "wave1": "COMPLETE",
+    "wave2": "COMPLETE",
+    "wave3": "COMPLETE",
+    "management_systems": 41,
+    "industries": 9,
+    "open_p0": 0,
+    "open_p1": 0,
+    "real_dd_gap": 0,
+    "named_kpi_discovered": 165,
+    "named_kpi_unmapped": 0,
+    "development_determinism": "9/9 YES",
+    "qa_determinism": "9/9 YES",
+    "isolation": "PASS",
+    "certification_supported": true,
+    "ready_for_development": true,
+    "development_performed": false
   },
   "raw_source": {
-    "policy": "IMMUTABLE source/history boundary",
+    "policy": "IMMUTABLE",
     "s1_blob": "a9f63a64448a347edd0f2b0c74094284ee953c1b",
-    "s2_blob": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd",
-    "historical_variants": "Git history only"
+    "s2_blob": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd"
   },
+  "historical_checkpoints": [
+    "DD-W1-COMPLETE",
+    "DD-W2-COMPLETE",
+    "DD-COMPLETE",
+    "FABLE5-REM-START"
+  ],
+  "evidence": [
+    "DetailedDesign/DD-20C_WAVE3_ADVERSARIAL_AUDIT.md",
+    "DetailedDesign/DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md",
+    "DetailedDesign/DD-29_FINAL_REVIEW_REQUIRED_SWEEP.md",
+    "DetailedDesign/DD-30_FINAL_REQUIREMENT_TRACEABILITY_AUDIT.md",
+    "DetailedDesign/DD-31_FINAL_DEVELOPMENT_QA_DETERMINISM.md",
+    "Registers/ISOLATION_ATTACK_MATRIX.md"
+  ],
   "github": {
     "repo": "yadavjalsingh192/SBGlobal_Plus_Project",
-    "branch": "docs/architecture-branch-2",
     "main_merge": "not performed",
     "backup_zip": "not created"
-  },
-  "next_work": "Fable 5 Detailed Design requirements remediation and recertification only. Development blocked until P0/P1=0 and final fresh evidence passes.",
-  "detailed_design": {
-    "status": "DETAILED DESIGN COMPLETE",
-    "checkpoint": "DD-COMPLETE",
-    "wave1": "COMPLETE — PASS",
-    "wave2": "COMPLETE — PASS",
-    "wave3": "COMPLETE — PASS",
-    "management_systems_complete": 41,
-    "industries_complete": 9,
-    "shared_p2_resolved": 6,
-    "open_p0": 3,
-    "open_p1": 8,
-    "open_avoidable_p2": 0,
-    "orphan_required_contracts": 0,
-    "overall_complete": true,
-    "ready_for_development": false,
-    "development_performed": false,
-    "wave3_starting_head": "5448001b1216a26b4bcb85d7d17ff9a28e51b849",
-    "evidence": [
-      "DetailedDesign/DD-13_INDUSTRY_SUITE_DESIGN.md",
-      "DetailedDesign/WAVE3_MS_COMPLETENESS_MATRIX.md",
-      "DetailedDesign/WAVE3_CROSS_INDUSTRY_AUDIT.md",
-      "DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md",
-      "DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md",
-      "DetailedDesign/DD-19_DETAILED_DESIGN_TRACEABILITY.md",
-      "DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md",
-      "DetailedDesign/DD-REVIEW_REQUIRED.md"
-    ],
-    "historical_checkpoint": "DD-COMPLETE",
-    "historical_certification_preserved": true,
-    "current_status": "DETAILED DESIGN REMEDIATION REQUIRED",
-    "certification_supported": false,
-    "development_blocked": true,
-    "remediation_baseline": "0b4ae1dd0569bddee2bed82acbaf249f93702c37",
-    "open_p2": 1
   }
 }

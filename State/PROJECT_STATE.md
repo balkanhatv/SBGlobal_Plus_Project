@@ -1,13 +1,12 @@
 # PROJECT_STATE — SBGlobal Plus
-- Updated: 2026-09-11.
+- Updated: 2026-09-12.
 - Branch: `docs/architecture-branch-2`.
 - Foundation: **CERTIFIED**.
 - Architecture: **CERTIFIED**.
-- Previous DD-COMPLETE checkpoint: preserved as historical evidence only.
-- Current phase: **DETAILED DESIGN REMEDIATION REQUIRED**.
-- Development: **BLOCKED / NOT AUTHORIZED**.
-- Remediation baseline: `0b4ae1dd0569bddee2bed82acbaf249f93702c37`.
-- Active authority: Fable 5 requirements-remediation mandate plus existing Foundation/Architecture/Wave-1/Wave-2 contracts.
+- Detailed Design: **COMPLETE — DD-F5-RECERTIFIED**.
+- Development: **READY / NOT YET PERFORMED**.
+- Final substantive design HEAD audited: `810e43c9c75e3750f52cc7e1954db8f341e6d79b`.
+- Fable final: P0=0; P1=0; REAL_DD_GAP=0; 41/41 MS PASS; 9/9 Development and QA determinism YES; isolation PASS.
 - RawSourceCorpus: immutable.
-- `main`: unchanged/unmerged.
-- No application code, migrations, deployment artifacts or executable tests are authorized in this phase.
+- `main`: no merge authorized/performed by this remediation.
+- Testing, security validation, production readiness, deployment and operations remain future lifecycle gates.

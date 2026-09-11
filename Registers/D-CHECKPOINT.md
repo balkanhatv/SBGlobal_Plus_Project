@@ -1,14 +1,8 @@
-# D-CHECKPOINT — FABLE5-REM-START
-**Date:** 2026-09-11 · **Branch:** `docs/architecture-branch-2`
+# D-CHECKPOINT — DD-F5-RECERTIFIED
+**Date:** 2026-09-12
 
-Historical checkpoints remain preserved:
-- CP-REM-002 Foundation/Architecture — PASS.
-- DD-W1-COMPLETE — historical PASS.
-- DD-W2-COMPLETE — historical PASS.
-- DD-COMPLETE — historical checkpoint, reopened by Fable 5 requirements audit.
+Historical: CP-REM-002 Foundation/Architecture PASS · DD-W1-COMPLETE · DD-W2-COMPLETE · DD-COMPLETE (reopened) · FABLE5-REM-START.
 
-Current gate:
-- Remediation baseline: `0b4ae1dd0569bddee2bed82acbaf249f93702c37`.
-- **DETAILED DESIGN REMEDIATION REQUIRED**.
-- **DEVELOPMENT BLOCKED**.
-- Development readiness must be re-earned from fresh requirement-level, per-MS, isolation and adversarial evidence.
+Fresh evidence: DD-20C PASS · DD-20D PASS · DD-29 REAL_DD_GAP=0 · DD-30 REAL_GAP=0 · DD-31 9/9+9/9 YES · final isolation PASS · P0=0 · P1=0.
+
+**Current gate: DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT.**
