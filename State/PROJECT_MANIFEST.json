@@ -1,89 +1,64 @@
 {
   "project": "SBGlobal Plus",
-  "phase": "Project Foundation — SUBSTANTIVE TRUTH REVALIDATION; Architecture IN PROGRESS / PROVISIONAL",
-  "checkpoint": "PROJECT_TRUTH_AUDIT_2026-09-10",
-  "updated": "2026-09-10 (UTC)",
+  "phase": "Foundation CERTIFIED; Architecture CERTIFIED; Detailed Design NEXT",
+  "checkpoint": "CP-A1-003",
+  "updated": "2026-09-11",
   "governed_by": [
-    "MASTER_INSTRUCTION v2.5 process framework",
-    "MASTER_PROMPT v2.5 process framework",
+    "MASTER_INSTRUCTION v2.5 + 2026-09-11 targeted reconciliation",
+    "MASTER_PROMPT v2.5 + 2026-09-11 targeted reconciliation",
     "current explicit user direction",
-    "UD-TECH-01"
+    "UD-TECH-01",
+    "UD-PHASE-01",
+    "UD-SOURCE-01",
+    "UD-COMM-01"
   ],
   "foundation": {
-    "current_status": "IN PROGRESS — SUBSTANTIVE TRUTH REVALIDATION",
-    "foundation_certified": false,
-    "historical_gate": "CP-F1-005",
-    "historical_gate_effect": "preserved as prior checkpoint evidence; not current substantive certification",
-    "current_authority": [
+    "current_status": "FOUNDATION CERTIFIED — CURRENT EVIDENCE-BACKED REVALIDATION",
+    "foundation_certified": true,
+    "atomic_traceability_units": 372,
+    "unmapped_units": 0,
+    "authority": [
       "Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md",
-      "Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md"
+      "Registers/TRACEABILITY_MATRIX_UNIT.md",
+      "Registers/NO_LOSS_AUDIT.md"
     ]
   },
   "architecture": {
-    "status": "IN PROGRESS — PROVISIONAL PENDING FOUNDATION TRUTH REVALIDATION",
-    "available_documents": ["A-00", "A-01", "A-02", "A-03", "A-04", "A-05", "A-06", "A-07", "A-08", "A-09"],
-    "planned_documents_not_present": ["A-10", "A-11", "A-12"],
-    "remaining_evidence": [
-      "consolidated ADR evidence",
-      "Architecture traceability",
-      "Architecture No-Loss/depth audit",
-      "cross-document reconciliation",
-      "final Architecture gate evidence"
+    "status": "ARCHITECTURE CERTIFIED — READY FOR DETAILED DESIGN",
+    "available_documents": ["A-00","A-01","A-02","A-03","A-04","A-05","A-06","A-07","A-08","A-09","A-10","A-11","A-12"],
+    "planned_documents_not_present": [],
+    "adr_range": "ADR-001..ADR-018",
+    "evidence": [
+      "Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md",
+      "Registers/ARCHITECTURE_NO_LOSS_AUDIT.md",
+      "Registers/ARCHITECTURE_FINAL_AUDIT.md"
     ]
   },
   "technology_baseline": {
     "decision_id": "UD-TECH-01",
     "status": "ACTIVE — USER-DIRECTED",
     "stack": [
-      "Next.js 15",
-      "NestJS where a dedicated backend/service boundary is justified",
-      "TypeScript 5.x / Node.js 22+",
-      "React 19",
-      "Tailwind CSS + Shadcn UI",
-      "PostgreSQL",
-      "Payload CMS 3",
-      "Refine where internal CRUD/admin is more appropriate",
-      "React Native + Expo",
-      "Tauri 2.0 for Windows/macOS/Linux",
-      "tRPC for first-party typed APIs where appropriate",
-      "REST/OpenAPI for external interoperability",
-      "Clerk preferred identity boundary",
-      "Auth.js where Clerk is unsuitable",
-      "Webhooks",
-      "Expo Push Notifications / OneSignal",
-      "Vercel for suitable web workloads",
-      "Coolify + Dockerized VPS for self-hosted workloads"
-    ],
-    "superseded_active_assumptions": [
-      "Laravel/PHP/Filament",
-      "MySQL as primary platform database",
-      "Flutter as primary mobile stack",
-      "PM2/cPanel-centric deployment"
+      "Next.js 15","TypeScript 5.x / Node.js 22+","React 19","Tailwind CSS + Shadcn UI",
+      "PostgreSQL","Payload CMS 3","Refine where suitable",
+      "NestJS only where a dedicated backend/service boundary is architecturally justified",
+      "tRPC first-party typed APIs","REST/OpenAPI external interoperability",
+      "Clerk preferred identity boundary","Auth.js where Clerk is unsuitable",
+      "React Native + Expo","Tauri 2.0 Windows/macOS/Linux",
+      "Expo Push Notifications / OneSignal","Webhooks",
+      "Vercel suitable workloads","Coolify + Dockerized VPS self-hosted/regional workloads"
     ]
   },
   "raw_source": {
     "policy": "IMMUTABLE source/history boundary",
-    "restored_commit": "548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c",
-    "baseline": "accepted main-branch RawSourceCorpus blobs",
-    "historical_divergent_edits": "preserved in Git history only"
-  },
-  "truth_revalidation": {
-    "prior_traceability_totals": {"units": 372, "items": 2965, "unmapped": 0},
-    "prior_totals_current_certification_evidence": false,
-    "reason": "S2 evidence is grouped and references an external recovery ZIP for atomic rows; substantive destination depth requires fresh verification",
-    "required": [
-      "atomic repository-resident source-to-canonical traceability",
-      "Foundation WHAT/WHY/WHO substantive depth verification and corrections",
-      "fresh No-Loss/depth audit",
-      "independent adversarial second pass",
-      "state/register/index synchronization"
-    ]
+    "s1_blob": "a9f63a64448a347edd0f2b0c74094284ee953c1b",
+    "s2_blob": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd",
+    "historical_variants": "Git history only"
   },
   "github": {
     "repo": "yadavjalsingh192/SBGlobal_Plus_Project",
     "branch": "docs/architecture-branch-2",
-    "main_merge": "not performed — explicit approval required",
-    "backup_zip_for_this_audit": "not requested"
+    "main_merge": "not performed",
+    "backup_zip": "not created"
   },
-  "next_work": "Complete Foundation substantive truth revalidation first; then revalidate A-00…A-09 and continue A-10…A-12 plus Architecture evidence."
+  "next_work": "Detailed Design by build scope: exact schemas, endpoint/event contracts, permission matrices, UI inventories, infrastructure configuration and implementation test contracts."
 }
