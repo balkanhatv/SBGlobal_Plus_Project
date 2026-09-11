@@ -1,7 +1,7 @@
 # PROJECT_STATE — SBGlobal Plus
 - Updated: 2026-09-11.
 - Branch: `docs/architecture-branch-2`.
-- Current phase state: **Foundation CERTIFIED · Architecture CERTIFIED · Detailed Design IN PROGRESS · DD Wave 1 COMPLETE**.
+- Current phase state: **Foundation CERTIFIED · Architecture CERTIFIED · Detailed Design IN PROGRESS · DD Wave 1 COMPLETE · DD Wave 2 COMPLETE · DD Wave 3 NOT STARTED**.
 - Recertification checkpoint: **CP-REM-002** after independent targeted remediation and fresh adversarial audits.
 - Foundation authority: F-00/F-15 current amendment + 372 parent inventory + 2,962 child requirement evidence + 41-MS completeness matrix + fresh No-Loss/adversarial PASS.
 - Architecture authority: A-00…A-12 + fresh Architecture traceability + isolation attack matrix + No-Loss + final adversarial PASS.
@@ -11,4 +11,4 @@
 - RawSourceCorpus: immutable accepted S1/S2 blobs.
 - `main`: unchanged/unmerged.
 - Backup ZIP: not created.
-- Detailed Design Wave 1 completed the shared dependency spine; overall Detailed Design is not complete. Next work: DD Wave 2 (application shells, mobile/offline, desktop, AI/RAG, integrations/infrastructure/security extensions) in dependency order. Development remains scope-gated.
+- Detailed Design Waves 1 and 2 are complete. Overall Detailed Design is not complete because Wave 3 / 41 Management Systems has not started. Development of the overall platform remains not authorized.

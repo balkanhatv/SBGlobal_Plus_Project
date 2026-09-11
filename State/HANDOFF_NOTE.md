@@ -23,3 +23,7 @@ Do not modify or merge `main` without explicit approval.
 
 ## Detailed Design handoff — DD-W1-COMPLETE
 Wave 1 shared contracts are complete under `DetailedDesign/`. Resume with **Wave 2 only**, using DD-00/DD-01/DD-02/DD-03/DD-05/DD-06/DD-07/DD-08/DD-15 as mandatory upstream contracts. Do not start the 41 Management Systems simultaneously. Overall Detailed Design is still IN PROGRESS.
+
+
+## Detailed Design handoff — DD-W2-COMPLETE
+Waves 1 and 2 are complete. The reusable platform contracts are now stable enough for a separately authorized Wave 3 to design the 41 Management Systems systematically. Do **not** infer that overall Detailed Design is complete. DD-13 does not yet exist and Wave 3 has not started. Overall platform Development remains not authorized.
