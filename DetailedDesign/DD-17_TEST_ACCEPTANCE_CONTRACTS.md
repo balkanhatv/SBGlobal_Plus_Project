@@ -1,5 +1,5 @@
 # DD-17 — AUTHORITATIVE TEST & ACCEPTANCE CONTRACT OWNER
-**Wave:** 1–3 · **Status:** REMEDIATION ACTIVE — authoritative acceptance index
+**Wave:** 1–3 · **Status:** DETAILED DESIGN COMPLETE — authoritative acceptance index · DD-F5-RECERTIFIED
 **Traces:** MI §26B · F-03/F-14 · A-02/A-03/A-04/A-05/A-06/A-11 · DD-01…DD-08/DD-15
 
 These are implementation acceptance contracts, not executable test code.
