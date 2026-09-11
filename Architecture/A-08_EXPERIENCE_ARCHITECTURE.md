@@ -38,3 +38,12 @@ Expo managed workflow; Expo Router file-based navigation mirroring shell/package
 
 ## 9. Deferred to Detailed Design
 Screen inventories per surface and per suite (§26B); design-token dictionary; form-engine schema; navigation trees; offline dataset definitions per module; sync conflict matrices; accessibility test plans.
+
+## 1A. Canonical application-surface separation
+The experience architecture preserves four non-competing surfaces:
+1. **Public SaaS Website** — public marketing/docs/pricing/trust/legal; no admin identity core.
+2. **Platform Application — Web/Mobile/Desktop** — Platform Owner, Super Admin and authorized platform staff.
+3. **Tenant Management Application — Web** — tenant administration, commercial/configuration/identity management.
+4. **Reusable Industry Experiences — Web/Mobile/optional Desktop** — tenant-bound operational/customer experiences instantiated from Industry definitions.
+
+All authenticated surfaces use the same Core Identity, Tenant/Industry Context and entitlement services. Surface separation is UX/application responsibility separation, never separate identity or backend cores.
