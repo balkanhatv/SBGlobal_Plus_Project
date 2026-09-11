@@ -9,8 +9,8 @@ These are implementation acceptance contracts, not executable test code.
 |---|---|---|
 | TCTX-001 | valid tenant + active industry + valid membership | RequestContext created |
 | TCTX-002 | missing industry on TENANT_INDUSTRY operation | INDUSTRY_CONTEXT_REQUIRED |
-| TCTX-003 | Healthcare context requests Retail resource | INDUSTRY_CONTEXT_MISMATCH / non-disclosing deny |
-| TCTX-004 | tenant A credential requests tenant B resource | TENANT_INVALID/RESOURCE_NOT_FOUND without existence leak |
+| TCTX-003 | Healthcare context requests Retail resource | `INDUSTRY_CONTEXT_MISMATCH`; no resource existence detail/mutation/event |
+| TCTX-004 | tenant A credential requests tenant B resource | `RESOURCE_NOT_FOUND`; no foreign existence detail/mutation/event |
 | TCTX-005 | resource ID belongs to sibling industry | no auto-switch; deny |
 | TCTX-006 | disabled industry activation with stale client cache | deny after server re-resolution |
 | TCTX-007 | worker job missing persisted required context | reject/dead-letter; no default tenant/context |
@@ -191,6 +191,8 @@ All contracts above must be implementable without inventing tenant/industry isol
 | INF-002 | outbox/worker group fails | request-serving capacity isolated; retry/DLQ and alert |
 | INF-003 | pooled DB connection retains prior RLS context | prohibited; transaction-local context test fails release if leakage |
 | INF-004 | migration preflight finds missing RLS entry | release blocked |
+| INF-014 | dedicated-DB tenant resolves shared pool route or shared-DB tenant resolves another tenant dedicated route | `DB_ROUTE_CONTEXT_MISMATCH`; connection not acquired; no query; security audit |
+| INF-015 | pooled connection begins transaction with residue from prior Tenant/Industry context | transaction setup resets/sets transaction-local context before query; leakage assertion must be zero or release blocked |
 | INF-005 | DB failover inside allowed data home | controlled failover + verification |
 | INF-006 | cross-region failover lacks residency permission | blocked; controlled unavailability/recovery |
 | INF-007 | backup job succeeded but restore exercise fails | recoverability status fails |
