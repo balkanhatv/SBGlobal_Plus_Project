@@ -17,3 +17,10 @@
 
 ## Current position
 All targeted remediation items are resolved by substantive evidence and fresh audits. Foundation and Architecture certification are restored; Detailed Design is the next authorized phase.
+
+
+## Detailed Design Fable 5 closure — 2026-09-12
+Detailed Design final recertification is independently evidenced by DD-20C/DD-20D/DD-29/DD-30/DD-31 and the final isolation matrix.  
+Open DD P0: **0** · Open DD P1: **0** · REAL_DD_GAP: **0**.  
+Checkpoint: **DD-F5-RECERTIFIED**.  
+Development is now the next authorized phase; this register does not claim implementation or production readiness.
