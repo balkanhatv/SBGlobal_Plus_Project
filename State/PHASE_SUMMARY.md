@@ -71,3 +71,19 @@
 - Current gate: **DETAILED DESIGN REMEDIATION REQUIRED**.
 - Development: **BLOCKED**.
 - Historical certification remains preserved for audit history only.
+
+
+## Fable 5 Final Recertification — 2026-09-12
+- Final substantive design HEAD audited: `810e43c9c75e3750f52cc7e1954db8f341e6d79b`.
+- DD-20C Wave-3 adversarial audit: PASS · 41/41 MS · P0=0 · P1=0.
+- DD-20D Overall adversarial audit: PASS.
+- Final ambiguity sweep: 778 literal occurrences classified; REAL_DD_GAP=0.
+- Final named KPI coverage: 165 discovered · 165 mapped · 0 unmapped.
+- RawSource traceability: 2,962 IDs reconciled · REAL_GAP=0.
+- Explicit-user F5 traceability: 328/328 closed/verified.
+- Development determinism: 9/9 YES. QA determinism: 9/9 YES.
+- Final isolation at exact substantive HEAD: PASS, including shared/dedicated DB and pooled-connection attacks.
+- New checkpoint: **DD-F5-RECERTIFIED**.
+- **DETAILED DESIGN COMPLETE — SUPPORTED.**
+- **READY FOR DEVELOPMENT — SUPPORTED.**
+- Development itself has not yet been performed.
