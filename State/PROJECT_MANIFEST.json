@@ -99,7 +99,7 @@
   "next_work": "Wave 3 only when separately authorized. Overall Detailed Design remains NOT COMPLETE and overall Development NOT AUTHORIZED.",
   "detailed_design": {
     "status": "IN PROGRESS",
-    "current_wave": "Wave 1 COMPLETE — PASS",
+    "current_wave": "Wave 2 COMPLETE — PASS",
     "checkpoint": "DD-W2-COMPLETE",
     "starting_head": "58a8c1647117797652fefe45f9601911425b164b",
     "wave1_artifacts": [
@@ -121,7 +121,7 @@
     "open_p0": 0,
     "open_p1": 0,
     "deferred_p2": 5,
-    "next_wave": "Wave 2 NOT STARTED",
+    "next_wave": "Wave 3 NOT STARTED",
     "overall_complete": false,
     "wave1": "COMPLETE — PASS",
     "wave2": "COMPLETE — PASS",
