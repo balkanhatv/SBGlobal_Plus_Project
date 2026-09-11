@@ -85,6 +85,6 @@ Architecture registers/audit documents for the Architecture phase are not yet fu
 Actors: Platform Operator staff · Tenant admins/staff/end-customers per industry (F-02 actors) · Visitors. External systems: identity provider (Clerk), payment gateways, AI providers, email/SMS/push providers (Expo Push/OneSignal), government/industry integrations per suite (→ A-06 §5), object storage, DNS/CDN.
 
 ## 7. Traceability & Phase Boundary
-Every A-document carries a "Traces to" header and a traceability row in the Architecture traceability register once that register is created. Architecture introduces no new business scope: where an architectural completion is required, it must be labelled as a decision in A-12 (provenance `[AC]`-equivalent for the Architecture phase). Detailed Design, Development, Testing and Deployment implementation remain future phases (§26A).
+Every A-document carries a "Traces to" header and is covered by the current Architecture traceability register (`Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md`). Architecture introduces no new business scope: where an architectural completion is required, it must be labelled as a decision in A-12 (provenance `[AC]`-equivalent for the Architecture phase). Detailed Design, Development, Testing and Deployment implementation remain future phases (§26A).
 
 **Current technology governance:** `UD-TECH-01` plus the later user-directed refinement recorded in `D-DECISIONS.md` govern the current approved stack. RawSourceCorpus remains immutable historical/source corpus and is not rewritten to match it.
