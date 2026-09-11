@@ -9,7 +9,7 @@ This document set defines the high-level enterprise architecture of SBGlobal Plu
 
 Non-duplication rule (inherited from F-00 §3): each architectural fact lives in exactly one A-document; all others cross-reference it (`→ A-xx §y`). Foundation facts are referenced (`→ F-xx §y`), never restated as authority.
 
-**Repository-state rule:** the Architecture directory currently contains **A-00 through A-09**. A-10 through A-12 are planned architecture documents referenced by the target architecture map and are not yet present in this branch.
+**Repository-state rule:** the current target set is **A-00 through A-12**; A-10/A-11/A-12 are created in this reconciliation and are current Architecture evidence.
 
 ## 2. Architecture Vision
 One Unified Enterprise Core → Multiple First-Class Industries → Multiple Tenants → Configurable & Modular Management Systems → Secure Web/Mobile/Desktop Experiences → AI-Powered Business Operations.
@@ -61,7 +61,7 @@ Every request descends through L6→L5→L4 with the Tenant Context established 
 8. **Deployable through approved managed or self-hosted topologies** — Vercel for suitable web workloads and Coolify + Dockerized VPS for self-hosted workloads (→ A-10).
 
 ## 5. Architecture Document Map
-**Target architecture set:** A-00…A-12. **Current repository availability:** A-00…A-09.
+**Target/current architecture set:** **A-00…A-12**.
 
 | ID | Owns | Repository status |
 |---|---|---|
@@ -75,9 +75,9 @@ Every request descends through L6→L5→L4 with the Tenant Context established 
 | A-07 | AI: gateway, provider abstraction, RAG, agents, guardrails | PRESENT · CP-A1-002 |
 | A-08 | Experience: web (Next.js), mobile (React Native/Expo), desktop (Tauri 2.0), admin (Shadcn UI/Refine), CMS (Payload 3) | PRESENT · CP-A1-002 |
 | A-09 | Industry suites on the Unified Core; MS activation model | PRESENT · CP-A1-002 |
-| A-10 | Infrastructure, deployment topologies, scalability, resilience | PLANNED · NOT PRESENT |
-| A-11 | Observability, operations, reliability | PLANNED · NOT PRESENT |
-| A-12 | Decisions, dependencies, constraints, trade-offs | PLANNED · NOT PRESENT |
+| A-10 | Infrastructure, deployment topologies, scalability, resilience | PRESENT · REVALIDATED |
+| A-11 | Observability, operations, reliability | PRESENT · REVALIDATED |
+| A-12 | Decisions, dependencies, constraints, trade-offs | PRESENT · AUTHORITATIVE ADR REGISTER |
 
 Architecture registers/audit documents for the Architecture phase are not yet fully present and will be added with the remaining gate evidence package.
 
