@@ -168,3 +168,42 @@ Public analytics uses consent policy where required. Authenticated product analy
 
 ## 11. Acceptance
 Public ≠ Platform ≠ Tenant Management ≠ Industry Operations; context switch clears incompatible private state; no screen bypasses server guard; no Healthcare-first navigation behavior; industry domain screens remain deferred to Wave 3.
+
+
+## 12. Canonical operational host-shell ownership
+Exactly four responsibility surfaces exist:
+1. **Public SaaS Website** — public marketing/content/trust/signup.
+2. **Platform Application** — platform-operator governance/operations.
+3. **Tenant Management Application** — tenant administration/configuration/commercial/security only.
+4. **Reusable Industry Experience Shell** — the sole host responsibility for tenant-bound operational Industry packages and their Web/Mobile/Desktop experiences.
+
+The Tenant Management Application MUST NOT host operational transactions such as HLT-LIS samples/results, RTL-POS sales/refunds, EDU-EMS marks/results, MFG-PMS production/QC, GOV-PLM permit processing, NGO-DFM donation allocation or SFM-PMS patrol execution. It may configure/enable those systems and deep-link to the Industry Experience Shell after a fresh context/access resolution.
+
+`Tenant App` is not a canonical machine/responsibility name because it is ambiguous. Use `Tenant Management Application` or `Reusable Industry Experience Shell` explicitly.
+
+### Surface enforcement
+Every OperationContract declares `allowedSurfaceClasses[]`. Server RequestContext carries verified `surfaceClass`. A call from a disallowed surface returns:
+- error class: `POLICY_DENIED`
+- reasonCode: `SURFACE_OPERATION_NOT_ALLOWED`
+- domain mutation: 0
+- domain event: 0
+- audit: authorization/security denial with surfaceClass + operationId.
+
+Navigation hiding is advisory only; the server surface policy is authoritative.
+
+## 13. Platform Application channel eligibility
+Platform Application Web is the default management channel. Mobile/Desktop activation is governed by `PlatformChannelEligibilityPolicy`.
+
+A capability may be enabled on **Platform Mobile** only when all are true:
+- real platform operational mobility need (on-call approval, incident/support response, field/platform operations);
+- no requirement for unsupported high-risk secret/material handling;
+- equivalent DD-03/DD-16 authentication, device and audit controls exist;
+- Product Owner and Security Owner approve the capability manifest version.
+
+A capability may be enabled on **Platform Desktop** only when all are true:
+- native device/file/peripheral or controlled workstation capability is materially required, or long-running operator workflow benefits from managed desktop;
+- DD-12 native allowlist and signed-update controls cover it;
+- Product Owner and Security Owner approve the capability manifest version.
+
+Channel enablement fields: `capabilityId, channel, businessJustification, riskClass, requiredNativeCapabilities[], securityControlProfile, approvedByProduct, approvedBySecurity, effectiveFrom, version, status`.
+Unsupported channels are absent/disabled and server operations still enforce `allowedSurfaceClasses` and channel policy.

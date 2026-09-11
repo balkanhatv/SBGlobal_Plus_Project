@@ -129,7 +129,7 @@ All contracts above must be implementable without inventing tenant/industry isol
 | APP-004 | disabled module remains in stale navigation cache | server operation denies; navigation invalidates on version change |
 | APP-005 | entitlement removed during active session | next protected operation RESTRICT/DENY/UPGRADE_CTA as policy |
 | APP-006 | public form sends private tenant selector | ignored/rejected; public flow cannot acquire tenant authority |
-| APP-007 | Tenant Management tries operational POS/LIS/exam command | design/route ownership review fails |
+| APP-007 | Tenant Management Application has valid tenant admin session but attempts an operational RTL-POS / HLT-LIS / EDU-EMS mutation whose OperationContract allows only INDUSTRY_EXPERIENCE | server returns `POLICY_DENIED` with `reasonCode=SURFACE_OPERATION_NOT_ALLOWED`; domain mutation=0; event=0; authorization audit records surfaceClass/operationId |
 | APP-008 | accessibility keyboard-only navigation | all core shell actions reachable/focus visible |
 
 ## 12. Wave-2 Mobile / offline
