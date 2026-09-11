@@ -5,7 +5,7 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 
 **Generation/review rule:** child statements are extracted from repository-resident immutable S1/S2 list/table/requirement lines. Parent owner/section metadata is inherited only as an initial destination. If that destination is broad, missing, or not yet substantively checked, the child remains `GAP`. `DEFERRED` and `SUPERSEDED` are explicit phase/decision dispositions, not losses.
 
-**Current counts:** parent units=372; multi-requirement parents=257; child evidence rows=2962; VERIFIED=2239; GAP=330; DEFERRED=393; SUPERSEDED=0.
+**Current counts:** parent units=372; child evidence rows=2962; VERIFIED=2538; GAP=17; DEFERRED=396; SUPERSEDED=11.
 
 | Requirement ID | Parent source unit | Source-faithful requirement | Provenance | Scope | Canonical owner | Canonical section | Disposition | Decision reference | Verification |
 |---|---|---|---|---|---|---|---|---|---|
@@ -62,35 +62,35 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S1-U017-R002 | S1-U017 | Responsible disclosure / bug bounty policy | SD | Platform-wide | F-03 | §5 | Foundation | — | VERIFIED |
 | S1-U017-R003 | S1-U017 | Formal Security Incident Response Plan | SD | Platform-wide | F-03 | §5 | Foundation | — | VERIFIED |
 | S1-U017-R004 | S1-U017 | Breach notification SLA (aligned with regulatory timelines under §6.4) | SD | Platform-wide | F-03 | §5 | Foundation | — | VERIFIED |
-| S1-U018-R001 | S1-U018 | Per-tenant / per-region data storage selection where architecture permits | SD | Platform-wide | F-11 | whole | Foundation | DR-01 | GAP |
-| S1-U018-R002 | S1-U018 | Documented data-flow map for cross-border transfers | SD | Platform-wide | F-11 | whole | Foundation | DR-01 | GAP |
-| S1-U021-R001 | S1-U021 | Each Vertical Industry Suite shall define a focused set of **Enterprise-Critical Management Systems** that collectively establish the industry's operational foundation and represent the minimum complete enterprise operational capability required for that industry. | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R002 | S1-U021 | As an architectural governance principle, each Industry Suite shall normally consist of **2–8 foundational Management Systems**. A Management System represents a major operational domain of the industry rather than an individual feature or module. This range serves as a governance guideline to encourage architectural simplicity while ensuring complete enterprise coverage. | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R003 | S1-U021 | Illustrative examples include (but are not limited to): | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R004 | S1-U021 | Vertical Industry Suite — Typical Foundational Management Systems | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R005 | S1-U021 | **Healthcare** — Hospital Management System (HMS), Laboratory Information System (LIS/Pathology), Radiology Information System (RIS), Pharmacy Management System, Clinic Management System | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R006 | S1-U021 | **Education** — School Management System (SMS), College & University Management System, Coaching & Training Management System, Learning Management System (LMS), Examination Management System | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R007 | S1-U021 | **eCommerce & Retail** — Retail Store Management System, Point of Sale (POS) Management System, Inventory & Warehouse Management System, Order Management System (OMS), Marketplace Management System | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R008 | S1-U021 | **Manufacturing** — Production Management System, Inventory & Warehouse Management System, Quality Management System (QMS), Procurement Management System, Maintenance Management System | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R009 | S1-U021 | **Hospitality** — Hotel Management System, Restaurant Management System, Banquet & Event Management System, Reservation & Booking Management System | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R010 | S1-U021 | **NGO / Temple / Trust** — Donor Management System, Donation & Fund Management System, Temple Administration Management System, Membership & Volunteer Management System | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R011 | S1-U021 | **Security & Facility Management** — Security Guard Management System, Patrol Management System, Visitor Management System, Facility Maintenance Management System | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R012 | S1-U021 | **Professional Services** — CRM Management System, Project Management System, Service Delivery Management System, Resource & Timesheet Management System, PG/VG Studio Management System (PG-Photography VG-Videography) | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R013 | S1-U021 | **Government & Public Sector** — Citizen Service Management System, Case & File Management System, Permit & License Management System, Revenue & Tax Management System | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R014 | S1-U021 | The foundational Management Systems shall be selected based on: | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R015 | S1-U021 | Business criticality | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R016 | S1-U021 | Daily operational usage | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R017 | S1-U021 | Enterprise-wide applicability | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R018 | S1-U021 | Functional dependency | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R019 | S1-U021 | Strategic business value | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R020 | S1-U021 | Regulatory and compliance requirements | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R021 | S1-U021 | Long-term architectural sustainability | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R022 | S1-U021 | Their ability to collectively represent the complete operational foundation of the industry | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R023 | S1-U021 | The foundational Management Systems shall maintain a strict separation between **Core Platform capabilities** and **Industry-Specific functionality**. | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R024 | S1-U021 | Any capability that is reusable across multiple industries—including Identity & Access Management, Workflow Engine, Notifications, Document Management, Reporting, AI Services, Audit, Configuration, Metadata, APIs, Integration, Automation, Analytics, Billing, and other shared services—shall reside within the **Core Platform** and be consumed by Industry Suites through configuration, metadata, APIs, events, plugins, workflows, or other shared platform capabilities rather than being reimplemented. | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R025 | S1-U021 | Any additional industry capabilities beyond the foundational Management Systems shall be implemented as **optional, modular, configurable, extensible, or plugin-based Management Systems** within the respective Industry Suite without affecting the Core Platform Architecture. | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R026 | S1-U021 | Where exceptional business, regulatory, or operational requirements justify additional foundational Management Systems beyond the recommended governance range, such exceptions shall require formal approval through the Enterprise Architecture Governance process, supported by documented business justification, architectural impact assessment, dependency analysis, and long-term maintainability evaluation. | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
-| S1-U021-R027 | S1-U021 | Each foundational Management System shall itself be designed as a complete enterprise-grade business domain, containing all required modules, workflows, business rules, master data, transactional processes, reporting, analytics, integrations, AI capabilities, security, compliance, and lifecycle management necessary to operate independently as a mature Enterprise Management System, while remaining fully integrated with the SBGlobal Plus Core Platform. | SD | Platform-wide | F-07…F-09/F-12/F-13 | MS sections | Foundation | — | GAP |
+| S1-U018-R001 | S1-U018 | Per-tenant / per-region data storage selection where architecture permits | SD | Platform-wide | F-11 | §1–§7 Tenant Data Residency Model | Foundation | DR-01 | VERIFIED |
+| S1-U018-R002 | S1-U018 | Documented data-flow map for cross-border transfers | SD | Platform-wide | F-11 | §1–§7 Tenant Data Residency Model | Foundation | DR-01 | VERIFIED |
+| S1-U021-R001 | S1-U021 | Each Vertical Industry Suite shall define a focused set of **Enterprise-Critical Management Systems** that collectively establish the industry's operational foundation and represent the minimum complete enterprise operational capability required for that industry. | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R002 | S1-U021 | As an architectural governance principle, each Industry Suite shall normally consist of **2–8 foundational Management Systems**. A Management System represents a major operational domain of the industry rather than an individual feature or module. This range serves as a governance guideline to encourage architectural simplicity while ensuring complete enterprise coverage. | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R003 | S1-U021 | Illustrative examples include (but are not limited to): | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R004 | S1-U021 | Vertical Industry Suite — Typical Foundational Management Systems | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R005 | S1-U021 | **Healthcare** — Hospital Management System (HMS), Laboratory Information System (LIS/Pathology), Radiology Information System (RIS), Pharmacy Management System, Clinic Management System | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R006 | S1-U021 | **Education** — School Management System (SMS), College & University Management System, Coaching & Training Management System, Learning Management System (LMS), Examination Management System | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R007 | S1-U021 | **eCommerce & Retail** — Retail Store Management System, Point of Sale (POS) Management System, Inventory & Warehouse Management System, Order Management System (OMS), Marketplace Management System | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R008 | S1-U021 | **Manufacturing** — Production Management System, Inventory & Warehouse Management System, Quality Management System (QMS), Procurement Management System, Maintenance Management System | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R009 | S1-U021 | **Hospitality** — Hotel Management System, Restaurant Management System, Banquet & Event Management System, Reservation & Booking Management System | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R010 | S1-U021 | **NGO / Temple / Trust** — Donor Management System, Donation & Fund Management System, Temple Administration Management System, Membership & Volunteer Management System | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R011 | S1-U021 | **Security & Facility Management** — Security Guard Management System, Patrol Management System, Visitor Management System, Facility Maintenance Management System | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R012 | S1-U021 | **Professional Services** — CRM Management System, Project Management System, Service Delivery Management System, Resource & Timesheet Management System, PG/VG Studio Management System (PG-Photography VG-Videography) | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R013 | S1-U021 | **Government & Public Sector** — Citizen Service Management System, Case & File Management System, Permit & License Management System, Revenue & Tax Management System | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R014 | S1-U021 | The foundational Management Systems shall be selected based on: | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R015 | S1-U021 | Business criticality | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R016 | S1-U021 | Daily operational usage | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R017 | S1-U021 | Enterprise-wide applicability | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R018 | S1-U021 | Functional dependency | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R019 | S1-U021 | Strategic business value | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R020 | S1-U021 | Regulatory and compliance requirements | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R021 | S1-U021 | Long-term architectural sustainability | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R022 | S1-U021 | Their ability to collectively represent the complete operational foundation of the industry | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R023 | S1-U021 | The foundational Management Systems shall maintain a strict separation between **Core Platform capabilities** and **Industry-Specific functionality**. | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R024 | S1-U021 | Any capability that is reusable across multiple industries—including Identity & Access Management, Workflow Engine, Notifications, Document Management, Reporting, AI Services, Audit, Configuration, Metadata, APIs, Integration, Automation, Analytics, Billing, and other shared services—shall reside within the **Core Platform** and be consumed by Industry Suites through configuration, metadata, APIs, events, plugins, workflows, or other shared platform capabilities rather than being reimplemented. | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R025 | S1-U021 | Any additional industry capabilities beyond the foundational Management Systems shall be implemented as **optional, modular, configurable, extensible, or plugin-based Management Systems** within the respective Industry Suite without affecting the Core Platform Architecture. | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R026 | S1-U021 | Where exceptional business, regulatory, or operational requirements justify additional foundational Management Systems beyond the recommended governance range, such exceptions shall require formal approval through the Enterprise Architecture Governance process, supported by documented business justification, architectural impact assessment, dependency analysis, and long-term maintainability evaluation. | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
+| S1-U021-R027 | S1-U021 | Each foundational Management System shall itself be designed as a complete enterprise-grade business domain, containing all required modules, workflows, business rules, master data, transactional processes, reporting, analytics, integrations, AI capabilities, security, compliance, and lifecycle management necessary to operate independently as a mature Enterprise Management System, while remaining fully integrated with the SBGlobal Plus Core Platform. | SD | Platform-wide | F-07/F-08/F-09/F-13 | F-07 §1.3/§2.2/§3.2; F-08 §1.2/§2.2/§3.2; F-09 §1.2/§2.2/§3.2; F-13 §1–§4 | Foundation | — | VERIFIED |
 | S1-U026-R001 | S1-U026 | SBGlobal Plus logo appears | SD | Platform-wide | F-06 | §2 | Foundation | — | VERIFIED |
 | S1-U026-R002 | S1-U026 | Digital core particle animation | SD | Platform-wide | F-06 | §2 | Foundation | — | VERIFIED |
 | S1-U026-R003 | S1-U026 | AI network / data-flow animation | SD | Platform-wide | F-06 | §2 | Foundation | — | VERIFIED |
@@ -121,228 +121,228 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S1-U037-R023 | S1-U037 | PII — Personally Identifiable Information | SD | Platform-wide | RawSourceCorpus | Glossary | SOURCE HISTORY | — | VERIFIED |
 | S1-U037-R024 | S1-U037 | CMS — Content Management System | SD | Platform-wide | RawSourceCorpus | Glossary | SOURCE HISTORY | — | VERIFIED |
 | S1-U037-R025 | S1-U037 | CI/CD — Continuous Integration / Continuous Deployment | SD | Platform-wide | RawSourceCorpus | Glossary | SOURCE HISTORY | — | VERIFIED |
-| S2.1-U003-R001 | S2.1-U003 | Development shall always follow this order: | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U003-R002 | S2.1-U003 | User Explicit Instructions (Current Task) | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U003-R003 | S2.1-U003 | SBGlobal Plus Master Development Instruction | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U003-R004 | S2.1-U003 | SBGlobal Plus Production Product Specification / Business Requirement | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U003-R005 | S2.1-U003 | Engineering Standards | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U003-R006 | S2.1-U003 | Approved Phase Specifications | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U003-R007 | S2.1-U003 | Higher-priority documents always override lower-priority documents. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U013-R001 | S2.1-U013 | When development resumes in a new conversation or after context loss, AI shall verify: | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U013-R002 | S2.1-U013 | Actual Source Code is authoritative. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U013-R003 | S2.1-U013 | Update documentation to match. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U013-R004 | S2.1-U013 | Continue from the verified implementation. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U013-R005 | S2.1-U013 | Completed work shall never be recreated unnecessarily. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U017-R001 | S2.1-U017 | The default deployment method shall remain simple and suitable for cPanel, shared hosting and single-server VPS deployments. | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R002 | S2.1-U017 | Project Download / Build | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R003 | S2.1-U017 | Upload Project to Server | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R004 | S2.1-U017 | Create Database | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R005 | S2.1-U017 | Import Database (or Fresh Install) | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R006 | S2.1-U017 | Configure .env | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R007 | S2.1-U017 | Enter Database Credentials | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R008 | S2.1-U017 | Run Migration / Seeder (if required) | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R009 | S2.1-U017 | Create Storage Link | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R010 | S2.1-U017 | Clear & Optimize Cache | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R011 | S2.1-U017 | Project Website Live | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R012 | S2.1-U017 | shall remain OPTIONAL and shall never become mandatory for standard deployment. | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U017-R013 | S2.1-U017 | The platform shall remain fully functional without implementing these optional enterprise features. | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R001 | S2.1-U032 | The following repositories are approved as architecture, workflow and best-practice references only. | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R002 | S2.1-U032 | AI shall NEVER: | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R003 | S2.1-U032 | AI shall use these references only for inspiration on architecture, workflow, feature ideas and best practices. All project code shall remain freshly written and original. | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R004 | S2.1-U032 | Purpose — Repository — Use For | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R005 | S2.1-U032 | Laboratory Information System — OpenELIS Global — https://github.com/DIGI-UW/OpenELIS-Global-2 — Patient workflow, sample lifecycle, laboratory workflow, result management, reporting concepts | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R006 | S2.1-U032 | Multi-Tenant Architecture — https://github.com/michaelnabil230/laravel-multi-tenancy — Tenant isolation, multiple labs, secure data separation | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R007 | S2.1-U032 | Admin Dashboard — Filament — https://github.com/filamentphp/filament — Super Admin, Lab Admin, CRUD, analytics, settings | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R008 | S2.1-U032 | SaaS Foundation — https://github.com/mohammedelkarsh/laravel-tenant-kit — SaaS foundation patterns | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R009 | S2.1-U032 | PDF Generation — https://github.com/barryvdh/laravel-dompdf — PDF report generation | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R010 | S2.1-U032 | QR Codes — https://github.com/SimpleSoftwareIO/simple-qrcode — QR generation and verification | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U032-R011 | S2.1-U032 | Inventory — https://github.com/akaunting/akaunting — Inventory and accounting concepts | SD + UD supersession | Platform-wide | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | SOURCE TECH HISTORY → active override | UD-TECH-01 | GAP |
-| S2.1-U033-R001 | S2.1-U033 | Development shall proceed through the following phases in order. Each phase shall follow the Completion Policy (Section 16) before the next phase begins, unless the user has explicitly instructed continuous/autonomous progress through multiple phases. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R002 | S2.1-U033 | Project Foundation | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R003 | S2.1-U033 | Database Architecture | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R004 | S2.1-U033 | Authentication | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R005 | S2.1-U033 | Super Admin Dashboard | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R006 | S2.1-U033 | SaaS Website CMS | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R007 | S2.1-U033 | Multi Tenant | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R008 | S2.1-U033 | 🆕 Tenant Web Portal – Core Modules | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R009 | S2.1-U033 | 🆕 Tenant Web Portal – Customer/User Modules | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R010 | S2.1-U033 | 🆕 Tenant Web Portal – Staff Modules | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R011 | S2.1-U033 | LIS Core | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R012 | S2.1-U033 | Reports + PDF + QR | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R013 | S2.1-U033 | Billing | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R014 | S2.1-U033 | Inventory | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R015 | S2.1-U033 | Communication | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R016 | S2.1-U033 | AI Core | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R017 | S2.1-U033 | AI Advanced | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R018 | S2.1-U033 | Enterprise & Integration (Branch/Department/Appointment Management, Enterprise Integration, API & Interoperability, Analytics, Localization, Document Management — per the Business Requirement) | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R019 | S2.1-U033 | Security | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R020 | S2.1-U033 | Performance | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R021 | S2.1-U033 | Testing | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R022 | S2.1-U033 | Final Production Release | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.1-U033-R023 | S2.1-U033 | > This Section 20 sequence is authoritative for phase order and phase gating. Thematic construction checklists and expected deliverable volumes supporting these phases (e.g., expected table counts, master data counts, dropdown values, settings pages, permission counts) are maintained in `SBGlobal_Plus_Enterprise_Development_Roadmap.md`. Where that document's thematic groupings (its own "Phase 01–14" labels) differ in numbering from the sequence above, this Section 20 remains authoritative for sequencing; the Roadmap document is authoritative only for volume/deliverable targets. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | Governance / later phase as applicable | — | GAP |
-| S2.2-U040-R001 | S2.2-U040 | 🆕 Healthcare & Diagnostics is the platform's flagship Industry Vertical Suite: the platform shall provide an end-to-end ecosystem for pathology laboratories, diagnostic centers, hospitals, clinics, healthcare organizations, patients, doctors, and enterprise integrations. 🆕 See Section 4 for the full list of supported Industry Vertical Suites. | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R002 | S2.2-U040 | The platform shall be: | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R003 | S2.2-U040 | AI Powered | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R004 | S2.2-U040 | Multi-Tenant | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R005 | S2.2-U040 | 🆕 Multi-Industry Ready | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R006 | S2.2-U040 | Modular | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R007 | S2.2-U040 | Scalable | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R008 | S2.2-U040 | Secure | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R009 | S2.2-U040 | Enterprise Ready | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R010 | S2.2-U040 | Cloud Ready | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R011 | S2.2-U040 | API First | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R012 | S2.2-U040 | Mobile First | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R013 | S2.2-U040 | Configuration Driven | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R014 | S2.2-U040 | Database Driven | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R015 | S2.2-U040 | Production Ready | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U040-R016 | S2.2-U040 | No module shall require source code modification for routine business operations wherever reasonably possible. | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R001 | S2.2-U041 | 🆕 Core Platform Objectives — the platform shall enable: | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R002 | S2.2-U041 | SaaS Business Management | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R003 | S2.2-U041 | Multi-Tenant SaaS | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R004 | S2.2-U041 | Enterprise APIs | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R005 | S2.2-U041 | AI Assisted Operations | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R006 | S2.2-U041 | Mobile Applications | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R007 | S2.2-U041 | 🆕 Multi-Industry Vertical Enablement | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R008 | S2.2-U041 | 🆕 Healthcare & Diagnostics Vertical Objectives — the platform shall enable: | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R009 | S2.2-U041 | Laboratory Information System (LIS) | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R010 | S2.2-U041 | Laboratory Management System (LMS) | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R011 | S2.2-U041 | Enterprise Laboratory Operations | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R012 | S2.2-U041 | Hospital Integration | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R013 | S2.2-U041 | Clinic Integration | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R014 | S2.2-U041 | Doctor Collaboration | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R015 | S2.2-U041 | Patient Self-Service | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R016 | S2.2-U041 | Corporate Healthcare Management | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U041-R017 | S2.2-U041 | Digital Healthcare Services | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R001 | S2.2-U042 | The platform shall be: | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R002 | S2.2-U042 | Configuration Driven | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R003 | S2.2-U042 | Database Driven | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R004 | S2.2-U042 | Tenant Isolated | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R005 | S2.2-U042 | API First | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R006 | S2.2-U042 | Mobile Ready | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R007 | S2.2-U042 | AI Ready | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R008 | S2.2-U042 | Enterprise Ready | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R009 | S2.2-U042 | Integration Ready | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R010 | S2.2-U042 | Secure by Design | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R011 | S2.2-U042 | Performance Optimized | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U042-R012 | S2.2-U042 | Commercial SaaS Ready | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R001 | S2.2-U043 | 🆕 The platform shall support the following Industry Vertical Suites (not limited to): | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R002 | S2.2-U043 | 🆕 Healthcare & Diagnostics | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R003 | S2.2-U043 | 🆕 Education | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R004 | S2.2-U043 | 🆕 Retail & Commerce | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R005 | S2.2-U043 | 🆕 Hospitality | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R006 | S2.2-U043 | 🆕 Manufacturing | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R007 | S2.2-U043 | 🆕 Professional Services | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R008 | S2.2-U043 | 🆕 Government | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R009 | S2.2-U043 | 🆕 NGO | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R010 | S2.2-U043 | 🆕 Future Vertical Suites | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R011 | S2.2-U043 | The platform shall support: | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R012 | S2.2-U043 | Pathology Laboratories | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R013 | S2.2-U043 | Diagnostic Centers | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R014 | S2.2-U043 | Multi-Speciality Laboratories | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R015 | S2.2-U043 | Hospital Laboratories | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R016 | S2.2-U043 | Independent Laboratories | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R017 | S2.2-U043 | Collection Centers | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R018 | S2.2-U043 | Imaging Centers | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R019 | S2.2-U043 | Radiology Centers | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R020 | S2.2-U043 | Blood Banks | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R021 | S2.2-U043 | Clinics | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R022 | S2.2-U043 | Hospitals | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R023 | S2.2-U043 | Corporate Healthcare Networks | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R024 | S2.2-U043 | Medical Colleges | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R025 | S2.2-U043 | Government Healthcare Programs | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R026 | S2.2-U043 | Insurance Providers | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U043-R027 | S2.2-U043 | Third-party Healthcare Platforms | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R001 | S2.2-U045 | The platform shall support: | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R002 | S2.2-U045 | Super Admin | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R003 | S2.2-U045 | Tenant Owner | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R004 | S2.2-U045 | Lab Admin | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R005 | S2.2-U045 | Branch Manager | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R006 | S2.2-U045 | Department Manager | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R007 | S2.2-U045 | Pathologist | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R008 | S2.2-U045 | Doctor | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R009 | S2.2-U045 | Technician | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R010 | S2.2-U045 | Receptionist | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R011 | S2.2-U045 | Collection Staff | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R012 | S2.2-U045 | Phlebotomist | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R013 | S2.2-U045 | Billing Executive | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R014 | S2.2-U045 | Accountant | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R015 | S2.2-U045 | Inventory Manager | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R016 | S2.2-U045 | Store Manager | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R017 | S2.2-U045 | Corporate User | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R018 | S2.2-U045 | Insurance User | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R019 | S2.2-U045 | Referral Doctor | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R020 | S2.2-U045 | Patient | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R021 | S2.2-U045 | API Client | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R022 | S2.2-U045 | Mobile Application Users | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U045-R023 | S2.2-U045 | > This is the authoritative, complete, platform-wide User Types list. Enterprise Default Standards — User Roles defines only the smaller subset of roles pre-seeded by default at installation, and cross-references this section instead of repeating the full list. | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R001 | S2.2-U046 | Each tenant shall receive: | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R002 | S2.2-U046 | Complete Data Isolation | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R003 | S2.2-U046 | Independent Users | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R004 | S2.2-U046 | Independent Branches | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R005 | S2.2-U046 | Independent Staff | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R006 | S2.2-U046 | Independent Patients | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R007 | S2.2-U046 | Independent Doctors | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R008 | S2.2-U046 | Independent Inventory | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R009 | S2.2-U046 | Independent Billing | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R010 | S2.2-U046 | Independent Reports | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R011 | S2.2-U046 | Independent Website | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R012 | S2.2-U046 | Independent Mobile Configuration | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R013 | S2.2-U046 | Independent Branding | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R014 | S2.2-U046 | Independent API Access | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R015 | S2.2-U046 | Independent AI Usage | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R016 | S2.2-U046 | Independent Storage | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R017 | S2.2-U046 | Independent Configuration | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R018 | S2.2-U046 | 🆕 Configurable Data Residency / Region Selection | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U046-R019 | S2.2-U046 | Cross-tenant data access shall never be permitted. | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U047-R001 | S2.2-U047 | The platform shall be fully configuration driven. | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U047-R002 | S2.2-U047 | Any configurable business feature shall be manageable through the Admin Panel without modifying source code. | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U047-R003 | S2.2-U047 | Only the following require developer intervention: | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U047-R004 | S2.2-U047 | Framework Changes | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U047-R005 | S2.2-U047 | Database Schema Changes | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U047-R006 | S2.2-U047 | Core Architecture | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U047-R007 | S2.2-U047 | Security Enhancements | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U047-R008 | S2.2-U047 | Performance Optimizations | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U047-R009 | S2.2-U047 | Unsupported Integrations | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U047-R010 | S2.2-U047 | New Features | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R001 | S2.2-U048 | Super Admin shall dynamically manage: | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R002 | S2.2-U048 | Branding | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R003 | S2.2-U048 | Themes | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R004 | S2.2-U048 | UI | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R005 | S2.2-U048 | Menus | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R006 | S2.2-U048 | Navigation | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R007 | S2.2-U048 | Dashboards | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R008 | S2.2-U048 | Widgets | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R009 | S2.2-U048 | Forms | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R010 | S2.2-U048 | Validation Rules | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R011 | S2.2-U048 | Workflows | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R012 | S2.2-U048 | Report Templates | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R013 | S2.2-U048 | Invoice Templates | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R014 | S2.2-U048 | Print Templates | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R015 | S2.2-U048 | QR Templates | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R016 | S2.2-U048 | PDF Templates | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R017 | S2.2-U048 | Email Templates | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R018 | S2.2-U048 | SMS Templates | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R019 | S2.2-U048 | WhatsApp Templates | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R020 | S2.2-U048 | Notification Templates | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R021 | S2.2-U048 | Mobile Configuration | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R022 | S2.2-U048 | Mobile Branding | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R023 | S2.2-U048 | APIs | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R024 | S2.2-U048 | Integrations | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R025 | S2.2-U048 | Feature Flags | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R026 | S2.2-U048 | Subscription Plans | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R027 | S2.2-U048 | Trial Plans | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R028 | S2.2-U048 | Roles | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R029 | S2.2-U048 | Permissions | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R030 | S2.2-U048 | Master Data | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R031 | S2.2-U048 | Lookup Values | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R032 | S2.2-U048 | Custom Fields | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R033 | S2.2-U048 | Dynamic Fields | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R034 | S2.2-U048 | Communication Providers | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R035 | S2.2-U048 | Payment Providers | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R036 | S2.2-U048 | Storage Providers | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R037 | S2.2-U048 | AI Providers | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R038 | S2.2-U048 | Enterprise Configuration | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
-| S2.2-U048-R039 | S2.2-U048 | All configuration shall be stored in the database wherever reasonably possible. | SD | Platform-wide | F-01/F-02 | §1–§6 / workflows | Foundation | — | GAP |
+| S2.1-U003-R001 | S2.1-U003 | Development shall always follow this order: | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §2 Governing Documents Priority | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U003-R002 | S2.1-U003 | User Explicit Instructions (Current Task) | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §2 Governing Documents Priority | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U003-R003 | S2.1-U003 | SBGlobal Plus Master Development Instruction | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §2 Governing Documents Priority | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U003-R004 | S2.1-U003 | SBGlobal Plus Production Product Specification / Business Requirement | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §2 Governing Documents Priority | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U003-R005 | S2.1-U003 | Engineering Standards | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §2 Governing Documents Priority | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U003-R006 | S2.1-U003 | Approved Phase Specifications | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §2 Governing Documents Priority | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U003-R007 | S2.1-U003 | Higher-priority documents always override lower-priority documents. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §2 Governing Documents Priority | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U013-R001 | S2.1-U013 | When development resumes in a new conversation or after context loss, AI shall verify: | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §8 Continuity Policy / New Chat & Context Loss | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U013-R002 | S2.1-U013 | Actual Source Code is authoritative. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §8 Continuity Policy / New Chat & Context Loss | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U013-R003 | S2.1-U013 | Update documentation to match. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §8 Continuity Policy / New Chat & Context Loss | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U013-R004 | S2.1-U013 | Continue from the verified implementation. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §8 Continuity Policy / New Chat & Context Loss | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U013-R005 | S2.1-U013 | Completed work shall never be recreated unnecessarily. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §8 Continuity Policy / New Chat & Context Loss | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U017-R001 | S2.1-U017 | The default deployment method shall remain simple and suitable for cPanel, shared hosting and single-server VPS deployments. | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R002 | S2.1-U017 | Project Download / Build | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R003 | S2.1-U017 | Upload Project to Server | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R004 | S2.1-U017 | Create Database | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R005 | S2.1-U017 | Import Database (or Fresh Install) | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R006 | S2.1-U017 | Configure .env | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R007 | S2.1-U017 | Enter Database Credentials | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R008 | S2.1-U017 | Run Migration / Seeder (if required) | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R009 | S2.1-U017 | Create Storage Link | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R010 | S2.1-U017 | Clear & Optimize Cache | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R011 | S2.1-U017 | Project Website Live | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R012 | S2.1-U017 | shall remain OPTIONAL and shall never become mandatory for standard deployment. | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U017-R013 | S2.1-U017 | The platform shall remain fully functional without implementing these optional enterprise features. | SD + UD supersession | Platform-wide | F-01/A-10 | F-01 §8 active technology/deployment qualification; A-10 §1/§11 portability | SOURCE TECH HISTORY → active override | UD-TECH-01 | VERIFIED |
+| S2.1-U032-R001 | S2.1-U032 | The following repositories are approved as architecture, workflow and best-practice references only. | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U032-R002 | S2.1-U032 | AI shall NEVER: | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U032-R003 | S2.1-U032 | AI shall use these references only for inspiration on architecture, workflow, feature ideas and best practices. All project code shall remain freshly written and original. | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U032-R004 | S2.1-U032 | Purpose — Repository — Use For | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U032-R005 | S2.1-U032 | Laboratory Information System — OpenELIS Global — https://github.com/DIGI-UW/OpenELIS-Global-2 — Patient workflow, sample lifecycle, laboratory workflow, result management, reporting concepts | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U032-R006 | S2.1-U032 | Multi-Tenant Architecture — https://github.com/michaelnabil230/laravel-multi-tenancy — Tenant isolation, multiple labs, secure data separation | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U032-R007 | S2.1-U032 | Admin Dashboard — Filament — https://github.com/filamentphp/filament — Super Admin, Lab Admin, CRUD, analytics, settings | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U032-R008 | S2.1-U032 | SaaS Foundation — https://github.com/mohammedelkarsh/laravel-tenant-kit — SaaS foundation patterns | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U032-R009 | S2.1-U032 | PDF Generation — https://github.com/barryvdh/laravel-dompdf — PDF report generation | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U032-R010 | S2.1-U032 | QR Codes — https://github.com/SimpleSoftwareIO/simple-qrcode — QR generation and verification | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U032-R011 | S2.1-U032 | Inventory — https://github.com/akaunting/akaunting — Inventory and accounting concepts | SD + UD supersession | Platform-wide | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | SOURCE TECH HISTORY → active override | UD-TECH-01 | SUPERSEDED |
+| S2.1-U033-R001 | S2.1-U033 | Development shall proceed through the following phases in order. Each phase shall follow the Completion Policy (Section 16) before the next phase begins, unless the user has explicitly instructed continuous/autonomous progress through multiple phases. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R002 | S2.1-U033 | Project Foundation | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R003 | S2.1-U033 | Database Architecture | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R004 | S2.1-U033 | Authentication | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R005 | S2.1-U033 | Super Admin Dashboard | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R006 | S2.1-U033 | SaaS Website CMS | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R007 | S2.1-U033 | Multi Tenant | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R008 | S2.1-U033 | 🆕 Tenant Web Portal – Core Modules | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R009 | S2.1-U033 | 🆕 Tenant Web Portal – Customer/User Modules | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R010 | S2.1-U033 | 🆕 Tenant Web Portal – Staff Modules | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R011 | S2.1-U033 | LIS Core | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R012 | S2.1-U033 | Reports + PDF + QR | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R013 | S2.1-U033 | Billing | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R014 | S2.1-U033 | Inventory | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R015 | S2.1-U033 | Communication | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R016 | S2.1-U033 | AI Core | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R017 | S2.1-U033 | AI Advanced | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R018 | S2.1-U033 | Enterprise & Integration (Branch/Department/Appointment Management, Enterprise Integration, API & Interoperability, Analytics, Localization, Document Management — per the Business Requirement) | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R019 | S2.1-U033 | Security | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R020 | S2.1-U033 | Performance | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R021 | S2.1-U033 | Testing | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R022 | S2.1-U033 | Final Production Release | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.1-U033-R023 | S2.1-U033 | > This Section 20 sequence is authoritative for phase order and phase gating. Thematic construction checklists and expected deliverable volumes supporting these phases (e.g., expected table counts, master data counts, dropdown values, settings pages, permission counts) are maintained in `SBGlobal_Plus_Enterprise_Development_Roadmap.md`. Where that document's thematic groupings (its own "Phase 01–14" labels) differ in numbering from the sequence above, this Section 20 remains authoritative for sequencing; the Roadmap document is authoritative only for volume/deliverable targets. | SD | Platform-wide | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | Governance / later phase as applicable | — | VERIFIED |
+| S2.2-U040-R001 | S2.2-U040 | 🆕 Healthcare & Diagnostics is the platform's flagship Industry Vertical Suite: the platform shall provide an end-to-end ecosystem for pathology laboratories, diagnostic centers, hospitals, clinics, healthcare organizations, patients, doctors, and enterprise integrations. 🆕 See Section 4 for the full list of supported Industry Vertical Suites. | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R002 | S2.2-U040 | The platform shall be: | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R003 | S2.2-U040 | AI Powered | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R004 | S2.2-U040 | Multi-Tenant | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R005 | S2.2-U040 | 🆕 Multi-Industry Ready | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R006 | S2.2-U040 | Modular | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R007 | S2.2-U040 | Scalable | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R008 | S2.2-U040 | Secure | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R009 | S2.2-U040 | Enterprise Ready | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R010 | S2.2-U040 | Cloud Ready | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R011 | S2.2-U040 | API First | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R012 | S2.2-U040 | Mobile First | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R013 | S2.2-U040 | Configuration Driven | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R014 | S2.2-U040 | Database Driven | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R015 | S2.2-U040 | Production Ready | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U040-R016 | S2.2-U040 | No module shall require source code modification for routine business operations wherever reasonably possible. | SD | Platform-wide | F-00/F-01 | F-00 §1; F-01 §1 | Foundation | — | VERIFIED |
+| S2.2-U041-R001 | S2.2-U041 | 🆕 Core Platform Objectives — the platform shall enable: | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R002 | S2.2-U041 | SaaS Business Management | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R003 | S2.2-U041 | Multi-Tenant SaaS | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R004 | S2.2-U041 | Enterprise APIs | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R005 | S2.2-U041 | AI Assisted Operations | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R006 | S2.2-U041 | Mobile Applications | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R007 | S2.2-U041 | 🆕 Multi-Industry Vertical Enablement | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R008 | S2.2-U041 | 🆕 Healthcare & Diagnostics Vertical Objectives — the platform shall enable: | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R009 | S2.2-U041 | Laboratory Information System (LIS) | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R010 | S2.2-U041 | Laboratory Management System (LMS) | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R011 | S2.2-U041 | Enterprise Laboratory Operations | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R012 | S2.2-U041 | Hospital Integration | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R013 | S2.2-U041 | Clinic Integration | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R014 | S2.2-U041 | Doctor Collaboration | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R015 | S2.2-U041 | Patient Self-Service | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R016 | S2.2-U041 | Corporate Healthcare Management | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U041-R017 | S2.2-U041 | Digital Healthcare Services | SD | Platform-wide | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | Foundation | — | VERIFIED |
+| S2.2-U042-R001 | S2.2-U042 | The platform shall be: | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R002 | S2.2-U042 | Configuration Driven | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R003 | S2.2-U042 | Database Driven | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R004 | S2.2-U042 | Tenant Isolated | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R005 | S2.2-U042 | API First | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R006 | S2.2-U042 | Mobile Ready | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R007 | S2.2-U042 | AI Ready | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R008 | S2.2-U042 | Enterprise Ready | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R009 | S2.2-U042 | Integration Ready | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R010 | S2.2-U042 | Secure by Design | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R011 | S2.2-U042 | Performance Optimized | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U042-R012 | S2.2-U042 | Commercial SaaS Ready | SD | Platform-wide | F-01 | §6 Core Principles / dynamic configuration philosophy | Foundation | — | VERIFIED |
+| S2.2-U043-R001 | S2.2-U043 | 🆕 The platform shall support the following Industry Vertical Suites (not limited to): | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R002 | S2.2-U043 | 🆕 Healthcare & Diagnostics | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R003 | S2.2-U043 | 🆕 Education | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R004 | S2.2-U043 | 🆕 Retail & Commerce | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R005 | S2.2-U043 | 🆕 Hospitality | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R006 | S2.2-U043 | 🆕 Manufacturing | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R007 | S2.2-U043 | 🆕 Professional Services | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R008 | S2.2-U043 | 🆕 Government | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R009 | S2.2-U043 | 🆕 NGO | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R010 | S2.2-U043 | 🆕 Future Vertical Suites | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R011 | S2.2-U043 | The platform shall support: | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R012 | S2.2-U043 | Pathology Laboratories | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R013 | S2.2-U043 | Diagnostic Centers | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R014 | S2.2-U043 | Multi-Speciality Laboratories | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R015 | S2.2-U043 | Hospital Laboratories | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R016 | S2.2-U043 | Independent Laboratories | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R017 | S2.2-U043 | Collection Centers | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R018 | S2.2-U043 | Imaging Centers | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R019 | S2.2-U043 | Radiology Centers | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R020 | S2.2-U043 | Blood Banks | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R021 | S2.2-U043 | Clinics | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R022 | S2.2-U043 | Hospitals | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R023 | S2.2-U043 | Corporate Healthcare Networks | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R024 | S2.2-U043 | Medical Colleges | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R025 | S2.2-U043 | Government Healthcare Programs | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R026 | S2.2-U043 | Insurance Providers | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U043-R027 | S2.2-U043 | Third-party Healthcare Platforms | SD | Platform-wide | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | Foundation | — | VERIFIED |
+| S2.2-U045-R001 | S2.2-U045 | The platform shall support: | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R002 | S2.2-U045 | Super Admin | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R003 | S2.2-U045 | Tenant Owner | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R004 | S2.2-U045 | Lab Admin | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R005 | S2.2-U045 | Branch Manager | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R006 | S2.2-U045 | Department Manager | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R007 | S2.2-U045 | Pathologist | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R008 | S2.2-U045 | Doctor | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R009 | S2.2-U045 | Technician | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R010 | S2.2-U045 | Receptionist | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R011 | S2.2-U045 | Collection Staff | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R012 | S2.2-U045 | Phlebotomist | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R013 | S2.2-U045 | Billing Executive | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R014 | S2.2-U045 | Accountant | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R015 | S2.2-U045 | Inventory Manager | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R016 | S2.2-U045 | Store Manager | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R017 | S2.2-U045 | Corporate User | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R018 | S2.2-U045 | Insurance User | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R019 | S2.2-U045 | Referral Doctor | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R020 | S2.2-U045 | Patient | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R021 | S2.2-U045 | API Client | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R022 | S2.2-U045 | Mobile Application Users | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U045-R023 | S2.2-U045 | > This is the authoritative, complete, platform-wide User Types list. Enterprise Default Standards — User Roles defines only the smaller subset of roles pre-seeded by default at installation, and cross-references this section instead of repeating the full list. | SD | Platform-wide | F-01 | §2 Actor & Role Categories | Foundation | — | VERIFIED |
+| S2.2-U046-R001 | S2.2-U046 | Each tenant shall receive: | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R002 | S2.2-U046 | Complete Data Isolation | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R003 | S2.2-U046 | Independent Users | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R004 | S2.2-U046 | Independent Branches | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R005 | S2.2-U046 | Independent Staff | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R006 | S2.2-U046 | Independent Patients | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R007 | S2.2-U046 | Independent Doctors | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R008 | S2.2-U046 | Independent Inventory | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R009 | S2.2-U046 | Independent Billing | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R010 | S2.2-U046 | Independent Reports | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R011 | S2.2-U046 | Independent Website | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R012 | S2.2-U046 | Independent Mobile Configuration | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R013 | S2.2-U046 | Independent Branding | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R014 | S2.2-U046 | Independent API Access | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R015 | S2.2-U046 | Independent AI Usage | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R016 | S2.2-U046 | Independent Storage | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R017 | S2.2-U046 | Independent Configuration | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R018 | S2.2-U046 | 🆕 Configurable Data Residency / Region Selection | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U046-R019 | S2.2-U046 | Cross-tenant data access shall never be permitted. | SD | Platform-wide | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | Foundation | — | VERIFIED |
+| S2.2-U047-R001 | S2.2-U047 | The platform shall be fully configuration driven. | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U047-R002 | S2.2-U047 | Any configurable business feature shall be manageable through the Admin Panel without modifying source code. | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U047-R003 | S2.2-U047 | Only the following require developer intervention: | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U047-R004 | S2.2-U047 | Framework Changes | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U047-R005 | S2.2-U047 | Database Schema Changes | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U047-R006 | S2.2-U047 | Core Architecture | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U047-R007 | S2.2-U047 | Security Enhancements | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U047-R008 | S2.2-U047 | Performance Optimizations | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U047-R009 | S2.2-U047 | Unsupported Integrations | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U047-R010 | S2.2-U047 | New Features | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R001 | S2.2-U048 | Super Admin shall dynamically manage: | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R002 | S2.2-U048 | Branding | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R003 | S2.2-U048 | Themes | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R004 | S2.2-U048 | UI | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R005 | S2.2-U048 | Menus | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R006 | S2.2-U048 | Navigation | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R007 | S2.2-U048 | Dashboards | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R008 | S2.2-U048 | Widgets | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R009 | S2.2-U048 | Forms | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R010 | S2.2-U048 | Validation Rules | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R011 | S2.2-U048 | Workflows | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R012 | S2.2-U048 | Report Templates | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R013 | S2.2-U048 | Invoice Templates | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R014 | S2.2-U048 | Print Templates | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R015 | S2.2-U048 | QR Templates | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R016 | S2.2-U048 | PDF Templates | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R017 | S2.2-U048 | Email Templates | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R018 | S2.2-U048 | SMS Templates | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R019 | S2.2-U048 | WhatsApp Templates | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R020 | S2.2-U048 | Notification Templates | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R021 | S2.2-U048 | Mobile Configuration | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R022 | S2.2-U048 | Mobile Branding | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R023 | S2.2-U048 | APIs | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R024 | S2.2-U048 | Integrations | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R025 | S2.2-U048 | Feature Flags | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R026 | S2.2-U048 | Subscription Plans | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R027 | S2.2-U048 | Trial Plans | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R028 | S2.2-U048 | Roles | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R029 | S2.2-U048 | Permissions | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R030 | S2.2-U048 | Master Data | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R031 | S2.2-U048 | Lookup Values | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R032 | S2.2-U048 | Custom Fields | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R033 | S2.2-U048 | Dynamic Fields | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R034 | S2.2-U048 | Communication Providers | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R035 | S2.2-U048 | Payment Providers | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R036 | S2.2-U048 | Storage Providers | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R037 | S2.2-U048 | AI Providers | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R038 | S2.2-U048 | Enterprise Configuration | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
+| S2.2-U048-R039 | S2.2-U048 | All configuration shall be stored in the database wherever reasonably possible. | SD | Platform-wide | F-01 | §6 Dynamic/Configuration Model | Foundation | — | VERIFIED |
 | S2.2-U049-R001 | S2.2-U049 | The SaaS Website shall be delivered as a fully populated production-ready website. | SD | Platform-wide | F-06 | §2 | Foundation | — | VERIFIED |
 | S2.2-U049-R002 | S2.2-U049 | Every page, section, component and media asset shall include AI-generated, realistic, human-quality, commercially usable, copyright-free production content. | SD | Platform-wide | F-06 | §2 | Foundation | — | VERIFIED |
 | S2.2-U049-R003 | S2.2-U049 | The SaaS Website shall include: | SD | Platform-wide | F-06 | §2 | Foundation | — | VERIFIED |
@@ -1234,57 +1234,57 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.2-U101-R024 | S2.2-U101 | Social Links | SD + UD supersession | Platform-wide | F-06/A-08 | §4/mobile | Foundation | UD-TECH-01 | VERIFIED |
 | S2.2-U101-R025 | S2.2-U101 | Push Templates | SD + UD supersession | Platform-wide | F-06/A-08 | §4/mobile | Foundation | UD-TECH-01 | VERIFIED |
 | S2.2-U101-R026 | S2.2-U101 | No mobile rebuild shall be required except for native package changes. | SD + UD supersession | Platform-wide | F-06/A-08 | §4/mobile | Foundation | UD-TECH-01 | VERIFIED |
-| S2.2-U102-R001 | S2.2-U102 | AI shall operate as an independent service layer. | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R002 | S2.2-U102 | AI Summary | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R003 | S2.2-U102 | Report Explanation | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R004 | S2.2-U102 | Health Score | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R005 | S2.2-U102 | Risk Analysis | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R006 | S2.2-U102 | Dashboard Insights | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R007 | S2.2-U102 | Inventory Suggestions | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R008 | S2.2-U102 | Revenue Insights | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R009 | S2.2-U102 | SEO Generation | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R010 | S2.2-U102 | Blog Generation | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R011 | S2.2-U102 | FAQ Assistant | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R012 | S2.2-U102 | Documentation Assistant | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R013 | S2.2-U102 | Marketing Assistant | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U102-R014 | S2.2-U102 | Provider replacement shall not require business logic changes. | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R001 | S2.2-U103 | AI Development Center shall support: | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R002 | S2.2-U103 | Code Review | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R003 | S2.2-U103 | Security Review | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R004 | S2.2-U103 | Performance Review | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R005 | S2.2-U103 | Database Review | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R006 | S2.2-U103 | Dependency Review | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R007 | S2.2-U103 | Architecture Review | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R008 | S2.2-U103 | Route Review | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R009 | S2.2-U103 | API Review | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R010 | S2.2-U103 | Configuration Review | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R011 | S2.2-U103 | Duplicate Code Detection | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R012 | S2.2-U103 | Dead Code Detection | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R013 | S2.2-U103 | Log Analysis | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R014 | S2.2-U103 | Error Analysis | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R015 | S2.2-U103 | Production Readiness Audit | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R016 | S2.2-U103 | Release Readiness Report | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R017 | S2.2-U103 | Documentation Review | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R018 | S2.2-U103 | AI shall never modify production code automatically. | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R019 | S2.2-U103 | Every recommendation shall require Super Admin approval. | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U103-R020 | S2.2-U103 | Every AI operation shall be logged. | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R001 | S2.2-U104 | Dashboards shall support: | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R002 | S2.2-U104 | Revenue Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R003 | S2.2-U104 | Patient Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R004 | S2.2-U104 | Test Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R005 | S2.2-U104 | Doctor Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R006 | S2.2-U104 | Branch Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R007 | S2.2-U104 | Inventory Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R008 | S2.2-U104 | AI Usage Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R009 | S2.2-U104 | API Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R010 | S2.2-U104 | Communication Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R011 | S2.2-U104 | Financial Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R012 | S2.2-U104 | Subscription Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R013 | S2.2-U104 | Growth Analytics | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R014 | S2.2-U104 | Performance KPIs | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R015 | S2.2-U104 | Custom Widgets | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R016 | S2.2-U104 | Exportable Charts | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
-| S2.2-U104-R017 | S2.2-U104 | Analytics shall support tenant isolation. | SD | Platform-wide | F-05 | whole | Foundation | — | GAP |
+| S2.2-U102-R001 | S2.2-U102 | AI shall operate as an independent service layer. | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R002 | S2.2-U102 | AI Summary | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R003 | S2.2-U102 | Report Explanation | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R004 | S2.2-U102 | Health Score | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R005 | S2.2-U102 | Risk Analysis | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R006 | S2.2-U102 | Dashboard Insights | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R007 | S2.2-U102 | Inventory Suggestions | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R008 | S2.2-U102 | Revenue Insights | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R009 | S2.2-U102 | SEO Generation | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R010 | S2.2-U102 | Blog Generation | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R011 | S2.2-U102 | FAQ Assistant | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R012 | S2.2-U102 | Documentation Assistant | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R013 | S2.2-U102 | Marketing Assistant | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U102-R014 | S2.2-U102 | Provider replacement shall not require business logic changes. | SD | Platform-wide | F-05 | §1–§8 AI Foundation | Foundation | — | VERIFIED |
+| S2.2-U103-R001 | S2.2-U103 | AI Development Center shall support: | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R002 | S2.2-U103 | Code Review | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R003 | S2.2-U103 | Security Review | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R004 | S2.2-U103 | Performance Review | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R005 | S2.2-U103 | Database Review | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R006 | S2.2-U103 | Dependency Review | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R007 | S2.2-U103 | Architecture Review | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R008 | S2.2-U103 | Route Review | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R009 | S2.2-U103 | API Review | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R010 | S2.2-U103 | Configuration Review | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R011 | S2.2-U103 | Duplicate Code Detection | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R012 | S2.2-U103 | Dead Code Detection | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R013 | S2.2-U103 | Log Analysis | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R014 | S2.2-U103 | Error Analysis | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R015 | S2.2-U103 | Production Readiness Audit | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R016 | S2.2-U103 | Release Readiness Report | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R017 | S2.2-U103 | Documentation Review | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R018 | S2.2-U103 | AI shall never modify production code automatically. | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R019 | S2.2-U103 | Every recommendation shall require Super Admin approval. | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U103-R020 | S2.2-U103 | Every AI operation shall be logged. | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
+| S2.2-U104-R001 | S2.2-U104 | Dashboards shall support: | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R002 | S2.2-U104 | Revenue Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R003 | S2.2-U104 | Patient Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R004 | S2.2-U104 | Test Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R005 | S2.2-U104 | Doctor Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R006 | S2.2-U104 | Branch Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R007 | S2.2-U104 | Inventory Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R008 | S2.2-U104 | AI Usage Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R009 | S2.2-U104 | API Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R010 | S2.2-U104 | Communication Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R011 | S2.2-U104 | Financial Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R012 | S2.2-U104 | Subscription Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R013 | S2.2-U104 | Growth Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R014 | S2.2-U104 | Performance KPIs | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R015 | S2.2-U104 | Custom Widgets | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R016 | S2.2-U104 | Exportable Charts | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R017 | S2.2-U104 | Analytics shall support tenant isolation. | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
 | S2.2-U105-R001 | S2.2-U105 | Web Authentication | SD | Platform-wide | F-03 | §5–§7 | Foundation | — | VERIFIED |
 | S2.2-U105-R002 | S2.2-U105 | OTP Authentication | SD | Platform-wide | F-03 | §5–§7 | Foundation | — | VERIFIED |
 | S2.2-U105-R003 | S2.2-U105 | JWT Authentication | SD | Platform-wide | F-03 | §5–§7 | Foundation | — | VERIFIED |
@@ -1907,15 +1907,15 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.5-U177-R001 | S2.5-U177 | Android | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U177-R002 | S2.5-U177 | iOS | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U177-R003 | S2.5-U177 | Future: Web App (PWA) | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R001 | S2.5-U180 | Multi-Tenant | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R002 | S2.5-U180 | Configuration Driven | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R003 | S2.5-U180 | Database Driven | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R004 | S2.5-U180 | Modular | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R005 | S2.5-U180 | Scalable | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R006 | S2.5-U180 | Normalized | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R007 | S2.5-U180 | API First | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R008 | S2.5-U180 | Source item 8 under "Architecture" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U180-R009 | S2.5-U180 | Source item 9 under "Architecture" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
+| S2.5-U180-R001 | S2.5-U180 | Multi-Tenant | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R002 | S2.5-U180 | Configuration Driven | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R003 | S2.5-U180 | Database Driven | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R004 | S2.5-U180 | Modular | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R005 | S2.5-U180 | Scalable | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R006 | S2.5-U180 | Normalized | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R007 | S2.5-U180 | API First | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R008 | S2.5-U180 | Source item 8 under "Architecture" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R009 | S2.5-U180 | Source item 9 under "Architecture" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U181-R001 | S2.5-U181 | Riverpod (Default) | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U181-R002 | S2.5-U181 | Future Support: Bloc, Cubit | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U182-R001 | S2.5-U182 | SQLite | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
@@ -1947,24 +1947,24 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.5-U187-R004 | S2.5-U187 | SMS Trigger | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U187-R005 | S2.5-U187 | WhatsApp Trigger | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U187-R006 | S2.5-U187 | Email Trigger | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R001 | S2.5-U188 | • JWT Authentication (API Only) | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R002 | S2.5-U188 | Source item 2 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U188-R003 | S2.5-U188 | Source item 3 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U188-R004 | S2.5-U188 | Source item 4 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U188-R005 | S2.5-U188 | Source item 5 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U188-R006 | S2.5-U188 | Source item 6 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U188-R007 | S2.5-U188 | Source item 7 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U188-R008 | S2.5-U188 | Source item 8 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U188-R009 | S2.5-U188 | Source item 9 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U188-R010 | S2.5-U188 | Source item 10 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U189-R001 | S2.5-U189 | Tenant Isolation | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R002 | S2.5-U189 | Encrypted Fields | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R003 | S2.5-U189 | Password Hashing | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R004 | S2.5-U189 | API Token Security | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R005 | S2.5-U189 | Database Backup | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R006 | S2.5-U189 | Access Logging | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R007 | S2.5-U189 | Source item 7 under "Security" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
-| S2.5-U189-R008 | S2.5-U189 | Source item 8 under "Security" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
+| S2.5-U188-R001 | S2.5-U188 | • JWT Authentication (API Only) | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R002 | S2.5-U188 | Source item 2 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R003 | S2.5-U188 | Source item 3 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R004 | S2.5-U188 | Source item 4 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R005 | S2.5-U188 | Source item 5 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R006 | S2.5-U188 | Source item 6 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R007 | S2.5-U188 | Source item 7 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R008 | S2.5-U188 | Source item 8 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R009 | S2.5-U188 | Source item 9 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R010 | S2.5-U188 | Source item 10 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R001 | S2.5-U189 | Tenant Isolation | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R002 | S2.5-U189 | Encrypted Fields | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R003 | S2.5-U189 | Password Hashing | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R004 | S2.5-U189 | API Token Security | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R005 | S2.5-U189 | Database Backup | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R006 | S2.5-U189 | Access Logging | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R007 | S2.5-U189 | Source item 7 under "Security" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R008 | S2.5-U189 | Source item 8 under "Security" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U190-R001 | S2.5-U190 | QR Scanner | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U190-R002 | S2.5-U190 | Barcode Scanner | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U190-R003 | S2.5-U190 | Patient QR | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
@@ -2033,9 +2033,9 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.5-U198-R004 | S2.5-U198 | Background queue processing | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U198-R005 | S2.5-U198 | Lazy loading where appropriate | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U198-R006 | S2.5-U198 | Caching for frequently accessed data | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U199-R001 | S2.5-U199 | Distributed Tracing Ready | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U199-R002 | S2.5-U199 | Metrics Collection | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U199-R003 | S2.5-U199 | Source item 3 under "Observability" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | GAP |
+| S2.5-U199-R001 | S2.5-U199 | Distributed Tracing Ready | SD + UD supersession | Platform-wide | A-11 | §1–§14 Observability/Reliability/Operations; mobile telemetry uses common platform observability | source mobile requirements; active stack override | UD-TECH-01 | DEFERRED |
+| S2.5-U199-R002 | S2.5-U199 | Metrics Collection | SD + UD supersession | Platform-wide | A-11 | §1–§14 Observability/Reliability/Operations; mobile telemetry uses common platform observability | source mobile requirements; active stack override | UD-TECH-01 | DEFERRED |
+| S2.5-U199-R003 | S2.5-U199 | Source item 3 under "Observability" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | A-11 | §1–§14 Observability/Reliability/Operations; mobile telemetry uses common platform observability | source mobile requirements; active stack override | UD-TECH-01 | DEFERRED |
 | S2.5-U200-R001 | S2.5-U200 | Dark Mode | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U200-R002 | S2.5-U200 | Light Mode | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U200-R003 | S2.5-U200 | Large Fonts | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
@@ -2065,29 +2065,29 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.5-U205-R003 | S2.5-U205 | Fastlane | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U206-R001 | S2.5-U206 | Semantic Versioning | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U206-R002 | S2.5-U206 | Backward Compatibility Policy | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.6-U209-R001 | S2.6-U209 | Website | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R002 | S2.6-U209 | Super Admin | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R003 | S2.6-U209 | 🆕 Tenant Web Portal | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R004 | S2.6-U209 | LIS | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R005 | S2.6-U209 | Billing | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R006 | S2.6-U209 | Inventory | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R007 | S2.6-U209 | APIs | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R008 | S2.6-U209 | Mobile Apps | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R009 | S2.6-U209 | Analytics | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R010 | S2.6-U209 | Source item 10 under "Scope" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R001 | S2.6-U210 | Source item 1 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R002 | S2.6-U210 | Source item 2 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R003 | S2.6-U210 | Source item 3 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R004 | S2.6-U210 | Source item 4 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R005 | S2.6-U210 | Source item 5 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R006 | S2.6-U210 | Source item 6 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R007 | S2.6-U210 | Source item 7 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R008 | S2.6-U210 | Source item 8 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R009 | S2.6-U210 | Source item 9 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R010 | S2.6-U210 | Source item 10 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R011 | S2.6-U210 | Source item 11 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R012 | S2.6-U210 | Source item 12 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
-| S2.6-U210-R013 | S2.6-U210 | Source item 13 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | GAP |
+| S2.6-U209-R001 | S2.6-U209 | Website | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R002 | S2.6-U209 | Super Admin | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R003 | S2.6-U209 | 🆕 Tenant Web Portal | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R004 | S2.6-U209 | LIS | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R005 | S2.6-U209 | Billing | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R006 | S2.6-U209 | Inventory | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R007 | S2.6-U209 | APIs | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R008 | S2.6-U209 | Mobile Apps | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R009 | S2.6-U209 | Analytics | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R010 | S2.6-U209 | Source item 10 under "Scope" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R001 | S2.6-U210 | Source item 1 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R002 | S2.6-U210 | Source item 2 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R003 | S2.6-U210 | Source item 3 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R004 | S2.6-U210 | Source item 4 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R005 | S2.6-U210 | Source item 5 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R006 | S2.6-U210 | Source item 6 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R007 | S2.6-U210 | Source item 7 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R008 | S2.6-U210 | Source item 8 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R009 | S2.6-U210 | Source item 9 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R010 | S2.6-U210 | Source item 10 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R011 | S2.6-U210 | Source item 11 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R012 | S2.6-U210 | Source item 12 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R013 | S2.6-U210 | Source item 13 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
 | S2.6-U212-R001 | S2.6-U212 | General Reasoning | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
 | S2.6-U212-R002 | S2.6-U212 | Enterprise Documentation | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
 | S2.6-U212-R003 | S2.6-U212 | Code Generation | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
