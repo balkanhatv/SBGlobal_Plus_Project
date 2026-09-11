@@ -10,9 +10,9 @@
 | G1/G2 | `Governing/MASTER_INSTRUCTION_v2_5.md`, `MASTER_PROMPT_v2_5.md` | ACTIVE v2.5 with 2026-09-11 phase/technology reconciliation |
 | S1/S2 | `RawSourceCorpus/` | IMMUTABLE accepted source/history baseline |
 | R-SOURCE | `SOURCE_REGISTRY.md` | ACTIVE source authority/baseline |
-| R-TMU | `TRACEABILITY_MATRIX_UNIT.md` | 372 source-heading parent rows retained; requirement-level child evidence being rebuilt |
-| R-NL | `NO_LOSS_AUDIT.md` | PRIOR PASS superseded as current gate evidence; fresh audit required |
-| R-DEC | `D-DECISIONS.md` | ACTIVE Foundation/user decisions; A-12 owns Architecture ADR detail |
+| R-TMU | `TRACEABILITY_MATRIX_UNIT.md` | 372 stable source-heading parent rows |
+| R-REQ | `TRACEABILITY_MATRIX_REQUIREMENTS.md` | ACTIVE requirement-level child evidence; fresh No-Loss audit pending |
+| R-MS | `MS_COMPLETENESS_MATRIX.md` | ACTIVE 41-MS evidence matrix |\n| R-DEC | `D-DECISIONS.md` | ACTIVE Foundation/user decisions; A-12 owns Architecture ADR detail |
 | A-00…A-09 | `Architecture/` | REVALIDATED Architecture HOW |
 | A-10 | Infrastructure/Deployment/Scalability/Resilience | PRESENT · REVALIDATED |
 | A-11 | Observability/Reliability/Operations | PRESENT · REVALIDATED |

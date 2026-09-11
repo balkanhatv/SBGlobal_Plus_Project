@@ -1,5 +1,5 @@
 # F-10 — DESKTOP FOUNDATION
-**Document ID:** F-10 · **Version:** 1.2 · **Status:** SPECIFIED — SUBSTANTIVE REVALIDATION REQUIRED · Provenance: `[SD]` where sourced (S1 §2/§12, S2.1 §18, MI §15); structural completion `[AC — logged D-DECISIONS AC-15]`. **Current technology alignment:** Tauri 2.0 for Windows/macOS/Linux + Clerk identity boundary + tRPC first-party APIs; RawSourceCorpus remains unchanged. Cross-refs: F-01 §3, F-03, F-06, F-15.
+**Document ID:** F-10 · **Version:** 1.3 · **Status:** SPECIFIED — REMEDIATION REVALIDATED (CERTIFICATION PENDING) · Provenance: `[SD]` where sourced (S1 §2/§12, S2.1 §18, MI §15); structural completion `[AC — logged D-DECISIONS AC-15]`. **Current technology alignment:** Tauri 2.0 for Windows/macOS/Linux + Clerk identity boundary + tRPC first-party APIs; RawSourceCorpus remains unchanged. Cross-refs: F-01 §3, F-03, F-06, F-15.
 
 ## 1. Desktop role in the Application Surface Model `[SD]`
 Desktop is a **client surface**, never a separate platform: same Core Identity, same first-party API platform, same tenant/industry context, same entitlement chain. tRPC is preferred for typed first-party application contracts where appropriate; REST/OpenAPI remains the external-interoperability surface. Two desktop surfaces exist:

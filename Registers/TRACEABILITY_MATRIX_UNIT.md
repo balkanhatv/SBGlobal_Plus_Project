@@ -153,7 +153,7 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.2-U101 | 31. Dynamic Mobile Platform | 23 | Platform-wide | SD + UD supersession | F-06/A-08 | §4/mobile | UD-TECH-01 | Foundation | VERIFIED — source stack overridden where incompatible |
 | S2.2-U102 | 32. AI Platform | 12 | Platform-wide | SD | F-05 | §1–§8 AI Foundation | — | Foundation | VERIFIED |
 | S2.2-U103 | 33. AI Development Center | 16 | Platform-wide | SD | F-05 | §7 Governance & Observability | — | Foundation | VERIFIED |
-| S2.2-U104 | 34. Analytics & Dashboards | 15 | Platform-wide | SD | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | — | Foundation | GAP |
+| S2.2-U104 | 34. Analytics & Dashboards | 15 | Platform-wide | SD | F-01 | §7A Analytics & Dashboard Capability | — | Foundation | VERIFIED |
 | S2.2-U105 | 35. Security & Compliance | 34 | Platform-wide | SD | F-03 | §5–§7 | — | Foundation | VERIFIED |
 | S2.2-U106 | 36. Monitoring & Diagnostics | 19 | Platform-wide | SD | F-01/F-04/A-10/A-11 | ops/backup/license | — | Foundation + Architecture | VERIFIED |
 | S2.2-U107 | 37. Backup & Disaster Recovery | 12 | Platform-wide | SD | F-01/F-04/A-10/A-11 | ops/backup/license | — | Foundation + Architecture | VERIFIED |

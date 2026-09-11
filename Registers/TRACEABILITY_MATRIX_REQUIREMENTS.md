@@ -5,7 +5,7 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 
 **Generation/review rule:** child statements are extracted from repository-resident immutable S1/S2 list/table/requirement lines. Parent owner/section metadata is inherited only as an initial destination. If that destination is broad, missing, or not yet substantively checked, the child remains `GAP`. `DEFERRED` and `SUPERSEDED` are explicit phase/decision dispositions, not losses.
 
-**Current counts:** parent units=372; child evidence rows=2962; VERIFIED=2538; GAP=17; DEFERRED=396; SUPERSEDED=11.
+**Current counts:** parent units=372; child evidence rows=2962; VERIFIED=2555; GAP=0; DEFERRED=396; SUPERSEDED=11.
 
 | Requirement ID | Parent source unit | Source-faithful requirement | Provenance | Scope | Canonical owner | Canonical section | Disposition | Decision reference | Verification |
 |---|---|---|---|---|---|---|---|---|---|
@@ -1268,23 +1268,23 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.2-U103-R018 | S2.2-U103 | AI shall never modify production code automatically. | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
 | S2.2-U103-R019 | S2.2-U103 | Every recommendation shall require Super Admin approval. | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
 | S2.2-U103-R020 | S2.2-U103 | Every AI operation shall be logged. | SD | Platform-wide | F-05 | §7 Governance & Observability | Foundation | — | VERIFIED |
-| S2.2-U104-R001 | S2.2-U104 | Dashboards shall support: | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R002 | S2.2-U104 | Revenue Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R003 | S2.2-U104 | Patient Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R004 | S2.2-U104 | Test Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R005 | S2.2-U104 | Doctor Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R006 | S2.2-U104 | Branch Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R007 | S2.2-U104 | Inventory Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R008 | S2.2-U104 | AI Usage Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R009 | S2.2-U104 | API Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R010 | S2.2-U104 | Communication Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R011 | S2.2-U104 | Financial Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R012 | S2.2-U104 | Subscription Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R013 | S2.2-U104 | Growth Analytics | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R014 | S2.2-U104 | Performance KPIs | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R015 | S2.2-U104 | Custom Widgets | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R016 | S2.2-U104 | Exportable Charts | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
-| S2.2-U104-R017 | S2.2-U104 | Analytics shall support tenant isolation. | SD | Platform-wide | F-01/F-04/F-05 | Platform reporting/analytics ownership is distributed across Core capability catalog, F-04 data/projections intent and F-05 AI observability; dedicated Foundation analytics owner not yet canonicalized | Foundation | — | GAP |
+| S2.2-U104-R001 | S2.2-U104 | Dashboards shall support: | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R002 | S2.2-U104 | Revenue Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R003 | S2.2-U104 | Patient Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R004 | S2.2-U104 | Test Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R005 | S2.2-U104 | Doctor Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R006 | S2.2-U104 | Branch Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R007 | S2.2-U104 | Inventory Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R008 | S2.2-U104 | AI Usage Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R009 | S2.2-U104 | API Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R010 | S2.2-U104 | Communication Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R011 | S2.2-U104 | Financial Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R012 | S2.2-U104 | Subscription Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R013 | S2.2-U104 | Growth Analytics | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R014 | S2.2-U104 | Performance KPIs | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R015 | S2.2-U104 | Custom Widgets | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R016 | S2.2-U104 | Exportable Charts | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
+| S2.2-U104-R017 | S2.2-U104 | Analytics shall support tenant isolation. | SD | Platform-wide | F-01 | §7A Analytics & Dashboard Capability | Foundation | — | VERIFIED |
 | S2.2-U105-R001 | S2.2-U105 | Web Authentication | SD | Platform-wide | F-03 | §5–§7 | Foundation | — | VERIFIED |
 | S2.2-U105-R002 | S2.2-U105 | OTP Authentication | SD | Platform-wide | F-03 | §5–§7 | Foundation | — | VERIFIED |
 | S2.2-U105-R003 | S2.2-U105 | JWT Authentication | SD | Platform-wide | F-03 | §5–§7 | Foundation | — | VERIFIED |
