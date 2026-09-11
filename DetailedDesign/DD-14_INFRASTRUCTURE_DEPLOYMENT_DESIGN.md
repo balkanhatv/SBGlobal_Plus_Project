@@ -165,8 +165,15 @@ Recovery modes:
 Recovery evidence records: exerciseId, scope, backupRef, targetHome, started/completed, integrity checks, application verification, data-loss window observed, policy compliance, approver/result.
 
 ## 16. RPO/RTO
-Numeric RPO/RTO values are **REVIEW_REQUIRED — business/SLA decision** unless sourced by an approved contract/plan. DD defines fields:
-`RecoveryObjectivePolicy{serviceClass, planOrContractRef, rpoValue?, rtoValue?, jurisdictionScope, version, approvedBy, effectiveAt}`.
+SBGlobal Plus platform engineering defaults are versioned by `RecoveryObjectivePolicy` under DD-027 [DD-AC]:
+- CRITICAL_TRANSACTION / core access-control-commercial writes: **RPO ≤ 5 minutes; RTO ≤ 30 minutes**.
+- STANDARD_TRANSACTIONAL application services: **RPO ≤ 15 minutes; RTO ≤ 60 minutes**.
+- DOCUMENT_PIPELINE / object metadata and recoverable documents: **RPO ≤ 15 minutes; RTO ≤ 4 hours**.
+- REBUILDABLE_PROJECTION / search/vector/analytics read models: source-of-truth RPO applies; projection may be rebuilt, **RTO ≤ 8 hours** by default.
+- PUBLIC_WEB stateless content runtime: source/build repository is authority; **RTO ≤ 60 minutes** for service restoration.
+Plan/Enterprise contract/jurisdiction may require tighter objectives, never silently weaker than the active policy without approved exception. These are internal platform defaults, not customer SLA promises.
+
+`RecoveryObjectivePolicy{serviceClass, planOrContractRef?, rpoMinutes, rtoMinutes, jurisdictionScope?, version, approvedBy, effectiveAt}`.
 
 ## 17. Failover
 Automatic failover is permitted only inside the same authorized data-home/region topology where policy allows. Cross-region is a residency event requiring pre-approved destination/policy. If no compliant destination exists, system prefers controlled unavailability/recovery over unauthorized data movement.
@@ -175,7 +182,7 @@ Automatic failover is permitted only inside the same authorized data-home/region
 Runtime receives secret references from approved secret store. No repository/environment file plaintext in design. Rotation supports versioned references. Access by workload service principal and purpose. Secret fetch is auditable at metadata level without logging secret.
 
 ## 19. Object storage topology
-Provider remains configurable/REVIEW_REQUIRED until selected. Contract requires: private buckets/containers, data-home region, versioning where required, encryption, lifecycle/retention support, signed URL support, malware quarantine area, audit/metrics. DD-08 remains authorization authority.
+Storage provider default is resolved by DD-026: StoragePort with AWS S3 managed-cloud profile and MinIO-compatible S3 regional/self-hosted profile; tenant/data-home deployment may select another conformant S3-compatible adapter. Contract requires: private buckets/containers, data-home region, versioning where required, encryption, lifecycle/retention support, signed URL support, malware quarantine area, audit/metrics. DD-08 remains authorization authority.
 
 ## 20. Observability placement
 Regional agents export only telemetry allowed by residency/security policy. Sensitive logs can remain region-local while aggregated low-sensitivity metrics may centralize. Vendor choice remains deferred.

@@ -8,9 +8,10 @@
 | DD-RR-003 | P2 | Audit retention durations | DD-024 risk-based platform defaults with overrides | **RESOLVED** |
 | DD-RR-004 | P2 | Telemetry vendor/SLO thresholds | DD-025 OTel-compatible strategy/internal SLO classes | **RESOLVED** |
 | DD-RR-005 | P2 | Object-storage provider | DD-026 StoragePort profiles | **RESOLVED** |
+| DD-RR-006 | P2 | Numeric RPO/RTO defaults | DD-027 service-class recovery objectives | **RESOLVED** |
 
 Provenance: **[DD-AC — user-authorized vision-centric Detailed Design completion]**. These defaults are not represented as RawSourceCorpus facts.
 
-Only genuine jurisdiction-specific law, contract-specific SLA commitments and provider-account/region availability remain external production inputs; their design abstractions are complete.
+Only genuine jurisdiction-specific law, customer/contract-specific SLA commitments, tenant-specific commercial terms, and provider-account/region availability remain external production inputs; their design abstractions are complete. DD-027 additionally closes platform-default RPO/RTO.
 
 **Open avoidable shared DD items: 0. Open P0/P1: 0.**

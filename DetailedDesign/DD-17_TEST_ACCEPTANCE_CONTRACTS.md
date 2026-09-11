@@ -117,7 +117,7 @@ These are implementation acceptance contracts, not executable test code.
 | OBS-006 | metric attempts raw PII label | telemetry schema review fails |
 
 ## 10. Wave-1 gate criteria
-All contracts above must be implementable without inventing tenant/industry isolation, identity mapping, commercial state, access order, RLS predicate class, API envelope, event envelope, webhook scope, document authorization, or audit correlation. Numeric values explicitly deferred by DD-REVIEW_REQUIRED are not Wave-1 failures.
+All contracts above must be implementable without inventing tenant/industry isolation, identity mapping, commercial state, access order, RLS predicate class, API envelope, event envelope, webhook scope, document authorization, or audit correlation. Former shared numeric/provider P2 items are now resolved by DD-022…DD-027 [DD-AC]; historical Wave-1 deferral remains provenance only, not an active ambiguity.
 
 
 ## 11. Wave-2 Application surface contracts
@@ -230,3 +230,14 @@ Wave 2 passes only if DD-09/DD-10/DD-11/DD-12/DD-14/DD-16 and the Wave-2 extensi
 | P2-STO-001 | object key known without DocumentMeta authorization | deny |
 | P2-STO-002 | cross-region replication not authorized | blocked |
 | P2-STO-003 | quarantined object requests signed URL | deny |
+
+
+## 19. Recovery objective defaults [DD-AC]
+| ID | Scenario | Expected |
+|---|---|---|
+| RCV-001 | Critical transaction backup/recovery policy | RPO ≤5m / RTO ≤30m target selected unless approved tighter override |
+| RCV-002 | Standard transaction service | RPO ≤15m / RTO ≤60m |
+| RCV-003 | Document pipeline | RPO ≤15m / RTO ≤4h |
+| RCV-004 | Rebuildable search/vector projection lost | source truth preserved; rebuild target RTO ≤8h |
+| RCV-005 | Enterprise contract requires tighter objective | versioned contract policy wins |
+| RCV-006 | operator attempts weaker objective without approval | policy validation rejects/records exception workflow |

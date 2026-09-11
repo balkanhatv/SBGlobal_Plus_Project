@@ -52,7 +52,7 @@ No metric labels with raw PII or high-cardinality tenant IDs unless telemetry ba
 - document scan/activation success;
 - audit persistence success.
 
-Numeric SLOs remain REVIEW_REQUIRED/approved policy except existing upstream availability commitments; DD Wave 1 does not invent them.
+Numeric engineering SLO defaults are resolved by DD-025 [DD-AC] and remain versioned/configurable; customer contractual SLAs are separate approved commercial/legal artifacts.
 
 ## 7. Audit durability
 A high-risk command that requires audit must not report success if mandatory audit append fails in the owning transaction. Operational log failure must not corrupt business transaction, but audit failure policy is explicit per audit class.

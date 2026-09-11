@@ -63,7 +63,7 @@ DD-08 quarantine-first. Verify actual MIME/signature, size, filename normalizati
 ## 15. Rate limiting/abuse
 Symbolic configurable classes:
 `PUBLIC_LOW, PUBLIC_STANDARD, AUTH_STANDARD, BULK, WEBHOOK, AI, ADMIN_SENSITIVE`.
-Each policy can define burst/sustained/concurrency/cost dimensions by plan/security posture. Numeric limits remain REVIEW_REQUIRED unless approved. Abuse signals can tighten policy temporarily without changing business entitlement truth.
+Each policy can define burst/sustained/concurrency/cost dimensions by plan/security posture. Initial numeric floors/defaults are resolved by DD-022 [DD-AC], versioned/configurable, and security-sensitive ceilings require Security approval. Abuse signals can tighten policy temporarily without changing business entitlement truth.
 
 ## 16. Webhook/integration security
 HMAC timestamp/signature, replay window, secret rotation, endpoint verification, SSRF egress rules, minimal payload, tenant/industry filters. Provider inbound callbacks verify provider signature before OperationContract.

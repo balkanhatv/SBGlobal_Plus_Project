@@ -260,3 +260,14 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Risks:** S3 compatibility differences require adapter conformance tests.  
 **Dependencies:** DD-08/DD-14/DD-16.  
 **Reversibility:** high.
+
+
+## DD-027 — Recovery objective platform defaults [DD-AC]
+**Context:** DD-14 defined recovery mechanics but numeric RPO/RTO remained avoidably open.  
+**Options:** leave to Development; one universal objective; service-class defaults with governed overrides.  
+**Trade-offs:** tighter objectives cost more infrastructure; class-based defaults balance resilience and cost.  
+**Decision:** defaults: CRITICAL_TRANSACTION RPO ≤5m/RTO ≤30m; STANDARD_TRANSACTIONAL RPO ≤15m/RTO ≤60m; DOCUMENT_PIPELINE RPO ≤15m/RTO ≤4h; REBUILDABLE_PROJECTION inherits source-truth RPO and rebuild RTO ≤8h; PUBLIC_WEB stateless runtime RTO ≤60m. Enterprise contract, jurisdiction or approved plan policy may tighten them. These are internal engineering defaults, not contractual SLA claims.  
+**Consequences:** backup cadence, replication, restore exercises and release gates consume a versioned RecoveryObjectivePolicy.  
+**Risks:** high-scale/region/provider constraints may require a tighter or explicitly approved exception profile.  
+**Dependencies:** F-11/A-10/DD-14/DD-15/DD-16.  
+**Reversibility:** policy-versioned and high.
