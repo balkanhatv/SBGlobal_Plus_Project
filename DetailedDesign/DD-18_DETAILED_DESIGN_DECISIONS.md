@@ -281,3 +281,11 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Consequences:** current numeric defaults are resolved and implementation-ready; no hidden human approval dependency remains.
 **Tests:** RATE-T001 stricter tenant limit wins; RATE-T002 weaker-than-floor override returns `POLICY_DENIED`; RATE-T003 abuse engine may tighten; RATE-T004 plan scaling cannot exceed platform ceiling; RATE-T005 all throttles return deterministic `RATE_LIMITED` + retry metadata.
 **Reversibility:** high through policy versioning.
+
+
+## DD-029 — Fable 5 final recertification gate [DD-AC]
+**Context:** the prior DD-COMPLETE gate was reopened because counts/status labels did not prove deterministic 41-MS behavior, requirement-level traceability or final-head isolation.
+**Decision:** accept the fresh evidence set DD-20C, DD-20D, DD-21…DD-31 and the final ISOLATION_ATTACK_MATRIX evaluated at substantive HEAD `810e43c9c75e3750f52cc7e1954db8f341e6d79b`. Create checkpoint `DD-F5-RECERTIFIED`. Historical `DD-COMPLETE` remains provenance only.
+**Gate result:** Fable P0=0; P1=0; REAL_DD_GAP=0; 41/41 MS PASS; 165/165 named KPI metrics mapped; RawSource/user requirement traceability REAL_GAP=0; Development determinism 9/9 YES; QA determinism 9/9 YES; final isolation PASS.
+**Consequence:** Detailed Design is complete and Development is authorized as the next phase. This does not claim implementation, executable testing, security validation, production readiness or deployment.
+**Reversibility:** any future material audit finding reopens the gate; historical evidence is never deleted.
