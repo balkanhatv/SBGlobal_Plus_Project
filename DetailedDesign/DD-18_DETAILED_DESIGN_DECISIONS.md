@@ -95,3 +95,14 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Consequences:** deleting/rotating operational logs cannot erase required audit evidence.  
 **Dependencies:** A-11.  
 **Affected design:** DD-15.
+
+
+## DD-011 — One manifest-driven shell per application responsibility
+**Context:** four surfaces require distinct responsibility while sharing identity/context/API contracts.  
+**Options:** independent auth/navigation stacks; one monolithic UI; responsibility-specific shells consuming common contracts.  
+**Decision:** public, platform, tenant-management and industry-experience shells remain distinct responsibility surfaces; authenticated navigation is manifest-driven from DD-02/03/04 inputs.  
+**Trade-offs:** shared shell primitives require disciplined manifests but avoid security/business duplication.  
+**Consequences:** no operational industry screens inside Tenant Management; UI hiding never replaces server authorization.  
+**Risks:** navigation manifest drift.  
+**Dependencies:** A-08, DD-02/DD-03/DD-06.  
+**Reversibility:** route/layout implementation may change while responsibility boundaries remain.
