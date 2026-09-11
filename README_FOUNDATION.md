@@ -1,6 +1,6 @@
 # SBGlobal Plus — Project Foundation / Architecture Branch
 
-**Current status: FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DETAILED DESIGN REMEDIATION REQUIRED · DEVELOPMENT BLOCKED** on `docs/architecture-branch-2`.
+**Current status: FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DD WAVE 1/2/3 COMPLETE · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT · checkpoint `DD-F5-RECERTIFIED`** on `docs/architecture-branch-2`.
 
 > **SBGlobal Plus — A World-Class, AI-Ready, AI-Extensible, AI-Powered, Enterprise-Grade, Multi-Tenant, Multi-Industry SaaS Platform.**
 >
@@ -41,7 +41,9 @@ Historical Laravel/PHP/Filament/MySQL-primary/Flutter/PM2/cPanel assumptions rem
 - `DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md` — full adversarial PASS.
 - `DetailedDesign/DD-REVIEW_REQUIRED.md` — 0 avoidable open DD items.
 
-## Current remediation
-The previous DD-COMPLETE/READY FOR DEVELOPMENT checkpoint is historical evidence only. Fable 5 requirements remediation is active. Development remains blocked until per-MS acceptance contracts, workflow determinism, requirement-ID traceability, domain rules/KPIs, fresh isolation evidence and a fresh adversarial audit pass with P0/P1=0.
+## Fable 5 final recertification
+Fresh closure evidence now includes DD-20C, DD-20D, DD-21…DD-31 and the final isolation matrix. P0=0, P1=0, REAL_DD_GAP=0; 41/41 Management Systems pass; 165/165 named KPI metrics map to formula/test contracts; 2,962 RawSource child IDs plus 328 explicit-user DD IDs have final traceability; Development and QA determinism are 9/9 YES.
 
-Do not modify or merge `main` without explicit approval.
+Current checkpoint is `DD-F5-RECERTIFIED`. Historical `DD-COMPLETE` and remediation-blocked evidence remain history and were not deleted.
+
+Development is the next authorized phase but has not yet been performed. Do not modify or merge `main` without explicit approval.
