@@ -1,10 +1,18 @@
-# HANDOFF_NOTE — Project Truth Revalidation
-- Resume on `docs/architecture-branch-2` from the 2026-09-10 truth-audit state.
-- Current Foundation status: **IN PROGRESS — SUBSTANTIVE TRUTH REVALIDATION**. CP-F1-005 is historical gate evidence only until repository-resident substantive evidence is rebuilt and re-audited. See `Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md` and `Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md`.
-- RawSourceCorpus was restored to the accepted immutable `main` blobs in commit `548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c`; preserve it unchanged hereafter.
-- Existing Foundation F-01…F-14 contains substantial useful content, but do not infer completeness from references, generic inheritance, counts or prior labels. Verify actual canonical WHAT/WHY/WHO item by item.
-- Architecture documents **A-00…A-09** exist and are retained as provisional work. A-10…A-12, consolidated ADR evidence, Architecture traceability, No-Loss/depth audit and final reconciliation are still absent.
-- Current technology authority is `UD-TECH-01`: Next.js 15, TypeScript/Node 22+, React 19, Tailwind/Shadcn, PostgreSQL, Payload 3, Refine where suitable, NestJS where justified, tRPC first-party, REST external, Clerk/Auth.js fallback, React Native/Expo, Tauri 2.0 Windows/macOS/Linux, Expo Push/OneSignal, Vercel/Coolify/Dockerized VPS.
-- MASTER_INSTRUCTION/MASTER_PROMPT v2.5 still provide the governing process framework; conflicting older stack/deployment clauses are superseded by current explicit user direction and must be formally reconciled before a new project-wide gate claim.
-- Next work: rebuild atomic repository-resident source→canonical traceability; deepen any Foundation owning sections that are only summaries/references; run fresh substantive No-Loss + adversarial audit; synchronize registers/state; then revalidate A-00…A-09 and continue remaining Architecture work.
-- Do not modify or merge `main`. Do not create a backup ZIP for this audit.
+# HANDOFF_NOTE — Architecture → Detailed Design
+**Date:** 2026-09-11
+
+Resume on `docs/architecture-branch-2` from checkpoint **CP-A1-003**.
+
+Current state:
+- Foundation: **CERTIFIED**.
+- Architecture: **CERTIFIED**.
+- Architecture set: **A-00…A-12**.
+- ADR authority: **A-12, ADR-001…ADR-018**.
+- Traceability/audits: current Foundation + Architecture evidence PASS.
+- RawSourceCorpus: immutable accepted S1/S2 baseline.
+- Technology: UD-TECH-01.
+- No open Foundation/Architecture REVIEW_REQUIRED item.
+
+Next work is **Detailed Design**, by dependency/build scope. Define exact database/entity/field/RLS contracts, endpoint methods/paths and request-response schemas, event payload catalogs, permission matrices, screen/navigation inventories, synchronization contracts, infrastructure/vendor configuration, numeric SLO/RPO/RTO values, migration/rollback/runbook mechanics and implementation test contracts. Do not begin Development for a scope until that scope reaches DETAILED DESIGN COMPLETE.
+
+Do not modify or merge `main` without explicit approval. No backup ZIP is required for this execution.
