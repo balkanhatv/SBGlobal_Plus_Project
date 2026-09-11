@@ -202,3 +202,17 @@ Configuration: membership types, dues, skills, recognition rules. Entitlement: s
 ### Tests / acceptance
 Positive: apply→active→renew; assign→verify hours. Negative: unverified hours/invalid consent action denied. Wrong Tenant and same-Tenant wrong Industry Context deny with no effect/existence leak. Disabled entitlement denies. Wrong-context event/document/AI access denies.  
 **Acceptance:** membership and volunteer evidence reliable.
+
+
+## Fable 5 deterministic contract binding
+The NGO / Temple / Trust MS sections above remain the canonical domain entity/module/permission/document/integration owners. The following remediation artifacts are **normative extensions of each listed MS**, not optional commentary:
+- MS set: `NGO-DMS`, `NGO-DFM`, `NGO-TAM`, `NGO-MVM`.
+- Deterministic per-MS tests: `DD-21_MS_ACCEPTANCE_TEST_CONTRACTS.md` → `<MS>-T001…T014`.
+- Exact major workflow transitions/forbidden edges/reversal-cancellation: `DD-22_MS_WORKFLOW_TRANSITION_MATRICES.md`.
+- Behavior-bearing field/catalog and exact context-index rules: `DD-23_BEHAVIORAL_CATALOGS_INDEX_CONTRACTS.md` + `DD-23A_BEHAVIOR_FIELD_REGISTRY.md`.
+- Domain-critical product defaults: `DD-24_INDUSTRY_DOMAIN_RULE_DECISIONS.md` → NGO-AC-001…004.
+- Mathematical KPIs + KPI acceptance IDs: `DD-25_KPI_CALCULATION_CATALOG.md`.
+- Requirement-ID chains: `Registers/DD_REQUIREMENT_TRACEABILITY_F5.md`.
+- 41-MS determinism evidence: `DD-27_41_MS_DETERMINISM_AUDIT.md`.
+
+Where an earlier sentence in this file is less specific than a referenced remediation contract, the more specific remediation contract governs. None of these references permits cross-industry inheritance of business semantics.

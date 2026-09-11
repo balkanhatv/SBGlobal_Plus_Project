@@ -288,3 +288,17 @@ Dependencies: RTL-OMS/IWM, Core Billing. Audit: every approval, state transition
 ### Tests / acceptance
 Positive: seller→listing→order→settlement. Negative: unapproved routing and unapproved settlement denied. Isolation: wrong tenant and same-tenant wrong Industry Context must return no data/effect. Entitlement-disabled MS must deny. AI retrieval/tool uses same authorization. Unauthorized document/event consumer denied.  
 **Acceptance:** seller financial lineage and approval evidence are complete.
+
+
+## Fable 5 deterministic contract binding
+The Retail MS sections above remain the canonical domain entity/module/permission/document/integration owners. The following remediation artifacts are **normative extensions of each listed MS**, not optional commentary:
+- MS set: `RTL-RSM`, `RTL-POS`, `RTL-IWM`, `RTL-OMS`, `RTL-MKT`.
+- Deterministic per-MS tests: `DD-21_MS_ACCEPTANCE_TEST_CONTRACTS.md` → `<MS>-T001…T014`.
+- Exact major workflow transitions/forbidden edges/reversal-cancellation: `DD-22_MS_WORKFLOW_TRANSITION_MATRICES.md`.
+- Behavior-bearing field/catalog and exact context-index rules: `DD-23_BEHAVIORAL_CATALOGS_INDEX_CONTRACTS.md` + `DD-23A_BEHAVIOR_FIELD_REGISTRY.md`.
+- Domain-critical product defaults: `DD-24_INDUSTRY_DOMAIN_RULE_DECISIONS.md` → RTL-AC-001…004.
+- Mathematical KPIs + KPI acceptance IDs: `DD-25_KPI_CALCULATION_CATALOG.md`.
+- Requirement-ID chains: `Registers/DD_REQUIREMENT_TRACEABILITY_F5.md`.
+- 41-MS determinism evidence: `DD-27_41_MS_DETERMINISM_AUDIT.md`.
+
+Where an earlier sentence in this file is less specific than a referenced remediation contract, the more specific remediation contract governs. None of these references permits cross-industry inheritance of business semantics.

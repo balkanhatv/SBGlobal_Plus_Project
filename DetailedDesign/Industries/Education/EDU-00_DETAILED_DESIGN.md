@@ -288,3 +288,17 @@ Dependencies: EDU-SMS/CUM, Core Documents. Audit: every approval, state transiti
 ### Tests / acceptance
 Positive: define→conduct→evaluate→approve→publish. Negative: publish before approval/held candidate blocked. Isolation: wrong tenant and same-tenant wrong Industry Context must return no data/effect. Entitlement-disabled MS must deny. AI retrieval/tool uses same authorization. Unauthorized document/event consumer denied.  
 **Acceptance:** published results are immutable/versioned and fully audited.
+
+
+## Fable 5 deterministic contract binding
+The Education MS sections above remain the canonical domain entity/module/permission/document/integration owners. The following remediation artifacts are **normative extensions of each listed MS**, not optional commentary:
+- MS set: `EDU-SMS`, `EDU-CUM`, `EDU-CTM`, `EDU-LMS`, `EDU-EMS`.
+- Deterministic per-MS tests: `DD-21_MS_ACCEPTANCE_TEST_CONTRACTS.md` → `<MS>-T001…T014`.
+- Exact major workflow transitions/forbidden edges/reversal-cancellation: `DD-22_MS_WORKFLOW_TRANSITION_MATRICES.md`.
+- Behavior-bearing field/catalog and exact context-index rules: `DD-23_BEHAVIORAL_CATALOGS_INDEX_CONTRACTS.md` + `DD-23A_BEHAVIOR_FIELD_REGISTRY.md`.
+- Domain-critical product defaults: `DD-24_INDUSTRY_DOMAIN_RULE_DECISIONS.md` → EDU-AC-001…004.
+- Mathematical KPIs + KPI acceptance IDs: `DD-25_KPI_CALCULATION_CATALOG.md`.
+- Requirement-ID chains: `Registers/DD_REQUIREMENT_TRACEABILITY_F5.md`.
+- 41-MS determinism evidence: `DD-27_41_MS_DETERMINISM_AUDIT.md`.
+
+Where an earlier sentence in this file is less specific than a referenced remediation contract, the more specific remediation contract governs. None of these references permits cross-industry inheritance of business semantics.
