@@ -37,3 +37,7 @@ Development must consume DD-00…DD-20 as implementation contracts, including th
 All 41 Management Systems have Detailed Design owners. Review Required has no avoidable open DD item. Genuine jurisdiction/contract/provider facts remain configuration/external validation inputs under existing abstractions.
 
 Development has **not yet been performed**. Testing, security validation, production readiness, deployment and operations remain separate future gates.
+
+
+## Fable 5 remediation handoff
+Current authoritative state supersedes the prior development-ready handoff: **DETAILED DESIGN REMEDIATION REQUIRED · DEVELOPMENT BLOCKED**. Preserve Wave-1/Wave-2 Core contracts, remediate P0/P1 findings, and do not begin implementation until fresh recertification passes.

@@ -3,15 +3,11 @@
 
 - Foundation: **CERTIFIED**.
 - Architecture: **CERTIFIED**.
-- DD Wave 1: **COMPLETE — PASS**.
-- DD Wave 2: **COMPLETE — PASS**.
-- DD Wave 3: **COMPLETE — PASS**.
-- Shared DD review closure: **PASS** — DD-022…DD-027; 0 avoidable open items.
-- Management Systems: **41/41 COMPLETE** across **9/9 industries**.
-- Full DD traceability: **PASS · 0 orphan required contracts**.
-- Full DD adversarial audit: **PASS · P0=0 · P1=0 · avoidable P2=0**.
-- Overall Detailed Design: **DETAILED DESIGN COMPLETE**.
-- Current checkpoint: **DD-COMPLETE**.
-- Next phase: **READY FOR DEVELOPMENT**.
-- Development has **not yet been performed**.
-- This state does not imply tested, security validated, production ready, deployed or operational.
+- Historical DD Wave 1: COMPLETE — preserved evidence.
+- Historical DD Wave 2: COMPLETE — preserved evidence.
+- Historical DD Wave 3 / DD-COMPLETE certification: **REOPENED BY FABLE 5 REQUIREMENTS AUDIT**.
+- Current phase truth: **DETAILED DESIGN — REMEDIATION / RECERTIFICATION REQUIRED**.
+- Development: **BLOCKED**.
+- Current remediation baseline: `0b4ae1dd0569bddee2bed82acbaf249f93702c37`.
+- Active blockers: P0/P1 acceptance-contract, workflow-determinism, certification-evidence and industry-domain determinism findings from the Fable 5 audit.
+- Previous DD-COMPLETE remains historical evidence only; it is not current authorization.

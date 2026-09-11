@@ -1,27 +1,20 @@
-# DD REVIEW REQUIRED
-**Updated:** 2026-09-11 · **Shared-platform closure status:** PASS · **Overall DD review status:** CLOSED FOR DETAILED DESIGN
+# DD REVIEW REQUIRED — FABLE 5 REMEDIATION
+**Updated:** 2026-09-11 · **Current status:** OPEN — DEVELOPMENT BLOCKED
 
-| ID | Severity | Item | Resolution | Status |
-|---|---|---|---|---|
-| DD-RR-001 | P2 | Numeric API/rate limits | DD-022 plus DD-06/16 policy fields | **RESOLVED** |
-| DD-RR-002 | P2 | Grace/dunning/retry timing | DD-023 versioned lifecycle policy | **RESOLVED** |
-| DD-RR-003 | P2 | Audit retention durations | DD-024 risk-based platform defaults with overrides | **RESOLVED** |
-| DD-RR-004 | P2 | Telemetry vendor/SLO thresholds | DD-025 OTel-compatible strategy/internal SLO classes | **RESOLVED** |
-| DD-RR-005 | P2 | Object-storage provider | DD-026 StoragePort profiles | **RESOLVED** |
-| DD-RR-006 | P2 | Numeric RPO/RTO defaults | DD-027 service-class recovery objectives | **RESOLVED** |
+| ID | Severity | Finding | Current status |
+|---|---|---|---|
+| F5-P0-01 | P0 | 41 MS lack deterministic per-MS acceptance/test contracts | OPEN |
+| F5-P0-02 | P0 | Eight sibling industries require developer-invented material behavior; Healthcare has bounded gaps | OPEN |
+| F5-P0-03 | P0 | Certification evidence/scope is internally inconsistent or stale | OPEN |
+| F5-P1-01 | P1 | Sibling DD is too template-like versus required domain authenticity | OPEN |
+| F5-P1-02 | P1 | Placeholder/vague indexes and constraints remain | OPEN |
+| F5-P1-03 | P1 | Major workflows lack exact transition/reversal matrices | OPEN |
+| F5-P1-04 | P1 | Requirement traceability is not yet proven end-to-end at requirement-ID granularity | OPEN |
+| F5-P1-05 | P1 | APP-007/human-review style tests are not deterministic runtime assertions | OPEN |
+| F5-P1-06 | P1 | Behavior-bearing free-text codes/catalogs are insufficiently governed | OPEN |
+| F5-P1-07 | P1 | Four-surface host-shell ownership needs explicit final clarification | OPEN |
+| F5-P1-08 | P1 | Bare MS identifier collisions remain possible | OPEN |
+| F5-P2-01 | P2 | Vague DD wording / security ceilings / KPI names without formulas | OPEN |
 
-Provenance: **[DD-AC — user-authorized vision-centric Detailed Design completion]**. These defaults are not represented as RawSourceCorpus facts.
-
-Only genuine jurisdiction-specific law, customer/contract-specific SLA commitments, tenant-specific commercial terms, and provider-account/region availability remain external production inputs; their design abstractions are complete. DD-027 additionally closes platform-default RPO/RTO.
-
-**Open avoidable shared DD items: 0. Open P0/P1: 0.**
-
-
-## Final Wave-3 / overall review pass
-- Open avoidable shared DD items: **0**.
-- Open avoidable Wave-3 MS items: **0**.
-- Open P0: **0**.
-- Open P1: **0**.
-- Open avoidable P2: **0**.
-- Genuine external jurisdiction/contract/provider inputs retain complete configuration/policy abstractions and do not block generic Detailed Design certification.
-- Historical references to earlier P2 deferrals remain audit history only and are superseded by DD-022…DD-027.
+Historical DD-022…DD-027 decisions remain preserved and subject to revalidation.  
+Development certification cannot be restored while any P0/P1 remains open.

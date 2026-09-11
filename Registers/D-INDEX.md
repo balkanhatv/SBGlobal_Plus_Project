@@ -1,7 +1,7 @@
 # D-INDEX — Canonical Document Index
 **Updated:** 2026-09-11
 
-**Current state:** Foundation **FOUNDATION CERTIFIED** · Architecture **ARCHITECTURE CERTIFIED** · **DETAILED DESIGN COMPLETE** · **READY FOR DEVELOPMENT**.
+**Current state:** Foundation **FOUNDATION CERTIFIED** · Architecture **ARCHITECTURE CERTIFIED** · **DETAILED DESIGN REMEDIATION REQUIRED** · **DEVELOPMENT BLOCKED**.
 
 | Range / ID | Owner | Current role/status |
 |---|---|---|

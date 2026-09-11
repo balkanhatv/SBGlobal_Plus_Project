@@ -1,17 +1,13 @@
 # PROJECT_STATE — SBGlobal Plus
 - Updated: 2026-09-11.
 - Branch: `docs/architecture-branch-2`.
-- Current phase state: **FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DD WAVE 1 COMPLETE · DD WAVE 2 COMPLETE · DD WAVE 3 COMPLETE · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT**.
-- Current checkpoint: **DD-COMPLETE**.
-- Foundation authority: F-00/F-15 + current requirement-level traceability/No-Loss evidence.
-- Architecture authority: A-00…A-12 + ADR-001…018 + current Architecture audits.
-- Detailed Design authority: DD-00…DD-20 + DD-REVIEW_REQUIRED + WAVE3_MS_COMPLETENESS_MATRIX + WAVE3_CROSS_INDUSTRY_AUDIT + 9 industry DD artifacts.
-- Management Systems: **41/41 implementation-ready DD contracts** across all nine equal first-class industries.
-- Canonical isolation: Tenant + active Industry Context is fail-closed across API/data/storage/events/webhooks/offline/AI and all Wave-3 MSs.
-- Shared DD defaults: rate limits, commercial lifecycle timing, audit retention, OpenTelemetry/SLOs, S3-compatible StoragePort and RPO/RTO resolved under DD-AC.
-- Full DD traceability: **0 orphan required contracts**.
-- DD final audit: P0=0 · P1=0 · avoidable P2=0.
-- RawSourceCorpus: immutable accepted S1/S2 blobs.
+- Foundation: **CERTIFIED**.
+- Architecture: **CERTIFIED**.
+- Previous DD-COMPLETE checkpoint: preserved as historical evidence only.
+- Current phase: **DETAILED DESIGN REMEDIATION REQUIRED**.
+- Development: **BLOCKED / NOT AUTHORIZED**.
+- Remediation baseline: `0b4ae1dd0569bddee2bed82acbaf249f93702c37`.
+- Active authority: Fable 5 requirements-remediation mandate plus existing Foundation/Architecture/Wave-1/Wave-2 contracts.
+- RawSourceCorpus: immutable.
 - `main`: unchanged/unmerged.
-- Backup ZIP: not created.
-- Development: **READY TO BEGIN**, but has **not been performed**. Implementation/test/security-validation/production/deployment gates remain future work.
+- No application code, migrations, deployment artifacts or executable tests are authorized in this phase.

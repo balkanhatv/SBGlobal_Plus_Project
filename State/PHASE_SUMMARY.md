@@ -63,3 +63,11 @@
 - **DETAILED DESIGN COMPLETE.**
 - **READY FOR DEVELOPMENT.**
 - Development has not yet been performed.
+
+
+## Fable 5 Requirements Remediation Reopen — 2026-09-11
+- Baseline HEAD: `0b4ae1dd0569bddee2bed82acbaf249f93702c37`.
+- Existing `DD-COMPLETE / READY FOR DEVELOPMENT` claims are unsupported until re-earned.
+- Current gate: **DETAILED DESIGN REMEDIATION REQUIRED**.
+- Development: **BLOCKED**.
+- Historical certification remains preserved for audit history only.

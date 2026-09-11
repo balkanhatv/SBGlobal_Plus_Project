@@ -1,7 +1,7 @@
 {
   "project": "SBGlobal Plus",
-  "phase": "Foundation CERTIFIED; Architecture CERTIFIED; DD Wave 1 COMPLETE; DD Wave 2 COMPLETE; DD Wave 3 COMPLETE; DETAILED DESIGN COMPLETE; READY FOR DEVELOPMENT",
-  "checkpoint": "DD-COMPLETE",
+  "phase": "Foundation CERTIFIED; Architecture CERTIFIED; DETAILED DESIGN REMEDIATION REQUIRED; DEVELOPMENT BLOCKED",
+  "checkpoint": "FABLE5-REM-START",
   "updated": "2026-09-11",
   "governed_by": [
     "MASTER_INSTRUCTION v2.5 + 2026-09-11 targeted reconciliation",
@@ -96,7 +96,7 @@
     "main_merge": "not performed",
     "backup_zip": "not created"
   },
-  "next_work": "Development may begin under certified Foundation, Architecture and Detailed Design contracts. Implementation, testing, security validation, production readiness and deployment remain future gates.",
+  "next_work": "Fable 5 Detailed Design requirements remediation and recertification only. Development blocked until P0/P1=0 and final fresh evidence passes.",
   "detailed_design": {
     "status": "DETAILED DESIGN COMPLETE",
     "checkpoint": "DD-COMPLETE",
@@ -106,12 +106,12 @@
     "management_systems_complete": 41,
     "industries_complete": 9,
     "shared_p2_resolved": 6,
-    "open_p0": 0,
-    "open_p1": 0,
+    "open_p0": 3,
+    "open_p1": 8,
     "open_avoidable_p2": 0,
     "orphan_required_contracts": 0,
     "overall_complete": true,
-    "ready_for_development": true,
+    "ready_for_development": false,
     "development_performed": false,
     "wave3_starting_head": "5448001b1216a26b4bcb85d7d17ff9a28e51b849",
     "evidence": [
@@ -123,6 +123,13 @@
       "DetailedDesign/DD-19_DETAILED_DESIGN_TRACEABILITY.md",
       "DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md",
       "DetailedDesign/DD-REVIEW_REQUIRED.md"
-    ]
+    ],
+    "historical_checkpoint": "DD-COMPLETE",
+    "historical_certification_preserved": true,
+    "current_status": "DETAILED DESIGN REMEDIATION REQUIRED",
+    "certification_supported": false,
+    "development_blocked": true,
+    "remediation_baseline": "0b4ae1dd0569bddee2bed82acbaf249f93702c37",
+    "open_p2": 1
   }
 }

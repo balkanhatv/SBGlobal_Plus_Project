@@ -1,6 +1,6 @@
 # SBGlobal Plus — Project Foundation / Architecture Branch
 
-**Current status: FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT** on `docs/architecture-branch-2`.
+**Current status: FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DETAILED DESIGN REMEDIATION REQUIRED · DEVELOPMENT BLOCKED** on `docs/architecture-branch-2`.
 
 > **SBGlobal Plus — A World-Class, AI-Ready, AI-Extensible, AI-Powered, Enterprise-Grade, Multi-Tenant, Multi-Industry SaaS Platform.**
 >
@@ -41,7 +41,7 @@ Historical Laravel/PHP/Filament/MySQL-primary/Flutter/PM2/cPanel assumptions rem
 - `DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md` — full adversarial PASS.
 - `DetailedDesign/DD-REVIEW_REQUIRED.md` — 0 avoidable open DD items.
 
-## Next phase
-**Development is now the next authorized phase.** Detailed Design completion does not mean implemented, tested, security validated, production ready, deployed or operational. Development must follow the certified Foundation/Architecture/DD contracts and subsequent implementation/testing/security/release gates.
+## Current remediation
+The previous DD-COMPLETE/READY FOR DEVELOPMENT checkpoint is historical evidence only. Fable 5 requirements remediation is active. Development remains blocked until per-MS acceptance contracts, workflow determinism, requirement-ID traceability, domain rules/KPIs, fresh isolation evidence and a fresh adversarial audit pass with P0/P1=0.
 
 Do not modify or merge `main` without explicit approval.
