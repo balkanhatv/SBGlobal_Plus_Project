@@ -1,6 +1,6 @@
 # SBGlobal Plus — Project Foundation / Architecture Branch
 
-**Current status: FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · READY FOR DETAILED DESIGN** on `docs/architecture-branch-2`.
+**Current status: FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT** on `docs/architecture-branch-2`.
 
 > **SBGlobal Plus — A World-Class, AI-Ready, AI-Extensible, AI-Powered, Enterprise-Grade, Multi-Tenant, Multi-Industry SaaS Platform.**
 >
@@ -18,6 +18,7 @@ The 2026-09-11 independent forensic audit reopened certification, triggered targ
 - `Architecture/` — A-00…A-12, canonical HOW.
 - `Registers/` — source/decision/traceability/audit/checkpoint evidence.
 - `State/` — current continuation state.
+- `DetailedDesign/` — DD-00…DD-20, shared decisions/tests/audits and 9 industry artifacts covering all 41 Management Systems.
 
 ## Active technology — UD-TECH-01
 Next.js 15 · TypeScript 5.x / Node.js 22+ · React 19 · Tailwind/Shadcn · PostgreSQL · Payload CMS 3 · Refine where suitable · Next.js server by default · NestJS only where justified · tRPC first-party · REST/OpenAPI external · Clerk preferred/Auth.js fallback · React Native+Expo · Tauri 2.0 Windows/macOS/Linux · Expo Push/OneSignal · Vercel · Coolify + Dockerized VPS.
@@ -32,7 +33,15 @@ Historical Laravel/PHP/Filament/MySQL-primary/Flutter/PM2/cPanel assumptions rem
 - Architecture final/adversarial audit: `Registers/ARCHITECTURE_FINAL_AUDIT.md`.
 - Architecture ADR authority: `Architecture/A-12_ARCHITECTURE_DECISIONS_CONSTRAINTS_DEPENDENCIES_TRADEOFFS.md`.
 
+## Current Detailed Design evidence
+- `DetailedDesign/DD-13_INDUSTRY_SUITE_DESIGN.md` — Wave-3 authority.
+- `DetailedDesign/WAVE3_MS_COMPLETENESS_MATRIX.md` — 41/41 MS PASS.
+- `DetailedDesign/WAVE3_CROSS_INDUSTRY_AUDIT.md` — isolation/consistency PASS.
+- `DetailedDesign/DD-19_DETAILED_DESIGN_TRACEABILITY.md` — 0 orphan required contracts.
+- `DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md` — full adversarial PASS.
+- `DetailedDesign/DD-REVIEW_REQUIRED.md` — 0 avoidable open DD items.
+
 ## Next phase
-Detailed Design is now the next authorized phase. It owns exact schemas, endpoint/payload contracts, policy expressions, permission matrices, screen inventories, infrastructure/vendor configuration, migration/runbook mechanics and implementation test contracts. Development follows only after each build scope reaches DETAILED DESIGN COMPLETE.
+**Development is now the next authorized phase.** Detailed Design completion does not mean implemented, tested, security validated, production ready, deployed or operational. Development must follow the certified Foundation/Architecture/DD contracts and subsequent implementation/testing/security/release gates.
 
 Do not modify or merge `main` without explicit approval.

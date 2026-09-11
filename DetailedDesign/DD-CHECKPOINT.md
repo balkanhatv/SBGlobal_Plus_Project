@@ -1,25 +1,24 @@
-# DD CHECKPOINT — DD-W2-COMPLETE
+# DD CHECKPOINT — DD-COMPLETE
 **Date:** 2026-09-11 · **Branch:** `docs/architecture-branch-2`
 
-- Wave-2 starting HEAD: `1b4b9bb2a804e3624f3815e0b8ae01059a3c3bd2`.
-- Pre-final-state-sync Wave-2 audited HEAD: `fffa1742bfc1ffd25dc7f6584b03129f0dd741b9`.
-- Foundation: CERTIFIED and unchanged.
-- Architecture: CERTIFIED and unchanged.
-- Wave 1: COMPLETE — PASS.
-- Wave 2: **DD WAVE COMPLETE — PASS**.
-- Wave 2 P0/P1: **0/0**.
-- Wave 2 P2: five bounded policy/provider decisions.
-- Wave-2 traceability: Foundation → Architecture → Wave-1 dependency → Wave-2 contract PASS; orphan Wave-2 contracts = 0.
-- Four application surfaces remain distinct.
-- Mobile/Desktop preserve Tenant + Industry Context in local storage/offline replay.
-- AI/RAG/Agent design preserves acting-principal, ACL, entitlement and residency boundaries.
-- Integration credentials are secret references, not plaintext.
-- Infrastructure preserves Regional Data Home/residency; cross-region failover is policy gated.
-- Security contracts cover auth/session/device/API/service, RLS, secrets/crypto, CSRF/XSS/CSP/SSRF, uploads, webhook, operator elevation, AI and residency.
-- Code/migrations/deployment execution: none.
+- Original Wave-3 mandate starting HEAD: `5448001b1216a26b4bcb85d7d17ff9a28e51b849`.
+- Pre-final-state-sync audited HEAD: `b1b4ee48bf8019820b25596c4b01aafab4d37dd1`.
+- Foundation: CERTIFIED.
+- Architecture: CERTIFIED.
+- DD Wave 1: COMPLETE — PASS.
+- DD Wave 2: COMPLETE — PASS.
+- Shared P2 closure: PASS; DD-022…DD-027.
+- DD Wave 3: **COMPLETE — PASS**.
+- Industries: **9/9 PASS**.
+- Management Systems: **41/41 PASS**.
+- Cross-industry isolation/consistency: PASS.
+- Full Foundation→Architecture→ADR→Wave1→Wave2→Wave3 traceability: PASS.
+- Orphan required contracts: **0**.
+- Review Required: avoidable open **0**.
+- Final DD audit: P0 **0** · P1 **0** · avoidable P2 **0**.
+- Overall gate: **DETAILED DESIGN COMPLETE**.
+- Next phase: **READY FOR DEVELOPMENT**.
+- Application code/migrations/deployment execution: none.
 - RawSourceCorpus: untouched.
 - `main`: untouched/unmerged.
 - Backup ZIP: not created.
-- **Wave 3 NOT STARTED.**
-- **Overall Detailed Design NOT COMPLETE.**
-- **Development of the overall platform NOT AUTHORIZED.**

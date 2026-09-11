@@ -1,7 +1,7 @@
 # D-INDEX — Canonical Document Index
 **Updated:** 2026-09-11
 
-**Current state:** Foundation **FOUNDATION CERTIFIED** · Architecture **ARCHITECTURE CERTIFIED** · **READY FOR DETAILED DESIGN**.
+**Current state:** Foundation **FOUNDATION CERTIFIED** · Architecture **ARCHITECTURE CERTIFIED** · **DETAILED DESIGN COMPLETE** · **READY FOR DEVELOPMENT**.
 
 | Range / ID | Owner | Current role/status |
 |---|---|---|
@@ -21,6 +21,10 @@
 | R-AFA | `ARCHITECTURE_FINAL_AUDIT.md` | Fresh adversarial PASS · certification evidence |
 | R-ISO | `ISOLATION_ATTACK_MATRIX.md` | Tenant + Industry Context attack evidence PASS |
 | R-RR | `REVIEW_REQUIRED.md` | No open P0/P1 remediation blocker |
+| DD-00…DD-20 | `DetailedDesign/` | DETAILED DESIGN COMPLETE · Waves 1–3 PASS |
+| DD-MS | `DetailedDesign/Industries/` | 9 industries · 41/41 Management Systems COMPLETE |
+| DD-RR | `DetailedDesign/DD-REVIEW_REQUIRED.md` | 0 avoidable open DD items |
+| DD-FA | `DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md` | Full DD adversarial PASS |
 | ST-* | `State/` | Synchronized current continuation state |
 
 ## Authority and boundary
