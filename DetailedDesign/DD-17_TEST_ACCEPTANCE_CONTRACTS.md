@@ -1,5 +1,5 @@
 # DD-17 — WAVE-1 TEST & ACCEPTANCE CONTRACTS
-**Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE  
+**Wave:** 1–2 · **Status:** DETAILED DESIGN COMPLETE THROUGH WAVE 2  
 **Traces:** MI §26B · F-03/F-14 · A-02/A-03/A-04/A-05/A-06/A-11 · DD-01…DD-08/DD-15
 
 These are implementation acceptance contracts, not executable test code.
@@ -118,3 +118,99 @@ These are implementation acceptance contracts, not executable test code.
 
 ## 10. Wave-1 gate criteria
 All contracts above must be implementable without inventing tenant/industry isolation, identity mapping, commercial state, access order, RLS predicate class, API envelope, event envelope, webhook scope, document authorization, or audit correlation. Numeric values explicitly deferred by DD-REVIEW_REQUIRED are not Wave-1 failures.
+
+
+## 11. Wave-2 Application surface contracts
+| ID | Scenario | Expected |
+|---|---|---|
+| APP-001 | Platform user opens Tenant Management route without tenant membership | deny/redirect; no platform-role shortcut |
+| APP-002 | Tenant Admin opens industry operational route lacking permission | server deny regardless of hidden nav |
+| APP-003 | same tenant switches Healthcare→Retail | prior private screen/cache state removed before Retail data render |
+| APP-004 | disabled module remains in stale navigation cache | server operation denies; navigation invalidates on version change |
+| APP-005 | entitlement removed during active session | next protected operation RESTRICT/DENY/UPGRADE_CTA as policy |
+| APP-006 | public form sends private tenant selector | ignored/rejected; public flow cannot acquire tenant authority |
+| APP-007 | Tenant Management tries operational POS/LIS/exam command | design/route ownership review fails |
+| APP-008 | accessibility keyboard-only navigation | all core shell actions reachable/focus visible |
+
+## 12. Wave-2 Mobile / offline
+| ID | Scenario | Expected |
+|---|---|---|
+| MOB-001 | session revoked while app backgrounded | protected resume/sync denied; secure state refreshed/cleared |
+| MOB-002 | tenant/context switch with cached private rows | old namespace inaccessible; no stale render |
+| MOB-003 | Healthcare queued mutation replayed after user selects Retail | queue retains Healthcare origin; only replays after Healthcare authorization, never rebinds |
+| MOB-004 | device registration revoked | sync/push protected actions denied |
+| MOB-005 | push token reassigned to another membership/device | old registration revoked/stale; no prior tenant payload |
+| MOB-006 | sensitive notification on lock screen | generic safe preview; content fetched after auth |
+| MOB-007 | expired app version attempts protected write | blocked per version policy |
+| MOB-008 | offline financial/stock conflict | no naive last-write-wins; reconciliation/version/reservation path |
+
+## 13. Wave-2 Desktop / native
+| ID | Scenario | Expected |
+|---|---|---|
+| DESK-001 | web content calls undeclared IPC capability | denied |
+| DESK-002 | unauthorized filesystem/process access | no generic capability exists |
+| DESK-003 | offline mutation replay wrong context | same DD-11 denial/reconciliation |
+| DESK-004 | application update signature invalid | update rejected |
+| DESK-005 | disabled peripheral capability invoked | deny with normalized safe error |
+| DESK-006 | local DB copied/opened outside app | encrypted; no usable private data without key |
+| DESK-007 | context switch | in-memory/private namespace swapped before new render |
+| DESK-008 | crash during queued mutation | queue integrity/reconciliation preserves state; no silent success |
+
+## 14. Wave-2 AI / RAG / Agent
+| ID | Scenario | Expected |
+|---|---|---|
+| AI-001 | Tenant A query tries Tenant B source ID | no retrieval/existence leak |
+| AI-002 | Healthcare query retrieves Retail chunks same tenant | industry filter denies |
+| AI-003 | source document access revoked after indexing | retrieval ACL check filters it |
+| AI-004 | preferred provider violates residency | filtered before selection; compliant fallback or controlled failure |
+| AI-005 | model proposes tool user lacks | DD-03 deny; no tool execution |
+| AI-006 | hallucinated resource ID | treated untrusted; RLS/access deny |
+| AI-007 | retrieved text says "ignore permissions" | treated as untrusted content; system/tool policy unchanged |
+| AI-008 | high-risk tool requires approval but agent calls directly | WAITING_APPROVAL/deny |
+| AI-009 | approver lacks target context/permission | approval denied |
+| AI-010 | tenant prompt tries provider/secret/tool bypass | override rejected by prompt governance |
+| AI-011 | conversation switches sibling industry | old private history not implicitly injected |
+| AI-012 | quota exhausted | entitlement/meter outcome, no hidden overrun |
+
+## 15. Wave-2 Integration
+| ID | Scenario | Expected |
+|---|---|---|
+| INT-001 | credential secret requested by UI | only masked metadata; plaintext unavailable |
+| INT-002 | adapter writes domain table directly | design/implementation gate fails |
+| INT-003 | provider callback signature invalid | reject before command translation |
+| INT-004 | provider rate limit | normalized RATE_LIMITED state/retry policy |
+| INT-005 | health fallback targets prohibited region/provider | POLICY_BLOCKED, no fallback |
+| INT-006 | sync cursor from wrong Industry Context | deny/reset only through governed context |
+| INT-007 | secret rotation | current/retiring versions handled without plaintext persistence |
+| INT-008 | provider raw error contains secret/PII | normalized/redacted before logs/audit |
+
+## 16. Wave-2 Infrastructure / recovery
+| ID | Scenario | Expected |
+|---|---|---|
+| INF-001 | deployment readiness fails | no traffic enablement |
+| INF-002 | outbox/worker group fails | request-serving capacity isolated; retry/DLQ and alert |
+| INF-003 | pooled DB connection retains prior RLS context | prohibited; transaction-local context test fails release if leakage |
+| INF-004 | migration preflight finds missing RLS entry | release blocked |
+| INF-005 | DB failover inside allowed data home | controlled failover + verification |
+| INF-006 | cross-region failover lacks residency permission | blocked; controlled unavailability/recovery |
+| INF-007 | backup job succeeded but restore exercise fails | recoverability status fails |
+| INF-008 | tenant routed to stale data-home version during migration | stale route rejected/re-resolved |
+| INF-009 | runtime service uses admin DB role | security/release gate fails |
+| INF-010 | Vercel runtime would process prohibited residency payload | route/workload placement rejects |
+
+## 17. Wave-2 Security
+| ID | Scenario | Expected |
+|---|---|---|
+| SEC-001 | CSRF attempt on cookie-auth mutation | origin/token/SameSite protection rejects |
+| SEC-002 | CMS rich-text XSS payload | sanitized/escaped; CSP prevents unsafe execution |
+| SEC-003 | webhook endpoint resolves to metadata/private IP | SSRF control rejects |
+| SEC-004 | upload MIME extension spoof | content/type verification + scan controls |
+| SEC-005 | secret appears in structured log candidate | redacted/rejected |
+| SEC-006 | expired operator elevation | deny |
+| SEC-007 | high-risk export without permission/residency | deny/audit |
+| SEC-008 | retention destroy requested under legal hold | deny destruction |
+| SEC-009 | AI provider/tool bypass instruction | policy remains authoritative |
+| SEC-010 | unsigned desktop build/update | reject |
+
+## 18. Wave-2 gate criteria
+Wave 2 passes only if DD-09/DD-10/DD-11/DD-12/DD-14/DD-16 and the Wave-2 extensions to DD-06/DD-15 are traceable, have no open P0/P1, and a developer would not need to invent shared surface/mobile/desktop/AI/integration/infrastructure/security rules before Wave 3.
