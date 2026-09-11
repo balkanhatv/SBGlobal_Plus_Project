@@ -20,8 +20,10 @@ TLS 1.2+ · Clerk token / API-key verification before any body parsing · Tenant
 
 ## 4. Events — Transactional Outbox (ADR-006)
 ```
-Module write TX:  domain writes + outbox row(event id, type, tenant,
-                  payload, occurred_at) + audit append   [ONE Postgres TX]
+Module write TX:  domain writes + outbox row(event id, type, version,
+                  tenant, industryContext?, actor/source/correlation,
+                  causation, payload, occurred_at) + audit append
+                  [ONE Postgres TX]
 Dispatcher:       polls outbox per data home → publishes to consumers →
                   marks dispatched; at-least-once, ordered per aggregate
 Consumers:        projections (A-05 §6) · notifications · webhook fan-out ·

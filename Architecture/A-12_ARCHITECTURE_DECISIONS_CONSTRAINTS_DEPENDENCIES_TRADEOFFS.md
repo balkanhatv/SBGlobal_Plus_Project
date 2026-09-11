@@ -131,7 +131,7 @@ This file is the authoritative Architecture ADR owner. Other A-documents cross-r
 **Decision:** shared RLS DB default; dedicated DB is governed option without schema/code fork.  
 **Options:** dedicated always; shared always.  
 **Trade-offs:** two operational topologies add migration/ops complexity but preserve efficiency and hard-isolation option.  
-**Consequences:** same logical contracts/migrations apply. **Risks:** dedicated-fleet overhead. **Dependencies:** ADR-002/A-05/A-10.
+**Consequences:** same logical contracts/migrations and Tenant+Industry Context ownership rules apply. **Risks:** dedicated-fleet overhead. **Dependencies:** ADR-002/A-05/A-10. **Affected Architecture:** tenancy routing, data topology, provisioning/migration operations.
 
 ## Cross-ADR constraints
 All ADRs obey one Unified Core; one identity boundary; Tenant + Industry Context isolation; server-authoritative authorization/entitlement; no direct client DB access; no hard-coded single AI provider; no Healthcare-derived sibling functionality; no conflicting API authority.

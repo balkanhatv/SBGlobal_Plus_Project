@@ -1,5 +1,5 @@
 # F-11 — TENANT DATA RESIDENCY MODEL
-**Document ID:** F-11 · **Version:** 1.1 · **Status:** SPECIFIED — SUBSTANTIVE REVALIDATION REQUIRED · Historical RR-02 resolution / decision **D-DECISIONS DR-01** retained. Provenance: requirement `[SD: S1 §6.7, S2.4]`; mechanism `[AC + UD]`. Cross-refs: F-03 §5–§6, F-01 §4, F-02 W-04/W-14, F-15.
+**Document ID:** F-11 · **Version:** 1.2 · **Status:** SPECIFIED — REMEDIATION REVALIDATED (CERTIFICATION PENDING) · Historical RR-02 resolution / decision **D-DECISIONS DR-01** retained. Provenance: requirement `[SD: S1 §6.7, S2.4]`; mechanism `[AC + UD]`. Cross-refs: F-03 §5–§6, F-01 §4, F-02 W-04/W-14, F-15.
 
 ## 1. Decision (DR-01) — Regional Data Home model — ACTIVE
 
@@ -35,4 +35,4 @@ Trigger: Tenant Owner request or regulatory/contractual requirement. Foundation 
 Every residency-relevant event (assignment, access, transfer, migration, backup replication, failover) carries region attribution in the audit fabric. Compliance posture is configurable by jurisdiction/contract; do not claim a regulation or certification is automatically satisfied merely because this model exists. Adding a region must preserve one Core and require infrastructure/configuration rather than a tenant/industry code fork.
 
 ## 8. Truth-revalidation qualification
-DR-01 remains an active architectural-completion decision unless later evidence contradicts it, but the historical RR-02 “resolved” label is not standalone Foundation-certification evidence. F-15 revalidation must verify the underlying WHAT/WHY/WHO residency requirements and decision provenance against current source/user authority.
+DR-01 remains an active architectural-completion decision unless later evidence contradicts it, but the historical RR-02 “resolved” label is not standalone Foundation-certification evidence. Current remediation reverified the underlying WHAT/WHY/WHO residency requirements and decision provenance against source/user authority; final Foundation certification remains governed by the fresh project-wide No-Loss/adversarial gate.
