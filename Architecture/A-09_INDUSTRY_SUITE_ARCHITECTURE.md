@@ -56,3 +56,6 @@ Each suite declares (per its Foundation spec, executed via A-07/A-08 patterns): 
 
 ## 7. Deferred to Detailed Design
 Per-MS service contract signatures, workflow definitions, rule bindings, seed packs, permission instantiation, experience screen inventories, integration adapter specs — all per suite from its own F-07…F-09/F-12/F-13 content (§26A/§26B boundary).
+
+## 8. Evidence consumption rule
+Common Management-System anatomy defines architectural shape only; it is **not proof of business depth**. A suite/MS enters Architecture as verified Foundation truth from its own F-07…F-09/F-13 business semantics. All nine industries consume the same architectural discipline independently. Healthcare-specific workflows, masters, events or compliance semantics may not be inferred into sibling suites.
