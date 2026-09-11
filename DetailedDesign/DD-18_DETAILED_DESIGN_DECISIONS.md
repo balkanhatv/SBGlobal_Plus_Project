@@ -106,3 +106,34 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Risks:** navigation manifest drift.  
 **Dependencies:** A-08, DD-02/DD-03/DD-06.  
 **Reversibility:** route/layout implementation may change while responsibility boundaries remain.
+
+
+## DD-012 — Context-partitioned local stores
+**Context:** mobile/desktop offline data can leak between multiple tenant/industry memberships if one local cache is reused.  
+**Options:** one shared local DB; clear-all on every switch; encrypted context namespaces.  
+**Decision:** private local data is logically partitioned by tenant + explicit industry/core scope + principal, with active namespace switching and in-memory purge on context change.  
+**Trade-offs:** more storage/index management; stronger isolation and resumable offline work.  
+**Consequences:** pending mutations keep immutable origin context and never rebind.  
+**Risks:** namespace cleanup bugs.  
+**Dependencies:** DD-02/DD-05/A-08.  
+**Reversibility:** physical storage engine may change without altering namespace contract.
+
+## DD-013 — One offline replay contract for Mobile and Desktop
+**Context:** Architecture requires one sync model across React Native and Tauri.  
+**Options:** separate mobile/desktop queues; shared contract.  
+**Decision:** DD-11 QueuedOperation/replay/conflict contract is authoritative for both channels; desktop adds native capability metadata only.  
+**Trade-offs:** common constraints may limit channel-specific shortcuts; eliminates divergent security.  
+**Consequences:** server reauthorization/idempotency behavior is identical.  
+**Risks:** older clients with stale schema versions.  
+**Dependencies:** DD-06/DD-11/DD-12.  
+**Reversibility:** client storage implementation may vary.
+
+## DD-014 — Native desktop capability allowlist
+**Context:** Tauri web content must not inherit broad OS authority.  
+**Options:** broad bridge; plugin defaults; explicit capability catalog.  
+**Decision:** every native operation is a typed allowlisted capability with app-origin/device/context/policy validation.  
+**Trade-offs:** more adapter definitions; materially smaller attack surface.  
+**Consequences:** no generic shell/process/filesystem execution contract.  
+**Risks:** missing capability may require later designed adapter.  
+**Dependencies:** ADR-015/DD-03/DD-12.  
+**Reversibility:** adapters can be added without widening existing capabilities.
