@@ -1,46 +1,30 @@
-# ARCHITECTURE FINAL / ADVERSARIAL AUDIT
-**Status:** HISTORICAL PASS — SUPERSEDED AS CURRENT CERTIFICATION EVIDENCE · **Date:** 2026-09-11
+# ARCHITECTURE FINAL / ADVERSARIAL AUDIT — POST-REMEDIATION
+**Status:** ARCHITECTURE CERTIFICATION EARNED · **Date:** 2026-09-11 · **Evaluated HEAD:** `df1f72412044751ac30c184315d05e4d72e0099a`
 
-## Pass 1 — cross-document reconciliation
-- Vision / one-Core model: PASS.
-- Foundation current truth: PASS.
-- UD-TECH-01: PASS.
-- Nine industries first-class/equal: PASS.
-- Core vs Industry ownership: PASS.
-- Tenant + Industry Context isolation: PASS.
-- Identity/RBAC/ABAC chain: PASS.
-- Commercial route/lifecycle/entitlement: PASS.
-- PostgreSQL/residency/retention/backup: PASS.
-- tRPC/REST/events/webhooks: PASS.
-- AI Gateway/RAG/agent security: PASS.
-- Application surfaces: PASS.
-- Vercel/Coolify/Docker regional topology: PASS.
-- A-00…A-12 inventory/references: PASS.
-- ADR-001…ADR-018 ownership: PASS.
-- Architecture traceability: PASS.
-- Detailed Design boundary: PASS.
+## Pass 1 — evidence reconciliation
+Foundation fresh No-Loss/depth PASS is current. A-00…A-12 are present. Architecture traceability maps the current Foundation concerns to exact HOW owners. ADR-001…ADR-018 meet the architecture-decision evidence standard.
 
-## Pass 2 — adversarial attempt to disprove readiness
-The second pass searched specifically for the known contradiction classes and gate inflation:
-- stale PAST_DUE state;
-- unconditional pseudonymization;
-- residency-breaking backup/failover assumptions;
-- same-tenant cross-industry AI leakage;
-- competing identity/application cores;
-- old Laravel/PHP/Flutter/PM2/cPanel active architecture;
-- Healthcare used as sibling template;
-- absent A-doc/ADR references;
-- headings standing in for HOW evidence;
-- Detailed Design mechanics incorrectly pulled into Architecture.
+## Pass 2 — attempt to disprove readiness
+The pass specifically attacked:
+1. tenant-only security mistaken for Tenant+Industry security;
+2. wrong-industry resource IDs;
+3. document/storage cross-context access;
+4. event/projector/webhook cross-context leakage;
+5. offline replay context confusion;
+6. AI/RAG/agent privilege or context leakage;
+7. multiple effective-access chains;
+8. competing application-surface models;
+9. Clerk hard coupling;
+10. Foundation requirements with no Architecture owner;
+11. Architecture claims resting on generic/partial MS evidence;
+12. stale technology/commercial/erasure/residency assumptions.
 
-No unresolved P0/P1 contradiction remains after the targeted corrections.
+The attack matrix and current documents provide fail-closed Architecture behavior for every P0/P1 class. No unresolved P0/P1 remains.
 
 ## Certification boundary
-**Architecture Certified** means the HOW-level system of record A-00…A-12 is coherent and ready to hand off into Detailed Design. It does **not** mean Detailed Design Complete, implemented, tested, security validated, production ready, deployed or operational.
+**ARCHITECTURE CERTIFIED** means the high-level HOW is coherent and can enter Detailed Design. It does not mean Detailed Design Complete, implemented, tested, security validated, production ready, deployed or operational.
 
-## Genuine later-phase work
-Detailed Design must define exact entity/field schemas, RLS policy catalog, endpoint paths/methods/request-response schemas, event payload catalogs, screen/navigation inventories, infrastructure-as-code/vendor configuration, numeric SLO/RPO/RTO values, migration/runbook commands and implementation test contracts.
+## Genuine Detailed Design work
+Exact entity/field schemas; concrete RLS policies; endpoint/payload/event schemas; exhaustive permission matrix; screen/navigation inventories; offline conflict tables; IaC/vendor configuration; numeric SLO/RPO/RTO; migration/rollback/runbook mechanics; implementation/security test contracts.
 
-
-## Current-status supersession — 2026-09-11
-The independent forensic audit found unresolved P0/P1 evidence after this historical pass. This file remains historical evidence and does not currently certify Architecture. A fresh adversarial audit must be produced after REM-01…REM-08 are closed.
+**Final Architecture gate: PASS.**
