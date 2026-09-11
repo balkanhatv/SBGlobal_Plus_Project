@@ -17,7 +17,7 @@ Indexes: tenant/context/time; principal/time; resource; action; correlation; den
 - BUSINESS_HIGH: approvals, financial corrections, regulated actions.
 - DATA_GOVERNANCE: export/erasure/retention/residency.
 - INTEGRATION: webhook/admin/API-key lifecycle.
-- AI_SECURITY later extends with tool/RAG decisions.
+- AI_SECURITY: AI/RAG retrieval authorization, tool authorization/execution, provider-policy decisions, prompt-injection/safety denial and sensitive-source access. DD-09 operations use this class now.
 
 Each operation contract declares audit class or NONE with justification.
 

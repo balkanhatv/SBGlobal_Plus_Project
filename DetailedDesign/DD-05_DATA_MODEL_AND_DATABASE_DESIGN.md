@@ -89,7 +89,7 @@ No evergreen elevation. All use audited.
 
 ## 8. Retention/sensitivity catalog
 ### sensitivity_class
-codes: PUBLIC, INTERNAL, CONFIDENTIAL, SENSITIVE_PERSONAL, REGULATED. Exact industry subclasses may extend later.
+codes: PUBLIC, INTERNAL, CONFIDENTIAL, SENSITIVE_PERSONAL, REGULATED. **Current DD permits no additional free-form sensitivity subclass.** An industry needing finer classification uses a versioned `SensitivityProfile{code,parent_class,industry_context_id?,handling_policy_ref,effective_from,effective_to?,version,status}` owned by DD-16; `parent_class` is one of these five immutable platform classes, so an extension may tighten handling but cannot weaken its parent security floor. Default: no extension profile. Every profile publication/change is audited.
 
 ### retention_class
 `code, default_policy_reference, erasure_mode, legal_hold_eligible, backup_treatment`. Numeric retention durations are policy/profile data, not invented here.
@@ -105,7 +105,7 @@ Mandatory:
 - Status + effective-time partial indexes for active records.
 - Unique business codes scoped by tenant/context as semantics require.
 - Append-only time-series tables index `(tenant_id, occurred_at desc)` and context where applicable.
-Exact high-volume partitioning is per module/table later.
+**PartitionPolicy v1:** ordinary mutable business tables are unpartitioned and use the exact indexes declared by their owning DD. Append-only `audit_event`, outbox/event-delivery and webhook-delivery evidence tables are monthly RANGE-partitioned by `occurred_at/created_at` inside each Data Home; every partition retains the same Tenant/Industry RLS and indexes. No other table is partitioned in the initial implementation. A future partitioning change is an operational schema-change decision triggered by measured capacity evidence, never a developer-selected default.
 
 ## 10. Concurrency
 Mutable aggregates use row_version optimistic concurrency. Commands send expectedVersion when conflict-sensitive. Mismatch → `CONFLICT`; no last-write-wins for financial, inventory, workflow transition or security/commercial state.

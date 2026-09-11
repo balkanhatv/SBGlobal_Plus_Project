@@ -76,7 +76,7 @@ Unique on scoped principal+operation+key. Same key + different request fingerpri
 API credential resolves one principal and fixed tenant plus optional allowed industry set. Requesting an industry outside that set denies before resource resolution.
 
 ## 10. Rate classes
-OperationContract references symbolic rate class only: `PUBLIC_LOW`, `AUTH_STANDARD`, `AUTH_HIGH_COST`, `EXTERNAL_WRITE`, `AI_COSTED`, `WEBHOOK_ADMIN`. Numeric thresholds are later approved plan/security configuration, never hard-coded by DD Wave 1.
+OperationContract references a symbolic rate class resolved through **SecurityRatePolicy v1 (DD-022/DD-028)**. Canonical mapping/default ceiling: `PUBLIC_LOW`→30/min burst10; `AUTH_STANDARD`→600/min burst120; `AUTH_HIGH_COST`→`ADMIN_SENSITIVE` 60/min burst15; `EXTERNAL_WRITE`→120/min unless the credential-specific `API_CREDENTIAL` ceiling 1200/min is tighter/looser only within DD-028 bounds; `AI_COSTED`→60/min concurrency8/tenant; `WEBHOOK_ADMIN`→600/min/endpoint. Tightest principal/IP/credential/tenant/security-risk limit wins. Tenant/plan policy may tighten; it cannot exceed DD-028 platform ceilings without a new versioned security-policy decision. Every throttle emits deterministic `RATE_LIMITED`, Retry-After metadata and a security/operations audit/metric.
 
 ## 11. Versioning
 REST: additive-compatible changes within v1; breaking contract opens v2 with explicit deprecation.  

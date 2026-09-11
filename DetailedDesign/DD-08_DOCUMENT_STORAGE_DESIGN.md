@@ -76,7 +76,7 @@ Thumbnail/preview/OCR extract/transcode is a child derivative with same or stric
 Legal hold/retention evaluated before delete. Logical delete may hide user access; physical purge follows policy. Erasure propagates to derivatives/search/RAG linkage. Audit records identifier/action/reason without preserving erased content.
 
 ## 10. Sharing
-External sharing, when later designed, requires explicit share grant, expiry, context/consent policy and revocation. Public bucket/public object ACL is prohibited for private tenant documents.
+**External anonymous/public document sharing is DISABLED in the current DD.** Current sharing is authenticated principal/resource access only through DocumentMeta ACL and signed short-lived access after DD-03 authorization. No public bucket/public object ACL is permitted for private tenant documents. Any future external-share capability is a new versioned feature requiring `ShareGrant{id,tenant_id,industry_context_id,document_id,grantee_type,grantee_ref,scope,expires_at,consent_policy_ref,revoked_at?,created_by,created_at}` plus explicit threat/privacy review before it can become an implementation requirement; Development must not invent it.
 
 ## 11. Acceptance
 Wrong Industry Context cannot resolve metadata; storage key cannot bypass DocumentMeta; quarantined file cannot get signed URL; derivative cannot gain broader scope; cross-region signed access obeys residency policy.

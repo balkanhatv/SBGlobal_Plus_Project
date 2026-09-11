@@ -83,7 +83,7 @@ Source Resource → access/classification → content extraction → chunking �
 Indexes/vectors must preserve tenant + industry filters. IndustryContext is required for TENANT_INDUSTRY rows.
 
 Chunking config:
-`ChunkingPolicy{contentType, maxChunkClass, overlapClass, structuralRules, version}`; exact numeric sizes may be tuned later by content type, but policy/version must be recorded.
+`ChunkingPolicy{contentType, maxTokens, overlapTokens, structuralRules, version}`. **ChunkingPolicy v1 [DD-AC]:** prose/HTML/PDF text `maxTokens=800, overlapTokens=120`; structured table/list `400/50` while preserving row/header boundaries; source/code/config text `600/80` while preserving function/object boundaries; short content below the maximum stays single-chunk. Absolute platform ceiling is 1200 tokens/chunk and overlap MUST be ≤25% of maxTokens. Tenant/industry policy may reduce sizes or choose a content-type profile but cannot exceed the ceiling. Policy/version is stored on ingestion/reindex audit; changing policy creates a new source/chunk version rather than silently rewriting retrieval evidence.
 
 ## 8. RAG retrieval pipeline
 1 verify RequestContext;

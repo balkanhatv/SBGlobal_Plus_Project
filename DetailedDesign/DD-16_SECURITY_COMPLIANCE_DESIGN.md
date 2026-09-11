@@ -83,7 +83,7 @@ Universal duration is not invented. Legal hold overrides destruction; release of
 Every tenant has data home. Documents/RAG/workers/backups obey data-home/policy. Provider AI/integration transfer classified before execution. Cross-region recovery/migration requires explicit allowance and audit.
 
 ## 21. Mobile security
-Secure token storage, device registration, app-version policy, encrypted local namespaces, context-switch purge, screenshot/clipboard restrictions where later sensitivity policy requires, jailbreak/root/integrity signal may restrict high-risk operations but cannot be sole identity proof. Push payload minimizes sensitive data.
+Secure token storage, device registration, app-version policy, encrypted local namespaces and context-switch purge are mandatory. **MobileSensitivityPolicy v1:** PUBLIC/INTERNAL may allow OS screenshot and clipboard; CONFIDENTIAL blocks cross-app clipboard and requests screenshot prevention where the OS supports it; SENSITIVE_PERSONAL/REGULATED blocks clipboard export and requests screenshot prevention, with any explicit export routed through the governed document/export permission path. Tenant/industry policy may tighten but not weaken the parent sensitivity-class floor. Jailbreak/root/integrity signal restricts configured high-risk operations but is never sole identity proof. Push payload contains no sensitive business content beyond a safe generic preview. Policy decisions and blocked export/capture attempts are security-audited where the platform can observe them.
 
 ## 22. Desktop security
 Signed application/update; Tauri allowlist; no generic OS shell; encrypted local DB; OS keychain; explicit file/printer/device capabilities; IPC origin/schema validation; logs redacted.
