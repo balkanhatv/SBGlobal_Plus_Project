@@ -1,5 +1,5 @@
 # SBGlobal Plus — PROJECT FOUNDATION
-**Document ID:** F-00 · **Version:** 1.3 (Truth Revalidation Amendment) · **Status:** IN PROGRESS — SUBSTANTIVE TRUTH REVALIDATION (see §12; §9–§11 retained as historical record) · **Date:** 10-09-2026
+**Document ID:** F-00 · **Version:** 1.4 (Truth Revalidation Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT EVIDENCE-BACKED REVALIDATION (see §13; §9–§12 retained as historical record) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 
 ---
@@ -199,3 +199,20 @@ The 2026-09-10 Project Truth Audit found new evidence that prevents continued re
 **Evidence required before a new Foundation-wide certification claim:** repository-resident atomic source→canonical traceability; substantive Foundation depth verification/correction; explicit decision/legacy/deferral classification; equal-depth nine-industry review; fresh No-Loss/depth audit; independent adversarial second pass; RawSourceCorpus integrity verification; synchronized registers/index/state.
 
 Until that evidence exists, CP-F1-005 is **historical gate evidence only**, not the current substantive Foundation status and not proof for an Architecture gate.
+
+
+## 13. Truth Revalidation Closure — CURRENT ACTIVE STATUS (11-09-2026)
+
+**Project Foundation (whole): FOUNDATION CERTIFIED — CURRENT EVIDENCE-BACKED REVALIDATION.**
+
+This section supersedes only the current-status effect of §12. Closure evidence:
+1. `TRACEABILITY_MATRIX_UNIT.md` contains all 372 repository-resident atomic S1/S2 rows with no external-ZIP dependency.
+2. Governance §9A is phase-aware: Foundation WHAT/WHY/WHO; Architecture HOW; exact schemas/endpoints/payloads Detailed Design.
+3. Commercial routing/lifecycle is reconciled across F-01/F-02/F-04/F-14.
+4. Identity/security is one provider-isolated Core boundary: Clerk preferred, Auth.js fallback; RBAC primary + ABAC complementary.
+5. Experience technology aligns to React Native+Expo, Expo Push/OneSignal and Tauri 2.0 cross-platform.
+6. F-11 controls residency and cross-region backup/replication/failover permission.
+7. F-07…F-09 + F-12 + F-13 were re-read under equal evidence discipline; F-12 inheritance is not treated as MS-specific proof.
+8. Fresh No-Loss/depth + adversarial second pass is recorded in `Registers/NO_LOSS_AUDIT.md`.
+
+**Boundary:** Foundation certification only; Architecture, Detailed Design, code and deployment remain separate phases.

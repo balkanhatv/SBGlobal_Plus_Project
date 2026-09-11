@@ -1,35 +1,35 @@
-# NO-LOSS AUDIT — HISTORICAL PASS + CURRENT REVALIDATION NOTICE
+# NO-LOSS / DEPTH AUDIT — 2026-09-11
+**Status:** PASS · **Scope:** Current Foundation revalidation against accepted immutable S1/S2 baseline
 
-> **CURRENT STATUS — 2026-09-10:** The historical PASS below is preserved, but it is **not current Foundation certification evidence**. The Project Truth Audit found that S2 traceability is represented in the repository mainly by grouped ranges and points to a recovery ZIP for full per-unit rows; it also found that the branch RawSourceCorpus had diverged while this audit asserted it was untouched. RawSourceCorpus has now been restored to the accepted `main` baseline in commit `548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c`. A fresh repository-resident atomic traceability + substantive depth No-Loss audit is required before any new Foundation-wide gate claim. See `PROJECT_TRUTH_AUDIT_2026-09-10.md` and `Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md`.
+## Pass 1 — source and destination
+- S1 units: 37.
+- S2 units: 335 across nine merged source files.
+- Total current atomic rows: **372**.
+- Unmapped rows: **0**.
+- External ZIP as sole atomic evidence: **0**.
+- RawSourceCorpus modifications in this execution: **0**.
+- Current overrides are visible through UD-TECH-01, UD-PHASE-01 and UD-COMM-01.
 
----
+## Pass 1 — substantive Foundation checks
+- Commercial route/lifecycle drift corrected across F-01/F-02/F-04/F-14.
+- One Core identity boundary retained; Clerk preferred + Auth.js fallback; RBAC primary + ABAC complementary.
+- Mobile/desktop active assumptions aligned to React Native+Expo, Expo Push/OneSignal and Tauri 2.0 cross-platform.
+- F-11 residency rule preserved: cross-region backup/replication/failover requires tenant policy, contract or legal basis.
+- F-12 generic anatomy is not counted as standalone MS-specific business evidence; suite/MS semantics are read from F-07…F-09 and F-13.
+- All nine industries were checked under the same evidence discipline; no Healthcare-derived sibling semantics accepted.
 
-## Historical record — Pass 1: 31-08-2026
-### Method
-Programmatic unit-level accounting: every heading unit in both Raw Source Corpus files parsed (372 units, 2965 enumerated items) and mapped to a canonical destination via the unit-level Traceability Matrix. Any unit without a destination is UNACCOUNTED and blocks certification.
+## Phase-boundary audit
+Foundation contains WHAT/WHY/WHO and required interaction intent. Architecture owns HOW. Exact database schemas, field dictionaries, endpoint methods/paths, complete request/response schemas, exact event payloads, screen inventories and implementation mechanics are Detailed Design deferrals, not Foundation defects.
 
-### Historical result
-- S1: 37 units — accounted: 37, unaccounted: 0
-- S2: 335 units — accounted: 335, unaccounted: 0
-- Historical UNACCOUNTED TOTAL: 0
-- Historical/legacy items (taglines, 31-file standard, flagship posture, 4-tier list, phase numbering) were recorded as PRESERVED-ONLY with CR references.
-- **Historical result at that checkpoint: PASS**
+## Adversarial Pass 2
+Attempted to disprove readiness using the known 2026-09-10 failure modes:
+1. grouped S2 ranges masquerading as atomic rows — **not present**;
+2. ZIP-only atomic evidence — **not present**;
+3. stale active Laravel/PHP/Flutter/PM2/cPanel assumptions — **not authoritative in current canonical Foundation**;
+4. Pro/Premium route conflict — **corrected**;
+5. separate PAST_DUE resting-state implication — **not canonical Foundation**;
+6. FCM-only / Windows-only active assumption — **corrected**;
+7. universal erasure pseudonymization — **not canonical; conditional BR-SEC-01 governs**;
+8. Healthcare inheritance used to prove sibling depth — **rejected by AC-16**.
 
-### Legacy Register absence check recorded at that checkpoint
-Re-verified against F-00..F-12 ACTIVE statements including the then-new F-10/F-11/F-12: one identity system; one Core; no per-tenant/per-region backends; no forced counts; surface separations; no label-as-evidence certification. Historical recorded result: PASS.
-
-### Historical depth-check findings
-- Pass 1 findings: 5 structural units unmapped + 1 wording finding in F-06 — recorded as corrected.
-- Pass 2: recorded as none; all then-present Foundation documents reported non-trivial and all 9 suites reported to carry required F-12 dimensions.
-
-### Historical corpus-integrity statement
-The original audit stated that `Disorganized Data 1.md` and `Disorganized Data 2.md` were untouched originals and byte-identical in the recovery package. That statement describes the audit/checkpoint evidence available at that time; it **must not be reused as a current-state assertion**, because later branch history diverged before the 2026-09-10 restoration.
-
-## Current revalidation requirements
-A new No-Loss PASS may be recorded only after:
-1. atomic source→canonical mappings are present in the repository itself;
-2. every mapped Foundation destination is checked for substantive WHAT/WHY/WHO evidence rather than heading/reference/generic inheritance only;
-3. all conflicts, user-directed changes, legacy items and valid future-phase deferrals are explicit;
-4. all nine industries pass the same evidence discipline independently;
-5. RawSourceCorpus integrity is reverified against the accepted immutable baseline;
-6. an adversarial second pass finds no unaccounted or falsely satisfied requirement.
+**Result: PASS.** Foundation evidence only; Architecture has an independent gate/evidence package.

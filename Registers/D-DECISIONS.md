@@ -14,20 +14,30 @@ Seeded from MASTER_INSTRUCTION v2.5 §29, inherited CR/AC/DR decisions, and expl
 | CR-08 | Website roadmap vs development phases | Different scopes; both preserved and cross-referenced |
 
 ## Foundation architectural-completion decisions
-| ID | Location | Decision |
-|---|---|---|
-| AC-01 | F-01 | Entitlement-chain downgrade guard |
-| AC-02 | F-02 | Idempotent/resumable tenant provisioning |
-| AC-03 | F-03 | Justification required for operator tenant-data access |
-| AC-04 | F-03 | Erasure/retention reconciliation via pseudonymization + audit skeleton |
-| AC-05 | F-04 | Financial records immutable post-approval; reversal-only correction |
-| AC-06 | F-07 | Offline-first POS Desktop candidate for Retail |
-| AC-07..AC-14 | F-07..F-09 | Equal-depth operational specifications for all sibling suites |
-| DR-01 | F-11 | Regional Data Home residency model |
-| AC-15 | F-10 | Desktop requirement completion; current framework direction governed by UD-TECH-01 |
-| AC-16 | F-12 | Cross-suite/MS coverage/deepening; generic inherited rows are not standalone MS-specific evidence after 2026-09-10 truth audit |
-| AC-17 | F-13 | Selected MS depth completion across required suites |
-| AC-18 | F-14 | Commercial Foundation depth completion |
+
+These are authoritative Foundation decision records; shorthand references elsewhere cross-reference this section.
+
+| ID | Context | Decision | Alternatives / Options | Trade-offs | Consequences | Dependencies |
+|---|---|---|---|---|---|---|
+| AC-01 | Downgrade can place current usage above target-plan limits. | Require impact assessment and explicit remediation before effective downgrade; never silently delete data. | Immediate hard cut; silent deletion; block downgrade entirely. | More workflow complexity; preserves tenant data and commercial integrity. | Removed capabilities become restricted/archived by policy; entitlement recompute stays atomic. | F-01 §5, F-14 §6, A-04 |
+| AC-02 | Provisioning can partially fail across tenant/identity/industry/seed steps. | Make provisioning idempotent and resumable. | Non-resumable single pass; manual cleanup. | More state tracking; safer recovery. | No half-visible tenant. | F-02 W-04, A-01/A-02 |
+| AC-03 | Support/compliance may require operator tenant-data access. | Purpose-bound justification + role gate + time-boxed elevation + audit. | Blanket access; total prohibition. | Operational friction for stronger trust. | Operator access is exceptional and attributable. | F-03, A-03/A-11 |
+| AC-04 | Erasure rights can conflict with legal hold/mandatory retention. | If retention/legal hold applies, pseudonymize personal fields and preserve required non-personal skeleton; otherwise hard-erase per policy. | Universal delete; universal pseudonymization. | Conditional policy is more complex but legally safer. | Architecture must not force pseudonymization for every erasure request. | F-03 §6, F-04 §11, A-05 |
+| AC-05 | Approved financial records need correction without history loss. | Reversal/correction entries after approval; no in-place mutation. | Edit approved record; delete/recreate. | More ledger entries; much stronger auditability. | Approved financial history append-only. | F-04 §5, A-05 |
+| AC-06 | Retail POS may require resilient counter operation. | Optional offline-capable Retail POS desktop using shared synchronization policy. | Web-only POS; separate retail desktop codebase. | Offline complexity vs continuity. | Reuses shared Core/Tauri, no retail backend fork. | F-07, F-10, A-08/A-09 |
+| AC-07 | Education required first-class depth despite thinner source. | Complete Education independently using domain reasoning + source anchors. | Leave shallow; copy another industry. | More documentation work; authentic semantics. | Education remains first-class without Healthcare leakage. | F-07/F-12/F-13/A-09 |
+| AC-08 | Retail/Commerce required independent complete semantics. | Complete Retail/Commerce independently. | Leave shallow; template-copy. | Domain work vs false parity. | Retail semantics remain retail-owned. | F-07/F-12/F-13/A-09 |
+| AC-09 | Hospitality required independent complete semantics. | Complete Hospitality independently. | Leave shallow; template-copy. | Domain work vs false parity. | Hospitality first-class. | F-08/F-12/A-09 |
+| AC-10 | Manufacturing cannot be reduced to generic inventory. | Complete manufacturing-specific production/work-order semantics. | Generic inventory-only; copy Retail. | Larger scope; correct production behavior. | Manufacturing first-class. | F-08/F-12/F-13/A-09 |
+| AC-11 | Professional Services cannot be reduced to CRM only. | Complete service-delivery/SLA/project semantics independently. | Generic CRM-only; copy another suite. | More explicit domain detail. | Professional Services first-class. | F-08/F-12/F-13/A-09 |
+| AC-12 | Government/Public Sector needs citizen/public-approval context. | Complete public-sector semantics independently. | Generic enterprise workflow only. | More governance/compliance detail. | Government first-class. | F-09/F-12/A-09 |
+| AC-13 | NGO/Temple/Trust needs donation/membership/seva/trust governance. | Complete those semantics independently. | Generic nonprofit CRM. | Broader domain detail. | NGO/Temple/Trust first-class. | F-09/F-12/F-13/A-09 |
+| AC-14 | Security & Facility Management needs deployment/site/guard/facility semantics. | Complete SFM independently. | Generic workforce module only. | More operational depth. | SFM first-class. | F-09/F-12/A-09 |
+| DR-01 | Source requires configurable residency but not a mechanism. | Regional Data Home under one logical Core. | Permanent single region; universal per-tenant DB; independent regional forks. | Regional ops complexity vs residency control. | Cross-region transfer/backup/failover is policy/contract/legal-basis gated. | F-11, A-02/A-05/A-10 |
+| AC-15 | Desktop source was Windows-heavy and less complete than mobile. | Cross-platform desktop Foundation; Tauri 2.0 under UD-TECH-01. | Windows-only; separate native OS apps. | Cross-platform abstraction vs some native specialization. | OS packaging remains Detailed Design. | F-10/F-06/A-08 |
+| AC-16 | Generic MS anatomy can create false evidence of domain depth. | F-12 common anatomy is guidance only; each MS needs its own business semantics at authoritative owner. | Inheritance counts as proof; duplicate every common clause. | Requires per-MS verification without needless duplication. | F-12 alone cannot certify an MS. | F-07…F-09/F-12/F-13 |
+| AC-17 | Several discovered/thin MSs failed depth review. | Deepen named MSs in F-13 with their own workflows/states/rules/dependencies. | Remove; leave discovered; generic inheritance. | More Foundation detail. | Known MS blockers closed without changing suite equality. | F-13/A-09 |
+| AC-18 | Commercial semantics were split/inconsistent. | F-14 is canonical commercial Foundation: versioned route policy + subscription/license/entitlement chain/lifecycle. | Hard-code routes; let each surface interpret plans. | Central policy adds config complexity but prevents drift. | Free/Starter self-serve; Enterprise sales-assisted; Pro/Premium dual-route. | F-01/F-02/F-04/F-14/A-04 |
 
 ## Current user-directed technology decision
 | ID | Scope | Decision | Status |
@@ -46,3 +56,30 @@ Seeded from MASTER_INSTRUCTION v2.5 §29, inherited CR/AC/DR decisions, and expl
 
 ## Architecture decisions
 ADR-001 through ADR-016 referenced by A-00…A-09 are Architecture decisions and must be consolidated with **Context, Decision, Alternatives/Options and trade-offs, Consequences** in A-12 before any Architecture gate claim. Until then, references to those ADR IDs are provisional decision anchors rather than complete ADR evidence.
+
+
+## 2026-09-11 Targeted Reconciliation Decisions
+
+### UD-PHASE-01 — Phase-evidence boundary
+**Context:** earlier §9A wording could be interpreted as requiring Detailed-Design-level schemas and exact endpoint/payload evidence before Foundation closure.  
+**Decision:** Foundation proves WHAT/WHY/WHO and required interactions; Architecture proves HOW-level boundaries/responsibilities/data flow/interface behavior; Detailed Design owns exact schemas, field dictionaries, endpoint paths/methods and payload contracts.  
+**Alternatives:** one depth standard for every phase; weaken evidence generally.  
+**Trade-offs:** phase-aware evidence is more nuanced but prevents both shallow certification and premature implementation design.  
+**Consequences:** Foundation certification does not depend on implementation contracts; Architecture remains substantive HOW.  
+**Dependencies:** MI §9A/§26B, MASTER_PROMPT, F-15, Architecture evidence.
+
+### UD-SOURCE-01 — Active immutable source baseline
+**Context:** Git history contains earlier divergent RawSourceCorpus variants.  
+**Decision:** accepted S1/S2 blobs are the immutable active baseline; earlier variants remain Git history. Explicit user decisions may supersede active interpretation without rewriting source history.  
+**Alternatives:** rewrite source; treat every historical variant as co-authoritative.  
+**Trade-offs:** requires explicit supersession traceability; preserves provenance and one current baseline.  
+**Consequences:** UD-TECH-01 can supersede historical stack requirements while source bytes remain unchanged.  
+**Dependencies:** SOURCE_REGISTRY, atomic traceability, F-01 §8, Architecture.
+
+### UD-COMM-01 — Commercial route/lifecycle canonicalization
+**Context:** older wording made all tiers above Starter sales-assisted and A-04 introduced PAST_DUE despite F-14's Active→Grace model.  
+**Decision:** Free/Starter self-serve; Enterprise sales-assisted; Pro/Premium governed dual-route. Resting states: Pending/Trial/Active/Grace/Suspended/Expired/Cancelled; Renewed is an event; failed renewal triggers Active→Grace.  
+**Alternatives:** hard-code all paid tiers to sales; add PAST_DUE resting state.  
+**Trade-offs:** policy configuration adds governance but prevents channel/market code drift.  
+**Consequences:** F-01/F-02/F-04/F-14 and A-04 use one model.  
+**Dependencies:** F-14, billing/entitlement architecture, public signup UX.
