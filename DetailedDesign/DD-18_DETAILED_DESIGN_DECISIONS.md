@@ -209,3 +209,54 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Risks:** delayed decisions.  
 **Dependencies:** DD-14/DD-16/DD-REVIEW_REQUIRED.  
 **Reversibility:** values/versioning are configuration.
+
+
+## DD-022 — Vision-centric rate-limit defaults [DD-AC]
+**Context:** shared DD defined symbolic rate classes but no implementation-ready defaults.  
+**Options:** leave values to Development; one global limit; hierarchical configurable classes.  
+**Trade-offs:** concrete defaults require later tuning, but remove developer invention and improve tenant fairness.  
+**Decision:** use versioned rate policies with defaults: PUBLIC_LOW 30/min burst 10; PUBLIC_STANDARD 120/min burst 30; AUTH_STANDARD 600/min burst 120; ADMIN_SENSITIVE 60/min burst 15; AUTH_SECURITY 20/5min burst 5; BULK 30 submissions/hour concurrency 2/tenant; WEBHOOK 600/min/endpoint; AI 60/min concurrency 8/tenant; FILE_UPLOAD 60 starts/hour; API_CREDENTIAL 1200/min; TENANT_AGGREGATE 3000/min. Enforce IP/principal/credential/tenant scopes; tightest limit wins.  
+**Consequences:** values are configurable/versioned; security-sensitive ceilings require security approval; Retry-After is returned for throttled requests.  
+**Risks:** capacity tuning may change values.  
+**Dependencies:** DD-06/DD-16/DD-15.  
+**Reversibility:** high.
+
+## DD-023 — Commercial lifecycle timing defaults [DD-AC]
+**Context:** lifecycle semantics are fixed but retry/grace timing was open.  
+**Options:** provider-defined ad hoc timing; no retry; versioned platform lifecycle policy.  
+**Trade-offs:** platform defaults simplify behavior while markets/providers/contracts may differ.  
+**Decision:** default failed-renewal policy: ACTIVE→GRACE on definitive failure; retries at +24h, +72h, +120h; notices at Grace entry, before retries and 24h before suspension; Grace duration 168h; unresolved Grace→SUSPENDED; default suspended preservation window 720h before expiry eligibility; successful settlement may reactivate according to policy. Renewed remains an event; PAST_DUE remains prohibited.  
+**Consequences:** plan/market/provider/Enterprise contract may override timings through versioned policy without changing states.  
+**Risks:** provider rules may require variant policy.  
+**Dependencies:** F-14/DD-04.  
+**Reversibility:** high.
+
+## DD-024 — Platform audit-retention defaults [DD-AC]
+**Context:** retention classes existed without numeric defaults.  
+**Options:** no defaults; one universal duration; risk-based defaults.  
+**Trade-offs:** longer retention costs storage; shorter retention weakens evidence.  
+**Decision:** defaults: SECURITY_CRITICAL 7y; FINANCIAL_AUDIT 10y; ACCESS_DECISION 2y; ADMIN_CONFIGURATION 7y; DATA_GOVERNANCE 10y; AI_GOVERNANCE 2y; OPERATIONAL_STANDARD 90d hot and up to 365d archive. Legal hold, jurisdiction, contract and industry policy override. These are platform defaults, not statutory minimum claims.  
+**Consequences:** destruction requires eligibility; pseudonymization may preserve required evidentiary skeleton; immutable evidence is append/supersede, not silent rewrite.  
+**Risks:** jurisdiction-specific requirements need external validation.  
+**Dependencies:** DD-15/DD-16.  
+**Reversibility:** policy-versioned.
+
+## DD-025 — OpenTelemetry-compatible observability and engineering SLOs [DD-AC]
+**Context:** telemetry vendor/SLO ambiguity remained.  
+**Options:** proprietary-only stack; defer; portable OTel model.  
+**Trade-offs:** OTel collector operations vs portability.  
+**Decision:** OpenTelemetry semantic model and Collector, with Prometheus/Grafana/Loki/Tempo-compatible defaults and managed equivalents allowed. Initial internal engineering availability targets: Public Website 99.90%; Authenticated App 99.90%; Transaction API 99.95%; Critical Transaction 99.95%; Worker/Queue 99.90%; Webhook 99.90%; AI Gateway 99.0%; Document Pipeline 99.90%; Data Home 99.95%. Error-budget fast burn pauses risky releases. These are engineering SLOs, not contractual SLAs.  
+**Consequences:** vendor can change without changing telemetry contracts.  
+**Risks:** telemetry cost/cardinality.  
+**Dependencies:** A-11/DD-15/DD-14.  
+**Reversibility:** high.
+
+## DD-026 — Portable S3-compatible StoragePort default [DD-AC]
+**Context:** physical object-storage selection remained open.  
+**Options:** provider-specific storage; filesystem; portable S3-compatible abstraction.  
+**Trade-offs:** abstraction limits provider-exclusive features but improves portability/residency.  
+**Decision:** StoragePort is authoritative; AWS S3 is preferred managed-cloud profile and MinIO-compatible S3 storage is preferred regional/self-hosted profile. Private primary/quarantine/derivative/backup classes, encryption, versioning, SHA-256 checksums, lifecycle, signed URLs and residency rules are mandatory. Storage paths never authorize access.  
+**Consequences:** provider may change without DocumentMeta/ACL changes.  
+**Risks:** S3 compatibility differences require adapter conformance tests.  
+**Dependencies:** DD-08/DD-14/DD-16.  
+**Reversibility:** high.

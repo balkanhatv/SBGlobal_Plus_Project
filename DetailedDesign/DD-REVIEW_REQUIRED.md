@@ -1,13 +1,16 @@
 # DD REVIEW REQUIRED
-**Updated:** 2026-09-11
+**Updated:** 2026-09-11 · **Shared-platform closure status:** PASS
 
-| ID | Severity | Scope | Item | Status | Disposition |
-|---|---|---|---|---|---|
-| DD-RR-001 | P2 | Wave 1→2 | Numeric API/rate limits not source/contract backed | DEFERRED — POLICY VALUE | DD-06/DD-16 define rate classes/policy fields; numeric values require approved security/commercial input |
-| DD-RR-002 | P2 | Wave 1→2 | Dunning/grace timing values not authorized | DEFERRED — COMMERCIAL POLICY VALUE | DD-04 fields remain configurable; numeric values require approved commercial input |
-| DD-RR-003 | P2 | Wave 1→2 | Exact audit retention day counts vary by compliance profile | DEFERRED — COMPLIANCE POLICY VALUE | DD-16 defines jurisdiction/policy mapping and legal hold; durations require approved profile |
-| DD-RR-004 | P2 | Wave 1→2 | Telemetry vendor/SLO thresholds not selected | DEFERRED — OPS DECISION | DD-15 defines vendor-neutral telemetry/severity/health contracts; vendor/numbers remain approval inputs |
-| DD-RR-005 | P2 | Wave 1→2 | Physical object-storage provider not selected | DEFERRED — INFRA PROVIDER DECISION | DD-08/DD-14 fix security/topology requirements; provider remains selectable |
+| ID | Severity | Item | Resolution | Status |
+|---|---|---|---|---|
+| DD-RR-001 | P2 | Numeric API/rate limits | DD-022 plus DD-06/16 policy fields | **RESOLVED** |
+| DD-RR-002 | P2 | Grace/dunning/retry timing | DD-023 versioned lifecycle policy | **RESOLVED** |
+| DD-RR-003 | P2 | Audit retention durations | DD-024 risk-based platform defaults with overrides | **RESOLVED** |
+| DD-RR-004 | P2 | Telemetry vendor/SLO thresholds | DD-025 OTel-compatible strategy/internal SLO classes | **RESOLVED** |
+| DD-RR-005 | P2 | Object-storage provider | DD-026 StoragePort profiles | **RESOLVED** |
 
-## Gate interpretation
-Deferred P2 items above are intentionally outside Wave-1 authorization or require later approved inputs. There are **0 open P0/P1 findings for Wave 1 or Wave 2 after the Wave-2 adversarial review**. The five P2 items are bounded policy/provider decisions. They do not block the Wave-2 DD gate, but affected production readiness cannot be claimed without approved values/provider selections.
+Provenance: **[DD-AC — user-authorized vision-centric Detailed Design completion]**. These defaults are not represented as RawSourceCorpus facts.
+
+Only genuine jurisdiction-specific law, contract-specific SLA commitments and provider-account/region availability remain external production inputs; their design abstractions are complete.
+
+**Open avoidable shared DD items: 0. Open P0/P1: 0.**
