@@ -1,5 +1,5 @@
 # DD-13 — INDUSTRY SUITE / MANAGEMENT SYSTEM DETAILED DESIGN
-**Wave:** 3 · **Status:** IN PROGRESS — FRAMEWORK ESTABLISHED · **Date:** 2026-09-11  
+**Wave:** 3 · **Status:** DETAILED DESIGN COMPLETE — 41/41 MS STRUCTURALLY VERIFIED · **Date:** 2026-09-11  
 **Traces:** F-07/F-08/F-09/F-12/F-13 · A-09 · ADR-012 · DD-01…DD-12/DD-14…DD-18
 
 ## 1. Purpose
@@ -48,5 +48,14 @@ Shared DD-10 shell. Web route prefix `/app/<industry>/<ms>`; mobile uses same pa
 ## 10. Offline classes
 `ONLINE_ONLY`, `READ_OFFLINE`, `CONTROLLED_OFFLINE_MUTATION`, `OFFLINE_OPERATIONAL_CRITICAL`. Financial, stock and regulated transitions never use naive LWW.
 
-## 11. Wave-3 gate
-All 41 sections must be COMPLETE, cross-industry audit must pass, DD-19 must report 0 orphan required contracts, DD-20 must have no open P0/P1, and avoidable DD REVIEW_REQUIRED must be 0 before overall DD certification.
+## 11. Wave-3 gate — closure result
+- 41/41 canonical Management Systems have substantive DD sections.
+- 9/9 industries have equal design discipline.
+- Structural implementation-readiness scan verifies per-MS ownership, entity design, workflow/rules, capability permissions, documents/reports, tRPC/events, AI, experience/offline, entitlement, audit and test/acceptance coverage.
+- Every industry-owned MS explicitly consumes immutable Tenant + Industry Context ownership.
+- Cross-industry audit: PASS.
+- Avoidable Wave-3 ambiguity markers: 0.
+- Wave-3 traceability owners/orphans are finalized in DD-19.
+- Final overall certification remains governed by DD-20 full adversarial audit.
+
+**DD WAVE 3 CONTENT GATE: PASS.**

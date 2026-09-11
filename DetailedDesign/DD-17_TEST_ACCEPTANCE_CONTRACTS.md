@@ -241,3 +241,21 @@ Wave 2 passes only if DD-09/DD-10/DD-11/DD-12/DD-14/DD-16 and the Wave-2 extensi
 | RCV-004 | Rebuildable search/vector projection lost | source truth preserved; rebuild target RTO ≤8h |
 | RCV-005 | Enterprise contract requires tighter objective | versioned contract policy wins |
 | RCV-006 | operator attempts weaker objective without approval | policy validation rejects/records exception workflow |
+
+
+## 20. Cross-industry Wave-3 isolation tests
+| ID | Scenario | Expected |
+|---|---|---|
+| W3-XI-001 | Same tenant Healthcare principal supplies Retail resource ID | deny/non-disclosing; no context auto-switch |
+| W3-XI-002 | Same tenant Retail event consumed by Healthcare projector | reject by scope/context |
+| W3-XI-003 | Education RAG query attempts Government source | filter/deny before retrieval |
+| W3-XI-004 | Manufacturing offline queue replayed while Professional Services context selected | queue retains origin; reauthorize origin or reject |
+| W3-XI-005 | NGO document signed URL requested from Security/Facility context | deny |
+| W3-XI-006 | Hospitality role attempts Manufacturing permission | RBAC deny; code namespaces do not imply grant |
+| W3-XI-007 | Industry A MS reads Industry B table directly | design/implementation review fails; service/event/projection required |
+| W3-XI-008 | Core reporting combines sibling private rows without cross-context contract | deny; EXPLICIT_CROSS_CONTEXT required |
+| W3-XI-009 | AI agent tool targets sibling context | current acting-principal/context check denies unless explicit cross-context tool exists |
+| W3-XI-010 | Tenant operates all nine industries | each private entity/query/event/document remains separately context-keyed |
+
+## 21. Wave-3 structural acceptance
+For every one of the 41 MSs, implementation acceptance includes: happy path; validation failure; wrong permission; wrong tenant; same-tenant wrong Industry Context; disabled entitlement; invalid workflow transition; wrong-context offline replay where applicable; unauthorized AI retrieval/tool; unauthorized document; wrong-context event consumer; mandatory audit evidence for critical mutation.
