@@ -44,3 +44,27 @@ This section supersedes only the current-status effect of §13. Earlier certific
 The current remediation was reopened because substantive evidence did not support treating the 372 heading-level rows as atomic requirement-level proof, per-MS equal-depth evidence remained incomplete for multiple Management Systems, and general Architecture had not yet proven fail-closed same-Tenant cross-Industry-Context isolation outside the stronger A-07 AI/RAG path. Additional P1 reconciliation is required for the effective-access chain, A-08 surfaces and A-06 IdentityPort wording.
 
 Current rule: preserve valid work, correct only verified gaps, run fresh No-Loss and adversarial audits, and restore Foundation/Architecture certification only if earned. Detailed Design is not authorized during this remediation.
+
+
+## 15. Targeted Remediation Recertification Closure — CURRENT ACTIVE STATUS (11-09-2026)
+
+This section supersedes only the current-status effect of §14; all earlier audit/certification history remains preserved.
+
+**Foundation: FOUNDATION CERTIFIED.**  
+**Architecture: ARCHITECTURE CERTIFIED.**  
+**Next gate: READY FOR DETAILED DESIGN.**
+
+Certification was restored only after the remediation sequence completed and fresh audits passed:
+- requirement-level child evidence: **2,962 rows; 2,555 VERIFIED; 0 GAP; 396 DEFERRED; 11 SUPERSEDED**;
+- S2.2 §9 SaaS Website source-loss repaired;
+- all **41 MS** assigned specific substantive owners and re-evaluated;
+- all nine industries pass equal evidence discipline without Healthcare inheritance;
+- Tenant + Industry Context is a fail-closed general Architecture boundary across API/data/storage/events/webhooks/offline/AI;
+- one canonical effective-access chain;
+- one canonical A-08 four-surface model;
+- one Core IdentityPort with Clerk preferred and Auth.js fallback;
+- ADR-001…ADR-018 meet Architecture decision evidence requirements;
+- fresh Foundation No-Loss/adversarial audit PASS;
+- fresh Architecture traceability, No-Loss and final adversarial audit PASS.
+
+RawSourceCorpus remained unchanged. No Detailed Design, application code, migrations, UI implementation, deployment scripts, main merge or backup ZIP was produced by this remediation.

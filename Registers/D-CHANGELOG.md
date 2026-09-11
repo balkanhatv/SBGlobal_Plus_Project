@@ -35,3 +35,4 @@
 
 
 **Current-state rule:** historical rows above are preserved as history. Latest evidence-backed truth-audit/state records govern the current project status; an earlier gate label is not current substantive evidence by itself.
+| 11-09-2026 | Independent targeted remediation & recertification: reopened unsupported gates; created requirement-level child evidence; repaired F-06 source loss; deepened/re-owned all 41 MS; enforced Tenant+Industry Context across general Architecture; reconciled effective access, A-08 surfaces, IdentityPort and ADRs; rebuilt Architecture traceability; fresh Foundation/Architecture adversarial audits PASS; certification re-earned. | Foundation + Architecture + Registers/State | AI under user remediation mandate |

@@ -1,14 +1,17 @@
-# D-CHECKPOINT — CP-REM-001 CERTIFICATION GATES REOPENED
+# D-CHECKPOINT — CP-REM-002 TARGETED REMEDIATION RECERTIFICATION CLOSURE
 **Date:** 2026-09-11 · **Branch:** `docs/architecture-branch-2`
 
 - Starting audited HEAD: `029faa5add582f6cfbf1688a145bf06dac6d5b34`.
-- Foundation: **SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED**.
-- Architecture: **TARGETED REMEDIATION / RECERTIFICATION REQUIRED**.
-- Detailed Design: **NOT AUTHORIZED**.
-- Existing 372 source-unit rows are preserved as parent/source-heading inventory; requirement-level child evidence must be added before No-Loss certification.
-- P0 remediation scopes: requirement-level traceability/source-loss; incomplete per-MS Foundation evidence; fail-closed Tenant + Industry Context general Architecture.
-- P1 remediation scopes: effective-access chain; A-08 surfaces; A-06 IdentityPort; affected ADRs and Architecture traceability.
-- Strong verified areas remain preserved unless a direct dependency requires a narrow adjustment.
-- RawSourceCorpus remains immutable; `main` is not modified/merged; no backup ZIP; no code/Detailed Design.
-- Historical CP-F1/CP-A1 certification entries remain Git/document history and are not deleted.
-- Next checkpoint is earned only after substantive corrections and fresh adversarial audits.
+- Pre-final-sync audited remediation HEAD: `3584f97d268d8135d918821ea2cf9a6783a15943`.
+- Foundation: **FOUNDATION CERTIFIED — fresh requirement-level / MS / No-Loss evidence**.
+- Architecture: **ARCHITECTURE CERTIFIED — fresh traceability / isolation / adversarial evidence**.
+- Next phase: **READY FOR DETAILED DESIGN**; Detailed Design is not yet complete.
+- Parent source units: **372** (inventory only).
+- Requirement-level child rows: **2,962** — VERIFIED 2,555 · GAP 0 · DEFERRED 396 · SUPERSEDED 11.
+- Management Systems: **41/41** have specific substantive owners at Foundation depth.
+- Tenant + Industry Context isolation: PASS across API/data/storage/events/webhooks/offline/AI at Architecture evidence level.
+- ADR-001…ADR-018: Context/Decision/Options/Trade-offs/Consequences/Risks/Dependencies/Affected Architecture present.
+- RawSourceCorpus blobs unchanged: S1 `a9f63a64448a347edd0f2b0c74094284ee953c1b`; S2 `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`.
+- `main`: unchanged/unmerged.
+- Backup ZIP: not created.
+- No application code, migrations, UI implementation or Detailed Design artifacts introduced.

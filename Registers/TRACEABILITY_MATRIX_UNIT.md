@@ -1,10 +1,10 @@
 # TRACEABILITY MATRIX — UNIT LEVEL (Current Atomic Evidence)
-**Status:** ACTIVE · **Rebuilt:** 2026-09-11
+**Status:** ACTIVE VERIFIED PARENT INVENTORY · **Rebuilt:** 2026-09-11
 
 One repository-resident row per meaningful source heading/unit. `Items` is informational syntax counting only; it is never certification evidence. **Requirement-level child evidence is separate and authoritative for no-loss verification.**
 
 **Accepted baseline:** S1 `a9f63a64448a347edd0f2b0c74094284ee953c1b`; S2 `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`.
-**Units:** S1=37 · S2=335 · total=**372** parent/source-heading units. These 372 rows are inventory, not atomic requirement certification evidence. Requirement-level child evidence is owned by `TRACEABILITY_MATRIX_REQUIREMENTS.md`.
+**Units:** S1=37 · S2=335 · total=**372** parent/source-heading units. These 372 rows are inventory, not atomic requirement certification evidence. Requirement-level child evidence is owned by `TRACEABILITY_MATRIX_REQUIREMENTS.md` and currently has 0 GAP after remediation.
 
 ## S1 — Disorganized Data 1.md
 | Source ID | Source heading/unit | Items | Scope | Provenance | Canonical owner | Canonical section | Decision/reference | Phase disposition | Current verification |

@@ -1,7 +1,7 @@
 {
   "project": "SBGlobal Plus",
-  "phase": "Foundation SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED; Architecture TARGETED REMEDIATION / RECERTIFICATION REQUIRED; Detailed Design NOT AUTHORIZED",
-  "checkpoint": "CP-REM-001",
+  "phase": "Foundation CERTIFIED; Architecture CERTIFIED; READY FOR DETAILED DESIGN",
+  "checkpoint": "CP-REM-002",
   "updated": "2026-09-11",
   "governed_by": [
     "MASTER_INSTRUCTION v2.5 + 2026-09-11 targeted reconciliation",
@@ -13,19 +13,27 @@
     "UD-COMM-01"
   ],
   "foundation": {
-    "current_status": "SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED",
-    "foundation_certified": false,
-    "atomic_traceability_units": 372,
+    "current_status": "FOUNDATION CERTIFIED — POST-REMEDIATION EVIDENCE-BACKED",
+    "foundation_certified": true,
     "unmapped_units": 0,
     "authority": [
       "Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md",
       "Registers/TRACEABILITY_MATRIX_UNIT.md",
+      "Registers/TRACEABILITY_MATRIX_REQUIREMENTS.md",
+      "Registers/MS_COMPLETENESS_MATRIX.md",
       "Registers/NO_LOSS_AUDIT.md"
     ],
-    "atomic_traceability_qualification": "372 source-heading parent units preserved; requirement-level child evidence is being rebuilt and parent count is not certification proof."
+    "atomic_traceability_qualification": "372 rows are parent/source-heading inventory only; requirement-level child evidence is the no-loss authority.",
+    "parent_source_units": 372,
+    "requirement_child_rows": 2962,
+    "requirement_verified": 2555,
+    "requirement_gaps": 0,
+    "requirement_deferred": 396,
+    "requirement_superseded": 11,
+    "management_systems_verified": 41
   },
   "architecture": {
-    "status": "TARGETED REMEDIATION / RECERTIFICATION REQUIRED",
+    "status": "ARCHITECTURE CERTIFIED — READY FOR DETAILED DESIGN",
     "available_documents": [
       "A-00",
       "A-01",
@@ -45,16 +53,12 @@
     "adr_range": "ADR-001..ADR-018",
     "evidence": [
       "Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md",
+      "Registers/ISOLATION_ATTACK_MATRIX.md",
       "Registers/ARCHITECTURE_NO_LOSS_AUDIT.md",
       "Registers/ARCHITECTURE_FINAL_AUDIT.md"
     ],
-    "certified": false,
-    "blockers": [
-      "Tenant + Industry Context fail-closed general architecture",
-      "Foundation MS-specific depth verification",
-      "requirement-level traceability",
-      "surface/effective-access reconciliation"
-    ]
+    "certified": true,
+    "blockers": []
   },
   "technology_baseline": {
     "decision_id": "UD-TECH-01",
@@ -92,5 +96,5 @@
     "main_merge": "not performed",
     "backup_zip": "not created"
   },
-  "next_work": "Targeted remediation and fresh adversarial re-audit. Detailed Design is NOT AUTHORIZED until certification is re-earned."
+  "next_work": "Detailed Design by dependency/build scope. No Development until the applicable scope reaches DETAILED DESIGN COMPLETE."
 }

@@ -26,4 +26,7 @@ Earlier source variants remain historical Git evidence only and are not competin
 - `UD-COMM-01`: canonical commercial route/lifecycle model.
 
 ## Evidence rule
-`TRACEABILITY_MATRIX_UNIT.md` is the repository-resident atomic source-unit evidence. `TRACEABILITY_MATRIX.md` is summary only. No source unit may depend on a ZIP as its only current evidence.
+`TRACEABILITY_MATRIX_UNIT.md` is the stable repository-resident **parent/source-heading inventory** (372 units). It is not atomic certification proof. `TRACEABILITY_MATRIX_REQUIREMENTS.md` is the requirement-level child evidence layer and is authoritative for material no-loss verification. `MS_COMPLETENESS_MATRIX.md` verifies all 41 Management Systems against the common Foundation evidence discipline. No current source requirement may depend on an external ZIP as its only evidence.
+
+## Current gate evidence
+Fresh Foundation evidence: requirement-level traceability + MS completeness + `NO_LOSS_AUDIT.md`. Fresh Architecture evidence: `ARCHITECTURE_TRACEABILITY_MATRIX.md`, `ISOLATION_ATTACK_MATRIX.md`, `ARCHITECTURE_NO_LOSS_AUDIT.md`, and `ARCHITECTURE_FINAL_AUDIT.md`.

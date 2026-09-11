@@ -83,3 +83,14 @@ These are authoritative Foundation decision records; shorthand references elsewh
 **Trade-offs:** policy configuration adds governance but prevents channel/market code drift.  
 **Consequences:** F-01/F-02/F-04/F-14 and A-04 use one model.  
 **Dependencies:** F-14, billing/entitlement architecture, public signup UX.
+
+
+## 2026-09-11 Independent Remediation Closure
+
+| ID | Context | Decision | Consequences / evidence |
+|---|---|---|---|
+| UD-REM-01 | Heading-level traceability was incorrectly treated as atomic requirement proof. | Preserve the 372 parent units and add separate requirement-level child evidence; never certify from parent counts. | `TRACEABILITY_MATRIX_REQUIREMENTS.md`: 2,962 children, 0 GAP after remediation. |
+| UD-REM-02 | Same-tenant sibling industries required a fail-closed boundary beyond tenant-only isolation. | Active Tenant + Industry Context is mandatory for industry-scoped service/data/document/event/webhook/offline/AI operations; missing/wrong context denies. | A-01/A-02/A-05/A-06/A-08/A-09; ADR-002/006/008/009/012; isolation attack matrix PASS. |
+| UD-REM-03 | Multiple effective-access representations could drift. | One canonical server-authoritative chain: principal → Tenant → Industry Context → subscription/license → credential/device/session → entitlement snapshot → RBAC → ABAC/context → security/compliance/residency → resource/workflow rules. | A-01/A-03/A-04; ADR-004. |
+| UD-REM-04 | A-08 carried competing surface interpretations. | One four-surface responsibility model: Public Website; Platform Application; Tenant Management Web; Reusable Industry Experiences. | A-08 §1/§9A. |
+| UD-REM-05 | Certification was reopened by independent audit. | Restore Foundation/Architecture certification only after fresh No-Loss + adversarial passes and zero unresolved P0/P1. | Fresh audits at remediation closure PASS; Detailed Design becomes next authorized phase, not completed. |

@@ -1,5 +1,5 @@
 # SBGlobal Plus — PROJECT FOUNDATION
-**Document ID:** F-00 · **Version:** 1.4 (Truth Revalidation Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT EVIDENCE-BACKED REVALIDATION (see §13; §9–§12 retained as historical record) · **Date:** 11-09-2026
+**Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 
 ---
@@ -216,3 +216,25 @@ This section supersedes only the current-status effect of §12. Closure evidence
 8. Fresh No-Loss/depth + adversarial second pass is recorded in `Registers/NO_LOSS_AUDIT.md`.
 
 **Boundary:** Foundation certification only; Architecture, Detailed Design, code and deployment remain separate phases.
+
+
+---
+
+## 14. Independent Remediation Recertification Closure — CURRENT ACTIVE STATUS (11-09-2026)
+
+This section supersedes only earlier **current-status** statements; historical ledgers/amendments remain preserved.
+
+**Project Foundation (whole): FOUNDATION CERTIFIED — POST-REMEDIATION EVIDENCE-BACKED.**
+
+Evidence earned after the independent forensic audit reopened the gate:
+1. Source-heading inventory remains stable at **372 parent units** (S1=37, S2=335), but is no longer treated as atomic requirement proof.
+2. `Registers/TRACEABILITY_MATRIX_REQUIREMENTS.md` adds **2,962 requirement-level child rows**: 2,555 VERIFIED, 0 GAP, 396 correctly DEFERRED, 11 SUPERSEDED with source preserved.
+3. S2.2 §9 SaaS Website demonstrated source-loss was repaired in F-06 §2.
+4. All **41 independently recalculated Management Systems** have specific substantive Foundation owners; evidence is recorded in F-13 + `Registers/MS_COMPLETENESS_MATRIX.md`.
+5. All nine industries were re-evaluated under equal evidence discipline; Healthcare remains prohibited as a sibling template.
+6. Fresh Foundation No-Loss/depth adversarial audit is PASS.
+7. RawSourceCorpus remains exactly at accepted immutable blobs S1 `a9f63a...` and S2 `91c461...`.
+
+**Architecture gate:** independently remediated and re-audited after Foundation stabilization. A-00…A-12 now carry fail-closed Tenant + Industry Context architecture, one effective-access chain, one four-surface model, contextual events/storage/offline sync and complete ADR evidence. Fresh Architecture traceability/No-Loss/adversarial audits PASS.
+
+**Current gate:** FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · READY FOR DETAILED DESIGN. This does not imply Detailed Design Complete, implementation, testing, security validation or production readiness.
