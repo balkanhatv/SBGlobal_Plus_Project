@@ -20,7 +20,7 @@ Alerts are actionable and ownership/severity-routed. Incident flow: detect → c
 Monitor application replicas, edge/CDN/WAF, workers/queues/outbox lag, PostgreSQL primary/replicas/pool, object storage, providers, API/webhooks, AI providers, deployment state and certificate/domain health. Dependency failures remain distinguishable from business-validation failures.
 
 ## 7. Queue/job and integration operations
-Worker monitoring exposes lag, retries, DLQ, oldest-job age and adapter failure rates. Webhook delivery status/retry evidence is tenant-visible where appropriate. Provider-health fallback cannot bypass tenant security/residency policy.
+Worker monitoring exposes lag, retries, DLQ, oldest-job age and adapter failure rates. Webhook delivery status/retry evidence is tenant-visible only to principals holding the tenant webhook/integration view permission for that subscription and context; payload-sensitive fields remain masked by DD-07/DD-16 policy. Provider-health fallback cannot bypass tenant security/residency policy.
 
 ## 8. AI observability
 AI telemetry captures provider/model class, capability, latency, usage/cost class, policy/guardrail outcomes and evaluation signals without logging prohibited sensitive prompt content. Tenant + Industry Context attribution is mandatory. Cross-tenant/cross-industry leakage tests and anomalous retrieval patterns are security signals.
