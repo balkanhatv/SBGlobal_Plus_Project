@@ -1,12 +1,14 @@
-# D-CHECKPOINT — PROJECT TRUTH REVALIDATION (2026-09-10)
-- Current Foundation status: **IN PROGRESS — SUBSTANTIVE TRUTH REVALIDATION**. CP-F1-005 remains historical gate evidence only; it is not current Foundation-wide substantive certification.
-- Current truth authority: `Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md` + `Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md`.
-- RawSourceCorpus integrity correction: both source files restored to the accepted immutable `main` blobs in commit `548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c`. Earlier divergent edits remain in Git history.
-- Evidence defect: `TRACEABILITY_MATRIX_UNIT.md` contains explicit S1 rows but largely grouped S2 ranges and points to a recovery ZIP for full per-unit rows. Therefore prior 372/2,965/0 totals are historical accounting, not sufficient current repository-resident substantive evidence.
-- Foundation F-01…F-14 contains substantial useful content, but every owning scope must now be verified against actual source requirements and §9A evidence depth; summaries, generic inheritance and cross-references cannot stand in for canonical WHAT/WHY/WHO.
-- Architecture on `docs/architecture-branch-2`: **A-00…A-09 present; A-10…A-12 absent**. Existing Architecture is retained as provisional work while Foundation truth revalidation is open.
-- Active stack: `UD-TECH-01` — Next.js 15; NestJS where justified; TypeScript 5.x/Node.js 22+; React 19; Tailwind/Shadcn; PostgreSQL; Payload CMS 3; Refine where suitable; React Native/Expo; Tauri 2.0 Windows/macOS/Linux; tRPC first-party; REST/OpenAPI external; Clerk preferred/Auth.js fallback; Webhooks; Expo Push/OneSignal; Vercel; Coolify + Dockerized VPS.
-- Old PM2/cPanel/Laravel/PHP/Filament/MySQL-primary/Flutter assumptions are not active architecture. Historical source text remains immutable.
-- MASTER_INSTRUCTION/MASTER_PROMPT v2.5 remain the process framework; conflicting older technology/deployment clauses are superseded for current work by explicit user direction/UD-TECH-01 and require formal lockstep reconciliation before a new project-wide certification claim.
-- Mandatory next evidence: atomic repository-resident source→canonical traceability; substantive Foundation depth corrections; fresh No-Loss/depth audit; independent adversarial pass; synchronized registers/state; then Architecture revalidation and A-10…A-12/ADR/evidence work.
-- `main`: unchanged/unmerged. Merge requires explicit approval. No backup ZIP requested for this audit.
+# D-CHECKPOINT — CP-A1-003 ARCHITECTURE GATE-READY RECONCILIATION
+**Date:** 2026-09-11 · **Branch:** `docs/architecture-branch-2`
+
+- Foundation: **FOUNDATION CERTIFIED — current evidence-backed revalidation**.
+- Foundation atomic traceability: **372 repository-resident rows, 0 unmapped, no external-ZIP dependency**.
+- Architecture: **ARCHITECTURE CERTIFIED — A-00…A-12 present**.
+- ADR evidence: **ADR-001…ADR-018 authoritative in A-12**.
+- Architecture traceability / No-Loss / adversarial final audit: **PASS**.
+- Corrected P0/P1 truth: phase-evidence boundary, commercial route/lifecycle, identity provider abstraction, cross-platform experience stack, conditional erasure, residency-qualified backups/failover, same-tenant cross-industry AI/RAG isolation, application-surface separation, Next.js/NestJS boundary.
+- RawSourceCorpus: accepted S1/S2 baseline remains immutable; no source file modified in this execution.
+- No Detailed Design schemas/contracts, production/application code, migrations, UI implementation or deployment scripts introduced.
+- `main`: not modified and not merged.
+- Backup ZIP: not created per user direction.
+- Next phase: **Detailed Design**, starting from A-00…A-12 and Architecture traceability.
