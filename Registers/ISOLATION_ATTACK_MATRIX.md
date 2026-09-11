@@ -1,5 +1,5 @@
 # ISOLATION ATTACK MATRIX — FINAL FABLE RECERTIFICATION
-**Evaluated substantive HEAD:** `6e03b5dc0da98f1ef3296337aac2f7b9e7bf3029`  
+**Evaluated substantive HEAD:** `810e43c9c75e3750f52cc7e1954db8f341e6d79b`  
 **Date:** 2026-09-12 · **Status:** FINAL DD CONTRACT-LEVEL ISOLATION AUDIT
 
 This is design-contract evidence, not executable penetration testing. Runtime/security validation remains a later status in the governed lifecycle.
@@ -76,4 +76,4 @@ This is design-contract evidence, not executable penetration testing. Runtime/se
 - Cross-context behavior exists only as an explicit minimized operation with named source/target, permission and policy.
 - All 41 MS have concrete per-MS isolation IDs rather than one generic claim.
 
-**Final isolation verdict at substantive HEAD `6e03b5dc0da98f1ef3296337aac2f7b9e7bf3029`: PASS.**
+**Final isolation verdict at substantive HEAD `810e43c9c75e3750f52cc7e1954db8f341e6d79b`: PASS.**
