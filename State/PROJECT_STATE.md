@@ -1,13 +1,14 @@
 # PROJECT_STATE — SBGlobal Plus
-- Updated: 2026-09-10 (UTC)
-- Current phase: **Project Foundation — IN PROGRESS / SUBSTANTIVE TRUTH REVALIDATION**; Architecture remains **IN PROGRESS / PROVISIONAL** on `docs/architecture-branch-2`.
-- Historical gate: CP-F1-005 remains preserved as a prior checkpoint event, but it is **not current substantive Foundation certification evidence** after the 2026-09-10 truth audit. Current-status authority: `Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md` + `Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md`.
-- Truth-audit findings: prior Foundation evidence depended partly on grouped traceability, summary/reference coverage and a RawSourceCorpus integrity claim that no longer matched the branch. Current Foundation status was therefore reopened for evidence-based revalidation.
-- RawSourceCorpus: restored on this branch to the accepted immutable `main` source blobs in commit `548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c`; prior divergent edits remain preserved in Git history, not in the active source corpus.
-- Architecture currently contains **A-00 through A-09**. A-10, A-11 and A-12 plus Architecture-specific ADR consolidation, traceability, No-Loss/depth audit and final cross-document evidence remain required.
-- A-00…A-09 are retained as useful architecture work but are provisional until revalidated against the corrected Foundation truth. No Architecture gate claim is current.
-- Active technology decision `UD-TECH-01`: Next.js 15; NestJS where a dedicated backend/service boundary is justified; TypeScript 5.x / Node.js 22+; React 19; Tailwind CSS + Shadcn UI; PostgreSQL; Payload CMS 3; Refine where internal CRUD/admin is more appropriate; React Native + Expo; Tauri 2.0 for Windows/macOS/Linux; tRPC for first-party typed APIs where appropriate; REST/OpenAPI for external interoperability; Clerk preferred, Auth.js where Clerk is unsuitable; Webhooks; Expo Push Notifications / OneSignal; Vercel for suitable web workloads; Coolify + Dockerized VPS for self-hosted workloads.
-- Old Laravel/PHP/Filament/MySQL-primary/Flutter/PM2/cPanel assumptions are not current architecture. Historical occurrences remain valid only inside immutable source/history or explicitly superseded records.
-- Governance: MASTER_INSTRUCTION/MASTER_PROMPT v2.5 remain the active process/governance framework; their conflicting older technology/deployment clauses are superseded for current work by the explicit user-directed `UD-TECH-01` decision and require formal lockstep governance amendment before any new project-wide certification claim.
-- GitHub: work only on `docs/architecture-branch-2`; `main` unchanged; merge requires explicit approval. No backup ZIP requested for this audit.
-- Current mandatory work: atomic repository-resident source→canonical traceability; Foundation substantive WHAT/WHY/WHO depth verification/corrections; fresh No-Loss/depth audit; state/register synchronization; then Architecture revalidation and remaining A-10…A-12/evidence work.
+- Updated: 2026-09-11.
+- Branch: `docs/architecture-branch-2`.
+- Current phase state: **Foundation CERTIFIED · Architecture CERTIFIED · Detailed Design NEXT**.
+- Foundation current authority: F-15 + 372-row atomic traceability + current No-Loss/adversarial audit.
+- Architecture current authority: A-00…A-12 + Architecture traceability + Architecture No-Loss + final adversarial audit.
+- Current technology: `UD-TECH-01` — Next.js 15; TypeScript 5.x/Node.js 22+; React 19; Tailwind/Shadcn; PostgreSQL; Payload CMS 3; Refine where suitable; NestJS only for justified dedicated boundary; tRPC first-party; REST/OpenAPI external; Clerk preferred/Auth.js fallback; React Native+Expo; Tauri 2.0 Windows/macOS/Linux; Expo Push/OneSignal; Vercel; Coolify+Dockerized VPS.
+- Canonical model: one Unified Core → equal first-class Industry Suites → Tenant → Primary + optional Enabled Industries → Branch/Department/Location → Users/Roles → Management Systems → Modules → Workflows → Transactions.
+- Isolation: Tenant + Industry Context is mandatory across data, APIs and AI/RAG.
+- Commercial model: Free/Starter self-serve; Enterprise sales-assisted; Pro/Premium governed dual-route; no PAST_DUE resting state.
+- RawSourceCorpus: immutable accepted S1/S2 blobs; earlier variants are Git history only.
+- `main`: unchanged/unmerged.
+- Backup ZIP: not created.
+- Next work: Detailed Design exact data/API/event/permission/UI/infrastructure contracts by build scope before Development.
