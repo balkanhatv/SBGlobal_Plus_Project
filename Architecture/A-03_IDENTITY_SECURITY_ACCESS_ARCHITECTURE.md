@@ -5,7 +5,7 @@
 ---
 
 ## 1. Identity Architecture (ADR-003)
-**AuthN provider:** **Clerk** for the managed SaaS and self-hosted deployments, subject to Clerk availability and tenant/deployment policy. Clerk provides hosted identity, MFA, social/enterprise SSO and session management. Clerk is hidden behind the Core's **Identity module contract**: `verifyIdpToken() → PlatformPrincipal`; no module or experience ever talks to the IdP directly. This keeps the IdP integration isolated behind a replaceable contract while retaining Clerk as the approved platform authentication technology.
+**AuthN provider boundary:** **Clerk is preferred** for managed identity/session capabilities. **Auth.js is an allowed fallback where Clerk is unsuitable** for deployment, contractual, regional or integration reasons. Both sit behind the same Core Identity module contract; neither may create a second identity core. Clerk remains the default reference for hosted identity, MFA and SSO where available. Clerk is hidden behind the Core's **Identity module contract**: `verifyIdpToken() → PlatformPrincipal`; no module or experience ever talks to the IdP directly. This keeps the IdP integration isolated behind a replaceable contract while retaining Clerk as the approved platform authentication technology.
 
 Identity domains: (a) **Platform identities** (operator staff), (b) **Tenant identities** (tenant staff/users), (c) **End-customer identities** per industry (patients, students, guests, citizens, donors…) — all one User model with membership records binding user→tenant→roles→OrgUnits; one human may hold memberships in many tenants.
 
