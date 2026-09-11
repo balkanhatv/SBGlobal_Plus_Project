@@ -123,3 +123,11 @@ Every KPI is computed inside the caller's verified `tenant_id + industry_context
 - Count KPIs with denominator `1` are absolute counts/sums, not ratios.
 - Revised/reversed source transactions are included according to current effective version and explicit reversal semantics; history remains auditable.
 - Report filters may narrow tenant-authorized dimensions (branch, site, department, product, doctor, service, etc.) but cannot change the KPI formula without a new KPI version.
+
+
+## KPI acceptance-test namespace
+Every KPI row above automatically owns two canonical design acceptance IDs:
+- `<KPI-ID>-T01` — formula fixture test: given a fixed tenant/context fixture with known source values, compute the exact numerator/denominator/time-basis formula and expect the mathematically specified value; denominator=0 expects `NO_DATA`, never fabricated 0%.
+- `<KPI-ID>-T02` — scope/permission test: sibling tenant or sibling Industry Context data is present in storage but excluded by RequestContext/RLS/projection ownership; unauthorized caller receives `PERMISSION_DENIED` or non-disclosing empty result according to query contract; cross-context rows contribute exactly 0.
+
+These IDs are part of DD-17 authoritative acceptance ownership through DD-25 and are required in QA implementation.
