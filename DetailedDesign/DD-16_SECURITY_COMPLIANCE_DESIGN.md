@@ -122,3 +122,10 @@ No external certification claim follows merely from this matrix.
 
 ## 28. Acceptance
 No alternate auth chain; no client trust for context; no wildcard RLS/elevation; secrets absent from logs/DB config; SSRF/internal metadata blocked; unsigned desktop update denied; sensitive push minimized; AI/tool cannot elevate; prohibited cross-region route fails closed.
+
+
+## 29. Numeric security floor [DD-AC]
+DD-06 §19 is the default policy. AUTH_SECURITY and ADMIN_SENSITIVE are security-floor classes; commercial plan scaling cannot relax them without versioned Security approval. Rate policies are observable/auditable and can be tightened by bounded abuse override.
+
+## 30. Retention qualification [DD-AC]
+DD-15 §12 defaults provide implementation values while preserving jurisdiction/legal/contract overrides. Production in a specific jurisdiction still requires external legal validation; that does not alter the generic DD contract.

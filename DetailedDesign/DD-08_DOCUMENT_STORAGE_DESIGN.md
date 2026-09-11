@@ -80,3 +80,7 @@ External sharing, when later designed, requires explicit share grant, expiry, co
 
 ## 11. Acceptance
 Wrong Industry Context cannot resolve metadata; storage key cannot bypass DocumentMeta; quarantined file cannot get signed URL; derivative cannot gain broader scope; cross-region signed access obeys residency policy.
+
+
+## 12. StoragePort physical binding [DD-AC]
+Document service uses a portable S3-compatible `StoragePort`. Preferred managed profile: AWS S3 in the approved Data Home region. Preferred regional/self-hosted profile: MinIO-compatible S3 storage inside the regional storage/cell boundary. Object locations remain private and non-authoritative; DocumentMeta/ACL/context remains the authorization owner. Mandatory capabilities: multipart upload, head/get/put/copy/delete-version, object versioning, metadata/checksum, server-side encryption, lifecycle, signed access and quarantine handling.

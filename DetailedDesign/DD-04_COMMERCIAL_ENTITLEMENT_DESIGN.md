@@ -132,3 +132,9 @@ All plan publication, subscription transitions, licenses, overrides, add-ons, sn
 - Deny from compliance beats commercial allow.
 - Same tenant Industry A license cannot satisfy Industry B requirement.
 - Snapshot history can explain each effective entitlement.
+
+
+## 10. CommercialLifecyclePolicy concrete default [DD-AC]
+`CommercialLifecyclePolicy{code,version,marketScope,planScope?,providerScope?,enterpriseContractRef?,retryOffsetsHours[],noticePolicy,graceDurationHours,suspensionPreservationHours,recoveryPolicy,cancellationPolicy,effectiveFrom,approvedBy}`.
+
+**CLP-STD-001:** definitive renewal failure immediately enters GRACE; retry offsets +24h/+72h/+120h; notices at Grace entry, before each retry and 24h before suspension; default Grace 168h; unresolved Grace→SUSPENDED; default suspended preservation 720h before EXPIRED eligibility; successful settlement can restore ACTIVE where policy allows and recompiles entitlements. Contract/market/provider policies may override timings through versioned policies only. Renewed remains an event. PAST_DUE remains prohibited.

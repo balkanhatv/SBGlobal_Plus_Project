@@ -214,3 +214,19 @@ All contracts above must be implementable without inventing tenant/industry isol
 
 ## 18. Wave-2 gate criteria
 Wave 2 passes only if DD-09/DD-10/DD-11/DD-12/DD-14/DD-16 and the Wave-2 extensions to DD-06/DD-15 are traceable, have no open P0/P1, and a developer would not need to invent shared surface/mobile/desktop/AI/integration/infrastructure/security rules before Wave 3.
+
+
+## 19. Shared-P2 closure tests [DD-AC]
+| ID | Scenario | Expected |
+|---|---|---|
+| P2-RATE-001 | PUBLIC_LOW exceeds 30/min sustained | 429/RATE_LIMITED + Retry-After |
+| P2-RATE-002 | plan override tries to relax AUTH_SECURITY floor | rejected absent Security-approved policy |
+| P2-COM-001 | definitive renewal failure | ACTIVE→GRACE + retries +24/+72/+120h |
+| P2-COM-002 | unresolved at 168h | GRACE→SUSPENDED |
+| P2-COM-003 | successful recovery during allowed window | ACTIVE + entitlement recompile/audit |
+| P2-RET-001 | delete under legal hold | destruction denied |
+| P2-RET-002 | platform default overridden by stricter jurisdiction | stricter rule wins |
+| P2-SLO-001 | fast error-budget burn | release pause + severity escalation |
+| P2-STO-001 | object key known without DocumentMeta authorization | deny |
+| P2-STO-002 | cross-region replication not authorized | blocked |
+| P2-STO-003 | quarantined object requests signed URL | deny |

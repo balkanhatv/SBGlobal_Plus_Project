@@ -148,3 +148,21 @@ Secrets live in deployment/secret-store systems referenced by CredentialReferenc
 
 ## 18. Integration health
 Health states: `UNKNOWN, HEALTHY, DEGRADED, UNAVAILABLE, AUTH_ERROR, RATE_LIMITED, POLICY_BLOCKED`. Provider health never causes fallback to a provider/region forbidden by tenant policy.
+
+
+## 19. Concrete rate-limit defaults [DD-AC]
+| Class | Sustained | Burst | Concurrency / scope | Primary enforcement |
+|---|---:|---:|---|---|
+| PUBLIC_LOW | 30/min | 10 | 5/IP | IP+route |
+| PUBLIC_STANDARD | 120/min | 30 | 10/IP | IP+route |
+| AUTH_STANDARD | 600/min | 120 | 20/principal | principal+tenant+route |
+| ADMIN_SENSITIVE | 60/min | 15 | 5/principal | principal+tenant+operation |
+| AUTH_SECURITY | 20/5min | 5 | 3/principal/IP | principal+IP+tenant |
+| BULK | 30 submissions/hour | 5 | 2 active/tenant | tenant+operation |
+| WEBHOOK | 600/min/endpoint | 120 | 20/endpoint | tenant+endpoint |
+| AI | 60/min | 12 | 8/tenant | tenant+principal+capability |
+| FILE_UPLOAD | 60 starts/hour | 10 | 5/principal | tenant+principal |
+| API_CREDENTIAL | 1200/min | 240 | 40/credential | credential+tenant+route |
+| TENANT_AGGREGATE | 3000/min | 600 | 100/tenant | tenant aggregate |
+
+Hierarchical enforcement applies route/class + IP/principal/credential + tenant aggregate; tightest limit wins. Pro/Enterprise scaling may raise commercial classes through versioned policy, but AUTH_SECURITY/ADMIN_SENSITIVE security floors cannot be relaxed without Security approval. Abuse overrides may temporarily tighten only. REST returns 429 + Retry-After; tRPC returns normalized RATE_LIMITED. Distributed limiter implementation must preserve these semantics across replicas.

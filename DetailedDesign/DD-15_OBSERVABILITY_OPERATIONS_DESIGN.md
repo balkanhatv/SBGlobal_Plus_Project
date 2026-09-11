@@ -91,3 +91,36 @@ Provider/integration/AI fallback may occur only if policy permits.
 
 ### Release telemetry
 Every deployment event includes release version/commit, cell/dataHome, migration version, stage, actor/service, started/completed, result and rollback/roll-forward ref.
+
+
+## 12. Platform retention defaults [DD-AC]
+These are SBGlobal Plus defaults, not statutory minimum claims.
+
+| Class | Default |
+|---|---:|
+| SECURITY_CRITICAL | 7 years |
+| FINANCIAL_AUDIT | 10 years |
+| ACCESS_DECISION | 2 years |
+| ADMIN_CONFIGURATION | 7 years |
+| DATA_GOVERNANCE | 10 years |
+| AI_GOVERNANCE | 2 years |
+| OPERATIONAL_STANDARD | 90 days hot; archive up to 365 days |
+
+Precedence: legal hold → jurisdiction requirement → contract extension → industry policy → platform default. Destruction requires eligibility; pseudonymization may retain the minimum evidentiary skeleton; immutable evidence is corrected by append/supersession, never silent mutation.
+
+## 13. Observability default and internal engineering SLOs [DD-AC]
+OpenTelemetry-compatible instrumentation/semantic conventions are mandatory. Default stack profile: OpenTelemetry Collector + Prometheus-compatible metrics + Grafana dashboards + Loki-compatible logs + Tempo-compatible traces; managed equivalents are allowed if they preserve OTel schemas/residency/exportability.
+
+| Class | Availability / 30d | Latency / freshness objective |
+|---|---:|---|
+| Public Website | 99.90% | p95 server response <1.5s excluding external assets |
+| Authenticated Application | 99.90% | p95 protected API <1.0s |
+| Transaction API | 99.95% | p95 <750ms excluding declared long jobs |
+| Critical Transaction | 99.95% | p95 <1.0s; correctness dominates |
+| Worker/Queue | 99.90% | oldest eligible job <5m normal |
+| Webhook | 99.90% | first attempt p95 <60s |
+| AI Gateway | 99.0% | route decision p95 <250ms; model separately observed |
+| Document Pipeline | 99.90% | normal-file activation p95 <5m |
+| Data Home | 99.95% | outbox/critical dependency health within class |
+
+Error-budget fast burn (>10% monthly budget in 1h or >25% in 6h) pauses risky releases and escalates. These are engineering SLOs, not contractual SLAs.

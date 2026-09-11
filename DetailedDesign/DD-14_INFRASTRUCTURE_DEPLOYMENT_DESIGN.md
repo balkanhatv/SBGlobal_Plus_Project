@@ -182,3 +182,7 @@ Regional agents export only telemetry allowed by residency/security policy. Sens
 
 ## 21. Acceptance
 No backend workload assumed Vercel-only; no internet DB; no runtime admin DB credentials; RLS context transaction-local; migration failure stops affected cell; cross-region failover never bypasses residency; backup success alone does not equal recoverability.
+
+
+## 22. Object-storage profile [DD-AC]
+Per Data Home use StoragePort with logical buckets/classes: `private-primary`, `quarantine`, `derivatives`, `backup`. Preferred managed profile AWS S3; preferred self-hosted/regional profile MinIO-compatible S3. Primary/private objects are not public. SHA-256 is canonical content checksum. Versioning is enabled for protected document/backup classes. Cross-region replication is disabled unless the tenant Data Home policy explicitly permits the destination. Provider-specific adapter conformance must prove encryption, versioning, lifecycle, signed URLs, quarantine and residency behavior.
