@@ -3,7 +3,7 @@
 **Authority:** Fable 5 remediation mandate · DD-02/03/04/06/07/08/09/11/15/16 · industry DD files
 
 ## Contract
-These are design-level deterministic acceptance contracts, not executable test code. Every test ID is canonical and must be implemented by QA/Development later. Error classes use DD-01/DD-03 taxonomy. Where a non-disclosing lookup may return either `RESOURCE_NOT_FOUND` or `TENANT_INVALID`, the concrete API contract must select one before implementation; this file requires no resource existence disclosure and zero mutation.
+These are design-level deterministic acceptance contracts, not executable test code. Every test ID is canonical and must be implemented by QA/Development later. Error classes use DD-01/DD-03 taxonomy. Canonical denial semantics in this artifact are exact: foreign-tenant resource injection returns `RESOURCE_NOT_FOUND`; same-tenant wrong Industry Context returns `INDUSTRY_CONTEXT_MISMATCH`; wrong org/site/assignment ABAC returns `RESOURCE_SCOPE_DENY`; known same-context resource/document without permission returns `PERMISSION_DENIED`. No alternative error choice is left to Development.
 
 Each MS namespace contains all required families. Domain-specific transition/event names below are authoritative acceptance aliases and must be reconciled with the MS event catalog during implementation; they do not create a second event bus.
 
