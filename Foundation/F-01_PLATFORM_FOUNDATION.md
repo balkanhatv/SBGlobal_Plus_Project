@@ -40,7 +40,7 @@ Hard separations (LG-10…LG-12): Login Entry Point ≠ Application Surface ≠ 
 
 ## 5. Subscription, Billing, Licensing & Entitlements
 
-**Tiers (ACTIVE, CR-01):** Free · Starter · Pro · Premium · Enterprise. Free/Starter = self-serve signup & onboarding; Pro/Premium/Enterprise = sales-assisted `[SD: S2.2 §26]`.
+**Tiers (ACTIVE, CR-01 + current user direction):** Free · Starter · Pro · Premium · Enterprise. **Free/Starter = self-serve; Enterprise = sales-assisted; Pro/Premium = governed configurable dual-route** (self-serve and/or sales-assisted) resolved by versioned commercial route policy. F-14 is the canonical commercial owner; older “sales-assisted above Starter” source wording remains source history, not active route policy.
 
 **Entitlement chain (enforced server-authoritatively at every surface):**
 `Tenant → Subscription Plan → Enabled/Licensed Industries → Enabled Management Systems → Enabled Modules/Features → Roles/Permissions → Application Access`
@@ -48,7 +48,7 @@ Hard separations (LG-10…LG-12): Login Entry Point ≠ Application Surface ≠ 
 **Plan limit dimensions `[SD: S2.2 §26]`:** tenant/branch/user limits, API limits, AI limits (tokens/credits/media — F-05 §8), storage, SMS/WhatsApp/Email limits, mobile & tenant-portal access, reports, inventory, billing, website, integrations, feature permissions.
 
 **Named business rules (trigger → condition → action):**
-- **BR-SUB-01 Lifecycle** `[SD]`: Subscription states **Trial → Active → Grace Period → Suspended → Expired → Renewed**. Trigger: billing date reached; condition: payment success/failure; action: advance state, notify Tenant Owner, write audit event.
+- **BR-SUB-01 Lifecycle** `[SD + canonicalized by F-14]`: Subscription resting states **Pending → Trial → Active → Grace → Suspended → Expired → Cancelled**. **Renewed is an Active re-entry event, not a resting state; failed renewal is the Active→Grace trigger, not a separate PAST_DUE state.** Trigger: commercial lifecycle event; condition: plan/payment/effective-date policy; action: transition only along F-14 §2, notify Tenant Owner, write audit event.
 - **BR-SUB-02 No-deletion-on-expiry** `[SD]`: Trigger: state = Expired; condition: any tenant data exists; action: block all business operations except billing/renewal and data-export requests; never delete tenant data.
 - **BR-SUB-03 Entitlement enforcement** `[SD/PR]`: Trigger: any business operation; condition: full chain valid (plan active, industry licensed, MS enabled, module enabled, role permits); action: allow; otherwise deny with entitlement error + audit entry (no partial bypass on any surface, including offline clients — F-03 §3).
 - **BR-SUB-04 Downgrade guard** `[AC — rationale: chain integrity on plan change; logged D-DECISIONS AC-01]`: Trigger: plan downgrade; condition: current usage exceeds target-plan limits; action: require Tenant Admin remediation choice (disable modules/archive excess) before downgrade takes effect; nothing silently deleted.

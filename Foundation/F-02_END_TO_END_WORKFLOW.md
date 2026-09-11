@@ -14,7 +14,7 @@ Format per step: **Actors · Trigger · Inputs · Outputs · Rules · Authorizat
 
 ## W-02 Industry/Solution Discovery → Pricing/Demo
 - **Actors:** visitor; sales (for demo). **Trigger:** navigation to Industries/Solutions/Pricing. **Inputs:** industry interest, plan interest. **Outputs:** industry pages (9 suites), plan comparison, demo booking, or self-serve path.
-- **Rules:** BR-W02-1 Dual CTA: both *Book Demo* and *Start Free / Self-Serve Signup* must be present (5-tier model, CR-01); condition: visitor selects Free/Starter path → self-serve; Pro/Premium/Enterprise → sales-assisted. BR-W02-2: live chat/AI chatbot widget available site-wide.
+- **Rules:** BR-W02-1 Dual CTA: both *Book Demo* and *Start Free / Self-Serve Signup* must be present (5-tier model, CR-01); condition: visitor selects Free/Starter → self-serve; Enterprise → sales-assisted; Pro/Premium → route resolved from the versioned commercial route policy (self-serve and/or sales-assisted). BR-W02-2: live chat/AI chatbot widget available site-wide.
 - **States:** lead: none → demo_requested | signup_started. **Audit:** lead capture events.
 
 ## W-03 Signup → Trial/Subscription

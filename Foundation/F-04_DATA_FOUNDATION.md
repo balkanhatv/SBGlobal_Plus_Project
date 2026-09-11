@@ -52,7 +52,7 @@ Soft delete → hard delete → archive policy → retention policy → legal ho
 
 **Entity: TenantIndustryContext** — id (UUID) · tenant_id (FK, req) · industry_suite_code (enum of 9, req) · is_primary (bool, req; exactly one true per tenant — BR-W04-1) · status (enum) · enabled_management_systems (relation) · audit fields. Relations: 1-N enabled MS, 1-N industry configs.
 
-**Entity: Subscription** — id (UUID) · tenant_id (FK) · plan (enum: Free/Starter/Pro/Premium/Enterprise) · state (enum: Trial/Active/Grace/Suspended/Expired/Renewed) · period_start/end (datetime) · limits (structured per F-01 §5 dimensions) · audit fields.
+**Entity: Subscription** — id (UUID) · tenant_id (FK) · plan (enum: Free/Starter/Pro/Premium/Enterprise) · state (enum: Pending/Trial/Active/Grace/Suspended/Expired/Cancelled; Renewed is an event) · period_start/end (datetime) · limits (structured per F-01 §5 dimensions) · audit fields.
 
 **Entity: MasterItem (pattern)** — standard columns (§1) applied to every master family.
 
