@@ -41,3 +41,20 @@ Development has **not yet been performed**. Testing, security validation, produc
 
 ## Fable 5 remediation handoff
 Current authoritative state supersedes the prior development-ready handoff: **DETAILED DESIGN REMEDIATION REQUIRED · DEVELOPMENT BLOCKED**. Preserve Wave-1/Wave-2 Core contracts, remediate P0/P1 findings, and do not begin implementation until fresh recertification passes.
+
+
+## Post-Fable recertified handoff — DD-F5-RECERTIFIED
+This section supersedes the earlier Fable remediation-blocked handoff as current state while preserving it as historical evidence.
+
+Current authoritative gate:
+- FOUNDATION CERTIFIED.
+- ARCHITECTURE CERTIFIED.
+- DD WAVE 1 COMPLETE.
+- DD WAVE 2 COMPLETE.
+- DD WAVE 3 COMPLETE.
+- DETAILED DESIGN COMPLETE.
+- READY FOR DEVELOPMENT.
+
+Development must consume the current DD-00…DD-31 contracts, especially DD-21 acceptance IDs, DD-22 exact workflow rules, DD-23/23A catalogs/indexes, DD-24 domain decisions, DD-25/DD-28 KPI contracts, DD-26 surfaces/IDs, DD-29/30/31 final audits and DD-20D overall certification. Do not reinterpret Tenant+Industry isolation, surface ownership, workflows, business defaults or acceptance behavior in code.
+
+Development has **not** yet been performed. Executable testing, security validation, production readiness and deployment remain later lifecycle gates.
