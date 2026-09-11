@@ -1,6 +1,6 @@
 {
   "project": "SBGlobal Plus",
-  "phase": "Foundation CERTIFIED; Architecture CERTIFIED; READY FOR DETAILED DESIGN",
+  "phase": "Foundation CERTIFIED; Architecture CERTIFIED; Detailed Design IN PROGRESS; DD Wave 1 COMPLETE",
   "checkpoint": "CP-REM-002",
   "updated": "2026-09-11",
   "governed_by": [
@@ -96,5 +96,32 @@
     "main_merge": "not performed",
     "backup_zip": "not created"
   },
-  "next_work": "Detailed Design by dependency/build scope. No Development until the applicable scope reaches DETAILED DESIGN COMPLETE."
+  "next_work": "Detailed Design Wave 2 only. Overall Detailed Design remains IN PROGRESS; Development remains scope/dependency gated.",
+  "detailed_design": {
+    "status": "IN PROGRESS",
+    "current_wave": "Wave 1 COMPLETE — PASS",
+    "checkpoint": "DD-W1-COMPLETE",
+    "starting_head": "58a8c1647117797652fefe45f9601911425b164b",
+    "wave1_artifacts": [
+      "DD-00",
+      "DD-01",
+      "DD-02",
+      "DD-03",
+      "DD-04",
+      "DD-05",
+      "DD-06",
+      "DD-07",
+      "DD-08",
+      "DD-15",
+      "DD-17",
+      "DD-18",
+      "DD-19",
+      "DD-20"
+    ],
+    "open_p0": 0,
+    "open_p1": 0,
+    "deferred_p2": 5,
+    "next_wave": "Wave 2 NOT STARTED",
+    "overall_complete": false
+  }
 }

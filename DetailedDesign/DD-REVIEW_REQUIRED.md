@@ -10,4 +10,4 @@
 | DD-RR-005 | P2 | Wave 1 | Physical object-store provider/key implementation not selected | DEFERRED | DD-08 fixes metadata/security contract; provider topology is DD-14 |
 
 ## Gate interpretation
-Deferred P2 items above are intentionally outside Wave-1 authorization or require later approved inputs. There are no open P0/P1 items for Wave 1 at initialization; DD-20 must re-check this before the wave gate closes.
+Deferred P2 items above are intentionally outside Wave-1 authorization or require later approved inputs. There are **0 open P0/P1 Wave-1 findings after DD-20 adversarial review**. The listed P2 items remain valid deferred inputs for later Detailed Design scopes and must be resolved before their affected scopes can be marked DETAILED DESIGN COMPLETE.

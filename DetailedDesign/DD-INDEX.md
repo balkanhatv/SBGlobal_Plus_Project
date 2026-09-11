@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-11 · **Branch:** `docs/architecture-branch-2`
+**Updated:** 2026-09-11 · **Branch:** `docs/architecture-branch-2` · **Wave-1 gate:** COMPLETE
 
 | ID | Artifact | Wave | Status |
 |---|---|---:|---|
@@ -23,7 +23,7 @@
 | DD-17 | Test Acceptance Contracts | 1 | COMPLETE |
 | DD-18 | Detailed Design Decisions | 1+ | ACTIVE |
 | DD-19 | Detailed Design Traceability | 1+ | ACTIVE |
-| DD-20 | Detailed Design Final Audit | per wave | ACTIVE |
+| DD-20 | Detailed Design Final Audit | 1 | WAVE-1 PASS; reusable for later waves |
 
 ## Rule
 A later-wave artifact may not be marked COMPLETE merely because a Wave-1 convention exists. Every build scope passes its own Detailed Design gate.

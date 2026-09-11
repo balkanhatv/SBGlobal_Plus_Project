@@ -19,3 +19,7 @@ Current state:
 Next work is **Detailed Design by dependency/build scope**: exact entity/field/RLS contracts, endpoint methods/paths/request-response schemas, event payloads, permission matrices, screen/navigation inventories, synchronization conflict contracts, infrastructure/vendor configuration, numeric SLO/RPO/RTO values, migration/rollback/runbooks and implementation test contracts. Do not begin Development for a scope until that scope reaches DETAILED DESIGN COMPLETE.
 
 Do not modify or merge `main` without explicit approval.
+
+
+## Detailed Design handoff — DD-W1-COMPLETE
+Wave 1 shared contracts are complete under `DetailedDesign/`. Resume with **Wave 2 only**, using DD-00/DD-01/DD-02/DD-03/DD-05/DD-06/DD-07/DD-08/DD-15 as mandatory upstream contracts. Do not start the 41 Management Systems simultaneously. Overall Detailed Design is still IN PROGRESS.
