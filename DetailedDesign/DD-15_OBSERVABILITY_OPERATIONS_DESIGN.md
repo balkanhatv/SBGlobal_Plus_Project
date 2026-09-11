@@ -65,3 +65,29 @@ Audit and operational telemetry have separate retention classes/access roles. Op
 
 ## 10. Acceptance
 A business/security event can be reconstructed from audit references + correlation without relying on mutable operational logs; telemetry cannot become cross-context data leakage.
+
+
+## 11. Wave-2 observability extension
+### Capability dashboard families
+- Application: request availability/latency/error by surface/operation class.
+- Mobile/Desktop Sync: queue depth, replay success, conflict/reject, stale schema/version, context mismatch.
+- Desktop Native: capability invocation/error by capability class, update/signature failures.
+- AI: route/provider/model health, latency, usage/cost, grounding failure, guardrail/tool deny/approval.
+- Integration: adapter health, auth/rate/error, sync lag/cursor age.
+- Webhook: delivery success/lag/retry/DLQ.
+- Infrastructure: readiness, replica/pool, worker/outbox lag, storage, migration state, backup/restore evidence.
+- Security: identity/authz/context/RLS/elevation/secret/key/upload/AI signals.
+
+### Alert severity classes
+`SEV0_SECURITY_OR_DATA_INTEGRITY`: active broad isolation/secret/data-loss threat.  
+`SEV1_CRITICAL_SERVICE`: widespread production unavailability or recovery risk.  
+`SEV2_DEGRADED`: material subset degraded/backlog.  
+`SEV3_WARNING`: trend/capacity/non-urgent operational issue.  
+Threshold numbers remain SLO/operations policy inputs.
+
+### Health state contract
+`HEALTHY, DEGRADED, NOT_READY, UNAVAILABLE, POLICY_BLOCKED`.
+Provider/integration/AI fallback may occur only if policy permits.
+
+### Release telemetry
+Every deployment event includes release version/commit, cell/dataHome, migration version, stage, actor/service, started/completed, result and rollback/roll-forward ref.

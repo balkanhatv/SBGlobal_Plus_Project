@@ -168,3 +168,44 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Risks:** secret-store availability.  
 **Dependencies:** A-10/DD-06/DD-16.  
 **Reversibility:** secret-store provider can change behind reference contract.
+
+
+## DD-018 — Workload placement follows responsibility and residency, not one hosting product
+**Context:** active stack includes Vercel and Coolify/Docker VPS; forcing all workloads to one creates runtime/residency conflicts.  
+**Options:** Vercel-only; VPS-only; classified hybrid cells.  
+**Decision:** public/suitable Next.js workloads may use Vercel; regional/data-bound API/workers/processing use governed Coolify/Docker cells as required; one logical Core remains.  
+**Trade-offs:** hybrid operations complexity vs portability/residency.  
+**Consequences:** routing/data-home contracts are deployment-independent.  
+**Risks:** configuration drift.  
+**Dependencies:** ADR-013/017/DD-14.  
+**Reversibility:** workload can move between approved placements behind same contracts.
+
+## DD-019 — Transaction-local RLS context with pooled connections
+**Context:** pooled sessions risk context leakage.  
+**Options:** session variables; per-tenant pools; transaction-local trusted context.  
+**Decision:** set DD-05 RLS context transaction-locally after verified RequestContext; pool reuse never carries prior context.  
+**Trade-offs:** transaction discipline; strong isolation with shared pools.  
+**Consequences:** middleware/repository operations must be transaction-aware for tenant data.  
+**Risks:** operations outside transaction.  
+**Dependencies:** DD-02/DD-05/DD-14.  
+**Reversibility:** pooler/provider may change.
+
+## DD-020 — Cross-region availability never overrides residency
+**Context:** failover automation can accidentally move prohibited data.  
+**Options:** automatic global failover; no failover; policy-authorized destination set.  
+**Decision:** region-local recovery first; cross-region only to pre-authorized destinations. If none, controlled unavailability is safer than illegal movement.  
+**Trade-offs:** availability may be lower for restrictive tenants.  
+**Consequences:** failover policy is tenant/contract/legal data.  
+**Risks:** stale policy during incident.  
+**Dependencies:** F-11/A-10/DD-14/DD-16.  
+**Reversibility:** destinations can be expanded by governed policy.
+
+## DD-021 — Security numeric controls remain configurable approved policy
+**Context:** Wave 1 left rate/SLO/retention numbers intentionally open.  
+**Options:** invent defaults; omit controls; define classes + approval-bound values.  
+**Decision:** DD defines symbolic classes and policy fields; numeric limits/durations are approved configuration/contract values.  
+**Trade-offs:** later operational input required; avoids fabricated enterprise commitments.  
+**Consequences:** affected implementation can wire policy before values are approved, but production gate requires approved values where mandatory.  
+**Risks:** delayed decisions.  
+**Dependencies:** DD-14/DD-16/DD-REVIEW_REQUIRED.  
+**Reversibility:** values/versioning are configuration.
