@@ -47,3 +47,6 @@ A **Regional Data Home** is a deployment cell: Postgres (+ replicas), object sto
 
 ## 7. Deferred to Detailed Design
 Tenant directory entity fields; RLS policy catalog per table; data-home migration runbook; per-industry seed catalogs; suspension-scope matrix per module.
+
+## 8. Residency-qualified resilience
+Regional Data Home resilience follows F-11: local replicas, backups and failover remain inside the tenant's allowed residency boundary by default. **Cross-region replication, backup copies or failover are permitted only when tenant policy, contract or legal basis explicitly allows that residency event.** Resilience never silently overrides residency. A-10 owns the physical topology and recovery orchestration.
