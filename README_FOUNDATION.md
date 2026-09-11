@@ -1,6 +1,6 @@
 # SBGlobal Plus — Project Foundation / Architecture Branch
 
-**Current status: FOUNDATION CERTIFIED + ARCHITECTURE CERTIFIED — READY FOR DETAILED DESIGN** on `docs/architecture-branch-2`.
+**Current status: FOUNDATION SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED · ARCHITECTURE TARGETED REMEDIATION / RECERTIFICATION REQUIRED · DETAILED DESIGN NOT AUTHORIZED** on `docs/architecture-branch-2`.
 
 > **SBGlobal Plus — A World-Class, AI-Ready, AI-Extensible, AI-Powered, Enterprise-Grade, Multi-Tenant, Multi-Industry SaaS Platform.**
 >
@@ -9,7 +9,7 @@
 All nine supported industries are equal first-class suites. Healthcare is not a template, benchmark or default.
 
 ## Current truth
-The 2026-09-10 truth audit was closed through repository-resident revalidation. Foundation evidence now includes 372 atomic source rows with no external-ZIP dependency plus a fresh No-Loss/adversarial audit. Architecture A-00…A-12 was then revalidated and completed with an Architecture traceability matrix, No-Loss/depth audit and final adversarial audit.
+The 2026-09-11 independent forensic audit reopened the current gates. Historical certification records remain preserved, but current certification must be re-earned from requirement-level source evidence, complete per-MS Foundation evidence, fail-closed Tenant + Industry Context architecture, reconciled application/access models, and fresh adversarial audits. The existing 372 rows are retained as source-heading parent inventory, not treated as atomic requirement certification proof.
 
 ## Repository layout
 - `Governing/` — MASTER_INSTRUCTION / MASTER_PROMPT v2.5 with current phase/technology reconciliation.
@@ -32,7 +32,7 @@ Historical Laravel/PHP/Filament/MySQL-primary/Flutter/PM2/cPanel assumptions rem
 - Architecture final/adversarial audit: `Registers/ARCHITECTURE_FINAL_AUDIT.md`.
 - Architecture ADR authority: `Architecture/A-12_ARCHITECTURE_DECISIONS_CONSTRAINTS_DEPENDENCIES_TRADEOFFS.md`.
 
-## Next phase
-Detailed Design owns exact schemas, endpoints, payloads, permission matrices, screen inventories, infrastructure/vendor configuration and implementation mechanics. Development follows only after each relevant scope reaches DETAILED DESIGN COMPLETE.
+## Current remediation
+Targeted correction and recertification only. Detailed Design remains **NOT AUTHORIZED** until the Foundation and Architecture gates are substantively re-earned.
 
 Do not modify or merge `main` without explicit approval.

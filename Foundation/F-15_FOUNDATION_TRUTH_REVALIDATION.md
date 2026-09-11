@@ -34,3 +34,13 @@ Detailed-Design-level API/schema evidence is therefore not a Foundation prerequi
 
 ## 6. Exit
 Foundation is stable input to Architecture revalidation. This does not certify Architecture, Detailed Design, Development, Testing or Production.
+
+
+## 14. Independent Forensic Audit Reopen — CURRENT ACTIVE STATUS (11-09-2026)
+This section supersedes only the current-status effect of §13. Earlier certification amendments remain historical evidence.
+
+**Project Foundation (whole): SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED.**
+
+The current remediation was reopened because substantive evidence did not support treating the 372 heading-level rows as atomic requirement-level proof, per-MS equal-depth evidence remained incomplete for multiple Management Systems, and general Architecture had not yet proven fail-closed same-Tenant cross-Industry-Context isolation outside the stronger A-07 AI/RAG path. Additional P1 reconciliation is required for the effective-access chain, A-08 surfaces and A-06 IdentityPort wording.
+
+Current rule: preserve valid work, correct only verified gaps, run fresh No-Loss and adversarial audits, and restore Foundation/Architecture certification only if earned. Detailed Design is not authorized during this remediation.

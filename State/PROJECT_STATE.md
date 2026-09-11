@@ -1,14 +1,15 @@
 # PROJECT_STATE — SBGlobal Plus
 - Updated: 2026-09-11.
 - Branch: `docs/architecture-branch-2`.
-- Current phase state: **Foundation CERTIFIED · Architecture CERTIFIED · Detailed Design NEXT**.
-- Foundation current authority: F-15 + 372-row atomic traceability + current No-Loss/adversarial audit.
-- Architecture current authority: A-00…A-12 + Architecture traceability + Architecture No-Loss + final adversarial audit.
+- Current phase state: **Foundation SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED · Architecture TARGETED REMEDIATION / RECERTIFICATION REQUIRED · Detailed Design NOT AUTHORIZED**.
+- Reopened from audited HEAD `029faa5add582f6cfbf1688a145bf06dac6d5b34` after independent forensic audit; historical CP-F1/CP-A1 certification records remain history, not current proof.
+- Foundation current authority: F-15 + requirement-level traceability remediation + fresh No-Loss/adversarial audit when completed.
+- Architecture current authority during remediation: A-00…A-12 + targeted corrections + rebuilt Architecture traceability + fresh adversarial audit.
 - Current technology: `UD-TECH-01` — Next.js 15; TypeScript 5.x/Node.js 22+; React 19; Tailwind/Shadcn; PostgreSQL; Payload CMS 3; Refine where suitable; NestJS only for justified dedicated boundary; tRPC first-party; REST/OpenAPI external; Clerk preferred/Auth.js fallback; React Native+Expo; Tauri 2.0 Windows/macOS/Linux; Expo Push/OneSignal; Vercel; Coolify+Dockerized VPS.
 - Canonical model: one Unified Core → equal first-class Industry Suites → Tenant → Primary + optional Enabled Industries → Branch/Department/Location → Users/Roles → Management Systems → Modules → Workflows → Transactions.
-- Isolation: Tenant + Industry Context is mandatory across data, APIs and AI/RAG.
+- Isolation requirement: Tenant + Industry Context is mandatory across industry-scoped data, APIs, storage, events, offline sync and AI/RAG; general Architecture enforcement is under targeted remediation.
 - Commercial model: Free/Starter self-serve; Enterprise sales-assisted; Pro/Premium governed dual-route; no PAST_DUE resting state.
 - RawSourceCorpus: immutable accepted S1/S2 blobs; earlier variants are Git history only.
 - `main`: unchanged/unmerged.
 - Backup ZIP: not created.
-- Next work: Detailed Design exact data/API/event/permission/UI/infrastructure contracts by build scope before Development.
+- Next work: execute targeted remediation and re-audit. Detailed Design remains blocked until Foundation and Architecture certification are re-earned.

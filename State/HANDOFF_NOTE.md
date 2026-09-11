@@ -1,18 +1,17 @@
-# HANDOFF_NOTE — Architecture → Detailed Design
+# HANDOFF_NOTE — Targeted Remediation / Recertification
 **Date:** 2026-09-11
 
-Resume on `docs/architecture-branch-2` from checkpoint **CP-A1-003**.
+Resume on `docs/architecture-branch-2` from remediation checkpoint **CP-REM-001**.
 
 Current state:
-- Foundation: **CERTIFIED**.
-- Architecture: **CERTIFIED**.
-- Architecture set: **A-00…A-12**.
-- ADR authority: **A-12, ADR-001…ADR-018**.
-- Traceability/audits: current Foundation + Architecture evidence PASS.
+- Foundation: **SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED**.
+- Architecture: **TARGETED REMEDIATION / RECERTIFICATION REQUIRED**.
+- Detailed Design: **NOT AUTHORIZED**.
+- Historical A-00…A-12 and ADR-001…ADR-018 are preserved and corrected only where evidence requires.
 - RawSourceCorpus: immutable accepted S1/S2 baseline.
 - Technology: UD-TECH-01.
-- No open Foundation/Architecture REVIEW_REQUIRED item.
+- Open remediation blockers are tracked in `Registers/REVIEW_REQUIRED.md`.
 
-Next work is **Detailed Design**, by dependency/build scope. Define exact database/entity/field/RLS contracts, endpoint methods/paths and request-response schemas, event payload catalogs, permission matrices, screen/navigation inventories, synchronization contracts, infrastructure/vendor configuration, numeric SLO/RPO/RTO values, migration/rollback/runbook mechanics and implementation test contracts. Do not begin Development for a scope until that scope reaches DETAILED DESIGN COMPLETE.
+Do not start Detailed Design or Development. Complete targeted evidence and architecture remediation, run fresh Foundation and Architecture adversarial audits, and restore certification only if every P0/P1 is closed substantively.
 
-Do not modify or merge `main` without explicit approval. No backup ZIP is required for this execution.
+Do not modify or merge `main`. Do not create a backup ZIP for this execution.

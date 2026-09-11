@@ -1,5 +1,5 @@
 # ARCHITECTURE FINAL / ADVERSARIAL AUDIT
-**Status:** ARCHITECTURE CERTIFIED · **Date:** 2026-09-11
+**Status:** HISTORICAL PASS — SUPERSEDED AS CURRENT CERTIFICATION EVIDENCE · **Date:** 2026-09-11
 
 ## Pass 1 — cross-document reconciliation
 - Vision / one-Core model: PASS.
@@ -40,3 +40,7 @@ No unresolved P0/P1 contradiction remains after the targeted corrections.
 
 ## Genuine later-phase work
 Detailed Design must define exact entity/field schemas, RLS policy catalog, endpoint paths/methods/request-response schemas, event payload catalogs, screen/navigation inventories, infrastructure-as-code/vendor configuration, numeric SLO/RPO/RTO values, migration/runbook commands and implementation test contracts.
+
+
+## Current-status supersession — 2026-09-11
+The independent forensic audit found unresolved P0/P1 evidence after this historical pass. This file remains historical evidence and does not currently certify Architecture. A fresh adversarial audit must be produced after REM-01…REM-08 are closed.

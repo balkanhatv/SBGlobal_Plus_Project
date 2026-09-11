@@ -1,15 +1,13 @@
-# PHASE_SUMMARY — Foundation + Architecture Gate Closure
+# PHASE_SUMMARY — Targeted Remediation Reopen
 **Date:** 2026-09-11
 
-1. Foundation truth revalidation is **CLOSED / FOUNDATION CERTIFIED** using current repository evidence.
-2. RawSourceCorpus remains byte-stable at accepted S1/S2 blobs; historical variants remain Git history only.
-3. Atomic Foundation traceability is repository-resident: **372 units, 0 unmapped, no external ZIP dependency**.
-4. Governance now explicitly preserves phase boundaries: Foundation WHAT/WHY/WHO → Architecture HOW → Detailed Design exact contracts → Development code.
-5. Commercial, identity, experience and technology drift was reconciled to F-14 and UD-TECH-01.
-6. A-00…A-09 were revalidated with targeted corrections; valid architecture was preserved.
-7. A-10 Infrastructure/Deployment/Scalability/Resilience, A-11 Observability/Reliability/Operations and A-12 authoritative Architecture ADRs were created.
-8. ADR-001…ADR-018 have context, decision, options/trade-offs, consequences, risks/dependencies and affected architecture.
-9. Architecture traceability, No-Loss/depth audit and adversarial final audit all PASS.
-10. **Architecture is CERTIFIED and ready for Detailed Design.**
-11. No application code, migrations, UI implementation or deployment scripts were introduced.
-12. `main` remains unmodified/unmerged; no backup ZIP was created.
+1. The independent forensic audit was accepted as a remediation trigger but not as unquestioned authority; each finding must be reverified against repository truth.
+2. Current Foundation status: **SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED**.
+3. Current Architecture status: **TARGETED REMEDIATION / RECERTIFICATION REQUIRED**.
+4. Detailed Design: **NOT AUTHORIZED**.
+5. The existing 372 source-unit rows are retained as a source-heading inventory; they are not called atomic requirement-level certification evidence during remediation.
+6. RawSourceCorpus remains at the accepted immutable S1/S2 blobs and is not modified.
+7. Strong areas remain preserved: UD-TECH-01, commercial lifecycle/routes, conditional erasure, Regional Data Homes, A-07 AI/RAG isolation, A-10 resilience, A-11 operations and one Unified Core.
+8. Remediation proceeds dependency-first: requirement-level traceability → demonstrated Foundation source-loss → MS completeness → Tenant+Industry Context Architecture → effective access/surfaces/IdentityPort → ADR/Architecture traceability → fresh dual adversarial audits.
+9. Historical certification/checkpoint records remain evidence of past decisions only; they are not current status.
+10. No application code, Detailed Design, migrations, UI implementation, deployment scripts, main merge or backup ZIP is authorized in this remediation.

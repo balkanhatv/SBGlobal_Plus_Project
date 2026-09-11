@@ -1,7 +1,7 @@
 {
   "project": "SBGlobal Plus",
-  "phase": "Foundation CERTIFIED; Architecture CERTIFIED; Detailed Design NEXT",
-  "checkpoint": "CP-A1-003",
+  "phase": "Foundation SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED; Architecture TARGETED REMEDIATION / RECERTIFICATION REQUIRED; Detailed Design NOT AUTHORIZED",
+  "checkpoint": "CP-REM-001",
   "updated": "2026-09-11",
   "governed_by": [
     "MASTER_INSTRUCTION v2.5 + 2026-09-11 targeted reconciliation",
@@ -13,39 +13,71 @@
     "UD-COMM-01"
   ],
   "foundation": {
-    "current_status": "FOUNDATION CERTIFIED — CURRENT EVIDENCE-BACKED REVALIDATION",
-    "foundation_certified": true,
+    "current_status": "SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED",
+    "foundation_certified": false,
     "atomic_traceability_units": 372,
     "unmapped_units": 0,
     "authority": [
       "Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md",
       "Registers/TRACEABILITY_MATRIX_UNIT.md",
       "Registers/NO_LOSS_AUDIT.md"
-    ]
+    ],
+    "atomic_traceability_qualification": "372 source-heading parent units preserved; requirement-level child evidence is being rebuilt and parent count is not certification proof."
   },
   "architecture": {
-    "status": "ARCHITECTURE CERTIFIED — READY FOR DETAILED DESIGN",
-    "available_documents": ["A-00","A-01","A-02","A-03","A-04","A-05","A-06","A-07","A-08","A-09","A-10","A-11","A-12"],
+    "status": "TARGETED REMEDIATION / RECERTIFICATION REQUIRED",
+    "available_documents": [
+      "A-00",
+      "A-01",
+      "A-02",
+      "A-03",
+      "A-04",
+      "A-05",
+      "A-06",
+      "A-07",
+      "A-08",
+      "A-09",
+      "A-10",
+      "A-11",
+      "A-12"
+    ],
     "planned_documents_not_present": [],
     "adr_range": "ADR-001..ADR-018",
     "evidence": [
       "Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md",
       "Registers/ARCHITECTURE_NO_LOSS_AUDIT.md",
       "Registers/ARCHITECTURE_FINAL_AUDIT.md"
+    ],
+    "certified": false,
+    "blockers": [
+      "Tenant + Industry Context fail-closed general architecture",
+      "Foundation MS-specific depth verification",
+      "requirement-level traceability",
+      "surface/effective-access reconciliation"
     ]
   },
   "technology_baseline": {
     "decision_id": "UD-TECH-01",
     "status": "ACTIVE — USER-DIRECTED",
     "stack": [
-      "Next.js 15","TypeScript 5.x / Node.js 22+","React 19","Tailwind CSS + Shadcn UI",
-      "PostgreSQL","Payload CMS 3","Refine where suitable",
+      "Next.js 15",
+      "TypeScript 5.x / Node.js 22+",
+      "React 19",
+      "Tailwind CSS + Shadcn UI",
+      "PostgreSQL",
+      "Payload CMS 3",
+      "Refine where suitable",
       "NestJS only where a dedicated backend/service boundary is architecturally justified",
-      "tRPC first-party typed APIs","REST/OpenAPI external interoperability",
-      "Clerk preferred identity boundary","Auth.js where Clerk is unsuitable",
-      "React Native + Expo","Tauri 2.0 Windows/macOS/Linux",
-      "Expo Push Notifications / OneSignal","Webhooks",
-      "Vercel suitable workloads","Coolify + Dockerized VPS self-hosted/regional workloads"
+      "tRPC first-party typed APIs",
+      "REST/OpenAPI external interoperability",
+      "Clerk preferred identity boundary",
+      "Auth.js where Clerk is unsuitable",
+      "React Native + Expo",
+      "Tauri 2.0 Windows/macOS/Linux",
+      "Expo Push Notifications / OneSignal",
+      "Webhooks",
+      "Vercel suitable workloads",
+      "Coolify + Dockerized VPS self-hosted/regional workloads"
     ]
   },
   "raw_source": {
@@ -60,5 +92,5 @@
     "main_merge": "not performed",
     "backup_zip": "not created"
   },
-  "next_work": "Detailed Design by build scope: exact schemas, endpoint/event contracts, permission matrices, UI inventories, infrastructure configuration and implementation test contracts."
+  "next_work": "Targeted remediation and fresh adversarial re-audit. Detailed Design is NOT AUTHORIZED until certification is re-earned."
 }

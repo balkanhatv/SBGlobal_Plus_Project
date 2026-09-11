@@ -1,14 +1,14 @@
-# D-CHECKPOINT — CP-A1-003 ARCHITECTURE GATE-READY RECONCILIATION
+# D-CHECKPOINT — CP-REM-001 CERTIFICATION GATES REOPENED
 **Date:** 2026-09-11 · **Branch:** `docs/architecture-branch-2`
 
-- Foundation: **FOUNDATION CERTIFIED — current evidence-backed revalidation**.
-- Foundation atomic traceability: **372 repository-resident rows, 0 unmapped, no external-ZIP dependency**.
-- Architecture: **ARCHITECTURE CERTIFIED — A-00…A-12 present**.
-- ADR evidence: **ADR-001…ADR-018 authoritative in A-12**.
-- Architecture traceability / No-Loss / adversarial final audit: **PASS**.
-- Corrected P0/P1 truth: phase-evidence boundary, commercial route/lifecycle, identity provider abstraction, cross-platform experience stack, conditional erasure, residency-qualified backups/failover, same-tenant cross-industry AI/RAG isolation, application-surface separation, Next.js/NestJS boundary.
-- RawSourceCorpus: accepted S1/S2 baseline remains immutable; no source file modified in this execution.
-- No Detailed Design schemas/contracts, production/application code, migrations, UI implementation or deployment scripts introduced.
-- `main`: not modified and not merged.
-- Backup ZIP: not created per user direction.
-- Next phase: **Detailed Design**, starting from A-00…A-12 and Architecture traceability.
+- Starting audited HEAD: `029faa5add582f6cfbf1688a145bf06dac6d5b34`.
+- Foundation: **SUBSTANTIVE REVALIDATION — CERTIFICATION BLOCKED**.
+- Architecture: **TARGETED REMEDIATION / RECERTIFICATION REQUIRED**.
+- Detailed Design: **NOT AUTHORIZED**.
+- Existing 372 source-unit rows are preserved as parent/source-heading inventory; requirement-level child evidence must be added before No-Loss certification.
+- P0 remediation scopes: requirement-level traceability/source-loss; incomplete per-MS Foundation evidence; fail-closed Tenant + Industry Context general Architecture.
+- P1 remediation scopes: effective-access chain; A-08 surfaces; A-06 IdentityPort; affected ADRs and Architecture traceability.
+- Strong verified areas remain preserved unless a direct dependency requires a narrow adjustment.
+- RawSourceCorpus remains immutable; `main` is not modified/merged; no backup ZIP; no code/Detailed Design.
+- Historical CP-F1/CP-A1 certification entries remain Git/document history and are not deleted.
+- Next checkpoint is earned only after substantive corrections and fresh adversarial audits.

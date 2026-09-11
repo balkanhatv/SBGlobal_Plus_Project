@@ -1,5 +1,5 @@
 # NO-LOSS / DEPTH AUDIT — 2026-09-11
-**Status:** PASS · **Scope:** Current Foundation revalidation against accepted immutable S1/S2 baseline
+**Status:** HISTORICAL PASS — SUPERSEDED AS CURRENT GATE EVIDENCE · **Scope:** prior Foundation revalidation against accepted immutable S1/S2 baseline
 
 ## Pass 1 — source and destination
 - S1 units: 37.
@@ -33,3 +33,7 @@ Attempted to disprove readiness using the known 2026-09-10 failure modes:
 8. Healthcare inheritance used to prove sibling depth — **rejected by AC-16**.
 
 **Result: PASS.** Foundation evidence only; Architecture has an independent gate/evidence package.
+
+
+## Current-status supersession — 2026-09-11
+The 372-row set is retained as a source-heading parent inventory, but requirement-level atomic evidence must now be added for multi-requirement units. This historical PASS is not current certification evidence. A fresh No-Loss/adversarial audit is required after traceability and Foundation remediation.
