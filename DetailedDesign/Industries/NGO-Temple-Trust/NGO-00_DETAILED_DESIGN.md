@@ -11,10 +11,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| Donor / `ngo_dms_donor` | donor_no text, principal_ref uuid?, display_name text, confidentiality enum(NORMAL,CONFIDENTIAL,ANONYMOUS_PUBLIC), lifecycle enum(PROSPECT,ACTIVE,LAPSED,REACTIVATED), consent_json jsonb | PK id; UNIQUE(context,donor_no); context-first indexes | SENSITIVE_PERSONAL; donor/privacy policy |
-| Pledge / `ngo_dms_pledge` | donor_id uuid, campaign_ref uuid?, amount_minor bigint, currency char(3), due_date date?, fulfilled_minor bigint, state enum(RECORDED,REMINDER,PARTIAL,FULFILLED,CANCELLED) | PK id; index context+donor_id+state; context-first indexes | SENSITIVE_PERSONAL; donor/privacy policy |
-| DonorSegmentMembership / `ngo_dms_segment` | donor_id uuid, segment_code text, calculated_at timestamptz, reason_code text, state enum(ACTIVE,REMOVED) | PK id; UNIQUE(context,donor_id,segment_code,state); context-first indexes | SENSITIVE_PERSONAL; donor/privacy policy |
-| Engagement / `ngo_dms_engagement` | donor_id uuid, channel text, campaign_ref uuid?, consent_basis text, occurred_at timestamptz, outcome text? | PK id; index context+donor_id+occurred_at; context-first indexes | SENSITIVE_PERSONAL; donor/privacy policy |
+| Donor / `ngo_dms_donor` | donor_no text, principal_ref uuid?, display_name text, confidentiality enum(NORMAL,CONFIDENTIAL,ANONYMOUS_PUBLIC), lifecycle enum(PROSPECT,ACTIVE,LAPSED,REACTIVATED), consent_json jsonb | PK id; UNIQUE (tenant_id, industry_context_id,donor_no); INDEX (tenant_id, industry_context_id, principal_ref) | SENSITIVE_PERSONAL; donor/privacy policy |
+| Pledge / `ngo_dms_pledge` | donor_id uuid, campaign_ref uuid?, amount_minor bigint, currency char(3), due_date date?, fulfilled_minor bigint, state enum(RECORDED,REMINDER,PARTIAL,FULFILLED,CANCELLED) | PK id; INDEX (tenant_id, industry_context_id, donor_id, state); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; donor/privacy policy |
+| DonorSegmentMembership / `ngo_dms_segment` | donor_id uuid, segment_code text, calculated_at timestamptz, reason_code text, state enum(ACTIVE,REMOVED) | PK id; UNIQUE (tenant_id, industry_context_id,donor_id,segment_code,state); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; donor/privacy policy |
+| Engagement / `ngo_dms_engagement` | donor_id uuid, channel text, campaign_ref uuid?, consent_basis text, occurred_at timestamptz, outcome text? | PK id; INDEX (tenant_id, industry_context_id, donor_id, occurred_at); INDEX (tenant_id, industry_context_id, donor_id) | SENSITIVE_PERSONAL; donor/privacy policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -62,10 +62,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| Donation / `ngo_dfm_donation` | donation_no text, donor_ref uuid?, fund_ref uuid, amount_minor bigint, currency char(3), method text, state enum(RECEIVED,RECEIPTED,ALLOCATED,REVERSED) | PK id; UNIQUE(context,donation_no); context-first indexes | FINANCIAL/SENSITIVE_PERSONAL; financial-audit policy |
-| DonationReceipt / `ngo_dfm_receipt` | receipt_no text, donation_id uuid, issued_at timestamptz, reversal_of uuid?, state enum(ISSUED,REVERSED) | PK id; UNIQUE(context,receipt_no); append-only; context-first indexes | FINANCIAL/SENSITIVE_PERSONAL; financial-audit policy |
-| Fund / `ngo_dfm_fund` | fund_code text, purpose_code text, restriction_json jsonb, balance_minor bigint, state enum(ACTIVE,CLOSED) | PK id; UNIQUE(context,fund_code); context-first indexes | FINANCIAL/SENSITIVE_PERSONAL; financial-audit policy |
-| FundUtilization / `ngo_dfm_utilization` | fund_id uuid, expense_ref uuid, amount_minor bigint, purpose_code text, approval_ref uuid?, state enum(REQUESTED,APPROVED,POSTED,REVERSED) | PK id; index context+fund_id+state; context-first indexes | FINANCIAL/SENSITIVE_PERSONAL; financial-audit policy |
+| Donation / `ngo_dfm_donation` | donation_no text, donor_ref uuid?, fund_ref uuid, amount_minor bigint, currency char(3), method text, state enum(RECEIVED,RECEIPTED,ALLOCATED,REVERSED) | PK id; UNIQUE (tenant_id, industry_context_id,donation_no); INDEX (tenant_id, industry_context_id, state, updated_at) | FINANCIAL/SENSITIVE_PERSONAL; financial-audit policy |
+| DonationReceipt / `ngo_dfm_receipt` | receipt_no text, donation_id uuid, issued_at timestamptz, reversal_of uuid?, state enum(ISSUED,REVERSED) | PK id; UNIQUE (tenant_id, industry_context_id,receipt_no); append-only; INDEX (tenant_id, industry_context_id, state, updated_at) | FINANCIAL/SENSITIVE_PERSONAL; financial-audit policy |
+| Fund / `ngo_dfm_fund` | fund_code text, purpose_code text, restriction_json jsonb, balance_minor bigint, state enum(ACTIVE,CLOSED) | PK id; UNIQUE (tenant_id, industry_context_id,fund_code); INDEX (tenant_id, industry_context_id, state, updated_at) | FINANCIAL/SENSITIVE_PERSONAL; financial-audit policy |
+| FundUtilization / `ngo_dfm_utilization` | fund_id uuid, expense_ref uuid, amount_minor bigint, purpose_code text, approval_ref uuid?, state enum(REQUESTED,APPROVED,POSTED,REVERSED) | PK id; INDEX (tenant_id, industry_context_id, fund_id, state); INDEX (tenant_id, industry_context_id, state, updated_at) | FINANCIAL/SENSITIVE_PERSONAL; financial-audit policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -113,10 +113,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| SevaOffering / `ngo_tam_offering` | code text, name text, slot_policy_ref uuid, capacity int?, price_minor bigint?, state enum(ACTIVE,PAUSED,RETIRED) | PK id; UNIQUE(context,code); context-first indexes | CONFIDENTIAL/FINANCIAL; booking/event policy |
-| SevaBooking / `ngo_tam_booking` | booking_no text, offering_id uuid, devotee_ref uuid?, slot_at timestamptz, qty int, state enum(HELD,CONFIRMED,PERFORMED,CANCELLED,NO_SHOW) | PK id; UNIQUE(context,booking_no); context-first indexes | CONFIDENTIAL/FINANCIAL; booking/event policy |
-| TempleEvent / `ngo_tam_event` | event_code text, name text, start_at timestamptz, end_at timestamptz, budget_minor bigint?, state enum(PLANNED,APPROVED,EXECUTING,COMPLETED,SETTLED) | PK id; UNIQUE(context,event_code); context-first indexes | CONFIDENTIAL/FINANCIAL; booking/event policy |
-| Dispatch / `ngo_tam_dispatch` | booking_id uuid?, event_id uuid?, recipient_ref uuid?, dispatch_type text, tracking_ref text?, state enum(PENDING,PACKED,DISPATCHED,DELIVERED,FAILED) | PK id; index context+state; context-first indexes | CONFIDENTIAL/FINANCIAL; booking/event policy |
+| SevaOffering / `ngo_tam_offering` | code text, name text, slot_policy_ref uuid, capacity int?, price_minor bigint?, state enum(ACTIVE,PAUSED,RETIRED) | PK id; UNIQUE (tenant_id, industry_context_id,code); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; booking/event policy |
+| SevaBooking / `ngo_tam_booking` | booking_no text, offering_id uuid, devotee_ref uuid?, slot_at timestamptz, qty int, state enum(HELD,CONFIRMED,PERFORMED,CANCELLED,NO_SHOW) | PK id; UNIQUE (tenant_id, industry_context_id,booking_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; booking/event policy |
+| TempleEvent / `ngo_tam_event` | event_code text, name text, start_at timestamptz, end_at timestamptz, budget_minor bigint?, state enum(PLANNED,APPROVED,EXECUTING,COMPLETED,SETTLED) | PK id; UNIQUE (tenant_id, industry_context_id,event_code); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; booking/event policy |
+| Dispatch / `ngo_tam_dispatch` | booking_id uuid?, event_id uuid?, recipient_ref uuid?, dispatch_type text, tracking_ref text?, state enum(PENDING,PACKED,DISPATCHED,DELIVERED,FAILED) | PK id; INDEX (tenant_id, industry_context_id, state); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; booking/event policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -164,10 +164,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| Membership / `ngo_mvm_membership` | membership_no text, principal_ref uuid, type_code text, valid_from date, valid_to date?, state enum(APPLIED,APPROVED,ACTIVE,LAPSED,RENEWED,CANCELLED) | PK id; UNIQUE(context,membership_no); context-first indexes | SENSITIVE_PERSONAL; membership/volunteer policy |
-| VolunteerProfile / `ngo_mvm_volunteer` | principal_ref uuid, skills_json jsonb, availability_json jsonb, consent_json jsonb, state enum(APPLIED,ACTIVE,SUSPENDED,INACTIVE) | PK id; UNIQUE(context,principal_ref); context-first indexes | SENSITIVE_PERSONAL; membership/volunteer policy |
-| VolunteerAssignment / `ngo_mvm_assignment` | volunteer_id uuid, event_or_activity_ref uuid, role_code text, scheduled_start/end timestamptz, state enum(PLANNED,ACCEPTED,ACTIVE,COMPLETED,CANCELLED) | PK id; index context+volunteer_id+state; context-first indexes | SENSITIVE_PERSONAL; membership/volunteer policy |
-| VolunteerHours / `ngo_mvm_hours` | assignment_id uuid, work_date date, hours numeric, submitted_by uuid, verified_by uuid?, state enum(DRAFT,SUBMITTED,VERIFIED,REJECTED) | PK id; CHECK hours>0; context-first indexes | SENSITIVE_PERSONAL; membership/volunteer policy |
+| Membership / `ngo_mvm_membership` | membership_no text, principal_ref uuid, type_code text, valid_from date, valid_to date?, state enum(APPLIED,APPROVED,ACTIVE,LAPSED,RENEWED,CANCELLED) | PK id; UNIQUE (tenant_id, industry_context_id,membership_no); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; membership/volunteer policy |
+| VolunteerProfile / `ngo_mvm_volunteer` | principal_ref uuid, skills_json jsonb, availability_json jsonb, consent_json jsonb, state enum(APPLIED,ACTIVE,SUSPENDED,INACTIVE) | PK id; UNIQUE (tenant_id, industry_context_id,principal_ref); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; membership/volunteer policy |
+| VolunteerAssignment / `ngo_mvm_assignment` | volunteer_id uuid, event_or_activity_ref uuid, role_code text, scheduled_start/end timestamptz, state enum(PLANNED,ACCEPTED,ACTIVE,COMPLETED,CANCELLED) | PK id; INDEX (tenant_id, industry_context_id, volunteer_id, state); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; membership/volunteer policy |
+| VolunteerHours / `ngo_mvm_hours` | assignment_id uuid, work_date date, hours numeric, submitted_by uuid, verified_by uuid?, state enum(DRAFT,SUBMITTED,VERIFIED,REJECTED) | PK id; CHECK hours>0; INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; membership/volunteer policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 

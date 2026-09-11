@@ -11,10 +11,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| CitizenRequest / `gov_csm_request` | request_no text, service_code text, citizen_ref uuid?, channel text, state enum(SUBMITTED,ACKNOWLEDGED,TRIAGED,ASSIGNED,PROCESSING,INFO_REQUESTED,RESOLVED,CLOSED,REOPENED,ESCALATED) | PK id; UNIQUE(context,request_no); context-first indexes | SENSITIVE_PERSONAL; public-record/service policy |
-| SlaInstance / `gov_csm_sla` | request_id uuid, category_code text, due_at timestamptz, escalation_level int, state enum(RUNNING,PAUSED,MET,BREACHED,ESCALATED) | PK id; UNIQUE(context,request_id); context-first indexes | SENSITIVE_PERSONAL; public-record/service policy |
-| RequestAction / `gov_csm_action` | request_id uuid, action_type text, note text?, actor_id uuid, from_state text, to_state text, occurred_at timestamptz | PK id; append-only; context-first indexes | SENSITIVE_PERSONAL; public-record/service policy |
-| Appeal / `gov_csm_appeal` | request_id uuid, appeal_no text, reason text, authority_ref uuid, state enum(SUBMITTED,REVIEW,HEARING,DECIDED,CLOSED) | PK id; UNIQUE(context,appeal_no); context-first indexes | SENSITIVE_PERSONAL; public-record/service policy |
+| CitizenRequest / `gov_csm_request` | request_no text, service_code text, citizen_ref uuid?, channel text, state enum(SUBMITTED,ACKNOWLEDGED,TRIAGED,ASSIGNED,PROCESSING,INFO_REQUESTED,RESOLVED,CLOSED,REOPENED,ESCALATED) | PK id; UNIQUE (tenant_id, industry_context_id,request_no); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; public-record/service policy |
+| SlaInstance / `gov_csm_sla` | request_id uuid, category_code text, due_at timestamptz, escalation_level int, state enum(RUNNING,PAUSED,MET,BREACHED,ESCALATED) | PK id; UNIQUE (tenant_id, industry_context_id,request_id); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; public-record/service policy |
+| RequestAction / `gov_csm_action` | request_id uuid, action_type_code text, note text?, actor_id uuid, from_state text, to_state text, occurred_at timestamptz | PK id; append-only; INDEX (tenant_id, industry_context_id, request_id) | SENSITIVE_PERSONAL; public-record/service policy |
+| Appeal / `gov_csm_appeal` | request_id uuid, appeal_no text, reason text, authority_ref uuid, state enum(SUBMITTED,REVIEW,HEARING,DECIDED,CLOSED) | PK id; UNIQUE (tenant_id, industry_context_id,appeal_no); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; public-record/service policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -62,10 +62,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| OfficialFile / `gov_cfm_file` | file_no text, subject text, classification text, current_desk_ref uuid?, state enum(CREATED,IN_PROCESS,APPROVAL,DISPOSED,ARCHIVED) | PK id; UNIQUE(context,file_no); context-first indexes | CONFIDENTIAL/REGULATED; official-record policy |
-| FileNoting / `gov_cfm_noting` | file_id uuid, sequence_no int, author_id uuid, content_document_ref uuid, supersedes_noting_id uuid?, created_at timestamptz | PK id; append-only; UNIQUE(context,file_id,sequence_no); context-first indexes | CONFIDENTIAL/REGULATED; official-record policy |
-| FileMovement / `gov_cfm_movement` | file_id uuid, from_desk_ref uuid?, to_desk_ref uuid, forwarded_by uuid, received_by uuid?, forwarded_at timestamptz, received_at timestamptz? | PK id; append-only; context-first indexes | CONFIDENTIAL/REGULATED; official-record policy |
-| FileDecision / `gov_cfm_decision` | file_id uuid, level_code text, authority_id uuid, decision enum(APPROVE,RETURN,REJECT,DISPOSE), reason text?, occurred_at timestamptz | PK id; append-only; context-first indexes | CONFIDENTIAL/REGULATED; official-record policy |
+| OfficialFile / `gov_cfm_file` | file_no text, subject text, classification text, current_desk_ref uuid?, state enum(CREATED,IN_PROCESS,APPROVAL,DISPOSED,ARCHIVED) | PK id; UNIQUE (tenant_id, industry_context_id,file_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/REGULATED; official-record policy |
+| FileNoting / `gov_cfm_noting` | file_id uuid, sequence_no int, author_id uuid, content_document_ref uuid, supersedes_noting_id uuid?, created_at timestamptz | PK id; append-only; UNIQUE (tenant_id, industry_context_id,file_id,sequence_no); INDEX (tenant_id, industry_context_id, file_id) | CONFIDENTIAL/REGULATED; official-record policy |
+| FileMovement / `gov_cfm_movement` | file_id uuid, from_desk_ref uuid?, to_desk_ref uuid, forwarded_by uuid, received_by uuid?, forwarded_at timestamptz, received_at timestamptz? | PK id; append-only; INDEX (tenant_id, industry_context_id, file_id) | CONFIDENTIAL/REGULATED; official-record policy |
+| FileDecision / `gov_cfm_decision` | file_id uuid, level_code text, authority_id uuid, decision enum(APPROVE,RETURN,REJECT,DISPOSE), reason text?, occurred_at timestamptz | PK id; append-only; INDEX (tenant_id, industry_context_id, file_id) | CONFIDENTIAL/REGULATED; official-record policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -113,10 +113,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| PermitApplication / `gov_plm_application` | application_no text, permit_type text, applicant_ref uuid, state enum(SUBMITTED,FEE_PENDING,SCRUTINY,DEFICIENCY,INSPECTION,DECISION,APPROVED,REJECTED,ISSUED) | PK id; UNIQUE(context,application_no); context-first indexes | SENSITIVE_PERSONAL/REGULATED; permit/public-record policy |
-| ScrutinyRecord / `gov_plm_scrutiny` | application_id uuid, checklist_version text, result enum(PASS,DEFICIENT), deficiency_json jsonb?, officer_id uuid, completed_at timestamptz | PK id; version/checklist indexed; context-first indexes | SENSITIVE_PERSONAL/REGULATED; permit/public-record policy |
-| Inspection / `gov_plm_inspection` | application_id uuid, inspector_id uuid, scheduled_at timestamptz, performed_at timestamptz?, finding_json jsonb, state enum(SCHEDULED,COMPLETED,FAILED,APPROVED) | PK id; index context+application_id+state; context-first indexes | SENSITIVE_PERSONAL/REGULATED; permit/public-record policy |
-| PermitLicense / `gov_plm_license` | application_id uuid, license_no text, qr_verification_ref uuid, valid_from date, valid_to date?, state enum(ACTIVE,SUSPENDED,REVOKED,EXPIRED,RENEWED), version int | PK id; UNIQUE(context,license_no,version); context-first indexes | SENSITIVE_PERSONAL/REGULATED; permit/public-record policy |
+| PermitApplication / `gov_plm_application` | application_no text, permit_type text, applicant_ref uuid, state enum(SUBMITTED,FEE_PENDING,SCRUTINY,DEFICIENCY,INSPECTION,DECISION,APPROVED,REJECTED,ISSUED) | PK id; UNIQUE (tenant_id, industry_context_id,application_no); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL/REGULATED; permit/public-record policy |
+| ScrutinyRecord / `gov_plm_scrutiny` | application_id uuid, checklist_version text, result enum(PASS,DEFICIENT), deficiency_json jsonb?, officer_id uuid, completed_at timestamptz | PK id; version/checklist indexed; INDEX (tenant_id, industry_context_id, application_id) | SENSITIVE_PERSONAL/REGULATED; permit/public-record policy |
+| Inspection / `gov_plm_inspection` | application_id uuid, inspector_id uuid, scheduled_at timestamptz, performed_at timestamptz?, finding_json jsonb, state enum(SCHEDULED,COMPLETED,FAILED,APPROVED) | PK id; INDEX (tenant_id, industry_context_id, application_id, state); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL/REGULATED; permit/public-record policy |
+| PermitLicense / `gov_plm_license` | application_id uuid, license_no text, qr_verification_ref uuid, valid_from date, valid_to date?, state enum(ACTIVE,SUSPENDED,REVOKED,EXPIRED,RENEWED), version int | PK id; UNIQUE (tenant_id, industry_context_id,license_no,version); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL/REGULATED; permit/public-record policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -164,10 +164,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| Assessment / `gov_rtm_assessment` | assessment_no text, taxpayer_ref uuid, tax_head_code text, period_key text, assessed_minor bigint, state enum(DRAFT,ASSESSED,FINALIZED,REVISED) | PK id; UNIQUE(context,assessment_no); context-first indexes | FINANCIAL/SENSITIVE_PERSONAL; financial/public-record policy |
-| Demand / `gov_rtm_demand` | assessment_id uuid, demand_no text, due_date date, amount_minor bigint, balance_minor bigint, state enum(ISSUED,PART_PAID,PAID,ARREARS,REVERSED) | PK id; UNIQUE(context,demand_no); context-first indexes | FINANCIAL/SENSITIVE_PERSONAL; financial/public-record policy |
-| RevenueReceipt / `gov_rtm_receipt` | receipt_no text, demand_id uuid?, payment_ref uuid, amount_minor bigint, issued_at timestamptz, reversal_of uuid?, state enum(ISSUED,REVERSED) | PK id; UNIQUE(context,receipt_no); append-only; context-first indexes | FINANCIAL/SENSITIVE_PERSONAL; financial/public-record policy |
-| RecoveryRefundCase / `gov_rtm_case` | taxpayer_ref uuid, demand_id uuid?, case_type enum(RECOVERY,REFUND), amount_minor bigint, reason text, state enum(OPEN,REVIEW,APPROVED,EXECUTED,CLOSED) | PK id; index context+case_type+state; context-first indexes | FINANCIAL/SENSITIVE_PERSONAL; financial/public-record policy |
+| Assessment / `gov_rtm_assessment` | assessment_no text, taxpayer_ref uuid, tax_head_code text, period_key text, assessed_minor bigint, state enum(DRAFT,ASSESSED,FINALIZED,REVISED) | PK id; UNIQUE (tenant_id, industry_context_id,assessment_no); INDEX (tenant_id, industry_context_id, state, updated_at) | FINANCIAL/SENSITIVE_PERSONAL; financial/public-record policy |
+| Demand / `gov_rtm_demand` | assessment_id uuid, demand_no text, due_date date, amount_minor bigint, balance_minor bigint, state enum(ISSUED,PART_PAID,PAID,ARREARS,REVERSED) | PK id; UNIQUE (tenant_id, industry_context_id,demand_no); INDEX (tenant_id, industry_context_id, state, updated_at) | FINANCIAL/SENSITIVE_PERSONAL; financial/public-record policy |
+| RevenueReceipt / `gov_rtm_receipt` | receipt_no text, demand_id uuid?, payment_ref uuid, amount_minor bigint, issued_at timestamptz, reversal_of uuid?, state enum(ISSUED,REVERSED) | PK id; UNIQUE (tenant_id, industry_context_id,receipt_no); append-only; INDEX (tenant_id, industry_context_id, state, updated_at) | FINANCIAL/SENSITIVE_PERSONAL; financial/public-record policy |
+| RecoveryRefundCase / `gov_rtm_case` | taxpayer_ref uuid, demand_id uuid?, case_type enum(RECOVERY,REFUND), amount_minor bigint, reason text, state enum(OPEN,REVIEW,APPROVED,EXECUTED,CLOSED) | PK id; INDEX (tenant_id, industry_context_id, case_type, state); INDEX (tenant_id, industry_context_id, state, updated_at) | FINANCIAL/SENSITIVE_PERSONAL; financial/public-record policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 

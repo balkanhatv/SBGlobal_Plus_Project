@@ -11,10 +11,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| Lead / `psv_crm_lead` | lead_no text, source text, owner_id uuid, contact_ref jsonb, state enum(NEW,QUALIFIED,DISQUALIFIED,CONVERTED) | PK id; UNIQUE(context,lead_no); context-first indexes | CONFIDENTIAL; client-commercial policy |
-| Opportunity / `psv_crm_opportunity` | lead_id uuid?, name text, owner_id uuid, value_minor bigint?, currency char(3)?, probability int, stage enum(QUALIFIED,DISCOVERY,PROPOSAL,NEGOTIATION,WON,LOST) | PK id; CHECK probability between 0 and 100; context-first indexes | CONFIDENTIAL; client-commercial policy |
-| Proposal / `psv_crm_proposal` | opportunity_id uuid, version int, document_id uuid, amount_minor bigint?, state enum(DRAFT,REVIEW,ISSUED,ACCEPTED,REJECTED,SUPERSEDED) | PK id; UNIQUE(context,opportunity_id,version); context-first indexes | CONFIDENTIAL; client-commercial policy |
-| Activity / `psv_crm_activity` | lead_or_opp_ref uuid, activity_type text, due_at timestamptz?, completed_at timestamptz?, owner_id uuid, outcome text? | PK id; index context+owner_id+due_at; context-first indexes | CONFIDENTIAL; client-commercial policy |
+| Lead / `psv_crm_lead` | lead_no text, source text, owner_id uuid, contact_ref jsonb, state enum(NEW,QUALIFIED,DISQUALIFIED,CONVERTED) | PK id; UNIQUE (tenant_id, industry_context_id,lead_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; client-commercial policy |
+| Opportunity / `psv_crm_opportunity` | lead_id uuid?, name text, owner_id uuid, value_minor bigint?, currency char(3)?, probability int, stage enum(QUALIFIED,DISCOVERY,PROPOSAL,NEGOTIATION,WON,LOST) | PK id; CHECK probability between 0 and 100; INDEX (tenant_id, industry_context_id, lead_id) | CONFIDENTIAL; client-commercial policy |
+| Proposal / `psv_crm_proposal` | opportunity_id uuid, version int, document_id uuid, amount_minor bigint?, state enum(DRAFT,REVIEW,ISSUED,ACCEPTED,REJECTED,SUPERSEDED) | PK id; UNIQUE (tenant_id, industry_context_id,opportunity_id,version); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; client-commercial policy |
+| Activity / `psv_crm_activity` | lead_or_opp_ref uuid, activity_type_code text, due_at timestamptz?, completed_at timestamptz?, owner_id uuid, outcome text? | PK id; INDEX (tenant_id, industry_context_id, owner_id, due_at); INDEX (tenant_id, industry_context_id, lead_or_opp_ref) | CONFIDENTIAL; client-commercial policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -62,10 +62,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| Project / `psv_pjm_project` | project_no text, client_ref uuid, contract_ref uuid?, manager_id uuid, budget_minor bigint?, currency char(3)?, state enum(SETUP,ACTIVE,HOLD,COMPLETING,COMPLETED,CLOSED) | PK id; UNIQUE(context,project_no); context-first indexes | CONFIDENTIAL; project-contract policy |
-| WorkItem / `psv_pjm_work_item` | project_id uuid, parent_id uuid?, title text, assignee_id uuid?, planned_hours numeric?, state enum(TODO,IN_PROGRESS,BLOCKED,DONE,CANCELLED) | PK id; index context+project_id+state; context-first indexes | CONFIDENTIAL; project-contract policy |
-| Milestone / `psv_pjm_milestone` | project_id uuid, code text, due_at timestamptz?, amount_minor bigint?, state enum(PLANNED,IN_PROGRESS,SUBMITTED,ACCEPTED,REJECTED,INVOICED) | PK id; UNIQUE(context,project_id,code); context-first indexes | CONFIDENTIAL; project-contract policy |
-| ChangeRequest / `psv_pjm_change_request` | project_id uuid, cr_no text, scope_delta text, cost_delta_minor bigint?, schedule_delta_hours numeric?, state enum(DRAFT,SUBMITTED,APPROVED,REJECTED,IMPLEMENTED) | PK id; UNIQUE(context,project_id,cr_no); context-first indexes | CONFIDENTIAL; project-contract policy |
+| Project / `psv_pjm_project` | project_no text, client_ref uuid, contract_ref uuid?, manager_id uuid, budget_minor bigint?, currency char(3)?, state enum(SETUP,ACTIVE,HOLD,COMPLETING,COMPLETED,CLOSED) | PK id; UNIQUE (tenant_id, industry_context_id,project_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; project-contract policy |
+| WorkItem / `psv_pjm_work_item` | project_id uuid, parent_id uuid?, title text, assignee_id uuid?, planned_hours numeric?, state enum(TODO,IN_PROGRESS,BLOCKED,DONE,CANCELLED) | PK id; INDEX (tenant_id, industry_context_id, project_id, state); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; project-contract policy |
+| Milestone / `psv_pjm_milestone` | project_id uuid, code text, due_at timestamptz?, amount_minor bigint?, state enum(PLANNED,IN_PROGRESS,SUBMITTED,ACCEPTED,REJECTED,INVOICED) | PK id; UNIQUE (tenant_id, industry_context_id,project_id,code); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; project-contract policy |
+| ChangeRequest / `psv_pjm_change_request` | project_id uuid, cr_no text, scope_delta text, cost_delta_minor bigint?, schedule_delta_hours numeric?, state enum(DRAFT,SUBMITTED,APPROVED,REJECTED,IMPLEMENTED) | PK id; UNIQUE (tenant_id, industry_context_id,project_id,cr_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; project-contract policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -113,10 +113,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| ServiceContractRef / `psv_sdm_contract_ref` | client_ref uuid, contract_external_ref uuid, service_code text, entitled_hours numeric?, sla_policy_ref uuid, state enum(ACTIVE,SUSPENDED,EXPIRED) | PK id; UNIQUE(context,contract_external_ref,service_code); context-first indexes | CONFIDENTIAL; service-contract policy |
-| ServiceTicket / `psv_sdm_ticket` | ticket_no text, contract_ref_id uuid, priority text, assigned_to uuid?, state enum(RECEIVED,TRIAGED,ASSIGNED,IN_PROGRESS,CLIENT_WAIT,RESOLVED,ACCEPTED,CLOSED,ESCALATED) | PK id; UNIQUE(context,ticket_no); context-first indexes | CONFIDENTIAL; service-contract policy |
-| SlaClock / `psv_sdm_sla_clock` | ticket_id uuid, metric_code text, started_at timestamptz, paused_at?, accumulated_pause_seconds bigint, due_at timestamptz, state enum(RUNNING,PAUSED,MET,BREACHED) | PK id; UNIQUE(context,ticket_id,metric_code); context-first indexes | CONFIDENTIAL; service-contract policy |
-| Deliverable / `psv_sdm_deliverable` | contract_ref_id uuid, project_ref uuid?, title text, version int, document_id uuid?, state enum(PLANNED,IN_PROGRESS,SUBMITTED,REVISION,ACCEPTED) | PK id; UNIQUE(context,contract_ref_id,title,version); context-first indexes | CONFIDENTIAL; service-contract policy |
+| ServiceContractRef / `psv_sdm_contract_ref` | client_ref uuid, contract_external_ref uuid, service_code text, entitled_hours numeric?, sla_policy_ref uuid, state enum(ACTIVE,SUSPENDED,EXPIRED) | PK id; UNIQUE (tenant_id, industry_context_id,contract_external_ref,service_code); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; service-contract policy |
+| ServiceTicket / `psv_sdm_ticket` | ticket_no text, contract_ref_id uuid, priority_code text, assigned_to uuid?, state enum(RECEIVED,TRIAGED,ASSIGNED,IN_PROGRESS,CLIENT_WAIT,RESOLVED,ACCEPTED,CLOSED,ESCALATED) | PK id; UNIQUE (tenant_id, industry_context_id,ticket_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; service-contract policy |
+| SlaClock / `psv_sdm_sla_clock` | ticket_id uuid, metric_code text, started_at timestamptz, paused_at?, accumulated_pause_seconds bigint, due_at timestamptz, state enum(RUNNING,PAUSED,MET,BREACHED) | PK id; UNIQUE (tenant_id, industry_context_id,ticket_id,metric_code); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; service-contract policy |
+| Deliverable / `psv_sdm_deliverable` | contract_ref_id uuid, project_ref uuid?, title text, version int, document_id uuid?, state enum(PLANNED,IN_PROGRESS,SUBMITTED,REVISION,ACCEPTED) | PK id; UNIQUE (tenant_id, industry_context_id,contract_ref_id,title,version); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; service-contract policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -164,10 +164,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| ResourceProfile / `psv_rtm_resource` | principal_id uuid, capacity_hours_week numeric, skills_json jsonb, cost_rate_minor bigint?, state enum(ACTIVE,INACTIVE) | PK id; UNIQUE(context,principal_id); context-first indexes | CONFIDENTIAL/FINANCIAL; time-financial policy |
-| Allocation / `psv_rtm_allocation` | resource_id uuid, project_ref uuid, start_date date, end_date date, allocation_percent numeric, state enum(PROPOSED,APPROVED,ACTIVE,ENDED) | PK id; CHECK allocation_percent>0 AND <=100; context-first indexes | CONFIDENTIAL/FINANCIAL; time-financial policy |
-| Timesheet / `psv_rtm_timesheet` | principal_id uuid, period_start date, period_end date, total_hours numeric, state enum(DRAFT,SUBMITTED,REJECTED,APPROVED,LOCKED,BILLED) | PK id; UNIQUE(context,principal_id,period_start,period_end); context-first indexes | CONFIDENTIAL/FINANCIAL; time-financial policy |
-| TimeEntry / `psv_rtm_time_entry` | timesheet_id uuid, project_ref uuid, task_ref uuid?, work_date date, hours numeric, billable boolean, note text?, state enum(DRAFT,APPROVED,REJECTED) | PK id; CHECK hours>0; context-first indexes | CONFIDENTIAL/FINANCIAL; time-financial policy |
+| ResourceProfile / `psv_rtm_resource` | principal_id uuid, capacity_hours_week numeric, skills_json jsonb, cost_rate_minor bigint?, state enum(ACTIVE,INACTIVE) | PK id; UNIQUE (tenant_id, industry_context_id,principal_id); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; time-financial policy |
+| Allocation / `psv_rtm_allocation` | resource_id uuid, project_ref uuid, start_date date, end_date date, allocation_percent numeric, state enum(PROPOSED,APPROVED,ACTIVE,ENDED) | PK id; CHECK allocation_percent>0 AND <=100; INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; time-financial policy |
+| Timesheet / `psv_rtm_timesheet` | principal_id uuid, period_start date, period_end date, total_hours numeric, state enum(DRAFT,SUBMITTED,REJECTED,APPROVED,LOCKED,BILLED) | PK id; UNIQUE (tenant_id, industry_context_id,principal_id,period_start,period_end); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; time-financial policy |
+| TimeEntry / `psv_rtm_time_entry` | timesheet_id uuid, project_ref uuid, task_ref uuid?, work_date date, hours numeric, billable boolean, note text?, state enum(DRAFT,APPROVED,REJECTED) | PK id; CHECK hours>0; INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; time-financial policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -215,10 +215,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| StudioBooking / `psv_sgm_booking` | booking_no text, client_ref uuid, package_code text, shoot_at timestamptz, location text?, state enum(ENQUIRY,CONFIRMED,SCHEDULED,SHOT,EDITING,CLIENT_REVIEW,DELIVERED,ARCHIVED,CANCELLED) | PK id; UNIQUE(context,booking_no); context-first indexes | CONFIDENTIAL/SENSITIVE_PERSONAL; media-contract policy |
-| ShootAssignment / `psv_sgm_shoot` | booking_id uuid, crew_json jsonb, equipment_json jsonb, started_at timestamptz?, completed_at timestamptz?, state enum(PLANNED,IN_PROGRESS,COMPLETED) | PK id; UNIQUE(context,booking_id); context-first indexes | CONFIDENTIAL/SENSITIVE_PERSONAL; media-contract policy |
-| MediaRevision / `psv_sgm_revision` | booking_id uuid, asset_group_ref uuid, revision_no int, document_or_storage_ref uuid, state enum(DRAFT,SUBMITTED,CHANGES_REQUESTED,APPROVED) | PK id; UNIQUE(context,asset_group_ref,revision_no); context-first indexes | CONFIDENTIAL/SENSITIVE_PERSONAL; media-contract policy |
-| DeliveryRecord / `psv_sgm_delivery` | booking_id uuid, delivery_version int, document_vault_ref uuid, accepted_by uuid?, accepted_at timestamptz?, state enum(PREPARED,SHARED,ACCEPTED,REVOKED) | PK id; UNIQUE(context,booking_id,delivery_version); context-first indexes | CONFIDENTIAL/SENSITIVE_PERSONAL; media-contract policy |
+| StudioBooking / `psv_sgm_booking` | booking_no text, client_ref uuid, package_code text, shoot_at timestamptz, location text?, state enum(ENQUIRY,CONFIRMED,SCHEDULED,SHOT,EDITING,CLIENT_REVIEW,DELIVERED,ARCHIVED,CANCELLED) | PK id; UNIQUE (tenant_id, industry_context_id,booking_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/SENSITIVE_PERSONAL; media-contract policy |
+| ShootAssignment / `psv_sgm_shoot` | booking_id uuid, crew_json jsonb, equipment_json jsonb, started_at timestamptz?, completed_at timestamptz?, state enum(PLANNED,IN_PROGRESS,COMPLETED) | PK id; UNIQUE (tenant_id, industry_context_id,booking_id); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/SENSITIVE_PERSONAL; media-contract policy |
+| MediaRevision / `psv_sgm_revision` | booking_id uuid, asset_group_ref uuid, revision_no int, document_or_storage_ref uuid, state enum(DRAFT,SUBMITTED,CHANGES_REQUESTED,APPROVED) | PK id; UNIQUE (tenant_id, industry_context_id,asset_group_ref,revision_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/SENSITIVE_PERSONAL; media-contract policy |
+| DeliveryRecord / `psv_sgm_delivery` | booking_id uuid, delivery_version int, document_vault_ref uuid, accepted_by uuid?, accepted_at timestamptz?, state enum(PREPARED,SHARED,ACCEPTED,REVOKED) | PK id; UNIQUE (tenant_id, industry_context_id,booking_id,delivery_version); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/SENSITIVE_PERSONAL; media-contract policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 

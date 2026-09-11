@@ -11,10 +11,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| SecurityPost / `sfm_sgm_post` | site_ref uuid, post_code text, skill_requirements jsonb, geofence_json jsonb, state enum(ACTIVE,INACTIVE) | PK id; UNIQUE(context,site_ref,post_code); context-first indexes | SENSITIVE_PERSONAL; workforce-attendance policy |
-| RosterShift / `sfm_sgm_roster` | post_id uuid, guard_principal_id uuid, shift_start/end timestamptz, state enum(PLANNED,PUBLISHED,CHECKED_IN,ACTIVE,RELIEVED,COMPLETED,ABSENT) | PK id; index context+guard_principal_id+shift_start; context-first indexes | SENSITIVE_PERSONAL; workforce-attendance policy |
-| AttendanceCheck / `sfm_sgm_attendance` | roster_id uuid, event_type enum(CHECK_IN,CHECK_OUT,RELIEF), occurred_at timestamptz, geo_evidence jsonb, validation enum(VALID,OUT_OF_FENCE,MANUAL_OVERRIDE), device_id uuid | PK id; append-only; context-first indexes | SENSITIVE_PERSONAL; workforce-attendance policy |
-| ReliefHandover / `sfm_sgm_handover` | roster_id uuid, relief_guard_id uuid?, note_document_id uuid?, approved_by uuid?, state enum(REQUESTED,ASSIGNED,HANDOVER,COMPLETED) | PK id; index context+roster_id+state; context-first indexes | SENSITIVE_PERSONAL; workforce-attendance policy |
+| SecurityPost / `sfm_sgm_post` | site_ref uuid, post_code text, skill_requirements jsonb, geofence_json jsonb, state enum(ACTIVE,INACTIVE) | PK id; UNIQUE (tenant_id, industry_context_id,site_ref,post_code); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; workforce-attendance policy |
+| RosterShift / `sfm_sgm_roster` | post_id uuid, guard_principal_id uuid, shift_start/end timestamptz, state enum(PLANNED,PUBLISHED,CHECKED_IN,ACTIVE,RELIEVED,COMPLETED,ABSENT) | PK id; INDEX (tenant_id, industry_context_id, guard_principal_id, shift_start); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; workforce-attendance policy |
+| AttendanceCheck / `sfm_sgm_attendance` | roster_id uuid, event_type enum(CHECK_IN,CHECK_OUT,RELIEF), occurred_at timestamptz, geo_evidence jsonb, validation enum(VALID,OUT_OF_FENCE,MANUAL_OVERRIDE), device_id uuid | PK id; append-only; INDEX (tenant_id, industry_context_id, roster_id) | SENSITIVE_PERSONAL; workforce-attendance policy |
+| ReliefHandover / `sfm_sgm_handover` | roster_id uuid, relief_guard_id uuid?, note_document_id uuid?, approved_by uuid?, state enum(REQUESTED,ASSIGNED,HANDOVER,COMPLETED) | PK id; INDEX (tenant_id, industry_context_id, roster_id, state); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; workforce-attendance policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -62,10 +62,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| PatrolRoute / `sfm_pms_route` | site_ref uuid, route_code text, checkpoint_json jsonb, schedule_policy_ref uuid, state enum(ACTIVE,PAUSED,RETIRED) | PK id; UNIQUE(context,site_ref,route_code); context-first indexes | SENSITIVE_PERSONAL/CONFIDENTIAL; security-incident policy |
-| PatrolRound / `sfm_pms_round` | route_id uuid, guard_principal_id uuid, scheduled_start/end timestamptz, state enum(SCHEDULED,STARTED,IN_PROGRESS,EXCEPTION,COMPLETED,REVIEWED) | PK id; index context+route_id+scheduled_start; context-first indexes | SENSITIVE_PERSONAL/CONFIDENTIAL; security-incident policy |
-| CheckpointScan / `sfm_pms_scan` | round_id uuid, checkpoint_code text, scanned_at timestamptz, method enum(QR,NFC,MANUAL), device_id uuid, geo_evidence jsonb?, validation enum(VALID,LATE,INVALID) | PK id; UNIQUE(context,round_id,checkpoint_code,scanned_at); context-first indexes | SENSITIVE_PERSONAL/CONFIDENTIAL; security-incident policy |
-| Incident / `sfm_pms_incident` | round_id uuid?, category_code text, severity text, occurred_at timestamptz, document_ids uuid[], state enum(REPORTED,ACKNOWLEDGED,INVESTIGATING,RESOLVED,CLOSED) | PK id; index context+severity+state; context-first indexes | SENSITIVE_PERSONAL/CONFIDENTIAL; security-incident policy |
+| PatrolRoute / `sfm_pms_route` | site_ref uuid, route_code text, checkpoint_json jsonb, schedule_policy_ref uuid, state enum(ACTIVE,PAUSED,RETIRED) | PK id; UNIQUE (tenant_id, industry_context_id,site_ref,route_code); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL/CONFIDENTIAL; security-incident policy |
+| PatrolRound / `sfm_pms_round` | route_id uuid, guard_principal_id uuid, scheduled_start/end timestamptz, state enum(SCHEDULED,STARTED,IN_PROGRESS,EXCEPTION,COMPLETED,REVIEWED) | PK id; INDEX (tenant_id, industry_context_id, route_id, scheduled_start); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL/CONFIDENTIAL; security-incident policy |
+| CheckpointScan / `sfm_pms_scan` | round_id uuid, checkpoint_code text, scanned_at timestamptz, method enum(QR,NFC,MANUAL), device_id uuid, geo_evidence jsonb?, validation enum(VALID,LATE,INVALID) | PK id; UNIQUE (tenant_id, industry_context_id,round_id,checkpoint_code,scanned_at); INDEX (tenant_id, industry_context_id, round_id) | SENSITIVE_PERSONAL/CONFIDENTIAL; security-incident policy |
+| Incident / `sfm_pms_incident` | round_id uuid?, category_code text, severity_code text, occurred_at timestamptz, document_ids uuid[], state enum(REPORTED,ACKNOWLEDGED,INVESTIGATING,RESOLVED,CLOSED) | PK id; INDEX (tenant_id, industry_context_id, severity, state); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL/CONFIDENTIAL; security-incident policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -113,10 +113,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| Visitor / `sfm_vms_visitor` | visitor_no text, name text, contact_norm text?, identity_ref_encrypted text?, privacy_class text, blacklist_match_state enum(NOT_CHECKED,CLEAR,REVIEW,BLOCKED) | PK id; UNIQUE(context,visitor_no); context-first indexes | SENSITIVE_PERSONAL; visitor/privacy policy |
-| Visit / `sfm_vms_visit` | visitor_id uuid, host_principal_id uuid, site_ref uuid, expected_from/to timestamptz, purpose text, state enum(PREREGISTERED,ARRIVED,APPROVAL_PENDING,APPROVED,CHECKED_IN,CHECKED_OUT,DENIED,OVERSTAY) | PK id; index context+site_ref+state; context-first indexes | SENSITIVE_PERSONAL; visitor/privacy policy |
-| Badge / `sfm_vms_badge` | visit_id uuid, badge_code text, issued_at timestamptz, expires_at timestamptz, state enum(ISSUED,ACTIVE,EXPIRED,RETURNED,REVOKED) | PK id; UNIQUE(context,badge_code); context-first indexes | SENSITIVE_PERSONAL; visitor/privacy policy |
-| HostApproval / `sfm_vms_approval` | visit_id uuid, host_principal_id uuid, decision enum(APPROVE,DENY), reason text?, decided_at timestamptz | PK id; UNIQUE(context,visit_id,host_principal_id); context-first indexes | SENSITIVE_PERSONAL; visitor/privacy policy |
+| Visitor / `sfm_vms_visitor` | visitor_no text, name text, contact_norm text?, identity_ref_encrypted text?, privacy_class text, blacklist_match_state enum(NOT_CHECKED,CLEAR,REVIEW,BLOCKED) | PK id; UNIQUE (tenant_id, industry_context_id,visitor_no); INDEX (tenant_id, industry_context_id, updated_at) | SENSITIVE_PERSONAL; visitor/privacy policy |
+| Visit / `sfm_vms_visit` | visitor_id uuid, host_principal_id uuid, site_ref uuid, expected_from/to timestamptz, purpose text, state enum(PREREGISTERED,ARRIVED,APPROVAL_PENDING,APPROVED,CHECKED_IN,CHECKED_OUT,DENIED,OVERSTAY) | PK id; INDEX (tenant_id, industry_context_id, site_ref, state); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; visitor/privacy policy |
+| Badge / `sfm_vms_badge` | visit_id uuid, badge_code text, issued_at timestamptz, expires_at timestamptz, state enum(ISSUED,ACTIVE,EXPIRED,RETURNED,REVOKED) | PK id; UNIQUE (tenant_id, industry_context_id,badge_code); INDEX (tenant_id, industry_context_id, state, updated_at) | SENSITIVE_PERSONAL; visitor/privacy policy |
+| HostApproval / `sfm_vms_approval` | visit_id uuid, host_principal_id uuid, decision enum(APPROVE,DENY), reason text?, decided_at timestamptz | PK id; UNIQUE (tenant_id, industry_context_id,visit_id,host_principal_id); INDEX (tenant_id, industry_context_id, visit_id) | SENSITIVE_PERSONAL; visitor/privacy policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -164,10 +164,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| FacilityAsset / `sfm_fmm_asset` | asset_code text, site_ref uuid, category text, location text?, criticality text, state enum(ACTIVE,DOWN,MAINTENANCE,RETIRED) | PK id; UNIQUE(context,asset_code); context-first indexes | CONFIDENTIAL; facility-maintenance policy |
-| FacilityTicket / `sfm_fmm_ticket` | ticket_no text, asset_id uuid?, category_code text, priority text, requester_id uuid?, state enum(RAISED,CATEGORIZED,ASSIGNED,IN_PROGRESS,RESOLVED,VERIFICATION,CLOSED,ESCALATED) | PK id; UNIQUE(context,ticket_no); context-first indexes | CONFIDENTIAL; facility-maintenance policy |
-| FacilityWorkOrder / `sfm_fmm_work_order` | ticket_id uuid?, asset_id uuid, assigned_principal_or_vendor_ref uuid, due_at timestamptz?, state enum(OPEN,ACCEPTED,IN_PROGRESS,WAITING,RESOLVED,VERIFIED,CLOSED) | PK id; index context+state+due_at; context-first indexes | CONFIDENTIAL; facility-maintenance policy |
-| PreventiveSchedule / `sfm_fmm_pm_schedule` | asset_id uuid, recurrence_rule text, next_due_at timestamptz, work_template_ref uuid?, state enum(ACTIVE,PAUSED,RETIRED) | PK id; index context+next_due_at; context-first indexes | CONFIDENTIAL; facility-maintenance policy |
+| FacilityAsset / `sfm_fmm_asset` | asset_code text, site_ref uuid, category text, location text?, criticality text, state enum(ACTIVE,DOWN,MAINTENANCE,RETIRED) | PK id; UNIQUE (tenant_id, industry_context_id,asset_code); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; facility-maintenance policy |
+| FacilityTicket / `sfm_fmm_ticket` | ticket_no text, asset_id uuid?, category_code text, priority_code text, requester_id uuid?, state enum(RAISED,CATEGORIZED,ASSIGNED,IN_PROGRESS,RESOLVED,VERIFICATION,CLOSED,ESCALATED) | PK id; UNIQUE (tenant_id, industry_context_id,ticket_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; facility-maintenance policy |
+| FacilityWorkOrder / `sfm_fmm_work_order` | ticket_id uuid?, asset_id uuid, assigned_principal_or_vendor_ref uuid, due_at timestamptz?, state enum(OPEN,ACCEPTED,IN_PROGRESS,WAITING,RESOLVED,VERIFIED,CLOSED) | PK id; INDEX (tenant_id, industry_context_id, state, due_at); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; facility-maintenance policy |
+| PreventiveSchedule / `sfm_fmm_pm_schedule` | asset_id uuid, recurrence_rule text, next_due_at timestamptz, work_template_ref uuid?, state enum(ACTIVE,PAUSED,RETIRED) | PK id; INDEX (tenant_id, industry_context_id, next_due_at); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; facility-maintenance policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 

@@ -11,10 +11,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| BomVersion / `mfg_pms_bom` | item_ref uuid, version_no int, effective_from timestamptz, state enum(DRAFT,APPROVED,ACTIVE,RETIRED), component_json jsonb | PK id; UNIQUE(context,item_ref,version_no); context-first indexes | CONFIDENTIAL; manufacturing-genealogy policy |
-| RoutingVersion / `mfg_pms_routing` | item_ref uuid, version_no int, operation_json jsonb, state enum(DRAFT,APPROVED,ACTIVE,RETIRED) | PK id; UNIQUE(context,item_ref,version_no); context-first indexes | CONFIDENTIAL; manufacturing-genealogy policy |
-| ProductionOrder / `mfg_pms_production_order` | order_no text, item_ref uuid, qty numeric, bom_version_id uuid, routing_version_id uuid, planned_start/end timestamptz, state enum(PLANNED,RELEASED,MATERIAL_ISSUED,IN_PROGRESS,QC,HOLD,COMPLETED,CLOSED,SCRAPPED) | PK id; UNIQUE(context,order_no); context-first indexes | CONFIDENTIAL; manufacturing-genealogy policy |
-| OperationExecution / `mfg_pms_operation_exec` | production_order_id uuid, sequence_no int, work_center_ref uuid, started_at timestamptz?, completed_at timestamptz?, good_qty numeric, scrap_qty numeric, state enum(PENDING,RUNNING,COMPLETED,HOLD) | PK id; UNIQUE(context,production_order_id,sequence_no); context-first indexes | CONFIDENTIAL; manufacturing-genealogy policy |
+| BomVersion / `mfg_pms_bom` | item_ref uuid, version_no int, effective_from timestamptz, state enum(DRAFT,APPROVED,ACTIVE,RETIRED), component_json jsonb | PK id; UNIQUE (tenant_id, industry_context_id,item_ref,version_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; manufacturing-genealogy policy |
+| RoutingVersion / `mfg_pms_routing` | item_ref uuid, version_no int, operation_json jsonb, state enum(DRAFT,APPROVED,ACTIVE,RETIRED) | PK id; UNIQUE (tenant_id, industry_context_id,item_ref,version_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; manufacturing-genealogy policy |
+| ProductionOrder / `mfg_pms_production_order` | order_no text, item_ref uuid, qty numeric, bom_version_id uuid, routing_version_id uuid, planned_start/end timestamptz, state enum(PLANNED,RELEASED,MATERIAL_ISSUED,IN_PROGRESS,QC,HOLD,COMPLETED,CLOSED,SCRAPPED) | PK id; UNIQUE (tenant_id, industry_context_id,order_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; manufacturing-genealogy policy |
+| OperationExecution / `mfg_pms_operation_exec` | production_order_id uuid, sequence_no int, work_center_ref uuid, started_at timestamptz?, completed_at timestamptz?, good_qty numeric, scrap_qty numeric, state enum(PENDING,RUNNING,COMPLETED,HOLD) | PK id; UNIQUE (tenant_id, industry_context_id,production_order_id,sequence_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; manufacturing-genealogy policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -62,10 +62,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| MaterialBalance / `mfg_iwm_balance` | location_ref uuid, item_ref uuid, lot_serial_ref text?, on_hand numeric, reserved numeric, quality_state enum(AVAILABLE,HOLD,REJECTED), version bigint | PK id; UNIQUE(context,location_ref,item_ref,lot_serial_ref); context-first indexes | CONFIDENTIAL; inventory/genealogy policy |
-| MaterialMovement / `mfg_iwm_movement` | movement_no text, type enum(GRN,PUTAWAY,RESERVE,ISSUE,RETURN,FG_RECEIPT,TRANSFER,ADJUST,SCRAP), item_ref uuid, qty numeric, lot_serial_ref text?, source_ref text | PK id; append-only; UNIQUE(context,movement_no); context-first indexes | CONFIDENTIAL; inventory/genealogy policy |
-| ProductionReservation / `mfg_iwm_reservation` | production_order_ref uuid, item_ref uuid, qty numeric, lot_serial_ref text?, state enum(HELD,ISSUED,RELEASED) | PK id; index context+production_order_ref+state; context-first indexes | CONFIDENTIAL; inventory/genealogy policy |
-| CycleCount / `mfg_iwm_cycle_count` | count_no text, location_ref uuid, state enum(PLANNED,COUNTED,REVIEW,APPROVED,ADJUSTED), variance_json jsonb | PK id; UNIQUE(context,count_no); context-first indexes | CONFIDENTIAL; inventory/genealogy policy |
+| MaterialBalance / `mfg_iwm_balance` | location_ref uuid, item_ref uuid, lot_serial_ref text?, on_hand numeric, reserved numeric, quality_state enum(AVAILABLE,HOLD,REJECTED), version bigint | PK id; UNIQUE (tenant_id, industry_context_id,location_ref,item_ref,lot_serial_ref); INDEX (tenant_id, industry_context_id, location_ref) | CONFIDENTIAL; inventory/genealogy policy |
+| MaterialMovement / `mfg_iwm_movement` | movement_no text, type enum(GRN,PUTAWAY,RESERVE,ISSUE,RETURN,FG_RECEIPT,TRANSFER,ADJUST,SCRAP), item_ref uuid, qty numeric, lot_serial_ref text?, source_ref text | PK id; append-only; UNIQUE (tenant_id, industry_context_id,movement_no); INDEX (tenant_id, industry_context_id, item_ref) | CONFIDENTIAL; inventory/genealogy policy |
+| ProductionReservation / `mfg_iwm_reservation` | production_order_ref uuid, item_ref uuid, qty numeric, lot_serial_ref text?, state enum(HELD,ISSUED,RELEASED) | PK id; INDEX (tenant_id, industry_context_id, production_order_ref, state); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; inventory/genealogy policy |
+| CycleCount / `mfg_iwm_cycle_count` | count_no text, location_ref uuid, state enum(PLANNED,COUNTED,REVIEW,APPROVED,ADJUSTED), variance_json jsonb | PK id; UNIQUE (tenant_id, industry_context_id,count_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; inventory/genealogy policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -113,10 +113,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| InspectionPlan / `mfg_qms_inspection_plan` | code text, item_or_process_ref text, version int, characteristic_json jsonb, state enum(DRAFT,APPROVED,ACTIVE,RETIRED) | PK id; UNIQUE(context,code,version); context-first indexes | CONFIDENTIAL/REGULATED; quality-record policy |
-| Inspection / `mfg_qms_inspection` | source_type text, source_ref uuid, plan_id uuid, lot_ref text?, state enum(PLANNED,IN_PROGRESS,PASS,FAIL,DEVIATION,HOLD,DISPOSED), inspector_id uuid | PK id; index context+source_ref+state; context-first indexes | CONFIDENTIAL/REGULATED; quality-record policy |
-| NonConformance / `mfg_qms_ncr` | ncr_no text, inspection_id uuid, defect_code text, severity text, disposition enum(REWORK,ACCEPT_DEVIATION,SCRAP,PENDING), state enum(OPEN,REVIEW,APPROVED,CLOSED) | PK id; UNIQUE(context,ncr_no); context-first indexes | CONFIDENTIAL/REGULATED; quality-record policy |
-| Capa / `mfg_qms_capa` | ncr_id uuid, cause text, corrective_action text, preventive_action text?, owner_id uuid, due_at timestamptz, state enum(OPEN,IMPLEMENTED,VERIFIED,CLOSED) | PK id; index context+owner_id+state; context-first indexes | CONFIDENTIAL/REGULATED; quality-record policy |
+| InspectionPlan / `mfg_qms_inspection_plan` | code text, item_or_process_ref text, version int, characteristic_json jsonb, state enum(DRAFT,APPROVED,ACTIVE,RETIRED) | PK id; UNIQUE (tenant_id, industry_context_id,code,version); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/REGULATED; quality-record policy |
+| Inspection / `mfg_qms_inspection` | source_type text, source_ref uuid, plan_id uuid, lot_ref text?, state enum(PLANNED,IN_PROGRESS,PASS,FAIL,DEVIATION,HOLD,DISPOSED), inspector_id uuid | PK id; INDEX (tenant_id, industry_context_id, source_ref, state); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/REGULATED; quality-record policy |
+| NonConformance / `mfg_qms_ncr` | ncr_no text, inspection_id uuid, defect_code text, severity_code text, disposition enum(REWORK,ACCEPT_DEVIATION,SCRAP,PENDING), state enum(OPEN,REVIEW,APPROVED,CLOSED) | PK id; UNIQUE (tenant_id, industry_context_id,ncr_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/REGULATED; quality-record policy |
+| Capa / `mfg_qms_capa` | ncr_id uuid, cause text, corrective_action text, preventive_action text?, owner_id uuid, due_at timestamptz, state enum(OPEN,IMPLEMENTED,VERIFIED,CLOSED) | PK id; INDEX (tenant_id, industry_context_id, owner_id, state); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/REGULATED; quality-record policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -164,10 +164,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| PurchaseRequisition / `mfg_pro_pr` | pr_no text, requester_id uuid, need_by date?, total_estimate_minor bigint?, state enum(DRAFT,SUBMITTED,APPROVED,REJECTED,SOURCING,PO_CREATED,CLOSED) | PK id; UNIQUE(context,pr_no); context-first indexes | CONFIDENTIAL/FINANCIAL; procurement-financial policy |
-| PurchaseOrder / `mfg_pro_po` | po_no text, vendor_ref uuid, currency char(3), total_minor bigint, approval_ref uuid?, state enum(DRAFT,APPROVED,ISSUED,PART_RECEIVED,RECEIVED,CLOSED,CANCELLED) | PK id; UNIQUE(context,po_no); context-first indexes | CONFIDENTIAL/FINANCIAL; procurement-financial policy |
-| GoodsReceipt / `mfg_pro_grn` | grn_no text, po_id uuid, received_at timestamptz, receiver_id uuid, quality_gate_state enum(PENDING,PASS,FAIL,HOLD), state enum(DRAFT,POSTED,REVERSED) | PK id; UNIQUE(context,grn_no); context-first indexes | CONFIDENTIAL/FINANCIAL; procurement-financial policy |
-| InvoiceMatch / `mfg_pro_match` | po_id uuid, grn_id uuid, supplier_invoice_ref text, amount_minor bigint, variance_minor bigint, state enum(PENDING,MATCHED,EXCEPTION,APPROVED) | PK id; index context+po_id+state; context-first indexes | CONFIDENTIAL/FINANCIAL; procurement-financial policy |
+| PurchaseRequisition / `mfg_pro_pr` | pr_no text, requester_id uuid, need_by date?, total_estimate_minor bigint?, state enum(DRAFT,SUBMITTED,APPROVED,REJECTED,SOURCING,PO_CREATED,CLOSED) | PK id; UNIQUE (tenant_id, industry_context_id,pr_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; procurement-financial policy |
+| PurchaseOrder / `mfg_pro_po` | po_no text, vendor_ref uuid, currency char(3), total_minor bigint, approval_ref uuid?, state enum(DRAFT,APPROVED,ISSUED,PART_RECEIVED,RECEIVED,CLOSED,CANCELLED) | PK id; UNIQUE (tenant_id, industry_context_id,po_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; procurement-financial policy |
+| GoodsReceipt / `mfg_pro_grn` | grn_no text, po_id uuid, received_at timestamptz, receiver_id uuid, quality_gate_state enum(PENDING,PASS,FAIL,HOLD), state enum(DRAFT,POSTED,REVERSED) | PK id; UNIQUE (tenant_id, industry_context_id,grn_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; procurement-financial policy |
+| InvoiceMatch / `mfg_pro_match` | po_id uuid, grn_id uuid, supplier_invoice_ref text, amount_minor bigint, variance_minor bigint, state enum(PENDING,MATCHED,EXCEPTION,APPROVED) | PK id; INDEX (tenant_id, industry_context_id, po_id, state); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL/FINANCIAL; procurement-financial policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
@@ -215,10 +215,10 @@ Every table below carries `tenant_id uuid NOT NULL`, `industry_context_id uuid N
 
 | Entity / storage | Domain fields | Constraints / indexes | Sensitivity / retention |
 |---|---|---|---|
-| Asset / `mfg_mms_asset` | asset_code text, category text, location_ref uuid, criticality text, state enum(ACTIVE,DOWN,MAINTENANCE,RETIRED) | PK id; UNIQUE(context,asset_code); context-first indexes | CONFIDENTIAL; asset-maintenance policy |
-| MaintenanceSchedule / `mfg_mms_schedule` | asset_id uuid, maintenance_type text, recurrence_rule text, next_due_at timestamptz, state enum(ACTIVE,PAUSED,RETIRED) | PK id; index context+next_due_at+state; context-first indexes | CONFIDENTIAL; asset-maintenance policy |
-| WorkOrder / `mfg_mms_work_order` | wo_no text, asset_id uuid, source enum(PREVENTIVE,BREAKDOWN), priority text, assigned_to uuid?, state enum(OPEN,ASSIGNED,IN_PROGRESS,WAITING_PARTS,VERIFICATION,CLOSED,CANCELLED) | PK id; UNIQUE(context,wo_no); context-first indexes | CONFIDENTIAL; asset-maintenance policy |
-| DowntimeRecord / `mfg_mms_downtime` | asset_id uuid, work_order_id uuid?, started_at timestamptz, ended_at timestamptz?, cause_code text?, production_order_ref uuid? | PK id; no overlapping active record per asset; context-first indexes | CONFIDENTIAL; asset-maintenance policy |
+| Asset / `mfg_mms_asset` | asset_code text, category text, location_ref uuid, criticality text, state enum(ACTIVE,DOWN,MAINTENANCE,RETIRED) | PK id; UNIQUE (tenant_id, industry_context_id,asset_code); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; asset-maintenance policy |
+| MaintenanceSchedule / `mfg_mms_schedule` | asset_id uuid, maintenance_type text, recurrence_rule text, next_due_at timestamptz, state enum(ACTIVE,PAUSED,RETIRED) | PK id; INDEX (tenant_id, industry_context_id, next_due_at, state); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; asset-maintenance policy |
+| WorkOrder / `mfg_mms_work_order` | wo_no text, asset_id uuid, source enum(PREVENTIVE,BREAKDOWN), priority_code text, assigned_to uuid?, state enum(OPEN,ASSIGNED,IN_PROGRESS,WAITING_PARTS,VERIFICATION,CLOSED,CANCELLED) | PK id; UNIQUE (tenant_id, industry_context_id,wo_no); INDEX (tenant_id, industry_context_id, state, updated_at) | CONFIDENTIAL; asset-maintenance policy |
+| DowntimeRecord / `mfg_mms_downtime` | asset_id uuid, work_order_id uuid?, started_at timestamptz, ended_at timestamptz?, cause_code text?, production_order_ref uuid? | PK id; no overlapping active record per asset; INDEX (tenant_id, industry_context_id, asset_id) | CONFIDENTIAL; asset-maintenance policy |
 
 Relationships are same-context FK or service/projection references. Direct sibling-MS table reads are prohibited.
 
