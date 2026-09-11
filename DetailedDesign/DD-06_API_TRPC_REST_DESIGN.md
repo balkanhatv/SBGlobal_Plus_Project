@@ -103,3 +103,48 @@ Command/query hybrid capability; scope follows document; input documentId; outpu
 
 ## 14. Acceptance
 No tRPC-only/REST-only business rules; wrong-context IDs deny; retries cannot duplicate side effects; permission/error/event semantics are adapter-invariant.
+
+
+## 15. Wave-2 Integration Registry extension
+### IntegrationDefinition
+`id uuid PK, code UNIQUE, name, provider_family, capability_codes[], adapter_contract_version, owner_scope, status, data_transfer_class, residency_metadata_json, created_at, updated_at`.
+
+### TenantIntegration
+`id, tenant_id, industry_context_id?, integration_definition_id, scope_class, display_name, status(PENDING,ACTIVE,PAUSED,ERROR,REVOKED), credential_reference_id, config_json_encrypted_or_safe, enabled_capabilities[], permission_profile_id, health_state, last_health_at?, version, created_at, updated_at`.
+
+### CredentialReference
+`id, tenant_id?, industry_context_id?, secret_store_provider, secret_reference, credential_type, key_version, status, rotated_at?, expires_at?, created_at`. Secret plaintext is never represented in business tables/contracts.
+
+### IntegrationCapability
+`id, integration_definition_id, capability_code, direction(INBOUND,OUTBOUND,BIDIRECTIONAL), operation_contract_id?, event_types[], data_class, idempotency_class, rate_class, status`.
+
+### ProviderAdapter
+Registry metadata: `id, definition_id, adapter_code, contract_version, auth_method, timeout_class, retry_class, circuit_class, health_probe_class, normalized_error_map_version, status`.
+
+### SyncCursor
+`id, tenant_integration_id, capability_code, industry_context_id?, cursor_encrypted_or_opaque, watermark_time?, source_version?, updated_at`.
+
+### RetryState / DeliveryState / HealthState
+Stored per operation/delivery with normalized state; provider-specific raw error is redacted/mapped before persistence.
+
+## 16. Provider adapter standard
+Every adapter declares:
+- capability and OperationContract/event mapping;
+- auth method and CredentialReference ownership;
+- tenant/Industry scope;
+- timeout class;
+- retry/idempotency class;
+- rate handling;
+- health probe;
+- circuit-breaker behavior;
+- normalized error mapping;
+- audit/metric fields;
+- residency/data-transfer classification.
+
+Adapters cannot write domain tables directly. Inbound callbacks verify provider authenticity then translate into governed domain commands/events.
+
+## 17. Integration credential handling
+Secrets live in deployment/secret-store systems referenced by CredentialReference. Rotation may overlap old/new key versions for bounded policy window. Access to secret material is service-principal-only, purpose-bound and audited; UI receives only masked metadata/status.
+
+## 18. Integration health
+Health states: `UNKNOWN, HEALTHY, DEGRADED, UNAVAILABLE, AUTH_ERROR, RATE_LIMITED, POLICY_BLOCKED`. Provider health never causes fallback to a provider/region forbidden by tenant policy.

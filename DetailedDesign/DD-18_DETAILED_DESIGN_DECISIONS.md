@@ -137,3 +137,34 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Risks:** missing capability may require later designed adapter.  
 **Dependencies:** ADR-015/DD-03/DD-12.  
 **Reversibility:** adapters can be added without widening existing capabilities.
+
+
+## DD-015 — AI tools bind only to existing OperationContracts
+**Context:** agent tools can become a parallel privilege/business-logic plane.  
+**Options:** arbitrary tool handlers; direct DB/provider tools; OperationContract-backed tools.  
+**Decision:** every stateful AI tool binds to an existing DD-06 OperationContract and is reauthorized as the acting principal at execution time.  
+**Trade-offs:** less agent freedom; one business/security truth.  
+**Consequences:** agent permission cannot exceed user/service principal; audit/idempotency/events remain identical to non-AI calls.  
+**Risks:** overly broad OperationContract permissions.  
+**Dependencies:** A-07, DD-03/DD-06.  
+**Reversibility:** tool registry/model may evolve without bypassing operation contracts.
+
+## DD-016 — AI provider fallback is policy-filtered before optimization
+**Context:** naive fallback can violate residency/sensitivity rules.  
+**Options:** health-first fallback; cost-first fallback; policy-filter then optimize.  
+**Decision:** filter candidates by tenant/industry/sensitivity/residency/entitlement first, then choose by capability/health/cost/latency.  
+**Trade-offs:** fewer fallback options; compliance/isolation preserved.  
+**Consequences:** unavailable compliant provider can yield controlled failure instead of forbidden route.  
+**Risks:** reduced availability in restricted regions.  
+**Dependencies:** F-11/A-07/DD-09.  
+**Reversibility:** routing scoring changes after mandatory filters.
+
+## DD-017 — Integration secrets are references, never business-table plaintext
+**Context:** many adapters need credentials with tenant/industry ownership.  
+**Options:** encrypted credential columns; secret-manager references; provider SDK embedded secrets.  
+**Decision:** business records store CredentialReference metadata pointing to environment/regional secret stores; service principals retrieve by purpose.  
+**Trade-offs:** secret-store dependency; smaller database exposure.  
+**Consequences:** rotation/version/access auditing standardized.  
+**Risks:** secret-store availability.  
+**Dependencies:** A-10/DD-06/DD-16.  
+**Reversibility:** secret-store provider can change behind reference contract.
