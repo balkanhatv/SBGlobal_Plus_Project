@@ -1,5 +1,5 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Wave:** 1–3 · **Status:** REMEDIATION ACTIVE — requirement-ID evidence rebuilt
+**Wave:** 1–3 · **Status:** DETAILED DESIGN COMPLETE — FINAL REQUIREMENT-ID AUDIT PASS · DD-F5-RECERTIFIED
 
 | Foundation owner | Architecture owner | ADR | Detailed Design owner | Contract/result |
 |---|---|---|---|---|
@@ -129,4 +129,4 @@ The prior document/section-level Wave-3 table is historical convenience, not suf
 - Source child evidence duplicates are treated as provenance aliases, not unique coverage inflation.
 - Broad/partial source destinations are not used alone as certification proof.
 - Development/Test-only executable validation requirements remain deferred to their correct future phase.
-- Current DD orphan check is not final until the fresh remediation adversarial audit passes.
+- Fresh final audits DD-20C/DD-20D and DD-30 passed; current required-contract orphan count is 0 and REAL_GAP=0.
