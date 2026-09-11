@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-11 · **Branch:** `docs/architecture-branch-2` · **Overall gate:** DETAILED DESIGN COMPLETE
+**Updated:** 2026-09-11 · **Current gate:** FABLE 5 REMEDIATION ACTIVE · DEVELOPMENT BLOCKED
 
 | ID | Artifact | Wave | Status |
 |---|---|---:|---|
@@ -23,8 +23,8 @@
 | DD-17 | Test Acceptance Contracts | 1–3 | COMPLETE |
 | DD-18 | Detailed Design Decisions | 1–3 | BASELINE COMPLETE · ACTIVE CHANGE CONTROL |
 | DD-19 | Detailed Design Traceability | 1–3 | COMPLETE · 0 ORPHAN REQUIRED CONTRACTS |
-| DD-20 | Detailed Design Final Audit | 1–3 | WAVE-1 PASS · WAVE-2 PASS · WAVE-3/OVERALL PASS |
-| DD-RR | Review Required | 1–3 | CLOSED · 0 AVOIDABLE OPEN |
+| DD-20 | Audit hierarchy | 1–3 | FRESH WAVE-3/OVERALL AUDITS PENDING |
+| DD-RR | Review Required | 1–3 | OPEN — FABLE 5 REMEDIATION |
 | W3-MS | Wave-3 MS Completeness Matrix | 3 | 41/41 PASS |
 | W3-XI | Cross-Industry Consistency Audit | 3 | PASS |
 
@@ -32,3 +32,7 @@
 **DD WAVE 1 COMPLETE · DD WAVE 2 COMPLETE · DD WAVE 3 COMPLETE · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT.**
 
 Detailed Design completion means implementation contracts are ready. It does not mean implemented, tested, security validated, production ready, deployed or operational.
+
+
+## Fable 5 current-state override
+Any historical COMPLETE/PASS row above is retained as scope history, not current readiness evidence. Current overall state is **DETAILED DESIGN REMEDIATION REQUIRED · DEVELOPMENT BLOCKED** until the fresh Fable 5 gate passes.

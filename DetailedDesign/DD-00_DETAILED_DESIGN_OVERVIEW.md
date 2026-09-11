@@ -19,7 +19,7 @@ The overall project remains **NOT overall-Detailed-Design-complete** until every
 If a DD scope discovers a genuine upstream contradiction, that scope becomes REVIEW REQUIRED and the upstream documents are not silently rewritten.
 
 ## 3. Technology baseline
-UD-TECH-01 governs: Next.js 15, React 19, TypeScript 5.x, Node.js 22+, Tailwind/Shadcn, PostgreSQL, Payload CMS 3, Refine where appropriate, Next.js server by default, selective NestJS only where Architecture justifies it, tRPC first-party, REST/OpenAPI external, Clerk preferred/Auth.js fallback, React Native+Expo, Tauri 2.0, Expo Push/OneSignal, Vercel plus Coolify/Dockerized VPS, PostgreSQL outbox, pgvector where Architecture assigns it.
+UD-TECH-01 governs: Next.js 15, React 19, TypeScript 5.x, Node.js 22+, Tailwind/Shadcn, PostgreSQL, Payload CMS 3; Refine only for internal CRUD/admin surfaces whose primary workload is record-centric administration and does not require Payload editorial workflow; Next.js server by default; NestJS only for a dedicated long-running/protocol/service boundary meeting ADR-013 criteria, tRPC first-party, REST/OpenAPI external, Clerk preferred/Auth.js fallback, React Native+Expo, Tauri 2.0, Expo Push/OneSignal, Vercel plus Coolify/Dockerized VPS, PostgreSQL outbox, pgvector where Architecture assigns it.
 
 ## 4. Wave-1 objective
 Wave 1 makes the shared Core dependency spine deterministic:

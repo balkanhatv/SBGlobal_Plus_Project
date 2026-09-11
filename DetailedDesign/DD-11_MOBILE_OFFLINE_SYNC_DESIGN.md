@@ -3,7 +3,7 @@
 **Traces:** F-06/F-10 · A-08 §7–§8 · ADR-014/016 · DD-02/DD-03/DD-06/DD-07/DD-08
 
 ## 1. Technology / application model
-React Native + Expo only. One reusable mobile shell consumes tenant/industry experience packages; roles do not create separate apps. Platform Mobile, where justified, consumes the same identity/context/API contracts with PLATFORM_GLOBAL scope. Tenant industry mobile uses explicit Tenant + Industry Context.
+React Native + Expo only. One reusable mobile shell consumes tenant/industry experience packages; roles do not create separate apps. Platform Mobile is enabled only by DD-10 PlatformChannelEligibilityPolicy for an approved mobile operational capability; it consumes the same identity/context/API contracts with PLATFORM_GLOBAL scope. Tenant industry mobile uses explicit Tenant + Industry Context.
 
 ## 2. Mobile bootstrap
 1 app integrity/version check;
@@ -26,7 +26,7 @@ OS keychain/secure enclave-backed storage through Expo-supported secure storage 
 | Class | Examples | Encryption | Expiry | Logout | Tenant/context switch |
 |---|---|---|---|---|---|
 | EPHEMERAL_CACHE | read-only lists/search/nav | encrypted app DB where private | short policy TTL | clear private | clear or namespace-switch |
-| OFFLINE_OPERATIONAL | explicitly offline-capable records | encrypted local DB | module policy | preserve only if policy permits same user; otherwise clear | hard namespace isolation; never merge |
+| OFFLINE_OPERATIONAL | explicitly offline-capable records | encrypted local DB | OperationContract `offlinePolicyRef` version | preserve only for same principal/context while policy status=ACTIVE and retention TTL not expired; otherwise cryptographically purge | hard namespace isolation; never merge |
 | PENDING_MUTATION | queued commands | encrypted local DB | until success/final reject/policy TTL | pause + require same principal reauth | remains bound to origin context; never rebind |
 | DOCUMENT_METADATA | download refs/status | encrypted | document/session policy | clear sensitive cache | context namespace |
 | LOCAL_PREFERENCES | theme/non-sensitive UI | platform storage | durable | may persist | no private business data |

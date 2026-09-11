@@ -1,5 +1,5 @@
 # WAVE-3 MANAGEMENT SYSTEM COMPLETION MATRIX
-**Status:** PASS — 41/41 COMPLETE · **Date:** 2026-09-11
+**Status:** HISTORICAL STRUCTURAL MATRIX — FABLE 5 DETERMINISM RECERTIFICATION REQUIRED
 
 | Industry | MS | Foundation owner | Wave-3 owner | Status |
 |---|---|---|---|---|
@@ -52,3 +52,7 @@ Each of the 41 MS sections was scanned for: explicit DD section; entity/storage/
 **Result:** 41 PASS · 0 FAIL · 0 missing MS sections.
 
 This matrix verifies design coverage, not implemented code or runtime testing.
+
+
+## Fable 5 qualification
+The 41/41 structural presence result is historical input only. Current certification additionally requires DD-21 acceptance IDs, DD-22 transition matrices, DD-23 exact catalogs/indexes, DD-24 domain rules, DD-25 KPI formulas, requirement-ID traceability, fresh isolation and fresh adversarial audits. Therefore this matrix alone does not authorize Development.

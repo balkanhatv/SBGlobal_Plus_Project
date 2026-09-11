@@ -19,7 +19,7 @@ Regulatory certification is not claimed. This document defines security/complian
 Core stores policy/status/provider references, not provider password secrets. SSO tenant/domain binding is verified before enabling. Break-glass recovery uses separate governed operator workflow, never hidden bypass.
 
 ## 4. API credentials/service principals
-Generated secret shown once, stored hashed or in secret store as appropriate; prefix for lookup; fixed tenant/scope; optional industry allowlist/CIDR; rotation/revocation; expiry policy; rate class; audit. Service principals are module/workload identities, not omnipotent machine users.
+Generated secret shown once. Verifier-style credentials (API keys/password-equivalent tokens) persist only a one-way Argon2id/approved verifier hash plus prefix; retrievable provider/client secrets persist only as a CredentialReference to the regional secret store, never plaintext business-table content; prefix for lookup; fixed tenant/scope; optional industry allowlist/CIDR; rotation/revocation; expiry policy; rate class; audit. Service principals are module/workload identities, not omnipotent machine users.
 
 ## 5. Tenant/Industry isolation
 Application guard + repository filters + forced RLS. TENANT_INDUSTRY requires both tenant and industry. Null industry never wildcard. Context mismatch produces security signal. Explicit cross-context flows require DD-02 contract.
