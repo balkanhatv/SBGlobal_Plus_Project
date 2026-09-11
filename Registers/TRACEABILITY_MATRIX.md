@@ -1,4 +1,4 @@
-# TRACEABILITY MATRIX — SECTION LEVEL (summary view; unit-level matrix is the certification evidence)
+# TRACEABILITY MATRIX — SECTION LEVEL (SUMMARY VIEW)
 
 | Source unit | Primary Scope | Class | Canonical destination |
 |---|---|---|---|
@@ -44,3 +44,7 @@
 | S2.9 Enterprise Development Roadmap | Platform-wide | SD | Volume targets referenced F-00 §6, F-03 §4, F-04 §1 (never phase authority) |
 | U1 Zero-Start directive | Task | UD | F-00 (whole-package driver); unit matrix |
 | U2 Continuation directive (RR resolutions + certification + delivery) | Task | UD | F-10, F-11, F-00 §9, D-DECISIONS DR-01/AC-15/AC-16 |
+
+
+## Current atomic-evidence authority — 2026-09-11
+Current evidence is `TRACEABILITY_MATRIX_UNIT.md`: all 372 repository-resident atomic rows, with no external-ZIP dependency. This file remains summary only.
