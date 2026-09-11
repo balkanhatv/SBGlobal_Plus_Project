@@ -10,7 +10,7 @@ The AI Platform (L2, A-00 §3) is a **Core-hosted module group behind one choke 
 ## 2. AI Gateway Responsibilities (ADR-010)
 ```
 Request → AI Gateway:
- 1 Context check: RequestContext present (tenant, user, entitlements)
+ 1 Context check: RequestContext present (**tenant + industry context + user/resource ACL context + entitlements + security/residency policy**)
  2 Entitlement/quota gate: plan AI dimensions (A-04 §5); metering reserve
  3 Policy gate: tenant AI policy (allowed capabilities, data classes,
    provider/residency constraints)
@@ -27,8 +27,8 @@ Request → AI Gateway:
 
 ## 4. RAG Architecture
 - **Ingestion:** outbox events (A-06 §4) and Document-module uploads feed a per-tenant ingestion pipeline: extract → chunk → embed (embedding model class per registry) → store in **pgvector** tables in the tenant's data home (A-05 §1—derived, rebuildable, residency-pinned).
-- **Index scope:** every vector row carries `tenant_id` + source entity reference + the source's ACL descriptor (OrgUnit path, sensitivity class).
-- **Retrieval:** tenant filter (RLS) → ACL filter against the *requesting user's* effective permissions (A-03 §3) → similarity search → re-rank. **BR-AI-01 isolation** holds at three layers: RLS on vector tables, ACL filter in the retriever, and gateway policy — a retrieval can never cross tenants, and never surfaces content the asking user could not read directly.
+- **Index scope:** every vector row carries **`tenant_id` + `industry_context_id` + source entity reference + source ACL descriptor + sensitivity/residency classification**. Shared Core knowledge is explicitly classified as Core/global rather than silently omitting industry scope.
+- **Retrieval:** tenant filter (RLS) → **industry-context filter** (unless a governed Core/shared scope is explicitly requested) → resource/user ACL filter against the requesting user's effective permissions (A-03 §3) → entitlement/security/residency policy gate → similarity search → re-rank. **BR-AI-01 isolation** holds at three layers: RLS on vector tables, ACL filter in the retriever, and gateway policy — a retrieval can never cross tenants **or leak across enabled Industry Contexts inside the same tenant**, and never surfaces content the asking user could not read directly or is not entitled/policy-permitted to process.
 - Index rebuild is a per-tenant governed operation (source-of-truth is always the owning module's data, never the index).
 
 ## 5. Assistants, Agents, Skills & Tools
