@@ -216,7 +216,7 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Options:** leave values to Development; one global limit; hierarchical configurable classes.  
 **Trade-offs:** concrete defaults require later tuning, but remove developer invention and improve tenant fairness.  
 **Decision:** use versioned rate policies with defaults: PUBLIC_LOW 30/min burst 10; PUBLIC_STANDARD 120/min burst 30; AUTH_STANDARD 600/min burst 120; ADMIN_SENSITIVE 60/min burst 15; AUTH_SECURITY 20/5min burst 5; BULK 30 submissions/hour concurrency 2/tenant; WEBHOOK 600/min/endpoint; AI 60/min concurrency 8/tenant; FILE_UPLOAD 60 starts/hour; API_CREDENTIAL 1200/min; TENANT_AGGREGATE 3000/min. Enforce IP/principal/credential/tenant scopes; tightest limit wins.  
-**Consequences:** values are configurable/versioned; security-sensitive ceilings require security approval; Retry-After is returned for throttled requests.  
+**Consequences:** values are authoritative versioned security defaults. Tenant/plan configuration may set stricter limits or consume a documented scaling profile, but may not exceed the platform maximum ceilings without publishing a new SecurityRatePolicy version under security change-control. No separate unresolved human approval is required for the current defaults. Retry-After is returned for throttled requests.  
 **Risks:** capacity tuning may change values.  
 **Dependencies:** DD-06/DD-16/DD-15.  
 **Reversibility:** high.
@@ -271,3 +271,13 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Risks:** high-scale/region/provider constraints may require a tighter or explicitly approved exception profile.  
 **Dependencies:** F-11/A-10/DD-14/DD-15/DD-16.  
 **Reversibility:** policy-versioned and high.
+
+
+## DD-028 — SecurityRatePolicy authority [DD-AC]
+**Context:** DD-022 contained concrete numeric defaults but also implied unresolved Security approval, creating contradictory certification evidence.
+**Options:** keep an external approval blocker; remove ceilings; make the published DD policy itself the authoritative security baseline.
+**Decision:** DD-022 values are the initial authoritative `SecurityRatePolicy v1`. Each class stores platform_default, platform_maximum_ceiling, minimum_security_floor, plan_scale_profile, tenant_override_bounds and risk_engine_multiplier. Tenant/plan overrides may be stricter; risk/abuse controls may always tighten; relaxing beyond the published maximum requires a new versioned security-policy decision, not an ad hoc runtime approval.
+**Security floors:** AUTH_SECURITY may never exceed 20 attempts/5m/principal+network without a new policy version; ADMIN_SENSITIVE may never exceed 60/min/principal; FILE_UPLOAD may never exceed 60 starts/hour/principal; aggregate tenant limits never bypass per-principal/credential limits.
+**Consequences:** current numeric defaults are resolved and implementation-ready; no hidden human approval dependency remains.
+**Tests:** RATE-T001 stricter tenant limit wins; RATE-T002 weaker-than-floor override returns `POLICY_DENIED`; RATE-T003 abuse engine may tighten; RATE-T004 plan scaling cannot exceed platform ceiling; RATE-T005 all throttles return deterministic `RATE_LIMITED` + retry metadata.
+**Reversibility:** high through policy versioning.
