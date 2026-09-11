@@ -266,9 +266,9 @@ For every one of the 41 MSs, implementation acceptance includes: happy path; val
 ## 22. Wave-3 authoritative acceptance ownership
 DD-17 is the top-level acceptance owner for all Detailed Design waves. It incorporates by normative reference:
 - `DD-21_MS_ACCEPTANCE_TEST_CONTRACTS.md` — 574 per-MS deterministic test IDs for all 41 Management Systems.
-- `DD-22_MS_WORKFLOW_TRANSITION_MATRICES.md` — 141 stateful workflow/entity matrices and 574 explicit allowed transition rows plus forbidden/cancel/reversal rules.
+- `DD-22_MS_WORKFLOW_TRANSITION_MATRICES.md` — 41 authoritative per-MS major workflow matrices and 309 explicit allowed transition rows plus fail-closed forbidden/cancel/reversal rules. `DD-22H` remains non-authoritative generation history.
 - `DD-24_INDUSTRY_DOMAIN_RULE_DECISIONS.md` — domain-critical DD-AC defaults and rule-specific tests.
-- `DD-25_KPI_CALCULATION_CATALOG.md` — 109 KPI formulas with two acceptance IDs per KPI.
+- `DD-25_KPI_CALCULATION_CATALOG.md` — 169 KPI formula contracts with two acceptance IDs per KPI; DD-28 independently maps all 165 KPI/report metric names found in canonical industry DD with 0 unmapped.
 - `DD-26_CANONICAL_SURFACES_MS_IDENTIFIERS.md` — surface/identifier validation tests.
 - `Registers/DD_REQUIREMENT_TRACEABILITY_F5.md` — requirement-ID → acceptance-ID chains.
 

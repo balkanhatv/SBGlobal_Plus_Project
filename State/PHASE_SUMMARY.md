@@ -1,5 +1,7 @@
-# PHASE_SUMMARY — Independent Targeted Remediation Recertification Closure
-**Date:** 2026-09-11
+# PHASE_SUMMARY — Independent Targeted Remediation + Fable 5 Recertification Closure
+**Updated:** 2026-09-12 · **Current checkpoint:** `DD-F5-RECERTIFIED`
+
+**Current gate:** FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DD WAVE 1 COMPLETE · DD WAVE 2 COMPLETE · DD WAVE 3 COMPLETE · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT. Earlier phase sections below are chronological history; the final Fable section is current authority.
 
 1. Starting audited HEAD was `029faa5add582f6cfbf1688a145bf06dac6d5b34`; certification gates were first reopened rather than trusted.
 2. 372 source-heading rows are preserved as parent inventory, not atomic proof.

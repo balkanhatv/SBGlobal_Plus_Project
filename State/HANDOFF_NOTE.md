@@ -1,12 +1,12 @@
-# HANDOFF_NOTE — Architecture → Detailed Design
-**Date:** 2026-09-11
+# HANDOFF_NOTE — CURRENT PROJECT HANDOFF
+**Updated:** 2026-09-12 · **Current checkpoint:** `DD-F5-RECERTIFIED`
 
-Resume on `docs/architecture-branch-2` from checkpoint **CP-REM-002**.
+Resume on `docs/architecture-branch-2`. The current authoritative state is the final Post-Fable section at the end of this file; older handoff blocks below are preserved as chronological history and MUST NOT be interpreted as current gate truth.
 
-Current state:
+Historical Architecture-era state (superseded):
 - Foundation: **CERTIFIED**.
 - Architecture: **CERTIFIED**.
-- Next gate: **READY FOR DETAILED DESIGN**.
+- Former next gate: **READY FOR DETAILED DESIGN**.
 - Requirement evidence: 372 parent units + 2,962 child rows, 0 GAP.
 - Management Systems: 41/41 Foundation owners verified.
 - Isolation: Tenant + Industry Context fail-closed Architecture verified by attack matrix.
