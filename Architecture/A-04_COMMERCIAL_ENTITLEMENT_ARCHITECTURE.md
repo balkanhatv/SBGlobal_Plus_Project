@@ -5,7 +5,7 @@
 ---
 
 ## 1. Commercial Chain — Architectural Placement
-F-14's chain `Plan → Subscription → License → Entitlement → Effective Access` maps onto the Core as follows: the **Entitlement module** (A-01 §2) owns the entire chain's data and computation; the **Billing module** owns money movement only (invoices, payments, dunning); the **kernel guard** (A-01 §3 step 3) is the sole runtime consumer of computed entitlements. No other module ever interprets plans or subscriptions directly — they ask the guard/entitlement contract. This keeps commercial semantics in exactly one place.
+F-14's chain `Plan → Subscription → License → Entitlement → Effective Access` maps onto the Core as follows: the **Entitlement module** (A-01 §2) owns the entire chain's data and computation; the **Billing module** owns money movement only (invoices, payments, dunning); the **kernel guard** is the sole runtime consumer of computed entitlements after Tenant/Industry Context and commercial validity are resolved. No other module ever interprets plans or subscriptions directly — they ask the guard/entitlement contract. This keeps commercial semantics in exactly one place.
 
 ## 2. Plan Catalog & Versioning
 - Plans are **versioned, immutable records**: `Plan(planId) → PlanVersion(n)` with dimensions per F-14 §2 (modules, MS activations, limits, AI quotas, support class, residency options, route). A subscription always pins a specific PlanVersion.
@@ -16,7 +16,7 @@ F-14's chain `Plan → Subscription → License → Entitlement → Effective Ac
 The canonical F-14 lifecycle (`PENDING → TRIAL → ACTIVE → GRACE → SUSPENDED → EXPIRED/CANCELLED`, with governed reactivation paths; **Renewed is an event and failed renewal is the ACTIVE→GRACE trigger, not a PAST_DUE resting state**) is executed by the **Workflow module** as a platform workflow definition, giving every transition the same guard/audit treatment as business workflows (F-02 per-step audit). Transition triggers: payment webhooks (→ A-06 §6), scheduled evaluators (renewal/expiry/grace timers run as Core scheduled jobs, → A-10 §5), and operator/tenant actions (route-governed per F-14 §7). Every transition emits a domain event (`subscription.transitioned`) through the outbox (→ A-06 §4) which drives entitlement recompilation (§4 below) and notifications.
 
 ## 4. Entitlement Compilation Pipeline (ADR-007)
-Entitlements are **compiled, not evaluated ad hoc**:
+Entitlements are **compiled, not evaluated ad hoc**. Compilation is an execution optimization of Foundation commercial semantics: a current snapshot is valid only from the tenant's current subscription state, applicable license grants, governed adjustments/add-ons and restricting compliance/security inputs; it never means subscription/license checks cease to exist:
 ```
 Sources: PlanVersion dimensions → License grants → EntitlementAdjustments
          → tenant industry activations → suspension/grace overlays
@@ -32,6 +32,8 @@ Store:    snapshot persisted per tenant (current + history for audit);
 - **Deny-wins and server-authoritative semantics** (F-14 §4/§5) are properties of the compiler, verified by contract tests at Detailed Design.
 
 ## 5. Runtime Enforcement Points
+
+Canonical access sequence is owned with A-01/A-03: Authenticate → Tenant → active Industry Context → Subscription → License → credential/device/session context → current EntitlementSnapshot → RBAC → ABAC/context → security/compliance/residency → resource/workflow rules → Effective Access.
 | Point | Enforces | Behavior on denial |
 |---|---|---|
 | Kernel guard step 3 (A-01 §3) | Module/feature enabled for tenant | `ENTITLEMENT_DENIED` error class, audited |

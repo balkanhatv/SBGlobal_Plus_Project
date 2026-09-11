@@ -29,15 +29,21 @@ The Core owns: all business logic, all writes to the canonical database, authori
 ## 3. Canonical Request Flow (synchronous)
 ```
 Client (L6) → L5 API (tRPC/REST)
-  1 AuthN: verify Clerk token → establish platform context (→ A-03 §3)
-  2 Tenant context resolution & validation (→ A-02 §3)
-  3 Entitlement guard: module/feature/limit enabled for tenant? (→ A-04 §4)
-  4 Authorization: RBAC permission check, then ABAC policy evaluation (→ A-03 §4)
-  5 Module service executes domain logic (validation chain per F-03)
-  6 Transaction: writes + outbox event in ONE Postgres transaction (→ A-06 §4)
-  7 Audit append (same transaction) → response DTO
+  1 Authenticate principal through Core Identity boundary
+  2 Validate Tenant and resolve immutable Tenant Context
+  3 Resolve active Industry Context for every industry-scoped operation
+     (absent only for explicitly Core/shared/global resources)
+  4 Validate subscription + applicable licenses; resolve current compiled
+     EntitlementSnapshot (snapshot does not erase subscription/license semantics)
+  5 Validate session/device/API-credential context where applicable
+  6 Authorization: RBAC permission → ABAC/context policy →
+     security/compliance/residency constraints
+  7 Resource/workflow/business-rule guard
+  8 Module service executes domain logic
+  9 Transaction: domain writes + context-scoped outbox event + audit append
+     atomically in PostgreSQL → response DTO
 ```
-Steps 1–4 are cross-cutting guards implemented once in the Core kernel and applied to every entry point; a module cannot opt out. This realizes F-02's per-step authorization/audit requirements as middleware rather than per-module reimplementation.
+All cross-cutting checks are implemented once in the Core kernel and applied to every entry point; a module cannot opt out. **Industry-scoped operations fail closed when the active Industry Context is absent or does not own the requested resource.** The compiled entitlement snapshot is derived from valid plan/subscription/license/override/add-on/compliance inputs (A-04) and is an optimization of those semantics, not a replacement for them.
 
 ## 4. Module Boundary Rules
 - A module exposes a **typed service contract** (TypeScript interface) and **domain events**; consumers depend on the contract, never on another module's tables (no cross-module SQL joins across ownership boundaries).
@@ -46,7 +52,7 @@ Steps 1–4 are cross-cutting guards implemented once in the Core kernel and app
 - All inter-module async coupling goes through the outbox/event dispatcher (→ A-06 §4).
 
 ## 5. Kernel (cross-cutting) Services
-Core kernel provides: request context (tenant, user, roles, entitlements) as an immutable per-request object; guard pipeline (steps 1–4 above); transaction manager (write + outbox + audit atomically); validation chain executor (F-03's chain: schema → business rules → tenant rules → policy); error taxonomy (user error / policy denial / entitlement denial / system fault — distinct, audit-logged classes).
+Core kernel provides: immutable `RequestContext{tenantId, industryContextId?, dataHome, principalId, principalType, orgUnitContext, roles, permissions, entitlementSnapshot, deviceOrCredentialContext, securityContext, correlationContext}`; Industry Context is mandatory for industry-scoped operations and optional only for explicitly classified Core/shared/global operations; guard pipeline (steps 1–7 above); transaction manager (write + outbox + audit atomically); validation chain executor (F-03's chain: schema → business rules → tenant rules → policy); error taxonomy (user error / policy denial / entitlement denial / system fault — distinct, audit-logged classes).
 
 ## 6. Technology Mapping
 Next.js 15 · React 19 · TypeScript 5.x · Node.js 22 · tRPC · Clerk · PostgreSQL · Payload CMS 3 · Tailwind CSS + Shadcn UI · React Native / Expo for mobile · **Tauri 2.0 for Windows/macOS/Linux desktop** · Vercel for suitable web workloads · Coolify + Dockerized VPS for self-hosted workloads. REST/OpenAPI remains available where required for external interoperability; it is not the primary internal application API. PostgreSQL is the single canonical store (→ A-05) · No message broker at v1: Postgres outbox + dispatcher (ADR-006, upgrade seam to a broker recorded in A-12).

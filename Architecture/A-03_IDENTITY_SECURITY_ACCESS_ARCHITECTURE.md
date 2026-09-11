@@ -13,8 +13,8 @@ Identity domains: (a) **Platform identities** (operator staff), (b) **Tenant ide
 ```
 Login (Clerk) → Clerk session / access token
   → Core authentication boundary: validate Clerk token → load memberships
-  → establish PLATFORM CONTEXT (userId, tenantId, orgUnitPath,
-    roleIds, token/session version, aud per surface)
+  → establish principal/membership context (userId, tenantId, permittedIndustryContexts,
+    orgUnitPath, roleIds, token/session version, aud per surface)
 Request → L5 verifies Clerk session/token → kernel re-validates membership
   & tenant status (A-02 §3) → RequestContext
 Revocation: Clerk session revocation plus platform token/session version
@@ -27,7 +27,7 @@ Mobile/desktop use the same Clerk authentication boundary with refresh/session h
 
 1. **RBAC (primary):** permissions are named capabilities (`ms.module.action`, e.g. `hlt.lis.sample.verify`); roles are permission sets defined at platform level and cloneable/customizable per tenant within entitlement limits; users hold roles per OrgUnit subtree.
 2. **ABAC (complementary):** policies refine RBAC grants with attribute conditions — tenant attributes (industry, tier), resource attributes (ownership, OrgUnit, state, sensitivity class), subject attributes (department, clearance), environment (time, channel). ABAC can **narrow, never widen** an RBAC grant.
-3. Decision order: entitlement gate (→ A-04) → RBAC permission present? → applicable ABAC policies all satisfied? → allow; any deny is final, logged with reason code.
+3. **Canonical effective-access order:** authenticate principal → validate Tenant → resolve Tenant + active Industry Context → validate subscription + applicable licenses → validate session/device/API credential context where required → resolve current EntitlementSnapshot → RBAC permission → ABAC/context policies → security/compliance/residency constraints → resource/workflow business rules → effective access decision. Any deny is final and audit-attributed. The EntitlementSnapshot compiles commercial inputs; it does not replace the underlying subscription/license validation semantics.
 
 ## 4. Validation Chain (F-03) — architectural placement
 `Schema validation (L5 DTO) → business rules (module service) → tenant configuration rules (Config module) → authorization (PDP) → workflow state guard (Workflow module)`. Each stage has a distinct error class and audit signature, so a rejection is attributable to the exact stage (F-02 audit-per-step requirement).

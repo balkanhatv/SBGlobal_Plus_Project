@@ -8,32 +8,41 @@
 Canonical chain (F-00 §5): Core → Industry catalog → **Tenant** → Primary Industry → optional enabled industries → Branches/Departments → Users/Roles → Management Systems → Modules/Workflows/Transactions. A tenant is the unit of commercial contract, data ownership, configuration and isolation. Branches/departments are intra-tenant organizational units (OrgUnit tree), not tenants.
 
 ## 2. Isolation Architecture (ADR-002)
-**Default: shared PostgreSQL cluster, shared schema, `tenant_id` discriminator + PostgreSQL Row-Level Security (RLS)** on every tenant-owned table. **Premium/regulated option: dedicated database** (same schema, own Postgres database/cluster) for tenants whose tier, compliance regime, or Regional Data Home (F-11) requires it. Both run the identical codebase; the tenancy module resolves each tenant to its **data home** (cluster + database) via a platform-owned tenant directory that is itself global, minimal (no business data) and replicated.
+**Default tenant topology:** shared PostgreSQL cluster/schema with `tenant_id` + PostgreSQL RLS on every tenant-owned table. **Industry-owned data additionally carries active Industry Context ownership**; an industry-scoped resource is addressable only when both Tenant and Industry Context match the immutable RequestContext. Premium/regulated tenants may use a dedicated database with the identical logical contracts; dedicated topology never weakens Industry Context isolation.
 
-Trade-off (recorded in ADR-002): shared-RLS maximizes density and operational simplicity for the long tail; dedicated DB buys hard isolation and residency at higher cost; a schema-per-tenant middle tier was rejected (migration fan-out, connection-pool pressure at 1000s of tenants).
+Trade-off: shared-RLS maximizes density; dedicated DB increases hard tenant isolation at higher operational cost. Industry Context remains a logical security/ownership boundary in either topology. Exact table-by-table RLS policy expressions remain Detailed Design.
 
-## 3. Tenant Context Resolution (every request)
+## 3. Tenant + Industry Context Resolution (every request)
 ```
-1 Resolve tenant candidate: subdomain/custom domain (web) · explicit
-  tenant claim (mobile/desktop) · API key binding (external API)
-2 Validate: tenant exists · status ACTIVE (not SUSPENDED/ARCHIVED) ·
-  user is a member of tenant · requested OrgUnit within tenant
-3 Build immutable RequestContext{tenantId, dataHome, userId, orgUnitPath,
-  roles, entitlementSnapshot, industryActivations}
-4 Open DB connection to the tenant's data home; SET the RLS tenant
-  variable from RequestContext (never from client input)
+1 Resolve tenant candidate: domain/subdomain · explicit mobile/desktop membership
+  selection · API-key binding.
+2 Validate tenant status + membership + OrgUnit.
+3 Resolve requested/route-bound Industry Context against the tenant's enabled
+  industry activations and the principal's permitted memberships.
+4 Build immutable RequestContext{
+    tenantId, industryContextId?, dataHome, principalId, principalType,
+    orgUnitContext, roles, permissions, entitlementSnapshot,
+    deviceOrCredentialContext, securityContext, correlationContext
+  }.
+5 For industry-scoped operations, industryContextId is REQUIRED.
+   It may be absent only for explicitly classified Core/shared/global resources.
+6 Open the permitted data home; establish Tenant and, where applicable,
+  Industry Context enforcement variables from server-resolved context —
+  never from an untrusted resource identifier alone.
 ```
-The context token (→ A-03 §3) carries tenant + role claims but is **re-validated server-side** each request against the tenant directory; a revoked membership or suspended tenant takes effect on next request, not token expiry.
+A resource identifier never causes the server to silently switch Industry Context. If a supplied resource belongs to another enabled industry of the same tenant, the request is denied unless an explicit governed cross-context workflow is authorized. Identity/session claims are revalidated server-side on every request; revoked membership, disabled industry activation or suspended tenant takes effect at validation time.
 
 ## 4. Defense-in-Depth Isolation Guarantees
 | Layer | Control |
 |---|---|
-| Token | Tenant claim signed, short-lived, audience-bound |
-| Application | Kernel guard rejects any cross-tenant identifier before module code runs |
-| ORM/query | Repository layer injects tenant scope; raw cross-tenant SQL forbidden by module boundary rules (A-01 §4) |
-| Database | RLS policies as final enforcement — even a defective query cannot read another tenant's rows |
-| Storage | Object-storage keys prefixed `tenant/{id}/…`; signed URLs scoped per object (→ A-05 §5) |
-| Events/AI | Outbox events and RAG indexes carry tenant scope; consumers/retrievers filter by it (→ A-06, A-07) |
+| Token/credential | Tenant membership plus permitted context binding; short-lived/audience-scoped where applicable |
+| Application | Kernel guard rejects cross-tenant **and wrong-Industry-Context** resource access before module logic |
+| Repository/query | Industry repositories receive immutable active context and inject Tenant + Industry Context scope; omission cannot widen access |
+| Database | Tenant RLS is mandatory; industry-owned rows are additionally constrained by Industry Context ownership. Exact RLS expressions are Detailed Design |
+| Storage | Document/object authorization validates canonical ownership metadata (tenant, industry context where applicable, module/resource, ACL, residency) before signed URL issuance |
+| Events | Industry events carry explicit Tenant + Industry Context; consumers/projectors preserve it and may not process under a different context |
+| AI/RAG | Tenant + Industry Context + resource ACL + entitlement/security/residency filters (A-07) |
+
 Platform-Operator (cross-tenant) access is a distinct, explicitly-granted capability with dedicated roles, reason-capture and audit (→ A-03 §6); it bypasses nothing at the DB layer — operator sessions use dedicated RLS policies.
 
 ## 5. Residency — Regional Data Homes (F-11)

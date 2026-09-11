@@ -16,7 +16,7 @@ Both planes terminate in the same kernel guard pipeline (A-01 §3) — there is 
 - REST versioning: URL-versioned (`/api/v1/...`), additive-only within a version; breaking changes open `v2` with a published deprecation window. tRPC (first-party) versions with the app release train — client and server deploy from the same repository (→ A-10 §6).
 
 ## 3. Edge Concerns (both planes)
-TLS 1.2+ · Clerk token / API-key verification before any body parsing · tenant context resolution (A-02 §3) · per-tenant and per-key rate limits (limits are entitlement dimensions, F-14) · request size caps · **idempotency keys** required on externally-invoked mutating REST endpoints (retry-safe integrations) · uniform error envelope carrying the error taxonomy class (A-01 §5) without internal detail leakage.
+TLS 1.2+ · Clerk token / API-key verification before any body parsing · Tenant + active Industry Context resolution (A-02 §3) for industry-scoped requests · per-tenant and per-key rate limits (limits are entitlement dimensions, F-14) · request size caps · **idempotency keys** required on externally-invoked mutating REST endpoints (retry-safe integrations) · uniform error envelope carrying the error taxonomy class (A-01 §5) without internal detail leakage.
 
 ## 4. Events — Transactional Outbox (ADR-006)
 ```
@@ -28,10 +28,10 @@ Consumers:        projections (A-05 §6) · notifications · webhook fan-out ·
                   AI ingestion (A-07 §4) · entitlement recompile (A-04 §4)
                   — all idempotent by event id
 ```
-No message broker at v1: Postgres-backed outbox + dispatcher processes (→ A-10 §5) are sufficient at target scale and remove an operational dependency. The dispatcher interface is the upgrade seam to a broker; recorded with trade-offs in ADR-006. Event names form a governed catalog (`<module>.<entity>.<action>`), tenant-scoped end to end (A-02 §4).
+No message broker at v1: Postgres-backed outbox + dispatcher processes (→ A-10 §5) are sufficient at target scale and remove an operational dependency. The dispatcher interface is the upgrade seam to a broker; recorded with trade-offs in ADR-006. Event names form a governed catalog (`<module>.<entity>.<action>`). **Industry-scoped events require Industry Context; Core/global events explicitly declare Core scope. Consumers/projectors cannot process an event under a different Industry Context.** Tenant scope remains mandatory end to end (A-02 §4).
 
 ## 5. Webhooks Out (ADR-009)
-Tenant-configurable subscriptions: `(event types × filters) → endpoint`. Architecture rules: registration requires endpoint ownership verification (challenge) · every delivery is HMAC-signed with per-subscription secret + timestamp (replay window) · at-least-once with exponential backoff · dead-letter after retry budget with tenant-visible delivery log · payloads carry event id + minimal DTO, never raw entities · subscriptions are entitlement-gated (A-04 §5) and pause on tenant suspension (A-02 §6). Webhook egress runs in worker processes, isolated from request-serving capacity.
+Tenant-configurable subscriptions: `(event types × tenant/industry-context filters × other allowed filters) → endpoint`. Architecture rules: registration requires endpoint ownership verification (challenge) · every delivery is HMAC-signed with per-subscription secret + timestamp (replay window) · at-least-once with exponential backoff · dead-letter after retry budget with tenant-visible delivery log · payloads carry event id + minimal DTO, never raw entities · an industry-scoped subscription receives only explicitly authorized Industry Contexts (a Healthcare-only subscription cannot receive Retail events merely because tenantId matches) · subscriptions are entitlement/permission/security-policy gated (A-04 §5) and pause on tenant suspension (A-02 §6). Webhook egress runs in worker processes, isolated from request-serving capacity.
 
 ## 6. Inbound Integrations — Ports & Adapters
 Every external system sits behind a Core-owned **port contract** with swappable adapters:
@@ -40,7 +40,7 @@ Every external system sits behind a Core-owned **port contract** with swappable 
 | PaymentPort | Region-appropriate gateways | Webhook-in verified by gateway signature; drives A-04 §3 transitions |
 | MailPort / SmsPort | Provider adapters | Notification module routing |
 | PushPort | Expo Push (primary) · OneSignal (optional, ADR-016) | Mobile + web push |
-| IdentityPort | Clerk (ADR-003) | Sole AuthN boundary |
+| IdentityPort | Clerk adapter (preferred) · Auth.js adapter (fallback where Clerk unsuitable) | One Core identity boundary; providers remain replaceable behind it |
 | AIProviderPort | → A-07 §3 | Provider abstraction |
 | IndustryIntegrationPorts | Per-suite (e.g. gov e-filing, lab devices, payment rails) | Declared per suite in A-09 §5; adapters are per-tenant configured |
 Inbound webhooks (payment, provider callbacks) land on dedicated verified endpoints that translate into domain commands — external systems never write domain state directly.

@@ -30,12 +30,14 @@ MS module = domain services (typed contracts, A-01 §4)
             bindings on services/workflows)
           + masters + seed pack (A-05 §2; per-industry demo data, F-04 §9)
           + permission set (`<suite>.<ms>.<action>` → A-03 §3 catalog)
-          + event contributions (outbox catalog, A-06 §4)
+          + event contributions (Tenant + Industry Context outbox catalog, A-06 §4)
           + experience package(s) (A-08 §4; mobile/desktop scope per suite)
           + AI capability declarations (→ A-07 §5 tools/skills)
           + compliance profile hooks (A-03 §6)
           + KPI/projection definitions (A-05 §6)
 ```
+**Context invariant:** every industry MS service, entity, event, document and experience operation is bound to one active Tenant + Industry Context. Same-tenant sibling industries do not become mutually readable merely because both are enabled. Explicit Core/shared capabilities may span contexts only through governed contracts that preserve source ownership.
+
 Dependency rules: MS → platform modules: allowed. MS → MS within a suite: via contracts/events. MS across suites: **events only** (no direct contract coupling — keeps suites independently activatable). Platform → MS: never (A-01 §4).
 
 ## 4. Activation Model
