@@ -1,5 +1,5 @@
-# DD-19 — DETAILED DESIGN TRACEABILITY
-**Wave:** 1–2 · **Status:** DETAILED DESIGN COMPLETE THROUGH WAVE 2
+# DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
+**Wave:** 1–3 · **Status:** REMEDIATION ACTIVE — requirement-ID evidence rebuilt
 
 | Foundation owner | Architecture owner | ADR | Detailed Design owner | Contract/result |
 |---|---|---|---|---|
@@ -111,3 +111,22 @@ All 41 Management-System-specific entities, workflows, permissions, reports, scr
 - Orphan required DD contracts: **0**.
 
 External jurisdiction/contract/provider facts remain configuration inputs only where DD-REVIEW_REQUIRED states the design abstraction is complete.
+
+
+## Fable 5 requirement-ID evidence authority
+The prior document/section-level Wave-3 table is historical convenience, not sufficient certification proof by itself. Current requirement-level evidence is:
+1. `Registers/TRACEABILITY_MATRIX_UNIT.md` — 372 parent/source-heading inventory only.
+2. `Registers/TRACEABILITY_MATRIX_REQUIREMENTS.md` — immutable-source child evidence.
+3. `Registers/TRACEABILITY_REQUIREMENTS_REVALIDATION_F5.md` — fresh source-fidelity classifications.
+4. `Registers/F5_PARTIAL_REQUIREMENT_CLOSURE.md` — 179 PARTIAL-row dispositions.
+5. `Registers/F5_DEFERRED_REQUIREMENT_DISPOSITION.md` — 396 historical DEFERRED-row current dispositions.
+6. `Registers/F5_USER_DIRECTED_REQUIREMENTS.md` — 328 stable current explicit-user requirement IDs for 41 MS × 8 material DD dimensions.
+7. `Registers/DD_REQUIREMENT_TRACEABILITY_F5.md` — exact Source/User Requirement → Foundation → Architecture → ADR → Shared DD → MS DD → Acceptance/Test chains.
+
+### Current chain result
+- 41/41 MS have exact current-user material requirement chains.
+- 328/328 current-user MS requirement IDs have DD and acceptance owners.
+- Source child evidence duplicates are treated as provenance aliases, not unique coverage inflation.
+- Broad/partial source destinations are not used alone as certification proof.
+- Development/Test-only executable validation requirements remain deferred to their correct future phase.
+- Current DD orphan check is not final until the fresh remediation adversarial audit passes.

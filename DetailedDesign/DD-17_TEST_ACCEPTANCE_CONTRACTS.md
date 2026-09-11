@@ -1,5 +1,5 @@
-# DD-17 — WAVE-1 TEST & ACCEPTANCE CONTRACTS
-**Wave:** 1–2 · **Status:** DETAILED DESIGN COMPLETE THROUGH WAVE 2  
+# DD-17 — AUTHORITATIVE TEST & ACCEPTANCE CONTRACT OWNER
+**Wave:** 1–3 · **Status:** REMEDIATION ACTIVE — authoritative acceptance index
 **Traces:** MI §26B · F-03/F-14 · A-02/A-03/A-04/A-05/A-06/A-11 · DD-01…DD-08/DD-15
 
 These are implementation acceptance contracts, not executable test code.
@@ -259,3 +259,18 @@ Wave 2 passes only if DD-09/DD-10/DD-11/DD-12/DD-14/DD-16 and the Wave-2 extensi
 
 ## 21. Wave-3 structural acceptance
 For every one of the 41 MSs, implementation acceptance includes: happy path; validation failure; wrong permission; wrong tenant; same-tenant wrong Industry Context; disabled entitlement; invalid workflow transition; wrong-context offline replay where applicable; unauthorized AI retrieval/tool; unauthorized document; wrong-context event consumer; mandatory audit evidence for critical mutation.
+
+
+## 22. Wave-3 authoritative acceptance ownership
+DD-17 is the top-level acceptance owner for all Detailed Design waves. It incorporates by normative reference:
+- `DD-21_MS_ACCEPTANCE_TEST_CONTRACTS.md` — 574 per-MS deterministic test IDs for all 41 Management Systems.
+- `DD-22_MS_WORKFLOW_TRANSITION_MATRICES.md` — 141 stateful workflow/entity matrices and 574 explicit allowed transition rows plus forbidden/cancel/reversal rules.
+- `DD-24_INDUSTRY_DOMAIN_RULE_DECISIONS.md` — domain-critical DD-AC defaults and rule-specific tests.
+- `DD-25_KPI_CALCULATION_CATALOG.md` — 109 KPI formulas with two acceptance IDs per KPI.
+- `DD-26_CANONICAL_SURFACES_MS_IDENTIFIERS.md` — surface/identifier validation tests.
+- `Registers/DD_REQUIREMENT_TRACEABILITY_F5.md` — requirement-ID → acceptance-ID chains.
+
+A Development/QA implementation is incomplete if any applicable referenced acceptance ID is absent from executable test coverage later. This DD phase defines the contracts only; it does not create executable tests.
+
+## 23. Deterministic error rule
+No acceptance row may use "design review fails", "developer decides", "manual review", or equivalent as runtime expected behavior. Denials resolve through DD-01/DD-03 taxonomy. Design-lint assertions use a named design validation error and are not substituted for runtime behavior.
