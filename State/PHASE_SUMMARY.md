@@ -1,10 +1,15 @@
-# PHASE_SUMMARY — Foundation Truth Revalidation → Architecture Provisional
-1. CP-F1-005 is preserved as historical gate evidence; current Foundation status is **IN PROGRESS — SUBSTANTIVE TRUTH REVALIDATION** per F-15 and the 2026-09-10 Project Truth Audit.
-2. RawSourceCorpus was restored to the accepted immutable `main` source blobs in commit `548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c`; divergent prior edits remain in Git history only.
-3. The prior 372 / 2,965 / 0-unmapped accounting is not accepted as current substantive certification evidence because S2 traceability is grouped and points outside the repository to a recovery ZIP for atomic rows.
-4. Existing F-01…F-14 contain substantial useful Foundation content, but each owning scope must now prove canonical WHAT/WHY/WHO depth rather than rely on headings, generic inheritance, summaries or references.
-5. Architecture branch `docs/architecture-branch-2` contains A-00…A-09. They are retained but provisional until revalidated against corrected Foundation truth. A-10…A-12 and Architecture-specific decision/traceability/audit evidence remain missing.
-6. Active stack is `UD-TECH-01`: Next.js 15 / TypeScript 5.x / Node.js 22+ / React 19 / Tailwind + Shadcn UI / PostgreSQL / Payload CMS 3 / Refine where suitable / NestJS where justified / tRPC first-party / REST external / Clerk preferred with Auth.js fallback / React Native + Expo / Tauri 2.0 Windows-macOS-Linux / Expo Push or OneSignal / Vercel / Coolify + Dockerized VPS.
-7. Old PM2/cPanel/Laravel/PHP/Filament/MySQL-primary/Flutter assumptions are historical only unless explicitly preserved as source. Conflicting active references require targeted reconciliation.
-8. Mandatory next evidence: atomic repository-resident traceability; substantive Foundation depth audit/corrections; fresh No-Loss/adversarial pass; synchronized registers/state; then Architecture revalidation and remaining Architecture artifacts.
-9. `main` is not modified or merged. No backup ZIP is requested for this audit.
+# PHASE_SUMMARY — Foundation + Architecture Gate Closure
+**Date:** 2026-09-11
+
+1. Foundation truth revalidation is **CLOSED / FOUNDATION CERTIFIED** using current repository evidence.
+2. RawSourceCorpus remains byte-stable at accepted S1/S2 blobs; historical variants remain Git history only.
+3. Atomic Foundation traceability is repository-resident: **372 units, 0 unmapped, no external ZIP dependency**.
+4. Governance now explicitly preserves phase boundaries: Foundation WHAT/WHY/WHO → Architecture HOW → Detailed Design exact contracts → Development code.
+5. Commercial, identity, experience and technology drift was reconciled to F-14 and UD-TECH-01.
+6. A-00…A-09 were revalidated with targeted corrections; valid architecture was preserved.
+7. A-10 Infrastructure/Deployment/Scalability/Resilience, A-11 Observability/Reliability/Operations and A-12 authoritative Architecture ADRs were created.
+8. ADR-001…ADR-018 have context, decision, options/trade-offs, consequences, risks/dependencies and affected architecture.
+9. Architecture traceability, No-Loss/depth audit and adversarial final audit all PASS.
+10. **Architecture is CERTIFIED and ready for Detailed Design.**
+11. No application code, migrations, UI implementation or deployment scripts were introduced.
+12. `main` remains unmodified/unmerged; no backup ZIP was created.
