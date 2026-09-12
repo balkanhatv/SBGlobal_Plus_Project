@@ -1,5 +1,5 @@
 # DD-26 — CANONICAL SURFACES & MANAGEMENT-SYSTEM IDENTIFIER REGISTRY
-**Status:** ACTIVE REMEDIATION EVIDENCE · **Date:** 2026-09-11
+**Status:** ACTIVE PHASE 3 CANONICAL IDENTIFIER EVIDENCE · **Date:** 2026-09-13
 
 ## Canonical surfaces
 `PUBLIC_SAAS_WEBSITE` → Public SaaS Website  
@@ -9,6 +9,17 @@
 
 No other surface name is canonical. In particular, bare `Tenant App` must not be used as an authority-bearing identifier.
 
+## Canonical Tenant mobile app classes
+`TENANT_STAFF_APP` → Tenant Staff App  
+`TENANT_USER_APP` → Tenant User App
+
+No role/persona-specific Tenant app identifier is canonical. `DOCTOR_APP`, `PATIENT_APP`, `TEACHER_APP`, `STUDENT_APP`, `CASHIER_APP`, `GUARD_APP`, etc. MUST NOT be persisted as app classes, binaries, entitlement subjects, route authorities or traceability keys. They are personas/roles mapped inside one of the two canonical Tenant app classes.
+
+`PLATFORM_MOBILE` may exist only as a channel of `PLATFORM_APPLICATION` under DD-10 channel eligibility and is not one of the two Tenant app classes.
+
+## Future Industry status identifiers
+Canonical lifecycle: `DRAFT_FUTURE`, `FOUNDATION_READY`, `ARCHITECTURE_READY`, `DD_READY`, `APPROVAL_REQUIRED`, `APPROVED_FOR_PROMOTION`, `PROMOTED`, `RETIRED`.
+Only `PROMOTED` is eligible for Current Supported Industry catalog/live Tenant activation.
 ## Canonical MS IDs
 All machine identifiers include industry prefix. Canonical IDs are:
 - Healthcare: HLT-HMS, HLT-LIS, HLT-RIS, HLT-PMS, HLT-CMS
@@ -28,3 +39,10 @@ Bare `PMS`, `HMS`, `IWM`, `RTM` or similar abbreviations may appear only as loca
 - ID-T002 persisted `MFG-PMS` → accepted if catalog active.
 - ID-T003 event owner `HMS` → schema validation failure.
 - ID-T004 KPI owner `HSP-HMS` → accepted.
+
+## Phase-3 identifier tests
+- ID-T005 persisted `GUARD_APP` as Tenant appClass → `VALIDATION_FAILED`.
+- ID-T006 persisted `TENANT_STAFF_APP` → accepted for internal-role mobile capability.
+- ID-T007 `PLATFORM_MOBILE` counted as Tenant app → validation failure.
+- ID-T008 Future Industry status `DD_READY` requested for live Tenant activation → denied.
+- ID-T009 Future Industry status `PROMOTED` + valid catalog/entitlement → activation eligibility may proceed.
