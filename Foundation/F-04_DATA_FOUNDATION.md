@@ -1,5 +1,5 @@
 # F-04 — DATA FOUNDATION
-**Document ID:** F-04 · **Version:** 0.1 · **Status:** SPECIFIED (partial) · Cross-refs: F-01 (tenancy), F-03 (isolation, audit fields), F-05 (AI knowledge), F-07…F-09 (industry data).
+**Document ID:** F-04 · **Version:** 0.2 · **Status:** SPECIFIED (partial) · Cross-refs: F-01 (tenancy), F-03 (isolation, audit fields), F-05 (AI knowledge), F-07…F-09 (industry data).
 
 Format per category: **Definition · Ownership · Lifecycle · Tenancy · Relationships · Governance.** No application migrations are created at Foundation (explicitly deferred to Architecture/Database phase).
 
@@ -7,7 +7,7 @@ Format per category: **Definition · Ownership · Lifecycle · Tenancy · Relati
 
 ## 1. Master Data `[SD: MI §18; S2.2 §10A]`
 
-- **Definition/graph:** Platform masters → Reference → Lookup/Dropdown → Industry masters → Tenant masters → Organization/Branch/Department → Localization. General masters (countries, states, districts, cities, languages, time zones, currencies, nationalities, sessions 2026–2100), identity masters (titles, gender, marital status, blood groups, religion, category, occupations, education), organization masters (departments, designations, roles, permissions, branch types, shifts, holiday calendars), plus industry-specific master families owned by their Suites (F-07…F-09 — e.g., Healthcare laboratory/billing/workflow masters stay in the Healthcare Suite layer).
+- **Definition/graph:** Platform masters → Reference → Lookup/Dropdown → Industry masters → Tenant masters → Organization/Branch/Department → Localization/Country Packs. General masters (countries, states, districts, cities, languages, time zones, currencies, nationalities, sessions 2026–2100), identity masters (titles, gender, marital status, blood groups, religion, category, occupations, education), organization masters (departments, designations, roles, permissions, branch types, shifts, holiday calendars), plus industry-specific master families owned by their Suites (F-07…F-09 — e.g., Healthcare laboratory/billing/workflow masters stay in the Healthcare Suite layer).
 - **Ownership:** Super Admin owns platform/reference masters; Tenant Admin owns tenant masters within entitlements; Industry Suites own industry master families.
 - **Lifecycle:** draft → active → inactive → archived (soft delete; restore supported). Versioned; changes audited.
 - **Tenancy:** platform masters global-read; tenant masters tenant-scoped; industry masters bound to Tenant+Industry Context.
@@ -29,7 +29,7 @@ Domain events/records produced by W-08 operations (appointments, orders, invoice
 ## 6. Configuration & Seed Data
 - **Configuration data:** all F-01 §6 domains; DB-stored, versioned (configuration version history `[SD: S2.2 §46]`), auditable, environment-scoped (never mixed across Dev/Staging/Prod).
 - **Seed data `[SD: MI §18]`:** reproducible system data — roles, permissions, system settings, default plans/policies/templates, required reference data. Rule BR-DATA-01: seeds are idempotent and re-runnable; a re-run never duplicates or overwrites tenant-customized values.
-- **System defaults `[SD: S2.7]`:** Timezone Asia/Kolkata · Date dd-MM-yyyy · Currency INR (per-tenant configurable) · Languages English/Hindi (+configurable) · OTP enabled · 2FA optional · audit/soft-delete/UUID/multi-tenant/API-first/white-label/AI/feature-flags enabled.
+- **System defaults `[SD: S2.7]`:** Timezone Asia/Kolkata · Date dd-MM-yyyy · Currency INR (per-tenant configurable) · Languages English/Hindi (+configurable) · OTP enabled · 2FA optional · audit/soft-delete/UUID/multi-tenant/API-first/white-label/AI/feature-flags enabled. Country/localization packs provide governed country/region-specific reference/default configuration without hard-coding one country's business semantics into global Core.
 
 ## 7. Audit Data
 Append-only event fabric (F-02 W-13): identity, authorization, configuration, entity change history, financial, AI, API, security, communication logs. Ownership: platform (fabric) + tenant (visibility of own events). Retention/rotation per logging policy `[SD: S2.2 §53]`; searchable, exportable, alert rules; complete audit preservation survives data lifecycle actions (F-03 BR-SEC-01).
@@ -43,8 +43,10 @@ Realistic, synthetic, resettable, rebuildable, tenant-scoped, **DEMO-flagged**; 
 ## 10. Media Assets `[SD: MI §18; S2.2 §10A]`
 Governed domain: brand, UI, icons, SVG, illustrations, images, animations, videos, industry/website/mobile/desktop assets, AI-generated assets. Governance: provenance, licensing, attribution, versioning, ownership, permissions, lifecycle, CDN, backup/recovery. Source policy preserved: AI-generation first (original, commercially usable, brand-matched, optimized WebP/SVG/PNG); copyright-free fallback libraries only (Unsplash, Pexels, Pixabay, Openverse, commercially-compatible Wikimedia, Coverr, Mixkit); approved icon sets only (Lucide, Heroicons, Tabler, Material Symbols); prohibited sources list retained verbatim in Suite/marketing docs; no placeholders or watermarked assets in production.
 
-## 11. Data Lifecycle & Retention (cross-category) `[SD: S2.2 §51]`
+## 11. Data Lifecycle & Retention (cross-category) `[SD: S2.2 §51; S1 §6.4]`
 Soft delete → hard delete → archive policy → retention policy → legal hold → restoration → historical archive → automatic purge rules → tenant-wise retention → backup-aware deletion → GDPR-style deletion readiness → complete audit preservation.
+
+**Data-subject / tenant data access lifecycle:** governed access/export/portability and right-to-access requests must preserve Tenant + Industry Context, authorization, sensitivity/residency rules and audit. Import/export is never a bypass around normal authorization. Erasure remains subject to legal hold/retention and the F-03 privacy rules.
 
 ## 12. Foundation-level entity shape examples (§9A evidence; full catalog = Architecture phase)
 
