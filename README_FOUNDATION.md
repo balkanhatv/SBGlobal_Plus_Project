@@ -1,6 +1,6 @@
 # SBGlobal Plus — Project Foundation / Architecture Branch
 
-**Current status: PHASE 1 RAWSOURCE→FOUNDATION FRESH RECONCILIATION — PASS · ARCHITECTURE REVALIDATION REQUIRED · DETAILED DESIGN REVALIDATION REQUIRED · DEVELOPMENT NOT AUTHORIZED · checkpoint `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`** on `docs/architecture-branch-2`.
+**Current status: PHASE 1 FOUNDATION PASS · PHASE 2 ARCHITECTURE PASS · DETAILED DESIGN REVALIDATION REQUIRED · DEVELOPMENT NOT AUTHORIZED · checkpoint `PHASE2-ARCHITECTURE-REVALIDATED`** on `docs/architecture-branch-2`.
 
 > **SBGlobal Plus — A World-Class, AI-Ready, AI-Extensible, AI-Powered, Enterprise-Grade, Multi-Tenant, Multi-Industry SaaS Platform.**
 >
@@ -9,7 +9,7 @@
 All nine supported industries are equal first-class suites. Healthcare is not a template, benchmark or default.
 
 ## Current truth
-On 2026-09-12 Phase 1 performed a fresh RawSourceCorpus→Foundation no-loss reconciliation. The complete immutable S1/S2 corpus and F-00…F-15 Foundation were re-read; material requirements that prior traceability had represented too broadly/implicitly were recovered and corrected. Authoritative Phase-1 evidence: `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`. Because Foundation changed after the prior Architecture/DD audit baseline, those downstream certifications are now revalidation-required and Development is blocked until re-earned.
+On 2026-09-12 Phase 1 performed a fresh RawSourceCorpus→Foundation no-loss reconciliation. The complete immutable S1/S2 corpus and F-00…F-15 Foundation were re-read; material requirements that prior traceability had represented too broadly/implicitly were recovered and corrected. Authoritative Phase-1 evidence: `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`. Phase 2 has now freshly revalidated A-00…A-12 against that corrected Foundation and re-earned the Architecture gate. Detailed Design remains revalidation-required and Development remains blocked until the DD gate is freshly re-earned.
 
 ## Repository layout
 - `Governing/` — MASTER_INSTRUCTION / MASTER_PROMPT v2.5 with current phase/technology reconciliation.
@@ -46,4 +46,4 @@ Fresh closure evidence now includes DD-20C, DD-20D, DD-21…DD-31 and the final 
 
 `DD-F5-RECERTIFIED` is now historical evidence only after the 2026-09-12 Foundation corrections. Current checkpoint is `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`.
 
-Next authorized work is **Phase 2 Architecture/ADR revalidation**, not Development. Do not modify or merge `main` without explicit approval.
+Next authorized work is **Phase 3 Detailed Design revalidation/correction**, not Development. Do not modify or merge `main` without explicit approval.
