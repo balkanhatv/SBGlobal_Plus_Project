@@ -1,40 +1,35 @@
-# ARCHITECTURE TRACEABILITY MATRIX — POST-REMEDIATION
-**Status:** PASS · **Date:** 2026-09-11 · **Evaluated HEAD:** `df1f72412044751ac30c184315d05e4d72e0099a`
+# ARCHITECTURE TRACEABILITY MATRIX — PHASE 2 FRESH REVALIDATION
+**Status:** PASS · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
+**Upstream Foundation:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`
 
-This matrix maps verified Foundation concern → exact Architecture HOW owner → decision/behavior → valid Detailed Design deferral.
+This matrix supersedes the current-status effect of the 2026-09-11 matrix while preserving its historical evidence in Git history.
 
-| Foundation concern | Architecture HOW owner | Evidence | ADR | Detailed Design deferral |
+| Foundation concern | Architecture HOW owner | Evidence | ADR | DD deferral |
 |---|---|---|---|---|
-| Unified Core | A-00 §3–§5; A-01 §1–§5 | one modular Core, kernel/module boundaries | ADR-001 | package/service signatures |
-| Tenant isolation | A-02 §2–§4; A-05 §3 | tenant RLS + repository/application defense | ADR-002/018 | table policy catalog |
-| Industry Context | A-01 §3/§5; A-02 §2–§4; A-09 §3 | active Industry Context required for industry-scoped operations; wrong/missing context fails closed | ADR-002/012 | exact policy expressions |
-| Identity | A-03 §1–§2; A-06 §6 | one Core IdentityPort; Clerk preferred, Auth.js fallback | ADR-003 | SDK/token wiring |
-| RBAC | A-03 §3 | primary permission model | ADR-004 | exhaustive matrix |
-| ABAC | A-03 §3 | complementary context policy, deny can narrow | ADR-004 | policy language |
-| Subscription | A-04 §1–§4 | lifecycle/commercial inputs feed snapshot | ADR-007 | tables/timing |
-| License | A-04 §1/§4 | applicable grants compiled and validated | ADR-007 | exact grant schema |
-| Entitlement | A-04 §4–§5 | versioned server-authoritative snapshot | ADR-007 | counter/entity design |
-| Effective access | A-01 §3; A-03 §3; A-04 §5 | one canonical chain through business/resource guard | ADR-004/007 | contract tests |
-| Data ownership | A-05 §2–§3 | tenant + Industry Context for industry data; Core classification explicit | ADR-002/008 | exact tables |
-| Residency | A-02 §5/§8; A-05 §8; A-10 §1/§9–§11 | Regional Data Home + residency-qualified recovery | ADR-017/018 | provider topology/scripts |
-| Retention/erasure | A-05 §7 | legal-hold/retention conditional pseudonymize vs hard erase | ADR-008 context | retention values/runbooks |
-| API | A-06 §1–§3 | tRPC first-party; REST/OpenAPI external, same guard | ADR-005 | endpoints/DTOs |
-| Events | A-06 §4 | transactional outbox with Tenant+Industry context envelope | ADR-006 | exact event schema/catalog |
-| Webhooks | A-06 §5 | context-filtered, signed, retry/DLQ, permission/entitlement gated | ADR-009 | payload/retry values |
-| Documents/storage | A-05 §5; A-02 §4 | metadata ownership/ACL/residency validated before signed URL | ADR-002/008 | physical key/schema |
-| AI Gateway | A-07 §1–§3 | single AI choke point/provider abstraction | ADR-010 | adapters/config |
-| RAG | A-07 §4 | tenant + Industry Context + ACL + entitlement/security/residency | ADR-008/010 | vector/chunk schema |
-| Agents/tools | A-07 §5 | acting-user full kernel guard; no privilege amplification | ADR-010 | tool contracts/run-state |
-| Public Website | A-08 §1 | distinct public responsibility | ADR-011 | page inventory |
-| Platform App | A-08 §1 | platform operator application, same Core | ADR-011/003 | navigation/screens |
-| Tenant Management | A-08 §1 | tenant admin Web responsibility | ADR-011/003 | screens/forms |
-| Industry Experiences | A-08 §1/§4; A-09 §3–§4 | reusable tenant-bound industry packages | ADR-012/014/015 | screen inventories |
-| Mobile | A-08 §8 | React Native+Expo, shared sync contract | ADR-014/016 | native/build config |
-| Desktop | A-08 §7 | Tauri 2, context-preserving offline queue/replay | ADR-015 | local schema/signing |
-| Offline sync | A-08 §7–§8; A-01 §3 | origin Tenant+Industry context preserved and independently revalidated | ADR-002/004/012 | conflict matrices |
-| Nine Industry Suites | A-09 §1–§6 | 41 MS mapped to equal module anatomy without Healthcare template | ADR-012 | per-MS exact contracts |
-| Deployment | A-10 §1–§8 | Vercel suitable workloads + Coolify/Docker VPS regional cells | ADR-013/017 | IaC/vendor config |
-| Backup/DR | A-10 §9–§10; A-11 §10 | in-region default, governed cross-region, restore exercises | ADR-017 | numeric RPO/RTO/runbooks |
-| Observability | A-11 §1–§14 | logs/metrics/traces/audit/SLO/incident/cost | ADR-017 | vendor dashboards/thresholds |
+| Unified Core | A-00 §3–§5; A-01 §1–§7 | one modular Core; explicit shared-engine ownership | ADR-001/019 | service signatures/internal packages |
+| Configuration/Metadata/Rules/Form/Workflow | A-01 §2/§7 | distinct Core contracts; no per-industry private engines; safe declarative rules | ADR-019 | schemas/publish/rollback/expression contracts |
+| Future Industry Framework | A-09 §1A/§4 | separate future state; explicit promotion gate before live Tenant enablement | ADR-020 | promotion checklist/catalog schema |
+| Tenant + Industry Context | A-01 §3/§5; A-02 §2–§4; A-05 §3; A-09 §3 | fail-closed active Industry Context for industry resources | ADR-002/012 | exact RLS/policy expressions |
+| Identity | A-03 §1–§2 | one Identity boundary; Clerk preferred/Auth.js fallback | ADR-003 | SDK/token contracts |
+| Canonical effective access | A-01 §3; A-03 §3; A-04 §5 | Authenticate→Tenant→Industry→Subscription→License→credential/device/session→EntitlementSnapshot→RBAC→ABAC→security/residency→resource/workflow | ADR-004/007 | acceptance contract matrix |
+| Commercial lifecycle | A-04 §1–§7 | no PAST_DUE resting state; Renewed event; compiled entitlements | ADR-007 | exact timings/formulas |
+| Country/localization packs | A-01 §2/§7; A-05 §2/§9 | versioned reference/config packs; no Core code fork or India-hardcoding | ADR-008/019 | pack schemas/override rules |
+| Data access/export/portability | A-05 §7 | governed export/access pipeline with authorization, sensitivity and residency | ADR-008 | operation/payload contracts |
+| API | A-06 §1–§3 | tRPC first-party; REST/OpenAPI external; same guard | ADR-005 | endpoints/DTOs |
+| Events/outbox | A-06 §4 | Tenant+Industry context envelope, idempotent consumers | ADR-006 | exact schemas/catalog |
+| Webhooks | A-06 §5 | context-filtered, signed, entitlement/permission gated | ADR-009 | retry/payload values |
+| Documents/storage | A-05 §5; A-02 §4 | canonical metadata authorization before signed URL | ADR-002/008 | DocumentMeta fields |
+| AI Gateway/provider abstraction | A-07 §1–§3 | one AI choke point/provider registry | ADR-010 | adapter/model schemas |
+| AI API/provisioning | A-07 §3 | API projections + AIProvisioningSnapshot, no provider bypass | ADR-010 | exact API/provisioning schemas |
+| RAG/memory/document intelligence | A-07 §4–§6 | authorization-before-ranking, scoped memory/doc intelligence | ADR-008/010 | chunk/memory/doc schemas |
+| AI media/prompt management | A-07 §5 | governed media generation + versioned prompt config | ADR-010 | provider routing/provenance contracts |
+| Public/Platform/Tenant/Industry surfaces | A-08 §1–§2 | exactly four application responsibilities | ADR-011 | routes/screens |
+| Exactly two Tenant mobile apps | A-08 §1/§4/§8 | Tenant Staff App + Tenant User App; Platform Mobile excluded; no role binaries | ADR-014 | route/package matrices |
+| Brand/theme hierarchy | A-08 §3 | Platform defaults → bounded Industry/Tenant overrides; accessibility/security floor | ADR-011 | exact token dictionary/allowlist |
+| Desktop | A-08 §7 | Tauri 2.0, context-safe offline/native adapters | ADR-015 | local/native contracts |
+| Offline | A-08 §7–§8 | origin Tenant+Industry preserved; server reauthorization | ADR-002/004/012 | conflict matrix |
+| Current 9 Industry Suites | A-09 §1–§6 | equal first-class; 41 MS consumed from suite-specific Foundation | ADR-012 | per-MS contracts |
+| Infrastructure/residency | A-02 §5/§8; A-10 | Regional Data Homes + Vercel/Coolify/Docker topology | ADR-017/018 | provider/IaC/runbooks |
+| Observability/reliability | A-11 | context-attributed telemetry, incident/recovery/release evidence | ADR-017 | thresholds/vendor config |
 
-**Result:** no Foundation concern above relies on an absent A-document or a heading-only Architecture claim. Exact implementation contracts remain correctly deferred.
+**Result:** all substantive Phase-1 Foundation corrections have explicit Architecture HOW ownership or a valid Detailed Design deferral. No recovered Foundation requirement is stranded at the Architecture boundary.
