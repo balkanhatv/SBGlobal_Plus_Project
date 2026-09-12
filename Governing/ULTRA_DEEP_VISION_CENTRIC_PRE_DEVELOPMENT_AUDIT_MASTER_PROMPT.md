@@ -33,6 +33,22 @@ You are auditing work created by previous agents. Do **not** assume their certif
 
 Your objective is not to produce a reassuring report. Your objective is to determine, from repository evidence, whether SBGlobal Plus is genuinely consistent with its Primary Vision and sufficiently complete and deterministic for Development.
 
+## Execution-Contract Freeze / Anti-Circularity Rule
+
+At runtime, before auditing anything else:
+
+1. fetch this file and record its exact blob/content SHA;
+2. treat that fetched version as the **immutable execution contract for the current run**;
+3. this file may be audited and corrected for future runs, but an edit to this file during the run does **not** change the rules of the already-running audit;
+4. do not recursively restart the audit merely because this file was edited;
+5. this execution prompt is a **procedure/control artifact**, not an independent product-requirement source.
+
+Therefore, no new product/business/architecture requirement may be justified solely by “this audit prompt says so.” Every substantive requirement/correction must still be grounded in the Primary Vision, explicit invoking-user direction, MASTER INSTRUCTION / MASTER PROMPT, valid source knowledge, established canonical phase truth, or a properly labelled governed completion needed for deterministic implementation.
+
+This prevents circular evidence such as:
+
+`audit prompt → invent requirement → cite audit prompt as requirement authority → certify itself`.
+
 ---
 
 # 2. ABSOLUTE PRIMARY VISION
@@ -121,6 +137,30 @@ Only stop an individual dependent item when continuing it would require fabricat
 If a value legitimately belongs to Architecture/Detailed Design and can be completed from Vision + governing principles, use the existing governed completion mechanism (e.g. ARCHITECTURAL-COMPLETION / DD-AC as applicable), label it honestly, document rationale/trade-offs/configurability/tests, and close it.
 
 **Single-message completion never authorizes fabricated coverage.** If a hard connector/tool/context limitation makes complete file retrieval or verification impossible inside the execution, continue every unaffected audit/correction you can, record the exact coverage limitation, and keep the final readiness gate BLOCKED for any scope whose required evidence was not actually inspected. Never claim “line-by-line complete” from sampling, truncation, search hits, summaries, or prior audit claims.
+
+## Required-Approval Gate Is Not Waived
+
+The “single-message/autonomous” mode does **not** waive approval gates in MASTER INSTRUCTION / MASTER PROMPT.
+
+Unless the **invoking user message explicitly approves the specific action**, do not autonomously perform:
+
+- production deployment;
+- merge to `main`;
+- Critical/Foundational Management System count exception beyond the governed 2–8 range;
+- resolution of a REVIEW_REQUIRED item material enough to change Vision-level scope;
+- resolution of a REVIEW_REQUIRED item material enough to change security posture;
+- resolution of a REVIEW_REQUIRED item material enough to change Tenant / Industry data-boundary semantics;
+- any other action that current governing truth explicitly marks approval-required.
+
+For such an item:
+
+1. audit it fully;
+2. define the exact proposed correction/options and evidence;
+3. log it as approval-blocked;
+4. continue every unaffected correction;
+5. keep only the dependent gate/scope blocked.
+
+This prompt itself is **not blanket approval** for those actions.
 
 ---
 
@@ -234,8 +274,10 @@ Work ONLY on:
 
 Before any edit:
 
-- fetch current remote branch HEAD;
+- fetch current remote branch HEAD and record it as Execution Start HEAD;
 - verify the branch has not moved unexpectedly;
+- before each write/commit sequence that depends on an earlier file SHA, re-fetch or otherwise use optimistic-concurrency-safe blob/SHA checks;
+- if another actor moves the branch during this execution, stop writes, reconcile the new remote state, and never overwrite concurrent work blindly;
 - enumerate repository tree;
 - identify authoritative current files;
 - verify `main` state.
@@ -254,6 +296,8 @@ Do NOT:
 - claim executable tests ran when they did not.
 
 Use targeted, logical commits.
+
+Do not commit secrets, credentials, tokens, private keys, generated dependency/cache directories, or unrelated binary build outputs.
 
 After the final commit, re-fetch authoritative branch state and report the exact ending HEAD.
 
@@ -303,6 +347,18 @@ If tooling returns truncated content, page/read the remaining ranges until the f
 
 “No obvious issue in sampled content” is not an ultra-deep audit.
 
+Before reading substantive files, create a **Canonical Scope Manifest** that classifies every repository file relevant to documentation as one of:
+
+- ACTIVE_CANONICAL
+- ACTIVE_CONTROL / EXECUTION (for prompts/process controls such as this file)
+- ACTIVE_EVIDENCE / REGISTER / STATE
+- HISTORICAL / SUPERSEDED
+- RAW_SOURCE_IMMUTABLE
+- GENERATED_BACKUP / ARTIFACT
+- NON_DOCUMENTATION / OUT_OF_SCOPE_FOR_THIS_GATE
+
+The classification itself must be evidence-based. Do not exclude a file merely to reduce audit work.
+
 Create a **Per-File Coverage Ledger** before certification. For every required active file record at minimum:
 
 - repository path;
@@ -317,6 +373,8 @@ Create a **Per-File Coverage Ledger** before certification. For every required a
 - downstream revalidation status.
 
 If the connector truncates a response, continue reading explicit ranges until the ledger proves 100% coverage. Search results, file lists and generated matrices do not substitute for reading the source file.
+
+Generated backup packages, binary assets and immutable source attachments are covered through integrity/provenance/hash/metadata checks as appropriate; they are not automatically active specification owners. The Canonical Scope Manifest must prevent generated outputs from being mistaken for new requirement sources.
 
 ---
 
@@ -403,7 +461,9 @@ Verify branch/HEAD/main/RawSourceCorpus and enumerate every required active file
 Audit and reconcile Primary Vision, MASTER_INSTRUCTION, MASTER_PROMPT, authority hierarchy, active technology baseline and phase rules first.
 
 **Step 3 — Source Fidelity / Requirement Inventory**  
-Re-read RawSourceCorpus and current explicit-user requirements; classify active, historical, superseded, missing and completion-derived requirements without modifying RawSourceCorpus.
+Re-read RawSourceCorpus and every explicit user requirement that is actually preserved in the repository's governing/decision/traceability evidence. Classify active, historical, superseded, missing and completion-derived requirements without modifying RawSourceCorpus.
+
+Do not pretend to have access to prior chat-only instructions that are not present in the current invocation or repository evidence. If a claimed “user requirement” has no inspectable evidence, classify it as unverified provenance rather than reconstructing it from memory.
 
 **Step 4 — Foundation Fresh Rebuild Pass**  
 Audit every Foundation file from first line to last. Correct, expand, restructure or fully rewrite files and add missing Foundation requirements where necessary. Do not proceed on an unresolved Foundation contradiction that would contaminate Architecture.
@@ -484,6 +544,8 @@ Detailed Design should define, where applicable:
 
 If exact behavior still requires developer invention, Detailed Design is not complete.
 
+Detailed Design may include schemas, pseudocode, state tables, payload examples and configuration contracts as documentation evidence, but this pre-development task must not create executable production implementation merely to make the design look complete.
+
 ---
 
 # 11. GOVERNING DOCUMENT CONSISTENCY AUDIT
@@ -513,6 +575,15 @@ Verify:
 Find any clause where MASTER_PROMPT operational behavior diverges from MASTER_INSTRUCTION.
 
 MASTER_INSTRUCTION governs when it and MASTER_PROMPT differ, but both remain auditable against the higher Primary Vision and current explicit user direction.
+
+If either governing document requires a substantive active-rule correction:
+
+- update the pair coherently in the same logical remediation sequence;
+- preserve version-lockstep semantics;
+- update cross-references and amendment/history records required by current governance;
+- do not leave one document claiming a version/rule that the other does not recognize;
+- do not use a lower-layer Foundation/Architecture/DD defect as authority to change the Primary Vision;
+- do not change approval-gated Vision/security/data-boundary rules without the explicit approval required above.
 
 Prefer targeted reconciliation where it completely fixes the defect. If either governing document is structurally inconsistent, heavily layered with stale active clauses, or cannot be made unambiguous through local edits, a full canonical rewrite is permitted under §4A/§43 — while preserving amendment/history evidence and never changing the Primary Vision without explicit user authority.
 
@@ -1161,6 +1232,8 @@ Independently recalculate the canonical Management System list from active Found
 
 Do not trust “41” merely because a register says 41.
 
+However, recounting is an audit act, not automatic authority to change governed MS counts. If the audit proves that an Industry requires a count outside the governed 2–8 range, record the exact evidence and proposed exception, but do not enact that count exception without explicit user approval required by governance.
+
 Then verify every MS has substantive, domain-specific requirements and Detailed Design.
 
 For every MS audit:
@@ -1767,6 +1840,13 @@ Detect stale evaluated HEAD values.
 
 Every final audit must state the exact commit it evaluated.
 
+If state/checkpoint metadata must be committed after the substantive audit commit, record two SHAs explicitly:
+
+- **Final Substantive Audited HEAD** — the exact tree whose product/design truth was adversarially audited;
+- **Final Metadata/Closure HEAD** — later commits allowed only for status/evidence synchronization that do not alter material product/design behavior.
+
+If any later commit changes material product/design truth, the previous substantive audit is invalidated and must be rerun.
+
 ---
 
 # 41. DEVELOPMENT DETERMINISM TEST
@@ -1897,7 +1977,9 @@ This applies to every canonical file required for Development readiness across:
 - `State/`
 - root README/status/checkpoint/handoff/backup metadata files that participate in current truth
 
-For each required file, make an explicit final disposition:
+For each required file, make an explicit final disposition. For ACTIVE_CONTROL / EXECUTION files such as this prompt, “fresh” means internally coherent and consistent with higher governance; it does **not** make them product-requirement authorities.
+
+Use:
 
 - `FRESH — VERIFIED UNCHANGED`
 - `FRESH — TARGETEDLY CORRECTED`
@@ -2064,7 +2146,7 @@ After the final correction commit:
 - verify `main` unchanged/unmerged;
 - compare branch against `main` and record ahead/behind truth;
 - inspect open PR state and never invent a PR/merge claim;
-- verify RawSourceCorpus unchanged by blob/hash comparison;
+- verify RawSourceCorpus unchanged by comparing the full RawSourceCorpus tree/blob identities against the execution-start state, not merely filenames or timestamps;
 - verify no application code/migrations/deployment implementation added;
 - compare state/registers against final evidence;
 - verify final audit artifacts evaluate the final substantive design HEAD or clearly explain later metadata-only synchronization commits;
@@ -2270,6 +2352,7 @@ Nine-industry YES/NO matrix.
 - P1
 - P2
 - P3
+- Approval-blocked items (if any), with exact required user decision
 
 ## M. Targeted Corrections Applied
 
@@ -2339,6 +2422,7 @@ Development may be declared READY only when all are true:
 - no real DD gap;
 - no P0;
 - no P1;
+- no unresolved approval-blocked item that affects the claimed Development-ready scope;
 - no material orphan requirement/design;
 - no false traceability;
 - no stale certification evidence;
