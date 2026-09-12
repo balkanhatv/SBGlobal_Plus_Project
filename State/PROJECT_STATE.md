@@ -1,17 +1,16 @@
 # PROJECT_STATE — SBGlobal Plus
 - Updated: 2026-09-13.
 - Branch: `docs/architecture-branch-2`.
-- Current checkpoint: `PHASE4-CROSS-LAYER-REVALIDATED`.
-- Foundation: **FRESH RECONCILED — PHASE 1 PASS**.
-- Architecture: **FRESH REVALIDATED — PHASE 2 PASS**.
-- Detailed Design: **COMPLETE / FRESH REVALIDATED — PHASE 3 PASS**.
-- Cross-layer traceability/isolation/determinism: **PHASE 4 PASS**.
-- Development: **BLOCKED / NOT YET AUTHORIZED**.
-- Phase-1 substantive Foundation HEAD: `4b5ec3667ae81c0b4c92a4cf0daba0282edd4131`.
-- Phase-2 substantive Architecture HEAD: `9453ebb0140670984753cec9e66613475789610b`.
-- Phase-3 substantive DD HEAD: `b4bba9c4764025af3d4546644f7c67efa463c86d`.
-- Phase-4 evidence: `Registers/PHASE4_CROSS_LAYER_TRACEABILITY_ISOLATION_2026-09-13.md`.
-- Current isolation matrix: `Registers/ISOLATION_ATTACK_MATRIX.md` — PASS at Phase-3 substantive DD HEAD.
-- RawSourceCorpus: immutable; accepted blobs `a9f63a64448a347edd0f2b0c74094284ee953c1b` and `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`.
-- `main`: historical PR #1 merge exists at `3911590ff2020993ce51b32d7b091efd6f5f466f`; no main merge was performed by Phases 1–4.
-- Next: **Phase 5 — repository/state/backup closure**, then final independent adversarial pre-development gate.
+- Current checkpoint: `PHASE5-CLOSURE-BACKUP-BLOCKED`.
+- Foundation: **PASS**.
+- Architecture: **PASS**.
+- Detailed Design: **PASS / COMPLETE**.
+- Cross-layer traceability/isolation/determinism: **PASS**.
+- Repository truth: branch ahead of main; RawSource intact; no Phase 1–5 main merge.
+- Recovery snapshot: **CREATED AS EXACT GIT MANIFEST** for HEAD `f09c26b2d01b97d0f50b20d94bad374dbc4252c7`, tree `cb60aba0e91bab2d4eca2216233cfdbe484c1176`, 125 files.
+- Physical checkpoint ZIP: **NOT MATERIALIZED / NOT SHA-256 VERIFIED** because current environment cannot download/clone GitHub archive content.
+- Development: **BLOCKED ONLY ON MANDATORY BACKUP CLOSURE + FINAL ADVERSARIAL VERDICT**.
+- Final substantive Foundation HEAD: `4b5ec3667ae81c0b4c92a4cf0daba0282edd4131`.
+- Final substantive Architecture HEAD: `9453ebb0140670984753cec9e66613475789610b`.
+- Final substantive DD HEAD: `b4bba9c4764025af3d4546644f7c67efa463c86d`.
+- Next: create review PR (no merge), then final independent adversarial audit. If all substantive gates pass, Development remains backup-only blocked until a physical checkpoint ZIP is created and verified.
