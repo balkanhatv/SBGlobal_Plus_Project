@@ -1,24 +1,30 @@
 {
-  "backup_name": "SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip",
-  "status": "HISTORICAL_FOUNDATION_ONLY",
-  "checkpoint": "CP-F1-005 (revision C)",
-  "created": "2026-09-04 (UTC)",
-  "file_count": 36,
-  "scope": "Historical Foundation-era recovery package; does not contain the current Architecture/DetailedDesign documentation tree and is not current closure evidence.",
-  "structure": {
-    "Governing/": 2,
-    "RawSourceCorpus/": 2,
-    "Foundation/": 15,
-    "Registers/": 11,
-    "State/": 4,
-    "root README_FOUNDATION.md": 1,
-    "root BACKUP_METADATA.json": 1
+  "backup_name": "SBGlobalPlus_PRE_DEVELOPMENT_docs_architecture_branch_2_2026-09-13.zip",
+  "status": "RECOVERY_MANIFEST_CREATED__ZIP_NOT_MATERIALIZED",
+  "checkpoint": "PHASE5-PRE-DEVELOPMENT-CLOSURE",
+  "snapshot_created": "2026-09-13",
+  "repository": "yadavjalsingh192/SBGlobal_Plus_Project",
+  "branch": "docs/architecture-branch-2",
+  "snapshot_head": "f09c26b2d01b97d0f50b20d94bad374dbc4252c7",
+  "snapshot_tree_sha": "cb60aba0e91bab2d4eca2216233cfdbe484c1176",
+  "immutable_archive_url": "https://github.com/yadavjalsingh192/SBGlobal_Plus_Project/archive/f09c26b2d01b97d0f50b20d94bad374dbc4252c7.zip",
+  "recovery_manifest": "State/PRE_DEVELOPMENT_RECOVERY_MANIFEST.json",
+  "indexed_file_count": 125,
+  "indexed_total_blob_bytes": 4048092,
+  "raw_source_integrity": {
+    "Disorganized Data 1.md": "a9f63a64448a347edd0f2b0c74094284ee953c1b",
+    "Disorganized Data 2.md": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd",
+    "status": "PASS"
   },
-  "secrets_included": false,
-  "production_pii_included": false,
-  "built_from": "docs/foundation-build-2 final post-revert HEAD (CP-F1-005 revision C synchronization commit)",
-  "historical_verification": "Open-and-compare was recorded as 36/36 PASS for that historical Foundation package.",
-  "current_branch": "docs/architecture-branch-2",
-  "current_phase1_closure_backup": "NOT CREATED — Phase 1 is not the final Development-readiness closure gate.",
-  "note": "A fresh full-scope backup must be created and verified at the governing final closure checkpoint after downstream Architecture/DD revalidation."
+  "includes_scope": "Exact Git snapshot of repository branch at snapshot_head, including Governing, immutable RawSourceCorpus, Foundation, Architecture, DetailedDesign, Registers, State, README and then-current backup metadata.",
+  "secrets_included": "No secret inclusion was introduced by Phases 1–4; repository is documentation-only in this workflow. A physical ZIP was not available for independent archive-content scan in this environment.",
+  "production_database_included": false,
+  "zip_materialized": false,
+  "zip_sha256": null,
+  "limitation": "The execution environment could not resolve/download GitHub archive content or clone github.com from the container, so the required physical ZIP could not be materialized and SHA-256 verified. The exact Git snapshot remains recoverable through snapshot_head/tree/blob SHAs and immutable_archive_url.",
+  "historical_foundation_backup": {
+    "name": "SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip",
+    "status": "HISTORICAL_FOUNDATION_ONLY"
+  },
+  "gate_effect": "Checkpoint recovery evidence exists, but governing §24 requires a checkpoint package/ZIP. Until an actual archive is materialized and verified, the overall Development authorization gate remains blocked on backup closure only."
 }
