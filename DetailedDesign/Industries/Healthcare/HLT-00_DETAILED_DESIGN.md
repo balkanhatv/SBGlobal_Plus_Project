@@ -48,7 +48,7 @@ Documents: consent, admission form, nursing chart exports, OT checklist/note, di
 tRPC: `ind.hlt.hms.encounter_open`, `admission_admit`, `bed_transfer`, `order_place`, `ot_transition`, `discharge_initiate`, `summary_approve`. Inputs carry resource ID, expectedVersion and domain facts; outputs DD-06 envelope. Events v1: `hlt.hms.patient.admitted`, `patient.transferred`, `patient.discharged`, `order.placed`, `ot.scheduled`, `ot.completed`, `summary.approved`. Consumers: LIS/RIS/PMS/Billing/Communication projections. REST only for governed external HIS/EHR interoperability.
 
 ### AI / experience / offline
-AI may summarize authorized encounter history, draft discharge text, prioritize worklists; cannot diagnose, prescribe, discharge or change orders autonomously. RAG sources require patient/resource ACL. High-risk tool actions require approval. Web `/app/hlt/hms`; Staff Mobile: rounds/observations/tasks; Patient Mobile: own appointments/discharge docs; Desktop optional ward/OT station. Offline: `CONTROLLED_OFFLINE_MUTATION` only for configured nursing observations/tasks; orders/discharge/medication verification online or server-reconciled, never naive LWW.
+AI may summarize authorized encounter history, draft discharge text, prioritize worklists; cannot diagnose, prescribe, discharge or change orders autonomously. RAG sources require patient/resource ACL. High-risk tool actions require approval. Web `/app/hlt/hms`; Tenant Staff App: rounds/observations/tasks; Tenant User App: own appointments/discharge docs; Desktop optional ward/OT station. Offline: `CONTROLLED_OFFLINE_MUTATION` only for configured nursing observations/tasks; orders/discharge/medication verification online or server-reconciled, never naive LWW.
 
 ### Configuration / entitlement / dependencies / audit
 Config: wards/beds, triage, procedures, consent/discharge templates, medication-risk classes. Entitlement: HLT suite + HLT-HMS MS + module features. Dependencies: Core Billing/Documents/Communication/Workflow + LIS/RIS/PMS. Audit every admission, transfer, clinical order, approval, exceptional override, export and cross-MS handoff.
@@ -97,7 +97,7 @@ Documents: requisition, barcode/label, collection acknowledgment, final lab repo
 tRPC: `ind.hlt.lis.order_register`, `sample_collect`, `sample_receive`, `result_enter`, `result_verify`, `report_approve`, `report_publish`, `critical_acknowledge`. Events: `hlt.lis.sample.collected`, `sample.rejected`, `result.verified`, `critical.triggered`, `report.approved`, `report.published`. External REST/adapters for HL7/FHIR/HIS/EHR/analyzer/ASTM only where configured; external codes map to internal canonical IDs.
 
 ### AI / experience / offline
-AI may summarize authorized report values, explain terminology, trend authorized history and assist draft narrative; cannot verify/approve results or suppress critical flags. RAG uses approved reports/templates, not unverified raw results unless explicitly permitted to staff. Web `/app/hlt/lis`; Staff Mobile: collection/barcode/status; Patient Mobile: booking/report download; Desktop: lab workstation/analyzer candidate. Offline `CONTROLLED_OFFLINE_MUTATION` for home-collection capture; result verification/approval online.
+AI may summarize authorized report values, explain terminology, trend authorized history and assist draft narrative; cannot verify/approve results or suppress critical flags. RAG uses approved reports/templates, not unverified raw results unless explicitly permitted to staff. Web `/app/hlt/lis`; Tenant Staff App: collection/barcode/status; Tenant User App: booking/report download; Desktop: lab workstation/analyzer candidate. Offline `CONTROLLED_OFFLINE_MUTATION` for home-collection capture; result verification/approval online.
 
 ### Configuration / entitlement / dependencies / audit
 Config: departments, specimen/container, methods, ranges, critical/delta rules, analyzer mappings, report templates, TAT policies. Entitlement HLT-LIS + analyzer/integration/report features. Dependencies: HMS/CMS orders; Core Billing/Document/Communication/AI. Audit accession, rejection, result revisions, holds/overrides, verification, approval, publication/download.
@@ -133,7 +133,7 @@ ORDERED→SCHEDULED→PREPARED→PERFORMED→IMAGES_AVAILABLE→READING→DRAFT 
 Documents: preparation/consent, imaging report/addendum, referral note. KPIs: TAT by modality, repeat rate, backlog, utilization, critical acknowledgment. tRPC `ind.hlt.ris.order_schedule`, `contrast_screen`, `exam_perform`, `report_submit`, `report_approve`; events `hlt.ris.exam.performed`, `report.approved`, `report.published`, `finding.critical`. PACS/DICOM/HL7/FHIR are adapter seams when configured; no mandatory vendor fabricated.
 
 ### AI / experience / offline / entitlement
-AI can draft structured narrative/compare authorized history; cannot approve report or clear contraindication. Web `/app/hlt/ris`; Staff Mobile worklist/alerts; patient report read; Desktop imaging workstation link optional. Offline `READ_OFFLINE`; exam/report finalization online. Entitlement HLT-RIS + modality/PACS/integration features. Audit all overrides/repeats/report versions/critical delivery.
+AI can draft structured narrative/compare authorized history; cannot approve report or clear contraindication. Web `/app/hlt/ris`; Staff Mobile worklist/alerts; Tenant User App patient report read; Desktop imaging workstation link optional. Offline `READ_OFFLINE`; exam/report finalization online. Entitlement HLT-RIS + modality/PACS/integration features. Audit all overrides/repeats/report versions/critical delivery.
 
 ### Tests / acceptance
 Positive order→published report. Negative contraindication/unauthorized repeat/approval denied. Wrong tenant/context/RAG/document denied. Critical alert delivery tracked. **Acceptance:** F-13 BR-HLT-09…12 implemented.
@@ -229,3 +229,7 @@ The Healthcare MS sections above remain the canonical domain entity/module/permi
 - 41-MS determinism evidence: `DD-27_41_MS_DETERMINISM_AUDIT.md`.
 
 Where an earlier sentence in this file is less specific than a referenced remediation contract, the more specific remediation contract governs. None of these references permits cross-industry inheritance of business semantics.
+
+
+## Canonical mobile-app mapping — Phase 3
+All mobile capabilities in this Industry DD are routes/features inside the canonical `TENANT_STAFF_APP` and/or `TENANT_USER_APP` defined by DD-10/DD-11. Role/persona labels never create separate mobile app classes or binaries. Platform Mobile is outside the Tenant app pair.
