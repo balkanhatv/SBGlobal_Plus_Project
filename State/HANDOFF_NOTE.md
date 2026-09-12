@@ -3,20 +3,23 @@
 
 ## Current truth
 - Branch: `docs/architecture-branch-2`
-- Checkpoint: `PHASE4-CROSS-LAYER-REVALIDATED`
-- Foundation: **PASS**
-- Architecture: **PASS**
-- Detailed Design: **PASS / COMPLETE**
-- Cross-layer traceability/isolation/determinism: **PASS**
-- Development: **NOT YET AUTHORIZED**
-- RawSourceCorpus: immutable / integrity PASS
+- Checkpoint: `FINAL-PREDEV-AUDIT-PASS-BACKUP-BLOCKED`
+- Foundation: PASS
+- Architecture: PASS
+- Detailed Design: COMPLETE / PASS
+- Cross-layer isolation/traceability/determinism: PASS
+- Final adversarial substantive audit: PASS
+- Development: **NOT AUTHORIZED**
 
-## Substantive baselines
-- Foundation: `4b5ec3667ae81c0b4c92a4cf0daba0282edd4131`
-- Architecture: `9453ebb0140670984753cec9e66613475789610b`
-- Detailed Design: `b4bba9c4764025af3d4546644f7c67efa463c86d`
+## Only remaining blocker
+`CLOSURE-BACKUP-01`: materialize the exact recovery snapshot as a physical ZIP, open/verify its required contents, compute SHA-256, and update `BACKUP_METADATA.json` + final checkpoint.
 
-## Next task
-Complete Phase 5 repository/state/checkpoint-backup closure, then run the final independent pre-development adversarial audit. If the required checkpoint backup cannot actually be produced with available tooling, preserve the verified project state and keep Development blocked only on that explicit closure dependency.
+Recovery source:
+- snapshot HEAD: `f09c26b2d01b97d0f50b20d94bad374dbc4252c7`
+- tree: `cb60aba0e91bab2d4eca2216233cfdbe484c1176`
+- recovery manifest: `State/PRE_DEVELOPMENT_RECOVERY_MANIFEST.json`
+- immutable archive URL is recorded in `BACKUP_METADATA.json`.
 
-Do not modify or merge `main` without explicit approval.
+After the ZIP is verified, rerun only repository/backup/final-state closure. Do **not** restart Foundation/Architecture/DD unless the snapshot content changes.
+
+Draft PR #2 is review-only. Do not merge `main` without explicit owner approval.
