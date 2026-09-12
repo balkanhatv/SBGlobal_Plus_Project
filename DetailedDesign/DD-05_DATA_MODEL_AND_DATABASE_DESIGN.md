@@ -1,5 +1,5 @@
 # DD-05 — CORE DATA MODEL, DATABASE & RLS DESIGN
-**Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE  
+**Wave:** 1 · **Status:** PHASE 3 REVALIDATED — DATA CONTRACTS  
 **Traces:** F-04 · F-11 · A-02 · A-05 · ADR-002/008/018 · DD-02
 
 ## 1. PostgreSQL schema ownership
@@ -10,8 +10,9 @@
 | core_tenancy | Tenancy | TENANT_CORE |
 | core_authz | Authorization | tenant/core |
 | core_commercial | Entitlement/Billing | tenant/core + global catalog |
-| core_config | Configuration | tenant/core |
-| core_workflow | Workflow | tenant/core or tenant/industry by instance |
+| core_config | Configuration + Metadata + Rules/Policy + Form/Dynamic Fields + Localization/Country Packs + CMS/Branding | tenant/core/industry by row scope |
+| core_master | Master/Reference Data + seed-pack catalog | platform/global + tenant/core + industry materializations |
+| core_workflow | Workflow + Automation/Scheduler definitions/instances | tenant/core or tenant/industry by instance |
 | core_notification | Notification | tenant/core or tenant/industry |
 | core_document | Document | tenant/core or tenant/industry |
 | core_audit | Audit | scope carried per event |
@@ -49,6 +50,39 @@ UNIQUE(tenant_id,code); index(parent_id), path_key. Industry linkage is separate
 
 ### data_home
 PLATFORM_GLOBAL: `id, code UNIQUE, region_code, jurisdiction_code, topology_class, status, routing_version, metadata_json`.
+
+## 3A. Phase-3 recovered shared-definition entities
+
+### metadata_definition
+`id uuid PK, owner_scope enum(PLATFORM,TENANT,INDUSTRY), tenant_id uuid?, industry_context_id uuid?, code text NOT NULL, kind text NOT NULL, version int NOT NULL, status enum(DRAFT,REVIEW,PUBLISHED,ACTIVE,RETIRED), schema_json jsonb NOT NULL, schema_version int NOT NULL, created_by uuid NOT NULL, approved_by uuid?, effective_from timestamptz?, effective_to timestamptz?, created_at, updated_at`.
+UNIQUE(owner_scope, COALESCE(tenant_id,zero_uuid), COALESCE(industry_context_id,zero_uuid), code, version). Partial unique index enforces one ACTIVE version per owner/code.
+
+### rule_definition
+Same scoped/version columns + `input_schema_json jsonb NOT NULL, condition_ast_json jsonb NOT NULL, decision_json jsonb NOT NULL, priority int NOT NULL DEFAULT 100, safety_class enum(BUSINESS,CONFIGURATION,VALIDATION), required_permission text?`.
+AST node/operator allowlist is platform-owned; no arbitrary code/SQL/function import node exists.
+
+### form_definition
+Same scoped/version columns + `purpose_code, submit_operation_id text?, layout_schema_json jsonb NOT NULL, validation_rule_refs text[] NOT NULL DEFAULT '{}', localization_key_prefix text?, allowed_surface_classes text[] NOT NULL`.
+
+### form_field_definition
+`id, form_definition_id FK, field_key text, field_type enum(TEXT,NUMBER,DECIMAL,DATE,DATETIME,BOOLEAN,SELECT,MULTISELECT,REFERENCE,FILE,JSON_STRUCTURED), label_key, required boolean, read_only boolean, visibility_rule_ref?, validation_schema_json, reference_catalog_ref?, sort_order int, sensitivity_class, created_at`.
+UNIQUE(form_definition_id, field_key).
+
+### country_pack
+`id uuid PK, country_code char(2) NOT NULL, code text NOT NULL, version int NOT NULL, status enum(DRAFT,REVIEW,PUBLISHED,ACTIVE,RETIRED), locale_codes text[] NOT NULL, default_currency_code char(3)?, default_timezone text?, default_date_format text?, address_schema_json jsonb?, phone_schema_json jsonb?, reference_bundle_ref text?, metadata_json jsonb, created_at, approved_by?, effective_from?`.
+UNIQUE(country_code,code,version). Country packs contain reference/default configuration only; permission grants and Industry business rules are prohibited.
+
+### tenant_country_pack_activation
+`id, tenant_id NOT NULL, country_pack_id NOT NULL, status enum(PENDING,ACTIVE,DISABLED), config_override_json jsonb, activated_at?, disabled_at?, row_version bigint`.
+UNIQUE(tenant_id,country_pack_id) for active lifecycle ownership.
+
+### brand_configuration
+`id, owner_scope enum(PLATFORM,TENANT,INDUSTRY), tenant_id?, industry_context_id?, code, version, status enum(DRAFT,REVIEW,PUBLISHED,ACTIVE,RETIRED), token_json jsonb NOT NULL, typography_json jsonb NOT NULL, logo_document_id?, favicon_document_id?, accessibility_validation_status enum(PENDING,PASS,FAIL), created_by, approved_by?, created_at, updated_at`.
+Activation requires accessibility_validation_status=PASS. Platform security/warning semantic tokens are non-overridable at lower scopes.
+
+### data_export_request
+`id, tenant_id NOT NULL, industry_context_id?, requester_principal_id NOT NULL, subject_principal_id?, scope_class, export_type enum(DATA_ACCESS,PORTABILITY,TENANT_EXPORT,ADMIN_EXPORT), requested_resource_classes text[] NOT NULL, residency_policy_version, sensitivity_ceiling, status enum(REQUESTED,VALIDATING,APPROVAL_REQUIRED,APPROVED,GENERATING,READY,DOWNLOADED,EXPIRED,REJECTED,CANCELLED), approval_ref?, document_id?, expires_at?, created_at, updated_at`.
+Generation queries execute under the requester/approved export policy and never under wildcard DB authority.
 
 ## 4. Ownership constraints
 - `industry_context.tenant_id` immutable.
@@ -120,5 +154,13 @@ Mutable aggregates use row_version optimistic concurrency. Commands send expecte
 ## 12. Residency
 Tenant directory resolves data_home before business connection. Tenant business rows, documents, AI/RAG and PII telemetry remain in allowed home. Cross-region copy requires governed migration/backup policy.
 
-## 13. Database design acceptance
+## 13. Phase-3 data acceptance
+- activating a Country Pack cannot create permission/entitlement grants;
+- form/rule/metadata rows with TENANT_INDUSTRY scope require matching tenant_id + industry_context_id;
+- arbitrary executable content in rule/form metadata is rejected;
+- Tenant brand activation fails accessibility validation when restricted semantic floors are weakened;
+- export/portability generation under wrong Tenant/Industry Context yields no data and a denial audit;
+- ACTIVE shared-definition uniqueness is enforced by database constraint/index plus service transaction.
+
+## 14. Database design acceptance
 No tenant table without tenant ownership; no industry table with nullable industry ownership; no broad wildcard operator policy; no cross-context projection without declared ownership; no schema convention mistaken for permission.
