@@ -238,3 +238,24 @@ Evidence earned after the independent forensic audit reopened the gate:
 **Architecture gate:** independently remediated and re-audited after Foundation stabilization. A-00…A-12 now carry fail-closed Tenant + Industry Context architecture, one effective-access chain, one four-surface model, contextual events/storage/offline sync and complete ADR evidence. Fresh Architecture traceability/No-Loss/adversarial audits PASS.
 
 **Current gate:** FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · READY FOR DETAILED DESIGN. This does not imply Detailed Design Complete, implementation, testing, security validation or production readiness.
+
+
+---
+
+## 15. Phase 1 RawSource → Foundation Fresh Reconciliation — CURRENT ACTIVE STATUS (12-09-2026)
+
+This section supersedes only the **current-status effect** of prior certification amendments; historical records above remain preserved.
+
+**PHASE 1 — RAWSOURCE → FOUNDATION FRESH RECONCILIATION: PASS.**
+
+Fresh Phase-1 evidence is `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`.
+
+The complete immutable RawSourceCorpus and complete Foundation set were re-read. Material source/governing requirements that had been compressed, implicit or missing at their proper Foundation owners were recovered and corrected in F-01/F-02/F-04/F-05/F-06/F-14. RawSourceCorpus itself remained unchanged.
+
+**Current dependency truth:**
+- Foundation: **FRESH RECONCILED — ACCEPTED INPUT TO PHASE 2**.
+- Architecture: **REVALIDATION REQUIRED** because Foundation changed after the prior Architecture audit baseline.
+- Detailed Design: **REVALIDATION REQUIRED / prior COMPLETE status historical until re-earned**.
+- Development: **NOT AUTHORIZED** until the downstream Architecture → DD → final adversarial chain is revalidated.
+
+This Phase-1 PASS is a Foundation no-loss/depth result only. It does not certify Architecture, Detailed Design, implementation, testing, security validation or production readiness.
