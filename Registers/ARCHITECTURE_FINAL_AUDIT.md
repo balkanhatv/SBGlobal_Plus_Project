@@ -1,30 +1,44 @@
-# ARCHITECTURE FINAL / ADVERSARIAL AUDIT — POST-REMEDIATION
-**Status:** ARCHITECTURE CERTIFICATION EARNED · **Date:** 2026-09-11 · **Evaluated HEAD:** `df1f72412044751ac30c184315d05e4d72e0099a`
+# ARCHITECTURE FINAL / ADVERSARIAL AUDIT — PHASE 2
+**Status:** ARCHITECTURE REVALIDATION EARNED · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 
 ## Pass 1 — evidence reconciliation
-Foundation fresh No-Loss/depth PASS is current. A-00…A-12 are present. Architecture traceability maps the current Foundation concerns to exact HOW owners. ADR-001…ADR-018 meet the architecture-decision evidence standard.
+The fresh Phase-1 Foundation is the upstream authority. A-00…A-12 were read in full and targeted corrections were applied only to real blast-radius owners. Phase-1 recovered requirements now have explicit Architecture HOW and ADR evidence.
 
-## Pass 2 — attempt to disprove readiness
-The pass specifically attacked:
-1. tenant-only security mistaken for Tenant+Industry security;
-2. wrong-industry resource IDs;
-3. document/storage cross-context access;
-4. event/projector/webhook cross-context leakage;
-5. offline replay context confusion;
-6. AI/RAG/agent privilege or context leakage;
-7. multiple effective-access chains;
-8. competing application-surface models;
-9. Clerk hard coupling;
-10. Foundation requirements with no Architecture owner;
-11. Architecture claims resting on generic/partial MS evidence;
-12. stale technology/commercial/erasure/residency assumptions.
+## Pass 2 — attempt to disprove Architecture readiness
+Attacks performed:
+1. same-Tenant sibling Industry resource access;
+2. missing/wrong Industry Context;
+3. document/signed-URL wrong context;
+4. event/projector/webhook context loss;
+5. offline replay under changed context/entitlement;
+6. AI RAG/memory/tool cross-context leakage;
+7. AI public/API path bypassing Gateway;
+8. tenant-defined rule arbitrary-code path;
+9. Form/Rules/Workflow ownership duplication inside Industry suites;
+10. role-specific mobile binary proliferation;
+11. Tenant branding weakening accessibility/security semantics;
+12. Future Industry premature licensing/activation;
+13. country-pack defaults becoming hard-coded global semantics;
+14. export/portability bypassing authorization/residency;
+15. competing effective-access order;
+16. stale technology/commercial assumptions.
 
-The attack matrix and current documents provide fail-closed Architecture behavior for every P0/P1 class. No unresolved P0/P1 remains.
+Architecture behavior is fail-closed or explicitly governance-gated for each class.
+
+## Isolation architecture result
+- Cross-Tenant: DENY by RequestContext + repository/RLS/storage/event/AI boundaries.
+- Same Tenant / sibling Industry: DENY unless explicit governed cross-context contract exists.
+- AI/RAG: authorization and context filtering before ranking/inference/tool execution.
+- Offline: originating context persisted; current authorization/entitlement re-evaluated on replay.
+- Events/webhooks/projections: source context preserved and consumers cannot reinterpret it.
+- Future Industry: not live-Tenant activatable before promotion gate.
+
+## Severity
+- Open P0: 0
+- Open P1: 0
+- Material Architecture gap: 0
 
 ## Certification boundary
-**ARCHITECTURE CERTIFIED** means the high-level HOW is coherent and can enter Detailed Design. It does not mean Detailed Design Complete, implemented, tested, security validated, production ready, deployed or operational.
+**ARCHITECTURE REVALIDATED — PASS.** This means system-level HOW is coherent input to Detailed Design revalidation. It does not certify the current Detailed Design after the upstream changes and does not authorize Development.
 
-## Genuine Detailed Design work
-Exact entity/field schemas; concrete RLS policies; endpoint/payload/event schemas; exhaustive permission matrix; screen/navigation inventories; offline conflict tables; IaC/vendor configuration; numeric SLO/RPO/RTO; migration/rollback/runbook mechanics; implementation/security test contracts.
-
-**Final Architecture gate: PASS.**
+**Next gate:** Phase 3 — Detailed Design fresh revalidation/correction.
