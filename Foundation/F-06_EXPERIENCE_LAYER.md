@@ -35,4 +35,16 @@ Platform Desktop (platform-level) · optional Industry Desktop Experience enable
 ## 6. UI/UX Layer Model `[SD: MI §19]`
 **Core Design System → Industry Experience Layer → Tenant Branding Layer → Application Surface Layer.** Component library, grid (12/8/4), spacing scale (4…96), radius scale, status colors, breakpoints owned by Enterprise UI Design System `[SD: S2.8]`; brand tokens/typography/table/form defaults owned by Enterprise Default Standards `[SD: S2.7]` (baseline: Asia/Kolkata · dd-MM-yyyy · INR · English/Hindi); industry-specific defaults (LIS report flags, invoice defaults…) scoped to their Suites. Accessibility: keyboard navigation, ARIA, high contrast, screen reader, reduced-motion respect. Never a completely different design system per Tenant.
 
+### 6.1 Platform Brand Default `[SD: S1 §12–13; S2.7; UD: CR-02]`
+
+The active Platform brand is **SBGlobal Plus**. Canonical primary tagline is the USER-DIRECTED decision **“One Intelligent Platform. Every Industry. Infinite Possibilities.”** S1’s “Guided by Trust. Built for Tomorrow.” and S2.7’s “AI-Powered Enterprise Intelligence. One Core. Unlimited Possibilities.” remain preserved as historical/alternative source taglines, not competing active primaries.
+
+**Default brand tokens from Enterprise Default Standards:** Primary `#06B6D4` · Primary Hover `#2563EB` · Secondary `#0F766E` · Accent `#7C3AED` · Success `#16A34A` · Warning `#F59E0B` · Danger `#DC2626` · Info `#0284C7`; backgrounds White `#FFFFFF`, Gray `#F8FAFC`, Sidebar `#0F172A`, Card `#FFFFFF`; text Heading `#0F172A`, Body `#475569`, Muted `#64748B`, Border `#E2E8F0`.
+
+**Typography defaults:** Inter primary · Poppins secondary · Roboto report/PDF; semantic product radii Card 12px · Button 10px · Input 8px; Light default / Dark optional; platform spacing scale and detailed component tokens remain owned by S2.8.
+
+**Company identity source default:** SBGlobal Plus Pvt Ltd.; organization/contact metadata is CMS/configuration-managed and may be updated through governed company-profile configuration without changing application code. Source-supplied company/contact values remain traceable to S1 §13 / S2.7 rather than being duplicated across unrelated Foundation files.
+
+Tenant branding/white-label may override allowed presentation tokens within entitlement and accessibility/security floors; it never changes the Platform product identity, canonical audit/security semantics, or creates a code fork.
+
 **Deferred:** per-surface screen inventories, navigation maps, design-token instantiation — Architecture/Detailed Design.
