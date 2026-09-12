@@ -1,18 +1,17 @@
 # PROJECT_STATE — SBGlobal Plus
 - Updated: 2026-09-13.
 - Branch: `docs/architecture-branch-2`.
-- Current checkpoint: `PHASE3-DD-REVALIDATED`.
+- Current checkpoint: `PHASE4-CROSS-LAYER-REVALIDATED`.
 - Foundation: **FRESH RECONCILED — PHASE 1 PASS**.
 - Architecture: **FRESH REVALIDATED — PHASE 2 PASS**.
 - Detailed Design: **COMPLETE / FRESH REVALIDATED — PHASE 3 PASS**.
+- Cross-layer traceability/isolation/determinism: **PHASE 4 PASS**.
 - Development: **BLOCKED / NOT YET AUTHORIZED**.
 - Phase-1 substantive Foundation HEAD: `4b5ec3667ae81c0b4c92a4cf0daba0282edd4131`.
 - Phase-2 substantive Architecture HEAD: `9453ebb0140670984753cec9e66613475789610b`.
 - Phase-3 substantive DD HEAD: `b4bba9c4764025af3d4546644f7c67efa463c86d`.
-- Phase-1 evidence: `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`.
-- Phase-2 evidence: `Registers/PHASE2_ARCHITECTURE_REVALIDATION_2026-09-12.md`.
-- Phase-3 evidence: `Registers/PHASE3_DETAILED_DESIGN_REVALIDATION_2026-09-13.md`.
+- Phase-4 evidence: `Registers/PHASE4_CROSS_LAYER_TRACEABILITY_ISOLATION_2026-09-13.md`.
+- Current isolation matrix: `Registers/ISOLATION_ATTACK_MATRIX.md` — PASS at Phase-3 substantive DD HEAD.
 - RawSourceCorpus: immutable; accepted blobs `a9f63a64448a347edd0f2b0c74094284ee953c1b` and `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`.
-- `main`: historical PR #1 merge exists at `3911590ff2020993ce51b32d7b091efd6f5f466f`; no main merge was performed by Phases 1–3.
-- Historical Foundation-only recovery backup exists; no current full pre-development closure backup has been produced.
-- Next phase: **Phase 4 — final cross-layer traceability/isolation/determinism revalidation**.
+- `main`: historical PR #1 merge exists at `3911590ff2020993ce51b32d7b091efd6f5f466f`; no main merge was performed by Phases 1–4.
+- Next: **Phase 5 — repository/state/backup closure**, then final independent adversarial pre-development gate.
