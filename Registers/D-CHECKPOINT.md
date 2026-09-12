@@ -1,22 +1,25 @@
-# D-CHECKPOINT — PHASE2-ARCHITECTURE-REVALIDATED
-**Date:** 2026-09-12
+# D-CHECKPOINT — PHASE3-DD-REVALIDATED
+**Date:** 2026-09-13
 
-## Evidence
-- Phase 1 Foundation input: PASS.
-- A-00…A-12 freshly read in full.
-- Substantive Architecture HEAD: `9453ebb0140670984753cec9e66613475789610b`.
-- Phase-2 evidence: `Registers/PHASE2_ARCHITECTURE_REVALIDATION_2026-09-12.md`.
-- Fresh Architecture traceability: PASS.
-- Fresh Architecture no-loss/depth audit: PASS.
-- Fresh Architecture adversarial audit: PASS.
-- Open Architecture P0/P1: 0/0.
-- RawSourceCorpus unchanged.
-- No code, migrations, deployment execution or main merge.
+## Current evidence
+- Phase 1 Foundation: PASS.
+- Phase 2 Architecture: PASS.
+- Phase 3 Detailed Design: PASS.
+- 55/55 DD files freshly read.
+- DD substantive HEAD: `b4bba9c4764025af3d4546644f7c67efa463c86d`.
+- DD P0/P1: 0/0.
+- REAL_DD_GAP: 0.
+- 41/41 MS acceptance/workflow evidence retained.
+- 165/165 named KPI metrics mapped.
+- Development determinism 9/9 YES.
+- QA determinism 9/9 YES.
+- RawSource unchanged.
+- No executable code/migration/deployment/main merge.
 
 ## Current gate
-- Foundation: **PASS — FRESH RECONCILED**.
-- Architecture: **PASS — FRESH REVALIDATED**.
-- Detailed Design: **REVALIDATION REQUIRED**.
-- Development: **NOT AUTHORIZED**.
+- Foundation: **PASS**.
+- Architecture: **PASS**.
+- Detailed Design: **PASS / COMPLETE**.
+- Development: **NOT YET AUTHORIZED**.
 
-Next: Phase 3 — Detailed Design fresh revalidation/correction.
+Next: Phase 4 — final cross-layer traceability/isolation/determinism revalidation.
