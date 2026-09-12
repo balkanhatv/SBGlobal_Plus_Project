@@ -359,6 +359,8 @@ Before reading substantive files, create a **Canonical Scope Manifest** that cla
 
 The classification itself must be evidence-based. Do not exclude a file merely to reduce audit work.
 
+For very large generated or derived traceability/audit evidence files, the claims they make remain auditable, but duplication of the same source requirement across multiple matrices must not inflate requirement counts or create false independent evidence. Identify the authoritative owner and distinguish every derived projection from primary evidence.
+
 Create a **Per-File Coverage Ledger** before certification. For every required active file record at minimum:
 
 - repository path;
@@ -1896,6 +1898,17 @@ Detect stale evaluated HEAD values.
 
 Every final audit must state the exact commit it evaluated.
 
+Validate every machine-readable active artifact (for example `State/PROJECT_MANIFEST.json`, `BACKUP_METADATA.json`, and equivalent JSON/state registries) syntactically and semantically:
+
+- valid parse;
+- no duplicate or contradictory keys;
+- referenced files and IDs exist;
+- status values match canonical state;
+- commit SHAs and branch names are current;
+- counts are evidence-derived rather than stale copied numbers.
+
+Validate Markdown cross-references, anchors, relative links, file paths and canonical IDs after any rename/rewrite. A human-readable PASS does not excuse a broken machine-readable manifest or dangling documentation reference.
+
 If state/checkpoint metadata must be committed after the substantive audit commit, record two SHAs explicitly:
 
 - **Final Substantive Audited HEAD** — the exact tree whose product/design truth was adversarially audited;
@@ -1992,6 +2005,15 @@ When rewriting a file:
 - update every inbound/outbound cross-reference affected by the rewrite;
 - re-run traceability and acceptance checks against the rewritten file.
 
+Before applying a material correction, create a **Change Impact / Blast-Radius entry** covering:
+
+- authoritative source of change;
+- upstream and downstream affected artifacts;
+- stable IDs affected;
+- security, tenancy, commercial and industry impact;
+- required test and traceability updates;
+- certification states temporarily invalidated.
+
 For every correction:
 
 1. identify higher authority;
@@ -2014,8 +2036,10 @@ Examples:
 - stale stack reference → mark legacy or replace active reference;
 - vague “configurable” → define configuration contract;
 - missing KPI formula → add formula + isolation/test contract;
-- stale state claim → correct state;
+- stale state claim → correct the underlying truth/evidence first, then synchronize state;
 - stale evaluated HEAD → rerun evidence at current final substantive HEAD.
+
+Never “fix” a substantive defect only by changing a PASS/COMPLETE/status label, count, matrix cell or checkpoint. Status changes are consequences of evidence, not remediation.
 
 ---
 
@@ -2100,6 +2124,8 @@ If an exact implementation/product default is required and legitimately belongs 
 - preserve reversibility.
 
 Never present a completion choice as a source fact.
+
+Never silently upgrade model/common-industry knowledge into SOURCE-DERIVED truth. If domain completion is needed beyond repository source evidence, use the governed completion provenance and keep the choice reviewable, configurable where appropriate and reversible.
 
 ---
 
@@ -2202,8 +2228,8 @@ After the final correction commit:
 - verify `main` unchanged/unmerged;
 - compare branch against `main` and record ahead/behind truth;
 - inspect open PR state and never invent a PR/merge claim;
-- verify RawSourceCorpus unchanged by comparing the full RawSourceCorpus tree/blob identities against the execution-start state, not merely filenames or timestamps;
-- verify no application code/migrations/deployment implementation added;
+- verify RawSourceCorpus unchanged by comparing the full `RawSourceCorpus/` tree identity and every contained blob SHA against the Execution Start state, not merely filenames, sizes or timestamps;
+- verify no executable application code, executable database migration, infrastructure-as-code deployment implementation, or executable production test suite was added by this documentation-only task; documentation examples, schemas and pseudocode must remain clearly non-executable specification evidence;
 - compare state/registers against final evidence;
 - verify final audit artifacts evaluate the final substantive design HEAD or clearly explain later metadata-only synchronization commits;
 - verify no open PR/merge claim is invented;
@@ -2279,7 +2305,11 @@ At minimum evidence must capture:
 - corrections applied;
 - final adversarial audit;
 - final state/gate;
-- final checkpoint/backup/PR-housekeeping truth where applicable.
+- final checkpoint/backup/PR-housekeeping truth where applicable;
+- machine-readable JSON/manifest validation result;
+- cross-reference / dangling-link validation result;
+- stable-ID migration/supersession mappings, if any;
+- change-impact/blast-radius register for material corrections.
 
 Do not create a new parallel source of truth when an existing register is the proper owner.
 
@@ -2509,7 +2539,7 @@ A security engineer should not have to guess the enforcement boundary.
 
 An Industry implementer should not have to copy another Industry.
 
-A future AI agent should be able to trace every material implementation decision back to authoritative project truth.
+A future AI agent should be able to trace every material implementation decision back to authoritative project truth without guessing which file, ID, version, or status is canonical.
 
 If that condition is achieved and the final adversarial audit proves it, certify the project as READY FOR DEVELOPMENT.
 
