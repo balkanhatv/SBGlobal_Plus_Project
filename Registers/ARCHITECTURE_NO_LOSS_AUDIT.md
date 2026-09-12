@@ -1,23 +1,40 @@
-# ARCHITECTURE NO-LOSS / DEPTH AUDIT — FRESH POST-REMEDIATION PASS
-**Status:** PASS · **Date:** 2026-09-11 · **Evaluated HEAD:** `df1f72412044751ac30c184315d05e4d72e0099a`
+# ARCHITECTURE NO-LOSS / DEPTH AUDIT — PHASE 2 FRESH PASS
+**Status:** PASS · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 
-## Coverage
-- One Unified modular Core — PASS.
-- Tenant isolation and **same-tenant Industry Context isolation** — PASS.
-- One Core IdentityPort; Clerk preferred/Auth.js fallback — PASS.
-- One canonical effective-access chain — PASS.
-- Commercial lifecycle/compiled entitlements without PAST_DUE regression — PASS.
-- Data ownership, conditional erasure, Regional Data Homes and residency-qualified DR — PASS.
-- tRPC/REST boundary, contextual outbox, webhook isolation — PASS.
-- AI Gateway/RAG/agent security — PASS.
-- Single canonical four-surface model — PASS.
-- Mobile/Desktop offline context preservation/revalidation — PASS.
-- 41 Management Systems consumed from specific Foundation semantics — PASS.
-- Infrastructure/resilience/observability — PASS.
-- ADR-001…ADR-018 each contain Context, Decision, Options, Trade-offs, Consequences, Risks, Dependencies and Affected Architecture evidence — PASS.
-- Detailed Design mechanics remain deferred — PASS.
+## Full Architecture coverage
+A-00 through A-12 were freshly read in full against the corrected Phase-1 Foundation.
 
-## Contradiction search
-No active occurrence remains of the prior problematic forms: tenant-only RequestContext, Clerk-only IdentityPort, tenant-only event envelope, entitlement-first competing authorization chain, duplicate A-08 surface authority, or architecture-level universal pseudonymization/PAST_DUE/cross-region override.
+## Phase-1 delta propagation
+- Future Industry Framework/promotion gate — PASS (A-09 + ADR-020).
+- Form Builder/Dynamic Fields + Rules/Policy shared ownership — PASS (A-01 + ADR-019).
+- Country/localization packs — PASS (A-01/A-05).
+- Clerk/session/access + canonical effective-access chain — PASS (A-03/A-04; no active JWT-refresh regression).
+- Enterprise AI API/provisioning/memory/document/prompt/media expansion — PASS (A-07 + ADR-010).
+- Exactly two logical Tenant mobile apps — PASS (A-08 + ADR-014).
+- Concrete Platform brand defaults and bounded Tenant theming — PASS (A-08 + ADR-011).
+- Data access/export/portability — PASS (A-05).
+- Commercial effective-access ordering — PASS (A-03/A-04/ADR-004).
+
+## Existing architecture invariants rechecked
+- One Unified Core, no tenant/industry backend forks — PASS.
+- Tenant + Industry Context isolation across request/data/documents/events/AI/offline — PASS.
+- RBAC primary + ABAC complementary — PASS.
+- Subscription lifecycle without PAST_DUE regression — PASS.
+- tRPC first-party + REST/OpenAPI external — PASS.
+- Transactional outbox/webhook isolation — PASS.
+- Regional Data Home/residency-qualified backup/failover — PASS.
+- React Native/Expo + Tauri 2.0 + current UD-TECH-01 — PASS.
+- Nine industries equal; Healthcare not a sibling template — PASS.
+- Architecture remains HOW; exact implementation contracts remain DD — PASS.
+
+## Contradiction/staleness sweep
+No active Architecture truth remains that:
+- points to CP-F1-005 as the current Foundation baseline;
+- requires Flutter, Laravel/PHP/Filament/MySQL-primary, Windows-only desktop or PM2/cPanel-centric deployment;
+- treats JWT refresh as the first-party human-session model;
+- treats PAST_DUE as a canonical subscription state;
+- permits industryContextId absence to mean all industries;
+- permits role-specific Tenant mobile binaries;
+- permits a Future Industry to become live without promotion governance.
 
 **Result: PASS.**
