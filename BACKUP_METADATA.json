@@ -1,11 +1,24 @@
 {
   "backup_name": "SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip",
+  "status": "HISTORICAL_FOUNDATION_ONLY",
   "checkpoint": "CP-F1-005 (revision C)",
   "created": "2026-09-04 (UTC)",
   "file_count": 36,
-  "structure": { "Governing/": 2, "RawSourceCorpus/": 2, "Foundation/": 15, "Registers/": 11, "State/": 4, "root README_FOUNDATION.md": 1, "root BACKUP_METADATA.json": 1 },
+  "scope": "Historical Foundation-era recovery package; does not contain the current Architecture/DetailedDesign documentation tree and is not current closure evidence.",
+  "structure": {
+    "Governing/": 2,
+    "RawSourceCorpus/": 2,
+    "Foundation/": 15,
+    "Registers/": 11,
+    "State/": 4,
+    "root README_FOUNDATION.md": 1,
+    "root BACKUP_METADATA.json": 1
+  },
   "secrets_included": false,
   "production_pii_included": false,
   "built_from": "docs/foundation-build-2 final post-revert HEAD (CP-F1-005 revision C synchronization commit)",
-  "verification": "Open-and-compare performed post-creation against the final post-revert repository tree: 36/36 files, no missing/extra/empty entries, no size mismatches, Raw Source Corpus byte-identical to the repository state (owner-directed a811a1ab content preserved verbatim), F-06 v0.1 restored copy packaged. RESULT: PASS"
+  "historical_verification": "Open-and-compare was recorded as 36/36 PASS for that historical Foundation package.",
+  "current_branch": "docs/architecture-branch-2",
+  "current_phase1_closure_backup": "NOT CREATED — Phase 1 is not the final Development-readiness closure gate.",
+  "note": "A fresh full-scope backup must be created and verified at the governing final closure checkpoint after downstream Architecture/DD revalidation."
 }
