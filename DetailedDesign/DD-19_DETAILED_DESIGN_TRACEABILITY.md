@@ -1,5 +1,5 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Wave:** 1–3 · **Status:** DETAILED DESIGN COMPLETE — FINAL REQUIREMENT-ID AUDIT PASS · DD-F5-RECERTIFIED
+**Wave:** 1–3 · **Status:** PHASE 3 REVALIDATION — UPDATED TRACEABILITY
 
 | Foundation owner | Architecture owner | ADR | Detailed Design owner | Contract/result |
 |---|---|---|---|---|
@@ -17,6 +17,13 @@
 | MI §26B | all above | applicable | DD-17 | implementation acceptance contracts |
 | Governance evidence | A-12 + registers | applicable | DD-18/DD-19/DD-20 | decisions/trace/audit |
 
+| Phase-1 recovered: shared Config/Metadata/Rules/Form engines | A-01 / ADR-019 | 019 | DD-01/DD-05 | deterministic definition lifecycle, ownership and safe-expression boundary |
+| Phase-1 recovered: Country/Localization Packs | A-01/A-05 / ADR-008/019 | 008/019 | DD-05 | country-pack schema + tenant activation + no permission widening |
+| Phase-1 recovered: AI API/provisioning/memory/document/prompt/media | A-07 / ADR-010 | 010 | DD-09 | provisioning snapshot, API classes, memory, prompt and media contracts |
+| Phase-1 recovered: exactly two Tenant mobile apps | A-08 / ADR-014 | 014 | DD-10/DD-11 | Staff/User appClass manifest; no role-specific binaries |
+| Phase-1 recovered: Platform brand defaults/theme hierarchy | A-08 / ADR-011 | 011 | DD-05/DD-10 | versioned brand config + protected semantic floor |
+| Phase-1 recovered: data access/export/portability | A-05 / ADR-008 | 008 | DD-05/DD-16 | export request + context/residency/retention enforcement |
+| Phase-1 recovered: Future Industry Framework | A-09 / ADR-020 | 020 | DD-13 | promotion state machine + explicit approval + live activation gate |
 ## Orphan check
 Wave-1 contracts without upstream owner: **0**.  
 Upstream Wave-1 dependency-spine concerns without DD owner: **0**.
@@ -130,3 +137,13 @@ The prior document/section-level Wave-3 table is historical convenience, not suf
 - Broad/partial source destinations are not used alone as certification proof.
 - Development/Test-only executable validation requirements remain deferred to their correct future phase.
 - Fresh final audits DD-20C/DD-20D and DD-30 passed; current required-contract orphan count is 0 and REAL_GAP=0.
+
+## Phase-3 upstream-delta closure
+- ADR-019 → DD-01/DD-05 + CFG/LOC acceptance tests.
+- ADR-020 → DD-13 + APP-011/012.
+- expanded ADR-010 → DD-09 + AI-013…017.
+- expanded ADR-011 → DD-05/DD-10 + BRAND/APP tests.
+- expanded ADR-014 → DD-10/DD-11 + APP-009/013.
+- expanded ADR-008 access/localization implications → DD-05 + DATA-ACCESS/LOC tests.
+
+Historical DD-F5-RECERTIFIED evidence remains provenance only until the Phase-3 final audit is completed at the current substantive HEAD.
