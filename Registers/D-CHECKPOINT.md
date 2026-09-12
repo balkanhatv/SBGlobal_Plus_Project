@@ -1,21 +1,23 @@
-# D-CHECKPOINT — PHASE4-CROSS-LAYER-REVALIDATED
+# D-CHECKPOINT — PHASE5-CLOSURE-BACKUP-BLOCKED
 **Date:** 2026-09-13
 
-## Current evidence
+## Passed evidence
 - Phase 1 Foundation: PASS.
 - Phase 2 Architecture: PASS.
 - Phase 3 Detailed Design: PASS.
 - Phase 4 cross-layer traceability/isolation/determinism: PASS.
-- Requirement-chain gaps for Phase-1 recovered items: 0.
-- 41/41 MS acceptance/workflow ownership: PASS.
-- 165/165 named KPI metrics mapped.
-- Isolation P0/P1: 0/0.
-- Development determinism: 9/9 YES.
-- QA determinism: 9/9 YES.
-- RawSourceCorpus unchanged.
-- No executable implementation, migration, deployment or main merge.
+- RawSource integrity: PASS.
+- Branch/main truth: verified.
+- Git recovery manifest: created for snapshot `f09c26b2d01b97d0f50b20d94bad374dbc4252c7` / tree `cb60aba0e91bab2d4eca2216233cfdbe484c1176`.
+- Files indexed: 125; blob bytes: 4,048,092.
+
+## Blocking closure item
+Governing §24 requires a recoverable checkpoint package/ZIP. Current environment cannot download/clone GitHub archive content, therefore:
+- physical ZIP: NOT MATERIALIZED;
+- archive SHA-256: NOT VERIFIED;
+- backup closure: BLOCKED.
+
+No completion claim is fabricated.
 
 ## Current gate
-Development remains **NOT YET AUTHORIZED** until Phase 5 repository/state/backup closure and the final independent adversarial pre-development gate pass.
-
-Next: Phase 5 — repository/state/backup closure.
+Development: **NOT AUTHORIZED** until the mandatory physical checkpoint backup is materialized/verified and the final adversarial verdict is synchronized.
