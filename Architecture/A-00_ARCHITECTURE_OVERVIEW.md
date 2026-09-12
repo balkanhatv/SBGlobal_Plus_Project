@@ -1,6 +1,6 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
-**Document ID:** A-00 · **Version:** 1.2 · **Status:** ARCHITECTURE BASELINE (CP-A1-002) · **Date:** 10-09-2026
-**Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** CP-F1-005 (FOUNDATION CERTIFIED) · **Phase:** Architecture (HOW). Foundation (WHAT/WHY/WHO) is authoritative and unmodified.
+**Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
+**Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 
 ---
 
@@ -19,11 +19,10 @@ All nine industries (F-07…F-09, F-12, F-13) are first-class and equal. There i
 ## 3. Layered System Model (canonical)
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ L6 EXPERIENCE   Public Site (Next.js 15 + Payload CMS 3)       │
-│                 Platform App (Next.js 15) · Tenant App          │
-│                 (Next.js 15) · Mobile (React Native / Expo)     │
-│                 · Desktop (Tauri 2.0) · Ops Admin              │
-│                 (Next.js 15 + Shadcn UI)                        │
+│ L6 EXPERIENCE   Public SaaS Website · Platform Application      │
+│                 · Tenant Management Application · reusable      │
+│                 Industry Experiences (Web + exactly two logical │
+│                 Tenant mobile apps + optional Tauri Desktop)    │
 ├─────────────────────────────────────────────────────────────────┤
 │ L5 EXPERIENCE-API  tRPC (first-party) · REST/OpenAPI            │
 │                    compatibility for external integrations      │
@@ -31,14 +30,19 @@ All nine industries (F-07…F-09, F-12, F-13) are first-class and equal. There i
 ├─────────────────────────────────────────────────────────────────┤
 │ L4 UNIFIED CORE (Next.js 15 application core)                   │
 │    TypeScript 5.x · Node.js 22 · Identity·Tenancy·AuthZ         │
-│    (RBAC+ABAC)·Entitlement·Billing·Config·Workflow·Notification │
-│    ·Document·Search·Audit                                       │
+│    (RBAC+ABAC)·Entitlement·Billing·Configuration·Metadata       │
+│    ·Rules/Policy·Form/Dynamic Fields·Workflow·Notification      │
+│    ·Document·Search·Reporting/BI·Integration·Automation         │
+│    ·Localization/Country Packs·CMS/Branding·Marketplace·Audit  │
 ├─────────────────────────────────────────────────────────────────┤
 │ L3 INDUSTRY CAPABILITY MODULES (9 suites; Management Systems    │
 │    as Core-hosted modules, entitlement-activated per tenant)    │
 ├─────────────────────────────────────────────────────────────────┤
-│ L2 AI PLATFORM   AI Gateway · Provider Abstraction · RAG        │
-│                  (pgvector) · Agents/Skills/Tools · Guardrails  │
+│ L2 AI PLATFORM   AI Gateway · Provider/Model Registry · RAG     │
+│                  · Assistants/Agents/Skills/Tools · Memory       │
+│                  · Document Intelligence · Prompt Management     │
+│                  · AI APIs/Provisioning · Media Generation       │
+│                  · Guardrails/Observability                      │
 ├─────────────────────────────────────────────────────────────────┤
 │ L1 DATA          PostgreSQL (RLS multi-tenant) · Object storage │
 │                  · Outbox/Event log · Regional Data Homes       │
@@ -79,7 +83,7 @@ Every request descends through L6→L5→L4 with the Tenant Context established 
 | A-11 | Observability, operations, reliability | PRESENT · REVALIDATED |
 | A-12 | Decisions, dependencies, constraints, trade-offs | PRESENT · AUTHORITATIVE ADR REGISTER |
 
-Architecture registers/audit documents for the Architecture phase are not yet fully present and will be added with the remaining gate evidence package.
+Architecture registers/audit documents exist from prior certification but are **not current evidence merely because they exist**. Phase 2 revalidates/rebuilds their claims against the corrected Phase-1 Foundation before Architecture certification is re-earned.
 
 ## 6. System Context (external actors & systems)
 Actors: Platform Operator staff · Tenant admins/staff/end-customers per industry (F-02 actors) · Visitors. External systems: identity provider (Clerk), payment gateways, AI providers, email/SMS/push providers (Expo Push/OneSignal), government/industry integrations per suite (→ A-06 §5), object storage, DNS/CDN.
