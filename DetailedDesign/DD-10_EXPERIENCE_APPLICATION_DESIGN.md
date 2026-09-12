@@ -1,5 +1,5 @@
 # DD-10 — EXPERIENCE / APPLICATION DETAILED DESIGN
-**Wave:** 2 · **Status:** DETAILED DESIGN COMPLETE  
+**Wave:** 2 · **Status:** PHASE 3 REVALIDATED — EXPERIENCE CONTRACTS  
 **Traces:** F-01 §3 · F-06 · A-08 · ADR-011 · DD-02/DD-03/DD-04/DD-06/DD-08
 
 ## 1. Canonical four-surface ownership
@@ -8,7 +8,7 @@
 | Public SaaS Website | public marketing/content/trust/legal/signup/demo/quote | tenant operations, platform administration |
 | Platform Application | Platform Owner/Super Admin/authorized staff operations | tenant industry business workflows |
 | Tenant Management Application | tenant administration/configuration/commercial/security | operational industry transactions |
-| Reusable Industry Experiences | tenant-bound industry-domain operations | separate identity/backend/platform admin |
+| Reusable Industry Experiences | tenant-bound industry-domain operations across Web + exactly two logical Tenant mobile apps + optional Desktop | separate identity/backend/platform admin |
 
 All authenticated surfaces use DD-02 RequestContext, DD-03 access decision, DD-04 entitlements, DD-06 OperationContracts and DD-08 document access. UI visibility is advisory only.
 
@@ -76,7 +76,7 @@ Base: `/platform`; scope primarily PLATFORM_GLOBAL. Tenant-targeted support/elev
 | PLT-001 | /platform | executive/ops dashboard | PLATFORM_GLOBAL | core.platform.dashboard.view | platform projections | view only |
 | PLT-002 | /platform/tenants | tenant directory/admin | PLATFORM_GLOBAL | core.tenancy.tenant.view/manage | tenant list/create/status | mutations audited |
 | PLT-003 | /platform/catalog/plans | plan/version catalog | PLATFORM_GLOBAL | core.commercial.plan.manage | plan/version publish/retire | all changes |
-| PLT-004 | /platform/catalog/industries | industry catalog | PLATFORM_GLOBAL | core.catalog.industry.manage | catalog activation definitions | changes |
+| PLT-004 | /platform/catalog/industries | Current/Future Industry catalog + promotion governance | PLATFORM_GLOBAL | core.catalog.industry.manage | draft/promote/retire catalog definitions; promotion approval evidence | mandatory |
 | PLT-005 | /platform/catalog/modules | MS/module catalog | PLATFORM_GLOBAL | core.catalog.module.manage | module metadata | changes |
 | PLT-006 | /platform/commercial/policies | route/commercial policy | PLATFORM_GLOBAL | core.commercial.policy.manage | policy versioning | mandatory |
 | PLT-007 | /platform/features | feature flags | PLATFORM_GLOBAL | core.config.feature.manage | flag/version | mandatory |
@@ -111,7 +111,7 @@ Base `/manage`; default scope TENANT_CORE. Industry Context is required only whe
 | TEN-014 | /manage/integrations | tenant integrations | core.integration.tenant.manage | TENANT_CORE/TENANT_INDUSTRY | DD-06 extension |
 | TEN-015 | /manage/webhooks | webhook subscriptions | core.integration.webhook.manage | TENANT_CORE/TENANT_INDUSTRY | DD-07 |
 | TEN-016 | /manage/domains | domains/subdomains | core.config.domain.manage | TENANT_CORE | verify/map |
-| TEN-017 | /manage/branding | branding/theme | core.config.brand.manage | TENANT_CORE | config versions |
+| TEN-017 | /manage/branding | branding/theme | core.config.brand.manage | TENANT_CORE | brand config draft/preview/accessibility validate/publish/activate/rollback |
 | TEN-018 | /manage/notifications | notification preferences/providers | core.notification.config.manage | TENANT_CORE | configuration |
 | TEN-019 | /manage/ai | tenant/industry AI config | core.ai.config.manage + AI entitlement | TENANT_CORE/TENANT_INDUSTRY | DD-09 |
 | TEN-020 | /manage/security | security/MFA/device/session policies | core.security.policy.manage | TENANT_CORE | DD-16 |
@@ -121,6 +121,36 @@ Base `/manage`; default scope TENANT_CORE. Industry Context is required only whe
 | TEN-024 | /manage/settings | tenant configuration | core.config.manage | TENANT_CORE | configuration |
 
 Operational POS, LIS, exams, production, citizen cases, etc. never appear here except configuration links; those belong Industry Experiences.
+
+## 5A. Canonical design-token / branding contract
+
+`ResolvedBrandContext{platformBrandVersion, industryBrandVersion?, tenantBrandVersion?, userPresentationPreferenceVersion?, tokenSet, typographySet, assetRefs, accessibilityValidationVersion}`.
+
+Resolution order:
+1. Platform Brand Default;
+2. allowed Industry Experience presentation override;
+3. Tenant branding/white-label override;
+4. user presentation preference.
+
+Lower layers cannot override protected semantic/security tokens: danger/error, warning, success, focus visibility, disabled/restricted, security alert, destructive action, consent/legal notice, accessibility contrast floor.
+
+Initial Platform defaults trace to F-06 §6.1, including primary `#06B6D4`, secondary `#0F766E`, accent `#7C3AED`, approved semantic/background/text tokens and Inter/Poppins/Roboto defaults. DD stores them as versioned Platform Brand configuration rather than source-code literals scattered through screens.
+
+Brand publication flow:
+`DRAFT → PREVIEW → ACCESSIBILITY_VALIDATION → REVIEW → PUBLISHED → ACTIVE → RETIRED`.
+Activation with failed contrast/accessibility validation is denied. Tenant brand publication cannot change Platform product identity, security semantics, permission logic or audit labels.
+
+## 5B. Exactly-two Tenant mobile application contract
+
+Canonical Tenant mobile app classes:
+- `TENANT_STAFF_APP`
+- `TENANT_USER_APP`
+
+Every mobile route/capability manifest declares exactly one of those classes. Industry role labels (Patient, Doctor, Teacher, Student, Parent, Cashier, Guard, Technician, Citizen, Donor, Guest, etc.) are persona/role metadata inside the two app classes, never independent application classes or binaries.
+
+`MobileCapabilityManifest{capabilityId, industryCode, managementSystemId?, appClass, routeId, requiredPermission, requiredEntitlement?, offlineClass, featureFlagRef?, minimumAppVersion?, status, version}`.
+
+The Platform Application may have a separately governed Platform Mobile channel; it is not counted as a Tenant mobile app and never uses a Tenant appClass.
 
 ## 6. Reusable Industry Experience shell
 Base route is tenant-domain dependent; shell route prefix may be `/app`. Shell owns:
@@ -167,7 +197,11 @@ WCAG 2.1 AA baseline: keyboard complete, visible focus, semantic landmarks, labe
 Public analytics uses consent policy where required. Authenticated product analytics records route/screen capability events with tenant/context pseudonymous attribution only where policy permits; never raw form/health/financial content.
 
 ## 11. Acceptance
-Public ≠ Platform ≠ Tenant Management ≠ Industry Operations; context switch clears incompatible private state; no screen bypasses server guard; no Healthcare-first navigation behavior; industry domain screens remain deferred to Wave 3.
+- persisted/declared Tenant mobile appClass outside `TENANT_STAFF_APP|TENANT_USER_APP` → validation failure;
+- Patient/Doctor/Student/Guard/etc. may select persona-specific routes only inside the appropriate canonical Tenant app class;
+- Tenant branding override that weakens protected semantic/accessibility token floor → publish denied;
+- Future Industry marked live/Current Supported without promotion approval/gate evidence → catalog activation denied;
+- Public ≠ Platform ≠ Tenant Management ≠ Industry Operations; context switch clears incompatible private state; no screen bypasses server guard; no Healthcare-first navigation behavior; industry domain screens remain deferred to Wave 3.
 
 
 ## 12. Canonical operational host-shell ownership
