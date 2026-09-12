@@ -139,6 +139,8 @@ Never:
 
 Documentation schemas, payloads, pseudocode, state tables and examples are allowed only as non-executable specification evidence.
 
+External/reference repositories are inspiration-only unless governing truth explicitly authorizes otherwise. Do not copy external code, import incompatible licensing, or treat reference-repository behavior as project truth without provenance and approval.
+
 Use small logical commits.
 
 ---
@@ -156,6 +158,8 @@ Before substantive auditing, classify every relevant repository file as:
 - NON_DOCUMENTATION / OUT_OF_SCOPE_FOR_THIS_GATE
 
 Do not exclude files merely to reduce work.
+
+Do not force arbitrary document/file counts, phase counts, module counts, or artificial decomposition merely to satisfy a historical roadmap/volume target. Structure must follow current dependency, ownership, domain and maintainability needs. Historical volume targets are not completion evidence.
 
 Fully inspect every required active text/structured-data file:
 
@@ -397,6 +401,8 @@ Historical Laravel/PHP/Filament, MySQL-primary, Flutter, Windows-only desktop, P
 
 If technology truth legitimately changes, update all affected canonical files and this control prompt; never force the project back to a stale list.
 
+Technology-stack changes are not inferred from convenience or agent preference. They require the explicit user/governing decision mechanism currently defined by MASTER_INSTRUCTION and must be recorded in the authoritative decision register.
+
 ---
 
 # 14. CORE PLATFORM + TENANT MODEL AUDIT
@@ -429,8 +435,10 @@ Verify one Core owner and deterministic contracts for reusable capabilities:
 - marketplace/plugins/provider extensions
 - support/operator elevation
 - observability/security/backup/deployment
+- master/reference/lookup data framework
+- seed/demo/media data frameworks
 
-For each shared engine verify purpose, owner, scope, version/config hierarchy, permissions/entitlements, API/events, idempotency/concurrency where relevant, audit/observability, tests, and no per-industry reimplementation.
+For each shared engine/framework verify purpose, owner, scope, version/config hierarchy, permissions/entitlements, API/events, idempotency/concurrency where relevant, audit/observability, tests, and no per-industry reimplementation.
 
 For dynamic forms/rules/metadata, verify versioning, validation, publish/activate/rollback, safe expression execution and no arbitrary-code path.
 
@@ -469,7 +477,24 @@ Authenticate
 
 RBAC is primary. ABAC may narrow/contextualize RBAC but never create access after RBAC denial. UI hiding is never authorization.
 
-Audit device trust, adaptive/risk auth, step-up, revocation, service principals, API credentials and support/operator elevation where governed.
+Audit the full active Core Identity & Access capability set where governed, including:
+
+- users/credentials and account lifecycle
+- OTP/passwordless/magic-link/QR login
+- passkeys/FIDO2/WebAuthn
+- authenticator/TOTP and hardware keys
+- biometrics as a device/platform factor where appropriate
+- MFA/step-up
+- SSO, OAuth 2.0, OIDC, SAML 2.0 and LDAP/AD where supported
+- sessions/access tokens, API credentials and service accounts
+- device identity/registration/trust
+- adaptive/risk authentication, impossible-travel, geo/time/session restrictions
+- revocation and concurrent-session policy
+- digital identity/signature/trust-provider integration where governed, including Aadhaar eSign, DigiLocker, DSC/PKI/eToken-style providers through governed adapters rather than Core hard-coding
+- certificate/trust validation such as OCSP/CRL/non-repudiation where applicable
+- support/operator elevation
+
+Normalize legacy JWT-refresh wording to the current Clerk session/access-token model for first-party user sessions; keep API keys/service accounts as separate credential classes. Do not reactivate superseded token architecture merely because RawSourceCorpus contains it.
 
 ---
 
@@ -502,7 +527,14 @@ Derive the active Application Surface Model; current expected surfaces are exact
 3. Tenant Management Application
 4. Reusable Industry Experiences
 
-Login entry points are not extra application surfaces.
+Verify the current role/channel boundary:
+
+- Public SaaS Website = public marketing/product/industry/security/pricing/docs/demo/contact/signup/onboarding; no normal public Platform-admin login exposure
+- Platform Application = Platform Owner, Super Admin, Platform Staff, Platform Developer and other platform roles; Web/Mobile/Desktop where governed
+- Tenant Management Application = Tenant Owner/Admin management surface; currently Web
+- Industry Experience = Industry Website/Web App + Tenant Staff Mobile + Tenant User Mobile + optional Desktop
+
+Login entry points are not extra application surfaces and never imply separate identity systems.
 
 Tenant Management is administration/configuration/commercial/security oriented; operational Industry transactions belong to Industry Experiences.
 
@@ -551,6 +583,7 @@ Audit and canonicalize:
 - invoice/report/receipt/email/SMS/push branding
 - version/preview/publish/rollback
 - entitlement-gated branding
+- Tenant/Industry Website navigation, content, enabled services/public modules, login buttons, language, notifications and analytics where supported
 
 Theme hierarchy should enforce:
 
@@ -563,6 +596,8 @@ Platform accessibility/security floor
 Lower layers may not weaken accessibility or security/warning semantics.
 
 Audit master/reference/localization defaults, India-default where governed, country packs, currency/locale/timezone/date-number/language/address-phone-tax abstractions and Tenant/Industry overrides.
+
+Explicitly reconcile the active Enterprise Default Standards rather than losing them during architecture normalization. Current source-defined platform defaults include, subject to higher-authority change: Asia/Kolkata timezone, dd-MM-yyyy date format, INR currency and English/Hindi language baseline. Also audit source-defined table/form defaults, standard columns, setting modules, statuses, role seeds, master-dropdown seeds, session-format defaults and invoice/report defaults. Industry-specific defaults must remain scoped to their Industry Suite rather than leaking into Core.
 
 Audit seed/demo data: deterministic, synthetic, resettable, Tenant-scoped, DEMO-flagged where applicable, no real PII, Current-Supported-Industry coverage, localized, entitlement-aware.
 
@@ -589,6 +624,8 @@ Current expected industries:
 9. Security & Facility Management
 
 If a higher-authority explicit user decision legitimately changed this set, audit and propagate that change; do not let this control file override it.
+
+Audit the **Future Industry Framework** separately from the Current Supported Industry set. A future industry is not automatically a tenth Current Supported Industry. Promotion to Current Supported status requires explicit user direction and full satisfaction of the governed Industry Specification Certification standard before live-Tenant enablement.
 
 Independently recount Management Systems from active Foundation. Do not trust “41” merely because prior evidence says 41.
 
@@ -673,13 +710,34 @@ Integration/provider layer requires registry/adapter ownership, credential refer
 
 Document/storage model requires Tenant, Industry Context, source resource, object reference, checksum, ACL, sensitivity, retention, residency, malware status, version/lineage, lifecycle and signed-URL authorization. Path/key is never authorization.
 
+Audit governed data-lifecycle operations where applicable: import, validation, export, user/right-to-access fulfillment, portability, erasure, retention, legal hold and deletion. Every import/export path must preserve Tenant + Industry Context, authorization, sensitivity/residency policy and audit; bulk transfer is never a bypass around normal access control.
+
 ---
 
 # 22. AI / RAG / AGENTS
 
 AI remains Core infrastructure.
 
+Derive and reconcile the canonical AI provider/capability registry from the active AI owner and RawSource provenance; do not silently lose source-defined providers/capabilities or freeze a stale provider count.
+
 Audit provider/model/capability registries, TenantAIConfig, IndustryAIConfig, policy, routing, sensitivity, residency, allowlist, cost/budget, metering, observability and audit.
+
+Also audit the governed Enterprise AI Platform capability families where active:
+
+- assistants and agents
+- skills/tools
+- knowledge/RAG
+- governed memory
+- document intelligence
+- AI API platform
+- provider provisioning
+- prompt/template management
+- media generation
+- workflow/automation integration
+- REST/SDK/Webhook/MCP integration boundaries
+- AI observability/evaluation
+
+Keep product-level AI provider/model routing distinct from any build-execution/model-selection workflow used by documentation agents.
 
 RAG must preserve Tenant, Industry Context, ACL, source, sensitivity, residency, retention, document/version and embedding/model version. Authorization filters must apply before semantic ranking.
 
@@ -728,8 +786,9 @@ Audit actual contracts for:
 - API gateway/rate limit/WAF/DDoS/bot-abuse
 - adaptive/risk auth, geo/time/session restrictions where governed
 - webhooks
-- vulnerability/penetration-test readiness
-- incident response/breach workflow
+- vulnerability management and penetration-test cadence/readiness
+- responsible disclosure
+- incident response and breach-notification workflow/SLA
 - support/operator elevation
 - digital identity/signature/trust-service boundaries where governed
 - erasure/export
@@ -739,6 +798,10 @@ Audit actual contracts for:
 - AI prompt/RAG/tool security
 - vendor/third-party security risk
 
+Explicitly reconcile active compliance/privacy posture requirements, including GDPR, India DPDP Act 2023, Healthcare HIPAA-readiness where applicable, SOC 2 Type II readiness/posture, ISO 27001 readiness/posture, consent management, DPAs and right-to-access/erasure. Do not convert readiness language into a certification claim.
+
+Audit data residency/sovereignty, per-Tenant/per-region storage policy, cross-border data-flow mapping, encryption at rest/in transit and field-level protection where governed.
+
 Do not claim regulatory certification without evidence. Use readiness/posture language where certification is not proven.
 
 ---
@@ -747,7 +810,7 @@ Do not claim regulatory certification without evidence. Use readiness/posture la
 
 Audit design-level contracts for:
 
-Development/Staging/Production separation, CI/CD/release governance, Vercel-suitable workloads, Coolify + Dockerized VPS/regional workloads, workers/scheduler, PostgreSQL/pooler, object storage, regional Data Homes, secrets, health/readiness, migration-preflight/rollback design, release stages, backup/PITR, restore exercises, failover, observability, RPO/RTO.
+Development/Staging/Production separation, CI/CD/release governance, Vercel-suitable workloads, Coolify + Dockerized VPS/regional workloads, workers/scheduler, PostgreSQL/pooler, object storage, regional Data Homes, secrets, TLS/SSL and domains/subdomains, health/readiness checks, migration-preflight/rollback design, release stages, backup/PITR, restore exercises, failover, observability, RPO/RTO and post-deployment verification contracts.
 
 No deployment occurs in this task.
 
@@ -1103,11 +1166,12 @@ READY FOR DEVELOPMENT is allowed only if all are true:
 - no active Vision conflict
 - no unauthorized technology drift
 - every Current Supported Industry first-class
+- Future Industry Framework remains separate and promotion-gated
 - every canonical MS substantively complete
 - no Core duplication
 - shared engines deterministic
 - Tenant lifecycle deterministic
-- branding/theme/localization/master/seed/demo/media canonicalized
+- branding/theme/localization/master/seed/demo/media and Enterprise Default Standards canonicalized
 - Tenant + Industry Context fail-closed
 - RBAC/ABAC/access chain consistent
 - commercial model consistent
