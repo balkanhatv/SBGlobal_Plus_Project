@@ -216,3 +216,7 @@ The NGO / Temple / Trust MS sections above remain the canonical domain entity/mo
 - 41-MS determinism evidence: `DD-27_41_MS_DETERMINISM_AUDIT.md`.
 
 Where an earlier sentence in this file is less specific than a referenced remediation contract, the more specific remediation contract governs. None of these references permits cross-industry inheritance of business semantics.
+
+
+## Canonical mobile-app mapping — Phase 3
+All mobile capabilities in this Industry DD are routes/features inside the canonical `TENANT_STAFF_APP` and/or `TENANT_USER_APP` defined by DD-10/DD-11. Internal staff roles map to `TENANT_STAFF_APP`; external/customer/student/guest/citizen/donor/member/etc. roles map to `TENANT_USER_APP` where mobile scope exists. Role/persona labels never create separate mobile app classes or binaries. Platform Mobile is outside the Tenant app pair.
