@@ -2,55 +2,40 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-12",
   "branch": "docs/architecture-branch-2",
-  "phase": "FOUNDATION CERTIFIED; ARCHITECTURE CERTIFIED; DD WAVE 1 COMPLETE; DD WAVE 2 COMPLETE; DD WAVE 3 COMPLETE; DETAILED DESIGN COMPLETE; READY FOR DEVELOPMENT",
-  "checkpoint": "DD-F5-RECERTIFIED",
-  "final_substantive_head": "810e43c9c75e3750f52cc7e1954db8f341e6d79b",
+  "phase": "PHASE 1 RAWSOURCE→FOUNDATION RECONCILIATION PASS; ARCHITECTURE REVALIDATION REQUIRED; DETAILED DESIGN REVALIDATION REQUIRED; DEVELOPMENT BLOCKED",
+  "checkpoint": "PHASE1-RAWSOURCE-FOUNDATION-RECONCILED",
+  "final_substantive_foundation_head": "4b5ec3667ae81c0b4c92a4cf0daba0282edd4131",
   "foundation": {
-    "certified": true
+    "status": "FRESH_RECONCILED",
+    "phase1_pass": true,
+    "certification_scope": "Foundation only"
   },
   "architecture": {
-    "certified": true
+    "status": "REVALIDATION_REQUIRED",
+    "prior_certification": "historical until re-earned"
   },
   "detailed_design": {
-    "wave1": "COMPLETE",
-    "wave2": "COMPLETE",
-    "wave3": "COMPLETE",
-    "management_systems": 41,
-    "industries": 9,
-    "open_p0": 0,
-    "open_p1": 0,
-    "real_dd_gap": 0,
-    "named_kpi_discovered": 165,
-    "named_kpi_unmapped": 0,
-    "development_determinism": "9/9 YES",
-    "qa_determinism": "9/9 YES",
-    "isolation": "PASS",
-    "certification_supported": true,
-    "ready_for_development": true,
+    "status": "REVALIDATION_REQUIRED",
+    "prior_checkpoint": "DD-F5-RECERTIFIED",
+    "ready_for_development": false,
     "development_performed": false
   },
   "raw_source": {
     "policy": "IMMUTABLE",
     "s1_blob": "a9f63a64448a347edd0f2b0c74094284ee953c1b",
-    "s2_blob": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd"
+    "s2_blob": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd",
+    "phase1_integrity": "PASS"
   },
-  "historical_checkpoints": [
-    "DD-W1-COMPLETE",
-    "DD-W2-COMPLETE",
-    "DD-COMPLETE",
-    "FABLE5-REM-START"
-  ],
   "evidence": [
-    "DetailedDesign/DD-20C_WAVE3_ADVERSARIAL_AUDIT.md",
-    "DetailedDesign/DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md",
-    "DetailedDesign/DD-29_FINAL_REVIEW_REQUIRED_SWEEP.md",
-    "DetailedDesign/DD-30_FINAL_REQUIREMENT_TRACEABILITY_AUDIT.md",
-    "DetailedDesign/DD-31_FINAL_DEVELOPMENT_QA_DETERMINISM.md",
-    "Registers/ISOLATION_ATTACK_MATRIX.md"
+    "Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md"
   ],
   "github": {
     "repo": "yadavjalsingh192/SBGlobal_Plus_Project",
-    "main_merge": "not performed",
-    "backup_zip": "not created"
-  }
+    "main_tip": "3911590ff2020993ce51b32d7b091efd6f5f466f",
+    "historical_main_merge": "PR #1 from docs/foundation-build-2 merged 2026-09-04",
+    "phase1_main_merge": "not performed",
+    "historical_foundation_backup": "SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip",
+    "current_full_closure_backup": "not created"
+  },
+  "next_phase": "Fresh Foundation → Architecture/ADR revalidation"
 }
