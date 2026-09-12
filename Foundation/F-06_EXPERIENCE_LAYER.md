@@ -1,5 +1,5 @@
 # F-06 — EXPERIENCE LAYER (WEB · MOBILE · DESKTOP)
-**Document ID:** F-06 · **Version:** 0.2 · **Status:** SPECIFIED · Cross-refs: F-01 §3 (surfaces), F-03 (identity), F-07…F-09 (industry experiences). **Canonical technology alignment:** React Native + Expo mobile baseline; no change to RawSourceCorpus.
+**Document ID:** F-06 · **Version:** 0.3 · **Status:** SPECIFIED · Cross-refs: F-01 §3 (surfaces), F-03 (identity), F-07…F-09 (industry experiences). **Canonical technology alignment:** React Native + Expo mobile baseline; no change to RawSourceCorpus.
 
 ---
 
@@ -24,7 +24,7 @@ Applies to: Industry Website · Industry Web Application · Industry Staff Mobil
 Per F-01 §3: Tenant Management covers: tenant profile, primary/enabled industries, subscription/plans/upgrade/downgrade, billing, usage, licensing, services, management systems, modules, domains/subdomains, branding, users/roles/permissions, API, AI, integrations, notifications, configuration, security, settings.
 
 ## 4. Mobile Architecture `[SD: MI §15; S2.5 — single technical owner]`
-- Apps: **Platform Mobile (Super Admin)** · **Tenant Staff Mobile** (all internal roles via RBAC) · **Tenant User/Customer Mobile** — reusable frameworks configured per Tenant (name, logo, colors, theme, splash, navigation, menus, dashboard, widgets, enabled modules, notifications, content, feature visibility). No per-tenant codebase for configuration.
+- **Tenant mobile product rule:** for each Tenant and each enabled Industry Experience, exactly two logical Tenant mobile apps are exposed — **Tenant Staff App** for internal roles and **Tenant User App** for external users/customers. Patient, Doctor, Teacher, Student, Cashier, Guard, etc. are roles/experiences inside these apps, never separate role-specific binaries. The **Platform Mobile / Platform Application** for Platform Owner/Super Admin/Platform Staff is platform-level and is not counted as a Tenant mobile app. Reusable React Native/Expo shells/codebases may serve many Tenants/Industries; branding, navigation, menus, dashboards, modules and feature visibility are context/configuration driven, not per-Tenant forks.
 - **Stack: React Native + Expo for Android/iOS; Expo Push Notifications / OneSignal for push delivery; Expo-compatible secure/local persistence; offline-first architecture with local operation queue, conflict resolution, incremental synchronization and retry; SSL/certificate pinning posture; device binding/registration; root/jailbreak detection where platform capability permits; QR/barcode; deep linking.** Distribution: app stores + enterprise APK + MDM distribution as applicable; force-update policy.
 - **Authentication/API boundary:** Clerk-backed identity via the Core Identity boundary (F-03); **tRPC is the primary internal application API** and REST/OpenAPI is used only for external interoperability. No direct database access from the mobile client.
 - Dynamic mobile platform `[SD: S2.2 §31]`: Super Admin manages branding/navigation/endpoints/version control/maintenance mode without rebuild (native package changes excepted).
