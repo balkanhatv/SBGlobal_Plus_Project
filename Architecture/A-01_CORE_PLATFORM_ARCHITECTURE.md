@@ -1,5 +1,5 @@
 # SBGlobal Plus — A-01 CORE PLATFORM ARCHITECTURE
-**Document ID:** A-01 · **Version:** 1.1 · **Status:** ARCHITECTURE BASELINE (CP-A1-002) · **Date:** 10-09-2026
+**Document ID:** A-01 · **Version:** 1.2 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Traces to:** F-01 (platform model, Core capability catalog), F-02 (end-to-end workflow), F-00 §5 (canonical business model) · **Decisions:** ADR-001, ADR-005, ADR-006 (→ A-12)
 
 ---
@@ -17,14 +17,24 @@ The Core owns: all business logic, all writes to the canonical database, authori
 | Authorization | RBAC roles/permissions + ABAC policies, PDP | Role, Permission, Policy |
 | Entitlement | Plans, subscriptions, licenses, entitlements, limits | Plan, Subscription, License, Entitlement |
 | Billing | Invoicing, payment-gateway integration, dunning | Invoice, Payment |
-| Configuration | Platform/tenant/industry/module config layers | ConfigItem (layered) |
+| Configuration | Platform/tenant/industry/module config layers, feature flags, templates and versioned publish/rollback | ConfigItem (layered) |
+| Metadata | Reusable metadata definitions, field/catalog descriptors and schema-independent configuration metadata | MetadataDef, MetadataVersion |
+| Rules/Policy | Business/configuration rule definitions and safe policy evaluation bindings; authorization policy remains owned by Authorization | RuleDef, RuleVersion |
+| Form/Dynamic Fields | Form definitions, reusable field definitions, validation composition and publish/version lifecycle | FormDef, FieldDef, FormVersion |
 | Workflow | State machines, approvals, transitions (F-02 steps) | WorkflowDef, Instance, Task |
 | Notification | Template + channel routing (email/SMS/push/in-app) | Template, Delivery |
 | Document | Managed documents/media, storage abstraction | DocumentMeta |
 | Search | Tenant-scoped indexing/query facade | Index metadata |
+| Reporting & BI | Shared report/dashboard/KPI composition and projection contracts; industry semantics stay in suites | ReportDef, DashboardDef, KPI metadata |
+| Integration | Provider/connector registry, credentials references, mapping/sync profiles and adapter orchestration → A-06 | IntegrationProfile, ConnectorRef |
+| Automation/Scheduler | Scheduled/event-driven jobs, automation definitions, queue/worker orchestration | AutomationDef, Job/Schedule metadata |
+| Localization & Country Packs | Locale/currency/timezone/date-number/language packs, regional reference defaults and tenant overrides | LocalePack, CountryPack refs |
+| Master/Reference Data | Global/reference/lookup catalog framework and seed-pack ownership → A-05 | MasterCatalog, SeedPack refs |
+| CMS/Branding | Public/tenant content configuration and platform/tenant brand-token ownership; Payload CMS integration → A-08 | Content/Brand config |
+| Marketplace/Plugin | Governed extension catalog/provisioning metadata; no extension bypasses Core contracts/guardrails | ExtensionCatalog, Installation refs |
 | Audit | Append-only audit trail for every material action | AuditEvent |
 | AI Gateway | → A-07 (hosted in-process, extraction seam) | AI config, usage |
-| Industry modules | 9 suites' Management Systems → A-09 | Industry-context + transaction data |
+| Industry modules | Current Supported Industry suites' Management Systems → A-09 | Industry-context + transaction data |
 
 ## 3. Canonical Request Flow (synchronous)
 ```
@@ -57,5 +67,12 @@ Core kernel provides: immutable `RequestContext{tenantId, industryContextId?, da
 ## 6. Technology Mapping
 Next.js 15 · React 19 · TypeScript 5.x · Node.js 22 · tRPC · Clerk · PostgreSQL · Payload CMS 3 · Tailwind CSS + Shadcn UI · React Native / Expo for mobile · **Tauri 2.0 for Windows/macOS/Linux desktop** · Vercel for suitable web workloads · Coolify + Dockerized VPS for self-hosted workloads. REST/OpenAPI remains available where required for external interoperability; it is not the primary internal application API. PostgreSQL is the single canonical store (→ A-05) · No message broker at v1: Postgres outbox + dispatcher (ADR-006, upgrade seam to a broker recorded in A-12).
 
-## 7. Deferred to Detailed Design
+## 7. Shared-engine architecture invariants
+- Form/metadata/rules/workflow/configuration are separate responsibilities even when implemented in one deployable Core; an Industry Suite consumes them through contracts rather than creating a private engine.
+- Rules/Policy Engine executes only governed declarative/safe expressions; arbitrary tenant-supplied executable code is not an extension mechanism.
+- Form/metadata/config definitions are versioned and require explicit draft/publish/activate/rollback semantics at Detailed Design.
+- Country/localization packs are configuration/reference packages, not code forks and not permission to hard-code India-specific business semantics into global Core.
+- Marketplace/plugins/extensions register capabilities through governed ports/contracts, entitlement and security checks; they never obtain direct database authority.
+
+## 8. Deferred to Detailed Design
 Per-module service contract signatures; entity field lists (F-00 §6 ledger targets, e.g. 500+ tables); endpoint-level API contracts (§26B); workflow definitions per Management System; permission matrix instantiation (1000+ permissions target).
