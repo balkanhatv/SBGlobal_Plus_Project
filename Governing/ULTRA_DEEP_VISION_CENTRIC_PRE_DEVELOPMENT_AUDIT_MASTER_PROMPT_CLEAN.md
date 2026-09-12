@@ -254,6 +254,47 @@ Never leave downstream CERTIFIED/PASS/COMPLETE/READY unquestioned after its upst
 
 # 11. SOURCE FIDELITY + RAW SOURCE PROMOTION
 
+## Mandatory First-Pass RawSource No-Loss Reconciliation
+
+**Before treating the existing Foundation, Architecture or Detailed Design as complete input, perform a fresh first-pass reconciliation of the entire RawSourceCorpus.**
+
+The purpose is to catch anything that earlier phases may have missed, compressed too aggressively, placed in the wrong layer, left only in RawSourceCorpus, or incorrectly marked complete.
+
+For every material RawSource knowledge unit:
+
+1. identify the exact source/provenance;
+2. determine whether it is still valid under the Primary Vision and current governing decisions;
+3. compare it against the current canonical Foundation;
+4. classify it as already preserved, correctly refined, superseded, duplicated, partially preserved, missing, distorted, wrongly scoped, wrongly phased, or external/configuration input;
+5. if missing or incomplete, add/correct it **first at the proper canonical owner and in dependency sequence**:
+   - **Foundation** for WHAT / WHY / WHO;
+   - then **Architecture / ADR** for required system-level HOW;
+   - then **Detailed Design** for exact deterministic implementation contracts;
+   - then **Acceptance/Test Contracts**;
+   - then **Traceability / Registers / State**;
+6. do not jump directly from RawSourceCorpus to DD if a missing Foundation requirement must exist first;
+7. do not add the same source requirement independently to multiple layers—establish one authoritative owner and propagate/cross-reference downstream;
+8. after insertion or correction, revalidate every affected downstream artifact and temporarily invalidate stale certification evidence until the dependency chain is re-audited;
+9. preserve the original RawSource text unchanged;
+10. ensure the final no-loss evidence shows where every active source requirement now lives.
+
+Required propagation path for a newly recovered source requirement:
+
+**RawSource Knowledge Unit  
+→ Vision/Authority Check  
+→ Canonical Foundation Owner  
+→ Architecture/ADR Impact  
+→ Detailed Design Contract  
+→ Acceptance/Test Evidence  
+→ Requirement Traceability  
+→ State/Checkpoint**
+
+A source requirement is **not considered recovered** merely because it is mentioned in a register or audit matrix. Its substantive requirement must exist at the appropriate canonical layer, with downstream design/test evidence where implementation depends on it.
+
+This first-pass reconciliation must explicitly include requirements that are easy to lose during architecture-focused work, including branding, colors/theme/design-system values, company/tagline/default content, website requirements, Tenant website/branding, master/reference/localization data, seed/demo/media rules, security controls, operational/support requirements, commercial/referral/commission rules, integrations/providers, mobile/desktop/device requirements, reports/KPIs, and industry-specific workflows/business rules.
+
+Only after this RawSource no-loss reconciliation is complete may the normal Foundation → Architecture → Detailed Design fresh audit proceed.
+
 Read RawSourceCorpus deeply but never edit it.
 
 For each source knowledge unit determine:
