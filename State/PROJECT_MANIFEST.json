@@ -2,23 +2,23 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-13",
   "branch": "docs/architecture-branch-2",
-  "phase": "PHASE 1 FOUNDATION PASS; PHASE 2 ARCHITECTURE PASS; PHASE 3 DD PASS; PHASE 4 CROSS-LAYER PASS; REPOSITORY/BACKUP + FINAL ADVERSARIAL GATES PENDING; DEVELOPMENT BLOCKED",
-  "checkpoint": "PHASE4-CROSS-LAYER-REVALIDATED",
+  "phase": "PHASES 1–4 PASS; PHASE 5 REPOSITORY/STATE PASS WITH MANDATORY PHYSICAL ZIP BACKUP BLOCKER; FINAL ADVERSARIAL GATE PENDING; DEVELOPMENT BLOCKED",
+  "checkpoint": "PHASE5-CLOSURE-BACKUP-BLOCKED",
   "final_substantive_foundation_head": "4b5ec3667ae81c0b4c92a4cf0daba0282edd4131",
   "final_substantive_architecture_head": "9453ebb0140670984753cec9e66613475789610b",
   "final_substantive_dd_head": "b4bba9c4764025af3d4546644f7c67efa463c86d",
   "foundation": {
-    "status": "FRESH_RECONCILED",
+    "status": "PASS",
     "phase1_pass": true
   },
   "architecture": {
-    "status": "FRESH_REVALIDATED",
+    "status": "PASS",
     "phase2_pass": true,
     "open_p0": 0,
     "open_p1": 0
   },
   "detailed_design": {
-    "status": "FRESH_REVALIDATED_COMPLETE",
+    "status": "PASS_COMPLETE",
     "phase3_pass": true,
     "open_p0": 0,
     "open_p1": 0,
@@ -31,29 +31,47 @@
     "development_determinism": "9/9 YES",
     "qa_determinism": "9/9 YES"
   },
+  "repository_closure": {
+    "state_consistency": "PASS_AFTER_PHASE5_SYNC",
+    "recovery_manifest": "State/PRE_DEVELOPMENT_RECOVERY_MANIFEST.json",
+    "recovery_snapshot_head": "f09c26b2d01b97d0f50b20d94bad374dbc4252c7",
+    "recovery_tree_sha": "cb60aba0e91bab2d4eca2216233cfdbe484c1176",
+    "recovery_file_count": 125,
+    "physical_zip_materialized": false,
+    "zip_sha256": null,
+    "blocker": "Execution environment cannot download/clone GitHub archive content; governing §24 checkpoint ZIP remains unfulfilled"
+  },
   "development": {
     "authorized": false,
-    "reason": "Repository/state/backup closure and final independent adversarial gate pending"
+    "reason": "Mandatory physical checkpoint ZIP backup and final adversarial gate not complete"
   },
   "raw_source": {
     "policy": "IMMUTABLE",
     "s1_blob": "a9f63a64448a347edd0f2b0c74094284ee953c1b",
     "s2_blob": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd"
   },
+  "github": {
+    "repo": "yadavjalsingh192/SBGlobal_Plus_Project",
+    "main_tip": "3911590ff2020993ce51b32d7b091efd6f5f466f",
+    "branch_ahead_by": 259,
+    "branch_behind_by": 0,
+    "review_pr": {
+      "number": 2,
+      "state": "open",
+      "draft": true,
+      "merge_authorized": false
+    },
+    "historical_main_merge": "PR #1 from docs/foundation-build-2 merged 2026-09-04",
+    "phase5_main_merge": "not performed"
+  },
   "evidence": [
     "Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md",
     "Registers/PHASE2_ARCHITECTURE_REVALIDATION_2026-09-12.md",
     "Registers/PHASE3_DETAILED_DESIGN_REVALIDATION_2026-09-13.md",
     "Registers/PHASE4_CROSS_LAYER_TRACEABILITY_ISOLATION_2026-09-13.md",
-    "Registers/ISOLATION_ATTACK_MATRIX.md"
+    "Registers/ISOLATION_ATTACK_MATRIX.md",
+    "BACKUP_METADATA.json",
+    "State/PRE_DEVELOPMENT_RECOVERY_MANIFEST.json"
   ],
-  "github": {
-    "repo": "yadavjalsingh192/SBGlobal_Plus_Project",
-    "main_tip": "3911590ff2020993ce51b32d7b091efd6f5f466f",
-    "historical_main_merge": "PR #1 from docs/foundation-build-2 merged 2026-09-04",
-    "phase4_main_merge": "not performed",
-    "historical_foundation_backup": "SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip",
-    "current_full_closure_backup": "pending"
-  },
-  "next_phase": "Repository/state/backup closure + final independent adversarial pre-development audit"
+  "next_phase": "Final independent adversarial pre-development audit; overall gate remains backup-blocked unless physical ZIP is materialized and verified"
 }
