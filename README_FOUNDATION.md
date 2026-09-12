@@ -1,6 +1,6 @@
 # SBGlobal Plus — Project Foundation / Architecture Branch
 
-**Current status: FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DD WAVE 1/2/3 COMPLETE · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT · checkpoint `DD-F5-RECERTIFIED`** on `docs/architecture-branch-2`.
+**Current status: PHASE 1 RAWSOURCE→FOUNDATION FRESH RECONCILIATION — PASS · ARCHITECTURE REVALIDATION REQUIRED · DETAILED DESIGN REVALIDATION REQUIRED · DEVELOPMENT NOT AUTHORIZED · checkpoint `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`** on `docs/architecture-branch-2`.
 
 > **SBGlobal Plus — A World-Class, AI-Ready, AI-Extensible, AI-Powered, Enterprise-Grade, Multi-Tenant, Multi-Industry SaaS Platform.**
 >
@@ -9,7 +9,7 @@
 All nine supported industries are equal first-class suites. Healthcare is not a template, benchmark or default.
 
 ## Current truth
-The 2026-09-11 independent forensic audit reopened certification, triggered targeted remediation, and certification was restored only after fresh evidence passed. Current evidence is requirement-level rather than count-only: 372 parent source units + 2,962 child requirements (0 GAP), all 41 Management Systems with specific substantive owners, Tenant + Industry Context fail-closed Architecture, reconciled access/surface/identity models, complete ADR evidence, and fresh Foundation/Architecture adversarial PASS results.
+On 2026-09-12 Phase 1 performed a fresh RawSourceCorpus→Foundation no-loss reconciliation. The complete immutable S1/S2 corpus and F-00…F-15 Foundation were re-read; material requirements that prior traceability had represented too broadly/implicitly were recovered and corrected. Authoritative Phase-1 evidence: `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`. Because Foundation changed after the prior Architecture/DD audit baseline, those downstream certifications are now revalidation-required and Development is blocked until re-earned.
 
 ## Repository layout
 - `Governing/` — MASTER_INSTRUCTION / MASTER_PROMPT v2.5 with current phase/technology reconciliation.
@@ -41,9 +41,9 @@ Historical Laravel/PHP/Filament/MySQL-primary/Flutter/PM2/cPanel assumptions rem
 - `DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md` — full adversarial PASS.
 - `DetailedDesign/DD-REVIEW_REQUIRED.md` — 0 avoidable open DD items.
 
-## Fable 5 final recertification
+## Historical Fable 5 final recertification
 Fresh closure evidence now includes DD-20C, DD-20D, DD-21…DD-31 and the final isolation matrix. P0=0, P1=0, REAL_DD_GAP=0; 41/41 Management Systems pass; 165/165 named KPI metrics map to formula/test contracts; 2,962 RawSource child IDs plus 328 explicit-user DD IDs have final traceability; Development and QA determinism are 9/9 YES.
 
-Current checkpoint is `DD-F5-RECERTIFIED`. Historical `DD-COMPLETE` and remediation-blocked evidence remain history and were not deleted.
+`DD-F5-RECERTIFIED` is now historical evidence only after the 2026-09-12 Foundation corrections. Current checkpoint is `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`.
 
-Development is the next authorized phase but has not yet been performed. Do not modify or merge `main` without explicit approval.
+Next authorized work is **Phase 2 Architecture/ADR revalidation**, not Development. Do not modify or merge `main` without explicit approval.
