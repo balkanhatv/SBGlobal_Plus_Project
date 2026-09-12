@@ -1,5 +1,5 @@
 # SBGlobal Plus — A-12 ARCHITECTURE DECISIONS, CONSTRAINTS, DEPENDENCIES & TRADE-OFFS
-**Status:** AUTHORITATIVE ARCHITECTURE ADR REGISTER · **Date:** 2026-09-11
+**Status:** AUTHORITATIVE ARCHITECTURE ADR REGISTER — PHASE 2 REVALIDATED · **Date:** 2026-09-12
 
 This file is the authoritative Architecture ADR owner. Other A-documents cross-reference these IDs; no one-line ADR is authoritative elsewhere.
 
@@ -61,7 +61,7 @@ This file is the authoritative Architecture ADR owner. Other A-documents cross-r
 **Decision:** PostgreSQL structured store + FTS + pgvector initially; tenant RLS plus Industry Context ownership applies to industry data/vector rows; Search/Retrieval facade is extraction seam.  
 **Options:** tenant-only filtering; external search/vector from day one; no vector search.  
 **Trade-offs:** fewer dependencies and stronger locality vs future scale ceiling and dual-context policy complexity.  
-**Consequences:** structured data, indexes and RAG retain Tenant + Industry Context/ACL ownership. **Risks:** vector/index scale or inconsistent context classification. **Dependencies:** A-02/A-05/A-07. **Affected Architecture:** data/search/RAG/projections. **Reversibility:** facade permits external engines.
+**Consequences:** structured data, indexes and RAG retain Tenant + Industry Context/ACL ownership; country/localization packs are versioned reference/configuration packages, and governed access/export/portability paths preserve the same authorization/residency boundary. **Risks:** vector/index scale, inconsistent context classification or pack/default leakage into global semantics. **Dependencies:** A-02/A-05/A-07. **Affected Architecture:** data/search/RAG/projections. **Reversibility:** facade permits external engines.
 
 ## ADR-009 — Context-safe webhook architecture
 **Context:** tenants/integrators need reliable outbound events without exposing sibling Industry Contexts.  
@@ -75,14 +75,14 @@ This file is the authoritative Architecture ADR owner. Other A-documents cross-r
 **Decision:** all AI passes through AI Gateway + provider/model registry/adapters.  
 **Options:** direct module SDKs; single hard-coded vendor.  
 **Trade-offs:** extra control hop vs provider portability and policy consistency.  
-**Consequences:** Tenant + Industry Context + ACL + entitlement + security/residency gates apply before inference/RAG/tools. **Risks:** gateway bottleneck. **Dependencies:** A-07/A-10/A-11. **Affected Architecture:** owning ADR consumers and referenced A-documents.
+**Consequences:** Tenant + Industry Context + ACL + entitlement + security/residency gates apply before inference/RAG/tools; AI API exposure, provisioning, governed memory/document intelligence, prompt management and media generation remain projections/capability families behind the same Gateway rather than bypass paths. **Risks:** gateway bottleneck or capability-specific adapter drift. **Dependencies:** A-07/A-10/A-11. **Affected Architecture:** owning ADR consumers and referenced A-documents.
 
 ## ADR-011 — Design/admin/CMS technology choices
 **Context:** public CMS, product UI and CRUD-heavy internal ops have different needs.  
 **Decision:** Shadcn/Tailwind shared design system; Payload CMS 3 for content; Refine where internal CRUD/admin is more suitable.  
 **Options:** one framework for all; custom CMS/admin.  
 **Trade-offs:** specialized tools vs tool-count complexity.  
-**Consequences:** shared identity/API/design contracts prevent silos. **Risks:** duplicate primitives. **Dependencies:** A-08. **Affected Architecture:** owning ADR consumers and referenced A-documents.
+**Consequences:** shared identity/API/design contracts prevent silos; Platform Brand Default is canonical, Industry Experience overrides are bounded, Tenant branding/white-label is configuration-driven, and user preference is presentation-only. Accessibility/security semantic tokens cannot be weakened by lower layers. **Risks:** duplicate primitives or unrestricted token overrides. **Dependencies:** A-08. **Affected Architecture:** owning ADR consumers and referenced A-documents.
 
 ## ADR-012 — Industry-suite module architecture and isolation
 **Context:** nine equal industries need domain specificity without nine platforms and without sibling-industry leakage inside one tenant.  
@@ -100,10 +100,10 @@ This file is the authoritative Architecture ADR owner. Other A-documents cross-r
 
 ## ADR-014 — React Native + Expo
 **Context:** shared Android/iOS delivery with one Core/API/context model.  
-**Decision:** React Native + Expo.  
+**Decision:** React Native + Expo with exactly two logical Tenant mobile app roles per Tenant + enabled Industry Experience: Tenant Staff App and Tenant User App. Platform Mobile belongs to the separate Platform Application surface; role-specific binaries are prohibited.  
 **Options:** Flutter; fully native per OS; webview-only.  
 **Trade-offs:** cross-platform productivity vs some native-edge constraints.  
-**Consequences:** native capabilities use governed adapters. **Risks:** native-module compatibility. **Dependencies:** A-08. **Affected Architecture:** owning ADR consumers and referenced A-documents.
+**Consequences:** reusable Staff/User shells compose role/context-specific experiences; Patient/Doctor/Teacher/Student/Cashier/Guard remain roles inside those apps, and native capabilities use governed adapters. **Risks:** native-module compatibility or accidental app-family proliferation. **Dependencies:** A-08. **Affected Architecture:** owning ADR consumers and referenced A-documents.
 
 ## ADR-015 — Tauri 2.0 desktop
 **Context:** optional desktop needs Windows/macOS/Linux with local capabilities.  
@@ -132,6 +132,23 @@ This file is the authoritative Architecture ADR owner. Other A-documents cross-r
 **Options:** dedicated always; shared always.  
 **Trade-offs:** two operational topologies add migration/ops complexity but preserve efficiency and hard-isolation option.  
 **Consequences:** same logical contracts/migrations and Tenant+Industry Context ownership rules apply. **Risks:** dedicated-fleet overhead. **Dependencies:** ADR-002/A-05/A-10. **Affected Architecture:** tenancy routing, data topology, provisioning/migration operations.
+
+
+## ADR-019 — Shared configurable-engine boundaries
+**Context:** Foundation requires Configuration, Metadata, Rules/Policy, Form Builder/Dynamic Fields and Workflow as reusable Core capabilities. Treating them as one vague “configuration” bucket would make ownership, safety and versioning non-deterministic.  
+**Decision:** maintain distinct architectural responsibilities behind Core-owned contracts: Configuration owns layered values/versioned publication; Metadata owns descriptors/catalog definitions; Rules/Policy owns declarative safe rule evaluation; Form/Dynamic Fields owns field/form definitions and validation composition; Workflow owns state/transition/approval execution. They may share infrastructure but not authority.  
+**Options:** one generic configuration engine; per-industry private engines; distinct Core contracts.  
+**Trade-offs:** more explicit contracts and lifecycle rules vs fewer ambiguous cross-domain shortcuts.  
+**Consequences:** Industry modules consume shared engines; tenant-defined rules cannot execute arbitrary code; draft/publish/activate/rollback and audit are enforceable per definition type.  
+**Risks:** overlapping concepts or duplicated definitions. **Dependencies:** F-01/A-01/A-05/A-06. **Affected Architecture:** Core module catalog, configuration data, workflow/rule/form APIs and extension model. **Reversibility:** internal implementation may consolidate physically while preserving logical contracts.
+
+## ADR-020 — Future Industry promotion gate
+**Context:** the platform must remain extensible beyond the nine Current Supported Industries without silently turning a draft industry concept into a production-supported suite.  
+**Decision:** Future Industries occupy a separate governance/catalog state and cannot be licensed or enabled for live Tenant production contexts until explicit user/governance approval plus Foundation specification, MS depth, Architecture isolation/ownership, experience, AI/integration, acceptance and traceability gates are complete. Promotion adds catalog/module/experience/configuration artifacts on the same Core; it never creates a new Core or copies sibling-industry semantics.  
+**Options:** auto-enable any documented industry; hard-code exactly nine forever; governed future-industry promotion.  
+**Trade-offs:** promotion requires evidence and governance effort but preserves extensibility without weakening product truth.  
+**Consequences:** nine industries remain the Current Supported set until explicitly promoted; future-industry prototypes cannot leak into commercial entitlements or permissions.  
+**Risks:** stale draft catalog entries or premature commercial enablement. **Dependencies:** F-01/A-04/A-09/A-12. **Affected Architecture:** industry catalog, entitlement activation, module/experience registration and certification evidence. **Reversibility:** a promoted industry can later be retired through governed lifecycle without changing Core architecture.
 
 ## Cross-ADR constraints
 All ADRs obey one Unified Core; one identity boundary; Tenant + Industry Context isolation; server-authoritative authorization/entitlement; no direct client DB access; no hard-coded single AI provider; no Healthcare-derived sibling functionality; no conflicting API authority.
