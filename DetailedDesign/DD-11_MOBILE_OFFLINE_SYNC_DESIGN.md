@@ -1,12 +1,12 @@
 # DD-11 — MOBILE & OFFLINE SYNC DETAILED DESIGN
-**Wave:** 2 · **Status:** DETAILED DESIGN COMPLETE  
+**Wave:** 2 · **Status:** PHASE 3 REVALIDATED — MOBILE/OFFLINE CONTRACTS  
 **Traces:** F-06/F-10 · A-08 §7–§8 · ADR-014/016 · DD-02/DD-03/DD-06/DD-07/DD-08
 
 ## 1. Technology / application model
-React Native + Expo only. One reusable mobile shell consumes tenant/industry experience packages; roles do not create separate apps. Platform Mobile is enabled only by DD-10 PlatformChannelEligibilityPolicy for an approved mobile operational capability; it consumes the same identity/context/API contracts with PLATFORM_GLOBAL scope. Tenant industry mobile uses explicit Tenant + Industry Context.
+React Native + Expo only. The Tenant product model has exactly two logical mobile application shells: `TENANT_STAFF_APP` and `TENANT_USER_APP`. Both consume reusable tenant/industry experience packages from the same governed architecture; role/persona variants do not create separate apps or binaries. `TENANT_STAFF_APP` serves internal tenant roles; `TENANT_USER_APP` serves external/customer/student/patient/citizen/donor/guest/etc. roles as applicable. Platform Mobile is enabled only by DD-10 PlatformChannelEligibilityPolicy for an approved mobile operational capability; it consumes the same identity/context/API contracts with PLATFORM_GLOBAL scope. Tenant industry mobile uses explicit Tenant + Industry Context.
 
 ## 2. Mobile bootstrap
-1 app integrity/version check;
+1 verify canonical appClass (`TENANT_STAFF_APP|TENANT_USER_APP`) + app integrity/version;
 2 load secure identity/session reference;
 3 IdentityPort verification;
 4 fetch memberships/workspace candidates;
@@ -88,10 +88,10 @@ Camera, QR/barcode and file pickers expose capability only to screens declaring 
 Permitted: push registration refresh, bounded sync of explicitly eligible datasets, queued replay, expiry cleanup. Background task runs with stored origin scope and must fail closed if identity/entitlement cannot be refreshed.
 
 ## 14. Version policy
-`MobileVersionPolicy{platform, minimumSupportedVersion, recommendedVersion, forceAfter?, schemaCompatibilityFloor, status}`. Numeric/version values are release policy, not invented here. Unsupported version blocks protected sync/write; read-only local posture only where policy allows.
+`MobileVersionPolicy{appClass(TENANT_STAFF_APP|TENANT_USER_APP|PLATFORM_MOBILE), platform, minimumSupportedVersion, recommendedVersion, forceAfter?, schemaCompatibilityFloor, status}`. Numeric/version values are release policy, not invented here. Unsupported version blocks protected sync/write; read-only local posture only where policy allows.
 
 ## 15. Logout/revocation
 Logout clears session tokens and sensitive ephemeral data, pauses queues. Queued operations are retained only encrypted and bound to the same principal/context if tenant policy permits; another user can never inherit them. Security revocation may mandate destructive purge of protected local data.
 
 ## 16. Acceptance
-Context switch cannot expose sibling data; wrong-context queue never mutates another context; revoked device cannot sync; push reassignment cannot leak old tenant data; offline state never becomes permanent authorization.
+Unknown/role-specific Tenant appClass (for example DOCTOR_APP, STUDENT_APP, GUARD_APP) is rejected by configuration/build manifest validation; role experience must map to Staff/User app class. Context switch cannot expose sibling data; wrong-context queue never mutates another context; revoked device cannot sync; push reassignment cannot leak old tenant data; offline state never becomes permanent authorization.
