@@ -3,7 +3,8 @@
 **Document Type:** Execution-only audit/remediation master prompt  
 **Repository:** `yadavjalsingh192/SBGlobal_Plus_Project`  
 **Authorized Branch:** `docs/architecture-branch-2`  
-**Baseline branch HEAD before this prompt was committed:** `8d8b95d9f204cdf0c983ce90e22b276d1f2b6b7b`  
+**Historical creation baseline (non-operational):** `8d8b95d9f204cdf0c983ce90e22b276d1f2b6b7b`  
+**Execution start HEAD:** MUST be fetched from the remote branch at runtime; no SHA written in this prompt is an operational start point.  
 **Governing Authority:** `Governing/MASTER_INSTRUCTION_v2_5.md` + `Governing/MASTER_PROMPT_v2_5.md`  
 **Purpose:** One-message, end-to-end, line-by-line, vision-centric forensic audit of the complete documentation stack, followed by targeted correction and fresh Development-readiness recertification.
 
@@ -62,23 +63,40 @@ Historical contradictions must remain traceable, but active truth must be Vision
 
 ---
 
-# 3. AUTHORITY HIERARCHY
+# 3. AUTHORITY HIERARCHY + PHASE OWNERSHIP
 
-Use the actual repository authority model. At minimum:
+Use the governing authority model exactly; do not create a simplified precedence rule that accidentally lets a previously certified derived document hide a valid unsuperseded source requirement.
 
-1. Primary Vision
-2. Current explicit user direction embodied by this execution
-3. `MASTER_INSTRUCTION_v2_5.md`
-4. `MASTER_PROMPT_v2_5.md`
-5. Canonical certified Foundation
-6. Canonical certified Architecture + ADRs
-7. Canonical Detailed Design and DD decisions
-8. RawSourceCorpus as immutable knowledge/history according to the governing hierarchy
-9. Registers / State files as evidence summaries only, never as stronger truth than the substantive documents they summarize
+## Normative precedence
 
-Where authorities conflict, higher authority governs.
+1. **Primary Vision**
+2. **Current explicit user direction** — where compatible with the Vision
+3. **`MASTER_INSTRUCTION_v2_5.md`**
+4. **`MASTER_PROMPT_v2_5.md`** — operational companion; MASTER INSTRUCTION wins if the pair diverges
+5. **RawSourceCorpus as immutable knowledge/provenance**, using the internal source-tier precedence defined by MASTER INSTRUCTION
 
-Do not treat an old source statement as active merely because it is older or more detailed.
+RawSourceCorpus is knowledge input, **not active architecture by itself**. A raw statement conflicting with the Vision/governing model is preserved and classified, not promoted blindly.
+
+## Canonical phase ownership
+
+After source reconciliation:
+
+- **Foundation** is the authoritative active owner of WHAT / WHY / WHO.
+- **Architecture + ADRs** are the authoritative active owners of system-level HOW, constrained by Foundation.
+- **Detailed Design + DD decisions** are the authoritative active owners of exact implementation contracts, constrained by Foundation + Architecture.
+- **Registers / State / checkpoints / audit summaries** are evidence and status projections; they never outrank the substantive canonical owner they summarize.
+
+A prior Foundation/Architecture/DD certification does **not** automatically defeat a valid source requirement that was never accounted for, nor does a raw source sentence automatically override a later governed canonical decision.
+
+When source knowledge and current canonical content differ, determine whether the difference is:
+
+- valid normalization;
+- explicit supersession;
+- phase refinement;
+- stale/incorrect canonical content;
+- or an unaccounted requirement gap.
+
+Require traceable evidence for the disposition.
 
 Do not invent external facts.
 
@@ -101,6 +119,8 @@ Within this execution:
 Only stop an individual dependent item when continuing it would require fabricating an external legal, contractual or factual truth. Continue all other work.
 
 If a value legitimately belongs to Architecture/Detailed Design and can be completed from Vision + governing principles, use the existing governed completion mechanism (e.g. ARCHITECTURAL-COMPLETION / DD-AC as applicable), label it honestly, document rationale/trade-offs/configurability/tests, and close it.
+
+**Single-message completion never authorizes fabricated coverage.** If a hard connector/tool/context limitation makes complete file retrieval or verification impossible inside the execution, continue every unaffected audit/correction you can, record the exact coverage limitation, and keep the final readiness gate BLOCKED for any scope whose required evidence was not actually inspected. Never claim “line-by-line complete” from sampling, truncation, search hits, summaries, or prior audit claims.
 
 ---
 
@@ -260,7 +280,9 @@ Raw source history is not permission for active inconsistency.
 
 Do not audit by filenames, headings, checkboxes, summary tables or existing PASS labels.
 
-For **every canonical text file in scope**, inspect substantive content line-by-line / section-by-section / table-row-by-table-row / requirement-by-requirement.
+For **every required active canonical text or structured-data file in scope**, inspect substantive content line-by-line / section-by-section / table-row-by-table-row / key-by-key / requirement-by-requirement.
+
+For binary/non-text assets that participate in project truth, audit metadata, path, hash, provenance/licensing, owner and referenced requirements; do not pretend binary content received a text line-by-line audit.
 
 At minimum inspect completely:
 
@@ -280,6 +302,21 @@ Do not skip large files because they are long.
 If tooling returns truncated content, page/read the remaining ranges until the full canonical content has been inspected.
 
 “No obvious issue in sampled content” is not an ultra-deep audit.
+
+Create a **Per-File Coverage Ledger** before certification. For every required active file record at minimum:
+
+- repository path;
+- blob/content SHA or equivalent immutable identifier;
+- file size;
+- line count for text files;
+- exact read coverage (must equal full file for a “fully audited” claim);
+- authoritative role;
+- active/historical classification;
+- audit disposition;
+- corrections/rewrite commit if any;
+- downstream revalidation status.
+
+If the connector truncates a response, continue reading explicit ranges until the ledger proves 100% coverage. Search results, file lists and generated matrices do not substitute for reading the source file.
 
 ---
 
@@ -475,9 +512,9 @@ Verify:
 
 Find any clause where MASTER_PROMPT operational behavior diverges from MASTER_INSTRUCTION.
 
-MASTER_INSTRUCTION governs.
+MASTER_INSTRUCTION governs when it and MASTER_PROMPT differ, but both remain auditable against the higher Primary Vision and current explicit user direction.
 
-Apply only targeted reconciliation.
+Prefer targeted reconciliation where it completely fixes the defect. If either governing document is structurally inconsistent, heavily layered with stale active clauses, or cannot be made unambiguous through local edits, a full canonical rewrite is permitted under §4A/§43 — while preserving amendment/history evidence and never changing the Primary Vision without explicit user authority.
 
 ---
 
@@ -520,7 +557,7 @@ Verify the canonical active technology baseline remains internally consistent, i
 - Tailwind + Shadcn UI
 - PostgreSQL
 - Payload CMS 3
-- Refine where appropriately justified by current governance
+- Refine only for admin/data-heavy surfaces where the current canonical architecture/DD explicitly assigns or justifies it; do not turn “where appropriate” into an unbounded implementation choice
 - Next.js server capabilities by default
 - NestJS only when a dedicated service boundary is justified
 - tRPC for first-party typed APIs
@@ -549,8 +586,10 @@ Verify shared capabilities have one Core owner and are not reimplemented in indu
 - IAM / SSO / MFA / RBAC / ABAC
 - Tenant/org/branch/department/team
 - commercial/subscription/license/entitlement
+- Affiliate / Referral / Commission / Payout engine
 - workflow/rules/config/metadata
-- forms/dynamic fields
+- forms/form-builder/dynamic fields
+- feature flags / controlled rollout
 - documents/storage
 - notifications/communications
 - reporting/BI
@@ -561,9 +600,10 @@ Verify shared capabilities have one Core owner and are not reimplemented in indu
 - API/integration/webhooks/event bus
 - AI Gateway/providers/models/RAG/agents/tools
 - device/sync/offline foundations
-- localization
+- localization/country packs
 - CMS/branding
-- marketplace/plugins
+- marketplace/plugins/provider-extension framework
+- support/elevation shared controls
 - observability/security/backup/deployment
 
 Find:
@@ -574,6 +614,110 @@ Find:
 - direct MS table coupling where a Core/API/event contract should exist.
 
 Correct by consolidation/cross-reference, not by destructive rewrite.
+
+---
+
+# 14A. SHARED PLATFORM ENGINES / CONFIGURATION / EXTENSIBILITY AUDIT
+
+Do not treat the Core capability list in §14 as sufficient evidence. Deep-audit the actual requirements, Architecture and DD contracts for each reusable platform engine:
+
+- Workflow Engine
+- Rules/Policy Engine
+- Configuration Engine
+- Metadata Engine
+- Form Builder / Dynamic Fields
+- Feature Flags / controlled rollout
+- Notification / Communication Engine
+- Search / indexing
+- Task / Inbox / Scheduling
+- Queue / worker / scheduler orchestration
+- Automation
+- Reporting / BI shared framework
+- Audit shared framework
+- CMS
+- Localization / country-pack framework
+- Marketplace / Plugin framework
+- Affiliate / Referral / Commission / Payout engine
+- support/operator-elevation shared capabilities
+
+For each engine verify:
+
+- one authoritative Core owner;
+- exact Foundation purpose/scope;
+- Architecture boundary;
+- configuration hierarchy and versioning;
+- Tenant/Core/Industry scope semantics;
+- permission/entitlement enforcement;
+- deterministic DD contracts;
+- event/API integration;
+- idempotency/concurrency where relevant;
+- audit/observability;
+- acceptance tests;
+- no per-Industry reimplementation.
+
+For dynamic forms/metadata/rules, verify schema/version migration, validation, publication/activation, rollback, safe expression/rule execution and audit ownership so Tenant configuration cannot become arbitrary code execution.
+
+For feature flags, verify platform/plan/Tenant/Industry targeting, default state, rollout history, security boundaries and removal/retirement lifecycle.
+
+For Affiliate/Referral/Commission/Payout, verify it remains a Core commercial capability, with attribution, eligibility, anti-abuse, commission calculation/versioning, payout state, reversal/clawback, Tenant configuration, permissions, audit and reporting defined where the source requires it.
+
+---
+
+# 14B. TENANT LIFECYCLE + ORGANIZATION MODEL AUDIT
+
+Deep-audit more than isolation. Verify deterministic requirements/contracts for:
+
+- Tenant creation/onboarding/provisioning;
+- Tenant status lifecycle;
+- exactly one Primary Industry;
+- optional Enabled Industries;
+- Industry Context provisioning/disable/re-enable;
+- organization / legal entity where applicable;
+- branches;
+- departments;
+- teams;
+- locations/sites;
+- domains/subdomains;
+- regional Data Home;
+- user membership and organization assignment;
+- branding/config initialization;
+- subscription/license initialization;
+- suspension/grace effects;
+- export/offboarding;
+- erasure/retention/legal hold;
+- Tenant closure/deletion;
+- restore/recovery where applicable.
+
+Verify referential integrity and authorization behavior when an Industry Context, branch, department, membership, license or Tenant becomes disabled.
+
+No downstream system may silently default to another Tenant/Industry because a context was disabled.
+
+---
+
+# 14C. INTEGRATION / PROVIDER / THIRD-PARTY RISK AUDIT
+
+Deep-audit the Integration Registry and provider-adapter model.
+
+Verify:
+
+- IntegrationDefinition / provider capability ownership;
+- TenantIntegration / Industry scope;
+- credential references, never plaintext secrets in business tables;
+- provider authentication/signature verification;
+- normalized errors;
+- timeout/retry/circuit-breaker classes;
+- idempotency;
+- sync cursor/context;
+- webhook/callback ingestion;
+- external callback → governed OperationContract/event, never direct domain-table write;
+- data minimization;
+- residency/cross-border transfer behavior;
+- provider fallback rules;
+- health/observability;
+- revocation/rotation;
+- audit.
+
+Where external providers materially handle sensitive or regulated data, verify vendor/third-party risk requirements, data-processing responsibility, regional availability constraints and fail-safe behavior are represented without fabricating vendor guarantees.
 
 ---
 
@@ -691,6 +835,8 @@ Audit:
 
 Find hidden plan hard-coding in Industry DD.
 
+Also audit the **Affiliate / Referral / Commission / Payout** capability as a Core commercial subsystem where required by the governing/source corpus. Ensure attribution, referral identity, commission rule/version, earning state, reversal/clawback, payout state, anti-abuse, permissions, Tenant configuration, reporting and audit are not lost merely because the subscription lifecycle is complete.
+
 ---
 
 # 18. APPLICATION SURFACE AUDIT
@@ -718,10 +864,12 @@ Clarify cross-channel hosting without creating new architectural surfaces.
 
 Verify the active mobile concept is consistent throughout the repository.
 
-For tenant-facing industries, enforce the governing policy of exactly two tenant mobile app roles/surfaces where applicable:
+For Tenant Industry experiences, enforce the governing mobile policy of **exactly two Tenant mobile application families/shells per Tenant/Industry experience**:
 
-- Tenant User App — external users
-- Tenant Staff App — internal staff
+- **Tenant User App** — external users
+- **Tenant Staff App** — internal staff
+
+These two app families may share one reusable codebase/shell architecture across industries and Tenants, but the product model must never proliferate role-specific binaries. The separate Platform Application is not counted as a Tenant mobile app.
 
 Do not create separate binaries for Patient, Doctor, Teacher, Student, Cashier, Guard, etc.
 
@@ -748,6 +896,8 @@ Audit:
 - offline context isolation
 
 No unrestricted shell/process/filesystem bridge.
+
+Where Tenant desktop capability is enabled, verify one reusable governed Tenant desktop shell/application model rather than role-specific or per-Industry native binaries. Industry/module behavior must remain context/config/permission driven.
 
 ---
 
@@ -893,6 +1043,12 @@ Where Tenant website or published Tenant experience is part of the canonical mod
 - preview/publish/version/rollback behavior.
 
 Clarify which options are plan/entitlement gated.
+
+Verify the reusable experience publication model stays explicit and consistent:
+
+**Industry Experience Definition → Tenant Experience Configuration → Published Tenant Experience Instance**
+
+Branding/content/configuration changes must not create a separate per-Tenant source-code fork.
 
 ## Master / Reference / Localization Data
 
@@ -1388,8 +1544,17 @@ Audit actual contracts for:
 - file upload
 - malware
 - rate limits/abuse
+- API gateway / WAF / DDoS / bot-abuse controls
+- risk-based/adaptive authentication
+- trusted/unknown device policy
+- impossible-travel / geo-fencing / geo-restriction where governed
+- time/concurrent-session restrictions where governed
 - webhooks
+- vulnerability management / penetration-test readiness
+- incident response / breach-notification workflow
 - support/operator elevation
+- digital identity/signature/trust-service boundaries where governed
+- vendor/third-party security risk where providers handle sensitive data
 - audit
 - erasure
 - retention/legal hold
@@ -1408,6 +1573,8 @@ Use readiness/posture language unless actual certification evidence exists.
 
 Audit design-level contracts for:
 
+- Development / Staging / Production environment separation
+- CI/CD and release governance at design level
 - Vercel-suitable workloads
 - Coolify + Dockerized VPS/regional workloads
 - workers
@@ -1418,6 +1585,7 @@ Audit design-level contracts for:
 - regional Data Homes
 - secret references
 - health/readiness
+- database migration/preflight/rollback contract (design only, no migration execution)
 - release stages
 - backup/PITR
 - restore exercises
@@ -1470,7 +1638,16 @@ Trace every material active requirement through:
 → Industry/MS Detailed Design where applicable  
 → Acceptance/Test Contract**
 
-Classify:
+For provenance, preserve/use the governing classification taxonomy where applicable:
+
+- SOURCE-DERIVED
+- PLATFORM-REUSABLE
+- USER-DIRECTED
+- ARCHITECTURAL-COMPLETION
+- REVIEW_REQUIRED
+- DD-AC / equivalent Detailed-Design completion provenance
+
+Separately classify current disposition:
 
 - VERIFIED
 - REFINED_CORRECTLY
@@ -1630,7 +1807,10 @@ At minimum:
 - wrong-context projection/report
 - offline wrong-context replay
 - stale entitlement
+- disabled Industry Context / disabled MS/module
 - revoked session/device/API credential
+- support/operator elevation outside approved scope
+- cross-context export/report attempt
 - pooled DB context carry-over
 - worker missing persisted context
 - AI cross-Tenant retrieval
@@ -1839,6 +2019,12 @@ Do not reuse the constructive audit conclusion.
 Try to prove failure by finding:
 
 - missing requirement
+- RawSource requirement stranded without canonical disposition
+- branding/theme/design-system requirement loss
+- shared Core engine missing deterministic contracts
+- Tenant lifecycle/offboarding ambiguity
+- Affiliate/Referral/Commission/Payout capability loss
+- integration/provider/third-party-risk gap
 - hidden assumption
 - shallow/template industry design
 - missing domain rule
@@ -1874,15 +2060,36 @@ After the final correction commit:
 
 - re-fetch current branch;
 - record exact ending HEAD;
+- record final substantive audited HEAD separately from later metadata-only commits;
 - verify `main` unchanged/unmerged;
-- verify RawSourceCorpus unchanged;
+- compare branch against `main` and record ahead/behind truth;
+- inspect open PR state and never invent a PR/merge claim;
+- verify RawSourceCorpus unchanged by blob/hash comparison;
 - verify no application code/migrations/deployment implementation added;
 - compare state/registers against final evidence;
 - verify final audit artifacts evaluate the final substantive design HEAD or clearly explain later metadata-only synchronization commits;
 - verify no open PR/merge claim is invented;
-- verify backup/closure state truthfully.
+- verify backup/closure state truthfully;
+- verify all final state/checkpoint/audit files agree on the same evidence baseline and status.
 
 Do not write stale repository metadata into the final checkpoint.
+
+---
+
+# 48A. FINAL CHECKPOINT / BACKUP / PR HOUSEKEEPING
+
+If and only if the substantive final adversarial gate passes, complete the governing pre-development closure work in the same execution where tools permit:
+
+1. create/update the final checkpoint and handoff using the exact verified branch state;
+2. produce a recoverable **documentation/project backup package** with no secrets and no production database content;
+3. record backup metadata including source branch, exact HEAD, creation time, included scope and checksum/hash where tooling permits;
+4. do not commit a large binary ZIP into Git merely for convenience unless existing project governance explicitly requires repository storage; prefer a generated artifact plus authoritative `BACKUP_METADATA.json`;
+5. inspect whether an open PR already exists for this branch;
+6. if governance/tooling permits and no equivalent PR exists, create or update **one review PR** from `docs/architecture-branch-2` toward `main`, clearly marked as review/closure only;
+7. **do not merge `main`** — merge remains separately approval-gated;
+8. if backup or PR tooling is unavailable, report the housekeeping limitation truthfully; never fabricate completion.
+
+The substantive Development-readiness decision must remain distinguishable from repository housekeeping. If the governing Definition of Done makes a missing checkpoint/backup mandatory for the claimed phase transition, keep the corresponding final status blocked until that mandatory closure evidence exists.
 
 ---
 
@@ -1913,12 +2120,18 @@ Create or update authoritative artifacts for this pass, using existing repositor
 At minimum evidence must capture:
 
 - audit scope and evaluated HEAD;
-- complete file coverage;
+- complete file coverage + Per-File Coverage Ledger;
+- Canonical File Freshness Matrix;
+- source-promotion/disposition matrix;
 - defect register;
 - Vision consistency matrix;
 - Foundation consistency result;
 - Architecture consistency result;
 - Detailed Design consistency result;
+- shared platform engines/extensibility result;
+- Tenant lifecycle/organization result;
+- integration/provider/third-party-risk result;
+- branding/theme/design-system/master/seed/demo/media result;
 - 9-industry result;
 - all-MS result;
 - requirement no-loss/traceability result;
@@ -1927,7 +2140,8 @@ At minimum evidence must capture:
 - Development/QA determinism;
 - corrections applied;
 - final adversarial audit;
-- final state/gate.
+- final state/gate;
+- final checkpoint/backup/PR-housekeeping truth where applicable.
 
 Do not create a new parallel source of truth when an existing register is the proper owner.
 
@@ -1992,6 +2206,24 @@ Report:
 - workflows/rules/permissions
 - tests
 - corrections
+- final verdict
+
+## F1. Shared Core Engines + Tenant Lifecycle
+
+- Workflow/Rules/Config/Metadata/Form/Feature Flag engines
+- Affiliate/Referral/Commission/Payout
+- Tenant lifecycle/org hierarchy
+- integrations/provider risk
+- final verdict
+
+## F2. Branding / Theme / Data Defaults
+
+- platform brand/design tokens
+- Tenant branding/white-label
+- Industry Experience publication model
+- localization/country packs
+- master/reference data
+- seed/demo/media governance
 - final verdict
 
 ## G. Nine Industries + Management Systems
@@ -2073,8 +2305,9 @@ with exact remaining blockers.
 
 Development may be declared READY only when all are true:
 
-- complete canonical file coverage;
+- complete canonical file coverage proven by the Per-File Coverage Ledger;
 - 100% of required active canonical files classified FRESH at final repository truth;
+- every active RawSource requirement has a canonical disposition or recorded supersession/external classification;
 - no required active file left stale merely because it was previously certified;
 - Primary Vision consistency across all active files;
 - no active conflicting technology stack;
@@ -2082,6 +2315,12 @@ Development may be declared READY only when all are true:
 - 9/9 industries first-class;
 - every canonical Management System substantively complete;
 - Core ownership non-duplicated;
+- shared Workflow/Rules/Config/Metadata/Form/Feature Flag engines deterministic;
+- Affiliate/Referral/Commission/Payout requirements preserved where governed;
+- Tenant lifecycle/org hierarchy deterministic;
+- integration/provider/third-party-risk contracts sufficient;
+- branding/theme/design-system/Tenant branding canonicalized;
+- localization/master/seed/demo/media requirements canonicalized;
 - Tenant + Industry Context fail-closed;
 - RBAC/ABAC chain consistent;
 - commercial lifecycle consistent;
@@ -2105,7 +2344,8 @@ Development may be declared READY only when all are true:
 - no stale certification evidence;
 - 9/9 Development determinism YES;
 - 9/9 QA determinism YES;
-- final adversarial audit PASS.
+- final adversarial audit PASS;
+- mandatory checkpoint/backup closure evidence complete where governing Definition of Done requires it.
 
 Counts and checkmarks alone cannot satisfy these conditions.
 
@@ -2147,7 +2387,7 @@ branch:
 
 `docs/architecture-branch-2`
 
-Then execute this entire prompt autonomously in one run.
+First record the freshly fetched remote HEAD as the **Execution Start HEAD** and use it as the only operational baseline. Then execute this entire prompt autonomously in one run.
 
 Do not ask for another user message to continue.
 
