@@ -1,11 +1,14 @@
 # SBGlobal Plus — A-09 INDUSTRY SUITE ARCHITECTURE
-**Document ID:** A-09 · **Version:** 1.0 · **Status:** ARCHITECTURE COMPLETE (CP-A1-002) · **Date:** 09-09-2026
+**Document ID:** A-09 · **Version:** 1.1 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 09-09-2026
 **Traces to:** F-07…F-09 (nine suites), F-12 (MS Specification Standard + §9 dimensions), F-13 (MS depth completion), F-00 §5 (canonical chain), LG-03/LG-04 (no flagship; equal depth) · **Decisions:** ADR-012 (→ A-12)
 
 ---
 
 ## 1. First-Class Equality (ADR-012)
-All nine suites — **Healthcare & Diagnostics (HLT), Education (EDU), eCommerce/Retail (RTL), Hospitality (HSP), Manufacturing (MFG), Professional Services (PSV), Government & Public Sector (GOV), NGO/Temple/Trust (NGO), Security & Facility Management (SFM)** — are architecturally identical citizens: same module anatomy (§3), same activation model (§4), same integration and AI patterns. Healthcare is **not** the template: the anatomy below is derived from the cross-suite MS Specification Standard (F-12), which all nine satisfy independently. Suite-specific behavior comes only from that suite's own Foundation specification. There are no suite forks of Core code, schema conventions, or experience shells — a new industry is a new module group + catalog entries, not a new platform.
+All nine suites — **Healthcare & Diagnostics (HLT), Education (EDU), eCommerce/Retail (RTL), Hospitality (HSP), Manufacturing (MFG), Professional Services (PSV), Government & Public Sector (GOV), NGO/Temple/Trust (NGO), Security & Facility Management (SFM)** — are architecturally identical citizens: same module anatomy (§3), same activation model (§4), same integration and AI patterns. Healthcare is **not** the template: the anatomy below is derived from the cross-suite MS Specification Standard (F-12), which all nine satisfy independently. Suite-specific behavior comes only from that suite's own Foundation specification. There are no suite forks of Core code, schema conventions, or experience shells. The nine named suites are the **Current Supported Industry** set. A future industry uses the Future Industry Framework and does not become Current Supported merely because a module group or document exists.
+
+## 1A. Future Industry Promotion Architecture
+A future-industry definition lives in a separate catalog state (`DRAFT_FUTURE` / equivalent governance state) and may reuse Core extension seams for design/prototyping. Promotion to Current Supported requires explicit user/governance approval plus completion of the same Foundation specification, MS inventory/depth, architecture isolation/ownership, experience, AI/integration, acceptance and traceability gates as existing industries. Until promotion, it cannot be licensed/enabled for live Tenant production contexts. Promotion adds catalog/module/experience/configuration artifacts only; it does not fork Core, copy Healthcare semantics or silently expand global permissions.
 
 ## 2. Suite → Architecture Mapping
 | Suite | Module group | Schema (A-05 §3) | Experience packages (A-08 §4) | Integration ports (A-06 §6) |
@@ -42,7 +45,7 @@ Dependency rules: MS → platform modules: allowed. MS → MS within a suite: vi
 
 ## 4. Activation Model
 ```
-Industry catalog (global directory) → tenant primary industry (+ optional
+Current Supported Industry catalog (global directory) → tenant primary industry (+ optional
 enabled industries, F-00 §5) → plan/entitlement grants suite + MS set
 (A-04 §4) → tenant activation workflow: register activation → run seed
 pack → mount routers (A-06 §2) + experience packages (A-08 §4) → assign
@@ -57,7 +60,7 @@ Recurring operational patterns — scheduling/appointments, inventory movements,
 Each suite declares (per its Foundation spec, executed via A-07/A-08 patterns): AI tools/skills exposed to assistants (permission-bound, A-07 §5) and offline-capable module scope (e.g. RTL POS per AC-06). These declarations are catalog data, uniform across suites.
 
 ## 7. Deferred to Detailed Design
-Per-MS service contract signatures, workflow definitions, rule bindings, seed packs, permission instantiation, experience screen inventories, integration adapter specs — all per suite from its own F-07…F-09/F-12/F-13 content (§26A/§26B boundary).
+Per-MS service contract signatures, workflow definitions, rule bindings, seed packs, permission instantiation, experience screen inventories, integration adapter specs; Future Industry promotion-state schema/checklist — all per suite from its own F-07…F-09/F-12/F-13 content (§26A/§26B boundary).
 
 ## 8. Evidence consumption rule
 Common Management-System anatomy defines architectural shape only; it is **not proof of business depth**. A suite/MS enters Architecture as verified Foundation truth from its own F-07…F-09/F-13 business semantics. All nine industries consume the same architectural discipline independently. Healthcare-specific workflows, masters, events or compliance semantics may not be inferred into sibling suites.
