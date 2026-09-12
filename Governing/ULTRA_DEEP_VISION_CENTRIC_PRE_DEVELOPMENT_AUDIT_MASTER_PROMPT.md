@@ -488,6 +488,56 @@ Only after the adversarial pass succeeds may READY FOR DEVELOPMENT be restored a
 
 Do not audit a lower layer once and then leave it untouched after an upstream correction. Any upstream correction automatically triggers re-validation of every dependent downstream artifact.
 
+## Certification Invalidation Propagation
+
+A substantive upstream correction temporarily invalidates dependent downstream certifications until they are revalidated against the corrected truth.
+
+Apply at minimum:
+
+- Governing/Primary-model correction → Foundation + Architecture + DD + Registers/State require impact revalidation;
+- Foundation correction → dependent Architecture + ADR + DD + tests + traceability + state become PROVISIONAL until revalidated;
+- Architecture/ADR correction → dependent DD + tests + traceability + state become PROVISIONAL until revalidated;
+- DD correction → dependent acceptance tests, determinism audits, traceability and readiness evidence become PROVISIONAL until revalidated.
+
+Do not leave a downstream `CERTIFIED`, `PASS`, `COMPLETE` or `READY` label active as unquestioned current truth while its upstream basis has materially changed.
+
+The final state may restore those labels only after the dependency chain is re-audited and evidence is synchronized.
+
+---
+
+# 9B. STABLE IDENTIFIER / CROSS-REFERENCE PRESERVATION
+
+Full-file rewrite authority does not permit careless identifier churn.
+
+During every correction/rewrite preserve stable canonical IDs wherever their semantics remain the same, including as applicable:
+
+- requirement IDs;
+- Foundation IDs;
+- Architecture/ADR IDs;
+- DD decision/test IDs;
+- Industry IDs;
+- Management System IDs;
+- module/capability IDs;
+- permission IDs;
+- API operation IDs;
+- event types/versions;
+- KPI IDs;
+- workflow/state IDs;
+- configuration/catalog IDs.
+
+If semantics genuinely change enough that a new ID is required:
+
+1. create the new ID;
+2. preserve the old ID as historical/superseded;
+3. create an explicit old → new migration/supersession mapping;
+4. update every inbound/outbound reference;
+5. update traceability and tests;
+6. verify no dangling reference remains.
+
+Audit all Markdown/file/section references, relative links, anchors, IDs, JSON references and register pointers after rewrites.
+
+A rewritten file is not FRESH if its references are broken.
+
 ---
 
 # 10. PHASE-BOUNDARY AUDIT
@@ -619,7 +669,9 @@ Correct active contradictions without deleting history.
 
 # 13. CURRENT TECHNOLOGY BASELINE AUDIT
 
-Verify the canonical active technology baseline remains internally consistent, including as applicable:
+First derive the **active technology baseline at runtime from the current canonical technology authority (including UD-TECH-01 / its current authoritative owner)**. This audit prompt must never outrank or freeze an older technology snapshot.
+
+As a consistency expectation, the current repository is expected to resolve to the following baseline unless a higher-authority user/governing decision has explicitly changed it:
 
 - Next.js 15
 - React 19
@@ -646,7 +698,9 @@ Verify the canonical active technology baseline remains internally consistent, i
 
 Historical stacks may remain in RawSource/history only.
 
-Find and correct active stack drift.
+If the authoritative technology baseline has legitimately changed, update affected Foundation/Architecture/DD and this control prompt consistently rather than “correcting” the project back to a stale list in this section.
+
+Find and correct unauthorized active stack drift.
 
 ---
 
@@ -868,9 +922,11 @@ Correct any alternate competing authorization chain.
 
 # 17. COMMERCIAL MODEL AUDIT
 
+First derive the active commercial model from the current Foundation/Architecture/DD commercial owner and governing decisions. The values below are the expected current model, not an authority independent of those owners.
+
 Verify plan model and lifecycle consistency.
 
-Plans:
+Expected current Plans:
 
 - Free
 - Starter
@@ -880,7 +936,7 @@ Plans:
 
 Commercial routes must align with current governing decisions.
 
-Verify canonical subscription states:
+Verify the current canonical subscription lifecycle resolves to the expected active model unless a higher-authority governed change exists:
 
 `PENDING → TRIAL → ACTIVE → GRACE → SUSPENDED → EXPIRED/CANCELLED`
 
@@ -912,9 +968,7 @@ Also audit the **Affiliate / Referral / Commission / Payout** capability as a Co
 
 # 18. APPLICATION SURFACE AUDIT
 
-Verify exactly the current canonical surface responsibilities and terminology.
-
-At minimum distinguish:
+Derive the active Application Surface Model from current governing/Architecture truth, then verify it is consistently implemented across Foundation/DD. Under the current model, the canonical responsibilities are expected to distinguish exactly:
 
 1. Public SaaS Website
 2. Platform Application
@@ -935,12 +989,12 @@ Clarify cross-channel hosting without creating new architectural surfaces.
 
 Verify the active mobile concept is consistent throughout the repository.
 
-For Tenant Industry experiences, enforce the governing mobile policy of **exactly two Tenant mobile application families/shells per Tenant/Industry experience**:
+For every Tenant and each enabled Industry Experience, enforce the governing product model of **exactly two logical Tenant mobile apps**:
 
 - **Tenant User App** — external users
 - **Tenant Staff App** — internal staff
 
-These two app families may share one reusable codebase/shell architecture across industries and Tenants, but the product model must never proliferate role-specific binaries. The separate Platform Application is not counted as a Tenant mobile app.
+These are logical product/application roles, not a requirement for unique source-code forks or role-specific binaries. They should be implemented through reusable React Native/Expo shells/codebases with Tenant + Industry Context + role/permission/feature/configuration driving the experience. The separate Platform Application is not one of these two Tenant mobile apps.
 
 Do not create separate binaries for Patient, Doctor, Teacher, Student, Cashier, Guard, etc.
 
@@ -1146,7 +1200,7 @@ Verify requirements for:
 
 - deterministic/reproducible seed data;
 - small safe synthetic demo datasets;
-- industry-appropriate examples for all nine industries;
+- industry-appropriate examples for every Current Supported Industry (currently expected to be nine);
 - Tenant scoping;
 - DEMO flags where applicable;
 - no real PII;
@@ -1200,7 +1254,7 @@ Before final readiness, there must be **no material branding/theme/data-default 
 
 # 22. NINE INDUSTRY SUITES — EQUAL FIRST-CLASS AUDIT
 
-Independently verify all nine current industries:
+Derive the Current Supported Industry set from the highest active governing/Foundation truth. Under the current project model, independently verify these nine current industries:
 
 1. Healthcare & Diagnostics
 2. Education
@@ -1222,7 +1276,9 @@ Healthcare must not be:
 
 Equal status does not require identical module counts.
 
-Every industry must satisfy the same documentation/evidence discipline.
+Every current supported industry must satisfy the same documentation/evidence discipline.
+
+If a higher-authority explicit user decision has legitimately changed the Current Supported Industry set, audit that change and propagate it; do not use this control prompt's historical list to override the higher authority.
 
 ---
 
@@ -1851,7 +1907,7 @@ If any later commit changes material product/design truth, the previous substant
 
 # 41. DEVELOPMENT DETERMINISM TEST
 
-Select representative end-to-end flows from all nine industries, including at minimum:
+Select representative end-to-end flows from every Current Supported Industry. Under the current expected nine-industry model, include at minimum:
 
 - Healthcare: visit/order → sample/exam/dispense as applicable → result/report
 - Education: student/exam → marks/moderation → result publication/correction
@@ -2344,7 +2400,7 @@ Counts:
 
 ## K. Development + QA Determinism
 
-Nine-industry YES/NO matrix.
+Current-Supported-Industry YES/NO matrix (currently expected to contain nine industries).
 
 ## L. Findings
 
@@ -2395,7 +2451,7 @@ Development may be declared READY only when all are true:
 - Primary Vision consistency across all active files;
 - no active conflicting technology stack;
 - no active Healthcare-first architecture;
-- 9/9 industries first-class;
+- every Current Supported Industry first-class (currently expected 9/9 unless higher-authority truth changed);
 - every canonical Management System substantively complete;
 - Core ownership non-duplicated;
 - shared Workflow/Rules/Config/Metadata/Form/Feature Flag engines deterministic;
@@ -2426,8 +2482,8 @@ Development may be declared READY only when all are true:
 - no material orphan requirement/design;
 - no false traceability;
 - no stale certification evidence;
-- 9/9 Development determinism YES;
-- 9/9 QA determinism YES;
+- Development determinism YES for every Current Supported Industry;
+- QA determinism YES for every Current Supported Industry;
 - final adversarial audit PASS;
 - mandatory checkpoint/backup closure evidence complete where governing Definition of Done requires it.
 
