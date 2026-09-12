@@ -1,9 +1,17 @@
 # DD-13 — INDUSTRY SUITE / MANAGEMENT SYSTEM DETAILED DESIGN
-**Wave:** 3 · **Status:** DETAILED DESIGN COMPLETE — 41/41 MS STRUCTURALLY VERIFIED · **Date:** 2026-09-11  
+**Wave:** 3 · **Status:** PHASE 3 REVALIDATED — CURRENT 41 MS + FUTURE INDUSTRY GATE · **Date:** 2026-09-12  
 **Traces:** F-07/F-08/F-09/F-12/F-13 · A-09 · ADR-012 · DD-01…DD-12/DD-14…DD-18
 
 ## 1. Purpose
 DD-13 is the authoritative Wave-3 index for implementation-ready Detailed Design of all 41 certified Management Systems. Each industry has a modular file under `DetailedDesign/Industries/`; Healthcare is not a template and every suite receives equal design discipline.
+
+## 1A. Future Industry design/promotion contract
+
+Future Industry definitions are separate from the Current Supported Industry/41-MS catalog.
+
+`FutureIndustryDefinition{id uuid PK, industry_code text UNIQUE, display_name, status enum(DRAFT_FUTURE,FOUNDATION_READY,ARCHITECTURE_READY,DD_READY,APPROVAL_REQUIRED,APPROVED_FOR_PROMOTION,PROMOTED,RETIRED), foundation_evidence_ref, architecture_evidence_ref, dd_evidence_ref, acceptance_evidence_ref, traceability_evidence_ref, approved_by_user_ref?, approved_at?, version, created_at, updated_at}`.
+
+Promotion preconditions: explicit user approval + Foundation specification PASS + MS inventory/depth PASS + Architecture isolation/ownership PASS + DD exact contracts PASS + acceptance/isolation/traceability PASS. Only `PROMOTED` industries may enter the Current Supported catalog, be licensed, receive live Tenant `industry_context`, or appear in commercial activation lists. Promotion is transactional and audited; it registers catalog/module/experience/configuration entries on the existing Core, never a new platform fork.
 
 ## 2. Canonical count
 | Industry | Count | Artifact |
@@ -43,14 +51,15 @@ Identity/DD-03 · Commercial/DD-04 · RLS/DD-05 · OperationContract/DD-06 · Ev
 tRPC router `ind.<industry>.<ms>`. REST exists only for real external interoperability. Both project the same DD-06 OperationContract. Event types `<industry>.<ms>.<aggregate>.<action>` use DD-07 EventEnvelope v1 and carry Tenant + Industry Context.
 
 ## 9. Experience convention
-Shared DD-10 shell. Web route prefix `/app/<industry>/<ms>`; mobile uses same package capability manifest; desktop is added only for operational/peripheral/offline value. No separate authentication/application Core per MS.
+Shared DD-10 shell. Web route prefix `/app/<industry>/<ms>`; mobile package capabilities must declare `TENANT_STAFF_APP` or `TENANT_USER_APP` only; desktop is added only for operational/peripheral/offline value. No separate authentication/application Core per MS.
 
 ## 10. Offline classes
 `ONLINE_ONLY`, `READ_OFFLINE`, `CONTROLLED_OFFLINE_MUTATION`, `OFFLINE_OPERATIONAL_CRITICAL`. Financial, stock and regulated transitions never use naive LWW.
 
 ## 11. Wave-3 gate — closure result
 - 41/41 canonical Management Systems have substantive DD sections.
-- 9/9 industries have equal design discipline.
+- 9/9 Current Supported Industries have equal design discipline.
+- Future Industry definitions remain non-live until the promotion contract passes.
 - Structural implementation-readiness scan verifies per-MS ownership, entity design, workflow/rules, capability permissions, documents/reports, tRPC/events, AI, experience/offline, entitlement, audit and test/acceptance coverage.
 - Every industry-owned MS explicitly consumes immutable Tenant + Industry Context ownership.
 - Cross-industry audit: PASS.
