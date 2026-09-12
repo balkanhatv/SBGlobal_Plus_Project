@@ -1,23 +1,22 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-12
+**Updated:** 2026-09-13
 
 ## Current truth
 - Branch: `docs/architecture-branch-2`
-- Checkpoint: `PHASE2-ARCHITECTURE-REVALIDATED`
-- Foundation: **FRESH RECONCILED — PHASE 1 PASS**
-- Architecture: **FRESH REVALIDATED — PHASE 2 PASS**
-- Detailed Design: **REVALIDATION REQUIRED**
-- Development: **NOT AUTHORIZED**
+- Checkpoint: `PHASE4-CROSS-LAYER-REVALIDATED`
+- Foundation: **PASS**
+- Architecture: **PASS**
+- Detailed Design: **PASS / COMPLETE**
+- Cross-layer traceability/isolation/determinism: **PASS**
+- Development: **NOT YET AUTHORIZED**
 - RawSourceCorpus: immutable / integrity PASS
 
-## Evidence
-- Phase 1: `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`
-- Phase 2: `Registers/PHASE2_ARCHITECTURE_REVALIDATION_2026-09-12.md`
-- Architecture traceability: `Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md`
-- Architecture no-loss: `Registers/ARCHITECTURE_NO_LOSS_AUDIT.md`
-- Architecture adversarial: `Registers/ARCHITECTURE_FINAL_AUDIT.md`
+## Substantive baselines
+- Foundation: `4b5ec3667ae81c0b4c92a4cf0daba0282edd4131`
+- Architecture: `9453ebb0140670984753cec9e66613475789610b`
+- Detailed Design: `b4bba9c4764025af3d4546644f7c67efa463c86d`
 
 ## Next task
-Execute **Phase 3 — Detailed Design fresh revalidation/correction** against the corrected Foundation and revalidated Architecture. Re-read all required DD shared artifacts plus all nine Industry DD artifacts/41 MS, propagate upstream deltas, repair exact contracts/tests/traceability, run DD determinism/isolation/adversarial evidence, and only then decide whether Detailed Design COMPLETE / READY FOR DEVELOPMENT can be re-earned.
+Complete Phase 5 repository/state/checkpoint-backup closure, then run the final independent pre-development adversarial audit. If the required checkpoint backup cannot actually be produced with available tooling, preserve the verified project state and keep Development blocked only on that explicit closure dependency.
 
-Do not carry forward historical DD-F5-RECERTIFIED labels as current proof. Do not modify or merge `main` without explicit approval.
+Do not modify or merge `main` without explicit approval.
