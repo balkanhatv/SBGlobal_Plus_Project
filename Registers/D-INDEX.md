@@ -1,13 +1,18 @@
 # D-INDEX — Canonical Document Index
-**Updated:** 2026-09-12 · **Checkpoint:** `DD-F5-RECERTIFIED`
+**Updated:** 2026-09-13 · **Checkpoint:** `PHASE5-CLOSURE-BACKUP-BLOCKED`
 
-**Current state:** FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DD WAVE 1 COMPLETE · DD WAVE 2 COMPLETE · DD WAVE 3 COMPLETE · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT.
+**Current state:** FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN PASS/COMPLETE · CROSS-LAYER PASS · DEVELOPMENT BLOCKED ON MANDATORY PHYSICAL CHECKPOINT ZIP + FINAL ADVERSARIAL GATE.
 
 - RawSourceCorpus: immutable S1/S2 baseline.
-- Foundation F-00…F-15: certified.
-- Architecture A-00…A-12 / ADR-001…018: certified.
-- DetailedDesign DD-00…DD-31: current design/evidence set; DD-20D is final overall audit authority.
-- Requirement evidence: 2,962 RawSource child IDs + 328 explicit-user F5 IDs; REAL_GAP=0.
-- 41/41 MS and 9/9 industries: Wave-3 PASS.
-- Final isolation at substantive HEAD `810e43c9c75e3750f52cc7e1954db8f341e6d79b`: PASS.
-- Historical failed/reopened checkpoints remain preserved.
+- Foundation F-00…F-15: fresh reconciled at Phase 1.
+- Architecture A-00…A-12 / ADR-001…020: fresh revalidated at Phase 2.
+- DetailedDesign DD-00…DD-31 + 9 Industry DD artifacts: fresh revalidated at Phase 3.
+- Cross-layer requirement/isolation/determinism evidence: Phase 4 PASS.
+- 41/41 MS acceptance/workflow evidence: PASS.
+- 165/165 named KPI metrics mapped.
+- Development/QA determinism: 9/9 YES + 9/9 YES.
+- Current isolation matrix: PASS at substantive DD HEAD `b4bba9c4764025af3d4546644f7c67efa463c86d`.
+- Recovery manifest: exact snapshot `f09c26b2d01b97d0f50b20d94bad374dbc4252c7`, 125 files.
+- Physical checkpoint ZIP: **NOT MATERIALIZED / NOT SHA-256 VERIFIED**; this is the current closure blocker.
+- Review PR: #2 OPEN DRAFT / DO NOT MERGE without explicit owner approval.
+- Historical `DD-F5-RECERTIFIED`, old READY labels and prior checkpoints remain provenance only.
