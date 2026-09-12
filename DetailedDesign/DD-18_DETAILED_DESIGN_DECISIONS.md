@@ -283,9 +283,42 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Reversibility:** high through policy versioning.
 
 
-## DD-029 — Fable 5 final recertification gate [DD-AC]
+## DD-029 — Historical Fable 5 final recertification gate [DD-AC]
 **Context:** the prior DD-COMPLETE gate was reopened because counts/status labels did not prove deterministic 41-MS behavior, requirement-level traceability or final-head isolation.
 **Decision:** accept the fresh evidence set DD-20C, DD-20D, DD-21…DD-31 and the final ISOLATION_ATTACK_MATRIX evaluated at substantive HEAD `810e43c9c75e3750f52cc7e1954db8f341e6d79b`. Create checkpoint `DD-F5-RECERTIFIED`. Historical `DD-COMPLETE` remains provenance only.
 **Gate result:** Fable P0=0; P1=0; REAL_DD_GAP=0; 41/41 MS PASS; 165/165 named KPI metrics mapped; RawSource/user requirement traceability REAL_GAP=0; Development determinism 9/9 YES; QA determinism 9/9 YES; final isolation PASS.
-**Consequence:** Detailed Design is complete and Development is authorized as the next phase. This does not claim implementation, executable testing, security validation, production readiness or deployment.
+**Historical consequence at that evaluated HEAD:** Detailed Design was complete and Development was authorized as the next phase. This does not claim implementation, executable testing, security validation, production readiness or deployment.
 **Reversibility:** any future material audit finding reopens the gate; historical evidence is never deleted.
+
+
+## DD-030 — Shared definition lifecycle and safe-expression boundary [DD-AC]
+**Context:** Phase-1/2 restored explicit Metadata, Rules/Policy, Form/Dynamic Fields, Country/Localization Pack and related shared-engine ownership.
+**Decision:** all shared definitions use DRAFT→REVIEW→PUBLISHED→ACTIVE→RETIRED, scoped by owner/Tenant/Industry as applicable. Rule/Form/Metadata payloads are declarative only; arbitrary JavaScript, SQL, shell, dynamic import or equivalent executable payload is prohibited. One ACTIVE version per owner/code unless an explicit effective-dated owner contract states otherwise.
+**Consequences:** publish/activate/rollback is auditable and deterministic; Industry modules consume Core definitions rather than private engines.
+**Tests:** CFG-001…CFG-004.
+**Dependencies:** ADR-019, DD-01, DD-05, DD-17.
+
+## DD-031 — Country/localization-pack data boundary [DD-AC]
+**Decision:** Country Packs are versioned reference/default bundles only. They may set locale/currency/timezone/date-number/language/address/phone/reference defaults, but may not grant permissions, entitlements, live Industry activation or arbitrary business-rule authority. Tenant activation is explicit and audited.
+**Tests:** LOC-001/002.
+**Dependencies:** F-04, A-01/A-05, DD-05/DD-17.
+
+## DD-032 — AI provisioning/API/media/memory contract [DD-AC]
+**Decision:** AIProvisioningSnapshot is the compiled entitlement/config capability boundary; all AI API classes traverse the AI Gateway; PromptTemplate versions use governed publication; AIMemoryRecord obeys Tenant+Industry+ACL+retention; generated media enters DD-08 DocumentMeta/provenance before governed publication/use.
+**Tests:** AI-013…AI-017.
+**Dependencies:** A-07/ADR-010, DD-08/DD-09/DD-17.
+
+## DD-033 — Exactly-two Tenant mobile app classes [DD-AC]
+**Decision:** canonical Tenant app classes are only TENANT_STAFF_APP and TENANT_USER_APP. Role/persona labels never become app classes/binaries. Platform Mobile is a separate Platform Application channel. Every mobile capability manifest declares one canonical appClass.
+**Tests:** APP-009/013 plus DD-11 acceptance.
+**Dependencies:** F-06, A-08/ADR-014, DD-10/DD-11/DD-17.
+
+## DD-034 — Brand hierarchy and protected semantic-token floor [DD-AC]
+**Decision:** brand resolution is Platform Brand → allowed Industry override → Tenant white-label override → user presentation preference. Protected security/accessibility semantic tokens and Platform product identity cannot be weakened/replaced by lower layers. Brand versions require preview/accessibility validation/review/publish/activate.
+**Tests:** APP-010, BRAND-001/002.
+**Dependencies:** F-06, A-08/ADR-011, DD-05/DD-10/DD-17.
+
+## DD-035 — Future Industry promotion state machine [DD-AC]
+**Decision:** use DD-13 FutureIndustryDefinition states DRAFT_FUTURE→FOUNDATION_READY→ARCHITECTURE_READY→DD_READY→APPROVAL_REQUIRED→APPROVED_FOR_PROMOTION→PROMOTED, with RETIRED as lifecycle exit. Only PROMOTED may enter Current Supported catalog, licensing and live Tenant Industry Context creation. Explicit user approval is mandatory before APPROVED_FOR_PROMOTION.
+**Tests:** APP-011/012.
+**Dependencies:** F-01, A-09/ADR-020, DD-13/DD-17.
