@@ -1,14 +1,16 @@
 # PROJECT_STATE — SBGlobal Plus
 - Updated: 2026-09-12.
 - Branch: `docs/architecture-branch-2`.
-- Current checkpoint: `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`.
+- Current checkpoint: `PHASE2-ARCHITECTURE-REVALIDATED`.
 - Foundation: **FRESH RECONCILED — PHASE 1 PASS**.
-- Architecture: **REVALIDATION REQUIRED**.
-- Detailed Design: **REVALIDATION REQUIRED — prior DD-F5-RECERTIFIED status is historical until re-earned**.
+- Architecture: **FRESH REVALIDATED — PHASE 2 PASS**.
+- Detailed Design: **REVALIDATION REQUIRED — prior DD-F5-RECERTIFIED status historical until re-earned**.
 - Development: **BLOCKED / NOT AUTHORIZED**.
-- Final substantive Foundation-corrected HEAD audited in Phase 1: `4b5ec3667ae81c0b4c92a4cf0daba0282edd4131`.
+- Phase-1 substantive Foundation HEAD: `4b5ec3667ae81c0b4c92a4cf0daba0282edd4131`.
+- Phase-2 substantive Architecture HEAD: `9453ebb0140670984753cec9e66613475789610b`.
 - Phase-1 evidence: `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`.
+- Phase-2 evidence: `Registers/PHASE2_ARCHITECTURE_REVALIDATION_2026-09-12.md`.
 - RawSourceCorpus: immutable and verified at blobs `a9f63a64448a347edd0f2b0c74094284ee953c1b` and `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`.
-- `main`: historical PR #1 merge exists at `3911590ff2020993ce51b32d7b091efd6f5f466f` (2026-09-04); **no main merge was performed by this Phase-1 run**.
-- Historical Foundation-only recovery backup metadata exists; **no current full Architecture/DD closure backup has been produced by Phase 1**.
-- Next phase: fresh Foundation → Architecture/ADR revalidation and targeted correction.
+- `main`: historical PR #1 merge exists at `3911590ff2020993ce51b32d7b091efd6f5f466f` (2026-09-04); no main merge was performed by Phase 1 or Phase 2.
+- Historical Foundation-only recovery backup exists; no current full Architecture/DD closure backup has been produced.
+- Next phase: **Phase 3 — Detailed Design fresh revalidation/correction**.
