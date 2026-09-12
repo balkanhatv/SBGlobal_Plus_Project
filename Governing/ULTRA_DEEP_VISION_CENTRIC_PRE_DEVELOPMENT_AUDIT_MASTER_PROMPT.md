@@ -136,6 +136,29 @@ After any rewrite, preserve still-valid knowledge, provenance, decisions and his
 
 Final certification is forbidden unless **every required active canonical file has been freshly evaluated at the final repository truth and is either verified unchanged, corrected, or fully rebuilt as necessary.**
 
+# 4B. VISION-CENTRIC NEW REQUIREMENT AUTHORITY
+
+This execution is explicitly authorized to **add new canonical requirements** when the fresh audit proves that a material requirement is missing and the requirement is necessary to make the project consistent with the Primary Vision, governing model, enterprise-grade multi-tenant/multi-industry behavior, security boundaries, deterministic implementation, or objective QA acceptance.
+
+A missing requirement must NOT be left absent merely because no previously certified file contains it.
+
+When adding a new requirement:
+
+- first prove the gap from the Vision, explicit user direction, governing rules, source knowledge, cross-layer consistency, or deterministic implementation need;
+- place the requirement at the correct authoritative phase/owner: Foundation for WHAT/WHY/WHO, Architecture for system-level HOW, Detailed Design for exact implementation contracts;
+- label provenance honestly as USER-DIRECTED, SOURCE-DERIVED, ARCHITECTURAL-COMPLETION, DD-AC, or the repository's equivalent governed classification;
+- never falsely attribute a newly completed requirement to RawSourceCorpus;
+- define scope, owner, dependencies, Tenant/Industry implications, security/entitlement implications, failure behavior and acceptance evidence;
+- propagate the requirement forward through Architecture/DD/tests where required;
+- update traceability, decisions, registers and state;
+- re-audit all affected upstream/downstream files after insertion.
+
+Fable 5 is therefore authorized to perform all of the following when evidence requires it:
+
+**correct existing requirement → expand incomplete requirement → split ambiguous requirement → merge duplicate requirements → supersede conflicting active requirement → add missing Vision-centric requirement → restructure sections → fully rewrite canonical file → create a new canonical supporting artifact where no proper owner exists.**
+
+This authority does not permit invention of external law, statutory facts, contractual promises or vendor guarantees. Such facts remain external inputs unless independently authoritative evidence exists.
+
 ---
 
 # 5. GIT / REPOSITORY SAFETY
@@ -284,6 +307,44 @@ Use at least:
 - LEGITIMATE_HISTORY
 
 Do not call a stylistic preference a functional defect.
+
+---
+
+# 9A. MANDATORY FRESH-SEQUENCE EXECUTION ORDER
+
+The audit/remediation must proceed in dependency order so lower layers never preserve defects from higher layers:
+
+**Step 1 — Repository Truth + Immutable Source Integrity**  
+Verify branch/HEAD/main/RawSourceCorpus and enumerate every required active file.
+
+**Step 2 — Governing Truth**  
+Audit and reconcile Primary Vision, MASTER_INSTRUCTION, MASTER_PROMPT, authority hierarchy, active technology baseline and phase rules first.
+
+**Step 3 — Source Fidelity / Requirement Inventory**  
+Re-read RawSourceCorpus and current explicit-user requirements; classify active, historical, superseded, missing and completion-derived requirements without modifying RawSourceCorpus.
+
+**Step 4 — Foundation Fresh Rebuild Pass**  
+Audit every Foundation file from first line to last. Correct, expand, restructure or fully rewrite files and add missing Foundation requirements where necessary. Do not proceed on an unresolved Foundation contradiction that would contaminate Architecture.
+
+**Step 5 — Architecture Fresh Rebuild Pass**  
+Using the corrected Foundation as input, audit every Architecture/ADR file line-by-line. Correct or fully rewrite architecture and add missing architectural decisions/contracts where necessary.
+
+**Step 6 — Detailed Design Fresh Rebuild Pass**  
+Using corrected Foundation + Architecture, audit every DetailedDesign file, every Industry/MS contract, acceptance/test contract and DD decision. Correct, expand or fully rewrite and add missing exact contracts until implementation is deterministic.
+
+**Step 7 — Registers / Traceability / State Reconstruction**  
+Rebuild affected traceability, decision registers, REVIEW_REQUIRED, indexes, checkpoints, manifests, phase summaries, handoff, README and audit evidence from the corrected substantive truth. Registers must summarize truth; they must not drive it.
+
+**Step 8 — Cross-Layer Consistency Re-scan**  
+Re-scan Governing → Foundation → Architecture → DD → Registers/State for contradictions, duplicates, stale terminology, broken links, wrong phase ownership and requirement loss introduced or exposed by corrections.
+
+**Step 9 — Final Adversarial Development-Readiness Audit**  
+Audit the final substantive HEAD under the hypothesis that the project is still NOT ready.
+
+**Step 10 — Final State Synchronization + Commit Verification**  
+Only after the adversarial pass succeeds may READY FOR DEVELOPMENT be restored and final metadata/checkpoints synchronized.
+
+Do not audit a lower layer once and then leave it untouched after an upstream correction. Any upstream correction automatically triggers re-validation of every dependent downstream artifact.
 
 ---
 
@@ -1818,7 +1879,9 @@ Counts and checkmarks alone cannot satisfy these conditions.
 
 The purpose of this task is not to produce more documentation.
 
-The purpose is to make the entire repository behave as **one coherent specification system** from Vision through Detailed Design.
+The purpose is to make the entire repository behave as **one coherent, freshly rebuilt where necessary, specification system** from Vision through Detailed Design.
+
+**Previous certification never outranks fresh evidence. If a certified Foundation, Architecture, Detailed Design, register, audit or state file is wrong, stale, incomplete, contradictory, structurally weak or missing a Vision-required requirement, change it. If a partial edit is unsafe, rewrite it completely. If a required canonical requirement does not yet exist, add it at the correct authority layer and trace it end-to-end.**
 
 A developer should not have to choose between conflicting files.
 
