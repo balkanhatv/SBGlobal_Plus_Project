@@ -1,5 +1,5 @@
 # F-02 — END-TO-END PLATFORM WORKFLOW
-**Document ID:** F-02 · **Version:** 0.1 · **Status:** SPECIFIED · Cross-refs: F-01 (surfaces, entitlements), F-03 (authN/authZ), F-05 (AI), F-06 (experiences).
+**Document ID:** F-02 · **Version:** 0.2 · **Status:** SPECIFIED · Cross-refs: F-01 (surfaces, entitlements), F-03 (authN/authZ), F-05 (AI), F-06 (experiences).
 
 Lifecycle covered: Visitor → Public SaaS Website → Discovery → Pricing/Demo → Signup → Trial/Subscription → Tenant Creation → Primary Industry Selection → Optional Enabled Industries → Provisioning → Tenant Experience Configuration → Published Tenant Experience → User/Role Setup → Management System Enablement → Module/Feature Entitlements → Authentication → Context Resolution → RBAC+ABAC Authorization → Business Operations → Workflow/Approval → Notifications → Reporting/Analytics → AI/RAG/Automation → Billing/Licensing → Audit → Backup/Recovery → Operations.
 
@@ -38,8 +38,8 @@ Format per step: **Actors · Trigger · Inputs · Outputs · Rules · Authorizat
 - **States:** user: invited → active → suspended → deactivated. **Audit:** all identity/role/entitlement changes (identity & authorization audit, F-03).
 
 ## W-07 Authentication → Context Resolution → Authorization
-- **Actors:** any user; identity service. **Trigger:** login on any surface. **Inputs:** credentials/factor per configured method (F-03 §2). **Outputs:** session + JWT/refresh token + resolved context.
-- **Rules:** BR-W07-1 validation chain: Authentication → Tenant Validation → Subscription Validation → License Validation → Device Registration Validation → Role & Permission Validation → JWT → API Authorization; any failure denies with audited reason. BR-W07-2: multi-tenant/multi-industry ambiguity resolved only by explicit selection or deterministic surface binding (F-01 §4). BR-W07-3: risk-based adaptive rules (unknown device, impossible travel, geo/time restriction, concurrent sessions) may require step-up MFA.
+- **Actors:** any user; identity service. **Trigger:** login on any surface. **Inputs:** credentials/factor per configured method (F-03 §2). **Outputs:** authenticated Core Identity session/access context + resolved Tenant/Industry context. For the current preferred Clerk boundary this means Clerk-managed session/access-token validation; machine API keys/service-account credentials remain a separate path. Historical JWT/refresh wording is not the active first-party human-session model.
+- **Rules:** BR-W07-1 validation chain: Authentication → Tenant Validation → Industry Context Validation → Subscription Validation → License Validation → Session/Device/API Credential Validation → Entitlement Snapshot → RBAC → applicable ABAC/context → Security/Compliance/Residency → Resource/Workflow Rules → API Authorization; any failure denies with audited reason. BR-W07-2: multi-tenant/multi-industry ambiguity resolved only by explicit selection or deterministic surface binding (F-01 §4). BR-W07-3: risk-based adaptive rules (unknown device, impossible travel, geo/time restriction, concurrent sessions) may require step-up MFA.
 - **States:** session: unauthenticated → authenticated → context-resolved → active → expired/revoked. **Audit:** login success/failure, risk events, step-ups, token issuance.
 
 ## W-08 Business Operations → Workflow/Approval
