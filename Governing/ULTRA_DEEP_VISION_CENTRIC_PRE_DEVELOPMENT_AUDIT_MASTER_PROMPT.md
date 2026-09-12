@@ -159,6 +159,51 @@ Fable 5 is therefore authorized to perform all of the following when evidence re
 
 This authority does not permit invention of external law, statutory facts, contractual promises or vendor guarantees. Such facts remain external inputs unless independently authoritative evidence exists.
 
+
+## RAW SOURCE PROMOTION / NORMALIZATION RULE
+
+RawSourceCorpus is immutable, but it is **not passive**. During this audit, Fable 5 must actively mine the complete RawSourceCorpus for valid knowledge that has been lost, incompletely normalized, incorrectly scoped, or never promoted into the active canonical specification.
+
+This includes not only business workflows and technical requirements, but also product-definition knowledge such as:
+
+- brand identity and brand story;
+- canonical brand colours / color tokens;
+- typography;
+- spacing, radii and shadow defaults;
+- light/dark/theme behavior;
+- UI design-system rules;
+- component/state/feedback conventions;
+- responsive breakpoints;
+- accessibility requirements;
+- public SaaS website visual/content requirements;
+- Tenant branding and white-label configuration;
+- Industry Experience presentation requirements;
+- invoice/report/print defaults;
+- logos/icons/illustrations/media provenance rules;
+- CMS-managed content;
+- localization;
+- global master/reference data;
+- country/localization packs;
+- seed data;
+- synthetic demo data;
+- demo media/assets;
+- company/contact/default metadata;
+- product tagline and marketing defaults;
+- any other valid source requirement that the active canonical tree currently omits or weakens.
+
+For every such source item:
+
+1. determine whether it is still compatible with the Primary Vision and current governing decisions;
+2. classify it as ACTIVE-CANONICAL, SUPERSEDED/LEGACY, or REQUIRES VISION-CENTRIC COMPLETION;
+3. place active requirements in the correct canonical owner rather than leaving them only in RawSourceCorpus;
+4. reconcile old technology or industry-specific assumptions before promotion;
+5. separate Platform brand defaults from Tenant brand overrides and Industry Experience configuration;
+6. preserve source provenance and add end-to-end traceability;
+7. propagate the requirement into Architecture, Detailed Design, configuration contracts and acceptance tests where the requirement affects implementation.
+
+RawSourceCorpus must never be edited during this process. The active canonical documents are the place where source knowledge is normalized into current project truth.
+
+
 ---
 
 # 5. GIT / REPOSITORY SAFETY
@@ -732,6 +777,197 @@ Verify all required SaaS website areas remain represented and correctly owned, i
 - accessibility
 
 Detect accidental compression/loss of website requirements.
+
+
+---
+
+# 21A. BRANDING / THEME / DESIGN SYSTEM / CONTENT / DATA DEFAULTS AUDIT
+
+Perform a dedicated line-by-line audit of all source and canonical requirements related to branding, visual identity, UI themes, content defaults, master/reference data, seed/demo data and media assets.
+
+Do **not** assume these requirements are secondary or cosmetic. They are part of the product specification and must be canonical, configurable, traceable and implementation-ready.
+
+## Brand Architecture
+
+Verify clear ownership and separation between:
+
+### Platform Brand Default
+The SBGlobal Plus corporate/product identity used by the SaaS platform and public SaaS website.
+
+### Tenant Brand Configuration
+Governed Tenant-specific logo, colours, typography/theme options, domains, contact identity, print/report branding and white-label settings where entitled.
+
+### Industry Experience Presentation
+Reusable Industry Experience presentation rules that consume the Core design system and Tenant configuration without becoming separate per-Industry codebases.
+
+Do not allow branding configuration to create separate application forks.
+
+## Brand Tokens and Theme Requirements
+
+Re-read RawSourceCorpus and all canonical files for valid requirements covering, where present:
+
+- primary/secondary/accent colours;
+- semantic status colours;
+- background/surface/text/border tokens;
+- light theme;
+- dark theme where supported;
+- typography families, weights and hierarchy;
+- spacing scale;
+- radius scale;
+- shadows/elevation;
+- grid/layout;
+- breakpoints;
+- iconography;
+- form/table/report defaults;
+- print/PDF styling;
+- chart/report colour conventions;
+- focus/hover/disabled/error/success/warning states;
+- motion/animation preferences;
+- reduced-motion accessibility behavior;
+- contrast/accessibility requirements.
+
+If source gives concrete valid brand values, promote them into the correct active canonical owner after checking compatibility with current Vision/governance.
+
+If multiple source values conflict, do not randomly choose one. Resolve by authority, record the conflict and make the active value explicit.
+
+If a required design token is missing but implementation requires one, use governed Vision-centric completion and label it correctly rather than leaving Development to invent it.
+
+## Theme Configuration Model
+
+Define or verify a configuration hierarchy such as:
+
+**Platform Design-System Security/Accessibility Floor  
+→ Platform Brand Default  
+→ Industry Experience Allowed Overrides  
+→ Tenant Branding / White-Label Configuration  
+→ User Preference (non-authoritative presentation only)**
+
+A lower layer must not weaken:
+
+- accessibility;
+- security indicators;
+- required warning/error semantics;
+- legally required notices;
+- auditability;
+- brand restrictions explicitly imposed by commercial entitlement.
+
+## Public Website Brand/Content
+
+Verify canonical requirements for:
+
+- canonical tagline;
+- company identity;
+- logo usage;
+- hero/CTA defaults;
+- industry solution presentation;
+- pricing/plan presentation;
+- trust/security presentation;
+- CMS ownership;
+- SEO metadata;
+- structured data;
+- social preview metadata;
+- legal footer;
+- cookie/consent UI;
+- contact/company details;
+- media/gallery/video/event content where governed.
+
+Source branding/content requirements must not remain stranded only in RawSourceCorpus if they are still active.
+
+## Tenant Website / Experience Branding
+
+Where Tenant website or published Tenant experience is part of the canonical model, verify requirements for:
+
+- Tenant logo;
+- favicon/app icon;
+- brand colours;
+- typography/theme options;
+- domain/subdomain;
+- contact details;
+- branch/location details;
+- social links where supported;
+- invoice/report/receipt branding;
+- email/SMS/push template branding;
+- user/staff mobile appearance;
+- desktop appearance;
+- accessibility-safe customization;
+- preview/publish/version/rollback behavior.
+
+Clarify which options are plan/entitlement gated.
+
+## Master / Reference / Localization Data
+
+Audit source and active requirements for:
+
+- global master data;
+- reference catalogs;
+- India-default baseline where governed;
+- country/localization packs;
+- currency;
+- locale;
+- timezone;
+- date/number formats;
+- language;
+- regional address/phone/tax metadata abstractions;
+- Tenant overrides;
+- Industry-specific masters.
+
+Do not hard-code country-specific business rules into the global Core unless governance explicitly requires a default plus localization mechanism.
+
+## Seed / Demo Data
+
+Verify requirements for:
+
+- deterministic/reproducible seed data;
+- small safe synthetic demo datasets;
+- industry-appropriate examples for all nine industries;
+- Tenant scoping;
+- DEMO flags where applicable;
+- no real PII;
+- realistic but non-production identifiers;
+- images/illustrations/media used for demo;
+- reset/reseed behavior;
+- localization/country-pack alignment;
+- entitlement-aware demo visibility.
+
+Healthcare-specific demo entities must not be used as generic templates for other industries.
+
+## Media Asset Governance
+
+Verify requirements for:
+
+- asset ownership;
+- source/provenance;
+- licensing;
+- file type/size;
+- optimization/derivatives;
+- accessibility alt text;
+- localization;
+- tenant/industry scope;
+- malware scanning where uploaded;
+- versioning;
+- retention/deletion;
+- CMS linkage.
+
+Do not commit or expose unlicensed third-party assets merely to satisfy a visual requirement.
+
+## Required Brand/Theme Output
+
+After the audit, produce or repair the appropriate canonical artifacts so Development has deterministic answers for:
+
+- active platform brand identity;
+- design tokens;
+- theme behavior;
+- Tenant branding configuration;
+- Industry Experience branding boundaries;
+- public website visual/content defaults;
+- master/reference/localization defaults;
+- seed/demo data policy;
+- media asset governance.
+
+Add acceptance/test contracts for materially configurable behavior.
+
+Before final readiness, there must be **no material branding/theme/data-default requirement left only in RawSourceCorpus without a current canonical disposition**.
+
 
 ---
 
