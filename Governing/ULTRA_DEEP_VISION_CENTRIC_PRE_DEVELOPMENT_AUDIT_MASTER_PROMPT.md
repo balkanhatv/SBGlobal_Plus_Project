@@ -104,6 +104,40 @@ If a value legitimately belongs to Architecture/Detailed Design and can be compl
 
 ---
 
+# 4A. CERTIFICATION DOES NOT PROTECT A FILE FROM CORRECTION OR REWRITE
+
+For this execution, **Fable 5 must treat every required active canonical file as freshly auditable regardless of its previous status**.
+
+A prior label such as:
+
+- CERTIFIED
+- COMPLETE
+- PASS
+- DD-COMPLETE
+- DD-F5-RECERTIFIED
+- READY FOR DEVELOPMENT
+
+is historical/evidentiary context only. It does **not** make that file read-only, exempt from audit, presumed correct, or protected from correction.
+
+Therefore, if the fresh Vision-centric line-by-line audit proves that any active file in Foundation, Architecture, DetailedDesign, Governing, Registers, State, Industry/MS documentation, traceability, acceptance, audit, README, checkpoint, manifest, handoff, or related current-truth documentation is stale, conflicting, incomplete, structurally weak, misleading, wrongly scoped, wrongly phased, or no longer aligned with final repository truth, **correct it in this same execution even if it was previously certified**.
+
+Fable 5 is explicitly authorized to choose the correction depth required by evidence:
+
+- targeted line/section correction;
+- structural section rewrite;
+- multi-section reconciliation;
+- or **complete file rewrite/rebuild from authoritative project truth**.
+
+Choose full-file rewrite whenever that produces a safer, clearer, fresher and less ambiguous canonical artifact than layering more patches onto a historically accumulated document.
+
+The only immutable documentation boundary is `RawSourceCorpus/`, which must remain untouched and serve as preserved source/history evidence.
+
+After any rewrite, preserve still-valid knowledge, provenance, decisions and historical traceability through the appropriate changelog/decision/history mechanism; repair all affected cross-references and traceability links; and re-audit downstream dependencies.
+
+Final certification is forbidden unless **every required active canonical file has been freshly evaluated at the final repository truth and is either verified unchanged, corrected, or fully rebuilt as necessary.**
+
+---
+
 # 5. GIT / REPOSITORY SAFETY
 
 Work ONLY on:
