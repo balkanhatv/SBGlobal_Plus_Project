@@ -1,5 +1,5 @@
 # SBGlobal Plus — A-05 DATA ARCHITECTURE
-**Document ID:** A-05 · **Version:** 1.0 · **Status:** ARCHITECTURE COMPLETE (CP-A1-002) · **Date:** 09-09-2026
+**Document ID:** A-05 · **Version:** 1.1 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 09-09-2026
 **Traces to:** F-04 (11 data categories, master/demo/media governance), F-11 (Regional Data Home), F-00 §6 (scale ledger targets), F-03 §6 (erasure/retention, AC-04) · **Decisions:** ADR-008 (→ A-12)
 
 ---
@@ -11,6 +11,7 @@
 | F-04 category | Storage class | Notes |
 |---|---|---|
 | Platform reference data | Global directory DB | Region-neutral, replicated read-only to data homes |
+| Localization / Country Packs | Versioned global/reference pack catalog + tenant/data-home materialization where needed | Locale/currency/timezone/date-number/language/address/phone/tax/reference defaults; pack activation never changes Core code |
 | Industry reference/master data | Tenant data home, `master` class tables | Seeded at activation (A-02 §6), tenant-extensible per config |
 | Tenant configuration | Tenant data home | Layered resolution via Config module |
 | Operational/transactional data | Tenant data home | RLS, workflow-bound, audit-linked |
@@ -36,13 +37,14 @@ Object storage is residency-pinned per data home. Physical key format is a Detai
 ## 6. Read Models & Projections
 Cross-module read needs (dashboards, lists spanning ownership boundaries, analytics) are served by **projection tables** built from outbox events (A-06 §4): at-least-once delivery + idempotent projectors keyed by event id. Projections are per data home and preserve the source event's Tenant + Industry Context for industry data; a projector may not merge private sibling-industry records merely because tenantId matches. They are rebuildable from the event log + owning tables. This is the only sanctioned way one module reads another's data shape (A-01 §4).
 
-## 7. Sensitivity, Encryption, Retention & Erasure
+## 7. Sensitivity, Encryption, Retention, Access & Erasure
 - **Sensitivity classes** (F-04 taxonomy) are declared per column/entity in the module's data contract; classes drive column-level encryption (A-03 §5), masking in logs (→ A-11 §2), AI-egress redaction (→ A-07 §6) and export handling.
 - **Retention classes** per entity: operational / financial / audit / regulated-industry profiles; retention values are per-tenant-compliance-profile configuration (A-03 §6).
+- **Access/export/portability:** user/tenant data-subject access, export and portability requests are executed through governed export services that apply Tenant + Industry Context, authorization, sensitivity/residency, minimization and audit. Bulk export/import never bypasses ordinary access control or residency constraints.
 - **Erasure vs retention** (AC-04): evaluate legal hold / mandatory retention first. **If retention applies**, pseudonymize personal fields while preserving only the required non-personal audit/financial skeleton; **if it does not apply**, hard-erase the governed personal data according to policy. In both paths, the erasure decision/action is audited without retaining erased personal content unnecessarily. Architecture therefore does not impose universal pseudonymization.
 
 ## 8. Backup & Recovery
 Per data home: continuous WAL archiving (PITR) + scheduled base backups + object-storage versioning; backup encryption keys are residency-scoped. **Backups remain in-region by default; cross-region backup/replication/failover is allowed only when tenant policy, contract or legal basis permits it (F-11).** Restore classes: single-tenant logical export/restore (also serves offboarding export, A-02 §6) and full-cell PITR. Recovery objectives are set per plan tier in F-14 dimensions; verification restores are an operations-calendar duty (→ A-11 §5).
 
 ## 9. Deferred to Detailed Design
-Full entity catalogs per module (F-00 §6 ledger: 500+ tables target); RLS policy catalog; partition/index strategy per high-volume table; projector catalog; per-industry seed packs; sensitivity/retention class assignment tables; backup runbooks.
+Full entity catalogs per module (F-00 §6 ledger: 500+ tables target); RLS policy catalog; partition/index strategy per high-volume table; projector catalog; country/localization-pack schemas + activation/version/override rules; per-industry seed packs; export/portability contracts; sensitivity/retention class assignment tables; backup runbooks.
