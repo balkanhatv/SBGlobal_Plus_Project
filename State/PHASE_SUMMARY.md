@@ -1,7 +1,7 @@
-# PHASE_SUMMARY — Independent Targeted Remediation + Fable 5 Recertification Closure
-**Updated:** 2026-09-12 · **Current checkpoint:** `DD-F5-RECERTIFIED`
+# PHASE_SUMMARY — Vision-Centric Pre-Development Revalidation
+**Updated:** 2026-09-13 · **Current checkpoint:** `PHASE5-CLOSURE-BACKUP-BLOCKED`
 
-**Current gate:** FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · DD WAVE 1 COMPLETE · DD WAVE 2 COMPLETE · DD WAVE 3 COMPLETE · DETAILED DESIGN COMPLETE · READY FOR DEVELOPMENT. Earlier phase sections below are chronological history; the final Fable section is current authority.
+**Current gate:** PHASE 1 FOUNDATION PASS · PHASE 2 ARCHITECTURE PASS · PHASE 3 DETAILED DESIGN PASS · PHASE 4 CROSS-LAYER PASS · PHASE 5 REPOSITORY/STATE RECOVERY-MANIFEST PASS BUT PHYSICAL CHECKPOINT ZIP BLOCKED · DEVELOPMENT NOT AUTHORIZED. Earlier sections below are chronological history only; the latest Phase sections govern current status.
 
 1. Starting audited HEAD was `029faa5add582f6cfbf1688a145bf06dac6d5b34`; certification gates were first reopened rather than trusted.
 2. 372 source-heading rows are preserved as parent inventory, not atomic proof.
@@ -135,3 +135,15 @@
 - Development determinism 9/9 YES; QA determinism 9/9 YES.
 - **PHASE 4 PASS.**
 - Next: Phase 5 repository/state/checkpoint backup closure, then final adversarial pre-development gate.
+
+
+## Phase 5 — Repository / State / Backup Closure — 2026-09-13
+- Branch vs main: ahead 259 / behind 0 at verification.
+- RawSource blobs unchanged.
+- Review PR #2 created as OPEN DRAFT with explicit DO NOT MERGE instruction.
+- Current-state contradictions were corrected in README, manifest, D-INDEX and REVIEW_REQUIRED.
+- Exact Git recovery manifest created for HEAD `f09c26b2d01b97d0f50b20d94bad374dbc4252c7`, tree `cb60aba0e91bab2d4eca2216233cfdbe484c1176`, 125 files / 4,048,092 blob bytes.
+- GitHub immutable archive URL recorded.
+- Physical checkpoint ZIP could not be downloaded/materialized because this execution environment has no GitHub network/archive access from the container; SHA-256 therefore cannot be truthfully recorded.
+- **PHASE 5 REPOSITORY/STATE: PASS; BACKUP PACKAGE CLOSURE: BLOCKED.**
+- Development remains NOT AUTHORIZED pending physical ZIP verification + final adversarial verdict.
