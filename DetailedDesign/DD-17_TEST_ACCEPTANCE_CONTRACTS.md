@@ -1,5 +1,5 @@
 # DD-17 — AUTHORITATIVE TEST & ACCEPTANCE CONTRACT OWNER
-**Wave:** 1–3 · **Status:** DETAILED DESIGN COMPLETE — authoritative acceptance index · DD-F5-RECERTIFIED
+**Wave:** 1–3 · **Status:** PHASE 3 REVALIDATED — authoritative acceptance index
 **Traces:** MI §26B · F-03/F-14 · A-02/A-03/A-04/A-05/A-06/A-11 · DD-01…DD-08/DD-15
 
 These are implementation acceptance contracts, not executable test code.
@@ -276,3 +276,39 @@ A Development/QA implementation is incomplete if any applicable referenced accep
 
 ## 23. Deterministic error rule
 No acceptance row may use "design review fails", "developer decides", "manual review", or equivalent as runtime expected behavior. Denials resolve through DD-01/DD-03 taxonomy. Design-lint assertions use a named design validation error and are not substituted for runtime behavior.
+
+
+## 24. Phase-3 recovered-requirement acceptance contracts
+
+| ID | Scenario | Expected |
+|---|---|---|
+| CFG-001 | Tenant rule contains arbitrary JavaScript/SQL/shell expression | VALIDATION_FAILED; definition not publishable |
+| CFG-002 | TENANT_INDUSTRY Form/Rule/Metadata definition omits industry_context_id | schema/ownership validation fails |
+| CFG-003 | retired shared-definition version is invoked | RESOURCE_STATE_INVALID; no execution |
+| CFG-004 | rollback requested to prior published definition | new activation record created; immutable history preserved |
+| LOC-001 | Country Pack activation attempts permission or entitlement grant | validation/policy denial; pack remains reference/config only |
+| LOC-002 | Tenant activates valid Country Pack | allowed locale/reference/default configuration only |
+| DATA-ACCESS-001 | portability/export request targets sibling Industry Context | deny; zero foreign rows/documents |
+| DATA-ACCESS-002 | access/export under legal hold/retention restriction | policy-constrained behavior; audit recorded |
+| AI-013 | AI API class absent from AIProvisioningSnapshot | deny before provider call |
+| AI-014 | Country Pack changes AI language/reference behavior | allowed only within already-entitled capability set; no permission widening |
+| AI-015 | retired PromptTemplate version invoked | deny; current ACTIVE version required |
+| AI-016 | generated media lacks DD-08 provenance/DocumentMeta registration | result not publishable as governed product asset |
+| AI-017 | sibling-Industry AIMemoryRecord requested | excluded/deny by context + ACL |
+| APP-009 | Tenant mobile manifest declares DOCTOR_APP/STUDENT_APP/GUARD_APP or another role-specific appClass | validation failure; map to TENANT_STAFF_APP or TENANT_USER_APP |
+| APP-010 | Tenant brand override weakens protected danger/warning/focus/security token | publish/activation denied |
+| APP-011 | Future Industry licensed/enabled before promotion gate | deny; no Industry Context created |
+| APP-012 | Future Industry reaches PROMOTED with all evidence + explicit approval | catalog activation allowed; promotion evidence audited |
+| APP-013 | Platform Mobile treated as one of the two Tenant app classes | validation failure; separate Platform Application channel |
+| BRAND-001 | Platform Brand resolves F-06 canonical defaults | exact active version used; no scattered hard-coded screen literals |
+| BRAND-002 | user preference alters protected security semantic token | denied/ignored for protected token |
+| TRACE-P3-001 | Phase-1 recovered requirement lacks Architecture + DD + acceptance owner | Phase-3 gate fails |
+| TRACE-P3-002 | ADR-019 or ADR-020 lacks DD implementation contract | Phase-3 gate fails |
+
+## 25. Phase-3 gate criteria
+- every Phase-1 recovered requirement has current Architecture and DD ownership;
+- ADR-019 and ADR-020 have deterministic schemas/lifecycles/tests;
+- all nine Current Supported Industry artifacts remain compatible with the canonical two-app model;
+- 41/41 MS acceptance ownership remains intact;
+- historical DD-F5-RECERTIFIED evidence is not treated as proof of this phase;
+- final isolation/determinism/adversarial evidence is rerun against the Phase-3 substantive HEAD.
