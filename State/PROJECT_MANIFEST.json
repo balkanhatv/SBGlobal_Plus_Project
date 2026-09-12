@@ -2,17 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-12",
   "branch": "docs/architecture-branch-2",
-  "phase": "PHASE 1 RAWSOURCE→FOUNDATION RECONCILIATION PASS; ARCHITECTURE REVALIDATION REQUIRED; DETAILED DESIGN REVALIDATION REQUIRED; DEVELOPMENT BLOCKED",
-  "checkpoint": "PHASE1-RAWSOURCE-FOUNDATION-RECONCILED",
+  "phase": "PHASE 1 FOUNDATION PASS; PHASE 2 ARCHITECTURE PASS; DETAILED DESIGN REVALIDATION REQUIRED; DEVELOPMENT BLOCKED",
+  "checkpoint": "PHASE2-ARCHITECTURE-REVALIDATED",
   "final_substantive_foundation_head": "4b5ec3667ae81c0b4c92a4cf0daba0282edd4131",
+  "final_substantive_architecture_head": "9453ebb0140670984753cec9e66613475789610b",
   "foundation": {
     "status": "FRESH_RECONCILED",
-    "phase1_pass": true,
-    "certification_scope": "Foundation only"
+    "phase1_pass": true
   },
   "architecture": {
-    "status": "REVALIDATION_REQUIRED",
-    "prior_certification": "historical until re-earned"
+    "status": "FRESH_REVALIDATED",
+    "phase2_pass": true,
+    "open_p0": 0,
+    "open_p1": 0
   },
   "detailed_design": {
     "status": "REVALIDATION_REQUIRED",
@@ -23,19 +25,22 @@
   "raw_source": {
     "policy": "IMMUTABLE",
     "s1_blob": "a9f63a64448a347edd0f2b0c74094284ee953c1b",
-    "s2_blob": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd",
-    "phase1_integrity": "PASS"
+    "s2_blob": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd"
   },
   "evidence": [
-    "Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md"
+    "Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md",
+    "Registers/PHASE2_ARCHITECTURE_REVALIDATION_2026-09-12.md",
+    "Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md",
+    "Registers/ARCHITECTURE_NO_LOSS_AUDIT.md",
+    "Registers/ARCHITECTURE_FINAL_AUDIT.md"
   ],
   "github": {
     "repo": "yadavjalsingh192/SBGlobal_Plus_Project",
     "main_tip": "3911590ff2020993ce51b32d7b091efd6f5f466f",
     "historical_main_merge": "PR #1 from docs/foundation-build-2 merged 2026-09-04",
-    "phase1_main_merge": "not performed",
+    "phase2_main_merge": "not performed",
     "historical_foundation_backup": "SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip",
     "current_full_closure_backup": "not created"
   },
-  "next_phase": "Fresh Foundation → Architecture/ADR revalidation"
+  "next_phase": "Detailed Design fresh revalidation/correction"
 }
