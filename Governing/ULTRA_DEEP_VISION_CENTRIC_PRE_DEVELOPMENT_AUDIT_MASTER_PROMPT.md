@@ -1322,7 +1322,28 @@ For each attack record:
 
 After identifying defects, correct them in the same execution.
 
-Do NOT perform wholesale rewrites unless the document is structurally irreparable.
+Targeted correction is preferred when it can fully restore canonical truth, but you are **explicitly authorized to completely rewrite/rebuild any canonical non-RawSource file** when patching would leave stale, conflicting, fragmented, misleading, incomplete, historically layered, or internally inconsistent active content.
+
+The goal is not to preserve old wording. The goal is to leave every required active canonical file **fresh, coherent, self-consistent, Vision-aligned, phase-correct, traceable, and development-ready**.
+
+A full-file rewrite is appropriate whenever it is safer or clearer than accumulating patches, including when:
+- a file contains mixed old/new truths;
+- amendment layers make active rules ambiguous;
+- the file contains pervasive stale technology or scope assumptions;
+- multiple contradictions are distributed throughout the file;
+- traceability would remain confusing after local edits;
+- certification/state sections cannot be trusted independently;
+- the file is structurally template-thin or materially incomplete;
+- a fresh canonical rebuild would reduce ambiguity without losing valid knowledge.
+
+When rewriting a file:
+- preserve all still-valid requirements and decisions;
+- preserve historical traceability through the proper history/changelog/decision mechanism;
+- do not silently delete knowledge;
+- do not rewrite RawSourceCorpus;
+- do not fabricate unsupported source facts;
+- update every inbound/outbound cross-reference affected by the rewrite;
+- re-run traceability and acceptance checks against the rewritten file.
 
 For every correction:
 
@@ -1348,6 +1369,68 @@ Examples:
 - missing KPI formula → add formula + isolation/test contract;
 - stale state claim → correct state;
 - stale evaluated HEAD → rerun evidence at current final substantive HEAD.
+
+---
+
+# 43A. FRESH CANONICAL FILE REBUILD MANDATE
+
+At the end of this audit/remediation, **all required active project documentation must be fresh at the final repository truth**, not merely historically present.
+
+This applies to every canonical file required for Development readiness across:
+
+- `Governing/`
+- `Foundation/`
+- `Architecture/`
+- `DetailedDesign/`
+- `Registers/`
+- `State/`
+- root README/status/checkpoint/handoff/backup metadata files that participate in current truth
+
+For each required file, make an explicit final disposition:
+
+- `FRESH — VERIFIED UNCHANGED`
+- `FRESH — TARGETEDLY CORRECTED`
+- `FRESH — FULLY REWRITTEN/REBUILT`
+- `HISTORICAL / NON-ACTIVE`
+- `BLOCKED — EXTERNAL FACT REQUIRED`
+
+A file is **not fresh** merely because its latest commit is recent. It is fresh only if its full substantive content has been re-read against the final Vision, authority hierarchy, Foundation, Architecture, Detailed Design, traceability, technology baseline, security model, industry model, and final corrected repository truth.
+
+If any required active file is stale, contradictory, incomplete, misleading, or carries obsolete active semantics, you must update it in this same execution. Use targeted edits where sufficient; otherwise rewrite the entire file.
+
+This includes, where necessary:
+
+- Foundation files;
+- Architecture files and ADR content;
+- Detailed Design files;
+- Industry/MS specifications;
+- acceptance/test contract files;
+- traceability matrices;
+- decision registers;
+- REVIEW_REQUIRED registers;
+- audit matrices;
+- state/checkpoint/manifest files;
+- README/handoff/phase summaries;
+- governing execution documents when they themselves contain an active inconsistency.
+
+Do not rewrite files merely for style. Rewrite only when substantive freshness, coherence, maintainability, or authoritative clarity requires it.
+
+Before final certification, produce a **Canonical File Freshness Matrix** with one row per required active file containing:
+
+- path;
+- authoritative role;
+- final disposition;
+- material corrections;
+- final evidence owner;
+- cross-reference status;
+- traceability status;
+- final freshness verdict.
+
+Final Development readiness requires:
+
+`REQUIRED ACTIVE FILES FRESH = 100%`
+
+Any required active file with unresolved stale/conflicting semantics blocks `READY FOR DEVELOPMENT`.
 
 ---
 
@@ -1534,11 +1617,19 @@ Return a concise but evidence-rich final report with these sections:
 - RawSourceCorpus integrity
 - code/migration/deployment changes
 
-## B. Coverage
+## B. Coverage + Canonical File Freshness
 
 Report all files/directories actually fully audited.
 
-No “sampled only” certification.
+Provide the Canonical File Freshness Matrix for every required active file:
+
+- FRESH — VERIFIED UNCHANGED
+- FRESH — TARGETEDLY CORRECTED
+- FRESH — FULLY REWRITTEN/REBUILT
+- HISTORICAL / NON-ACTIVE
+- BLOCKED — EXTERNAL FACT REQUIRED
+
+No “sampled only” certification and no blanket “directory reviewed” statement may substitute for per-file freshness evidence.
 
 ## C. Vision-Centric Consistency
 
@@ -1652,6 +1743,8 @@ with exact remaining blockers.
 Development may be declared READY only when all are true:
 
 - complete canonical file coverage;
+- 100% of required active canonical files classified FRESH at final repository truth;
+- no required active file left stale merely because it was previously certified;
 - Primary Vision consistency across all active files;
 - no active conflicting technology stack;
 - no active Healthcare-first architecture;
