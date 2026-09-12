@@ -41,7 +41,7 @@ Integrations: PMS patrol, HR/payroll export; credentials use secret references.
 
 ### AI / experience / offline
 AI: anomaly assistant may flag roster/attendance patterns; cannot validate exception or alter payroll; all tools bind OperationContracts, acting-user permission and approvals.  
-Web route root `/app/sfm/sgm`. Mobile: primary guard app/offline attendance. Desktop: control room optional. Offline **OFFLINE_OPERATIONAL_CRITICAL** — signed device attendance may queue with location/time evidence; server revalidates context/policy, conflict controlled.
+Web route root `/app/sfm/sgm`. Mobile: Tenant Staff App guard-role experience for offline attendance. Desktop: control room optional. Offline **OFFLINE_OPERATIONAL_CRITICAL** — signed device attendance may queue with location/time evidence; server revalidates context/policy, conflict controlled.
 
 ### Configuration / entitlement / dependencies / audit
 Configuration: geofence, shifts, posts, override policy. Entitlement: suite + SFM-SGM + feature/add-on/usage facts via DD-04; no plan-name branching. Dependencies: SFM-PMS, Core HR/Communication. All state/approval/regulated/financial/export/cross-module actions produce DD-15 audit evidence.
@@ -92,7 +92,7 @@ Integrations: SGM staff/site, QR/NFC/device adapters; credentials use secret ref
 
 ### AI / experience / offline
 AI: incident summarization/anomaly assistant; cannot close critical incident; all tools bind OperationContracts, acting-user permission and approvals.  
-Web route root `/app/sfm/pms`. Mobile: offline-first primary patrol app. Desktop: control room map/review. Offline **OFFLINE_OPERATIONAL_CRITICAL** — checkpoint/incident capture queues with device evidence; server verifies route/context and conflicts.
+Web route root `/app/sfm/pms`. Mobile: Tenant Staff App guard/patrol-role experience, offline-first. Desktop: control room map/review. Offline **OFFLINE_OPERATIONAL_CRITICAL** — checkpoint/incident capture queues with device evidence; server verifies route/context and conflicts.
 
 ### Configuration / entitlement / dependencies / audit
 Configuration: routes, windows, checkpoints, severity/escalation. Entitlement: suite + SFM-PMS + feature/add-on/usage facts via DD-04; no plan-name branching. Dependencies: SFM-SGM, Core Documents. All state/approval/regulated/financial/export/cross-module actions produce DD-15 audit evidence.
@@ -143,7 +143,7 @@ Integrations: access-control device adapters + Communication; credentials use se
 
 ### AI / experience / offline
 AI: may assist anomaly/identity workflow triage; cannot override blacklist/approve entry; all tools bind OperationContracts, acting-user permission and approvals.  
-Web route root `/app/sfm/vms`. Mobile: host approval + guard/front-desk. Desktop: front desk candidate. Offline **READ_OFFLINE** — site list may cache; identity approval/check-in online unless approved controlled contingency.
+Web route root `/app/sfm/vms`. Mobile: Tenant Staff App for guard/front-desk + Tenant User App where an external host/visitor workflow is exposed. Desktop: front desk candidate. Offline **READ_OFFLINE** — site list may cache; identity approval/check-in online unless approved controlled contingency.
 
 ### Configuration / entitlement / dependencies / audit
 Configuration: badge, retention, blacklist, approval/overstay policy. Entitlement: suite + SFM-VMS + feature/add-on/usage facts via DD-04; no plan-name branching. Dependencies: Core Communication/Integration. All state/approval/regulated/financial/export/cross-module actions produce DD-15 audit evidence.
@@ -194,7 +194,7 @@ Integrations: vendor profiles and optional building/device adapters; credentials
 
 ### AI / experience / offline
 AI: maintenance assistant may triage/suggest resolution; cannot verify/close or expand vendor scope; all tools bind OperationContracts, acting-user permission and approvals.  
-Web route root `/app/sfm/fmm`. Mobile: technician/requester workflow. Desktop: facility desk optional. Offline **CONTROLLED_OFFLINE_MUTATION** — technician updates may queue; verification/SLA override current-server.
+Web route root `/app/sfm/fmm`. Mobile: Tenant Staff App technician workflow + Tenant User App requester workflow where exposed. Desktop: facility desk optional. Offline **CONTROLLED_OFFLINE_MUTATION** — technician updates may queue; verification/SLA override current-server.
 
 ### Configuration / entitlement / dependencies / audit
 Configuration: SLA/category/PM/vendor policies. Entitlement: suite + SFM-FMM + feature/add-on/usage facts via DD-04; no plan-name branching. Dependencies: Core Workflow/Communication/Documents. All state/approval/regulated/financial/export/cross-module actions produce DD-15 audit evidence.
@@ -216,3 +216,7 @@ The Security / Facility MS sections above remain the canonical domain entity/mod
 - 41-MS determinism evidence: `DD-27_41_MS_DETERMINISM_AUDIT.md`.
 
 Where an earlier sentence in this file is less specific than a referenced remediation contract, the more specific remediation contract governs. None of these references permits cross-industry inheritance of business semantics.
+
+
+## Canonical mobile-app mapping — Phase 3
+All mobile capabilities in this Industry DD are routes/features inside the canonical `TENANT_STAFF_APP` and/or `TENANT_USER_APP` defined by DD-10/DD-11. Role/persona labels never create separate mobile app classes or binaries. Platform Mobile is outside the Tenant app pair.
