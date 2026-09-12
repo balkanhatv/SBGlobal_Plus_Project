@@ -89,3 +89,16 @@
 - **DETAILED DESIGN COMPLETE — SUPPORTED.**
 - **READY FOR DEVELOPMENT — SUPPORTED.**
 - Development itself has not yet been performed.
+
+
+## Phase 1 — Fresh RawSource → Foundation Reconciliation — 2026-09-12
+- Execution start HEAD: `3a00d5fc5344737c3d1e0260e0a1072187d9fcbf`.
+- Complete RawSourceCorpus read: S1 393 lines + S2 5,048 lines; immutable blobs unchanged.
+- Complete Foundation read: F-00…F-15.
+- Fresh reconciliation recovered material requirements that prior GAP=0 traceability had represented too broadly/implicitly.
+- Corrected F-01, F-02, F-04, F-05, F-06 and F-14; recorded evidence in `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`.
+- Substantive Foundation-corrected HEAD: `4b5ec3667ae81c0b4c92a4cf0daba0282edd4131`.
+- **PHASE 1 PASS — FOUNDATION FRESH RECONCILED.**
+- Architecture and Detailed Design prior certifications are now **REVALIDATION REQUIRED** because their upstream Foundation changed.
+- **Development NOT AUTHORIZED.**
+- Next dependency phase: Foundation → Architecture/ADR fresh revalidation and targeted correction.
