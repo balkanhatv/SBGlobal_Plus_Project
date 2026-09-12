@@ -1,5 +1,5 @@
 # DD-09 — AI / RAG / AGENT DETAILED DESIGN
-**Wave:** 2 · **Status:** DETAILED DESIGN COMPLETE  
+**Wave:** 2 · **Status:** PHASE 3 REVALIDATED — AI PLATFORM CONTRACTS  
 **Traces:** F-05 · A-07 · ADR-008/010/012 · DD-02/DD-03/DD-04/DD-05/DD-06/DD-07/DD-08/DD-15
 
 ## 1. AI Gateway invariant
@@ -15,13 +15,13 @@ Credential is a secret reference only.
 Provider model string is registry data, not hard-coded in business modules.
 
 ### AICapability
-`id, code UNIQUE, category(CHAT,EMBEDDING,EXTRACTION,CLASSIFICATION,RERANK,OCR,IMAGE,etc), required_entitlement?, default_policy_class, schema_version, status`.
+`id, code UNIQUE, category(CHAT,EMBEDDING,EXTRACTION,CLASSIFICATION,RERANK,OCR,IMAGE,VIDEO,AUDIO,PRESENTATION,DOCUMENT_INTELLIGENCE,AGENT,TOOL,API), required_entitlement?, default_policy_class, schema_version, status`.
 
 ### TenantAIConfig
 `id, tenant_id, enabled, allowed_capabilities[], allowed_provider_ids[], allowed_model_ids[], max_sensitivity_class, residency_policy_id, monthly_budget_policy_ref?, retention_policy_id, prompt_override_policy_id, version, updated_at`.
 
 ### IndustryAIConfig
-`id, tenant_id, industry_context_id, enabled, allowed_capabilities[], provider/model overrides constrained by tenant policy, domain_prompt_set_id?, version`. Cannot widen TenantAIConfig.
+`id, tenant_id, industry_context_id, enabled, allowed_capabilities[], provider/model overrides constrained by tenant policy, domain_prompt_set_id?, country_pack_refs[], localization_profile_ref?, version`. Cannot widen TenantAIConfig.
 
 ### AIPolicy
 `id, owner_scope, tenant_id?, industry_context_id?, code, priority, effect(ALLOW,DENY,RESTRICT), condition_ast_json, constraint_json, version, status`.
@@ -38,6 +38,23 @@ Tenant/industry variants may add domain instructions but cannot override securit
 
 ### AIAuditEvent
 Uses DD-15 AuditEvent with AI fields: capability, routeDecisionId, model/provider classes, guardrail result, toolRunId?, usageRef; never raw prohibited prompt/secret.
+
+## 2A. AI provisioning / API / media contracts
+
+### AIProvisioningSnapshot
+`id uuid PK, tenant_id NOT NULL, industry_context_id?, version bigint NOT NULL, subscription_version, entitlement_snapshot_version, industry_activation_version?, ms_pack_versions jsonb, country_pack_versions jsonb, tenant_ai_config_version, allowed_capability_ids uuid[] NOT NULL, allowed_api_classes text[] NOT NULL, allowed_provider_ids uuid[] NOT NULL, allowed_model_classes text[] NOT NULL, budget_policy_ref?, status enum(ACTIVE,SUPERSEDED,REVOKED), compiled_at, valid_until?`.
+UNIQUE(tenant_id, industry_context_id, version). Lower-layer configuration cannot add a capability absent from entitlement or TenantAIConfig.
+
+### AI API access classes
+`INTERNAL_FIRST_PARTY`, `TENANT_API`, `PARTNER_API`, `PUBLIC_DEVELOPER_API`.
+Every AI API OperationContract declares `apiAccessClass, capabilityCode, requiredEntitlement, requiredPermission, scopeClass, requestSchemaVersion, responseSchemaVersion, streamingMode, ratePolicyRef, dataClassCeiling, residencyPolicyRef, auditClass`. No class bypasses the AI Gateway or DD-03/DD-04 authorization.
+
+### AIMediaRequest
+`id, tenant_id, industry_context_id?, principal_id, capability_code, media_type enum(IMAGE,SVG,ICON,INFOGRAPHIC,PRESENTATION,VIDEO,ANIMATION,VOICE,AUDIO), prompt_template_id?, prompt_version?, brand_config_version?, localization_profile_ref?, input_document_refs[], sensitivity_class, residency_requirement, moderation_policy_ref, status, created_at, completed_at?`.
+Successful output is registered through DD-08 DocumentMeta with `ai_generated=true`, provider/model route reference, provenance, source/input refs, moderation result and licensing/usage metadata where supplied by provider/policy.
+
+### Prompt publication lifecycle
+PromptTemplate status is `DRAFT → REVIEW → PUBLISHED → ACTIVE → RETIRED`; only ACTIVE versions execute. Approval is required for PLATFORM and governed high-risk TENANT/INDUSTRY prompts. Rollback activates a prior PUBLISHED version and appends audit; history is immutable.
 
 ## 3. AIRequest
 `AIRequest{requestId, capabilityCode, requestContextRef, conversationId?, inputSchemaVersion, input, sensitivityClass, residencyRequirement, groundingMode, requestedOutputSchema?, latencyClass?, budgetClass?, allowedSourceScopes?, correlationId}`.
@@ -154,10 +171,19 @@ Prohibited override categories include authorization bypass, context switching w
 Retrieved/document/web content is labeled untrusted data. Instructions inside content cannot alter system/tool policy. Tool decisions use structured policy, not free-text model instructions.
 
 ## 17. Conversation/memory
+### AIMemoryRecord
+`id, tenant_id, industry_context_id?, principal_id?, assistant_definition_id?, memory_class enum(SESSION,USER_PREFERENCE,TENANT_KNOWLEDGE,INDUSTRY_KNOWLEDGE,WORKING_CONTEXT), content_ref_or_encrypted_content, source_ref?, sensitivity_class, retention_class, acl_policy_ref, status enum(ACTIVE,SUPERSEDED,ERASED,EXPIRED), created_at, expires_at?, supersedes_id?`.
+
 Conversation storage follows tenant/industry/principal ownership, retention/sensitivity and erasure. Cross-context history is not automatically carried when user switches Industry Context; explicit governed shared assistant scope is required.
 
 ## 18. AI observability
 Metrics: route success/failure, latency class, provider health, usage/cost, guardrail denials, RAG empty/grounding quality, context-mismatch attempts, tool deny/approval rates, agent step failures. No raw sensitive prompts as metric/log labels.
 
 ## 19. Acceptance
-Tenant A cannot retrieve Tenant B; Industry A cannot retrieve B; denied document cannot enter RAG; prohibited provider never selected as fallback; agent cannot exceed acting user permission; approval cannot be skipped; hallucinated IDs do not bypass ownership; prompt injection cannot modify tool/authorization policy.
+- AI API class absent from AIProvisioningSnapshot → `ENTITLEMENT_DENIED`/`PERMISSION_DENIED`; no provider call.
+- Country/localization pack may alter language/reference behavior but cannot grant AI capability/permission.
+- Inactive/retired prompt version cannot execute.
+- AI media result without provenance/DocumentMeta registration is not publishable.
+- Tenant/Industry memory lookup requires matching scope + ACL; sibling Industry memory is excluded.
+- Public/Partner AI API request still executes the same Gateway security/residency/usage/audit pipeline.
+- Tenant A cannot retrieve Tenant B; Industry A cannot retrieve B; denied document cannot enter RAG; prohibited provider never selected as fallback; agent cannot exceed acting user permission; approval cannot be skipped; hallucinated IDs do not bypass ownership; prompt injection cannot modify tool/authorization policy.
