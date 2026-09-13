@@ -18,6 +18,7 @@
 | core_audit | Audit | scope carried per event |
 | core_integration | API/Webhook/adapter config | tenant/core/industry |
 | core_projection | derived read models | same source scope |
+| core_ai | AI Gateway / provider-model catalog / RAG / assistants / agents / memory / usage | platform/global + tenant/core/industry by row scope |
 | ind_hlt/edu/rtl/hsp/mfg/psv/gov/ngo/sfm | Industry suites | TENANT_INDUSTRY |
 
 Schema ownership is organizational, not an authorization boundary by itself.
@@ -164,3 +165,7 @@ Tenant directory resolves data_home before business connection. Tenant business 
 
 ## 14. Database design acceptance
 No tenant table without tenant ownership; no industry table with nullable industry ownership; no broad wildcard operator policy; no cross-context projection without declared ownership; no schema convention mistaken for permission.
+
+
+## Development completion note — AI schema ownership
+**DEV-DB-AC-003 (2026-09-13):** DD-09 defines exact AI/RAG/Agent persistence entities but the original DD-05 schema ownership table omitted an AI-owned PostgreSQL schema. `core_ai` is now the canonical schema owner for those shared AI entities. This is an organizational ownership correction only; Tenant/Industry isolation, authorization, entitlement and AI Gateway boundaries are unchanged.
