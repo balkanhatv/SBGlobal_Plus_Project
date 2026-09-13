@@ -65,6 +65,9 @@ END $$;
 
 DO $$
 BEGIN
+  IF NOT has_schema_privilege('sbg_app_rw','core_audit','USAGE') THEN
+    RAISE EXCEPTION '0029 application atomic audit append is unreachable';
+  END IF;
   IF has_table_privilege('sbg_app_rw','core_identity.api_credential','SELECT')
      OR has_table_privilege('sbg_app_rw','core_identity.identity_provider_link','SELECT')
      OR has_table_privilege('sbg_app_rw','core_authz.rls_table_registry','SELECT')

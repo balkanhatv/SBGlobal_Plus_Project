@@ -205,6 +205,8 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA ind_hlt,ind_edu,ind_rtl,ind_hsp,ind_mfg,ind_p
   REVOKE SELECT,INSERT,UPDATE,DELETE ON TABLES FROM sbg_app_rw;
 
 -- Sensitive identity material and governance registries are not general app tables.
+-- 0009 granted audit append/read but omitted the schema usage required to reach it.
+GRANT USAGE ON SCHEMA core_audit TO sbg_app_rw;
 REVOKE ALL PRIVILEGES ON core_identity.identity_provider_link,core_identity.api_credential FROM sbg_app_rw,sbg_worker_rw,sbg_monitor_ro;
 REVOKE INSERT,UPDATE,DELETE ON core_identity.platform_principal FROM sbg_app_rw,sbg_worker_rw;
 REVOKE ALL PRIVILEGES ON core_authz.rls_table_registry FROM sbg_app_rw,sbg_worker_rw,sbg_monitor_ro;
