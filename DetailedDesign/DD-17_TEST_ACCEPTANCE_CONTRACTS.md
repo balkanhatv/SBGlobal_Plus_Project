@@ -312,3 +312,21 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 - 41/41 MS acceptance ownership remains intact;
 - historical DD-F5-RECERTIFIED evidence is not treated as proof of this phase;
 - final isolation/determinism/adversarial evidence is rerun against the Phase-3 substantive HEAD.
+
+## 26. Current-state database adversarial contracts
+
+| ID | Scenario | Expected |
+|---|---|---|
+| DBA-001 | application mutates tenant/context/scope ownership after insert | database rejects; original ownership unchanged |
+| DBA-002 | human role/API credential/device/session references a foreign tenant | database rejects before authorization use |
+| DBA-003 | Platform Operator presents no/expired/foreign/self-approved elevation | tenant operation denies; active independent same-target elevation required |
+| DBA-004 | active webhook lacks verification or contains foreign/duplicate context IDs | database rejects before delivery |
+| DBA-005 | event row/catalog/envelope scope, identity, sensitivity or residency differs | outbox insert rejects; no dispatchable row |
+| DBA-006 | Commercial/Integration/Workflow/Notification child points to foreign parent scope | composite FK/trigger rejects |
+| DBA-007 | Industry entity points at sibling-context DocumentMeta or raw StorageObject | composite FK/array validator rejects |
+| DBA-008 | ACTIVE document is unscanned, wrong Data Home/checksum/size, or derivative lowers security | database rejects |
+| DBA-009 | AI provider/model, PromptSet/ToolSet, RAG, memory, media or agent chain crosses scope | database rejects before provider/tool execution |
+| DBA-010 | ordinary app/worker writes platform catalog, sensitive identity material, immutable evidence or Industry DELETE | database privilege/RLS denial |
+| DBA-011 | migration creates a future evidence partition | exact audit/outbox/webhook forced-RLS policy is installed; PUBLIC cannot execute provisioner |
+| DBA-012 | migration and all verification files run on clean PostgreSQL+pgvector | exact-head CI is successful; run/job/step evidence recorded before any PASS claim |
+| DBA-013 | CI checkout differs from submitted branch SHA, inventory is empty, or psql fails | job exits nonzero; no PASS; expected and actual Git SHA recorded; source traceability does not substitute for runtime proof |

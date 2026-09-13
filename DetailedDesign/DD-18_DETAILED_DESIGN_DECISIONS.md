@@ -322,3 +322,27 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Decision:** use DD-13 FutureIndustryDefinition states DRAFT_FUTURE→FOUNDATION_READY→ARCHITECTURE_READY→DD_READY→APPROVAL_REQUIRED→APPROVED_FOR_PROMOTION→PROMOTED, with RETIRED as lifecycle exit. Only PROMOTED may enter Current Supported catalog, licensing and live Tenant Industry Context creation. Explicit user approval is mandatory before APPROVED_FOR_PROMOTION.
 **Tests:** APP-011/012.
 **Dependencies:** F-01, A-09/ADR-020, DD-13/DD-17.
+
+## DD-036 — Database ownership is immutable and dependencies are same-scope [DEV-DB-AC]
+**Context:** forced RLS constrained current visibility but did not prevent a privileged update from reclassifying ownership, and UUID-only foreign keys proved existence without proving Tenant/Industry agreement.
+**Decision:** ownership/scope selectors are immutable after insert. Every cross-row dependency carrying Tenant/Industry semantics uses a composite same-scope FK or a fail-closed database trigger; null never broadens to sibling contexts.
+**Consequences:** commercial, identity/authz, document, integration, workflow/notification and AI relationships reject foreign parent IDs before service logic can consume them.
+**Tests:** DBA-001/002/006/007/009.
+
+## DD-037 — Dedicated identity/control roles and bounded operator elevation [DEV-DB-AC]
+**Context:** broad application grants and unpersisted operator-elevation semantics could bypass service ownership.
+**Decision:** sensitive identity resolution and platform catalog mutation use separate `NOBYPASSRLS` Identity and Control Plane roles. Platform Operators receive no persistent tenant role/API credential; tenant access requires an active, independently approved, time-bounded elevation matching current principal, tenant and optional Industry Context.
+**Consequences:** ordinary app/worker roles cannot read credential secrets, mutate global catalogs, create partitions, rewrite evidence or directly delete Industry rows. Restrictive write policies cover every `owner_scope` definition and its role/form/prompt/tool children; selecting `PLATFORM_GLOBAL` alone cannot confer Control Plane authority (migration/verification `0032`).
+**Tests:** DBA-002/003/010/011.
+
+## DD-038 — Event evidence carries exact cataloged physical scope [DEV-DB-AC]
+**Context:** tenant/context columns without an explicit event scope and loosely checked JSON could disagree with the catalog or webhook delivery.
+**Decision:** outbox physical columns, catalog triple and required envelope metadata are identical; cross-context rows name two distinct same-tenant endpoints. Webhooks become ACTIVE only after verification and delivery identity/detail tuples are exact.
+**Consequences:** malformed or scope-confused evidence never becomes dispatchable; future partitions inherit the same policies.
+**Tests:** DBA-004/005/011.
+
+## DD-039 — AI PromptSet/ToolSet and generated-media provenance are physical contracts [DEV-DB-AC]
+**Context:** assistant/agent/config fields referenced sets without physical owners, and generated media lacked the DD-08 provenance fields required for governed publication.
+**Decision:** versioned scoped PromptSet/ToolSet plus member rows own bindings. Generated DocumentMeta records link the completed AIMediaRequest and registered provider/model with provenance/moderation/licensing evidence. Platform AI definition writes are Control Plane only; AI Gateway writes remain tenant/industry-scoped.
+**Consequences:** prompt/tool escapes, model/provider mismatch and provenance-free generated assets fail closed.
+**Tests:** DBA-008/009/010.

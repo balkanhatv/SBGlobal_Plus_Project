@@ -83,7 +83,7 @@ Activation requires accessibility_validation_status=PASS. Platform security/warn
 
 ### data_export_request
 `id, tenant_id NOT NULL, industry_context_id?, requester_principal_id NOT NULL, subject_principal_id?, scope_class, export_type enum(DATA_ACCESS,PORTABILITY,TENANT_EXPORT,ADMIN_EXPORT), requested_resource_classes text[] NOT NULL, residency_policy_version, sensitivity_ceiling, status enum(REQUESTED,VALIDATING,APPROVAL_REQUIRED,APPROVED,GENERATING,READY,DOWNLOADED,EXPIRED,REJECTED,CANCELLED), approval_ref?, document_id?, expires_at?, created_at, updated_at`.
-Generation queries execute under the requester/approved export policy and never under wildcard DB authority.
+`scope_class` is exactly TENANT_CORE with null Industry Context or TENANT_INDUSTRY with a non-null same-tenant context; this table does not encode cross-context exports. Requester, optional subject and optional result DocumentMeta are validated against the exact tenant/context, document security state and sensitivity ceiling. A true cross-context export requires a separately governed projection/approval contract. Generation queries execute under the requester/approved export policy and never under wildcard DB authority.
 
 ## 3B. Workflow / Automation / Notification completion entities
 
@@ -121,6 +121,8 @@ Append-only: `id, delivery_id, attempt_no, provider_message_ref?, normalized_sta
 - `industry_context.tenant_id` immutable.
 - Any TENANT_INDUSTRY FK to industry_context must also match row tenant_id through composite integrity strategy or service/database check contract.
 - Cross-tenant FKs are prohibited.
+- Ownership selectors (`tenant_id`, Industry Context endpoints, `scope_class`, `owner_scope`) are immutable after insert on every Core/Industry table carrying them; a lifecycle transition creates governed evidence rather than reclassifying an existing row.
+- A UUID-only parent FK is insufficient when both parent and child carry Tenant/Industry ownership. Use a composite same-scope FK or a fail-closed database integrity trigger, including Commercial, Identity/Authz, Document, Integration, Workflow/Notification and AI relationships.
 - Soft delete is forbidden for financial/audit/evidence rows; use status/reversal/retention workflow.
 - Demo-capable business entities declare `is_demo boolean NOT NULL DEFAULT false`; Core identity/commercial/audit rows are not demo-capable unless explicitly designed.
 
@@ -205,3 +207,11 @@ No tenant table without tenant ownership; no industry table with nullable indust
 
 ## Development completion note — Workflow/Notification persistence
 **DEV-DB-AC-005 (2026-09-13):** Architecture and Foundation defined Workflow, Automation/Scheduler and Notification ownership but their physical persistence contracts were under-specified for implementation. §3B is the canonical completion contract. It keeps Industry workflow states as configuration data, preserves append-only transition/delivery evidence, routes side effects only through governed OperationContracts/integrations, and adds no Industry semantics to Core.
+
+## Current-state database audit corrections
+
+**DEV-DB-AC-008 (2026-09-13):** migrations `0029`–`0031` make ownership immutability and same-scope dependency integrity executable. They close UUID-existence-only gaps across commercial parents, membership/role assignment, exports/documents, integration credentials/cursors/idempotency, event/webhook identity, Workflow/Notification and AI/RAG/Agent references. Every one of the 18 scalar Industry document references is now a composite `(tenant_id, industry_context_id, document_id)` dependency on DocumentMeta; the one document-array reference is validated element-by-element. Physical StorageObject IDs are not Industry references.
+
+**DEV-DB-AC-009 (2026-09-13):** DocumentMeta records generated media provenance explicitly; AI PromptSet/ToolSet and membership owners are physical tables; provider/model pairs and configuration snapshots are relationally bound. Audit/outbox/webhook rows use exact scope semantics, and future partitions receive the corrected policies.
+
+**DEV-DB-AC-010 (2026-09-13):** blanket application default privileges are removed. Identity and control-plane roles are separate, all runtime roles remain `NOBYPASSRLS`, platform catalogs are read-only to request roles, commercial/transition/audit-style evidence is append-only, Industry rows are not directly deletable by the app role, and only migration administration may create evidence partitions. Migration `0032` additionally intersects existing scope policies with restrictive INSERT/UPDATE/DELETE floors on every platform-owned definition and parent-owned role/form/prompt/tool binding. A `PLATFORM_GLOBAL` selector permits only the existing read contract; mutation also requires `sbg_control_plane_rw`, retaining the same Tenant/Industry scope checks.
