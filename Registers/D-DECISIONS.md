@@ -122,3 +122,20 @@ These are authoritative Foundation decision records; shorthand references elsewh
 **Trade-off:** An additional identity-registry write is required in the same transaction as each evidence row.
 
 **Status:** ACTIVE — implementation completion decision.
+
+
+### DEV-DB-AC-002 — Database runtime role classes
+**Context:** DD-14 requires distinct application, migration/admin, backup/WAL, and monitoring database roles; DD-16 requires runtime roles that cannot bypass RLS. Canonical documents define the role classes but not implementation role names.
+
+**Decision:** Define reusable PostgreSQL NOLOGIN group roles:
+- `sbg_app_rw` — application data-plane DML, NOBYPASSRLS;
+- `sbg_worker_rw` — worker/outbox/document pipeline DML, NOBYPASSRLS;
+- `sbg_monitor_ro` — observability/read-only metadata access, NOBYPASSRLS;
+- `sbg_migration_admin` — migration/DDL administration role, never assigned to runtime workloads;
+- `sbg_backup_operator` — reserved backup/restore group role; runtime application identities never inherit it.
+
+Concrete deployment login/service identities are environment-specific and receive only the appropriate group membership. No shared root credential is introduced.
+
+**Consequences:** application and worker workloads remain unable to bypass forced RLS; privileged migration/backup capability is segregated from runtime identities.
+
+**Status:** ACTIVE — implementation completion decision.
