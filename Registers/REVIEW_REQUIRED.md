@@ -1,24 +1,22 @@
 # REVIEW_REQUIRED — Final Pre-Development Status
-**Updated:** 2026-09-13 · **Checkpoint:** `FINAL-PREDEV-AUDIT-PASS-BACKUP-BLOCKED`
+**Updated:** 2026-09-13 · **Checkpoint:** `PREDEV-READY-USER-BACKUP-WAIVER`
 
-## Substantive review
-All Foundation, Architecture, Detailed Design, cross-layer traceability/isolation/determinism and final adversarial substantive findings are resolved.
-
-- Product/Foundation/Architecture/DD P0: **0**
-- Product/Foundation/Architecture/DD P1: **0**
+## Current result
+- Foundation P0/P1: **0/0**
+- Architecture P0/P1: **0/0**
+- Detailed Design P0/P1: **0/0**
 - REAL_DD_GAP: **0**
 - 41/41 MS: **PASS**
-- 165/165 named KPI/report metrics: **mapped**
+- 165/165 named KPI/report metrics: mapped
 - Development determinism: **9/9 YES**
 - QA determinism: **9/9 YES**
 - Isolation: **PASS**
 
-## Only open item
-| ID | Class | Status | Required action |
-|---|---|---|---|
-| CLOSURE-BACKUP-01 | Governance / checkpoint backup | **OPEN — BLOCKING DEVELOPMENT AUTHORIZATION** | Materialize exact snapshot ZIP, open/verify required package contents, compute SHA-256, update BACKUP_METADATA and final checkpoint |
+## Backup disposition
+`CLOSURE-BACKUP-01` is **CLOSED — USER-DIRECTED WAIVER** by `UD-BACKUP-01`.
+A physical pre-development ZIP was not created by this session and is not represented as created. The owner will handle any desired manual clone/archive separately.
 
-The current environment could not download/clone the GitHub archive. The exact Git recovery manifest exists and is recoverable, but it is not falsely claimed to satisfy the required physical ZIP verification.
+## Current gate
+**READY FOR DEVELOPMENT — SUPPORTED.**
 
-## Final position
-**SUBSTANTIVE AUDIT PASS · DEVELOPMENT NOT AUTHORIZED — BACKUP CLOSURE ONLY.**
+Development continues on `docs/architecture-branch-2`. No merge to `main` has been performed in this continuation.
