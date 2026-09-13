@@ -146,3 +146,10 @@ Concrete deployment login/service identities are environment-specific and receiv
 **Decision:** Add `core_ai` as the canonical shared PostgreSQL schema owned by the AI Gateway/RAG/Agent platform. Rows remain PLATFORM_GLOBAL, TENANT_CORE or TENANT_INDUSTRY according to their own scope fields; schema name is not an authorization boundary.
 **Consequence:** AI data is not scattered across unrelated schemas and remains subject to the same RequestContext/RLS/entitlement/residency rules.
 **Status:** ACTIVE — development completion decision.
+
+
+### DEV-DB-AC-004 — Dedicated AI Gateway database role
+**Context:** DD-09 requires one AI Gateway choke point and prohibits domain/client direct provider or AI persistence access. Database implementation therefore must not expose `core_ai` broadly through the general application role.
+**Decision:** Add `sbg_ai_gateway_rw` as a NOLOGIN, NOBYPASSRLS database group role. It alone receives operational access to `core_ai` plus the minimum supporting schema reads required by the AI Gateway. The ordinary `sbg_app_rw` role receives no direct `core_ai` privileges.
+**Consequence:** application/domain modules must traverse the AI Gateway contract instead of coupling directly to AI/RAG tables.
+**Status:** ACTIVE.
