@@ -1,46 +1,60 @@
-# DATABASE CHECKPOINT — DEV-DB-SHARED-CORE-SPINE-001
+# DATABASE CHECKPOINT — DEV-DB-ALL-INDUSTRIES-001
 **Date:** 2026-09-13  
 **Branch:** `docs/architecture-branch-2`
 
-## Implemented shared-Core database scope
-- canonical platform/Core + 9 Industry schemas;
-- Tenant / Industry Context / org-unit ownership;
-- shared Metadata / Rules / Forms / Country Pack / Branding / Export storage;
-- Identity / Membership / Permission / Role / ABAC / API credential / Device / SessionVersion;
-- Commercial plans / subscriptions / transitions / licenses / add-ons / overrides / usage / entitlement snapshots;
-- DocumentMeta / private StorageObject / upload session / ACL;
-- RLS registry + migration ledger;
-- Audit / Outbox / Webhook partitioned evidence with global identity registries;
-- least-privilege database role classes;
-- AI catalog / models / capabilities / config / policies / prompts / provisioning;
-- AI RAG / conversations / memory / usage / cost;
-- AI assistants / agents / tools / approvals;
-- dedicated AI Gateway runtime DB role.
+## Repository implementation result
+### Shared Core
+Implemented SQL migrations for:
+- Tenant + Industry Context and org ownership;
+- Config/Metadata/Rules/Forms/Country Packs/Branding/Export;
+- Identity/Authz, devices, credentials and SessionVersion;
+- Commercial subscriptions/licenses/entitlements;
+- Documents/private storage/ACL;
+- Audit/Event/Outbox/Webhook partitioned evidence;
+- Integration Registry/idempotency;
+- Workflow/Automation/Tasks;
+- Notification templates/delivery;
+- AI/RAG/Memory/Agents;
+- RLS registry/migration ledger;
+- least-privilege app/worker/service DB roles.
 
-## Migration range
-`0001` … `0014`
+### Industry wave
+- 9/9 Current Supported Industry schemas implemented.
+- 41/41 canonical MS owners represented.
+- 181 canonical Industry tables registered with TENANT_INDUSTRY scope.
+- Cross-industry database verification: `database/verification/0099_all_industries.verify.sql`.
 
-## Security invariants implemented
-- runtime roles are NOBYPASSRLS;
-- Tenant rows require Tenant Context;
-- Industry rows require Tenant + Industry Context;
-- physical storage metadata is not directly available to ordinary app/worker roles;
-- general application role has no direct `core_ai` access;
-- AI Gateway uses a dedicated NOBYPASSRLS role;
-- role/persona/context data never uses schema names as authorization;
-- PAST_DUE does not exist in canonical subscription state;
-- partitioned audit/outbox/webhook evidence preserves globally unique identity through registries.
+| Schema | MS | Tables |
+|---|---:|---:|
+| ind_hlt | 5 | 37 |
+| ind_edu | 5 | 20 |
+| ind_rtl | 5 | 20 |
+| ind_hsp | 4 | 16 |
+| ind_mfg | 5 | 20 |
+| ind_psv | 5 | 20 |
+| ind_gov | 4 | 16 |
+| ind_ngo | 4 | 16 |
+| ind_sfm | 4 | 16 |
+| **Total** | **41** | **181** |
 
-## Verification
-Repository/static contract review: **PASS for implemented shared-Core slice**.  
-SQL verification files exist for current invariants.  
-Live PostgreSQL apply-and-verify execution: **NOT YET PERFORMED in this session**.
+## Targeted implementation decisions
+- DEV-DB-AC-001 — global evidence identity + monthly partitioned detail.
+- DEV-DB-AC-002 — DB runtime role classes.
+- DEV-DB-AC-003 — canonical core_ai schema.
+- DEV-DB-AC-004 — dedicated AI Gateway DB role.
+- DEV-DB-AC-005 — Workflow/Automation/Notification persistence.
+- DEV-DB-AC-006 — Workflow/Notification worker roles.
+- DEV-DB-AC-007 — Document/Integration service roles.
 
-## Open database scope
-- Industry transactional tables for 9 suites / 41 Management Systems;
-- Workflow/Automation physical schema requires an exact storage contract completion before implementation;
-- Notification shared schema;
-- database runtime execution/CI against a real PostgreSQL instance;
-- later migration/rollback operational evidence.
+## Validation
+- Static/repository contract reconciliation: **PASS**.
+- SQL verification files: **PRESENT**.
+- Apply+verify script: **PRESENT**.
+- GitHub Actions PostgreSQL workflow: **CONFIGURED**.
+- Confirmed live PostgreSQL execution: **PENDING / NOT YET EVIDENCED**.
 
-**Shared-Core database spine: IMPLEMENTED / NOT YET RUNTIME-VERIFIED.**
+## Gate
+**DATABASE REPOSITORY IMPLEMENTATION: COMPLETE FOR CURRENT CERTIFIED SHARED-CORE + 9-INDUSTRY TABLE SETS.**  
+**DATABASE RUNTIME VERIFICATION: OPEN.**
+
+Application/API/UI implementation must not assume the runtime DB gate passed until executable PostgreSQL evidence is available.
