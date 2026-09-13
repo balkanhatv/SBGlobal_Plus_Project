@@ -161,3 +161,12 @@
 - Mandatory physical checkpoint ZIP could not be materialized/SHA-256 verified in the current environment.
 - **SUBSTANTIVE PRE-DEVELOPMENT AUDIT: PASS.**
 - **OVERALL DEVELOPMENT AUTHORIZATION: BLOCKED ONLY BY CLOSURE-BACKUP-01.**
+
+
+## User-Directed Backup Waiver / Development Gate — 2026-09-13
+- Owner explicitly directed that no AI-generated pre-development ZIP is required; manual repository clone/archive will be handled separately if desired.
+- Decision recorded as `UD-BACKUP-01`.
+- `CLOSURE-BACKUP-01` closed by user direction without claiming a ZIP was created.
+- All substantive pre-development gates remain PASS.
+- **READY FOR DEVELOPMENT — SUPPORTED.**
+- Development will continue on `docs/architecture-branch-2`; `main` remains unchanged by this continuation.
