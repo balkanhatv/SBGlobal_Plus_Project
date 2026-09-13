@@ -2,14 +2,12 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-13",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "FINAL-PREDEV-AUDIT-PASS-BACKUP-BLOCKED",
-  "final_verdict": "SUBSTANTIVE PASS; DEVELOPMENT NOT AUTHORIZED — MANDATORY PHYSICAL CHECKPOINT ZIP BLOCKED",
+  "checkpoint": "PREDEV-READY-USER-BACKUP-WAIVER",
+  "final_verdict": "READY FOR DEVELOPMENT; pre-development ZIP waived by user; continue on current branch; main remains unchanged",
   "final_substantive_foundation_head": "4b5ec3667ae81c0b4c92a4cf0daba0282edd4131",
   "final_substantive_architecture_head": "9453ebb0140670984753cec9e66613475789610b",
   "final_substantive_dd_head": "b4bba9c4764025af3d4546644f7c67efa463c86d",
-  "final_adversarial_audit_commit": "ead5c108f111483c1e89b039846377e54873be81",
   "gates": {
-    "vision_centric_substantive_audit": "PASS",
     "foundation": "PASS",
     "architecture": "PASS",
     "detailed_design": "PASS_COMPLETE",
@@ -17,30 +15,20 @@
     "isolation": "PASS",
     "development_determinism": "9/9 YES",
     "qa_determinism": "9/9 YES",
-    "final_adversarial_substantive": "PASS",
-    "physical_checkpoint_zip": "BLOCKED"
+    "final_adversarial": "PASS",
+    "predevelopment_zip": "WAIVED_BY_USER_DIRECTION"
   },
   "defects": {
     "product_p0": 0,
     "product_p1": 0,
     "real_dd_gap": 0,
-    "closure_blockers": 1
+    "closure_blockers": 0
   },
-  "blocker": {
-    "id": "CLOSURE-BACKUP-01",
-    "requirement": "Governing MASTER_INSTRUCTION §24 checkpoint package/ZIP",
-    "status": "OPEN",
-    "reason": "Current execution environment cannot materialize/download GitHub archive content for content verification and SHA-256."
-  },
-  "recovery": {
-    "manifest": "State/PRE_DEVELOPMENT_RECOVERY_MANIFEST.json",
-    "snapshot_head": "f09c26b2d01b97d0f50b20d94bad374dbc4252c7",
-    "tree_sha": "cb60aba0e91bab2d4eca2216233cfdbe484c1176",
-    "file_count": 125,
-    "total_blob_bytes": 4048092,
-    "archive_url": "https://github.com/yadavjalsingh192/SBGlobal_Plus_Project/archive/f09c26b2d01b97d0f50b20d94bad374dbc4252c7.zip",
-    "physical_zip_materialized": false,
-    "sha256": null
+  "backup": {
+    "decision_id": "UD-BACKUP-01",
+    "physical_zip_created_by_session": false,
+    "owner_manual_backup": "user will handle manually if desired",
+    "recovery_manifest": "State/PRE_DEVELOPMENT_RECOVERY_MANIFEST.json"
   },
   "raw_source": {
     "policy": "IMMUTABLE",
@@ -50,26 +38,18 @@
   },
   "github": {
     "main_tip": "3911590ff2020993ce51b32d7b091efd6f5f466f",
+    "working_branch": "docs/architecture-branch-2",
     "review_pr": {
       "number": 2,
       "state": "OPEN",
       "draft": true,
       "merge_authorized": false
     },
-    "main_merge_by_this_work": "NOT PERFORMED"
+    "main_merge": "not performed; future merge requires explicit user direction"
   },
-  "evidence": [
-    "Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md",
-    "Registers/PHASE2_ARCHITECTURE_REVALIDATION_2026-09-12.md",
-    "Registers/PHASE3_DETAILED_DESIGN_REVALIDATION_2026-09-13.md",
-    "Registers/PHASE4_CROSS_LAYER_TRACEABILITY_ISOLATION_2026-09-13.md",
-    "Registers/ISOLATION_ATTACK_MATRIX.md",
-    "Registers/FINAL_PRE_DEVELOPMENT_ADVERSARIAL_AUDIT_2026-09-13.md",
-    "BACKUP_METADATA.json",
-    "State/PRE_DEVELOPMENT_RECOVERY_MANIFEST.json"
-  ],
   "development": {
-    "authorized": false,
-    "next_action": "Materialize exact checkpoint ZIP, verify package contents and SHA-256, update BACKUP_METADATA/checkpoint, then re-run only the backup/final-state closure gate; substantive phases do not need restart unless snapshot content changes."
+    "authorized": true,
+    "performed": false,
+    "next_action": "Begin Development bootstrap on the current working branch."
   }
 }
