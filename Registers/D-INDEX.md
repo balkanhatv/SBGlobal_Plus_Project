@@ -1,20 +1,28 @@
-# D-INDEX — Canonical Document Index
-**Updated:** 2026-09-13 · **Checkpoint:** `PREDEV-READY-USER-BACKUP-WAIVER`
+# D-INDEX — Canonical Document / Development Index
+**Updated:** 2026-09-13 · **Checkpoint:** `DEV-DB-ALL-INDUSTRIES-001`
 
-**Current authority:** Foundation, Architecture, Detailed Design and cross-layer pre-development gates are complete and pass. The pre-development ZIP requirement was waived by explicit owner direction under `UD-BACKUP-01`.
+## Certified documentation
+- RawSourceCorpus — immutable / integrity PASS.
+- Foundation F-00…F-15 — PASS.
+- Architecture A-00…A-12 / ADR-001…020 — PASS.
+- Detailed Design DD-00…DD-31 + 9 Industry DD artifacts — COMPLETE / PASS.
+- Pre-development traceability/isolation/determinism — PASS.
 
-- RawSourceCorpus — immutable / PASS.
-- Foundation F-00…F-15 — Phase 1 PASS.
-- Architecture A-00…A-12 / ADR-001…020 — Phase 2 PASS.
-- DetailedDesign DD-00…DD-31 + 9 Industry files / 41 MS — Phase 3 PASS / COMPLETE.
-- Cross-layer traceability + isolation + determinism — Phase 4 PASS.
-- Final adversarial audit — substantive PASS.
-- Product P0/P1 — 0/0.
-- REAL_DD_GAP — 0.
-- Development/QA determinism — 9/9 YES + 9/9 YES.
-- Recovery manifest remains available; physical ZIP was not created by this session and is not required for this pre-development gate by user direction.
-- Draft PR #2 remains review-only.
-- Working branch: `docs/architecture-branch-2`.
-- `main` remains unchanged by this continuation.
+## Active Development
+**Phase: Database**
 
-**READY FOR DEVELOPMENT — SUPPORTED.**
+Current implementation evidence:
+- `database/migrations/0001…0028`
+- `database/verification/*`
+- `database/verification/0099_all_industries.verify.sql`
+- `database/scripts/apply-and-verify.sh`
+- `.github/workflows/database-verify.yml`
+- `Development/DB_IMPLEMENTATION_MATRIX.md`
+- `Development/DB_CHECKPOINT.md`
+
+Current counts:
+- 9/9 Industry schemas.
+- 41/41 canonical MS owners.
+- 181 canonical Industry tables.
+
+Runtime PostgreSQL verification is active/pending; no final PASS is claimed yet. Application/API/UI implementation remains unopened until the DB runtime gate passes.
