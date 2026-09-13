@@ -1,21 +1,21 @@
 # PROJECT_STATE — SBGlobal Plus
 - Updated: 2026-09-13.
 - Branch: `docs/architecture-branch-2`.
-- Current checkpoint: `FINAL-PREDEV-AUDIT-PASS-BACKUP-BLOCKED`.
+- Current checkpoint: `PREDEV-READY-USER-BACKUP-WAIVER`.
 - Vision-centric substantive audit: **PASS**.
 - Foundation: **PASS**.
 - Architecture: **PASS**.
 - Detailed Design: **COMPLETE / PASS**.
 - Cross-layer traceability/isolation/determinism: **PASS**.
-- Final independent adversarial audit: **SUBSTANTIVE PASS**.
-- Mandatory checkpoint physical ZIP: **BLOCKED — NOT MATERIALIZED / NOT SHA-256 VERIFIED**.
-- Development: **NOT AUTHORIZED** until backup closure is completed.
+- Final independent adversarial audit: **PASS**.
+- Pre-development physical ZIP: **USER-DIRECTED WAIVER — not required for this gate; owner will handle manual repo clone/archive if desired**.
+- Development: **READY / AUTHORIZED AS NEXT PHASE; NOT YET PERFORMED**.
+- Current working branch: `docs/architecture-branch-2`.
+- `main`: **DO NOT MERGE** without future explicit owner instruction.
+- Draft review PR #2: remains review-only; no merge authorization.
 - Final substantive Foundation HEAD: `4b5ec3667ae81c0b4c92a4cf0daba0282edd4131`.
 - Final substantive Architecture HEAD: `9453ebb0140670984753cec9e66613475789610b`.
 - Final substantive DD HEAD: `b4bba9c4764025af3d4546644f7c67efa463c86d`.
-- Final adversarial audit commit: `ead5c108f111483c1e89b039846377e54873be81`.
-- Recovery snapshot indexed at `f09c26b2d01b97d0f50b20d94bad374dbc4252c7`, tree `cb60aba0e91bab2d4eca2216233cfdbe484c1176`, 125 files.
-- Draft review PR: **#2 OPEN — DO NOT MERGE without explicit approval**.
 - RawSourceCorpus: immutable / integrity PASS.
-- `main`: historical tip `3911590ff2020993ce51b32d7b091efd6f5f466f`; no Phase 1–final-audit merge to main.
-- Only current blocker: `CLOSURE-BACKUP-01`.
+- User-directed decision: `UD-BACKUP-01`.
+- Next phase: **Development bootstrap on the current branch**.
