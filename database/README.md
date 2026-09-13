@@ -1,44 +1,64 @@
 # Database Implementation — SBGlobal Plus
 
-**Status:** DEVELOPMENT STARTED — DATABASE SPINE IN PROGRESS  
+**Status:** DEVELOPMENT / DATABASE IMPLEMENTATION IN PROGRESS  
 **Branch:** `docs/architecture-branch-2`  
-**Authority:** DD-02, DD-03, DD-04, DD-05
+**Current repository checkpoint:** `DEV-DB-ALL-INDUSTRIES-001`
 
 ## Strategy
-The canonical stack fixes PostgreSQL but does not select Prisma, Drizzle, or another ORM/migration framework. The initial implementation is therefore SQL-first and framework-neutral.
+PostgreSQL is canonical. No ORM/migration framework is selected by governing truth, so the current implementation is SQL-first and framework-neutral.
 
-## Current migrations
-1. `0001_core_bootstrap.sql` — canonical schemas, Tenant + Industry Context, org structure, shared Metadata/Rules/Forms/Country Pack/Brand/Export storage and initial forced RLS.
-2. `0002_form_field_parent_rls.sql` — parent-aware RLS for form fields.
-3. `0003_identity_authorization.sql` — Core principals, provider links, memberships, permission/role/ABAC structures, API credentials, device and session version storage.
-4. `0004_commercial_entitlement.sql` — plans/versions, subscriptions/transitions, licenses, add-ons, overrides, usage meters and immutable entitlement snapshots/facts.
-5. `0005_security_rls_hardening.sql` — nullable global SessionVersion correction and tightened API credential, role and entitlement-fact RLS.
+## Migration coverage
+Current migrations: `0001` … `0028`.
 
-## Verification SQL
-- `0001_core_bootstrap.verify.sql`
-- `0002_form_field_parent_rls.verify.sql`
-- `0003_0005_identity_commercial.verify.sql`
+### Shared Core
+- Tenant + Industry Context / org units
+- Configuration / Metadata / Rules / Forms / Country Packs / Branding / Export
+- Identity / Authorization / sessions / devices / API credentials
+- Commercial / Subscription / Licensing / Entitlements / usage
+- Document metadata / private storage / upload / ACL
+- Audit / Event / Outbox / Webhook with monthly partitioning
+- RLS registry + migration ledger
+- Integration Registry + idempotency + SyncCursor
+- Workflow / Automation / Tasks / Transition evidence
+- Notification templates / delivery / attempts
+- AI catalog/config/provisioning, RAG, memory, conversations, usage/cost, agents/tools/approvals
+- least-privilege database service/worker roles
 
-These assert structural invariants such as required schemas, forced RLS, one-primary Industry, definition uniqueness, no PAST_DUE enum, nullable global SessionVersion, platform credential isolation and Industry-scoped entitlement facts.
+### Industries
+All 9 Current Supported Industry schemas have canonical transactional table sets:
+- Healthcare: 5 MS / 37 tables
+- Education: 5 / 20
+- Retail: 5 / 20
+- Hospitality: 4 / 16
+- Manufacturing: 5 / 20
+- Professional Services: 5 / 20
+- Government: 4 / 16
+- NGO / Temple / Trust: 4 / 16
+- Security / Facility: 4 / 16
 
-## Current guarantees
-- `industryContextId = null` is never interpreted as all industries.
-- Tenant-owned tables implemented here use Tenant-scoped forced RLS.
-- Industry-owned rows implemented here additionally require Industry Context.
-- PLATFORM-scoped API credentials do not become visible through a Tenant context.
-- Role templates and role permissions are scope-aware.
-- Industry-scoped entitlement facts cannot satisfy sibling Industry access.
-- Definition and commercial state histories are versioned rather than silently overwritten.
+**Total: 41 canonical Management Systems / 181 Industry tables.**
 
-## Not yet implemented
-- application DB roles and least-privilege GRANT matrix;
-- operator elevation/service-principal RLS paths;
-- audit/outbox/webhook/document tables and their partitioning;
-- AI/RAG vector storage;
-- Industry-specific transactional tables for the 41 MS;
-- executable PostgreSQL CI harness;
-- ORM mappings or application repositories.
+See `Development/DB_IMPLEMENTATION_MATRIX.md`.
 
-## Validation status
-Repository/static design review: **PASS for current slice**.  
-Live PostgreSQL migration execution: **NOT YET PERFORMED in this session**.
+## Verification
+- per-slice SQL verification files exist under `database/verification/`;
+- `0099_all_industries.verify.sql` checks 9 schemas / 41 MS / 181 registered Industry tables, forced RLS, ownership columns and cross-Industry namespace consistency;
+- `database/scripts/apply-and-verify.sh` applies migrations and verification in lexical order;
+- `.github/workflows/database-verify.yml` defines a pgvector-enabled PostgreSQL runtime verification job.
+
+## Security invariants
+- runtime/service roles are NOBYPASSRLS;
+- Industry rows require current Tenant + Industry Context;
+- `industryContextId = null` never means all Industries;
+- physical storage metadata is hidden from ordinary application roles;
+- provider credential references are hidden from ordinary application roles;
+- general app role has no direct `core_ai` access; AI Gateway has a dedicated DB role;
+- workflow transitions and notification attempts are append-only to runtime roles;
+- partitioned audit/outbox/webhook evidence preserves global identity/idempotency.
+
+## Current validation status
+Repository/static contract review: **PASS for implemented files**.  
+GitHub Actions workflow: **CONFIGURED**.  
+Confirmed live PostgreSQL migration+verification PASS: **NOT YET AVAILABLE**.
+
+Do not report the Database phase runtime-complete until the PostgreSQL execution evidence is actually PASS.
