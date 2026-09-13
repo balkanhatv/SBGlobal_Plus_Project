@@ -94,3 +94,17 @@ These are authoritative Foundation decision records; shorthand references elsewh
 | UD-REM-03 | Multiple effective-access representations could drift. | One canonical server-authoritative chain: principal → Tenant → Industry Context → subscription/license → credential/device/session → entitlement snapshot → RBAC → ABAC/context → security/compliance/residency → resource/workflow rules. | A-01/A-03/A-04; ADR-004. |
 | UD-REM-04 | A-08 carried competing surface interpretations. | One four-surface responsibility model: Public Website; Platform Application; Tenant Management Web; Reusable Industry Experiences. | A-08 §1/§9A. |
 | UD-REM-05 | Certification was reopened by independent audit. | Restore Foundation/Architecture certification only after fresh No-Loss + adversarial passes and zero unresolved P0/P1. | Fresh audits at remediation closure PASS; Detailed Design becomes next authorized phase, not completed. |
+
+
+## 2026-09-13 User-Directed Pre-Development Backup Waiver
+
+### UD-BACKUP-01 — Manual owner backup; physical ZIP is not a Development gate
+**Context:** The final pre-development audit had one governance-only blocker because this execution environment could not materialize and verify a physical repository ZIP. An exact Git recovery manifest already exists. The owner explicitly directed that no AI-created backup ZIP is needed, that any desired backup will be downloaded manually from the repository clone, and that work must continue on the current branch without merging to main.
+
+**Decision:** For this pre-development transition, a physical AI-generated checkpoint ZIP is not required to authorize Development. The exact Git recovery manifest remains evidence. The physical ZIP remains truthfully uncreated by this session.
+
+**Branch constraint:** Continue on `docs/architecture-branch-2`. Do not merge `main` without a future explicit owner instruction.
+
+**Consequences:** `CLOSURE-BACKUP-01` is closed by explicit user direction, not by claiming a backup occurred. All substantive Phase 1–4 and final adversarial PASS evidence remains unchanged.
+
+**Scope:** This waiver applies to the pre-development checkpoint only. It does not remove future release/deployment/production backup and recovery requirements.
