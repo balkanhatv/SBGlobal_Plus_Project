@@ -161,14 +161,14 @@ REVOKE ALL ON FUNCTION core_identity.principal_is_active_for_tenant(uuid,uuid,ti
 REVOKE ALL ON FUNCTION core_identity.principal_is_active_for_definition(text,uuid,uuid,timestamptz) FROM PUBLIC;
 
 -- Identity-owned tenant references must represent a real relationship, not merely a
--- globally existing principal UUID. A nullable tenant SessionVersion is restored to
--- the DD contract without permitting duplicate platform-global rows.
+-- globally existing principal UUID. Migration 0005 already permits a nullable tenant
+-- SessionVersion. Replace its sentinel expression index with PostgreSQL 16 native
+-- null-equal uniqueness, so an actual zero UUID cannot collide with global scope.
 ALTER TABLE core_identity.identity_provider_link
   ADD CONSTRAINT identity_provider_link_tenant_hint_fk
   FOREIGN KEY (tenant_hint) REFERENCES core_tenancy.tenant(id);
+DROP INDEX core_identity.session_version_scope_uq;
 ALTER TABLE core_identity.session_version
-  DROP CONSTRAINT session_version_pkey,
-  ALTER COLUMN tenant_id DROP NOT NULL,
   ADD CONSTRAINT session_version_scope_uq UNIQUE NULLS NOT DISTINCT (principal_id,tenant_id);
 
 CREATE OR REPLACE FUNCTION core_identity.validate_identity_tenant_relationships()
