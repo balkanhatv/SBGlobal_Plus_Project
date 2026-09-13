@@ -1,21 +1,18 @@
 # PROJECT_STATE — SBGlobal Plus
 - Updated: 2026-09-13.
 - Branch: `docs/architecture-branch-2`.
-- Current checkpoint: `PREDEV-READY-USER-BACKUP-WAIVER`.
-- Vision-centric substantive audit: **PASS**.
-- Foundation: **PASS**.
-- Architecture: **PASS**.
-- Detailed Design: **COMPLETE / PASS**.
-- Cross-layer traceability/isolation/determinism: **PASS**.
-- Final independent adversarial audit: **PASS**.
-- Pre-development physical ZIP: **USER-DIRECTED WAIVER — not required for this gate; owner will handle manual repo clone/archive if desired**.
-- Development: **READY / AUTHORIZED AS NEXT PHASE; NOT YET PERFORMED**.
-- Current working branch: `docs/architecture-branch-2`.
-- `main`: **DO NOT MERGE** without future explicit owner instruction.
-- Draft review PR #2: remains review-only; no merge authorization.
-- Final substantive Foundation HEAD: `4b5ec3667ae81c0b4c92a4cf0daba0282edd4131`.
-- Final substantive Architecture HEAD: `9453ebb0140670984753cec9e66613475789610b`.
-- Final substantive DD HEAD: `b4bba9c4764025af3d4546644f7c67efa463c86d`.
+- Current checkpoint: `DEV-DB-SHARED-CORE-SPINE-001`.
+- Foundation: PASS.
+- Architecture: PASS.
+- Detailed Design: PASS / COMPLETE, with targeted Development completion note `DEV-DB-AC-003` for AI schema ownership.
+- Pre-development adversarial gate: PASS.
+- Development: **STARTED**.
+- Current implementation phase: **Database**.
+- Shared-Core database spine: **IMPLEMENTED / STATICALLY VERIFIED**.
+- Live PostgreSQL migration execution: **NOT YET PERFORMED**.
+- Industry DB wave: **NEXT**.
+- Application/API/UI code: **NOT STARTED**.
 - RawSourceCorpus: immutable / integrity PASS.
-- User-directed decision: `UD-BACKUP-01`.
-- Next phase: **Development bootstrap on the current branch**.
+- Working branch: `docs/architecture-branch-2`.
+- Draft PR #2: review-only.
+- `main`: unchanged by this continuation.
