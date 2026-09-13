@@ -100,3 +100,20 @@ Reason: the current execution environment cannot resolve/download GitHub archive
 **DEVELOPMENT NOT AUTHORIZED**
 
 The project is substantively ready for Development, but governance does not permit the READY FOR DEVELOPMENT status until the required physical checkpoint ZIP is actually materialized, verified, and its SHA-256 recorded. No other current blocker was found.
+
+
+---
+
+## User-Directed Closure Amendment — 2026-09-13
+
+After this audit, the owner explicitly waived the physical pre-development ZIP as a Development-readiness requirement and stated that any desired repository clone/archive backup will be handled manually. This decision is recorded as `UD-BACKUP-01`.
+
+Therefore:
+- the audit's **substantive PASS** remains unchanged;
+- `CLOSURE-BACKUP-01` is closed by explicit user direction;
+- no physical ZIP is claimed to have been created by this session;
+- the final pre-development gate becomes **READY FOR DEVELOPMENT — SUPPORTED**;
+- work continues on `docs/architecture-branch-2`;
+- `main` remains unchanged by this continuation.
+
+This amendment changes only the backup-gate disposition; it does not alter Foundation, Architecture, Detailed Design, isolation, traceability or determinism evidence.
