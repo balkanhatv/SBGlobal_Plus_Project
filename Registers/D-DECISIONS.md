@@ -153,3 +153,10 @@ Concrete deployment login/service identities are environment-specific and receiv
 **Decision:** Add `sbg_ai_gateway_rw` as a NOLOGIN, NOBYPASSRLS database group role. It alone receives operational access to `core_ai` plus the minimum supporting schema reads required by the AI Gateway. The ordinary `sbg_app_rw` role receives no direct `core_ai` privileges.
 **Consequence:** application/domain modules must traverse the AI Gateway contract instead of coupling directly to AI/RAG tables.
 **Status:** ACTIVE.
+
+
+### DEV-DB-AC-005 — Workflow / Automation / Notification physical persistence
+**Context:** Core ownership and lifecycle were certified, but exact database fields for Workflow/Automation/Notification were not sufficiently deterministic for implementation.
+**Decision:** DD-05 §3B is the exact shared persistence contract. Workflow state names remain versioned definition data rather than Core business enums; transition and delivery-attempt evidence is append-only; automation may invoke only governed OperationContracts/Workflow definitions; notification provider secrets remain in Integration CredentialReference, never notification rows.
+**Consequence:** shared engines remain Industry-neutral and implementable without inventing Industry semantics or bypassing authorization/integration boundaries.
+**Status:** ACTIVE.
