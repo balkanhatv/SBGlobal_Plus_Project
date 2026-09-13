@@ -22,9 +22,16 @@ CREATE TABLE core_document.storage_object (
   checksum_sha256 text NOT NULL,
   encryption_key_ref text NOT NULL,
   status core_document.storage_object_status NOT NULL,
-  created_at timestamptz NOT NULL,
-  UNIQUE (data_home_id, bucket_class, object_key, COALESCE(object_version, ''))
+  created_at timestamptz NOT NULL
 );
+
+CREATE UNIQUE INDEX storage_object_location_version_uq
+  ON core_document.storage_object(
+    data_home_id,
+    bucket_class,
+    object_key,
+    COALESCE(object_version, '')
+  );
 
 REVOKE ALL ON core_document.storage_object FROM PUBLIC;
 
