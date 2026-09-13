@@ -167,3 +167,10 @@ Concrete deployment login/service identities are environment-specific and receiv
 **Decision:** Add dedicated NOLOGIN, NOBYPASSRLS group roles `sbg_workflow_worker_rw` and `sbg_notification_worker_rw`. Workflow workers may mutate instances/tasks/runs and append transitions, but cannot update/delete transition evidence. Notification workers may mutate delivery state and append attempts, but cannot update/delete attempt evidence. Neither role receives secret-store credential-reference access.
 **Consequence:** asynchronous shared-engine execution stays least-privilege and context-scoped.
 **Status:** ACTIVE.
+
+
+### DEV-DB-AC-007 — Dedicated Document and Integration database service roles
+**Context:** Physical storage metadata is intentionally hidden from the general application role, and Integration credential/provider metadata must remain behind the Integration boundary. Both modules still require implementable service identities.
+**Decision:** Add NOLOGIN, NOBYPASSRLS roles `sbg_document_service_rw` and `sbg_integration_service_rw`. Document service alone may access `StorageObject` plus logical document tables; Integration service alone may manage TenantIntegration/CredentialReference/SyncCursor while reading the global Integration catalog. Both receive only minimum supporting Core reads and append-only audit access.
+**Consequence:** private storage/provider boundaries are implementable without re-granting broad access to `sbg_app_rw`.
+**Status:** ACTIVE.
