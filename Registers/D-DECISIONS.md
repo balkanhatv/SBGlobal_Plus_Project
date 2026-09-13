@@ -160,3 +160,10 @@ Concrete deployment login/service identities are environment-specific and receiv
 **Decision:** DD-05 §3B is the exact shared persistence contract. Workflow state names remain versioned definition data rather than Core business enums; transition and delivery-attempt evidence is append-only; automation may invoke only governed OperationContracts/Workflow definitions; notification provider secrets remain in Integration CredentialReference, never notification rows.
 **Consequence:** shared engines remain Industry-neutral and implementable without inventing Industry semantics or bypassing authorization/integration boundaries.
 **Status:** ACTIVE.
+
+
+### DEV-DB-AC-006 — Workflow and Notification worker database roles
+**Context:** Workflow/Automation and Notification persistence is shared Core infrastructure. Background execution requires table access but must not use migration/admin credentials or bypass RLS; transition/delivery-attempt evidence must remain append-only.
+**Decision:** Add dedicated NOLOGIN, NOBYPASSRLS group roles `sbg_workflow_worker_rw` and `sbg_notification_worker_rw`. Workflow workers may mutate instances/tasks/runs and append transitions, but cannot update/delete transition evidence. Notification workers may mutate delivery state and append attempts, but cannot update/delete attempt evidence. Neither role receives secret-store credential-reference access.
+**Consequence:** asynchronous shared-engine execution stays least-privilege and context-scoped.
+**Status:** ACTIVE.
