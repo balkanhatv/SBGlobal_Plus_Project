@@ -42,7 +42,7 @@ GitHub, Git, backup, model-orchestration, and other external operations are perf
 
 ## Security & Data Rules (always on)
 
-Server-authoritative access (authentication, tenant/subscription/license/device/RBAC + complementary ABAC/JWT/API validation on every business operation, following the entitlement chain and RBAC/ABAC authorization model in Execution Procedure step 5) · secrets & key management with per-tenant isolation · API threat protection · compliance posture (GDPR, DPDP 2023, HIPAA-readiness, SOC 2, ISO 27001) · data residency awareness · tenant isolation verified by tests · environments (Development/Staging/Production) never mixed · seed data reproducible · demo data synthetic, DEMO-flagged, tenant-scoped, covering every industry, never real PII · media assets with recorded provenance and licensing.
+Server-authoritative access (authentication, tenant/subscription/license/device/RBAC + complementary ABAC + Clerk session/access-token validation for human sessions or separate machine API credential validation for API clients/services on every business operation, following the entitlement chain and RBAC/ABAC authorization model in Execution Procedure step 5) · secrets & key management with per-tenant isolation · API threat protection · compliance posture (GDPR, DPDP 2023, HIPAA-readiness, SOC 2, ISO 27001) · data residency awareness · tenant isolation verified by tests · environments (Development/Staging/Production) never mixed · seed data reproducible · demo data synthetic, DEMO-flagged, tenant-scoped, covering every industry, never real PII · media assets with recorded provenance and licensing.
 
 ## Deployment & Recovery
 

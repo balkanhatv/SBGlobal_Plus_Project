@@ -10,7 +10,7 @@ All mutable entities include `id uuid PK`, `tenant_id uuid NOT NULL`, `industry_
 
 # HLT-HMS — Hospital Management System
 **Foundation owner:** F-13 §1.1 · **Status:** COMPLETE
-**Ownership baseline:** every entity in this MS is `TENANT_INDUSTRY` and carries immutable `tenant_id uuid NOT NULL` + `industry_context_id uuid NOT NULL`; indexes begin with both context keys and cross-context access is denied unless an explicit DD-02 cross-context contract exists.\n
+**Ownership baseline:** every entity in this MS is `TENANT_INDUSTRY` and carries immutable `tenant_id uuid NOT NULL` + `industry_context_id uuid NOT NULL`; indexes begin with both context keys and cross-context access is denied unless an explicit DD-02 cross-context contract exists.
 ### Purpose / actors / modules
 Hospital-wide OPD/IPD/emergency/wards/beds/nursing/clinical-order/OT/discharge/MRD operations. Actors: Hospital Admin, Doctor, Nurse, Receptionist, Ward Manager, OT Coordinator, Billing Executive, MRD Officer, Patient. Modules: OPD, IPD, Emergency, Ward/Bed, Nursing, Clinical Orders, OT, Discharge, MRD.
 
@@ -60,7 +60,7 @@ Positive: OPD and IPD full lifecycle. Negative: no-bed/consent admission denied;
 
 # HLT-LIS — Laboratory Information System
 **Foundation owner:** F-07 §1.4–1.6 · **Status:** COMPLETE
-**Ownership baseline:** every entity in this MS is `TENANT_INDUSTRY` and carries immutable `tenant_id uuid NOT NULL` + `industry_context_id uuid NOT NULL`; indexes begin with both context keys and cross-context access is denied unless an explicit DD-02 cross-context contract exists.\n
+**Ownership baseline:** every entity in this MS is `TENANT_INDUSTRY` and carries immutable `tenant_id uuid NOT NULL` + `industry_context_id uuid NOT NULL`; indexes begin with both context keys and cross-context access is denied unless an explicit DD-02 cross-context contract exists.
 ### Purpose / actors / modules
 Patient-to-approved-report laboratory lifecycle. Actors: Lab Admin, Pathologist, Technician, Phlebotomist, Receptionist, Collection Executive, Billing Executive, Doctor, Patient. Modules: registration/appointment, billing reference, accession/barcode, collection/receipt/routing, worklists, analyzer/manual results, QC/delta/critical checks, verification, pathologist approval, report publication/distribution/archive, lab inventory references.
 
@@ -109,7 +109,7 @@ Positive: registration→collection→testing→verified→approved QR report. N
 
 # HLT-RIS — Radiology Information System
 **Foundation owner:** F-13 §1.2 · **Status:** COMPLETE
-**Ownership baseline:** every entity in this MS is `TENANT_INDUSTRY` and carries immutable `tenant_id uuid NOT NULL` + `industry_context_id uuid NOT NULL`; indexes begin with both context keys and cross-context access is denied unless an explicit DD-02 cross-context contract exists.\n
+**Ownership baseline:** every entity in this MS is `TENANT_INDUSTRY` and carries immutable `tenant_id uuid NOT NULL` + `industry_context_id uuid NOT NULL`; indexes begin with both context keys and cross-context access is denied unless an explicit DD-02 cross-context contract exists.
 ### Purpose / actors / modules
 Imaging order-to-report lifecycle with modality scheduling, consent/contrast screening, worklist, reading/second-read, critical findings and report publication. Actors: Radiologist, Radiographer, Receptionist, Referring Doctor, Patient.
 
@@ -142,7 +142,7 @@ Positive order→published report. Negative contraindication/unauthorized repeat
 
 # HLT-PMS — Pharmacy Management System
 **Foundation owner:** F-13 §1.3 · **Status:** COMPLETE
-**Ownership baseline:** every entity in this MS is `TENANT_INDUSTRY` and carries immutable `tenant_id uuid NOT NULL` + `industry_context_id uuid NOT NULL`; indexes begin with both context keys and cross-context access is denied unless an explicit DD-02 cross-context contract exists.\n
+**Ownership baseline:** every entity in this MS is `TENANT_INDUSTRY` and carries immutable `tenant_id uuid NOT NULL` + `industry_context_id uuid NOT NULL`; indexes begin with both context keys and cross-context access is denied unless an explicit DD-02 cross-context contract exists.
 ### Purpose / actors / modules
 Prescription intake, dispensing, pharmacy stock/batch/expiry, ward indents, controlled register, returns/recalls, purchasing/GRN/transfers/adjustments. Actors: Pharmacist, Pharmacy Manager, Store Keeper, Doctor, Patient.
 
@@ -177,7 +177,7 @@ Expired/recalled batch dispense denied; controlled register mandatory; FEFO over
 
 # HLT-CMS — Clinic Management System
 **Foundation owner:** F-13 §1.4 · **Status:** COMPLETE
-**Ownership baseline:** every entity in this MS is `TENANT_INDUSTRY` and carries immutable `tenant_id uuid NOT NULL` + `industry_context_id uuid NOT NULL`; indexes begin with both context keys and cross-context access is denied unless an explicit DD-02 cross-context contract exists.\n
+**Ownership baseline:** every entity in this MS is `TENANT_INDUSTRY` and carries immutable `tenant_id uuid NOT NULL` + `industry_context_id uuid NOT NULL`; indexes begin with both context keys and cross-context access is denied unless an explicit DD-02 cross-context contract exists.
 ### Purpose / actors / modules
 Outpatient clinic/polyclinic appointment→encounter→orders/procedure/prescription→billing→follow-up. Actors: Clinic Admin, Doctor, Clinical Assistant, Receptionist, Patient.
 
