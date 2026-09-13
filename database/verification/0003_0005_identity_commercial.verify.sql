@@ -20,15 +20,15 @@ END $$;
 
 DO $$
 DECLARE
-  is_nullable text;
+  tenant_column_nullable text;
 BEGIN
-  SELECT is_nullable INTO is_nullable
-  FROM information_schema.columns
-  WHERE table_schema='core_identity'
-    AND table_name='session_version'
-    AND column_name='tenant_id';
+  SELECT cols.is_nullable INTO tenant_column_nullable
+  FROM information_schema.columns cols
+  WHERE cols.table_schema='core_identity'
+    AND cols.table_name='session_version'
+    AND cols.column_name='tenant_id';
 
-  IF is_nullable <> 'YES' THEN
+  IF tenant_column_nullable <> 'YES' THEN
     RAISE EXCEPTION 'session_version.tenant_id must remain nullable for global invalidation';
   END IF;
 END $$;
