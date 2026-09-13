@@ -85,6 +85,38 @@ Activation requires accessibility_validation_status=PASS. Platform security/warn
 `id, tenant_id NOT NULL, industry_context_id?, requester_principal_id NOT NULL, subject_principal_id?, scope_class, export_type enum(DATA_ACCESS,PORTABILITY,TENANT_EXPORT,ADMIN_EXPORT), requested_resource_classes text[] NOT NULL, residency_policy_version, sensitivity_ceiling, status enum(REQUESTED,VALIDATING,APPROVAL_REQUIRED,APPROVED,GENERATING,READY,DOWNLOADED,EXPIRED,REJECTED,CANCELLED), approval_ref?, document_id?, expires_at?, created_at, updated_at`.
 Generation queries execute under the requester/approved export policy and never under wildcard DB authority.
 
+## 3B. Workflow / Automation / Notification completion entities
+
+### workflow_definition
+`id uuid PK, owner_scope enum(PLATFORM,TENANT,INDUSTRY), tenant_id?, industry_context_id?, code text, version int, status enum(DRAFT,REVIEW,PUBLISHED,ACTIVE,RETIRED), schema_version int, state_machine_json jsonb, approval_policy_json jsonb, rule_refs text[], created_by, approved_by?, effective_from?, effective_to?, created_at, updated_at`.
+One ACTIVE version per scoped code. State names remain definition data so Industry workflows do not become Core enums.
+
+### workflow_instance
+`id, tenant_id, industry_context_id?, scope_class enum(TENANT_CORE,TENANT_INDUSTRY), workflow_definition_id, workflow_definition_version, resource_type, resource_id, current_state text, lifecycle_state enum(OPEN,WAITING,COMPLETED,CANCELLED), row_version bigint, started_at, completed_at?, created_by, created_at, updated_at`.
+TENANT_INDUSTRY requires non-null Industry Context. Resource ownership is resolved through the owning OperationContract; Workflow does not directly own Industry resource tables.
+
+### workflow_task
+`id, tenant_id, industry_context_id?, workflow_instance_id, task_type enum(APPROVAL,REVIEW,ACTION), assigned_subject_type enum(PRINCIPAL,ROLE,ORG_UNIT), assigned_subject_id uuid, permission_code, state enum(PENDING,CLAIMED,APPROVED,REJECTED,COMPLETED,CANCELLED,EXPIRED), due_at?, claimed_by?, completed_by?, completed_at?, row_version, created_at, updated_at`.
+
+### workflow_transition
+Append-only: `id, tenant_id, industry_context_id?, workflow_instance_id, from_state, action_code, to_state, actor_principal_id, reason_code?, expected_instance_version, resulting_instance_version, occurred_at, correlation_id`. No update/delete application permission.
+
+### automation_definition
+Same scoped/version lifecycle as shared definitions + `trigger_type enum(EVENT,SCHEDULE,MANUAL), trigger_config_json, condition_rule_ref?, operation_contract_id?, workflow_definition_id?, config_json`. Automation can invoke only governed OperationContracts/Workflow definitions.
+
+### automation_run
+`id, tenant_id, industry_context_id?, automation_definition_id, trigger_ref, idempotency_key_hash, status enum(PENDING,RUNNING,SUCCEEDED,FAILED,CANCELLED), started_at, completed_at?, correlation_id, last_error_code?`. Unique scoped automation + idempotency key.
+
+### notification_template
+`id, owner_scope, tenant_id?, industry_context_id?, code, channel enum(EMAIL,SMS,WHATSAPP,PUSH,IN_APP), locale_code, version, status enum(DRAFT,REVIEW,PUBLISHED,ACTIVE,RETIRED), subject_template?, body_template, safe_preview_template?, variable_schema_json, created_by, approved_by?, created_at, updated_at`.
+One ACTIVE version per scoped code/channel/locale.
+
+### notification_delivery
+`id, tenant_id, industry_context_id?, scope_class enum(TENANT_CORE,TENANT_INDUSTRY), template_id?, template_version?, recipient_principal_id?, recipient_reference?, channel, tenant_integration_id?, correlation_id, source_event_id?, status enum(QUEUED,SENDING,SENT,DELIVERED,FAILED,SUPPRESSED,CANCELLED), queued_at, sent_at?, delivered_at?, last_error_code?, row_version`. Recipient data is reference/minimized; provider secrets are never stored here.
+
+### notification_delivery_attempt
+Append-only: `id, delivery_id, attempt_no, provider_message_ref?, normalized_status, normalized_error_code?, started_at, completed_at?`. Unique `(delivery_id,attempt_no)`.
+
 ## 4. Ownership constraints
 - `industry_context.tenant_id` immutable.
 - Any TENANT_INDUSTRY FK to industry_context must also match row tenant_id through composite integrity strategy or service/database check contract.
@@ -169,3 +201,7 @@ No tenant table without tenant ownership; no industry table with nullable indust
 
 ## Development completion note — AI schema ownership
 **DEV-DB-AC-003 (2026-09-13):** DD-09 defines exact AI/RAG/Agent persistence entities but the original DD-05 schema ownership table omitted an AI-owned PostgreSQL schema. `core_ai` is now the canonical schema owner for those shared AI entities. This is an organizational ownership correction only; Tenant/Industry isolation, authorization, entitlement and AI Gateway boundaries are unchanged.
+
+
+## Development completion note — Workflow/Notification persistence
+**DEV-DB-AC-005 (2026-09-13):** Architecture and Foundation defined Workflow, Automation/Scheduler and Notification ownership but their physical persistence contracts were under-specified for implementation. §3B is the canonical completion contract. It keeps Industry workflow states as configuration data, preserves append-only transition/delivery evidence, routes side effects only through governed OperationContracts/integrations, and adds no Industry semantics to Core.
