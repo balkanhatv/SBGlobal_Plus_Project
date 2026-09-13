@@ -29,3 +29,9 @@ Development continues on `docs/architecture-branch-2`. No merge to `main` has be
 | DEV-DB-P1-01 | P1 dependent-slice blocker | Audit / Outbox / Webhook delivery | DD-05 requires monthly RANGE partitioning for append-only evidence tables, while DD-07/DD-15 define a single-column `id uuid PK`. PostgreSQL declarative partitioning cannot enforce a parent-level unique/primary key that omits the partition key. | **OPEN — blocks only these partitioned evidence tables** |
 
 Required resolution must preserve both stable event/audit identity and monthly partition behavior without weakening Tenant/Industry RLS or idempotency. No silent composite-key substitution has been made.
+
+
+### DEV-DB-P1-01 closure — 2026-09-13
+**RESOLVED.** Decision `DEV-DB-AC-001` preserves global UUID/idempotency using unpartitioned identity registries while full evidence rows remain monthly RANGE-partitioned. Migration `database/migrations/0008_audit_event_outbox_webhook.sql` implements the pattern; `database/verification/0008_audit_event_outbox_webhook.verify.sql` verifies partitioning, forced RLS and uniqueness evidence.
+
+Open dependent blocker: **0**.
