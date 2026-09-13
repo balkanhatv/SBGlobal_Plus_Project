@@ -108,3 +108,17 @@ These are authoritative Foundation decision records; shorthand references elsewh
 **Consequences:** `CLOSURE-BACKUP-01` is closed by explicit user direction, not by claiming a backup occurred. All substantive Phase 1–4 and final adversarial PASS evidence remains unchanged.
 
 **Scope:** This waiver applies to the pre-development checkpoint only. It does not remove future release/deployment/production backup and recovery requirements.
+
+
+## 2026-09-13 Database Implementation Completion Decisions
+
+### DEV-DB-AC-001 — Global evidence identity with monthly partitioned detail
+**Context:** DD-05 requires monthly RANGE partitioning for audit/outbox/webhook-delivery evidence, while DD-07/DD-15 require stable UUID identity and webhook attempt idempotency. PostgreSQL partitioned-table uniqueness requires the partition key to participate in parent-level unique/primary constraints.
+
+**Decision:** Preserve global UUID/idempotency through small unpartitioned identity registries, while storing the full evidence rows in monthly RANGE-partitioned detail tables. Each registry stores the global ID plus the canonical partition timestamp and enforces global uniqueness. Each partitioned detail row has a composite `(id, partition_time)` primary key and composite FK to the registry, so one global ID resolves to exactly one canonical partition timestamp. Webhook identity registry additionally enforces `UNIQUE(subscription_id,event_id,attempt_no)`.
+
+**Consequences:** Stable event/audit/delivery IDs and idempotency remain database-enforced; monthly partitioning remains compliant with PartitionPolicy v1; Tenant/Industry RLS stays on the parent detail table; future monthly partitions are created through a governed helper.
+
+**Trade-off:** An additional identity-registry write is required in the same transaction as each evidence row.
+
+**Status:** ACTIVE — implementation completion decision.
