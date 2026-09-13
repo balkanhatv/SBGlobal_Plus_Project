@@ -1,37 +1,34 @@
 # DEVELOPMENT STATE — SBGlobal Plus
 **Updated:** 2026-09-13  
 **Branch:** `docs/architecture-branch-2`  
-**Checkpoint:** `DEV-DB-SPINE-001`
+**Checkpoint:** `DEV-DB-SHARED-CORE-SPINE-001`
 
 ## Entry gate
-Pre-development gates: **PASS**.  
-Backup ZIP: waived by owner under `UD-BACKUP-01`.
+Pre-development gates: PASS.  
+Pre-development ZIP: waived by owner under `UD-BACKUP-01`.
 
 ## Development status
-**STARTED**
+**STARTED — DATABASE PHASE IN PROGRESS**
 
-### Current phase
-Database implementation/bootstrap — **IN PROGRESS**
+### Completed implementation slice
+Shared-Core database spine migrations `0001`…`0014`:
+Tenant/Industry context, Config/Metadata/Rules/Forms, Identity/Authz, Commercial/Entitlements, Documents, Audit/Event/Webhook, DB governance/RLS registry, runtime role classes, AI/RAG/Agents.
 
-### Implemented slices
-- PostgreSQL canonical schema bootstrap.
-- Tenant + Industry Context ownership and RLS helpers.
-- Core Metadata/Rules/Forms/Country Pack/Brand/Export storage.
-- Identity/Authorization storage spine.
-- Commercial/Entitlement storage spine.
-- Security RLS hardening.
-- Structural verification SQL.
+### Targeted implementation completions
+- `DEV-DB-AC-001`: partitioned evidence identity.
+- `DEV-DB-AC-002`: database runtime role classes.
+- `DEV-DB-AC-003`: canonical `core_ai` schema ownership.
+- `DEV-DB-AC-004`: dedicated AI Gateway DB role.
 
-### Current validation
-- Repository/static contract review: PASS for implemented slices.
-- Live PostgreSQL execution: NOT YET PERFORMED in this session.
-- Application/API/UI code: NOT STARTED.
+### Validation
+- Repository/static contract review: PASS for implemented shared-Core slice.
+- Live PostgreSQL apply/verify: NOT YET PERFORMED.
+- Application/API/UI implementation: NOT STARTED.
 
-## Next database slice
-Audit/Event/Outbox/Webhook + Document storage metadata, followed by application DB roles/GRANT matrix and executable PostgreSQL CI harness.
+## Next phase task
+Implement Industry database wave across the 9 Current Supported Industry suites and 41 Management Systems, preserving per-suite entity isolation and canonical MS IDs.
 
 ## Constraints
-- RawSourceCorpus remains immutable.
+- RawSourceCorpus immutable.
 - Continue on `docs/architecture-branch-2`.
-- `main` remains unchanged unless the owner explicitly requests a future merge.
-- No ORM/package-manager choice is made until governed or explicitly decided.
+- No merge to `main` without explicit owner direction.
