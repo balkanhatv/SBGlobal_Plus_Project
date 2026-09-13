@@ -20,3 +20,12 @@ A physical pre-development ZIP was not created by this session and is not repres
 **READY FOR DEVELOPMENT — SUPPORTED.**
 
 Development continues on `docs/architecture-branch-2`. No merge to `main` has been performed in this continuation.
+
+
+## Development findings — Database phase
+
+| ID | Severity | Scope | Finding | Status |
+|---|---|---|---|---|
+| DEV-DB-P1-01 | P1 dependent-slice blocker | Audit / Outbox / Webhook delivery | DD-05 requires monthly RANGE partitioning for append-only evidence tables, while DD-07/DD-15 define a single-column `id uuid PK`. PostgreSQL declarative partitioning cannot enforce a parent-level unique/primary key that omits the partition key. | **OPEN — blocks only these partitioned evidence tables** |
+
+Required resolution must preserve both stable event/audit identity and monthly partition behavior without weakening Tenant/Industry RLS or idempotency. No silent composite-key substitution has been made.
