@@ -341,10 +341,10 @@ VALUES
 ('31000000-0000-0000-0000-000000000072','V31-P1','ACTIVE','TEST','INTERNAL','C1','HEALTHY',1,now(),now()),
 ('31000000-0000-0000-0000-000000000073','V31-P2','ACTIVE','TEST','INTERNAL','C2','HEALTHY',1,now(),now());
 INSERT INTO core_ai.ai_model
-  (id,provider_id,model_code,display_name,sensitivity_ceiling,cost_class,latency_class,status,version)
+  (id,provider_id,model_code,display_name,context_window_class,sensitivity_ceiling,cost_class,latency_class,status,version)
 VALUES
-('31000000-0000-0000-0000-000000000074','31000000-0000-0000-0000-000000000072','M1','M1','INTERNAL','TEST','TEST','ACTIVE',1),
-('31000000-0000-0000-0000-000000000075','31000000-0000-0000-0000-000000000073','M2','M2','INTERNAL','TEST','TEST','ACTIVE',1);
+('31000000-0000-0000-0000-000000000074','31000000-0000-0000-0000-000000000072','M1','M1','TEST','INTERNAL','TEST','TEST','ACTIVE',1),
+('31000000-0000-0000-0000-000000000075','31000000-0000-0000-0000-000000000073','M2','M2','TEST','INTERNAL','TEST','TEST','ACTIVE',1);
 INSERT INTO core_ai.tenant_ai_config
   (id,tenant_id,enabled,allowed_capabilities,allowed_provider_ids,allowed_model_ids,max_sensitivity_class,
    residency_policy_id,retention_policy_id,prompt_override_policy_id,version,updated_at)
