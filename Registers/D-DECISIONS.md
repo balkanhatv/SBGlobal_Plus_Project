@@ -139,3 +139,10 @@ Concrete deployment login/service identities are environment-specific and receiv
 **Consequences:** application and worker workloads remain unable to bypass forced RLS; privileged migration/backup capability is segregated from runtime identities.
 
 **Status:** ACTIVE — implementation completion decision.
+
+
+### DEV-DB-AC-003 — Canonical AI database schema ownership
+**Context:** DD-09 defines exact AI provider/model/config/RAG/assistant/agent/memory/usage persistence, but DD-05 originally omitted a schema owner for those tables.
+**Decision:** Add `core_ai` as the canonical shared PostgreSQL schema owned by the AI Gateway/RAG/Agent platform. Rows remain PLATFORM_GLOBAL, TENANT_CORE or TENANT_INDUSTRY according to their own scope fields; schema name is not an authorization boundary.
+**Consequence:** AI data is not scattered across unrelated schemas and remains subject to the same RequestContext/RLS/entitlement/residency rules.
+**Status:** ACTIVE — development completion decision.
