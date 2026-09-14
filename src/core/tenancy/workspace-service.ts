@@ -22,8 +22,19 @@ export class WorkspaceService {
       );
     }
 
+    const membership = await this.tenancy.findMembership({
+      tenantId: requestContext.tenantId,
+      principalId: requestContext.principalId,
+    });
+    if (!membership || membership.status !== "ACTIVE"
+      || membership.id !== requestContext.membershipId
+      || membership.tenantId !== requestContext.tenantId
+      || membership.principalId !== requestContext.principalId) {
+      throw new ContextResolutionError("MEMBERSHIP_INVALID", "An active tenant membership is required.");
+    }
+
     const tenant = await this.tenancy.getTenantById(requestContext.tenantId);
-    if (!tenant || tenant.status !== "ACTIVE") {
+    if (!tenant || tenant.id !== requestContext.tenantId || tenant.status !== "ACTIVE") {
       throw new ContextResolutionError(
         "TENANT_INVALID",
         "The tenant is not available.",

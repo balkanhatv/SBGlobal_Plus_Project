@@ -17,13 +17,30 @@ export class DatabaseScopeError extends Error {
 }
 
 export class RequestScopedSql {
-  constructor(private readonly database: SqlDatabase) {}
+  private readonly route: Readonly<{
+    dataHomeId: string;
+    regionCode: string;
+    dedicatedTenantId?: string;
+  }>;
+
+  constructor(
+    private readonly database: SqlDatabase,
+    route: {
+      readonly dataHomeId: string;
+      readonly regionCode: string;
+      readonly dedicatedTenantId?: string;
+    },
+  ) {
+    this.route = Object.freeze({ ...route });
+  }
 
   async withContext<T>(
     context: RequestContext,
     work: (transaction: SqlTransaction) => Promise<T>,
   ): Promise<T> {
-    this.assertSupportedScope(context);
+    // Snapshot the validated scalar routing fields before asynchronous pool checkout.
+    const resolved = Object.freeze({ ...context });
+    this.assertSupportedScope(resolved);
 
     return this.database.transaction(async (transaction) => {
       await transaction.query(
@@ -34,10 +51,10 @@ export class RequestScopedSql {
            set_config('app.principal_id', $4, true),
            set_config('app.operator_elevation_id', $5, true)`,
         [
-          context.tenantId ?? "",
-          context.industryContextId ?? "",
-          context.scopeClass,
-          context.principalId ?? "",
+          resolved.tenantId ?? "",
+          resolved.industryContextId ?? "",
+          resolved.scopeClass,
+          resolved.principalId ?? "",
           "",
         ],
       );
@@ -47,6 +64,10 @@ export class RequestScopedSql {
   }
 
   private assertSupportedScope(context: RequestContext): void {
+    if (!["PUBLIC", "PLATFORM_GLOBAL", "TENANT_CORE", "TENANT_INDUSTRY", "EXPLICIT_CROSS_CONTEXT"]
+      .includes(context.scopeClass)) {
+      throw new DatabaseScopeError("DB_ROUTE_CONTEXT_MISMATCH", "Unknown database scope.");
+    }
     if (context.scopeClass === "PUBLIC") {
       throw new DatabaseScopeError(
         "DATABASE_PUBLIC_SCOPE_FORBIDDEN",
@@ -75,6 +96,16 @@ export class RequestScopedSql {
       throw new DatabaseScopeError(
         "DB_ROUTE_CONTEXT_MISMATCH",
         "Tenant database access requires resolved Tenant and principal context.",
+      );
+    }
+
+    if (!this.route?.dataHomeId || !this.route.regionCode
+      || context.dataHomeId !== this.route.dataHomeId
+      || context.regionCode !== this.route.regionCode
+      || (this.route.dedicatedTenantId && context.tenantId !== this.route.dedicatedTenantId)) {
+      throw new DatabaseScopeError(
+        "DB_ROUTE_CONTEXT_MISMATCH",
+        "The resolved context does not match this database route.",
       );
     }
 

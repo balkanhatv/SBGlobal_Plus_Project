@@ -1,6 +1,43 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
+test("validated route and context cannot change while awaiting a pooled connection", async () => {
+  const { database, events } = makeDatabase();
+  let resume;
+  const deferred = { transaction: (work) => new Promise((resolve, reject) => {
+    resume = () => database.transaction(work).then(resolve, reject);
+  }) };
+  const route = { dataHomeId: "home-in", regionCode: "IN" };
+  const scoped = new RequestScopedSql(deferred, route);
+  const request = { ...industryContext };
+  const pending = scoped.withContext(request, async () => {});
+  request.tenantId = "tenant-foreign";
+  request.industryContextId = "industry-foreign";
+  route.regionCode = "foreign-region";
+  await resume();
+  await pending;
+  assert.deepEqual(events[1].parameters, ["tenant-a", "industry-retail", "TENANT_INDUSTRY", "principal-1", ""]);
+  const second = scoped.withContext(industryContext, async () => {});
+  await resume();
+  await second;
+});
+
+test("unknown runtime scope, missing/wrong data home, region and dedicated Tenant fail before checkout", async () => {
+  for (const changes of [
+    { scopeClass: "TENANT_ALL" }, { dataHomeId: undefined },
+    { dataHomeId: "foreign-home" }, { regionCode: "foreign-region" },
+    { tenantId: "tenant-b" },
+  ]) {
+    const { database, events } = makeDatabase();
+    const scoped = new RequestScopedSql(database, {
+      dataHomeId: "home-in", regionCode: "IN", dedicatedTenantId: "tenant-a",
+    });
+    await assert.rejects(scoped.withContext({ ...industryContext, ...changes }, async () => {}),
+      (error) => error.code === "DB_ROUTE_CONTEXT_MISMATCH");
+    assert.deepEqual(events, []);
+  }
+});
+
 import {
   DatabaseScopeError,
   RequestScopedSql,
@@ -37,6 +74,8 @@ const industryContext = Object.freeze({
   requestId: "request-db-1",
   correlationId: "correlation-db-1",
   tenantId: "tenant-a",
+  dataHomeId: "home-in",
+  regionCode: "IN",
   industryContextId: "industry-retail",
   principalId: "principal-1",
   principalType: "HUMAN",
@@ -47,7 +86,7 @@ const industryContext = Object.freeze({
 
 test("INF-015: transaction-local Tenant/Industry/principal scope is set before business query", async () => {
   const { database, events } = makeDatabase();
-  const scoped = new RequestScopedSql(database);
+  const scoped = new RequestScopedSql(database, { dataHomeId: "home-in", regionCode: "IN" });
 
   await scoped.withContext(industryContext, async (tx) => {
     await tx.query("SELECT 1");
@@ -69,7 +108,7 @@ test("INF-015: transaction-local Tenant/Industry/principal scope is set before b
 
 test("TENANT_CORE explicitly resets Industry Context to empty transaction-local value", async () => {
   const { database, events } = makeDatabase();
-  const scoped = new RequestScopedSql(database);
+  const scoped = new RequestScopedSql(database, { dataHomeId: "home-in", regionCode: "IN" });
 
   await scoped.withContext({
     ...industryContext,
@@ -88,7 +127,7 @@ test("TENANT_CORE explicitly resets Industry Context to empty transaction-local 
 
 test("PLATFORM_GLOBAL requires authenticated principal and carries no Tenant/Industry Context", async () => {
   const { database, events } = makeDatabase();
-  const scoped = new RequestScopedSql(database);
+  const scoped = new RequestScopedSql(database, { dataHomeId: "home-in", regionCode: "IN" });
 
   await scoped.withContext({
     requestId: "request-platform-1",
@@ -111,7 +150,7 @@ test("PLATFORM_GLOBAL requires authenticated principal and carries no Tenant/Ind
 
 test("PUBLIC scope is rejected before opening a private DB transaction", async () => {
   const { database, events } = makeDatabase();
-  const scoped = new RequestScopedSql(database);
+  const scoped = new RequestScopedSql(database, { dataHomeId: "home-in", regionCode: "IN" });
 
   await assert.rejects(
     scoped.withContext({
@@ -130,7 +169,7 @@ test("PUBLIC scope is rejected before opening a private DB transaction", async (
 
 test("EXPLICIT_CROSS_CONTEXT cannot use generic repository path", async () => {
   const { database, events } = makeDatabase();
-  const scoped = new RequestScopedSql(database);
+  const scoped = new RequestScopedSql(database, { dataHomeId: "home-in", regionCode: "IN" });
 
   await assert.rejects(
     scoped.withContext({
@@ -146,7 +185,7 @@ test("EXPLICIT_CROSS_CONTEXT cannot use generic repository path", async () => {
 
 test("TENANT_INDUSTRY missing Industry Context fails before pooled connection use", async () => {
   const { database, events } = makeDatabase();
-  const scoped = new RequestScopedSql(database);
+  const scoped = new RequestScopedSql(database, { dataHomeId: "home-in", regionCode: "IN" });
 
   await assert.rejects(
     scoped.withContext({
@@ -162,7 +201,7 @@ test("TENANT_INDUSTRY missing Industry Context fails before pooled connection us
 
 test("work failure propagates and transaction wrapper observes rollback path", async () => {
   const { database, events } = makeDatabase();
-  const scoped = new RequestScopedSql(database);
+  const scoped = new RequestScopedSql(database, { dataHomeId: "home-in", regionCode: "IN" });
 
   await assert.rejects(
     scoped.withContext(industryContext, async () => {

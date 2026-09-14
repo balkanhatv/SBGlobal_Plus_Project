@@ -1,6 +1,23 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
+test("context resolution rejects foreign membership and foreign/inactive organization evidence", async () => {
+  for (const overrides of [
+    { findMembership: async () => ({ id: "membership-x", tenantId: "tenant-b", principalId: "principal-1", status: "ACTIVE" }) },
+    { findMembership: async () => ({ id: "membership-x", tenantId: "tenant-a", principalId: "principal-foreign", status: "ACTIVE" }) },
+    { resolveOrgUnit: async () => ({ id: "org-x", tenantId: "tenant-b", status: "ACTIVE", path: [] }) },
+    { resolveOrgUnit: async () => ({ id: "org-1", tenantId: "tenant-a", status: "SUSPENDED", path: [] }) },
+    { resolveOrgUnit: async () => null },
+  ]) {
+    const { ports } = makePorts({ tenancy: overrides });
+    await assert.rejects(new RequestContextService(ports).resolve({
+      requestId: "request-scope", scopeClass: "TENANT_CORE",
+      authentication: { kind: "HUMAN", credential: "test-credential" },
+      tenantSelector: "TENANT-A",
+    }), (error) => ["MEMBERSHIP_INVALID", "RESOURCE_SCOPE_DENY"].includes(error.code));
+  }
+});
+
 import {
   ContextResolutionError,
   RequestContextService,

@@ -1,6 +1,21 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
+test("workspace query revalidates revoked or changed membership before tenant/industry projection", async () => {
+  for (const membership of [null,
+    { id: "membership-1", tenantId: "tenant-a", principalId: "principal-1", status: "REVOKED" },
+    { id: "membership-new", tenantId: "tenant-a", principalId: "principal-1", status: "ACTIVE" },
+    { id: "membership-1", tenantId: "tenant-b", principalId: "principal-1", status: "ACTIVE" },
+  ]) {
+    const service = new WorkspaceService(tenancyPort({
+      findMembership: async () => membership,
+      getTenantById: async () => { assert.fail("stale membership must not reach tenant projection"); },
+    }));
+    await assert.rejects(service.resolve({ requestContext: tenantCoreContext }),
+      (error) => error.code === "MEMBERSHIP_INVALID");
+  }
+});
+
 import {
   ContextResolutionError,
   CORE_IDENTITY_ROLES_LIST_EFFECTIVE,
@@ -41,7 +56,7 @@ function tenancyPort(overrides = {}) {
       return null;
     },
     async findMembership() {
-      return null;
+      return { id: "membership-1", tenantId: "tenant-a", principalId: "principal-1", status: "ACTIVE", membershipVersion: 4 };
     },
     async resolveIndustryContext() {
       return {

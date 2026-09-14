@@ -17,7 +17,7 @@ export interface TenantRecord {
   readonly id: string;
   readonly displayKey: string;
   readonly displayName: string;
-  readonly status: "ACTIVE" | "SUSPENDED" | "CLOSED";
+  readonly status: "PROVISIONING" | "ACTIVE" | "SUSPENDED" | "OFFBOARDING" | "ARCHIVED" | "PURGED";
 }
 
 export interface MembershipRecord {
@@ -35,14 +35,14 @@ export interface IndustryContextRecord {
   readonly industryCode: string;
   readonly displayKey: string;
   readonly displayName: string;
-  readonly status: "ACTIVE" | "DISABLED";
+  readonly status: "PENDING" | "ACTIVE" | "SUSPENDED" | "DISABLED";
 }
 
 export interface OrgUnitRecord {
   readonly id: string;
   readonly tenantId: string;
   readonly path: readonly string[];
-  readonly status: "ACTIVE" | "INACTIVE";
+  readonly status: "ACTIVE" | "SUSPENDED" | "ARCHIVED";
 }
 
 export interface DataHomeRecord {

@@ -1,9 +1,9 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`  
+**Current checkpoint:** `Development/CORE_SERVICE_CHECKPOINT.md`
 **Branch:** `docs/architecture-branch-2`
 
-**Current status:** Foundation PASS · Architecture PASS · Detailed Design COMPLETE/PASS · Development started in the Database phase · current Database persistence and exact-commit CI **VERIFIED**. Earlier readiness evidence authorized Development to start; it does not prove the current database implementation complete.
+**Current status:** Development is in progress at the Core context/identity/guard/DB-scope kernel. `Development/CORE_SERVICE_CHECKPOINT.md` owns current executable evidence and the next task; `Development/CORE_PERSISTENCE_ADAPTER_MAP.md` records concrete repository dependencies. Historical design/database PASS labels do not establish unimplemented adapter or production readiness.
 
 The physical pre-development ZIP was waived by explicit owner direction under `UD-BACKUP-01`. This session does not claim that a ZIP was created. Any desired local clone/archive backup will be handled manually by the owner.
 
@@ -13,7 +13,7 @@ The physical pre-development ZIP was waived by explicit owner direction under `U
 
 ## Revalidated design and Database checkpoint
 - Product/design P0/P1: 0/0
-- REAL_DD_GAP: 0
+- Current adapter binding gaps: see `Development/CORE_PERSISTENCE_ADAPTER_MAP.md`; earlier zero-gap claims apply to their historical design audit scope.
 - 9/9 Current Supported Industries: PASS
 - 41/41 Management Systems: PASS
 - 165/165 named KPI/report metrics: mapped

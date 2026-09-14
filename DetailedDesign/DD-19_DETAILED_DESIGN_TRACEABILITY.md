@@ -155,3 +155,6 @@ The prior document/section-level Wave-3 table is historical convenience, not suf
 - expanded ADR-008 access/localization implications → DD-05 + DATA-ACCESS/LOC tests.
 
 Historical DD-F5-RECERTIFIED evidence remains provenance only until the Phase-3 final audit is completed at the current substantive HEAD.
+
+## Concrete Core repository binding — 2026-09-14
+DD-02/03/04/05/06 → DD-040 → `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` → `src/core/context`, `src/core/tenancy`, `src/core/authorization`, `src/server/database` → `tests/core`, `tests/server`, `tests/postgres`. Actual executable/CI status is owned by `../Development/CORE_SERVICE_CHECKPOINT.md`; compiled permission and Industry presentation physical adapters remain unbound.

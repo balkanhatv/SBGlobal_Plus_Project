@@ -3,6 +3,8 @@
 **Traces:** F-04 · F-11 · A-02 · A-05 · ADR-002/008/018 · DD-02
 
 ## 1. PostgreSQL schema ownership
+
+**Current implementation binding:** DD-040 and `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` govern the concrete SQL driver and exact repository field mapping. Data Home/region/dedicated-Tenant route matching precedes connection checkout; transaction scope is never selected from resource IDs. Existing SQL persistence does not imply compiled permission-set or Industry presentation storage exists.
 | Schema | Owner | Scope |
 |---|---|---|
 | platform_directory | Tenancy/Commercial catalog | PLATFORM_GLOBAL |

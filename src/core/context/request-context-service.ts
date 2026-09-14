@@ -121,7 +121,8 @@ export class RequestContextService {
       ? await this.ports.tenancy.findMembership({ tenantId: tenant.id, principalId })
       : null;
 
-    if (membershipRequired && (!membership || membership.status !== "ACTIVE")) {
+    if (membershipRequired && (!membership || membership.status !== "ACTIVE"
+      || membership.tenantId !== tenant.id || membership.principalId !== principalId)) {
       throw new ContextResolutionError("MEMBERSHIP_INVALID", "Active tenant membership is required.");
     }
 
@@ -165,7 +166,8 @@ export class RequestContextService {
       membership: membership ?? undefined,
     });
 
-    if (input.orgUnitSelector && (!orgUnit || orgUnit.status !== "ACTIVE")) {
+    if (((input.orgUnitSelector || membership?.defaultOrgUnitId) && !orgUnit)
+      || (orgUnit && (orgUnit.status !== "ACTIVE" || orgUnit.tenantId !== tenant.id))) {
       throw new ContextResolutionError(
         "RESOURCE_SCOPE_DENY",
         "The selected organization unit is not available.",

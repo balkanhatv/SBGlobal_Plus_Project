@@ -1,6 +1,25 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
+test("resource restrictions cannot overwrite and widen base restrictions", async () => {
+  const { ports } = makePorts({ authorization: {
+    evaluateBase: async () => decision({ decision: "RESTRICT", restrictionSet: { fields: ["id"] } }),
+    evaluateResource: async () => decision({ decision: "RESTRICT", restrictionSet: { fields: ["id", "secret"] } }),
+  } });
+  await assert.rejects(new GuardPipeline(ports).authorize({
+    requestContext, operation, resourceReference: { saleId: "sale-1" },
+  }), (error) => error.code === "POLICY_DENIED");
+});
+
+test("Tenant Core resource resolution cannot expose Industry-owned records", async () => {
+  const { ports } = makePorts();
+  await assert.rejects(new GuardPipeline(ports).authorize({
+    requestContext: { ...requestContext, scopeClass: "TENANT_CORE", industryContextId: undefined },
+    operation: { ...operation, scopeClass: "TENANT_CORE" },
+    resourceReference: { saleId: "sale-1" },
+  }), (error) => error.code === "RESOURCE_NOT_FOUND");
+});
+
 import {
   GuardPipeline,
   GuardPipelineError,

@@ -179,3 +179,6 @@ Concrete deployment login/service identities are environment-specific and receiv
 ## 2026-09-14 Current audit reconciliation
 
 DD-18 owns the existing Development completion decisions `DEV-DB-AC-008…010` / `DD-036…039`; DD-17 owns `DBA-001…013`. They specify identity/elevation and Control Plane roles, exact same-scope dependencies, prompt/tool set persistence and platform-definition writes. SQL 0029…0032 realizes these contracts and the current all-stages report records the failed and successful verification runs. This register does not create a new user decision or weaken approval/security requirements. Prior design-only isolation and historical traceability counts above are read with the current source-owner and executable-evidence overlay, never as proof of an unbuilt application.
+
+## DEV-CORE-AC-001 — Concrete SQL adapter continuation (2026-09-14)
+The authoritative decision is `../DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md#dd-040--concrete-sql-driver-and-truthful-repository-binding-dev-core-ac`. Physical mapping and deferred read-side dependencies are in `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md`. This implementation completion preserves the existing Tenant/Industry/region security boundary and does not resolve a Vision-level approval item.

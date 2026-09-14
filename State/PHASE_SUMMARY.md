@@ -1,7 +1,9 @@
-# PHASE_SUMMARY — Vision-Centric Current-State Audit
-**Updated:** 2026-09-13 · **Current checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
+# PHASE_SUMMARY — SBGlobal Plus
+**Updated:** 2026-09-14
 
-**Current gate:** completed Foundation/Architecture/DD scope revalidated; Development IN PROGRESS at the verified current Database persistence checkpoint. PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`. Earlier sections are chronological history; source/owner and runtime claims are governed by the newest all-stages evidence.
+Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. Core services and the server DB-scope kernel are in progress; the project is no longer at an application-not-started checkpoint. Read `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` for repository binding dependencies.
+
+The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
 1. Starting audited HEAD was `029faa5add582f6cfbf1688a145bf06dac6d5b34`; certification gates were first reopened rather than trusted.
 2. 372 source-heading rows are preserved as parent inventory, not atomic proof.

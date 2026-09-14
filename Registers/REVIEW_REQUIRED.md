@@ -38,3 +38,6 @@ Open dependent blocker: **0**.
 
 ## Current all-stages gate — 2026-09-13
 No approval-blocked correction remains in the current audited scope. The previous OPEN DEV-DB-P1-01 row is closed by its recorded resolution, not an unresolved permission question. Current defects/corrections and CI are in `ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`. RawSource immutability, no main merge, no production deployment and Future-Industry promotion approval rules remain in force.
+
+## Core adapter continuation boundary — 2026-09-14
+The current physical-source mapping is `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` (DD-040). Compiled permission persistence and Current Supported Industry presentation storage require exact contracts before their read adapters can be implemented. These are pending implementation dependencies, not closed by historical DD/PASS labels and not approval requests. The independent application SQL driver/RLS prerequisite may proceed within the existing security boundaries.

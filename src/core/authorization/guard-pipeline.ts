@@ -171,6 +171,14 @@ function mergeRestrictions(
   resource?: Readonly<Record<string, unknown>>,
 ): Readonly<Record<string, unknown>> | undefined {
   if (!base && !resource) return undefined;
+  // Restriction keys have no generic merge algebra. Overwriting a base restriction
+  // with a resource value could widen access; require a dedicated policy reducer.
+  if (base && resource && Object.keys(base).some((key) => Object.hasOwn(resource, key))) {
+    throw new GuardPipelineError({
+      code: "POLICY_DENIED",
+      messageSafe: "The combined restrictions cannot be safely applied.",
+    });
+  }
   return Object.freeze({ ...(base ?? {}), ...(resource ?? {}) });
 }
 
@@ -297,6 +305,10 @@ export class GuardPipeline {
         code: "RESOURCE_NOT_FOUND",
         messageSafe: "Resource not found.",
       });
+    }
+
+    if (context.scopeClass === "TENANT_CORE" && resource.industryContextId) {
+      throw new GuardPipelineError({ code: "RESOURCE_NOT_FOUND", messageSafe: "Resource not found." });
     }
 
     if (context.scopeClass === "TENANT_INDUSTRY"
