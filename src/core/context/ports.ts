@@ -12,6 +12,8 @@ import type {
 } from "./contracts.js";
 
 export interface TenantContextPort {
+  getTenantById(tenantId: string): Promise<TenantRecord | null>;
+
   resolveTenant(input: {
     readonly selector?: string;
     readonly principalId: string;
