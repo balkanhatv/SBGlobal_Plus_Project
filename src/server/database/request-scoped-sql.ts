@@ -62,7 +62,7 @@ export class RequestScopedSql {
     }
 
     if (context.scopeClass === "PLATFORM_GLOBAL") {
-      if (context.tenantId || context.industryContextId) {
+      if (!context.principalId || context.tenantId || context.industryContextId) {
         throw new DatabaseScopeError(
           "DB_ROUTE_CONTEXT_MISMATCH",
           "Platform-global scope cannot carry Tenant or Industry Context.",
