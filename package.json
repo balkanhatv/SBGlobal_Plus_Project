@@ -8,9 +8,15 @@
   },
   "scripts": {
     "build:core": "tsc -p tsconfig.json",
-    "test:core": "npm run build:core && node --test tests/core/*.test.mjs tests/server/*.test.mjs"
+    "test:core": "npm run build:core && node --test tests/core/*.test.mjs tests/server/*.test.mjs",
+    "test:postgres": "npm run build:core && node --test tests/postgres/*.test.mjs"
   },
   "devDependencies": {
+    "@types/node": "22.20.2",
+    "@types/pg": "8.15.6",
     "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "pg": "8.16.3"
   }
 }
