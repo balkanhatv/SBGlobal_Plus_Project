@@ -7,11 +7,24 @@ import type {
   ResourceDescriptor,
 } from "./contracts.js";
 
+export type CommercialGuardResult =
+  | { readonly allowed: true }
+  | {
+      readonly allowed: false;
+      readonly code: "SUBSCRIPTION_INVALID" | "LICENSE_INVALID" | "ENTITLEMENT_DENIED";
+      readonly reasonCode:
+        | "SUBSCRIPTION_RESTRICTED"
+        | "LICENSE_INVALID"
+        | "ENTITLEMENT_MISSING"
+        | "LIMIT_EXCEEDED";
+      readonly upgradeTarget?: string;
+    };
+
 export interface CommercialGuardPort {
   validateCurrent(input: {
     readonly requestContext: RequestContext;
     readonly operation: OperationContract;
-  }): Promise<void>;
+  }): Promise<CommercialGuardResult>;
 }
 
 export interface AuthorizationDecisionPort {
