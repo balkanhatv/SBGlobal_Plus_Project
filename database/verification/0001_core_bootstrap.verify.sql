@@ -1,6 +1,6 @@
 -- SBGlobal Plus — Verification 0001
 -- Run after database/migrations/0001_core_bootstrap.sql in a disposable database.
--- These are structural assertions; executable CI wiring is a later Development task.
+-- These are structural assertions, executed by the current Database Verify workflow.
 
 DO $$
 DECLARE

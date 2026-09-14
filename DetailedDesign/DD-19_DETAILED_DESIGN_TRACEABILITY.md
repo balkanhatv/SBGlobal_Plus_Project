@@ -24,6 +24,14 @@
 | Phase-1 recovered: Platform brand defaults/theme hierarchy | A-08 / ADR-011 | 011 | DD-05/DD-10 | versioned brand config + protected semantic floor |
 | Phase-1 recovered: data access/export/portability | A-05 / ADR-008 | 008 | DD-05/DD-16 | export request + context/residency/retention enforcement |
 | Phase-1 recovered: Future Industry Framework | A-09 / ADR-020 | 020 | DD-13 | promotion state machine + explicit approval + live activation gate |
+
+| Current-state audit requirement | Foundation/Architecture owner | DD decision | Development owner | Executable acceptance |
+|---|---|---|---|---|
+| Immutable Tenant + Industry ownership and same-scope dependencies | F-03/F-04; A-02/A-05 | DD-036; DD-03/05/08 | migrations 0029–0031 | DBA-001/002/006/007 |
+| Dedicated identity/control roles and operator elevation | F-03; A-03/A-05 | DD-037; DD-03/05/16 | migrations 0029/0031 | DBA-002/003/010 |
+| Exact event/outbox/audit/webhook scope | F-04; A-05/A-06 | DD-038; DD-07 | migration 0030 | DBA-004/005/011 |
+| AI PromptSet/ToolSet and generated media provenance | F-05; A-07 | DD-039; DD-08/09 | migration 0031 | DBA-008/009/010 |
+| Real database execution before gate claim | MI §26B; DD-17 | DD-17 §26 | verification 0029–0031 + 0099 | DBA-012 |
 ## Orphan check
 Wave-1 contracts without upstream owner: **0**.  
 Upstream Wave-1 dependency-spine concerns without DD owner: **0**.

@@ -1,9 +1,9 @@
-# SBGlobal Plus — Development-Ready Canonical Branch
+# SBGlobal Plus — Canonical Development Branch
 
-**Checkpoint:** `PREDEV-READY-USER-BACKUP-WAIVER`  
+**Checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`  
 **Branch:** `docs/architecture-branch-2`
 
-**Current status:** Foundation PASS · Architecture PASS · Detailed Design COMPLETE/PASS · Cross-layer traceability/isolation/determinism PASS · Final adversarial audit PASS · **READY FOR DEVELOPMENT — SUPPORTED**.
+**Current status:** Foundation PASS · Architecture PASS · Detailed Design COMPLETE/PASS · Development started in the Database phase · current Database persistence and exact-commit CI **VERIFIED**. Earlier readiness evidence authorized Development to start; it does not prove the current database implementation complete.
 
 The physical pre-development ZIP was waived by explicit owner direction under `UD-BACKUP-01`. This session does not claim that a ZIP was created. Any desired local clone/archive backup will be handled manually by the owner.
 
@@ -11,7 +11,7 @@ The physical pre-development ZIP was waived by explicit owner direction under `U
 >
 > **One Unified Enterprise Core → Multiple Equal First-Class Industry Suites → Tenants → Primary + Enabled Industries → Management Systems → Secure Web/Mobile/Desktop Experiences → AI-Powered Operations.**
 
-## Verified readiness
+## Revalidated design and Database checkpoint
 - Product/design P0/P1: 0/0
 - REAL_DD_GAP: 0
 - 9/9 Current Supported Industries: PASS
@@ -19,7 +19,7 @@ The physical pre-development ZIP was waived by explicit owner direction under `U
 - 165/165 named KPI/report metrics: mapped
 - Development determinism: 9/9 YES
 - QA determinism: 9/9 YES
-- Tenant + Industry Context isolation: PASS
+- Tenant + Industry Context isolation: design + current SQL persistence checks verified; application security validation remains future
 - RawSourceCorpus: immutable / PASS
 
 ## Core product rules
@@ -32,7 +32,14 @@ The physical pre-development ZIP was waived by explicit owner direction under `U
 ## Active technology
 Next.js 15 · React 19 · TypeScript 5.x · Node.js 22+ · Tailwind/Shadcn · PostgreSQL · Payload CMS 3 · Refine where explicitly justified · Next.js server default · NestJS only where justified · tRPC first-party · REST/OpenAPI external · Clerk preferred/Auth.js fallback · React Native+Expo · Tauri 2.0 · Expo Push/OneSignal · PostgreSQL outbox · pgvector · Vercel suitable workloads · Coolify + Dockerized VPS.
 
-## Evidence
+## Current audit evidence
+- `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`
+- `Registers/ALL_STAGES_FILE_COVERAGE_2026-09-13.md`
+- `State/PROJECT_MANIFEST.json`
+
+PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+
+## Historical phase evidence
 - `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`
 - `Registers/PHASE2_ARCHITECTURE_REVALIDATION_2026-09-12.md`
 - `Registers/PHASE3_DETAILED_DESIGN_REVALIDATION_2026-09-13.md`
@@ -44,4 +51,4 @@ Next.js 15 · React 19 · TypeScript 5.x · Node.js 22+ · Tailwind/Shadcn · Po
 Draft PR #2 remains review-only. `main` has not been changed by this continuation.
 
 ## Next
-Begin Development on `docs/architecture-branch-2` from the certified Foundation/Architecture/Detailed Design contracts.
+Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction. Application/API/UI work has not started in this audit.

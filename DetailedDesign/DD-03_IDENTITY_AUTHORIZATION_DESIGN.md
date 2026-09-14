@@ -24,10 +24,10 @@ Provider IDs never serve as principal PK.
 `id, tenant_id, principal_id, status(INVITED/ACTIVE/SUSPENDED/REVOKED), default_org_unit_id?, valid_from?, valid_until?, membership_version bigint, created_at, updated_at`. Unique active membership per `(tenant_id, principal_id)`.
 
 ### RoleAssignment
-`id, tenant_id, industry_context_id?, membership_id/principal_id, role_id, org_unit_id?, valid_from?, valid_until?, status, created_by, created_at`. Scope must match role template scope.
+`id, tenant_id, industry_context_id?, membership_id/principal_id, role_id, org_unit_id?, valid_from?, valid_until?, status, created_by, created_at`. Scope must match the active role template. Human assignments require the same active `(tenant_id, principal_id)` membership; service assignments require the matching `allowed_scope_classes` entry; Platform Operators never receive persistent tenant roles and instead use DD-05 time-bounded elevation. The creator is an active principal for the assignment tenant.
 
 ### APICredential
-`id, tenant_id?, industry_context_id?, principal_id, key_prefix, secret_hash, status, permission_profile_id, expires_at?, last_used_at?, allowed_cidrs?, credential_version, created_at, revoked_at?`. Secret plaintext never persisted.
+`id, tenant_id?, industry_context_id?, principal_id, key_prefix, secret_hash, status, permission_profile_id, expires_at?, last_used_at?, allowed_cidrs?, allowed_industry_context_ids uuid[] NOT NULL DEFAULT '{}', credential_version, created_at, revoked_at?`. Secret plaintext never persists. Every allowed Industry Context is a unique context of `tenant_id`; an industry-scoped credential cannot widen to a sibling context. Active human credentials require active same-tenant membership, service credentials require the matching service scope allowlist, and Platform Operators cannot substitute API credentials for elevation.
 
 ### ServicePrincipal
 represented by PlatformPrincipal principal_type SERVICE plus service metadata: service_code, owning_module, allowed_scope_classes, status.
@@ -37,6 +37,8 @@ represented by PlatformPrincipal principal_type SERVICE plus service metadata: s
 
 ### SessionVersion
 `principal_id, tenant_id?, version bigint, changed_at, reason_code`. Session/token must present version >= required exact version per policy; mismatch denies.
+
+The nullable `tenant_id` distinguishes one platform-global version from tenant-specific versions. Database uniqueness is `UNIQUE NULLS NOT DISTINCT (principal_id, tenant_id)`; a composite primary key must not accidentally make the platform-global form impossible.
 
 ## 2. IdentityPort
 Contract:
@@ -125,3 +127,7 @@ Every high-risk allow and every deny writes/streams an authorization audit fact 
 
 ## 12. Acceptance
 No provider ID becomes business identity; no ABAC grant expansion; no client-computed access truth; stale role/session/license/entitlement changes invalidate by version/event.
+
+## 13. Current-state database audit reconciliation
+
+Migration `0029` places Tenant, PlatformPrincipal and IdentityProviderLink behind forced RLS and assigns sensitive credential/provider-link writes to the Identity service. Migrations `0030`–`0031` enforce role/credential/device/session principal-to-tenant integrity, restore nullable platform SessionVersion uniqueness, and persist the operator-elevation boundary. Verification IDs `DBA-001`…`DBA-006` and the corresponding `0029`–`0031` executable SQL are the Development evidence; this note records propagation into DD and does not retroactively claim runtime success.

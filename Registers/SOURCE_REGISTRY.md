@@ -1,13 +1,13 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Status:** ACTIVE · **Updated:** 2026-09-11
+**Status:** ACTIVE · **Updated:** 2026-09-13
 
 ## Authority
 1. Primary Vision
 2. Current explicit user direction
 3. MASTER_INSTRUCTION + MASTER_PROMPT v2.5 (including 2026-09-11 targeted reconciliation)
-4. Canonical Foundation
-5. RawSourceCorpus as immutable source/history
-6. Architecture
+4. RawSourceCorpus as immutable knowledge/provenance under its governed source precedence
+5. Reconciled canonical owners: Foundation WHAT/WHY/WHO → Architecture/ADR HOW → Detailed Design exact contract → Development implementation → Verification/CI evidence
+6. Registers/State/checkpoints are projections and evidence; they cannot override product or canonical owners
 
 RawSourceCorpus is knowledge/provenance, not automatic active architecture. A current explicit user decision may supersede a source implementation requirement for active Foundation/Architecture **without changing source bytes**; the supersession must be recorded in D-DECISIONS and traceability.
 
@@ -26,7 +26,9 @@ Earlier source variants remain historical Git evidence only and are not competin
 - `UD-COMM-01`: canonical commercial route/lifecycle model.
 
 ## Evidence rule
-`TRACEABILITY_MATRIX_UNIT.md` is the stable repository-resident **parent/source-heading inventory** (372 units). It is not atomic certification proof. `TRACEABILITY_MATRIX_REQUIREMENTS.md` is the requirement-level child evidence layer and is authoritative for material no-loss verification. `MS_COMPLETENESS_MATRIX.md` verifies all 41 Management Systems against the common Foundation evidence discipline. No current source requirement may depend on an external ZIP as its only evidence.
+`TRACEABILITY_MATRIX_UNIT.md` is the stable repository-resident **parent/source-heading inventory** (372 units). `TRACEABILITY_MATRIX_REQUIREMENTS.md` preserves 2,962 source child IDs and original disposition evidence. Neither is substantive certification proof by itself. Current dependency ownership is in `F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md`, reconciled in the all-stages audit after unrelated AI-owner mappings were discovered. `MS_COMPLETENESS_MATRIX.md` projects the named Foundation/MS owners; all 41 must be checked at their actual canonical definitions. No current source requirement may depend on an external ZIP as its only evidence.
 
 ## Current gate evidence
 Fresh Foundation evidence: requirement-level traceability + MS completeness + `NO_LOSS_AUDIT.md`. Fresh Architecture evidence: `ARCHITECTURE_TRACEABILITY_MATRIX.md`, `ISOLATION_ATTACK_MATRIX.md`, `ARCHITECTURE_NO_LOSS_AUDIT.md`, and `ARCHITECTURE_FINAL_AUDIT.md`.
+
+Those earlier audit files retain their historical evaluated scope. Current all-stages revalidation, exact database CI and gate truth are recorded in `ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` and `../State/PROJECT_MANIFEST.json`.

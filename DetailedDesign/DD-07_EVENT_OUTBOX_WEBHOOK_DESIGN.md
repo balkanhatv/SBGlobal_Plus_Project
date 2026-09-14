@@ -31,9 +31,9 @@
 Null Industry Context is legal only for PLATFORM_GLOBAL/TENANT_CORE. Consumer validates envelope against event catalog before payload.
 
 ## 2. Outbox table
-`outbox_event{id uuid PK, tenant_id?, industry_context_id?, event_type, event_version, aggregate_type, aggregate_id, aggregate_version?, envelope_jsonb, status(PENDING,DISPATCHING,DISPATCHED,DEAD), attempt_count int, available_at timestamptz, locked_at?, locked_by?, dispatched_at?, last_error_code?, created_at}`.
+`outbox_event{id uuid PK, tenant_id?, industry_context_id?, scope_class, event_type, event_version, aggregate_type, aggregate_id, aggregate_version?, envelope_jsonb, status(PENDING,DISPATCHING,DISPATCHED,DEAD), attempt_count int, available_at timestamptz, locked_at?, locked_by?, dispatched_at?, last_error_code?, created_at}`.
 
-Indexes: pending scheduler `(status,available_at)`; tenant/context; aggregate ordering. Business write + outbox + audit are one DB transaction.
+The physical scope tuple, catalog `(event_type,event_version,scope_class)`, and envelope identity/scope fields must agree. Mandatory envelope metadata includes actor class, source module/resource, correlation, occurrence time, sensitivity, residency for tenant data, payload schema and payload. EXPLICIT_CROSS_CONTEXT names two distinct same-tenant endpoints; neither null Industry Context nor a tenant-only row means all industries. Indexes: pending scheduler `(status,available_at)`; tenant/context; aggregate ordering. Business write + outbox + audit are one DB transaction.
 
 ## 3. Event catalog
 Each event entry defines:
@@ -60,7 +60,7 @@ Projection row includes source event ID/version and same tenant/industry ownersh
 ## 7. Webhook subscription entity
 `id, tenant_id, name, endpoint_url, status(PENDING_VERIFICATION,ACTIVE,PAUSED,REVOKED), secret_version, event_filter_json, allowed_industry_context_ids uuid[], permission_profile_id, created_by, verified_at?, created_at, updated_at`.
 
-Healthcare-only context list cannot match Retail events.
+`allowed_industry_context_ids` is a duplicate-free, null-free set of contexts owned by `tenant_id`; `event_filter_json` is an object and `secret_version > 0`. ACTIVE requires non-null `verified_at` and an active same-tenant creator. Healthcare-only context list cannot match Retail events.
 
 ## 8. Endpoint verification
 Registration creates one-time challenge with expiration. Endpoint proves control before ACTIVE. Redirect behavior follows allowlist/security policy; private/internal network destinations are denied by SSRF protection policy.
@@ -75,7 +75,7 @@ Secrets are high-entropy platform-generated, encrypted at rest, shown only at cr
 
 ## 10. Webhook delivery
 `webhook_delivery{id, subscription_id, event_id, attempt_no, endpoint_snapshot, payload_digest, status, http_status?, started_at, completed_at?, next_attempt_at?, error_class?, correlation_id}`.
-Unique(subscription_id,event_id,attempt_no).
+Unique(subscription_id,event_id,attempt_no). The partition row must match its immutable identity row on `(id,created_at,subscription_id,event_id,attempt_no)`. Delivery is permitted only when the event is cataloged webhook-eligible, belongs to the subscription tenant and its one/both Industry endpoints are included by the subscription.
 
 ## 11. Retry/DLQ/replay
 Retry only transport/5xx/explicit retryable failures. Permanent 4xx/auth/filter failures do not retry except policy exceptions. Exhaustion → DLQ state. Manual replay requires permission, reason, immutable linkage to original event; payload cannot be silently changed.
@@ -87,4 +87,5 @@ Webhook payload is a cataloged projection, not raw DB entity. Sensitive fields e
 - domain write without outbox on event-emitting operation fails design;
 - same event delivered twice produces one consumer effect;
 - industry mismatch never reaches webhook endpoint;
-- replay remains same tenant/context and event identity lineage.
+- replay remains same tenant/context and event identity lineage;
+- an incomplete/mismatched envelope, unverified ACTIVE endpoint, foreign allowlist context or identity/detail tuple mismatch is rejected before dispatch.

@@ -72,7 +72,7 @@ RawSourceCorpus remained unchanged. No Detailed Design, application code, migrat
 
 ---
 
-## 16. Phase 1 Fresh RawSource Reconciliation Closure — CURRENT ACTIVE STATUS (12-09-2026)
+## 16. Phase 1 Fresh RawSource Reconciliation Closure — HISTORICAL PHASE-1 SNAPSHOT (12-09-2026)
 
 **Foundation: FRESH RECONCILED — PHASE 1 PASS.**
 
@@ -89,3 +89,6 @@ Because these are substantive Foundation changes made after the prior Architectu
 - Development: **BLOCKED / NOT AUTHORIZED**.
 
 Next phase is a fresh Architecture/ADR revalidation against this corrected Foundation.
+
+## 17. Current-State Projection — 13-09-2026
+The blocked downstream statuses in §16 describe the original Phase-1 transition. Subsequent Architecture/DD reconciliation and the authorized Database phase are present. Current all-stages evidence supersedes those statuses without rewriting their history: see `../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` and `../State/PROJECT_MANIFEST.json`. This Foundation file remains the WHAT/WHY/WHO owner and does not grant an implementation, runtime-security or production certification.

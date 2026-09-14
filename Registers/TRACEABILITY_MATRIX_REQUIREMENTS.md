@@ -1,11 +1,13 @@
 # TRACEABILITY MATRIX — REQUIREMENT-LEVEL CHILD EVIDENCE
-**Status:** ACTIVE REMEDIATION · **Built:** 2026-09-11
+**Status:** SOURCE CHILD INVENTORY / HISTORICAL DISPOSITIONS · **Built:** 2026-09-11 · **Current ownership overlay:** 2026-09-13
+
+The child text/IDs and original status counts below are preserved provenance. They do not establish current DD, implementation or runtime completion. The all-stages audit corrected the downstream owner routes in `F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md`, including unrelated AI mappings, source-only headings and future test obligations. Read that current overlay with the substantive owner; do not promote this inventory's old `VERIFIED` label into a current gate.
 
 This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remain stable **parent/source-heading inventory**. Child rows below are the requirement-level evidence layer for multi-requirement units. A child is never marked VERIFIED merely because its parent is VERIFIED.
 
 **Generation/review rule:** child statements are extracted from repository-resident immutable S1/S2 list/table/requirement lines. Parent owner/section metadata is inherited only as an initial destination. If that destination is broad, missing, or not yet substantively checked, the child remains `GAP`. `DEFERRED` and `SUPERSEDED` are explicit phase/decision dispositions, not losses.
 
-**Current counts:** parent units=372; child evidence rows=2962; VERIFIED=2555; GAP=0; DEFERRED=396; SUPERSEDED=11.
+**Preserved inventory counts:** parent units=372; child evidence rows=2962; original VERIFIED=2555; GAP=0; DEFERRED=396; SUPERSEDED=11. Current semantic dispositions are independently counted in the ownership overlay.
 
 | Requirement ID | Parent source unit | Source-faithful requirement | Provenance | Scope | Canonical owner | Canonical section | Disposition | Decision reference | Verification |
 |---|---|---|---|---|---|---|---|---|---|

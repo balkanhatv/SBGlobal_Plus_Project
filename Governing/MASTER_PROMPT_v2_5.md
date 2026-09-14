@@ -149,3 +149,6 @@ No Foundation, code, database, repository, or ZIP was created in applying this a
 
 ## Targeted Truth / Phase-Boundary Reconciliation — 2026-09-11
 This in-place v2.5 reconciliation mirrors MASTER_INSTRUCTION §41. Foundation evidence is WHAT/WHY/WHO; Architecture evidence is HOW; exact schemas/endpoints/payloads/implementation mechanics remain Detailed Design. UD-TECH-01 is the active technology/deployment authority. Historical amendment records remain history and RawSourceCorpus remains immutable.
+
+## Current-State Identity Wording Reconciliation — 2026-09-13
+This in-place v2.5 correction mirrors MASTER_INSTRUCTION §42. Human identity/session validation follows the Core Identity boundary with Clerk session/access tokens; API credentials and service principals remain separate. Historical generic JWT refresh text is not current identity authority. Vision, approval gates and RawSource immutability remain governed by the existing rules. Current stage/runtime evidence is recorded in `State/PROJECT_MANIFEST.json` and `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.

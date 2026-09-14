@@ -30,6 +30,9 @@ Provider model string is registry data, not hard-coded in business modules.
 `id, owner_scope(PLATFORM/TENANT/INDUSTRY), tenant_id?, industry_context_id?, code, version, system_template, variable_schema_json, grounding_required boolean, allowed_override_fields[], status, created_by, approved_by?, created_at`.
 Tenant/industry variants may add domain instructions but cannot override security/authorization/system policy.
 
+### AIPromptSet / AIPromptSetMember
+`AIPromptSet{id, owner_scope, tenant_id?, industry_context_id?, code, version, status, created_at, updated_at}` and `AIPromptSetMember{id, prompt_set_id, prompt_template_id, priority, enabled, created_at}`. Membership accepts only ACTIVE PromptTemplates at the same or a broader applicable scope. `IndustryAIConfig.domain_prompt_set_id` references an ACTIVE set applicable to that exact Industry Context. One ACTIVE set version exists per scoped code.
+
 ### AIConversation
 `id, tenant_id, industry_context_id?, scope_class, owner_principal_id, assistant_definition_id?, sensitivity_class, retention_class, status, created_at, last_activity_at`.
 
@@ -142,6 +145,8 @@ Agent permissions are bounded by the acting principal's current AccessDecision a
 
 A tool is an adapter to an existing DD-06 OperationContract, not a new business logic channel.
 
+`AIToolSet{id, owner_scope, tenant_id?, industry_context_id?, code, version, status, created_at, updated_at}` and `AIToolSetMember{id, tool_set_id, tool_definition_id, enabled, constraint_json, created_at}` physically own the `tool_set_id`, `allowed_tool_set_id` and AgentStep `tool_binding_id` references. One ACTIVE set version exists per scoped code; an agent step may bind only an ACTIVE definition in its AgentDefinition's allowed set.
+
 ## 13. Tool execution
 1 model proposes tool+arguments;
 2 validate tool exists in agent tool set;
@@ -178,6 +183,10 @@ Conversation storage follows tenant/industry/principal ownership, retention/sens
 
 ## 18. AI observability
 Metrics: route success/failure, latency class, provider health, usage/cost, guardrail denials, RAG empty/grounding quality, context-mismatch attempts, tool deny/approval rates, agent step failures. No raw sensitive prompts as metric/log labels.
+
+## 19. Current-state database integrity checkpoint
+
+Database implementation must reject: provider/model pair mismatch; Industry configuration that widens tenant capabilities/providers/models or references a foreign PromptSet; provisioning snapshots with stale/foreign commercial/config versions; RAG source/document or chunk/source scope/security drift; foreign conversation/memory/media principals or documents; AgentDefinition/Run/Step/Approval scope and ToolSet escapes. AI Gateway may write tenant/industry definitions under exact RLS, while platform definition/catalog mutation requires the control-plane role. Executable evidence is owned by migrations/verifications `0031`; documentation alone is not runtime proof.
 
 ## 19. Acceptance
 - AI API class absent from AIProvisioningSnapshot → `ENTITLEMENT_DENIED`/`PERMISSION_DENIED`; no provider call.

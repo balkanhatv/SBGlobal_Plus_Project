@@ -25,5 +25,7 @@ Fresh traceability, no-loss/depth and adversarial audits are PASS with open P0=0
 ## Boundary
 Architecture is accepted as fresh input to Detailed Design revalidation. This does **not** certify the current Detailed Design after the upstream changes and does not authorize Development.
 
+This statement is the historical Phase-2 boundary. Detailed Design and the final pre-development gate were subsequently completed, and Development began in the Database phase. The 2026-09-13 current-state audit found downstream implementation defects, not an unowned Architecture P0/P1; corrected contracts remain aligned with A-02/A-03/A-05/A-06/A-07 and ADR-002/003/006/008/010/012/018.
+
 ## Repository truth
 `main` remains at historical merge commit `3911590ff2020993ce51b32d7b091efd6f5f466f`; no main merge was performed by Phase 2. RawSourceCorpus remained untouched.

@@ -242,7 +242,7 @@ Evidence earned after the independent forensic audit reopened the gate:
 
 ---
 
-## 15. Phase 1 RawSource → Foundation Fresh Reconciliation — CURRENT ACTIVE STATUS (12-09-2026)
+## 15. Phase 1 RawSource → Foundation Fresh Reconciliation — HISTORICAL PHASE-1 SNAPSHOT (12-09-2026)
 
 This section supersedes only the **current-status effect** of prior certification amendments; historical records above remain preserved.
 
@@ -259,3 +259,6 @@ The complete immutable RawSourceCorpus and complete Foundation set were re-read.
 - Development: **NOT AUTHORIZED** until the downstream Architecture → DD → final adversarial chain is revalidated.
 
 This Phase-1 PASS is a Foundation no-loss/depth result only. It does not certify Architecture, Detailed Design, implementation, testing, security validation or production readiness.
+
+## 16. Current-State Audit Projection — 13-09-2026
+Section 15 records the dependency invalidation at its original Phase-1 checkpoint. Architecture and DD subsequently advanced and Database Development began; its old `NOT AUTHORIZED` line is not the current project gate. The present all-stages audit revalidates the unchanged Foundation WHAT/WHY/WHO against the complete immutable source and then checks Architecture, DD, SQL and verification independently. The current evidence and exact next action are owned by `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` and `State/PROJECT_MANIFEST.json`; Foundation certification does not establish executable or production readiness.

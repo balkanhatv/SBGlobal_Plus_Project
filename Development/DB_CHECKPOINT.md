@@ -1,4 +1,4 @@
-# DATABASE CHECKPOINT — DEV-DB-ALL-INDUSTRIES-001
+# DATABASE CHECKPOINT — DEV-DB-CURRENT-STATE-AUDITED-001
 **Date:** 2026-09-13  
 **Branch:** `docs/architecture-branch-2`
 
@@ -45,16 +45,18 @@ Implemented SQL migrations for:
 - DEV-DB-AC-005 — Workflow/Automation/Notification persistence.
 - DEV-DB-AC-006 — Workflow/Notification worker roles.
 - DEV-DB-AC-007 — Document/Integration service roles.
+- DEV-DB-AC-008 — immutable ownership and exact same-scope dependency enforcement.
+- DEV-DB-AC-009 — Document/Workflow/Notification/AI cross-layer integrity, PromptSet/ToolSet and generated-media provenance.
+- DEV-DB-AC-010 — Identity/control-plane separation, RLS completion and least-privilege/default-grant correction.
 
-## Validation
-- Static/repository contract reconciliation: **PASS**.
-- SQL verification files: **PRESENT**.
-- Apply+verify script: **PRESENT**.
-- GitHub Actions PostgreSQL workflow: **CONFIGURED**.
-- Confirmed live PostgreSQL execution: **PENDING / NOT YET EVIDENCED**.
+## Historical validation truth
+- Historical run `34736717516` / job `103669335983`: successful for migrations `0001`–`0028`; the old default PR checkout did not establish the exact tested branch commit and is insufficient for the defects found by the current audit.
+- Corrected executable scope: migrations and verifications `0029`–`0032` plus the unchanged `0099` all-industry suite.
+- First corrected substantive HEAD: `1c4033ca0af3501099a014f9a34d0bad3c21c7dd`.
+- Corrected complete executable checkpoint: PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
 ## Gate
-**DATABASE REPOSITORY IMPLEMENTATION: COMPLETE FOR CURRENT CERTIFIED SHARED-CORE + 9-INDUSTRY TABLE SETS.**  
-**DATABASE RUNTIME VERIFICATION: OPEN.**
+**DATABASE CURRENT PERSISTENCE CHECKPOINT: VERIFIED.**  
+**DEVELOPMENT: IN PROGRESS; APPLICATION/API/UI NOT STARTED.**
 
-Application/API/UI implementation must not assume the runtime DB gate passed until executable PostgreSQL evidence is available.
+Current gate evidence is bounded to SQL persistence/verification. Next governed action: Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction.

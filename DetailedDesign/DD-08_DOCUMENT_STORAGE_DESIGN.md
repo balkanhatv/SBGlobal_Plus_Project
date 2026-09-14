@@ -28,11 +28,17 @@
 | version_no | int | No | >=1 |
 | parent_document_id | uuid | Yes | version/derivative lineage |
 | derivative_type | text | Yes | |
+| ai_generated | boolean | No | default false |
+| ai_media_request_id | uuid | AI output | exact originating AIMediaRequest |
+| ai_provider_id/ai_model_id | uuid | AI output | registered route pair |
+| ai_provenance_json | jsonb | AI output | source/input/output lineage object |
+| ai_moderation_result_json | jsonb | AI output | required moderation evidence object |
+| ai_licensing_usage_json | jsonb | Yes | governed provider/licensing/usage metadata |
 | is_demo | boolean | No | default false |
 | row_version | bigint | No | |
 | created/updated audit fields | ... | No | |
 
-Indexes: tenant/context/source resource; status; checksum where dedupe policy permits; retention lifecycle; parent.
+ACTIVE requires CLEAN malware state. The StorageObject Data Home, size and checksum must match DocumentMeta, and tenant documents use the tenant's authoritative Data Home/residency region. AI-generated rows require the exact completed AIMediaRequest scope/security/residency plus a consistent registered provider/model pair. Indexes: tenant/context/source resource; status; checksum where dedupe policy permits; retention lifecycle; parent.
 
 ## 2. StorageObject
 `id, data_home_id, provider_ref_encrypted?, bucket_class, object_key, object_version?, size, checksum, encryption_key_ref, status, created_at`. Access restricted to Document module service identity. The object key is not exposed as authorization.
@@ -72,6 +78,8 @@ New approved replacement creates new DocumentMeta version linked to logical docu
 ## 8. Derivatives
 Thumbnail/preview/OCR extract/transcode is a child derivative with same or stricter tenant/context/sensitivity/residency. Derivative cannot widen ACL. Rebuildable derivative can be purged independently if source remains.
 
+Parent and derivative identifiers are supplied together. A derivative may reference only an ACTIVE/CLEAN parent in the exact tenant/context/residency and cannot lower its sensitivity classification.
+
 ## 9. Retention/erasure
 Legal hold/retention evaluated before delete. Logical delete may hide user access; physical purge follows policy. Erasure propagates to derivatives/search/RAG linkage. Audit records identifier/action/reason without preserving erased content.
 
@@ -79,7 +87,7 @@ Legal hold/retention evaluated before delete. Logical delete may hide user acces
 **External anonymous/public document sharing is DISABLED in the current DD.** Current sharing is authenticated principal/resource access only through DocumentMeta ACL and signed short-lived access after DD-03 authorization. No public bucket/public object ACL is permitted for private tenant documents. Any future external-share capability is a new versioned feature requiring `ShareGrant{id,tenant_id,industry_context_id,document_id,grantee_type,grantee_ref,scope,expires_at,consent_policy_ref,revoked_at?,created_by,created_at}` plus explicit threat/privacy review before it can become an implementation requirement; Development must not invent it.
 
 ## 11. Acceptance
-Wrong Industry Context cannot resolve metadata; storage key cannot bypass DocumentMeta; quarantined file cannot get signed URL; derivative cannot gain broader scope; cross-region signed access obeys residency policy.
+Wrong Industry Context cannot resolve metadata; storage key cannot bypass DocumentMeta; quarantined file cannot get signed URL; derivative cannot gain broader scope; cross-region signed access obeys residency policy. Every scalar Industry document field is a same-tenant/context composite DocumentMeta dependency, and document arrays are element-validated. ACL principal/role/org-unit subjects, upload principal and document owner/audit principals must belong to the document tenant/scope.
 
 
 ## 12. StoragePort physical binding [DD-AC]

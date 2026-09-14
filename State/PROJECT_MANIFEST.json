@@ -1,28 +1,35 @@
 {
   "project": "SBGlobal Plus",
-  "updated": "2026-09-13",
+  "updated": "2026-09-14",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-DB-ALL-INDUSTRIES-001",
-  "final_verdict": "PRE-DEVELOPMENT PASS; DEVELOPMENT STARTED; DATABASE REPOSITORY IMPLEMENTATION COMPLETE FOR CURRENT CERTIFIED TABLE SCOPE; RUNTIME POSTGRESQL VERIFICATION PENDING",
+  "checkpoint": "DEV-DB-CURRENT-STATE-AUDITED-001",
+  "final_verdict": "CURRENT DATABASE PERSISTENCE VERIFIED; ALL-STAGES DOCUMENTARY CLOSURE IN PROGRESS",
   "final_substantive_foundation_head": "4b5ec3667ae81c0b4c92a4cf0daba0282edd4131",
   "final_substantive_architecture_head": "9453ebb0140670984753cec9e66613475789610b",
   "final_substantive_dd_head": "b4bba9c4764025af3d4546644f7c67efa463c86d",
   "gates": {
-    "foundation": "PASS",
-    "architecture": "PASS",
-    "detailed_design": "PASS_COMPLETE",
-    "cross_layer_traceability": "PASS",
-    "isolation": "PASS",
-    "development_determinism": "9/9 YES",
-    "qa_determinism": "9/9 YES",
-    "final_adversarial": "PASS",
+    "foundation": "REVALIDATED_COMPLETED_SCOPE",
+    "architecture": "REVALIDATED_COMPLETED_SCOPE",
+    "detailed_design": "REVALIDATED_COMPLETED_SCOPE_WITH_TARGETED_DATABASE_CORRECTIONS",
+    "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
+    "isolation": "VERIFIED_DESIGN_AND_CURRENT_SQL_PERSISTENCE_ONLY",
+    "development": "IN_PROGRESS_DATABASE_CHECKPOINT_VERIFIED",
+    "application_api_ui": "NOT_STARTED",
+    "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION"
   },
   "defects": {
-    "product_p0": 0,
-    "product_p1": 0,
-    "real_dd_gap": 0,
-    "closure_blockers": 0
+    "counting_unit": "root-cause defect groups; individual edits may cover many objects",
+    "found": {
+      "p0": 15,
+      "p1": 9,
+      "p2": 1,
+      "p3": 1
+    },
+    "corrected": 26,
+    "open_current_scope_p0": 0,
+    "open_current_scope_p1": 0,
+    "approval_blockers": 0
   },
   "backup": {
     "decision_id": "UD-BACKUP-01",
@@ -34,7 +41,7 @@
     "policy": "IMMUTABLE",
     "s1_blob": "a9f63a64448a347edd0f2b0c74094284ee953c1b",
     "s2_blob": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd",
-    "integrity": "PASS"
+    "integrity": "BLOB_IDENTICAL_TO_EXECUTION_START"
   },
   "github": {
     "main_tip": "3911590ff2020993ce51b32d7b091efd6f5f466f",
@@ -43,7 +50,8 @@
       "number": 2,
       "state": "OPEN",
       "draft": true,
-      "merge_authorized": false
+      "merge_authorized": false,
+      "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction"
   },
@@ -54,17 +62,44 @@
     "current_phase": "Database",
     "application_api_ui_started": false,
     "database": {
-      "repository_implementation": "COMPLETE_CURRENT_CERTIFIED_SCOPE",
-      "shared_core": "IMPLEMENTED",
+      "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
+      "shared_core": "IMPLEMENTED_CURRENT_PERSISTENCE_SCOPE",
       "industries": "9/9",
       "canonical_management_systems": "41/41",
       "canonical_industry_tables": 181,
-      "static_verification": "PASS_ARTIFACT_LEVEL",
+      "static_verification": "PASS_WITH_CURRENT_AUDIT_EVIDENCE",
       "apply_verify_harness": "database/scripts/apply-and-verify.sh",
       "ci_workflow": ".github/workflows/database-verify.yml",
-      "runtime_postgresql_verification": "PENDING_NOT_YET_EVIDENCED"
+      "runtime_postgresql_verification": "PASS",
+      "migration_count": 32,
+      "verification_file_count": 26,
+      "migration_range": "0001-0032",
+      "ci_verified_head": "49b9898b2bfe4b5196876f878621a85f7d034da2",
+      "ci_run_id": 34763828341,
+      "ci_job_id": 103741160046,
+      "ci_tested_commit_assertion": "PASS",
+      "not_claimed": [
+        "application/API/UI implementation",
+        "runtime RBAC/ABAC guard execution",
+        "provider calls",
+        "production upgrade/rollback",
+        "deployment",
+        "load/penetration/restore exercise"
+      ]
     },
-    "next_action": "Obtain executable PostgreSQL migration+verification evidence and repair any runtime SQL defect before application/API/UI implementation."
+    "next_action": "Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction."
   },
-  "current_phase": "DEVELOPMENT_DATABASE"
+  "current_phase": "DEVELOPMENT_DATABASE",
+  "audit": {
+    "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
+    "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
+    "frozen_prompt_blob": "5a44cc555c52c49632e0788ba5d4995559830a3e",
+    "execution_start_files": 184,
+    "final_substantive_audited_head": null,
+    "final_substantive_head_note": "Filled by metadata closure after substantive source/design/evidence commit is published.",
+    "final_metadata_closure_head": null,
+    "closure_head_note": "The self-containing metadata commit SHA is read from Git after publication; no self-referential SHA is invented.",
+    "report": "Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md",
+    "coverage": "Registers/ALL_STAGES_FILE_COVERAGE_2026-09-13.md"
+  }
 }

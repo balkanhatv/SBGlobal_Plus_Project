@@ -1,18 +1,10 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-13
+**Updated:** 2026-09-13 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
 
-## Current truth
-- Branch: `docs/architecture-branch-2`
-- Checkpoint: `DEV-DB-ALL-INDUSTRIES-001`
-- Development: STARTED
-- Current phase: Database
-- Shared-Core DB repository implementation: complete for current certified table scope
-- Industry DB: 9/9 suites · 41/41 MS · 181 canonical tables
-- PostgreSQL runtime verification: in progress/pending final result
-- Application/API/UI: not started
-- RawSourceCorpus: immutable
-- Draft PR #2: review-only
-- main: unchanged by this continuation
+The all-stages current-state audit closes at the verified Database persistence checkpoint. Read `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` and `State/PROJECT_MANIFEST.json` for the frozen start, correction commits, exact tested commit, final metadata closure and scope limits. Historical audit labels are provenance only.
 
-## Next
-Read the newest Database Verify workflow result. On failure, fix the first deterministic migration/verification error and rerun through a new database commit. On PASS, close the Database runtime gate and begin the next governed Development scope.
+PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+
+Current source/design ownership remains one Unified Core, nine equal Industries, 41 canonical MS, exactly two logical Tenant mobile app classes per enabled Industry Experience, RBAC primary and fail-closed Tenant/Industry context. Application/API/UI work has not started. RawSourceCorpus is unchanged; PR #2 remains draft; main is unmerged.
+
+Next governed action: Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction.

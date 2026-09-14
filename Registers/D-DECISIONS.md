@@ -174,3 +174,8 @@ Concrete deployment login/service identities are environment-specific and receiv
 **Decision:** Add NOLOGIN, NOBYPASSRLS roles `sbg_document_service_rw` and `sbg_integration_service_rw`. Document service alone may access `StorageObject` plus logical document tables; Integration service alone may manage TenantIntegration/CredentialReference/SyncCursor while reading the global Integration catalog. Both receive only minimum supporting Core reads and append-only audit access.
 **Consequence:** private storage/provider boundaries are implementable without re-granting broad access to `sbg_app_rw`.
 **Status:** ACTIVE.
+
+
+## 2026-09-14 Current audit reconciliation
+
+DD-18 owns the existing Development completion decisions `DEV-DB-AC-008…010` / `DD-036…039`; DD-17 owns `DBA-001…013`. They specify identity/elevation and Control Plane roles, exact same-scope dependencies, prompt/tool set persistence and platform-definition writes. SQL 0029…0032 realizes these contracts and the current all-stages report records the failed and successful verification runs. This register does not create a new user decision or weaken approval/security requirements. Prior design-only isolation and historical traceability counts above are read with the current source-owner and executable-evidence overlay, never as proof of an unbuilt application.

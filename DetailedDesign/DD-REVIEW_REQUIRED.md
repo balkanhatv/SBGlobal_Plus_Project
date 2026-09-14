@@ -21,4 +21,9 @@
 Prior Fable 5 P0/P1/P2 findings and DD-F5-RECERTIFIED remain historical evidence. Their resolved contracts were freshly re-read and retained where still valid.
 
 ## Boundary
-DD REVIEW_REQUIRED is closed. Remaining work is **not a DD gap**: project-wide final cross-layer isolation, repository/state/backup closure and final adversarial pre-development gate remain outside this DD-only closure.
+DD REVIEW_REQUIRED remains closed. The historical project-wide pre-development gate was later satisfied. Current database audit findings were concrete implementation/cross-layer propagation defects and are now owned by DD-036…039 and DBA-001…013; their runtime verdict belongs to the in-progress Database checkpoint, not a reopened whole-DD ambiguity gate.
+
+
+## All-stages checkpoint evidence
+PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.

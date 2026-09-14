@@ -1,4 +1,38 @@
-# ISOLATION ATTACK MATRIX — PHASE 4 FRESH CROSS-LAYER REVALIDATION
+# Isolation Attack Matrix — Current Database Checkpoint
+
+**Updated:** 2026-09-14 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts  
+**Executable checkpoint:** `49b9898b2bfe4b5196876f878621a85f7d034da2` · Database Verify run `34763828341`, job `103741160046` · **SUCCESS**
+
+This overlay supersedes the current-status use of the Phase-4 design-only matrix retained below. SQL evidence proves only the named persistence invariant; future application/service attacks are acceptance contracts, not executed penetration tests. Final documentary commit/CI identities are recorded in [the current audit](ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
+
+| Adversarial attempt | Current enforced/verified boundary | Executable evidence or honest remaining boundary |
+|---|---|---|
+| Tenant A reads/writes Tenant B | Forced RLS, immutable ownership, same-Tenant references | 0029/0030 non-bypass role and constraint checks; 0099 registry checks PASS |
+| Same-Tenant Industry A accesses sibling B | Required exact context, same-context composite parents and explicit selectors | 0030/0031 negative relationship checks; 0099 all 181 Industry tables PASS |
+| Missing Industry Context interpreted as wildcard | Null is never all Industries; TENANT_INDUSTRY requires concrete context | 0001 helper and 0029/0030 scope/policy checks PASS |
+| Disabled Industry, revoked credential or stale entitlement request | DD-02/03/04/06 require fail-closed access revalidation | Identity/entitlement relationships checked in SQL; authenticated request/guard execution NOT_YET_STARTED_FUTURE_SCOPE |
+| Document references sibling context or raw physical storage | Exact DocumentMeta parent; StorageObject hidden from app; DataHome/integrity/provenance checks | 0010/0028 role separation and 0031 document/scalar/array reference tests PASS; signed-URL service remains future |
+| Event/catalog/envelope context disagreement | Mandatory scope envelope, version/catalog match and immutable evidence identity | 0030 positive/negative outbox and exact RLS checks PASS |
+| Unverified or sibling-context webhook | Verified activation, allowlists and exact event/subscription/identity tuple | 0030 persistence checks PASS; network signature/DNS/retry executor remains future |
+| Export/report widens null/sibling context | Export exact scope plus scoped document relationship; Industry RLS | 0030/0031 persistence checks PASS; report/export endpoint execution remains future |
+| Worker operates without stored context | Persisted envelope/parent ownership cannot omit mandatory scope | 0030/0031 checks PASS; runtime queue reauthorization/DLQ remains future |
+| Pooled connection retains prior context | DD-05/17 require transaction-local set/reset and fail-closed release | SQL fixtures set local role/context; real application connection-pool reuse NOT_YET_STARTED_FUTURE_SCOPE |
+| Offline replay switches original context | DD-11 preserves original Tenant/Industry/device/time and reauthorizes | Design contract revalidated; executable clients/queues NOT_YET_STARTED_FUTURE_SCOPE |
+| Support elevation is self-approved, unbounded or points to foreign target | Physical elevation requires independent active approver and bounded/current target | 0031 relationship/approval checks PASS; MFA/step-up endpoint execution remains future |
+| General app selects PLATFORM_GLOBAL then mutates a global definition or permission child | Restrictive write floor requires Control Plane role in addition to contextual policy | 0032 insert/update/delete/child denial and permitted Control Plane mutation PASS |
+| App/domain module accesses private AI or provider credentials | Dedicated Gateway/Integration roles; no general app direct access | 0011–0014/0028/0029 privilege checks PASS; live provider execution remains future |
+| AI RAG/model/prompt/tool/agent references foreign Tenant/Industry or incompatible parent | Same-scope provider/config/set/document/member/run validation | 0031 negative dependency checks PASS; live retrieval ACL recheck remains future |
+| AI tool or prompt injection widens acting-principal permission | DD-03/09/17 require permissions bounded by acting principal and governed tools | Physical dependency and Gateway boundary PASS; live prompt-injection/tool-executor campaign NOT_YET_STARTED_FUTURE_SCOPE |
+| Explicit cross-context request lacks endpoints or dedicated authorization | Exact persisted endpoints and scope predicates; DD-02/03 require explicit permission/audit | 0030 policy checks PASS; dedicated endpoint authorization remains future |
+| Workflow/notification binds foreign actor/definition/source event or edits immutable evidence | Exact parent/version/scope and actor validation; append-only evidence privileges | 0026/0027/0031 checks PASS; shared engine/provider execution remains future |
+| Future partition loses scope enforcement or runtime caller provisions it | Governed migration helper installs exact forced RLS; PUBLIC execution revoked | 0029/0030 catalog/privilege checks PASS; production partition operations remain future |
+| Brand/country pack creates permissions or weakens safety | DD-05/10/17/26 protected security/accessibility and activation contracts | Design contract revalidated; publish/render/service tests NOT_YET_STARTED_FUTURE_SCOPE |
+
+All 32 migrations and 26 verification SQL files ran in the cited clean PostgreSQL 16 + pgvector job. These are behavioral fixtures plus complete relevant policy/registry attachment checks; they are not a claim that every service-level attack was executed. Current persistence/design isolation blockers: **P0 0 / P1 0**. A later substantive change requires affected downstream revalidation.
+
+---
+
+## Historical Phase-4 design-contract evidence
 **Evaluated substantive DD HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`  
 **Date:** 2026-09-13 · **Status:** PASS — DESIGN-CONTRACT LEVEL
 

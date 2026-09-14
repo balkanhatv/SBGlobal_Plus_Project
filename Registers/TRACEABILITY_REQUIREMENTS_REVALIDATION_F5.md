@@ -1,5 +1,7 @@
 # FABLE 5 — REQUIREMENT CHILD-EVIDENCE REVALIDATION
-**Date:** 2026-09-11 · **Status:** FRESH SOURCE-FIDELITY REVIEW (CORRECTED COLUMN MAPPING)
+**Date:** 2026-09-11 · **Status:** HISTORICAL SOURCE-FIDELITY REVIEW (CORRECTED COLUMN MAPPING)
+
+Current source-owner reconciliation is the 2026-09-13 `F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md` overlay. PARTIAL/current-owner assertions in this historical snapshot are not current closure evidence.
 **Accepted immutable blobs:** S1 `a9f63a64448a347edd0f2b0c74094284ee953c1b`; S2 `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`
 
 ## Method

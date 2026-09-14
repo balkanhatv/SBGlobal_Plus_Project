@@ -1,7 +1,7 @@
-# REVIEW_REQUIRED — Final Pre-Development Status
+# REVIEW_REQUIRED — Historical Pre-Development / Current Audit Overlay
 **Updated:** 2026-09-13 · **Checkpoint:** `PREDEV-READY-USER-BACKUP-WAIVER`
 
-## Current result
+## Historical pre-development result
 - Foundation P0/P1: **0/0**
 - Architecture P0/P1: **0/0**
 - Detailed Design P0/P1: **0/0**
@@ -16,7 +16,7 @@
 `CLOSURE-BACKUP-01` is **CLOSED — USER-DIRECTED WAIVER** by `UD-BACKUP-01`.
 A physical pre-development ZIP was not created by this session and is not represented as created. The owner will handle any desired manual clone/archive separately.
 
-## Current gate
+## Historical pre-development gate
 **READY FOR DEVELOPMENT — SUPPORTED.**
 
 Development continues on `docs/architecture-branch-2`. No merge to `main` has been performed in this continuation.
@@ -35,3 +35,6 @@ Required resolution must preserve both stable event/audit identity and monthly p
 **RESOLVED.** Decision `DEV-DB-AC-001` preserves global UUID/idempotency using unpartitioned identity registries while full evidence rows remain monthly RANGE-partitioned. Migration `database/migrations/0008_audit_event_outbox_webhook.sql` implements the pattern; `database/verification/0008_audit_event_outbox_webhook.verify.sql` verifies partitioning, forced RLS and uniqueness evidence.
 
 Open dependent blocker: **0**.
+
+## Current all-stages gate — 2026-09-13
+No approval-blocked correction remains in the current audited scope. The previous OPEN DEV-DB-P1-01 row is closed by its recorded resolution, not an unresolved permission question. Current defects/corrections and CI are in `ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`. RawSource immutability, no main merge, no production deployment and Future-Industry promotion approval rules remain in force.

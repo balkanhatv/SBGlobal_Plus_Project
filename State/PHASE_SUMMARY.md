@@ -1,7 +1,7 @@
-# PHASE_SUMMARY — Vision-Centric Pre-Development Revalidation
-**Updated:** 2026-09-13 · **Current checkpoint:** `PHASE5-CLOSURE-BACKUP-BLOCKED`
+# PHASE_SUMMARY — Vision-Centric Current-State Audit
+**Updated:** 2026-09-13 · **Current checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
 
-**Current gate:** PHASE 1 FOUNDATION PASS · PHASE 2 ARCHITECTURE PASS · PHASE 3 DETAILED DESIGN PASS · PHASE 4 CROSS-LAYER PASS · PHASE 5 REPOSITORY/STATE RECOVERY-MANIFEST PASS BUT PHYSICAL CHECKPOINT ZIP BLOCKED · DEVELOPMENT NOT AUTHORIZED. Earlier sections below are chronological history only; the latest Phase sections govern current status.
+**Current gate:** completed Foundation/Architecture/DD scope revalidated; Development IN PROGRESS at the verified current Database persistence checkpoint. PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`. Earlier sections are chronological history; source/owner and runtime claims are governed by the newest all-stages evidence.
 
 1. Starting audited HEAD was `029faa5add582f6cfbf1688a145bf06dac6d5b34`; certification gates were first reopened rather than trusted.
 2. 372 source-heading rows are preserved as parent inventory, not atomic proof.
@@ -170,3 +170,15 @@
 - All substantive pre-development gates remain PASS.
 - **READY FOR DEVELOPMENT — SUPPORTED.**
 - Development will continue on `docs/architecture-branch-2`; `main` remains unchanged by this continuation.
+
+## All-Stages Current-State Audit — 2026-09-13
+
+- Execution Start HEAD: `5d779b5ff9f2cce361ce81f2901ac95edfd697cc`; prompt blob: `5a44cc555c52c49632e0788ba5d4995559830a3e`; main: `3911590ff2020993ce51b32d7b091efd6f5f466f`.
+- Every execution-start repository blob was fetched/read and its Git object identity/tree was independently reconstructed; `RawSourceCorpus` blobs remained immutable.
+- Historical CI run `34736717516` is real successful evidence for `0001`–`0028`, but its assertions were not sufficient to support the broader security/completion claims.
+- Material findings include missing Tenant/identity RLS, broad/default privileges, mutable ownership selectors, UUID-only cross-scope relationships, loose event/webhook scope, missing physical operator/PromptSet/ToolSet/provenance contracts and stale state wording.
+- First correction commit: `1c4033ca0af3501099a014f9a34d0bad3c21c7dd`; migration/test failures were recorded and corrected, then the exact-head complete PostgreSQL suite passed. PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+
+- Source-owner projection audit corrected unrelated AI mappings and preserved every source child ID/text.
+- Platform definitions and child bindings require Control Plane mutation authority in addition to scope; migration/verification 0032 passed.
+- Next governed action: Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction.

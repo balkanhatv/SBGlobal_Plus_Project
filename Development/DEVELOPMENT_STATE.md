@@ -1,38 +1,12 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-13  
-**Branch:** `docs/architecture-branch-2`  
-**Checkpoint:** `DEV-DB-ALL-INDUSTRIES-001`
+**Updated:** 2026-09-13 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
 
-## Development status
-**STARTED — DATABASE PHASE**
+Development is **IN PROGRESS — DATABASE CHECKPOINT VERIFIED**. This checkpoint covers the existing shared-Core persistence spine and all 181 canonical Industry tables across 9 Industries / 41 MS. It does not mark Development complete.
 
-## Repository implementation
-### Shared Core
-Database migrations now cover the certified shared Core persistence spine, including Tenant/Industry context, configuration engines, identity/authz, commercial entitlement, documents, event/outbox/webhook, integration, workflow/automation, notifications, AI/RAG/agents and least-privilege DB roles.
+PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
-### Industry database wave
-**9/9 Current Supported Industries implemented.**  
-**41/41 canonical Management Systems represented.**  
-**181 canonical Industry tables registered with forced Tenant+Industry RLS contracts.**
+Migrations/verification 0029…0032 correct identity RLS, role/default privileges, immutable scope, same-scope references, event/webhook evidence, documents, workflow/notification, AI sets/provenance, operator elevation and platform-definition write boundaries. DD-036…039, DEV-DB-AC-008…010 and DBA-001…013 own those corrections. Current source routing and state projections were also revalidated; prior broad COMPLETE/PASS wording is superseded by the current evidence report.
 
-Evidence:
-- `Development/DB_IMPLEMENTATION_MATRIX.md`
-- `database/verification/0099_all_industries.verify.sql`
+Application/API/UI and later production operations remain unstarted. The SQL harness uses a fresh disposable PostgreSQL database; it is not a production upgrade/rollback runner. RawSourceCorpus is immutable; no main merge or production deployment occurred.
 
-## Validation status
-- static/repository contract review: PASS for current implementation files;
-- SQL verification suite: present;
-- apply-and-verify harness: present;
-- PostgreSQL pgvector CI workflow: configured;
-- **confirmed live PostgreSQL execution: NOT YET EVIDENCED**.
-
-## Current gate
-Database repository implementation is complete for the current certified table scope, but **Database runtime verification remains open**. Application/API/UI implementation has not started.
-
-## Next task
-Obtain executable PostgreSQL migration+verification evidence. Fix any runtime SQL defect found by that evidence before opening the application/API implementation phase.
-
-## Constraints
-- RawSourceCorpus remains immutable.
-- Continue on `docs/architecture-branch-2`.
-- No merge to `main` without explicit owner direction.
+Next governed action: Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction.

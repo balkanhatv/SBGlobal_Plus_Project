@@ -470,3 +470,6 @@ No Foundation, code, database, repository, or ZIP was created in applying this a
 
 ## 41. Targeted Truth / Phase-Boundary Reconciliation — 2026-09-11
 This in-place v2.5 reconciliation preserves historical amendment records and valid rules while resolving active contradictions. It makes §9A phase-aware, formally applies UD-TECH-01 to active technology/deployment wording, and aligns commercial routing with the canonical Foundation route policy. MASTER_PROMPT v2.5 carries the matching operative reconciliation. RawSourceCorpus is unchanged.
+
+## 42. Current-State Identity Wording Reconciliation — 2026-09-13
+The all-stages audit applies existing UD-TECH-01 to the remaining active identity wording: human authentication uses the Core Identity boundary with Clerk session/access tokens; API credentials and service principals remain separate. References to a generic platform-owned JWT refresh lifecycle do not override that contract. This is an in-place consistency correction, mirrored in MASTER_PROMPT v2.5, with no change to Vision, source precedence, approval rules, phase gates, or RawSourceCorpus. Historical amendment claims describe their original execution only. Current project/CI status is owned by `State/PROJECT_MANIFEST.json` and the evidence in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.

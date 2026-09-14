@@ -5,7 +5,7 @@
 |---|---|
 | DD-00…DD-08 | Shared/Core DD — fresh revalidated / verified |
 | DD-09…DD-16 | Experience/AI/offline/infra/security DD — fresh revalidated / verified |
-| DD-17…DD-19 | Acceptance/decisions/traceability — Phase-3 updated |
+| DD-17…DD-19 | Acceptance/decisions/traceability — Phase-3 plus current Database audit propagation |
 | DD-20A/B/H | Historical audit evidence |
 | DD-20C | Historical prior-head Wave-3 audit |
 | DD-20D | Current Phase-3 overall adversarial PASS |
@@ -24,4 +24,9 @@
 ## Current gate
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-Project-wide Development remains **NOT YET AUTHORIZED** until final pre-development cross-layer isolation, repository/state/backup closure and adversarial verification complete.
+The historical pre-development authorization gate was subsequently satisfied and Development started. Current truth is **Database Development checkpoint VERIFIED / Development IN PROGRESS**; DD-036…039 and DBA-001…013 are the newest targeted contracts, with runtime evidence in the current audit register.
+
+
+## All-stages checkpoint evidence
+PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
