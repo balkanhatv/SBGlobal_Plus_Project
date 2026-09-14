@@ -1,0 +1,42 @@
+name: Core Service Verify
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - "src/core/**"
+      - "tests/core/**"
+      - "package.json"
+      - "tsconfig.json"
+      - ".github/workflows/core-service-verify.yml"
+  pull_request:
+    paths:
+      - "src/core/**"
+      - "tests/core/**"
+      - "package.json"
+      - "tsconfig.json"
+      - ".github/workflows/core-service-verify.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core-service-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install exact development compiler
+        run: npm install --ignore-scripts --no-audit --no-fund
+
+      - name: Build and run DD-02/DD-03 acceptance slice
+        run: npm run test:core
