@@ -24,7 +24,7 @@ Git cannot embed the SHA of a file inside that same file without changing its SH
 | H | HISTORICAL_OR_SUPERSEDED | 17 |
 | R | RAW_SOURCE_IMMUTABLE | 2 |
 
-**Total: 194 classified/full-read files; 175 active files fully audited.** Bytes: 5,098,088; text lines: 51,932. Other allowed classes have zero files. These totals describe the current ledger-hosting tree.
+**Total: 194 classified/full-read files; 175 active files fully audited.** Bytes: 5,100,922; text lines: 51,961. Other allowed classes have zero files. These totals describe the current ledger-hosting tree.
 
 ## Owner and dependency dictionary
 
@@ -53,7 +53,7 @@ Git cannot embed the SHA of a file inside that same file without changing its SH
 | C3 | `ba3834427e76bc87f5623058d33c82705f412bd2` |
 | C4 | `ed29b57c0d22a9bbd21efbcdf768494cbfe5af40` |
 | C5 | `49b9898b2bfe4b5196876f878621a85f7d034da2` |
-| CD | `PENDING_PUBLICATION` |
+| CD | `2c36b43a7d55c6600b71f9714389e025a06df580` |
 
 `C1…C5` means the ordered five exact commits above; `+` lists applicable corrections. No correction required is `—`. Findings, authority, blast radius and exact run/job/root causes are in [the audit report](ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
 
@@ -62,7 +62,7 @@ Git cannot embed the SHA of a file inside that same file without changing its SH
 | File | Class / role | Start blob | Current blob | Bytes / lines / records | Full read | Findings / correction | Revalidation |
 |---|---|---|---|---|---|---|---|
 | `BACKUP_METADATA.json` | H / HIS | `c2f47ca43517b33ffe9071222b3d6500f91606a5` | `c2f47ca43517b33ffe9071222b3d6500f91606a5` | 2229 / 31 / 27 keys | B:1–31/31; F:1–31/31 | HISTORY / — | H |
-| `README_FOUNDATION.md` | E / EVD | `3b0665ea9cbd2dd33d80067ac6bd9f06b5d2bc94` | `f0bff50df46c48504df4932036a60e236b64e494` | 3596 / 54 / 0 table lines | B:1–47/47; F:1–54/54 | 002 / CD | S |
+| `README_FOUNDATION.md` | E / EVD | `3b0665ea9cbd2dd33d80067ac6bd9f06b5d2bc94` | `35be128d5f8e2e52d84660ea13ccd77f62a9451c` | 3607 / 54 / 0 table lines | B:1–47/47; F:1–54/54 | 002 / CD | S |
 
 ## .github — 1 files
 
@@ -133,10 +133,10 @@ Git cannot embed the SHA of a file inside that same file without changing its SH
 | `DetailedDesign/DD-30_FINAL_REQUIREMENT_TRACEABILITY_AUDIT.md` | E / EVD | `88d2c099ba5458a216f6a277c6b3198708b3a179` | `88d2c099ba5458a216f6a277c6b3198708b3a179` | 1819 / 33 / 0 table lines | B:1–33/33; F:1–33/33 | NONE / — | S |
 | `DetailedDesign/DD-31_FINAL_DEVELOPMENT_QA_DETERMINISM.md` | E / EVD | `86f26bd64bb470b86dac052f4f6c3e61637990d1` | `86f26bd64bb470b86dac052f4f6c3e61637990d1` | 2021 / 34 / 11 table lines | B:1–34/34; F:1–34/34 | NONE / — | S |
 | `DetailedDesign/DD-CHANGELOG.md` | E / EVD | `9995c1a90d2532842242e54540293460e2fe0810` | `069b921c8120a01504030d7961b51ac5b6b81df4` | 3144 / 14 / 12 table lines | B:1–14/14; F:1–14/14 | 002/022 / CD | S |
-| `DetailedDesign/DD-CHECKPOINT.md` | E / EVD | `ead9f4f14d27cb964238d314db9f7e889cc47d72` | `8a44228243496f88310e99942d8139193f2e3702` | 1888 / 31 / 0 table lines | B:1–26/26; F:1–31/31 | 002 / CD | S |
-| `DetailedDesign/DD-INDEX.md` | E / EVD | `b5525c85135075c65ddb67f0895d78ed16ee8d0d` | `5c0b77ec6cc1a15cbfe15dc6c7533a71cc36e783` | 2241 / 32 / 19 table lines | B:1–27/27; F:1–32/32 | 002 / CD | S |
-| `DetailedDesign/DD-PHASE_STATE.md` | E / EVD | `b712ef314dd436b68d2a082d9782135ddb360662` | `bdaa8bad0f3bf66ded6dba5f872333c40ee89f57` | 1819 / 20 / 0 table lines | B:1–14/14; F:1–20/20 | 002 / CD | S |
-| `DetailedDesign/DD-REVIEW_REQUIRED.md` | E / EVD | `f9b8e1ae3b9b565e55b09f2805961aa8873e5ade` | `1460b7199c37cc201ee8aa383c6fa5a646827b3e` | 1855 / 29 / 0 table lines | B:1–24/24; F:1–29/29 | 002 / CD | S |
+| `DetailedDesign/DD-CHECKPOINT.md` | E / EVD | `ead9f4f14d27cb964238d314db9f7e889cc47d72` | `ef6cda77004f715c1f1a5d3cbc5a1d29c5a111d5` | 1899 / 31 / 0 table lines | B:1–26/26; F:1–31/31 | 002 / CD | S |
+| `DetailedDesign/DD-INDEX.md` | E / EVD | `b5525c85135075c65ddb67f0895d78ed16ee8d0d` | `28dbc3f4aa6810bd6a8fc8987d94a88b7390fbcf` | 2252 / 32 / 19 table lines | B:1–27/27; F:1–32/32 | 002 / CD | S |
+| `DetailedDesign/DD-PHASE_STATE.md` | E / EVD | `b712ef314dd436b68d2a082d9782135ddb360662` | `26dc95c0556fe6745368bba82343e9fc3b967259` | 1830 / 20 / 0 table lines | B:1–14/14; F:1–20/20 | 002 / CD | S |
+| `DetailedDesign/DD-REVIEW_REQUIRED.md` | E / EVD | `f9b8e1ae3b9b565e55b09f2805961aa8873e5ade` | `64505d95ad700e1c192419b1a009b7c63217a7ec` | 1866 / 29 / 0 table lines | B:1–24/24; F:1–29/29 | 002 / CD | S |
 | `DetailedDesign/Industries/Education/EDU-00_DETAILED_DESIGN.md` | A / IND | `bfcd2645bad6a47d340f552be91c83e1bdeebc74` | `bfcd2645bad6a47d340f552be91c83e1bdeebc74` | 34052 / 308 / 30 table lines | B:1–308/308; F:1–308/308 | NONE / — | S |
 | `DetailedDesign/Industries/Government/GOV-00_DETAILED_DESIGN.md` | A / IND | `40d66c7bd7dc281def3a869938c567155f6fd85c` | `40d66c7bd7dc281def3a869938c567155f6fd85c` | 22971 / 222 / 24 table lines | B:1–222/222; F:1–222/222 | NONE / — | S |
 | `DetailedDesign/Industries/Healthcare/HLT-00_DETAILED_DESIGN.md` | A / IND | `57a85d8045c99303e8e292709b7aff6f319cccde` | `fe3192f1000623c55f1bc5d2216e3f577d563103` | 33238 / 235 / 47 table lines | B:1–235/235; F:1–235/235 | 022 / C1 | S |
@@ -153,9 +153,9 @@ Git cannot embed the SHA of a file inside that same file without changing its SH
 
 | File | Class / role | Start blob | Current blob | Bytes / lines / records | Full read | Findings / correction | Revalidation |
 |---|---|---|---|---|---|---|---|
-| `Development/DB_CHECKPOINT.md` | E / EVD | `a5ee3575be0b3aa879fccc41281354e24aa3cacd` | `5e42a469efe925e9a3153c16d6830f2add593997` | 3301 / 62 / 12 table lines | B:1–60/60; F:1–62/62 | 002 / CD | S |
-| `Development/DB_IMPLEMENTATION_MATRIX.md` | E / EVD | `81d4208f60e37fbb93a83b2a68d8ef9e7a05b066` | `edab1800352de02322fdd9011635d00706abfd69` | 2153 / 32 / 12 table lines | B:1–34/34; F:1–32/32 | 002 / CD | S |
-| `Development/DEVELOPMENT_STATE.md` | E / EVD | `fe2c77e37fa596563ef87abeb17631b830d17a12` | `d23397b8abc4e7624486ae10229f614697297159` | 1718 / 12 / 0 table lines | B:1–38/38; F:1–12/12 | 002 / CD | S |
+| `Development/DB_CHECKPOINT.md` | E / EVD | `a5ee3575be0b3aa879fccc41281354e24aa3cacd` | `c2835547df19f84d4219aa16b501a102afbb0d26` | 3312 / 62 / 12 table lines | B:1–60/60; F:1–62/62 | 002 / CD | S |
+| `Development/DB_IMPLEMENTATION_MATRIX.md` | E / EVD | `81d4208f60e37fbb93a83b2a68d8ef9e7a05b066` | `909c32fcae1781479d77cd45b8ae3987acc3ea5c` | 2164 / 32 / 12 table lines | B:1–34/34; F:1–32/32 | 002 / CD | S |
+| `Development/DEVELOPMENT_STATE.md` | E / EVD | `fe2c77e37fa596563ef87abeb17631b830d17a12` | `6a9856ac31263918fc41ec5127d0d063d5e256ed` | 1729 / 12 / 0 table lines | B:1–38/38; F:1–12/12 | 002 / CD | S |
 
 ## Foundation — 16 files
 
@@ -199,15 +199,15 @@ Git cannot embed the SHA of a file inside that same file without changing its SH
 
 | File | Class / role | Start blob | Current blob | Bytes / lines / records | Full read | Findings / correction | Revalidation |
 |---|---|---|---|---|---|---|---|
-| `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` | E / EVD | `NEW` | `65b122fa03c571e7b225faf2929cdcb3f14044c1` | 29753 / 238 / 139 table lines | B:NEW; F:1–238/238 | EVIDENCE:001…026 / CD | S |
-| `Registers/ALL_STAGES_FILE_COVERAGE_2026-09-13.md` | E / EVD | `NEW` | `SELF_GIT_TREE` | 54587 / 307 / 249 table lines | B:NEW; F:1–307/307 | EVIDENCE:001…026 / CD | S |
+| `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` | E / EVD | `NEW` | `287117cf8075401fced65acb22e4ed1c160099a6` | 31694 / 250 / 139 table lines | B:NEW; F:1–250/250 | EVIDENCE:001…026 / CD | S |
+| `Registers/ALL_STAGES_FILE_COVERAGE_2026-09-13.md` | E / EVD | `NEW` | `SELF_GIT_TREE` | 54609 / 307 / 249 table lines | B:NEW; F:1–307/307 | EVIDENCE:001…026 / CD | S |
 | `Registers/ARCHITECTURE_FINAL_AUDIT.md` | E / EVD | `2aace7a48fd22c1d99be1bc327a06adbd6613c0c` | `2aace7a48fd22c1d99be1bc327a06adbd6613c0c` | 2391 / 44 / 0 table lines | B:1–44/44; F:1–44/44 | NONE / — | S |
 | `Registers/ARCHITECTURE_NO_LOSS_AUDIT.md` | E / EVD | `1029e31ccb0d2ec56fa9c0faa9ec3babbdff6a23` | `1029e31ccb0d2ec56fa9c0faa9ec3babbdff6a23` | 2282 / 40 / 0 table lines | B:1–40/40; F:1–40/40 | NONE / — | S |
 | `Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md` | E / EVD | `4c51576b4af330ba32537f2a58d55301eb30ed0c` | `4c51576b4af330ba32537f2a58d55301eb30ed0c` | 4471 / 35 / 27 table lines | B:1–35/35; F:1–35/35 | NONE / — | S |
 | `Registers/D-CHANGELOG.md` | E / EVD | `27436db9ff712e3b484dcff2d0ad18fd6e847aa6` | `c083ba8af326acceb1e0e45a4f1b32c39cc00682` | 13304 / 45 / 41 table lines | B:1–51/51; F:1–45/45 | 002/022 / CD | S |
-| `Registers/D-CHECKPOINT.md` | E / EVD | `56f85257588864c6d922fce993b488dd8279dc36` | `5f168c9fa9169d7999a9e998881c251432d93512` | 1590 / 12 / 0 table lines | B:1–32/32; F:1–12/12 | 002 / CD | S |
+| `Registers/D-CHECKPOINT.md` | E / EVD | `56f85257588864c6d922fce993b488dd8279dc36` | `b23c4c7a3bb222a3daa5f74772c8339e6bfa9486` | 1601 / 12 / 0 table lines | B:1–32/32; F:1–12/12 | 002 / CD | S |
 | `Registers/D-DECISIONS.md` | A / GOV | `75215cb8e2637430ec6ec02643b771a9c9178e3c` | `da98835d6d3c04a4cee50b7efe38730b76382c50` | 23467 / 181 / 47 table lines | B:1–176/176; F:1–181/181 | 002 / CD | S |
-| `Registers/D-INDEX.md` | E / EVD | `3a3ae04a795484659c47787f19e8ea2e0a7697a9` | `45534bfd01d84ab0f88910f46fb032e92af41567` | 2008 / 20 / 13 table lines | B:1–28/28; F:1–20/20 | 002 / CD | S |
+| `Registers/D-INDEX.md` | E / EVD | `3a3ae04a795484659c47787f19e8ea2e0a7697a9` | `60481a86f22d221d9fbac2c104e7bb7f4b03719c` | 2019 / 20 / 13 table lines | B:1–28/28; F:1–20/20 | 002 / CD | S |
 | `Registers/DD_REQUIREMENT_TRACEABILITY_F5.md` | E / EVD | `498b751b34cecceacd6bacf0be8e94dd2b5b2c9d` | `498b751b34cecceacd6bacf0be8e94dd2b5b2c9d` | 88909 / 340 / 330 table lines | B:1–340/340; F:1–340/340 | NONE / — | S |
 | `Registers/F5_DEFERRED_REQUIREMENT_DISPOSITION.md` | E / EVD | `fe42a4b8ce176883f2a645d3e146058217acfbb0` | `a56c6fe6c498dc874bc7b72e86b41ed7a2d0a067` | 79130 / 403 / 398 table lines | B:1–412/412; F:1–403/403 | 002/025 / CD | S |
 | `Registers/F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md` | E / EVD | `d005a6a2a30076df7a14a179e1dec5b11aff4b89` | `f7487fa492e53dc3ec7df6d98d62d6f4883f9673` | 551595 / 2980 / 2964 table lines | B:1–2979/2979; F:1–2980/2980 | 002/025 / CD | S |
@@ -215,7 +215,7 @@ Git cannot embed the SHA of a file inside that same file without changing its SH
 | `Registers/F5_USER_DIRECTED_REQUIREMENTS.md` | E / EVD | `6a7395483128e22b545a62e9798a2481a95554b6` | `6a7395483128e22b545a62e9798a2481a95554b6` | 49496 / 337 / 330 table lines | B:1–337/337; F:1–337/337 | NONE / — | S |
 | `Registers/FINAL_AUDIT_CP-F1-005.md` | H / HIS | `255da801736d4fc84e97e9339400664bd30339fe` | `255da801736d4fc84e97e9339400664bd30339fe` | 5889 / 24 / 8 table lines | B:1–24/24; F:1–24/24 | HISTORY / — | H |
 | `Registers/FINAL_PRE_DEVELOPMENT_ADVERSARIAL_AUDIT_2026-09-13.md` | H / HIS | `d808db6cefaaa911f0a24a3cf633a0e2da662a05` | `d808db6cefaaa911f0a24a3cf633a0e2da662a05` | 5647 / 119 / 0 table lines | B:1–119/119; F:1–119/119 | HISTORY / — | H |
-| `Registers/ISOLATION_ATTACK_MATRIX.md` | E / EVD | `157b03e8e6499a1a5de2103cb9d8e9aa825d1658` | `161f1b7cabdb38b663c2753b6c12a2f9f08a6ad8` | 10014 / 87 / 50 table lines | B:1–53/53; F:1–87/87 | 002 / CD | S |
+| `Registers/ISOLATION_ATTACK_MATRIX.md` | E / EVD | `157b03e8e6499a1a5de2103cb9d8e9aa825d1658` | `3f51015df1cb80a1ac4550c909083c050f0f0c88` | 10014 / 87 / 50 table lines | B:1–53/53; F:1–87/87 | 002 / CD | S |
 | `Registers/MS_COMPLETENESS_MATRIX.md` | E / EVD | `6d0dabada3c10078ca3bfb726f7699a3432d526d` | `6d0dabada3c10078ca3bfb726f7699a3432d526d` | 4308 / 51 / 43 table lines | B:1–51/51; F:1–51/51 | NONE / — | S |
 | `Registers/NO_LOSS_AUDIT.md` | E / EVD | `437ce048d5a326d540201c3c6ce1b8835cec998c` | `437ce048d5a326d540201c3c6ce1b8835cec998c` | 2673 / 42 / 0 table lines | B:1–42/42; F:1–42/42 | NONE / — | S |
 | `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md` | H / HIS | `853ab4524bf7a7e0913ca328a2b1cbf8d87b4b5a` | `853ab4524bf7a7e0913ca328a2b1cbf8d87b4b5a` | 7972 / 104 / 31 table lines | B:1–104/104; F:1–104/104 | HISTORY / — | H |
@@ -235,17 +235,17 @@ Git cannot embed the SHA of a file inside that same file without changing its SH
 
 | File | Class / role | Start blob | Current blob | Bytes / lines / records | Full read | Findings / correction | Revalidation |
 |---|---|---|---|---|---|---|---|
-| `State/HANDOFF_NOTE.md` | E / EVD | `68d0b63a1cadcc2057ba731d0272797c18754065` | `12e3d14fb5bf86d9d83894cf10c088138226d5f3` | 1410 / 10 / 0 table lines | B:1–18/18; F:1–10/10 | 002 / CD | S |
-| `State/PHASE_SUMMARY.md` | E / EVD | `5d3a3ad882847470a96a61556b2387947140538b` | `58185d777ab515114b78326c8df2f661b15605e0` | 14106 / 184 / 0 table lines | B:1–172/172; F:1–184/184 | 002 / CD | S |
+| `State/HANDOFF_NOTE.md` | E / EVD | `68d0b63a1cadcc2057ba731d0272797c18754065` | `60f22676ed78c9b72ae8207313b7d0c9af4faac6` | 1421 / 10 / 0 table lines | B:1–18/18; F:1–10/10 | 002 / CD | S |
+| `State/PHASE_SUMMARY.md` | E / EVD | `5d3a3ad882847470a96a61556b2387947140538b` | `1e3477a5917e6284b346563c9c46fde72f4ea4d8` | 14128 / 184 / 0 table lines | B:1–172/172; F:1–184/184 | 002 / CD | S |
 | `State/PRE_DEVELOPMENT_RECOVERY_MANIFEST.json` | H / HIS | `209dd37001db3663d99fa5a9eceba2f7af2dd390` | `209dd37001db3663d99fa5a9eceba2f7af2dd390` | 20731 / 644 / 390 keys | B:1–644/644; F:1–644/644 | HISTORY / — | H |
-| `State/PROJECT_MANIFEST.json` | E / EVD | `25eb012d3a53dd3ec32777e841b3bb2978f3dd9a` | `549bbae220ae0a123f3c5cfff52473e4ffb5d07a` | 4430 / 105 / 86 keys | B:1–70/70; F:1–105/105 | 002 / CD | S |
-| `State/PROJECT_STATE.md` | E / EVD | `99d8445c022635d3db86aaffe45eaff7421a437b` | `a1f6c08da1658138f7cd3fbcf1f5ae1a1db1153a` | 1814 / 14 / 0 table lines | B:1–22/22; F:1–14/14 | 002 / CD | S |
+| `State/PROJECT_MANIFEST.json` | E / EVD | `25eb012d3a53dd3ec32777e841b3bb2978f3dd9a` | `a7514bcce6ad6f846cb93d56bd1435cb7b4d11cb` | 5136 / 122 / 101 keys | B:1–70/70; F:1–122/122 | 002 / CD | S |
+| `State/PROJECT_STATE.md` | E / EVD | `99d8445c022635d3db86aaffe45eaff7421a437b` | `dcc476fe07a6c4b2a3f486867b8be4c4b14e8d7d` | 1825 / 14 / 0 table lines | B:1–22/22; F:1–14/14 | 002 / CD | S |
 
 ## database — 60 files
 
 | File | Class / role | Start blob | Current blob | Bytes / lines / records | Full read | Findings / correction | Revalidation |
 |---|---|---|---|---|---|---|---|
-| `database/README.md` | E / EVD | `9a4b59d0f017e987eb7b743b6ff4582b834a7e8e` | `2f89b4f995c710639fb60283c5cff20522328f9c` | 4138 / 69 / 0 table lines | B:1–64/64; F:1–69/69 | 002 / CD | S |
+| `database/README.md` | E / EVD | `9a4b59d0f017e987eb7b743b6ff4582b834a7e8e` | `187d51afa822ca7f49911527184d90d9e1386092` | 4149 / 69 / 0 table lines | B:1–64/64; F:1–69/69 | 002 / CD | S |
 | `database/migrations/0001_core_bootstrap.sql` | I / DBCORE | `126c6e322bc2b4fefdc3d7c6054a7e2472f87fc2` | `126c6e322bc2b4fefdc3d7c6054a7e2472f87fc2` | 20314 / 528 / 101 SQL leads | B:1–528/528; F:1–528/528 | CHAIN:003…021/026 / C1…C5 | R |
 | `database/migrations/0002_form_field_parent_rls.sql` | I / DBCORE | `88f101173b131ebf9fe3331bd14537714d7672f7` | `88f101173b131ebf9fe3331bd14537714d7672f7` | 905 / 35 / 7 SQL leads | B:1–35/35; F:1–35/35 | CHAIN:003…021/026 / C1…C5 | R |
 | `database/migrations/0003_identity_authorization.sql` | I / DBCORE | `29492c9366cb0753bd86515d12b8a99c75045f22` | `29492c9366cb0753bd86515d12b8a99c75045f22` | 12038 / 303 / 51 SQL leads | B:1–303/303; F:1–303/303 | CHAIN:003…021/026 / C1…C5 | R |

@@ -64,6 +64,6 @@ See `Development/DB_IMPLEMENTATION_MATRIX.md`.
 
 ## Current validation status
 Historical run `34736717516`: **PASS for migrations `0001`–`0028`**; its default PR checkout did not prove the exact tested branch commit and it is insufficient for the zero-trust findings.  
-PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
 This is a clean-database persistence verification harness, not a production upgrade/rollback runner or evidence of application-level RBAC/ABAC, provider calls, deployment, performance, penetration or recovery testing.

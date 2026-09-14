@@ -37,7 +37,7 @@ Next.js 15 · React 19 · TypeScript 5.x · Node.js 22+ · Tailwind/Shadcn · Po
 - `Registers/ALL_STAGES_FILE_COVERAGE_2026-09-13.md`
 - `State/PROJECT_MANIFEST.json`
 
-PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
 ## Historical phase evidence
 - `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`

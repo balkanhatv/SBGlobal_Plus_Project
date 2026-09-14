@@ -53,7 +53,7 @@ Implemented SQL migrations for:
 - Historical run `34736717516` / job `103669335983`: successful for migrations `0001`–`0028`; the old default PR checkout did not establish the exact tested branch commit and is insufficient for the defects found by the current audit.
 - Corrected executable scope: migrations and verifications `0029`–`0032` plus the unchanged `0099` all-industry suite.
 - First corrected substantive HEAD: `1c4033ca0af3501099a014f9a34d0bad3c21c7dd`.
-- Corrected complete executable checkpoint: PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+- Corrected complete executable checkpoint: PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
 ## Gate
 **DATABASE CURRENT PERSISTENCE CHECKPOINT: VERIFIED.**  

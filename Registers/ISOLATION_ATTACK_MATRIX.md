@@ -1,7 +1,7 @@
 # Isolation Attack Matrix — Current Database Checkpoint
 
 **Updated:** 2026-09-14 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts  
-**Executable checkpoint:** `49b9898b2bfe4b5196876f878621a85f7d034da2` · Database Verify run `34763828341`, job `103741160046` · **SUCCESS**
+**Executable checkpoint:** `2c36b43a7d55c6600b71f9714389e025a06df580` · Database Verify run `34800144921`, job `103841023234` · **SUCCESS**
 
 This overlay supersedes the current-status use of the Phase-4 design-only matrix retained below. SQL evidence proves only the named persistence invariant; future application/service attacks are acceptance contracts, not executed penetration tests. Final documentary commit/CI identities are recorded in [the current audit](ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
 

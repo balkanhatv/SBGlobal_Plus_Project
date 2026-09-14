@@ -25,5 +25,5 @@ DD REVIEW_REQUIRED remains closed. The historical project-wide pre-development g
 
 
 ## All-stages checkpoint evidence
-PostgreSQL+pgvector PASS: commit `49b9898b2bfe4b5196876f878621a85f7d034da2`, Database Verify run `34763828341`, job `103741160046`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the final documentary/substantive closure is recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
