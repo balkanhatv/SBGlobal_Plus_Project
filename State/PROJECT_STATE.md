@@ -1,14 +1,17 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-13 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
+**Updated:** 2026-09-14 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-CORE-CONTEXT-GUARDS-001`
 
-- Foundation/Architecture/Detailed Design: current claimed design scope revalidated, with targeted DD-036…039 and DEV-DB-AC-008…010 corrections.
-- Current phase: **DEVELOPMENT_DATABASE**; Development remains in progress.
-- Database checkpoint: **VERIFIED CURRENT PERSISTENCE SCOPE** — 32 migrations, 26 verification files, 9 Industries, 41 MS, 181 Industry tables.
-- PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
-- Source provenance: 2,962 stable child IDs retained; 396 deferred and 179 partial projection rows reconciled. Counts and old PASS labels do not substitute for source/owner content.
-- Application/API/UI implementation: **NOT STARTED**. Runtime authentication/authorization, provider calls, UI, deployment, performance, penetration and recovery exercises are not certified by SQL CI.
-- RawSourceCorpus: immutable blobs verified unchanged.
-- Main: `3911590ff2020993ce51b32d7b091efd6f5f466f`, unmodified/unmerged by this audit.
-- PR #2: OPEN DRAFT, review only.
-- Current gate and per-file coverage: `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` / `Registers/ALL_STAGES_FILE_COVERAGE_2026-09-13.md`.
-- Next governed action: Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction.
+- Foundation/Architecture/Detailed Design: current claimed design scope revalidated.
+- Development: **IN PROGRESS**.
+- Database persistence checkpoint: **VERIFIED** — 32 migrations, 26 verification files, 9 Industries, 41 MS, 181 Industry tables.
+- Current implementation phase: **CORE SERVICES**.
+- Verified executable Core HEAD: `3f9105f73cf14b5c65a3530411b1ec59b930ddc2`.
+- Core Service Verify: run `34803687579`, job `103851225887` — **22/22 PASS**.
+- Database regression on same executable HEAD: run `34803691382` — **PASS**.
+- Implemented current Core slice: DD-02 RequestContext / WorkerContext / ClientWorkspaceContext; DD-03 IdentityPort/evidence + effective-role query; DD-04 commercial/access guard; DD-06 OperationContract/registry + resource guard flow; membership-derived workspace query.
+- Concrete IdP adapters, PostgreSQL repository adapters, tRPC/REST transports, runtime rate limiter/idempotency adapters, UI/mobile/desktop, deployment/performance/penetration/recovery are **NOT YET CLAIMED**.
+- RawSourceCorpus: immutable.
+- Main: remains unmerged by this continuation.
+- PR #2: review-only unless owner explicitly authorizes merge.
+- Evidence: `Development/CORE_SERVICE_CHECKPOINT.md`.
+- Next governed action: concrete server-side repository/adapters for DD-02/DD-03/DD-04 ports, then DD-06 transport binding.
