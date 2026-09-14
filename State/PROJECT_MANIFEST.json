@@ -2,7 +2,7 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-14",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-CORE-CONTEXT-GUARDS-001",
+  "checkpoint": "DEV-CORE-CONTEXT-GUARDS-002",
   "final_verdict": "VISION-CENTRIC ALL-STAGES CURRENT-STATE AUDIT — PASS; DEVELOPMENT IN PROGRESS AT VERIFIED CORE SERVICE CHECKPOINT",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
@@ -88,14 +88,14 @@
       "ci_conclusion": "success",
       "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f"
     },
-    "next_action": "Implement concrete server-side repository/adapters for DD-02/DD-03/DD-04 ports, then bind the verified Core kernel into DD-06 transport adapters.",
+    "next_action": "Resolve physical owners for compiled permission-version and Industry presentation data, then implement concrete read-side repository adapters.",
     "core_services": {
-      "checkpoint": "DEV-CORE-CONTEXT-GUARDS-001",
-      "verified_head": "3f9105f73cf14b5c65a3530411b1ec59b930ddc2",
-      "core_ci_run_id": 34803687579,
-      "core_ci_job_id": 103851225887,
-      "tests": "22/22 PASS",
-      "database_regression_run_id": 34803691382,
+      "checkpoint": "DEV-CORE-CONTEXT-GUARDS-002",
+      "verified_head": "d078f6937a1de8580a8fac39ffb03881aeea4bc4",
+      "core_ci_run_id": 34804065830,
+      "core_ci_job_id": 103852319041,
+      "tests": "29/29 PASS",
+      "database_regression_run_id": 34804068346,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -115,7 +115,9 @@
         "runtime rate limiter/idempotency adapters",
         "UI/mobile/desktop",
         "deployment/production readiness"
-      ]
+      ],
+      "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_VERIFIED",
+      "next_action": "Resolve physical owners for compiled permission-version and Industry presentation data, then implement concrete read-side repository adapters."
     }
   },
   "current_phase": "DEVELOPMENT_CORE_SERVICES",
