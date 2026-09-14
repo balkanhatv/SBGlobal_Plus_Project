@@ -10,3 +10,6 @@ export * from "./api/operation-registry.js";
 export * from "./authorization/contracts.js";
 export * from "./authorization/guard-ports.js";
 export * from "./authorization/guard-pipeline.js";
+export * from "./tenancy/workspace-service.js";
+export * from "./identity/roles-query-service.js";
+export * from "./api/core-operation-contracts.js";
