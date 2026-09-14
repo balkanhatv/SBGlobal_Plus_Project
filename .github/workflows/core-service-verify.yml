@@ -6,7 +6,11 @@ on:
       - docs/architecture-branch-2
     paths:
       - "src/core/**"
+      - "src/server/**"
+      - "src/server/**"
       - "tests/core/**"
+      - "tests/server/**"
+      - "tests/server/**"
       - "package.json"
       - "tsconfig.json"
       - ".github/workflows/core-service-verify.yml"
@@ -38,5 +42,5 @@ jobs:
       - name: Install exact development compiler
         run: npm install --ignore-scripts --no-audit --no-fund
 
-      - name: Build and run DD-02/DD-03 acceptance slice
+      - name: Build and run Core service acceptance suite
         run: npm run test:core
