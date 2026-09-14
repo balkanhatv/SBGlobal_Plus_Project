@@ -29,20 +29,20 @@ before(async () => {
   await admin.query(`GRANT sbg_app_rw TO ${role}`);
   await admin.query(`INSERT INTO platform_directory.data_home
     (id, code, region_code, jurisdiction_code, topology_class, status)
-    VALUES ($1, $1::text, 'IN-TEST', 'IN', 'SHARED', 'ACTIVE')`, [f.home]);
+    VALUES ($1::uuid, $1::uuid::text, 'IN-TEST', 'IN', 'SHARED', 'ACTIVE')`, [f.home]);
   for (const [tenant, principal, membership, org] of [
     [f.tenantA, f.principalA, f.membershipA, f.orgA], [f.tenantB, f.principalB, f.membershipB, f.orgB],
   ]) {
     await admin.query(`INSERT INTO core_tenancy.tenant
       (id, tenant_code, legal_name, display_name, status, primary_industry_code, data_home_id, residency_region_code, created_at, updated_at)
-      VALUES ($1, $1::text, 'Synthetic adapter fixture', 'Synthetic fixture', 'ACTIVE', 'RTL', $2, 'IN-TEST', now(), now())`, [tenant, f.home]);
+      VALUES ($1::uuid, $1::uuid::text, 'Synthetic adapter fixture', 'Synthetic fixture', 'ACTIVE', 'RTL', $2, 'IN-TEST', now(), now())`, [tenant, f.home]);
     await admin.query(`INSERT INTO core_identity.platform_principal
       (id, principal_type, status, created_at, updated_at) VALUES ($1, 'HUMAN', 'ACTIVE', now(), now())`, [principal]);
     await admin.query(`INSERT INTO core_identity.tenant_membership
       (id, tenant_id, principal_id, status, created_at, updated_at) VALUES ($1, $2, $3, 'ACTIVE', now(), now())`, [membership, tenant, principal]);
     await admin.query(`INSERT INTO core_tenancy.org_unit
       (id, tenant_id, unit_type, code, name, path_key, status, created_at, updated_at)
-      VALUES ($1, $2, 'BRANCH', 'TEST', 'Original fixture', $1::text, 'ACTIVE', now(), now())`, [org, tenant]);
+      VALUES ($1::uuid, $2::uuid, 'BRANCH', 'TEST', 'Original fixture', $1::uuid::text, 'ACTIVE', now(), now())`, [org, tenant]);
   }
   for (const [industry, tenant, code, org] of [
     [f.industryA1, f.tenantA, "RTL", f.orgA], [f.industryA2, f.tenantA, "MFG", f.orgA], [f.industryB1, f.tenantB, "RTL", f.orgB],
