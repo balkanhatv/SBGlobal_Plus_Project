@@ -1,22 +1,22 @@
-# D-CHECKPOINT — DEV-CORE-CONTEXT-GUARDS-001
+# D-CHECKPOINT — DEV-CORE-CONTEXT-GUARDS-002
 **Updated:** 2026-09-14 · **Branch:** `docs/architecture-branch-2`
 
-Foundation/Architecture/DD remain the governing design owners. Database persistence remains verified.
+Database persistence remains verified. Development has advanced into Core Services.
 
-## Current Development checkpoint
-Executable Core service slice verified at `3f9105f73cf14b5c65a3530411b1ec59b930ddc2`.
-
-Implemented:
-- DD-02 Tenant/Industry RequestContext resolution and worker/client projections;
-- DD-03 provider-neutral IdentityPort and effective-role query;
-- DD-04 typed commercial/access guard;
-- DD-06 OperationContract registry and fail-closed resource guard pipeline;
-- baseline membership-derived workspace query.
+Latest executable verified HEAD: `d078f6937a1de8580a8fac39ffb03881aeea4bc4`.
 
 Evidence:
-- Core Service Verify `34803687579` / job `103851225887`: **22/22 PASS**.
-- Database Verify `34803691382` on same executable HEAD: **PASS**.
+- Core Service Verify `34804065830` / job `103852319041`: **29/29 PASS**.
+- Database Verify `34804068346`: **PASS on the same executable HEAD**.
 
-No UI/mobile/desktop/provider/deployment completion is claimed.
+Verified slice:
+- DD-02 context resolution / worker / client projection;
+- DD-03 identity boundary + role query;
+- DD-04 commercial/access guard;
+- DD-06 operation/resource guard;
+- baseline workspace/effective-role services;
+- transaction-local PostgreSQL RequestContext boundary preventing pooled-context residue.
 
-Next: concrete server-side repository/adapters for verified ports, then DD-06 transport binding. RawSourceCorpus stays immutable; `main` remains protected from merge without explicit owner direction.
+No concrete IdP/API/UI/deployment completion is claimed.
+
+Next: resolve exact physical owners for compiled permission-version and Industry presentation data, then implement concrete read-side repositories without inventing schema. RawSourceCorpus stays immutable; `main` stays unmerged without explicit owner direction.
