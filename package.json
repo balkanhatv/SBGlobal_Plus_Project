@@ -1,0 +1,16 @@
+{
+  "name": "sbglobal-plus",
+  "version": "0.0.0-development",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build:core": "tsc -p tsconfig.json",
+    "test:core": "npm run build:core && node --test tests/core/*.test.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}
