@@ -1,40 +1,26 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-14 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-CORE-CONTEXT-GUARDS-001`
+**Updated:** 2026-09-14 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-CORE-CONTEXT-GUARDS-002`
 
-Development is **IN PROGRESS — CORE SERVICES STARTED**.
+Development is **IN PROGRESS — CORE SERVICES**.
 
-## Verified prior checkpoint
-Database persistence remains verified:
-- 32 migrations;
-- 26 verification files;
-- 9 Industries;
-- 41 canonical MS;
-- 181 canonical Industry tables.
+Database persistence remains verified: 32 migrations, 26 verification files, 9 Industries, 41 canonical MS, 181 canonical Industry tables.
 
-## Current executable Core slice
-Verified executable HEAD: `3f9105f73cf14b5c65a3530411b1ec59b930ddc2`.
+Latest executable verified HEAD: `d078f6937a1de8580a8fac39ffb03881aeea4bc4`.
 
-Implemented and CI-verified:
-- DD-02 immutable Tenant/Industry RequestContext resolution;
-- DD-03 provider-neutral IdentityPort/evidence contracts;
-- fail-closed machine credential Tenant/Industry binding;
-- sanitized ClientWorkspaceContext;
-- WorkerContext no-default behavior;
-- DD-04 commercial/access guard integration;
-- DD-06 OperationContract + operation registry;
-- pre-resource base PDP + post-resolution resource PDP flow;
-- normalized deny/upgrade/restrict handling;
-- membership-derived workspace query service;
-- `core.identity.roles.listEffective` service and canonical permission binding.
+Implemented and verified:
+- DD-02 RequestContext/WorkerContext/ClientWorkspaceContext;
+- DD-03 IdentityPort/evidence + effective-role query;
+- DD-04 commercial/access guard;
+- DD-06 OperationContract/registry + pre-resource/resource guard pipeline;
+- baseline workspace + role query services;
+- transaction-local server DB RequestContext boundary for pooled PostgreSQL safety.
 
 Evidence:
-- Core Service Verify run `34803687579`, job `103851225887`: **22/22 PASS**.
-- Database Verify run `34803691382` on the same executable HEAD: **PASS**.
+- Core Service Verify `34804065830` / job `103852319041`: **29/29 PASS**.
+- Database Verify `34804068346` on the same executable HEAD: **PASS**.
 
-## Not yet claimed
-Concrete Clerk/Auth.js adapters, PostgreSQL service repositories, tRPC/REST adapters, rate-limit/idempotency runtime adapters, UI/mobile/desktop, deployment and production readiness are not yet implemented/certified.
+Not yet claimed: concrete IdP adapter, full PostgreSQL repositories, compiled permission-set adapter, Industry presentation catalog adapter, tRPC/REST transport adapters, rate limiter/idempotency runtime, UI/mobile/desktop, deployment or production readiness.
 
-## Next governed Development task
-Implement concrete server-side repository/adapters for the DD-02/DD-03/DD-04 ports while preserving module-table ownership and RLS boundaries, then bind the verified Core kernel into DD-06 transport adapters.
+Next governed task: resolve exact physical owners for compiled permission-version and Industry presentation data, then implement concrete read-side repository adapters; do not infer missing fields.
 
 RawSourceCorpus remains immutable. No merge to `main` without explicit owner direction.
