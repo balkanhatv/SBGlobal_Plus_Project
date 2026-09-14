@@ -1,6 +1,6 @@
 # D-CHANGELOG — Foundation Builds 1–2 + Architecture + Truth Revalidation
 
-**Current-state rule:** Rows are dated history. The current all-stages report and its exact Git/CI evidence govern the current checkpoint; prior labels alone are not substantive proof.
+**Current-state rule:** Rows are dated history. The current Core checkpoint and its exact Git/CI evidence govern active Development. The all-stages report retains its historical audit scope; prior labels alone are not substantive proof.
 
 | Date | Change | Scope | By |
 |---|---|---|---|
@@ -47,3 +47,5 @@
 | 14-09-2026 | Development advanced from verified Database persistence into Core Services. Added strict TypeScript Core kernel for DD-02/DD-03 RequestContext/Identity, DD-04 commercial/access guards, DD-06 OperationContract/resource guard flow, membership-derived workspace query and effective-role query. Core Service Verify run 34803687579: 22/22 PASS; Database regression run 34803691382: PASS at executable HEAD 3f9105f73cf14b5c65a3530411b1ec59b930ddc2. | Development / Core Services | GPT-5.6 Sol under explicit Continue |
 
 | 14-09-2026 | Core Services checkpoint advanced: added transaction-local PostgreSQL RequestContext boundary and INF-015-style pooled-context tests. Executable HEAD d078f6937a1de8580a8fac39ffb03881aeea4bc4; Core Service Verify 34804065830: 29/29 PASS; Database Verify 34804068346: PASS. | Development / Core Services | GPT-5.6 Sol under explicit Continue |
+
+| 14-09-2026 | DEV-CORE-POSTGRES-001: re-fetched baseline ea24fa6 and corrected lifecycle/membership/org/restriction/route and stale-state inconsistencies under DD-040 / DEV-CORE-MAP-001. Added locked pg transaction adapter and real RLS/pool tests; fixed 42P08 UUID fixture typing and deferred primary-Industry fixture integrity without changing SQL constraints. Executable 0ada4283959ea4abe39a0980574e2dfdcb62e508: Core run 34823407649 passed 40 Core + 7 PostgreSQL tests; Database run 34823407538 passed 32 migrations / 26 verification files. Reconciled current checkpoint/state/index while retaining historical evidence and the two unbound physical read contracts. | Development / Core PostgreSQL + governed checkpoint | AI under explicit Continue and fresh-consistency instruction |

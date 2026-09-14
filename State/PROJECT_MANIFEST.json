@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-14",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-CORE-CONTEXT-GUARDS-002",
-  "final_verdict": "VISION-CENTRIC ALL-STAGES CURRENT-STATE AUDIT — PASS; DEVELOPMENT IN PROGRESS AT VERIFIED CORE SERVICE CHECKPOINT",
+  "checkpoint": "DEV-CORE-POSTGRES-001",
+  "final_verdict": "DEVELOPMENT IN PROGRESS — CURRENT CORE KERNEL AND POOLED POSTGRESQL SLICE IMPLEMENTED / TESTED; PERMISSION AND INDUSTRY PRESENTATION READ CONTRACTS PENDING",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "REVALIDATED_COMPLETED_SCOPE_WITH_TARGETED_DATABASE_CORRECTIONS",
+    "detailed_design": "HISTORICAL_SCOPE_REVALIDATED_DD040_DRIVER_SPECIFIED_READ_BINDINGS_PENDING",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
-    "isolation": "VERIFIED_DESIGN_AND_CURRENT_SQL_PERSISTENCE_ONLY",
+    "isolation": "TESTED_CURRENT_SQL_CORE_AND_POSTGRESQL_POOL_SCOPE",
     "development": "IN_PROGRESS_CORE_SERVICES_VERIFIED_SLICE",
-    "application_api_ui": "NOT_STARTED",
+    "application_api_ui": "CORE_APPLICATION_SERVICES_STARTED_API_TRANSPORTS_UI_NOT_STARTED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD02_DD03_DD04_DD06_KERNEL_VERIFIED"
+    "core_services": "DD02_DD03_DD04_DD06_KERNEL_AND_DD040_POSTGRESQL_DRIVER_TESTED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -27,7 +27,8 @@
     "corrected": 26,
     "open_current_scope_p0": 0,
     "open_current_scope_p1": 0,
-    "approval_blockers": 0
+    "approval_blockers": 0,
+    "scope": "Historical all-stages audit root-cause counts; not a new count of this Core continuation"
   },
   "backup": {
     "decision_id": "UD-BACKUP-01",
@@ -51,14 +52,15 @@
       "merge_authorized": false,
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
-    "main_merge": "not performed; future merge requires explicit user direction"
+    "main_merge": "not performed; future merge requires explicit user direction",
+    "verified_code_head": "0ada4283959ea4abe39a0980574e2dfdcb62e508"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
     "current_phase": "Core Services",
-    "application_api_ui_started": false,
+    "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
       "shared_core": "IMPLEMENTED_CURRENT_PERSISTENCE_SCOPE",
@@ -72,13 +74,13 @@
       "migration_count": 32,
       "verification_file_count": 26,
       "migration_range": "0001-0032",
-      "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
-      "ci_run_id": 34800144921,
-      "ci_job_id": 103841023234,
-      "ci_tested_commit_assertion": "PASS",
+      "ci_verified_head": "0ada4283959ea4abe39a0980574e2dfdcb62e508",
+      "ci_run_id": 34823407538,
+      "ci_job_id": 103909903763,
+      "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
-        "application/API/UI implementation",
-        "runtime RBAC/ABAC guard execution",
+        "end-to-end application/API/UI behavior",
+        "full production RBAC/ABAC integration",
         "provider calls",
         "production upgrade/rollback",
         "deployment",
@@ -86,16 +88,46 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f"
+      "ci_verified_tree": "29b3c4e2b7bded7fec03787c22a1de3ee74b6908",
+      "historical_all_stages_ci": {
+        "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
+        "ci_run_id": 34800144921,
+        "ci_job_id": 103841023234,
+        "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
+        "scope": "Historical all-stages SQL persistence audit"
+      }
     },
-    "next_action": "Resolve physical owners for compiled permission-version and Industry presentation data, then implement concrete read-side repository adapters.",
+    "next_action": "Specify the exact Authorization compiled-permission snapshot/version persistence contract and the Current Supported Industry presentation catalog contract, then implement their module-owned read adapters. Do not infer missing fields, broaden database grants, or join across module ownership.",
     "core_services": {
-      "checkpoint": "DEV-CORE-CONTEXT-GUARDS-002",
-      "verified_head": "d078f6937a1de8580a8fac39ffb03881aeea4bc4",
-      "core_ci_run_id": 34804065830,
-      "core_ci_job_id": 103852319041,
-      "tests": "29/29 PASS",
-      "database_regression_run_id": 34804068346,
+      "checkpoint": "DEV-CORE-POSTGRES-001",
+      "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
+      "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
+      "decision": "DD-040 / DEV-CORE-AC-001",
+      "verified_head": "0ada4283959ea4abe39a0980574e2dfdcb62e508",
+      "verified_tree": "29b3c4e2b7bded7fec03787c22a1de3ee74b6908",
+      "core_ci_run_id": 34823407649,
+      "core_ci_job_id": 103909904253,
+      "tests": "40/40 PASS",
+      "core_test_counts": {
+        "tests": 40,
+        "pass": 40,
+        "fail": 0,
+        "skip": 0
+      },
+      "postgres_ci_run_id": 34823407649,
+      "postgres_ci_job_id": 103909904031,
+      "postgres_tests": "7/7 PASS",
+      "postgres_test_counts": {
+        "tests": 7,
+        "pass": 7,
+        "fail": 0,
+        "skip": 0
+      },
+      "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
+      "core_push_run_id": 34823403619,
+      "core_push_result": "PASS",
+      "database_regression_run_id": 34823407538,
+      "database_regression_job_id": 103909903763,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -106,19 +138,81 @@
         "DD-04 typed commercial/access guard",
         "DD-06 OperationContract and registry",
         "DD-06 pre-resource and resource guard flow",
-        "membership-derived workspace query"
+        "membership-derived workspace query",
+        "DD-05-aligned Tenant/Industry/OrgUnit lifecycles",
+        "membership/principal/org ownership checks and workspace membership revalidation",
+        "Tenant Core resource scope and fail-closed opaque restriction collisions",
+        "trusted Data Home/region/dedicated Tenant route binding before pool checkout",
+        "immutable context snapshot before asynchronous pool checkout",
+        "concrete pg transaction adapter using one client and existing sbg_app_rw",
+        "nonprivileged login/runtime role checks and row_security",
+        "transaction-local scope/elevation initialization and pool cleanup",
+        "rollback/commit/error/expired-handle safety without automatic write retries",
+        "real PostgreSQL max-one-client reuse and Tenant/Industry RLS regressions"
       ],
       "not_claimed": [
+        "compiled permission persistence/read adapter",
+        "Current Supported Industry presentation catalog/read adapter",
+        "full module-owned PostgreSQL query repositories",
+        "trusted directory/Identity bootstrap adapter",
         "Clerk/Auth.js concrete adapters",
-        "PostgreSQL repository adapters",
+        "full provider/security/PDP/commercial integration",
         "tRPC/REST transport adapters",
         "runtime rate limiter/idempotency adapters",
         "UI/mobile/desktop",
         "deployment/production readiness"
       ],
-      "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_VERIFIED",
-      "next_action": "Resolve physical owners for compiled permission-version and Industry presentation data, then implement concrete read-side repository adapters."
-    }
+      "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_AND_REAL_POSTGRESQL_POOL_REUSE_TESTED",
+      "pending_physical_contracts": [
+        {
+          "owner": "Authorization",
+          "contract": "compiled permission snapshot identity, monotonic version/invalidation and scoped persistence",
+          "status": "UNBOUND"
+        },
+        {
+          "owner": "Current Supported Industry catalog (A-09/DD-10)",
+          "contract": "versioned presentation catalog/projection physical source",
+          "status": "UNBOUND"
+        }
+      ],
+      "next_action": "Specify the exact Authorization compiled-permission snapshot/version persistence contract and the Current Supported Industry presentation catalog contract, then implement their module-owned read adapters. Do not infer missing fields, broaden database grants, or join across module ownership."
+    },
+    "application_api_ui_scope_note": "Core application services have started; API transports and UI have not started.",
+    "application_services_started": true,
+    "api_transports_started": false,
+    "ui_started": false,
+    "historical_core_checkpoints": [
+      {
+        "checkpoint": "DEV-CORE-CONTEXT-GUARDS-002",
+        "verified_head": "d078f6937a1de8580a8fac39ffb03881aeea4bc4",
+        "core_ci_run_id": 34804065830,
+        "core_ci_job_id": 103852319041,
+        "tests": "29/29 PASS",
+        "database_regression_run_id": 34804068346,
+        "database_regression_result": "PASS",
+        "implemented": [
+          "DD-02 RequestContext resolution",
+          "DD-02 WorkerContext validation",
+          "DD-02 ClientWorkspaceContext sanitization",
+          "DD-03 provider-neutral IdentityPort/evidence",
+          "DD-03 effective role query service",
+          "DD-04 typed commercial/access guard",
+          "DD-06 OperationContract and registry",
+          "DD-06 pre-resource and resource guard flow",
+          "membership-derived workspace query"
+        ],
+        "not_claimed": [
+          "Clerk/Auth.js concrete adapters",
+          "PostgreSQL repository adapters",
+          "tRPC/REST transport adapters",
+          "runtime rate limiter/idempotency adapters",
+          "UI/mobile/desktop",
+          "deployment/production readiness"
+        ],
+        "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_VERIFIED",
+        "next_action": "Resolve physical owners for compiled permission-version and Industry presentation data, then implement concrete read-side repository adapters."
+      }
+    ]
   },
   "current_phase": "DEVELOPMENT_CORE_SERVICES",
   "audit": {
@@ -143,11 +237,52 @@
       "branch": "docs/architecture-branch-2",
       "path": "State/PROJECT_MANIFEST.json",
       "rule": "latest commit touching this path at audit closure; exact SHA also recorded in PR #2 and final delivery"
-    }
+    },
+    "scope_note": "Historical all-stages audit at its recorded immutable HEAD; this Core continuation does not reissue that audit or its defect counts."
   },
   "historical_predevelopment_phase_heads": {
     "foundation": "4b5ec3667ae81c0b4c92a4cf0daba0282edd4131",
     "architecture": "9453ebb0140670984753cec9e66613475789610b",
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
+  },
+  "continuation": {
+    "checkpoint": "DEV-CORE-POSTGRES-001",
+    "corrected_baseline_head": "ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5",
+    "corrected_baseline_tree": "ba95a8a1fd811f1b5ece01ba891535878827aa3c",
+    "verified_code_head": "0ada4283959ea4abe39a0980574e2dfdcb62e508",
+    "verified_code_tree": "29b3c4e2b7bded7fec03787c22a1de3ee74b6908",
+    "code_snapshot_files": 226,
+    "changes": [
+      "1835fc4201998d05368a5aec1e963fca263dba35",
+      "456d3bf567547483471110917e71f7337a70f707",
+      "4810f48c7b1011e21d6dfaa7c09b80b6d51882f0",
+      "0ada4283959ea4abe39a0980574e2dfdcb62e508"
+    ],
+    "failed_ci_attempts": [
+      {
+        "head": "456d3bf567547483471110917e71f7337a70f707",
+        "run_id": 34822993178,
+        "job_id": 103908589862,
+        "error_code": "42P08",
+        "cause": "Test fixture reused a parameter with UUID/text inference",
+        "fixed_by": "4810f48c7b1011e21d6dfaa7c09b80b6d51882f0"
+      },
+      {
+        "head": "4810f48c7b1011e21d6dfaa7c09b80b6d51882f0",
+        "run_id": 34823183910,
+        "job_id": 103909200042,
+        "error_code": "23514",
+        "cause": "Test fixture violated deferred active-Tenant primary-Industry invariant",
+        "fixed_by": "0ada4283959ea4abe39a0980574e2dfdcb62e508"
+      }
+    ],
+    "schema_or_verification_sql_changed": false,
+    "removed_or_renamed_files": 0,
+    "metadata_closure_head": null,
+    "metadata_closure_resolution": "Read the publication commit from Git after updating this self-containing manifest; recorded CI evidence belongs to verified_code_head, not an invented closure SHA.",
+    "next_task_model_capability": "Authorization/data-contract reasoning and TypeScript/PostgreSQL implementation; select from actually available models.",
+    "model_switch_performed": false,
+    "scope_gate": "IMPLEMENTED_TESTED_CURRENT_CORE_POSTGRESQL_SLICE",
+    "approval_blockers": 0
   }
 }

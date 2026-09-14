@@ -1,5 +1,5 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Status:** ACTIVE · **Updated:** 2026-09-13
+**Status:** ACTIVE · **Updated:** 2026-09-14
 
 ## Authority
 1. Primary Vision
@@ -32,3 +32,5 @@ Earlier source variants remain historical Git evidence only and are not competin
 Fresh Foundation evidence: requirement-level traceability + MS completeness + `NO_LOSS_AUDIT.md`. Fresh Architecture evidence: `ARCHITECTURE_TRACEABILITY_MATRIX.md`, `ISOLATION_ATTACK_MATRIX.md`, `ARCHITECTURE_NO_LOSS_AUDIT.md`, and `ARCHITECTURE_FINAL_AUDIT.md`.
 
 Those earlier audit files retain their historical evaluated scope. Current all-stages revalidation, exact database CI and gate truth are recorded in `ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` and `../State/PROJECT_MANIFEST.json`.
+
+Current Core Development evidence is [DEV-CORE-POSTGRES-001](../Development/CORE_SERVICE_CHECKPOINT.md); its bounded no-loss check is appended to [NO_LOSS_AUDIT](NO_LOSS_AUDIT.md). This continuation preserves both accepted blobs and all source IDs; current state projections do not alter source authority.

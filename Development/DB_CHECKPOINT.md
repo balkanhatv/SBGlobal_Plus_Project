@@ -2,6 +2,8 @@
 **Date:** 2026-09-13  
 **Branch:** `docs/architecture-branch-2`
 
+**Scope:** Historical SQL persistence checkpoint. Current Development scope and continuation are owned by [DEV-CORE-POSTGRES-001](CORE_SERVICE_CHECKPOINT.md). The SQL inventory below remains applicable; its former application-not-started state is historical.
+
 ## Repository implementation result
 ### Shared Core
 Implemented SQL migrations for:
@@ -55,8 +57,7 @@ Implemented SQL migrations for:
 - First corrected substantive HEAD: `1c4033ca0af3501099a014f9a34d0bad3c21c7dd`.
 - Corrected complete executable checkpoint: PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
-## Gate
-**DATABASE CURRENT PERSISTENCE CHECKPOINT: VERIFIED.**  
-**DEVELOPMENT: IN PROGRESS; APPLICATION/API/UI NOT STARTED.**
+## Historical gate and current continuation
+**DATABASE PERSISTENCE CHECKPOINT: VERIFIED.** At this historical SQL checkpoint, Core application services/API/UI had not started.
 
-Current gate evidence is bounded to SQL persistence/verification. Next governed action: Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction.
+Core services and the concrete PostgreSQL transaction adapter have since been implemented and tested. Current database regression and next governed work are recorded in [CORE_SERVICE_CHECKPOINT](CORE_SERVICE_CHECKPOINT.md). API transports and UI remain unstarted.

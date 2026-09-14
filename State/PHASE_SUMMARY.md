@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-14
 
-Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. Core services and the server DB-scope kernel are in progress; the project is no longer at an application-not-started checkpoint. Read `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` for repository binding dependencies.
+Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The corrected Core kernel and concrete pooled PostgreSQL adapter are implemented and tested at `DEV-CORE-POSTGRES-001`; API transports and UI remain unstarted. Read `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` for repository binding dependencies.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -184,3 +184,9 @@ The sections below are chronological history of earlier gates and retain their o
 - Source-owner projection audit corrected unrelated AI mappings and preserved every source child ID/text.
 - Platform definitions and child bindings require Control Plane mutation authority in addition to scope; migration/verification 0032 passed.
 - Next governed action: Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction.
+
+## Core PostgreSQL checkpoint — 2026-09-14
+
+Fresh consistency baseline `ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5` was reconciled through DD-040 / DEV-CORE-MAP-001. Lifecycle, membership/org, restriction and route/scope defects were corrected before the independent pooled PostgreSQL driver prerequisite. Two real-CI fixture failures were fixed without weakening schema invariants.
+
+Executable `0ada4283959ea4abe39a0980574e2dfdcb62e508`: Core run `34823407649` passed 40 Core tests and 7 real PostgreSQL tests; Database run `34823407538` passed all 32 migrations / 26 verification files. The exact tested branch commit/tree appear in each job log. [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md) owns evidence and scope limits; [DEV-CORE-MAP-001](../Development/CORE_PERSISTENCE_ADAPTER_MAP.md) owns the remaining permission/catalog contracts. RawSource and main are unchanged; PR #2 remains draft/review only.

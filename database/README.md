@@ -2,7 +2,8 @@
 
 **Status:** DEVELOPMENT IN PROGRESS / CURRENT DATABASE PERSISTENCE VERIFIED  
 **Branch:** `docs/architecture-branch-2`  
-**Current repository checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
+**Current repository checkpoint:** [DEV-CORE-POSTGRES-001](../Development/CORE_SERVICE_CHECKPOINT.md)  
+**Historical SQL checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
 
 ## Strategy
 PostgreSQL is canonical. No ORM/migration framework is selected by governing truth, so the current implementation is SQL-first and framework-neutral.
@@ -40,7 +41,7 @@ All 9 Current Supported Industry schemas have canonical transactional table sets
 
 **Total: 41 canonical Management Systems / 181 Industry tables.**
 
-See `Development/DB_IMPLEMENTATION_MATRIX.md`.
+See [DB_IMPLEMENTATION_MATRIX](../Development/DB_IMPLEMENTATION_MATRIX.md).
 
 ## Verification
 - per-slice SQL verification files exist under `database/verification/`;
@@ -63,6 +64,9 @@ See `Development/DB_IMPLEMENTATION_MATRIX.md`.
 - every Industry document reference resolves to exact-scope DocumentMeta, never StorageObject authority.
 
 ## Current validation status
+Commit `0ada4283959ea4abe39a0980574e2dfdcb62e508`: Database Verify run `34823407538`, job `103909903763` — **PASS**, all 32 migrations and 26 verification files including 0099, with the exact branch commit/tree logged. Core Service Verify run `34823407649` additionally passes 40 Core tests and 7 real PostgreSQL adapter/isolation tests after a separate full bootstrap; see [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+
+## Historical validation evidence
 Historical run `34736717516`: **PASS for migrations `0001`–`0028`**; its default PR checkout did not prove the exact tested branch commit and it is insufficient for the zero-trust findings.  
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 

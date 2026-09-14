@@ -1,5 +1,7 @@
 # REVIEW_REQUIRED — Historical Pre-Development / Current Audit Overlay
-**Updated:** 2026-09-13 · **Checkpoint:** `PREDEV-READY-USER-BACKUP-WAIVER`
+**Updated:** 2026-09-14 · **Current checkpoint:** `DEV-CORE-POSTGRES-001`
+
+Current Development evidence is [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md). Earlier pre-development and Database sections below retain their historical scope.
 
 ## Historical pre-development result
 - Foundation P0/P1: **0/0**
@@ -40,4 +42,4 @@ Open dependent blocker: **0**.
 No approval-blocked correction remains in the current audited scope. The previous OPEN DEV-DB-P1-01 row is closed by its recorded resolution, not an unresolved permission question. Current defects/corrections and CI are in `ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`. RawSource immutability, no main merge, no production deployment and Future-Industry promotion approval rules remain in force.
 
 ## Core adapter continuation boundary — 2026-09-14
-The current physical-source mapping is `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` (DD-040). Compiled permission persistence and Current Supported Industry presentation storage require exact contracts before their read adapters can be implemented. These are pending implementation dependencies, not closed by historical DD/PASS labels and not approval requests. The independent application SQL driver/RLS prerequisite may proceed within the existing security boundaries.
+The current physical-source mapping is `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` (DD-040). Compiled permission persistence and Current Supported Industry presentation storage require exact contracts before their read adapters can be implemented. These are pending implementation dependencies, not closed by historical DD/PASS labels and not approval requests. The independent application SQL driver/RLS prerequisite is implemented and tested at DEV-CORE-POSTGRES-001 (40 Core tests + 7 real PostgreSQL tests, plus the full database regression). The two read-side contracts remain the next unfinished work; no current approval blocker was introduced.

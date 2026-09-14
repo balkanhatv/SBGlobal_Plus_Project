@@ -1,26 +1,12 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-14 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-CORE-CONTEXT-GUARDS-002`
+**Updated:** 2026-09-14 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-CORE-POSTGRES-001`
 
-Development is **IN PROGRESS — CORE SERVICES**.
+Development is **IN PROGRESS — CORE SERVICES**. Core application services and the pooled PostgreSQL transaction adapter are implemented and tested; API transports and UI have not started.
 
-Database persistence remains verified: 32 migrations, 26 verification files, 9 Industries, 41 canonical MS, 181 canonical Industry tables.
+The authoritative scope, corrections and CI evidence are in [CORE_SERVICE_CHECKPOINT](CORE_SERVICE_CHECKPOINT.md). Verified executable commit: `0ada4283959ea4abe39a0980574e2dfdcb62e508`. Core tests: **40/40 PASS**; real PostgreSQL adapter tests: **7/7 PASS**; database regression: **PASS**, all 32 migrations and 26 verification files. Existing SQL coverage remains 9 Industries / 41 canonical MS / 181 canonical Industry tables.
 
-Latest executable verified HEAD: `d078f6937a1de8580a8fac39ffb03881aeea4bc4`.
+Next governed task: Specify the exact Authorization compiled-permission snapshot/version persistence contract and the Current Supported Industry presentation catalog contract, then implement their module-owned read adapters. Do not infer missing fields, broaden database grants, or join across module ownership.
 
-Implemented and verified:
-- DD-02 RequestContext/WorkerContext/ClientWorkspaceContext;
-- DD-03 IdentityPort/evidence + effective-role query;
-- DD-04 commercial/access guard;
-- DD-06 OperationContract/registry + pre-resource/resource guard pipeline;
-- baseline workspace + role query services;
-- transaction-local server DB RequestContext boundary for pooled PostgreSQL safety.
+[CORE_PERSISTENCE_ADAPTER_MAP](CORE_PERSISTENCE_ADAPTER_MAP.md) records the two unbound sources and trusted directory dependency. Full repositories, concrete IdP/PDP/commercial integration, tRPC/REST, rate limiter/idempotency runtime, UI/mobile/desktop and deployment remain unfinished.
 
-Evidence:
-- Core Service Verify `34804065830` / job `103852319041`: **29/29 PASS**.
-- Database Verify `34804068346` on the same executable HEAD: **PASS**.
-
-Not yet claimed: concrete IdP adapter, full PostgreSQL repositories, compiled permission-set adapter, Industry presentation catalog adapter, tRPC/REST transport adapters, rate limiter/idempotency runtime, UI/mobile/desktop, deployment or production readiness.
-
-Next governed task: resolve exact physical owners for compiled permission-version and Industry presentation data, then implement concrete read-side repository adapters; do not infer missing fields.
-
-RawSourceCorpus remains immutable. No merge to `main` without explicit owner direction.
+RawSourceCorpus remains immutable. `main` remains unmerged; PR #2 is open draft/review only. UD-BACKUP-01 remains active.
