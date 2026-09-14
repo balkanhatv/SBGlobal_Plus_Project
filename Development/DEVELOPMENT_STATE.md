@@ -1,12 +1,40 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-13 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
+**Updated:** 2026-09-14 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-CORE-CONTEXT-GUARDS-001`
 
-Development is **IN PROGRESS — DATABASE CHECKPOINT VERIFIED**. This checkpoint covers the existing shared-Core persistence spine and all 181 canonical Industry tables across 9 Industries / 41 MS. It does not mark Development complete.
+Development is **IN PROGRESS — CORE SERVICES STARTED**.
 
-PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+## Verified prior checkpoint
+Database persistence remains verified:
+- 32 migrations;
+- 26 verification files;
+- 9 Industries;
+- 41 canonical MS;
+- 181 canonical Industry tables.
 
-Migrations/verification 0029…0032 correct identity RLS, role/default privileges, immutable scope, same-scope references, event/webhook evidence, documents, workflow/notification, AI sets/provenance, operator elevation and platform-definition write boundaries. DD-036…039, DEV-DB-AC-008…010 and DBA-001…013 own those corrections. Current source routing and state projections were also revalidated; prior broad COMPLETE/PASS wording is superseded by the current evidence report.
+## Current executable Core slice
+Verified executable HEAD: `3f9105f73cf14b5c65a3530411b1ec59b930ddc2`.
 
-Application/API/UI and later production operations remain unstarted. The SQL harness uses a fresh disposable PostgreSQL database; it is not a production upgrade/rollback runner. RawSourceCorpus is immutable; no main merge or production deployment occurred.
+Implemented and CI-verified:
+- DD-02 immutable Tenant/Industry RequestContext resolution;
+- DD-03 provider-neutral IdentityPort/evidence contracts;
+- fail-closed machine credential Tenant/Industry binding;
+- sanitized ClientWorkspaceContext;
+- WorkerContext no-default behavior;
+- DD-04 commercial/access guard integration;
+- DD-06 OperationContract + operation registry;
+- pre-resource base PDP + post-resolution resource PDP flow;
+- normalized deny/upgrade/restrict handling;
+- membership-derived workspace query service;
+- `core.identity.roles.listEffective` service and canonical permission binding.
 
-Next governed action: Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction.
+Evidence:
+- Core Service Verify run `34803687579`, job `103851225887`: **22/22 PASS**.
+- Database Verify run `34803691382` on the same executable HEAD: **PASS**.
+
+## Not yet claimed
+Concrete Clerk/Auth.js adapters, PostgreSQL service repositories, tRPC/REST adapters, rate-limit/idempotency runtime adapters, UI/mobile/desktop, deployment and production readiness are not yet implemented/certified.
+
+## Next governed Development task
+Implement concrete server-side repository/adapters for the DD-02/DD-03/DD-04 ports while preserving module-table ownership and RLS boundaries, then bind the verified Core kernel into DD-06 transport adapters.
+
+RawSourceCorpus remains immutable. No merge to `main` without explicit owner direction.
