@@ -5,3 +5,8 @@ export * from "./context/ports.js";
 export * from "./context/request-context-service.js";
 export * from "./context/client-workspace.js";
 export * from "./context/worker-context.js";
+export * from "./api/operation-contract.js";
+export * from "./api/operation-registry.js";
+export * from "./authorization/contracts.js";
+export * from "./authorization/guard-ports.js";
+export * from "./authorization/guard-pipeline.js";
