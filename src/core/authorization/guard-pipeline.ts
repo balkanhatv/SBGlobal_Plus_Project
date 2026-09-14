@@ -185,7 +185,23 @@ export class GuardPipeline {
     const { requestContext, operation } = input;
     this.assertScope(requestContext, operation);
 
-    await this.ports.commercial.validateCurrent({ requestContext, operation });
+    const commercial = await this.ports.commercial.validateCurrent({
+      requestContext,
+      operation,
+    });
+
+    if (!commercial.allowed) {
+      throw new GuardPipelineError({
+        code: commercial.code,
+        messageSafe: commercial.code === "SUBSCRIPTION_INVALID"
+          ? "Subscription state does not permit this operation."
+          : commercial.code === "LICENSE_INVALID"
+            ? "A required license is not active."
+            : "The requested capability is not available.",
+        reasonCode: commercial.reasonCode,
+        upgradeTarget: commercial.upgradeTarget,
+      });
+    }
 
     const baseDecision = await this.ports.authorization.evaluateBase({
       requestContext,
@@ -262,7 +278,9 @@ export class GuardPipeline {
       });
     }
 
-    if (operation.scopeClass === "TENANT_INDUSTRY" && !context.industryContextId) {
+    if ((operation.scopeClass === "TENANT_INDUSTRY"
+        || operation.scopeClass === "EXPLICIT_CROSS_CONTEXT")
+      && !context.industryContextId) {
       throw new GuardPipelineError({
         code: "INDUSTRY_CONTEXT_REQUIRED",
         messageSafe: "An Industry Context is required.",
