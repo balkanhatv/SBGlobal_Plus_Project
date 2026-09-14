@@ -2,18 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-14",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-DB-CURRENT-STATE-AUDITED-001",
-  "final_verdict": "VISION-CENTRIC ALL-STAGES CURRENT-STATE AUDIT — PASS",
+  "checkpoint": "DEV-CORE-CONTEXT-GUARDS-001",
+  "final_verdict": "VISION-CENTRIC ALL-STAGES CURRENT-STATE AUDIT — PASS; DEVELOPMENT IN PROGRESS AT VERIFIED CORE SERVICE CHECKPOINT",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
     "detailed_design": "REVALIDATED_COMPLETED_SCOPE_WITH_TARGETED_DATABASE_CORRECTIONS",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "VERIFIED_DESIGN_AND_CURRENT_SQL_PERSISTENCE_ONLY",
-    "development": "IN_PROGRESS_DATABASE_CHECKPOINT_VERIFIED",
+    "development": "IN_PROGRESS_CORE_SERVICES_VERIFIED_SLICE",
     "application_api_ui": "NOT_STARTED",
     "production_readiness": "NOT_CLAIMED",
-    "predevelopment_zip": "WAIVED_BY_USER_DIRECTION"
+    "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
+    "core_services": "DD02_DD03_DD04_DD06_KERNEL_VERIFIED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -56,7 +57,7 @@
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Database",
+    "current_phase": "Core Services",
     "application_api_ui_started": false,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -87,9 +88,37 @@
       "ci_conclusion": "success",
       "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f"
     },
-    "next_action": "Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction."
+    "next_action": "Implement concrete server-side repository/adapters for DD-02/DD-03/DD-04 ports, then bind the verified Core kernel into DD-06 transport adapters.",
+    "core_services": {
+      "checkpoint": "DEV-CORE-CONTEXT-GUARDS-001",
+      "verified_head": "3f9105f73cf14b5c65a3530411b1ec59b930ddc2",
+      "core_ci_run_id": 34803687579,
+      "core_ci_job_id": 103851225887,
+      "tests": "22/22 PASS",
+      "database_regression_run_id": 34803691382,
+      "database_regression_result": "PASS",
+      "implemented": [
+        "DD-02 RequestContext resolution",
+        "DD-02 WorkerContext validation",
+        "DD-02 ClientWorkspaceContext sanitization",
+        "DD-03 provider-neutral IdentityPort/evidence",
+        "DD-03 effective role query service",
+        "DD-04 typed commercial/access guard",
+        "DD-06 OperationContract and registry",
+        "DD-06 pre-resource and resource guard flow",
+        "membership-derived workspace query"
+      ],
+      "not_claimed": [
+        "Clerk/Auth.js concrete adapters",
+        "PostgreSQL repository adapters",
+        "tRPC/REST transport adapters",
+        "runtime rate limiter/idempotency adapters",
+        "UI/mobile/desktop",
+        "deployment/production readiness"
+      ]
+    }
   },
-  "current_phase": "DEVELOPMENT_DATABASE",
+  "current_phase": "DEVELOPMENT_CORE_SERVICES",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
