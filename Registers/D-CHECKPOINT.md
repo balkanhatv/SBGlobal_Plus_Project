@@ -1,12 +1,22 @@
-# D-CHECKPOINT — DEV-DB-CURRENT-STATE-AUDITED-001
-**Updated:** 2026-09-13 · **Branch:** `docs/architecture-branch-2`
+# D-CHECKPOINT — DEV-CORE-CONTEXT-GUARDS-001
+**Updated:** 2026-09-14 · **Branch:** `docs/architecture-branch-2`
 
-Foundation/Architecture/DD claimed completed scope is revalidated against the frozen execution-start repository and corrected current source-owner routes. Database Development is in progress at a verified persistence checkpoint: 32 migrations, 26 verification files, 9 Industry schemas, 41 canonical MS and 181 canonical Industry tables.
+Foundation/Architecture/DD remain the governing design owners. Database persistence remains verified.
 
-PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+## Current Development checkpoint
+Executable Core service slice verified at `3f9105f73cf14b5c65a3530411b1ec59b930ddc2`.
 
-Current authority/evidence: `ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`, `ALL_STAGES_FILE_COVERAGE_2026-09-13.md` and `../State/PROJECT_MANIFEST.json`. Those distinguish the substantive audited commit, CI-tested commit and documentary closure. Prior pre-development/Database COMPLETE labels are historical and cannot establish broader runtime/security/production readiness.
+Implemented:
+- DD-02 Tenant/Industry RequestContext resolution and worker/client projections;
+- DD-03 provider-neutral IdentityPort and effective-role query;
+- DD-04 typed commercial/access guard;
+- DD-06 OperationContract registry and fail-closed resource guard pipeline;
+- baseline membership-derived workspace query.
 
-RawSourceCorpus unchanged. Main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains OPEN DRAFT / DO NOT MERGE. Application/API/UI implementation has not started.
+Evidence:
+- Core Service Verify `34803687579` / job `103851225887`: **22/22 PASS**.
+- Database Verify `34803691382` on same executable HEAD: **PASS**.
 
-Next governed action: Continue Development with the DD-02/DD-03 identity and Tenant/Industry context service slice, then DD-04/DD-06 guard integration; retain database CI and the no-main-merge restriction.
+No UI/mobile/desktop/provider/deployment completion is claimed.
+
+Next: concrete server-side repository/adapters for verified ports, then DD-06 transport binding. RawSourceCorpus stays immutable; `main` remains protected from merge without explicit owner direction.
