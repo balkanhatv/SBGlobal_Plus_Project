@@ -9,8 +9,8 @@
 | Architecture | A-00…A-12 / ADR-001…020 | HOW; completed scope revalidated |
 | Detailed Design | DD-00…DD-31; nine Industry DDs | Exact contracts, including DD-036…040 decisions and DBA-001…013; unbound Core read contracts recorded in DEV-CORE-MAP-001 |
 | Source traceability | F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md | 2,962 stable child IDs; dependency routes, not executable claims |
-| Development | ../Development/CORE_SERVICE_CHECKPOINT.md; ../Development/CORE_PERSISTENCE_ADAPTER_MAP.md | Tested Core kernel / pooled PostgreSQL adapter and pending read-side persistence contracts; prior database counts remain in DB_IMPLEMENTATION_MATRIX.md |
-| SQL / CI | migrations 0001…0032; 26 verification files; apply-and-verify.sh | Clean PostgreSQL+pgvector checkpoint verified |
+| Development | ../Development/CORE_SERVICE_CHECKPOINT.md; ../Development/CORE_PERSISTENCE_ADAPTER_MAP.md | Tested Core kernel / pooled PostgreSQL adapter + DD-041/DD-042 read bindings + DD-043 protected PLATFORM_GLOBAL scope floor; provider/PDP/Commercial/transports remain unfinished |
+| SQL / CI | migrations 0001…0034; 28 verification files; apply-and-verify.sh | Current exact-head PostgreSQL+pgvector regression verified; historical 0001…0032 audit retained below |
 | Historical all-stages audit | ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md | Defects, corrections, blast radius, actual Git/CI and gate |
 | Historical all-stages file scope | ALL_STAGES_FILE_COVERAGE_2026-09-13.md | Every start/final file; classification and coverage |
 | State | ../State/PROJECT_MANIFEST.json | Machine-readable current checkpoint |
