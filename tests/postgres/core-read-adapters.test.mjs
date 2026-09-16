@@ -91,6 +91,7 @@ after(async () => {
   const client = await admin.connect();
   try {
     await client.query("BEGIN");
+    await client.query("UPDATE core_authz.compiled_permission_subject SET current_snapshot_id=NULL WHERE id=$1",[f.subject]);
     await client.query("DELETE FROM core_authz.compiled_permission_snapshot WHERE subject_id=$1",[f.subject]);
     await client.query("DELETE FROM core_authz.compiled_permission_subject WHERE id=$1",[f.subject]);
     await client.query("DELETE FROM core_authz.role_template WHERE id=$1",[f.roleId]);
@@ -146,6 +147,7 @@ test("roles read adapter uses caller TENANT_CORE scope and current compiled subj
     assert.equal(result.permissionVersion,1);
     assert.deepEqual(result.roleIds,[f.roleId]);
   } finally {
+    await client.query("UPDATE core_authz.compiled_permission_subject SET current_snapshot_id=NULL WHERE id=$1",[coreSubject]);
     await client.query("DELETE FROM core_authz.compiled_permission_snapshot WHERE subject_id=$1",[coreSubject]);
     await client.query("DELETE FROM core_authz.compiled_permission_subject WHERE id=$1",[coreSubject]);
     client.release();
