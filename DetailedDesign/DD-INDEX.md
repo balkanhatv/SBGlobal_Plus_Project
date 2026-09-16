@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-14 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-CORE-POSTGRES-001`
+**Updated:** 2026-09-16 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-CORE-READS-001`
 
 | Range | Current status |
 |---|---|
@@ -24,11 +24,14 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Current scope is the **implemented/tested Core kernel and pooled PostgreSQL adapter / Development IN PROGRESS**. DD-036…039 and DBA-001…013 own prior SQL corrections; DD-040 owns the concrete driver and truthful read-side mapping. Runtime evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Current scope is the **implemented/tested Core kernel and pooled PostgreSQL adapter / Development IN PROGRESS**. DD-036…039 and DBA-001…013 own prior SQL corrections; DD-040 owns the concrete driver/mapping; DD-041 owns compiled Authorization persistence; DD-042 owns Current Supported Industry presentation persistence. Runtime evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-Compiled-permission snapshot/version persistence and Current Supported Industry presentation storage still require exact contracts before their read adapters. [DEV-CORE-MAP-001](../Development/CORE_PERSISTENCE_ADAPTER_MAP.md) records these scoped gaps; historical zero-gap labels do not close them.
+Compiled-permission and Current Supported Industry presentation physical contracts/read adapters are implemented and tested at DEV-CORE-READS-001. Provider/security/PDP/commercial integration and transports remain unfinished.
 
 
 ## Historical all-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
+
+
+**Current Development evidence:** `7792a8a8…` — 40/40 Core, 11/11 PostgreSQL and 33 migrations / 27 verification files PASS.

@@ -2,14 +2,14 @@
 
 **Status:** DEVELOPMENT IN PROGRESS / CURRENT DATABASE PERSISTENCE VERIFIED  
 **Branch:** `docs/architecture-branch-2`  
-**Current repository checkpoint:** [DEV-CORE-POSTGRES-001](../Development/CORE_SERVICE_CHECKPOINT.md)  
+**Current repository checkpoint:** [DEV-CORE-READS-001](../Development/CORE_SERVICE_CHECKPOINT.md)  
 **Historical SQL checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
 
 ## Strategy
 PostgreSQL is canonical. No ORM/migration framework is selected by governing truth, so the current implementation is SQL-first and framework-neutral.
 
 ## Migration coverage
-Current migrations: `0001` … `0032`.
+Current migrations: `0001` … `0033`.
 
 ### Shared Core
 - Tenant + Industry Context / org units
@@ -46,7 +46,7 @@ See [DB_IMPLEMENTATION_MATRIX](../Development/DB_IMPLEMENTATION_MATRIX.md).
 ## Verification
 - per-slice SQL verification files exist under `database/verification/`;
 - `0099_all_industries.verify.sql` checks 9 schemas / 41 MS / 181 registered Industry tables, forced RLS, ownership columns and cross-Industry namespace consistency;
-- `0029`–`0032` verification files execute privilege/RLS, cross-scope reference, event/webhook, document, workflow/notification and AI adversarial cases;
+- `0029`–`0033` verification files execute privilege/RLS, cross-scope reference, event/webhook, document, workflow/notification, AI and Core read-binding adversarial cases;
 - `database/scripts/apply-and-verify.sh` applies migrations and verification in lexical order;
 - `.github/workflows/database-verify.yml` defines a pgvector-enabled PostgreSQL runtime verification job.
 
@@ -71,3 +71,7 @@ Historical run `34736717516`: **PASS for migrations `0001`–`0028`**; its defau
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
 This is a clean-database persistence verification harness, not a production upgrade/rollback runner or evidence of application-level RBAC/ABAC, provider calls, deployment, performance, penetration or recovery testing.
+
+- `0033_core_context_read_contracts.sql` — DD-041 compiled Authorization subject/snapshot persistence and DD-042 Current Supported Industry presentation catalog with explicit least-privilege grants.
+
+**Current exact CI:** `7792a8a8…` — Database Verify 35062133987/job 104684499111 PASS (33/27); Core 35062130387 PASS (40 Core + 11 PostgreSQL).
