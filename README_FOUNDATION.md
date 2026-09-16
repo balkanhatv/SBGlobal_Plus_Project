@@ -3,7 +3,7 @@
 **Current checkpoint:** `Development/CORE_SERVICE_CHECKPOINT.md`
 **Branch:** `docs/architecture-branch-2`
 
-**Current status:** Development is in progress at the tested Core context/identity/guard kernel and concrete pooled PostgreSQL/RLS adapter. `Development/CORE_SERVICE_CHECKPOINT.md` owns current executable evidence and the next task; `Development/CORE_PERSISTENCE_ADAPTER_MAP.md` records concrete repository dependencies. Historical design/database PASS labels do not establish unimplemented adapter or production readiness.
+**Current status:** Development is in progress at `DEV-CORE-PLATFORM-SCOPE-001`: Core context/identity/guards, pooled PostgreSQL/RLS, DD-041/DD-042 read bindings and DD-043 protected PLATFORM_GLOBAL identity/SQL floor are implemented and tested. `Development/CORE_SERVICE_CHECKPOINT.md` owns current executable evidence and the next task. Historical design/database PASS labels do not establish provider/PDP/Commercial/transport/UI or production readiness.
 
 The physical pre-development ZIP was waived by explicit owner direction under `UD-BACKUP-01`. This session does not claim that a ZIP was created. Any desired local clone/archive backup will be handled manually by the owner.
 
@@ -13,7 +13,7 @@ The physical pre-development ZIP was waived by explicit owner direction under `U
 
 ## Historical design evidence and current SQL scope
 - Product/design P0/P1: 0/0
-- Current adapter binding gaps: see `Development/CORE_PERSISTENCE_ADAPTER_MAP.md`; earlier zero-gap claims apply to their historical design audit scope.
+- DD-041 compiled Authorization and DD-042 Current Supported Industry read bindings are implemented/tested; DD-043 protected PLATFORM_GLOBAL scope floor is implemented/tested. Remaining Core integrations are recorded in `Development/CORE_SERVICE_CHECKPOINT.md`.
 - 9/9 Current Supported Industries: PASS
 - 41/41 Management Systems: PASS
 - 165/165 named KPI/report metrics: mapped
@@ -33,7 +33,7 @@ The physical pre-development ZIP was waived by explicit owner direction under `U
 Next.js 15 · React 19 · TypeScript 5.x · Node.js 22+ · Tailwind/Shadcn · PostgreSQL · Payload CMS 3 · Refine where explicitly justified · Next.js server default · NestJS only where justified · tRPC first-party · REST/OpenAPI external · Clerk preferred/Auth.js fallback · React Native+Expo · Tauri 2.0 · Expo Push/OneSignal · PostgreSQL outbox · pgvector · Vercel suitable workloads · Coolify + Dockerized VPS.
 
 ## Current Development evidence
-[DEV-CORE-POSTGRES-001](Development/CORE_SERVICE_CHECKPOINT.md) records commit `0ada4283959ea4abe39a0980574e2dfdcb62e508`, Core run `34823407649` (**40 Core + 7 PostgreSQL tests PASS**) and Database run `34823407538` (**32 migrations / 26 verification files PASS**). Both workflows assert the tested branch commit.
+[DEV-CORE-PLATFORM-SCOPE-001](Development/CORE_SERVICE_CHECKPOINT.md) records executable `3e7b2927839d289240eb389902563f5ab3d68074`: Core Service Verify `35139097825` PASS (47 Core/server acceptance tests present; 11/11 real PostgreSQL tests) and Database Verify `35139097903` PASS (34 migrations / 28 verification files). Exact tested HEAD is asserted by CI.
 
 ## Historical all-stages audit evidence
 - `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`
@@ -54,4 +54,4 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Draft PR #2 remains review-only. `main` has not been changed by this continuation.
 
 ## Next
-Specify the exact Authorization compiled-permission snapshot/version persistence contract and the Current Supported Industry presentation catalog contract, then implement their module-owned read adapters. Do not infer missing fields, broaden database grants, or join across module ownership. Core application services have started; API transports and UI remain unstarted.
+Implement concrete provider/session-security integration behind the existing Core Identity/Security ports, then PDP/ABAC, Commercial validation integration, and DD-06 tRPC/REST transports. Trusted directory/bootstrap, broader repositories, runtime rate limiter/idempotency, UI/mobile/desktop and deployment remain unfinished.
