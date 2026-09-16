@@ -2,14 +2,14 @@
 
 **Status:** DEVELOPMENT IN PROGRESS / CURRENT DATABASE PERSISTENCE VERIFIED  
 **Branch:** `docs/architecture-branch-2`  
-**Current repository checkpoint:** [DEV-CORE-READS-001](../Development/CORE_SERVICE_CHECKPOINT.md)  
+**Current repository checkpoint:** [DEV-CORE-PLATFORM-SCOPE-001](../Development/CORE_SERVICE_CHECKPOINT.md)  
 **Historical SQL checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
 
 ## Strategy
 PostgreSQL is canonical. No ORM/migration framework is selected by governing truth, so the current implementation is SQL-first and framework-neutral.
 
 ## Migration coverage
-Current migrations: `0001` … `0033`.
+Current migrations: `0001` … `0034`.
 
 ### Shared Core
 - Tenant + Industry Context / org units
@@ -46,7 +46,7 @@ See [DB_IMPLEMENTATION_MATRIX](../Development/DB_IMPLEMENTATION_MATRIX.md).
 ## Verification
 - per-slice SQL verification files exist under `database/verification/`;
 - `0099_all_industries.verify.sql` checks 9 schemas / 41 MS / 181 registered Industry tables, forced RLS, ownership columns and cross-Industry namespace consistency;
-- `0029`–`0033` verification files execute privilege/RLS, cross-scope reference, event/webhook, document, workflow/notification, AI and Core read-binding adversarial cases;
+- `0029`–`0034` verification files execute privilege/RLS, cross-scope reference, event/webhook, document, workflow/notification, AI, Core read-binding and PLATFORM_GLOBAL identity-scope adversarial cases;
 - `database/scripts/apply-and-verify.sh` applies migrations and verification in lexical order;
 - `.github/workflows/database-verify.yml` defines a pgvector-enabled PostgreSQL runtime verification job.
 
@@ -74,4 +74,6 @@ This is a clean-database persistence verification harness, not a production upgr
 
 - `0033_core_context_read_contracts.sql` — DD-041 compiled Authorization subject/snapshot persistence and DD-042 Current Supported Industry presentation catalog with explicit least-privilege grants.
 
-**Current exact CI:** `7792a8a8…` — Database Verify 35062133987/job 104684499111 PASS (33/27); Core 35062130387 PASS (40 Core + 11 PostgreSQL).
+**Current exact CI:** `3e7b2927…` — Database Verify 35139097903/job 104938820048 PASS (current tree: 34 migrations / 28 verification files); Core Service Verify 35139097825 jobs 104938819674 and 104938820027 PASS (current tree: 47 Core/server + 11 PostgreSQL tests).
+
+- `0034_platform_global_identity_scope.sql` — DD-043 persisted PLATFORM_GLOBAL machine-credential scope floor; paired RequestContext/RequestScopedSql acceptance prevents ordinary HUMAN/API_CLIENT platform-global use.

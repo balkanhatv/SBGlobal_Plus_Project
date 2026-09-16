@@ -15,3 +15,7 @@
 
 ## 2026-09-14 — DD-040 / concrete Core SQL adapter binding
 Rechecked the current remote Core checkpoint against DD-02/03/04/05/06 and the SQL inventory. Recorded exact field ownership and the unbound compiled-permission/Industry-presentation dependencies in `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md`. DD-040 specifies pool transaction, RLS role, route matching, cleanup and acceptance for the independent application SQL driver prerequisite; no industry schema or RawSource changes.
+
+
+## 2026-09-17 — DD-043 platform-global scope propagation
+Fresh zero-trust continuation found that DD-043 tests and persistence existed but the SQL request-scope implementation and current acceptance/traceability projections were incomplete. RequestScopedSql now denies HUMAN/API_CLIENT PLATFORM_GLOBAL contexts before transaction use; DD-17 adds explicit ID/DB acceptance contracts; DD-19 routes DD-043 through migration/verification 0034 and executable tests. Exact-head Core and Database CI passed at `3e7b2927839d289240eb389902563f5ab3d68074`. No RawSource, Industry/MS model, or main-branch change.

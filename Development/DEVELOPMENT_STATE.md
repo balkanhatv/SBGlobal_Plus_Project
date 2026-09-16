@@ -1,15 +1,15 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-16 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-CORE-READS-001`
+**Updated:** 2026-09-17 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-CORE-PLATFORM-SCOPE-001`
 
 Development is **IN PROGRESS — CORE SERVICES**.
 
-Verified executable: `7792a8a8dd9825038fbf1a96f6027c9ce730aee2`.
-- Core: **40/40 PASS**.
-- Real PostgreSQL: **11/11 PASS**.
-- Database: **33 migrations / 27 verification files PASS**.
+Verified executable: `3e7b2927839d289240eb389902563f5ab3d68074`.
+- Core/server acceptance inventory: **47 tests; Core Service Verify PASS**.
+- Real PostgreSQL: **11 tests; postgres-context-verify PASS**.
+- Database: **34 migrations / 28 verification files; Database Verify PASS**.
 - SQL scope: 9 Current Supported Industries / 41 canonical MS / 181 Industry tables.
 
-Current slice closes DD-041 compiled Authorization snapshot/version persistence + read adapters and DD-042 Current Supported Industry presentation catalog + read adapter.
+Current slice retains DD-041/DD-042 read bindings and closes DD-043 protected PLATFORM_GLOBAL scope enforcement across RequestContext, persisted API credentials and RequestScopedSql.
 
 Next governed task: concrete provider/session-security, PDP/ABAC and Commercial validation integration behind the existing Core ports, then DD-06 transport binding. Trusted directory/bootstrap, broader repositories, rate limiter/idempotency runtime, UI/mobile/desktop and deployment remain unfinished.
 

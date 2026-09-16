@@ -2,7 +2,7 @@
 **Date:** 2026-09-13  
 **Branch:** `docs/architecture-branch-2`
 
-**Scope:** Historical SQL persistence checkpoint. Current Development scope and continuation are owned by [DEV-CORE-READS-001](CORE_SERVICE_CHECKPOINT.md). The SQL inventory below remains applicable; its former application-not-started state is historical.
+**Scope:** Historical SQL persistence checkpoint. Current Development scope and continuation are owned by [DEV-CORE-PLATFORM-SCOPE-001](CORE_SERVICE_CHECKPOINT.md). The SQL inventory below remains applicable; its former application-not-started state is historical.
 
 ## Repository implementation result
 ### Shared Core
@@ -63,5 +63,5 @@ Implemented SQL migrations for:
 Core services, the pooled PostgreSQL transaction adapter, compiled-Authorization read persistence/adapters and Current Supported Industry presentation catalog/read adapter have since been implemented and tested. Current database regression and next governed work are recorded in [CORE_SERVICE_CHECKPOINT](CORE_SERVICE_CHECKPOINT.md). API transports and UI remain unstarted.
 
 
-## Current regression extension — 2026-09-16
-Exact executable `7792a8a8dd9825038fbf1a96f6027c9ce730aee2`: Database Verify 35062133987/job 104684499111 PASS (**33 migrations / 27 verification files**); Core PostgreSQL 35062130387/job 104684488266 PASS (**11/11**). Existing 9/41/181 Industry counts remain unchanged.
+## Current regression extension — 2026-09-17
+Exact executable `3e7b2927839d289240eb389902563f5ab3d68074`: Database Verify 35139097903/job 104938820048 PASS with current inventory **34 migrations / 28 verification files**; Core Service Verify 35139097825 postgres-context job 104938820027 PASS with **11 PostgreSQL tests**. Migration/verification 0034 adds the DD-043 persisted PLATFORM_GLOBAL machine-credential floor; existing 9/41/181 Industry counts remain unchanged.

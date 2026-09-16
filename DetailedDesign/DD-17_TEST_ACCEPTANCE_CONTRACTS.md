@@ -27,6 +27,8 @@ These are implementation acceptance contracts, not executable test code.
 | ID-006 | API credential requests industry outside bound set | deny before resource resolution |
 | ID-007 | risky device requires step-up | RESTRICT/STEP_UP_REQUIRED |
 | ID-008 | provider outage | dependency error; no fallback that weakens identity policy |
+| ID-009 | ordinary HUMAN/API_CLIENT requests protected PLATFORM_GLOBAL scope | deny before tenant/resource lookup; no DB transaction |
+| ID-010 | interactive PLATFORM_OPERATOR or unbound allowlisted SERVICE requests PLATFORM_GLOBAL | identity/scope floor passes; downstream platform PDP still required |
 
 ## 3. Authorization
 | ID | Scenario | Expected |
@@ -67,6 +69,8 @@ These are implementation acceptance contracts, not executable test code.
 | DB-008 | ownership update tenant_id/industry_context_id | rejected; transfer workflow required |
 | DB-009 | financial/audit row in-place update | rejected by design contract |
 | DB-010 | optimistic version mismatch | CONFLICT |
+| DB-011 | PLATFORM_GLOBAL SQL context carries HUMAN/API_CLIENT principal type | `DATABASE_CONTEXT_INVALID`; connection/transaction not opened |
+| DB-012 | PLATFORM_GLOBAL SQL context carries PLATFORM_OPERATOR/SERVICE principal type | scope floor passes; no tenant/industry authority is implied |
 
 ## 6. API/idempotency
 | ID | Scenario | Expected |
