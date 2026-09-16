@@ -76,6 +76,7 @@ export interface SecurityContext {
   readonly authStrength?: AuthStrength;
   readonly deviceTrust?: "TRUSTED" | "UNTRUSTED" | "NOT_APPLICABLE";
   readonly riskLevel: "LOW" | "MEDIUM" | "HIGH";
+  readonly sessionVersion?: number;
   readonly attributes: Readonly<Record<string, unknown>>;
 }
 

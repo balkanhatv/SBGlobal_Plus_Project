@@ -90,7 +90,7 @@ export class RequestContextService {
           ? authentication.evidence.credentialId
           : undefined,
         sessionVersion: authentication.kind === "HUMAN"
-          ? authentication.evidence.sessionVersion
+          ? securityContext.sessionVersion ?? authentication.evidence.sessionVersion
           : undefined,
         authStrength: authentication.kind === "HUMAN"
           ? authentication.evidence.authStrength
@@ -259,6 +259,7 @@ export class RequestContextService {
     if (input.authentication.kind === "HUMAN") {
       const evidence = await this.ports.identity.verifyHumanSession(
         input.authentication.credential,
+        input.authentication.deviceRegistrationId,
       );
       return { kind: "HUMAN", evidence };
     }

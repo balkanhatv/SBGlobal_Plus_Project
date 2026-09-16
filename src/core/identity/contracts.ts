@@ -10,6 +10,8 @@ export interface VerifiedIdentityEvidence {
   readonly principalId: string;
   readonly principalType: PrincipalType;
   readonly providerSubject: string;
+  readonly providerSessionId: string;
+  readonly providerSessionCreatedAtMs: number;
   readonly authEpoch: number;
   readonly authStrength: AuthStrength;
   readonly sessionVersion?: number;
@@ -32,11 +34,18 @@ export interface VerifiedMachineEvidence {
 }
 
 export type AuthenticationInput =
-  | { readonly kind: "HUMAN"; readonly credential: string }
+  | {
+      readonly kind: "HUMAN";
+      readonly credential: string;
+      readonly deviceRegistrationId?: string;
+    }
   | { readonly kind: "MACHINE"; readonly credential: string };
 
 export interface IdentityPort {
-  verifyHumanSession(credential: string): Promise<VerifiedIdentityEvidence>;
+  verifyHumanSession(
+    credential: string,
+    deviceRegistrationId?: string,
+  ): Promise<VerifiedIdentityEvidence>;
   verifyMachineCredential(credential: string): Promise<VerifiedMachineEvidence>;
   revokeProviderSession(reference: string): Promise<void>;
   getAuthStrength(evidence: VerifiedIdentityEvidence): AuthStrength;

@@ -19,3 +19,6 @@ Rechecked the current remote Core checkpoint against DD-02/03/04/05/06 and the S
 
 ## 2026-09-17 — DD-043 platform-global scope propagation
 Fresh zero-trust continuation found that DD-043 tests and persistence existed but the SQL request-scope implementation and current acceptance/traceability projections were incomplete. RequestScopedSql now denies HUMAN/API_CLIENT PLATFORM_GLOBAL contexts before transaction use; DD-17 adds explicit ID/DB acceptance contracts; DD-19 routes DD-043 through migration/verification 0034 and executable tests. Exact-head Core and Database CI passed at `3e7b2927839d289240eb389902563f5ab3d68074`. No RawSource, Industry/MS model, or main-branch change.
+
+## 2026-09-17 — DD-044 provider/session-security contract
+Defined the Clerk human-session → internal principal/session/device security boundary without trusting custom provider claims for SBGlobal authorization. Added a dedicated NOBYPASSRLS identity-service SQL adapter, provider-specific Clerk IdentityPort adapter, server-owned SessionSecurityPort implementation, PostgreSQL identity/security store and executable unit + real-PostgreSQL tests. No RawSource, Industry/MS schema, `main`, production deployment or provider-SDK package bootstrap change.

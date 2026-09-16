@@ -1,4 +1,5 @@
 export * from "./identity/contracts.js";
+export * from "./identity/session-security-contracts.js";
 export * from "./context/contracts.js";
 export * from "./context/errors.js";
 export * from "./context/ports.js";
