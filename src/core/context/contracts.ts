@@ -29,6 +29,17 @@ export interface MembershipRecord {
   readonly membershipVersion: number;
 }
 
+export interface CurrentIndustryPresentationRecord {
+  readonly industryCode: string;
+  readonly displayKey: string;
+  readonly displayName: string;
+  readonly routeSlug: string;
+  readonly sortOrder: number;
+  readonly iconKey: string;
+  readonly experiencePackageKey: string;
+  readonly version: number;
+}
+
 export interface IndustryContextRecord {
   readonly id: string;
   readonly tenantId: string;

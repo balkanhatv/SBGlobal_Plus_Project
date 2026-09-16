@@ -131,3 +131,7 @@ No provider ID becomes business identity; no ABAC grant expansion; no client-com
 ## 13. Current-state database audit reconciliation
 
 Migration `0029` places Tenant, PlatformPrincipal and IdentityProviderLink behind forced RLS and assigns sensitive credential/provider-link writes to the Identity service. Migrations `0030`–`0031` enforce role/credential/device/session principal-to-tenant integrity, restore nullable platform SessionVersion uniqueness, and persist the operator-elevation boundary. Verification IDs `DBA-001`…`DBA-006` and the corresponding `0029`–`0031` executable SQL are the Development evidence; this note records propagation into DD and does not retroactively claim runtime success.
+
+
+## 14. Compiled permission physical contract
+DD-041 in DD-18 is the authoritative persistence owner for `permissionVersion`. The Authorization compiler owns a scoped subject plus immutable compiled snapshots; RequestContext and `roles.listEffective` may read only the subject's exact CURRENT snapshot. `MAX(role.version)`, `auth_epoch`, constants, or ad-hoc hashes are not substitutes. A missing/current-invalid snapshot fails closed with `DEPENDENCY_UNAVAILABLE`. The current Development slice implements read adapters only; a future Authorization compiler writer must use the DD-041 locked monotonic publication protocol and a dedicated governed writer role.

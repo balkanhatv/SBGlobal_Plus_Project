@@ -241,3 +241,7 @@ A capability may be enabled on **Platform Desktop** only when all are true:
 
 Channel enablement fields: `capabilityId, channel, businessJustification, riskClass, requiredNativeCapabilities[], securityControlProfile, approvedByProduct, approvedBySecurity, effectiveFrom, version, status`.
 Unsupported channels are absent/disabled and server operations still enforce `allowedSurfaceClasses` and channel policy.
+
+
+## 14. Current Supported Industry presentation persistence
+DD-042 in DD-18 owns the global presentation catalog for the nine Current Supported Industries. Tenant `industry_context` remains activation/state truth and stores only `industry_code`; display key/name, route slug, icon key, experience-package key, UI sort order and presentation version come from `core_master.current_supported_industry`. Future Industry definitions do not become readable here until the DD-035 promotion gate has completed and Control Plane publishes the catalog row. Catalog sort order is presentation only and never establishes industry priority.

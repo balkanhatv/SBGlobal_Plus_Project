@@ -3,6 +3,7 @@ import type {
   CommercialContext,
   DataHomeRecord,
   IndustryContextRecord,
+  CurrentIndustryPresentationRecord,
   MembershipRecord,
   OrgUnitRecord,
   RoleContext,
@@ -41,12 +42,22 @@ export interface TenantContextPort {
 
 export interface AuthorizationContextPort {
   loadRoleContext(input: {
+    readonly requestId: string;
+    readonly correlationId: string;
     readonly tenantId: string;
     readonly industryContextId?: string;
     readonly principalId: string;
     readonly membershipId?: string;
     readonly orgUnitId?: string;
+    readonly orgUnitPath: readonly string[];
+    readonly dataHomeId: string;
+    readonly regionCode: string;
+    readonly scopeClass: Exclude<ScopeClass, "PUBLIC" | "PLATFORM_GLOBAL">;
   }): Promise<RoleContext>;
+}
+
+export interface IndustryPresentationCatalogPort {
+  getCurrentByCode(industryCode: string): Promise<CurrentIndustryPresentationRecord | null>;
 }
 
 export interface CommercialContextPort {

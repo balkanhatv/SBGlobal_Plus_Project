@@ -166,7 +166,7 @@ test("core.identity.roles.listEffective reads only within active tenant context"
   });
 
   assert.deepEqual(calls, [{
-    tenantId: "tenant-a",
+    requestContext: tenantCoreContext,
     principalId: "principal-1",
     membershipId: "membership-1",
   }]);

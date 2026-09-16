@@ -10,8 +10,7 @@ export interface EffectiveRoleSummary {
 
 export interface EffectiveRoleReadPort {
   listEffective(input: {
-    readonly tenantId: string;
-    readonly industryContextId?: string;
+    readonly requestContext: RequestContext;
     readonly principalId: string;
     readonly membershipId?: string;
   }): Promise<EffectiveRoleSummary | null>;
@@ -43,7 +42,7 @@ export class IdentityRoleQueryService {
         : undefined);
 
     const summary = await this.roles.listEffective({
-      tenantId: requestContext.tenantId,
+      requestContext,
       principalId,
       membershipId,
     });

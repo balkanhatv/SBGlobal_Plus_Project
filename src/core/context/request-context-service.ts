@@ -52,10 +52,12 @@ export class RequestContextService {
   constructor(private readonly ports: RequestContextServicePorts) {}
 
   async resolve(input: ContextResolutionInput): Promise<RequestContext> {
+    const correlationId = input.correlationId ?? this.ports.ids.nextId();
+
     if (input.scopeClass === "PUBLIC") {
       return freezeContext({
         requestId: input.requestId,
-        correlationId: input.correlationId ?? this.ports.ids.nextId(),
+        correlationId,
         orgUnitPath: Object.freeze([]),
         roleIds: Object.freeze([]),
         scopeClass: "PUBLIC",
@@ -77,7 +79,7 @@ export class RequestContextService {
 
       return freezeContext({
         requestId: input.requestId,
-        correlationId: input.correlationId ?? this.ports.ids.nextId(),
+        correlationId,
         principalId,
         principalType,
         deviceId: authentication.kind === "HUMAN"
@@ -177,11 +179,17 @@ export class RequestContextService {
     const dataHome = await this.ports.tenancy.resolveDataHome(tenant.id);
 
     const roleContext = await this.ports.authorization.loadRoleContext({
+      requestId: input.requestId,
+      correlationId,
       tenantId: tenant.id,
       industryContextId: industryContext?.id,
       principalId,
       membershipId: membership?.id,
       orgUnitId: orgUnit?.id,
+      orgUnitPath: Object.freeze([...(orgUnit?.path ?? [])]),
+      dataHomeId: dataHome.id,
+      regionCode: dataHome.regionCode,
+      scopeClass: input.scopeClass,
     });
 
     const commercial = await this.ports.commercial.validateAndLoad({
@@ -200,7 +208,7 @@ export class RequestContextService {
 
     return freezeContext({
       requestId: input.requestId,
-      correlationId: input.correlationId ?? this.ports.ids.nextId(),
+      correlationId,
       tenantId: tenant.id,
       industryContextId: industryContext?.id,
       dataHomeId: dataHome.id,
