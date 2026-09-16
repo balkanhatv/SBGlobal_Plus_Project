@@ -66,7 +66,8 @@ export class PostgresAuthorizationContextAdapter implements AuthorizationContext
   async loadRoleContext(
     input: Parameters<AuthorizationContextPort["loadRoleContext"]>[0],
   ): Promise<RoleContext> {
-    if (input.scopeClass === "EXPLICIT_CROSS_CONTEXT") {
+    const scopeClass = input.scopeClass;
+    if (scopeClass === "EXPLICIT_CROSS_CONTEXT") {
       throw new ContextResolutionError(
         "DEPENDENCY_UNAVAILABLE",
         "Cross-context authorization requires a dedicated governed path.",
@@ -85,12 +86,19 @@ export class PostgresAuthorizationContextAdapter implements AuthorizationContext
       orgUnitId: input.orgUnitId,
       orgUnitPath: Object.freeze([...input.orgUnitPath]),
       roleIds: Object.freeze([]),
-      scopeClass: input.scopeClass,
+      scopeClass,
     });
 
     const context = await this.scopedSql.withContext(
       persistenceContext,
-      (transaction) => readCurrentSnapshot(transaction, input),
+      (transaction) => readCurrentSnapshot(transaction, {
+        tenantId: input.tenantId,
+        industryContextId: input.industryContextId,
+        principalId: input.principalId,
+        membershipId: input.membershipId,
+        orgUnitId: input.orgUnitId,
+        scopeClass,
+      }),
     );
     if (!context) {
       throw new ContextResolutionError("DEPENDENCY_UNAVAILABLE", "Authorization context is unavailable.");

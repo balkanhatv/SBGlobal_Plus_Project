@@ -146,8 +146,8 @@ test("roles read adapter uses caller TENANT_CORE scope and current compiled subj
     assert.equal(result.permissionVersion,1);
     assert.deepEqual(result.roleIds,[f.roleId]);
   } finally {
-    await admin.query("DELETE FROM core_authz.compiled_permission_snapshot WHERE subject_id=$1",[coreSubject]);
-    await admin.query("DELETE FROM core_authz.compiled_permission_subject WHERE id=$1",[coreSubject]);
+    await client.query("DELETE FROM core_authz.compiled_permission_snapshot WHERE subject_id=$1",[coreSubject]);
+    await client.query("DELETE FROM core_authz.compiled_permission_subject WHERE id=$1",[coreSubject]);
     client.release();
   }
 });

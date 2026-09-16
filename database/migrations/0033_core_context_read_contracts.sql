@@ -117,6 +117,12 @@ CREATE TRIGGER compiled_permission_subject_integrity
   BEFORE INSERT OR UPDATE ON core_authz.compiled_permission_subject
   FOR EACH ROW EXECUTE FUNCTION core_authz.validate_compiled_permission_subject();
 
+-- Preserve DD-036 / migration 0029 invariant for every new scoped table:
+-- Tenant / Industry / scope ownership selectors cannot be reclassified after insert.
+CREATE TRIGGER immutable_scope_ownership
+  BEFORE UPDATE ON core_authz.compiled_permission_subject
+  FOR EACH ROW EXECUTE FUNCTION core_tenancy.enforce_immutable_scope_ownership();
+
 CREATE OR REPLACE FUNCTION core_authz.prevent_compiled_permission_payload_rewrite()
 RETURNS trigger
 LANGUAGE plpgsql
