@@ -1,4 +1,4 @@
-# Isolation Attack Matrix — Current Database Checkpoint
+# Isolation Attack Matrix — Current Core/Database Checkpoint
 
 **Updated:** 2026-09-14 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts  
 **Executable checkpoint:** `2c36b43a7d55c6600b71f9714389e025a06df580` · Database Verify run `34800144921`, job `103841023234` · **SUCCESS**
@@ -20,6 +20,7 @@ This overlay supersedes the current-status use of the Phase-4 design-only matrix
 | Offline replay switches original context | DD-11 preserves original Tenant/Industry/device/time and reauthorizes | Design contract revalidated; executable clients/queues NOT_YET_STARTED_FUTURE_SCOPE |
 | Support elevation is self-approved, unbounded or points to foreign target | Physical elevation requires independent active approver and bounded/current target | 0031 relationship/approval checks PASS; MFA/step-up endpoint execution remains future |
 | General app selects PLATFORM_GLOBAL then mutates a global definition or permission child | Restrictive write floor requires Control Plane role in addition to contextual policy | 0032 insert/update/delete/child denial and permitted Control Plane mutation PASS |
+| PLATFORM_GLOBAL HUMAN/API_CLIENT reaches SQL transaction | DD-043 requires protected platform principal floor at RequestContext and SQL boundary | `request-context.test.mjs` + `request-scoped-sql.test.mjs`; HUMAN/API_CLIENT deny before transaction; PLATFORM_OPERATOR/SERVICE pass only the scope floor |
 | App/domain module accesses private AI or provider credentials | Dedicated Gateway/Integration roles; no general app direct access | 0011–0014/0028/0029 privilege checks PASS; live provider execution remains future |
 | AI RAG/model/prompt/tool/agent references foreign Tenant/Industry or incompatible parent | Same-scope provider/config/set/document/member/run validation | 0031 negative dependency checks PASS; live retrieval ACL recheck remains future |
 | AI tool or prompt injection widens acting-principal permission | DD-03/09/17 require permissions bounded by acting principal and governed tools | Physical dependency and Gateway boundary PASS; live prompt-injection/tool-executor campaign NOT_YET_STARTED_FUTURE_SCOPE |
@@ -28,7 +29,7 @@ This overlay supersedes the current-status use of the Phase-4 design-only matrix
 | Future partition loses scope enforcement or runtime caller provisions it | Governed migration helper installs exact forced RLS; PUBLIC execution revoked | 0029/0030 catalog/privilege checks PASS; production partition operations remain future |
 | Brand/country pack creates permissions or weakens safety | DD-05/10/17/26 protected security/accessibility and activation contracts | Design contract revalidated; publish/render/service tests NOT_YET_STARTED_FUTURE_SCOPE |
 
-All 32 migrations and 26 verification SQL files ran in the cited clean PostgreSQL 16 + pgvector job. These are behavioral fixtures plus complete relevant policy/registry attachment checks; they are not a claim that every service-level attack was executed. Current persistence/design isolation blockers: **P0 0 / P1 0**. A later substantive change requires affected downstream revalidation.
+Current exact-head regression at `3e7b2927839d289240eb389902563f5ab3d68074` passes Core Service Verify and Database Verify. The current tree contains 34 migrations and 28 verification SQL files; the added 0034 pair enforces the persisted PLATFORM_GLOBAL machine-credential floor. These are behavioral fixtures plus relevant policy/registry checks, not a claim that every service-level attack was executed. Current audited persistence/Core isolation blockers: **P0 0 / P1 0**.
 
 ---
 

@@ -1,5 +1,5 @@
 # D-INDEX — Current Canonical / Development Index
-**Updated:** 2026-09-14 · **Current checkpoint:** `../Development/CORE_SERVICE_CHECKPOINT.md`
+**Updated:** 2026-09-17 · **Current checkpoint:** `../Development/CORE_SERVICE_CHECKPOINT.md`
 
 | Layer | Owner / evidence | Current boundary |
 |---|---|---|
@@ -15,7 +15,7 @@
 | Historical all-stages file scope | ALL_STAGES_FILE_COVERAGE_2026-09-13.md | Every start/final file; classification and coverage |
 | State | ../State/PROJECT_MANIFEST.json | Machine-readable current checkpoint |
 
-Current Core/PostgreSQL checkpoint: `DEV-CORE-POSTGRES-001`; executable evidence and continuation are owned by `../Development/CORE_SERVICE_CHECKPOINT.md`.
+Current Core/PostgreSQL checkpoint: `DEV-CORE-PLATFORM-SCOPE-001`; executable evidence and continuation are owned by `../Development/CORE_SERVICE_CHECKPOINT.md`.
 
 Historical all-stages PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 

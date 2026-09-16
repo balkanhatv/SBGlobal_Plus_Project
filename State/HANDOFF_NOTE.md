@@ -1,11 +1,11 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-14 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-CORE-POSTGRES-001`
+**Updated:** 2026-09-17 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-CORE-PLATFORM-SCOPE-001`
 
-Fresh-fetch the remote branch and verify its actual HEAD, tree, CI and [current Core checkpoint](../Development/CORE_SERVICE_CHECKPOINT.md) before continuing. The verified executable snapshot is `0ada4283959ea4abe39a0980574e2dfdcb62e508`: **40 Core tests + 7 real PostgreSQL tests PASS**, plus the full database regression. This handoff's publication SHA must be read from Git; it is not substituted for the recorded code evidence.
+Fresh-fetch the remote branch and verify its actual HEAD, tree, CI and [current Core checkpoint](../Development/CORE_SERVICE_CHECKPOINT.md) before continuing. Latest verified executable is `3e7b2927839d289240eb389902563f5ab3d68074`: Core Service Verify and Database Verify PASS with the current 47 Core/server + 11 PostgreSQL test inventory and 34 migrations / 28 verification files.
 
-Current scope includes the corrected context/identity/guard kernel and the concrete pooled PostgreSQL/RLS transaction adapter. The earlier Database-only checkpoint remains historical persistence evidence. API transports and UI remain unstarted.
+Current scope includes the corrected context/identity/guard kernel, pooled PostgreSQL/RLS transaction adapter, DD-041/042 read bindings, and DD-043 protected PLATFORM_GLOBAL scope floor. API transports and UI remain unstarted.
 
-Next governed task: Specify the exact Authorization compiled-permission snapshot/version persistence contract and the Current Supported Industry presentation catalog contract, then implement their module-owned read adapters. Do not infer missing fields, broaden database grants, or join across module ownership.
+Next governed task: Concrete provider/session-security integration behind the existing Core Identity/Security ports, then PDP/ABAC, Commercial validation, and DD-06 transports.
 
 Read [DEV-CORE-MAP-001](../Development/CORE_PERSISTENCE_ADAPTER_MAP.md) and DD-040 first. Trusted Data Home routing is an owner-provided dependency; do not grant directory/identity access to the app role. Select an available model by authorization/data-contract reasoning and TypeScript/PostgreSQL capability; no model switch has been performed.
 
