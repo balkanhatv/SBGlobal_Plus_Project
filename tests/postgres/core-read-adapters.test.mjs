@@ -43,10 +43,10 @@ before(async () => {
     await client.query(`GRANT sbg_app_rw TO ${role}`);
     await client.query(`INSERT INTO platform_directory.data_home
       (id,code,region_code,jurisdiction_code,topology_class,status)
-      VALUES ($1,$1::text,'IN-READ','IN','SHARED','ACTIVE')`,[f.home]);
+      VALUES ($1::uuid,$1::uuid::text,'IN-READ','IN','SHARED','ACTIVE')`,[f.home]);
     await client.query(`INSERT INTO core_tenancy.tenant
       (id,tenant_code,legal_name,display_name,status,primary_industry_code,data_home_id,residency_region_code,created_at,updated_at)
-      VALUES ($1,$1::text,'Read adapter fixture','Read adapter fixture','ACTIVE','RTL',$2,'IN-READ',now(),now())`,[f.tenant,f.home]);
+      VALUES ($1::uuid,$1::uuid::text,'Read adapter fixture','Read adapter fixture','ACTIVE','RTL',$2::uuid,'IN-READ',now(),now())`,[f.tenant,f.home]);
     await client.query(`INSERT INTO core_identity.platform_principal
       (id,principal_type,status,created_at,updated_at) VALUES ($1,'HUMAN','ACTIVE',now(),now())`,[f.principal]);
     await client.query(`INSERT INTO core_identity.tenant_membership
@@ -54,7 +54,7 @@ before(async () => {
       VALUES ($1,$2,$3,'ACTIVE',now(),now())`,[f.membership,f.tenant,f.principal]);
     await client.query(`INSERT INTO core_tenancy.org_unit
       (id,tenant_id,unit_type,code,name,path_key,status,created_at,updated_at)
-      VALUES ($1,$2,'BRANCH','READ','Read branch',$1::text,'ACTIVE',now(),now())`,[f.org,f.tenant]);
+      VALUES ($1::uuid,$2::uuid,'BRANCH','READ','Read branch',$1::uuid::text,'ACTIVE',now(),now())`,[f.org,f.tenant]);
     for (const [id,code,isPrimary] of [[f.industry,"RTL",true],[f.industrySibling,"MFG",false]]) {
       await client.query(`INSERT INTO core_tenancy.industry_context
         (id,tenant_id,industry_code,status,is_primary,created_at,updated_at)
