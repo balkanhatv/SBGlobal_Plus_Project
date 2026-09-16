@@ -3,6 +3,7 @@ import type { SqlDatabase, SqlTransaction } from "./contracts.js";
 
 export type DatabaseScopeErrorCode =
   | "DB_ROUTE_CONTEXT_MISMATCH"
+  | "DATABASE_CONTEXT_INVALID"
   | "DATABASE_PUBLIC_SCOPE_FORBIDDEN"
   | "DATABASE_CROSS_CONTEXT_REQUIRES_DEDICATED_PATH";
 
@@ -83,6 +84,12 @@ export class RequestScopedSql {
     }
 
     if (context.scopeClass === "PLATFORM_GLOBAL") {
+      if (context.principalType !== "PLATFORM_OPERATOR" && context.principalType !== "SERVICE") {
+        throw new DatabaseScopeError(
+          "DATABASE_CONTEXT_INVALID",
+          "Platform-global database scope requires a trusted platform operator or service principal.",
+        );
+      }
       if (!context.principalId || context.tenantId || context.industryContextId) {
         throw new DatabaseScopeError(
           "DB_ROUTE_CONTEXT_MISMATCH",
