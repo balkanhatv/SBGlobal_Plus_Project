@@ -71,6 +71,7 @@ export class RequestContextService {
     const principalType = authentication.evidence.principalType;
 
     if (input.scopeClass === "PLATFORM_GLOBAL") {
+      this.assertPlatformGlobalPrincipal(authentication);
       const securityContext = await this.ports.security.validateAndResolve({
         authentication,
         actorIpHash: input.actorIpHash,
@@ -110,6 +111,13 @@ export class RequestContextService {
     const machineBoundTenantId = authentication.kind === "MACHINE"
       ? authentication.evidence.boundTenantId
       : undefined;
+
+    if (authentication.kind === "MACHINE" && !machineBoundTenantId) {
+      throw new ContextResolutionError(
+        "CREDENTIAL_INVALID",
+        "Tenant-scoped machine access requires a fixed tenant binding.",
+      );
+    }
 
     const tenant = await this.ports.tenancy.resolveTenant({
       selector: input.tenantSelector,
@@ -259,6 +267,27 @@ export class RequestContextService {
       input.authentication.credential,
     );
     return { kind: "MACHINE", evidence };
+  }
+
+  private assertPlatformGlobalPrincipal(authentication: VerifiedAuthentication): void {
+    if (authentication.kind === "HUMAN") {
+      if (authentication.evidence.principalType !== "PLATFORM_OPERATOR") {
+        throw new ContextResolutionError(
+          "RESOURCE_SCOPE_DENY",
+          "The principal is not authorized for platform-global scope.",
+        );
+      }
+      return;
+    }
+
+    if (authentication.evidence.principalType !== "SERVICE"
+      || authentication.evidence.boundTenantId
+      || !authentication.evidence.allowedScopeClasses.includes("PLATFORM_GLOBAL")) {
+      throw new ContextResolutionError(
+        "CREDENTIAL_INVALID",
+        "The machine credential is not authorized for platform-global scope.",
+      );
+    }
   }
 
   private assertTenant(

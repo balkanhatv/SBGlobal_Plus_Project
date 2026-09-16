@@ -369,3 +369,11 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Security:** ordinary application role has SELECT only; `sbg_control_plane_rw` owns mutation; PUBLIC has no privilege. No Tenant override may redefine the canonical industry code or global product name; tenant branding remains DD-10 branding composition.
 **Acceptance:** exactly nine ACTIVE baseline rows; unique code/displayKey/routeSlug/sortOrder; inactive/unknown code returns null; application role cannot mutate catalog; catalog read requires no Tenant context and does not expose Tenant data.
 **Dependencies:** A-09; DD-10/13/26/035/040.
+
+
+## DD-043 — Platform-global principal and machine-credential scope floor [DEV-CORE-AC]
+**Context:** the Core RequestContext supports PLATFORM_GLOBAL, while tenant users/API clients and platform services share the same IdentityPort evidence shape. Without an explicit principal-type floor, a verified tenant human/API credential could be misclassified as platform-global before PDP integration.
+**Decision:** protected PLATFORM_GLOBAL RequestContext accepts only (a) an interactive HUMAN evidence whose principal type is PLATFORM_OPERATOR, or (b) an unbound SERVICE machine credential whose principal has PLATFORM_GLOBAL in `allowed_scope_classes`. HUMAN and API_CLIENT machine credentials are always tenant-bound. Platform Operators never use API credentials. Any machine credential used for TENANT_CORE/TENANT_INDUSTRY must carry a fixed tenant binding. Request-context resolution enforces this before tenant/data/resource lookup; DB credential validation independently enforces the same persisted scope floor.
+**Boundary:** this decision authenticates and scope-binds the principal only. It does not invent platform RBAC. Concrete platform PDP/ABAC permission evaluation remains part of the next governed Authorization integration slice; until then no transport may treat a PLATFORM_GLOBAL RequestContext by itself as an allow decision.
+**Acceptance:** ordinary HUMAN→PLATFORM_GLOBAL denies; API_CLIENT→PLATFORM_GLOBAL denies; allowlisted unbound SERVICE succeeds; PLATFORM_OPERATOR interactive identity succeeds; unbound machine→tenant scope denies; persisted HUMAN/API_CLIENT null-tenant credential rejects.
+**Dependencies:** DD-02/03/05/16/037/040; A-03; migration/verification 0034; Core RequestContext tests.

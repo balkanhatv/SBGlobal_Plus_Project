@@ -16,13 +16,19 @@ export interface VerifiedIdentityEvidence {
   readonly deviceId?: string;
 }
 
+export type MachineAllowedScopeClass =
+  | "PLATFORM_GLOBAL"
+  | "TENANT_CORE"
+  | "TENANT_INDUSTRY";
+
 export interface VerifiedMachineEvidence {
   readonly principalId: string;
   readonly principalType: "API_CLIENT" | "SERVICE";
   readonly credentialId: string;
   readonly credentialVersion: number;
-  readonly boundTenantId: string;
+  readonly boundTenantId?: string;
   readonly allowedIndustryContextIds: readonly string[];
+  readonly allowedScopeClasses: readonly MachineAllowedScopeClass[];
 }
 
 export type AuthenticationInput =

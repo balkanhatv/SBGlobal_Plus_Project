@@ -68,6 +68,7 @@ function makePorts(overrides = {}) {
           credentialVersion: 3,
           boundTenantId: "tenant-a",
           allowedIndustryContextIds: ["industry-retail"],
+          allowedScopeClasses: ["TENANT_CORE", "TENANT_INDUSTRY"],
         };
       },
       async revokeProviderSession() {},
@@ -252,6 +253,7 @@ test("ID-006: API credential outside its bound industry set denies before resour
           credentialVersion: 3,
           boundTenantId: "tenant-a",
           allowedIndustryContextIds: ["industry-education"],
+          allowedScopeClasses: ["TENANT_CORE", "TENANT_INDUSTRY"],
         };
       },
     },
@@ -345,4 +347,100 @@ test("machine credential cannot select a different tenant than its fixed binding
     (error) => error instanceof ContextResolutionError
       && error.code === "TENANT_INVALID",
   );
+});
+
+
+test("PLATFORM_GLOBAL rejects ordinary tenant human principal before any tenant lookup", async () => {
+  const { ports, calls } = makePorts();
+  const service = new RequestContextService(ports);
+  await assert.rejects(service.resolve({
+    requestId: "platform-human-deny",
+    scopeClass: "PLATFORM_GLOBAL",
+    authentication: { kind: "HUMAN", credential: "opaque-session" },
+  }), (error) => error instanceof ContextResolutionError
+    && error.code === "RESOURCE_SCOPE_DENY");
+  assert.equal(calls.includes("tenancy.tenant"), false);
+  assert.equal(calls.includes("security.validate"), false);
+});
+
+test("PLATFORM_GLOBAL accepts interactive PLATFORM_OPERATOR identity and no Tenant authority", async () => {
+  const { ports, calls } = makePorts({
+    identity: {
+      async verifyHumanSession() {
+        calls.push("identity.human");
+        return {
+          principalId: "operator-1", principalType: "PLATFORM_OPERATOR",
+          providerSubject: "operator-provider", authEpoch: 1,
+          authStrength: "MFA", sessionVersion: 3, deviceId: "operator-device",
+        };
+      },
+    },
+  });
+  const context = await new RequestContextService(ports).resolve({
+    requestId: "platform-operator",
+    scopeClass: "PLATFORM_GLOBAL",
+    authentication: { kind: "HUMAN", credential: "opaque-operator-session" },
+  });
+  assert.equal(context.scopeClass, "PLATFORM_GLOBAL");
+  assert.equal(context.principalType, "PLATFORM_OPERATOR");
+  assert.equal(context.tenantId, undefined);
+  assert.equal(context.industryContextId, undefined);
+  assert.deepEqual(calls, ["identity.human", "security.validate"]);
+});
+
+test("PLATFORM_GLOBAL rejects API_CLIENT even when credential is otherwise verified", async () => {
+  const { ports } = makePorts();
+  await assert.rejects(new RequestContextService(ports).resolve({
+    requestId: "platform-api-client-deny",
+    scopeClass: "PLATFORM_GLOBAL",
+    authentication: { kind: "MACHINE", credential: "opaque-api-key" },
+  }), (error) => error instanceof ContextResolutionError
+    && error.code === "CREDENTIAL_INVALID");
+});
+
+test("PLATFORM_GLOBAL accepts only unbound SERVICE credential explicitly allowlisted for global scope", async () => {
+  const { ports, calls } = makePorts({
+    identity: {
+      async verifyMachineCredential() {
+        calls.push("identity.machine");
+        return {
+          principalId: "service-platform", principalType: "SERVICE",
+          credentialId: "service-credential", credentialVersion: 1,
+          allowedIndustryContextIds: [], allowedScopeClasses: ["PLATFORM_GLOBAL"],
+        };
+      },
+    },
+  });
+  const context = await new RequestContextService(ports).resolve({
+    requestId: "platform-service",
+    scopeClass: "PLATFORM_GLOBAL",
+    authentication: { kind: "MACHINE", credential: "opaque-service-key" },
+  });
+  assert.equal(context.principalType, "SERVICE");
+  assert.equal(context.tenantId, undefined);
+  assert.equal(context.credentialId, "service-credential");
+  assert.deepEqual(calls, ["identity.machine", "security.validate"]);
+});
+
+test("tenant-scoped machine access fails closed when verified credential lacks fixed tenant binding", async () => {
+  const { ports, calls } = makePorts({
+    identity: {
+      async verifyMachineCredential() {
+        calls.push("identity.machine");
+        return {
+          principalId: "service-unbound", principalType: "SERVICE",
+          credentialId: "service-unbound-key", credentialVersion: 1,
+          allowedIndustryContextIds: [], allowedScopeClasses: ["TENANT_CORE"],
+        };
+      },
+    },
+  });
+  await assert.rejects(new RequestContextService(ports).resolve({
+    requestId: "tenant-service-unbound",
+    scopeClass: "TENANT_CORE",
+    authentication: { kind: "MACHINE", credential: "opaque-service-key" },
+    tenantSelector: "tenant-a",
+  }), (error) => error instanceof ContextResolutionError
+    && error.code === "CREDENTIAL_INVALID");
+  assert.equal(calls.includes("tenancy.tenant"), false);
 });
