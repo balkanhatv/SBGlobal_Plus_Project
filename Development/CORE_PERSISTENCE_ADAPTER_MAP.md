@@ -1,5 +1,5 @@
 # CORE PERSISTENCE ADAPTER MAP
-**ID:** DEV-CORE-MAP-001 · **Version:** 1.2 · **Owner:** Core Development
+**ID:** DEV-CORE-MAP-001 · **Version:** 1.3 · **Owner:** Core Development
 **Date:** 2026-09-16 · **Scope:** DD-02/DD-03/DD-04 read-side dependencies and DD-05 SQL boundary
 **Baseline:** `ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5` · **Decision:** DD-040
 
@@ -7,7 +7,7 @@
 
 The authenticated GitHub ref, complete recursive tree and commit were fetched again after the owner's consistency instruction. All 221 file blobs, including both immutable RawSource files, matched the imported working tree. No repository AGENTS.md exists. Remote main remained `3911590ff2020993ce51b32d7b091efd6f5f466f`. Baseline Core/Database runs `34804164618` / `34804164458` succeeded; baseline local Core suite passed 29/29. The old Core PR workflow used a merge checkout; its green status is not an exact-branch execution assertion. The corrected workflow now asserts the selected head explicitly; current execution evidence is in CORE_SERVICE_CHECKPOINT.md.
 
-Authority checked: Governing MASTER_INSTRUCTION v2.5 §§13–14, 20, 22–26, 33A; Foundation F-01/F-03/F-04/F-11; Architecture A-01/A-02/A-03/A-05/A-09; DetailedDesign DD-01/DD-02/DD-03/DD-04/DD-05/DD-06/DD-13/DD-26; migrations 0001/0003/0005/0009/0029–0033; current src/core, src/server/database, tests and state/index files. Active UD-TECH-01 remains unchanged. SQL-first PostgreSQL adapters fit the existing TypeScript/Node boundary; no new ORM/backend or industry core is introduced.
+Authority checked: Governing MASTER_INSTRUCTION v2.5 §§13–14, 20, 22–26, 33A; Foundation F-01/F-03/F-04/F-11; Architecture A-01/A-02/A-03/A-05/A-09; DetailedDesign DD-01/DD-02/DD-03/DD-04/DD-05/DD-06/DD-13/DD-16/DD-17/DD-18/DD-26; migrations 0001/0003/0005/0009/0029–0034; current src/core, src/server/database, tests and state/index files. Active UD-TECH-01 remains unchanged. SQL-first PostgreSQL adapters fit the existing TypeScript/Node boundary; no new ORM/backend or industry core is introduced.
 
 ## Exact field ownership and binding disposition
 
@@ -35,9 +35,9 @@ Authority checked: Governing MASTER_INSTRUCTION v2.5 §§13–14, 20, 22–26, 3
 
 ## Scope gate and continuation
 
-The consistency gate is scoped: the corrected kernel, concrete SQL driver and both previously-unbound read-side bindings now pass at `DEV-CORE-READS-001`. DD-041 owns compiled Authorization snapshots; DD-042 owns Current Supported Industry presentation. This does not claim provider/security/PDP/commercial integration, broader repositories, transports or UI.
+The consistency gate is scoped: the corrected kernel, concrete SQL driver, DD-041/DD-042 read-side bindings and DD-043 protected PLATFORM_GLOBAL scope floor now pass at `DEV-CORE-PLATFORM-SCOPE-001`. This does not claim provider/session-security, production PDP/ABAC, Commercial validation integration, broader repositories, transports or UI.
 
-Completed: corrected kernel → pooled PostgreSQL driver → DD-041/042 physical contracts → module-owned Authorization/Industry-presentation read adapters. **Next sequence:** provider/session-security → PDP/ABAC → Commercial validation integration → DD-06 transports. UI remains later work.
+Completed: corrected kernel → pooled PostgreSQL driver → DD-041/042 physical contracts/read adapters → DD-043 RequestContext + persisted credential + SQL scope floor. **Next sequence:** provider/session-security → PDP/ABAC → Commercial validation integration → DD-06 transports. UI remains later work.
 
 ## Change history
 
@@ -46,3 +46,5 @@ Completed: corrected kernel → pooled PostgreSQL driver → DD-041/042 physical
 - 1.1: Driver prerequisite passed at DEV-CORE-POSTGRES-001; retained both unbound read-side contracts and aligned continuation pointers with observed CI.
 
 - 1.2: DD-041/DD-042 specified; migration/verification 0033 and module-owned read adapters passed exact-commit Core/PostgreSQL/Database CI at DEV-CORE-READS-001.
+
+- 1.3: DD-043 protected PLATFORM_GLOBAL scope floor verified across Core, persistence and SQL request boundary; current checkpoint advanced to DEV-CORE-PLATFORM-SCOPE-001 and continuation remains provider/session-security → PDP/ABAC → Commercial validation → transports.
