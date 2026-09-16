@@ -212,3 +212,47 @@ test("work failure propagates and transaction wrapper observes rollback path", a
 
   assert.equal(events.at(-1).type, "transaction.rollback");
 });
+
+
+test("RequestScopedSql rejects ordinary human/API client PLATFORM_GLOBAL SQL context before route/pool use", async () => {
+  const db = {
+    async transaction() { throw new Error("transaction must not be reached"); },
+  };
+  const routes = {
+    async resolveDataHomeRoute() { throw new Error("route must not be reached"); },
+  };
+  const scoped = new RequestScopedSql(db, routes);
+  for (const principalType of ["HUMAN", "API_CLIENT"]) {
+    await assert.rejects(scoped.withRequestContext({
+      tenantId: undefined,
+      industryContextId: undefined,
+      principalId: "tenant-principal",
+      principalType,
+      operatorElevationId: undefined,
+      scopeClass: "PLATFORM_GLOBAL",
+      dataHome: undefined,
+    }, async () => null), (error) => error instanceof SafeDatabaseError
+      && error.code === "DATABASE_CONTEXT_INVALID");
+  }
+});
+
+test("RequestScopedSql permits only trusted PLATFORM_OPERATOR/SERVICE principal types for PLATFORM_GLOBAL", async () => {
+  const observed = [];
+  const db = {
+    async transaction(options, callback) {
+      observed.push(options);
+      return callback({ query: async () => ({ rows: [], rowCount: 0 }) });
+    },
+  };
+  const routes = { async resolveDataHomeRoute() { return null; } };
+  const scoped = new RequestScopedSql(db, routes);
+  for (const principalType of ["PLATFORM_OPERATOR", "SERVICE"]) {
+    await scoped.withRequestContext({
+      principalId: principalType.toLowerCase(),
+      principalType,
+      scopeClass: "PLATFORM_GLOBAL",
+    }, async () => null);
+  }
+  assert.equal(observed.length, 2);
+  assert.equal(observed.every(x => x.context.scopeClass === "PLATFORM_GLOBAL"), true);
+});
