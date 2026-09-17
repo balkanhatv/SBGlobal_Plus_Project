@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-17
 
-Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The Core kernel, pooled PostgreSQL adapter, DD-041/DD-042 read bindings and DD-043 protected PLATFORM_GLOBAL scope floor are implemented/tested at `DEV-CORE-PLATFORM-SCOPE-001`; provider/session-security, PDP/ABAC, Commercial validation, API transports and UI remain unfinished. Read `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` for repository binding dependencies.
+Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The Core kernel, pooled PostgreSQL adapter, DD-041/DD-042 read bindings, DD-043 protected PLATFORM_GLOBAL scope floor, DD-044 Clerk session-security and `DEV-AUTHZ-PDP-001` PLATFORM_GLOBAL Authorization persistence prerequisite are implemented/tested within their bounded scope. PDP/ABAC evaluation/compiler, Commercial validation, API transports and UI remain unfinished. Read `../Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md` and `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` before continuation.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -193,4 +193,10 @@ Executable `0ada4283959ea4abe39a0980574e2dfdcb62e508`: Core run `34823407649` pa
 
 ## Core platform-scope checkpoint — 2026-09-17
 
-Executable `3e7b2927839d289240eb389902563f5ab3d68074`: Core Service Verify `35139097825` PASS (47 Core/server acceptance tests present; 11/11 real PostgreSQL tests) and Database Verify `35139097903` PASS (34 migrations / 28 verification files). DD-041/DD-042 read bindings remain closed and DD-043 now fails closed across RequestContext, persisted API credentials and RequestScopedSql. Current checkpoint: `DEV-CORE-PLATFORM-SCOPE-001`. Next governed work: concrete provider/session-security → PDP/ABAC → Commercial validation integration → DD-06 transports. Historical sections above retain their recorded evidence and are not current continuation instructions.
+Executable `3e7b2927839d289240eb389902563f5ab3d68074`: Core Service Verify `35139097825` PASS (47 Core/server acceptance tests present; 11/11 real PostgreSQL tests) and Database Verify `35139097903` PASS (34 migrations / 28 verification files). DD-041/DD-042 read bindings remain closed and DD-043 now fails closed across RequestContext, persisted API credentials and RequestScopedSql. Checkpoint: `DEV-CORE-PLATFORM-SCOPE-001`. Historical next work at that checkpoint was concrete provider/session-security → PDP/ABAC → Commercial validation integration → DD-06 transports.
+
+## Clerk session-security + PLATFORM_GLOBAL Authorization persistence checkpoint — 2026-09-17
+
+DD-044 concrete Clerk identity/session-security integration was completed before the Authorization continuation. The first `DEV-AUTHZ-PDP-001` persistence commit (`c4ceff50d76730ef18232d448523ff5d1e896cd4`) failed exact-head database regression and was not promoted. `07d7a760e547d1c07618e4fe0bf95d6588fe2836` corrected the RLS registry vocabulary but exposed a schema-local deferred-FK verification defect. Verified executable `54e6fd0972699e31c4650e54faa9e41086f55755` corrected both without weakening Tenant/Industry RLS: Core Service Verify `35242938042` PASS (**65 Core/server + 13 PostgreSQL tests**) and Database Verify `35242938026` PASS (**35 migrations / 29 verification files**).
+
+Current checkpoint: **`DEV-AUTHZ-PDP-001`**. PLATFORM_GLOBAL role assignment plus immutable compiled-permission subject/snapshot persistence is present with FORCE RLS and least privilege; PDP/ABAC evaluator and compiler are not claimed. Next governed work is to lock deterministic executable **permission-set v1 + ABAC expression v1 grammar** before any reader/evaluator implementation.

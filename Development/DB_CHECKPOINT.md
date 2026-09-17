@@ -2,7 +2,7 @@
 **Date:** 2026-09-13  
 **Branch:** `docs/architecture-branch-2`
 
-**Scope:** Historical SQL persistence checkpoint. Current Development scope and continuation are owned by [DEV-CORE-PLATFORM-SCOPE-001](CORE_SERVICE_CHECKPOINT.md). The SQL inventory below remains applicable; its former application-not-started state is historical.
+**Scope:** Historical SQL persistence checkpoint. Current Development scope and continuation are owned by [DEV-AUTHZ-PDP-001](CORE_SERVICE_CHECKPOINT.md). The SQL inventory below remains applicable; its former application-not-started state is historical.
 
 ## Repository implementation result
 ### Shared Core
@@ -53,15 +53,16 @@ Implemented SQL migrations for:
 
 ## Historical validation truth
 - Historical run `34736717516` / job `103669335983`: successful for migrations `0001`–`0028`; the old default PR checkout did not establish the exact tested branch commit and is insufficient for the defects found by the current audit.
-- Corrected executable scope: migrations and verifications `0029`–`0033` plus the unchanged `0099` all-industry suite.
+- Corrected executable scope at the 2026-09-13 all-stages audit: migrations/verifications `0029`–`0033` plus the unchanged `0099` all-industry suite.
 - First corrected substantive HEAD: `1c4033ca0af3501099a014f9a34d0bad3c21c7dd`.
-- Corrected complete executable checkpoint: PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+- Corrected historical executable checkpoint: PostgreSQL+pgvector PASS at commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099.
 
 ## Historical gate and current continuation
 **DATABASE PERSISTENCE CHECKPOINT: VERIFIED.** At this historical SQL checkpoint, Core application services/API/UI had not started.
 
-Core services, the pooled PostgreSQL transaction adapter, compiled-Authorization read persistence/adapters and Current Supported Industry presentation catalog/read adapter have since been implemented and tested. Current database regression and next governed work are recorded in [CORE_SERVICE_CHECKPOINT](CORE_SERVICE_CHECKPOINT.md). API transports and UI remain unstarted.
-
+Core services, pooled PostgreSQL transaction isolation, compiled-Authorization reads, Current Supported Industry presentation reads, Clerk session-security and PLATFORM_GLOBAL Authorization persistence have since been implemented/tested within their bounded scopes. Current database regression and next governed work are recorded in [CORE_SERVICE_CHECKPOINT](CORE_SERVICE_CHECKPOINT.md). API transports and UI remain unstarted.
 
 ## Current regression extension — 2026-09-17
-Exact executable `3e7b2927839d289240eb389902563f5ab3d68074`: Database Verify 35139097903/job 104938820048 PASS with current inventory **34 migrations / 28 verification files**; Core Service Verify 35139097825 postgres-context job 104938820027 PASS with **11 PostgreSQL tests**. Migration/verification 0034 adds the DD-043 persisted PLATFORM_GLOBAL machine-credential floor; existing 9/41/181 Industry counts remain unchanged.
+Exact verified executable `54e6fd0972699e31c4650e54faa9e41086f55755`: Database Verify `35242938026` / job `105275719655` PASS with **35 migrations / 29 verification files**; Core Service Verify `35242938042` postgres-context job `105275720386` PASS with **13/13 real PostgreSQL tests**. Migration/verification 0035 adds the `DEV-AUTHZ-PDP-001` PLATFORM_GLOBAL Authorization persistence prerequisite; existing **9/41/181** Industry counts remain unchanged.
+
+Fresh zero-trust validation rejected the first 0035 completion claim. `c4ceff50d76730ef18232d448523ff5d1e896cd4` failed because the legacy RLS registry CHECK did not admit the already-governed `PLATFORM_GLOBAL` scope; `07d7a760e547d1c07618e4fe0bf95d6588fe2836` then exposed an unqualified schema-local deferred-FK verification defect. `54e6fd0972699e31c4650e54faa9e41086f55755` corrected both without rewriting historical migrations or weakening Tenant/Industry RLS. The next governed work is policy grammar, not a new database feature.

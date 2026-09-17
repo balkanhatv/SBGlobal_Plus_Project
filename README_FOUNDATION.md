@@ -1,9 +1,9 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `Development/CORE_SERVICE_CHECKPOINT.md`
+**Current checkpoint:** `Development/CORE_SERVICE_CHECKPOINT.md`  
 **Branch:** `docs/architecture-branch-2`
 
-**Current status:** Development is in progress at `DEV-CORE-PLATFORM-SCOPE-001`: Core context/identity/guards, pooled PostgreSQL/RLS, DD-041/DD-042 read bindings and DD-043 protected PLATFORM_GLOBAL identity/SQL floor are implemented and tested. `Development/CORE_SERVICE_CHECKPOINT.md` owns current executable evidence and the next task. Historical design/database PASS labels do not establish provider/PDP/Commercial/transport/UI or production readiness.
+**Current status:** Development is in progress at `DEV-AUTHZ-PDP-001`: Core context/identity/guards, pooled PostgreSQL/RLS, DD-041/DD-042 read bindings, DD-043 protected PLATFORM_GLOBAL identity/SQL floor, DD-044 Clerk session-security, and the PLATFORM_GLOBAL Authorization persistence prerequisite are implemented and tested within their bounded scope. `Development/CORE_SERVICE_CHECKPOINT.md` owns current executable evidence and the next task. Historical PASS labels do not establish PDP/ABAC evaluation, compiler, Commercial integration, transport/UI or production readiness.
 
 The physical pre-development ZIP was waived by explicit owner direction under `UD-BACKUP-01`. This session does not claim that a ZIP was created. Any desired local clone/archive backup will be handled manually by the owner.
 
@@ -13,7 +13,10 @@ The physical pre-development ZIP was waived by explicit owner direction under `U
 
 ## Historical design evidence and current SQL scope
 - Product/design P0/P1: 0/0
-- DD-041 compiled Authorization and DD-042 Current Supported Industry read bindings are implemented/tested; DD-043 protected PLATFORM_GLOBAL scope floor is implemented/tested. Remaining Core integrations are recorded in `Development/CORE_SERVICE_CHECKPOINT.md`.
+- DD-041 compiled Authorization and DD-042 Current Supported Industry read bindings: implemented/tested.
+- DD-043 protected PLATFORM_GLOBAL scope floor: implemented/tested.
+- DD-044 Clerk session-security: implemented/tested in the current bounded Core scope.
+- DEV-AUTHZ-PDP-001 PLATFORM_GLOBAL Authorization persistence prerequisite: implemented/tested; evaluator/compiler not claimed.
 - 9/9 Current Supported Industries: PASS
 - 41/41 Management Systems: PASS
 - 165/165 named KPI/report metrics: mapped
@@ -33,14 +36,14 @@ The physical pre-development ZIP was waived by explicit owner direction under `U
 Next.js 15 · React 19 · TypeScript 5.x · Node.js 22+ · Tailwind/Shadcn · PostgreSQL · Payload CMS 3 · Refine where explicitly justified · Next.js server default · NestJS only where justified · tRPC first-party · REST/OpenAPI external · Clerk preferred/Auth.js fallback · React Native+Expo · Tauri 2.0 · Expo Push/OneSignal · PostgreSQL outbox · pgvector · Vercel suitable workloads · Coolify + Dockerized VPS.
 
 ## Current Development evidence
-[DEV-CORE-PLATFORM-SCOPE-001](Development/CORE_SERVICE_CHECKPOINT.md) records executable `3e7b2927839d289240eb389902563f5ab3d68074`: Core Service Verify `35139097825` PASS (47 Core/server acceptance tests present; 11/11 real PostgreSQL tests) and Database Verify `35139097903` PASS (34 migrations / 28 verification files). Exact tested HEAD is asserted by CI.
+[DEV-AUTHZ-PDP-001](Development/CORE_SERVICE_CHECKPOINT.md) records verified executable `54e6fd0972699e31c4650e54faa9e41086f55755`: Core Service Verify `35242938042` PASS (**65 Core/server tests; 13/13 real PostgreSQL tests**) and Database Verify `35242938026` PASS (**35 migrations / 29 verification files**). Exact tested HEAD is asserted by CI. Subsequent state-only branch commits were separately revalidated with green Core Service Verify and Database Verify at the actual remote HEAD before this continuation.
 
 ## Historical all-stages audit evidence
 - `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`
 - `Registers/ALL_STAGES_FILE_COVERAGE_2026-09-13.md`
 - `State/PROJECT_MANIFEST.json`
 
-PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+PostgreSQL+pgvector historical audit PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. This is historical evidence only; current executable evidence is the checkpoint above.
 
 ## Historical phase evidence
 - `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`
@@ -54,4 +57,4 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Draft PR #2 remains review-only. `main` has not been changed by this continuation.
 
 ## Next
-Implement concrete provider/session-security integration behind the existing Core Identity/Security ports, then PDP/ABAC, Commercial validation integration, and DD-06 tRPC/REST transports. Trusted directory/bootstrap, broader repositories, runtime rate limiter/idempotency, UI/mobile/desktop and deployment remain unfinished.
+Define deterministic executable **permission-set v1 + ABAC expression v1 grammar** with bounded data-only semantics and no arbitrary JavaScript/SQL/shell/template/dynamic execution. Then implement the Authorization read store, fail-closed PDP/ABAC evaluator, and dedicated compiler boundary; Commercial validation integration and DD-06 tRPC/REST transports follow. Broader repositories, runtime rate limiter/idempotency, UI/mobile/desktop and deployment remain unfinished.
