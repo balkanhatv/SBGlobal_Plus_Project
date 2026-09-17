@@ -2,6 +2,17 @@
 -- DEV-AUTHZ-PDP-001. Read-side owner only; this does not implement the PDP evaluator/compiler.
 BEGIN;
 
+-- The RLS registry predates the explicit PLATFORM_GLOBAL scope class. Migration 0029
+-- standardized the governed scope vocabulary for executable catalog/security contracts,
+-- so the registry must accept the same platform-global classification before these
+-- dedicated Authorization tables can be registered. Keep the older migration immutable
+-- and evolve the current schema here so clean bootstrap and forward upgrades agree.
+ALTER TABLE core_authz.rls_table_registry
+  DROP CONSTRAINT IF EXISTS rls_table_registry_scope_class_check;
+ALTER TABLE core_authz.rls_table_registry
+  ADD CONSTRAINT rls_table_registry_scope_class_check
+  CHECK (scope_class IN ('PLATFORM_GLOBAL','TENANT_CORE','TENANT_INDUSTRY','MIXED_SCOPED'));
+
 CREATE TABLE core_authz.platform_role_assignment (
   id uuid PRIMARY KEY,
   principal_id uuid NOT NULL REFERENCES core_identity.platform_principal(id),
