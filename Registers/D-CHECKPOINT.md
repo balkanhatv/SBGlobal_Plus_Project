@@ -1,18 +1,18 @@
-# D-CHECKPOINT — DEV-AUTHZ-POLICY-GRAMMAR-001
-**Updated:** 2026-09-17 · **Branch:** `docs/architecture-branch-2`
+# D-CHECKPOINT — DEV-AUTHZ-READ-STORE-001
+**Updated:** 2026-09-18 · **Branch:** `docs/architecture-branch-2`
 
-The current executable checkpoint is [Development/CORE_SERVICE_CHECKPOINT.md](../Development/CORE_SERVICE_CHECKPOINT.md). The grammar contract is [DEV-AUTHZ-POLICY-GRAMMAR-001](../Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md); the preceding PLATFORM_GLOBAL persistence prerequisite remains [DEV-AUTHZ-PDP-001](../Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md).
+The current executable checkpoint is [Development/CORE_SERVICE_CHECKPOINT.md](../Development/CORE_SERVICE_CHECKPOINT.md). The locked policy grammar remains [DEV-AUTHZ-POLICY-GRAMMAR-001](../Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md); the preceding PLATFORM_GLOBAL persistence prerequisite remains [DEV-AUTHZ-PDP-001](../Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md).
 
-Verified executable commit: `1b0f90dc900e0ab49cde2f8305f11cfadadae31c`; tree `a48a2b8cd4d9447522ca2c5721d23a85175dbfa8`.
-- Core Service Verify run `35247193977`, core-service job `105290285420`: **PASS — 71/71**.
-- Core Service Verify run `35247193977`, postgres-context job `105290285531`: **PASS — 13/13**.
-- Database Verify run `35247193986`, postgres-verify job `105290285053`: **PASS**.
-- Current inventory: **71 Core/server tests, 13 real PostgreSQL tests, 35 migrations, 29 verification files**; Industry SQL scope remains **9/41/181**.
+Verified executable commit: `4916b30359cea056a352245176dcb33f739fc0a0`; tree `16e1a322620de4a0591222356e6db3dd5f0428bf`.
+- Core Service Verify run `35252274497`, core-service job `105307252647`: **PASS — 75/75**.
+- Core Service Verify run `35252274497`, postgres-context job `105307252908`: **PASS — 15/15**.
+- Database Verify run `35252274557`, postgres-verify job `105307253170`: **PASS**.
+- Current inventory: **75 Core/server tests, 15 real PostgreSQL tests, 36 migrations, 30 verification files**; Industry SQL scope remains **9/41/181**.
 
-Gate: **IMPLEMENTED / TESTED — PERMISSION SET v1 + ABAC EXPRESSION v1 GRAMMAR; PDP READER/EVALUATOR NOT CLAIMED**.
+Gate: **IMPLEMENTED / TESTED — AUTHORIZATION READ STORE; PDP/ABAC EVALUATOR NOT CLAIMED**.
 
-The grammar is schema-version-aligned, canonical, bounded and data-only. Unknown fields/operators/attributes reject. No arbitrary JavaScript/eval, SQL, shell, regex/glob AST, template, network/filesystem/provider or dynamic traversal is permitted as executable policy input. Existing RBAC deny precedence and ABAC DENY/RESTRICT narrowing semantics are preserved.
+Tenant and PLATFORM_GLOBAL snapshot paths are separate; the reader selects exact CURRENT snapshots and applicable ACTIVE/effective-window ABAC policies only, validates all persisted v1 policy data through the locked grammar, preserves sibling-Industry isolation and fails closed on missing/version/scope/payload/dependency errors.
 
-Next governed action: implement **only the Authorization read store** for the exact tenant/platform CURRENT compiled snapshot and applicable ACTIVE ABAC policies, using the locked v1 parsers and fail-closed scope/version/payload behavior. Evaluator/compiler work follows only after that reader passes exact-head verification.
+Next governed action: implement **only the fail-closed `AuthorizationDecisionPort` PDP/ABAC evaluator + DD-17 AUTH acceptance**. Evaluator/compiler remain separate governed slices.
 
 RawSourceCorpus stays immutable; `main` stays unmerged; PR #2 remains draft/review only.
