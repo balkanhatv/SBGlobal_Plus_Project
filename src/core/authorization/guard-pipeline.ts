@@ -1,6 +1,10 @@
 import type { OperationContract } from "../api/operation-contract.js";
 import type { RequestContext } from "../context/contracts.js";
-import type { AccessDecision, ResourceDescriptor } from "./contracts.js";
+import {
+  AuthorizationDecisionError,
+  type AccessDecision,
+  type ResourceDescriptor,
+} from "./contracts.js";
 import type {
   AuthorizationDecisionPort,
   CommercialGuardPort,
@@ -211,10 +215,9 @@ export class GuardPipeline {
       });
     }
 
-    const baseDecision = await this.ports.authorization.evaluateBase({
-      requestContext,
-      operation,
-    });
+    const baseDecision = await this.evaluateAuthorization(
+      () => this.ports.authorization.evaluateBase({ requestContext, operation }),
+    );
     this.assertAllowed(baseDecision);
 
     let resourceDescriptor: ResourceDescriptor | undefined;
@@ -244,11 +247,13 @@ export class GuardPipeline {
       this.assertResourceContext(requestContext, resolved);
       resourceDescriptor = resolved;
 
-      resourceDecision = await this.ports.authorization.evaluateResource({
-        requestContext,
-        operation,
-        resourceDescriptor,
-      });
+      resourceDecision = await this.evaluateAuthorization(
+        () => this.ports.authorization.evaluateResource({
+          requestContext,
+          operation,
+          resourceDescriptor,
+        }),
+      );
       this.assertAllowed(resourceDecision);
     }
 
@@ -260,6 +265,20 @@ export class GuardPipeline {
         resourceDecision?.restrictionSet,
       ),
     });
+  }
+
+  private async evaluateAuthorization<T>(call: () => Promise<T>): Promise<T> {
+    try {
+      return await call();
+    } catch (error) {
+      if (error instanceof AuthorizationDecisionError) {
+        throw new GuardPipelineError({
+          code: "DEPENDENCY_UNAVAILABLE",
+          messageSafe: "Authorization decision service is unavailable.",
+        });
+      }
+      throw error;
+    }
   }
 
   private assertAllowed(decision: AccessDecision): void {

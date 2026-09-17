@@ -24,6 +24,22 @@ export type AccessReasonCode =
   | "WORKFLOW_STATE_DENY"
   | "STEP_UP_REQUIRED";
 
+export type AuthorizationDecisionErrorCode =
+  | "AUTHORIZATION_STATE_UNAVAILABLE"
+  | "AUTHORIZATION_CONTEXT_STALE"
+  | "AUTHORIZATION_ATTRIBUTE_UNAVAILABLE"
+  | "AUTHORIZATION_ATTRIBUTE_INVALID";
+
+export class AuthorizationDecisionError extends Error {
+  readonly code: AuthorizationDecisionErrorCode;
+
+  constructor(code: AuthorizationDecisionErrorCode, message: string) {
+    super(message);
+    this.name = "AuthorizationDecisionError";
+    this.code = code;
+  }
+}
+
 export interface ResourceDescriptor {
   readonly resourceType: string;
   readonly resourceId: string;
@@ -47,7 +63,7 @@ export interface AccessDecision {
   readonly auditRequired: boolean;
   readonly evaluatedAt: string;
   readonly permissionVersion: number;
-  readonly entitlementSnapshotVersion: number;
+  readonly entitlementSnapshotVersion?: number;
 }
 
 export interface BaseAccessDecisionInput {
