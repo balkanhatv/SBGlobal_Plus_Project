@@ -3,7 +3,7 @@
 **Current checkpoint:** `Development/CORE_SERVICE_CHECKPOINT.md`  
 **Branch:** `docs/architecture-branch-2`
 
-**Current status:** Development is in progress at `DEV-AUTHZ-PDP-001`: Core context/identity/guards, pooled PostgreSQL/RLS, DD-041/DD-042 read bindings, DD-043 protected PLATFORM_GLOBAL identity/SQL floor, DD-044 Clerk session-security, and the PLATFORM_GLOBAL Authorization persistence prerequisite are implemented and tested within their bounded scope. `Development/CORE_SERVICE_CHECKPOINT.md` owns current executable evidence and the next task. Historical PASS labels do not establish PDP/ABAC evaluation, compiler, Commercial integration, transport/UI or production readiness.
+**Current status:** Development is in progress at `DEV-AUTHZ-POLICY-GRAMMAR-001`. Core context/identity/guards, pooled PostgreSQL/RLS, DD-041/DD-042 read bindings, DD-043 protected PLATFORM_GLOBAL identity/SQL floor, DD-044 Clerk session-security, `DEV-AUTHZ-PDP-001` PLATFORM_GLOBAL Authorization persistence and the deterministic Permission Set v1 / ABAC Expression v1 grammar are implemented and tested within their bounded scope. Historical PASS labels do not establish Authorization reader/PDP evaluator/compiler, Commercial integration, transport/UI or production readiness.
 
 The physical pre-development ZIP was waived by explicit owner direction under `UD-BACKUP-01`. This session does not claim that a ZIP was created. Any desired local clone/archive backup will be handled manually by the owner.
 
@@ -17,6 +17,7 @@ The physical pre-development ZIP was waived by explicit owner direction under `U
 - DD-043 protected PLATFORM_GLOBAL scope floor: implemented/tested.
 - DD-044 Clerk session-security: implemented/tested in the current bounded Core scope.
 - DEV-AUTHZ-PDP-001 PLATFORM_GLOBAL Authorization persistence prerequisite: implemented/tested; evaluator/compiler not claimed.
+- DEV-AUTHZ-POLICY-GRAMMAR-001 Permission Set v1 + ABAC Expression v1: implemented/tested; reader/evaluator/compiler not claimed.
 - 9/9 Current Supported Industries: PASS
 - 41/41 Management Systems: PASS
 - 165/165 named KPI/report metrics: mapped
@@ -36,7 +37,9 @@ The physical pre-development ZIP was waived by explicit owner direction under `U
 Next.js 15 · React 19 · TypeScript 5.x · Node.js 22+ · Tailwind/Shadcn · PostgreSQL · Payload CMS 3 · Refine where explicitly justified · Next.js server default · NestJS only where justified · tRPC first-party · REST/OpenAPI external · Clerk preferred/Auth.js fallback · React Native+Expo · Tauri 2.0 · Expo Push/OneSignal · PostgreSQL outbox · pgvector · Vercel suitable workloads · Coolify + Dockerized VPS.
 
 ## Current Development evidence
-[DEV-AUTHZ-PDP-001](Development/CORE_SERVICE_CHECKPOINT.md) records verified executable `54e6fd0972699e31c4650e54faa9e41086f55755`: Core Service Verify `35242938042` PASS (**65 Core/server tests; 13/13 real PostgreSQL tests**) and Database Verify `35242938026` PASS (**35 migrations / 29 verification files**). Exact tested HEAD is asserted by CI. Subsequent state-only branch commits were separately revalidated with green Core Service Verify and Database Verify at the actual remote HEAD before this continuation.
+[DEV-AUTHZ-POLICY-GRAMMAR-001](Development/CORE_SERVICE_CHECKPOINT.md) records verified executable `1b0f90dc900e0ab49cde2f8305f11cfadadae31c`, tree `a48a2b8cd4d9447522ca2c5721d23a85175dbfa8`: Core Service Verify `35247193977` PASS (**71/71 Core/server tests; 13/13 real PostgreSQL tests**) and Database Verify `35247193986` PASS (**35 migrations / 29 verification files**). Exact tested HEAD/tree are asserted by CI.
+
+The policy grammar is schema-version-aligned, canonical, bounded and data-only. It allows only governed permission facts, allowlisted server-derived ABAC attributes/operators and exact/terminal-prefix permission patterns. Arbitrary JavaScript/eval, SQL, shell, regex/glob ASTs, templates, network/filesystem/provider calls and dynamic object traversal are rejected.
 
 ## Historical all-stages audit evidence
 - `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`
@@ -57,4 +60,4 @@ PostgreSQL+pgvector historical audit PASS: commit `2c36b43a7d55c6600b71f9714389e
 Draft PR #2 remains review-only. `main` has not been changed by this continuation.
 
 ## Next
-Define deterministic executable **permission-set v1 + ABAC expression v1 grammar** with bounded data-only semantics and no arbitrary JavaScript/SQL/shell/template/dynamic execution. Then implement the Authorization read store, fail-closed PDP/ABAC evaluator, and dedicated compiler boundary; Commercial validation integration and DD-06 tRPC/REST transports follow. Broader repositories, runtime rate limiter/idempotency, UI/mobile/desktop and deployment remain unfinished.
+Implement **only the Authorization read store** for exact tenant/platform CURRENT compiled snapshots plus applicable ACTIVE ABAC policies. Persisted permission payloads, ABAC expressions and permission patterns must validate through the locked v1 grammar and failures must be fail-closed. PDP/ABAC evaluation follows only after this reader is independently verified; compiler, Commercial validation, DD-06 transports, broader repositories, runtime rate limiter/idempotency, UI/mobile/desktop and deployment remain unfinished.

@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-17
 
-Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The Core kernel, pooled PostgreSQL adapter, DD-041/DD-042 read bindings, DD-043 protected PLATFORM_GLOBAL scope floor, DD-044 Clerk session-security and `DEV-AUTHZ-PDP-001` PLATFORM_GLOBAL Authorization persistence prerequisite are implemented/tested within their bounded scope. PDP/ABAC evaluation/compiler, Commercial validation, API transports and UI remain unfinished. Read `../Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md` and `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` before continuation.
+Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The Core kernel, pooled PostgreSQL adapter, DD-041/DD-042 read bindings, DD-043 protected PLATFORM_GLOBAL scope floor, DD-044 Clerk session-security, `DEV-AUTHZ-PDP-001` PLATFORM_GLOBAL Authorization persistence, and `DEV-AUTHZ-POLICY-GRAMMAR-001` deterministic Permission Set v1 / ABAC Expression v1 grammar are implemented/tested within their bounded scope. Authorization reader, PDP/ABAC evaluator/compiler, Commercial validation, API transports and UI remain unfinished. Read `../Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md`, `../Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md` and `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` before continuation.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -199,4 +199,12 @@ Executable `3e7b2927839d289240eb389902563f5ab3d68074`: Core Service Verify `3513
 
 DD-044 concrete Clerk identity/session-security integration was completed before the Authorization continuation. The first `DEV-AUTHZ-PDP-001` persistence commit (`c4ceff50d76730ef18232d448523ff5d1e896cd4`) failed exact-head database regression and was not promoted. `07d7a760e547d1c07618e4fe0bf95d6588fe2836` corrected the RLS registry vocabulary but exposed a schema-local deferred-FK verification defect. Verified executable `54e6fd0972699e31c4650e54faa9e41086f55755` corrected both without weakening Tenant/Industry RLS: Core Service Verify `35242938042` PASS (**65 Core/server + 13 PostgreSQL tests**) and Database Verify `35242938026` PASS (**35 migrations / 29 verification files**).
 
-Current checkpoint: **`DEV-AUTHZ-PDP-001`**. PLATFORM_GLOBAL role assignment plus immutable compiled-permission subject/snapshot persistence is present with FORCE RLS and least privilege; PDP/ABAC evaluator and compiler are not claimed. Next governed work is to lock deterministic executable **permission-set v1 + ABAC expression v1 grammar** before any reader/evaluator implementation.
+At that checkpoint, PLATFORM_GLOBAL role assignment plus immutable compiled-permission subject/snapshot persistence was present with FORCE RLS and least privilege; PDP/ABAC evaluator and compiler were not claimed. The governed next work from that historical checkpoint was to lock deterministic executable **permission-set v1 + ABAC expression v1 grammar** before any reader/evaluator implementation.
+
+## Deterministic Authorization policy grammar checkpoint — 2026-09-17
+
+Verified executable `1b0f90dc900e0ab49cde2f8305f11cfadadae31c`, tree `a48a2b8cd4d9447522ca2c5721d23a85175dbfa8`: Core Service Verify `35247193977` PASS (**71/71 Core/server + 13/13 real PostgreSQL tests**) and Database Verify `35247193986` PASS (**35 migrations / 29 verification files**).
+
+Current checkpoint: **`DEV-AUTHZ-POLICY-GRAMMAR-001`**. Permission Set v1 and ABAC Expression v1 are now deterministic, schema-version-aligned, bounded and data-only. Unknown versions/fields/operators/attributes fail closed; no arbitrary JavaScript/eval, SQL, shell, regex/glob AST, template, network/filesystem/provider execution or dynamic object traversal is an executable policy surface. No database migration or Industry scope was changed by this slice.
+
+Next governed work is **Authorization read store only**: exact tenant/platform CURRENT compiled snapshots plus applicable ACTIVE ABAC policies, validated through the locked v1 parsers with fail-closed scope/version/payload/dependency semantics. PDP/ABAC evaluation, compiler publication, Commercial integration and DD-06 transports remain later slices.
