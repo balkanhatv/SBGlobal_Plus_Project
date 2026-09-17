@@ -112,7 +112,11 @@ INSERT INTO core_authz.compiled_platform_permission_subject
 VALUES
 ('35000000-0000-0000-0000-000000000030','35000000-0000-0000-0000-000000000001',0,now(),now());
 
-SET CONSTRAINTS compiled_platform_permission_subject_current_snapshot_fk DEFERRED;
+-- SET CONSTRAINTS resolves unqualified constraint names through search_path. This
+-- verification runs with the default search_path while the FK is owned by core_authz,
+-- so defer all deferrable constraints for this isolated rollback-only fixture instead
+-- of relying on a schema-local constraint-name lookup.
+SET CONSTRAINTS ALL DEFERRED;
 INSERT INTO core_authz.compiled_platform_permission_snapshot
 (id,subject_id,version,status,role_ids,permission_schema_version,permission_set_json,source_fingerprint,compiled_at)
 VALUES
@@ -121,7 +125,7 @@ VALUES
 UPDATE core_authz.compiled_platform_permission_subject
 SET current_snapshot_id='35000000-0000-0000-0000-000000000031',current_version=1
 WHERE id='35000000-0000-0000-0000-000000000030';
-SET CONSTRAINTS compiled_platform_permission_subject_current_snapshot_fk IMMEDIATE;
+SET CONSTRAINTS ALL IMMEDIATE;
 
 DO $$
 BEGIN
