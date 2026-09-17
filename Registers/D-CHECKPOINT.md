@@ -1,18 +1,16 @@
-# D-CHECKPOINT — DEV-AUTHZ-EVAL-001
+# D-CHECKPOINT — DEV-AUTHZ-COMPILER-001
 **Updated:** 2026-09-18 · **Branch:** `docs/architecture-branch-2`
 
-Current executable checkpoint: [Development/CORE_SERVICE_CHECKPOINT.md](../Development/CORE_SERVICE_CHECKPOINT.md).
+Verified executable: `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`; tree `a1cc883564516222ed6095e692ba6bd1ec33baac`.
+- Core `35282382158` / `105407032089`: **95/95 PASS**.
+- PostgreSQL `35282382158` / `105407032426`: **18/18 PASS**.
+- Database `35282382162` / `105407032144`: **PASS — 37 migrations / 31 verification files**.
+- Industry SQL scope: **9/41/181**.
 
-Verified executable: `96b051ca6feef26d3f8534ce6d3240f6843dc31e`; tree `1e9d6151cc4fa01232b4ee1e7397a33fa81249b0`.
-- Core Service Verify `35281558425` / `105404441228`: **87/87 PASS**.
-- PostgreSQL `35281558425` / `105404440896`: **15/15 PASS**.
-- Database Verify `35281558472` / `105404441482`: **PASS — 36 migrations / 30 verification files**.
-- Industry SQL scope remains **9/41/181**.
+Gate: **IMPLEMENTED / TESTED — DEDICATED AUTHORIZATION COMPILER PUBLICATION BOUNDARY; COMMERCIAL INTEGRATION NOT CLAIMED**.
 
-Gate: **IMPLEMENTED / TESTED — FAIL-CLOSED AUTHORIZATION DECISION EVALUATOR FLOOR; COMPILER NOT CLAIMED**.
+Migration 0037 and the compiler service enforce least-privilege writes, separate tenant/platform paths, monotonic current-version publication and non-reusing invalidation.
 
-DD-045 deliberately treats persisted RESTRICT as DENY until a governed restriction payload/reducer exists. No Commercial adapter, compiler publication or full production authorization completion is implied.
-
-Next governed action: implement **only the dedicated Authorization compiler write boundary** under DD-041 monotonic publication/invalidation and least-privilege tenant/platform writer separation.
+Next governed action: **Commercial current-state integration only**.
 
 RawSourceCorpus stays immutable; `main` stays unmerged; PR #2 remains draft/review only.

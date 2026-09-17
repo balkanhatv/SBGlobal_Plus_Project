@@ -1,46 +1,43 @@
-# CORE SERVICE CHECKPOINT — DEV-AUTHZ-EVAL-001
+# CORE SERVICE CHECKPOINT — DEV-AUTHZ-COMPILER-001
 **Updated:** 2026-09-18  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — fail-closed AuthorizationDecisionPort RBAC/ABAC evaluator floor; compiler not yet claimed
+**Status:** IMPLEMENTED / TESTED — dedicated monotonic Authorization compiler write boundary; Commercial integration not yet claimed
 
 ## Verified executable snapshot
-- Commit: `96b051ca6feef26d3f8534ce6d3240f6843dc31e`.
-- Tree: `1e9d6151cc4fa01232b4ee1e7397a33fa81249b0`.
-- Prior executable checkpoint: `4916b30359cea056a352245176dcb33f739fc0a0` (`DEV-AUTHZ-READ-STORE-001`).
-- Design correction prerequisite: `b879be93913e3ec1b4d6e6ac0bda32ee7eff2db5` (DD-045 fail-closed evaluator floor).
-- Database: **36 migrations / 30 verification files** through 0036 + 0099.
+- Commit: `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`.
+- Tree: `a1cc883564516222ed6095e692ba6bd1ec33baac`.
+- Prior executable checkpoint: `96b051ca6feef26d3f8534ce6d3240f6843dc31e` (`DEV-AUTHZ-EVAL-001`).
+- Compiler persistence prerequisite: `caaf18cdf19feb7df669fbca478c883fa3ef7642`.
+- Database: **37 migrations / 31 verification files**, including 0037 and 0099.
 - Industry SQL scope remains **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
-- Core/server acceptance inventory: **87 tests**; real PostgreSQL inventory: **15 tests**.
+- Core/server acceptance inventory: **95 tests**; real PostgreSQL inventory: **18 tests**.
 
-## Current Authorization evaluator boundary
-`DEV-AUTHZ-EVAL-001` consumes the independently verified Authorization read store and locked v1 policy grammar:
-- exact CURRENT compiled permission snapshot drives RBAC;
-- missing permission or compiled DENY is final `DENY / RBAC_DENY`;
-- ABAC never creates an allow;
-- matching persisted `DENY` is final `DENY / ABAC_DENY`;
-- matching persisted `RESTRICT` also fails closed as `DENY / ABAC_DENY` because current persistence has no governed restriction payload/reducer contract;
-- base evaluation defers policies requiring `resource.*` attributes; resource evaluation re-reads current Authorization state and evaluates the full applicable policy set;
-- unavailable non-`exists` server policy facts fail closed; supplemental facts are server-owned and cannot override directly resolved subject/resource/environment facts;
-- tenant RequestContext permissionVersion + roleIds must match the exact CURRENT compiled snapshot and tenant decisions require the current entitlementSnapshotVersion;
-- PLATFORM_GLOBAL uses the dedicated platform snapshot and does not invent a tenant entitlement version sentinel;
-- evaluator failures normalize through GuardPipeline as non-disclosing `DEPENDENCY_UNAVAILABLE`;
-- decisions in this bounded floor set `auditRequired=true`; durable audit emission remains a separate integration responsibility.
+## Current Authorization compiler boundary
+`DEV-AUTHZ-COMPILER-001` implements the DD-041 publication/invalidation write boundary:
+- dedicated `sbg_authorization_compiler_rw` role is NOLOGIN, NOSUPERUSER, NOBYPASSRLS, NOINHERIT and table-scoped;
+- compiler can SELECT/INSERT/UPDATE only compiled tenant/platform subject + snapshot truth; it has no DELETE and no source role-assignment/role-template/role-permission/ABAC mutation authority;
+- application and Control Plane roles remain non-compiler writers;
+- tenant writes stay behind existing exact Tenant/Industry FORCE RLS; PLATFORM_GLOBAL uses separate compiler RLS policies;
+- application compiler service requires a trusted SERVICE RequestContext and exact target scope;
+- Permission Set v1 is revalidated at publication; role IDs are unique/canonical-sorted; source fingerprints are bounded;
+- publication serializes each exact subject with `FOR UPDATE`, supersedes old CURRENT before inserting the next CURRENT snapshot, advances version exactly by one, and moves the current pointer atomically;
+- invalidation changes CURRENT→INVALIDATED and clears the pointer without decrementing or reusing the issued version;
+- after invalidation the next publication resumes at last-issued-version + 1;
+- tenant and PLATFORM_GLOBAL subject paths are separate and never cross-fallback;
+- compiler DB adapter fixes the dedicated role and preserves pooled-connection cleanup/expired-handle safety.
 
-This checkpoint does **not** claim a restriction payload schema/reducer, concrete Commercial supplemental-fact adapter, compiler publication, complete resource/workflow business-rule evaluation, transport wiring, or production authorization certification.
+This checkpoint is a **publication boundary**, not the role/permission source compiler algorithm itself. It does not claim a concrete Commercial fact adapter, enforceable RESTRICT payload/reducer, full resource/workflow rule integration, transport wiring, or production authorization certification.
 
 ## Exact executable evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35281558425 | 105404441228 | **PASS — 87/87** |
-| Core Service Verify / postgres-context-verify | 35281558425 | 105404440896 | **PASS — 15/15** |
-| Database Verify / postgres-verify | 35281558472 | 105404441482 | **PASS — 36 migrations / 30 verification files** |
+| Core Service Verify / core-service-verify | 35282382158 | 105407032089 | **PASS — 95/95** |
+| Core Service Verify / postgres-context-verify | 35282382158 | 105407032426 | **PASS — 18/18** |
+| Database Verify / postgres-verify | 35282382162 | 105407032144 | **PASS — 37 migrations / 31 verification files** |
 
-All jobs asserted exact tested HEAD `96b051ca6feef26d3f8534ce6d3240f6843dc31e` and tree `1e9d6151cc4fa01232b4ee1e7397a33fa81249b0`.
-
-## Correction lineage
-The first evaluator implementation `80fa65502fbe682963405e9cc01c47cdf800381d` was **not promoted**: Core/PostgreSQL builds failed TS2322 because a mutable optional `resourceDescriptor` lost narrowing inside an async closure. Commit `96b051ca6feef26d3f8534ce6d3240f6843dc31e` passed the immutable resolved resource directly and restored exact-head Core/PostgreSQL success without changing authorization semantics.
+All jobs asserted exact tested HEAD `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15` and tree `a1cc883564516222ed6095e692ba6bd1ec33baac`.
 
 ## Scope limits / next governed work
-Next governed unfinished slice: **dedicated Authorization compiler write boundary only** — implement the DD-041 monotonic publication/invalidation protocol with a least-privilege compiler role/policy and exact tenant/platform scope separation. Do not make runtime app roles writers.
+Next governed unfinished slice: **Commercial current-state integration only** — resolve the existing current EntitlementSnapshot/Subscription/License persistence through module-owned read ports, bind its exact version/facts to guard + Authorization supplemental facts, and fail closed on stale/missing state. Do not move entitlement truth into Authorization.
 
-True enforceable ABAC RESTRICT payload/reducer, concrete Commercial current-state facts, broader resource/workflow rules, transports/rate limiter/idempotency, UI/mobile/desktop, deployment and production readiness remain unfinished. RawSourceCorpus remains immutable. `main` remains unmerged; PR #2 stays review-only/draft.
+True enforceable ABAC RESTRICT payload/reducer, broader resource/workflow rules, DD-06 transports/rate limiter/idempotency, UI/mobile/desktop, deployment and production readiness remain unfinished. RawSourceCorpus remains immutable. `main` remains unmerged; PR #2 stays review-only/draft.

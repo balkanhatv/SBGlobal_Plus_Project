@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-18
 
-Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The verified chain now includes the Core kernel, pooled PostgreSQL adapter, Clerk session-security, PLATFORM_GLOBAL Authorization persistence, deterministic Permission Set v1 / ABAC Expression v1 grammar, governed Authorization read store, and DD-045 fail-closed `AuthorizationDecisionPort` evaluator floor. Compiler publication, enforceable RESTRICT payload/reducer, concrete Commercial facts/integration, API transports and UI remain unfinished. Read the current Core checkpoint and DD-03/DD-17/DD-18 before continuation.
+Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The verified chain now includes Core/context/SQL/session-security, Authorization persistence, deterministic policy grammar, governed read store, DD-045 fail-closed evaluator floor, and DD-041 dedicated monotonic compiler publication/invalidation. Commercial current-state integration, enforceable RESTRICT payload/reducer, API transports and UI remain unfinished. Read the current Core checkpoint plus DD-03/DD-04/DD-17/DD-18 before continuation.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -228,3 +228,14 @@ The first implementation `80fa65502fbe682963405e9cc01c47cdf800381d` failed exact
 Current checkpoint: **`DEV-AUTHZ-EVAL-001`**. Exact-current RBAC, fail-closed ABAC, stale-context detection, resource-policy deferral/fresh resource-stage read, server-owned supplemental-fact validation and non-disclosing dependency normalization are implemented/tested within this floor.
 
 Next governed work: **dedicated Authorization compiler write boundary only** under DD-041 monotonic publication/invalidation and least-privilege tenant/platform writer separation.
+
+
+## Authorization compiler publication checkpoint — 2026-09-18
+
+Migration `0037_authorization_compiler_write_boundary.sql` introduced a dedicated `sbg_authorization_compiler_rw` NOLOGIN/NOBYPASSRLS role with SELECT/INSERT/UPDATE only on compiled tenant/platform subject/snapshot truth. Runtime app and Control Plane roles remain non-compiler writers; compiler has no DELETE or role/permission/ABAC source mutation authority.
+
+Verified executable `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`, tree `a1cc883564516222ed6095e692ba6bd1ec33baac`, passed Core Service Verify `35282382158` (**95/95 Core/server + 18/18 real PostgreSQL**) and Database Verify `35282382162` (**37 migrations / 31 verification files**).
+
+Current checkpoint: **`DEV-AUTHZ-COMPILER-001`**. Publication uses exact SERVICE scope, v1 validation, subject locking, CURRENT→SUPERSEDED transition, monotonically increasing pointer/version, invalidation without version reuse/decrement, and separate Tenant/Industry versus PLATFORM_GLOBAL paths.
+
+Next governed work: **Commercial current-state integration only**.
