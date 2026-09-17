@@ -251,7 +251,7 @@ export class GuardPipeline {
         () => this.ports.authorization.evaluateResource({
           requestContext,
           operation,
-          resourceDescriptor,
+          resourceDescriptor: resolved,
         }),
       );
       this.assertAllowed(resourceDecision);
