@@ -385,3 +385,16 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Security boundary:** SBGlobal permissions, roles, entitlements, tenant/context and SessionVersion are never taken from Clerk custom claims. Clerk/provider outage, identity-directory failure or session-security-store failure is `DEPENDENCY_UNAVAILABLE`; invalid/inactive/mismatched provider session is `SESSION_INVALID`. The dedicated SQL boundary uses fixed `sbg_identity_service_rw`, NOBYPASSRLS, and clears any pooled application scope before identity reads.
 **Acceptance:** ID-011…ID-016 plus real PostgreSQL identity-role tests. Existing ID-001…ID-010 remain unchanged. No transport, provider SDK package bootstrap, PDP/ABAC or Commercial completion is implied by this bounded slice.
 **Dependencies:** F-03; A-03; DD-02/03/16/17/037/043; migrations 0003/0029/0031; Clerk backend session-token/session APIs.
+
+
+## DD-045 — Fail-closed Authorization evaluator floor for persisted ABAC RESTRICT [DEV-AUTHZ-EVAL-001]
+
+**Context:** DD-03 and the persisted `core_authz.abac_policy` model allow `DENY|RESTRICT`, while the current persisted row has no versioned restriction payload/reducer definition. The existing PEP accepts a `RESTRICT` decision when a concrete restriction set can be enforced; returning RESTRICT without such a set would be indistinguishable from ALLOW in practice. PLATFORM_GLOBAL also has no tenant commercial snapshot, while the legacy AccessDecision shape assumed an entitlement snapshot version.
+
+**Decision:** The first concrete PDP evaluator is a fail-closed floor. RBAC is evaluated from the exact CURRENT compiled permission snapshot. ABAC never creates an allow. Matching DENY returns `DENY/ABAC_DENY`. Matching RESTRICT also returns `DENY/ABAC_DENY` until a separate governed, versioned restriction payload/reducer contract is approved and tested; the evaluator must not invent opaque restrictions. Tenant decisions require the current server-owned entitlement snapshot version; PLATFORM_GLOBAL decisions omit it. Supplemental ABAC facts are supplied only through a server-owned port and cannot override directly resolved principal/scope/resource/time facts. Missing non-`exists` attributes, stale permission version/role context, reader failure or invalid state fail closed as dependency unavailable. Base evaluation defers resource-attribute policies until resource resolution; resource evaluation re-reads current state and evaluates the full applicable policy set.
+
+**Security consequences:** no ABAC grant expansion; no client-computed policy truth; no bare RESTRICT widening; no platform sentinel commercial version; policy changes that occur between base and resource checks can still narrow/deny at the resource check.
+
+**Scope:** this decision does not add a restriction payload schema, compiler writer, commercial fact adapter, audit persistence adapter, transport, rate limiter, UI or deployment claim. Those remain later governed slices.
+
+**Acceptance:** AUTH-001…AUTH-003 and AUTH-009…AUTH-014 plus direct evaluator negatives for malformed/missing facts and stale compiled-context versions.

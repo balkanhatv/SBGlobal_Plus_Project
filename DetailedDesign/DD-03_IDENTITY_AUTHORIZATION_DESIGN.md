@@ -135,3 +135,21 @@ Migration `0029` places Tenant, PlatformPrincipal and IdentityProviderLink behin
 
 ## 14. Compiled permission physical contract
 DD-041 in DD-18 is the authoritative persistence owner for `permissionVersion`. The Authorization compiler owns a scoped subject plus immutable compiled snapshots; RequestContext and `roles.listEffective` may read only the subject's exact CURRENT snapshot. `MAX(role.version)`, `auth_epoch`, constants, or ad-hoc hashes are not substitutes. A missing/current-invalid snapshot fails closed with `DEPENDENCY_UNAVAILABLE`. The current Development slice implements read adapters only; a future Authorization compiler writer must use the DD-041 locked monotonic publication protocol and a dedicated governed writer role.
+
+
+## 15. Fail-closed PDP evaluator implementation floor [DD-045 / DEV-AUTHZ-EVAL-001]
+
+The current persisted `core_authz.abac_policy` contract carries `DENY|RESTRICT`, expression, scope, priority and validity, but no versioned restriction payload/reducer contract. A bare `RESTRICT` result without an enforceable `restrictionSet` would be allow-like at the current PEP and is therefore prohibited.
+
+Until a dedicated governed restriction-payload/reducer contract is designed and independently verified:
+- a matching persisted `DENY` policy returns `DENY / ABAC_DENY`;
+- a matching persisted `RESTRICT` policy also fails closed as `DENY / ABAC_DENY`; it must never be treated as ALLOW merely because no restriction payload exists;
+- no generic/opaque restriction key is invented by the PDP;
+- tenant decisions require the exact server-resolved `entitlementSnapshotVersion`; PLATFORM_GLOBAL decisions have no tenant commercial snapshot and therefore omit that field rather than inventing a sentinel value;
+- the evaluator consumes only the verified Authorization read store plus server-derived supplemental policy facts; client claims are never policy facts;
+- base evaluation may evaluate only policies that do not require `resource.*` attributes before resource lookup; resource evaluation re-reads current Authorization state and evaluates the complete applicable policy set with the resolved resource;
+- `exists` may test an absent attribute; every other operator that requires an unavailable attribute fails closed as `DEPENDENCY_UNAVAILABLE`;
+- tenant RequestContext `permissionVersion` and role set must match the exact CURRENT compiled snapshot consumed by the evaluator; mismatch is stale context and fails closed;
+- every returned decision sets `auditRequired=true` in this bounded floor; concrete durable audit emission remains a separate enforcement/integration responsibility.
+
+This floor preserves RBAC-primary / ABAC-narrowing-only semantics and resolves the unsafe ambiguity without widening persistence, adding a compiler writer, or inventing Commercial/transport behavior.
