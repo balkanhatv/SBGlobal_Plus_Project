@@ -1,26 +1,21 @@
 # D-INDEX — Current Canonical / Development Index
-**Updated:** 2026-09-18 · **Current checkpoint:** `DEV-AUTHZ-READ-STORE-001`
+**Updated:** 2026-09-18 · **Current checkpoint:** `DEV-AUTHZ-EVAL-001`
 
 | Layer | Owner / evidence | Current boundary |
 |---|---|---|
 | Governance | Governing/MASTER_INSTRUCTION_v2_5.md; MASTER_PROMPT_v2_5.md | Active v2.5 plus dated reconciliations |
-| Source | RawSourceCorpus; SOURCE_REGISTRY.md | Immutable provenance; current explicit authority resolves interpretation |
-| Foundation | F-00…F-15 | WHAT/WHY/WHO; completed scope revalidated |
-| Architecture | A-00…A-12 / ADR-001…020 | HOW; completed scope revalidated |
-| Detailed Design | DD-00…DD-31; nine Industry DDs; DD-036…044 decisions in DD-18 | Exact contracts; DD-044 Clerk session-security executable; Authorization reader executable; PDP evaluator/compiler unfinished |
-| Source traceability | F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md | 2,962 stable child IDs; dependency routes, not executable claims |
-| Development | ../Development/CORE_SERVICE_CHECKPOINT.md; ../Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md; ../Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md | Core + Clerk security + PLATFORM_GLOBAL persistence + deterministic policy grammar + governed read store tested; evaluator/Commercial/transports unfinished |
-| SQL / CI | migrations 0001…0036; 30 verification files; apply-and-verify.sh | Exact-head PostgreSQL+pgvector regression verified at `4916b303…` |
-| Current audit | ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-17.md | Zero-trust findings/correction lineage; current continuation is projected by this index/checkpoint |
-| Historical all-stages audit | ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md | Historical defects/corrections/evidence retained |
-| Historical all-stages file scope | ALL_STAGES_FILE_COVERAGE_2026-09-13.md | Historical complete file classification/coverage |
-| State | ../State/PROJECT_STATE.md; ../State/PROJECT_MANIFEST.json | Human- and machine-readable current projections synchronized after executable checkpoint advances |
+| Source | RawSourceCorpus; SOURCE_REGISTRY.md | Immutable provenance |
+| Foundation | F-00…F-15 | completed scope revalidated |
+| Architecture | A-00…A-12 / ADR-001…020 | completed scope revalidated |
+| Detailed Design | DD-00…DD-31; nine Industry DDs; DD-045 in DD-18 | Fail-closed evaluator floor locked; RESTRICT payload/reducer still future |
+| Development | ../Development/CORE_SERVICE_CHECKPOINT.md | Core + session-security + Authorization persistence/grammar/read/evaluator floor tested; compiler/Commercial/transports unfinished |
+| SQL / CI | migrations 0001…0036; 30 verification files | exact-head PostgreSQL+pgvector regression verified at `96b051ca…` |
+| State | ../State/PROJECT_STATE.md; ../State/PROJECT_MANIFEST.json | current human/machine projections |
 
-Current verified executable checkpoint: `4916b30359cea056a352245176dcb33f739fc0a0` (tree `16e1a322620de4a0591222356e6db3dd5f0428bf`).
-- Core Service Verify `35252274497`: jobs `105307252647` (**75/75 Core**) and `105307252908` (**15/15 PostgreSQL**) PASS.
-- Database Verify `35252274557`: job `105307253170` PASS.
-- Current inventory: 75 Core/server tests, 15 PostgreSQL tests, 36 migrations, 30 verification files, 9 Industries / 41 canonical MS / 181 Industry tables.
+Current verified executable: `96b051ca6feef26d3f8534ce6d3240f6843dc31e` (tree `1e9d6151cc4fa01232b4ee1e7397a33fa81249b0`).
+- Core: **87/87**; PostgreSQL: **15/15**; Database: **36 migrations / 30 verification files**.
+- Industry scope: **9 Industries / 41 canonical MS / 181 Industry tables**.
 
-Next governed action: implement only the fail-closed `AuthorizationDecisionPort` PDP/ABAC evaluator + DD-17 AUTH acceptance against the verified read store. Compiler/Commercial/transports remain later slices.
+Next governed action: **dedicated Authorization compiler write boundary only**. Runtime app roles remain read-only; no main merge.
 
-RawSourceCorpus remains immutable. `main` remains unmerged; PR #2 remains draft/review only.
+RawSourceCorpus remains immutable. PR #2 remains draft/review-only.

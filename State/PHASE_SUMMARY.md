@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-17
+**Updated:** 2026-09-18
 
-Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The Core kernel, pooled PostgreSQL adapter, DD-041/DD-042 read bindings, DD-043 protected PLATFORM_GLOBAL scope floor, DD-044 Clerk session-security, `DEV-AUTHZ-PDP-001` PLATFORM_GLOBAL Authorization persistence, `DEV-AUTHZ-POLICY-GRAMMAR-001` deterministic Permission Set v1 / ABAC Expression v1 grammar, migration 0036 PLATFORM_GLOBAL ABAC write-boundary hardening, and `DEV-AUTHZ-READ-STORE-001` are implemented/tested within their bounded scope. PDP/ABAC evaluator/compiler, Commercial validation, API transports and UI remain unfinished. Read `../Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md`, `../Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md` and `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` before continuation.
+Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The verified chain now includes the Core kernel, pooled PostgreSQL adapter, Clerk session-security, PLATFORM_GLOBAL Authorization persistence, deterministic Permission Set v1 / ABAC Expression v1 grammar, governed Authorization read store, and DD-045 fail-closed `AuthorizationDecisionPort` evaluator floor. Compiler publication, enforceable RESTRICT payload/reducer, concrete Commercial facts/integration, API transports and UI remain unfinished. Read the current Core checkpoint and DD-03/DD-17/DD-18 before continuation.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -217,3 +217,14 @@ Verified executable `4916b30359cea056a352245176dcb33f739fc0a0`, tree `16e1a32262
 Current checkpoint: **`DEV-AUTHZ-READ-STORE-001`**. Tenant and PLATFORM_GLOBAL Authorization snapshot paths are physically separate; only exact CURRENT snapshots and ACTIVE/effective-window ABAC policies are read. Persisted Permission Set v1, ABAC Expression v1 and permission-pattern data are validated through the locked grammar. Missing snapshots, unsupported versions, malformed payloads, scope mismatches, sibling-Industry leakage and persistence/dependency errors fail closed. The reader does not evaluate decisions or publish compiled state.
 
 Next governed work is the **fail-closed `AuthorizationDecisionPort` PDP/ABAC evaluator + DD-17 AUTH acceptance only**. Compiler publication, Commercial integration and DD-06 transports remain later slices.
+
+
+## Fail-closed Authorization evaluator checkpoint — 2026-09-18
+
+DD-045 first closed a blocking ambiguity: persisted ABAC `RESTRICT` has no governed restriction payload/reducer, so bare RESTRICT cannot safely become allow-like. The bounded evaluator therefore fail-closes matching RESTRICT as `DENY / ABAC_DENY` until a separate restriction contract exists.
+
+The first implementation `80fa65502fbe682963405e9cc01c47cdf800381d` failed exact-head Core/PostgreSQL TypeScript compilation (TS2322 resource narrowing) and was not promoted. Corrected executable `96b051ca6feef26d3f8534ce6d3240f6843dc31e`, tree `1e9d6151cc4fa01232b4ee1e7397a33fa81249b0`, passed Core Service Verify `35281558425` (**87/87 Core/server + 15/15 real PostgreSQL**) and Database Verify `35281558472` (**36 migrations / 30 verification files**).
+
+Current checkpoint: **`DEV-AUTHZ-EVAL-001`**. Exact-current RBAC, fail-closed ABAC, stale-context detection, resource-policy deferral/fresh resource-stage read, server-owned supplemental-fact validation and non-disclosing dependency normalization are implemented/tested within this floor.
+
+Next governed work: **dedicated Authorization compiler write boundary only** under DD-041 monotonic publication/invalidation and least-privilege tenant/platform writer separation.
