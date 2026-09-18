@@ -184,3 +184,14 @@ SecurityRatePolicy v1 is enforced by the shared RateLimitService before a transp
 The first distributed state adapter is PostgreSQL-backed through a dedicated least-privilege rate-limiter role. Persistent state contains only SHA-256 bucket identities, token/refill metadata and expiring concurrency leases; it contains no raw Tenant, Industry, principal, credential or network identifiers.
 
 RATE_LIMITED carries deterministic retryAfterSeconds plus the limiting class/dimension. Transport-specific 429/Retry-After projection remains the next adapter layer, not part of this runtime floor.
+
+
+## 22. Canonical execution kernel [DD-051 / DEV-API-EXECUTOR-001]
+
+Future tRPC and REST adapters must call the same transport-neutral OperationExecutor. They may bind route/header/authenticity facts, but they may not reorder or duplicate business enforcement.
+
+The kernel order is: canonical OperationContract → RequestContext using the contract scope → exact versioned input schema normalization/canonical JSON → distributed rate admission → Commercial/Authorization/resource GuardPipeline → command idempotency claim → declared domain handler → exact versioned output validation → idempotency completion → transport-neutral result.
+
+Idempotency replay still passes current context/rate/guard checks and returns an explicit replay result containing only stored safe status/reference metadata. Resource references are derived from validated input, never from a separate client-authoritative object. Domain dispatch is registry-based and limited to the OperationContract's declared domainService. Unknown exceptions after handler dispatch are mutation-ambiguous and therefore non-retryable; only an explicitly declared DomainOperationError may opt into retry.
+
+Rate-lease cleanup failure cannot rewrite a completed command result because expiring leases provide bounded recovery and returning a false failure could provoke duplicate mutation. Concrete tRPC/REST status and envelope mapping remains outside this kernel.

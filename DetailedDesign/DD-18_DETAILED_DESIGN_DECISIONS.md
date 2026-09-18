@@ -485,3 +485,24 @@ SecurityRatePolicy v1 combines the authoritative DD-022 sustained/security defau
 **Scope:** this slice is transport-neutral. It does not yet implement tRPC/REST response projection, Retry-After headers, WAF edge limits, production signal exporters, or provider-specific distributed caches. The service returns deterministic RATE_LIMITED + retry metadata for transport projection.
 
 **Acceptance:** RATE-T001…RATE-T005 plus API-RATE-001…API-RATE-006: numeric v1 lock, strict-only override, opaque bucket state, concurrent atomic admission, public IP isolation, AI tenant concurrency/release and ordinary-role denial.
+
+
+## DD-051 — Versioned schema registry + transport-neutral OperationContract executor [DEV-API-EXECUTOR-001]
+
+**Context:** DD-06 requires tRPC and REST to project one canonical OperationContract and to share schema, authorization, idempotency, rate and domain semantics. The branch now has separate RequestContext, GuardPipeline, idempotency and rate runtimes, but no executable coordinator or versioned schema registry. Direct transport wiring at this point would duplicate ordering/error/replay behavior.
+
+**Decision:** a server-owned OperationExecutor is the only shared execution kernel for future tRPC/REST adapters. The adapter supplies a route-bound operationId, raw input, authenticity/selectors, optional idempotency key and any already-verified rate subject (for example webhook endpoint identity). The executor resolves the canonical OperationContract and forcibly derives scopeClass from that contract; a client/adapter-supplied scope value cannot override it.
+
+**Schema contract:** each operation/version pair registers server-code input/output parsers in OperationSchemaRegistry. Parser output must be JSON-compatible. The registry recursively normalizes it, sorts object keys and freezes the result; the resulting deterministic JSON string is the only idempotency request-fingerprint source. Resource references for resource-bound operations are extracted only from validated normalized input by the registered adapter. Missing schema/extractor, non-JSON parser output or version mismatch fails closed. No executable schema/rule code is loaded from tenant data.
+
+**Execution order:** OperationContract lookup → DD-02 RequestContext resolution → input schema validation/canonicalization → DD-050 rate admission → DD-03/DD-04 GuardPipeline → command idempotency claim → exact declared domain-service handler → output-schema validation → idempotency completion → normalized execution result. Rate concurrency leases are released in cleanup on every admitted path.
+
+**Replay/authorization:** idempotency replay, IN_PROGRESS and FINAL_FAILURE are explicit executor results rather than fabricated domain responses. Current RequestContext, rate admission and GuardPipeline always run before replay state is honored, so possession of an old key/reference never bypasses current Commercial/Authorization/resource policy.
+
+**Domain dispatch:** OperationContract.domainService is resolved only through a server-owned DomainOperationRegistry; no reflection/eval/arbitrary import is permitted. A DomainOperationError may surface only when its code is explicitly declared by the OperationContract. An undeclared DomainOperationError normalizes to dependency-unavailable. Any otherwise unknown exception after a handler has been dispatched is treated as an ambiguous mutation outcome: dependency-unavailable but non-retryable, and a STARTED idempotency record is finalized rather than reopened for automatic retry.
+
+**Mutation safety:** if domain execution or output validation fails after a STARTED idempotency claim, the executor records retryable/final failure according to the normalized safe error. If domain execution succeeds but idempotency success persistence fails, the executor fails the response but leaves the record IN_PROGRESS; it must not convert that state to retryable failure and risk duplicate mutation. Output-schema failure is final for that idempotency attempt. A concurrency-lease release failure after work completion does not rewrite a completed business result because leases expire; rewriting success could induce an unsafe duplicate command.
+
+**Scope:** this decision is transport-neutral and does not implement tRPC routers, REST routes, concrete module schemas/handlers across all operations, domain transactions/outbox, or UI. Transport-specific HTTP/tRPC status/envelope projection remains downstream.
+
+**Acceptance:** API-EXEC-001…API-EXEC-010: forced contract scope, deterministic canonical input, validated resource extraction, fixed execution order, current-policy replay, pre-guard throttle, guard-before-idempotency, declared-domain-only dispatch, output validation/idempotency completion semantics and cleanup behavior.

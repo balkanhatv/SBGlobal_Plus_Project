@@ -401,3 +401,19 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | API-RATE-004 | two concurrent requests compete for the last token | atomic backend admits exactly one; no partial multi-bucket token consumption |
 | API-RATE-005 | AI tenant already has 8 live leases | RATE_LIMITED with retry metadata; releasing/expiry reopens capacity |
 | API-RATE-006 | limiter database inspected by ordinary app/integration role | permission denied; persisted bucket identity is SHA-256 only |
+
+
+### Canonical API execution kernel — DD-051 / DEV-API-EXECUTOR-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| API-EXEC-001 | transport input includes a conflicting scope suggestion | executor uses OperationContract.scopeClass only |
+| API-EXEC-002 | schema parser applies defaults/reorders object fields | deterministic frozen canonical JSON is produced from validated data |
+| API-EXEC-003 | resource-bound operation has raw client ID | GuardPipeline receives only resource reference derived from validated input |
+| API-EXEC-004 | rate admission denies | guard/idempotency/domain do not execute; normalized RATE_LIMITED retains retry metadata |
+| API-EXEC-005 | guard denies after rate admission | rate lease cleanup runs; idempotency/domain do not execute |
+| API-EXEC-006 | existing idempotency replay | current context/rate/guard execute first; domain/output execution does not repeat |
+| API-EXEC-007 | declared DomainOperationError | safe declared code returned and STARTED idempotency is completed as retryable/final accordingly |
+| API-EXEC-008 | undeclared/unknown domain error | dependency-unavailable; private/internal error is not exposed |
+| API-EXEC-009 | output validation fails / success-completion persistence fails | output failure finalizes safely; post-domain success-completion failure leaves IN_PROGRESS and never marks retryable |
+| API-EXEC-010 | concurrency lease release cleanup fails after completed result | completed business result is not rewritten; expiry bounds the stale lease |
