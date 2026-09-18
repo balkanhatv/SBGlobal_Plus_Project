@@ -162,3 +162,12 @@ Canonical evaluation step 10 is implemented through a server-owned, module-suppl
 The port is narrowing-only. It may allow the already-authorized operation or deny it with `RESOURCE_SCOPE_DENY` or `WORKFLOW_STATE_DENY`. Missing adapters, dependency failures and malformed results fail closed. Resource scope denial is normalized to non-disclosing `RESOURCE_NOT_FOUND`; workflow-state denial is normalized to `RESOURCE_STATE_INVALID`. No client workflow state, generic executable rule DSL or cross-industry rule interpretation is introduced by Core.
 
 Concrete ownership/org/workflow adapters remain the responsibility of their authoritative Core/Industry modules and must re-read current server-owned state where their rule requires it. This bounded floor does not claim that all module adapters are implemented.
+
+
+## 17. Durable final decision audit [DD-047 / DEV-AUTHZ-AUDIT-001]
+
+Protected GuardPipeline requests emit one final authorization audit after the complete Commercial → PDP → resource → resource-rule chain. Intermediate base/resource ALLOW results are not separately recorded as successful access when later checks may still deny.
+
+Every normalized deny is audited; successful access is returned only after required audit persistence succeeds. Direct PDP denials preserve decision/policy/version metadata. Denials before a PDP decision do not fabricate `access_decision_id`. Audit evidence is deliberately minimal and excludes request bodies, tokens, entitlement values, restriction contents and resource/workflow payloads.
+
+The physical owner remains the existing append-only `core_audit` model under exact RequestContext RLS. PUBLIC and EXPLICIT_CROSS_CONTEXT need their own governed audit entry paths and are not widened through the single-context application writer.

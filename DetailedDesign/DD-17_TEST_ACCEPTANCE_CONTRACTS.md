@@ -352,3 +352,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | AUTH-012 | tenant RequestContext permissionVersion/role set differs from exact CURRENT compiled snapshot | stale authorization context; dependency unavailable/deny |
 | AUTH-013 | PLATFORM_GLOBAL PDP decision | uses dedicated platform CURRENT snapshot; no tenant entitlementSnapshotVersion sentinel is invented |
 | AUTH-014 | resource-stage evaluation after a successful base allow | re-reads current Authorization state and re-evaluates full applicable policy set so a newly active deny cannot be skipped |
+
+
+### Authorization durable audit continuation — DD-047 / DEV-AUTHZ-AUDIT-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| AUTH-015 | protected access passes Commercial/PDP/resource/rules | exactly one final SUCCESS audit is durably appended before success returns |
+| AUTH-016 | direct PDP deny | exactly one DENIED audit with exact decision ID, policy IDs and permission/entitlement versions |
+| AUTH-017 | Commercial/context/resource denial occurs without a final PDP deny | DENIED audit records final safe reason; no fabricated access decision identity |
+| AUTH-018 | resource/workflow rule denies after resource PDP allowed | final audit outcome DENIED; preceding PDP decision may be referenced only for correlation |
+| AUTH-019 | mandatory Authorization audit append fails | no success returned; denial path remains fail closed as dependency unavailable; private DB/audit diagnostics are not exposed |

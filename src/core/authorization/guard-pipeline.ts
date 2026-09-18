@@ -1,6 +1,10 @@
 import type { OperationContract } from "../api/operation-contract.js";
 import type { RequestContext } from "../context/contracts.js";
 import { CommercialStateError } from "../commercial/current-state.js";
+import type {
+  AuthorizationAuditInput,
+  AuthorizationAuditPort,
+} from "./audit.js";
 import {
   AuthorizationDecisionError,
   type AccessDecision,
@@ -63,6 +67,12 @@ export interface GuardPipelinePorts {
   readonly authorization: AuthorizationDecisionPort;
   readonly resources: ResourceResolverPort;
   readonly resourceRules?: ResourceBusinessRulePort;
+  readonly audit: AuthorizationAuditPort;
+}
+
+interface GuardAuditTrace {
+  latestDecision?: AccessDecision;
+  resourceDescriptor?: ResourceDescriptor;
 }
 
 function normalizeDecision(decision: AccessDecision): GuardPipelineError {
@@ -198,6 +208,64 @@ export class GuardPipeline {
     readonly operation: OperationContract;
     readonly resourceReference?: Readonly<Record<string, unknown>>;
   }): Promise<GuardResult> {
+    const trace: GuardAuditTrace = {};
+    let result: GuardResult;
+
+    try {
+      result = await this.authorizeGuarded(input, trace);
+    } catch (rawError) {
+      const error = rawError instanceof GuardPipelineError
+        ? rawError
+        : new GuardPipelineError({
+            code: "DEPENDENCY_UNAVAILABLE",
+            messageSafe: "Protected access evaluation is unavailable.",
+          });
+
+      await this.appendAuditOrFail({
+        requestContext: input.requestContext,
+        operation: input.operation,
+        outcome: "DENIED",
+        reasonCode: error.reasonCode ?? error.code,
+        ...(error.decisionId
+          && trace.latestDecision?.decisionId === error.decisionId
+          ? { accessDecision: trace.latestDecision }
+          : {}),
+        ...(trace.resourceDescriptor
+          ? { resourceDescriptor: trace.resourceDescriptor }
+          : {}),
+      });
+      throw error;
+    }
+
+    const finalDecision = trace.latestDecision;
+    if (!finalDecision) {
+      throw new GuardPipelineError({
+        code: "DEPENDENCY_UNAVAILABLE",
+        messageSafe: "Authorization decision evidence is unavailable.",
+      });
+    }
+    if (finalDecision.auditRequired || input.operation.auditClass !== "NONE") {
+      await this.appendAuditOrFail({
+        requestContext: input.requestContext,
+        operation: input.operation,
+        outcome: "SUCCESS",
+        accessDecision: finalDecision,
+        ...(trace.resourceDescriptor
+          ? { resourceDescriptor: trace.resourceDescriptor }
+          : {}),
+      });
+    }
+    return result;
+  }
+
+  private async authorizeGuarded(
+    input: {
+      readonly requestContext: RequestContext;
+      readonly operation: OperationContract;
+      readonly resourceReference?: Readonly<Record<string, unknown>>;
+    },
+    trace: GuardAuditTrace,
+  ): Promise<GuardResult> {
     const { requestContext, operation } = input;
     this.assertScope(requestContext, operation);
 
@@ -233,6 +301,7 @@ export class GuardPipeline {
     const baseDecision = await this.evaluateAuthorization(
       () => this.ports.authorization.evaluateBase({ requestContext, operation }),
     );
+    trace.latestDecision = baseDecision;
     this.assertAllowed(baseDecision);
 
     let resourceDescriptor: ResourceDescriptor | undefined;
@@ -261,6 +330,7 @@ export class GuardPipeline {
 
       this.assertResourceContext(requestContext, resolved);
       resourceDescriptor = resolved;
+      trace.resourceDescriptor = resolved;
 
       resourceDecision = await this.evaluateAuthorization(
         () => this.ports.authorization.evaluateResource({
@@ -269,6 +339,7 @@ export class GuardPipeline {
           resourceDescriptor: resolved,
         }),
       );
+      trace.latestDecision = resourceDecision;
       this.assertAllowed(resourceDecision);
 
       const ruleResult = await this.evaluateResourceRules({
@@ -287,6 +358,18 @@ export class GuardPipeline {
         resourceDecision?.restrictionSet,
       ),
     });
+  }
+
+  private async appendAuditOrFail(input: AuthorizationAuditInput): Promise<void> {
+    try {
+      if (!this.ports.audit) throw new Error("missing audit port");
+      await this.ports.audit.append(input);
+    } catch {
+      throw new GuardPipelineError({
+        code: "DEPENDENCY_UNAVAILABLE",
+        messageSafe: "Required authorization audit persistence is unavailable.",
+      });
+    }
   }
 
   private async evaluateResourceRules(input: {

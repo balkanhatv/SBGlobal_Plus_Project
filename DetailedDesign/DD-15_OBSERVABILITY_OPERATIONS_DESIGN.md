@@ -124,3 +124,10 @@ OpenTelemetry-compatible instrumentation/semantic conventions are mandatory. Def
 | Data Home | 99.95% | outbox/critical dependency health within class |
 
 Error-budget fast burn (>10% monthly budget in 1h or >25% in 6h) pauses risky releases and escalates. These are engineering SLOs, not contractual SLAs.
+
+
+## 14. Authorization audit implementation floor [DD-047 / DEV-AUTHZ-AUDIT-001]
+
+The protected GuardPipeline writes exactly one final access audit per completed allow/deny path. Mandatory audit persistence is a fail-closed dependency: an allow is never returned when its required append fails, and a deny whose audit append fails is normalized to dependency-unavailable rather than exposing the more detailed denial while evidence is unavailable.
+
+Authorization evidence uses the existing `core_audit.audit_event_identity` + `audit_event` transaction and exact Tenant/Industry RLS. The evidence JSON is metadata-only: audit class, operation kind, PDP decision kind, policy IDs, permission/entitlement versions and whether a restriction existed. It never stores the restriction object, request payload, token, Commercial fact values or resource contents.

@@ -413,3 +413,18 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Scope:** this decision creates only the fail-closed PEP boundary. It does not claim all 41 MS rule adapters, a generic executable rule engine, durable authorization audit emission, enforceable ABAC RESTRICT payloads, DD-06 transport wiring, or UI.
 
 **Acceptance:** DD-17 AUTH-004 and AUTH-005; explicit tests for order after resource PDP, missing adapter, adapter exception, malformed result, non-disclosing scope denial and non-resource bypass of the port.
+
+
+## DD-047 — Durable final Authorization decision audit floor [DEV-AUTHZ-AUDIT-001]
+
+**Context:** DD-03 requires every deny and every high-risk allow to produce authorization audit evidence, DD-15 declares audit persistence a correctness dependency for mandatory audit, and the existing evaluator marks current decisions `auditRequired=true`. The current GuardPipeline can deny at Commercial, PDP, resource-context, resource-rule, or restriction-composition stages, but no single final durable append boundary exists. Auditing intermediate base ALLOW decisions would create misleading success evidence when a later resource/workflow check denies.
+
+**Decision:** Protected GuardPipeline evaluation emits exactly one final Authorization audit record after the complete guard chain. Final success is appended before success is returned. Every normalized guard denial is appended before the denial is returned. A direct PDP denial retains its exact AccessDecision metadata; pre-PDP Commercial/context/resource denials do not invent a PDP decision ID. Resource/workflow denials may reference the immediately preceding PDP decision ID for correlation while the audit outcome remains DENIED.
+
+**Durability/failure:** the append uses the existing `core_audit.audit_event_identity` + partitioned `core_audit.audit_event` truth in one RequestScopedSql transaction under existing least-privilege application INSERT authority. Required audit append failure converts the access attempt to non-disclosing `DEPENDENCY_UNAVAILABLE`; no successful protected access may be returned after a mandatory audit failure. Unknown internal guard failures are normalized to dependency-unavailable before audit/return.
+
+**Evidence minimization:** action/permission/module, actor/scope, safe resource type/id where already resolved, final outcome/reason, correlation/request/Data Home/region, PDP decision ID/policy IDs/version numbers and a restriction-present boolean may be recorded. Request bodies, tokens, Commercial fact values, restriction payload contents, workflow/resource content and other sensitive payloads are prohibited from Authorization audit evidence. Resource sensitivity is propagated only from the normalized ResourceDescriptor; an unknown declared sensitivity is conservatively stored as REGULATED.
+
+**Scope:** this floor covers protected PLATFORM_GLOBAL/TENANT_CORE/TENANT_INDUSTRY GuardPipeline paths. PUBLIC is not a private RequestScopedSql path; EXPLICIT_CROSS_CONTEXT requires its dedicated governed repository and is not silently forced through a single-context audit writer.
+
+**Acceptance:** AUTH-008 plus AUTH-015…AUTH-019: one final success audit, direct PDP denial metadata, pre-PDP denial without fabricated decision identity, resource/workflow final denial correlation, audit-write failure blocks success/remains fail closed, sibling-Industry audit visibility is zero, and runtime roles cannot mutate appended evidence.

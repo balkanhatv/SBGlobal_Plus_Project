@@ -82,6 +82,7 @@ function decision(overrides = {}) {
 
 function makePorts(overrides = {}) {
   const calls = [];
+  const audits = [];
 
   const ports = {
     commercial: {
@@ -118,13 +119,18 @@ function makePorts(overrides = {}) {
         return { allowed: true };
       },
     },
+    audit: {
+      async append(input) {
+        audits.push(input);
+      },
+    },
   };
 
   for (const [key, value] of Object.entries(overrides)) {
     ports[key] = { ...ports[key], ...value };
   }
 
-  return { ports, calls };
+  return { ports, calls, audits };
 }
 
 test("API guard order: commercial + base PDP occur before resource resolution, then resource PDP", async () => {
@@ -449,4 +455,154 @@ test("non-resource operation does not require a resource rule adapter", async ()
     operation: { ...operation, resourceResolver: undefined },
   });
   assert.equal(result.decisionId, "decision-base");
+});
+
+
+test("AUTH-008: successful protected access appends one final audit after the full guard chain", async () => {
+  const { ports, audits } = makePorts();
+  const result = await new GuardPipeline(ports).authorize({
+    requestContext,
+    operation,
+    resourceReference: { saleId: "sale-1" },
+  });
+
+  assert.equal(result.decisionId, "decision-resource");
+  assert.equal(audits.length, 1);
+  assert.equal(audits[0].outcome, "SUCCESS");
+  assert.equal(audits[0].accessDecision.decisionId, "decision-resource");
+  assert.equal(audits[0].resourceDescriptor.resourceId, "sale-1");
+  assert.equal(audits[0].reasonCode, undefined);
+});
+
+test("AUTH-008: direct PDP denial appends one denial audit with exact decision metadata", async () => {
+  const { ports, audits } = makePorts({
+    authorization: {
+      async evaluateBase() {
+        return decision({
+          decision: "DENY",
+          reasonCode: "RBAC_DENY",
+          decisionId: "decision-denied-audit",
+          policyIds: ["policy-a"],
+        });
+      },
+    },
+  });
+
+  await assert.rejects(
+    new GuardPipeline(ports).authorize({
+      requestContext,
+      operation,
+      resourceReference: { saleId: "sale-1" },
+    }),
+    (error) => error.code === "PERMISSION_DENIED",
+  );
+
+  assert.equal(audits.length, 1);
+  assert.equal(audits[0].outcome, "DENIED");
+  assert.equal(audits[0].reasonCode, "RBAC_DENY");
+  assert.equal(audits[0].accessDecision.decisionId, "decision-denied-audit");
+  assert.deepEqual(audits[0].accessDecision.policyIds, ["policy-a"]);
+});
+
+test("AUTH-008: pre-PDP Commercial denial is audited without inventing an access decision", async () => {
+  const { ports, audits } = makePorts({
+    commercial: {
+      async validateCurrent() {
+        return {
+          allowed: false,
+          code: "LICENSE_INVALID",
+          reasonCode: "LICENSE_INVALID",
+        };
+      },
+    },
+  });
+
+  await assert.rejects(
+    new GuardPipeline(ports).authorize({
+      requestContext,
+      operation,
+      resourceReference: { saleId: "sale-1" },
+    }),
+    (error) => error.code === "LICENSE_INVALID",
+  );
+
+  assert.equal(audits.length, 1);
+  assert.equal(audits[0].outcome, "DENIED");
+  assert.equal(audits[0].reasonCode, "LICENSE_INVALID");
+  assert.equal(audits[0].accessDecision, undefined);
+});
+
+test("AUTH-008: resource/workflow denial preserves PDP correlation but final audit outcome is DENIED", async () => {
+  const { ports, audits } = makePorts({
+    resourceRules: {
+      async validateCurrent() {
+        return { allowed: false, reasonCode: "WORKFLOW_STATE_DENY" };
+      },
+    },
+  });
+
+  await assert.rejects(
+    new GuardPipeline(ports).authorize({
+      requestContext,
+      operation,
+      resourceReference: { saleId: "sale-1" },
+    }),
+    (error) => error.code === "RESOURCE_STATE_INVALID",
+  );
+
+  assert.equal(audits.length, 1);
+  assert.equal(audits[0].outcome, "DENIED");
+  assert.equal(audits[0].reasonCode, "WORKFLOW_STATE_DENY");
+  assert.equal(audits[0].accessDecision.decisionId, "decision-resource");
+});
+
+test("AUTH-008: mandatory audit failure prevents successful access from being returned", async () => {
+  const { ports } = makePorts({
+    audit: {
+      async append() {
+        throw new Error("private audit database diagnostics");
+      },
+    },
+  });
+
+  await assert.rejects(
+    new GuardPipeline(ports).authorize({
+      requestContext,
+      operation,
+      resourceReference: { saleId: "sale-1" },
+    }),
+    (error) => error instanceof GuardPipelineError
+      && error.code === "DEPENDENCY_UNAVAILABLE"
+      && !error.message.includes("private"),
+  );
+});
+
+test("AUTH-008: deny audit failure remains fail-closed and replaces detailed denial with dependency unavailable", async () => {
+  const { ports } = makePorts({
+    commercial: {
+      async validateCurrent() {
+        return {
+          allowed: false,
+          code: "LICENSE_INVALID",
+          reasonCode: "LICENSE_INVALID",
+        };
+      },
+    },
+    audit: {
+      async append() {
+        throw new Error("private audit database diagnostics");
+      },
+    },
+  });
+
+  await assert.rejects(
+    new GuardPipeline(ports).authorize({
+      requestContext,
+      operation,
+      resourceReference: { saleId: "sale-1" },
+    }),
+    (error) => error instanceof GuardPipelineError
+      && error.code === "DEPENDENCY_UNAVAILABLE"
+      && !error.message.includes("private"),
+  );
 });

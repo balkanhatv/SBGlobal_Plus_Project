@@ -9,6 +9,7 @@ export * from "./context/worker-context.js";
 export * from "./api/operation-contract.js";
 export * from "./api/operation-registry.js";
 export * from "./authorization/contracts.js";
+export * from "./authorization/audit.js";
 export * from "./authorization/policy-grammar.js";
 export * from "./authorization/read-store.js";
 export * from "./authorization/compiler-write.js";
