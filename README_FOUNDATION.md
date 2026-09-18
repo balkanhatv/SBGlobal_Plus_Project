@@ -1,31 +1,16 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `Development/CORE_SERVICE_CHECKPOINT.md`  
+**Current checkpoint:** `DEV-AUTHZ-SOURCE-COMPILER-001`  
 **Branch:** `docs/architecture-branch-2`
 
-**Current status:** Development is in progress at `DEV-AUTHZ-AUDIT-001`. Core/context/SQL/session-security, Authorization persistence/grammar/read/evaluator/publication, exact Commercial current-state integration, fail-closed resource/workflow PEP, and durable final Authorization audit emission are implemented/tested within bounded scope.
+Current verified executable `13346932455c79637e9644f970db47052c1fe6ad` / tree `32ee41587e5569e598bc600b8d2ce9f8db602252`:
+- **117/117 Core PASS**
+- **27/27 PostgreSQL PASS**
+- **38 migrations / 32 verification files PASS**
+- **9 Industries / 41 canonical MS / 181 Industry tables**
 
-## Verified current evidence
-Executable `09d81fc23d44747ac566fa4fe1957c1efe32479f`, tree `64ac15c7f06933c52c7ed1e8a3ffadc6204540d8`.
-- Core: **114/114 PASS**
-- PostgreSQL: **24/24 PASS**
-- Database: **37 migrations / 31 verification files PASS**
-- Industry SQL: **9 Industries / 41 canonical MS / 181 tables**
+The shared Authorization chain now includes deterministic RBAC source calculation in addition to compiler publication/read/evaluator, Commercial current-state checks, resource/workflow PEP and durable final Authorization audit.
 
-## Active invariants
-- One Unified Enterprise Core; no industry-core forks.
-- Exactly two logical Tenant mobile apps: Tenant Staff App + Tenant User App.
-- RBAC primary; ABAC narrowing-only.
-- `industryContextId = null` never means all industries.
-- Commercial truth remains Commercial-owned.
-- Resource/workflow business rules are narrowing-only and module-owned.
-- Protected access success requires durable audit when required.
-- Persisted RESTRICT remains fail-closed DENY until a governed restriction payload/reducer exists.
-- RawSourceCorpus is immutable.
-- Draft PR #2 remains review-only; `main` remains unmerged.
+Key invariants remain: one Unified Core; exactly two Tenant mobile app classes; RBAC primary; ABAC narrowing-only; Tenant+Industry isolation; null Industry never means all; RawSourceCorpus immutable; `main` unmerged.
 
-## Active technology
-Next.js 15 · React 19 · TypeScript 5.x · Node.js 22+ · PostgreSQL · Payload CMS 3 · tRPC · Clerk · React Native+Expo · Tauri 2.0 · pgvector · PM2/VPS / governed deployment targets.
-
-## Next
-Implement **Authorization source-to-snapshot compiler calculation algorithm only**. Do not start DD-06 transports yet.
+**Next:** implement DD-06 transport-neutral idempotency runtime enforcement, then rate limiting, before tRPC/REST transport adapters.

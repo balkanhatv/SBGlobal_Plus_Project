@@ -1,10 +1,17 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-AUTHZ-AUDIT-001`
+**Updated:** 2026-09-18 · **Checkpoint:** `DEV-AUTHZ-SOURCE-COMPILER-001`
 
-Fresh-fetch remote branch and verify actual HEAD/tree/CI before continuation. Verified executable: `09d81fc23d44747ac566fa4fe1957c1efe32479f`, tree `64ac15c7f06933c52c7ed1e8a3ffadc6204540d8`. Core Service Verify `35315598861`: **114/114 Core + 24/24 PostgreSQL** PASS. Database Verify `35315598867`: **37 migrations / 31 verification files** PASS.
+Fresh-fetch branch/HEAD/CI before continuation.
 
-Current bounded chain includes Authorization evaluator/publication, exact Commercial current state, fail-closed resource/workflow PEP, and one final durable Authorization audit per protected GuardPipeline outcome. Audit persistence reuses `core_audit`; sensitive payload/restriction contents are excluded; sibling Industry visibility is denied by RLS.
+Verified executable:
+- HEAD `13346932455c79637e9644f970db47052c1fe6ad`
+- tree `32ee41587e5569e598bc600b8d2ce9f8db602252`
+- Core **117/117 PASS**
+- PostgreSQL **27/27 PASS**
+- DB **38 migrations / 32 verification files PASS**
 
-Next governed shared-Core task: **source-to-snapshot Authorization compiler calculation only**. Read current role assignment/template/permission source truth, resolve exact effective RBAC for one subject scope, produce deterministic Permission Set v1 + role set + source fingerprint, and publish only through the existing compiler publication service. Do not invent permissions, do not let ABAC/Commercial grant, and do not start DD-06 transports.
+DD-048 source compiler is complete within bounded scope: exact active/effective assignments, exact Tenant/Industry/Platform scope, role-version binding, permission-scope validation, DENY precedence, constrained-ALLOW→DENY, deterministic SHA-256 source fingerprint and publication only through the monotonic compiler boundary.
 
-RawSourceCorpus is immutable; `main` remains unmerged; PR #2 stays draft/review-only.
+Next governed slice: **DD-06 transport-neutral idempotency runtime boundary only**, reusing `core_integration.idempotency_record`. Do not start tRPC/REST yet; runtime rate limiting remains the subsequent prerequisite.
+
+RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.

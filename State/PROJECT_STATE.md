@@ -1,14 +1,14 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Branch:** `docs/architecture-branch-2` · **Checkpoint:** `DEV-AUTHZ-AUDIT-001`
+**Updated:** 2026-09-18 · **Checkpoint:** `DEV-AUTHZ-SOURCE-COMPILER-001`
 
-- Development: **IN PROGRESS — AUTHORIZATION / CORE SERVICES**.
-- Verified executable checkpoint: `09d81fc23d44747ac566fa4fe1957c1efe32479f` (tree `64ac15c7f06933c52c7ed1e8a3ffadc6204540d8`).
-- Core: **114/114 PASS**; PostgreSQL: **24/24 PASS**; Database: **37 migrations / 31 verification files PASS**.
-- Industry SQL scope remains **9 Industries / 41 canonical Management Systems / 181 Industry tables**.
-- Durable Authorization audit now uses existing append-only `core_audit` truth with exact RequestContext RLS.
-- Mandatory audit failure cannot return protected success.
-- Resource/workflow PEP boundary remains narrowing-only; concrete module adapters are not claimed.
-- Persisted ABAC RESTRICT remains conservative DENY until a governed restriction payload/reducer exists.
-- RawSourceCorpus remains immutable. `main` remains unchanged/unmerged; PR #2 remains open draft/review-only.
+- Branch: `docs/architecture-branch-2`.
+- Verified executable: `13346932455c79637e9644f970db47052c1fe6ad` / `32ee41587e5569e598bc600b8d2ce9f8db602252`.
+- Core **117/117**, PostgreSQL **27/27**, Database **38 migrations / 32 verification files** PASS.
+- Authorization source-to-snapshot RBAC calculation is implemented and tested.
+- DENY wins; constrained permissions cannot become unconstrained allows.
+- Tenant Core null Industry assignments never bleed into Tenant Industry snapshots.
+- Compiler source truth is SELECT-only; compiled publication remains the only compiler mutation surface.
+- Existing deliberate ABAC RESTRICT fail-closed DENY remains unchanged.
+- RawSourceCorpus immutable; `main` unmerged; PR #2 draft/unmerged.
 
-Next shared-Core work: **Authorization source-to-snapshot compiler calculation algorithm only**. DD-06 transports remain blocked until the shared Authorization runtime chain is materially complete.
+Next: **DD-06 transport-neutral idempotency runtime boundary**, then runtime rate-limit enforcement before tRPC/REST transport wiring.

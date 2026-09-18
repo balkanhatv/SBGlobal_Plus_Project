@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-18
 
-Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The verified chain now includes Core/context/SQL/session-security, Authorization persistence/grammar/read/evaluator/publication, exact Commercial current state, fail-closed resource/workflow PEP, and DD-047 durable final Authorization audit. Verified executable `09d81fc23d44747ac566fa4fe1957c1efe32479f` / tree `64ac15c7f06933c52c7ed1e8a3ffadc6204540d8`: **114 Core + 24 PostgreSQL + 37 migrations / 31 verification files PASS**. Source-to-snapshot RBAC compiler calculation, concrete module rule adapters, Commercial restricted mode/UPGRADE_CTA, enforceable RESTRICT, transports and UI remain unfinished.
+Current Development checkpoint is `DEV-AUTHZ-SOURCE-COMPILER-001`. The verified shared chain now covers Core/context/session security, Authorization source calculation/publication/read/evaluation, Commercial current state, resource/workflow PEP and durable final Authorization audit. Executable `13346932455c79637e9644f970db47052c1fe6ad` / tree `32ee41587e5569e598bc600b8d2ce9f8db602252`: **117 Core + 27 PostgreSQL + 38 migrations / 32 verification files PASS**. Next is DD-06 transport-neutral idempotency runtime enforcement, followed by runtime rate limiting before transport adapters.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

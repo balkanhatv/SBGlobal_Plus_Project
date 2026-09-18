@@ -1,41 +1,45 @@
-# CORE SERVICE CHECKPOINT — DEV-AUTHZ-AUDIT-001
+# CORE SERVICE CHECKPOINT — DEV-AUTHZ-SOURCE-COMPILER-001
 **Updated:** 2026-09-18  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — durable final Authorization decision audit floor
+**Status:** IMPLEMENTED / TESTED — deterministic RBAC source-to-snapshot compiler
 
 ## Verified executable snapshot
-- Commit: `09d81fc23d44747ac566fa4fe1957c1efe32479f`.
-- Tree: `64ac15c7f06933c52c7ed1e8a3ffadc6204540d8`.
-- Prior executable checkpoint: `ed36486e45011c6dc2bae1bcc87c2a13574e177c` (`DEV-AUTHZ-RESOURCE-RULE-001`).
-- Database remains **37 migrations / 31 verification files**.
+- Commit: `13346932455c79637e9644f970db47052c1fe6ad`.
+- Tree: `32ee41587e5569e598bc600b8d2ce9f8db602252`.
+- Prior executable checkpoint: `09d81fc23d44747ac566fa4fe1957c1efe32479f` (`DEV-AUTHZ-AUDIT-001`).
+- Database: **38 migrations / 32 verification files**.
 - Industry SQL scope remains **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
-- Core/server acceptance inventory: **114 tests**; real PostgreSQL inventory: **24 tests**.
+- Core/server acceptance inventory: **117 tests**; real PostgreSQL inventory: **27 tests**.
 
-## Current Authorization audit boundary
-DD-047 / `DEV-AUTHZ-AUDIT-001` implements one final durable access audit for protected GuardPipeline paths:
-- success is audited once only after Commercial, PDP, resource/context and resource-rule checks complete;
-- every normalized guard deny is audited before returning the denial;
-- direct PDP denial preserves exact decision/policy/version metadata;
-- pre-PDP Commercial/context/resource denial never fabricates a PDP decision ID;
-- resource/workflow denial may retain the immediately preceding PDP decision ID for correlation while final audit outcome remains DENIED;
-- required audit persistence failure prevents successful access and remains fail closed as non-disclosing DEPENDENCY_UNAVAILABLE;
-- existing `core_audit.audit_event_identity` + partitioned `audit_event` remain the physical truth; no competing audit store was created;
-- evidence is metadata-only and excludes request bodies, tokens, Commercial fact values, restriction contents and resource/workflow payloads;
-- sibling Industry audit visibility is zero under real PostgreSQL RLS;
-- application runtime role can append but cannot mutate durable audit evidence.
-
-PUBLIC and EXPLICIT_CROSS_CONTEXT are not widened through the single-context RequestScopedSql writer and retain separate future governed entry paths.
+## Current source compiler boundary
+DD-048 / `DEV-AUTHZ-SOURCE-COMPILER-001` closes the previously unimplemented RBAC calculation step:
+- compiler reads governed role/permission source through dedicated `sbg_authorization_compiler_rw`;
+- source access is SELECT-only; source mutation remains prohibited;
+- TENANT_CORE uses only null-Industry assignments;
+- TENANT_INDUSTRY uses only the exact target Industry Context; null never means every Industry;
+- PLATFORM_GLOBAL uses only exact-principal platform role assignments;
+- active/effective assignments and active role/permission definitions only;
+- unscoped OrgUnit assignment may apply inside its exact Tenant/Industry scope; scoped assignment requires exact selected OrgUnit;
+- role-permission version must match active role-template version;
+- permission definition scope must exactly match compiled scope;
+- explicit DENY wins across roles;
+- non-empty role-permission constraints compile conservatively as DENY because Permission Set v1 has no constraint payload;
+- canonical source produces deterministic SHA-256 fingerprint;
+- publication goes only through the already verified monotonic snapshot writer;
+- invalid/unavailable source attempts fail closed and invalid source attempts current-snapshot invalidation where possible.
 
 ## Exact executable evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35315598861 | 105506445804 | **PASS — 114/114** |
-| Core Service Verify / postgres-context-verify | 35315598861 | 105506446007 | **PASS — 24/24** |
-| Database Verify / postgres-verify | 35315598867 | 105506445886 | **PASS — 37 migrations / 31 verification files** |
+| Core Service Verify / core-service-verify | 35319924686 | 105519928448 | **PASS — 117/117** |
+| Core Service Verify / postgres-context-verify | 35319924686 | 105519928725 | **PASS — 27/27** |
+| Database Verify / postgres-verify | 35319924571 | 105519928057 | **PASS — 38 migrations / 32 verification files** |
 
-All jobs asserted exact tested HEAD `09d81fc23d44747ac566fa4fe1957c1efe32479f` and tree `64ac15c7f06933c52c7ed1e8a3ffadc6204540d8`.
+All jobs asserted exact tested HEAD `13346932455c79637e9644f970db47052c1fe6ad` and tree `32ee41587e5569e598bc600b8d2ce9f8db602252`.
 
 ## Scope limits / next governed work
-Next shared-Core runtime blocker: **Authorization source-to-snapshot compiler calculation algorithm only** — deterministically calculate effective RBAC role/permission facts from governed role assignments/templates/permissions into the already verified monotonic publication boundary. Do not bypass source truth, do not let ABAC/Commercial create grants, and fail closed on stale/invalid source state.
+Next shared-Core prerequisite: **DD-06 transport-neutral idempotency runtime boundary only** — bind REQUIRED/OPTIONAL command semantics to the existing `core_integration.idempotency_record` truth with exact Tenant/Industry/actor scope, request fingerprint conflict detection, in-progress/success/final-failure state handling, and fail-closed PostgreSQL tests.
 
-Still unfinished: concrete per-module resource/workflow adapters, dedicated suspended restricted-mode/UPGRADE_CTA flows, SURFACE/API_SERVICE Commercial applicability, enforceable ABAC RESTRICT payload/reducer, DD-06 transports/rate limiter/idempotency, UI/mobile/desktop, deployment and production certification. RawSourceCorpus remains immutable. `main` remains unmerged; PR #2 stays review-only/draft.
+Do not start tRPC/REST adapters until idempotency and rate-limit runtime enforcement prerequisites are verified. Concrete module resource/workflow adapters, dedicated Commercial restricted-mode/UPGRADE_CTA, enforceable ABAC RESTRICT payload/reducer, PUBLIC/EXPLICIT_CROSS_CONTEXT audit paths, UI/mobile/desktop, deployment and production certification remain unfinished.
+
+RawSourceCorpus remains immutable. `main` remains unmerged; PR #2 stays review-only/draft.
