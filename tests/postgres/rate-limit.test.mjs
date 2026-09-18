@@ -91,14 +91,15 @@ test("different hashed IP bucket remains isolated from an exhausted public bucke
 });
 
 test("concurrent one-token override admits exactly one claimant",async()=>{
+ const strictTenant=randomUUID();
  const strict=build({async resolve(){return [
   {rateClass:"AUTH_STANDARD",dimension:"PRINCIPAL",maxRequests:1,burstCapacity:1},
   {rateClass:"AUTH_STANDARD",dimension:"IP",maxRequests:1,burstCapacity:1},
   {rateClass:"TENANT_AGGREGATE",dimension:"TENANT",maxRequests:1,burstCapacity:1},
  ]}});
  const attempts=await Promise.allSettled([
-  strict.acquire({requestContext:context({actorIpHash:"concurrent-ip"}),operation:op()}),
-  strict.acquire({requestContext:context({actorIpHash:"concurrent-ip"}),operation:op()}),
+  strict.acquire({requestContext:context({tenantId:strictTenant,actorIpHash:"concurrent-ip"}),operation:op()}),
+  strict.acquire({requestContext:context({tenantId:strictTenant,actorIpHash:"concurrent-ip"}),operation:op()}),
  ]);
  assert.equal(attempts.filter(x=>x.status==="fulfilled").length,1);
  assert.equal(attempts.filter(x=>x.status==="rejected"
