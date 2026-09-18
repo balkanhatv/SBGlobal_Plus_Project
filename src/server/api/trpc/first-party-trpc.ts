@@ -229,8 +229,8 @@ export function createFirstPartyQueryProcedure<
         idempotencyKey:ctx.idempotencyKey,
         verifiedRateSubject:ctx.verifiedRateSubject,
       });
-      return (input.ports.projector.projectResult(result)
-        as FirstPartyTrpcResult<ZodOutput<TOutput>>);
+      const projected=input.ports.projector.projectResult(result);
+      return projected as FirstPartyTrpcResult<ZodOutput<TOutput>>;
     }catch(error){
       if(!(error instanceof OperationExecutionError)) throw error;
       const projection=input.ports.projector.projectError({
