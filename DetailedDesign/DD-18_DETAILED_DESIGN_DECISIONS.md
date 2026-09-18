@@ -544,3 +544,22 @@ Idempotency REPLAY/IN_PROGRESS/FINAL_FAILURE remain explicit control projections
 **Scope:** no HTTP/Next.js tRPC request adapter, no broad Core/Industry router catalog, no REST/OpenAPI generation, no UI client integration and no deployment claim in this slice.
 
 **Acceptance:** API-TRPC-001…API-TRPC-006: preflight authentication/correlation normalization; fixed route→OperationContract binding; exact registered Zod object; one-pass transform/canonical preparation; shared projection/error mapping; baseline Core procedure remains business-logic free.
+
+
+## DD-054 — Physical first-party tRPC Fetch API handler boundary [DEV-API-TRPC-HTTP-001]
+
+**Context:** DD-053 proves the first-party tRPC procedure plane but no physical HTTP/fetch adapter exists. The repository also has no Next.js application directory yet, so inventing a route location would couple Core transport code to an application structure that has not been bootstrapped. A-06 requires credential verification before request-body parsing, DD-06 locks Authorization/Idempotency-Key/X-Correlation-Id semantics, and DD-16 requires origin/host/size/CSRF controls without inventing their deployment-specific policy values here.
+
+**Decision:** the first physical boundary is a reusable `createFirstPartyTrpcFetchHandler` around `@trpc/server/adapters/fetch`. It accepts an explicit endpoint + router and server-owned ports for Authorization resolution, edge policy, selector derivation and network facts. Those ports receive only method/URL/Headers metadata, never a Request body, so transport/authenticity processing cannot consume domain input before IdentityPort verification.
+
+The handler normalizes request/correlation IDs first, executes edge-policy metadata checks, requires the DD-06 `Authorization` header, resolves it into the existing `AuthenticationInput`, derives only server-owned selector/network facts, and completes `IdentityPort` verification through the DD-053 context factory **before** calling tRPC's fetch handler. This is stricter than tRPC's default flow because upstream request-info parsing may inspect request input before createContext.
+
+`Idempotency-Key` and advisory `X-Correlation-Id` are the only directly bound DD-06 metadata headers in this floor. Tenant/Industry authority is not taken from generic headers; a selector port may derive non-authoritative selectors from a governed host/path/session/workspace binding. Network/IP identity and webhook endpoint identity likewise arrive only through a trusted network port, never raw client authority.
+
+Pre-tRPC authentication/policy failures return the canonical DD-052 error envelope directly with no internal detail, `Cache-Control: no-store` and normalized `X-Correlation-Id`. Once tRPC owns the request, responseMeta always emits the same correlation header and maps a shared RATE_LIMITED projection to HTTP `Retry-After`. tRPC batching is disabled in this bounded floor to reduce mixed-operation/context ambiguity; a future governed decision may enable it.
+
+**Security seam:** origin/host/content-length/CSRF policy is mandatory through `FirstPartyTrpcEdgePolicyPort`, but DD-054 does not invent deployment-specific allowed origins or byte ceilings. The future Next.js route composition must supply that policy and the Clerk/API-credential Authorization resolver.
+
+**Scope:** no guessed `app/api/trpc` file, no Next.js dependency/bootstrap, no Clerk-specific header parser, no REST/OpenAPI, no broad Core/Industry router catalog and no UI client.
+
+**Acceptance:** API-TRPC-HTTP-001…005: real nested HTTP query success/correlation; invalid auth rejected before malformed body parsing; missing Authorization canonical 401; RATE_LIMITED Retry-After; edge-policy denial before auth/body handling.

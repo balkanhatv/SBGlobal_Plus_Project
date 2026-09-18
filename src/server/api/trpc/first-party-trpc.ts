@@ -27,6 +27,11 @@ export interface FirstPartyTrpcIdPort {
   nextId(): string;
 }
 
+export interface FirstPartyTransportIds {
+  readonly requestId: string;
+  readonly correlationId: string;
+}
+
 export interface FirstPartyTrpcContext {
   readonly executionContext: Omit<ContextResolutionInput, "scopeClass">;
   readonly idempotencyKey?: string;
@@ -60,6 +65,16 @@ function normalizedId(value: string | undefined, ids: FirstPartyTrpcIdPort): str
   return generated.toLowerCase();
 }
 
+export function createFirstPartyTransportIds(
+  ids: FirstPartyTrpcIdPort,
+  advisoryCorrelationId?: string,
+): FirstPartyTransportIds {
+  return Object.freeze({
+    requestId: normalizedId(undefined, ids),
+    correlationId: normalizedId(advisoryCorrelationId, ids),
+  });
+}
+
 function optionalSelector(value: string | undefined): string | undefined {
   if (value === undefined) return undefined;
   const normalized=value.trim();
@@ -87,6 +102,7 @@ export async function createProtectedFirstPartyTrpcContext(input:{
   readonly identity: IdentityPort;
   readonly ids: FirstPartyTrpcIdPort;
   readonly authentication: AuthenticationInput;
+  readonly transportIds?: FirstPartyTransportIds;
   readonly advisoryCorrelationId?: string;
   readonly tenantSelector?: string;
   readonly industrySelector?: string;
@@ -112,8 +128,9 @@ export async function createProtectedFirstPartyTrpcContext(input:{
     );
   }
 
-  const requestId=normalizedId(undefined,input.ids);
-  const correlationId=normalizedId(input.advisoryCorrelationId,input.ids);
+  const transportIds=input.transportIds
+    ?? createFirstPartyTransportIds(input.ids,input.advisoryCorrelationId);
+  const {requestId,correlationId}=transportIds;
   const idempotencyKey=optionalBounded(input.idempotencyKey,512);
   const actorIpHash=optionalBounded(input.actorIpHash,256);
   const networkContext=optionalBounded(input.networkContext,128);

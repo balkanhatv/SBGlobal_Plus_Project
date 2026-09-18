@@ -217,3 +217,12 @@ Protected tRPC context is pre-authenticated through the existing IdentityPort be
 Because tRPC already executes the Zod input parser, the adapter uses `OperationSchemaRegistry.prepareInput` rather than parsing the same DTO twice. Canonical JSON/resource extraction and exact operation/schema-version checks still occur before the executor can honor the prepared value.
 
 The first concrete path is `core.identity.roles.listEffective`. Broader Core/Industry routers and the physical Next.js/fetch handler remain later slices.
+
+
+## 25. Physical first-party tRPC Fetch handler [DD-054 / DEV-API-TRPC-HTTP-001]
+
+The physical internal HTTP boundary uses the tRPC Fetch adapter behind a reusable handler factory rather than a guessed Next.js file path. Authentication and edge metadata checks occur before tRPC receives the Request, ensuring A-06's credential-verification-before-body-parsing requirement.
+
+Locked HTTP metadata: `Authorization`, `Idempotency-Key`, and advisory `X-Correlation-Id`. Tenant/Industry selectors are never made authoritative by headers. Selector and network facts come only from server-owned metadata ports.
+
+All responses are `no-store`; normalized correlation is echoed in `X-Correlation-Id`; shared RATE_LIMITED retry metadata becomes HTTP `Retry-After`. Batching is disabled for this first bounded handler floor. Actual Next.js route placement, allowed-origin/content-size values and Clerk/API credential parsing belong to the later web-runtime composition.

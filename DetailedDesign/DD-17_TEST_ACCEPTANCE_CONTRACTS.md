@@ -442,3 +442,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | API-TRPC-004 | DTO includes a Zod transform/default | transform executes once; prepared canonical input is derived without a second Zod parse |
 | API-TRPC-005 | executor returns RATE_LIMITED / policy / system error | shared DD-052 projection is retained; tRPC adds only transport code and retry metadata |
 | API-TRPC-006 | procedure resolver executes | no router-local Commercial/Authorization/rate/idempotency/domain/database rule exists; all execution delegates to OperationExecutor |
+
+
+### Physical first-party tRPC Fetch handler — DD-054 / DEV-API-TRPC-HTTP-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| API-TRPC-HTTP-001 | GET real `core.identity.roles.listEffective` via Fetch handler | 200; canonical tRPC success; exact correlation echoed; no router-local business rule |
+| API-TRPC-HTTP-002 | invalid credential + malformed POST body | canonical 401 authentication denial occurs before tRPC/body parsing |
+| API-TRPC-HTTP-003 | missing Authorization | canonical AUTH_REQUIRED 401; Authorization resolver/domain are not invoked |
+| API-TRPC-HTTP-004 | executor returns RATE_LIMITED with retry seconds | tRPC 429 retains DD-052 envelope and HTTP Retry-After |
+| API-TRPC-HTTP-005 | edge origin/host/size/CSRF policy denies | denial occurs before auth resolver/body processing and exposes no internal policy detail |
