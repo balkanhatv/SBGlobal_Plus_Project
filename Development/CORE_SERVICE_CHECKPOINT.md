@@ -1,45 +1,43 @@
-# CORE SERVICE CHECKPOINT — DEV-API-DTO-PROJECTION-001
+# CORE SERVICE CHECKPOINT — DEV-API-TRPC-001
 **Updated:** 2026-09-18  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — Zod DTO single-source bridge + transport-neutral projection floor
+**Status:** IMPLEMENTED / TESTED — bounded first-party tRPC query adapter floor
 
 ## Verified executable snapshot
-- Commit: `b0f484eb8100a71c8677fce4c39441a8ab26e881`.
-- Tree: `69d2fa367329c1dc2b02d3a829ff80d714a21177`.
-- Core/server acceptance: **148/148 PASS**.
+- Commit: `565165ae72e1da4d93ddff645bae2735219f28ff`.
+- Tree: `ec1af13574be83ca05a156d3c2dbe116f3e469e7`.
+- Core/server acceptance: **152/152 PASS**.
 - Real PostgreSQL regression: **38/38 PASS**.
 - Database: **40 migrations / 34 verification files PASS**.
-- Industry SQL scope remains **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
+- Industry SQL remains **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
 
-## DD-052 boundary
-- `zod@4.6.5` is pinned as the A-06 DTO schema implementation;
-- exact operationId + input/output schema versions own one Zod DTO definition;
-- the same Zod schemas feed DD-051 executor validation and future tRPC/REST/OpenAPI projection;
-- Zod input defaults/transforms still pass deterministic JSON normalization before idempotency fingerprinting;
-- resource references are derived only from validated normalized input;
-- validation field detail exposes only safe JSON-pointer-like paths + normalized issue codes;
-- raw rejected values, arbitrary Zod messages, stacks and schema internals are not projected;
-- canonical success envelopes and the four A-01 error classes are normalized once;
-- Retry-After remains adapter metadata;
-- replay / IN_PROGRESS / FINAL_FAILURE remain explicit control projections and never fabricate response DTO bodies.
+## DD-053 boundary
+- `@trpc/server@11.19.0` is pinned and lockfile-backed.
+- First-party tRPC procedures bind fixed OperationContract IDs.
+- Procedures must use the exact Zod DTO objects already registered by DD-052.
+- tRPC parses the DTO once; `OperationSchemaRegistry.prepareInput` performs deterministic canonical JSON/resource extraction without a second Zod transform.
+- Protected tRPC context preflights through the existing IdentityPort and passes original AuthenticationInput into DD-02 RequestContext for authoritative current-state validation.
+- shared DD-052 envelope/error projection remains authoritative; tRPC adds only transport status semantics.
+- `core.identity.roles.listEffective` is the first real nested procedure and delegates execution through the existing OperationExecutor.
+- routers do not implement Commercial, Authorization, rate, idempotency, resource, database or domain business rules.
 
 ## Exact evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35364414471 | 105663244846 | **PASS — 148/148** |
-| Core Service Verify / postgres-context-verify | 35364414471 | 105663245159 | **PASS — 38/38** |
-| Database Verify / postgres-verify | 35364414463 | 105663245380 | **PASS — 40 migrations / 34 verification files** |
+| Core Service Verify / core-service-verify | 35371608565 | 105686647373 | **PASS — 152/152** |
+| Core Service Verify / postgres-context-verify | 35371608565 | 105686647724 | **PASS — 38/38** |
+| Database Verify / postgres-verify | 35371608561 | 105686650061 | **PASS — 40 migrations / 34 verification files** |
 
-All jobs asserted exact tested HEAD `b0f484eb8100a71c8677fce4c39441a8ab26e881` and tree `69d2fa367329c1dc2b02d3a829ff80d714a21177`.
+All jobs asserted exact tested HEAD `565165ae72e1da4d93ddff645bae2735219f28ff` and tree `ec1af13574be83ca05a156d3c2dbe116f3e469e7`.
 
 ## Next governed work
-Implement only the **first-party tRPC adapter floor** using the already verified OperationExecutor + ZodOperationDtoRegistry + TransportEnvelopeProjector. Start with a bounded baseline Core operation surface and prove:
-- router/procedure name → fixed OperationContract ID;
-- transport input uses the same registered Zod schema object;
-- transport/request correlation is normalized before executor invocation;
-- scope remains OperationContract-authoritative;
-- tRPC does not duplicate guard/rate/idempotency/domain logic;
-- RATE_LIMITED / policy / system errors map from the shared projector without exposing internal details;
-- replay control remains explicit.
+Implement only the **physical first-party tRPC HTTP/fetch handler boundary** for the primary Next.js plane:
+- one server-owned request adapter into the existing tRPC router/context factory;
+- bounded header/authenticity extraction only;
+- server-generated/validated request + correlation IDs;
+- idempotency key and trusted rate-subject extraction only from governed transport inputs;
+- response/error serialization via tRPC + shared DD-052 projection;
+- no route-local business logic;
+- no REST/OpenAPI and no broad router expansion.
 
-Do not start REST/OpenAPI or broad module routers until the tRPC floor passes exact-head CI. RawSourceCorpus remains immutable. `main` remains unmerged; PR #2 stays draft/review-only.
+Do not start broad Core/Industry routes, REST/OpenAPI, UI, mobile, desktop or deployment before this handler floor passes exact-head CI. RawSourceCorpus remains immutable; `main` unmerged; PR #2 draft/review-only.

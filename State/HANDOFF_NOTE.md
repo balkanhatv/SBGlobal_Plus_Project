@@ -1,12 +1,12 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-DTO-PROJECTION-001`
+**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-TRPC-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified executable `b0f484eb8100a71c8677fce4c39441a8ab26e881`, tree `69d2fa367329c1dc2b02d3a829ff80d714a21177`: **148 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**.
+Verified executable `565165ae72e1da4d93ddff645bae2735219f28ff`, tree `ec1af13574be83ca05a156d3c2dbe116f3e469e7`: **152 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**.
 
-DD-052 is complete within bounded scope: exact-version Zod DTO single source, safe field issue projection, canonical success envelope, four-class safe error projection, and explicit idempotency control projections.
+DD-053 is complete within bounded scope: pinned tRPC server, protected context preflight, fixed OperationContract procedure binding, exact registered Zod DTO reuse, one-pass transform/canonical preparation, shared error projection and a real `core.identity.roles.listEffective` route.
 
-Next governed slice: **first-party tRPC adapter floor only**, calling the existing OperationExecutor rather than duplicating business enforcement. REST/OpenAPI remains later because DD-06 reserves REST for external interoperability.
+Next governed slice: **physical first-party tRPC HTTP/fetch handler boundary only**. Do not start REST/OpenAPI or broad router expansion first.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.

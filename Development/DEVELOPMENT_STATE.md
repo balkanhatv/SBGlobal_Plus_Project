@@ -1,16 +1,16 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-DTO-PROJECTION-001`
+**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-TRPC-001`
 
-Development is **IN PROGRESS — CORE SERVICES / FIRST-PARTY API TRANSPORT**.
+Development is **IN PROGRESS — FIRST-PARTY API TRANSPORT**.
 
-Verified `b0f484eb8100a71c8677fce4c39441a8ab26e881` / `69d2fa367329c1dc2b02d3a829ff80d714a21177`:
-- **148/148 Core PASS**
+Verified `565165ae72e1da4d93ddff645bae2735219f28ff` / `ec1af13574be83ca05a156d3c2dbe116f3e469e7`:
+- **152/152 Core PASS**
 - **38/38 PostgreSQL PASS**
 - **40 migrations / 34 verification files PASS**
 - Industry SQL remains **9 Industries / 41 canonical MS / 181 tables**
 
-Verified API prerequisite chain now includes canonical OperationExecutor, Zod single-source DTO bridge and shared transport envelope/error projection.
+The bounded first-party tRPC query adapter is implemented/tested over the canonical executor + Zod DTO + shared projector. `core.identity.roles.listEffective` is the first real procedure.
 
-Next: **first-party tRPC adapter floor only**. REST/OpenAPI, broad module routers and UI remain not started.
+Next: **physical first-party tRPC HTTP/fetch handler boundary only**. REST/OpenAPI, broad router catalogs and UI remain not started.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.
