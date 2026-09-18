@@ -209,19 +209,20 @@ function alias(value: string): SecurityRateClassV1 {
 
 function baseRule(rateClass: SecurityRateClassV1,dimension:RateLimitDimension,rawSubject:string):RateLimitRule{
   const policy=SECURITY_RATE_POLICY_V1[rateClass];
+  const dims=(...values:RateLimitDimension[]):readonly RateLimitDimension[]=>Object.freeze(values);
   const concurrencyDimensions:Readonly<Record<SecurityRateClassV1,readonly RateLimitDimension[]>>=Object.freeze({
-    PUBLIC_LOW:Object.freeze(["IP"]),
-    PUBLIC_STANDARD:Object.freeze(["IP"]),
-    AUTH_STANDARD:Object.freeze(["PRINCIPAL"]),
-    ADMIN_SENSITIVE:Object.freeze(["PRINCIPAL"]),
-    AUTH_SECURITY:Object.freeze(["PRINCIPAL","IP"]),
-    BULK:Object.freeze(["TENANT"]),
-    WEBHOOK:Object.freeze(["ENDPOINT"]),
-    AI:Object.freeze(["TENANT"]),
-    FILE_UPLOAD:Object.freeze(["PRINCIPAL"]),
-    API_CREDENTIAL:Object.freeze(["CREDENTIAL"]),
-    TENANT_AGGREGATE:Object.freeze(["TENANT"]),
-    EXTERNAL_WRITE:Object.freeze([]),
+    PUBLIC_LOW:dims("IP"),
+    PUBLIC_STANDARD:dims("IP"),
+    AUTH_STANDARD:dims("PRINCIPAL"),
+    ADMIN_SENSITIVE:dims("PRINCIPAL"),
+    AUTH_SECURITY:dims("PRINCIPAL","IP"),
+    BULK:dims("TENANT"),
+    WEBHOOK:dims("ENDPOINT"),
+    AI:dims("TENANT"),
+    FILE_UPLOAD:dims("PRINCIPAL"),
+    API_CREDENTIAL:dims("CREDENTIAL"),
+    TENANT_AGGREGATE:dims("TENANT"),
+    EXTERNAL_WRITE:dims(),
   });
   const tenantConcurrency =
     policy.concurrencyLimit!==undefined && concurrencyDimensions[rateClass].includes(dimension)
