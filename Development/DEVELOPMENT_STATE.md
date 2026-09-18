@@ -1,14 +1,16 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-EXECUTOR-001`
+**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-DTO-PROJECTION-001`
 
-Development is **IN PROGRESS — CORE SERVICES / API TRANSPORT PREREQUISITES**.
+Development is **IN PROGRESS — CORE SERVICES / FIRST-PARTY API TRANSPORT**.
 
-Verified `540b5433bfddeed59944b87581806855bfc1d403` / `ccb8611a7ad78cd0ac88be5b7652ece4b0eb5aec`:
-- **141/141 Core PASS**
+Verified `b0f484eb8100a71c8677fce4c39441a8ab26e881` / `69d2fa367329c1dc2b02d3a829ff80d714a21177`:
+- **148/148 Core PASS**
 - **38/38 PostgreSQL PASS**
 - **40 migrations / 34 verification files PASS**
 - Industry SQL remains **9 Industries / 41 canonical MS / 181 tables**
 
-The shared runtime now includes canonical OperationContract execution over RequestContext, rate limiting, Commercial/Authorization/resource guards, idempotency, declared domain dispatch and output validation.
+Verified API prerequisite chain now includes canonical OperationExecutor, Zod single-source DTO bridge and shared transport envelope/error projection.
 
-Next: **Zod-backed DTO/schema bridge + transport-neutral success/error projection**. Concrete tRPC/REST adapters remain not started.
+Next: **first-party tRPC adapter floor only**. REST/OpenAPI, broad module routers and UI remain not started.
+
+RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

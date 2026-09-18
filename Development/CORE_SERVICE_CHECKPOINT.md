@@ -1,41 +1,45 @@
-# CORE SERVICE CHECKPOINT — DEV-API-EXECUTOR-001
+# CORE SERVICE CHECKPOINT — DEV-API-DTO-PROJECTION-001
 **Updated:** 2026-09-18  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — canonical schema + transport-neutral OperationContract execution kernel
+**Status:** IMPLEMENTED / TESTED — Zod DTO single-source bridge + transport-neutral projection floor
 
 ## Verified executable snapshot
-- Commit: `540b5433bfddeed59944b87581806855bfc1d403`.
-- Tree: `ccb8611a7ad78cd0ac88be5b7652ece4b0eb5aec`.
-- Core/server acceptance: **141/141 PASS**.
+- Commit: `b0f484eb8100a71c8677fce4c39441a8ab26e881`.
+- Tree: `69d2fa367329c1dc2b02d3a829ff80d714a21177`.
+- Core/server acceptance: **148/148 PASS**.
 - Real PostgreSQL regression: **38/38 PASS**.
 - Database: **40 migrations / 34 verification files PASS**.
 - Industry SQL scope remains **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
 
-## DD-051 execution boundary
-- route/adapter binds operationId; OperationContract.scopeClass is authoritative over any caller suggestion;
-- exact operation/schema versions resolve through a server-owned OperationSchemaRegistry;
-- parser output must be JSON-compatible, recursively normalized/frozen and deterministically canonicalized for idempotency;
+## DD-052 boundary
+- `zod@4.6.5` is pinned as the A-06 DTO schema implementation;
+- exact operationId + input/output schema versions own one Zod DTO definition;
+- the same Zod schemas feed DD-051 executor validation and future tRPC/REST/OpenAPI projection;
+- Zod input defaults/transforms still pass deterministic JSON normalization before idempotency fingerprinting;
 - resource references are derived only from validated normalized input;
-- fixed order: OperationContract → RequestContext → input schema → rate admission → GuardPipeline → command idempotency → declared domain handler → output schema → idempotency completion;
-- replay/IN_PROGRESS/FINAL_FAILURE remain explicit transport-neutral results and still pass current context/rate/guard checks before being honored;
-- domain dispatch is registry-only; no eval/reflection/arbitrary import;
-- only declared DomainOperationError codes may surface; unknown post-dispatch exceptions are mutation-ambiguous and non-retryable;
-- output-contract failures after domain return finalize the STARTED idempotency attempt;
-- post-domain success-completion persistence failure leaves IN_PROGRESS and is never rewritten to retryable;
-- expiring rate-lease cleanup failure does not rewrite a completed business result.
+- validation field detail exposes only safe JSON-pointer-like paths + normalized issue codes;
+- raw rejected values, arbitrary Zod messages, stacks and schema internals are not projected;
+- canonical success envelopes and the four A-01 error classes are normalized once;
+- Retry-After remains adapter metadata;
+- replay / IN_PROGRESS / FINAL_FAILURE remain explicit control projections and never fabricate response DTO bodies.
 
 ## Exact evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35361748497 | 105654436426 | **PASS — 141/141** |
-| Core Service Verify / postgres-context-verify | 35361748497 | 105654436114 | **PASS — 38/38** |
-| Database Verify / postgres-verify | 35361748167 | 105654436259 | **PASS — 40 migrations / 34 verification files** |
+| Core Service Verify / core-service-verify | 35364414471 | 105663244846 | **PASS — 148/148** |
+| Core Service Verify / postgres-context-verify | 35364414471 | 105663245159 | **PASS — 38/38** |
+| Database Verify / postgres-verify | 35364414463 | 105663245380 | **PASS — 40 migrations / 34 verification files** |
 
-All jobs asserted exact tested HEAD `540b5433bfddeed59944b87581806855bfc1d403` and tree `ccb8611a7ad78cd0ac88be5b7652ece4b0eb5aec`.
+All jobs asserted exact tested HEAD `b0f484eb8100a71c8677fce4c39441a8ab26e881` and tree `69d2fa367329c1dc2b02d3a829ff80d714a21177`.
 
 ## Next governed work
-A-06 requires **Zod DTO schemas as the single source** for tRPC input, REST/OpenAPI and webhook payload projections. Next implement only the **Zod-backed OperationSchema bridge + transport-neutral success/error projection contract**. Do not add concrete tRPC/REST routing until that shared DTO/projection floor is executable and tested.
+Implement only the **first-party tRPC adapter floor** using the already verified OperationExecutor + ZodOperationDtoRegistry + TransportEnvelopeProjector. Start with a bounded baseline Core operation surface and prove:
+- router/procedure name → fixed OperationContract ID;
+- transport input uses the same registered Zod schema object;
+- transport/request correlation is normalized before executor invocation;
+- scope remains OperationContract-authoritative;
+- tRPC does not duplicate guard/rate/idempotency/domain logic;
+- RATE_LIMITED / policy / system errors map from the shared projector without exposing internal details;
+- replay control remains explicit.
 
-Still unfinished: concrete per-module schemas/domain handlers across the catalog, module resource/workflow adapters, enforceable ABAC RESTRICT reducer, Commercial restricted-mode/UPGRADE_CTA, tRPC/REST adapters, UI/mobile/desktop, deployment and production certification.
-
-RawSourceCorpus remains immutable. `main` remains unmerged; PR #2 stays draft/review-only.
+Do not start REST/OpenAPI or broad module routers until the tRPC floor passes exact-head CI. RawSourceCorpus remains immutable. `main` remains unmerged; PR #2 stays draft/review-only.

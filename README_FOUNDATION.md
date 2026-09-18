@@ -1,14 +1,14 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `DEV-API-EXECUTOR-001`  
+**Current checkpoint:** `DEV-API-DTO-PROJECTION-001`  
 **Branch:** `docs/architecture-branch-2`
 
-Verified executable `540b5433bfddeed59944b87581806855bfc1d403` / `ccb8611a7ad78cd0ac88be5b7652ece4b0eb5aec`:
-- **141/141 Core PASS**
+Verified executable `b0f484eb8100a71c8677fce4c39441a8ab26e881` / `69d2fa367329c1dc2b02d3a829ff80d714a21177`:
+- **148/148 Core PASS**
 - **38/38 PostgreSQL PASS**
 - **40 migrations / 34 verification files PASS**
 - **9 Industries / 41 canonical MS / 181 Industry tables**
 
-Current shared runtime includes context/session security, Authorization + Commercial enforcement, resource/workflow PEP, durable access audit, idempotency, distributed rate limiting, and a canonical transport-neutral OperationContract executor.
+Shared API Core now includes canonical execution, exact-scope security/idempotency/rate controls, Zod DTO single source, and transport-neutral envelope/error projection.
 
-**Next:** Zod-backed DTO/schema bridge and shared transport result/error projection. Concrete tRPC/REST adapters follow only after that exact-head gate passes.
+**Next:** implement the bounded first-party tRPC adapter floor; do not start REST/OpenAPI first.

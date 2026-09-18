@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-18",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-API-EXECUTOR-001",
-  "final_verdict": "DEVELOPMENT IN PROGRESS — CANONICAL OPERATION EXECUTION KERNEL IMPLEMENTED / TESTED; ZOD DTO + TRANSPORT PROJECTION FLOOR NEXT; CONCRETE TRANSPORTS/UI NOT STARTED",
+  "checkpoint": "DEV-API-DTO-PROJECTION-001",
+  "final_verdict": "DEVELOPMENT IN PROGRESS — ZOD DTO + TRANSPORT PROJECTION FLOOR IMPLEMENTED / TESTED; FIRST-PARTY TRPC ADAPTER NEXT; REST/UI NOT STARTED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,15 +53,15 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "540b5433bfddeed59944b87581806855bfc1d403",
-    "verified_code_tree": "ccb8611a7ad78cd0ac88be5b7652ece4b0eb5aec",
-    "state_projection_basis_head": "540b5433bfddeed59944b87581806855bfc1d403"
+    "verified_code_head": "b0f484eb8100a71c8677fce4c39441a8ab26e881",
+    "verified_code_tree": "69d2fa367329c1dc2b02d3a829ff80d714a21177",
+    "state_projection_basis_head": "b0f484eb8100a71c8677fce4c39441a8ab26e881"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Core Services / API Transport Prerequisites",
+    "current_phase": "Core Services / First-Party API Transport",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -76,9 +76,9 @@
       "migration_count": 40,
       "verification_file_count": 34,
       "migration_range": "0001-0040",
-      "ci_verified_head": "540b5433bfddeed59944b87581806855bfc1d403",
-      "ci_run_id": 35361748167,
-      "ci_job_id": 105654436259,
+      "ci_verified_head": "b0f484eb8100a71c8677fce4c39441a8ab26e881",
+      "ci_run_id": 35364414463,
+      "ci_job_id": 105663245380,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -90,7 +90,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "ccb8611a7ad78cd0ac88be5b7652ece4b0eb5aec",
+      "ci_verified_tree": "69d2fa367329c1dc2b02d3a829ff80d714a21177",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,27 +99,27 @@
         "scope": "Historical all-stages SQL persistence audit"
       }
     },
-    "next_action": "Implement A-06 Zod-backed OperationSchema bridge plus transport-neutral success/error projection; do not start concrete tRPC/REST routing first.",
+    "next_action": "Implement only the bounded first-party tRPC adapter floor using the canonical executor, Zod DTO registry and shared projector; do not start REST/OpenAPI first.",
     "core_services": {
-      "checkpoint": "DEV-API-EXECUTOR-001",
+      "checkpoint": "DEV-API-DTO-PROJECTION-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040…DD-051 verified shared Core/API execution chain",
-      "verified_head": "540b5433bfddeed59944b87581806855bfc1d403",
-      "verified_tree": "ccb8611a7ad78cd0ac88be5b7652ece4b0eb5aec",
-      "core_ci_run_id": 35361748497,
-      "core_ci_job_id": 105654436426,
-      "tests": "141 TESTS PRESENT / CORE SERVICE VERIFY PASS",
+      "decision": "DD-040…DD-052 verified shared Core/API execution and projection chain",
+      "verified_head": "b0f484eb8100a71c8677fce4c39441a8ab26e881",
+      "verified_tree": "69d2fa367329c1dc2b02d3a829ff80d714a21177",
+      "core_ci_run_id": 35364414471,
+      "core_ci_job_id": 105663244846,
+      "tests": "148 TESTS PRESENT / CORE SERVICE VERIFY PASS",
       "core_test_counts": {
-        "tests": 141,
-        "pass": 141,
+        "tests": 148,
+        "pass": 148,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35361748497,
-      "postgres_ci_job_id": 105654436114,
+      "postgres_ci_run_id": 35364414471,
+      "postgres_ci_job_id": 105663245159,
       "postgres_tests": "38/38 PASS",
       "postgres_test_counts": {
         "tests": 38,
@@ -128,8 +128,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35361748167,
-      "database_regression_job_id": 105654436259,
+      "database_regression_run_id": 35364414463,
+      "database_regression_job_id": 105663245380,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -216,7 +216,13 @@
         "DD-051 transport-neutral OperationExecutor fixed enforcement order",
         "current-policy checks before idempotent replay",
         "mutation-ambiguous unknown post-domain failures are non-retryable",
-        "deterministic canonical validated input as idempotency fingerprint source"
+        "deterministic canonical validated input as idempotency fingerprint source",
+        "DD-052 exact-version ZodOperationDtoRegistry",
+        "Zod DTO single-source installation into canonical OperationSchemaRegistry",
+        "safe normalized Zod field issue projection without rejected values/messages",
+        "transport-neutral canonical success envelope projection",
+        "A-01 four-class safe error projection with separate retry metadata",
+        "explicit idempotency replay/in-progress/final-failure transport control projection"
       ],
       "not_claimed": [
         "trusted directory/Identity bootstrap adapter",
@@ -234,17 +240,20 @@
         "PUBLIC and EXPLICIT_CROSS_CONTEXT Authorization audit writers",
         "A-06 Zod DTO single-source bridge",
         "transport-neutral HTTP/tRPC success/error projection",
-        "concrete tRPC/REST transport adapters"
+        "concrete tRPC/REST transport adapters",
+        "concrete tRPC router/procedure adapter",
+        "concrete REST/OpenAPI adapter",
+        "webhook transport adapter"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_AND_EXACT_COMMERCIAL_CURRENT_STATE_TESTED",
       "pending_physical_contracts": [
-        "A-06 Zod-backed DTO/schema bridge",
-        "transport-neutral success/error envelope projection",
-        "concrete per-module schemas/domain handlers and resource/workflow rule adapters",
+        "first-party tRPC transport adapter floor",
+        "concrete per-module Zod DTO/domain/resource registrations",
+        "concrete per-module resource/workflow rule adapters",
         "governed enforceable ABAC RESTRICT payload/reducer contract",
         "dedicated Commercial restricted-mode/UPGRADE_CTA operation contracts"
       ],
-      "next_action": "Implement Zod-backed DTO/schema bridge and shared transport projection; verify before concrete routers."
+      "next_action": "Implement only the first-party tRPC adapter floor and verify before REST/OpenAPI."
     },
     "application_api_ui_scope_note": "Core application services have started; API transports and UI have not started.",
     "application_services_started": true,
@@ -300,7 +309,7 @@
     ],
     "status": "IN_PROGRESS_AUTHORIZATION_CORE_SERVICES"
   },
-  "current_phase": "DEVELOPMENT_CORE_API_TRANSPORT_PREREQUISITES",
+  "current_phase": "DEVELOPMENT_FIRST_PARTY_API_TRANSPORT",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -332,11 +341,11 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-API-EXECUTOR-001",
+    "checkpoint": "DEV-API-DTO-PROJECTION-001",
     "corrected_baseline_head": "ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5",
     "corrected_baseline_tree": "ba95a8a1fd811f1b5ece01ba891535878827aa3c",
-    "verified_code_head": "540b5433bfddeed59944b87581806855bfc1d403",
-    "verified_code_tree": "ccb8611a7ad78cd0ac88be5b7652ece4b0eb5aec",
+    "verified_code_head": "b0f484eb8100a71c8677fce4c39441a8ab26e881",
+    "verified_code_tree": "69d2fa367329c1dc2b02d3a829ff80d714a21177",
     "code_snapshot_files": 239,
     "changes": [
       "1835fc4201998d05368a5aec1e963fca263dba35",
@@ -374,7 +383,8 @@
       "4defa98c18e5314cf647700740de5bff33d3807e",
       "192148b853e96ee4f7d6ec0ab99888a67a95cb65",
       "4fd38cbc01bbfd2dcc22d3cd5d7fd7a8b198d8cb",
-      "540b5433bfddeed59944b87581806855bfc1d403"
+      "540b5433bfddeed59944b87581806855bfc1d403",
+      "b0f484eb8100a71c8677fce4c39441a8ab26e881"
     ],
     "failed_ci_attempts": [
       {
@@ -456,7 +466,7 @@
     "metadata_closure_resolution": "Read the publication commit from Git after updating this self-containing manifest; recorded CI evidence belongs to verified_code_head, not an invented closure SHA.",
     "next_task_model_capability": "Authorization/data-contract reasoning and TypeScript/PostgreSQL implementation; select from actually available models.",
     "model_switch_performed": false,
-    "scope_gate": "IMPLEMENTED_TESTED_CANONICAL_OPERATION_EXECUTION_KERNEL",
+    "scope_gate": "IMPLEMENTED_TESTED_ZOD_DTO_AND_TRANSPORT_PROJECTION",
     "approval_blockers": 0
   }
 }
