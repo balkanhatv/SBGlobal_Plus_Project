@@ -48,6 +48,12 @@ export interface ValidatedOperationInput {
   readonly resourceReference?: Readonly<Record<string, unknown>>;
 }
 
+export interface PreparedOperationInput extends ValidatedOperationInput {
+  readonly operationId: string;
+  readonly inputSchemaVersion: number;
+  readonly outputSchemaVersion: number;
+}
+
 function schemaKey(input: {
   readonly operationId: string;
   readonly inputSchemaVersion: number;
@@ -125,7 +131,7 @@ export class OperationSchemaRegistry {
     this.adapters.set(key, Object.freeze({...adapter}));
   }
 
-  validateInput(operation: OperationContract, rawInput: unknown): ValidatedOperationInput {
+  validateInput(operation: OperationContract, rawInput: unknown): PreparedOperationInput {
     const adapter = this.adapters.get(schemaKey(operation));
     if (!adapter) {
       throw new OperationSchemaError("SCHEMA_UNAVAILABLE", "The operation input schema is unavailable.");
@@ -141,9 +147,18 @@ export class OperationSchemaRegistry {
       throw new OperationSchemaError("INPUT_INVALID", "The request input is invalid.");
     }
 
+    return this.prepareInput(operation, parsed);
+  }
+
+  prepareInput(operation: OperationContract, parsedInput: unknown): PreparedOperationInput {
+    const adapter = this.adapters.get(schemaKey(operation));
+    if (!adapter) {
+      throw new OperationSchemaError("SCHEMA_UNAVAILABLE", "The operation input schema is unavailable.");
+    }
+
     let value: JsonValue;
     try {
-      value = normalizeJson(parsed);
+      value = normalizeJson(parsedInput);
     } catch (error) {
       if (error instanceof OperationSchemaError) {
         throw new OperationSchemaError("INPUT_INVALID", "The request input is invalid.");
@@ -178,6 +193,9 @@ export class OperationSchemaRegistry {
     }
 
     return Object.freeze({
+      operationId: operation.operationId,
+      inputSchemaVersion: operation.inputSchemaVersion,
+      outputSchemaVersion: operation.outputSchemaVersion,
       value,
       canonical: JSON.stringify(value),
       ...(resourceReference ? {resourceReference} : {}),

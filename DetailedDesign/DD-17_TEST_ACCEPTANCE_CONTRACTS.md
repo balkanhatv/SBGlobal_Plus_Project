@@ -430,3 +430,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | API-DTO-005 | EXECUTED result projected | exact DD-06 success envelope with request/correlation/operation/version |
 | API-DTO-006 | idempotency replay projected | explicit replay control; no fabricated output-schema data |
 | API-DTO-007 | user/policy/entitlement/system errors and rate retry metadata | exact A-01 class mapping; safe error envelope; retryAfter remains adapter metadata |
+
+
+### First-party tRPC adapter — DD-053 / DEV-API-TRPC-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| API-TRPC-001 | protected context has valid/invalid human or machine credential | IdentityPort preflight runs before procedure invocation; invalid credential does not create usable context |
+| API-TRPC-002 | advisory correlation is valid/invalid | valid UUID is normalized; invalid/missing value is replaced by server-generated UUID |
+| API-TRPC-003 | `core.identity.roles.listEffective` procedure is created | nested route is fixed to the canonical OperationContract and exact registered Zod DTO objects |
+| API-TRPC-004 | DTO includes a Zod transform/default | transform executes once; prepared canonical input is derived without a second Zod parse |
+| API-TRPC-005 | executor returns RATE_LIMITED / policy / system error | shared DD-052 projection is retained; tRPC adds only transport code and retry metadata |
+| API-TRPC-006 | procedure resolver executes | no router-local Commercial/Authorization/rate/idempotency/domain/database rule exists; all execution delegates to OperationExecutor |

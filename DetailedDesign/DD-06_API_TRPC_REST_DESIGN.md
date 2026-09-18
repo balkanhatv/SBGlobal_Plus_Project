@@ -206,3 +206,14 @@ Input field errors expose only safe field paths and issue codes. Raw invalid val
 EXECUTED results project to the canonical DD-06 success envelope. Errors project to the four A-01 classes (USER_ERROR, POLICY_DENIAL, ENTITLEMENT_DENIAL, SYSTEM_FAULT), while Retry-After remains adapter metadata. Idempotency replay/in-progress/final-failure stays an explicit control projection because no response body is stored; transports may not fabricate an output DTO.
 
 Concrete transport adapters must normalize request/correlation metadata first and pass the same correlation through RequestContext and projection.
+
+
+## 24. First-party tRPC adapter floor [DD-053 / DEV-API-TRPC-001]
+
+The internal tRPC plane now has one shared adapter contract over DD-051/DD-052. A procedure binds a fixed OperationContract and the exact registered Zod DTO objects, then delegates to OperationExecutor. It does not implement Commercial, Authorization, resource, idempotency, rate or domain rules.
+
+Protected tRPC context is pre-authenticated through the existing IdentityPort before procedure execution and normalizes request/correlation/selectors. DD-02 RequestContext remains authoritative and revalidates current context/security; the preflight is not a second identity store.
+
+Because tRPC already executes the Zod input parser, the adapter uses `OperationSchemaRegistry.prepareInput` rather than parsing the same DTO twice. Canonical JSON/resource extraction and exact operation/schema-version checks still occur before the executor can honor the prepared value.
+
+The first concrete path is `core.identity.roles.listEffective`. Broader Core/Industry routers and the physical Next.js/fetch handler remain later slices.

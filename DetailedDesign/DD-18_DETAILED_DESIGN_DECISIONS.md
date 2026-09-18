@@ -527,3 +527,20 @@ Idempotency REPLAY/IN_PROGRESS/FINAL_FAILURE remain explicit control projections
 **Scope:** no tRPC router, REST route, OpenAPI generator or webhook route is implemented here. Generic OperationSchemaRegistry remains the kernel seam, but production API DTO definitions must originate from ZodOperationDtoRegistry to satisfy A-06.
 
 **Acceptance:** API-DTO-001…API-DTO-007: same Zod object exposed to executor/transport; defaults/transforms canonicalize deterministically; safe field issue projection; version mismatch fail closed; canonical success envelope; explicit replay control; four error-taxonomy classes + separate retry metadata.
+
+
+## DD-053 — First-party tRPC adapter floor [DEV-API-TRPC-001]
+
+**Context:** A-06 makes tRPC the primary internal API plane for all first-party web/mobile/desktop/admin experiences, while REST/OpenAPI is external interoperability only. DD-051/DD-052 already provide the canonical executor, exact Zod DTO source and shared projection contract. A router that reimplements authentication, scope, rate, guard, idempotency or domain logic would violate the one-Core/two-plane architecture.
+
+**Decision:** pin `@trpc/server@11.19.0` and create one server-owned first-party tRPC root. Each procedure binds a fixed OperationContract and must use the exact Zod input/output schema object already registered by ZodOperationDtoRegistry. The procedure calls OperationSchemaRegistry.prepareInput on the value already parsed by tRPC, so Zod defaults/transforms execute exactly once while DD-051 canonical JSON/resource-reference derivation still occurs in the shared schema registry. The executor receives the prepared input with exact operation/schema-version identity and rejects any mismatch.
+
+**Transport context:** protected first-party context creation authenticates the Clerk/API credential through the existing IdentityPort before the procedure is invoked, normalizes/generates UUID request/correlation IDs, bounds selectors/transport metadata and then passes the original AuthenticationInput into DD-02 RequestContext resolution for authoritative current-context validation. This intentionally keeps the existing RequestContext security semantics; the preflight is an edge floor, not a parallel identity truth.
+
+**Projection:** resolver success/control results use TransportEnvelopeProjector. OperationExecutionError is first projected through the shared DD-052 taxonomy, then only mapped to a tRPC transport code. RATE_LIMITED→TOO_MANY_REQUESTS, authentication→UNAUTHORIZED, policy/entitlement→FORBIDDEN, user input→BAD_REQUEST, conflict→CONFLICT and system faults→INTERNAL_SERVER_ERROR. The shared canonical error envelope and retry metadata are attached through the tRPC error formatter; routers do not invent a second business error taxonomy.
+
+**Baseline real route:** the first bounded router is `core.identity.roles.listEffective`, using the existing OperationContract, a strict v1 Zod DTO pair, IdentityRoleQueryService binding and nested tRPC path `core.identity.roles.listEffective`. The router contains no business rule, database access, guard, rate or idempotency implementation.
+
+**Scope:** no HTTP/Next.js tRPC request adapter, no broad Core/Industry router catalog, no REST/OpenAPI generation, no UI client integration and no deployment claim in this slice.
+
+**Acceptance:** API-TRPC-001…API-TRPC-006: preflight authentication/correlation normalization; fixed route→OperationContract binding; exact registered Zod object; one-pass transform/canonical preparation; shared projection/error mapping; baseline Core procedure remains business-logic free.

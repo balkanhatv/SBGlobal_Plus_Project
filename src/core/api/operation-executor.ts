@@ -13,6 +13,7 @@ import { RateLimitRuntimeError } from "./rate-limit.js";
 import {
   OperationSchemaError,
   type JsonValue,
+  type PreparedOperationInput,
   type ValidatedOperationInput,
 } from "./schema-registry.js";
 import {
@@ -68,6 +69,7 @@ export interface RequestContextResolverPort {
 
 export interface OperationSchemaPort {
   validateInput(operation: OperationContract, rawInput: unknown): ValidatedOperationInput;
+  prepareInput(operation: OperationContract, parsedInput: unknown): PreparedOperationInput;
   validateOutput(operation: OperationContract, rawOutput: unknown): JsonValue;
 }
 
@@ -295,6 +297,7 @@ export class OperationExecutor {
   async execute(input: {
     readonly operationId: string;
     readonly rawInput: unknown;
+    readonly preparedInput?: PreparedOperationInput;
     readonly context: Omit<ContextResolutionInput, "scopeClass">;
     readonly idempotencyKey?: string;
     readonly verifiedRateSubject?: RateLimitSubject;
@@ -323,7 +326,20 @@ export class OperationExecutor {
 
     let validated: ValidatedOperationInput;
     try {
-      validated = this.ports.schemas.validateInput(operation, input.rawInput);
+      if (input.preparedInput) {
+        if (input.preparedInput.operationId !== operation.operationId
+          || input.preparedInput.inputSchemaVersion !== operation.inputSchemaVersion
+          || input.preparedInput.outputSchemaVersion !== operation.outputSchemaVersion) {
+          throw new OperationExecutionError({
+            code: "OPERATION_CONTRACT_INVALID",
+            messageSafe: "The prepared input does not match the operation contract.",
+            retryable: false,
+          });
+        }
+        validated = input.preparedInput;
+      } else {
+        validated = this.ports.schemas.validateInput(operation, input.rawInput);
+      }
     } catch (error) {
       throw normalizeError(error, operation);
     }
