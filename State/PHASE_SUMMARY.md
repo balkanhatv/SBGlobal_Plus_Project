@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-18
 
-Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The verified chain now includes Core/context/SQL/session-security, Authorization persistence, deterministic policy grammar, governed read store, DD-045 fail-closed evaluator floor, and DD-041 dedicated monotonic compiler publication/invalidation. Commercial current-state integration, enforceable RESTRICT payload/reducer, API transports and UI remain unfinished. Read the current Core checkpoint plus DD-03/DD-04/DD-17/DD-18 before continuation.
+Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The verified chain now includes Core/context/SQL/session-security, Authorization persistence/grammar/read/evaluator/compiler publication, and exact Commercial current-state runtime integration. Verified executable `e050dc5f52c3e1925c5ea2bce38e886e997be7c1` / tree `6d1269d1e71eff340922d149b5f2da66c2fad8a2`: **103 Core + 21 PostgreSQL + 37 migrations / 31 verification files PASS**. Resource/workflow authorization integration, dedicated restricted Commercial mode/UPGRADE_CTA, enforceable RESTRICT payload/reducer, API transports and UI remain unfinished. Read the current Core checkpoint plus DD-03/DD-04/DD-17/DD-18 before continuation.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

@@ -99,37 +99,37 @@
         "scope": "Historical all-stages SQL persistence audit"
       }
     },
-    "next_action": "Implement only Commercial current-state integration: exact current EntitlementSnapshot/Subscription/License reads and server-owned Authorization supplemental facts with version fail-closed behavior.",
+    "next_action": "Implement only resource/workflow authorization integration (AUTH-004/AUTH-005); do not start DD-06 transports.",
     "core_services": {
-      "checkpoint": "DEV-AUTHZ-COMPILER-001",
+      "checkpoint": "DEV-COMMERCIAL-CURRENT-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040/DD-041/DD-042/DD-043/DD-044 + DEV-AUTHZ persistence/grammar/read/evaluator/compiler publication",
-      "verified_head": "2c9157e3a1ed30f18f8014e1b04aa799f2d73d15",
-      "verified_tree": "a1cc883564516222ed6095e692ba6bd1ec33baac",
-      "core_ci_run_id": 35282382158,
-      "core_ci_job_id": 105407032089,
-      "tests": "95 TESTS PRESENT / CORE SERVICE VERIFY PASS",
+      "decision": "DD-040/DD-041/DD-042/DD-043/DD-044/DD-045 + DEV-AUTHZ chain + DD-04 Commercial current-state runtime floor",
+      "verified_head": "e050dc5f52c3e1925c5ea2bce38e886e997be7c1",
+      "verified_tree": "6d1269d1e71eff340922d149b5f2da66c2fad8a2",
+      "core_ci_run_id": 35309426651,
+      "core_ci_job_id": 105488183277,
+      "tests": "103 TESTS PRESENT / CORE SERVICE VERIFY PASS",
       "core_test_counts": {
-        "tests": 95,
-        "pass": 95,
+        "tests": 103,
+        "pass": 103,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35282382158,
-      "postgres_ci_job_id": 105407032426,
-      "postgres_tests": "18/18 PASS",
+      "postgres_ci_run_id": 35309426651,
+      "postgres_ci_job_id": 105488183105,
+      "postgres_tests": "21/21 PASS",
       "postgres_test_counts": {
-        "tests": 18,
-        "pass": 18,
+        "tests": 21,
+        "pass": 21,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35282382162,
-      "database_regression_job_id": 105407032144,
+      "database_regression_run_id": 35309426724,
+      "database_regression_job_id": 105488183403,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -176,29 +176,37 @@
         "SERVICE-only Authorization compiler publication boundary with canonical Permission Set v1/role-set validation",
         "monotonic tenant/platform compiled snapshot publication with subject FOR UPDATE serialization",
         "compiled snapshot invalidation without version decrement/reuse and next-version resume",
-        "real PostgreSQL compiler source-truth mutation denial"
+        "real PostgreSQL compiler source-truth mutation denial",
+        "DEV-COMMERCIAL-CURRENT-001 exact current EntitlementSnapshot/Subscription runtime reader",
+        "Tenant current_subscription_id and explicit entitlement fact tenant ownership binding",
+        "CommercialContextPort exact current snapshot bootstrap into RequestContext",
+        "CommercialGuardPort stale snapshot/subscription/license/entitlement fail-closed validation",
+        "server-owned Authorization supplemental commercial.subscriptionState/licenseSet/entitlementFacts",
+        "real PostgreSQL Commercial sibling-Industry license/fact isolation regressions"
       ],
       "not_claimed": [
         "trusted directory/Identity bootstrap adapter",
         "live production Clerk/provider operational validation",
         "production PDP/ABAC evaluator",
-        "Commercial current-state validation integration",
         "broader module-owned PostgreSQL query repositories",
         "tRPC/REST transport adapters",
         "runtime rate limiter/idempotency adapters",
         "UI/mobile/desktop",
         "deployment/production readiness",
         "governed enforceable ABAC RESTRICT payload/reducer",
-        "concrete Commercial supplemental-fact adapter/current-state integration",
         "role/permission source-to-snapshot compiler calculation algorithm",
-        "concrete Commercial current-state integration"
+        "dedicated suspended billing/renewal/export restricted-mode operation contracts",
+        "UPGRADE_CTA commercial policy completion",
+        "SURFACE/API_SERVICE Commercial applicability mapping",
+        "resource ownership/org/workflow business-rule integration"
       ],
-      "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_PERSISTENCE_READ_EVALUATOR_AND_DEDICATED_COMPILER_PUBLICATION_TESTED",
+      "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_AND_EXACT_COMMERCIAL_CURRENT_STATE_TESTED",
       "pending_physical_contracts": [
-        "Commercial current EntitlementSnapshot/Subscription/License integration and Authorization supplemental facts",
-        "governed enforceable ABAC RESTRICT payload/reducer contract"
+        "resource ownership/org/workflow authorization rule integration",
+        "governed enforceable ABAC RESTRICT payload/reducer contract",
+        "dedicated Commercial restricted-mode/UPGRADE_CTA operation contracts"
       ],
-      "next_action": "Implement only Commercial current-state integration; preserve Commercial ownership and fail closed on stale/missing snapshot state."
+      "next_action": "Implement only resource/workflow authorization integration (AUTH-004/AUTH-005); add a targeted DD decision first if the existing rule contract is insufficient."
     },
     "application_api_ui_scope_note": "Core application services have started; API transports and UI have not started.",
     "application_services_started": true,
@@ -251,7 +259,8 @@
         "tests": "65 Core/server + 13 PostgreSQL PASS",
         "scope": "DD-044 Clerk session-security + PLATFORM_GLOBAL Authorization persistence prerequisite"
       }
-    ]
+    ],
+    "status": "IN_PROGRESS_AUTHORIZATION_CORE_SERVICES"
   },
   "current_phase": "DEVELOPMENT_AUTHORIZATION_CORE_SERVICES",
   "audit": {
@@ -285,11 +294,11 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AUTHZ-COMPILER-001",
+    "checkpoint": "DEV-COMMERCIAL-CURRENT-001",
     "corrected_baseline_head": "ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5",
     "corrected_baseline_tree": "ba95a8a1fd811f1b5ece01ba891535878827aa3c",
-    "verified_code_head": "2c9157e3a1ed30f18f8014e1b04aa799f2d73d15",
-    "verified_code_tree": "a1cc883564516222ed6095e692ba6bd1ec33baac",
+    "verified_code_head": "e050dc5f52c3e1925c5ea2bce38e886e997be7c1",
+    "verified_code_tree": "6d1269d1e71eff340922d149b5f2da66c2fad8a2",
     "code_snapshot_files": 239,
     "changes": [
       "1835fc4201998d05368a5aec1e963fca263dba35",
@@ -313,7 +322,9 @@
       "80fa65502fbe682963405e9cc01c47cdf800381d",
       "96b051ca6feef26d3f8534ce6d3240f6843dc31e",
       "caaf18cdf19feb7df669fbca478c883fa3ef7642",
-      "2c9157e3a1ed30f18f8014e1b04aa799f2d73d15"
+      "2c9157e3a1ed30f18f8014e1b04aa799f2d73d15",
+      "faca05d2ca77ed59768ada0327af06f28abcc00a",
+      "e050dc5f52c3e1925c5ea2bce38e886e997be7c1"
     ],
     "failed_ci_attempts": [
       {
@@ -351,6 +362,12 @@
         "core_run_id": 35281443322,
         "cause": "TypeScript TS2322: mutable optional resourceDescriptor lost narrowing inside async evaluator closure",
         "fixed_by": "96b051ca6feef26d3f8534ce6d3240f6843dc31e"
+      },
+      {
+        "head": "faca05d2ca77ed59768ada0327af06f28abcc00a",
+        "core_run_id": 35309097924,
+        "cause": "PostgreSQL Commercial test fixture used the pre-0030 entitlement_snapshot_fact shape and omitted tenant current_subscription_id binding",
+        "fixed_by": "e050dc5f52c3e1925c5ea2bce38e886e997be7c1"
       }
     ],
     "schema_or_verification_sql_changed": true,
@@ -359,7 +376,7 @@
     "metadata_closure_resolution": "Read the publication commit from Git after updating this self-containing manifest; recorded CI evidence belongs to verified_code_head, not an invented closure SHA.",
     "next_task_model_capability": "Authorization/data-contract reasoning and TypeScript/PostgreSQL implementation; select from actually available models.",
     "model_switch_performed": false,
-    "scope_gate": "IMPLEMENTED_TESTED_AUTHORIZATION_COMPILER_PUBLICATION_BOUNDARY",
+    "scope_gate": "IMPLEMENTED_TESTED_COMMERCIAL_CURRENT_STATE_RUNTIME_INTEGRATION",
     "approval_blockers": 0
   }
 }
