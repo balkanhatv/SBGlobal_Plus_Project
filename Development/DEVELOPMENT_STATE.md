@@ -1,12 +1,16 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-IDEMPOTENCY-001`
+**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-RATE-LIMIT-001`
 
-Development is **IN PROGRESS — CORE SERVICES / API PREREQUISITES**.
+Development is **IN PROGRESS — CORE SERVICES / API EXECUTION PREREQUISITES**.
 
-Verified `5a6a93b9d509f56599ee1e6f3eed00d63d8484bf` / `55e32eaabafdc1da9aa57d19689dea2cf8c7b862`: **122/122 Core**, **33/33 PostgreSQL**, **39 migrations / 33 verification files** PASS. Industry scope remains **9/41/181**.
+Verified `f97eb4fca54623a49d6405681f5bda4c3751bb84` / `32e24b9ed495aa33c88d8ad91b22262f53509f65`:
+- **128/128 Core PASS**
+- **38/38 PostgreSQL PASS**
+- **40 migrations / 34 verification files PASS**
+- Industry SQL remains **9 Industries / 41 canonical MS / 181 tables**
 
-Authorization source→snapshot→PDP→PEP→audit and exact Commercial current state remain verified. DD-06 idempotency runtime is now transport-neutral and exact-scope.
+Verified shared runtime now includes RequestContext/session security, Authorization source→snapshot→PDP→PEP→audit, exact Commercial current-state checks, transport-neutral idempotency, and distributed SecurityRatePolicy v1 rate limiting.
 
-Next: **runtime rate-limit enforcement only**. tRPC/REST transport adapters remain not started.
+Next: **canonical input validation/canonicalization + transport-neutral operation execution orchestration**. Real tRPC/REST adapters remain not started.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

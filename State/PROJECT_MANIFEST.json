@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-18",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-API-IDEMPOTENCY-001",
-  "final_verdict": "DEVELOPMENT IN PROGRESS — DD-06 IDEMPOTENCY RUNTIME IMPLEMENTED / TESTED; RATE-LIMIT RUNTIME NEXT; TRANSPORTS/UI NOT STARTED",
+  "checkpoint": "DEV-API-RATE-LIMIT-001",
+  "final_verdict": "DEVELOPMENT IN PROGRESS — DD-06 IDEMPOTENCY + RATE-LIMIT RUNTIME IMPLEMENTED / TESTED; OPERATION EXECUTION KERNEL NEXT; TRANSPORTS/UI NOT STARTED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,15 +53,15 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "5a6a93b9d509f56599ee1e6f3eed00d63d8484bf",
-    "verified_code_tree": "55e32eaabafdc1da9aa57d19689dea2cf8c7b862",
-    "state_projection_basis_head": "5a6a93b9d509f56599ee1e6f3eed00d63d8484bf"
+    "verified_code_head": "f97eb4fca54623a49d6405681f5bda4c3751bb84",
+    "verified_code_tree": "32e24b9ed495aa33c88d8ad91b22262f53509f65",
+    "state_projection_basis_head": "f97eb4fca54623a49d6405681f5bda4c3751bb84"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Core Services / API Prerequisites",
+    "current_phase": "Core Services / API Execution Prerequisites",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -73,12 +73,12 @@
       "apply_verify_harness": "database/scripts/apply-and-verify.sh",
       "ci_workflow": ".github/workflows/database-verify.yml",
       "runtime_postgresql_verification": "PASS",
-      "migration_count": 39,
-      "verification_file_count": 33,
-      "migration_range": "0001-0039",
-      "ci_verified_head": "5a6a93b9d509f56599ee1e6f3eed00d63d8484bf",
-      "ci_run_id": 35335799285,
-      "ci_job_id": 105570227205,
+      "migration_count": 40,
+      "verification_file_count": 34,
+      "migration_range": "0001-0040",
+      "ci_verified_head": "f97eb4fca54623a49d6405681f5bda4c3751bb84",
+      "ci_run_id": 35339582094,
+      "ci_job_id": 105582174796,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -90,7 +90,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "55e32eaabafdc1da9aa57d19689dea2cf8c7b862",
+      "ci_verified_tree": "32e24b9ed495aa33c88d8ad91b22262f53509f65",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,37 +99,37 @@
         "scope": "Historical all-stages SQL persistence audit"
       }
     },
-    "next_action": "Implement only DD-06 runtime rate-limit enforcement; do not start tRPC/REST transports yet.",
+    "next_action": "Implement canonical input validation/canonicalization plus transport-neutral OperationContract execution orchestration before concrete tRPC/REST adapters.",
     "core_services": {
-      "checkpoint": "DEV-API-IDEMPOTENCY-001",
+      "checkpoint": "DEV-API-RATE-LIMIT-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040/DD-041/DD-042/DD-043/DD-044/DD-045/DD-046/DD-047/DD-048/DD-049 + verified Authorization/Commercial/API prerequisite chain",
-      "verified_head": "5a6a93b9d509f56599ee1e6f3eed00d63d8484bf",
-      "verified_tree": "55e32eaabafdc1da9aa57d19689dea2cf8c7b862",
-      "core_ci_run_id": 35335799295,
-      "core_ci_job_id": 105570227470,
-      "tests": "122 TESTS PRESENT / CORE SERVICE VERIFY PASS",
+      "decision": "DD-040…DD-050 verified shared Core/API prerequisite chain",
+      "verified_head": "f97eb4fca54623a49d6405681f5bda4c3751bb84",
+      "verified_tree": "32e24b9ed495aa33c88d8ad91b22262f53509f65",
+      "core_ci_run_id": 35339582066,
+      "core_ci_job_id": 105582175189,
+      "tests": "128 TESTS PRESENT / CORE SERVICE VERIFY PASS",
       "core_test_counts": {
-        "tests": 122,
-        "pass": 122,
+        "tests": 128,
+        "pass": 128,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35335799295,
-      "postgres_ci_job_id": 105570227217,
-      "postgres_tests": "33/33 PASS",
+      "postgres_ci_run_id": 35339582066,
+      "postgres_ci_job_id": 105582174829,
+      "postgres_tests": "38/38 PASS",
       "postgres_test_counts": {
-        "tests": 33,
-        "pass": 33,
+        "tests": 38,
+        "pass": 38,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35335799285,
-      "database_regression_job_id": 105570227205,
+      "database_regression_run_id": 35339582094,
+      "database_regression_job_id": 105582174796,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -203,7 +203,13 @@
         "DD-049 transport-neutral IdempotencyService",
         "hashed idempotency key and canonical validated request fingerprint",
         "IN_PROGRESS/replay/retryable/final/conflict lifecycle",
-        "real PostgreSQL idempotency concurrency and null-Industry isolation coverage"
+        "real PostgreSQL idempotency concurrency and null-Industry isolation coverage",
+        "0040 dedicated PostgreSQL distributed rate-limit state boundary",
+        "DD-050 SecurityRatePolicy v1 runtime",
+        "tightest-wins principal/IP/credential/Tenant/endpoint rate evaluation",
+        "AI/BULK Tenant concurrency leases with expiry/release",
+        "opaque SHA-256 limiter bucket persistence",
+        "safe throttle signal contract before RATE_LIMITED"
       ],
       "not_claimed": [
         "trusted directory/Identity bootstrap adapter",
@@ -219,16 +225,18 @@
         "SURFACE/API_SERVICE Commercial applicability mapping",
         "concrete per-module ResourceResolver/ResourceBusinessRule adapters across Core and 41 MS",
         "PUBLIC and EXPLICIT_CROSS_CONTEXT Authorization audit writers",
-        "runtime DD-06 rate limiter"
+        "canonical schema validation/canonicalization runtime",
+        "transport-neutral OperationContract executor"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_AND_EXACT_COMMERCIAL_CURRENT_STATE_TESTED",
       "pending_physical_contracts": [
-        "DD-06 runtime rate-limit enforcement",
+        "canonical input/schema validation and deterministic canonicalization",
+        "transport-neutral OperationContract execution coordinator",
         "concrete per-module resource/workflow rule adapters",
         "governed enforceable ABAC RESTRICT payload/reducer contract",
         "dedicated Commercial restricted-mode/UPGRADE_CTA operation contracts"
       ],
-      "next_action": "Implement only DD-06 runtime rate-limit enforcement; verify before starting transports."
+      "next_action": "Implement canonical input/schema normalization and transport-neutral OperationContract execution orchestration; verify before concrete tRPC/REST adapters."
     },
     "application_api_ui_scope_note": "Core application services have started; API transports and UI have not started.",
     "application_services_started": true,
@@ -284,7 +292,7 @@
     ],
     "status": "IN_PROGRESS_AUTHORIZATION_CORE_SERVICES"
   },
-  "current_phase": "DEVELOPMENT_CORE_API_PREREQUISITES",
+  "current_phase": "DEVELOPMENT_CORE_API_EXECUTION_PREREQUISITES",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -316,11 +324,11 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-API-IDEMPOTENCY-001",
+    "checkpoint": "DEV-API-RATE-LIMIT-001",
     "corrected_baseline_head": "ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5",
     "corrected_baseline_tree": "ba95a8a1fd811f1b5ece01ba891535878827aa3c",
-    "verified_code_head": "5a6a93b9d509f56599ee1e6f3eed00d63d8484bf",
-    "verified_code_tree": "55e32eaabafdc1da9aa57d19689dea2cf8c7b862",
+    "verified_code_head": "f97eb4fca54623a49d6405681f5bda4c3751bb84",
+    "verified_code_tree": "32e24b9ed495aa33c88d8ad91b22262f53509f65",
     "code_snapshot_files": 239,
     "changes": [
       "1835fc4201998d05368a5aec1e963fca263dba35",
@@ -351,7 +359,9 @@
       "09d81fc23d44747ac566fa4fe1957c1efe32479f",
       "b9b4c30106811a6643f80220cda3c51d96013d4c",
       "13346932455c79637e9644f970db47052c1fe6ad",
-      "5a6a93b9d509f56599ee1e6f3eed00d63d8484bf"
+      "5a6a93b9d509f56599ee1e6f3eed00d63d8484bf",
+      "cf7c39f4baf729a8cb83a6f792bf702ddc7b9a9b",
+      "f97eb4fca54623a49d6405681f5bda4c3751bb84"
     ],
     "failed_ci_attempts": [
       {
@@ -401,6 +411,12 @@
         "core_run_id": 35319739734,
         "cause": "PostgreSQL source-compiler test fixture reused one parameter as UUID and text without an explicit cast",
         "fixed_by": "13346932455c79637e9644f970db47052c1fe6ad"
+      },
+      {
+        "head": "cf7c39f4baf729a8cb83a6f792bf702ddc7b9a9b",
+        "core_run_id": 35339371577,
+        "cause": "PostgreSQL rate-limit tests reused one synthetic Tenant after a stricter TENANT_AGGREGATE override, contaminating the following AI-concurrency fixture",
+        "fixed_by": "f97eb4fca54623a49d6405681f5bda4c3751bb84"
       }
     ],
     "schema_or_verification_sql_changed": true,
@@ -409,7 +425,7 @@
     "metadata_closure_resolution": "Read the publication commit from Git after updating this self-containing manifest; recorded CI evidence belongs to verified_code_head, not an invented closure SHA.",
     "next_task_model_capability": "Authorization/data-contract reasoning and TypeScript/PostgreSQL implementation; select from actually available models.",
     "model_switch_performed": false,
-    "scope_gate": "IMPLEMENTED_TESTED_API_IDEMPOTENCY_RUNTIME",
+    "scope_gate": "IMPLEMENTED_TESTED_DISTRIBUTED_RATE_LIMIT_RUNTIME",
     "approval_blockers": 0
   }
 }

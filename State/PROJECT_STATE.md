@@ -1,15 +1,13 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-IDEMPOTENCY-001`
+**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-RATE-LIMIT-001`
 
 - Branch: `docs/architecture-branch-2`.
-- Verified executable: `5a6a93b9d509f56599ee1e6f3eed00d63d8484bf` / `55e32eaabafdc1da9aa57d19689dea2cf8c7b862`.
-- Core **122/122 PASS**.
-- PostgreSQL **33/33 PASS**.
-- Database **39 migrations / 33 verification files PASS**.
+- Verified executable: `f97eb4fca54623a49d6405681f5bda4c3751bb84` / `32e24b9ed495aa33c88d8ad91b22262f53509f65`.
+- Core **128/128 PASS**; PostgreSQL **38/38 PASS**; Database **40 migrations / 34 verification files PASS**.
 - Industry SQL **9 Industries / 41 canonical MS / 181 tables**.
-- DD-06 transport-neutral idempotency runtime implemented and tested.
-- Tenant Core null Industry idempotency rows no longer leak into Industry-scoped sessions.
-- tRPC/REST adapters remain not started.
+- DD-06 idempotency and rate-limit runtime prerequisites are implemented/tested.
+- Rate-limit persistent identity is opaque SHA-256 only; dedicated limiter role is isolated from ordinary runtime roles.
+- tRPC/REST adapters and UI remain not started.
 - RawSourceCorpus immutable; `main` unmerged; PR #2 draft/unmerged.
 
-Next: **DD-06 runtime rate-limit enforcement only**.
+Next: **canonical input/schema normalization and transport-neutral OperationContract execution orchestration** before concrete tRPC/REST adapters.

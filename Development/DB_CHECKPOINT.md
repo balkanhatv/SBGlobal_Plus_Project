@@ -1,9 +1,11 @@
 # DATABASE CHECKPOINT — DEV-DB-CURRENT-STATE-AUDITED-001
 **Date:** 2026-09-18  
-**Current executable:** `5a6a93b9d509f56599ee1e6f3eed00d63d8484bf` / `55e32eaabafdc1da9aa57d19689dea2cf8c7b862`
+**Current executable:** `f97eb4fca54623a49d6405681f5bda4c3751bb84` / `32e24b9ed495aa33c88d8ad91b22262f53509f65`
 
-Database Verify `35335799285` / `105570227205`: **39 migrations / 33 verification files PASS**. PostgreSQL runtime suite: **33/33 PASS**.
+- Database Verify: **40 migrations / 34 verification files PASS**.
+- Real PostgreSQL runtime: **38/38 PASS**.
+- Industry scope: **9/41/181**.
 
-Migration 0039 keeps `core_integration.idempotency_record` as the only physical idempotency truth, fixes RLS to exact TENANT_CORE vs TENANT_INDUSTRY scope, grants `sbg_app_rw` only SELECT/INSERT/UPDATE and denies DELETE. Actor-scope integrity remains database-enforced.
+Migration 0040 adds only opaque distributed rate-limit state plus a dedicated least-privilege `sbg_rate_limiter_rw` role. No raw Tenant, Industry, principal, credential or network identity is persisted in limiter tables. Ordinary application/integration/compiler/control-plane roles cannot read limiter state.
 
-Next DB work is only what DD-06 rate-limit runtime proves necessary; do not create an idempotency duplicate or transport-specific state store.
+Current DB/API prerequisites: idempotency truth + distributed limiter truth verified. Next shared API work should not add another state store unless canonical execution/schema orchestration proves one necessary.

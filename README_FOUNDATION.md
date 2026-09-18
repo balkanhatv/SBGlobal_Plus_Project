@@ -1,14 +1,14 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `DEV-API-IDEMPOTENCY-001`  
+**Current checkpoint:** `DEV-API-RATE-LIMIT-001`  
 **Branch:** `docs/architecture-branch-2`
 
-Verified executable `5a6a93b9d509f56599ee1e6f3eed00d63d8484bf` / `55e32eaabafdc1da9aa57d19689dea2cf8c7b862`:
-- **122/122 Core PASS**
-- **33/33 PostgreSQL PASS**
-- **39 migrations / 33 verification files PASS**
+Verified executable `f97eb4fca54623a49d6405681f5bda4c3751bb84` / `32e24b9ed495aa33c88d8ad91b22262f53509f65`:
+- **128/128 Core PASS**
+- **38/38 PostgreSQL PASS**
+- **40 migrations / 34 verification files PASS**
 - **9 Industries / 41 canonical MS / 181 Industry tables**
 
-Current shared runtime includes RequestContext/session security, Authorization source compilation/publication/read/evaluation, Commercial current-state validation, resource/workflow PEP, durable access audit, and transport-neutral exact-scope idempotency.
+Current shared runtime includes context/session security, Authorization + Commercial enforcement, resource/workflow PEP, durable access audit, exact-scope idempotency and distributed SecurityRatePolicy v1 enforcement.
 
-Next: **DD-06 runtime rate-limit enforcement**, then transport adapters only after exact-head verification.
+**Next:** canonical validated input + transport-neutral operation execution orchestration. Concrete tRPC/REST adapters follow only after that exact-head gate passes.
