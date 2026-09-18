@@ -389,3 +389,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | API-IDEM-006 | FAILED_RETRYABLE / FAILED_FINAL | retryable atomically reclaims; final remains FINAL_FAILURE |
 | API-IDEM-007 | Tenant Industry session queries same-Tenant null-Industry or sibling-Industry idempotency row | zero visibility; null never means all Industries |
 | API-IDEM-008 | concurrent identical first claims | exactly one STARTED; contender becomes IN_PROGRESS; runtime role cannot DELETE records |
+
+
+### API rate-limit runtime — DD-050 / DEV-API-RATE-LIMIT-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| API-RATE-001 | SecurityRatePolicy v1 is loaded | DD-022 numeric windows/bursts/concurrency are exact; unknown class denies |
+| API-RATE-002 | authenticated request has principal + credential + IP + Tenant | all applicable primary/API_CREDENTIAL/TENANT_AGGREGATE buckets participate; tightest wins |
+| API-RATE-003 | tenant/plan/risk override is stricter / attempts relaxation | stricter accepted; any v1 relaxation is POLICY_DENIED |
+| API-RATE-004 | two concurrent requests compete for the last token | atomic backend admits exactly one; no partial multi-bucket token consumption |
+| API-RATE-005 | AI tenant already has 8 live leases | RATE_LIMITED with retry metadata; releasing/expiry reopens capacity |
+| API-RATE-006 | limiter database inspected by ordinary app/integration role | permission denied; persisted bucket identity is SHA-256 only |

@@ -175,3 +175,12 @@ Before tRPC/REST wiring, tenant COMMAND operations use the shared IdempotencySer
 Current lifecycle is STARTED/IN_PROGRESS/REPLAY/FINAL_FAILURE with conflict on key reuse for a different request. Retryable failures may atomically reclaim the same record. Success/failure completion stores only bounded status/reference metadata.
 
 The existing `core_integration.idempotency_record` remains physical truth. Tenant Core and Tenant Industry are exact separate RLS scopes; null Industry is never visible as a wildcard from an Industry request. This floor is transport-neutral and does not yet claim rate limiting or tRPC/REST adapters.
+
+
+## 21. Distributed runtime rate-limit floor [DD-050 / DEV-API-RATE-LIMIT-001]
+
+SecurityRatePolicy v1 is enforced by the shared RateLimitService before a transport dispatches protected domain execution. Applicable principal/IP/credential/Tenant/endpoint buckets are combined and the tightest limit wins. Tenant aggregate and API-credential ceilings are additive safeguards, not replacements for principal/IP limits.
+
+The first distributed state adapter is PostgreSQL-backed through a dedicated least-privilege rate-limiter role. Persistent state contains only SHA-256 bucket identities, token/refill metadata and expiring concurrency leases; it contains no raw Tenant, Industry, principal, credential or network identifiers.
+
+RATE_LIMITED carries deterministic retryAfterSeconds plus the limiting class/dimension. Transport-specific 429/Retry-After projection remains the next adapter layer, not part of this runtime floor.

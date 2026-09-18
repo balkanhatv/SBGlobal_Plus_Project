@@ -466,3 +466,22 @@ Completion may transition only IN_PROGRESS to SUCCEEDED, FAILED_RETRYABLE or FAI
 **Scope:** no tRPC/REST adapter, rate limiter, domain mutation transaction coordinator, response-body cache, PUBLIC/platform idempotency, or cross-context idempotency is claimed.
 
 **Acceptance:** API-IDEM-001…API-IDEM-008 plus real PostgreSQL exact-scope, actor integrity, concurrency and no-DELETE tests.
+
+
+## DD-050 — Distributed SecurityRatePolicy v1 runtime [DEV-API-RATE-LIMIT-001]
+
+**Context:** DD-022/DD-028 lock numeric SecurityRatePolicy v1 and DD-06 binds every OperationContract to a symbolic rate class, but no distributed runtime limiter exists. Architecture mandates WAF/bot/rate policy but does not mandate Redis or another limiter provider. Inventing a provider dependency would exceed the current technology contract.
+
+**Decision:** Core owns a transport-neutral RateLimitService and a backend port. The first executable distributed backend uses PostgreSQL under a dedicated `sbg_rate_limiter_rw` NOLOGIN/NOBYPASSRLS role. It stores only SHA-256 bucket identities and operational token/concurrency state; raw IP, principal, credential, Tenant and Industry identifiers are prohibited from limiter tables. Ordinary app/integration/compiler/control-plane roles cannot read limiter state.
+
+SecurityRatePolicy v1 uses the DD-022 values exactly. Where DD-022 publishes one numeric default but no separate larger scaling ceiling, that published value is both the current default and maximum for v1. Tenant/plan/risk/abuse overrides may only tighten max requests, burst capacity or concurrency. A relaxation attempt returns POLICY_DENIED. No numeric HIGH-risk multiplier is invented; a server-owned override port may supply a stricter current risk decision.
+
+**Algorithm:** rate classes with explicit bursts use token buckets with capacity equal to the published burst and refill equal to published requests/window. Classes without a separate burst use the published requests/window as capacity because no smaller burst was specified. Applicable principal/IP/credential/Tenant/endpoint buckets are evaluated atomically in one transaction; the tightest denial wins. Tenant operations also carry TENANT_AGGREGATE and credential-backed requests also carry API_CREDENTIAL. AI/BULK concurrency is enforced with expiring lease rows so crashes cannot permanently consume a slot. All bucket rows are locked in hash order to avoid cross-bucket deadlock; no token/lease is consumed unless every applicable bucket can admit the request.
+
+**Aliases:** DD-06 symbolic aliases map as AUTH_HIGH_COST→ADMIN_SENSITIVE, AI_COSTED→AI and WEBHOOK_ADMIN→WEBHOOK. EXTERNAL_WRITE is the DD-06 120/min class. Unknown rate classes fail as POLICY_DENIED.
+
+**Throttle signal:** before returning RATE_LIMITED the shared service must emit a safe server-owned throttle signal containing only request/correlation IDs, scope class, operation ID, limiting class/dimension and retry seconds. A signal-emission failure stays fail closed as dependency unavailable. Production signal adapters must fan this contract into the governed security audit/operations metric pipelines; this slice does not invent a public/private audit-store bypass.
+
+**Scope:** this slice is transport-neutral. It does not yet implement tRPC/REST response projection, Retry-After headers, WAF edge limits, production signal exporters, or provider-specific distributed caches. The service returns deterministic RATE_LIMITED + retry metadata for transport projection.
+
+**Acceptance:** RATE-T001…RATE-T005 plus API-RATE-001…API-RATE-006: numeric v1 lock, strict-only override, opaque bucket state, concurrent atomic admission, public IP isolation, AI tenant concurrency/release and ordinary-role denial.

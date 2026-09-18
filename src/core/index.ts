@@ -9,6 +9,7 @@ export * from "./context/worker-context.js";
 export * from "./api/operation-contract.js";
 export * from "./api/operation-registry.js";
 export * from "./api/idempotency.js";
+export * from "./api/rate-limit.js";
 export * from "./authorization/contracts.js";
 export * from "./authorization/audit.js";
 export * from "./authorization/policy-grammar.js";
