@@ -2,9 +2,9 @@ import {
   initTRPC,
   TRPCError,
   type TRPC_ERROR_CODE_KEY,
-  type TRPCQueryProcedure,
+  type AnyTRPCQueryProcedure,
 } from "@trpc/server";
-import type { ZodType, input as ZodInput, output as ZodOutput } from "zod";
+import type { ZodType, output as ZodOutput } from "zod";
 
 import type { ContextResolutionInput } from "../../../core/context/contracts.js";
 import type { AuthenticationInput, IdentityPort } from "../../../core/identity/contracts.js";
@@ -207,11 +207,7 @@ export function createFirstPartyQueryProcedure<
   readonly operation:OperationContract;
   readonly inputSchema:TInput;
   readonly outputSchema:TOutput;
-}):TRPCQueryProcedure<{
-  input:ZodInput<TInput>;
-  output:FirstPartyTrpcResult<ZodOutput<TOutput>>;
-  meta:object;
-}>{
+}):AnyTRPCQueryProcedure{
   const registered=input.ports.dtos.get(input.operation);
   if(registered.inputSchema!==input.inputSchema || registered.outputSchema!==input.outputSchema){
     throw new Error("The tRPC procedure must use the exact registered Zod DTO schema objects.");
@@ -252,5 +248,5 @@ export function createFirstPartyQueryProcedure<
   }
   return firstPartyTrpc.procedure
     .input(input.inputSchema)
-    .query(({ctx,input:parsed})=>invoke(ctx,parsed));
+    .query(({ctx,input:parsed})=>invoke(ctx,parsed as ZodOutput<TInput>));
 }
