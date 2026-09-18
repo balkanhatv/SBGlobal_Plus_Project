@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-18
 
-Current Development checkpoint is `DEV-API-TRPC-001`. Verified shared runtime now includes Authorization/Commercial/PEP/audit, exact-scope idempotency, distributed rate limiting, canonical OperationExecutor, Zod DTO/projection and the bounded first-party tRPC query adapter. Executable `565165ae72e1da4d93ddff645bae2735219f28ff` / tree `ec1af13574be83ca05a156d3c2dbe116f3e469e7`: **152 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**. Next is the physical first-party tRPC HTTP/fetch handler boundary; REST/OpenAPI remains later.
+Current Development checkpoint is `DEV-API-TRPC-HTTP-001`. Verified shared runtime now includes Authorization/Commercial/PEP/audit, exact-scope idempotency, distributed rate limiting, canonical OperationExecutor, Zod DTO/projection, bounded first-party tRPC query adapter and the physical Fetch handler. Executable `8b3b0417eb95391c9b4e81fa9acdcae0efcf10fe` / tree `fac8117e3d98d52d4bbf5238a24ac0dc213e3912`: **157 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**. Next is first-party web-runtime prerequisite reconciliation before concrete Next.js route composition.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

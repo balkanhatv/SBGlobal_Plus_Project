@@ -1,43 +1,43 @@
-# CORE SERVICE CHECKPOINT — DEV-API-TRPC-001
+# CORE SERVICE CHECKPOINT — DEV-API-TRPC-HTTP-001
 **Updated:** 2026-09-18  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — bounded first-party tRPC query adapter floor
+**Status:** IMPLEMENTED / TESTED — physical first-party tRPC Fetch API handler floor
 
 ## Verified executable snapshot
-- Commit: `565165ae72e1da4d93ddff645bae2735219f28ff`.
-- Tree: `ec1af13574be83ca05a156d3c2dbe116f3e469e7`.
-- Core/server acceptance: **152/152 PASS**.
+- Commit: `8b3b0417eb95391c9b4e81fa9acdcae0efcf10fe`.
+- Tree: `fac8117e3d98d52d4bbf5238a24ac0dc213e3912`.
+- Core/server acceptance: **157/157 PASS**.
 - Real PostgreSQL regression: **38/38 PASS**.
 - Database: **40 migrations / 34 verification files PASS**.
 - Industry SQL remains **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
 
-## DD-053 boundary
-- `@trpc/server@11.19.0` is pinned and lockfile-backed.
-- First-party tRPC procedures bind fixed OperationContract IDs.
-- Procedures must use the exact Zod DTO objects already registered by DD-052.
-- tRPC parses the DTO once; `OperationSchemaRegistry.prepareInput` performs deterministic canonical JSON/resource extraction without a second Zod transform.
-- Protected tRPC context preflights through the existing IdentityPort and passes original AuthenticationInput into DD-02 RequestContext for authoritative current-state validation.
-- shared DD-052 envelope/error projection remains authoritative; tRPC adds only transport status semantics.
-- `core.identity.roles.listEffective` is the first real nested procedure and delegates execution through the existing OperationExecutor.
-- routers do not implement Commercial, Authorization, rate, idempotency, resource, database or domain business rules.
+## DD-054 boundary
+- reusable `createFirstPartyTrpcFetchHandler` binds the physical Fetch API plane without inventing a Next.js app path;
+- edge/auth/selector/network ports receive method/URL/Headers only and cannot access the request body;
+- IdentityPort verification completes before tRPC request-info/body parsing;
+- DD-06 `Authorization`, `Idempotency-Key` and advisory `X-Correlation-Id` semantics are bound;
+- Tenant/Industry authority is never taken from generic headers;
+- pre-tRPC failures use the shared canonical error envelope with no-store + correlation metadata;
+- tRPC responses echo normalized correlation and map shared RATE_LIMITED retry metadata to HTTP `Retry-After`;
+- batching is disabled in this bounded first physical floor;
+- real HTTP-level tests cover nested Core success, auth-before-malformed-body denial, missing auth, rate-limit Retry-After and edge-policy denial.
 
 ## Exact evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35371608565 | 105686647373 | **PASS — 152/152** |
-| Core Service Verify / postgres-context-verify | 35371608565 | 105686647724 | **PASS — 38/38** |
-| Database Verify / postgres-verify | 35371608561 | 105686650061 | **PASS — 40 migrations / 34 verification files** |
+| Core Service Verify / core-service-verify | 35374857407 | 105697039782 | **PASS — 157/157** |
+| Core Service Verify / postgres-context-verify | 35374857407 | 105697039567 | **PASS — 38/38** |
+| Database Verify / postgres-verify | 35374857372 | 105697040419 | **PASS — 40 migrations / 34 verification files** |
 
-All jobs asserted exact tested HEAD `565165ae72e1da4d93ddff645bae2735219f28ff` and tree `ec1af13574be83ca05a156d3c2dbe116f3e469e7`.
+All jobs asserted exact tested HEAD `8b3b0417eb95391c9b4e81fa9acdcae0efcf10fe` and tree `fac8117e3d98d52d4bbf5238a24ac0dc213e3912`.
 
 ## Next governed work
-Implement only the **physical first-party tRPC HTTP/fetch handler boundary** for the primary Next.js plane:
-- one server-owned request adapter into the existing tRPC router/context factory;
-- bounded header/authenticity extraction only;
-- server-generated/validated request + correlation IDs;
-- idempotency key and trusted rate-subject extraction only from governed transport inputs;
-- response/error serialization via tRPC + shared DD-052 projection;
-- no route-local business logic;
-- no REST/OpenAPI and no broad router expansion.
+Freshly inspect the remaining **first-party web-runtime composition prerequisites** before adding a Next.js route:
+- concrete Clerk/session/API-credential Authorization resolver ownership;
+- trusted selector derivation source for first-party web;
+- edge origin/host/body-size/CSRF policy ownership;
+- Next.js application bootstrap/location and server composition root.
 
-Do not start broad Core/Industry routes, REST/OpenAPI, UI, mobile, desktop or deployment before this handler floor passes exact-head CI. RawSourceCorpus remains immutable; `main` unmerged; PR #2 draft/review-only.
+Do not invent a Next.js folder, Clerk parser or production edge values until those contracts are verified against Foundation/Architecture/DD. REST/OpenAPI, broad routers, UI/mobile/desktop and deployment remain later.
+
+RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

@@ -1,12 +1,12 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-TRPC-001`
+**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-TRPC-HTTP-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified executable `565165ae72e1da4d93ddff645bae2735219f28ff`, tree `ec1af13574be83ca05a156d3c2dbe116f3e469e7`: **152 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**.
+Verified executable `8b3b0417eb95391c9b4e81fa9acdcae0efcf10fe`, tree `fac8117e3d98d52d4bbf5238a24ac0dc213e3912`: **157 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**.
 
-DD-053 is complete within bounded scope: pinned tRPC server, protected context preflight, fixed OperationContract procedure binding, exact registered Zod DTO reuse, one-pass transform/canonical preparation, shared error projection and a real `core.identity.roles.listEffective` route.
+DD-054 is complete within bounded scope: reusable Fetch handler, metadata-only preflight ports, auth-before-body guarantee, DD-06 header binding, non-authoritative selectors, canonical preflight errors, correlation/no-store and Retry-After response metadata.
 
-Next governed slice: **physical first-party tRPC HTTP/fetch handler boundary only**. Do not start REST/OpenAPI or broad router expansion first.
+Next: inspect and resolve only the remaining **first-party web runtime composition prerequisites** before creating a concrete Next.js route.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.
