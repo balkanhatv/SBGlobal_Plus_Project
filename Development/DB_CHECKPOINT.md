@@ -2,30 +2,19 @@
 **Date:** 2026-09-18  
 **Branch:** `docs/architecture-branch-2`
 
-**Scope:** Historical SQL persistence checkpoint. Current Development scope and continuation are owned by [DEV-COMMERCIAL-CURRENT-001](CORE_SERVICE_CHECKPOINT.md).
+**Scope:** Historical SQL persistence checkpoint. Current Development scope and continuation are owned by [DEV-AUTHZ-RESOURCE-RULE-001](CORE_SERVICE_CHECKPOINT.md).
 
 ## Current persistence result
-Shared Core persistence includes Tenant/Industry/Identity/Commercial/Document/Audit/Integration/Workflow/Notification/AI layers plus PLATFORM_GLOBAL Authorization persistence, ABAC write-boundary hardening and the dedicated Authorization compiler publication role/policy boundary.
+Shared Core persistence remains verified at **37 migrations / 31 verification files**, with **9/9 Current Supported Industries / 41/41 canonical Management Systems / 181 canonical Industry tables**.
 
-Industry SQL remains **9/9 Current Supported Industries / 41/41 canonical Management Systems / 181 canonical Industry tables**, verified by `database/verification/0099_all_industries.verify.sql`.
+The DD-046 resource/workflow PEP boundary required **no new database schema or privilege expansion**. It is a Core narrowing contract; concrete module adapters will read their authoritative repositories under existing governed Tenant/Industry boundaries.
 
-## Commercial current-state read boundary
-No new Commercial table or privilege expansion was required. The verified runtime reader consumes the existing hardened Commercial schema:
-- exact CURRENT EntitlementSnapshot;
-- exact Tenant `current_subscription_id` → Subscription agreement;
-- explicit `entitlement_snapshot_fact.tenant_id` ownership added by existing migration 0030;
-- exact active Industry Context filtering under FORCE RLS;
-- current/effective license and entitlement fact windows;
-- sibling Industry facts/licenses excluded.
-
-## Exact regression evidence — DEV-COMMERCIAL-CURRENT-001
-Verified executable `e050dc5f52c3e1925c5ea2bce38e886e997be7c1` (tree `6d1269d1e71eff340922d149b5f2da66c2fad8a2`) passed:
-- Database Verify `35309426724` / job `105488183403`: migrations `0001`–`0037` + all **31 verification files** including 0099;
-- Core Service Verify postgres-context `35309426651` / job `105488183105`: **21/21 real PostgreSQL tests**, including exact Commercial current-state and sibling-Industry isolation.
-
-Current SQL inventory: **37 migrations / 31 verification files**. Industry scope remains **9/41/181**.
+## Exact regression evidence
+Verified executable `ed36486e45011c6dc2bae1bcc87c2a13574e177c` (tree `92a5dfc0b2d2e3e8246a75a7eadda52329c5a9e6`) passed:
+- Database Verify `35311123714` / job `105493201072`: **37 migrations / 31 verification files**;
+- Core Service Verify postgres-context `35311123639` / job `105493200603`: **21/21 real PostgreSQL tests**.
 
 ## Current gate / next database-facing work
 **DATABASE PERSISTENCE CHECKPOINT: VERIFIED FOR CURRENT BOUNDED SCOPE.**
 
-Next database-facing work is only what the governed resource/workflow authorization slice proves necessary. No schema or privilege expansion is justified by the completed Commercial reader.
+No DB change is justified for the generic resource/workflow rule boundary. The next shared-Core slice is Authorization audit emission; any physical audit change must reuse/govern existing `core_audit` truth rather than create a competing store.

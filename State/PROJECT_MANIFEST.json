@@ -99,27 +99,27 @@
         "scope": "Historical all-stages SQL persistence audit"
       }
     },
-    "next_action": "Implement only resource/workflow authorization integration (AUTH-004/AUTH-005); do not start DD-06 transports.",
+    "next_action": "Implement only AUTH-008 durable Authorization decision audit emission; do not start DD-06 transports.",
     "core_services": {
-      "checkpoint": "DEV-COMMERCIAL-CURRENT-001",
+      "checkpoint": "DEV-AUTHZ-RESOURCE-RULE-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040/DD-041/DD-042/DD-043/DD-044/DD-045 + DEV-AUTHZ chain + DD-04 Commercial current-state runtime floor",
-      "verified_head": "e050dc5f52c3e1925c5ea2bce38e886e997be7c1",
-      "verified_tree": "6d1269d1e71eff340922d149b5f2da66c2fad8a2",
-      "core_ci_run_id": 35309426651,
-      "core_ci_job_id": 105488183277,
-      "tests": "103 TESTS PRESENT / CORE SERVICE VERIFY PASS",
+      "decision": "DD-040/DD-041/DD-042/DD-043/DD-044/DD-045/DD-046 + DEV-AUTHZ chain + DD-04 Commercial current-state floor",
+      "verified_head": "ed36486e45011c6dc2bae1bcc87c2a13574e177c",
+      "verified_tree": "92a5dfc0b2d2e3e8246a75a7eadda52329c5a9e6",
+      "core_ci_run_id": 35311123639,
+      "core_ci_job_id": 105493200950,
+      "tests": "108 TESTS PRESENT / CORE SERVICE VERIFY PASS",
       "core_test_counts": {
-        "tests": 103,
-        "pass": 103,
+        "tests": 108,
+        "pass": 108,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35309426651,
-      "postgres_ci_job_id": 105488183105,
+      "postgres_ci_run_id": 35311123639,
+      "postgres_ci_job_id": 105493200603,
       "postgres_tests": "21/21 PASS",
       "postgres_test_counts": {
         "tests": 21,
@@ -128,8 +128,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35309426724,
-      "database_regression_job_id": 105488183403,
+      "database_regression_run_id": 35311123714,
+      "database_regression_job_id": 105493201072,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -182,7 +182,11 @@
         "CommercialContextPort exact current snapshot bootstrap into RequestContext",
         "CommercialGuardPort stale snapshot/subscription/license/entitlement fail-closed validation",
         "server-owned Authorization supplemental commercial.subscriptionState/licenseSet/entitlementFacts",
-        "real PostgreSQL Commercial sibling-Industry license/fact isolation regressions"
+        "real PostgreSQL Commercial sibling-Industry license/fact isolation regressions",
+        "DD-046 narrowing-only ResourceBusinessRulePort after resource-level PDP",
+        "AUTH-004 non-disclosing resource ownership/org denial normalization",
+        "AUTH-005 workflow-state denial normalization to RESOURCE_STATE_INVALID",
+        "fail-closed missing/dependency/malformed resource rule adapter behavior"
       ],
       "not_claimed": [
         "trusted directory/Identity bootstrap adapter",
@@ -198,15 +202,17 @@
         "dedicated suspended billing/renewal/export restricted-mode operation contracts",
         "UPGRADE_CTA commercial policy completion",
         "SURFACE/API_SERVICE Commercial applicability mapping",
-        "resource ownership/org/workflow business-rule integration"
+        "concrete per-module ResourceResolver/ResourceBusinessRule adapters across Core and 41 MS",
+        "durable Authorization decision audit emission"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_AND_EXACT_COMMERCIAL_CURRENT_STATE_TESTED",
       "pending_physical_contracts": [
-        "resource ownership/org/workflow authorization rule integration",
+        "durable Authorization decision audit emission through governed audit truth",
+        "concrete per-module resource/workflow rule adapters",
         "governed enforceable ABAC RESTRICT payload/reducer contract",
         "dedicated Commercial restricted-mode/UPGRADE_CTA operation contracts"
       ],
-      "next_action": "Implement only resource/workflow authorization integration (AUTH-004/AUTH-005); add a targeted DD decision first if the existing rule contract is insufficient."
+      "next_action": "Implement only AUTH-008 durable Authorization decision audit emission; keep concrete domain rule adapters module-owned and do not start DD-06 transports."
     },
     "application_api_ui_scope_note": "Core application services have started; API transports and UI have not started.",
     "application_services_started": true,
@@ -294,11 +300,11 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-COMMERCIAL-CURRENT-001",
+    "checkpoint": "DEV-AUTHZ-RESOURCE-RULE-001",
     "corrected_baseline_head": "ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5",
     "corrected_baseline_tree": "ba95a8a1fd811f1b5ece01ba891535878827aa3c",
-    "verified_code_head": "e050dc5f52c3e1925c5ea2bce38e886e997be7c1",
-    "verified_code_tree": "6d1269d1e71eff340922d149b5f2da66c2fad8a2",
+    "verified_code_head": "ed36486e45011c6dc2bae1bcc87c2a13574e177c",
+    "verified_code_tree": "92a5dfc0b2d2e3e8246a75a7eadda52329c5a9e6",
     "code_snapshot_files": 239,
     "changes": [
       "1835fc4201998d05368a5aec1e963fca263dba35",
@@ -324,7 +330,8 @@
       "caaf18cdf19feb7df669fbca478c883fa3ef7642",
       "2c9157e3a1ed30f18f8014e1b04aa799f2d73d15",
       "faca05d2ca77ed59768ada0327af06f28abcc00a",
-      "e050dc5f52c3e1925c5ea2bce38e886e997be7c1"
+      "e050dc5f52c3e1925c5ea2bce38e886e997be7c1",
+      "ed36486e45011c6dc2bae1bcc87c2a13574e177c"
     ],
     "failed_ci_attempts": [
       {
@@ -376,7 +383,7 @@
     "metadata_closure_resolution": "Read the publication commit from Git after updating this self-containing manifest; recorded CI evidence belongs to verified_code_head, not an invented closure SHA.",
     "next_task_model_capability": "Authorization/data-contract reasoning and TypeScript/PostgreSQL implementation; select from actually available models.",
     "model_switch_performed": false,
-    "scope_gate": "IMPLEMENTED_TESTED_COMMERCIAL_CURRENT_STATE_RUNTIME_INTEGRATION",
+    "scope_gate": "IMPLEMENTED_TESTED_FAIL_CLOSED_RESOURCE_WORKFLOW_PEP_BOUNDARY",
     "approval_blockers": 0
   }
 }

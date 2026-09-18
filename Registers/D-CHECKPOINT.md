@@ -1,16 +1,16 @@
-# D-CHECKPOINT — DEV-COMMERCIAL-CURRENT-001
+# D-CHECKPOINT — DEV-AUTHZ-RESOURCE-RULE-001
 **Updated:** 2026-09-18 · **Branch:** `docs/architecture-branch-2`
 
-Verified executable: `e050dc5f52c3e1925c5ea2bce38e886e997be7c1`; tree `6d1269d1e71eff340922d149b5f2da66c2fad8a2`.
-- Core `35309426651` / `105488183277`: **103/103 PASS**.
-- PostgreSQL `35309426651` / `105488183105`: **21/21 PASS**.
-- Database `35309426724` / `105488183403`: **PASS — 37 migrations / 31 verification files**.
+Verified executable: `ed36486e45011c6dc2bae1bcc87c2a13574e177c`; tree `92a5dfc0b2d2e3e8246a75a7eadda52329c5a9e6`.
+- Core `35311123639` / `105493200950`: **108/108 PASS**.
+- PostgreSQL `35311123639` / `105493200603`: **21/21 PASS**.
+- Database `35311123714` / `105493201072`: **PASS — 37 migrations / 31 verification files**.
 - Industry SQL scope: **9/41/181**.
 
-Gate: **IMPLEMENTED / TESTED — EXACT COMMERCIAL CURRENT-STATE RUNTIME INTEGRATION; RESOURCE/WORKFLOW RULE INTEGRATION NOT YET CLAIMED**.
+Gate: **IMPLEMENTED / TESTED — FAIL-CLOSED RESOURCE/WORKFLOW PEP BOUNDARY; CONCRETE PER-MODULE ADAPTERS NOT CLAIMED**.
 
-Commercial truth stays module-owned; RequestContext and guard-time checks use exact current snapshot/subscription/license/facts with stale-version fail closed and sibling-Industry isolation.
+DD-046 defines a narrowing-only ResourceBusinessRulePort after resource PDP; missing/failing/malformed rule state denies without leaking resource existence.
 
-Next governed action: **resource/workflow authorization integration only (AUTH-004/AUTH-005)**.
+Next governed shared-Core action: **AUTH-008 durable Authorization decision audit emission only**.
 
 RawSourceCorpus stays immutable; `main` stays unmerged; PR #2 remains draft/review only.
