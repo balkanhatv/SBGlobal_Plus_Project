@@ -9,6 +9,8 @@ export * from "./context/worker-context.js";
 export * from "./api/operation-contract.js";
 export * from "./api/operation-registry.js";
 export * from "./api/schema-registry.js";
+export * from "./api/zod-operation-dto.js";
+export * from "./api/transport-projection.js";
 export * from "./api/domain-operation-registry.js";
 export * from "./api/operation-executor.js";
 export * from "./api/idempotency.js";

@@ -506,3 +506,24 @@ SecurityRatePolicy v1 combines the authoritative DD-022 sustained/security defau
 **Scope:** this decision is transport-neutral and does not implement tRPC routers, REST routes, concrete module schemas/handlers across all operations, domain transactions/outbox, or UI. Transport-specific HTTP/tRPC status/envelope projection remains downstream.
 
 **Acceptance:** API-EXEC-001…API-EXEC-010: forced contract scope, deterministic canonical input, validated resource extraction, fixed execution order, current-policy replay, pre-guard throttle, guard-before-idempotency, declared-domain-only dispatch, output validation/idempotency completion semantics and cleanup behavior.
+
+
+## DD-052 — Zod DTO single-source bridge + transport-neutral envelope projection [DEV-API-DTO-PROJECTION-001]
+
+**Context:** A-06 §2 makes Zod DTO schemas the single source for tRPC validation, REST/OpenAPI and webhook payload schemas. DD-051 intentionally introduced a generic schema port so the execution kernel stayed library-independent, but concrete transport work cannot begin until the architecture-mandated Zod source is bound and the DD-06 response/error envelope is normalized once.
+
+**Decision — DTO source:** implementation pins `zod@4.6.5` and introduces ZodOperationDtoRegistry. One exact `operationId + inputSchemaVersion + outputSchemaVersion` definition owns the Zod input/output schema objects. The same objects are retrievable for future tRPC/REST/OpenAPI projection and install an adapter into OperationSchemaRegistry for DD-051 execution. Version mismatch or missing definition fails closed.
+
+Zod input parsing may apply only schema-declared normalization/default/transform behavior. The resulting parsed value still passes DD-051 JSON normalization/canonicalization before idempotency fingerprinting. Resource-reference extraction consumes the parsed/canonical input, never raw client input.
+
+**Validation disclosure:** Zod input failure maps to INPUT_INVALID with optional fieldErrors containing only deterministic JSON-pointer-like field paths and normalized Zod issue codes. Raw rejected values, arbitrary parser messages, stack traces and schema internals are not surfaced. Output Zod failure remains OUTPUT_INVALID and never exposes field detail.
+
+**Decision — projection:** TransportEnvelopeProjector is transport-neutral. EXECUTED maps to DD-06's canonical `{data,meta:{requestId,correlationId,operationId,version}}` success envelope. A-01 error classes are exactly `USER_ERROR | POLICY_DENIAL | ENTITLEMENT_DENIAL | SYSTEM_FAULT`; known access/commercial/system codes map deterministically and safe declared business errors default to USER_ERROR after DD-051 has already normalized unknown failures. Retry-after seconds remain projection metadata for an adapter/header and are not inserted into the canonical error object.
+
+Idempotency REPLAY/IN_PROGRESS/FINAL_FAILURE remain explicit control projections rather than fabricated output-schema success bodies. Future transports must decide their wire status/behavior from this control result without rerunning the domain operation.
+
+**Correlation:** a concrete transport must normalize/generate requestId/correlationId before invoking DD-051 and pass the same correlationId into RequestContext resolution and the error projector. This slice does not create a second correlation generator.
+
+**Scope:** no tRPC router, REST route, OpenAPI generator or webhook route is implemented here. Generic OperationSchemaRegistry remains the kernel seam, but production API DTO definitions must originate from ZodOperationDtoRegistry to satisfy A-06.
+
+**Acceptance:** API-DTO-001…API-DTO-007: same Zod object exposed to executor/transport; defaults/transforms canonicalize deterministically; safe field issue projection; version mismatch fail closed; canonical success envelope; explicit replay control; four error-taxonomy classes + separate retry metadata.

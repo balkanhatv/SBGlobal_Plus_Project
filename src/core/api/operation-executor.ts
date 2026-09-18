@@ -36,6 +36,7 @@ export class OperationExecutionError extends Error {
   readonly decisionId?: string;
   readonly retryAfterSeconds?: number;
   readonly responseReference?: string;
+  readonly fieldErrors?: Readonly<Record<string, readonly string[]>>;
 
   constructor(input: {
     readonly code: OperationExecutionErrorCode;
@@ -44,6 +45,7 @@ export class OperationExecutionError extends Error {
     readonly decisionId?: string;
     readonly retryAfterSeconds?: number;
     readonly responseReference?: string;
+    readonly fieldErrors?: Readonly<Record<string, readonly string[]>>;
   }) {
     super(input.messageSafe);
     this.name = "OperationExecutionError";
@@ -52,6 +54,7 @@ export class OperationExecutionError extends Error {
     this.decisionId = input.decisionId;
     this.retryAfterSeconds = input.retryAfterSeconds;
     this.responseReference = input.responseReference;
+    this.fieldErrors = input.fieldErrors;
   }
 }
 
@@ -253,6 +256,7 @@ function normalizeError(
           : "DEPENDENCY_UNAVAILABLE",
       messageSafe: error.message,
       retryable: unavailable,
+      ...(error.fieldErrors ? {fieldErrors: error.fieldErrors} : {}),
     });
   }
   if (error instanceof DomainOperationError) {

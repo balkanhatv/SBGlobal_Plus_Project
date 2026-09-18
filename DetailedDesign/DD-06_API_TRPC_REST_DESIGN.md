@@ -195,3 +195,14 @@ The kernel order is: canonical OperationContract → RequestContext using the co
 Idempotency replay still passes current context/rate/guard checks and returns an explicit replay result containing only stored safe status/reference metadata. Resource references are derived from validated input, never from a separate client-authoritative object. Domain dispatch is registry-based and limited to the OperationContract's declared domainService. Unknown exceptions after handler dispatch are mutation-ambiguous and therefore non-retryable; only an explicitly declared DomainOperationError may opt into retry.
 
 Rate-lease cleanup failure cannot rewrite a completed command result because expiring leases provide bounded recovery and returning a false failure could provoke duplicate mutation. Concrete tRPC/REST status and envelope mapping remains outside this kernel.
+
+
+## 23. Zod DTO source + shared transport projection [DD-052 / DEV-API-DTO-PROJECTION-001]
+
+A-06's Zod mandate is now bound explicitly: an exact operation/schema-version Zod DTO definition is the common source for DD-051 executor validation and future tRPC/REST/OpenAPI projections. The generic executor schema port is not permission to create parallel transport-only schemas.
+
+Input field errors expose only safe field paths and issue codes. Raw invalid values and Zod/internal messages do not cross the API boundary.
+
+EXECUTED results project to the canonical DD-06 success envelope. Errors project to the four A-01 classes (USER_ERROR, POLICY_DENIAL, ENTITLEMENT_DENIAL, SYSTEM_FAULT), while Retry-After remains adapter metadata. Idempotency replay/in-progress/final-failure stays an explicit control projection because no response body is stored; transports may not fabricate an output DTO.
+
+Concrete transport adapters must normalize request/correlation metadata first and pass the same correlation through RequestContext and projection.

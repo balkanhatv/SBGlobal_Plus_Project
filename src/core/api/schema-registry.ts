@@ -13,13 +13,21 @@ export type OperationSchemaErrorCode =
   | "INPUT_INVALID"
   | "OUTPUT_INVALID";
 
+export type OperationFieldErrors = Readonly<Record<string, readonly string[]>>;
+
 export class OperationSchemaError extends Error {
   readonly code: OperationSchemaErrorCode;
+  readonly fieldErrors?: OperationFieldErrors;
 
-  constructor(code: OperationSchemaErrorCode, messageSafe: string) {
+  constructor(
+    code: OperationSchemaErrorCode,
+    messageSafe: string,
+    fieldErrors?: OperationFieldErrors,
+  ) {
     super(messageSafe);
     this.name = "OperationSchemaError";
     this.code = code;
+    this.fieldErrors = fieldErrors;
   }
 }
 
@@ -126,7 +134,10 @@ export class OperationSchemaRegistry {
     let parsed: unknown;
     try {
       parsed = adapter.parseInput(rawInput);
-    } catch {
+    } catch (error) {
+      if (error instanceof OperationSchemaError && error.code === "INPUT_INVALID") {
+        throw error;
+      }
       throw new OperationSchemaError("INPUT_INVALID", "The request input is invalid.");
     }
 

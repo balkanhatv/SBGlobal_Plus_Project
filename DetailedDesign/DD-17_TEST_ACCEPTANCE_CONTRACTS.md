@@ -417,3 +417,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | API-EXEC-008 | undeclared/unknown domain error | dependency-unavailable; private/internal error is not exposed |
 | API-EXEC-009 | output validation fails / success-completion persistence fails | output failure finalizes safely; post-domain success-completion failure leaves IN_PROGRESS and never marks retryable |
 | API-EXEC-010 | concurrency lease release cleanup fails after completed result | completed business result is not rewritten; expiry bounds the stale lease |
+
+
+### Zod DTO + transport projection — DD-052 / DEV-API-DTO-PROJECTION-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| API-DTO-001 | operation DTO registered once | executor adapter and future transport retrieve the same Zod schema objects |
+| API-DTO-002 | Zod defaults/coercion/transforms apply | DD-051 canonical JSON is produced from parsed output, not raw input |
+| API-DTO-003 | invalid Zod input contains private raw values | INPUT_INVALID fieldErrors contain only safe paths + issue codes; no raw value/message leakage |
+| API-DTO-004 | operation/schema version has no exact DTO definition | SCHEMA_UNAVAILABLE fail closed |
+| API-DTO-005 | EXECUTED result projected | exact DD-06 success envelope with request/correlation/operation/version |
+| API-DTO-006 | idempotency replay projected | explicit replay control; no fabricated output-schema data |
+| API-DTO-007 | user/policy/entitlement/system errors and rate retry metadata | exact A-01 class mapping; safe error envelope; retryAfter remains adapter metadata |
