@@ -375,3 +375,17 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | AUTH-023 | RolePermission version differs from active RoleTemplate version or permission scope differs from target | compilation fails closed and current compiled snapshot is invalidated where possible |
 | AUTH-024 | identical canonical source is compiled repeatedly | deterministic sorted role/permission payload and deterministic SHA-256 source fingerprint |
 | AUTH-025 | compiler runtime attempts source mutation | database privilege denial; compiler may SELECT source and mutate only governed compiled publication tables |
+
+
+### API idempotency runtime — DD-049 / DEV-API-IDEMPOTENCY-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| API-IDEM-001 | REQUIRED command has no idempotency key | deterministic IDEMPOTENCY_REQUIRED before domain mutation |
+| API-IDEM-002 | OPTIONAL command has no key / NONE operation | bypass idempotency persistence |
+| API-IDEM-003 | same scoped key + same fingerprint is already IN_PROGRESS | no second execution claim; IN_PROGRESS returned |
+| API-IDEM-004 | same scoped key + different canonical request fingerprint | IDEMPOTENCY_CONFLICT; original state unchanged |
+| API-IDEM-005 | prior SUCCEEDED record | REPLAY only stored safe status/reference metadata; no domain re-execution |
+| API-IDEM-006 | FAILED_RETRYABLE / FAILED_FINAL | retryable atomically reclaims; final remains FINAL_FAILURE |
+| API-IDEM-007 | Tenant Industry session queries same-Tenant null-Industry or sibling-Industry idempotency row | zero visibility; null never means all Industries |
+| API-IDEM-008 | concurrent identical first claims | exactly one STARTED; contender becomes IN_PROGRESS; runtime role cannot DELETE records |

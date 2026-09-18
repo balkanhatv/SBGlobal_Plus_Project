@@ -166,3 +166,12 @@ Health states: `UNKNOWN, HEALTHY, DEGRADED, UNAVAILABLE, AUTH_ERROR, RATE_LIMITE
 | TENANT_AGGREGATE | 3000/min | 600 | 100/tenant | tenant aggregate |
 
 Hierarchical enforcement applies route/class + IP/principal/credential + tenant aggregate; tightest limit wins. Pro/Enterprise scaling may raise commercial classes through versioned policy, but AUTH_SECURITY/ADMIN_SENSITIVE security floors cannot be relaxed without Security approval. Abuse overrides may temporarily tighten only. REST returns 429 + Retry-After; tRPC returns normalized RATE_LIMITED. Distributed limiter implementation must preserve these semantics across replicas.
+
+
+## 20. Transport-neutral idempotency runtime floor [DD-049 / DEV-API-IDEMPOTENCY-001]
+
+Before tRPC/REST wiring, tenant COMMAND operations use the shared IdempotencyService. REQUIRED requires a key, OPTIONAL uses the service only when a key is present, and NONE bypasses it. Only server-validated canonical input is fingerprinted; plaintext keys and request bodies do not persist.
+
+Current lifecycle is STARTED/IN_PROGRESS/REPLAY/FINAL_FAILURE with conflict on key reuse for a different request. Retryable failures may atomically reclaim the same record. Success/failure completion stores only bounded status/reference metadata.
+
+The existing `core_integration.idempotency_record` remains physical truth. Tenant Core and Tenant Industry are exact separate RLS scopes; null Industry is never visible as a wildcard from an Industry request. This floor is transport-neutral and does not yet claim rate limiting or tRPC/REST adapters.

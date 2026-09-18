@@ -445,3 +445,24 @@ The compiler canonicalizes assignment IDs, role IDs/versions and permission sour
 **Security:** compiler source access is SELECT-only; source mutation remains prohibited. Platform assignment source read has a dedicated compiler-only PLATFORM_GLOBAL RLS policy. Tenant role-assignment read remains under existing exact Tenant/Industry FORCE RLS.
 
 **Acceptance:** AUTH-020…AUTH-025 and database verification for compiler SELECT-only source privileges, exact Industry isolation, tenant-null no-industry-fallback, DENY precedence, constrained-ALLOW→DENY, deterministic fingerprint/publication, and no source mutation.
+
+
+## DD-049 — Transport-neutral idempotency runtime boundary [DEV-API-IDEMPOTENCY-001]
+
+**Context:** DD-06 defines REQUIRED/OPTIONAL/NONE idempotency and migration 0025 already owns `core_integration.idempotency_record`, but no runtime claim/completion service exists. The legacy RLS predicate also treated null Industry as visible from Industry-scoped sessions, which violates the project's rule that null never means all sibling contexts.
+
+**Decision:** first-party tenant commands use one transport-neutral `IdempotencyService` before domain mutation. NONE bypasses persistence. OPTIONAL bypasses when no key is supplied. REQUIRED without a key fails deterministically. Only TENANT_CORE and TENANT_INDUSTRY COMMAND operations are supported by this physical table in this slice; PUBLIC, PLATFORM_GLOBAL and EXPLICIT_CROSS_CONTEXT require separately governed stores/entry paths if later needed.
+
+The runtime never persists plaintext idempotency keys or request bodies. It SHA-256 hashes the key with a versioned domain prefix and hashes a server-produced canonical validated input together with operationId + inputSchemaVersion. The canonical source is produced only after schema validation; clients cannot submit an authoritative fingerprint.
+
+Claim lifecycle under one scoped transaction: no row/expired row → IN_PROGRESS STARTED; same current key+same fingerprint IN_PROGRESS → IN_PROGRESS; SUCCEEDED → REPLAY of stored status/reference only; FAILED_RETRYABLE → atomically reclaims to IN_PROGRESS; FAILED_FINAL → FINAL_FAILURE; same current key+different fingerprint → IDEMPOTENCY_CONFLICT. Concurrent inserts use the scoped uniqueness key plus ON CONFLICT/re-read/row lock so at most one claimant starts.
+
+Completion may transition only IN_PROGRESS to SUCCEEDED, FAILED_RETRYABLE or FAILED_FINAL and stores only bounded response status/reference metadata. No response body is persisted. Expired keys may reuse the same physical row with a fresh fingerprint/window after row lock.
+
+**Isolation/privilege correction:** migration 0039 replaces the legacy nullable-Industry RLS predicate with exact scope-class semantics: TENANT_CORE sees only null Industry; TENANT_INDUSTRY sees only the exact current Industry Context. `sbg_app_rw` receives only SELECT/INSERT/UPDATE on the idempotency table and no DELETE.
+
+**Actor key:** machine/API execution uses credentialId where present; otherwise the resolved principalId. Existing database actor-scope integrity remains authoritative.
+
+**Scope:** no tRPC/REST adapter, rate limiter, domain mutation transaction coordinator, response-body cache, PUBLIC/platform idempotency, or cross-context idempotency is claimed.
+
+**Acceptance:** API-IDEM-001…API-IDEM-008 plus real PostgreSQL exact-scope, actor integrity, concurrency and no-DELETE tests.
