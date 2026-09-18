@@ -1,5 +1,6 @@
 import type { OperationContract } from "../api/operation-contract.js";
 import type { RequestContext } from "../context/contracts.js";
+import { CommercialStateError } from "../commercial/current-state.js";
 import {
   AuthorizationDecisionError,
   type AccessDecision,
@@ -197,10 +198,21 @@ export class GuardPipeline {
     const { requestContext, operation } = input;
     this.assertScope(requestContext, operation);
 
-    const commercial = await this.ports.commercial.validateCurrent({
-      requestContext,
-      operation,
-    });
+    let commercial;
+    try {
+      commercial = await this.ports.commercial.validateCurrent({
+        requestContext,
+        operation,
+      });
+    } catch (error) {
+      if (error instanceof CommercialStateError) {
+        throw new GuardPipelineError({
+          code: "DEPENDENCY_UNAVAILABLE",
+          messageSafe: "Commercial access state is unavailable.",
+        });
+      }
+      throw error;
+    }
 
     if (!commercial.allowed) {
       throw new GuardPipelineError({

@@ -201,8 +201,14 @@ export class RequestContextService {
     });
 
     const commercial = await this.ports.commercial.validateAndLoad({
+      requestId: input.requestId,
+      correlationId,
       tenantId: tenant.id,
       industryContextId: industryContext?.id,
+      dataHomeId: dataHome.id,
+      regionCode: dataHome.regionCode,
+      principalId,
+      principalType,
       scopeClass: input.scopeClass,
     });
 

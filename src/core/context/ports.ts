@@ -62,8 +62,14 @@ export interface IndustryPresentationCatalogPort {
 
 export interface CommercialContextPort {
   validateAndLoad(input: {
+    readonly requestId: string;
+    readonly correlationId: string;
     readonly tenantId: string;
     readonly industryContextId?: string;
+    readonly dataHomeId: string;
+    readonly regionCode: string;
+    readonly principalId: string;
+    readonly principalType: import("../identity/contracts.js").PrincipalType;
     readonly scopeClass: ScopeClass;
   }): Promise<CommercialContext>;
 }

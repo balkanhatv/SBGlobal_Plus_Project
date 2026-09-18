@@ -138,3 +138,18 @@ All plan publication, subscription transitions, licenses, overrides, add-ons, sn
 `CommercialLifecyclePolicy{code,version,marketScope,planScope?,providerScope?,enterpriseContractRef?,retryOffsetsHours[],noticePolicy,graceDurationHours,suspensionPreservationHours,recoveryPolicy,cancellationPolicy,effectiveFrom,approvedBy}`.
 
 **CLP-STD-001:** definitive renewal failure immediately enters GRACE; retry offsets +24h/+72h/+120h; notices at Grace entry, before each retry and 24h before suspension; default Grace 168h; unresolved Grace→SUSPENDED; default suspended preservation 720h before EXPIRED eligibility; successful settlement can restore ACTIVE where policy allows and recompiles entitlements. Contract/market/provider policies may override timings through versioned policies only. Renewed remains an event. PAST_DUE remains prohibited.
+
+
+## 11. Current-state runtime integration floor [DEV-COMMERCIAL-CURRENT-001]
+
+This executable floor resolves Commercial truth from the existing module-owned persistence; Authorization does not own or copy it.
+
+- RequestContext bootstrap reads exactly one valid CURRENT EntitlementSnapshot joined to its source Subscription and pinned PlanVersion, then stamps snapshot id + version into RequestContext.
+- Runtime guard re-reads current Commercial state and requires exact snapshot id/version equality. Missing, ambiguous, expired or stale current state fails closed.
+- Generic protected operations treat `TRIAL`, `ACTIVE` and `GRACE` as usable subscription states. `PENDING`, `SUSPENDED`, `EXPIRED` and `CANCELLED` fail closed in this generic floor until dedicated billing/renewal/export/read-only operation contracts identify the intentionally permitted restricted paths. This avoids widening access from a stale pre-suspension snapshot.
+- TENANT_INDUSTRY operations require an effective INDUSTRY license for the exact active Industry Context. A MANAGEMENT_SYSTEM license is revalidated when a license record exists for the operation's canonical module key. Assigned SEAT licensing, when present, requires an effective seat for the current human principal.
+- Current snapshot facts are read with Tenant + Industry FORCE RLS. For the same entitlement code, an exact Industry fact overrides the tenant-wide fact. Snapshot deny-set wins.
+- `OperationContract.entitlementRequirement` is satisfied only by a currently effective, non-denied entitlement fact. BOOLEAN=false, zero numeric values, empty text and empty sets are not exposed as enabled facts.
+- Authorization supplemental facts are server-derived only: `commercial.subscriptionState`; canonical sorted `commercial.licenseSet` tokens as `<LICENSE_TYPE>:<subject_key>`; canonical sorted enabled entitlement codes in `commercial.entitlementFacts`. Set overflow is not truncated; it fails closed under ABAC v1 bounds.
+- PLATFORM_GLOBAL receives no tenant Commercial supplemental facts. EXPLICIT_CROSS_CONTEXT remains outside this single-context store and requires its own governed repository.
+- SURFACE/API_SERVICE applicability and the dedicated restricted-mode recovery/read-only operation vocabulary remain explicit future work; this floor does not invent client/channel mappings.
