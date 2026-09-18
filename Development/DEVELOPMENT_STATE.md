@@ -1,16 +1,16 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-TRPC-HTTP-001`
+**Updated:** 2026-09-19 · **Checkpoint:** `DEV-WEB-AUTH-001`
 
 Development is **IN PROGRESS — FIRST-PARTY WEB RUNTIME PREREQUISITES**.
 
-Verified `8b3b0417eb95391c9b4e81fa9acdcae0efcf10fe` / `fac8117e3d98d52d4bbf5238a24ac0dc213e3912`:
-- **157/157 Core PASS**
+Verified `ac00ce9ba8ff51928a235c5719f724b4c6d720d1` / `8afd73c415a3333b3ff2aa9937f899d067be5df2`:
+- **163/163 Core PASS**
 - **38/38 PostgreSQL PASS**
 - **40 migrations / 34 verification files PASS**
 - Industry SQL remains **9 Industries / 41 canonical MS / 181 tables**
 
-First-party tRPC now has both a verified query adapter and a physical Fetch API handler boundary. No Next.js app path has been invented yet.
+First-party tRPC now has verified query + Fetch handler + concrete human Clerk Bearer Authorization composition.
 
-Next: **resolve and implement only the remaining first-party web-runtime composition prerequisite(s)** after fresh DD cross-check: Authorization resolver, trusted selectors, edge policy and application composition ownership.
+Next: **trusted selector derivation and edge policy ownership**, then the actual Next.js server composition root.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

@@ -1,14 +1,14 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `DEV-API-TRPC-HTTP-001`  
+**Current checkpoint:** `DEV-WEB-AUTH-001`  
 **Branch:** `docs/architecture-branch-2`
 
-Verified executable `8b3b0417eb95391c9b4e81fa9acdcae0efcf10fe` / `fac8117e3d98d52d4bbf5238a24ac0dc213e3912`:
-- **157/157 Core PASS**
+Verified executable `ac00ce9ba8ff51928a235c5719f724b4c6d720d1` / `8afd73c415a3333b3ff2aa9937f899d067be5df2`:
+- **163/163 Core PASS**
 - **38/38 PostgreSQL PASS**
 - **40 migrations / 34 verification files PASS**
 - **9 Industries / 41 canonical MS / 181 Industry tables**
 
-Shared API Core now includes canonical execution, exact-scope guards/idempotency/rate controls, Zod DTOs, tRPC query adapter and a physical Fetch API handler.
+Shared first-party API runtime now includes canonical execution/security, Zod DTOs, tRPC query + Fetch transport, and concrete Clerk Bearer Authorization composition.
 
-**Next:** reconcile concrete first-party web-runtime auth/selector/edge/composition ownership before adding the Next.js route.
+**Next:** trusted selector derivation + edge policy, then concrete Next.js route composition.

@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-18
+**Updated:** 2026-09-19
 
-Current Development checkpoint is `DEV-API-TRPC-HTTP-001`. Verified shared runtime now includes Authorization/Commercial/PEP/audit, exact-scope idempotency, distributed rate limiting, canonical OperationExecutor, Zod DTO/projection, bounded first-party tRPC query adapter and the physical Fetch handler. Executable `8b3b0417eb95391c9b4e81fa9acdcae0efcf10fe` / tree `fac8117e3d98d52d4bbf5238a24ac0dc213e3912`: **157 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**. Next is first-party web-runtime prerequisite reconciliation before concrete Next.js route composition.
+Current Development checkpoint is `DEV-WEB-AUTH-001`. Verified shared runtime now includes Authorization/Commercial/PEP/audit, exact-scope idempotency, distributed rate limiting, canonical OperationExecutor, Zod DTO/projection, first-party tRPC query + Fetch transport and concrete Clerk Bearer Authorization composition. Executable `ac00ce9ba8ff51928a235c5719f724b4c6d720d1` / tree `8afd73c415a3333b3ff2aa9937f899d067be5df2`: **163 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**. Next is trusted selector derivation + edge policy before concrete Next.js route composition.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
