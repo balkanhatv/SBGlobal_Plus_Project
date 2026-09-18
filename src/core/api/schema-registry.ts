@@ -1,10 +1,11 @@
 import type { OperationContract } from "./operation-contract.js";
 
 export type JsonPrimitive = null | boolean | number | string;
-export type JsonValue =
-  | JsonPrimitive
-  | readonly JsonValue[]
-  | Readonly<Record<string, JsonValue>>;
+export interface JsonObject {
+  readonly [key: string]: JsonValue;
+}
+export interface JsonArray extends ReadonlyArray<JsonValue> {}
+export type JsonValue = JsonPrimitive | JsonArray | JsonObject;
 
 export type OperationSchemaErrorCode =
   | "SCHEMA_UNAVAILABLE"
