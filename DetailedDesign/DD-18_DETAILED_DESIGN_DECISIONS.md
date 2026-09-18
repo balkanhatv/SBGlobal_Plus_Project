@@ -428,3 +428,20 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Scope:** this floor covers protected PLATFORM_GLOBAL/TENANT_CORE/TENANT_INDUSTRY GuardPipeline paths. PUBLIC is not a private RequestScopedSql path; EXPLICIT_CROSS_CONTEXT requires its dedicated governed repository and is not silently forced through a single-context audit writer.
 
 **Acceptance:** AUTH-008 plus AUTH-015…AUTH-019: one final success audit, direct PDP denial metadata, pre-PDP denial without fabricated decision identity, resource/workflow final denial correlation, audit-write failure blocks success/remains fail closed, sibling-Industry audit visibility is zero, and runtime roles cannot mutate appended evidence.
+
+
+## DD-048 — Deterministic RBAC source-to-snapshot compiler [DEV-AUTHZ-SOURCE-COMPILER-001]
+
+**Context:** DD-041 and DEV-AUTHZ-COMPILER-001 provide immutable monotonic compiled-snapshot publication but intentionally accept an already-compiled Permission Set. Current source truth remains RoleAssignment / PlatformRoleAssignment → active RoleTemplate → RolePermission → active PermissionDefinition. Without a governed calculation algorithm, callers could invent effective permissions or silently widen scope.
+
+**Decision:** the Authorization source compiler reads source truth through the dedicated `sbg_authorization_compiler_rw` role with SELECT-only access. Tenant compilation reads only ACTIVE/effective assignments for the exact target principal and exact physical scope: TENANT_CORE uses only null Industry assignments; TENANT_INDUSTRY uses only that exact non-null Industry Context. Null Tenant-Core assignment never means every Industry Context. Platform compilation reads only exact-principal PLATFORM_GLOBAL assignments. Active role-template scope must exactly match the target.
+
+OrgUnit handling is conservative and explicit: an assignment with null `org_unit_id` is unscoped within its already-exact Tenant/Industry scope; a non-null OrgUnit assignment applies only when it equals the selected target OrgUnit. No ancestor/descendant inheritance is invented. A null membership assignment may apply to the principal; a non-null membership assignment requires the exact target membership.
+
+Only RolePermission rows whose `version` equals the active RoleTemplate `version` participate. PermissionDefinition must be ACTIVE. Its scope_class must exactly equal the compiled snapshot scope or compilation fails closed. For a permission code, any explicit DENY wins across roles. Permission Set v1 cannot encode arbitrary `constraints_json`; therefore any non-empty constraint is compiled conservatively as DENY, never as an unconstrained ALLOW. ABAC and Commercial are excluded from RBAC grant calculation and can only narrow later.
+
+The compiler canonicalizes assignment IDs, role IDs/versions and permission source rows, computes SHA-256 over that canonical source, then publishes only through the existing monotonic AuthorizationCompilerService. Invalid source attempts invalidate the existing current snapshot before returning a source-invalid failure; source dependency failure never fabricates a new snapshot.
+
+**Security:** compiler source access is SELECT-only; source mutation remains prohibited. Platform assignment source read has a dedicated compiler-only PLATFORM_GLOBAL RLS policy. Tenant role-assignment read remains under existing exact Tenant/Industry FORCE RLS.
+
+**Acceptance:** AUTH-020…AUTH-025 and database verification for compiler SELECT-only source privileges, exact Industry isolation, tenant-null no-industry-fallback, DENY precedence, constrained-ALLOW→DENY, deterministic fingerprint/publication, and no source mutation.

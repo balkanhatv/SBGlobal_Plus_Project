@@ -171,3 +171,12 @@ Protected GuardPipeline requests emit one final authorization audit after the co
 Every normalized deny is audited; successful access is returned only after required audit persistence succeeds. Direct PDP denials preserve decision/policy/version metadata. Denials before a PDP decision do not fabricate `access_decision_id`. Audit evidence is deliberately minimal and excludes request bodies, tokens, entitlement values, restriction contents and resource/workflow payloads.
 
 The physical owner remains the existing append-only `core_audit` model under exact RequestContext RLS. PUBLIC and EXPLICIT_CROSS_CONTEXT need their own governed audit entry paths and are not widened through the single-context application writer.
+
+
+## 18. RBAC source-to-snapshot compiler [DD-048 / DEV-AUTHZ-SOURCE-COMPILER-001]
+
+Effective RBAC Permission Set v1 is server-compiled from governed active/effective role assignments, active exact-version role templates/permissions and active permission definitions. Compilation is exact-scope: Tenant Core null Industry assignments never flow into Tenant Industry snapshots, and sibling Industry assignments never participate.
+
+Explicit DENY wins across all participating roles. Because Permission Set v1 has no constraint payload, any non-empty RolePermission constraints compile as DENY rather than dropping the constraint. Permission-definition scope mismatch or role-version ambiguity fails closed. ABAC and Commercial do not create grants in this compiler.
+
+The resulting sorted role set + Permission Set v1 + SHA-256 source fingerprint are sent only to the existing monotonic compiler publication boundary.

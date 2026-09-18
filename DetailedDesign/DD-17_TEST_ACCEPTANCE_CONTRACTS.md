@@ -363,3 +363,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | AUTH-017 | Commercial/context/resource denial occurs without a final PDP deny | DENIED audit records final safe reason; no fabricated access decision identity |
 | AUTH-018 | resource/workflow rule denies after resource PDP allowed | final audit outcome DENIED; preceding PDP decision may be referenced only for correlation |
 | AUTH-019 | mandatory Authorization audit append fails | no success returned; denial path remains fail closed as dependency unavailable; private DB/audit diagnostics are not exposed |
+
+
+### Authorization source compiler continuation — DD-048 / DEV-AUTHZ-SOURCE-COMPILER-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| AUTH-020 | same permission ALLOW and DENY arrive from multiple active exact-scope roles | compiled permission is DENY |
+| AUTH-021 | ALLOW RolePermission has non-empty constraints_json but Permission Set v1 cannot encode it | compiled permission is DENY; constraint is never dropped into an unconstrained allow |
+| AUTH-022 | Tenant Industry compilation sees tenant-null or sibling-Industry assignment | neither participates; no implicit null→all-industries inheritance |
+| AUTH-023 | RolePermission version differs from active RoleTemplate version or permission scope differs from target | compilation fails closed and current compiled snapshot is invalidated where possible |
+| AUTH-024 | identical canonical source is compiled repeatedly | deterministic sorted role/permission payload and deterministic SHA-256 source fingerprint |
+| AUTH-025 | compiler runtime attempts source mutation | database privilege denial; compiler may SELECT source and mutate only governed compiled publication tables |

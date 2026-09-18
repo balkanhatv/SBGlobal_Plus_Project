@@ -13,6 +13,7 @@ export * from "./authorization/audit.js";
 export * from "./authorization/policy-grammar.js";
 export * from "./authorization/read-store.js";
 export * from "./authorization/compiler-write.js";
+export * from "./authorization/source-compiler.js";
 export * from "./authorization/decision-service.js";
 export * from "./authorization/guard-ports.js";
 export * from "./authorization/guard-pipeline.js";
