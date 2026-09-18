@@ -48,10 +48,10 @@ before(async()=>{
     await c.query(`GRANT sbg_authorization_compiler_rw TO ${loginRole}`);
     await c.query(`INSERT INTO platform_directory.data_home
       (id,code,region_code,jurisdiction_code,topology_class,status)
-      VALUES ($1,$1::text,'IN-AUTHZ-SOURCE','IN','SHARED','ACTIVE')`,[f.home]);
+      VALUES ($1::uuid,$1::uuid::text,'IN-AUTHZ-SOURCE','IN','SHARED','ACTIVE')`,[f.home]);
     await c.query(`INSERT INTO core_tenancy.tenant
       (id,tenant_code,legal_name,display_name,status,primary_industry_code,data_home_id,residency_region_code,created_at,updated_at)
-      VALUES ($1,$1::text,'Source compiler','Source compiler','ACTIVE','RTL',$2,'IN-AUTHZ-SOURCE',now(),now())`,[f.tenant,f.home]);
+      VALUES ($1::uuid,$1::uuid::text,'Source compiler','Source compiler','ACTIVE','RTL',$2,'IN-AUTHZ-SOURCE',now(),now())`,[f.tenant,f.home]);
     await c.query(`INSERT INTO core_identity.platform_principal(id,principal_type,status,created_at,updated_at)
       VALUES ($1,'HUMAN','ACTIVE',now(),now()),($2,'PLATFORM_OPERATOR','ACTIVE',now(),now())`,
       [f.target,f.platformTarget]);
