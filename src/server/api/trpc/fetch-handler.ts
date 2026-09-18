@@ -131,7 +131,12 @@ function normalizePreflightFailure(error:unknown):{
   readonly status:number;
 }{
   if(error instanceof FirstPartyTrpcHttpPreflightError){
-    return error;
+    return {
+      code:error.code,
+      messageSafe:error.message,
+      retryable:error.retryable,
+      status:error.status,
+    };
   }
   if(error instanceof FirstPartyTrpcContextError){
     if(error.code==="AUTHENTICATION_INVALID"){
@@ -192,10 +197,10 @@ export function createFirstPartyTrpcFetchHandler<TRouter extends AnyRouter>(
         authorizationHeader,
         request:requestMetadata,
       });
-      const selectorFacts=ports.selectors
+      const selectorFacts:FirstPartyTrpcSelectorFacts=ports.selectors
         ? await ports.selectors.resolve(requestMetadata)
         : Object.freeze({});
-      const networkFacts=ports.network
+      const networkFacts:FirstPartyTrpcNetworkFacts=ports.network
         ? await ports.network.resolve(requestMetadata)
         : Object.freeze({});
 
