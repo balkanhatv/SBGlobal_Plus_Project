@@ -74,7 +74,10 @@ test("PUBLIC_LOW token bucket allows burst 10 then throttles with retry metadata
  const publicContext=context({scopeClass:"PUBLIC",tenantId:undefined,industryContextId:undefined,
    principalId:undefined,actorIpHash:"public-ip-a"});
  const publicOp={...op("PUBLIC_LOW"),scopeClass:"PUBLIC"};
- for(let i=0;i<10;i++) await service.acquire({requestContext:publicContext,operation:publicOp});
+ for(let i=0;i<10;i++){
+   const acquisition=await service.acquire({requestContext:publicContext,operation:publicOp});
+   await service.release(acquisition);
+ }
  await assert.rejects(
   service.acquire({requestContext:publicContext,operation:publicOp}),
   error=>error instanceof RateLimitRuntimeError

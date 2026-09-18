@@ -37,13 +37,17 @@ function fixture({result={allowed:true,leases:[]},overrides}={}){
 
 test("SecurityRatePolicy v1 locks DD-022 numeric defaults",()=>{
   assert.deepEqual(SECURITY_RATE_POLICY_V1.PUBLIC_LOW,
-    {rateClass:"PUBLIC_LOW",maxRequests:30,windowSeconds:60,burstCapacity:10});
+    {rateClass:"PUBLIC_LOW",maxRequests:30,windowSeconds:60,burstCapacity:10,concurrencyLimit:5});
   assert.deepEqual(SECURITY_RATE_POLICY_V1.AUTH_SECURITY,
-    {rateClass:"AUTH_SECURITY",maxRequests:20,windowSeconds:300,burstCapacity:5});
+    {rateClass:"AUTH_SECURITY",maxRequests:20,windowSeconds:300,burstCapacity:5,concurrencyLimit:3});
   assert.deepEqual(SECURITY_RATE_POLICY_V1.BULK,
-    {rateClass:"BULK",maxRequests:30,windowSeconds:3600,burstCapacity:30,concurrencyLimit:2});
+    {rateClass:"BULK",maxRequests:30,windowSeconds:3600,burstCapacity:5,concurrencyLimit:2});
   assert.deepEqual(SECURITY_RATE_POLICY_V1.AI,
-    {rateClass:"AI",maxRequests:60,windowSeconds:60,burstCapacity:60,concurrencyLimit:8});
+    {rateClass:"AI",maxRequests:60,windowSeconds:60,burstCapacity:12,concurrencyLimit:8});
+  assert.deepEqual(SECURITY_RATE_POLICY_V1.API_CREDENTIAL,
+    {rateClass:"API_CREDENTIAL",maxRequests:1200,windowSeconds:60,burstCapacity:240,concurrencyLimit:40});
+  assert.deepEqual(SECURITY_RATE_POLICY_V1.TENANT_AGGREGATE,
+    {rateClass:"TENANT_AGGREGATE",maxRequests:3000,windowSeconds:60,burstCapacity:600,concurrencyLimit:100});
 });
 
 test("authenticated request enforces principal, credential, IP, tenant aggregate and API credential buckets",async()=>{
@@ -58,6 +62,13 @@ test("authenticated request enforces principal, credential, IP, tenant aggregate
     "AUTH_STANDARD:PRINCIPAL",
     "TENANT_AGGREGATE:TENANT",
   ]);
+  const principalRule=rules.find(rule=>rule.rateClass==="AUTH_STANDARD" && rule.dimension==="PRINCIPAL");
+  const credentialRule=rules.find(rule=>rule.rateClass==="API_CREDENTIAL" && rule.dimension==="CREDENTIAL");
+  const tenantRule=rules.find(rule=>rule.rateClass==="TENANT_AGGREGATE" && rule.dimension==="TENANT");
+  assert.equal(principalRule.concurrencyLimit,20);
+  assert.equal(credentialRule.concurrencyLimit,40);
+  assert.equal(tenantRule.concurrencyLimit,100);
+  assert.equal(rules.find(rule=>rule.rateClass==="AUTH_STANDARD" && rule.dimension==="IP").concurrencyLimit,undefined);
   assert.equal(rules.every(rule=>/^[0-9a-f]{64}$/.test(rule.bucketKeyHash)),true);
   assert.equal(JSON.stringify(rules).includes(principalId),false);
   assert.equal(JSON.stringify(rules).includes(tenantId),false);

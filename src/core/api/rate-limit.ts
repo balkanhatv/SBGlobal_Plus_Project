@@ -32,17 +32,17 @@ export interface SecurityRatePolicyRuleV1 {
 
 export const SECURITY_RATE_POLICY_V1: Readonly<Record<SecurityRateClassV1, SecurityRatePolicyRuleV1>> =
   Object.freeze({
-    PUBLIC_LOW: Object.freeze({rateClass:"PUBLIC_LOW",maxRequests:30,windowSeconds:60,burstCapacity:10}),
-    PUBLIC_STANDARD: Object.freeze({rateClass:"PUBLIC_STANDARD",maxRequests:120,windowSeconds:60,burstCapacity:30}),
-    AUTH_STANDARD: Object.freeze({rateClass:"AUTH_STANDARD",maxRequests:600,windowSeconds:60,burstCapacity:120}),
-    ADMIN_SENSITIVE: Object.freeze({rateClass:"ADMIN_SENSITIVE",maxRequests:60,windowSeconds:60,burstCapacity:15}),
-    AUTH_SECURITY: Object.freeze({rateClass:"AUTH_SECURITY",maxRequests:20,windowSeconds:300,burstCapacity:5}),
-    BULK: Object.freeze({rateClass:"BULK",maxRequests:30,windowSeconds:3600,burstCapacity:30,concurrencyLimit:2}),
-    WEBHOOK: Object.freeze({rateClass:"WEBHOOK",maxRequests:600,windowSeconds:60,burstCapacity:600}),
-    AI: Object.freeze({rateClass:"AI",maxRequests:60,windowSeconds:60,burstCapacity:60,concurrencyLimit:8}),
-    FILE_UPLOAD: Object.freeze({rateClass:"FILE_UPLOAD",maxRequests:60,windowSeconds:3600,burstCapacity:60}),
-    API_CREDENTIAL: Object.freeze({rateClass:"API_CREDENTIAL",maxRequests:1200,windowSeconds:60,burstCapacity:1200}),
-    TENANT_AGGREGATE: Object.freeze({rateClass:"TENANT_AGGREGATE",maxRequests:3000,windowSeconds:60,burstCapacity:3000}),
+    PUBLIC_LOW: Object.freeze({rateClass:"PUBLIC_LOW",maxRequests:30,windowSeconds:60,burstCapacity:10,concurrencyLimit:5}),
+    PUBLIC_STANDARD: Object.freeze({rateClass:"PUBLIC_STANDARD",maxRequests:120,windowSeconds:60,burstCapacity:30,concurrencyLimit:10}),
+    AUTH_STANDARD: Object.freeze({rateClass:"AUTH_STANDARD",maxRequests:600,windowSeconds:60,burstCapacity:120,concurrencyLimit:20}),
+    ADMIN_SENSITIVE: Object.freeze({rateClass:"ADMIN_SENSITIVE",maxRequests:60,windowSeconds:60,burstCapacity:15,concurrencyLimit:5}),
+    AUTH_SECURITY: Object.freeze({rateClass:"AUTH_SECURITY",maxRequests:20,windowSeconds:300,burstCapacity:5,concurrencyLimit:3}),
+    BULK: Object.freeze({rateClass:"BULK",maxRequests:30,windowSeconds:3600,burstCapacity:5,concurrencyLimit:2}),
+    WEBHOOK: Object.freeze({rateClass:"WEBHOOK",maxRequests:600,windowSeconds:60,burstCapacity:120,concurrencyLimit:20}),
+    AI: Object.freeze({rateClass:"AI",maxRequests:60,windowSeconds:60,burstCapacity:12,concurrencyLimit:8}),
+    FILE_UPLOAD: Object.freeze({rateClass:"FILE_UPLOAD",maxRequests:60,windowSeconds:3600,burstCapacity:10,concurrencyLimit:5}),
+    API_CREDENTIAL: Object.freeze({rateClass:"API_CREDENTIAL",maxRequests:1200,windowSeconds:60,burstCapacity:240,concurrencyLimit:40}),
+    TENANT_AGGREGATE: Object.freeze({rateClass:"TENANT_AGGREGATE",maxRequests:3000,windowSeconds:60,burstCapacity:600,concurrencyLimit:100}),
     EXTERNAL_WRITE: Object.freeze({rateClass:"EXTERNAL_WRITE",maxRequests:120,windowSeconds:60,burstCapacity:120}),
   });
 
@@ -209,8 +209,22 @@ function alias(value: string): SecurityRateClassV1 {
 
 function baseRule(rateClass: SecurityRateClassV1,dimension:RateLimitDimension,rawSubject:string):RateLimitRule{
   const policy=SECURITY_RATE_POLICY_V1[rateClass];
+  const concurrencyDimensions:Readonly<Record<SecurityRateClassV1,readonly RateLimitDimension[]>>=Object.freeze({
+    PUBLIC_LOW:Object.freeze(["IP"]),
+    PUBLIC_STANDARD:Object.freeze(["IP"]),
+    AUTH_STANDARD:Object.freeze(["PRINCIPAL"]),
+    ADMIN_SENSITIVE:Object.freeze(["PRINCIPAL"]),
+    AUTH_SECURITY:Object.freeze(["PRINCIPAL","IP"]),
+    BULK:Object.freeze(["TENANT"]),
+    WEBHOOK:Object.freeze(["ENDPOINT"]),
+    AI:Object.freeze(["TENANT"]),
+    FILE_UPLOAD:Object.freeze(["PRINCIPAL"]),
+    API_CREDENTIAL:Object.freeze(["CREDENTIAL"]),
+    TENANT_AGGREGATE:Object.freeze(["TENANT"]),
+    EXTERNAL_WRITE:Object.freeze([]),
+  });
   const tenantConcurrency =
-    dimension==="TENANT" && (rateClass==="AI" || rateClass==="BULK")
+    policy.concurrencyLimit!==undefined && concurrencyDimensions[rateClass].includes(dimension)
       ? policy.concurrencyLimit
       : undefined;
   return Object.freeze({
