@@ -477,3 +477,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WEB-EDGE-004 | Content-Length exceeds configured ceiling | 413 before Authorization resolver/body parsing |
 | WEB-EDGE-005 | Content-Length absent but streamed body exceeds ceiling | authentication succeeds first, then 413 before tRPC/schema parsing |
 | WEB-EDGE-006 | same-origin bounded GET/POST | request proceeds through existing tRPC Fetch handler and canonical executor |
+
+
+### Context bootstrap — DD-057 / DEV-CONTEXT-BOOTSTRAP-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| CTX-BOOT-001 | human principal has two active Tenant memberships and no selector | ambiguous resolution returns no Tenant; no implicit choice |
+| CTX-BOOT-002 | selector names Tenant without current membership / machine selects outside bound Tenant | no Tenant resolves |
+| CTX-BOOT-003 | Industry selector belongs to sibling Tenant | no Industry Context resolves |
+| CTX-BOOT-004 | membership default/explicit OrgUnit | exact Tenant unit resolves with server-derived root→leaf UUID path |
+| CTX-BOOT-005 | Tenant DataHome | ACTIVE directory route returns exact id/region/routingVersion |
+| CTX-BOOT-006 | bootstrap DB role attempts write or sensitive identity read | permission denied; role remains NOLOGIN/NOBYPASSRLS |

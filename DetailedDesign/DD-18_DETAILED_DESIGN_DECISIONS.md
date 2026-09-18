@@ -595,3 +595,25 @@ Because browsers/proxies may omit Content-Length, metadata checks are not treate
 **Scope:** no dynamic user-selected Industry cookie/session store, no Next.js route/bootstrap, no production hostname/origin values, no REST/OpenAPI and no broad router catalog.
 
 **Acceptance:** WEB-EDGE-001…006: exact host→selector binding; generic tenant/industry headers ignored; unknown/cross-site host/origin denied; declared oversize denied pre-auth; undeclared streamed oversize denied post-auth/pre-parse; bounded same-origin request passes.
+
+
+## DD-057 — Pre-context Tenant directory bootstrap [DEV-CONTEXT-BOOTSTRAP-001]
+
+**Context:** DD-02 resolves authentication → candidate Tenant → membership → Industry/OrgUnit → DataHome before any tenant-scoped application SQL transaction can exist. The verified RequestContextService already depends on TenantContextPort, but the server tree had no concrete PostgreSQL implementation. Wiring a Next.js route with an in-memory/fake TenantContextPort would make the first physical web composition non-production-shaped and would violate A-10's server-owned DataHome routing rule.
+
+**Decision:** add a dedicated `sbg_context_bootstrap_ro` NOLOGIN/NOBYPASSRLS role and `PostgresContextBootstrapDatabase`. The role is SELECT-only over exactly DataHome, Tenant, Industry Context, OrgUnit, Tenant Membership and Current Supported Industry presentation truth. It has no access to provider links, API credential secrets, device/session-security tables or PlatformPrincipal directory and no mutation rights.
+
+Because this is a pre-context read boundary, narrow SELECT RLS policies admit only `sbg_context_bootstrap_ro` on Tenant, Industry Context, OrgUnit and Tenant Membership. It is not granted BYPASSRLS. Once DD-02 resolves Tenant/DataHome, all business reads continue through the already verified scoped application SQL boundary.
+
+`PostgresTenantContextAdapter` implements the full TenantContextPort:
+- human no-selector resolution succeeds only when exactly one effective ACTIVE membership exists;
+- principals with multiple memberships require explicit deterministic selector;
+- selector may resolve Tenant UUID or tenant_code but never a Tenant without current membership;
+- machine-bound Tenant resolution cannot switch away from the verified bound Tenant;
+- Industry selector is scoped to the resolved Tenant and may use exact Context UUID, industry code, active display key or route slug;
+- OrgUnit selector resolves exact Tenant UUID/code and derives the root→leaf UUID path server-side; absent selector may use the verified membership default;
+- DataHome comes only from the Tenant directory and must be ACTIVE with a positive routing version.
+
+**Scope:** this is directory/bootstrap truth only. It does not authorize business operations, compile permissions, expose identity secrets, create dynamic host bindings or replace DD-02 membership/Industry validation.
+
+**Acceptance:** CTX-BOOT-001…006 plus migration 0041 verification: multi-membership ambiguity; membership-bound selector; exact sibling-Industry isolation; server-derived OrgUnit path; DataHome route; least-privilege/no-sensitive-read proof.

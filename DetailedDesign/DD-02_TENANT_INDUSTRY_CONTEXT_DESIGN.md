@@ -84,3 +84,12 @@ Worker execution constructs `WorkerContext` from persisted job/event scope, not 
 - Disabled industry activation → deny even if old token/cache lists it.
 - Cross-tenant membership spoof → deny.
 - Worker with missing persisted context → dead-letter/deny, never default context.
+
+
+## 10. Executable pre-context directory boundary [DD-057 / DEV-CONTEXT-BOOTSTRAP-001]
+
+The concrete TenantContextPort uses a dedicated SELECT-only pre-context PostgreSQL role. It may read only the minimum directory data required to resolve Tenant membership, active Industry Context, OrgUnit ancestry and DataHome routing. It cannot read provider/API credential secrets and cannot write directory state.
+
+Human Tenant resolution without a selector is valid only when one effective ACTIVE membership exists. Multiple memberships require explicit deterministic selection. Machine identity remains pinned to its verified bound Tenant. Industry/OrgUnit selectors are always re-resolved inside the selected Tenant; null Industry never means all.
+
+This bootstrap boundary ends once RequestContext has a verified DataHome. Business data access then uses the normal transaction-local RLS application role.
