@@ -1,12 +1,12 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-RATE-LIMIT-001`
+**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-EXECUTOR-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified executable `4defa98c18e5314cf647700740de5bff33d3807e`, tree `ade7862646c873b65db915c11b59338912811de8`: **128 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**.
+Verified executable `540b5433bfddeed59944b87581806855bfc1d403`, tree `ccb8611a7ad78cd0ac88be5b7652ece4b0eb5aec`: **141 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**.
 
-DD-050 rate limiting is complete within bounded scope: DD-022/DD-028 sustained/security ceilings plus DD-06 §19 burst/concurrency scopes, strict-only overrides, multi-dimension tightest-wins evaluation, distributed PostgreSQL token buckets/concurrency leases, opaque SHA-256 bucket state and a dedicated least-privilege DB role.
+DD-051 is complete within bounded scope: versioned canonical input/output schema registry, route-bound scope, fixed enforcement order, current-policy replay checks, declared domain-service registry, mutation-safe ambiguous-failure handling and deterministic transport-neutral result unions.
 
-Next governed slice: **canonical input validation/canonicalization + transport-neutral operation execution orchestration**. Do not add tRPC/REST adapter code before this contract is executable/tested.
+Next governed slice: **Zod-backed OperationSchema bridge + transport-neutral success/error projection**, because A-06 designates Zod DTO schemas as the single source for tRPC/REST/OpenAPI/webhook projections. Do not add concrete routers first.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.

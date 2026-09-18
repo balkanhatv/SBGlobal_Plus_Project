@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-18
 
-Current Development checkpoint is `DEV-API-RATE-LIMIT-001`. Verified shared runtime now includes Authorization source calculation/publication/read/evaluation, Commercial current state, resource/workflow PEP, durable access audit, exact-scope idempotency and distributed SecurityRatePolicy v1 enforcement. Executable `4defa98c18e5314cf647700740de5bff33d3807e` / tree `ade7862646c873b65db915c11b59338912811de8`: **128 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**. Next is canonical input/schema normalization plus transport-neutral operation execution orchestration before concrete tRPC/REST adapters.
+Current Development checkpoint is `DEV-API-EXECUTOR-001`. Verified shared runtime now includes Authorization/Commercial/resource enforcement, durable audit, exact idempotency, distributed rate limiting and the canonical OperationContract execution kernel. Executable `540b5433bfddeed59944b87581806855bfc1d403` / tree `ccb8611a7ad78cd0ac88be5b7652ece4b0eb5aec`: **141 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**. Next is the A-06 Zod DTO bridge plus transport-neutral success/error projection before concrete tRPC/REST adapters.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
