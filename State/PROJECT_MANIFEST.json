@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "f97eb4fca54623a49d6405681f5bda4c3751bb84",
-    "verified_code_tree": "32e24b9ed495aa33c88d8ad91b22262f53509f65",
-    "state_projection_basis_head": "f97eb4fca54623a49d6405681f5bda4c3751bb84"
+    "verified_code_head": "4defa98c18e5314cf647700740de5bff33d3807e",
+    "verified_code_tree": "ade7862646c873b65db915c11b59338912811de8",
+    "state_projection_basis_head": "4defa98c18e5314cf647700740de5bff33d3807e"
   },
   "development": {
     "authorized": true,
@@ -76,9 +76,9 @@
       "migration_count": 40,
       "verification_file_count": 34,
       "migration_range": "0001-0040",
-      "ci_verified_head": "f97eb4fca54623a49d6405681f5bda4c3751bb84",
-      "ci_run_id": 35339582094,
-      "ci_job_id": 105582174796,
+      "ci_verified_head": "4defa98c18e5314cf647700740de5bff33d3807e",
+      "ci_run_id": 35341100619,
+      "ci_job_id": 105586948446,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -90,7 +90,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "32e24b9ed495aa33c88d8ad91b22262f53509f65",
+      "ci_verified_tree": "ade7862646c873b65db915c11b59338912811de8",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -107,10 +107,10 @@
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040…DD-050 verified shared Core/API prerequisite chain",
-      "verified_head": "f97eb4fca54623a49d6405681f5bda4c3751bb84",
-      "verified_tree": "32e24b9ed495aa33c88d8ad91b22262f53509f65",
-      "core_ci_run_id": 35339582066,
-      "core_ci_job_id": 105582175189,
+      "verified_head": "4defa98c18e5314cf647700740de5bff33d3807e",
+      "verified_tree": "ade7862646c873b65db915c11b59338912811de8",
+      "core_ci_run_id": 35341100630,
+      "core_ci_job_id": 105586948419,
       "tests": "128 TESTS PRESENT / CORE SERVICE VERIFY PASS",
       "core_test_counts": {
         "tests": 128,
@@ -118,8 +118,8 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35339582066,
-      "postgres_ci_job_id": 105582174829,
+      "postgres_ci_run_id": 35341100630,
+      "postgres_ci_job_id": 105586948582,
       "postgres_tests": "38/38 PASS",
       "postgres_test_counts": {
         "tests": 38,
@@ -209,7 +209,8 @@
         "tightest-wins principal/IP/credential/Tenant/endpoint rate evaluation",
         "AI/BULK Tenant concurrency leases with expiry/release",
         "opaque SHA-256 limiter bucket persistence",
-        "safe throttle signal contract before RATE_LIMITED"
+        "safe throttle signal contract before RATE_LIMITED",
+        "DD-06 §19 exact burst capacities and concurrency-scope alignment for SecurityRatePolicy v1"
       ],
       "not_claimed": [
         "trusted directory/Identity bootstrap adapter",
@@ -327,8 +328,8 @@
     "checkpoint": "DEV-API-RATE-LIMIT-001",
     "corrected_baseline_head": "ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5",
     "corrected_baseline_tree": "ba95a8a1fd811f1b5ece01ba891535878827aa3c",
-    "verified_code_head": "f97eb4fca54623a49d6405681f5bda4c3751bb84",
-    "verified_code_tree": "32e24b9ed495aa33c88d8ad91b22262f53509f65",
+    "verified_code_head": "4defa98c18e5314cf647700740de5bff33d3807e",
+    "verified_code_tree": "ade7862646c873b65db915c11b59338912811de8",
     "code_snapshot_files": 239,
     "changes": [
       "1835fc4201998d05368a5aec1e963fca263dba35",
@@ -361,7 +362,9 @@
       "13346932455c79637e9644f970db47052c1fe6ad",
       "5a6a93b9d509f56599ee1e6f3eed00d63d8484bf",
       "cf7c39f4baf729a8cb83a6f792bf702ddc7b9a9b",
-      "f97eb4fca54623a49d6405681f5bda4c3751bb84"
+      "f97eb4fca54623a49d6405681f5bda4c3751bb84",
+      "132e33050acd5eccb87607d0ce70ef1990da58f5",
+      "4defa98c18e5314cf647700740de5bff33d3807e"
     ],
     "failed_ci_attempts": [
       {
@@ -417,6 +420,12 @@
         "core_run_id": 35339371577,
         "cause": "PostgreSQL rate-limit tests reused one synthetic Tenant after a stricter TENANT_AGGREGATE override, contaminating the following AI-concurrency fixture",
         "fixed_by": "f97eb4fca54623a49d6405681f5bda4c3751bb84"
+      },
+      {
+        "head": "132e33050acd5eccb87607d0ce70ef1990da58f5",
+        "core_run_id": 35340959590,
+        "cause": "TypeScript inferred frozen concurrency-dimension arrays as readonly string[] instead of readonly RateLimitDimension[]",
+        "fixed_by": "4defa98c18e5314cf647700740de5bff33d3807e"
       }
     ],
     "schema_or_verification_sql_changed": true,

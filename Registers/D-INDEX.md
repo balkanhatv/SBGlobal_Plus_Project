@@ -12,6 +12,6 @@
 | Industry SQL | 9 Industries / 41 canonical MS / 181 tables |
 | API transports | Not started |
 
-Verified `f97eb4fca54623a49d6405681f5bda4c3751bb84` / `32e24b9ed495aa33c88d8ad91b22262f53509f65`: **128 Core / 38 PostgreSQL PASS**.
+Verified `4defa98c18e5314cf647700740de5bff33d3807e` / `ade7862646c873b65db915c11b59338912811de8`: **128 Core / 38 PostgreSQL PASS**.
 
 Next: **canonical input/schema normalization + transport-neutral operation executor**, then concrete tRPC/REST adapters.

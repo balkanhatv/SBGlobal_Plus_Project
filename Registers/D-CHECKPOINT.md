@@ -1,7 +1,7 @@
 # D-CHECKPOINT — DEV-API-RATE-LIMIT-001
 **Updated:** 2026-09-18
 
-Verified executable `f97eb4fca54623a49d6405681f5bda4c3751bb84` / `32e24b9ed495aa33c88d8ad91b22262f53509f65`:
+Verified executable `4defa98c18e5314cf647700740de5bff33d3807e` / `ade7862646c873b65db915c11b59338912811de8`:
 - Core **128/128 PASS**
 - PostgreSQL **38/38 PASS**
 - Database **40 migrations / 34 verification files PASS**
