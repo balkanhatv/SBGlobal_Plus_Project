@@ -98,6 +98,9 @@ before(async () => {
       (id,tenant_id,plan_version_id,state,billing_timezone,version,created_at,updated_at)
       VALUES ($1,$2,$3,'ACTIVE','Asia/Kolkata',3,now(),now())`,
       [f.subscription, f.tenant, f.planVersion]);
+    await client.query(`UPDATE core_tenancy.tenant
+      SET current_subscription_id=$2,updated_at=now() WHERE id=$1`,
+      [f.tenant, f.subscription]);
 
     await client.query(`INSERT INTO core_commercial.license
       (id,tenant_id,subscription_id,license_type,subject_key,industry_context_id,status,valid_from,version,created_at,updated_at)
@@ -125,12 +128,12 @@ before(async () => {
       [f.snapshot, f.tenant, f.subscription, f.planVersion]);
 
     await client.query(`INSERT INTO core_commercial.entitlement_snapshot_fact
-      (snapshot_id,entitlement_code,industry_context_id,value_json,source_type,source_id,effective_from)
+      (snapshot_id,tenant_id,entitlement_code,industry_context_id,value_json,source_type,source_id,effective_from)
       VALUES
-      ($1,'tenant.common.enabled',NULL,'true'::jsonb,'PLAN',$2,now()-interval '1 minute'),
-      ($1,'rtl.pos.enabled',$3,'true'::jsonb,'LICENSE',$4,now()-interval '1 minute'),
-      ($1,'mfg.production.enabled',$5,'true'::jsonb,'LICENSE',$6,now()-interval '1 minute')`,
-      [f.snapshot, f.planVersion, f.industry, f.industryLicense, f.sibling, f.siblingLicense]);
+      ($1,$7,'tenant.common.enabled',NULL,'true'::jsonb,'PLAN',$2,now()-interval '1 minute'),
+      ($1,$7,'rtl.pos.enabled',$3,'true'::jsonb,'LICENSE',$4,now()-interval '1 minute'),
+      ($1,$7,'mfg.production.enabled',$5,'true'::jsonb,'LICENSE',$6,now()-interval '1 minute')`,
+      [f.snapshot, f.planVersion, f.industry, f.industryLicense, f.sibling, f.siblingLicense, f.tenant]);
 
     await client.query("COMMIT");
   } catch (error) {
@@ -160,6 +163,7 @@ after(async () => {
     await client.query("DELETE FROM core_commercial.entitlement_snapshot_fact WHERE snapshot_id=$1", [f.snapshot]);
     await client.query("DELETE FROM core_commercial.entitlement_snapshot WHERE id=$1", [f.snapshot]);
     await client.query("DELETE FROM core_commercial.license WHERE tenant_id=$1", [f.tenant]);
+    await client.query("UPDATE core_tenancy.tenant SET current_subscription_id=NULL,updated_at=now() WHERE id=$1", [f.tenant]);
     await client.query("DELETE FROM core_commercial.subscription WHERE id=$1", [f.subscription]);
     await client.query("DELETE FROM core_commercial.plan_version WHERE id=$1", [f.planVersion]);
     await client.query("DELETE FROM core_commercial.plan WHERE id=$1", [f.plan]);

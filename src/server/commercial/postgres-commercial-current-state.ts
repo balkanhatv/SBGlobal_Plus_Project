@@ -120,6 +120,9 @@ async function readCurrent(
          ON subscription.id=snapshot.source_subscription_id
         AND subscription.tenant_id=snapshot.tenant_id
         AND subscription.plan_version_id=snapshot.source_plan_version_id
+       JOIN core_tenancy.tenant tenant
+         ON tenant.id=snapshot.tenant_id
+        AND tenant.current_subscription_id=subscription.id
       WHERE snapshot.tenant_id=$1::uuid
         AND snapshot.status='CURRENT'
         AND snapshot.valid_from<=CURRENT_TIMESTAMP
@@ -162,13 +165,14 @@ async function readCurrent(
          ON definition.code=fact.entitlement_code
         AND definition.status='ACTIVE'
       WHERE fact.snapshot_id=$1::uuid
+        AND fact.tenant_id=$3::uuid
         AND (fact.industry_context_id IS NULL OR fact.industry_context_id IS NOT DISTINCT FROM $2::uuid)
         AND fact.effective_from<=CURRENT_TIMESTAMP
         AND (fact.effective_to IS NULL OR fact.effective_to>CURRENT_TIMESTAMP)
       ORDER BY fact.entitlement_code,
                (fact.industry_context_id IS NOT NULL) DESC,
                fact.effective_from DESC`,
-    [snapshot.snapshot_id, context.industryContextId ?? null],
+    [snapshot.snapshot_id, context.industryContextId ?? null, context.tenantId],
   );
 
   return Object.freeze({

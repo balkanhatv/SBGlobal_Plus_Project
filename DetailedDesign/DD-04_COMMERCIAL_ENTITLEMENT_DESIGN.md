@@ -144,7 +144,7 @@ All plan publication, subscription transitions, licenses, overrides, add-ons, sn
 
 This executable floor resolves Commercial truth from the existing module-owned persistence; Authorization does not own or copy it.
 
-- RequestContext bootstrap reads exactly one valid CURRENT EntitlementSnapshot joined to its source Subscription and pinned PlanVersion, then stamps snapshot id + version into RequestContext.
+- RequestContext bootstrap reads exactly one valid CURRENT EntitlementSnapshot joined to its source Subscription, pinned PlanVersion, and the Tenant's exact `current_subscription_id` pointer, then stamps snapshot id + version into RequestContext.
 - Runtime guard re-reads current Commercial state and requires exact snapshot id/version equality. Missing, ambiguous, expired or stale current state fails closed.
 - Generic protected operations treat `TRIAL`, `ACTIVE` and `GRACE` as usable subscription states. `PENDING`, `SUSPENDED`, `EXPIRED` and `CANCELLED` fail closed in this generic floor until dedicated billing/renewal/export/read-only operation contracts identify the intentionally permitted restricted paths. This avoids widening access from a stale pre-suspension snapshot.
 - TENANT_INDUSTRY operations require an effective INDUSTRY license for the exact active Industry Context. A MANAGEMENT_SYSTEM license is revalidated when a license record exists for the operation's canonical module key. Assigned SEAT licensing, when present, requires an effective seat for the current human principal.
