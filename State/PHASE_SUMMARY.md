@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-18
 
-Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The verified chain now includes Core/context/SQL/session-security, Authorization persistence/grammar/read/evaluator/compiler, exact Commercial current-state integration, and DD-046 fail-closed resource/workflow PEP enforcement. Verified executable `ed36486e45011c6dc2bae1bcc87c2a13574e177c` / tree `92a5dfc0b2d2e3e8246a75a7eadda52329c5a9e6`: **108 Core + 21 PostgreSQL + 37 migrations / 31 verification files PASS**. Concrete module resource/workflow adapters, durable authorization audit emission, dedicated Commercial restricted mode/UPGRADE_CTA, enforceable RESTRICT payload/reducer, API transports and UI remain unfinished.
+Current Development scope, evidence and next action are owned by `../Development/CORE_SERVICE_CHECKPOINT.md` and `PROJECT_MANIFEST.json`. The verified chain now includes Core/context/SQL/session-security, Authorization persistence/grammar/read/evaluator/publication, exact Commercial current state, fail-closed resource/workflow PEP, and DD-047 durable final Authorization audit. Verified executable `09d81fc23d44747ac566fa4fe1957c1efe32479f` / tree `64ac15c7f06933c52c7ed1e8a3ffadc6204540d8`: **114 Core + 24 PostgreSQL + 37 migrations / 31 verification files PASS**. Source-to-snapshot RBAC compiler calculation, concrete module rule adapters, Commercial restricted mode/UPGRADE_CTA, enforceable RESTRICT, transports and UI remain unfinished.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
