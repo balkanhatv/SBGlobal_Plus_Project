@@ -563,3 +563,18 @@ Pre-tRPC authentication/policy failures return the canonical DD-052 error envelo
 **Scope:** no guessed `app/api/trpc` file, no Next.js dependency/bootstrap, no Clerk-specific header parser, no REST/OpenAPI, no broad Core/Industry router catalog and no UI client.
 
 **Acceptance:** API-TRPC-HTTP-001…005: real nested HTTP query success/correlation; invalid auth rejected before malformed body parsing; missing Authorization canonical 401; RATE_LIMITED Retry-After; edge-policy denial before auth/body handling.
+
+
+## DD-055 — First-party Clerk Bearer + official Backend SDK bridge [DEV-WEB-AUTH-001]
+
+**Context:** DD-054 has a physical first-party Fetch handler but intentionally leaves Authorization resolution and the provider-specific ClerkBackendPort to server composition. DD-03 already defines ClerkIdentityAdapter as the provider-specific IdentityPort and explicitly prohibits provider objects/claims from becoming business authorization truth.
+
+**Decision:** the first-party internal plane accepts only the DD-06 human `Authorization: Bearer <token>` form in this slice. It does not infer or introduce a machine/API-key scheme. `FirstPartyClerkBearerAuthorizationResolver` performs bounded syntax extraction and returns only `AuthenticationInput{kind:HUMAN,credential}`; actual token trust remains exclusively inside IdentityPort.
+
+`@clerk/backend@3.18.1` is pinned. `ClerkBackendSdkAdapter` implements the existing ClerkBackendPort with the official SDK: networkless `verifyToken` using a required JWT public key and non-empty `authorizedParties`, plus live Backend API `sessions.getSession` / `sessions.revokeSession` using the required secret key. Only signed default identity/session/factor-age claims are mapped into ClerkVerifiedSessionToken; custom Clerk claims are not admitted as Tenant, Industry, roles, permissions, entitlements or policy facts.
+
+Token verification errors fail closed as TOKEN_INVALID. Session 404 maps to SESSION_NOT_FOUND; other Backend API failures map to DEPENDENCY_UNAVAILABLE. The existing ClerkIdentityAdapter then re-binds the verified Clerk subject to the internal PlatformPrincipal and requires a live active matching provider session before RequestContext can proceed.
+
+**Scope:** no cookies, no Clerk UI/React/Next.js package, no machine/API credential scheme, no Tenant/Industry claims from Clerk, no Next.js route/bootstrap and no production secret values in source.
+
+**Acceptance:** WEB-AUTH-001…006: exact Bearer syntax only; non-Bearer/machine-like schemes denied; JWT key + authorizedParties passed to official verifier; signed subject/session/fva mapping only; live get/revoke session mapping; invalid/missing/provider-outage fail closed without secret/error leakage.

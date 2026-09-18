@@ -453,3 +453,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | API-TRPC-HTTP-003 | missing Authorization | canonical AUTH_REQUIRED 401; Authorization resolver/domain are not invoked |
 | API-TRPC-HTTP-004 | executor returns RATE_LIMITED with retry seconds | tRPC 429 retains DD-052 envelope and HTTP Retry-After |
 | API-TRPC-HTTP-005 | edge origin/host/size/CSRF policy denies | denial occurs before auth resolver/body processing and exposes no internal policy detail |
+
+
+### First-party Clerk Authorization — DD-055 / DEV-WEB-AUTH-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WEB-AUTH-001 | `Authorization: Bearer <token>` | resolver returns HUMAN AuthenticationInput with opaque credential only |
+| WEB-AUTH-002 | Basic/custom/machine-like/ambiguous Authorization scheme | fail closed 401 before IdentityPort |
+| WEB-AUTH-003 | Clerk token verification | official verifier receives pinned JWT public key + non-empty authorizedParties |
+| WEB-AUTH-004 | valid signed Clerk token | only subject, session ID and valid fva pair cross ClerkBackendPort |
+| WEB-AUTH-005 | live Clerk session get/revoke | exact session ID/user/status/createdAt mapped; revoke delegates to Backend API |
+| WEB-AUTH-006 | invalid token / session 404 / provider outage | TOKEN_INVALID / SESSION_NOT_FOUND / DEPENDENCY_UNAVAILABLE respectively; no provider detail leakage |

@@ -226,3 +226,12 @@ The physical internal HTTP boundary uses the tRPC Fetch adapter behind a reusabl
 Locked HTTP metadata: `Authorization`, `Idempotency-Key`, and advisory `X-Correlation-Id`. Tenant/Industry selectors are never made authoritative by headers. Selector and network facts come only from server-owned metadata ports.
 
 All responses are `no-store`; normalized correlation is echoed in `X-Correlation-Id`; shared RATE_LIMITED retry metadata becomes HTTP `Retry-After`. Batching is disabled for this first bounded handler floor. Actual Next.js route placement, allowed-origin/content-size values and Clerk/API credential parsing belong to the later web-runtime composition.
+
+
+## 26. First-party Clerk Authorization composition [DD-055 / DEV-WEB-AUTH-001]
+
+The first-party tRPC Fetch plane now has one concrete human Authorization resolver: `Authorization: Bearer <Clerk session/access token>`. This resolver performs syntax extraction only. Trust, subject mapping, live session validation and local session/device security remain inside the existing Clerk IdentityPort chain.
+
+The official `@clerk/backend` bridge requires a JWT public key plus authorized-parties allowlist for token verification and a secret key for live session Backend API access. Custom token claims never supply Tenant/Industry/RBAC/Commercial truth.
+
+Machine/API credentials remain a separate external/integration-plane contract and are not inferred from Bearer tokens in this slice.
