@@ -112,6 +112,12 @@ function makePorts(overrides = {}) {
         };
       },
     },
+    resourceRules: {
+      async validateCurrent() {
+        calls.push("resource.rules");
+        return { allowed: true };
+      },
+    },
   };
 
   for (const [key, value] of Object.entries(overrides)) {
@@ -138,6 +144,7 @@ test("API guard order: commercial + base PDP occur before resource resolution, t
     "authorization.base",
     "resource.resolve",
     "authorization.resource",
+    "resource.rules",
   ]);
 });
 
@@ -342,4 +349,104 @@ test("OperationRegistry rejects duplicate business operation IDs", () => {
     () => registry.register(operation),
     /Duplicate OperationContract/,
   );
+});
+
+
+test("AUTH-004: resource ownership/org rule denial remains non-disclosing", async () => {
+  const { ports, calls } = makePorts({
+    resourceRules: {
+      async validateCurrent() {
+        calls.push("resource.rules");
+        return { allowed: false, reasonCode: "RESOURCE_SCOPE_DENY" };
+      },
+    },
+  });
+
+  await assert.rejects(
+    new GuardPipeline(ports).authorize({
+      requestContext,
+      operation,
+      resourceReference: { saleId: "sale-1" },
+    }),
+    (error) => error instanceof GuardPipelineError
+      && error.code === "RESOURCE_NOT_FOUND"
+      && error.reasonCode === "RESOURCE_SCOPE_DENY"
+      && error.revealResourceExistence === false,
+  );
+
+  assert.deepEqual(calls, [
+    "commercial",
+    "authorization.base",
+    "resource.resolve",
+    "authorization.resource",
+    "resource.rules",
+  ]);
+});
+
+test("AUTH-005: workflow rule denial is normalized to resource state invalid", async () => {
+  const { ports } = makePorts({
+    resourceRules: {
+      async validateCurrent() {
+        return { allowed: false, reasonCode: "WORKFLOW_STATE_DENY" };
+      },
+    },
+  });
+
+  await assert.rejects(
+    new GuardPipeline(ports).authorize({
+      requestContext,
+      operation,
+      resourceReference: { saleId: "sale-1" },
+    }),
+    (error) => error instanceof GuardPipelineError
+      && error.code === "RESOURCE_STATE_INVALID"
+      && error.reasonCode === "WORKFLOW_STATE_DENY"
+      && error.revealResourceExistence === false,
+  );
+});
+
+test("resource-bound operation fails closed when no resource rule adapter is wired", async () => {
+  const { ports } = makePorts();
+  delete ports.resourceRules;
+
+  await assert.rejects(
+    new GuardPipeline(ports).authorize({
+      requestContext,
+      operation,
+      resourceReference: { saleId: "sale-1" },
+    }),
+    (error) => error instanceof GuardPipelineError
+      && error.code === "DEPENDENCY_UNAVAILABLE"
+      && error.revealResourceExistence === false,
+  );
+});
+
+test("resource rule adapter failure or malformed result fails closed without leaking details", async () => {
+  for (const validateCurrent of [
+    async () => { throw new Error("private workflow database detail"); },
+    async () => ({ allowed: false, reasonCode: "UNKNOWN_RULE" }),
+  ]) {
+    const { ports } = makePorts({ resourceRules: { validateCurrent } });
+    await assert.rejects(
+      new GuardPipeline(ports).authorize({
+        requestContext,
+        operation,
+        resourceReference: { saleId: "sale-1" },
+      }),
+      (error) => error instanceof GuardPipelineError
+        && error.code === "DEPENDENCY_UNAVAILABLE"
+        && !error.message.includes("private")
+        && error.revealResourceExistence === false,
+    );
+  }
+});
+
+test("non-resource operation does not require a resource rule adapter", async () => {
+  const { ports } = makePorts();
+  delete ports.resourceRules;
+  const result = await new GuardPipeline(ports).authorize({
+    requestContext,
+    operation: { ...operation, resourceResolver: undefined },
+  });
+  assert.equal(result.decisionId, "decision-base");
 });

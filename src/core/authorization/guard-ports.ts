@@ -39,3 +39,19 @@ export interface ResourceResolverPort {
     readonly reference: Readonly<Record<string, unknown>>;
   }): Promise<ResourceDescriptor | null>;
 }
+
+
+export type ResourceBusinessRuleResult =
+  | { readonly allowed: true }
+  | {
+      readonly allowed: false;
+      readonly reasonCode: "RESOURCE_SCOPE_DENY" | "WORKFLOW_STATE_DENY";
+    };
+
+export interface ResourceBusinessRulePort {
+  validateCurrent(input: {
+    readonly requestContext: RequestContext;
+    readonly operation: OperationContract;
+    readonly resourceDescriptor: ResourceDescriptor;
+  }): Promise<ResourceBusinessRuleResult>;
+}

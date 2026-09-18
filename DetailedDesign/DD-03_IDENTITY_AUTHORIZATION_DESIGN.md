@@ -153,3 +153,12 @@ Until a dedicated governed restriction-payload/reducer contract is designed and 
 - every returned decision sets `auditRequired=true` in this bounded floor; concrete durable audit emission remains a separate enforcement/integration responsibility.
 
 This floor preserves RBAC-primary / ABAC-narrowing-only semantics and resolves the unsafe ambiguity without widening persistence, adding a compiler writer, or inventing Commercial/transport behavior.
+
+
+## 16. Resource/workflow business-rule enforcement floor [DD-046 / DEV-AUTHZ-RESOURCE-RULE-001]
+
+Canonical evaluation step 10 is implemented through a server-owned, module-supplied `ResourceBusinessRulePort` for resource-bound operations. It runs only after the resource has been resolved, Tenant/Industry scope has been checked, and the resource-level Authorization PDP has passed.
+
+The port is narrowing-only. It may allow the already-authorized operation or deny it with `RESOURCE_SCOPE_DENY` or `WORKFLOW_STATE_DENY`. Missing adapters, dependency failures and malformed results fail closed. Resource scope denial is normalized to non-disclosing `RESOURCE_NOT_FOUND`; workflow-state denial is normalized to `RESOURCE_STATE_INVALID`. No client workflow state, generic executable rule DSL or cross-industry rule interpretation is introduced by Core.
+
+Concrete ownership/org/workflow adapters remain the responsibility of their authoritative Core/Industry modules and must re-read current server-owned state where their rule requires it. This bounded floor does not claim that all module adapters are implemented.

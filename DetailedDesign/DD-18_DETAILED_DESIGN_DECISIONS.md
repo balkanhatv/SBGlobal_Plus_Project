@@ -398,3 +398,18 @@ Detailed Design decisions refine implementation contracts without redesigning ce
 **Scope:** this decision does not add a restriction payload schema, compiler writer, commercial fact adapter, audit persistence adapter, transport, rate limiter, UI or deployment claim. Those remain later governed slices.
 
 **Acceptance:** AUTH-001…AUTH-003 and AUTH-009…AUTH-014 plus direct evaluator negatives for malformed/missing facts and stale compiled-context versions.
+
+
+## DD-046 — Fail-closed resource ownership / org / workflow rule port [DEV-AUTHZ-RESOURCE-RULE-001]
+
+**Context:** DD-03 canonical evaluation step 10 and DD-17 AUTH-004/AUTH-005 require resource ownership/org and workflow business rules after RBAC/ABAC, but the current PEP exposes only a ResourceResolver and resource-level AuthorizationDecisionPort. No executable contract states how module-owned business rules narrow access, how missing rule state behaves, or how their failures are normalized. Inventing a generic rule DSL would conflict with suite-specific domain ownership.
+
+**Decision:** Resource-bound operations must pass a server-owned `ResourceBusinessRulePort.validateCurrent({requestContext, operation, resourceDescriptor})` after exact resource resolution/context isolation and after resource-level PDP ALLOW/RESTRICT. The port is narrowing-only and may return only `allowed:true` or deny with `RESOURCE_SCOPE_DENY` / `WORKFLOW_STATE_DENY`. It cannot grant an operation denied by Commercial/RBAC/ABAC and it cannot change Tenant or Industry Context. A resource-bound operation with no rule adapter, adapter failure, or malformed result fails closed as non-disclosing `DEPENDENCY_UNAVAILABLE`.
+
+**Denial normalization:** `RESOURCE_SCOPE_DENY` becomes opaque `RESOURCE_NOT_FOUND` while preserving the internal reason code and never revealing foreign/sibling resource existence. `WORKFLOW_STATE_DENY` becomes `RESOURCE_STATE_INVALID` with a safe message. The prior Authorization decisionId is retained for correlation. Non-resource operations do not require this port.
+
+**Ownership:** every concrete adapter remains module-owned and must derive current server state from its authoritative repository/workflow model. The generic Core does not interpret suite-specific transition matrices, owner semantics, org hierarchy, arbitrary expressions or client-supplied workflow state.
+
+**Scope:** this decision creates only the fail-closed PEP boundary. It does not claim all 41 MS rule adapters, a generic executable rule engine, durable authorization audit emission, enforceable ABAC RESTRICT payloads, DD-06 transport wiring, or UI.
+
+**Acceptance:** DD-17 AUTH-004 and AUTH-005; explicit tests for order after resource PDP, missing adapter, adapter exception, malformed result, non-disclosing scope denial and non-resource bypass of the port.

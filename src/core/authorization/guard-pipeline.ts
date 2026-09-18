@@ -10,6 +10,8 @@ import type {
   AuthorizationDecisionPort,
   CommercialGuardPort,
   ResourceResolverPort,
+  ResourceBusinessRulePort,
+  ResourceBusinessRuleResult,
 } from "./guard-ports.js";
 
 export type NormalizedGuardErrorCode =
@@ -60,6 +62,7 @@ export interface GuardPipelinePorts {
   readonly commercial: CommercialGuardPort;
   readonly authorization: AuthorizationDecisionPort;
   readonly resources: ResourceResolverPort;
+  readonly resourceRules?: ResourceBusinessRulePort;
 }
 
 function normalizeDecision(decision: AccessDecision): GuardPipelineError {
@@ -267,6 +270,13 @@ export class GuardPipeline {
         }),
       );
       this.assertAllowed(resourceDecision);
+
+      const ruleResult = await this.evaluateResourceRules({
+        requestContext,
+        operation,
+        resourceDescriptor: resolved,
+      });
+      this.assertResourceRulesAllowed(ruleResult, resourceDecision.decisionId);
     }
 
     return Object.freeze({
@@ -276,6 +286,58 @@ export class GuardPipeline {
         baseDecision.restrictionSet,
         resourceDecision?.restrictionSet,
       ),
+    });
+  }
+
+  private async evaluateResourceRules(input: {
+    readonly requestContext: RequestContext;
+    readonly operation: OperationContract;
+    readonly resourceDescriptor: ResourceDescriptor;
+  }): Promise<ResourceBusinessRuleResult> {
+    if (!this.ports.resourceRules) {
+      throw new GuardPipelineError({
+        code: "DEPENDENCY_UNAVAILABLE",
+        messageSafe: "Resource authorization rules are unavailable.",
+      });
+    }
+
+    try {
+      const result = await this.ports.resourceRules.validateCurrent(input);
+      if (result?.allowed === true) return result;
+      if (result?.allowed === false
+        && (result.reasonCode === "RESOURCE_SCOPE_DENY"
+          || result.reasonCode === "WORKFLOW_STATE_DENY")) {
+        return result;
+      }
+      throw new Error("invalid resource rule result");
+    } catch {
+      throw new GuardPipelineError({
+        code: "DEPENDENCY_UNAVAILABLE",
+        messageSafe: "Resource authorization rules are unavailable.",
+      });
+    }
+  }
+
+  private assertResourceRulesAllowed(
+    result: ResourceBusinessRuleResult,
+    decisionId: string,
+  ): void {
+    if (result.allowed) return;
+
+    if (result.reasonCode === "RESOURCE_SCOPE_DENY") {
+      throw new GuardPipelineError({
+        code: "RESOURCE_NOT_FOUND",
+        messageSafe: "Resource not found.",
+        decisionId,
+        reasonCode: result.reasonCode,
+      });
+    }
+
+    throw new GuardPipelineError({
+      code: "RESOURCE_STATE_INVALID",
+      messageSafe: "The resource is not in a valid state for this operation.",
+      decisionId,
+      reasonCode: result.reasonCode,
     });
   }
 
