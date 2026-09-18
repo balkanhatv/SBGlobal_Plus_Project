@@ -1,12 +1,12 @@
-# D-CHECKPOINT — DEV-WEB-AUTH-001
+# D-CHECKPOINT — DEV-WEB-EDGE-001
 **Updated:** 2026-09-19
 
-Verified executable `ac00ce9ba8ff51928a235c5719f724b4c6d720d1` / `8afd73c415a3333b3ff2aa9937f899d067be5df2`:
-- Core **163/163 PASS**
+Verified executable `6bd1887c5d39a6298b99bbae0589154615684089` / `b512cbbb55ab9588815d8e22c345d2c0ccb69a32`:
+- Core **168/168 PASS**
 - PostgreSQL **38/38 PASS**
 - Database **40 migrations / 34 verification files PASS**
 - Industry scope **9/41/181**
 
-Gate: **IMPLEMENTED / TESTED — FIRST-PARTY CLERK BEARER AUTHORIZATION BRIDGE**.
+Gate: **IMPLEMENTED / TESTED — TRUSTED FIRST-PARTY WEB SELECTOR + EDGE/BODY SECURITY FLOOR**.
 
-Next: **trusted selector derivation + edge policy**, then concrete Next.js composition. RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.
+Next: **Next.js server composition root + concrete tRPC route bootstrap** after F-01/A-10/DD-14 revalidation.

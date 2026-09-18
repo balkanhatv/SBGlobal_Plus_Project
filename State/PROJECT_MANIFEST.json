@@ -1,9 +1,9 @@
 {
   "project": "SBGlobal Plus",
-  "updated": "2026-09-18",
+  "updated": "2026-09-19",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-WEB-AUTH-001",
-  "final_verdict": "DEVELOPMENT IN PROGRESS — FIRST-PARTY CLERK BEARER AUTHORIZATION IMPLEMENTED / TESTED; SELECTOR + EDGE POLICY NEXT; NEXT.JS COMPOSITION NOT STARTED",
+  "checkpoint": "DEV-WEB-EDGE-001",
+  "final_verdict": "DEVELOPMENT IN PROGRESS — TRUSTED WEB SELECTOR + EDGE/BODY SECURITY IMPLEMENTED / TESTED; NEXT.JS COMPOSITION ROOT NEXT; REST/UI NOT STARTED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,15 +53,15 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "ac00ce9ba8ff51928a235c5719f724b4c6d720d1",
-    "verified_code_tree": "8afd73c415a3333b3ff2aa9937f899d067be5df2",
-    "state_projection_basis_head": "ac00ce9ba8ff51928a235c5719f724b4c6d720d1"
+    "verified_code_head": "6bd1887c5d39a6298b99bbae0589154615684089",
+    "verified_code_tree": "b512cbbb55ab9588815d8e22c345d2c0ccb69a32",
+    "state_projection_basis_head": "6bd1887c5d39a6298b99bbae0589154615684089"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "First-Party Web Runtime Prerequisites",
+    "current_phase": "First-Party Web Composition",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -76,9 +76,9 @@
       "migration_count": 40,
       "verification_file_count": 34,
       "migration_range": "0001-0040",
-      "ci_verified_head": "ac00ce9ba8ff51928a235c5719f724b4c6d720d1",
-      "ci_run_id": 35389447186,
-      "ci_job_id": 105744117838,
+      "ci_verified_head": "6bd1887c5d39a6298b99bbae0589154615684089",
+      "ci_run_id": 35391473678,
+      "ci_job_id": 105750581458,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -90,7 +90,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "8afd73c415a3333b3ff2aa9937f899d067be5df2",
+      "ci_verified_tree": "b512cbbb55ab9588815d8e22c345d2c0ccb69a32",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,27 +99,27 @@
         "scope": "Historical all-stages SQL persistence audit"
       }
     },
-    "next_action": "Implement trusted first-party selector derivation and edge policy before concrete Next.js route composition.",
+    "next_action": "Revalidate F-01/A-10/DD-14, then implement only the concrete Next.js server composition root and one tRPC route floor.",
     "core_services": {
-      "checkpoint": "DEV-WEB-AUTH-001",
+      "checkpoint": "DEV-WEB-EDGE-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040…DD-055 verified shared Core/API + first-party Clerk Bearer composition",
-      "verified_head": "ac00ce9ba8ff51928a235c5719f724b4c6d720d1",
-      "verified_tree": "8afd73c415a3333b3ff2aa9937f899d067be5df2",
-      "core_ci_run_id": 35389447249,
-      "core_ci_job_id": 105744118260,
-      "tests": "163 TESTS PRESENT / CORE SERVICE VERIFY PASS",
+      "decision": "DD-040…DD-056 verified shared Core/API + first-party web auth/selector/edge chain",
+      "verified_head": "6bd1887c5d39a6298b99bbae0589154615684089",
+      "verified_tree": "b512cbbb55ab9588815d8e22c345d2c0ccb69a32",
+      "core_ci_run_id": 35391473666,
+      "core_ci_job_id": 105750578096,
+      "tests": "168 TESTS PRESENT / CORE SERVICE VERIFY PASS",
       "core_test_counts": {
-        "tests": 163,
-        "pass": 163,
+        "tests": 168,
+        "pass": 168,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35389447249,
-      "postgres_ci_job_id": 105744118505,
+      "postgres_ci_run_id": 35391473666,
+      "postgres_ci_job_id": 105750578347,
       "postgres_tests": "38/38 PASS",
       "postgres_test_counts": {
         "tests": 38,
@@ -128,8 +128,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35389447186,
-      "database_regression_job_id": 105744117838,
+      "database_regression_run_id": 35391473678,
+      "database_regression_job_id": 105750581458,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -238,7 +238,12 @@
         "DD-055 first-party human-only Bearer Authorization resolver",
         "pinned @clerk/backend 3.18.1 official SDK bridge",
         "Clerk JWT public-key + authorized-parties verification binding",
-        "live Clerk session get/revoke mapping into existing ClerkBackendPort"
+        "live Clerk session get/revoke mapping into existing ClerkBackendPort",
+        "DD-056 exact-host first-party Tenant selector derivation",
+        "generic Tenant/Industry header non-authority tests",
+        "HTTPS/host/origin/Sec-Fetch-Site edge policy",
+        "pre-auth declared-size rejection",
+        "post-auth pre-tRPC streamed hard body cap"
       ],
       "not_claimed": [
         "trusted directory/Identity bootstrap adapter",
@@ -259,23 +264,24 @@
         "concrete REST/OpenAPI adapter",
         "webhook transport adapter",
         "broad Core/Industry tRPC router catalog",
-        "concrete first-party selector/network derivation adapter",
         "concrete origin/host/body-size/CSRF edge policy",
         "Next.js app/route composition",
         "machine/API-key Authorization scheme for first-party tRPC",
-        "trusted first-party selector/network derivation adapter"
+        "trusted first-party selector/network derivation adapter",
+        "concrete Next.js application/server composition root",
+        "concrete Next.js tRPC route",
+        "dynamic user-selected Industry workspace persistence"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_AND_EXACT_COMMERCIAL_CURRENT_STATE_TESTED",
       "pending_physical_contracts": [
-        "trusted first-party selector/network derivation",
-        "concrete origin/host/body-size/CSRF edge policy",
-        "Next.js server composition root and route placement",
+        "Next.js server composition root and concrete tRPC route placement",
+        "dynamic workspace/Industry selection persistence where product UX requires it",
         "concrete per-module Zod DTO/domain/resource registrations",
         "concrete per-module resource/workflow rule adapters",
         "governed enforceable ABAC RESTRICT payload/reducer contract",
         "dedicated Commercial restricted-mode/UPGRADE_CTA operation contracts"
       ],
-      "next_action": "Implement trusted selector derivation + edge policy; verify before actual Next.js route composition."
+      "next_action": "Revalidate F-01/A-10/DD-14, then implement only the Next.js server composition root + one tRPC route floor."
     },
     "application_api_ui_scope_note": "Core services and bounded first-party tRPC query adapter have started; physical HTTP handler, REST and UI remain unfinished.",
     "application_services_started": true,
@@ -331,7 +337,7 @@
     ],
     "status": "IN_PROGRESS_AUTHORIZATION_CORE_SERVICES"
   },
-  "current_phase": "DEVELOPMENT_FIRST_PARTY_WEB_RUNTIME_PREREQUISITES",
+  "current_phase": "DEVELOPMENT_FIRST_PARTY_WEB_COMPOSITION",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -363,11 +369,11 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-WEB-AUTH-001",
+    "checkpoint": "DEV-WEB-EDGE-001",
     "corrected_baseline_head": "ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5",
     "corrected_baseline_tree": "ba95a8a1fd811f1b5ece01ba891535878827aa3c",
-    "verified_code_head": "ac00ce9ba8ff51928a235c5719f724b4c6d720d1",
-    "verified_code_tree": "8afd73c415a3333b3ff2aa9937f899d067be5df2",
+    "verified_code_head": "6bd1887c5d39a6298b99bbae0589154615684089",
+    "verified_code_tree": "b512cbbb55ab9588815d8e22c345d2c0ccb69a32",
     "code_snapshot_files": 239,
     "changes": [
       "1835fc4201998d05368a5aec1e963fca263dba35",
@@ -413,7 +419,8 @@
       "565165ae72e1da4d93ddff645bae2735219f28ff",
       "3600457f569658c68cd9f067a108d5237df563d9",
       "8b3b0417eb95391c9b4e81fa9acdcae0efcf10fe",
-      "ac00ce9ba8ff51928a235c5719f724b4c6d720d1"
+      "ac00ce9ba8ff51928a235c5719f724b4c6d720d1",
+      "6bd1887c5d39a6298b99bbae0589154615684089"
     ],
     "failed_ci_attempts": [
       {
@@ -507,7 +514,7 @@
     "metadata_closure_resolution": "Read the publication commit from Git after updating this self-containing manifest; recorded CI evidence belongs to verified_code_head, not an invented closure SHA.",
     "next_task_model_capability": "Authorization/data-contract reasoning and TypeScript/PostgreSQL implementation; select from actually available models.",
     "model_switch_performed": false,
-    "scope_gate": "IMPLEMENTED_TESTED_FIRST_PARTY_CLERK_BEARER_AUTH",
+    "scope_gate": "IMPLEMENTED_TESTED_TRUSTED_WEB_SELECTOR_EDGE_BODY_FLOOR",
     "approval_blockers": 0
   }
 }

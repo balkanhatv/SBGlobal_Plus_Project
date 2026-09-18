@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-19
 
-Current Development checkpoint is `DEV-WEB-AUTH-001`. Verified shared runtime now includes Authorization/Commercial/PEP/audit, exact-scope idempotency, distributed rate limiting, canonical OperationExecutor, Zod DTO/projection, first-party tRPC query + Fetch transport and concrete Clerk Bearer Authorization composition. Executable `ac00ce9ba8ff51928a235c5719f724b4c6d720d1` / tree `8afd73c415a3333b3ff2aa9937f899d067be5df2`: **163 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**. Next is trusted selector derivation + edge policy before concrete Next.js route composition.
+Current Development checkpoint is `DEV-WEB-EDGE-001`. Verified first-party runtime now includes Clerk Bearer auth, canonical executor/security chain, tRPC/Fetch transport, exact host selector derivation, edge origin/host policy and a post-auth/pre-parse hard body cap. Executable `6bd1887c5d39a6298b99bbae0589154615684089` / tree `b512cbbb55ab9588815d8e22c345d2c0ccb69a32`: **168 Core + 38 PostgreSQL + 40 migrations / 34 verification files PASS**. Next is the concrete Next.js server composition root + tRPC route bootstrap after F-01/A-10/DD-14 cross-check.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
