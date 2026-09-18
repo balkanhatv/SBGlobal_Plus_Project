@@ -96,7 +96,7 @@ function asResourceReference(value: unknown): Readonly<Record<string, unknown>> 
       "Resource reference must be a JSON object derived from validated input.",
     );
   }
-  return normalized;
+  return normalized as JsonObject;
 }
 
 export class OperationSchemaRegistry {
