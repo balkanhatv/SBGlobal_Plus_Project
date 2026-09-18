@@ -465,3 +465,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WEB-AUTH-004 | valid signed Clerk token | only subject, session ID and valid fva pair cross ClerkBackendPort |
 | WEB-AUTH-005 | live Clerk session get/revoke | exact session ID/user/status/createdAt mapped; revoke delegates to Backend API |
 | WEB-AUTH-006 | invalid token / session 404 / provider outage | TOKEN_INVALID / SESSION_NOT_FOUND / DEPENDENCY_UNAVAILABLE respectively; no provider detail leakage |
+
+
+### First-party web selector + edge/body policy — DD-056 / DEV-WEB-EDGE-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WEB-EDGE-001 | request host matches exact configured Tenant host | only configured Tenant selector is produced; RequestContext remains authoritative |
+| WEB-EDGE-002 | request supplies `X-Tenant-Id` / `X-Industry-Context-Id` | headers are ignored as selector authority |
+| WEB-EDGE-003 | host/origin is unknown or browser Sec-Fetch-Site is cross-site | canonical transport policy denial before domain execution |
+| WEB-EDGE-004 | Content-Length exceeds configured ceiling | 413 before Authorization resolver/body parsing |
+| WEB-EDGE-005 | Content-Length absent but streamed body exceeds ceiling | authentication succeeds first, then 413 before tRPC/schema parsing |
+| WEB-EDGE-006 | same-origin bounded GET/POST | request proceeds through existing tRPC Fetch handler and canonical executor |

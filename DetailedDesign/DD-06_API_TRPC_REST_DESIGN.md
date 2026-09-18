@@ -235,3 +235,12 @@ The first-party tRPC Fetch plane now has one concrete human Authorization resolv
 The official `@clerk/backend` bridge requires a JWT public key plus authorized-parties allowlist for token verification and a secret key for live session Backend API access. Custom token claims never supply Tenant/Industry/RBAC/Commercial truth.
 
 Machine/API credentials remain a separate external/integration-plane contract and are not inferred from Bearer tokens in this slice.
+
+
+## 27. Trusted web selector + edge/body controls [DD-056 / DEV-WEB-EDGE-001]
+
+First-party web Tenant selection may be derived from an exact server-configured host binding, but the result remains only a selector: DD-02 RequestContext revalidates Tenant membership/current state and Industry ownership. Generic Tenant/Industry headers never become authority.
+
+The web edge floor requires HTTPS, exact allowed host, GET/POST, allowlisted Origin when supplied, cross-site browser denial, bounded JSON POST metadata and a configured body ceiling. Content-Length is only an early rejection hint; after authentication, the request body is streamed through a hard byte cap before tRPC parsing.
+
+This preserves authentication-before-body-parsing while preventing missing Content-Length from bypassing the application body limit. Cookie-based CSRF tokens are not introduced because the current first-party plane is Bearer-authenticated; any future cookie-authenticated surface must satisfy DD-16 separately.

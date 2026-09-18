@@ -51,6 +51,10 @@ export interface FirstPartyTrpcEdgePolicyPort {
   verify(request:FirstPartyTrpcRequestMetadata):Promise<void>;
 }
 
+export interface FirstPartyTrpcBodyPolicyPort {
+  prepare(request:Request):Promise<Request>;
+}
+
 export class FirstPartyTrpcHttpPreflightError extends Error {
   readonly code:
     | "TRANSPORT_POLICY_DENIED"
@@ -83,6 +87,7 @@ export interface FirstPartyTrpcFetchHandlerPorts<TRouter extends AnyRouter> {
   readonly ids:FirstPartyTrpcIdPort;
   readonly authorization:FirstPartyTrpcAuthorizationPort;
   readonly edgePolicy:FirstPartyTrpcEdgePolicyPort;
+  readonly bodyPolicy?:FirstPartyTrpcBodyPolicyPort;
   readonly selectors?:FirstPartyTrpcSelectorPort;
   readonly network?:FirstPartyTrpcNetworkPort;
   readonly projector:TransportEnvelopeProjector;
@@ -226,9 +231,23 @@ export function createFirstPartyTrpcFetchHandler<TRouter extends AnyRouter>(
       });
     }
 
+    let preparedRequest=request;
+    if(ports.bodyPolicy){
+      try{
+        preparedRequest=await ports.bodyPolicy.prepare(request);
+      }catch(error){
+        const failure=normalizePreflightFailure(error);
+        return preflightResponse({
+          projector:ports.projector,
+          ...transportIds,
+          ...failure,
+        });
+      }
+    }
+
     return fetchRequestHandler({
       endpoint,
-      req:request,
+      req:preparedRequest,
       router:ports.router,
       allowBatching:false,
       createContext:async()=>context,

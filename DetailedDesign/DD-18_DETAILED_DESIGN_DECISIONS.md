@@ -578,3 +578,20 @@ Token verification errors fail closed as TOKEN_INVALID. Session 404 maps to SESS
 **Scope:** no cookies, no Clerk UI/React/Next.js package, no machine/API credential scheme, no Tenant/Industry claims from Clerk, no Next.js route/bootstrap and no production secret values in source.
 
 **Acceptance:** WEB-AUTH-001…006: exact Bearer syntax only; non-Bearer/machine-like schemes denied; JWT key + authorizedParties passed to official verifier; signed subject/session/fva mapping only; live get/revoke session mapping; invalid/missing/provider-outage fail closed without secret/error leakage.
+
+
+## DD-056 — Trusted first-party web selector + edge/body policy [DEV-WEB-EDGE-001]
+
+**Context:** DD-054 intentionally left selector derivation and origin/host/request-size/CSRF ownership as server composition ports. DD-02 keeps Tenant/Industry authority in RequestContext + membership/current Core state, while A-06/DD-16 require host/origin and request-size controls at the edge. Generic Tenant/Industry headers must not become authority.
+
+**Decision:** first-party web selector derivation starts with an exact server-configured host binding. `ExactHostFirstPartySelectorResolver` maps an allowlisted canonical host to a non-authoritative Tenant selector and optional server-configured Industry/OrgUnit defaults. It reads the normalized request URL host only; headers such as `X-Tenant-Id` or `X-Industry-Context-Id` are ignored. RequestContext still resolves the Tenant against the authenticated principal/membership and resolves any Industry Context under that Tenant.
+
+`ConfiguredFirstPartyWebEdgePolicy` enforces HTTPS, exact allowed hosts, GET/POST only, same-origin/allowlisted Origin when Origin is present, `Sec-Fetch-Site: cross-site` denial, optional declared Content-Length ceiling and JSON content type for POST. Allowed hosts/origins and body ceiling are required server configuration; no production domain/value is invented in source.
+
+Because browsers/proxies may omit Content-Length, metadata checks are not treated as the hard body cap. `BoundedFirstPartyTrpcBodyPolicy` runs only after DD-055 authentication succeeds and before tRPC input parsing. It streams the Request body with a hard byte ceiling, rejects overflow with canonical 413, then rebuilds the Request with the bounded body for native tRPC parsing. This preserves A-06's authentication-before-body-parsing rule while providing an application-layer cap independent of Content-Length. Deployment/reverse-proxy limits must be equal or tighter.
+
+**CSRF:** this first-party floor uses explicit Bearer authorization rather than cookie authentication, so no new anti-CSRF token is invented. Browser requests that provide Origin/Sec-Fetch-Site must satisfy the exact server policy. A future cookie-authenticated surface must implement DD-16's SameSite + origin/host + token controls separately.
+
+**Scope:** no dynamic user-selected Industry cookie/session store, no Next.js route/bootstrap, no production hostname/origin values, no REST/OpenAPI and no broad router catalog.
+
+**Acceptance:** WEB-EDGE-001…006: exact host→selector binding; generic tenant/industry headers ignored; unknown/cross-site host/origin denied; declared oversize denied pre-auth; undeclared streamed oversize denied post-auth/pre-parse; bounded same-origin request passes.
