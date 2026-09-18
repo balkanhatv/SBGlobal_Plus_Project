@@ -25,7 +25,7 @@ before(async()=>{
   await c.query(`GRANT sbg_context_bootstrap_ro TO ${loginRole}`);
   await c.query(`INSERT INTO platform_directory.data_home
     (id,code,region_code,jurisdiction_code,topology_class,status,routing_version,metadata_json)
-    VALUES ($1,$1::text,'IN-CTX','IN','SHARED','ACTIVE',7,'{}')`,[f.home]);
+    VALUES ($1::uuid,$1::uuid::text,'IN-CTX','IN','SHARED','ACTIVE',7,'{}')`,[f.home]);
   await c.query(`INSERT INTO core_tenancy.tenant
     (id,tenant_code,legal_name,display_name,status,primary_industry_code,data_home_id,residency_region_code,created_at,updated_at)
     VALUES
