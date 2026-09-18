@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-18
 
-Current Development checkpoint is `DEV-AUTHZ-SOURCE-COMPILER-001`. The verified shared chain now covers Core/context/session security, Authorization source calculation/publication/read/evaluation, Commercial current state, resource/workflow PEP and durable final Authorization audit. Executable `13346932455c79637e9644f970db47052c1fe6ad` / tree `32ee41587e5569e598bc600b8d2ce9f8db602252`: **117 Core + 27 PostgreSQL + 38 migrations / 32 verification files PASS**. Next is DD-06 transport-neutral idempotency runtime enforcement, followed by runtime rate limiting before transport adapters.
+Current Development checkpoint is `DEV-API-IDEMPOTENCY-001`. Verified shared runtime now includes Authorization source calculation/publication/read/evaluation, Commercial current-state validation, resource/workflow PEP, durable Authorization audit, and DD-049 transport-neutral idempotency. Executable `5a6a93b9d509f56599ee1e6f3eed00d63d8484bf` / tree `55e32eaabafdc1da9aa57d19689dea2cf8c7b862`: **122 Core + 33 PostgreSQL + 39 migrations / 33 verification files PASS**. Next is DD-06 runtime rate-limit enforcement before tRPC/REST adapters.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

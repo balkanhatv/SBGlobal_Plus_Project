@@ -1,17 +1,12 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-18 · **Checkpoint:** `DEV-AUTHZ-SOURCE-COMPILER-001`
+**Updated:** 2026-09-18 · **Checkpoint:** `DEV-API-IDEMPOTENCY-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified executable:
-- HEAD `13346932455c79637e9644f970db47052c1fe6ad`
-- tree `32ee41587e5569e598bc600b8d2ce9f8db602252`
-- Core **117/117 PASS**
-- PostgreSQL **27/27 PASS**
-- DB **38 migrations / 32 verification files PASS**
+Verified executable `5a6a93b9d509f56599ee1e6f3eed00d63d8484bf`, tree `55e32eaabafdc1da9aa57d19689dea2cf8c7b862`: **122 Core + 33 PostgreSQL + 39 migrations / 33 verification files PASS**.
 
-DD-048 source compiler is complete within bounded scope: exact active/effective assignments, exact Tenant/Industry/Platform scope, role-version binding, permission-scope validation, DENY precedence, constrained-ALLOW→DENY, deterministic SHA-256 source fingerprint and publication only through the monotonic compiler boundary.
+DD-049 idempotency runtime is complete within bounded scope. It reuses `core_integration.idempotency_record`, stores no plaintext key/body, handles conflict/replay/in-progress/retry/final states, fixes exact Tenant/Industry RLS, and permits no app DELETE.
 
-Next governed slice: **DD-06 transport-neutral idempotency runtime boundary only**, reusing `core_integration.idempotency_record`. Do not start tRPC/REST yet; runtime rate limiting remains the subsequent prerequisite.
+Next governed slice: **DD-06 runtime rate limiter only**, based on DD-022/DD-028. Do not start tRPC/REST until that prerequisite is verified.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.

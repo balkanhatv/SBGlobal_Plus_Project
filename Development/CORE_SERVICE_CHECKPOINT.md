@@ -1,45 +1,44 @@
-# CORE SERVICE CHECKPOINT — DEV-AUTHZ-SOURCE-COMPILER-001
+# CORE SERVICE CHECKPOINT — DEV-API-IDEMPOTENCY-001
 **Updated:** 2026-09-18  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — deterministic RBAC source-to-snapshot compiler
+**Status:** IMPLEMENTED / TESTED — transport-neutral exact-scope idempotency runtime boundary
 
 ## Verified executable snapshot
-- Commit: `13346932455c79637e9644f970db47052c1fe6ad`.
-- Tree: `32ee41587e5569e598bc600b8d2ce9f8db602252`.
-- Prior executable checkpoint: `09d81fc23d44747ac566fa4fe1957c1efe32479f` (`DEV-AUTHZ-AUDIT-001`).
-- Database: **38 migrations / 32 verification files**.
-- Industry SQL scope remains **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
-- Core/server acceptance inventory: **117 tests**; real PostgreSQL inventory: **27 tests**.
+- Commit: `5a6a93b9d509f56599ee1e6f3eed00d63d8484bf`.
+- Tree: `55e32eaabafdc1da9aa57d19689dea2cf8c7b862`.
+- Database: **39 migrations / 33 verification files**.
+- Industry SQL scope: **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
+- Core/server acceptance inventory: **122 tests**.
+- Real PostgreSQL inventory: **33 tests**.
 
-## Current source compiler boundary
-DD-048 / `DEV-AUTHZ-SOURCE-COMPILER-001` closes the previously unimplemented RBAC calculation step:
-- compiler reads governed role/permission source through dedicated `sbg_authorization_compiler_rw`;
-- source access is SELECT-only; source mutation remains prohibited;
-- TENANT_CORE uses only null-Industry assignments;
-- TENANT_INDUSTRY uses only the exact target Industry Context; null never means every Industry;
-- PLATFORM_GLOBAL uses only exact-principal platform role assignments;
-- active/effective assignments and active role/permission definitions only;
-- unscoped OrgUnit assignment may apply inside its exact Tenant/Industry scope; scoped assignment requires exact selected OrgUnit;
-- role-permission version must match active role-template version;
-- permission definition scope must exactly match compiled scope;
-- explicit DENY wins across roles;
-- non-empty role-permission constraints compile conservatively as DENY because Permission Set v1 has no constraint payload;
-- canonical source produces deterministic SHA-256 fingerprint;
-- publication goes only through the already verified monotonic snapshot writer;
-- invalid/unavailable source attempts fail closed and invalid source attempts current-snapshot invalidation where possible.
+## Current DD-06 idempotency boundary
+DD-049 / `DEV-API-IDEMPOTENCY-001` is implemented:
+- REQUIRED key missing fails before domain mutation;
+- OPTIONAL without key and NONE bypass persistence;
+- only TENANT_CORE/TENANT_INDUSTRY COMMAND paths are supported by this physical runtime slice;
+- plaintext keys/request bodies never persist;
+- versioned SHA-256 key/request fingerprints are server-derived from validated canonical input;
+- same key + different fingerprint => deterministic conflict;
+- IN_PROGRESS prevents a second execution claim;
+- SUCCEEDED returns replay metadata only;
+- FAILED_RETRYABLE may atomically reclaim; FAILED_FINAL stays final;
+- expired keys may reinitialize only after row lock;
+- concurrent identical first claims produce exactly one STARTED claimant;
+- migration 0039 fixes the legacy null-Industry wildcard RLS defect;
+- `sbg_app_rw` has only SELECT/INSERT/UPDATE on idempotency truth and no DELETE.
 
 ## Exact executable evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35319924686 | 105519928448 | **PASS — 117/117** |
-| Core Service Verify / postgres-context-verify | 35319924686 | 105519928725 | **PASS — 27/27** |
-| Database Verify / postgres-verify | 35319924571 | 105519928057 | **PASS — 38 migrations / 32 verification files** |
+| Core Service Verify / core-service-verify | 35335799295 | 105570227470 | **PASS — 122/122** |
+| Core Service Verify / postgres-context-verify | 35335799295 | 105570227217 | **PASS — 33/33** |
+| Database Verify / postgres-verify | 35335799285 | 105570227205 | **PASS — 39 migrations / 33 verification files** |
 
-All jobs asserted exact tested HEAD `13346932455c79637e9644f970db47052c1fe6ad` and tree `32ee41587e5569e598bc600b8d2ce9f8db602252`.
+All jobs asserted exact tested HEAD `5a6a93b9d509f56599ee1e6f3eed00d63d8484bf` and tree `55e32eaabafdc1da9aa57d19689dea2cf8c7b862`.
 
-## Scope limits / next governed work
-Next shared-Core prerequisite: **DD-06 transport-neutral idempotency runtime boundary only** — bind REQUIRED/OPTIONAL command semantics to the existing `core_integration.idempotency_record` truth with exact Tenant/Industry/actor scope, request fingerprint conflict detection, in-progress/success/final-failure state handling, and fail-closed PostgreSQL tests.
+## Next governed work
+Next shared-Core prerequisite: **DD-06 runtime rate-limit enforcement only**, consuming the locked DD-022/DD-028 rate-class policy. It must remain transport-neutral, apply the tightest applicable principal/IP/credential/Tenant/security-risk bucket, fail closed on limiter dependency/state errors, and produce deterministic RATE_LIMITED + retry metadata.
 
-Do not start tRPC/REST adapters until idempotency and rate-limit runtime enforcement prerequisites are verified. Concrete module resource/workflow adapters, dedicated Commercial restricted-mode/UPGRADE_CTA, enforceable ABAC RESTRICT payload/reducer, PUBLIC/EXPLICIT_CROSS_CONTEXT audit paths, UI/mobile/desktop, deployment and production certification remain unfinished.
+Do not start tRPC/REST adapters until the rate-limit prerequisite passes exact-head CI.
 
-RawSourceCorpus remains immutable. `main` remains unmerged; PR #2 stays review-only/draft.
+Still unfinished: concrete per-module resource/workflow adapters, dedicated Commercial restricted-mode/UPGRADE_CTA, enforceable ABAC RESTRICT payload/reducer, PUBLIC/EXPLICIT_CROSS_CONTEXT audit/idempotency paths, UI/mobile/desktop, deployment and production certification. RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.
