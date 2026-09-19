@@ -294,6 +294,7 @@ export function createFirstPartyWebApplication(
   });
   const router=createFirstPartyCoreRouter({
     ports:{executor,schemas,dtos,projector},
+    includeWorkspaceResolve:true,
   });
 
   const edgePolicy=new ConfiguredFirstPartyWebEdgePolicy({

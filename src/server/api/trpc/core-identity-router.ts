@@ -158,6 +158,7 @@ export function registerCoreIdentityRolesListEffective(input:{
 
 export function createFirstPartyCoreRouter(input:{
   readonly ports:FirstPartyTrpcAdapterPorts;
+  readonly includeWorkspaceResolve?:boolean;
 }){
   const listEffective=createFirstPartyQueryProcedure({
     ports:input.ports,
@@ -165,20 +166,22 @@ export function createFirstPartyCoreRouter(input:{
     inputSchema:CORE_IDENTITY_ROLES_LIST_EFFECTIVE_INPUT_V1,
     outputSchema:CORE_IDENTITY_ROLES_LIST_EFFECTIVE_OUTPUT_V1,
   });
-  const resolveWorkspace=createFirstPartyQueryProcedure({
-    ports:input.ports,
-    operation:CORE_TENANCY_WORKSPACE_RESOLVE,
-    inputSchema:CORE_TENANCY_WORKSPACE_RESOLVE_INPUT_V1,
-    outputSchema:CORE_TENANCY_WORKSPACE_RESOLVE_OUTPUT_V1,
-  });
+  const workspace=input.includeWorkspaceResolve
+    ? firstPartyTrpc.router({
+        resolve:createFirstPartyQueryProcedure({
+          ports:input.ports,
+          operation:CORE_TENANCY_WORKSPACE_RESOLVE,
+          inputSchema:CORE_TENANCY_WORKSPACE_RESOLVE_INPUT_V1,
+          outputSchema:CORE_TENANCY_WORKSPACE_RESOLVE_OUTPUT_V1,
+        }),
+      })
+    : undefined;
 
   return firstPartyTrpc.router({
     core:firstPartyTrpc.router({
-      tenancy:firstPartyTrpc.router({
-        workspace:firstPartyTrpc.router({
-          resolve:resolveWorkspace,
-        }),
-      }),
+      ...(workspace
+        ? {tenancy:firstPartyTrpc.router({workspace})}
+        : {}),
       identity:firstPartyTrpc.router({
         roles:firstPartyTrpc.router({
           listEffective,

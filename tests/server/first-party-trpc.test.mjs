@@ -159,6 +159,7 @@ test("core.tenancy.workspace.resolve has no Tenant-authority DTO field and binds
 
   const seen=[];
   const router=createFirstPartyCoreRouter({
+    includeWorkspaceResolve:true,
     ports:{
       dtos,schemas,projector:new TransportEnvelopeProjector(),
       executor:{
