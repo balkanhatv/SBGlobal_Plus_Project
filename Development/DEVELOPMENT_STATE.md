@@ -1,16 +1,16 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-19 · **Checkpoint:** `DEV-COMMERCIAL-WRITER-BOUNDARY-001`
+**Updated:** 2026-09-19 · **Checkpoint:** `DEV-COMMERCIAL-PUBLICATION-001`
 
-Development is **IN PROGRESS — ATOMIC COMMERCIAL PUBLICATION TRANSACTION FLOOR**.
+Development is **IN PROGRESS — DD-062 PLAN-CHANGE EVIDENCE PERSISTENCE**.
 
-Verified `b420e1547d9366f3c21612643e2ee04c3214c992` / `80fdbb7377247f374801791f09ae75d118ae832b`:
-- **180/180 Core PASS**
-- **44/44 PostgreSQL PASS**
-- **43 migrations / 37 verification files PASS**
+Verified `a810af51c93dba5959d4b26502c47100afd631fa` / `5b4b662acdc450a9878101652e2bd0ce98404da4`:
+- **182/182 Core PASS**
+- **47/47 PostgreSQL PASS**
+- **44 migrations / 38 verification files PASS**
 - **Next.js 15.5.25 production build + deterministic lock/config clean-state PASS**
 
-DD-062 plan-change orchestration semantics are locked. DD-063 Commercial events and DD-064 dedicated transition/compiler writer are exact-head verified. General application roles no longer mutate Commercial truth.
+DD-065 atomic Commercial publication is implemented/tested and remains internal. Subscription/snapshot/outbox/audit apply can now be one least-privilege transaction, but public changePlan still lacks physical DD-062 assessment/remediation/Billing-or-approval evidence authority.
 
-Next: implement the bounded atomic publication transaction repository/service floor. Do not bind the public changePlan command until server-owned assessment/resolution evidence persistence plus Billing/approval producer runtime exist.
+Next: implement only persisted/versioned plan-change assessment/remediation/route-resolution evidence and its least-privilege producer boundaries. Do not bind public changePlan yet.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

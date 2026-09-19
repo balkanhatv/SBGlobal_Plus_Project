@@ -659,3 +659,14 @@ Because this is a pre-context read boundary, narrow SELECT RLS policies admit on
 Outbox uses an additional RESTRICTIVE policy for this role so it can emit only DD-063 v1 `subscription.transitioned` and `entitlement.recompiled` as TENANT_CORE events. Audit uses a corresponding RESTRICTIVE Commercial/TENANT_CORE policy.
 
 **Consequence:** CP-08 is physically closable without BYPASSRLS or broad application DML. The role still does not authorize domain mutation by itself: DD-062 evidence, deterministic compiler logic, atomic publication/outbox/audit and Billing/approval producer runtime remain required.
+
+
+## DD-065 — Public changePlan remains separate from verified atomic publication
+
+**Context:** DD-062 defines server-owned assessment/remediation/Billing/approval authority; DD-063/064 provide event contracts and a least-privilege writer. The remaining CP-06 blocker was an executable atomic Subscription + entitlement snapshot + outbox/audit publication path.
+
+**Decision:** implement an internal SERVICE/TENANT_CORE `CommercialPublicationService` and dedicated PostgreSQL store. The service accepts only normalized, already server-validated compiled publication input and server-generated IDs. The store re-locks Subscription/current snapshot, checks expected versions/source PlanVersion, revalidates target PlanVersion and fact definitions/Industry ownership, then writes Subscription transition, immutable snapshot/facts, two cataloged outbox events and Commercial audit in one transaction.
+
+**Isolation:** a dedicated fixed-role database adapter uses `sbg_commercial_transition_compiler_rw`; migration 0044 gives only same-Tenant Tenant-record SELECT for authoritative residency. General application roles remain non-writers.
+
+**Consequence:** CP-06 is closed and the atomic apply/publication primitive is executable/tested. This does not close CP-03/04/05 runtime evidence: the public `core.commercial.subscription.changePlan` must remain unbound until persisted/versioned assessment/remediation evidence and Billing/approval SATISFIED producer evidence can authorize a call into this primitive.
