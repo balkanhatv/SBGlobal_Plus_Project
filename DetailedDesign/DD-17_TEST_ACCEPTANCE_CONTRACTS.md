@@ -544,3 +544,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-PLAN-008 | Subscription version/source plan changed after assessment | apply fails closed as stale/conflict and requires re-evaluation |
 | COMM-PLAN-009 | route policy/assessment version changed | stale resolution evidence cannot authorize apply |
 | COMM-PLAN-010 | request/result serialized | no provider secret, payment instrument, pricing formula or raw approval payload crosses the Commercial API |
+
+
+### Commercial event catalog — DD-063 / DEV-COMMERCIAL-EVENT-CATALOG-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-EVT-001 | database bootstrap applies catalog migration | exactly active v1 rows exist for subscription.transitioned and entitlement.recompiled |
+| COMM-EVT-002 | catalog row inspected | producer=Commercial, scope=TENANT_CORE, sensitivity=INTERNAL, webhook_eligible=false |
+| COMM-EVT-003 | subscription.transitioned payload schema | exact required state/plan/version/transition fields; no price/payment/approval/secret fields |
+| COMM-EVT-004 | entitlement.recompiled payload schema | exact snapshot/version/source metadata; no entitlement facts/licenses/deny-set/pricing fields |
+| COMM-EVT-005 | ordinary app runtime privileges event catalog | SELECT permitted; INSERT/UPDATE/DELETE denied |
+| COMM-EVT-006 | future outbox write names an unknown Commercial event/version | FK/catalog validation rejects it |
+| COMM-EVT-007 | future tenant-core outbox event carries Industry Context | scope mismatch must be rejected by writer/envelope validation; null Industry is canonical for these events |

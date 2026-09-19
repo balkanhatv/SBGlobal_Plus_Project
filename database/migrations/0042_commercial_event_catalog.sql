@@ -1,0 +1,96 @@
+-- SBGlobal Plus — Migration 0042: Commercial event catalog v1
+BEGIN;
+
+INSERT INTO core_integration.event_catalog (
+  event_type,
+  event_version,
+  producer_module,
+  scope_class,
+  payload_schema_json,
+  sensitivity_class,
+  ordering_key,
+  consumer_classes_json,
+  retention_audit_posture,
+  webhook_eligible,
+  backward_compatibility,
+  status,
+  created_at
+)
+VALUES
+(
+  'subscription.transitioned',
+  1,
+  'Commercial',
+  'TENANT_CORE',
+  '{
+    "type":"object",
+    "additionalProperties":false,
+    "required":[
+      "transitionId",
+      "subscriptionId",
+      "fromState",
+      "toState",
+      "fromPlanVersionId",
+      "toPlanVersionId",
+      "subscriptionVersion",
+      "triggerCode",
+      "effectiveAt"
+    ],
+    "properties":{
+      "transitionId":{"type":"string","format":"uuid"},
+      "subscriptionId":{"type":"string","format":"uuid"},
+      "fromState":{"type":"string","enum":["PENDING","TRIAL","ACTIVE","GRACE","SUSPENDED","EXPIRED","CANCELLED"]},
+      "toState":{"type":"string","enum":["PENDING","TRIAL","ACTIVE","GRACE","SUSPENDED","EXPIRED","CANCELLED"]},
+      "fromPlanVersionId":{"type":"string","format":"uuid"},
+      "toPlanVersionId":{"type":"string","format":"uuid"},
+      "subscriptionVersion":{"type":"integer","minimum":1},
+      "triggerCode":{"type":"string","minLength":1,"maxLength":128},
+      "effectiveAt":{"type":"string","format":"date-time"},
+      "planChangeRequestId":{"type":"string","format":"uuid"},
+      "reasonCode":{"type":"string","minLength":1,"maxLength":128}
+    }
+  }'::jsonb,
+  'INTERNAL',
+  'subscriptionId',
+  '["Entitlement","Notification"]'::jsonb,
+  'IMMUTABLE_OPERATIONAL_EVIDENCE',
+  false,
+  'V1_ADDITIVE_ONLY',
+  'ACTIVE',
+  now()
+),
+(
+  'entitlement.recompiled',
+  1,
+  'Commercial',
+  'TENANT_CORE',
+  '{
+    "type":"object",
+    "additionalProperties":false,
+    "required":[
+      "snapshotId",
+      "snapshotVersion",
+      "sourceSubscriptionId",
+      "sourcePlanVersionId",
+      "validFrom"
+    ],
+    "properties":{
+      "snapshotId":{"type":"string","format":"uuid"},
+      "snapshotVersion":{"type":"integer","minimum":1},
+      "sourceSubscriptionId":{"type":"string","format":"uuid"},
+      "sourcePlanVersionId":{"type":"string","format":"uuid"},
+      "validFrom":{"type":"string","format":"date-time"},
+      "previousSnapshotVersion":{"type":"integer","minimum":1}
+    }
+  }'::jsonb,
+  'INTERNAL',
+  'tenantId',
+  '["Authorization","Experience"]'::jsonb,
+  'IMMUTABLE_OPERATIONAL_EVIDENCE',
+  false,
+  'V1_ADDITIVE_ONLY',
+  'ACTIVE',
+  now()
+);
+
+COMMIT;

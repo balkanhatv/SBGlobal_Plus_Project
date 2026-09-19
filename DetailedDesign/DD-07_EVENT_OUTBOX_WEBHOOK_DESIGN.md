@@ -89,3 +89,59 @@ Webhook payload is a cataloged projection, not raw DB entity. Sensitive fields e
 - industry mismatch never reaches webhook endpoint;
 - replay remains same tenant/context and event identity lineage;
 - an incomplete/mismatched envelope, unverified ACTIVE endpoint, foreign allowlist context or identity/detail tuple mismatch is rejected before dispatch.
+
+
+## 14. Commercial event catalog v1 [DD-063]
+
+Two internal TENANT_CORE events are now the canonical first Commercial event contracts. Both are `INTERNAL`, `webhook_eligible=false`, version 1, and additive-only within v1. External/webhook projections require a separate minimized contract.
+
+### 14.1 `subscription.transitioned` v1
+
+**Producer:** Commercial.  
+**Ordering key:** `subscriptionId`.  
+**Consumers:** Entitlement + Notification classes.
+
+Required payload:
+- `transitionId: uuid`
+- `subscriptionId: uuid`
+- `fromState`: canonical subscription state
+- `toState`: canonical subscription state
+- `fromPlanVersionId: uuid`
+- `toPlanVersionId: uuid`
+- `subscriptionVersion: positive integer`
+- `triggerCode: non-empty string`
+- `effectiveAt: RFC3339 date-time`
+
+Optional payload:
+- `planChangeRequestId: uuid`
+- `reasonCode: non-empty string`
+
+Tenant identity, actor, correlation, occurrence time, residency, causation and source resource remain in the DD-07 envelope rather than being duplicated as client-controlled payload authority.
+
+This event contains no amount, price, card/payment token, provider secret, approval payload or entitlement facts. A plan migration may keep the same subscription state while changing PlanVersion; the event still records both state and PlanVersion before/after values.
+
+### 14.2 `entitlement.recompiled` v1
+
+**Producer:** Commercial.  
+**Ordering key:** Tenant from envelope.  
+**Consumers:** Authorization + Experience classes.
+
+Required payload:
+- `snapshotId: uuid`
+- `snapshotVersion: positive integer`
+- `sourceSubscriptionId: uuid`
+- `sourcePlanVersionId: uuid`
+- `validFrom: RFC3339 date-time`
+
+Optional payload:
+- `previousSnapshotVersion: positive integer`
+
+The payload intentionally excludes entitlement facts, deny-set contents, licenses, principal assignments, pricing and payment/approval evidence. Consumers use the event as a version-invalidation signal and must re-read authorized state through module-owned read contracts.
+
+### 14.3 Catalog / outbox rules
+
+- `subscription.transitioned` and `entitlement.recompiled` are cataloged before any runtime may insert them into `outbox_event`.
+- physical outbox Tenant/Industry scope, catalog scope and envelope scope must agree; these two v1 events have null Industry Context because they are TENANT_CORE.
+- aggregate ordering uses the Subscription/version or Tenant snapshot version respectively.
+- business mutation, immutable evidence, outbox identity/detail and required audit append remain one authoritative DB transaction.
+- ordinary application runtime may SELECT catalog rows but may not mutate the catalog.

@@ -637,3 +637,14 @@ Because this is a pre-context read boundary, narrow SELECT RLS policies admit on
 **Apply invariant:** Subscription mutation is a separate internal transition and remains blocked until current version/source-plan checks, impact/remediation, route resolution, target validity, entitlement compilation/publication and outbox/audit all succeed under the dedicated write boundary. Request/evaluation alone never changes the current Subscription or entitlement snapshot.
 
 **Consequence:** DD-061 CP-03/04/05 are contractually closed without inventing provider/proration formulas. Physical evidence persistence/Billing producer runtime still must be implemented before direct apply; Commercial event catalog and least-privilege compiler writer remain the next blockers.
+
+
+## DD-063 — First Commercial events are internal, catalog-first, minimal v1 contracts
+
+**Context:** DD-061 identified that plan-change apply cannot safely emit an uncataloged event. DD-07 requires event type/version/scope/payload to be registered before outbox insertion, while A-04 names `subscription.transitioned` and `entitlement.recompiled` as the Commercial→compiler/cache/notification signals.
+
+**Decision:** Version 1 of both events is TENANT_CORE, producer `Commercial`, sensitivity `INTERNAL`, and not webhook-eligible. `subscription.transitioned` carries only transition/subscription/state/PlanVersion/version/effective-time evidence plus optional plan-change/reason references. `entitlement.recompiled` carries only snapshot identity/version/source references and valid-from time. Neither payload carries entitlement facts, raw licenses/deny sets, monetary calculation, payment instrument/provider secret, or raw approval payload.
+
+**Physicalization:** migration 0042 seeds the exact event-catalog rows; verification 0042 asserts schema metadata and keeps ordinary application runtime catalog access read-only.
+
+**Consequence:** CP-07 is closed at catalog-contract level. A future Commercial writer/compiler may only emit these exact versions until a governed incompatible event version is published. This decision does not yet authorize Subscription mutation or snapshot publication.

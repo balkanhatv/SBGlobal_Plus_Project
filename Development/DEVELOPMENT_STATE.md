@@ -12,6 +12,6 @@ Verified `3bb86bc4b1b313c6bee8c8d65406992bb6b28cc7` / `07ebd925d3c0176907ebd257e
 
 The first-party Identity, Workspace and client-safe current Commercial entitlement queries are implemented/tested through one server-authoritative OperationExecutor/tRPC/Next chain. Commercial client projection does not expose internal snapshot/subscription/license identifiers.
 
-Fresh prerequisite audit is recorded in `COMMERCIAL_CHANGE_PLAN_PREREQUISITE_AUDIT.md`. DD-062 now locks the server-owned plan-change assessment, remediation and Billing/approval handoff contract without provider/proration invention. Direct apply remains blocked. Next: lock Commercial event v1 payload/catalog contracts, then the least-privilege compiler/write boundary.
+Fresh prerequisite audit is recorded in `COMMERCIAL_CHANGE_PLAN_PREREQUISITE_AUDIT.md`. DD-062 locks the server-owned plan-change assessment/remediation/Billing handoff contract. DD-063 + migration 0042 now lock and seed internal v1 `subscription.transitioned` and `entitlement.recompiled` catalog contracts. Direct apply remains blocked. Next, after PostgreSQL verification, implement the dedicated least-privilege Commercial writer/compiler DB boundary.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.
