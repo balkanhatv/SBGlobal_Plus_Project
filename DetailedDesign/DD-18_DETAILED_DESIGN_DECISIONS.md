@@ -617,3 +617,12 @@ Because this is a pre-context read boundary, narrow SELECT RLS policies admit on
 **Scope:** this is directory/bootstrap truth only. It does not authorize business operations, compile permissions, expose identity secrets, create dynamic host bindings or replace DD-02 membership/Industry validation.
 
 **Acceptance:** CTX-BOOT-001…006 plus migration 0041 verification: multi-membership ambiguity; membership-bound selector; exact sibling-Industry isolation; server-derived OrgUnit path; DataHome route; least-privilege/no-sensitive-read proof.
+
+
+## DD-061 — Change-plan transport contract is corrected; direct mutation remains gated
+
+**Context:** DD-06 originally placed `idempotencyKey` inside the `core.commercial.subscription.changePlan` DTO even though DD-049/DD-054 already established transport-owned idempotency metadata. F-14 also requires route-specific checkout/payment or order/approval before a plan version changes, mandatory downgrade impact/remediation, and atomic entitlement recompilation. The current repository has no Billing/proration runtime, plan-change resolution evidence contract, write-side Commercial compiler, cataloged Commercial events, or dedicated least-privilege Commercial mutation role.
+
+**Decision:** The command uses REQUIRED shared idempotency; `Idempotency-Key` is not a DTO field. `effectiveTiming` is exactly `IMMEDIATE | NEXT_RENEWAL`, derived from F-14's immediate vs next-cycle rule. No direct Subscription plan-version mutation may be implemented until a server-owned route-resolution/evidence contract, downgrade impact/remediation contract, Billing/proration handoff, immutable entitlement compiler/publication boundary, cataloged outbox events and dedicated least-privilege write path are deterministic and testable.
+
+**Consequence:** Development must close prerequisite contracts/boundaries first. No payment/approval result, proration amount, entitlement diff, event payload, or writer privilege may be guessed inside a transport/domain handler. This preserves F-14 atomicity and A-01's one Core enforcement chain while preventing a partially implemented plan change from widening or corrupting access.

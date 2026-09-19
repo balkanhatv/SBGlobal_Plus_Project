@@ -96,7 +96,7 @@ Query; TENANT_CORE; input membership/principal reference; output effective role/
 Query; TENANT_CORE; output current snapshot projection safe for UI; permission tenant membership + entitlement self-view policy.
 
 ### core.commercial.subscription.changePlan
-Command; TENANT_CORE; exact input: subscriptionId, targetPlanVersionId, effectiveTiming enum, expectedVersion, idempotencyKey; output change request/result + entitlement diff reference; permission `core.commercial.subscription.change_plan`; emits commercial events.
+Command; TENANT_CORE; provisional input fields are `subscriptionId`, `targetPlanVersionId`, `effectiveTiming`, `expectedVersion`; `effectiveTiming` vocabulary is `IMMEDIATE | NEXT_RENEWAL`. `Idempotency-Key` is transport metadata owned by DD-049/DD-054 and MUST NOT be duplicated inside the DTO. Operation idempotency policy is REQUIRED. Direct mutation remains implementation-blocked until DD-061 closes route/payment-or-approval evidence, impact/remediation/proration, compiler/outbox and least-privilege write-boundary prerequisites; no client field may bypass those server-owned gates.
 
 ### core.document.signedDownload.create
 Command/query hybrid capability; scope follows document; input documentId; output short-lived signed URL descriptor; permission resolved by source document ACL; never exposes storage secret/key as authority.
@@ -287,3 +287,19 @@ The exact v1 output is the DD-04 `CommercialClientCurrentProjectionV1`: `snapsho
 The domain service must re-read current Commercial state and require exact RequestContext snapshot id/version equality before projection. Denied/disabled/zero/empty facts are omitted, not exposed as client truth. Invalid or over-bound state fails closed.
 
 The existing GuardPipeline remains in front of the domain call; this query does not create a bypass around current subscription, seat, RBAC, ABAC, audit or rate controls.
+
+
+## 31. Commercial change-plan implementation gate [DD-061 prerequisite audit]
+
+The prior one-line baseline contract was not sufficient to authorize mutation. Fresh Development audit after DEV-COMMERCIAL-ENTITLEMENTS-QUERY-001 found the following:
+
+- **Resolved transport contradiction:** `Idempotency-Key` belongs to the shared transport/executor metadata path and is not part of the command DTO. `core.commercial.subscription.changePlan` will use `idempotencyPolicy=REQUIRED`.
+- **Resolved timing vocabulary:** F-14's immediate-vs-next-cycle language is normalized to `IMMEDIATE | NEXT_RENEWAL`; no third timing mode is inferred.
+- **Blocking route-resolution contract:** F-14 requires checkout/payment for self-serve paid changes or order/approval for sales-assisted changes before the Subscription plan version changes. The repository has no deterministic server-owned evidence/reference contract tying that resolution to a plan-change apply.
+- **Blocking downgrade contract:** impact assessment + explicit remediation are mandatory when target-plan limits are below current use. The repository has no exact persisted impact/remediation result contract for the command.
+- **Blocking proration/billing contract:** A-04 assigns proration to Billing at transition time, but no executable Billing/payment/proration runtime exists in the current repository. No monetary formula/provider behavior may be invented inside Commercial.
+- **Blocking compiler boundary:** current Commercial runtime is read-only. No write-side entitlement compiler/publication service exists to atomically supersede/publish the immutable current snapshot after a plan change.
+- **Blocking event contract:** DD-07 requires cataloged event/version/payload before outbox insertion. No executable `subscription.transitioned` or `entitlement.recompiled` event catalog entry/payload contract exists.
+- **Blocking least-privilege write boundary:** historical `sbg_app_rw` retains broad Commercial DML inherited from migration 0009; later hardening protects immutable evidence from UPDATE/DELETE but does not create a dedicated plan-change/compiler writer role.
+
+Therefore `core.commercial.subscription.changePlan` is **NOT IMPLEMENTATION-AUTHORIZED** at this checkpoint. The next governed work is the smallest deterministic prerequisite design/write boundary that closes these blockers without inventing payment-provider semantics.

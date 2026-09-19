@@ -1,0 +1,44 @@
+# COMMERCIAL CHANGE-PLAN PREREQUISITE AUDIT
+**Date:** 2026-09-19  
+**Branch:** `docs/architecture-branch-2`  
+**Starting checkpoint:** `DEV-COMMERCIAL-ENTITLEMENTS-QUERY-001`  
+**Verified executable floor:** `3bb86bc4b1b313c6bee8c8d65406992bb6b28cc7` / `07ebd925d3c0176907ebd257e0cdecb5d0f3840e`
+
+## Verdict
+
+**DIRECT `core.commercial.subscription.changePlan` IMPLEMENTATION: BLOCKED BY PREREQUISITES.**
+
+The blocker is not the already-verified query/transport kernel. The blocker is the missing deterministic write-side Commercial contract and physical boundaries required by F-14/A-04/DD-04/DD-07.
+
+## Findings
+
+| ID | Finding | Evidence-based status | Required next action |
+|---|---|---|---|
+| CP-01 | DD-06 put `idempotencyKey` in DTO while DD-049/DD-054 use transport metadata | **CORRECTED** | DTO excludes key; OperationContract will be REQUIRED |
+| CP-02 | `effectiveTiming` enum was unnamed | **CORRECTED** | exact vocabulary `IMMEDIATE | NEXT_RENEWAL` |
+| CP-03 | F-14 requires checkout/payment or order/approval before plan mutation | **BLOCKING** | define server-owned resolution/evidence contract; do not trust client proof |
+| CP-04 | downgrade requires impact assessment + explicit remediation | **BLOCKING** | lock persisted/evaluable impact + remediation result contract |
+| CP-05 | A-04 assigns proration to Billing; no Billing/payment/proration runtime exists | **BLOCKING** | define handoff/result boundary without provider-specific invention |
+| CP-06 | no Commercial mutation/compiler runtime exists under `src/` | **BLOCKING** | design/implement write-side transaction + immutable snapshot publication prerequisite |
+| CP-07 | DD-07 requires cataloged events; executable code/catalog has no `subscription.transitioned` or `entitlement.recompiled` contract | **BLOCKING** | lock event v1 envelope/payload + catalog rows before outbox emission |
+| CP-08 | `sbg_app_rw` historically has broad Commercial DML; no dedicated plan-change/compiler writer role exists | **BLOCKING** | create least-privilege role/grants and real PostgreSQL verification before domain mutation |
+
+## Repository evidence
+
+- Current Commercial runtime files are read-side only: `src/core/commercial/current-state.ts` and `src/server/commercial/postgres-commercial-current-state.ts`.
+- `database/migrations/0004_commercial_entitlement.sql` has Subscription/Transition/License/Snapshot persistence and RLS, but no plan-change request/resolution entity or compiler transaction function.
+- `database/migrations/0029_scope_privilege_identity_hardening.sql` revokes catalog writes and immutable evidence UPDATE/DELETE, but no dedicated Commercial mutation/compiler runtime role is introduced.
+- `database/migrations/0008_audit_event_outbox_webhook.sql` enforces event-catalog FK + outbox structure; the required Commercial event contracts are not executable entries in the repository.
+- Shared idempotency is already complete in DD-049/migration 0039/executor and therefore must be reused, not duplicated.
+
+## Dependency-safe continuation
+
+Next work must close **DD-061 write-contract prerequisites** before command code. The safest order is:
+
+1. lock server-owned plan-change resolution/impact/remediation/Billing handoff contract;
+2. lock Commercial event v1 payload/catalog contracts;
+3. design and implement least-privilege Commercial write/compiler DB boundary with real PostgreSQL tests;
+4. implement immutable entitlement snapshot publication transaction + outbox/audit atomicity;
+5. only then bind `core.commercial.subscription.changePlan` through the existing OperationExecutor/tRPC/Next chain.
+
+RawSourceCorpus remains immutable. `main` remains unmerged.

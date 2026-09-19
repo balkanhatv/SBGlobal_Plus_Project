@@ -7,6 +7,6 @@ Verified executable `3bb86bc4b1b313c6bee8c8d65406992bb6b28cc7`, tree `07ebd925d3
 
 DD-060 is implemented within bounded scope: `core.commercial.entitlements.getCurrent` accepts strict empty input, revalidates exact current Commercial snapshot, returns only client-safe enabled entitlement state and remains behind the existing Commercial/Authorization guard chain.
 
-Next governed work is not direct mutation by assumption: audit `core.commercial.subscription.changePlan` prerequisites first. If write repository, least-privilege DB boundary, entitlement recompilation/publication, expectedVersion, outbox or deterministic lifecycle semantics are missing, close only the blocking prerequisite before the command.
+Prerequisite audit is now recorded in `Development/COMMERCIAL_CHANGE_PLAN_PREREQUISITE_AUDIT.md`. Direct `core.commercial.subscription.changePlan` mutation is blocked by missing server-owned checkout/payment-or-approval evidence, downgrade impact/remediation, Billing/proration handoff, Commercial compiler/publication, cataloged events and a dedicated least-privilege writer boundary. DD-06/DD-061 already correct the idempotency DTO conflict and lock `IMMEDIATE | NEXT_RENEWAL`. Next: close the deterministic write-contract prerequisites before code.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.
