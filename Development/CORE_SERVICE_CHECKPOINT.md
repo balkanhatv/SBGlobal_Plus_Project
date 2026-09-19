@@ -1,42 +1,46 @@
-# CORE SERVICE CHECKPOINT — DEV-CONTEXT-BOOTSTRAP-001
+# CORE SERVICE CHECKPOINT — DEV-WEB-COMPOSITION-001
 **Updated:** 2026-09-19  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — pre-context Tenant directory bootstrap
+**Status:** IMPLEMENTED / TESTED — concrete Next.js first-party server composition
 
 ## Verified executable snapshot
-- Commit: `b244187e69eee37ce05e5739df4680b3f0511b54`.
-- Tree: `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`.
-- Core/server acceptance: **168/168 PASS**.
+- Commit: `a440c80ee0d4b97301a310d3ea7574feaf6efa30`.
+- Tree: `981980fe35b2e0c6a366c3dc45cac5ec2f19aa47`.
+- Core/server acceptance: **172/172 PASS**.
 - Real PostgreSQL regression: **44/44 PASS**.
 - Database: **41 migrations / 35 verification files PASS**.
+- Next.js 15 production build + generated-state cleanliness: **PASS**.
 - Industry SQL remains **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
 
-## DD-057 boundary
-- dedicated `sbg_context_bootstrap_ro` NOLOGIN/NOBYPASSRLS role;
-- SELECT-only access to DataHome, Tenant, Industry Context, OrgUnit, Tenant Membership and Current Supported Industry presentation truth;
-- no provider-link, API-credential secret, device/session-security or PlatformPrincipal directory access;
-- human Tenant resolution requires an exact active membership and explicit selector when multiple memberships exist;
-- machine-bound Tenant resolution stays exact to the bound Tenant;
-- Industry resolution is exact inside the resolved Tenant; sibling-Tenant Industry IDs cannot cross-resolve;
-- OrgUnit root-to-leaf path is derived server-side;
-- DataHome/routingVersion is read from the server directory before tenant-scoped SQL;
-- bootstrap database adapter enforces the dedicated runtime role and read-only transaction behavior.
+## DD-058 boundary
+- governed package boundary pins Next.js 15.5.25 + React/ReactDOM 19.3.0 on Node 22+;
+- `src/server/app/first-party-web-composition.ts` composes existing identity/context/commercial/authorization/rate/idempotency/DTO/domain/tRPC services only;
+- `src/app/api/trpc/[trpc]/route.ts` is a Node-runtime GET/POST transport boundary with no route-local business/security logic;
+- trusted host binding remains selector-only and RequestContext revalidates Tenant/membership/Industry truth;
+- machine/API credentials remain outside this Clerk Bearer first-party human route;
+- runtime secrets and cell routing facts have no source defaults;
+- Core `tsconfig.json` and Next `tsconfig.web.json` are separate governed compiler boundaries;
+- NodeNext `.js` imports stay canonical while Next resolves TypeScript sources through `extensionAlias`;
+- npm lock verification and Web CI are read-only; CI does not push generated files.
 
 ## Exact evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35395873206 | 105764448946 | **PASS — 168/168** |
-| Core Service Verify / postgres-context-verify | 35395873206 | 105764448659 | **PASS — 44/44** |
-| Database Verify / postgres-verify | 35395873225 | 105764448413 | **PASS — 41 migrations / 35 verification files** |
+| Core Service Verify / core-service-verify | 35438688233 | 105885645174 | **PASS — 172/172** |
+| Core Service Verify / postgres-context-verify | 35438688233 | 105885644915 | **PASS — 44/44 + DB bootstrap PASS** |
+| Database Verify / postgres-verify | 35438688091 | 105885644667 | **PASS — 41 migrations / 35 verification files** |
+| Web Boundary Verify / web-boundary-verify | 35438688076 | 105885644638 | **PASS — deterministic lock + Core compile + Next production build + clean generated state** |
 
-All jobs asserted exact tested HEAD `b244187e69eee37ce05e5739df4680b3f0511b54` and tree `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`.
+All jobs asserted exact tested HEAD `a440c80ee0d4b97301a310d3ea7574feaf6efa30`; Web evidence asserted tree `981980fe35b2e0c6a366c3dc45cac5ec2f19aa47`.
 
 ## Next governed work
-Revalidated F-01/A-10/DD-14 require Next.js server capabilities as the default authenticated web/API placement. Implement only the **concrete Next.js 15 server composition root + one tRPC route bootstrap**:
-- pin the governed Next.js 15 + React 19 package boundary;
-- add a server composition root that wires existing Clerk/Identity, trusted selector/edge/body policy, TenantContext bootstrap, RequestContext, Commercial, Authorization, idempotency/rate, DTO/domain registries and tRPC router through existing adapters;
-- mount one concrete App Router tRPC route without route-local business/security logic;
-- environment/secrets are required runtime configuration, never source defaults;
-- add build/type/test evidence for the new web boundary.
+Bind the already-designed `WorkspaceService` as the second concrete first-party Core query, **`core.tenancy.workspace.resolve`**, before any broad UI/navigation work:
+- DD-02 remains Tenant authority: no `tenantId` or parallel Tenant-authority DTO field;
+- host/domain/membership facts supply the trusted Tenant selector before RequestContext resolution;
+- the procedure DTO may carry only optional `industrySelector`;
+- return only the existing sanitized `ClientWorkspaceContext`;
+- revalidate current membership/Tenant/Industry state through existing services;
+- bind one canonical OperationContract + exact Zod DTO + domain registry handler + tRPC procedure;
+- add executor/transport tests and keep server enforcement authoritative.
 
-Do not start broad UI screens, REST/OpenAPI, broad Industry routers or deployment before this composition floor is exact-head green. RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.
+Do not start broad UI screens, REST/OpenAPI, Industry routers or deployment before this workspace bootstrap is exact-head green. RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.
