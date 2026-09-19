@@ -217,3 +217,22 @@ No tenant table without tenant ownership; no industry table with nullable indust
 **DEV-DB-AC-009 (2026-09-13):** DocumentMeta records generated media provenance explicitly; AI PromptSet/ToolSet and membership owners are physical tables; provider/model pairs and configuration snapshots are relationally bound. Audit/outbox/webhook rows use exact scope semantics, and future partitions receive the corrected policies.
 
 **DEV-DB-AC-010 (2026-09-13):** blanket application default privileges are removed. Identity and control-plane roles are separate, all runtime roles remain `NOBYPASSRLS`, platform catalogs are read-only to request roles, commercial/transition/audit-style evidence is append-only, Industry rows are not directly deletable by the app role, and only migration administration may create evidence partitions. Migration `0032` additionally intersects existing scope policies with restrictive INSERT/UPDATE/DELETE floors on every platform-owned definition and parent-owned role/form/prompt/tool binding. A `PLATFORM_GLOBAL` selector permits only the existing read contract; mutation also requires `sbg_control_plane_rw`, retaining the same Tenant/Industry scope checks.
+
+
+## 15. Dedicated Commercial transition/compiler database boundary [DD-064]
+
+The plan-change/apply compiler boundary uses a dedicated PostgreSQL group role `sbg_commercial_transition_compiler_rw`.
+
+Role invariants:
+- NOLOGIN, NOSUPERUSER, NOCREATEDB, NOCREATEROLE, NOINHERIT, NOBYPASSRLS.
+- ordinary `sbg_app_rw` and `sbg_worker_rw` have no Commercial INSERT/UPDATE/DELETE authority on Subscription, transition, license, add-on, override, usage or entitlement snapshot/fact tables.
+- catalog/source reads are explicit; catalog mutation remains control-plane only.
+- Subscription mutation is column-limited to `plan_version_id`, `version`, and `updated_at`. This role cannot directly change subscription state, billing anchors/periods, invoice references, auto-renew, trial/grace/cancellation fields or Tenant ownership.
+- SubscriptionTransition is append-only.
+- EntitlementSnapshot may be inserted and only its lifecycle `status` may be updated; snapshot facts are insert-only.
+- licenses, tenant add-ons, overrides and usage meters are compiler inputs only and are not mutable through this role.
+- same-Tenant compiler SELECT policies intentionally span all Industry Contexts for license/override/usage/snapshot facts under a TENANT_CORE operation. They never span sibling Tenants and do not use BYPASSRLS.
+- outbox/audit append is restricted to TENANT_CORE Commercial evidence. Outbox event type is restricted to v1 `subscription.transitioned` / `entitlement.recompiled`; Audit source module must be `Commercial`.
+- event catalog remains SELECT-only.
+
+This database role is a publication boundary only. It does not itself calculate plan impact, payment/proration, approval results or entitlement semantics. A server service must still validate DD-062 assessment/resolution evidence and compile deterministic facts before opening this transaction.

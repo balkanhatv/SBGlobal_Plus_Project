@@ -557,3 +557,17 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-EVT-005 | ordinary app runtime privileges event catalog | SELECT permitted; INSERT/UPDATE/DELETE denied |
 | COMM-EVT-006 | future outbox write names an unknown Commercial event/version | FK/catalog validation rejects it |
 | COMM-EVT-007 | future tenant-core outbox event carries Industry Context | scope mismatch must be rejected by writer/envelope validation; null Industry is canonical for these events |
+
+
+### Commercial transition/compiler DB boundary — DD-064 / DEV-COMMERCIAL-WRITER-BOUNDARY-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-DBW-001 | inspect writer role flags | NOLOGIN/NOBYPASSRLS/no elevated role attributes |
+| COMM-DBW-002 | ordinary app/worker attempts Commercial DML | INSERT/UPDATE/DELETE privilege absent |
+| COMM-DBW-003 | dedicated writer updates Subscription | only plan_version_id/version/updated_at columns are writable; state/billing fields are not |
+| COMM-DBW-004 | dedicated writer reads compiler sources in TENANT_CORE | all same-Tenant Industry-scoped license/override/usage/fact rows visible; sibling Tenant rows invisible |
+| COMM-DBW-005 | dedicated writer mutates compiler source license/override/usage | privilege denied |
+| COMM-DBW-006 | snapshot publication | snapshot INSERT + status-only UPDATE and fact INSERT allowed; fact UPDATE/DELETE denied |
+| COMM-DBW-007 | outbox append | only TENANT_CORE subscription.transitioned / entitlement.recompiled accepted by writer restrictive policy + catalog FK |
+| COMM-DBW-008 | audit append | writer limited to TENANT_CORE source_module=Commercial evidence |

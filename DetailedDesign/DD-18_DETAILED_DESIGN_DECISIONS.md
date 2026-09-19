@@ -648,3 +648,14 @@ Because this is a pre-context read boundary, narrow SELECT RLS policies admit on
 **Physicalization:** migration 0042 seeds the exact event-catalog rows; verification 0042 asserts schema metadata and keeps ordinary application runtime catalog access read-only.
 
 **Consequence:** CP-07 is closed at catalog-contract level. A future Commercial writer/compiler may only emit these exact versions until a governed incompatible event version is published. This decision does not yet authorize Subscription mutation or snapshot publication.
+
+
+## DD-064 — Commercial apply/compiler uses a dedicated no-bypass database writer
+
+**Context:** migration 0009 historically gave `sbg_app_rw` broad Commercial DML. DD-061 requires a least-privilege writer before plan-change apply can exist. A TENANT_CORE entitlement compile also needs same-Tenant reads across all enabled Industry Contexts, while ordinary Industry-scoped RLS intentionally narrows to one active Industry.
+
+**Decision:** introduce `sbg_commercial_transition_compiler_rw`, NOLOGIN/NOBYPASSRLS. Revoke Commercial mutation from general app/worker roles. The dedicated role receives explicit catalog/source reads, column-limited Subscription plan-version/version/timestamp update, append-only transition/snapshot-fact writes, snapshot insert + status-only lifecycle update, and restricted Commercial outbox/audit append. Additional SELECT policies allow this role to read license/override/usage/snapshot-fact rows across Industry Contexts only when `tenant_id=current_tenant_id()`; sibling Tenant access remains impossible.
+
+Outbox uses an additional RESTRICTIVE policy for this role so it can emit only DD-063 v1 `subscription.transitioned` and `entitlement.recompiled` as TENANT_CORE events. Audit uses a corresponding RESTRICTIVE Commercial/TENANT_CORE policy.
+
+**Consequence:** CP-08 is physically closable without BYPASSRLS or broad application DML. The role still does not authorize domain mutation by itself: DD-062 evidence, deterministic compiler logic, atomic publication/outbox/audit and Billing/approval producer runtime remain required.
