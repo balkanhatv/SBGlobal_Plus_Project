@@ -626,3 +626,14 @@ Because this is a pre-context read boundary, narrow SELECT RLS policies admit on
 **Decision:** The command uses REQUIRED shared idempotency; `Idempotency-Key` is not a DTO field. `effectiveTiming` is exactly `IMMEDIATE | NEXT_RENEWAL`, derived from F-14's immediate vs next-cycle rule. No direct Subscription plan-version mutation may be implemented until a server-owned route-resolution/evidence contract, downgrade impact/remediation contract, Billing/proration handoff, immutable entitlement compiler/publication boundary, cataloged outbox events and dedicated least-privilege write path are deterministic and testable.
 
 **Consequence:** Development must close prerequisite contracts/boundaries first. No payment/approval result, proration amount, entitlement diff, event payload, or writer privilege may be guessed inside a transport/domain handler. This preserves F-14 atomicity and A-01's one Core enforcement chain while preventing a partially implemented plan change from widening or corrupting access.
+
+
+## DD-062 — Plan change is a governed request; apply authority is server-owned evidence
+
+**Context:** F-14 requires impact preview, route-specific checkout/payment or order/approval, downgrade remediation and then entitlement recalculation. The repository has generic Workflow persistence but no Billing/payment/proration runtime. Treating the existing `changePlan` DTO as permission for an immediate Subscription UPDATE would invent missing financial/approval semantics and bypass F-14's order of operations.
+
+**Decision:** `core.commercial.subscription.changePlan` is the externally idempotent request/orchestration entry point. Client input is limited to `subscriptionId,targetPlanVersionId,effectiveTiming,expectedVersion`; the server derives source PlanVersion, `SELF_SERVE|SALES_ASSISTED` route, impact/remediation state and route-resolution requirements. Apply authority comes only from immutable/versioned server-owned assessment + remediation + Billing/approval evidence bound to the exact Tenant/Subscription/source/target/timing/version tuple. `NEXT_RENEWAL` effectiveAt is server-owned evidence. No client payment/approval reference or clock value is authority.
+
+**Apply invariant:** Subscription mutation is a separate internal transition and remains blocked until current version/source-plan checks, impact/remediation, route resolution, target validity, entitlement compilation/publication and outbox/audit all succeed under the dedicated write boundary. Request/evaluation alone never changes the current Subscription or entitlement snapshot.
+
+**Consequence:** DD-061 CP-03/04/05 are contractually closed without inventing provider/proration formulas. Physical evidence persistence/Billing producer runtime still must be implemented before direct apply; Commercial event catalog and least-privilege compiler writer remain the next blockers.

@@ -171,3 +171,67 @@ Only currently effective, non-denied, enabled entitlement facts are emitted. BOO
 The read reuses the same current Commercial store and must require exact equality between RequestContext entitlement snapshot id/version and the freshly loaded current state before projecting. This is a UI projection only; server Authorization/Commercial enforcement remains authoritative.
 
 The first operation using this contract is `core.commercial.entitlements.getCurrent`: TENANT_CORE QUERY, empty input, permission `core.commercial.entitlement.view`, AUTH_STANDARD, STANDARD audit, no operation entitlementRequirement. The generic Commercial guard still applies, so this operation is available only in currently usable TRIAL/ACTIVE/GRACE state under the present runtime floor. Suspended/recovery/billing reads require separate explicit operation contracts and are not widened here.
+
+
+## 13. Governed plan-change request / resolution contract [DD-062]
+
+`core.commercial.subscription.changePlan` is a **request/orchestration command**, not permission for a transport handler to UPDATE `subscription.plan_version_id` directly.
+
+### 13.1 Client intent
+
+Exact external intent remains:
+
+`{subscriptionId,targetPlanVersionId,effectiveTiming,expectedVersion}`
+
+where `effectiveTiming` is exactly `IMMEDIATE | NEXT_RENEWAL`. The shared `Idempotency-Key` remains transport metadata and is REQUIRED by the OperationContract.
+
+No client field may assert route, payment success, approval success, proration, remediation completion, entitlement diff, effective apply timestamp, source plan version, current usage, or current Commercial state.
+
+### 13.2 Server-owned assessment
+
+Before any apply, Commercial produces an immutable/versioned `PlanChangeAssessmentV1` bound to the resolved Tenant and exact current Subscription:
+
+`assessmentId, tenantId, subscriptionId, sourcePlanVersionId, targetPlanVersionId, effectiveTiming, expectedSubscriptionVersion, routeClass, impactReference, entitlementDiffReference, blockingImpactCodes[], remediationState, assessmentVersion, createdAt, correlationId`.
+
+- `routeClass` is exactly `SELF_SERVE | SALES_ASSISTED`, derived from the active versioned `commercial_route_policy`; it is never client-selected authority.
+- `blockingImpactCodes[]` is a deterministic sorted list of governed impact codes. Empty means no downgrade remediation blocker; non-empty means apply is blocked.
+- `remediationState` is exactly `NOT_REQUIRED | PENDING | SATISFIED`. It may become SATISFIED only from server-owned remediation evidence bound to the same assessment/version.
+- `impactReference` and `entitlementDiffReference` identify immutable server-generated evidence; they do not authorize apply by themselves.
+
+No price/proration formula is interpreted in Commercial. Numeric money calculation remains Billing-owned.
+
+### 13.3 Route-resolution / Billing handoff
+
+The apply gate consumes server-owned `PlanChangeRouteResolutionV1`:
+
+`assessmentId, assessmentVersion, routeClass, resolutionState, evidenceReference?, billingPreviewReference?, effectiveAt?, producerModule, evidenceVersion, resolvedAt?, correlationId`.
+
+`resolutionState` is exactly `PENDING | SATISFIED | REJECTED`.
+
+- For `SELF_SERVE`, only the Billing boundary may produce SATISFIED. Billing decides whether a provider charge is required; Commercial does not infer “free/no-charge” from price data and does not trust a client payment token/reference.
+- For `SALES_ASSISTED`, only the governed approval/workflow boundary may produce SATISFIED.
+- `billingPreviewReference` is opaque to Commercial and may reference a Billing-owned price/proration preview. Commercial never recalculates or rewrites it.
+- For `NEXT_RENEWAL`, `effectiveAt` must be server-owned evidence supplied by the Billing/contract boundary. Client clocks/dates cannot determine the renewal apply instant.
+- For `IMMEDIATE`, SATISFIED resolution still remains mandatory before apply.
+
+### 13.4 Apply gate
+
+A future internal apply transition may mutate the Subscription only when **all** of the following are true in the same authoritative transaction boundary:
+
+1. RequestContext Tenant owns the Subscription.
+2. current Subscription version exactly equals `expectedSubscriptionVersion`;
+3. current `plan_version_id` still equals `sourcePlanVersionId`;
+4. target PlanVersion is still valid for the governed route/effective policy;
+5. assessment/version is current and bound to the exact source/target/timing tuple;
+6. `blockingImpactCodes` is empty and `remediationState` is NOT_REQUIRED or SATISFIED;
+7. route resolution is SATISFIED and is produced by the required server-owned module;
+8. `NEXT_RENEWAL` has a server-owned `effectiveAt` and is not applied before it;
+9. the write-side entitlement compiler/publication + outbox/audit boundary succeeds atomically.
+
+Any mismatch is fail-closed. A stale `expectedVersion`, changed source plan, changed route policy, rejected/pending resolution, or stale assessment requires re-evaluation; no “best effort” update is allowed.
+
+### 13.5 Command result
+
+The public command returns request/evaluation state only, e.g. a server-generated plan-change request/reference, assessment version, route class, impact/entitlement-diff references and a normalized state such as action-required/ready/scheduled/applied. It must not return provider secrets, payment instruments, internal Billing formulas, raw approval payloads or unrestricted Commercial records.
+
+Creating/evaluating the request does **not** by itself update the Subscription or publish a new entitlement snapshot.

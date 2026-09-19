@@ -303,3 +303,16 @@ The prior one-line baseline contract was not sufficient to authorize mutation. F
 - **Blocking least-privilege write boundary:** historical `sbg_app_rw` retains broad Commercial DML inherited from migration 0009; later hardening protects immutable evidence from UPDATE/DELETE but does not create a dedicated plan-change/compiler writer role.
 
 Therefore `core.commercial.subscription.changePlan` is **NOT IMPLEMENTATION-AUTHORIZED** at this checkpoint. The next governed work is the smallest deterministic prerequisite design/write boundary that closes these blockers without inventing payment-provider semantics.
+
+
+## 32. Plan-change request orchestration contract [DD-062]
+
+The public `core.commercial.subscription.changePlan` command starts or advances the governed plan-change request described by DD-04 §13. It is not a direct `subscription.plan_version_id` update.
+
+External v1 intent remains `{subscriptionId,targetPlanVersionId,effectiveTiming,expectedVersion}`; `effectiveTiming=IMMEDIATE|NEXT_RENEWAL`. `Idempotency-Key` is REQUIRED transport metadata and is excluded from the DTO.
+
+Server execution derives the current source PlanVersion, route policy, impact/remediation assessment and required Billing/approval path. Client-supplied payment/approval/remediation/effective-date proof is not accepted as authority.
+
+The public result may expose only safe request/evaluation references and normalized state. The internal apply transition remains unavailable until DD-061's event/compiler/least-privilege write prerequisites are implemented. Request creation/evaluation must not mutate the Subscription or current entitlement snapshot.
+
+For `NEXT_RENEWAL`, the apply timestamp is server-owned Billing/contract evidence, not a client field. For every apply attempt, the exact Subscription version and source PlanVersion are re-read and must still match the assessment.

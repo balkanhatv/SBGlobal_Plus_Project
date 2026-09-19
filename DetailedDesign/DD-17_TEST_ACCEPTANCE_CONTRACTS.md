@@ -528,3 +528,19 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-UI-005 | client projection serialized | snapshotId, subscriptionId, license IDs/tokens, principal bindings and deny-set/source metadata are absent |
 | COMM-UI-006 | procedure executes | fixed OperationContract + exact Zod DTO + shared OperationExecutor/GuardPipeline; no router-local Commercial rule |
 | COMM-UI-007 | PENDING/SUSPENDED/EXPIRED/CANCELLED under generic guard | access remains restricted; this query does not invent a recovery/billing exception |
+
+
+### Commercial plan-change request / resolution contract — DD-062
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-PLAN-001 | client sends route/payment/approval/remediation/effectiveAt fields | strict external contract rejects/ignores them as authority; server derives all gates |
+| COMM-PLAN-002 | identical externally retried request uses same Idempotency-Key | shared REQUIRED idempotency prevents duplicate plan-change request side effects |
+| COMM-PLAN-003 | request is evaluated | Subscription plan_version_id and current entitlement snapshot remain unchanged |
+| COMM-PLAN-004 | downgrade assessment has blockingImpactCodes | apply blocked until server-owned remediationState becomes SATISFIED |
+| COMM-PLAN-005 | SELF_SERVE resolution | only Billing-owned SATISFIED evidence can clear the route gate |
+| COMM-PLAN-006 | SALES_ASSISTED resolution | only governed workflow/approval SATISFIED evidence can clear the route gate |
+| COMM-PLAN-007 | NEXT_RENEWAL | effectiveAt comes from server-owned Billing/contract evidence; client date/clock cannot schedule apply |
+| COMM-PLAN-008 | Subscription version/source plan changed after assessment | apply fails closed as stale/conflict and requires re-evaluation |
+| COMM-PLAN-009 | route policy/assessment version changed | stale resolution evidence cannot authorize apply |
+| COMM-PLAN-010 | request/result serialized | no provider secret, payment instrument, pricing formula or raw approval payload crosses the Commercial API |
