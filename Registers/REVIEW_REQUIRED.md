@@ -1,7 +1,7 @@
 # REVIEW_REQUIRED — Historical Pre-Development / Current Audit Overlay
-**Updated:** 2026-09-19 · **Current checkpoint:** `DEV-CONTEXT-BOOTSTRAP-001`
+**Updated:** 2026-09-19 · **Current checkpoint:** `DEV-WEB-COMPOSITION-001`
 
-Current Development evidence is [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md): verified executable `b244187e69eee37ce05e5739df4680b3f0511b54` / tree `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`, with Core **168/168 PASS**, PostgreSQL **44/44 PASS**, and Database **41 migrations / 35 verification files PASS**. The active checkpoint is `DEV-CONTEXT-BOOTSTRAP-001`; the next governed slice is the concrete Next.js 15 server composition root + one tRPC App Router route. Earlier pre-development and Database sections below retain their historical scope.
+Current Development evidence is [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md): verified executable `a440c80ee0d4b97301a310d3ea7574feaf6efa30` / tree `981980fe35b2e0c6a366c3dc45cac5ec2f19aa47`, with Core **172/172 PASS**, PostgreSQL **44/44 PASS**, Database **41 migrations / 35 verification files PASS**, and Next.js 15 production build / deterministic npm lock / generated-state cleanliness **PASS**. The active checkpoint is `DEV-WEB-COMPOSITION-001`; the next governed slice is bounded `core.tenancy.workspace.resolve`. Earlier pre-development and Database sections below retain their historical scope.
 
 ## Historical pre-development result
 - Foundation P0/P1: **0/0**

@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-19
 
-Current Development checkpoint is `DEV-CONTEXT-BOOTSTRAP-001`. Verified first-party runtime now includes Authorization/Commercial/PEP/audit, idempotency, distributed rate limiting, canonical executor, Zod/tRPC/Fetch, Clerk Bearer auth, web selector/edge controls and concrete PostgreSQL pre-context Tenant directory bootstrap. Executable `b244187e69eee37ce05e5739df4680b3f0511b54` / tree `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`: **168 Core + 44 PostgreSQL + 41 migrations / 35 verification files PASS**. Next is the concrete Next.js 15 server composition root + one tRPC App Router route.
+Current Development checkpoint is `DEV-WEB-COMPOSITION-001`. Verified first-party runtime now includes Authorization/Commercial/PEP/audit, idempotency, distributed rate limiting, canonical executor, Zod/tRPC/Fetch, Clerk Bearer auth, trusted web selector/edge controls, concrete PostgreSQL pre-context Tenant directory bootstrap, and the concrete Next.js 15 App Router composition. Executable `a440c80ee0d4b97301a310d3ea7574feaf6efa30` / tree `981980fe35b2e0c6a366c3dc45cac5ec2f19aa47`: **172 Core + 44 PostgreSQL + 41 migrations / 35 verification files PASS + Next.js 15 production build/deterministic lock/generated-state cleanliness PASS**. Next is bounded `core.tenancy.workspace.resolve` using the existing WorkspaceService; Tenant authority remains server RequestContext and the procedure DTO may carry only an optional Industry selector.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
