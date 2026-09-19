@@ -87,7 +87,7 @@ Transport/authenticity → selector normalization → DD-02 context → schema �
 
 ## 13. Baseline Core procedure contracts
 ### core.tenancy.workspace.resolve
-Query; TENANT_CORE; input tenant selector + optional industry selector; output sanitized ClientWorkspaceContext; permission membership-derived; no client authority.
+Query; TENANT_CORE; Tenant selection is a transport/server selector fact resolved into RequestContext before the procedure executes; the procedure DTO may carry only an optional Industry selector for workspace projection. Output is sanitized ClientWorkspaceContext; permission is membership-derived; no client field becomes Tenant authority.
 
 ### core.identity.roles.listEffective
 Query; TENANT_CORE; input membership/principal reference; output effective role/permission version summary; permission `core.identity.role.view`.
@@ -244,3 +244,18 @@ First-party web Tenant selection may be derived from an exact server-configured 
 The web edge floor requires HTTPS, exact allowed host, GET/POST, allowlisted Origin when supplied, cross-site browser denial, bounded JSON POST metadata and a configured body ceiling. Content-Length is only an early rejection hint; after authentication, the request body is streamed through a hard byte cap before tRPC parsing.
 
 This preserves authentication-before-body-parsing while preventing missing Content-Length from bypassing the application body limit. Cookie-based CSRF tokens are not introduced because the current first-party plane is Bearer-authenticated; any future cookie-authenticated surface must satisfy DD-16 separately.
+
+
+## 28. Concrete Next.js first-party composition [DD-058 / DEV-WEB-COMPOSITION-001]
+
+The first physical first-party web composition is now bound to the governed Next.js 15 / React 19 / Node 22 boundary. `src/server/app/first-party-web-composition.ts` is composition-only: it instantiates the existing Clerk IdentityPort chain, trusted host selector/edge/body controls, pre-context Tenant directory bootstrap, RequestContext, Commercial current-state service, Authorization PDP/PEP/audit, distributed rate limiter, idempotency service, DTO/Operation/domain registries and the shared tRPC Fetch handler. It does not add route-local business or security truth.
+
+`src/app/api/trpc/[trpc]/route.ts` is a thin Node-runtime App Router boundary exposing the same handler for GET/POST. The current bounded router registers only `core.identity.roles.listEffective`; broader Core/Industry routers remain separate governed slices. Machine/API credentials are not inferred from Clerk Bearer tokens and are rejected by this first-party human web composition.
+
+All secrets and deployment-specific route facts are required runtime configuration. No source fallback supplies database credentials, Clerk secrets/JWT key, authorized parties, DataHome identity, region, Tenant host bindings, body ceiling or rate-lease lifetime. The resolved DataHome/region must match the configured server cell before application-role SQL is allowed.
+
+The Core TypeScript emit boundary remains `tsconfig.json`. Next.js uses `tsconfig.web.json` so generated `.next/types` never changes the Core compiler contract. NodeNext `.js` source imports remain canonical; `next.config.mjs` maps those source-graph imports to TypeScript through extension aliases instead of creating a second import convention.
+
+The package/lock boundary pins Next.js 15, React/ReactDOM 19 and matching React type packages. CI is read-only and exact-head: it runs deterministic npm-lock verification, Core TypeScript compilation, the Next.js production build and a clean generated-state check. CI never auto-commits generated lock/config files back to the branch.
+
+The next bounded first-party capability is `core.tenancy.workspace.resolve`. DD-02 remains authoritative: Tenant selection arrives only through trusted transport/server selector facts and RequestContext resolution; the procedure DTO must not accept tenantId or a parallel Tenant-authority field. The existing WorkspaceService may consume an optional Industry selector only to return the sanitized ClientWorkspaceContext.

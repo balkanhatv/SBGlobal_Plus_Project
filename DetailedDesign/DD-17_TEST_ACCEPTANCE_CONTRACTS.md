@@ -489,3 +489,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | CTX-BOOT-004 | membership default/explicit OrgUnit | exact Tenant unit resolves with server-derived root→leaf UUID path |
 | CTX-BOOT-005 | Tenant DataHome | ACTIVE directory route returns exact id/region/routingVersion |
 | CTX-BOOT-006 | bootstrap DB role attempts write or sensitive identity read | permission denied; role remains NOLOGIN/NOBYPASSRLS |
+
+
+### Concrete Next.js first-party composition — DD-058 / DEV-WEB-COMPOSITION-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WEB-COMP-001 | package/lock install on Node 22 | exact pinned Next 15 + React/ReactDOM 19 + React type boundary installs with `npm ci`; package-lock regeneration yields no diff |
+| WEB-COMP-002 | server composition module is imported/built without runtime secrets being supplied | import/compile succeeds; secrets/config are read only when the handler composition is initialized; missing required runtime values then fail closed |
+| WEB-COMP-003 | App Router `/api/trpc/[trpc]` is built | Node runtime dynamic route compiles; GET and POST delegate to one shared handler; no route-local Commercial/Authorization/domain/database rule exists |
+| WEB-COMP-004 | NodeNext server modules use `.js` imports inside Next source graph | Next resolves TypeScript sources through governed extension aliases while root Core NodeNext compilation remains unchanged |
+| WEB-COMP-005 | Next production type/build pipeline runs | `tsconfig.web.json` owns Next/generated types; root `tsconfig.json` remains the Core emit boundary and is not mutated |
+| WEB-COMP-006 | first-party human web composition receives a machine-like credential path | machine credential verification is not inferred from Clerk Bearer; this bounded route fails closed |
+| WEB-COMP-007 | production build completes | dynamic `/api/trpc/[trpc]` route is emitted and the governed package/config files remain clean after build |
