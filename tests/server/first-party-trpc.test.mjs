@@ -4,6 +4,7 @@ import { randomUUID } from "node:crypto";
 import { z } from "zod";
 
 import {
+  CommercialCurrentStateService,
   DomainOperationRegistry,
   IdentityRoleQueryService,
   WorkspaceService,
@@ -14,9 +15,11 @@ import {
   ZodOperationDtoRegistry,
 } from "../../dist/core/index.js";
 import {
+  CORE_COMMERCIAL_ENTITLEMENTS_GET_CURRENT_INPUT_V1,
   CORE_IDENTITY_ROLES_LIST_EFFECTIVE_INPUT_V1,
   CORE_TENANCY_WORKSPACE_RESOLVE_INPUT_V1,
   createFirstPartyCoreRouter,
+  registerCoreCommercialEntitlementsGetCurrent,
   registerCoreIdentityRolesListEffective,
   registerCoreTenancyWorkspaceResolve,
 } from "../../dist/server/api/trpc/core-identity-router.js";
@@ -217,6 +220,113 @@ test("core.tenancy.workspace.resolve has no Tenant-authority DTO field and binds
   assert.equal(workspaceCalls.length,1);
   assert.equal(workspaceCalls[0].requestContext,invocationContext);
   assert.equal(workspaceCalls[0].industrySelector,"retail");
+});
+
+
+test("core.commercial.entitlements.getCurrent binds strict empty input and client-safe output",async()=>{
+  const operations=new OperationRegistry();
+  const dtos=new ZodOperationDtoRegistry();
+  const schemas=new OperationSchemaRegistry();
+  const domains=new DomainOperationRegistry();
+  const currentState={
+    snapshotId:"22222222-2222-4222-8222-222222222222",
+    snapshotVersion:9,
+    subscriptionId:"33333333-3333-4333-8333-333333333333",
+    subscriptionState:"ACTIVE",
+    denySet:[],
+    licenses:[],
+    entitlements:[
+      {code:"feature.enabled",valueType:"BOOLEAN",value:true},
+      {code:"feature.off",valueType:"BOOLEAN",value:false},
+    ],
+  };
+  const service=new CommercialCurrentStateService({
+    async loadCurrent(){return currentState;},
+  });
+  registerCoreCommercialEntitlementsGetCurrent({
+    operations,dtos,schemas,domains,service,
+  });
+  registerCoreIdentityRolesListEffective({
+    operations,dtos,schemas,domains,
+    service:new IdentityRoleQueryService({async listEffective(){return null;}}),
+  });
+
+  assert.equal(
+    dtos.get(operations.get("core.commercial.entitlements.getCurrent")).inputSchema,
+    CORE_COMMERCIAL_ENTITLEMENTS_GET_CURRENT_INPUT_V1,
+  );
+  assert.equal(
+    CORE_COMMERCIAL_ENTITLEMENTS_GET_CURRENT_INPUT_V1.safeParse({tenantId:"bad"}).success,
+    false,
+  );
+
+  const seen=[];
+  const router=createFirstPartyCoreRouter({
+    includeCommercialEntitlementsGetCurrent:true,
+    ports:{
+      dtos,schemas,projector:new TransportEnvelopeProjector(),
+      executor:{
+        async execute(input){
+          seen.push(input);
+          return {
+            kind:"EXECUTED",
+            data:{
+              snapshotVersion:9,
+              subscriptionState:"ACTIVE",
+              entitlements:[
+                {code:"feature.enabled",valueType:"BOOLEAN",value:true},
+              ],
+            },
+            meta:{
+              requestId:input.context.requestId,
+              correlationId:input.context.correlationId,
+              operationId:input.operationId,
+              outputSchemaVersion:1,
+            },
+          };
+        },
+      },
+    },
+  });
+  const caller=router.createCaller({
+    executionContext:{
+      requestId:randomUUID(),correlationId:randomUUID(),
+      authentication:{kind:"HUMAN",credential:"already-preflighted"},
+      tenantSelector:"trusted-host-tenant",
+    },
+  });
+  const result=await caller.core.commercial.entitlements.getCurrent({});
+  assert.equal(result.kind,"SUCCESS");
+  assert.equal(result.envelope.data.snapshotVersion,9);
+  assert.equal(result.envelope.data.entitlements.length,1);
+  assert.equal(seen[0].operationId,"core.commercial.entitlements.getCurrent");
+  assert.equal(seen[0].preparedInput.canonical,"{}");
+
+  const requestContext={
+    requestId:randomUUID(),correlationId:randomUUID(),
+    tenantId:randomUUID(),principalId:randomUUID(),membershipId:randomUUID(),
+    entitlementSnapshotId:currentState.snapshotId,
+    entitlementSnapshotVersion:9,
+    orgUnitPath:[],roleIds:[],scopeClass:"TENANT_CORE",
+  };
+  const domain=await domains.execute(
+    "CommercialCurrentStateService.getClientCurrentProjection",
+    {
+      requestContext,
+      operation:operations.get("core.commercial.entitlements.getCurrent"),
+      input:{},
+      guard:{decisionId:randomUUID()},
+    },
+  );
+  assert.deepEqual(domain.output,{
+    snapshotVersion:9,
+    subscriptionState:"ACTIVE",
+    entitlements:[
+      {code:"feature.enabled",valueType:"BOOLEAN",value:true},
+    ],
+  });
+  assert.equal(JSON.stringify(domain.output).includes(currentState.snapshotId),false);
+  assert.equal(JSON.stringify(domain.output).includes(currentState.subscriptionId),false);
 });
 
 test("tRPC Zod transform runs exactly once before canonical preparation",async()=>{

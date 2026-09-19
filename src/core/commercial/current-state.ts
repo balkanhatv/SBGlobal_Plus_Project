@@ -50,6 +50,24 @@ export interface CurrentCommercialEntitlementRead {
   readonly value: unknown;
 }
 
+export type CommercialClientEntitlementValue =
+  | true
+  | number
+  | string
+  | readonly string[];
+
+export interface CommercialClientEntitlementRead {
+  readonly code: string;
+  readonly valueType: CommercialEntitlementValueType;
+  readonly value: CommercialClientEntitlementValue;
+}
+
+export interface CommercialClientCurrentProjectionV1 {
+  readonly snapshotVersion: number;
+  readonly subscriptionState: CommercialSubscriptionState;
+  readonly entitlements: readonly CommercialClientEntitlementRead[];
+}
+
 export interface CommercialCurrentStateRead {
   readonly snapshotId: string;
   readonly snapshotVersion: number;
@@ -86,26 +104,28 @@ function stateInvalid(message: string): never {
   throw new CommercialStateError("COMMERCIAL_STATE_INVALID", message);
 }
 
-function enabledEntitlement(fact: CurrentCommercialEntitlementRead): boolean {
+function clientEntitlementValue(
+  fact: CurrentCommercialEntitlementRead,
+): CommercialClientEntitlementValue | undefined {
   switch (fact.valueType) {
     case "BOOLEAN":
       if (typeof fact.value !== "boolean") stateInvalid("Boolean entitlement value is invalid.");
-      return fact.value;
+      return fact.value ? true : undefined;
     case "INTEGER":
       if (!Number.isSafeInteger(fact.value) || Number(fact.value) < 0) {
         stateInvalid("Integer entitlement value is invalid.");
       }
-      return Number(fact.value) > 0;
+      return Number(fact.value) > 0 ? Number(fact.value) : undefined;
     case "DECIMAL":
       if (typeof fact.value !== "number" || !Number.isFinite(fact.value) || fact.value < 0) {
         stateInvalid("Decimal entitlement value is invalid.");
       }
-      return fact.value > 0;
+      return fact.value > 0 ? fact.value : undefined;
     case "TEXT":
       if (typeof fact.value !== "string" || fact.value.length > 256) {
         stateInvalid("Text entitlement value is invalid.");
       }
-      return fact.value.length > 0;
+      return fact.value.length > 0 ? fact.value : undefined;
     case "SET": {
       if (!Array.isArray(fact.value) || fact.value.length > MAX_ABAC_SET_ITEMS_V1) {
         stateInvalid("Set entitlement value is invalid.");
@@ -119,9 +139,14 @@ function enabledEntitlement(fact: CurrentCommercialEntitlementRead): boolean {
       if (new Set(values).size !== values.length) {
         stateInvalid("Set entitlement value contains duplicates.");
       }
-      return values.length > 0;
+      if (values.length === 0) return undefined;
+      return Object.freeze([...values].sort());
     }
   }
+}
+
+function enabledEntitlement(fact: CurrentCommercialEntitlementRead): boolean {
+  return clientEntitlementValue(fact) !== undefined;
 }
 
 function canonicalSet(values: readonly string[], label: string): readonly string[] {
@@ -145,6 +170,39 @@ function enabledEntitlementCodes(state: CommercialCurrentStateRead): readonly st
       .map((fact) => fact.code),
     "Commercial entitlement facts",
   );
+}
+
+function clientEntitlements(
+  state: CommercialCurrentStateRead,
+): readonly CommercialClientEntitlementRead[] {
+  const denied = new Set(state.denySet);
+  const seen = new Set<string>();
+  const output: CommercialClientEntitlementRead[] = [];
+
+  for (const fact of state.entitlements) {
+    if (!fact.code || fact.code.length > 256) {
+      stateInvalid("Commercial entitlement code is invalid.");
+    }
+    if (denied.has(fact.code)) continue;
+    const value = clientEntitlementValue(fact);
+    if (value === undefined) continue;
+    if (seen.has(fact.code)) {
+      stateInvalid("Commercial entitlement projection contains duplicate codes.");
+    }
+    seen.add(fact.code);
+    output.push(Object.freeze({
+      code: fact.code,
+      valueType: fact.valueType,
+      value,
+    }));
+  }
+
+  if (output.length > MAX_ABAC_SET_ITEMS_V1) {
+    stateInvalid("Commercial entitlement projection exceeds v1 bounds.");
+  }
+
+  output.sort((left, right) => left.code.localeCompare(right.code));
+  return Object.freeze(output);
 }
 
 function effectiveLicenseTokens(state: CommercialCurrentStateRead): readonly string[] {
@@ -294,6 +352,18 @@ implements CommercialContextPort, CommercialGuardPort, AuthorizationSupplemental
     }
 
     return Object.freeze({ allowed: true });
+  }
+
+  async getClientCurrentProjection(input: {
+    readonly requestContext: RequestContext;
+  }): Promise<CommercialClientCurrentProjectionV1> {
+    const state = await this.loadCurrent(input.requestContext);
+    this.assertSnapshotCurrent(input.requestContext, state);
+    return Object.freeze({
+      snapshotVersion: state.snapshotVersion,
+      subscriptionState: state.subscriptionState,
+      entitlements: clientEntitlements(state),
+    });
   }
 
   async load(input: {

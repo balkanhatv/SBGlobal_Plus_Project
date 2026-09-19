@@ -226,3 +226,62 @@ test("PLATFORM_GLOBAL supplemental facts stay Commercial-empty", async () => {
   assert.deepEqual(facts, {});
   assert.equal(called, false);
 });
+
+
+test("client Commercial projection exposes only enabled non-denied facts and no internal identifiers", async () => {
+  const current = state({
+    denySet: Object.freeze(["feature.denied"]),
+    entitlements: Object.freeze([
+      Object.freeze({ code: "feature.bool", valueType: "BOOLEAN", value: true }),
+      Object.freeze({ code: "feature.disabled", valueType: "BOOLEAN", value: false }),
+      Object.freeze({ code: "feature.integer", valueType: "INTEGER", value: 3 }),
+      Object.freeze({ code: "feature.zero", valueType: "INTEGER", value: 0 }),
+      Object.freeze({ code: "feature.decimal", valueType: "DECIMAL", value: 2.5 }),
+      Object.freeze({ code: "feature.text", valueType: "TEXT", value: "pro" }),
+      Object.freeze({ code: "feature.empty", valueType: "TEXT", value: "" }),
+      Object.freeze({ code: "feature.set", valueType: "SET", value: ["b","a"] }),
+      Object.freeze({ code: "feature.denied", valueType: "BOOLEAN", value: true }),
+    ]),
+  });
+  const projection = await service(current).getClientCurrentProjection({
+    requestContext: context,
+  });
+  assert.deepEqual(projection,{
+    snapshotVersion:7,
+    subscriptionState:"ACTIVE",
+    entitlements:[
+      {code:"feature.bool",valueType:"BOOLEAN",value:true},
+      {code:"feature.decimal",valueType:"DECIMAL",value:2.5},
+      {code:"feature.integer",valueType:"INTEGER",value:3},
+      {code:"feature.set",valueType:"SET",value:["a","b"]},
+      {code:"feature.text",valueType:"TEXT",value:"pro"},
+    ],
+  });
+  const serialized=JSON.stringify(projection);
+  for(const secret of [
+    "snapshot-7","subscription-a","license-industry","license-ms",
+    "principal-a","industry-rtl","feature.denied",
+  ]){
+    assert.equal(serialized.includes(secret),false);
+  }
+});
+
+test("client Commercial projection fails closed on stale snapshot and invalid SET state", async () => {
+  await assert.rejects(
+    service().getClientCurrentProjection({
+      requestContext:{...context,entitlementSnapshotVersion:6},
+    }),
+    error=>error instanceof CommercialStateError
+      && error.code==="COMMERCIAL_CONTEXT_STALE",
+  );
+
+  await assert.rejects(
+    service(state({
+      entitlements:Object.freeze([
+        Object.freeze({code:"feature.set",valueType:"SET",value:["dup","dup"]}),
+      ]),
+    })).getClientCurrentProjection({requestContext:context}),
+    error=>error instanceof CommercialStateError
+      && error.code==="COMMERCIAL_STATE_INVALID",
+  );
+});

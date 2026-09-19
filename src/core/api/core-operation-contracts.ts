@@ -42,3 +42,26 @@ export const CORE_TENANCY_WORKSPACE_RESOLVE: OperationContract = Object.freeze({
     "DEPENDENCY_UNAVAILABLE",
   ]),
 });
+
+
+export const CORE_COMMERCIAL_ENTITLEMENTS_GET_CURRENT: OperationContract = Object.freeze({
+  operationId: "core.commercial.entitlements.getCurrent",
+  module: "Commercial",
+  scopeClass: "TENANT_CORE",
+  kind: "QUERY",
+  permissionCode: "core.commercial.entitlement.view",
+  inputSchemaVersion: 1,
+  outputSchemaVersion: 1,
+  idempotencyPolicy: "NONE",
+  rateClass: "AUTH_STANDARD",
+  auditClass: "STANDARD",
+  domainService: "CommercialCurrentStateService.getClientCurrentProjection",
+  emittedEvents: Object.freeze([]),
+  errorCodes: Object.freeze([
+    "SUBSCRIPTION_INVALID",
+    "LICENSE_INVALID",
+    "PERMISSION_DENIED",
+    "POLICY_DENIED",
+    "DEPENDENCY_UNAVAILABLE",
+  ]),
+});

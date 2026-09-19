@@ -26,6 +26,7 @@ import { Sha256RateLimitDigest } from "../api/sha256-rate-limit-digest.js";
 import { FirstPartyClerkBearerAuthorizationResolver } from "../api/trpc/clerk-bearer-authorization.js";
 import {
   createFirstPartyCoreRouter,
+  registerCoreCommercialEntitlementsGetCurrent,
   registerCoreIdentityRolesListEffective,
   registerCoreTenancyWorkspaceResolve,
 } from "../api/trpc/core-identity-router.js";
@@ -281,6 +282,13 @@ export function createFirstPartyWebApplication(
     domains,
     service:new WorkspaceService(tenancy),
   });
+  registerCoreCommercialEntitlementsGetCurrent({
+    operations,
+    dtos,
+    schemas,
+    domains,
+    service:commercial,
+  });
 
   const projector=new TransportEnvelopeProjector();
   const executor=new OperationExecutor({
@@ -295,6 +303,7 @@ export function createFirstPartyWebApplication(
   const router=createFirstPartyCoreRouter({
     ports:{executor,schemas,dtos,projector},
     includeWorkspaceResolve:true,
+    includeCommercialEntitlementsGetCurrent:true,
   });
 
   const edgePolicy=new ConfiguredFirstPartyWebEdgePolicy({
