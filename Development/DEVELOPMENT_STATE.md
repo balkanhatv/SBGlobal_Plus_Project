@@ -1,17 +1,16 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-19 · **Checkpoint:** `DEV-COMMERCIAL-ENTITLEMENTS-QUERY-001`
+**Updated:** 2026-09-19 · **Checkpoint:** `DEV-COMMERCIAL-WRITER-BOUNDARY-001`
 
-Development is **IN PROGRESS — DD-061 COMMERCIAL CHANGE-PLAN WRITE CONTRACT PREREQUISITES**.
+Development is **IN PROGRESS — ATOMIC COMMERCIAL PUBLICATION TRANSACTION FLOOR**.
 
-Verified `3bb86bc4b1b313c6bee8c8d65406992bb6b28cc7` / `07ebd925d3c0176907ebd257e0cdecb5d0f3840e`:
+Verified `b420e1547d9366f3c21612643e2ee04c3214c992` / `80fdbb7377247f374801791f09ae75d118ae832b`:
 - **180/180 Core PASS**
 - **44/44 PostgreSQL PASS**
-- **41 migrations / 35 verification files PASS**
+- **43 migrations / 37 verification files PASS**
 - **Next.js 15.5.25 production build + deterministic lock/config clean-state PASS**
-- Industry SQL remains **9 Industries / 41 canonical MS / 181 tables**
 
-The first-party Identity, Workspace and client-safe current Commercial entitlement queries are implemented/tested through one server-authoritative OperationExecutor/tRPC/Next chain. Commercial client projection does not expose internal snapshot/subscription/license identifiers.
+DD-062 plan-change orchestration semantics are locked. DD-063 Commercial events and DD-064 dedicated transition/compiler writer are exact-head verified. General application roles no longer mutate Commercial truth.
 
-Fresh prerequisite audit is recorded in `COMMERCIAL_CHANGE_PLAN_PREREQUISITE_AUDIT.md`. DD-062 locks the server-owned plan-change assessment/remediation/Billing handoff contract. DD-063/migration 0042 is PostgreSQL-verified. DD-064/migration 0043 now implements the dedicated least-privilege Commercial transition/compiler role and removes broad app Commercial DML; verification is pending. Direct apply remains blocked.
+Next: implement the bounded atomic publication transaction repository/service floor. Do not bind the public changePlan command until server-owned assessment/resolution evidence persistence plus Billing/approval producer runtime exist.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

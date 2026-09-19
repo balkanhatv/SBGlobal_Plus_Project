@@ -20,8 +20,8 @@ The blocker is not the already-verified query/transport kernel. The blocker is t
 | CP-04 | downgrade requires impact assessment + explicit remediation | **CONTRACT LOCKED — DD-062** | persist/version assessment + remediation evidence before apply runtime |
 | CP-05 | A-04 assigns proration to Billing; no Billing/payment/proration runtime exists | **HANDOFF CONTRACT LOCKED — DD-062; RUNTIME BLOCKING** | Billing/approval producer runtime remains required; Commercial must not calculate money |
 | CP-06 | no Commercial mutation/compiler runtime exists under `src/` | **BLOCKING** | design/implement write-side transaction + immutable snapshot publication prerequisite |
-| CP-07 | DD-07 requires cataloged events; executable code/catalog lacked `subscription.transitioned` / `entitlement.recompiled` | **IMPLEMENTED — DD-063 / migration 0042; VERIFYING** | require PostgreSQL verification before writer/compiler work |
-| CP-08 | `sbg_app_rw` historically has broad Commercial DML; no dedicated plan-change/compiler writer role exists | **IMPLEMENTED — DD-064 / migration 0043; VERIFYING** | require real PostgreSQL privilege + same-Tenant cross-Industry isolation verification |
+| CP-07 | DD-07 requires cataloged events; executable code/catalog lacked `subscription.transitioned` / `entitlement.recompiled` | **VERIFIED — DD-063 / migration 0042** | require PostgreSQL verification before writer/compiler work |
+| CP-08 | `sbg_app_rw` historically has broad Commercial DML; no dedicated plan-change/compiler writer role exists | **VERIFIED — DD-064 / migration 0043** | require real PostgreSQL privilege + same-Tenant cross-Industry isolation verification |
 
 ## Repository evidence
 
@@ -36,8 +36,8 @@ The blocker is not the already-verified query/transport kernel. The blocker is t
 Next work must close **DD-061 write-contract prerequisites** before command code. The safest order is:
 
 1. ~~lock server-owned plan-change resolution/impact/remediation/Billing handoff contract~~ **DONE — DD-062**;
-2. ~~lock Commercial event v1 payload/catalog contracts~~ **IMPLEMENTED — DD-063 / migration 0042; verification pending**;
-3. ~~design and implement least-privilege Commercial write/compiler DB boundary~~ **IMPLEMENTED — DD-064 / migration 0043; verification pending**;
+2. ~~lock Commercial event v1 payload/catalog contracts~~ **VERIFIED — DD-063 / migration 0042**;
+3. ~~design and implement least-privilege Commercial write/compiler DB boundary~~ **VERIFIED — DD-064 / migration 0043**;
 4. implement immutable entitlement snapshot publication transaction + outbox/audit atomicity;
 5. only then bind `core.commercial.subscription.changePlan` through the existing OperationExecutor/tRPC/Next chain.
 
