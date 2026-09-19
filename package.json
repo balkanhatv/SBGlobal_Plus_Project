@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build:core": "tsc -p tsconfig.json",
+    "build:web": "next build",
     "test:core": "npm run build:core && node --test tests/core/*.test.mjs tests/server/*.test.mjs",
     "test:postgres": "npm run build:core && node --test tests/postgres/*.test.mjs"
   },
@@ -20,6 +21,9 @@
     "@clerk/backend": "3.18.1",
     "@trpc/server": "11.19.0",
     "pg": "8.16.3",
-    "zod": "4.6.5"
+    "zod": "4.6.5",
+    "next": "15.5.25",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   }
 }
