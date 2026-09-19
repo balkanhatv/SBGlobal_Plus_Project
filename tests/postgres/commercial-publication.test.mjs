@@ -38,7 +38,7 @@ before(async()=>{
     await c.query("BEGIN");
     await c.query("CREATE ROLE "+loginRole+" LOGIN PASSWORD '"+password+"' NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS");
     await c.query("GRANT sbg_commercial_transition_compiler_rw TO "+loginRole);
-    await c.query("INSERT INTO platform_directory.data_home(id,code,region_code,jurisdiction_code,topology_class,status) VALUES ($1,$1::text,'IN-COMMERCIAL-PUBLISH','IN','SHARED','ACTIVE')",[f.home]);
+    await c.query("INSERT INTO platform_directory.data_home(id,code,region_code,jurisdiction_code,topology_class,status) VALUES ($1::uuid,$1::uuid::text,'IN-COMMERCIAL-PUBLISH','IN','SHARED','ACTIVE')",[f.home]);
     await c.query("INSERT INTO core_tenancy.tenant(id,tenant_code,legal_name,display_name,status,primary_industry_code,data_home_id,residency_region_code,created_at,updated_at) VALUES ($1,$1::text,'Publish fixture','Publish fixture','ACTIVE','RTL',$2,'IN-COMMERCIAL-PUBLISH',now(),now())",[f.tenant,f.home]);
     await c.query("INSERT INTO core_tenancy.industry_context(id,tenant_id,industry_code,status,is_primary,created_at,updated_at) VALUES ($1,$2,'RTL','ACTIVE',true,now(),now())",[f.industry,f.tenant]);
     await c.query("INSERT INTO core_identity.platform_principal(id,principal_type,status,display_name,service_code,owning_module,allowed_scope_classes,created_at,updated_at) VALUES ($1,'SERVICE','ACTIVE','Commercial publisher','COMMERCIAL_PUBLISH','Commercial',ARRAY['TENANT_CORE'],now(),now())",[f.actor]);
