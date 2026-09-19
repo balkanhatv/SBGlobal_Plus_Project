@@ -1,38 +1,63 @@
-name: web-dependency-lock
+name: Web Boundary Verify
 
 on:
   push:
     branches:
       - docs/architecture-branch-2
     paths:
-      - package.json
-      - .github/workflows/web-dependency-lock.yml
+      - "src/app/**"
+      - "src/core/**"
+      - "src/server/**"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - ".github/workflows/web-dependency-lock.yml"
+  pull_request:
+    paths:
+      - "src/app/**"
+      - "src/core/**"
+      - "src/server/**"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - ".github/workflows/web-dependency-lock.yml"
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  generate-lock:
+  web-boundary-verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
         with:
-          ref: docs/architecture-branch-2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - name: Generate deterministic npm lock update
-        run: npm install --package-lock-only --ignore-scripts
-      - name: Commit generated package lock
-        shell: bash
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - name: Verify tested commit
+        env:
+          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          if git diff --quiet -- package-lock.json; then
-            echo "package-lock.json is already current"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package-lock.json
-          git commit -m "build(web): refresh npm lock for Next 15"
-          git push origin HEAD:docs/architecture-branch-2
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          git show -s --format='Tested commit: %H%nTree: %T%nParents: %P' HEAD
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Verify TypeScript composition
+        run: npm run build:core
+
+      - name: Verify Next.js 15 App Router boundary
+        run: npm run build:web
+
+      - name: Require clean generated state
+        run: git diff --exit-code -- package.json package-lock.json tsconfig.json
