@@ -18,6 +18,7 @@ import { ContextResolutionError } from "../../core/context/errors.js";
 import type { VerifiedMachineEvidence } from "../../core/identity/contracts.js";
 import type { MachineCredentialVerifierPort } from "../../core/identity/session-security-contracts.js";
 import { IdentityRoleQueryService } from "../../core/identity/roles-query-service.js";
+import { WorkspaceService } from "../../core/tenancy/workspace-service.js";
 import { PostgresIdempotencyStore } from "../api/postgres-idempotency-store.js";
 import { PostgresRateLimitStore } from "../api/postgres-rate-limit-store.js";
 import { Sha256IdempotencyDigest } from "../api/sha256-idempotency-digest.js";
@@ -26,6 +27,7 @@ import { FirstPartyClerkBearerAuthorizationResolver } from "../api/trpc/clerk-be
 import {
   createFirstPartyCoreRouter,
   registerCoreIdentityRolesListEffective,
+  registerCoreTenancyWorkspaceResolve,
 } from "../api/trpc/core-identity-router.js";
 import { createFirstPartyTrpcFetchHandler } from "../api/trpc/fetch-handler.js";
 import {
@@ -210,9 +212,10 @@ export function createFirstPartyWebApplication(
   const commercial=new CommercialCurrentStateService(
     new PostgresCommercialCurrentStateStore(scopedSql),
   );
+  const tenancy=new PostgresTenantContextAdapter(new PostgresContextBootstrapDatabase(pool));
   const contexts=new RequestContextService({
     identity,
-    tenancy:new PostgresTenantContextAdapter(new PostgresContextBootstrapDatabase(pool)),
+    tenancy,
     authorization:new PostgresAuthorizationContextAdapter(scopedSql),
     commercial,
     security:new SessionSecurityService(identityStore),
@@ -270,6 +273,13 @@ export function createFirstPartyWebApplication(
     schemas,
     domains,
     service:new IdentityRoleQueryService(new PostgresEffectiveRoleReadAdapter(scopedSql)),
+  });
+  registerCoreTenancyWorkspaceResolve({
+    operations,
+    dtos,
+    schemas,
+    domains,
+    service:new WorkspaceService(tenancy),
   });
 
   const projector=new TransportEnvelopeProjector();

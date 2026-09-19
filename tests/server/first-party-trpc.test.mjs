@@ -6,6 +6,7 @@ import { z } from "zod";
 import {
   DomainOperationRegistry,
   IdentityRoleQueryService,
+  WorkspaceService,
   OperationExecutionError,
   OperationRegistry,
   OperationSchemaRegistry,
@@ -14,8 +15,10 @@ import {
 } from "../../dist/core/index.js";
 import {
   CORE_IDENTITY_ROLES_LIST_EFFECTIVE_INPUT_V1,
+  CORE_TENANCY_WORKSPACE_RESOLVE_INPUT_V1,
   createFirstPartyCoreRouter,
   registerCoreIdentityRolesListEffective,
+  registerCoreTenancyWorkspaceResolve,
 } from "../../dist/server/api/trpc/core-identity-router.js";
 import {
   createFirstPartyQueryProcedure,
@@ -68,6 +71,14 @@ test("core.identity.roles.listEffective binds the exact registered Zod object an
     async listEffective(){return null;},
   });
   registerCoreIdentityRolesListEffective({operations,dtos,schemas,domains,service:roleService});
+  registerCoreTenancyWorkspaceResolve({
+    operations,dtos,schemas,domains,
+    service:new WorkspaceService({
+      async findMembership(){return null},
+      async getTenantById(){return null},
+      async resolveIndustryContext(){return null},
+    }),
+  });
 
   const seen=[];
   const router=createFirstPartyCoreRouter({
@@ -113,6 +124,94 @@ test("core.identity.roles.listEffective binds the exact registered Zod object an
   assert.equal(seen[0].operationId,"core.identity.roles.listEffective");
   assert.equal(seen[0].preparedInput.operationId,"core.identity.roles.listEffective");
   assert.equal(seen[0].preparedInput.canonical,"{}");
+});
+
+
+test("core.tenancy.workspace.resolve has no Tenant-authority DTO field and binds optional Industry selection only",async()=>{
+  const operations=new OperationRegistry();
+  const dtos=new ZodOperationDtoRegistry();
+  const schemas=new OperationSchemaRegistry();
+  const domains=new DomainOperationRegistry();
+  const workspaceCalls=[];
+  const service={
+    async resolve(input){
+      workspaceCalls.push(input);
+      return {
+        tenant:{displayKey:"tenant-a",displayName:"Tenant A"},
+        selectedIndustry:input.industrySelector
+          ? {displayKey:"retail",displayName:"Retail"}:undefined,
+        orgUnitId:"11111111-1111-4111-8111-111111111111",
+        entitlementSnapshotVersion:5,
+        sessionVersion:3,
+      };
+    },
+  };
+  registerCoreTenancyWorkspaceResolve({operations,dtos,schemas,domains,service});
+
+  assert.equal(
+    dtos.get(operations.get("core.tenancy.workspace.resolve")).inputSchema,
+    CORE_TENANCY_WORKSPACE_RESOLVE_INPUT_V1,
+  );
+  assert.equal(
+    CORE_TENANCY_WORKSPACE_RESOLVE_INPUT_V1.safeParse({tenantId:"bad"}).success,
+    false,
+  );
+
+  const seen=[];
+  const router=createFirstPartyCoreRouter({
+    ports:{
+      dtos,schemas,projector:new TransportEnvelopeProjector(),
+      executor:{
+        async execute(input){
+          seen.push(input);
+          return {
+            kind:"EXECUTED",
+            data:{
+              tenant:{displayKey:"tenant-a",displayName:"Tenant A"},
+              selectedIndustry:{displayKey:"retail",displayName:"Retail"},
+              orgUnitId:"11111111-1111-4111-8111-111111111111",
+              entitlementSnapshotVersion:5,
+              sessionVersion:3,
+            },
+            meta:{
+              requestId:input.context.requestId,
+              correlationId:input.context.correlationId,
+              operationId:input.operationId,
+              outputSchemaVersion:1,
+            },
+          };
+        },
+      },
+    },
+  });
+  const caller=router.createCaller({
+    executionContext:{
+      requestId:randomUUID(),correlationId:randomUUID(),
+      authentication:{kind:"HUMAN",credential:"already-preflighted"},
+      tenantSelector:"trusted-host-tenant",
+    },
+  });
+  const result=await caller.core.tenancy.workspace.resolve({industrySelector:" retail "});
+  assert.equal(result.kind,"SUCCESS");
+  assert.equal(result.envelope.data.selectedIndustry.displayKey,"retail");
+  assert.equal(seen[0].operationId,"core.tenancy.workspace.resolve");
+  assert.equal(seen[0].context.tenantSelector,"trusted-host-tenant");
+  assert.equal(seen[0].preparedInput.canonical,'{"industrySelector":"retail"}');
+
+  const invocationContext={
+    requestId:randomUUID(),correlationId:randomUUID(),
+    tenantId:randomUUID(),principalId:randomUUID(),membershipId:randomUUID(),
+    orgUnitPath:[],roleIds:[],scopeClass:"TENANT_CORE",
+  };
+  await domains.execute("WorkspaceService.resolve",{
+    requestContext:invocationContext,
+    operation:operations.get("core.tenancy.workspace.resolve"),
+    input:{industrySelector:"retail"},
+    guard:{decisionId:randomUUID()},
+  });
+  assert.equal(workspaceCalls.length,1);
+  assert.equal(workspaceCalls[0].requestContext,invocationContext);
+  assert.equal(workspaceCalls[0].industrySelector,"retail");
 });
 
 test("tRPC Zod transform runs exactly once before canonical preparation",async()=>{
