@@ -10,6 +10,7 @@ on:
       - "src/server/**"
       - "package.json"
       - "package-lock.json"
+      - "next.config.mjs"
       - "tsconfig.json"
       - ".github/workflows/web-dependency-lock.yml"
   pull_request:
@@ -19,6 +20,7 @@ on:
       - "src/server/**"
       - "package.json"
       - "package-lock.json"
+      - "next.config.mjs"
       - "tsconfig.json"
       - ".github/workflows/web-dependency-lock.yml"
   workflow_dispatch:
