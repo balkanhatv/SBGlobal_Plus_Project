@@ -1,43 +1,44 @@
-# CORE SERVICE CHECKPOINT — DEV-WORKSPACE-BOOTSTRAP-001
+# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-ENTITLEMENTS-QUERY-001
 **Updated:** 2026-09-19  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — Tenant workspace bootstrap query
+**Status:** IMPLEMENTED / TESTED — client-safe current Commercial entitlement query
 
 ## Verified executable snapshot
-- Commit: `3becd5025526b748d46e69495c2b7fb022281f68`.
-- Tree: `0d55b55fd6de7b31ccaa3ef2d2bdd1009bebd9b3`.
-- Core/server acceptance: **177/177 PASS**.
+- Commit: `3bb86bc4b1b313c6bee8c8d65406992bb6b28cc7`.
+- Tree: `07ebd925d3c0176907ebd257e0cdecb5d0f3840e`.
+- Core/server acceptance: **180/180 PASS**.
 - Real PostgreSQL regression: **44/44 PASS**.
 - Database: **41 migrations / 35 verification files PASS**.
-- Next.js 15 production build, deterministic npm lock and generated-state cleanliness: **PASS**.
+- Next.js 15.5.25 production build, deterministic npm lock and governed generated-state cleanliness: **PASS**.
 - Industry SQL remains **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
 
-## DD-059 boundary
-- canonical `core.tenancy.workspace.resolve` TENANT_CORE query is registered;
-- DTO accepts only optional `industrySelector`; no tenantId/client Tenant authority exists;
-- trusted host/server Tenant selector still enters RequestContext before the procedure;
-- existing WorkspaceService revalidates current membership, Tenant and selected Industry ownership;
-- sibling-Tenant Industry selection fails closed;
-- output is the existing sanitized ClientWorkspaceContext only;
-- production composition explicitly enables Workspace while retaining the prior Identity query;
-- no migration, REST/OpenAPI, broad UI or Industry router work was added.
+## DD-060 boundary
+- canonical `core.commercial.entitlements.getCurrent` TENANT_CORE query is registered;
+- exact v1 input is strict empty `{}`; no Tenant/Industry/client scope authority is accepted;
+- permission is `core.commercial.entitlement.view`; rate class AUTH_STANDARD; STANDARD audit; no idempotency;
+- current Commercial state is re-read and must match RequestContext snapshot id/version exactly;
+- output exposes only snapshotVersion, canonical subscriptionState and sorted enabled non-denied entitlement values;
+- snapshotId, subscriptionId, license IDs/tokens, principal/Industry bindings, raw deny-set/source metadata and persistence internals are excluded;
+- false/zero/empty facts are omitted; SET values are deterministic sorted unique strings; invalid/duplicate/over-bound state fails closed;
+- existing GuardPipeline remains authoritative, so restricted subscription states are not widened by this self-view query;
+- production Next composition enables Identity + Workspace + Commercial query through the same OperationExecutor/tRPC route.
 
 ## Exact evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35440213402 | 105889605537 | **PASS — 177/177** |
-| Core Service Verify / postgres-context-verify | 35440213402 | 105889605450 | **PASS — 44/44 + DB bootstrap PASS** |
-| Database Verify / postgres-verify | 35440213490 | 105889605734 | **PASS — 41 migrations / 35 verification files** |
-| Web Boundary Verify / web-boundary-verify | 35440213407 | 105889605507 | **PASS — deterministic lock + Core compile + Next 15.5.25 production build + clean generated state** |
+| Core Service Verify / core-service-verify | 35441330280 | 105892504783 | **PASS — 180/180** |
+| Core Service Verify / postgres-context-verify | 35441330280 | 105892504808 | **PASS — 44/44 + DB bootstrap PASS** |
+| Database Verify / postgres-verify | 35441330254 | 105892504603 | **PASS — 41 migrations / 35 verification files** |
+| Web Boundary Verify / web-boundary-verify | 35441330294 | 105892504754 | **PASS — deterministic lock + Core compile + Next 15.5.25 production build + clean generated state** |
 
-All jobs asserted exact tested HEAD `3becd5025526b748d46e69495c2b7fb022281f68` and tree `0d55b55fd6de7b31ccaa3ef2d2bdd1009bebd9b3`.
+All jobs asserted exact tested HEAD `3bb86bc4b1b313c6bee8c8d65406992bb6b28cc7` and tree `07ebd925d3c0176907ebd257e0cdecb5d0f3840e`.
 
 ## Next governed work
-Proceed only to **`core.commercial.entitlements.getCurrent`**:
-- first lock a v1 client-safe projection contract from F-14/A-04/DD-04;
-- do not expose subscriptionId, snapshotId, license IDs, principal bindings or unrestricted persistence records;
-- re-use current Commercial state + exact RequestContext snapshot-version checks;
-- bind one canonical OperationContract + exact Zod DTO + domain handler + tRPC procedure;
-- preserve server-authoritative Commercial/Authorization enforcement and exact-head CI.
+Audit the prerequisite chain for **`core.commercial.subscription.changePlan`** before writing any mutation:
+- verify DD-04 lifecycle/impact/remediation/proration semantics are implementation-deterministic for this command;
+- verify write-side Commercial repository/least-privilege DB role and entitlement recompilation/publication boundaries exist;
+- verify event/outbox + idempotency + expectedVersion contracts are physically bindable;
+- if any prerequisite is absent or ambiguous, implement only that blocking prerequisite first;
+- do not invent payment/proration/provider behavior or bypass workflow/Commercial compiler ownership.
 
-Do not start subscription mutation, broad UI/navigation, REST/OpenAPI, Industry routers or deployment before this Commercial query is exact-head green. RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.
+Do not start broad UI/navigation, REST/OpenAPI, Industry routers or deployment from this checkpoint. RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.

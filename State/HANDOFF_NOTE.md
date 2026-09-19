@@ -1,12 +1,12 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-19 · **Checkpoint:** `DEV-WORKSPACE-BOOTSTRAP-001`
+**Updated:** 2026-09-19 · **Checkpoint:** `DEV-COMMERCIAL-ENTITLEMENTS-QUERY-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified executable `3becd5025526b748d46e69495c2b7fb022281f68`, tree `0d55b55fd6de7b31ccaa3ef2d2bdd1009bebd9b3`: **177 Core + 44 PostgreSQL + 41 migrations / 35 verification files PASS + Next.js 15 production build/lock/clean-state PASS**.
+Verified executable `3bb86bc4b1b313c6bee8c8d65406992bb6b28cc7`, tree `07ebd925d3c0176907ebd257e0cdecb5d0f3840e`: **180 Core + 44 PostgreSQL + 41 migrations / 35 verification files PASS + Next.js 15.5.25 production build/lock/clean-state PASS**.
 
-DD-059 is complete within bounded scope: `core.tenancy.workspace.resolve` has no client Tenant authority, revalidates membership/Tenant/Industry through existing WorkspaceService, returns only sanitized ClientWorkspaceContext, and is enabled only through the shared OperationExecutor/tRPC/Next composition.
+DD-060 is implemented within bounded scope: `core.commercial.entitlements.getCurrent` accepts strict empty input, revalidates exact current Commercial snapshot, returns only client-safe enabled entitlement state and remains behind the existing Commercial/Authorization guard chain.
 
-Next governed slice: **`core.commercial.entitlements.getCurrent`**. Lock a client-safe v1 projection first; internal subscription/snapshot/license IDs and unrestricted persistence state must not cross the UI boundary.
+Next governed work is not direct mutation by assumption: audit `core.commercial.subscription.changePlan` prerequisites first. If write repository, least-privilege DB boundary, entitlement recompilation/publication, expectedVersion, outbox or deterministic lifecycle semantics are missing, close only the blocking prerequisite before the command.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.
