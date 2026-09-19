@@ -147,6 +147,10 @@ test("core.tenancy.workspace.resolve has no Tenant-authority DTO field and binds
     },
   };
   registerCoreTenancyWorkspaceResolve({operations,dtos,schemas,domains,service});
+  registerCoreIdentityRolesListEffective({
+    operations,dtos,schemas,domains,
+    service:new IdentityRoleQueryService({async listEffective(){return null;}}),
+  });
 
   assert.equal(
     dtos.get(operations.get("core.tenancy.workspace.resolve")).inputSchema,
