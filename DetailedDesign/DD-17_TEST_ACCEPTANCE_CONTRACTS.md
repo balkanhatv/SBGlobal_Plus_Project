@@ -502,3 +502,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WEB-COMP-005 | Next production type/build pipeline runs | `tsconfig.web.json` owns Next/generated types; root `tsconfig.json` remains the Core emit boundary and is not mutated |
 | WEB-COMP-006 | first-party human web composition receives a machine-like credential path | machine credential verification is not inferred from Clerk Bearer; this bounded route fails closed |
 | WEB-COMP-007 | production build completes | dynamic `/api/trpc/[trpc]` route is emitted and the governed package/config files remain clean after build |
+
+
+### Tenant workspace bootstrap query — DD-059 / DEV-WORKSPACE-BOOTSTRAP-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WS-BOOT-001 | procedure input attempts tenantId or parallel Tenant authority | exact v1 Zod DTO rejects it; Tenant selector remains transport/server-owned |
+| WS-BOOT-002 | active Tenant Core context resolves workspace with no Industry selector | sanitized Tenant display projection only; internal Tenant/principal/membership IDs are absent |
+| WS-BOOT-003 | optional Industry selector names ACTIVE current-Tenant Industry | sanitized selected Industry projection returned |
+| WS-BOOT-004 | optional Industry selector resolves to sibling Tenant | INDUSTRY_CONTEXT_MISMATCH fail closed |
+| WS-BOOT-005 | membership becomes inactive after RequestContext creation | WorkspaceService revalidation fails closed; stale membership is not trusted |
+| WS-BOOT-006 | canonical Core router enables Workspace capability | fixed OperationContract + exact DTO + shared OperationExecutor path; no router-local auth/commercial/database rule |
+| WS-BOOT-007 | production Next composition builds with Workspace enabled | Core tests, PostgreSQL isolation, full DB verification and Next production build remain exact-head green |

@@ -259,3 +259,18 @@ The Core TypeScript emit boundary remains `tsconfig.json`. Next.js uses `tsconfi
 The package/lock boundary pins Next.js 15, React/ReactDOM 19 and matching React type packages. CI is read-only and exact-head: it runs deterministic npm-lock verification, Core TypeScript compilation, the Next.js production build and a clean generated-state check. CI never auto-commits generated lock/config files back to the branch.
 
 The next bounded first-party capability is `core.tenancy.workspace.resolve`. DD-02 remains authoritative: Tenant selection arrives only through trusted transport/server selector facts and RequestContext resolution; the procedure DTO must not accept tenantId or a parallel Tenant-authority field. The existing WorkspaceService may consume an optional Industry selector only to return the sanitized ClientWorkspaceContext.
+
+
+## 29. Tenant workspace bootstrap query [DD-059 / DEV-WORKSPACE-BOOTSTRAP-001]
+
+`core.tenancy.workspace.resolve` is the second bounded first-party Core query. Its OperationContract is TENANT_CORE / QUERY with canonical permission `core.tenancy.workspace.resolve`, AUTH_STANDARD rate class, STANDARD audit class and no idempotency path.
+
+Tenant authority does not appear in the procedure DTO. Tenant selection remains the trusted transport/server selector already carried into DD-02 RequestContext resolution. The exact v1 input is only `{industrySelector?: string}`; the selector is normalized and may choose only an ACTIVE Industry Context owned by the already-resolved Tenant.
+
+The domain handler delegates to the existing `WorkspaceService`. Before returning data it re-reads current membership and Tenant state and, when requested, resolves the Industry Context inside that Tenant. A stale membership, unavailable Tenant, or sibling-Tenant Industry fails closed.
+
+The v1 output is the existing sanitized `ClientWorkspaceContext`: Tenant display key/name, optional selected Industry display key/name, optional orgUnitId, entitlementSnapshotVersion and sessionVersion. It does not expose tenantId, principalId, membershipId, DataHome, role IDs, permission internals, security/risk facts or provider/session identifiers.
+
+The production first-party router explicitly enables this bounded procedure after registering its exact OperationContract/Zod/domain definitions. Existing isolated transport fixtures may omit the capability explicitly; runtime composition registers both the previously verified Identity query and this Workspace query.
+
+Next governed Core procedure is `core.commercial.entitlements.getCurrent`. Before transport binding, its client-safe v1 projection must be locked so internal subscription/license/snapshot identifiers and unrestricted commercial persistence records are not exposed to UI clients.

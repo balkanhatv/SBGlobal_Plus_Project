@@ -1,7 +1,7 @@
 # REVIEW_REQUIRED — Historical Pre-Development / Current Audit Overlay
-**Updated:** 2026-09-19 · **Current checkpoint:** `DEV-WEB-COMPOSITION-001`
+**Updated:** 2026-09-19 · **Current checkpoint:** `DEV-WORKSPACE-BOOTSTRAP-001`
 
-Current Development evidence is [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md): verified executable `a440c80ee0d4b97301a310d3ea7574feaf6efa30` / tree `981980fe35b2e0c6a366c3dc45cac5ec2f19aa47`, with Core **172/172 PASS**, PostgreSQL **44/44 PASS**, Database **41 migrations / 35 verification files PASS**, and Next.js 15 production build / deterministic npm lock / generated-state cleanliness **PASS**. The active checkpoint is `DEV-WEB-COMPOSITION-001`; the next governed slice is bounded `core.tenancy.workspace.resolve`. Earlier pre-development and Database sections below retain their historical scope.
+Current Development evidence is [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md): verified executable `3becd5025526b748d46e69495c2b7fb022281f68` / tree `0d55b55fd6de7b31ccaa3ef2d2bdd1009bebd9b3`, with Core **177/177 PASS**, PostgreSQL **44/44 PASS**, Database **41 migrations / 35 verification files PASS**, and Next.js 15 production build / deterministic npm lock / generated-state cleanliness **PASS**. The active checkpoint is `DEV-WORKSPACE-BOOTSTRAP-001`; the next governed slice is client-safe `core.commercial.entitlements.getCurrent`. Earlier pre-development and Database sections below retain their historical scope.
 
 ## Historical pre-development result
 - Foundation P0/P1: **0/0**

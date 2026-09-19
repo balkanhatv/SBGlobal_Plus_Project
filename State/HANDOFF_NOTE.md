@@ -1,12 +1,12 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-19 · **Checkpoint:** `DEV-WEB-COMPOSITION-001`
+**Updated:** 2026-09-19 · **Checkpoint:** `DEV-WORKSPACE-BOOTSTRAP-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified executable `a440c80ee0d4b97301a310d3ea7574feaf6efa30`, tree `981980fe35b2e0c6a366c3dc45cac5ec2f19aa47`: **172 Core + 44 PostgreSQL + 41 migrations / 35 verification files PASS + Next.js 15 production build/lock/clean-state PASS**.
+Verified executable `3becd5025526b748d46e69495c2b7fb022281f68`, tree `0d55b55fd6de7b31ccaa3ef2d2bdd1009bebd9b3`: **177 Core + 44 PostgreSQL + 41 migrations / 35 verification files PASS + Next.js 15 production build/lock/clean-state PASS**.
 
-DD-058 is complete within bounded scope: Next.js 15 / React 19 package boundary, composition-only server root, thin Node App Router tRPC route, existing Clerk/RequestContext/Commercial/Authorization/rate/idempotency chain, separate Core/Next TypeScript boundaries, and read-only exact-head CI.
+DD-059 is complete within bounded scope: `core.tenancy.workspace.resolve` has no client Tenant authority, revalidates membership/Tenant/Industry through existing WorkspaceService, returns only sanitized ClientWorkspaceContext, and is enabled only through the shared OperationExecutor/tRPC/Next composition.
 
-Next governed slice: bind existing `WorkspaceService` as **`core.tenancy.workspace.resolve`**. Tenant authority remains transport/server selector → RequestContext only; the procedure DTO may carry only optional `industrySelector` and returns sanitized `ClientWorkspaceContext`.
+Next governed slice: **`core.commercial.entitlements.getCurrent`**. Lock a client-safe v1 projection first; internal subscription/snapshot/license IDs and unrestricted persistence state must not cross the UI boundary.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.
