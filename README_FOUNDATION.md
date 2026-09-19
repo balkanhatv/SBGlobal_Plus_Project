@@ -1,14 +1,14 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `DEV-WEB-EDGE-001`  
+**Current checkpoint:** `DEV-CONTEXT-BOOTSTRAP-001`  
 **Branch:** `docs/architecture-branch-2`
 
-Verified executable `6bd1887c5d39a6298b99bbae0589154615684089` / `b512cbbb55ab9588815d8e22c345d2c0ccb69a32`:
+Verified executable `b244187e69eee37ce05e5739df4680b3f0511b54` / `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`:
 - **168/168 Core PASS**
-- **38/38 PostgreSQL PASS**
-- **40 migrations / 34 verification files PASS**
+- **44/44 PostgreSQL PASS**
+- **41 migrations / 35 verification files PASS**
 - **9 Industries / 41 canonical MS / 181 Industry tables**
 
-Shared API/web runtime now includes Clerk Bearer auth, canonical execution, exact-scope guards/idempotency/rate controls, Zod/tRPC/Fetch, exact host selectors and edge/body security.
+Shared first-party web/API runtime now includes canonical execution, Authorization/Commercial enforcement, idempotency/rate limiting, tRPC Fetch boundary, Clerk Bearer auth, exact web selector/edge controls and concrete PostgreSQL pre-context Tenant directory bootstrap.
 
-**Next:** concrete Next.js server composition root + tRPC route floor.
+**Next:** concrete Next.js 15 server composition root + one tRPC App Router route.

@@ -1,19 +1,19 @@
 # D-INDEX — Current Canonical / Development Index
-**Updated:** 2026-09-19 · **Checkpoint:** `DEV-WEB-EDGE-001`
+**Updated:** 2026-09-19 · **Checkpoint:** `DEV-CONTEXT-BOOTSTRAP-001`
 
 | Layer | Current boundary |
 |---|---|
 | Governance | Active |
 | RawSourceCorpus | Immutable |
 | Foundation / Architecture | Revalidated completed scope |
-| Detailed Design | DD-00…DD-31 + DD-041/DD-045…DD-056 implementation overlays |
-| Development | Authz/Commercial/PEP/audit + idempotency + rate + executor + Zod/tRPC/Fetch + Clerk + web edge tested |
-| SQL/CI | 40 migrations / 34 verification files; exact-head green |
+| Detailed Design | DD-00…DD-31 + DD-041/DD-045…DD-057 implementation overlays |
+| Development | Authz/Commercial/PEP/audit + idempotency + rate + executor + Zod/projection + tRPC/web auth/edge + context bootstrap tested |
+| SQL/CI | 41 migrations / 35 verification files; exact-head green |
 | Industry SQL | 9 Industries / 41 canonical MS / 181 tables |
-| First-party web | Auth + selector + edge/body floor verified |
+| First-party web | Physical Fetch/auth/edge/context-bootstrap floors verified |
 | Next.js composition | Not started |
 | REST/OpenAPI | Not started |
 
-Verified `6bd1887c5d39a6298b99bbae0589154615684089` / `b512cbbb55ab9588815d8e22c345d2c0ccb69a32`: **168 Core / 38 PostgreSQL PASS**.
+Verified `b244187e69eee37ce05e5739df4680b3f0511b54` / `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`: **168 Core / 44 PostgreSQL PASS**.
 
-Next: **concrete Next.js server composition root + one tRPC route floor**.
+Next: **Next.js 15 composition root + concrete tRPC App Router route**.

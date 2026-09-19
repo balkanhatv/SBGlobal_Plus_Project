@@ -1,16 +1,16 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-19 · **Checkpoint:** `DEV-WEB-EDGE-001`
+**Updated:** 2026-09-19 · **Checkpoint:** `DEV-CONTEXT-BOOTSTRAP-001`
 
 Development is **IN PROGRESS — FIRST-PARTY WEB COMPOSITION**.
 
-Verified `6bd1887c5d39a6298b99bbae0589154615684089` / `b512cbbb55ab9588815d8e22c345d2c0ccb69a32`:
+Verified `b244187e69eee37ce05e5739df4680b3f0511b54` / `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`:
 - **168/168 Core PASS**
-- **38/38 PostgreSQL PASS**
-- **40 migrations / 34 verification files PASS**
+- **44/44 PostgreSQL PASS**
+- **41 migrations / 35 verification files PASS**
 - Industry SQL remains **9 Industries / 41 canonical MS / 181 tables**
 
-First-party tRPC now has verified Clerk Bearer auth, exact host selector derivation, edge origin/host controls and a hard post-auth/pre-parse body ceiling.
+The first-party web auth/edge layer and the concrete PostgreSQL pre-context Tenant directory bootstrap are implemented/tested.
 
-Next: **revalidate and build the concrete Next.js server composition root + tRPC route floor**. REST/OpenAPI and broad UI/router expansion remain later.
+Next: **concrete Next.js 15 server composition root + one tRPC App Router route floor**. REST/OpenAPI, broad routers and UI remain out of scope until that gate passes.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

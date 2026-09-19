@@ -1,42 +1,42 @@
-# CORE SERVICE CHECKPOINT — DEV-WEB-EDGE-001
+# CORE SERVICE CHECKPOINT — DEV-CONTEXT-BOOTSTRAP-001
 **Updated:** 2026-09-19  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — trusted first-party web selector + edge/body security floor
+**Status:** IMPLEMENTED / TESTED — pre-context Tenant directory bootstrap
 
 ## Verified executable snapshot
-- Commit: `6bd1887c5d39a6298b99bbae0589154615684089`.
-- Tree: `b512cbbb55ab9588815d8e22c345d2c0ccb69a32`.
+- Commit: `b244187e69eee37ce05e5739df4680b3f0511b54`.
+- Tree: `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`.
 - Core/server acceptance: **168/168 PASS**.
-- Real PostgreSQL regression: **38/38 PASS**.
-- Database: **40 migrations / 34 verification files PASS**.
+- Real PostgreSQL regression: **44/44 PASS**.
+- Database: **41 migrations / 35 verification files PASS**.
 - Industry SQL remains **9 Current Supported Industries / 41 canonical MS / 181 canonical Industry tables**.
 
-## DD-056 boundary
-- exact server-configured host binding produces only non-authoritative Tenant/optional Industry/OrgUnit selectors;
-- generic `X-Tenant-Id` / `X-Industry-Context-Id` headers are ignored as authority;
-- DD-02 RequestContext remains authoritative for Tenant membership/current state and Industry ownership;
-- HTTPS + exact host + allowed Origin + cross-site browser policy are executable;
-- only GET/POST are accepted in this first-party tRPC web floor;
-- declared Content-Length can be rejected pre-auth as an early size signal;
-- an authenticated streamed body is hard-capped before tRPC/schema parsing, so missing Content-Length cannot bypass the application ceiling;
-- JSON POST policy is explicit;
-- Bearer-authenticated web does not invent a cookie-CSRF token contract; future cookie auth must satisfy DD-16 separately.
+## DD-057 boundary
+- dedicated `sbg_context_bootstrap_ro` NOLOGIN/NOBYPASSRLS role;
+- SELECT-only access to DataHome, Tenant, Industry Context, OrgUnit, Tenant Membership and Current Supported Industry presentation truth;
+- no provider-link, API-credential secret, device/session-security or PlatformPrincipal directory access;
+- human Tenant resolution requires an exact active membership and explicit selector when multiple memberships exist;
+- machine-bound Tenant resolution stays exact to the bound Tenant;
+- Industry resolution is exact inside the resolved Tenant; sibling-Tenant Industry IDs cannot cross-resolve;
+- OrgUnit root-to-leaf path is derived server-side;
+- DataHome/routingVersion is read from the server directory before tenant-scoped SQL;
+- bootstrap database adapter enforces the dedicated runtime role and read-only transaction behavior.
 
 ## Exact evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35391473666 | 105750578096 | **PASS — 168/168** |
-| Core Service Verify / postgres-context-verify | 35391473666 | 105750578347 | **PASS — 38/38** |
-| Database Verify / postgres-verify | 35391473678 | 105750581458 | **PASS — 40 migrations / 34 verification files** |
+| Core Service Verify / core-service-verify | 35395873206 | 105764448946 | **PASS — 168/168** |
+| Core Service Verify / postgres-context-verify | 35395873206 | 105764448659 | **PASS — 44/44** |
+| Database Verify / postgres-verify | 35395873225 | 105764448413 | **PASS — 41 migrations / 35 verification files** |
 
-All jobs asserted exact tested HEAD `6bd1887c5d39a6298b99bbae0589154615684089` and tree `b512cbbb55ab9588815d8e22c345d2c0ccb69a32`.
+All jobs asserted exact tested HEAD `b244187e69eee37ce05e5739df4680b3f0511b54` and tree `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`.
 
 ## Next governed work
-Implement the **first-party web application composition root / concrete Next.js route bootstrap** only after revalidating F-01/A-10/DD-14:
-- actual Next.js 15 / React 19 package boundary and directory ownership;
-- one server composition root that instantiates Clerk/Identity, selector, edge/body, context, guard, idempotency, rate, DTO/domain registry and tRPC router dependencies;
-- one concrete tRPC route mounted through the verified Fetch handler;
-- no duplicate business/security logic in the route;
-- environment/secrets supplied through deployment configuration, never source.
+Revalidated F-01/A-10/DD-14 require Next.js server capabilities as the default authenticated web/API placement. Implement only the **concrete Next.js 15 server composition root + one tRPC route bootstrap**:
+- pin the governed Next.js 15 + React 19 package boundary;
+- add a server composition root that wires existing Clerk/Identity, trusted selector/edge/body policy, TenantContext bootstrap, RequestContext, Commercial, Authorization, idempotency/rate, DTO/domain registries and tRPC router through existing adapters;
+- mount one concrete App Router tRPC route without route-local business/security logic;
+- environment/secrets are required runtime configuration, never source defaults;
+- add build/type/test evidence for the new web boundary.
 
-Do not start broad UI screens, REST/OpenAPI, or broad Industry routers before this composition floor is exact-head green. RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.
+Do not start broad UI screens, REST/OpenAPI, broad Industry routers or deployment before this composition floor is exact-head green. RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

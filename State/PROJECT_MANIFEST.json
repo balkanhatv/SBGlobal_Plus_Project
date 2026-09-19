@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-19",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-WEB-EDGE-001",
-  "final_verdict": "DEVELOPMENT IN PROGRESS — TRUSTED WEB SELECTOR + EDGE/BODY SECURITY IMPLEMENTED / TESTED; NEXT.JS COMPOSITION ROOT NEXT; REST/UI NOT STARTED",
+  "checkpoint": "DEV-CONTEXT-BOOTSTRAP-001",
+  "final_verdict": "DEVELOPMENT IN PROGRESS — PRE-CONTEXT TENANT DIRECTORY BOOTSTRAP IMPLEMENTED / TESTED; NEXT.JS 15 COMPOSITION ROOT NEXT; REST/UI NOT STARTED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "6bd1887c5d39a6298b99bbae0589154615684089",
-    "verified_code_tree": "b512cbbb55ab9588815d8e22c345d2c0ccb69a32",
-    "state_projection_basis_head": "6bd1887c5d39a6298b99bbae0589154615684089"
+    "verified_code_head": "b244187e69eee37ce05e5739df4680b3f0511b54",
+    "verified_code_tree": "ea017bd7a4ac31226c349dfeaa63a3faae8b97e9",
+    "state_projection_basis_head": "b244187e69eee37ce05e5739df4680b3f0511b54"
   },
   "development": {
     "authorized": true,
@@ -73,12 +73,12 @@
       "apply_verify_harness": "database/scripts/apply-and-verify.sh",
       "ci_workflow": ".github/workflows/database-verify.yml",
       "runtime_postgresql_verification": "PASS",
-      "migration_count": 40,
-      "verification_file_count": 34,
-      "migration_range": "0001-0040",
-      "ci_verified_head": "6bd1887c5d39a6298b99bbae0589154615684089",
-      "ci_run_id": 35391473678,
-      "ci_job_id": 105750581458,
+      "migration_count": 41,
+      "verification_file_count": 35,
+      "migration_range": "0001-0041",
+      "ci_verified_head": "b244187e69eee37ce05e5739df4680b3f0511b54",
+      "ci_run_id": 35395873225,
+      "ci_job_id": 105764448413,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -90,7 +90,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "b512cbbb55ab9588815d8e22c345d2c0ccb69a32",
+      "ci_verified_tree": "ea017bd7a4ac31226c349dfeaa63a3faae8b97e9",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,18 +99,18 @@
         "scope": "Historical all-stages SQL persistence audit"
       }
     },
-    "next_action": "Revalidate F-01/A-10/DD-14, then implement only the concrete Next.js server composition root and one tRPC route floor.",
+    "next_action": "Implement only the concrete Next.js 15 server composition root and one tRPC App Router route using existing verified adapters.",
     "core_services": {
-      "checkpoint": "DEV-WEB-EDGE-001",
+      "checkpoint": "DEV-CONTEXT-BOOTSTRAP-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040…DD-056 verified shared Core/API + first-party web auth/selector/edge chain",
-      "verified_head": "6bd1887c5d39a6298b99bbae0589154615684089",
-      "verified_tree": "b512cbbb55ab9588815d8e22c345d2c0ccb69a32",
-      "core_ci_run_id": 35391473666,
-      "core_ci_job_id": 105750578096,
+      "decision": "DD-040…DD-057 verified shared Core/API + first-party web auth/edge + context-bootstrap chain",
+      "verified_head": "b244187e69eee37ce05e5739df4680b3f0511b54",
+      "verified_tree": "ea017bd7a4ac31226c349dfeaa63a3faae8b97e9",
+      "core_ci_run_id": 35395873206,
+      "core_ci_job_id": 105764448946,
       "tests": "168 TESTS PRESENT / CORE SERVICE VERIFY PASS",
       "core_test_counts": {
         "tests": 168,
@@ -118,18 +118,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35391473666,
-      "postgres_ci_job_id": 105750578347,
-      "postgres_tests": "38/38 PASS",
+      "postgres_ci_run_id": 35395873206,
+      "postgres_ci_job_id": 105764448659,
+      "postgres_tests": "44/44 PASS",
       "postgres_test_counts": {
-        "tests": 38,
-        "pass": 38,
+        "tests": 44,
+        "pass": 44,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35391473678,
-      "database_regression_job_id": 105750581458,
+      "database_regression_run_id": 35395873225,
+      "database_regression_job_id": 105764448413,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -243,10 +243,14 @@
         "generic Tenant/Industry header non-authority tests",
         "HTTPS/host/origin/Sec-Fetch-Site edge policy",
         "pre-auth declared-size rejection",
-        "post-auth pre-tRPC streamed hard body cap"
+        "post-auth pre-tRPC streamed hard body cap",
+        "0041 dedicated pre-context Tenant directory SELECT-only role/RLS boundary",
+        "DD-057 PostgresContextBootstrapDatabase",
+        "DD-057 PostgresTenantContextAdapter exact membership-aware Tenant resolution",
+        "exact Tenant-owned Industry Context + OrgUnit path resolution",
+        "trusted DataHome/routingVersion bootstrap before RequestScopedSql"
       ],
       "not_claimed": [
-        "trusted directory/Identity bootstrap adapter",
         "live production Clerk/provider operational validation",
         "production PDP/ABAC evaluator",
         "broader module-owned PostgreSQL query repositories",
@@ -270,18 +274,19 @@
         "trusted first-party selector/network derivation adapter",
         "concrete Next.js application/server composition root",
         "concrete Next.js tRPC route",
-        "dynamic user-selected Industry workspace persistence"
+        "dynamic user-selected Industry workspace persistence",
+        "concrete Next.js tRPC App Router route"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_AND_EXACT_COMMERCIAL_CURRENT_STATE_TESTED",
       "pending_physical_contracts": [
-        "Next.js server composition root and concrete tRPC route placement",
+        "Next.js 15 server composition root and concrete tRPC route placement",
         "dynamic workspace/Industry selection persistence where product UX requires it",
         "concrete per-module Zod DTO/domain/resource registrations",
         "concrete per-module resource/workflow rule adapters",
         "governed enforceable ABAC RESTRICT payload/reducer contract",
         "dedicated Commercial restricted-mode/UPGRADE_CTA operation contracts"
       ],
-      "next_action": "Revalidate F-01/A-10/DD-14, then implement only the Next.js server composition root + one tRPC route floor."
+      "next_action": "Implement only the concrete Next.js 15 server composition root + one tRPC App Router route and verify exact-head."
     },
     "application_api_ui_scope_note": "Core services and bounded first-party tRPC query adapter have started; physical HTTP handler, REST and UI remain unfinished.",
     "application_services_started": true,
@@ -369,11 +374,11 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-WEB-EDGE-001",
+    "checkpoint": "DEV-CONTEXT-BOOTSTRAP-001",
     "corrected_baseline_head": "ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5",
     "corrected_baseline_tree": "ba95a8a1fd811f1b5ece01ba891535878827aa3c",
-    "verified_code_head": "6bd1887c5d39a6298b99bbae0589154615684089",
-    "verified_code_tree": "b512cbbb55ab9588815d8e22c345d2c0ccb69a32",
+    "verified_code_head": "b244187e69eee37ce05e5739df4680b3f0511b54",
+    "verified_code_tree": "ea017bd7a4ac31226c349dfeaa63a3faae8b97e9",
     "code_snapshot_files": 239,
     "changes": [
       "1835fc4201998d05368a5aec1e963fca263dba35",
@@ -420,7 +425,9 @@
       "3600457f569658c68cd9f067a108d5237df563d9",
       "8b3b0417eb95391c9b4e81fa9acdcae0efcf10fe",
       "ac00ce9ba8ff51928a235c5719f724b4c6d720d1",
-      "6bd1887c5d39a6298b99bbae0589154615684089"
+      "6bd1887c5d39a6298b99bbae0589154615684089",
+      "4eee0878dc747a4efe74c9bbcebaf2601764c4f8",
+      "b244187e69eee37ce05e5739df4680b3f0511b54"
     ],
     "failed_ci_attempts": [
       {
@@ -506,6 +513,12 @@
         "core_run_id": 35374682106,
         "cause": "DD-054 Fetch handler compile-only typing defects in preflight error shape and optional facts fallback inference",
         "fixed_by": "8b3b0417eb95391c9b4e81fa9acdcae0efcf10fe"
+      },
+      {
+        "head": "4eee0878dc747a4efe74c9bbcebaf2601764c4f8",
+        "core_run_id": 35395676964,
+        "cause": "PostgreSQL bootstrap fixture reused UUID parameters in text contexts without explicit casts",
+        "fixed_by": "b244187e69eee37ce05e5739df4680b3f0511b54"
       }
     ],
     "schema_or_verification_sql_changed": true,
@@ -514,7 +527,7 @@
     "metadata_closure_resolution": "Read the publication commit from Git after updating this self-containing manifest; recorded CI evidence belongs to verified_code_head, not an invented closure SHA.",
     "next_task_model_capability": "Authorization/data-contract reasoning and TypeScript/PostgreSQL implementation; select from actually available models.",
     "model_switch_performed": false,
-    "scope_gate": "IMPLEMENTED_TESTED_TRUSTED_WEB_SELECTOR_EDGE_BODY_FLOOR",
+    "scope_gate": "IMPLEMENTED_TESTED_PRE_CONTEXT_TENANT_DIRECTORY_BOOTSTRAP",
     "approval_blockers": 0
   }
 }
