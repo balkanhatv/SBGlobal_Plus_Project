@@ -1,7 +1,7 @@
 # REVIEW_REQUIRED — Historical Pre-Development / Current Audit Overlay
-**Updated:** 2026-09-19 · **Current checkpoint:** `DEV-COMMERCIAL-WRITER-BOUNDARY-001`
+**Updated:** 2026-09-19 · **Current checkpoint:** `DEV-COMMERCIAL-PUBLICATION-001`
 
-Current Development evidence is [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md): verified executable `b420e1547d9366f3c21612643e2ee04c3214c992` / tree `80fdbb7377247f374801791f09ae75d118ae832b`, with Core **180/180 PASS**, PostgreSQL **44/44 PASS**, Database **43 migrations / 37 verification files PASS**, and Next.js 15.5.25 production build / deterministic npm lock / generated-state cleanliness **PASS**. The active checkpoint is `DEV-COMMERCIAL-WRITER-BOUNDARY-001`; the next governed slice is the atomic Commercial publication transaction floor. Public `core.commercial.subscription.changePlan` remains blocked until DD-062 assessment/resolution evidence persistence and Billing/approval producer runtime exist. Earlier pre-development and Database sections below retain their historical scope.
+Current Development evidence is [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md): verified executable `a810af51c93dba5959d4b26502c47100afd631fa` / tree `5b4b662acdc450a9878101652e2bd0ce98404da4`, with Core **182/182 PASS**, PostgreSQL **47/47 PASS**, Database **44 migrations / 38 verification files PASS**, and Next.js 15.5.25 production build / deterministic npm lock / generated-state cleanliness **PASS**. The active checkpoint is `DEV-COMMERCIAL-PUBLICATION-001`; DD-065 atomic publication is verified but remains internal. The next governed slice is physical DD-062 plan-change assessment/remediation/route-resolution evidence persistence and producer boundaries; public `core.commercial.subscription.changePlan` remains unbound. Earlier pre-development and Database sections below retain their historical scope.
 
 ## Historical pre-development result
 - Foundation P0/P1: **0/0**
