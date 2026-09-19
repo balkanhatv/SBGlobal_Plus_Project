@@ -145,3 +145,14 @@ The payload intentionally excludes entitlement facts, deny-set contents, license
 - aggregate ordering uses the Subscription/version or Tenant snapshot version respectively.
 - business mutation, immutable evidence, outbox identity/detail and required audit append remain one authoritative DB transaction.
 - ordinary application runtime may SELECT catalog rows but may not mutate the catalog.
+
+
+## 15. Commercial atomic publication evidence [DD-065]
+
+The DD-065 transaction emits exactly two DD-063 events at successful apply:
+- `subscription.transitioned` aggregate = Subscription, aggregateVersion = new Subscription version;
+- `entitlement.recompiled` aggregate = EntitlementSnapshot, aggregateVersion = new snapshot version.
+
+Both envelopes use the canonical DD-07 fields including SERVICE actor, Commercial source module, TENANT_CORE scope, authoritative Tenant residency, correlation id, optional plan-change causation id, INTERNAL sensitivity, versioned payload schema and bounded payload.
+
+Outbox identity row + partitioned event row are inserted in the same business transaction. The same transaction appends one Commercial/TENANT_CORE audit record referencing transition/source-target PlanVersion/subscription/snapshot versions. No payment/pricing/approval secret or raw entitlement compiler source is copied into the outbox/audit payloads.

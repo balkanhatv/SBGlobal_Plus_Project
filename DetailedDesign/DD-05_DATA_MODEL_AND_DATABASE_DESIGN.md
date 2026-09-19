@@ -236,3 +236,18 @@ Role invariants:
 - event catalog remains SELECT-only.
 
 This database role is a publication boundary only. It does not itself calculate plan impact, payment/proration, approval results or entitlement semantics. A server service must still validate DD-062 assessment/resolution evidence and compile deterministic facts before opening this transaction.
+
+
+## 16. Atomic Commercial publication repository [DD-065]
+
+`PostgresCommercialTransitionCompilerDatabase` is the fixed-role SQL adapter for `sbg_commercial_transition_compiler_rw`. Like the Authorization compiler adapter it:
+- begins a transaction;
+- SET LOCAL ROLE to the dedicated NOLOGIN/NOBYPASSRLS group role;
+- verifies both runtime and login roles are non-superuser/non-bypass;
+- clears pooled scope residue;
+- lets `RequestScopedSql` set the exact Tenant Core context;
+- fails/destroys unsafe pooled connections rather than returning stale scope.
+
+Migration 0044 adds only SELECT on `core_tenancy.tenant` to this role so DD-07 event envelopes can use the authoritative `residency_region_code`. Existing FORCE-RLS `tenant_resolved_context_policy` keeps that read same-Tenant; Tenant mutation remains absent.
+
+The publication store uses row locks/optimistic predicates for Subscription and CURRENT entitlement snapshot, status-only supersession, immutable snapshot/fact insertion, catalog-constrained outbox append and restricted Commercial audit append. No general application role is reused.

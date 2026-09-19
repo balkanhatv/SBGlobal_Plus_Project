@@ -571,3 +571,19 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-DBW-006 | snapshot publication | snapshot INSERT + status-only UPDATE and fact INSERT allowed; fact UPDATE/DELETE denied |
 | COMM-DBW-007 | outbox append | only TENANT_CORE subscription.transitioned / entitlement.recompiled accepted by writer restrictive policy + catalog FK |
 | COMM-DBW-008 | audit append | writer limited to TENANT_CORE source_module=Commercial evidence |
+
+
+### Atomic Commercial publication — DD-065 / DEV-COMMERCIAL-PUBLICATION-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-PUB-001 | HUMAN / Industry-scoped / missing-current-snapshot caller | rejected before store; SERVICE + TENANT_CORE + current snapshot required |
+| COMM-PUB-002 | duplicate facts/deny entries, invalid type/window, future effectiveAt | payload/state rejected before persistence |
+| COMM-PUB-003 | stale Subscription expectedVersion/source PlanVersion | transaction fails closed; no transition/snapshot/event/audit side effect |
+| COMM-PUB-004 | RequestContext snapshot id/version differs from locked CURRENT snapshot | transaction fails closed as stale |
+| COMM-PUB-005 | target PlanVersion/Plan/route is not ACTIVE/effective | transaction fails closed |
+| COMM-PUB-006 | compiled fact type disagrees with ACTIVE entitlement definition or Industry belongs elsewhere/inactive | transaction fails closed |
+| COMM-PUB-007 | successful apply | Subscription version/Plan advances, transition appended, old snapshot SUPERSEDED, new CURRENT snapshot/facts published |
+| COMM-PUB-008 | successful apply evidence | exactly subscription.transitioned + entitlement.recompiled outbox and one Commercial audit append in same transaction |
+| COMM-PUB-009 | writer attempts Subscription state or Tenant mutation | dedicated role privilege denies it |
+| COMM-PUB-010 | any evidence/privilege/RLS write fails | PostgreSQL transaction rolls back all business/publication evidence |

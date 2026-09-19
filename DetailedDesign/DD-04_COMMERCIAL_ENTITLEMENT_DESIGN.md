@@ -235,3 +235,35 @@ Any mismatch is fail-closed. A stale `expectedVersion`, changed source plan, cha
 The public command returns request/evaluation state only, e.g. a server-generated plan-change request/reference, assessment version, route class, impact/entitlement-diff references and a normalized state such as action-required/ready/scheduled/applied. It must not return provider secrets, payment instruments, internal Billing formulas, raw approval payloads or unrestricted Commercial records.
 
 Creating/evaluating the request does **not** by itself update the Subscription or publish a new entitlement snapshot.
+
+
+## 14. Atomic Commercial publication floor [DD-065]
+
+A bounded internal `CommercialPublicationService` now owns the first executable apply/publication floor. It is **not** the public `changePlan` command and accepts only already server-validated compiled publication input.
+
+Runtime invariants:
+- caller must be a trusted `SERVICE` principal in `TENANT_CORE`; no Industry Context is carried;
+- RequestContext must contain the current entitlement snapshot id/version plus Tenant/DataHome/region;
+- input names exact Subscription id, expected Subscription version, expected source PlanVersion, target PlanVersion, server-owned effective time, trigger/reason references, source fingerprint, deny-set and deterministic compiled facts;
+- generated transition/snapshot/outbox/audit IDs are server-owned;
+- fact values are bounded by the canonical Commercial value types; duplicate entitlement scope, duplicate deny entries, invalid effective windows and future apply attempts fail before persistence.
+
+The PostgreSQL store then re-locks and revalidates:
+1. exact Tenant-owned Subscription + expected version/source PlanVersion;
+2. usable current Subscription state;
+3. ACTIVE target PlanVersion + Plan + route policy valid at effective time;
+4. exact current entitlement snapshot matching RequestContext id/version and current source Subscription/PlanVersion;
+5. authoritative Tenant residency for event envelope;
+6. ACTIVE entitlement definitions/value types and ACTIVE same-Tenant Industry Context references.
+
+Only after all checks pass does one transaction:
+- advance Subscription `plan_version_id/version/updated_at`;
+- append `subscription_transition`;
+- mark the old CURRENT snapshot SUPERSEDED;
+- insert a new immutable CURRENT snapshot and its facts;
+- append DD-063 `subscription.transitioned` and `entitlement.recompiled` outbox events;
+- append Commercial audit evidence.
+
+Any stale version/source/snapshot, invalid target, invalid fact scope/type, RLS/privilege failure or evidence-write failure aborts the whole transaction.
+
+This floor intentionally does **not** evaluate DD-062 payment/approval/remediation evidence and therefore cannot yet be exposed as the public plan-change command.
