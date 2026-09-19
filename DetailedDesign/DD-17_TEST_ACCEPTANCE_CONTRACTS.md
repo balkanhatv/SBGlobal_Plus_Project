@@ -515,3 +515,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WS-BOOT-005 | membership becomes inactive after RequestContext creation | WorkspaceService revalidation fails closed; stale membership is not trusted |
 | WS-BOOT-006 | canonical Core router enables Workspace capability | fixed OperationContract + exact DTO + shared OperationExecutor path; no router-local auth/commercial/database rule |
 | WS-BOOT-007 | production Next composition builds with Workspace enabled | Core tests, PostgreSQL isolation, full DB verification and Next production build remain exact-head green |
+
+
+### Client-safe current Commercial query — DD-060 / DEV-COMMERCIAL-ENTITLEMENTS-QUERY-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-UI-001 | getCurrent input includes tenantId/industryId/other field | strict empty v1 DTO rejects it |
+| COMM-UI-002 | current snapshot contains enabled + false/zero/empty + deny-set facts | output includes only effective enabled non-denied facts |
+| COMM-UI-003 | SET entitlement contains duplicate/invalid/over-bound values | projection fails closed; no truncation/coercion |
+| COMM-UI-004 | RequestContext snapshot id/version differs from freshly loaded current state | COMMERCIAL_CONTEXT_STALE normalizes to dependency-unavailable; no stale projection |
+| COMM-UI-005 | client projection serialized | snapshotId, subscriptionId, license IDs/tokens, principal bindings and deny-set/source metadata are absent |
+| COMM-UI-006 | procedure executes | fixed OperationContract + exact Zod DTO + shared OperationExecutor/GuardPipeline; no router-local Commercial rule |
+| COMM-UI-007 | PENDING/SUSPENDED/EXPIRED/CANCELLED under generic guard | access remains restricted; this query does not invent a recovery/billing exception |

@@ -274,3 +274,16 @@ The v1 output is the existing sanitized `ClientWorkspaceContext`: Tenant display
 The production first-party router explicitly enables this bounded procedure after registering its exact OperationContract/Zod/domain definitions. Existing isolated transport fixtures may omit the capability explicitly; runtime composition registers both the previously verified Identity query and this Workspace query.
 
 Next governed Core procedure is `core.commercial.entitlements.getCurrent`. Before transport binding, its client-safe v1 projection must be locked so internal subscription/license/snapshot identifiers and unrestricted commercial persistence records are not exposed to UI clients.
+
+
+## 30. Client-safe current Commercial query [DD-060 / DEV-COMMERCIAL-ENTITLEMENTS-QUERY-001]
+
+`core.commercial.entitlements.getCurrent` is the next bounded first-party Core query. It is TENANT_CORE / QUERY with permission `core.commercial.entitlement.view`, AUTH_STANDARD rate class, STANDARD audit class, no idempotency and no `entitlementRequirement` because it is the self-view operation for the current effective entitlement snapshot.
+
+The exact v1 input is `{}`. Tenant/Industry authority does not appear in the DTO.
+
+The exact v1 output is the DD-04 `CommercialClientCurrentProjectionV1`: `snapshotVersion`, canonical `subscriptionState`, and sorted effective enabled entitlement entries `{code,valueType,value}`. It excludes all Commercial persistence identifiers, license records/tokens, principal bindings and raw deny-set/source metadata.
+
+The domain service must re-read current Commercial state and require exact RequestContext snapshot id/version equality before projection. Denied/disabled/zero/empty facts are omitted, not exposed as client truth. Invalid or over-bound state fails closed.
+
+The existing GuardPipeline remains in front of the domain call; this query does not create a bypass around current subscription, seat, RBAC, ABAC, audit or rate controls.

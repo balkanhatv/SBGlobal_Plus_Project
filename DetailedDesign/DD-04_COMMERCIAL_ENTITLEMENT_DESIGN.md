@@ -153,3 +153,21 @@ This executable floor resolves Commercial truth from the existing module-owned p
 - Authorization supplemental facts are server-derived only: `commercial.subscriptionState`; canonical sorted `commercial.licenseSet` tokens as `<LICENSE_TYPE>:<subject_key>`; canonical sorted enabled entitlement codes in `commercial.entitlementFacts`. Set overflow is not truncated; it fails closed under ABAC v1 bounds.
 - PLATFORM_GLOBAL receives no tenant Commercial supplemental facts. EXPLICIT_CROSS_CONTEXT remains outside this single-context store and requires its own governed repository.
 - SURFACE/API_SERVICE applicability and the dedicated restricted-mode recovery/read-only operation vocabulary remain explicit future work; this floor does not invent client/channel mappings.
+
+
+## 12. Client-safe current entitlement projection [DD-060]
+
+The first UI-facing Commercial read contract is deliberately narrower than `CommercialCurrentStateRead`.
+
+`CommercialClientCurrentProjectionV1` contains only:
+- `snapshotVersion: positive integer`;
+- `subscriptionState` using the canonical Commercial subscription enum;
+- `entitlements[]`, sorted by entitlement code, where each entry is `{code,valueType,value}`.
+
+The projection omits `snapshotId`, `subscriptionId`, license IDs, license subject/principal/Industry bindings, raw deny-set contents, source IDs and all persistence/audit metadata.
+
+Only currently effective, non-denied, enabled entitlement facts are emitted. BOOLEAN=false, INTEGER/DECIMAL=0, empty TEXT and empty SET values are omitted. SET values are emitted as a deterministic sorted unique string set. Invalid values or overflow fail closed; they are never truncated or coerced into a weaker contract.
+
+The read reuses the same current Commercial store and must require exact equality between RequestContext entitlement snapshot id/version and the freshly loaded current state before projecting. This is a UI projection only; server Authorization/Commercial enforcement remains authoritative.
+
+The first operation using this contract is `core.commercial.entitlements.getCurrent`: TENANT_CORE QUERY, empty input, permission `core.commercial.entitlement.view`, AUTH_STANDARD, STANDARD audit, no operation entitlementRequirement. The generic Commercial guard still applies, so this operation is available only in currently usable TRIAL/ACTIVE/GRACE state under the present runtime floor. Suspended/recovery/billing reads require separate explicit operation contracts and are not widened here.
