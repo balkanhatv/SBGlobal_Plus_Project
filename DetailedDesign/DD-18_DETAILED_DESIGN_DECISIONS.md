@@ -670,3 +670,14 @@ Outbox uses an additional RESTRICTIVE policy for this role so it can emit only D
 **Isolation:** a dedicated fixed-role database adapter uses `sbg_commercial_transition_compiler_rw`; migration 0044 gives only same-Tenant Tenant-record SELECT for authoritative residency. General application roles remain non-writers.
 
 **Consequence:** CP-06 is closed and the atomic apply/publication primitive is executable/tested. This does not close CP-03/04/05 runtime evidence: the public `core.commercial.subscription.changePlan` must remain unbound until persisted/versioned assessment/remediation evidence and Billing/approval SATISFIED producer evidence can authorize a call into this primitive.
+
+
+## DD-066 — Plan-change evidence is append-only, version-bound and producer-isolated
+
+**Context:** DD-062 locked the authority model but its assessment/remediation/route-resolution objects were not persisted. DD-065 can atomically publish a validated plan transition but must not trust caller-supplied payment/approval/remediation claims.
+
+**Decision:** physically persist `PlanChangeAssessmentV1`, remediation evidence and route resolution in TENANT_CORE FORCE-RLS tables. Assessment insert revalidates the live Subscription/source PlanVersion/version and target route. Versions are contiguous; the source/target/timing/version tuple cannot drift within an assessment id. Remediation completion is evidenced separately, and a SATISFIED reassessment requires that prior evidence. SELF_SERVE route resolution is writable only through a dedicated Billing role; SALES_ASSISTED only through the Workflow worker. General application roles and the Commercial publication writer cannot produce these records.
+
+**Runtime:** `PlanChangeEvidenceService` is SERVICE/TENANT_CORE-only and fixes producer ownership by method rather than input. Dedicated fixed-role PostgreSQL adapters preserve no-bypass least privilege and pooled-scope hygiene.
+
+**Consequence:** DD-062 evidence persistence and producer isolation are executable/tested. This does not claim that impact/diff calculation, payment/proration/provider integration or approval decision runtime exists; those producer computations remain required before public `changePlan` can reach DD-065 publication.

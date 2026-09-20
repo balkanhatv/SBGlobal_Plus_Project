@@ -267,3 +267,35 @@ Only after all checks pass does one transaction:
 Any stale version/source/snapshot, invalid target, invalid fact scope/type, RLS/privilege failure or evidence-write failure aborts the whole transaction.
 
 This floor intentionally does **not** evaluate DD-062 payment/approval/remediation evidence and therefore cannot yet be exposed as the public plan-change command.
+
+
+## 15. Physical plan-change evidence substrate [DD-066]
+
+DD-062 server authority is now physically represented by three TENANT_CORE evidence families:
+
+1. `plan_change_assessment` — immutable/versioned assessment bound to exact Tenant, Subscription, source/target PlanVersion, effective timing, expected Subscription version, route policy id/version, impact references, blocking codes, remediation state, source fingerprint and correlation.
+2. `plan_change_remediation_evidence` — append-only Commercial-produced SATISFIED evidence bound to one assessment version.
+3. `plan_change_route_resolution` — append-only route evidence bound to one assessment version and one server producer.
+
+Database invariants:
+- assessment insert rechecks the current Subscription source PlanVersion/version and ACTIVE target PlanVersion/Plan/route policy;
+- assessment versions are contiguous and cannot change the core Subscription/source/target/timing/version binding;
+- initial assessment cannot claim remediation SATISFIED;
+- a later SATISFIED assessment requires prior Commercial remediation evidence for the immediately preceding assessment version;
+- blocking impact codes are bounded/non-empty/unique when present;
+- remediation evidence versions are contiguous and producer_module is fixed to `Commercial`;
+- route-resolution evidence versions are contiguous and route must equal the assessment route;
+- `SELF_SERVE` evidence can only be `Billing`; `SALES_ASSISTED` evidence can only be `Workflow`;
+- SALES_ASSISTED evidence cannot claim a Billing preview;
+- SATISFIED NEXT_RENEWAL evidence requires server-owned `effective_at`;
+- all three tables are FORCE-RLS, Tenant-owned, scope-immutable and append-only to runtime producer roles.
+
+Producer roles are separate, NOLOGIN/NOBYPASSRLS boundaries:
+- `sbg_commercial_plan_change_evidence_rw`: assessment + remediation append;
+- `sbg_billing_plan_change_evidence_rw`: SELF_SERVE route-resolution append;
+- `sbg_workflow_worker_rw`: SALES_ASSISTED route-resolution append;
+- `sbg_commercial_transition_compiler_rw`: read-only consumer of all three evidence families.
+
+`PlanChangeEvidenceService` fixes the producer module by method; callers cannot select producer ownership. It normalizes/bounds server-generated evidence and rejects HUMAN/Industry-scoped use. PostgreSQL acceptance proves stale Subscription assessment rejection, contiguous assessment/remediation/resolution versions, remediation→reassessment binding, NEXT_RENEWAL Billing evidence, SALES_ASSISTED Workflow evidence, wrong-producer denial and append-only immutability.
+
+**Boundary:** DD-066 persists and isolates server evidence but does not itself calculate usage impact, entitlement diff, money/proration, payment status or approval decisions. Those producer computations/integrations remain separate governed runtime work.

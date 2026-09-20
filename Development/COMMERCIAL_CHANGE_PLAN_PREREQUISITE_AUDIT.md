@@ -16,9 +16,9 @@ The blocker is not the already-verified query/transport kernel. The blocker is t
 |---|---|---|---|
 | CP-01 | DD-06 put `idempotencyKey` in DTO while DD-049/DD-054 use transport metadata | **CORRECTED** | DTO excludes key; OperationContract will be REQUIRED |
 | CP-02 | `effectiveTiming` enum was unnamed | **CORRECTED** | exact vocabulary `IMMEDIATE | NEXT_RENEWAL` |
-| CP-03 | F-14 requires checkout/payment or order/approval before plan mutation | **CONTRACT LOCKED — DD-062** | implement physical server-owned assessment/resolution evidence; direct apply still blocked |
-| CP-04 | downgrade requires impact assessment + explicit remediation | **CONTRACT LOCKED — DD-062** | persist/version assessment + remediation evidence before apply runtime |
-| CP-05 | A-04 assigns proration to Billing; no Billing/payment/proration runtime exists | **HANDOFF CONTRACT LOCKED — DD-062; RUNTIME BLOCKING** | Billing/approval producer runtime remains required; Commercial must not calculate money |
+| CP-03 | F-14 requires checkout/payment or order/approval before plan mutation | **EVIDENCE SUBSTRATE VERIFIED — DD-066; PRODUCER RUNTIME BLOCKING** | implement actual Billing/payment and Workflow approval producers; direct public apply remains blocked |
+| CP-04 | downgrade requires impact assessment + explicit remediation | **PERSISTENCE / BINDING VERIFIED — DD-066; EVALUATOR RUNTIME BLOCKING** | implement server-owned impact/diff/remediation evaluator; do not trust precomputed client input |
+| CP-05 | A-04 assigns proration to Billing; no Billing/payment/proration runtime exists | **HANDOFF EVIDENCE BOUNDARY VERIFIED — DD-066; RUNTIME BLOCKING** | actual Billing/payment/proration and governed approval producer runtime remains required; Commercial must not calculate money |
 | CP-06 | no Commercial mutation/compiler runtime existed under `src/` | **VERIFIED — DD-065 / migration 0044 / executable publication store** | keep primitive internal until DD-062 evidence/runtime gates are physical |
 | CP-07 | DD-07 requires cataloged events; executable code/catalog lacked `subscription.transitioned` / `entitlement.recompiled` | **VERIFIED — DD-063 / migration 0042** | require PostgreSQL verification before writer/compiler work |
 | CP-08 | `sbg_app_rw` historically has broad Commercial DML; no dedicated plan-change/compiler writer role exists | **VERIFIED — DD-064 / migration 0043** | require real PostgreSQL privilege + same-Tenant cross-Industry isolation verification |
@@ -39,7 +39,9 @@ Next work must close **DD-061 write-contract prerequisites** before command code
 2. ~~lock Commercial event v1 payload/catalog contracts~~ **VERIFIED — DD-063 / migration 0042**;
 3. ~~design and implement least-privilege Commercial write/compiler DB boundary~~ **VERIFIED — DD-064 / migration 0043**;
 4. ~~implement immutable entitlement snapshot publication transaction + outbox/audit atomicity~~ **VERIFIED — DD-065**;
-5. implement persisted/versioned DD-062 assessment/remediation + Billing/approval resolution evidence producers;
-6. only then bind `core.commercial.subscription.changePlan` through the existing OperationExecutor/tRPC/Next chain.
+5. ~~implement persisted/versioned DD-062 assessment/remediation + isolated Billing/approval resolution evidence substrate~~ **VERIFIED — DD-066**;
+6. implement server-owned impact/entitlement-diff/remediation evaluator plus actual Billing/payment and Workflow approval producer integrations;
+7. implement the internal apply gate that consumes only current SATISFIED persisted evidence and deterministic compiler output;
+8. only then bind `core.commercial.subscription.changePlan` through the existing OperationExecutor/tRPC/Next chain.
 
 RawSourceCorpus remains immutable. `main` remains unmerged.

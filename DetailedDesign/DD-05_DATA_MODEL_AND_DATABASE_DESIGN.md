@@ -251,3 +251,22 @@ This database role is a publication boundary only. It does not itself calculate 
 Migration 0044 adds only SELECT on `core_tenancy.tenant` to this role so DD-07 event envelopes can use the authoritative `residency_region_code`. Existing FORCE-RLS `tenant_resolved_context_policy` keeps that read same-Tenant; Tenant mutation remains absent.
 
 The publication store uses row locks/optimistic predicates for Subscription and CURRENT entitlement snapshot, status-only supersession, immutable snapshot/fact insertion, catalog-constrained outbox append and restricted Commercial audit append. No general application role is reused.
+
+
+## 17. Plan-change evidence persistence and least-privilege producers [DD-066]
+
+Migration 0045 adds three registered FORCE-RLS TENANT_CORE tables: `plan_change_assessment`, `plan_change_remediation_evidence` and `plan_change_route_resolution`. Existing `subscription_tenant_id_id_uq` from migration 0030 is reused; no duplicate ownership key is introduced.
+
+All evidence tables carry the canonical `immutable_scope_ownership` trigger required by the 0029 security baseline. Runtime UPDATE/DELETE is revoked. General app/worker/control-plane roles receive no evidence-table access.
+
+Dedicated evidence adapters SET LOCAL ROLE to one fixed producer role and verify both runtime/login roles are non-superuser and non-BYPASSRLS before opening RequestScopedSql. Pooled scope is cleared/reset exactly like the established compiler adapters.
+
+The DB write guards provide the second validation line beneath the TypeScript service:
+- stale Subscription/source PlanVersion/version → fail;
+- target route/version mismatch → fail;
+- non-contiguous assessment/evidence version → fail;
+- producer/route mismatch → fail;
+- invalid remediation progression → fail;
+- missing NEXT_RENEWAL effective timestamp on SATISFIED resolution → fail.
+
+This substrate is intentionally independent from payment-provider or approval-engine implementation.

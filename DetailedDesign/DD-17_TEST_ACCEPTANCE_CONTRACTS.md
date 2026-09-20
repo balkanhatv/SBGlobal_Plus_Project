@@ -587,3 +587,21 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-PUB-008 | successful apply evidence | exactly subscription.transitioned + entitlement.recompiled outbox and one Commercial audit append in same transaction |
 | COMM-PUB-009 | writer attempts Subscription state or Tenant mutation | dedicated role privilege denies it |
 | COMM-PUB-010 | any evidence/privilege/RLS write fails | PostgreSQL transaction rolls back all business/publication evidence |
+
+
+### Governed plan-change evidence — DD-066 / DEV-COMMERCIAL-PLAN-CHANGE-EVIDENCE-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-PCE-001 | HUMAN, Industry-scoped or unresolved caller records evidence | rejected before persistence |
+| COMM-PCE-002 | assessment source Subscription version/PlanVersion is stale | DB guard rejects; no evidence inserted |
+| COMM-PCE-003 | target PlanVersion/Plan/route invalid or route policy version changed | assessment insert rejects |
+| COMM-PCE-004 | assessment version skips/rebinds subscription/source/target/timing/version | rejects; versions are contiguous and core binding immutable |
+| COMM-PCE-005 | blocking impacts exist but remediation is NOT_REQUIRED/SATISFIED | rejects initial inconsistent assessment |
+| COMM-PCE-006 | remediation evidence | Commercial-only, append-only, contiguous evidence version |
+| COMM-PCE-007 | reassessment becomes SATISFIED | requires prior SATISFIED Commercial remediation evidence for previous assessment version |
+| COMM-PCE-008 | SELF_SERVE route resolution | only Billing producer role/method can append |
+| COMM-PCE-009 | SALES_ASSISTED route resolution | only Workflow producer role/method can append; Billing preview forbidden |
+| COMM-PCE-010 | SATISFIED NEXT_RENEWAL resolution | server-owned effectiveAt required |
+| COMM-PCE-011 | wrong producer attempts route evidence | RLS/producer check denies |
+| COMM-PCE-012 | runtime attempts evidence UPDATE/DELETE | privilege + immutable ownership boundary denies |
