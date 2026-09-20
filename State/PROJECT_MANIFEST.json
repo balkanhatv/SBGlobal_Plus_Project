@@ -1,17 +1,17 @@
 {
   "project": "SBGlobal Plus",
-  "updated": "2026-09-19",
+  "updated": "2026-09-20",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-CONTEXT-BOOTSTRAP-001",
-  "final_verdict": "DEVELOPMENT IN PROGRESS — PRE-CONTEXT TENANT DIRECTORY BOOTSTRAP IMPLEMENTED / TESTED; NEXT.JS 15 COMPOSITION ROOT NEXT; REST/UI NOT STARTED",
+  "checkpoint": "DEV-COMMERCIAL-AUDIT-CORRECTION-001",
+  "final_verdict": "DEVELOPMENT IN PROGRESS — ZERO-TRUST COMMERCIAL CURRENT-STATE CORRECTION VERIFIED; DD-069 LAST FEATURE SLICE; ADD-ON ELIGIBILITY / ACTIVE ADJUSTMENT SOURCES NEXT",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
     "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD040_DD044_IMPLEMENTATION_OVERLAY",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
-    "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_PERSISTENCE_POLICY_GRAMMAR_READ_STORE_FAIL_CLOSED_EVALUATOR_AND_COMPILER_PUBLICATION_BOUNDARY",
-    "development": "IN_PROGRESS_AUTHORIZATION_CORE_SERVICES_VERIFIED_SLICE",
-    "application_api_ui": "CORE_APPLICATION_SERVICES_STARTED_API_TRANSPORTS_UI_NOT_STARTED",
+    "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
+    "development": "IN_PROGRESS_COMMERCIAL_TARGET_PREVIEW_PREREQUISITES",
+    "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_BOUNDED_QUERIES_VERIFIED_REST_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
     "core_services": "DD02_DD03_DD04_DD06_KERNEL_DD040_POSTGRES_DRIVER_DD041_COMPILER_PUBLICATION_DD042_READ_BINDINGS_DD043_SCOPE_FLOOR_DD044_CLERK_SESSION_SECURITY_DEV_AUTHZ_STACK_TESTED"
@@ -53,15 +53,15 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "b244187e69eee37ce05e5739df4680b3f0511b54",
-    "verified_code_tree": "ea017bd7a4ac31226c349dfeaa63a3faae8b97e9",
-    "state_projection_basis_head": "b244187e69eee37ce05e5739df4680b3f0511b54"
+    "verified_code_head": "895f0c6c53dd2cabcf5b3d53f8b5f053803e9122",
+    "verified_code_tree": "5e4bee4f8ede04024ac3cf4ac0cad8d356106224",
+    "state_projection_basis_head": "895f0c6c53dd2cabcf5b3d53f8b5f053803e9122"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "First-Party Web Composition",
+    "current_phase": "Commercial target-preview prerequisites",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -73,12 +73,12 @@
       "apply_verify_harness": "database/scripts/apply-and-verify.sh",
       "ci_workflow": ".github/workflows/database-verify.yml",
       "runtime_postgresql_verification": "PASS",
-      "migration_count": 41,
-      "verification_file_count": 35,
-      "migration_range": "0001-0041",
-      "ci_verified_head": "b244187e69eee37ce05e5739df4680b3f0511b54",
-      "ci_run_id": 35395873225,
-      "ci_job_id": 105764448413,
+      "migration_count": 45,
+      "verification_file_count": 39,
+      "migration_range": "0001-0045",
+      "ci_verified_head": "895f0c6c53dd2cabcf5b3d53f8b5f053803e9122",
+      "ci_run_id": 35492882333,
+      "ci_job_id": 106030725899,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -90,7 +90,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "ea017bd7a4ac31226c349dfeaa63a3faae8b97e9",
+      "ci_verified_tree": "5e4bee4f8ede04024ac3cf4ac0cad8d356106224",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,37 +99,37 @@
         "scope": "Historical all-stages SQL persistence audit"
       }
     },
-    "next_action": "Implement only the concrete Next.js 15 server composition root and one tRPC App Router route using existing verified adapters.",
+    "next_action": "Lock add-on eligibility and active adjustment-source read semantics, then deterministic precedence. Public changePlan remains unbound.",
     "core_services": {
-      "checkpoint": "DEV-CONTEXT-BOOTSTRAP-001",
+      "checkpoint": "DEV-COMMERCIAL-AUDIT-CORRECTION-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040…DD-057 verified shared Core/API + first-party web auth/edge + context-bootstrap chain",
-      "verified_head": "b244187e69eee37ce05e5739df4680b3f0511b54",
-      "verified_tree": "ea017bd7a4ac31226c349dfeaa63a3faae8b97e9",
-      "core_ci_run_id": 35395873206,
-      "core_ci_job_id": 105764448946,
-      "tests": "168 TESTS PRESENT / CORE SERVICE VERIFY PASS",
+      "decision": "DD-040…DD-069 verified shared Core/API/Commercial prerequisite chain plus 2026-09-20 audit correction",
+      "verified_head": "895f0c6c53dd2cabcf5b3d53f8b5f053803e9122",
+      "verified_tree": "5e4bee4f8ede04024ac3cf4ac0cad8d356106224",
+      "core_ci_run_id": 35492880766,
+      "core_ci_job_id": 106030721739,
+      "tests": "194/194 PASS",
       "core_test_counts": {
-        "tests": 168,
-        "pass": 168,
+        "tests": 194,
+        "pass": 194,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35395873206,
-      "postgres_ci_job_id": 105764448659,
-      "postgres_tests": "44/44 PASS",
+      "postgres_ci_run_id": 35492880766,
+      "postgres_ci_job_id": 106030721643,
+      "postgres_tests": "53/53 PASS",
       "postgres_test_counts": {
-        "tests": 44,
-        "pass": 44,
+        "tests": 53,
+        "pass": 53,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35395873225,
-      "database_regression_job_id": 105764448413,
+      "database_regression_run_id": 35492882333,
+      "database_regression_job_id": 106030725899,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -252,9 +252,7 @@
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
-        "production PDP/ABAC evaluator",
-        "broader module-owned PostgreSQL query repositories",
-        "UI/mobile/desktop",
+        "UI/mobile/desktop implementation",
         "deployment/production readiness",
         "governed enforceable ABAC RESTRICT payload/reducer",
         "dedicated suspended billing/renewal/export restricted-mode operation contracts",
@@ -262,33 +260,30 @@
         "SURFACE/API_SERVICE Commercial applicability mapping",
         "concrete per-module ResourceResolver/ResourceBusinessRule adapters across Core and 41 MS",
         "PUBLIC and EXPLICIT_CROSS_CONTEXT Authorization audit writers",
-        "A-06 Zod DTO single-source bridge",
-        "transport-neutral HTTP/tRPC success/error projection",
-        "concrete tRPC/REST transport adapters",
         "concrete REST/OpenAPI adapter",
         "webhook transport adapter",
         "broad Core/Industry tRPC router catalog",
-        "concrete origin/host/body-size/CSRF edge policy",
-        "Next.js app/route composition",
         "machine/API-key Authorization scheme for first-party tRPC",
-        "trusted first-party selector/network derivation adapter",
-        "concrete Next.js application/server composition root",
-        "concrete Next.js tRPC route",
         "dynamic user-selected Industry workspace persistence",
-        "concrete Next.js tRPC App Router route"
+        "full Commercial target preview / impact evaluator",
+        "actual Billing/payment/proration and Workflow approval producer runtimes",
+        "public core.commercial.subscription.changePlan"
       ],
-      "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_AND_EXACT_COMMERCIAL_CURRENT_STATE_TESTED",
+      "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
-        "Next.js 15 server composition root and concrete tRPC route placement",
-        "dynamic workspace/Industry selection persistence where product UX requires it",
-        "concrete per-module Zod DTO/domain/resource registrations",
-        "concrete per-module resource/workflow rule adapters",
-        "governed enforceable ABAC RESTRICT payload/reducer contract",
-        "dedicated Commercial restricted-mode/UPGRADE_CTA operation contracts"
+        "governed add_on.eligibility_json resolver contract",
+        "active TenantAddOn and tenant_override compiler source-read contract",
+        "deterministic baseline -> override -> eligible add-on precedence",
+        "compliance/security restriction inputs into target preview",
+        "usage-meter target-limit impact evaluator",
+        "actual Billing/payment/proration producer integration",
+        "actual Workflow approval producer integration",
+        "internal SATISFIED-evidence apply gate before DD-065 publication",
+        "public REQUIRED-idempotency core.commercial.subscription.changePlan binding only after prerequisites"
       ],
-      "next_action": "Implement only the concrete Next.js 15 server composition root + one tRPC App Router route and verify exact-head."
+      "next_action": "Lock add-on eligibility + active adjustment source-read semantics before applying precedence."
     },
-    "application_api_ui_scope_note": "Core services and bounded first-party tRPC query adapter have started; physical HTTP handler, REST and UI remain unfinished.",
+    "application_api_ui_scope_note": "First-party Next.js App Router/tRPC HTTP boundary and three bounded Core queries are implemented/tested; REST/OpenAPI and product UI remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -340,9 +335,9 @@
         "scope": "DD-044 Clerk session-security + PLATFORM_GLOBAL Authorization persistence prerequisite"
       }
     ],
-    "status": "IN_PROGRESS_AUTHORIZATION_CORE_SERVICES"
+    "status": "IN_PROGRESS_COMMERCIAL_TARGET_PREVIEW_PREREQUISITES"
   },
-  "current_phase": "DEVELOPMENT_FIRST_PARTY_WEB_COMPOSITION",
+  "current_phase": "DEVELOPMENT_COMMERCIAL_TARGET_PREVIEW_PREREQUISITES",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -374,12 +369,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-CONTEXT-BOOTSTRAP-001",
+    "checkpoint": "DEV-COMMERCIAL-AUDIT-CORRECTION-001",
     "corrected_baseline_head": "ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5",
     "corrected_baseline_tree": "ba95a8a1fd811f1b5ece01ba891535878827aa3c",
-    "verified_code_head": "b244187e69eee37ce05e5739df4680b3f0511b54",
-    "verified_code_tree": "ea017bd7a4ac31226c349dfeaa63a3faae8b97e9",
-    "code_snapshot_files": 239,
+    "verified_code_head": "895f0c6c53dd2cabcf5b3d53f8b5f053803e9122",
+    "verified_code_tree": "5e4bee4f8ede04024ac3cf4ac0cad8d356106224",
+    "code_snapshot_files": 353,
     "changes": [
       "1835fc4201998d05368a5aec1e963fca263dba35",
       "456d3bf567547483471110917e71f7337a70f707",
@@ -527,7 +522,40 @@
     "metadata_closure_resolution": "Read the publication commit from Git after updating this self-containing manifest; recorded CI evidence belongs to verified_code_head, not an invented closure SHA.",
     "next_task_model_capability": "Authorization/data-contract reasoning and TypeScript/PostgreSQL implementation; select from actually available models.",
     "model_switch_performed": false,
-    "scope_gate": "IMPLEMENTED_TESTED_PRE_CONTEXT_TENANT_DIRECTORY_BOOTSTRAP",
+    "scope_gate": "IMPLEMENTED_TESTED_ZERO_TRUST_COMMERCIAL_CURRENT_STATE_CORRECTION",
     "approval_blockers": 0
+  },
+  "current_audit_overlay": {
+    "date": "2026-09-20",
+    "audited_repository_head": "f3b5993143779b1f37189e9ac0d51af47f027a40",
+    "audited_repository_tree": "def06614e6de1831bbb1e7b8ab5f0e4061503df2",
+    "verified_executable_basis": "895f0c6c53dd2cabcf5b3d53f8b5f053803e9122",
+    "verified_executable_tree": "5e4bee4f8ede04024ac3cf4ac0cad8d356106224",
+    "file_inventory": 353,
+    "source_files": 71,
+    "test_files": 47,
+    "migrations": 45,
+    "verification_files": 39,
+    "core_tests": {
+      "tests": 194,
+      "pass": 194,
+      "fail": 0,
+      "skip": 0
+    },
+    "postgres_tests": {
+      "tests": 53,
+      "pass": 53,
+      "fail": 0,
+      "skip": 0
+    },
+    "industry_scope": {
+      "industries": 9,
+      "management_systems": 41,
+      "registered_tables": 181
+    },
+    "raw_source_policy": "IMMUTABLE",
+    "main_tip": "3911590ff2020993ce51b32d7b091efd6f5f466f",
+    "pr2": "OPEN_DRAFT_UNMERGED",
+    "note": "Metadata promotion commits are exact-head CI-triggering; their own SHA is resolved from Git after publication and is not self-invented inside this JSON."
   }
 }

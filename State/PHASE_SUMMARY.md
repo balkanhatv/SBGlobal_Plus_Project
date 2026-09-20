@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-20
 
-Current Development checkpoint is `DEV-COMMERCIAL-ADJUSTMENT-SCHEMA-001`. Verified executable `4a526c8fc9287136ffad0ee723c73df536a50b27` / tree `1496cb8d43be198edd71cef62171ced096bfc607` passes **193 Core + 49 PostgreSQL**, **45 migrations / 39 verification files**, and the Next.js 15.5.25 production build. DD-069 now provides strict quota-additive add-on normalization plus typed tenant-override semantics, including isolated Industry DENY representation. Full adjustment precedence is not yet claimed because add-on eligibility and active adjustment source reads remain unbound.
+Current Development checkpoint is `DEV-COMMERCIAL-AUDIT-CORRECTION-001`. Verified executable basis `895f0c6c53dd2cabcf5b3d53f8b5f053803e9122` / tree `5e4bee4f8ede04024ac3cf4ac0cad8d356106224` passes **194 Core + 53 PostgreSQL**, **45 migrations / 39 verification files**, and the Next.js 15.5.25 production build. The zero-trust correction accepts canonical PENDING Industry inventory without granting inactive scopes, requires effective/current Commercial publication truth, proves late-evidence rollback, repairs current DD/API reference drift, and closes the metadata-head CI gap. DD-069 remains the last feature slice; add-on eligibility, active adjustment reads and precedence remain next.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
