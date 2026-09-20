@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-20
 
-Current Development checkpoint is `DEV-COMMERCIAL-AUDIT-CORRECTION-001`. Verified executable basis `895f0c6c53dd2cabcf5b3d53f8b5f053803e9122` / tree `5e4bee4f8ede04024ac3cf4ac0cad8d356106224` passes **194 Core + 53 PostgreSQL**, **45 migrations / 39 verification files**, and the Next.js 15.5.25 production build. The zero-trust correction accepts canonical PENDING Industry inventory without granting inactive scopes, requires effective/current Commercial publication truth, proves late-evidence rollback, repairs current DD/API reference drift, and closes the metadata-head CI gap. DD-069 remains the last feature slice; add-on eligibility, active adjustment reads and precedence remain next.
+Current Development checkpoint is `DEV-COMMERCIAL-ADJUSTMENT-SOURCE-001`. Verified executable `8b735dd19b18ae5e9f0d1d3894cd497bb56c26b0` / tree `631abc2f75e108027440771507ee85350b9eb698` passes **196 Core + 56 PostgreSQL**, **45 migrations / 39 verification files**, and the Next.js 15.5.25 production build. DD-070 now binds active same-Tenant TenantAddOn/override source reads plus a server-owned opaque eligibility resolver seam; sibling-Tenant rows and stale Subscription/current-pointer state fail closed. No concrete eligibility/pricing/payment rule is claimed. Next is deterministic baseline → override → resolver-eligible add-on precedence, with ambiguous limit-meter mapping denied rather than guessed.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

@@ -1,19 +1,20 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-AUDIT-CORRECTION-001`
+**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-ADJUSTMENT-SOURCE-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified executable basis `895f0c6c53dd2cabcf5b3d53f8b5f053803e9122`, tree `5e4bee4f8ede04024ac3cf4ac0cad8d356106224`: **194 Core + 53 PostgreSQL + 45 migrations / 39 verification files PASS + Next.js 15.5.25 production build/lock/clean-state PASS**.
+Verified executable `8b735dd19b18ae5e9f0d1d3894cd497bb56c26b0`, tree `631abc2f75e108027440771507ee85350b9eb698`: **196 Core + 56 PostgreSQL + 45 migrations / 39 verification files PASS + Next.js 15.5.25 production build/lock/clean-state PASS**.
 
-Zero-trust audit correction is verified:
-- PENDING Industry Context is valid inventory but remains ineligible for DD-068 plan-baseline expansion;
-- Commercial publication requires an effective CURRENT snapshot and authoritative Tenant current-subscription pointer;
-- late audit failure rolls back business/snapshot/outbox changes;
-- DD/API reference drift was reconciled;
-- state/checkpoint promotion paths now trigger exact-head Core/Web/Database verification.
+DD-070 physicalizes the active adjustment-source boundary:
+- current Subscription pointer/version/source PlanVersion revalidated;
+- active/effective target PlanVersion/Plan/route required;
+- exact same-Tenant/Subscription TenantAddOns and active/effective overrides only;
+- sibling Tenant adjustment rows excluded under predicates + FORCE-RLS;
+- add-on eligibility remains an opaque server-owned resolver seam;
+- only resolver-ELIGIBLE add-ons can contribute DD-069 quota deltas.
 
-DD-069 remains the last governed Commercial feature slice. Do not apply add-ons to a target preview yet: `add_on.eligibility_json`, active adjustment source reads and precedence are still unfinished. Billing/payment/proration and Workflow approval producers also remain unfinished. Public changePlan remains blocked.
+Do not overclaim eligibility business rules: the repository has no concrete production eligibility resolver yet.
 
-Next governed slice: lock add-on eligibility and active adjustment-source read semantics only, then deterministic precedence.
+Next governed slice: deterministic F-14/DD-04 precedence over DD-068 baseline + DD-070 prepared adjustments. Tenant override LIMIT_SET/LIMIT_DELTA must fail closed if an entitlement maps to multiple target meter keys; never guess the meter.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.
