@@ -7,9 +7,6 @@ CREATE TYPE core_commercial.plan_change_route_class AS ENUM ('SELF_SERVE','SALES
 CREATE TYPE core_commercial.plan_change_remediation_state AS ENUM ('NOT_REQUIRED','PENDING','SATISFIED');
 CREATE TYPE core_commercial.plan_change_resolution_state AS ENUM ('PENDING','SATISFIED','REJECTED');
 
-ALTER TABLE core_commercial.subscription
-  ADD CONSTRAINT subscription_tenant_id_id_uq UNIQUE (tenant_id,id);
-
 CREATE TABLE core_commercial.plan_change_assessment (
   assessment_id uuid NOT NULL,
   assessment_version integer NOT NULL CHECK (assessment_version > 0),
