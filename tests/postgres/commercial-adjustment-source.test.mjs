@@ -134,9 +134,9 @@ before(async()=>{
       "INSERT INTO core_commercial.tenant_add_on("+
       "id,tenant_id,add_on_id,subscription_id,status,quantity,effective_from,effective_to,version"+
       ") VALUES "+
-      "($1::uuid,$3::uuid,$5::uuid,$6::uuid,'ACTIVE',2,now()-interval '1 hour',NULL,3),"+
-      "($2::uuid,$3::uuid,$5::uuid,$6::uuid,'ACTIVE',5,now()-interval '2 days',now()-interval '1 day',1)",
-      [f.tenantAddOnActive,f.tenantAddOnExpired,f.tenantA,f.tenantB,f.addOn,f.subscriptionA],
+      "($1::uuid,$3::uuid,$4::uuid,$5::uuid,'ACTIVE',2,now()-interval '1 hour',NULL,3),"+
+      "($2::uuid,$3::uuid,$4::uuid,$5::uuid,'ACTIVE',5,now()-interval '2 days',now()-interval '1 day',1)",
+      [f.tenantAddOnActive,f.tenantAddOnExpired,f.tenantA,f.addOn,f.subscriptionA],
     );
 
     await c.query(
