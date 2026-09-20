@@ -152,6 +152,31 @@ function impacts(values:readonly string[]):readonly string[]{
   }
   return Object.freeze([...output].sort());
 }
+function effectiveTiming(value:unknown):PlanChangeEffectiveTiming{
+  if(value!=="IMMEDIATE" && value!=="NEXT_RENEWAL"){
+    fail("PLAN_CHANGE_EVIDENCE_PAYLOAD_INVALID","Invalid effectiveTiming.");
+  }
+  return value;
+}
+function routeClass(value:unknown):PlanChangeRouteClass{
+  if(value!=="SELF_SERVE" && value!=="SALES_ASSISTED"){
+    fail("PLAN_CHANGE_EVIDENCE_PAYLOAD_INVALID","Invalid routeClass.");
+  }
+  return value;
+}
+function remediationState(value:unknown):PlanChangeRemediationState{
+  if(value!=="NOT_REQUIRED" && value!=="PENDING" && value!=="SATISFIED"){
+    fail("PLAN_CHANGE_EVIDENCE_PAYLOAD_INVALID","Invalid remediationState.");
+  }
+  return value;
+}
+function resolutionState(value:unknown):PlanChangeResolutionState{
+  if(value!=="PENDING" && value!=="SATISFIED" && value!=="REJECTED"){
+    fail("PLAN_CHANGE_EVIDENCE_PAYLOAD_INVALID","Invalid resolutionState.");
+  }
+  return value;
+}
+
 function assertContext(context:RequestContext):string{
   if(context.scopeClass!=="TENANT_CORE" || context.industryContextId
     || !context.tenantId || !context.principalId || context.principalType!=="SERVICE"
@@ -203,9 +228,10 @@ export class PlanChangeEvidenceService {
         : fail("PLAN_CHANGE_EVIDENCE_PAYLOAD_INVALID","Later assessment versions require assessmentId."))
       : uuid(input.assessmentId,"assessmentId");
     const blockingImpactCodes=impacts(input.blockingImpactCodes);
-    if((blockingImpactCodes.length===0 && input.remediationState==="PENDING")
-      || (blockingImpactCodes.length>0 && input.remediationState!=="PENDING")
-      || (assessmentVersion===1 && input.remediationState==="SATISFIED")){
+    const normalizedRemediationState=remediationState(input.remediationState);
+    if((blockingImpactCodes.length===0 && normalizedRemediationState==="PENDING")
+      || (blockingImpactCodes.length>0 && normalizedRemediationState!=="PENDING")
+      || (assessmentVersion===1 && normalizedRemediationState==="SATISFIED")){
       fail("PLAN_CHANGE_EVIDENCE_PAYLOAD_INVALID","Assessment remediation state is inconsistent with impact evidence.");
     }
     const sourcePlanVersionId=uuid(input.sourcePlanVersionId,"sourcePlanVersionId");
@@ -214,22 +240,22 @@ export class PlanChangeEvidenceService {
       fail("PLAN_CHANGE_EVIDENCE_PAYLOAD_INVALID","Target PlanVersion must differ from source PlanVersion.");
     }
     const createdAt=date(this.ports.runtime.now(),"assessment time");
-    const assessment:Object.freeze extends never ? never : PlanChangeAssessmentRecordV1=Object.freeze({
+    const assessment:PlanChangeAssessmentRecordV1=Object.freeze({
       assessmentId,
       assessmentVersion,
       tenantId,
       subscriptionId:uuid(input.subscriptionId,"subscriptionId"),
       sourcePlanVersionId,
       targetPlanVersionId,
-      effectiveTiming:input.effectiveTiming,
+      effectiveTiming:effectiveTiming(input.effectiveTiming),
       expectedSubscriptionVersion:positive(input.expectedSubscriptionVersion,"expectedSubscriptionVersion"),
-      routeClass:input.routeClass,
+      routeClass:routeClass(input.routeClass),
       routePolicyId:uuid(input.routePolicyId,"routePolicyId"),
       routePolicyVersion:positive(input.routePolicyVersion,"routePolicyVersion"),
       impactReference:reference(input.impactReference,"impactReference"),
       entitlementDiffReference:reference(input.entitlementDiffReference,"entitlementDiffReference"),
       blockingImpactCodes,
-      remediationState:input.remediationState,
+      remediationState:normalizedRemediationState,
       sourceFingerprint:fingerprint(input.sourceFingerprint),
       correlationId:uuid(input.requestContext.correlationId,"correlationId"),
       createdAt,
@@ -312,8 +338,9 @@ export class PlanChangeEvidenceService {
   }):Promise<PlanChangeRouteResolutionV1>{
     const tenantId=assertContext(input.requestContext);
     const now=date(this.ports.runtime.now(),"route resolution time");
+    const normalizedResolutionState=resolutionState(input.resolutionState);
     const evidenceReference=optionalReference(input.evidenceReference,"evidenceReference");
-    if(input.resolutionState!=="PENDING" && !evidenceReference){
+    if(normalizedResolutionState!=="PENDING" && !evidenceReference){
       fail("PLAN_CHANGE_EVIDENCE_PAYLOAD_INVALID","Completed route resolution requires evidenceReference.");
     }
     const resolution=Object.freeze({
@@ -321,16 +348,16 @@ export class PlanChangeEvidenceService {
       tenantId,
       assessmentId:uuid(input.assessmentId,"assessmentId"),
       assessmentVersion:positive(input.assessmentVersion,"assessmentVersion"),
-      routeClass:input.routeClass,
-      resolutionState:input.resolutionState,
+      routeClass:routeClass(input.routeClass),
+      resolutionState:normalizedResolutionState,
       ...(evidenceReference?{evidenceReference}:{}),
-      ...(input.billingPreviewReference
+      ...(input.billingPreviewReference!==undefined
         ? {billingPreviewReference:reference(input.billingPreviewReference,"billingPreviewReference")}
         : {}),
       ...(input.effectiveAt?{effectiveAt:date(input.effectiveAt,"effectiveAt")}:{ }),
       producerModule:input.producerModule,
       evidenceVersion:positive(input.evidenceVersion,"evidenceVersion"),
-      ...(input.resolutionState==="PENDING"?{}:{resolvedAt:now}),
+      ...(normalizedResolutionState==="PENDING"?{}:{resolvedAt:now}),
       correlationId:uuid(input.requestContext.correlationId,"correlationId"),
       createdAt:now,
     });
