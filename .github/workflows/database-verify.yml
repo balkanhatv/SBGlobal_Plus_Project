@@ -1,6 +1,21 @@
 name: Database Verify
 
 on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - "database/**"
+      - ".github/workflows/database-verify.yml"
+      - "Development/CORE_SERVICE_CHECKPOINT.md"
+      - "Development/DEVELOPMENT_STATE.md"
+      - "State/**"
+      - "Registers/D-INDEX.md"
+      - "Registers/D-CHECKPOINT.md"
+      - "Registers/REVIEW_REQUIRED.md"
+      - "Registers/D-CHANGELOG.md"
+      - "DetailedDesign/DD-CHANGELOG.md"
+      - "README_FOUNDATION.md"
   pull_request:
     paths:
       - "database/**"
@@ -12,7 +27,7 @@ permissions:
 
 jobs:
   postgres-verify:
-    if: github.head_ref == 'docs/architecture-branch-2' || (github.event_name == 'workflow_dispatch' && github.ref_name == 'docs/architecture-branch-2')
+    if: (github.event_name == 'push' && github.ref_name == 'docs/architecture-branch-2') || github.head_ref == 'docs/architecture-branch-2' || (github.event_name == 'workflow_dispatch' && github.ref_name == 'docs/architecture-branch-2')
     runs-on: ubuntu-latest
     timeout-minutes: 20
 

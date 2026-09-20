@@ -16,6 +16,15 @@ on:
       - "package-lock.json"
       - "tsconfig.json"
       - ".github/workflows/core-service-verify.yml"
+      - "Development/CORE_SERVICE_CHECKPOINT.md"
+      - "Development/DEVELOPMENT_STATE.md"
+      - "State/**"
+      - "Registers/D-INDEX.md"
+      - "Registers/D-CHECKPOINT.md"
+      - "Registers/REVIEW_REQUIRED.md"
+      - "Registers/D-CHANGELOG.md"
+      - "DetailedDesign/DD-CHANGELOG.md"
+      - "README_FOUNDATION.md"
   pull_request:
     paths:
       - "src/core/**"
@@ -29,6 +38,15 @@ on:
       - "package-lock.json"
       - "tsconfig.json"
       - ".github/workflows/core-service-verify.yml"
+      - "Development/CORE_SERVICE_CHECKPOINT.md"
+      - "Development/DEVELOPMENT_STATE.md"
+      - "State/**"
+      - "Registers/D-INDEX.md"
+      - "Registers/D-CHECKPOINT.md"
+      - "Registers/REVIEW_REQUIRED.md"
+      - "Registers/D-CHANGELOG.md"
+      - "DetailedDesign/DD-CHANGELOG.md"
+      - "README_FOUNDATION.md"
   workflow_dispatch:
 
 permissions:
