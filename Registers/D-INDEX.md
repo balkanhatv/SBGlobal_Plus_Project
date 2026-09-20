@@ -1,19 +1,19 @@
 # D-INDEX — Current Canonical / Development Index
-**Updated:** 2026-09-19 · **Checkpoint:** `DEV-CONTEXT-BOOTSTRAP-001`
+**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-AUDIT-CORRECTION-001`
 
 | Layer | Current boundary |
 |---|---|
-| Governance | Active |
-| RawSourceCorpus | Immutable |
-| Foundation / Architecture | Revalidated completed scope |
-| Detailed Design | DD-00…DD-31 + DD-041/DD-045…DD-057 implementation overlays |
-| Development | Authz/Commercial/PEP/audit + idempotency + rate + executor + Zod/projection + tRPC/web auth/edge + context bootstrap tested |
-| SQL/CI | 41 migrations / 35 verification files; exact-head green |
-| Industry SQL | 9 Industries / 41 canonical MS / 181 tables |
-| First-party web | Physical Fetch/auth/edge/context-bootstrap floors verified |
-| Next.js composition | Not started |
-| REST/OpenAPI | Not started |
+| Governance | Active; current-state promotion paths now exact-head CI-covered |
+| RawSourceCorpus | Immutable; accepted blobs unchanged |
+| Foundation / Architecture | Revalidated completed scope; A-04 targeted F-14 reconciliation applied |
+| Detailed Design | DD-00…DD-31 + implementation decisions through DD-069; current lifecycle/publication audit correction reconciled |
+| Development | Shared Core/Authz/Commercial kernel + first-party Next.js/tRPC + workspace/current-entitlements + DD-063…069 prerequisites tested |
+| SQL/CI | 45 migrations / 39 verification files; exact-head PostgreSQL bootstrap green |
+| Industry SQL | 9 Industries / 41 canonical MS / 181 registered tables; forced RLS verified |
+| First-party web | Next.js 15.5.25 App Router composition + three bounded Core queries verified |
+| REST/OpenAPI | Not started / not claimed |
+| Public changePlan | Intentionally unbound; target preview/impact + Billing/approval producers unfinished |
 
-Verified `b244187e69eee37ce05e5739df4680b3f0511b54` / `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`: **168 Core / 44 PostgreSQL PASS**.
+Verified executable basis `895f0c6c53dd2cabcf5b3d53f8b5f053803e9122` / `5e4bee4f8ede04024ac3cf4ac0cad8d356106224`: **194 Core / 53 PostgreSQL PASS**, Database bootstrap PASS, Next.js production build PASS.
 
-Next: **Next.js 15 composition root + concrete tRPC App Router route**.
+Next: **add-on eligibility + active adjustment-source read contract**, then deterministic precedence. RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.
