@@ -19,7 +19,7 @@ const password=randomBytes(24).toString("hex");
 const f=Object.fromEntries([
   "home","tenantA","tenantB","industryA","industryB","actor","route",
   "oldPlan","oldPlanVersion","targetPlan","targetPlanVersion",
-  "subscriptionA","subscriptionB","addOn","tenantAddOnActive","tenantAddOnExpired",
+  "subscriptionA","subscriptionB","addOn","tenantAddOnActive","tenantAddOnExpired","tenantAddOnSibling",
   "definition","overrideActive","overrideExpired","overrideSibling",
 ].map(key=>[key,randomUUID()]));
 
@@ -134,9 +134,13 @@ before(async()=>{
       "INSERT INTO core_commercial.tenant_add_on("+
       "id,tenant_id,add_on_id,subscription_id,status,quantity,effective_from,effective_to,version"+
       ") VALUES "+
-      "($1::uuid,$3::uuid,$4::uuid,$5::uuid,'ACTIVE',2,now()-interval '1 hour',NULL,3),"+
-      "($2::uuid,$3::uuid,$4::uuid,$5::uuid,'ACTIVE',5,now()-interval '2 days',now()-interval '1 day',1)",
-      [f.tenantAddOnActive,f.tenantAddOnExpired,f.tenantA,f.addOn,f.subscriptionA],
+      "($1::uuid,$4::uuid,$5::uuid,$6::uuid,'ACTIVE',2,now()-interval '1 hour',NULL,3),"+
+      "($2::uuid,$4::uuid,$5::uuid,$6::uuid,'ACTIVE',5,now()-interval '2 days',now()-interval '1 day',1),"+
+      "($3::uuid,$7::uuid,$5::uuid,$8::uuid,'ACTIVE',9,now()-interval '1 hour',NULL,1)",
+      [
+        f.tenantAddOnActive,f.tenantAddOnExpired,f.tenantAddOnSibling,
+        f.tenantA,f.addOn,f.subscriptionA,f.tenantB,f.subscriptionB,
+      ],
     );
 
     await c.query(
@@ -200,7 +204,7 @@ after(async()=>{
     ]]);
     await c.query("DELETE FROM core_commercial.entitlement_definition WHERE id=$1::uuid",[f.definition]);
     await c.query("DELETE FROM core_commercial.tenant_add_on WHERE id=ANY($1::uuid[])",[[
-      f.tenantAddOnActive,f.tenantAddOnExpired,
+      f.tenantAddOnActive,f.tenantAddOnExpired,f.tenantAddOnSibling,
     ]]);
     await c.query("DELETE FROM core_commercial.add_on WHERE id=$1::uuid",[f.addOn]);
     await c.query("UPDATE core_tenancy.tenant SET current_subscription_id=NULL WHERE id=ANY($1::uuid[])",[[
@@ -244,6 +248,7 @@ test("adjustment source store reads only effective current-Tenant rows and prese
   });
   assert.equal(raw.addOns.length,1);
   assert.equal(raw.addOns[0].tenantAddOnId,f.tenantAddOnActive);
+  assert.notEqual(raw.addOns[0].tenantAddOnId,f.tenantAddOnSibling);
   assert.equal(raw.addOns[0].tenantAddOnVersion,3);
   assert.equal(raw.addOns[0].quantity,2);
   assert.deepEqual(raw.addOns[0].eligibilityDocument,{opaquePolicy:"server-owned"});
