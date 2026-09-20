@@ -703,3 +703,12 @@ The executable parser rejects unknown versions/fields, duplicate scoped keys, ma
 All DD-067 markers are preserved so later add-on/override/impact stages can reason from explicit baseline semantics.
 
 **Consequence:** the first compiler stage is deterministic and license-safe. It is not the final entitlement preview: add-on, override, compliance/security and usage-impact precedence remain downstream.
+
+
+## DD-069 — Add-on v1 is quota-additive only; scoped DENY is a disabled fact
+
+**Context:** F-14 says overlapping add-ons sum only for metered quotas and that explicit deny wins. Persistence had generic `add_on.entitlement_delta_json` and untyped `tenant_override.value_json`. A broad add-on parser would invent semantics not present in the governing source. Separately, the current snapshot has a Tenant-wide `deny_set_json` while snapshot facts may be Industry-scoped; using the global deny set for an Industry override would leak that denial into sibling Industries.
+
+**Decision:** v1 add-ons support only bounded INTEGER/DECIMAL quota deltas, scaled by active TenantAddOn quantity. Other capability-delta shapes are unsupported until governed explicitly. Override normalization binds ALLOW/LIMIT values to the canonical entitlement-definition type. DENY is canonical `true`; Tenant DENY maps to the global deny set, while Industry DENY maps to a type-specific disabled Industry fact so the existing most-specific current-state read correctly denies only that Industry.
+
+**Consequence:** source inputs can now be normalized without widening entitlement or financial semantics. Add-on `eligibility_json`, active-row selection and override/add-on precedence remain separate prerequisites before the target preview can be called complete.

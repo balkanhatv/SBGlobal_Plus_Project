@@ -634,3 +634,18 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-PLAN-BASE-006 | generic + specific selectors collide after resolution | fail closed as ambiguous; no guessed precedence |
 | COMM-PLAN-BASE-007 | explicit plan markers | grant/limit marker semantics preserved unchanged |
 | COMM-PLAN-BASE-008 | input order changes | resolved output remains deterministic |
+
+
+### Commercial adjustment source normalization — DD-069 / DEV-COMMERCIAL-ADJUSTMENT-SCHEMA-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-ADJ-001 | add-on delta schemaVersion/unknown field invalid | fail closed |
+| COMM-ADJ-002 | add-on Boolean/TEXT/SET capability delta | unsupported in v1; fail closed rather than invent additive semantics |
+| COMM-ADJ-003 | quota delta + Tenant add-on quantity | non-negative delta scales deterministically; INTEGER result must remain safe integer |
+| COMM-ADJ-004 | Tenant DENY override | canonical value=true; normalized to Tenant-wide deny-set representation |
+| COMM-ADJ-005 | Industry DENY override | canonical value=true; normalized to type-specific scoped disabled fact |
+| COMM-ADJ-006 | ALLOW override | value validated against entitlement-definition value type |
+| COMM-ADJ-007 | LIMIT_SET | only numeric type; non-negative replacement value |
+| COMM-ADJ-008 | LIMIT_DELTA | only numeric type; signed finite delta |
+| COMM-ADJ-009 | SET ALLOW | bounded, unique, deterministic sorted value |

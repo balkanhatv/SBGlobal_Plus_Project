@@ -42,10 +42,11 @@ Next work must close **DD-061 write-contract prerequisites** before command code
 5. ~~implement persisted/versioned DD-062 assessment/remediation + isolated Billing/approval resolution evidence substrate~~ **VERIFIED — DD-066**;
 6. ~~lock executable PlanVersion entitlement-template / limit-set source schema~~ **VERIFIED — DD-067**;
 7. ~~implement licensed PlanVersion baseline expansion from DD-067 + active Industry/license truth~~ **VERIFIED — DD-068**;
-8. lock/implement normalized add-on delta + tenant-override source semantics, then apply their governed precedence to the baseline;
-9. integrate compliance/security restriction inputs and usage-meter impact into the target preview;
-10. implement server-owned impact/entitlement-diff/remediation evaluator plus actual Billing/payment and Workflow approval producer integrations;
-11. implement the internal apply gate that consumes only current SATISFIED persisted evidence and deterministic compiler output;
-12. only then bind `core.commercial.subscription.changePlan` through the existing OperationExecutor/tRPC/Next chain.
+8. ~~lock/implement normalized add-on quota delta + tenant-override source semantics~~ **VERIFIED — DD-069**;
+9. lock add-on eligibility semantics + active source-row read contract, then apply deterministic override/add-on precedence to the DD-068 baseline;
+10. integrate compliance/security restriction inputs and usage-meter impact into the target preview;
+11. implement server-owned impact/entitlement-diff/remediation evaluator plus actual Billing/payment and Workflow approval producer integrations;
+12. implement the internal apply gate that consumes only current SATISFIED persisted evidence and deterministic compiler output;
+13. only then bind `core.commercial.subscription.changePlan` through the existing OperationExecutor/tRPC/Next chain.
 
 RawSourceCorpus remains immutable. `main` remains unmerged.

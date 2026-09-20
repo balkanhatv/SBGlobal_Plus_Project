@@ -1,14 +1,14 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-PLAN-BASELINE-001`
+**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-ADJUSTMENT-SCHEMA-001`
 
 - Branch: `docs/architecture-branch-2`.
-- Verified executable: `8f9e7a23e2b383eb7cb3e964d8ed57e35678d2e4` / `eab90b5ad7c269994686790e1d76c2c90b7953a6`.
-- Core **190/190 PASS**; PostgreSQL **49/49 PASS**; Database **45 migrations / 39 verification files PASS**.
+- Verified executable: `4a526c8fc9287136ffad0ee723c73df536a50b27` / `1496cb8d43be198edd71cef62171ced096bfc607`.
+- Core **193/193 PASS**; PostgreSQL **49/49 PASS**; Database **45 migrations / 39 verification files PASS**.
 - Next.js 15.5.25 production build, deterministic npm lock, and generated-state cleanliness: **PASS**.
-- DD-063…DD-066 Commercial event/write/publication/evidence boundaries remain verified.
-- DD-067 PlanVersion JSON source schema and DD-068 license-safe baseline expansion are executable.
-- Full target preview, impact evaluator and producer integrations remain unfinished.
+- DD-067 PlanVersion source schema + DD-068 licensed baseline remain verified.
+- DD-069 now normalizes quota-additive add-ons and typed overrides, including Tenant-vs-Industry DENY representation.
+- Add-on eligibility, active adjustment reads and precedence are not yet complete.
 - Public `core.commercial.subscription.changePlan` remains intentionally unbound.
 - RawSourceCorpus immutable; `main` unmerged; PR #2 draft/unmerged.
 
-Next: **add-on delta + tenant-override normalization and precedence**.
+Next: **add-on eligibility + active adjustment-source read contract**, then deterministic precedence.

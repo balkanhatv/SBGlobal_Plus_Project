@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-20
 
-Current Development checkpoint is `DEV-COMMERCIAL-PLAN-BASELINE-001`. Verified executable `8f9e7a23e2b383eb7cb3e964d8ed57e35678d2e4` / tree `eab90b5ad7c269994686790e1d76c2c90b7953a6` passes **190 Core + 49 PostgreSQL**, **45 migrations / 39 verification files**, and the Next.js 15.5.25 production build. DD-067 locks strict PlanVersion entitlement/limit JSON v1 and DD-068 deterministically expands PlanVersion baseline facts/limits only into ACTIVE independently licensed Industry Contexts. Full target preview is not yet claimed: add-on/override normalization, compliance/security restriction inputs, usage impact, and actual Billing/payment/Workflow approval producers remain next.
+Current Development checkpoint is `DEV-COMMERCIAL-ADJUSTMENT-SCHEMA-001`. Verified executable `4a526c8fc9287136ffad0ee723c73df536a50b27` / tree `1496cb8d43be198edd71cef62171ced096bfc607` passes **193 Core + 49 PostgreSQL**, **45 migrations / 39 verification files**, and the Next.js 15.5.25 production build. DD-069 now provides strict quota-additive add-on normalization plus typed tenant-override semantics, including isolated Industry DENY representation. Full adjustment precedence is not yet claimed because add-on eligibility and active adjustment source reads remain unbound.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

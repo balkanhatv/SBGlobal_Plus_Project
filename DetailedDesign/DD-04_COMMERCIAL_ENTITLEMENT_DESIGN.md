@@ -371,3 +371,46 @@ Rules:
 - output is immutable and deterministically sorted.
 
 **Boundary:** this is baseline PlanVersion expansion only. It does not yet apply tenant overrides, active add-ons, compliance/security restrictions, usage-meter impact, subscription overlay or final snapshot publication.
+
+
+## 18. Commercial adjustment source normalization v1 [DD-069]
+
+The next compiler prerequisite normalizes two previously generic Commercial inputs without inventing pricing or eligibility logic.
+
+### 18.1 Add-on entitlement delta v1
+
+`add_on.entitlement_delta_json` v1 is intentionally bounded to the source-backed additive case: **metered quota deltas**.
+
+Exact top-level shape:
+
+`{schemaVersion:1,quotaDeltas:[...]}`
+
+Each delta contains:
+- `entitlementCode`;
+- `meterCode`;
+- DD-067 scope selector;
+- `valueType = INTEGER | DECIMAL`;
+- non-negative `amount`.
+
+Tenant add-on `quantity` scales the delta. INTEGER output must remain a safe integer. Duplicate scoped entitlement+meter keys, unknown fields/versions and invalid numeric values fail closed.
+
+This contract does not interpret `eligibility_json`, grant arbitrary boolean features, calculate price or infer payment status. Broader add-on capability forms require a separately governed schema.
+
+### 18.2 Tenant override v1
+
+Persisted `tenant_override` values are normalized against the canonical entitlement-definition value type:
+
+- `ALLOW`: carries a fully typed canonical value.
+- `DENY`: persisted `value_json` must be canonical boolean `true`; it never trusts an arbitrary denial payload.
+- `LIMIT_SET`: only INTEGER/DECIMAL; value is non-negative.
+- `LIMIT_DELTA`: only INTEGER/DECIMAL; signed finite delta is allowed.
+
+DENY representation is scope-aware:
+- Tenant-level DENY → add entitlement code to the snapshot Tenant-wide deny set.
+- Industry-level DENY → publish a type-specific disabled **Industry-scoped fact** (BOOLEAN=false, INTEGER/DECIMAL=0, TEXT="", SET=[]), not a Tenant-wide deny-set entry.
+
+The scoped representation is required because current-state reads select the exact Industry fact over a Tenant fact. Putting an Industry-only deny into the snapshot-wide deny set would incorrectly deny sibling Industries.
+
+SET and typed values are bounded and deterministic. This normalization does not yet decide precedence among multiple overrides or between overrides and active add-ons.
+
+**Boundary:** add-on eligibility, active-row selection, override/add-on conflict resolution, compliance/security restrictions and final preview compilation remain downstream work.
