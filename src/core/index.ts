@@ -30,6 +30,7 @@ export * from "./commercial/plan-change-evidence.js";
 export * from "./commercial/plan-version-schema.js";
 export * from "./commercial/plan-version-baseline.js";
 export * from "./commercial/adjustment-schema.js";
+export * from "./commercial/adjustment-source.js";
 export * from "./tenancy/workspace-service.js";
 export * from "./identity/roles-query-service.js";
 export * from "./api/core-operation-contracts.js";
