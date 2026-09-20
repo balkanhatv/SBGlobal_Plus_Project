@@ -1,47 +1,43 @@
-# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-PLAN-CHANGE-EVIDENCE-001
+# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-PLAN-BASELINE-001
 **Updated:** 2026-09-20  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — governed plan-change evidence persistence + producer isolation
+**Status:** IMPLEMENTED / TESTED — PlanVersion v1 source schema + licensed baseline expansion
 
 ## Verified executable snapshot
-- Commit: `b77f6ce8cd7fcf0617369a0786dea15113a7b72b`.
-- Tree: `2130302dc137399724da7082a7212dc3d75db2fe`.
-- Core/server acceptance: **184/184 PASS**.
+- Commit: `8f9e7a23e2b383eb7cb3e964d8ed57e35678d2e4`.
+- Tree: `eab90b5ad7c269994686790e1d76c2c90b7953a6`.
+- Core/server acceptance: **190/190 PASS**.
 - Real PostgreSQL regression: **49/49 PASS**.
 - Database: **45 migrations / 39 verification files PASS**.
 - Next.js 15.5.25 production build, deterministic npm lock and generated-state cleanliness: **PASS**.
 
-## DD-066 executable boundary
-- immutable/versioned TENANT_CORE `plan_change_assessment` persists exact Subscription/source/target/timing/version/route bindings;
-- DB insert guard rechecks current Subscription version/source PlanVersion and ACTIVE target PlanVersion/Plan/route policy;
-- assessment versions are contiguous and cannot silently rebind the core source/target tuple;
-- remediation evidence is append-only, versioned and Commercial-producer-bound;
-- SELF_SERVE route resolution is append-only through the dedicated Billing evidence role only;
-- SALES_ASSISTED route resolution is append-only through the Workflow worker boundary only;
-- SATISFIED NEXT_RENEWAL requires server-owned effectiveAt;
-- evidence tables are FORCE-RLS, immutable-scope enrolled and hidden from general app/worker/control-plane mutation;
-- `PlanChangeEvidenceService` is SERVICE/TENANT_CORE-only and fixes producer ownership by method;
-- real PostgreSQL acceptance proves stale Subscription rejection, remediation→reassessment binding, producer separation and evidence immutability.
+## DD-067 / DD-068 executable boundary
+- PlanVersion entitlement/limit JSON has a strict executable v1 parser; unsupported versions, unknown fields, marker/value conflicts and duplicate scoped keys fail closed;
+- F-14 value markers are explicit: entitlement INCLUDED/NOT_INCLUDED/ADD_ON_ONLY and limit FINITE/UNLIMITED/NOT_INCLUDED/ADD_ON_ONLY;
+- TENANT, LICENSED_INDUSTRIES and INDUSTRY_CODE scope selectors are deterministic catalog selectors;
+- baseline expansion resolves Industry selectors only to ACTIVE same-Tenant Contexts with independently effective INDUSTRY licenses;
+- PlanVersion never creates or replaces an Industry license;
+- stale license references and overlapping resolved selectors fail closed;
+- explicit markers remain intact for later precedence/impact stages.
 
 ## Exact evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35486746600 | 106014414422 | **PASS — 184/184** |
-| Core Service Verify / postgres-context-verify | 35486746600 | 106014414488 | **PASS — 49/49 + DB bootstrap PASS** |
-| Database Verify / postgres-verify | 35486746558 | 106014414210 | **PASS — 45 migrations / 39 verification files** |
-| Web Boundary Verify / web-boundary-verify | 35486746551 | 106014414305 | **PASS — Next 15.5.25 production build + clean generated state** |
+| Core Service Verify / core-service-verify | 35488007135 | 106017815813 | **PASS — 190/190** |
+| Core Service Verify / postgres-context-verify | 35488007135 | 106017815702 | **PASS — 49/49 + DB bootstrap PASS** |
+| Database Verify / postgres-verify | 35488011144 | 106017825756 | **PASS — 45 migrations / 39 verification files** |
+| Web Boundary Verify / web-boundary-verify | 35488011149 | 106017825814 | **PASS — Next 15.5.25 production build + clean generated state** |
 
-All primary jobs asserted exact tested HEAD `b77f6ce8cd7fcf0617369a0786dea15113a7b72b` and tree `2130302dc137399724da7082a7212dc3d75db2fe`.
+All evidence above asserted exact tested HEAD `8f9e7a23e2b383eb7cb3e964d8ed57e35678d2e4` and tree `eab90b5ad7c269994686790e1d76c2c90b7953a6`.
 
-## Remaining blockers before public changePlan
-DD-066 provides the persistence/producer-isolation substrate; it does **not** manufacture business truth.
+## Remaining compiler/evaluator blockers
+- `add_on.entitlement_delta_json` still lacks an executable schema;
+- tenant override value normalization/precedence is not yet executable;
+- compliance/security restriction inputs are not yet wired into target preview;
+- usage-meter vs target-limit impact evaluator is not yet implemented;
+- actual Billing/payment/proration and Workflow approval producer runtimes remain missing;
+- public changePlan remains unbound.
 
-Still required:
-- server-owned impact + entitlement-diff evaluator from actual current usage/licensing/target-plan facts;
-- server-owned remediation verification rather than accepting a precomputed evidence reference as business truth;
-- actual Billing/payment/proration/no-charge producer runtime for SELF_SERVE;
-- actual Workflow/approval producer runtime for SALES_ASSISTED;
-- internal apply gate that selects only current SATISFIED evidence and deterministic compiler output before invoking DD-065 publication;
-- only then bind REQUIRED-idempotency `core.commercial.subscription.changePlan` through OperationExecutor/tRPC/Next.
+Next: lock/implement normalized add-on delta + tenant-override source semantics and their deterministic precedence only.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.

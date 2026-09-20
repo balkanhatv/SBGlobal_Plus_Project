@@ -1,14 +1,14 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-PLAN-CHANGE-EVIDENCE-001`
+**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-PLAN-BASELINE-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified executable `b77f6ce8cd7fcf0617369a0786dea15113a7b72b`, tree `2130302dc137399724da7082a7212dc3d75db2fe`: **184 Core + 49 PostgreSQL + 45 migrations / 39 verification files PASS + Next.js 15.5.25 production build/lock/clean-state PASS**.
+Verified executable `8f9e7a23e2b383eb7cb3e964d8ed57e35678d2e4`, tree `eab90b5ad7c269994686790e1d76c2c90b7953a6`: **190 Core + 49 PostgreSQL + 45 migrations / 39 verification files PASS + Next.js 15.5.25 production build/lock/clean-state PASS**.
 
-DD-066 physicalizes DD-062 evidence authority: immutable/versioned assessment, append-only remediation evidence, Billing-only SELF_SERVE resolution, Workflow-only SALES_ASSISTED resolution, FORCE-RLS and fixed producer roles. Real PostgreSQL tests prove stale Subscription rejection, version binding, wrong-producer denial and immutability.
+DD-067 now makes PlanVersion entitlement/limit JSON executable and marker-complete. DD-068 expands the baseline only to ACTIVE independently licensed Industry Contexts; plan data never becomes a license. Overlapping resolved selectors and stale license references fail closed.
 
-Do not overclaim this as end-to-end plan change. The evidence service still receives server-precomputed impact/remediation references; Billing/payment/proration and Workflow approval producer logic are not implemented. Public `core.commercial.subscription.changePlan` remains blocked.
+Do not claim full target preview yet. `add_on.entitlement_delta_json`, override normalization, compliance/security restriction input and usage-impact evaluation remain unresolved. Public changePlan remains blocked.
 
-Next governed slice: implement the server-owned Commercial impact/entitlement-diff/remediation evaluator only; it must not calculate money or accept client evidence as authority.
+Next governed slice: add-on delta + tenant-override normalization/precedence only.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.

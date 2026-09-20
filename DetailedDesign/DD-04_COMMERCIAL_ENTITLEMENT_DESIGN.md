@@ -348,3 +348,26 @@ The parser:
 Existing persisted invalid/unversioned JSON is not silently coerced. Any new compiler/assessment consumer must pass these parsers before using plan data.
 
 **Boundary:** DD-067 locks the PlanVersion source schema only. It does not yet instantiate licensed Industry scopes, apply add-ons/overrides/compliance precedence, compile a target preview, or calculate downgrade impact.
+
+
+## 17. Licensed PlanVersion baseline expansion [DD-068]
+
+The first target-preview compiler stage is now executable but deliberately limited to **PlanVersion baseline expansion**.
+
+Inputs:
+- already parsed DD-067 entitlement template + limit set;
+- same-Tenant Industry Context inventory with explicit lifecycle status;
+- existing Commercial license reads.
+
+Rules:
+- TENANT selectors resolve once at Tenant scope;
+- LICENSED_INDUSTRIES resolves only ACTIVE Industry Contexts that have an independently effective INDUSTRY license;
+- INDUSTRY_CODE resolves only the matching ACTIVE + independently licensed Industry Context;
+- plan data never creates or substitutes an Industry license;
+- SUSPENDED/DISABLED Industry Contexts are not instantiated;
+- stale effective Industry licenses referencing an unavailable Context fail closed;
+- INCLUDED / NOT_INCLUDED / ADD_ON_ONLY markers and FINITE / UNLIMITED / NOT_INCLUDED / ADD_ON_ONLY limit modes are preserved unchanged for later precedence/impact stages;
+- if different plan selectors resolve to the same entitlement or limit key, expansion fails as ambiguous rather than inventing specificity precedence;
+- output is immutable and deterministically sorted.
+
+**Boundary:** this is baseline PlanVersion expansion only. It does not yet apply tenant overrides, active add-ons, compliance/security restrictions, usage-meter impact, subscription overlay or final snapshot publication.

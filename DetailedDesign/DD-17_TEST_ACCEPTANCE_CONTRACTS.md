@@ -620,3 +620,17 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-PLAN-SCHEMA-007 | duplicate code+scope or entitlement+meter+scope | fail closed |
 | COMM-PLAN-SCHEMA-008 | SET input | bounded, unique, deterministic sorted output |
 | COMM-PLAN-SCHEMA-009 | LICENSED_INDUSTRIES selector | remains a selector only; parser does not grant Industry access |
+
+
+### Licensed PlanVersion baseline expansion — DD-068 / DEV-COMMERCIAL-PLAN-BASELINE-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-PLAN-BASE-001 | TENANT selector | one Tenant-scoped resolved entry |
+| COMM-PLAN-BASE-002 | LICENSED_INDUSTRIES | only ACTIVE Contexts with effective INDUSTRY license resolve |
+| COMM-PLAN-BASE-003 | INDUSTRY_CODE | exact matching ACTIVE + licensed Context only |
+| COMM-PLAN-BASE-004 | inactive/non-effective Industry license | no Industry-scoped grant is instantiated |
+| COMM-PLAN-BASE-005 | effective license points to missing Context | fail closed |
+| COMM-PLAN-BASE-006 | generic + specific selectors collide after resolution | fail closed as ambiguous; no guessed precedence |
+| COMM-PLAN-BASE-007 | explicit plan markers | grant/limit marker semantics preserved unchanged |
+| COMM-PLAN-BASE-008 | input order changes | resolved output remains deterministic |

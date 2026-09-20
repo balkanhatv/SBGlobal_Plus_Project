@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-20
 
-Current Development checkpoint is `DEV-COMMERCIAL-PLAN-CHANGE-EVIDENCE-001`. Verified executable `b77f6ce8cd7fcf0617369a0786dea15113a7b72b` / tree `2130302dc137399724da7082a7212dc3d75db2fe` passes **184 Core + 49 PostgreSQL**, **45 migrations / 39 verification files**, and the Next.js 15.5.25 production build. DD-066 now persists immutable/versioned plan-change assessment/remediation/route-resolution evidence under separate Commercial/Billing/Workflow producer boundaries with stale-source and wrong-producer fail-closed tests. This does not yet implement impact/remediation calculation, Billing/payment/proration or Workflow approval decisions. Public changePlan remains intentionally unbound; next is the server-owned Commercial impact/entitlement-diff/remediation evaluator floor.
+Current Development checkpoint is `DEV-COMMERCIAL-PLAN-BASELINE-001`. Verified executable `8f9e7a23e2b383eb7cb3e964d8ed57e35678d2e4` / tree `eab90b5ad7c269994686790e1d76c2c90b7953a6` passes **190 Core + 49 PostgreSQL**, **45 migrations / 39 verification files**, and the Next.js 15.5.25 production build. DD-067 locks strict PlanVersion entitlement/limit JSON v1 and DD-068 deterministically expands PlanVersion baseline facts/limits only into ACTIVE independently licensed Industry Contexts. Full target preview is not yet claimed: add-on/override normalization, compliance/security restriction inputs, usage impact, and actual Billing/payment/Workflow approval producers remain next.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

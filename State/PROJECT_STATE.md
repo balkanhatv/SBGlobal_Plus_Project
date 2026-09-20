@@ -1,14 +1,14 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-PLAN-CHANGE-EVIDENCE-001`
+**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-PLAN-BASELINE-001`
 
 - Branch: `docs/architecture-branch-2`.
-- Verified executable: `b77f6ce8cd7fcf0617369a0786dea15113a7b72b` / `2130302dc137399724da7082a7212dc3d75db2fe`.
-- Core **184/184 PASS**; PostgreSQL **49/49 PASS**; Database **45 migrations / 39 verification files PASS**.
+- Verified executable: `8f9e7a23e2b383eb7cb3e964d8ed57e35678d2e4` / `eab90b5ad7c269994686790e1d76c2c90b7953a6`.
+- Core **190/190 PASS**; PostgreSQL **49/49 PASS**; Database **45 migrations / 39 verification files PASS**.
 - Next.js 15.5.25 production build, deterministic npm lock, and generated-state cleanliness: **PASS**.
-- DD-063 event catalog, DD-064 dedicated writer and DD-065 atomic publication remain verified.
-- DD-066 adds immutable/versioned plan-change assessment/remediation/route-resolution evidence and separate Commercial/Billing/Workflow producer DB boundaries.
-- General app/worker roles cannot author plan-change evidence.
-- Public `core.commercial.subscription.changePlan` is still intentionally unbound.
+- DD-063…DD-066 Commercial event/write/publication/evidence boundaries remain verified.
+- DD-067 PlanVersion JSON source schema and DD-068 license-safe baseline expansion are executable.
+- Full target preview, impact evaluator and producer integrations remain unfinished.
+- Public `core.commercial.subscription.changePlan` remains intentionally unbound.
 - RawSourceCorpus immutable; `main` unmerged; PR #2 draft/unmerged.
 
-Next: **server-owned Commercial impact/entitlement-diff/remediation evaluator floor**, then actual Billing/payment + Workflow approval producers, then internal apply gate.
+Next: **add-on delta + tenant-override normalization and precedence**.

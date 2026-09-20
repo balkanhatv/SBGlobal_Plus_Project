@@ -692,3 +692,14 @@ Outbox uses an additional RESTRICTIVE policy for this role so it can emit only D
 The executable parser rejects unknown versions/fields, duplicate scoped keys, marker/value conflicts, invalid Industry codes, invalid value types and bounded-set violations, then returns deterministic sorted immutable output.
 
 **Consequence:** future target-preview/impact compilation has one safe PlanVersion source contract and must not read arbitrary JSON directly. This decision defines representation, not actual per-plan commercial values, and does not move pricing/proration into Commercial.
+
+
+## DD-068 — PlanVersion baseline expansion never substitutes for Industry licensing
+
+**Context:** DD-067 gives PlanVersion JSON one deterministic shape, but F-14 requires Plan → License → Entitlement rather than Plan-alone access. A compiler that expands Industry-scoped template facts without checking licenses would violate the effective-access chain.
+
+**Decision:** baseline expansion resolves TENANT once and Industry selectors only into ACTIVE same-Tenant Industry Contexts with an effective INDUSTRY license. `LICENSED_INDUSTRIES` and `INDUSTRY_CODE` are selectors, not grants. Inactive Contexts are omitted. A stale license reference fails closed. If different selectors resolve to the same scoped entitlement/limit key, the compiler reports ambiguity rather than inventing an ungoverned winner.
+
+All DD-067 markers are preserved so later add-on/override/impact stages can reason from explicit baseline semantics.
+
+**Consequence:** the first compiler stage is deterministic and license-safe. It is not the final entitlement preview: add-on, override, compliance/security and usage-impact precedence remain downstream.
