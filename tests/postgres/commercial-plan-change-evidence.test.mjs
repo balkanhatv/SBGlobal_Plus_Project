@@ -197,6 +197,26 @@ test("Commercial evidence versions remediation and route resolution through fixe
   assert.deepEqual(workflow.rows,[{producer_module:"Workflow",resolution_state:"SATISFIED"}]);
 });
 
+test("assessment guard rejects a Subscription that is no longer the Tenant current Subscription",async()=>{
+  const input=assessmentInput();
+  await admin.query(
+    "UPDATE core_tenancy.tenant SET current_subscription_id=NULL WHERE id=$1::uuid",
+    [f.tenant],
+  );
+  try{
+    await assert.rejects(
+      service.recordAssessment(input),
+      error=>error instanceof PlanChangeEvidenceError
+        && error.code==="PLAN_CHANGE_EVIDENCE_STATE_UNAVAILABLE",
+    );
+  }finally{
+    await admin.query(
+      "UPDATE core_tenancy.tenant SET current_subscription_id=$2::uuid WHERE id=$1::uuid",
+      [f.tenant,f.subscription],
+    );
+  }
+});
+
 test("wrong producer, stale Subscription and mutation attempts fail closed",async()=>{
   const sales=await service.recordAssessment(assessmentInput({routeClass:"SALES_ASSISTED"}));
   await assert.rejects(

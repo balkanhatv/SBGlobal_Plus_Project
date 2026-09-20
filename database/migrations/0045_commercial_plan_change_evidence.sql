@@ -131,9 +131,12 @@ BEGIN
   SELECT subscription.plan_version_id,subscription.version
   INTO subscription_row
   FROM core_commercial.subscription subscription
+  JOIN core_tenancy.tenant tenant
+    ON tenant.id=subscription.tenant_id
+   AND tenant.current_subscription_id=subscription.id
   WHERE subscription.tenant_id=NEW.tenant_id
     AND subscription.id=NEW.subscription_id
-  FOR SHARE;
+  FOR SHARE OF subscription;
 
   IF NOT FOUND
      OR subscription_row.plan_version_id<>NEW.source_plan_version_id

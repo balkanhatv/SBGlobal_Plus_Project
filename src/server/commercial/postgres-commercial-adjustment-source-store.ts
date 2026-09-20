@@ -92,7 +92,7 @@ implements CommercialAdjustmentSourceStorePort {
           "   AND subscription.version=$3::bigint"+
           "   AND subscription.plan_version_id=$4::uuid"+
           "   AND subscription.state IN ('TRIAL','ACTIVE','GRACE')"+
-          " FOR SHARE",
+          " FOR SHARE OF subscription",
           [
             input.subscriptionId,
             input.requestContext.tenantId,
