@@ -104,6 +104,18 @@ CREATE INDEX plan_change_route_resolution_latest_idx
     tenant_id,assessment_id,assessment_version,evidence_version DESC
   );
 
+
+-- 0029 requires immutable Tenant/scope ownership on every eligible Core table.
+CREATE TRIGGER immutable_scope_ownership
+  BEFORE UPDATE ON core_commercial.plan_change_assessment
+  FOR EACH ROW EXECUTE FUNCTION core_tenancy.enforce_immutable_scope_ownership();
+CREATE TRIGGER immutable_scope_ownership
+  BEFORE UPDATE ON core_commercial.plan_change_remediation_evidence
+  FOR EACH ROW EXECUTE FUNCTION core_tenancy.enforce_immutable_scope_ownership();
+CREATE TRIGGER immutable_scope_ownership
+  BEFORE UPDATE ON core_commercial.plan_change_route_resolution
+  FOR EACH ROW EXECUTE FUNCTION core_tenancy.enforce_immutable_scope_ownership();
+
 CREATE OR REPLACE FUNCTION core_commercial.validate_plan_change_assessment_insert()
 RETURNS trigger
 LANGUAGE plpgsql
