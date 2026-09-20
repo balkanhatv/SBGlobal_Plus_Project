@@ -26,7 +26,7 @@ The blocker is not the already-verified query/transport kernel. The blocker is t
 ## Repository evidence
 
 - Commercial runtime now includes read-side current state plus `src/core/commercial/publication.ts`, dedicated compiler database adapter and PostgreSQL atomic publication store.
-- Subscription/Transition/License/Snapshot persistence is now backed by DD-064/065 least-privilege atomic publication code; a plan-change request/assessment/resolution persistence entity is still absent.
+- Subscription/Transition/License/Snapshot persistence is backed by DD-064/065; DD-066 now adds physical assessment/remediation/route-resolution evidence. DD-067 additionally locks the PlanVersion JSON source schema required by the next target-preview compiler.
 - DD-064 migration 0043 now introduces and verifies the dedicated Commercial transition/compiler role.
 - DD-063 migration 0042 now catalogs the required Commercial v1 transition/recompile events and DD-065 emits them atomically.
 - Shared idempotency is already complete in DD-049/migration 0039/executor and therefore must be reused, not duplicated.
@@ -40,8 +40,10 @@ Next work must close **DD-061 write-contract prerequisites** before command code
 3. ~~design and implement least-privilege Commercial write/compiler DB boundary~~ **VERIFIED — DD-064 / migration 0043**;
 4. ~~implement immutable entitlement snapshot publication transaction + outbox/audit atomicity~~ **VERIFIED — DD-065**;
 5. ~~implement persisted/versioned DD-062 assessment/remediation + isolated Billing/approval resolution evidence substrate~~ **VERIFIED — DD-066**;
-6. implement server-owned impact/entitlement-diff/remediation evaluator plus actual Billing/payment and Workflow approval producer integrations;
-7. implement the internal apply gate that consumes only current SATISFIED persisted evidence and deterministic compiler output;
-8. only then bind `core.commercial.subscription.changePlan` through the existing OperationExecutor/tRPC/Next chain.
+6. ~~lock executable PlanVersion entitlement-template / limit-set source schema~~ **VERIFIED — DD-067**;
+7. implement target-plan entitlement preview compiler from DD-067 + current licenses/add-ons/overrides/Industry activation;
+8. implement server-owned impact/entitlement-diff/remediation evaluator plus actual Billing/payment and Workflow approval producer integrations;
+9. implement the internal apply gate that consumes only current SATISFIED persisted evidence and deterministic compiler output;
+10. only then bind `core.commercial.subscription.changePlan` through the existing OperationExecutor/tRPC/Next chain.
 
 RawSourceCorpus remains immutable. `main` remains unmerged.

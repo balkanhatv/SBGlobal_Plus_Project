@@ -681,3 +681,14 @@ Outbox uses an additional RESTRICTIVE policy for this role so it can emit only D
 **Runtime:** `PlanChangeEvidenceService` is SERVICE/TENANT_CORE-only and fixes producer ownership by method rather than input. Dedicated fixed-role PostgreSQL adapters preserve no-bypass least privilege and pooled-scope hygiene.
 
 **Consequence:** DD-062 evidence persistence and producer isolation are executable/tested. This does not claim that impact/diff calculation, payment/proration/provider integration or approval decision runtime exists; those producer computations remain required before public `changePlan` can reach DD-065 publication.
+
+
+## DD-067 — PlanVersion source JSON is explicit, versioned and marker-complete
+
+**Context:** F-14 requires every plan dimension to carry a configured value or explicit unlimited/not-included/add-on marker. A-04 names PlanVersion dimensions and compiled feature/limit maps, but DD-04 and migration 0004 previously stored `entitlement_template_json` / `limit_set_json` as merely “schema-versioned” without an executable schema. Building an impact evaluator against guessed JSON would be unsafe.
+
+**Decision:** v1 entitlement templates are exact `{schemaVersion:1,facts[]}` documents using canonical Commercial value types, governed scope selectors (`TENANT | LICENSED_INDUSTRIES | INDUSTRY_CODE`) and grant markers (`INCLUDED | NOT_INCLUDED | ADD_ON_ONLY`). v1 limit sets are exact `{schemaVersion:1,limits[]}` documents with the same scope selectors and `FINITE | UNLIMITED | NOT_INCLUDED | ADD_ON_ONLY` modes. FINITE alone carries a numeric value.
+
+The executable parser rejects unknown versions/fields, duplicate scoped keys, marker/value conflicts, invalid Industry codes, invalid value types and bounded-set violations, then returns deterministic sorted immutable output.
+
+**Consequence:** future target-preview/impact compilation has one safe PlanVersion source contract and must not read arbitrary JSON directly. This decision defines representation, not actual per-plan commercial values, and does not move pricing/proration into Commercial.

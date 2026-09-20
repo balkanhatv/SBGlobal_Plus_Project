@@ -605,3 +605,18 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-PCE-010 | SATISFIED NEXT_RENEWAL resolution | server-owned effectiveAt required |
 | COMM-PCE-011 | wrong producer attempts route evidence | RLS/producer check denies |
 | COMM-PCE-012 | runtime attempts evidence UPDATE/DELETE | privilege + immutable ownership boundary denies |
+
+
+### PlanVersion commercial schema v1 — DD-067 / DEV-COMMERCIAL-PLAN-SCHEMA-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-PLAN-SCHEMA-001 | schemaVersion != 1 | fail closed as unsupported |
+| COMM-PLAN-SCHEMA-002 | unknown top-level/fact/limit/scope field | fail closed; no permissive passthrough |
+| COMM-PLAN-SCHEMA-003 | INCLUDED entitlement | value required and validated against canonical valueType |
+| COMM-PLAN-SCHEMA-004 | NOT_INCLUDED / ADD_ON_ONLY entitlement | value forbidden |
+| COMM-PLAN-SCHEMA-005 | FINITE limit | non-negative finite value required |
+| COMM-PLAN-SCHEMA-006 | UNLIMITED / NOT_INCLUDED / ADD_ON_ONLY limit | numeric value forbidden |
+| COMM-PLAN-SCHEMA-007 | duplicate code+scope or entitlement+meter+scope | fail closed |
+| COMM-PLAN-SCHEMA-008 | SET input | bounded, unique, deterministic sorted output |
+| COMM-PLAN-SCHEMA-009 | LICENSED_INDUSTRIES selector | remains a selector only; parser does not grant Industry access |

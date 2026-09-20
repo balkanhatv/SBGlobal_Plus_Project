@@ -299,3 +299,52 @@ Producer roles are separate, NOLOGIN/NOBYPASSRLS boundaries:
 `PlanChangeEvidenceService` fixes the producer module by method; callers cannot select producer ownership. It normalizes/bounds server-generated evidence and rejects HUMAN/Industry-scoped use. PostgreSQL acceptance proves stale Subscription assessment rejection, contiguous assessment/remediation/resolution versions, remediation→reassessment binding, NEXT_RENEWAL Billing evidence, SALES_ASSISTED Workflow evidence, wrong-producer denial and append-only immutability.
 
 **Boundary:** DD-066 persists and isolates server evidence but does not itself calculate usage impact, entitlement diff, money/proration, payment status or approval decisions. Those producer computations/integrations remain separate governed runtime work.
+
+
+## 16. PlanVersion commercial JSON schema v1 [DD-067]
+
+The previously generic `entitlement_template_json` and `limit_set_json` columns now have an executable v1 normalization contract. This does not invent plan values; it defines how already-governed plan-version values are represented and validated.
+
+### 16.1 Entitlement template v1
+
+Top-level shape is exactly:
+
+`{schemaVersion:1,facts:[...]}`
+
+Each fact contains exactly:
+- `code`: canonical entitlement code;
+- `valueType`: existing Commercial value type `BOOLEAN | INTEGER | DECIMAL | TEXT | SET`;
+- `scope`: one of `TENANT`, `LICENSED_INDUSTRIES`, or exact `INDUSTRY_CODE`;
+- `grantMode`: `INCLUDED | NOT_INCLUDED | ADD_ON_ONLY`;
+- `value`: present only when `grantMode=INCLUDED`, validated against `valueType`.
+
+`LICENSED_INDUSTRIES` means the compiler may instantiate the fact only into same-Tenant Industry Contexts that are independently active/licensed; it does not grant an Industry license by itself. `INDUSTRY_CODE` is a catalog selector, never a Tenant Industry Context id.
+
+### 16.2 Limit set v1
+
+Top-level shape is exactly:
+
+`{schemaVersion:1,limits:[...]}`
+
+Each limit contains:
+- `entitlementCode`;
+- `meterCode`;
+- the same scope selector vocabulary;
+- `mode = FINITE | UNLIMITED | NOT_INCLUDED | ADD_ON_ONLY`;
+- `value` only for FINITE, as a non-negative finite number.
+
+This directly represents F-14's requirement that each plan dimension has a configured value or an explicit unlimited/not-included/add-on marker.
+
+### 16.3 Fail-closed normalization
+
+The parser:
+- rejects unsupported schema versions and unknown fields;
+- bounds template/limit/set sizes;
+- rejects duplicate entitlement/limit scope keys;
+- validates value-type/value consistency;
+- canonicalizes SET values and output ordering;
+- never interprets Billing/pricing JSON or computes money.
+
+Existing persisted invalid/unversioned JSON is not silently coerced. Any new compiler/assessment consumer must pass these parsers before using plan data.
+
+**Boundary:** DD-067 locks the PlanVersion source schema only. It does not yet instantiate licensed Industry scopes, apply add-ons/overrides/compliance precedence, compile a target preview, or calculate downgrade impact.
