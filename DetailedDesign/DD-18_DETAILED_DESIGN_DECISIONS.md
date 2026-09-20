@@ -619,6 +619,42 @@ Because this is a pre-context read boundary, narrow SELECT RLS policies admit on
 **Acceptance:** CTX-BOOT-001…006 plus migration 0041 verification: multi-membership ambiguity; membership-bound selector; exact sibling-Industry isolation; server-derived OrgUnit path; DataHome route; least-privilege/no-sensitive-read proof.
 
 
+## DD-058 — Concrete first-party Next.js composition
+
+**Registry reconciliation (2026-09-20):** this stable ID was already defined by DD-06 §28 and WEB-COMP-001…007, but was absent from this decision index. This entry records that existing contract; it does not introduce a new implementation slice.
+
+**Context:** the verified Core/Identity/Commercial/Authorization/transport adapters require one production composition owner under the active Next.js 15 baseline.
+
+**Decision:** DD-06 §28 owns the server-only composition and thin Node-runtime App Router route; deployment secrets, host bindings and DataHome are required configuration. Reuse one OperationExecutor and guard chain. Separate Core emit configuration from Next generated types.
+
+**Audit comparison / trade-offs:** route-local reimplementation duplicates security authority; a second backend increases deployment and maintenance dependencies without a justified boundary; composing the existing adapters preserves one Core at the cost of explicit configuration and package/build compatibility checks.
+
+**Consequences / dependencies:** F-01/F-03, A-01/A-03/A-06/A-08 and DD-02/03/04/06 remain owners. `first-party-web-composition.ts`, the App Router route, composition tests and Web Boundary Verify realize this contract. UI, REST and production deployment are separate scopes.
+
+## DD-059 — Tenant workspace query reuses server-resolved context
+
+**Registry reconciliation (2026-09-20):** existing DD-06 §29 and WS-BOOT-001…007 own this ID; this entry repairs its missing central reference.
+
+**Context:** first-party clients need a sanitized workspace projection without gaining authority to select a Tenant through DTO fields.
+
+**Decision:** `core.tenancy.workspace.resolve` is a guarded TENANT_CORE query. Its optional Industry selector is evaluated only within the already-resolved Tenant; WorkspaceService revalidates current membership and returns the existing ClientWorkspaceContext.
+
+**Audit comparison / trade-offs:** trusting a DTO tenantId bypasses the context boundary; returning full persistence rows leaks internal authority. Reusing the existing service costs a current-membership read but preserves isolation and a single projection contract.
+
+**Consequences / dependencies:** F-03, A-02/A-03/A-06, DD-02/DD-06, WorkspaceService, the Core tRPC router and workspace/transport tests form the chain. This query never grants Industry access or enables an Industry.
+
+## DD-060 — Client-safe current Commercial projection
+
+**Registry reconciliation (2026-09-20):** existing DD-04 §12, DD-06 §30 and COMM-UI-001…007 own this ID; this entry repairs its missing central reference.
+
+**Context:** the current-entitlements UI query needs effective facts without raw license, subscription or internal authorization records.
+
+**Decision:** `core.commercial.entitlements.getCurrent` uses a strict empty DTO and the shared guarded TENANT_CORE query path. Return only snapshotVersion, subscriptionState and sorted enabled non-denied `{code,valueType,value}` facts after exact current-snapshot revalidation.
+
+**Audit comparison / trade-offs:** serializing the internal read model exposes persistence and licensing details; deriving access from client plan data creates competing authority. A module-owned projection adds validation work but keeps current server truth and safe client data separate.
+
+**Consequences / dependencies:** F-14, A-04/ADR-007, DD-04/DD-06, CommercialCurrentStateService, the tRPC router and Commercial/transport tests own the implementation. Restricted-state recovery and public changePlan remain separate, unfinished work.
+
 ## DD-061 — Change-plan transport contract is corrected; direct mutation remains gated
 
 **Context:** DD-06 originally placed `idempotencyKey` inside the `core.commercial.subscription.changePlan` DTO even though DD-049/DD-054 already established transport-owned idempotency metadata. F-14 also requires route-specific checkout/payment or order/approval before a plan version changes, mandatory downgrade impact/remediation, and atomic entitlement recompilation. The current repository has no Billing/proration runtime, plan-change resolution evidence contract, write-side Commercial compiler, cataloged Commercial events, or dedicated least-privilege Commercial mutation role.
@@ -702,6 +738,8 @@ The executable parser rejects unknown versions/fields, duplicate scoped keys, ma
 
 All DD-067 markers are preserved so later add-on/override/impact stages can reason from explicit baseline semantics.
 
+**2026-09-20 targeted correction:** the inventory uses DD-05's complete `PENDING | ACTIVE | SUSPENDED | DISABLED` lifecycle. PENDING is valid but ineligible for expansion; rejecting the whole inventory for a pending Context was an implementation defect. Unknown lifecycle values still reject. COMM-PLAN-BASE-009 covers this distinction.
+
 **Consequence:** the first compiler stage is deterministic and license-safe. It is not the final entitlement preview: add-on, override, compliance/security and usage-impact precedence remain downstream.
 
 
@@ -712,3 +750,7 @@ All DD-067 markers are preserved so later add-on/override/impact stages can reas
 **Decision:** v1 add-ons support only bounded INTEGER/DECIMAL quota deltas, scaled by active TenantAddOn quantity. Other capability-delta shapes are unsupported until governed explicitly. Override normalization binds ALLOW/LIMIT values to the canonical entitlement-definition type. DENY is canonical `true`; Tenant DENY maps to the global deny set, while Industry DENY maps to a type-specific disabled Industry fact so the existing most-specific current-state read correctly denies only that Industry.
 
 **Consequence:** source inputs can now be normalized without widening entitlement or financial semantics. Add-on `eligibility_json`, active-row selection and override/add-on precedence remain separate prerequisites before the target preview can be called complete.
+
+## Commercial publication current-state revalidation correction — 2026-09-20
+
+F-14 §4/§5 and DD-04 §5/§11 require current Commercial truth. Publication's existing id/version check omitted snapshot effective dates and the Tenant's authoritative current_subscription_id. DD-04 §14 now states both checks explicitly. No new lifecycle, table, role or privilege is introduced. COMM-PUB-011/012 cover expiry/future activation and pointer removal; COMM-PUB-010 gains a real PostgreSQL late-audit-failure rollback regression. Current CI evidence remains owned by Development/CORE_SERVICE_CHECKPOINT.md.

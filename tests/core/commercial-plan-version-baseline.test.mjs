@@ -117,3 +117,39 @@ test("PlanVersion baseline fails closed on stale license references and overlapp
       && e.code==="PLAN_VERSION_BASELINE_INVALID",
   );
 });
+
+test("pending and other inactive Industry contexts do not block or receive baseline grants",()=>{
+  const active=randomUUID();
+  const inactive=[
+    {id:randomUUID(),industryCode:"EDU",status:"PENDING"},
+    {id:randomUUID(),industryCode:"MFG",status:"SUSPENDED"},
+    {id:randomUUID(),industryCode:"GOV",status:"DISABLED"},
+  ];
+  const template=parsePlanEntitlementTemplateV1({schemaVersion:1,facts:[
+    {code:"tenant.branding",valueType:"BOOLEAN",scope:{kind:"TENANT"},grantMode:"INCLUDED",value:true},
+    {code:"industry.analytics",valueType:"BOOLEAN",scope:{kind:"LICENSED_INDUSTRIES"},grantMode:"INCLUDED",value:true},
+    {code:"education.feature",valueType:"BOOLEAN",scope:{kind:"INDUSTRY_CODE",industryCode:"EDU"},grantMode:"INCLUDED",value:true},
+  ]});
+  const limitSet=parsePlanLimitSetV1({schemaVersion:1,limits:[
+    {entitlementCode:"industry.storage",meterCode:"storage",scope:{kind:"LICENSED_INDUSTRIES"},mode:"FINITE",value:10},
+    {entitlementCode:"education.storage",meterCode:"storage",scope:{kind:"INDUSTRY_CODE",industryCode:"EDU"},mode:"FINITE",value:10},
+  ]});
+  const input={
+    template,limitSet,
+    industryContexts:[{id:active,industryCode:"RTL",status:"ACTIVE"},...inactive],
+    // Even an effective license must never activate a non-ACTIVE Industry.
+    licenses:[license(active),...inactive.map(item=>license(item.id))],
+  };
+  const preview=expandPlanVersionBaselineV1(input);
+  assert.deepEqual(preview.entitlements.map(item=>[item.code,item.industryContextId ?? null]),[
+    ["industry.analytics",active],
+    ["tenant.branding",null],
+  ]);
+  assert.deepEqual(preview.limits.map(item=>[item.entitlementCode,item.industryContextId]),[
+    ["industry.storage",active],
+  ]);
+  assert.throws(
+    ()=>expandPlanVersionBaselineV1({...input,industryContexts:[{id:active,industryCode:"RTL",status:"UNKNOWN"}]}),
+    error=>error instanceof PlanVersionBaselineError && error.code==="PLAN_VERSION_BASELINE_INVALID",
+  );
+});

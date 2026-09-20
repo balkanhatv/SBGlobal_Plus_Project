@@ -587,6 +587,8 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-PUB-008 | successful apply evidence | exactly subscription.transitioned + entitlement.recompiled outbox and one Commercial audit append in same transaction |
 | COMM-PUB-009 | writer attempts Subscription state or Tenant mutation | dedicated role privilege denies it |
 | COMM-PUB-010 | any evidence/privilege/RLS write fails | PostgreSQL transaction rolls back all business/publication evidence |
+| COMM-PUB-011 | matching CURRENT snapshot is expired or not yet effective | publication fails closed with all subscription/snapshot/event/audit state unchanged |
+| COMM-PUB-012 | Tenant current_subscription_id no longer selects the supplied Subscription | publication fails closed despite matching snapshot/source/version |
 
 
 ### Governed plan-change evidence — DD-066 / DEV-COMMERCIAL-PLAN-CHANGE-EVIDENCE-001
@@ -634,6 +636,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-PLAN-BASE-006 | generic + specific selectors collide after resolution | fail closed as ambiguous; no guessed precedence |
 | COMM-PLAN-BASE-007 | explicit plan markers | grant/limit marker semantics preserved unchanged |
 | COMM-PLAN-BASE-008 | input order changes | resolved output remains deterministic |
+| COMM-PLAN-BASE-009 | inventory includes PENDING/SUSPENDED/DISABLED Contexts, even with effective licenses | no grants/limits for inactive Contexts; eligible Contexts and Tenant baseline remain; unknown lifecycle status rejects |
 
 
 ### Commercial adjustment source normalization — DD-069 / DEV-COMMERCIAL-ADJUSTMENT-SCHEMA-001

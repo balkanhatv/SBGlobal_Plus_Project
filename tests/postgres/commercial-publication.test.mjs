@@ -179,6 +179,98 @@ test("stale expected Subscription version rolls back without partial publication
   assert.equal(outboxAfter.rows[0].count,outboxBefore.rows[0].count);
 });
 
+async function currentPublicationInput(){
+  const row=(await admin.query(
+    "SELECT snapshot.id::text,snapshot.version AS snapshot_version,"+
+    " subscription.version AS subscription_version,subscription.plan_version_id::text"+
+    " FROM core_commercial.entitlement_snapshot snapshot"+
+    " JOIN core_commercial.subscription subscription ON subscription.id=snapshot.source_subscription_id"+
+    " WHERE snapshot.tenant_id=$1 AND snapshot.status='CURRENT'",[f.tenant],
+  )).rows[0];
+  return {
+    requestContext:{...context(),entitlementSnapshotId:row.id,entitlementSnapshotVersion:Number(row.snapshot_version)},
+    subscriptionId:f.subscription,
+    expectedSubscriptionVersion:Number(row.subscription_version),
+    expectedSourcePlanVersionId:row.plan_version_id,
+    targetPlanVersionId:row.plan_version_id===f.oldPlanVersion?f.newPlanVersion:f.oldPlanVersion,
+    effectiveAt:new Date(Date.now()-1000),
+    triggerCode:"PLAN_CHANGE_APPLIED",
+    sourceFingerprint:"commercial-publication-regression-v1",
+    denySet:[],facts:[],
+  };
+}
+
+async function persistedPublicationState(){
+  const output={};
+  for(const table of [
+    "core_commercial.subscription","core_commercial.subscription_transition",
+    "core_commercial.entitlement_snapshot","core_commercial.entitlement_snapshot_fact",
+    "core_integration.outbox_event","core_audit.audit_event",
+  ]){
+    output[table]=(await admin.query("SELECT * FROM "+table+" WHERE tenant_id=$1",[f.tenant])).rows;
+  }
+  return output;
+}
+
+for(const state of ["expired","future"]){
+  test("publication rejects a "+state+" CURRENT snapshot without changing persisted state",async()=>{
+    const input=await currentPublicationInput();
+    const snapshotId=input.requestContext.entitlementSnapshotId;
+    const original=(await admin.query(
+      "SELECT valid_from,expires_at FROM core_commercial.entitlement_snapshot WHERE id=$1",[snapshotId],
+    )).rows[0];
+    try{
+      await admin.query(state==="expired"
+        ? "UPDATE core_commercial.entitlement_snapshot SET valid_from=now()-interval '2 days',expires_at=now()-interval '1 day' WHERE id=$1"
+        : "UPDATE core_commercial.entitlement_snapshot SET valid_from=now()+interval '1 day',expires_at=NULL WHERE id=$1",
+      [snapshotId]);
+      const before=await persistedPublicationState();
+      await assert.rejects(service.publish(input),error=>
+        error instanceof CommercialPublicationError && error.code==="COMMERCIAL_PUBLICATION_STATE_CONFLICT");
+      assert.deepEqual(await persistedPublicationState(),before);
+    }finally{
+      await admin.query("UPDATE core_commercial.entitlement_snapshot SET valid_from=$2,expires_at=$3 WHERE id=$1",
+        [snapshotId,original.valid_from,original.expires_at]);
+    }
+  });
+}
+
+test("publication rejects a Subscription removed from the Tenant current pointer",async()=>{
+  const input=await currentPublicationInput();
+  await admin.query("UPDATE core_tenancy.tenant SET current_subscription_id=NULL WHERE id=$1",[f.tenant]);
+  try{
+    const before=await persistedPublicationState();
+    await assert.rejects(service.publish(input),error=>
+      error instanceof CommercialPublicationError && error.code==="COMMERCIAL_PUBLICATION_STATE_CONFLICT");
+    assert.deepEqual(await persistedPublicationState(),before);
+  }finally{
+    await admin.query("UPDATE core_tenancy.tenant SET current_subscription_id=$2 WHERE id=$1",[f.tenant,f.subscription]);
+  }
+});
+
+test("audit append failure rolls back subscription, snapshots and previously inserted outbox evidence",async()=>{
+  const before=await persistedPublicationState();
+  const existingAuditId=before["core_audit.audit_event"][0].id;
+  const generated=[randomUUID(),randomUUID(),randomUUID(),randomUUID(),existingAuditId];
+  let next=0;
+  const failing=new CommercialPublicationService({
+    store:new PostgresCommercialPublicationStore(new RequestScopedSql(database,{
+      dataHomeId:f.home,regionCode:"IN-COMMERCIAL-PUBLISH",
+    })),
+    // Final audit identity collides after the business and outbox writes have run.
+    ids:{nextId(){return generated[next++];}},
+    runtime:{now(){return new Date();}},
+  });
+  await assert.rejects(failing.publish(await currentPublicationInput()),error=>
+    error instanceof CommercialPublicationError && error.code==="COMMERCIAL_PUBLICATION_STATE_UNAVAILABLE");
+  assert.deepEqual(await persistedPublicationState(),before);
+  const identities=await admin.query(
+    "SELECT id FROM core_integration.outbox_event_identity WHERE id=ANY($1::uuid[])",
+    [[generated[2],generated[3]]],
+  );
+  assert.equal(identities.rowCount,0,"rolled-back outbox writes must not leave global identities");
+});
+
 test("dedicated Commercial database role cannot update Subscription state",async()=>{
   await assert.rejects(
     database.transaction(tx=>tx.query(

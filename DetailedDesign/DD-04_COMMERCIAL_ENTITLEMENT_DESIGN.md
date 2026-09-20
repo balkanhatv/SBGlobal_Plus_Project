@@ -252,8 +252,8 @@ The PostgreSQL store then re-locks and revalidates:
 1. exact Tenant-owned Subscription + expected version/source PlanVersion;
 2. usable current Subscription state;
 3. ACTIVE target PlanVersion + Plan + route policy valid at effective time;
-4. exact current entitlement snapshot matching RequestContext id/version and current source Subscription/PlanVersion;
-5. authoritative Tenant residency for event envelope;
+4. exact current entitlement snapshot matching RequestContext id/version and current source Subscription/PlanVersion, with `valid_from <= CURRENT_TIMESTAMP` and absent or future `expires_at`;
+5. authoritative Tenant `current_subscription_id` still matching the selected Subscription, plus Tenant residency for the event envelope;
 6. ACTIVE entitlement definitions/value types and ACTIVE same-Tenant Industry Context references.
 
 Only after all checks pass does one transaction:
@@ -356,7 +356,7 @@ The first target-preview compiler stage is now executable but deliberately limit
 
 Inputs:
 - already parsed DD-067 entitlement template + limit set;
-- same-Tenant Industry Context inventory with explicit lifecycle status;
+- same-Tenant Industry Context inventory with the canonical DD-05 lifecycle `PENDING | ACTIVE | SUSPENDED | DISABLED`;
 - existing Commercial license reads.
 
 Rules:
@@ -364,7 +364,7 @@ Rules:
 - LICENSED_INDUSTRIES resolves only ACTIVE Industry Contexts that have an independently effective INDUSTRY license;
 - INDUSTRY_CODE resolves only the matching ACTIVE + independently licensed Industry Context;
 - plan data never creates or substitutes an Industry license;
-- SUSPENDED/DISABLED Industry Contexts are not instantiated;
+- PENDING/SUSPENDED/DISABLED Industry Contexts are valid inventory entries but are not instantiated, even when a license is effective; they do not block unrelated eligible Contexts or Tenant-scoped entries;
 - stale effective Industry licenses referencing an unavailable Context fail closed;
 - INCLUDED / NOT_INCLUDED / ADD_ON_ONLY markers and FINITE / UNLIMITED / NOT_INCLUDED / ADD_ON_ONLY limit modes are preserved unchanged for later precedence/impact stages;
 - if different plan selectors resolve to the same entitlement or limit key, expansion fails as ambiguous rather than inventing specificity precedence;

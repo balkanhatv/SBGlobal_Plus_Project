@@ -250,7 +250,7 @@ This preserves authentication-before-body-parsing while preventing missing Conte
 
 The first physical first-party web composition is now bound to the governed Next.js 15 / React 19 / Node 22 boundary. `src/server/app/first-party-web-composition.ts` is composition-only: it instantiates the existing Clerk IdentityPort chain, trusted host selector/edge/body controls, pre-context Tenant directory bootstrap, RequestContext, Commercial current-state service, Authorization PDP/PEP/audit, distributed rate limiter, idempotency service, DTO/Operation/domain registries and the shared tRPC Fetch handler. It does not add route-local business or security truth.
 
-`src/app/api/trpc/[trpc]/route.ts` is a thin Node-runtime App Router boundary exposing the same handler for GET/POST. The current bounded router registers only `core.identity.roles.listEffective`; broader Core/Industry routers remain separate governed slices. Machine/API credentials are not inferred from Clerk Bearer tokens and are rejected by this first-party human web composition.
+`src/app/api/trpc/[trpc]/route.ts` is a thin Node-runtime App Router boundary exposing the same handler for GET/POST. DD-058 originally registered only `core.identity.roles.listEffective`; DD-059/060 subsequently added `core.tenancy.workspace.resolve` and `core.commercial.entitlements.getCurrent`. These are the current three bounded queries; broader Core/Industry routers remain separate governed slices. Machine/API credentials are not inferred from Clerk Bearer tokens and are rejected by this first-party human web composition.
 
 All secrets and deployment-specific route facts are required runtime configuration. No source fallback supplies database credentials, Clerk secrets/JWT key, authorized parties, DataHome identity, region, Tenant host bindings, body ceiling or rate-lease lifetime. The resolved DataHome/region must match the configured server cell before application-role SQL is allowed.
 
@@ -258,7 +258,7 @@ The Core TypeScript emit boundary remains `tsconfig.json`. Next.js uses `tsconfi
 
 The package/lock boundary pins Next.js 15, React/ReactDOM 19 and matching React type packages. CI is read-only and exact-head: it runs deterministic npm-lock verification, Core TypeScript compilation, the Next.js production build and a clean generated-state check. CI never auto-commits generated lock/config files back to the branch.
 
-The next bounded first-party capability is `core.tenancy.workspace.resolve`. DD-02 remains authoritative: Tenant selection arrives only through trusted transport/server selector facts and RequestContext resolution; the procedure DTO must not accept tenantId or a parallel Tenant-authority field. The existing WorkspaceService may consume an optional Industry selector only to return the sanitized ClientWorkspaceContext.
+The next capability at the original DD-058 checkpoint was `core.tenancy.workspace.resolve`, subsequently implemented under §29. DD-02 remains authoritative: Tenant selection arrives only through trusted transport/server selector facts and RequestContext resolution; the procedure DTO must not accept tenantId or a parallel Tenant-authority field. WorkspaceService consumes an optional Industry selector only to return the sanitized ClientWorkspaceContext.
 
 
 ## 29. Tenant workspace bootstrap query [DD-059 / DEV-WORKSPACE-BOOTSTRAP-001]
@@ -273,7 +273,7 @@ The v1 output is the existing sanitized `ClientWorkspaceContext`: Tenant display
 
 The production first-party router explicitly enables this bounded procedure after registering its exact OperationContract/Zod/domain definitions. Existing isolated transport fixtures may omit the capability explicitly; runtime composition registers both the previously verified Identity query and this Workspace query.
 
-Next governed Core procedure is `core.commercial.entitlements.getCurrent`. Before transport binding, its client-safe v1 projection must be locked so internal subscription/license/snapshot identifiers and unrestricted commercial persistence records are not exposed to UI clients.
+The next procedure at the original DD-059 checkpoint was `core.commercial.entitlements.getCurrent`, subsequently implemented under §30 and DD-04 §12 with its client-safe projection locked before transport binding.
 
 
 ## 30. Client-safe current Commercial query [DD-060 / DEV-COMMERCIAL-ENTITLEMENTS-QUERY-001]
@@ -289,7 +289,9 @@ The domain service must re-read current Commercial state and require exact Reque
 The existing GuardPipeline remains in front of the domain call; this query does not create a bypass around current subscription, seat, RBAC, ABAC, audit or rate controls.
 
 
-## 31. Commercial change-plan implementation gate [DD-061 prerequisite audit]
+## 31. Historical Commercial change-plan prerequisite audit [DD-061]
+
+The findings below describe the original DD-061 checkpoint. DD-062…068 subsequently supplied request/evidence contracts, cataloged events, the dedicated writer, atomic publication, evidence persistence and the PlanVersion baseline. Current unresolved prerequisites are maintained in `Development/COMMERCIAL_CHANGE_PLAN_PREREQUISITE_AUDIT.md`; the public command remains unbound because final preview/impact and Billing/approval producers are unfinished.
 
 The prior one-line baseline contract was not sufficient to authorize mutation. Fresh Development audit after DEV-COMMERCIAL-ENTITLEMENTS-QUERY-001 found the following:
 

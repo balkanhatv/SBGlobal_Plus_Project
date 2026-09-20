@@ -21,7 +21,10 @@ interface SnapshotRow {
   readonly source_subscription_id:string;
   readonly source_plan_version_id:string;
 }
-interface TenantRow { readonly residency_region_code:string; }
+interface TenantRow {
+  readonly residency_region_code:string;
+  readonly current_subscription_id:string|null;
+}
 interface DefinitionRow { readonly code:string; readonly value_type:string; }
 
 const USABLE=new Set<CommercialSubscriptionState>(["TRIAL","ACTIVE","GRACE"]);
@@ -231,7 +234,9 @@ export class PostgresCommercialPublicationStore implements CommercialPublication
         const snapshotResult=await transaction.query<SnapshotRow>(
           "SELECT id::text,version,source_subscription_id::text,source_plan_version_id::text" +
           " FROM core_commercial.entitlement_snapshot" +
-          " WHERE tenant_id=$1::uuid AND status='CURRENT' FOR UPDATE",
+          " WHERE tenant_id=$1::uuid AND status='CURRENT'" +
+          " AND valid_from<=CURRENT_TIMESTAMP" +
+          " AND (expires_at IS NULL OR expires_at>CURRENT_TIMESTAMP) FOR UPDATE",
           [context.tenantId],
         );
         const currentSnapshot=exact(snapshotResult.rows,"Current entitlement snapshot");
@@ -244,9 +249,13 @@ export class PostgresCommercialPublicationStore implements CommercialPublication
         }
 
         const tenant=exact((await transaction.query<TenantRow>(
-          "SELECT residency_region_code FROM core_tenancy.tenant WHERE id=$1::uuid",
+          "SELECT residency_region_code,current_subscription_id::text" +
+          " FROM core_tenancy.tenant WHERE id=$1::uuid",
           [context.tenantId],
         )).rows,"Tenant residency");
+        if(tenant.current_subscription_id!==input.subscriptionId){
+          conflict("Subscription is no longer the Tenant's current Subscription.");
+        }
         if(!tenant.residency_region_code){
           unavailable("Tenant residency region is unavailable.");
         }

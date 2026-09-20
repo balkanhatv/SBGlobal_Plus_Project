@@ -1,4 +1,5 @@
 import type { CurrentCommercialLicenseRead } from "./current-state.js";
+import type { IndustryContextRecord } from "../context/contracts.js";
 import type {
   PlanEntitlementTemplateV1,
   PlanEntitlementTemplateFactV1,
@@ -10,7 +11,7 @@ import type {
 export interface PlanPreviewIndustryContextV1 {
   readonly id:string;
   readonly industryCode:string;
-  readonly status:"ACTIVE"|"SUSPENDED"|"DISABLED";
+  readonly status:IndustryContextRecord["status"];
 }
 
 export interface ResolvedPlanEntitlementV1 {
@@ -80,7 +81,8 @@ function validateIndustries(
   const output=input.map((industry,index)=>{
     if(!UUID.test(industry.id)) invalid("Invalid Industry Context id at index "+index+".");
     if(!INDUSTRY.test(industry.industryCode)) invalid("Invalid Industry code at index "+index+".");
-    if(industry.status!=="ACTIVE" && industry.status!=="SUSPENDED" && industry.status!=="DISABLED"){
+    if(industry.status!=="PENDING" && industry.status!=="ACTIVE"
+      && industry.status!=="SUSPENDED" && industry.status!=="DISABLED"){
       invalid("Invalid Industry status at index "+index+".");
     }
     const id=industry.id.toLowerCase();

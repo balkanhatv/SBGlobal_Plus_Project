@@ -1,5 +1,5 @@
 # SBGlobal Plus — A-04 COMMERCIAL & ENTITLEMENT ARCHITECTURE
-**Document ID:** A-04 · **Version:** 1.0 · **Status:** ARCHITECTURE COMPLETE (CP-A1-002) · **Date:** 09-09-2026
+**Document ID:** A-04 · **Version:** 1.1 · **Status:** Targeted F-14 reconciliation; prior CP-A1-002 certification is historical · **Date:** 2026-09-20
 **Traces to:** F-14 (Commercial Foundation: plans, subscription, license, entitlements, effective access, lifecycles, routes), F-01 §5 (subscription/entitlement anchor, BR-SUB-01…04), F-02 W-03/W-04 (subscribe/provision workflows) · **Decisions:** ADR-007 (→ A-12)
 
 ---
@@ -8,8 +8,8 @@
 F-14's chain `Plan → Subscription → License → Entitlement → Effective Access` maps onto the Core as follows: the **Entitlement module** (A-01 §2) owns the entire chain's data and computation; the **Billing module** owns money movement only (invoices, payments, dunning); the **kernel guard** is the sole runtime consumer of computed entitlements after Tenant/Industry Context and commercial validity are resolved. No other module ever interprets plans or subscriptions directly — they ask the guard/entitlement contract. This keeps commercial semantics in exactly one place.
 
 ## 2. Plan Catalog & Versioning
-- Plans are **versioned, immutable records**: `Plan(planId) → PlanVersion(n)` with dimensions per F-14 §2 (modules, MS activations, limits, AI quotas, support class, residency options, route). A subscription always pins a specific PlanVersion.
-- Publishing a new PlanVersion never mutates existing subscriptions; migration between versions is an explicit lifecycle operation (upgrade/downgrade per F-14 §7 semantics with BR-SUB-04 downgrade guard from AC-01).
+- Plans are **versioned, immutable records**: `Plan(planId) → PlanVersion(n)` with dimensions per F-14 §1 (modules, MS activations, limits, AI quotas, support class, residency options, route). A subscription always pins a specific PlanVersion.
+- Publishing a new PlanVersion never mutates existing subscriptions; migration between versions is an explicit lifecycle operation (upgrade/downgrade per F-14 §6 semantics with BR-SUB-04 downgrade guard from AC-01).
 - Platform-level catalog is global (region-neutral directory data, A-02 §5); per-tenant negotiated overrides (Enterprise route) are stored as **EntitlementAdjustments** bound to the subscription, never as forked plans.
 
 ## 3. Subscription Lifecycle — Runtime Realization
@@ -20,7 +20,7 @@ Entitlements are **compiled, not evaluated ad hoc**. Compilation is an execution
 ```
 Sources: PlanVersion dimensions → License grants → EntitlementAdjustments
          → tenant industry activations → suspension/grace overlays
-Compile: apply F-14 §5 precedence; conflicts resolve DENY-WINS;
+Compile: apply F-14 §4 precedence; conflicts resolve DENY-WINS;
          output = EntitlementSnapshot{tenantId, version, moduleMap,
          featureMap, limitMap, aiQuotaMap, validity}
 Triggers: subscription transition · plan version migration · license
@@ -28,7 +28,7 @@ Triggers: subscription transition · plan version migration · license
 Store:    snapshot persisted per tenant (current + history for audit);
           snapshot version stamped into RequestContext (A-02 §3)
 ```
-- **Read path:** kernel guard reads the current snapshot from a per-instance cache keyed by `(tenantId, snapshotVersion)`; cache invalidation is by version bump carried on the `entitlement.recompiled` event — stale reads are bounded to seconds and always fail toward the *older* (already-valid) snapshot, never toward an uncomputed state.
+- **Read path:** a snapshot cache is keyed by `(tenantId, snapshotVersion)` and invalidated by the `entitlement.recompiled` event. Current Subscription, applicable License and authoritative snapshot-version checks remain mandatory before access; an unavailable or mismatched version fails closed and requires reload/revalidation. A previously valid cached snapshot is not authority after invalidation (F-14 §4/§5; DD-04 §5/§11).
 - **Deny-wins and server-authoritative semantics** (F-14 §4/§5) are properties of the compiler, verified by contract tests at Detailed Design.
 
 ## 5. Runtime Enforcement Points
@@ -41,7 +41,7 @@ Canonical access sequence is owned with A-01/A-03: Authenticate → Tenant → a
 | AI Gateway (→ A-07 §7) | AI quotas/model classes per plan | Deny + quota-exhausted signal to UI |
 | Experience shells (→ A-08 §6) | Navigation/feature visibility | UI hides what the snapshot denies; UI state is advisory only — server remains authoritative |
 | Webhook/event dispatcher | Integration entitlements | Subscriptions to non-entitled events rejected |
-Suspension overlay (F-14 §6): `SUSPENDED` compiles to a minimal snapshot exposing only tenant-admin billing scope (A-02 §6), realized by the same mechanism — no special-case code paths.
+Suspension overlay (F-14 §2/§5/§6): `SUSPENDED` permits governed read-only business-data access plus billing/renewal/export, preserves data, denies ordinary business writes, and pauses integrations/API access. These permitted paths require explicit restricted-operation contracts and the same server-authoritative guard; subscription state alone never grants them. DD-04 §11 currently keeps generic protected operations denied until those dedicated contracts exist.
 
 ## 6. Billing & Payment Integration
 - Payment gateways sit behind a **PaymentPort** adapter contract (→ A-06 §6): create-checkout, capture, refund, webhook-verify. Card data never touches the Core (PCI scope minimization per A-03 §6); the gateway hosts the payment surface.
@@ -53,3 +53,6 @@ Desktop (Tauri 2.0, F-10 §4) and mobile clients cache the entitlement snapshot 
 
 ## 8. Deferred to Detailed Design
 Plan/PlanVersion/EntitlementSnapshot entity fields; limit-counter table design and contention strategy; proration formulas and dunning timing values; gateway adapter catalog per region; checkout UX flows; entitlement contract test suite.
+
+## Change history
+- 2026-09-20: Corrected F-14 section references and restored its suspension/read-only/recovery semantics. No new recovery endpoint or access exception was introduced; DD-04 §11 retains the explicit current runtime boundary.
