@@ -1,47 +1,47 @@
-# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-PUBLICATION-001
-**Updated:** 2026-09-19  
+# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-PLAN-CHANGE-EVIDENCE-001
+**Updated:** 2026-09-20  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — atomic Commercial Subscription/snapshot/outbox/audit publication floor
+**Status:** IMPLEMENTED / TESTED — governed plan-change evidence persistence + producer isolation
 
 ## Verified executable snapshot
-- Commit: `a810af51c93dba5959d4b26502c47100afd631fa`.
-- Tree: `5b4b662acdc450a9878101652e2bd0ce98404da4`.
-- Core/server acceptance: **182/182 PASS**.
-- Real PostgreSQL regression: **47/47 PASS**.
-- Database: **44 migrations / 38 verification files PASS**.
+- Commit: `b77f6ce8cd7fcf0617369a0786dea15113a7b72b`.
+- Tree: `2130302dc137399724da7082a7212dc3d75db2fe`.
+- Core/server acceptance: **184/184 PASS**.
+- Real PostgreSQL regression: **49/49 PASS**.
+- Database: **45 migrations / 39 verification files PASS**.
 - Next.js 15.5.25 production build, deterministic npm lock and generated-state cleanliness: **PASS**.
 
-## DD-065 executable boundary
-- internal `CommercialPublicationService` requires SERVICE + TENANT_CORE + current Commercial snapshot context;
-- compiled publication input is bounded/normalized; future effective time, duplicate scope and invalid facts fail closed;
-- dedicated `PostgresCommercialTransitionCompilerDatabase` uses only `sbg_commercial_transition_compiler_rw`;
-- migration 0044 grants only same-Tenant Tenant-record SELECT needed for authoritative residency;
-- store re-locks exact Subscription/current snapshot and checks expected Subscription version, source PlanVersion and RequestContext snapshot id/version;
-- target PlanVersion/Plan/route and entitlement definitions/Industry Context ownership are revalidated;
-- one transaction advances Subscription plan/version, appends transition, supersedes old snapshot, publishes new immutable snapshot/facts, writes both DD-063 outbox events and Commercial audit;
-- stale/invalid/privilege/RLS/evidence failure rolls back the entire publication;
-- public `core.commercial.subscription.changePlan` remains unbound.
+## DD-066 executable boundary
+- immutable/versioned TENANT_CORE `plan_change_assessment` persists exact Subscription/source/target/timing/version/route bindings;
+- DB insert guard rechecks current Subscription version/source PlanVersion and ACTIVE target PlanVersion/Plan/route policy;
+- assessment versions are contiguous and cannot silently rebind the core source/target tuple;
+- remediation evidence is append-only, versioned and Commercial-producer-bound;
+- SELF_SERVE route resolution is append-only through the dedicated Billing evidence role only;
+- SALES_ASSISTED route resolution is append-only through the Workflow worker boundary only;
+- SATISFIED NEXT_RENEWAL requires server-owned effectiveAt;
+- evidence tables are FORCE-RLS, immutable-scope enrolled and hidden from general app/worker/control-plane mutation;
+- `PlanChangeEvidenceService` is SERVICE/TENANT_CORE-only and fixes producer ownership by method;
+- real PostgreSQL acceptance proves stale Subscription rejection, remediation→reassessment binding, producer separation and evidence immutability.
 
 ## Exact evidence
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
-| Core Service Verify / core-service-verify | 35459763237 | 105941403543 | **PASS — 182/182** |
-| Core Service Verify / postgres-context-verify | 35459763237 | 105941403548 | **PASS — 47/47 + DB bootstrap PASS** |
-| Database Verify / postgres-verify | 35459763287 | 105941403404 | **PASS — 44 migrations / 38 verification files** |
-| Web Boundary Verify / web-boundary-verify | 35459763310 | 105941403756 | **PASS — Next 15.5.25 production build + clean generated state** |
+| Core Service Verify / core-service-verify | 35486746600 | 106014414422 | **PASS — 184/184** |
+| Core Service Verify / postgres-context-verify | 35486746600 | 106014414488 | **PASS — 49/49 + DB bootstrap PASS** |
+| Database Verify / postgres-verify | 35486746558 | 106014414210 | **PASS — 45 migrations / 39 verification files** |
+| Web Boundary Verify / web-boundary-verify | 35486746551 | 106014414305 | **PASS — Next 15.5.25 production build + clean generated state** |
 
-All primary jobs asserted exact tested HEAD `a810af51c93dba5959d4b26502c47100afd631fa` and tree `5b4b662acdc450a9878101652e2bd0ce98404da4`.
+All primary jobs asserted exact tested HEAD `b77f6ce8cd7fcf0617369a0786dea15113a7b72b` and tree `2130302dc137399724da7082a7212dc3d75db2fe`.
 
-## Remaining blocker before public changePlan
-Implement the **physical DD-062 plan-change evidence layer** only:
-- immutable/versioned PlanChangeAssessment persistence;
-- blocking impact codes + remediation state/evidence bound to exact assessment version;
-- route-resolution state bound to SELF_SERVE / SALES_ASSISTED producer ownership;
-- Billing/approval producer handoff/evidence references with no Commercial money calculation;
-- server-owned NEXT_RENEWAL effectiveAt;
-- exact Tenant/Subscription/source/target/timing/version binding;
-- no client-supplied payment/approval/remediation proof becomes authority.
+## Remaining blockers before public changePlan
+DD-066 provides the persistence/producer-isolation substrate; it does **not** manufacture business truth.
 
-Only after that layer is real and tested may the public REQUIRED-idempotency `core.commercial.subscription.changePlan` command call the verified DD-065 publication primitive.
+Still required:
+- server-owned impact + entitlement-diff evaluator from actual current usage/licensing/target-plan facts;
+- server-owned remediation verification rather than accepting a precomputed evidence reference as business truth;
+- actual Billing/payment/proration/no-charge producer runtime for SELF_SERVE;
+- actual Workflow/approval producer runtime for SALES_ASSISTED;
+- internal apply gate that selects only current SATISFIED evidence and deterministic compiler output before invoking DD-065 publication;
+- only then bind REQUIRED-idempotency `core.commercial.subscription.changePlan` through OperationExecutor/tRPC/Next.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.

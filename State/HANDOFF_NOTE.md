@@ -1,12 +1,14 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-19 · **Checkpoint:** `DEV-COMMERCIAL-PUBLICATION-001`
+**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-PLAN-CHANGE-EVIDENCE-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified executable `a810af51c93dba5959d4b26502c47100afd631fa`, tree `5b4b662acdc450a9878101652e2bd0ce98404da4`: **182 Core + 47 PostgreSQL + 44 migrations / 38 verification files PASS + Next.js 15.5.25 production build/lock/clean-state PASS**.
+Verified executable `b77f6ce8cd7fcf0617369a0786dea15113a7b72b`, tree `2130302dc137399724da7082a7212dc3d75db2fe`: **184 Core + 49 PostgreSQL + 45 migrations / 39 verification files PASS + Next.js 15.5.25 production build/lock/clean-state PASS**.
 
-DD-065 closes the atomic publication prerequisite: a trusted SERVICE/TENANT_CORE publication service plus dedicated PostgreSQL writer re-locks expected Subscription/current snapshot, validates target/facts, then atomically updates plan/version, appends transition, publishes immutable snapshot/facts and writes both DD-063 events + Commercial audit. General app roles remain non-writers.
+DD-066 physicalizes DD-062 evidence authority: immutable/versioned assessment, append-only remediation evidence, Billing-only SELF_SERVE resolution, Workflow-only SALES_ASSISTED resolution, FORCE-RLS and fixed producer roles. Real PostgreSQL tests prove stale Subscription rejection, version binding, wrong-producer denial and immutability.
 
-Public `core.commercial.subscription.changePlan` remains blocked. Next governed slice is physical DD-062 assessment/remediation/route-resolution evidence persistence and least-privilege Billing/approval producer boundaries; client-supplied payment/approval/remediation evidence is never authority.
+Do not overclaim this as end-to-end plan change. The evidence service still receives server-precomputed impact/remediation references; Billing/payment/proration and Workflow approval producer logic are not implemented. Public `core.commercial.subscription.changePlan` remains blocked.
+
+Next governed slice: implement the server-owned Commercial impact/entitlement-diff/remediation evaluator only; it must not calculate money or accept client evidence as authority.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.

@@ -1,7 +1,7 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-19
+**Updated:** 2026-09-20
 
-Current Development checkpoint is `DEV-COMMERCIAL-PUBLICATION-001`. Verified executable `a810af51c93dba5959d4b26502c47100afd631fa` / tree `5b4b662acdc450a9878101652e2bd0ce98404da4` passes **182 Core + 47 PostgreSQL**, **44 migrations / 38 verification files**, and the Next.js 15.5.25 production build. DD-065 now provides an internal SERVICE/TENANT_CORE atomic Commercial publication transaction: expected Subscription/current-snapshot checks, target/fact validation, plan/version transition, immutable snapshot publication, DD-063 outbox events and audit all commit or roll back together under the DD-064 dedicated writer. Public changePlan remains intentionally unbound; next is physical DD-062 assessment/remediation/route-resolution evidence persistence and producer boundaries.
+Current Development checkpoint is `DEV-COMMERCIAL-PLAN-CHANGE-EVIDENCE-001`. Verified executable `b77f6ce8cd7fcf0617369a0786dea15113a7b72b` / tree `2130302dc137399724da7082a7212dc3d75db2fe` passes **184 Core + 49 PostgreSQL**, **45 migrations / 39 verification files**, and the Next.js 15.5.25 production build. DD-066 now persists immutable/versioned plan-change assessment/remediation/route-resolution evidence under separate Commercial/Billing/Workflow producer boundaries with stale-source and wrong-producer fail-closed tests. This does not yet implement impact/remediation calculation, Billing/payment/proration or Workflow approval decisions. Public changePlan remains intentionally unbound; next is the server-owned Commercial impact/entitlement-diff/remediation evaluator floor.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
