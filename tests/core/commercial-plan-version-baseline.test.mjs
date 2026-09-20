@@ -47,12 +47,13 @@ test("PlanVersion baseline expands Tenant and licensed active Industry selectors
     licenses:[license(mfg),license(rtl),license(disabled,false)],
   });
 
+  const resolvedIndustryIds=[mfg.toLowerCase(),rtl.toLowerCase()].sort();
   assert.deepEqual(
     preview.entitlements.map(x=>[x.code,x.industryContextId ?? null,x.grantMode]),
     [
       ["core.reporting",null,"INCLUDED"],
-      ["industry.analytics",mfg.toLowerCase(),"INCLUDED"],
-      ["industry.analytics",rtl.toLowerCase(),"INCLUDED"],
+      ["industry.analytics",resolvedIndustryIds[0],"INCLUDED"],
+      ["industry.analytics",resolvedIndustryIds[1],"INCLUDED"],
       ["rtl.pos",rtl.toLowerCase(),"ADD_ON_ONLY"],
     ],
   );
@@ -60,8 +61,8 @@ test("PlanVersion baseline expands Tenant and licensed active Industry selectors
     preview.limits.map(x=>[x.entitlementCode,x.industryContextId ?? null,x.mode]),
     [
       ["seats.limit",null,"FINITE"],
-      ["storage.limit",mfg.toLowerCase(),"UNLIMITED"],
-      ["storage.limit",rtl.toLowerCase(),"UNLIMITED"],
+      ["storage.limit",resolvedIndustryIds[0],"UNLIMITED"],
+      ["storage.limit",resolvedIndustryIds[1],"UNLIMITED"],
     ],
   );
 });
