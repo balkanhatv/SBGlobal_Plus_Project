@@ -22,3 +22,7 @@ Fresh zero-trust continuation found that DD-043 tests and persistence existed bu
 
 ## 2026-09-17 — DD-044 provider/session-security contract
 Defined the Clerk human-session → internal principal/session/device security boundary without trusting custom provider claims for SBGlobal authorization. Added a dedicated NOBYPASSRLS identity-service SQL adapter, provider-specific Clerk IdentityPort adapter, server-owned SessionSecurityPort implementation, PostgreSQL identity/security store and executable unit + real-PostgreSQL tests. No RawSource, Industry/MS schema, `main`, production deployment or provider-SDK package bootstrap change.
+
+## 2026-09-20 — Commercial current-state audit correction
+Fresh zero-trust audit preserved DD-069 as the last feature slice and corrected only evidence-backed drift: DD-068 now accepts canonical PENDING Industry inventory while remaining ACTIVE-only for baseline expansion; DD-065 publication revalidates snapshot effective dates and Tenant current-subscription authority; A-04/DD-06/DD-17/DD-18 references were reconciled; exact-head CI coverage now includes current checkpoint/state promotion artifacts. No new eligibility, precedence, pricing, approval or public changePlan rule was introduced.
+
