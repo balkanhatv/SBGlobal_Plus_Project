@@ -26,3 +26,7 @@ Defined the Clerk human-session → internal principal/session/device security b
 ## 2026-09-20 — Commercial current-state audit correction
 Fresh zero-trust audit preserved DD-069 as the last feature slice and corrected only evidence-backed drift: DD-068 now accepts canonical PENDING Industry inventory while remaining ACTIVE-only for baseline expansion; DD-065 publication revalidates snapshot effective dates and Tenant current-subscription authority; A-04/DD-06/DD-17/DD-18 references were reconciled; exact-head CI coverage now includes current checkpoint/state promotion artifacts. No new eligibility, precedence, pricing, approval or public changePlan rule was introduced.
 
+
+
+## 2026-09-20 — DD-070 Commercial adjustment-source / eligibility boundary
+Recorded the exact implemented source boundary: current Subscription + target PlanVersion revalidation, effective same-Tenant TenantAddOn/override reads under the existing Commercial compiler role, sibling-Tenant isolation, and a server-owned opaque eligibility resolver seam. No concrete eligibility, pricing, market or payment rule is claimed. Exact-head executable evidence is promoted separately through Development/State checkpoint artifacts.

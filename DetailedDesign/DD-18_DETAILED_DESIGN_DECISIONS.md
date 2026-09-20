@@ -754,3 +754,16 @@ All DD-067 markers are preserved so later add-on/override/impact stages can reas
 ## Commercial publication current-state revalidation correction — 2026-09-20
 
 F-14 §4/§5 and DD-04 §5/§11 require current Commercial truth. Publication's existing id/version check omitted snapshot effective dates and the Tenant's authoritative current_subscription_id. DD-04 §14 now states both checks explicitly. No new lifecycle, table, role or privilege is introduced. COMM-PUB-011/012 cover expiry/future activation and pointer removal; COMM-PUB-010 gains a real PostgreSQL late-audit-failure rollback regression. Current CI evidence remains owned by Development/CORE_SERVICE_CHECKPOINT.md.
+
+
+## DD-070 — Add-on eligibility is a server-owned resolver seam; active source rows remain authoritative
+
+**Context:** DD-069 normalized add-on quota deltas and typed overrides but deliberately left `add_on.eligibility_json`, active-row selection and target-plan policy ownership unresolved. Interpreting arbitrary eligibility JSON inside Commercial would invent business rules not present in the governing source.
+
+**Decision:** bind active adjustment sources through `PostgresCommercialAdjustmentSourceStore` under the existing no-bypass Commercial compiler read boundary. The store revalidates the Tenant's current Subscription/version/source PlanVersion, active target PlanVersion/Plan/route, exact Tenant + Subscription ownership and effective windows for TenantAddOn/override rows. Sibling Tenant rows remain inaccessible by predicates + FORCE-RLS. Target trial/billing policy documents and add-on eligibility JSON stay opaque.
+
+Eligibility is delegated to `CommercialAddOnEligibilityResolverPort`. It is server-owned, receives the authoritative policy/source documents, and returns only `ELIGIBLE | INELIGIBLE` plus versioned evidence. The service applies DD-069 quota deltas only after ELIGIBLE. Client input never supplies eligibility authority.
+
+**Audit / trade-off:** this creates a deterministic ownership seam without guessing eligibility semantics. It costs an explicit resolver dependency before production composition, but avoids hardcoded pricing/market/payment rules and preserves Billing ownership.
+
+**Consequence:** active adjustment-source isolation and the eligibility decision boundary are executable/tested. A concrete production eligibility resolver is still unfinished and remains a prerequisite for end-to-end target preview/public plan change. The next safe compiler slice may consume already prepared/resolver-approved adjustments and implement only F-14/DD-04 precedence, failing closed on ambiguous LIMIT_SET/LIMIT_DELTA meter mapping.

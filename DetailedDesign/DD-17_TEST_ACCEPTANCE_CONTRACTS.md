@@ -652,3 +652,21 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-ADJ-007 | LIMIT_SET | only numeric type; non-negative replacement value |
 | COMM-ADJ-008 | LIMIT_DELTA | only numeric type; signed finite delta |
 | COMM-ADJ-009 | SET ALLOW | bounded, unique, deterministic sorted value |
+
+
+### Commercial adjustment source + eligibility resolver — DD-070 / DEV-COMMERCIAL-ADJUSTMENT-SOURCE-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-ADJ-SRC-001 | HUMAN / Industry-scoped caller | rejected; SERVICE + TENANT_CORE required |
+| COMM-ADJ-SRC-002 | supplied Subscription version/source PlanVersion stale | source load fails closed |
+| COMM-ADJ-SRC-003 | Tenant current_subscription_id no longer points to supplied Subscription | source load fails closed |
+| COMM-ADJ-SRC-004 | target PlanVersion/Plan/route inactive or outside effective window | source load fails closed |
+| COMM-ADJ-SRC-005 | TenantAddOn expired/inactive/wrong Subscription | excluded |
+| COMM-ADJ-SRC-006 | sibling-Tenant TenantAddOn or override exists | invisible; cannot enter prepared adjustments |
+| COMM-ADJ-SRC-007 | override expired/inactive or entitlement definition inactive | excluded |
+| COMM-ADJ-SRC-008 | add-on eligibility | only server-owned resolver may return ELIGIBLE/INELIGIBLE + policyVersion/evidenceReference |
+| COMM-ADJ-SRC-009 | INELIGIBLE add-on | retained as ineligible evidence; delta is not applied |
+| COMM-ADJ-SRC-010 | ELIGIBLE add-on | DD-069 delta parses/scales only after eligibility succeeds |
+| COMM-ADJ-SRC-011 | malformed resolver status/version/evidence | fail closed |
+| COMM-ADJ-SRC-012 | concrete production eligibility business rule | NOT CLAIMED; requires separately governed resolver implementation |

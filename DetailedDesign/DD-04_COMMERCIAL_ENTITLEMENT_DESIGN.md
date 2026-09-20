@@ -414,3 +414,49 @@ The scoped representation is required because current-state reads select the exa
 SET and typed values are bounded and deterministic. This normalization does not yet decide precedence among multiple overrides or between overrides and active add-ons.
 
 **Boundary:** add-on eligibility, active-row selection, override/add-on conflict resolution, compliance/security restrictions and final preview compilation remain downstream work.
+
+
+## 19. Active Commercial adjustment source + eligibility resolver boundary [DD-070]
+
+The next target-preview prerequisite is now executable as a **source/read boundary**, not as an invented eligibility policy.
+
+### 19.1 Authoritative source load
+
+`PostgresCommercialAdjustmentSourceStore` runs through the existing `RequestScopedSql` + `sbg_commercial_transition_compiler_rw` boundary and revalidates:
+
+- exact current Tenant-owned Subscription id/version/source PlanVersion;
+- Tenant `current_subscription_id` still points to that Subscription;
+- Subscription state is currently `TRIAL | ACTIVE | GRACE`;
+- target PlanVersion, parent Plan and route policy are ACTIVE/effective for the supplied server-owned effective time;
+- TenantAddOn rows belong to the exact Tenant + Subscription, are ACTIVE and inside their effective window;
+- tenant_override rows belong to the exact Tenant, are ACTIVE/effective, and resolve through an ACTIVE entitlement definition for canonical value type;
+- sibling Tenant add-ons/overrides remain invisible through Tenant predicates + FORCE-RLS.
+
+The store returns target `trial_policy_json`, `billing_policy_json`, each add-on's opaque `eligibility_json`, and normalized source metadata. It does not interpret those policy documents.
+
+### 19.2 Eligibility ownership
+
+`CommercialAdjustmentSourceService` is SERVICE + TENANT_CORE only. Add-on eligibility is delegated to a server-owned `CommercialAddOnEligibilityResolverPort`.
+
+The resolver receives:
+- authoritative RequestContext;
+- target PlanVersion id;
+- target plan trial/billing policy documents;
+- exact persisted TenantAddOn/AddOn source row including opaque eligibility document.
+
+The resolver must return exactly `ELIGIBLE | INELIGIBLE` plus a bounded `policyVersion` and `evidenceReference`. Callers cannot assert eligibility in a DTO or persistence row.
+
+Only an ELIGIBLE result allows DD-069 quota delta parsing/scaling. INELIGIBLE add-ons are retained as evidence in the prepared result but contribute no quota delta. Resolver output with malformed status/version/evidence fails closed.
+
+### 19.3 Current implementation boundary
+
+Executable tests prove:
+- stale Subscription version/source PlanVersion or removed current-subscription pointer fails closed;
+- expired TenantAddOn/override rows are excluded;
+- sibling TenantAddOn and override rows cannot enter the bundle;
+- opaque eligibility and target-plan policy documents reach the resolver unchanged;
+- quantity scaling occurs only after resolver eligibility.
+
+**Not claimed:** no concrete production eligibility rule engine/policy resolver has been implemented. The tests use a bounded fixture resolver to prove the ownership seam. No eligibility condition, pricing rule, market rule or payment rule is invented here.
+
+This prepared-adjustment boundary is safe input for the next deterministic precedence stage, while production/public plan change remains blocked until an actual governed eligibility resolver and the later impact/Billing/approval gates exist.
