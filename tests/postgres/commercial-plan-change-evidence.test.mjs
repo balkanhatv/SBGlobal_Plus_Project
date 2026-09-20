@@ -23,7 +23,7 @@ const admin=new pg.Pool({connectionString:process.env.SBG_POSTGRES_TEST_URL,max:
 const loginRole="sbg_plan_evidence_"+randomBytes(8).toString("hex");
 const password=randomBytes(24).toString("hex");
 const f=Object.fromEntries([
-  "home","tenant","actor","route","oldPlan","oldPlanVersion","newPlan","newPlanVersion","subscription",
+  "home","tenant","industry","actor","route","oldPlan","oldPlanVersion","newPlan","newPlanVersion","subscription",
 ].map(key=>[key,randomUUID()]));
 
 let pool,service,commercialSql,billingSql;
@@ -63,7 +63,9 @@ before(async()=>{
     await c.query("CREATE ROLE "+loginRole+" LOGIN PASSWORD '"+password+"' NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS");
     await c.query("GRANT sbg_commercial_plan_change_evidence_rw,sbg_billing_plan_change_evidence_rw,sbg_workflow_worker_rw TO "+loginRole);
     await c.query("INSERT INTO platform_directory.data_home(id,code,region_code,jurisdiction_code,topology_class,status) VALUES ($1::uuid,$1::uuid::text,'IN-PLAN-EVIDENCE','IN','SHARED','ACTIVE')",[f.home]);
-    await c.query("INSERT INTO core_tenancy.tenant(id,tenant_code,legal_name,display_name,status,primary_industry_code,data_home_id,residency_region_code,created_at,updated_at) VALUES ($1::uuid,$1::uuid::text,'Evidence fixture','Evidence fixture','ACTIVE','RTL',$2::uuid,'IN-PLAN-EVIDENCE',now(),now())",[f.tenant,f.home]);
+    await c.query("INSERT INTO core_tenancy.tenant(id,tenant_code,legal_name,display_name,status,primary_industry_code,data_home_id,residency_region_code,created_at,updated_at) VALUES ($1::uuid,$1::uuid::text,'Evidence fixture','Evidence fixture','PROVISIONING','RTL',$2::uuid,'IN-PLAN-EVIDENCE',now(),now())",[f.tenant,f.home]);
+    await c.query("INSERT INTO core_tenancy.industry_context(id,tenant_id,industry_code,status,is_primary,activated_at,created_at,updated_at) VALUES ($1::uuid,$2::uuid,'RTL','ACTIVE',true,now(),now(),now())",[f.industry,f.tenant]);
+    await c.query("UPDATE core_tenancy.tenant SET status='ACTIVE',updated_at=now() WHERE id=$1::uuid",[f.tenant]);
     await c.query("INSERT INTO core_identity.platform_principal(id,principal_type,status,display_name,service_code,owning_module,allowed_scope_classes,created_at,updated_at) VALUES ($1::uuid,'SERVICE','ACTIVE','Plan evidence service','PLAN_EVIDENCE','Commercial',ARRAY['TENANT_CORE'],now(),now())",[f.actor]);
     await c.query("INSERT INTO core_commercial.commercial_route_policy(id,code,self_serve_enabled,sales_assisted_enabled,market_scope_json,approval_required,version,status,created_at) VALUES ($1::uuid,$1::uuid::text,true,true,'{}',false,1,'ACTIVE',now())",[f.route]);
     for(const [plan,version,name] of [[f.oldPlan,f.oldPlanVersion,"Old"],[f.newPlan,f.newPlanVersion,"New"]]){
@@ -116,6 +118,7 @@ after(async()=>{
     await c.query("DELETE FROM core_commercial.plan WHERE id=ANY($1::uuid[])",[[f.oldPlan,f.newPlan]]);
     await c.query("DELETE FROM core_commercial.commercial_route_policy WHERE id=$1::uuid",[f.route]);
     await c.query("DELETE FROM core_identity.platform_principal WHERE id=$1::uuid",[f.actor]);
+    await c.query("DELETE FROM core_tenancy.industry_context WHERE tenant_id=$1::uuid",[f.tenant]);
     await c.query("DELETE FROM core_tenancy.tenant WHERE id=$1::uuid",[f.tenant]);
     await c.query("DELETE FROM platform_directory.data_home WHERE id=$1::uuid",[f.home]);
     await c.query("DROP ROLE IF EXISTS "+loginRole);
