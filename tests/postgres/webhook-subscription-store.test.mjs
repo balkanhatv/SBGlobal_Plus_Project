@@ -11,6 +11,9 @@ import {
 import {
   PostgresWebhookDeliveryStore,
 } from "../../dist/server/integration/postgres-webhook-delivery-store.js";
+import {
+  PostgresOutboxEventStore,
+} from "../../dist/server/integration/postgres-outbox-event-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -51,6 +54,7 @@ const f = Object.fromEntries([
 let pool;
 let store;
 let deliveryStore;
+let outboxStore;
 
 const eventTypeIndustry = "webhook.reader.industry." + randomBytes(6).toString("hex");
 const eventTypeTenant = "webhook.reader.tenant." + randomBytes(6).toString("hex");
@@ -335,6 +339,17 @@ before(async () => {
       );
     }
 
+    await client.query(
+      `UPDATE core_integration.outbox_event
+          SET status='DISPATCHING',
+              attempt_count=2,
+              locked_at=$2,
+              locked_by='worker-fixture',
+              last_error_code='transient-fixture'
+        WHERE id=$1`,
+      [f.eventIndustryA, fixtureAt],
+    );
+
     await client.query("COMMIT");
   } catch (error) {
     await client.query("ROLLBACK");
@@ -357,6 +372,7 @@ before(async () => {
   });
   store = new PostgresWebhookSubscriptionStore(scoped);
   deliveryStore = new PostgresWebhookDeliveryStore(scoped);
+  outboxStore = new PostgresOutboxEventStore(scoped);
 });
 
 after(async () => {
@@ -605,6 +621,109 @@ test("WH-DEL-PG-005 malformed id or route/context mismatch fails closed", async 
         dataHomeId: randomUUID(),
       },
       deliveryId: f.deliveryTenantA,
+    }),
+  );
+});
+
+
+test("EVT-OUT-PG-001 exact Industry outbox event preserves raw dispatcher evidence", async () => {
+  const event = await outboxStore.loadForContext({
+    requestContext: contextA(),
+    eventId: f.eventIndustryA,
+  });
+
+  assert.ok(event);
+  assert.equal(event.id, f.eventIndustryA);
+  assert.equal(event.tenantId, f.tenantA);
+  assert.equal(event.industryContextId, f.industryA1);
+  assert.equal(event.scopeClass, "TENANT_INDUSTRY");
+  assert.equal(event.eventType, eventTypeIndustry);
+  assert.equal(event.eventVersion, 1);
+  assert.equal(event.aggregateType, "Fixture");
+  assert.equal(event.aggregateId, "industry-a");
+  assert.equal(event.aggregateVersion, "1");
+  assert.equal(event.status, "DISPATCHING");
+  assert.equal(event.attemptCount, 2);
+  assert.equal(event.lockedBy, "worker-fixture");
+  assert.equal(event.lastErrorCode, "transient-fixture");
+  assert.equal(typeof event.lockedAt, "string");
+  assert.equal(Object.isFrozen(event), true);
+  assert.equal(Object.isFrozen(event.envelopeJson), true);
+  assert.equal(event.envelopeJson.eventId, f.eventIndustryA);
+  assert.equal(event.envelopeJson.scopeClass, "TENANT_INDUSTRY");
+  assert.equal("dispatchable" in event, false);
+  assert.equal("retryable" in event, false);
+});
+
+test("EVT-OUT-PG-002 sibling Industry cannot observe Industry-scoped outbox event", async () => {
+  const hidden = await outboxStore.loadForContext({
+    requestContext: contextA(f.industryA2),
+    eventId: f.eventIndustryA,
+  });
+  assert.equal(hidden, null);
+
+  const own = await outboxStore.loadForContext({
+    requestContext: contextA(f.industryA1),
+    eventId: f.eventIndustryA,
+  });
+  assert.ok(own);
+  assert.equal(own.industryContextId, f.industryA1);
+});
+
+test("EVT-OUT-PG-003 Tenant-Core outbox event is same-Tenant visible from Tenant Core and Industry contexts", async () => {
+  const fromTenant = await outboxStore.loadForContext({
+    requestContext: tenantCoreA(),
+    eventId: f.eventTenantA,
+  });
+  const fromIndustry = await outboxStore.loadForContext({
+    requestContext: contextA(),
+    eventId: f.eventTenantA,
+  });
+
+  assert.ok(fromTenant);
+  assert.ok(fromIndustry);
+  assert.equal(fromTenant.scopeClass, "TENANT_CORE");
+  assert.equal(fromTenant.industryContextId, undefined);
+  assert.equal(fromIndustry.id, f.eventTenantA);
+  assert.equal(fromTenant.status, "PENDING");
+  assert.equal(fromTenant.attemptCount, 0);
+});
+
+test("EVT-OUT-PG-004 foreign Tenant outbox event is hidden by FORCE-RLS", async () => {
+  const hidden = await outboxStore.loadForContext({
+    requestContext: contextA(),
+    eventId: f.eventIndustryB,
+  });
+  assert.equal(hidden, null);
+
+  const own = await outboxStore.loadForContext({
+    requestContext: {
+      ...tenantCoreB(),
+      industryContextId: f.industryB1,
+      scopeClass: "TENANT_INDUSTRY",
+    },
+    eventId: f.eventIndustryB,
+  });
+  assert.ok(own);
+  assert.equal(own.tenantId, f.tenantB);
+  assert.equal(own.industryContextId, f.industryB1);
+});
+
+test("EVT-OUT-PG-005 malformed id or route/context mismatch fails closed", async () => {
+  await assert.rejects(
+    outboxStore.loadForContext({
+      requestContext: tenantCoreA(),
+      eventId: "not-a-uuid",
+    }),
+  );
+
+  await assert.rejects(
+    outboxStore.loadForContext({
+      requestContext: {
+        ...tenantCoreA(),
+        dataHomeId: randomUUID(),
+      },
+      eventId: f.eventTenantA,
     }),
   );
 });
