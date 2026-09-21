@@ -124,7 +124,9 @@ unimplemented until those bindings are source-owned.
 DD-082's metadata port is concretely bound to PostgreSQL through
 `PostgresDocumentAccessMetadataStore`. The adapter accepts only a resolved
 TENANT_CORE or TENANT_INDUSTRY RequestContext and executes one parameterized
-DocumentMeta lookup inside `RequestScopedSql.withContext`.
+DocumentMeta lookup inside `RequestScopedSql.withContext`. Its SQL transaction is
+opened by `PostgresDocumentDatabase`, which fixes the existing migration-0028
+`sbg_document_service_rw` NOBYPASSRLS role rather than reusing `sbg_app_rw`.
 
 Migration 0006 FORCE-RLS remains the physical ownership authority: a Tenant Industry
 request can read Tenant Core rows plus only its exact Industry Context rows, while a
