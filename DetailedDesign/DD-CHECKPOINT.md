@@ -31,11 +31,11 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-**Current checkpoint:** `DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001`  
-**Verified feature executable:** `380999d41b2bc67903c7eabea714f06b459f754d` / `d66f5621dcffb542f1343cc40fc016249f0e6759`
+**Current checkpoint:** `DEV-COMMERCIAL-INITIAL-ASSESSMENT-001`  
+**Verified feature executable:** `bdc4f65c7d1f84e5b29e15c7b5dbfb8550c1ca11` / `8854a68a3fdd102ec06159b6da24864f5f42c32e`
 
-Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-075**. DD-075 produces the deterministic final target preview by applying prepared exact-scope DENY restrictions and revalidating usage/lifecycle evidence.
+Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-076**. DD-076 establishes the server-owned initial-assessment preparation seam after DD-075 and prevents known DD-073 blocking usage from disappearing from assessment blockers.
 
-Feature evidence: Core **243/243**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-075 database migration or privilege change occurred.
+Feature evidence: Core **254/254**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-076 database migration or privilege change occurred.
 
-This is not snapshot publication/apply authority. Production policy/usage source bindings, snapshot fact/source metadata/fingerprint mapping, DD-066 assessment/remediation production and Billing/Workflow route evidence remain prerequisites. Next governed dependency is the final-preview → assessment/publication bridge.
+Concrete blocking-code/diff/fingerprint/dual-route semantics and DD-066 assessment-write orchestration remain unfinished. Next governed dependency is persisted DD-066 evidence consumption for a bounded internal DD-065 apply-evidence gate.

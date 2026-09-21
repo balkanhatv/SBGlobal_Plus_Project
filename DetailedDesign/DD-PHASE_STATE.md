@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001`
+**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-COMMERCIAL-INITIAL-ASSESSMENT-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -21,7 +21,7 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 ## 2026-09-21 current overlay
 - Detailed Design phase remains **COMPLETE at its historical gate**.
-- Current implementation decisions are contiguous through **DD-075**.
-- Verified feature evidence: `380999d41b2bc67903c7eabea714f06b459f754d` / `d66f5621dcffb542f1343cc40fc016249f0e6759`; Core 243/243, PostgreSQL 56/56 + full database bootstrap, Next.js build PASS, Database Verify PASS.
-- DD-075 is the deterministic final target preview only; it is not persisted snapshot-fact/fingerprint or apply authority.
-- Next governed dependency is the final-preview → DD-066 assessment / DD-065 publication bridge; producer-owned evidence and production source bindings remain required before public plan change.
+- Current implementation decisions are contiguous through **DD-076**.
+- Verified feature evidence: `bdc4f65c7d1f84e5b29e15c7b5dbfb8550c1ca11` / `8854a68a3fdd102ec06159b6da24864f5f42c32e`; Core 254/254, PostgreSQL 56/56 + full database bootstrap, Next.js build PASS, Database Verify PASS.
+- DD-076 is an initial-assessment authority/preparation seam, not a concrete production impact/diff/fingerprint/route evaluator and not a DD-066 evidence writer.
+- Next governed dependency is persisted DD-066 evidence consumption for a fail-closed internal DD-065 apply-evidence gate; public plan change remains unbound.

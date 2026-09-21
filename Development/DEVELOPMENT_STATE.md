@@ -1,20 +1,20 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-INITIAL-ASSESSMENT-001`
 
-Development is **IN PROGRESS — COMMERCIAL PLAN-CHANGE EVIDENCE / PUBLICATION ORCHESTRATION PREREQUISITES**.
+Development is **IN PROGRESS — COMMERCIAL PLAN-CHANGE ASSESSMENT / APPLY-EVIDENCE PREREQUISITES**.
 
-Verified feature executable `380999d41b2bc67903c7eabea714f06b459f754d` / `d66f5621dcffb542f1343cc40fc016249f0e6759`:
-- **243/243 Core PASS**
+Verified feature executable `bdc4f65c7d1f84e5b29e15c7b5dbfb8550c1ca11` / `8854a68a3fdd102ec06159b6da24864f5f42c32e`:
+- **254/254 Core PASS**
 - **56/56 PostgreSQL PASS**
 - **46 migrations / 40 verification files bootstrap PASS**
 - **Next.js 15.5.25 production build PASS**
 - **Database Verify PASS**
-- **379 blobs / 147 Markdown / 78 source / 54 tests in feature tree**
+- **383 blobs / 149 Markdown / 79 source / 55 tests in feature tree**
 
-DD-075 now materializes one deterministic final target preview from DD-071…074: exact-scope compliance/security DENY application, validated usage impact and canonical lifecycle posture. It remains preview evidence only and does not claim snapshot publication or plan-change apply authority.
+DD-076 adds a strict server-owned initial-assessment preparation seam after DD-075. It prevents caller-owned route/remediation/fingerprint authority and refuses to lose a known DD-073 usage blocker.
 
-Still unfinished: concrete production add-on/compliance/usage sources, snapshot fact/source metadata/fingerprint materialization, DD-066 assessment/remediation producer integration, Billing/Workflow producer evidence, internal apply orchestration and public changePlan.
+The concrete production evaluator remains unfinished because the repository does not define the blocking-code vocabulary, immutable entitlement-diff document format, complete Commercial fingerprint algorithm or deterministic dual-route chooser.
 
-Next independent governed dependency: source-audit the **final-preview → assessment/publication bridge** and implement only source-defined deterministic evidence/fact mapping without inventing missing production policy or financial semantics.
+Next independent governed dependency: source-audit the **persisted DD-066 evidence → DD-065 apply gate**. An internal read-only authorization gate may be implemented only from already-governed assessment/remediation/route-resolution semantics; it must not pretend the missing production assessment evaluator exists.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

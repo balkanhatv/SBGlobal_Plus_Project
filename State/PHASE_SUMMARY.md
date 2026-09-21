@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-INITIAL-ASSESSMENT-001`
 
-Current Development checkpoint is `DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001`. Verified feature executable `380999d41b2bc67903c7eabea714f06b459f754d` / tree `d66f5621dcffb542f1343cc40fc016249f0e6759` passes **243 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **379 blobs / 147 Markdown / 78 source / 54 test files**.
+Current Development checkpoint is `DEV-COMMERCIAL-INITIAL-ASSESSMENT-001`. Verified feature executable `bdc4f65c7d1f84e5b29e15c7b5dbfb8550c1ca11` / tree `8854a68a3fdd102ec06159b6da24864f5f42c32e` passes **254 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **383 blobs / 149 Markdown / 79 source / 55 test files**.
 
-DD-075 now produces the deterministic final target preview: exact target binding, prepared compliance/security DENY application, DD-073 usage-impact consistency and DD-074 lifecycle-posture consistency. This preview is not snapshot publication/apply authority.
+DD-076 adds the server-owned initial plan-change assessment preparation seam after the deterministic DD-075 final preview. Known DD-073 blocking usage cannot be silently dropped, and initial remediation is derived only as PENDING or NOT_REQUIRED.
 
-Remaining prerequisites are production eligibility/compliance/usage source bindings, snapshot fact/source metadata/fingerprint mapping, DD-066 assessment/remediation producer integration, Billing/Workflow evidence and DD-065 apply orchestration before public changePlan.
+The concrete production evaluator remains unbound because the repository does not define the impact-code vocabulary, immutable entitlement-diff evidence format, complete Commercial source-fingerprint algorithm or deterministic dual-route chooser. DD-066 evidence persistence exists but is not written by DD-076.
 
-Next independent governed dependency is a source audit of the final-preview → DD-066 assessment / DD-065 publication bridge, implementing only source-defined deterministic mapping.
+Next governed dependency is a source audit of DD-066 persisted evidence consumption for a bounded internal DD-065 apply-evidence gate.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
