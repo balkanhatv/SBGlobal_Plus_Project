@@ -983,3 +983,29 @@ sharing.
 
 **Acceptance:** DOC-PRE-001…006 in DD-17 and
 `tests/core/document-access-candidate.test.mjs`.
+
+
+## DD-083 — Document metadata port uses RequestScopedSql + existing FORCE-RLS DocumentMeta
+
+**Context:** DD-082 defined a pre-sign access candidate behind an injected
+DocumentAccessMetadataPort. Migration 0006 already owns the exact DocumentMeta
+projection and FORCE-RLS predicate; migration 0028 already grants the dedicated
+NOBYPASSRLS Document service role access. No new persistence semantics are required.
+
+**Decision:** implement `PostgresDocumentAccessMetadataStore` as the concrete port.
+It accepts only resolved single-Tenant contexts, opens the existing transaction-local
+database scope with `RequestScopedSql`, selects one DocumentMeta row by UUID and maps
+only DD-082 fields. RLS-hidden or absent rows return null; ambiguous or malformed
+persistence results fail closed.
+
+**Security / trade-off:** Tenant/Industry ownership is enforced twice: physically by
+FORCE-RLS and again by DD-082 candidate validation. Tenant Core rows remain visible
+within the same Tenant's Industry workspace exactly as migration 0006 specifies;
+sibling Industry rows do not. The reader never joins storage-object provider data.
+
+**Boundary:** DD-083 is persistence binding only. It does not authorize download,
+evaluate ACL/permission/entitlement/step-up/residency policy, sign access, select a
+TTL/provider, expose a route, add SQL objects/privileges or enable public sharing.
+
+**Acceptance:** DOC-PG-001…005 in DD-17 and
+`tests/postgres/document-access-metadata-store.test.mjs`.
