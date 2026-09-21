@@ -902,3 +902,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-ACL-PG-002 | sibling Industry document ACL requested from current Industry | parent FORCE-RLS yields no ACL rows; sibling context can read its own |
 | DOC-ACL-PG-003 | Tenant Core document ACL requested from same-Tenant Industry and Tenant Core contexts | same Tenant Core ACL row visible in both |
 | DOC-ACL-PG-004 | persisted ACL row is expired | raw reader still returns expiry/effect evidence; effectiveness is not interpreted |
+
+
+### Document ACL subject-match evidence — DD-085
+
+| ID | Scenario | Expected |
+|---|---|---|
+| DOC-ACL-MATCH-001 | PRINCIPAL row + exact requested ACL permission | matching row only; immutable evidence |
+| DOC-ACL-MATCH-002 | ROLE rows include one effective and one foreign role | only resolved RequestContext role id matches |
+| DOC-ACL-MATCH-003 | ORG_UNIT rows target current unit and ancestor | both ids in resolved orgUnitPath match |
+| DOC-ACL-MATCH-004 | matched rows contain expired/future validUntil and ALLOW/DENY | values are preserved; no expiry/effect interpretation |
+| DOC-ACL-MATCH-005 | no subject matches | empty evidence; no access decision is invented |
+| DOC-ACL-MATCH-006 | unresolved context or cross-document evidence | fail closed |
