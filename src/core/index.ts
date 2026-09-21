@@ -34,6 +34,7 @@ export * from "./commercial/adjustment-source.js";
 export * from "./commercial/adjustment-precedence.js";
 export * from "./commercial/compliance-security-restriction.js";
 export * from "./commercial/usage-impact.js";
+export * from "./commercial/lifecycle-overlay.js";
 export * from "./tenancy/workspace-service.js";
 export * from "./identity/roles-query-service.js";
 export * from "./api/core-operation-contracts.js";

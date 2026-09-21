@@ -733,3 +733,18 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-USAGE-009 | target PlanVersion/evidence/measurement/version malformed | fail closed |
 | COMM-USAGE-010 | input target/measurement order changes | deterministic impact order unchanged |
 | COMM-USAGE-011 | concrete current-period selector or reservation reconciliation policy | NOT CLAIMED; requires separately governed source semantics |
+
+### Commercial subscription lifecycle target overlay — DD-074
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-LIFE-001 | TRIAL / ACTIVE | FULL_ACCESS; generic protected operations and ordinary writes remain eligible subject to later guards |
+| COMM-LIFE-002 | GRACE | FULL_ACCESS retained; no punitive entitlement reduction is invented |
+| COMM-LIFE-003 | SUSPENDED | RESTRICTED; generic protected operations/writes denied; dedicated non-generic path required |
+| COMM-LIFE-004 | EXPIRED / CANCELLED | PRESERVATION_ONLY; generic protected operations/writes denied; data preservation remains required |
+| COMM-LIFE-005 | PENDING | ACTIVATION_PENDING; generic application access not activated |
+| COMM-LIFE-006 | PAST_DUE / Renewed as state | fail closed; neither is a canonical resting state |
+| COMM-LIFE-007 | unknown/malformed lifecycle state | fail closed |
+| COMM-LIFE-008 | lifecycle classification repeated | deterministic immutable result |
+| COMM-LIFE-009 | restricted-state read-only/recovery/export operation IDs | NOT CLAIMED; require separately governed dedicated OperationContracts |
+| COMM-LIFE-010 | future NEXT_RENEWAL lifecycle state | NOT PREDICTED; authoritative state must be re-read at apply time |

@@ -817,3 +817,13 @@ Resolver-ELIGIBLE add-ons are applied after overrides and remain quota-additive 
 **Boundary / trade-off:** this decision deliberately leaves the concrete PostgreSQL period selector and reservation-reconciliation rule unfinished rather than encoding an unsupported convention. It also does not choose remediation, write DD-066 assessment evidence, apply DD-072 restriction decisions, apply lifecycle overlay or calculate Billing/proration.
 
 **Consequence:** deterministic BR-SUB-04 usage comparison is executable once authoritative selected measurements are supplied. Final plan-change impact/remediation remains incomplete until a governed source selector exists and reservation semantics are resolved.
+
+## DD-074 — Lifecycle overlay is posture metadata, not entitlement-fact mutation
+
+**Context:** F-14/A-04/DD-04 put suspension/grace last in Commercial compilation, while runtime access still revalidates current Subscription state. GRACE explicitly retains full access. SUSPENDED permits only governed read-only/recovery/billing/export paths and pauses ordinary writes/integrations/API. DD-04 §11 already denies generic protected operations for PENDING/SUSPENDED/EXPIRED/CANCELLED until dedicated restricted operation contracts exist.
+
+**Decision:** represent lifecycle as a deterministic server-side posture: PENDING=ACTIVATION_PENDING; TRIAL/ACTIVE/GRACE=FULL_ACCESS; SUSPENDED=RESTRICTED; EXPIRED/CANCELLED=PRESERVATION_ONLY. Generic protected operations and ordinary business writes are eligible only in FULL_ACCESS. All postures retain the data-preservation invariant. Unknown values, PAST_DUE and Renewed-as-state fail closed.
+
+**Boundary / trade-off:** the overlay does not zero entitlement facts/limits, fabricate deny entries, choose restricted-operation identifiers, predict future NEXT_RENEWAL lifecycle, execute dunning/payment policy or authorize reactivation. Restricted capabilities are operation-contract-owned and Subscription state is re-read at apply/runtime, preventing the snapshot from becoming competing authority.
+
+**Consequence:** the deterministic lifecycle stage is executable without widening access. Final target-preview orchestration still requires concrete compliance/security restriction application, production usage-period/reservation binding and final fact/fingerprint materialization before public plan-change apply can be considered.

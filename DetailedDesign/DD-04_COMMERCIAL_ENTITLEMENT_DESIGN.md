@@ -518,3 +518,19 @@ DD-073 therefore separates **source selection** from deterministic comparison:
 Output is deterministic impact evidence with `WITHIN_TARGET | EXCEEDS_TARGET | UNLIMITED` and an aggregate blocking flag. It does not select remediation, write DD-066 assessment evidence, apply DD-072 restrictions, apply lifecycle overlay, calculate Billing/proration or expose public changePlan.
 
 A concrete PostgreSQL source adapter remains unfinished until a governed current-period selection rule exists.
+
+## 23. Subscription lifecycle target overlay v1 [DD-074]
+
+The final Commercial compiler stage must reflect canonical Subscription lifecycle without turning snapshot facts into a competing access authority.
+
+Lifecycle posture is exact:
+- `TRIAL | ACTIVE | GRACE` → **FULL_ACCESS**. F-14 explicitly retains full access during GRACE.
+- `SUSPENDED` → **RESTRICTED**. Generic protected operations and ordinary business writes remain denied; F-14 read-only business data plus billing/renewal/export requires dedicated operation contracts.
+- `EXPIRED | CANCELLED` → **PRESERVATION_ONLY**. Generic protected operations/writes remain denied; governed recovery/export/billing paths are separate explicit contracts.
+- `PENDING` → **ACTIVATION_PENDING**. Entitlement computation/application access is not treated as active before activation/trial start.
+- all postures preserve Tenant data; no lifecycle overlay may cause silent deletion.
+- `Renewed` is an event, not a state; `PAST_DUE` remains prohibited.
+
+DD-074 does **not** rewrite entitlement values/limits or fabricate lifecycle deny-set facts. The current Commercial guard already re-reads Subscription state, and A-04/DD-04 require restricted permitted paths to be operation-contract-owned. A target preview therefore attaches lifecycle posture rather than pretending that entitlement facts alone encode read-only/recovery/export semantics.
+
+The state supplied to this overlay must be authoritative server-owned current state at evaluation/apply time. For future `NEXT_RENEWAL` application, lifecycle is re-read at apply; the compiler does not predict future state from an earlier preview.

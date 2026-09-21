@@ -47,3 +47,6 @@ Verified that current F-03/A-03/DD-03/DD-04/DD-16 contracts provide narrowing-on
 
 ## 2026-09-21 — DD-073 bounded usage-meter target-impact
 Source audit confirmed BR-SUB-04 plus persisted usage_meter/least-privilege read ownership, but found no governed current-period selector or reserved_value downgrade rule. Added a server-owned measurement-source seam and pure evaluator that compares exact selected used_value to DD-071 target limits, treats NOT_INCLUDED/still-ADD_ON_ONLY as zero included capacity, UNLIMITED as non-blocking, and fails closed on missing/multiple periods or non-zero reservations. No DB migration, period convention, reservation formula, remediation producer or public changePlan binding was invented.
+
+## 2026-09-21 — DD-074 subscription lifecycle target overlay
+Source audit confirmed exact F-14/A-04/DD-04 lifecycle posture: GRACE retains full access; SUSPENDED is restricted; EXPIRED/CANCELLED preserve data; PENDING is not activated; Renewed is an event and PAST_DUE is invalid. Added a pure deterministic posture overlay without mutating entitlement facts or inventing restricted operation IDs/future lifecycle prediction.
