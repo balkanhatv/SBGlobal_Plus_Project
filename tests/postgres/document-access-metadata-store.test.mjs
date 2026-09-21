@@ -21,6 +21,9 @@ import {
 import {
   PostgresDocumentUploadSessionStore,
 } from "../../dist/server/document/postgres-document-upload-session-store.js";
+import {
+  PostgresDocumentUploadSessionStore,
+} from "../../dist/server/document/postgres-document-upload-session-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -232,6 +235,31 @@ before(async () => {
         f.sibling,
       ],
     );
+    await client.query(
+      `INSERT INTO core_document.document_upload_session
+        (id,tenant_id,industry_context_id,scope_class,principal_id,
+         expected_media_types,max_size_class,expires_at,status,temp_object_ref,
+         checksum_expected,created_at)
+       VALUES
+        ($1,$5,$6,'TENANT_INDUSTRY',$7,ARRAY['application/pdf','image/png'],'MEDIUM',
+         now()+interval '1 hour','UPLOADING','tmp/industry','checksum-upload-industry',now()),
+        ($2,$5,$8,'TENANT_INDUSTRY',$7,ARRAY['application/pdf'],'SMALL',
+         now()+interval '2 hours','CREATED',NULL,NULL,now()),
+        ($3,$5,NULL,'TENANT_CORE',$7,ARRAY['text/plain'],'SMALL',
+         now()+interval '3 hours','UPLOADED','tmp/tenant','checksum-upload-tenant',now()),
+        ($4,$5,$6,'TENANT_INDUSTRY',$7,ARRAY['application/pdf'],'MEDIUM',
+         now()-interval '1 hour','EXPIRED','tmp/expired','checksum-upload-expired',now()-interval '2 hours')`,
+      [
+        f.industryUploadSession,
+        f.siblingUploadSession,
+        f.tenantUploadSession,
+        f.expiredUploadSession,
+        f.tenant,
+        f.industry,
+        f.principal,
+        f.sibling,
+      ],
+    );
     await client.query("COMMIT");
   } catch (error) {
     await client.query("ROLLBACK");
@@ -265,6 +293,10 @@ after(async () => {
   const client = await admin.connect();
   try {
     await client.query("BEGIN");
+    await client.query(
+      "DELETE FROM core_document.document_upload_session WHERE tenant_id=$1",
+      [f.tenant],
+    );
     await client.query(
       "DELETE FROM core_document.document_upload_session WHERE tenant_id=$1",
       [f.tenant],
@@ -616,6 +648,86 @@ test("DOC-UP-PG-005 malformed or route-mismatched context fails closed", async (
     uploadStore.loadForContext({
       requestContext: context(),
       uploadSessionId: "not-a-uuid",
+    }),
+  );
+});
+
+
+test("DOC-UP-PG-001 exact Industry upload-session read preserves raw persisted facts", async () => {
+  const session = await uploadStore.loadForContext({
+    requestContext: context(),
+    uploadSessionId: f.industryUploadSession,
+  });
+
+  assert.ok(session);
+  assert.equal(session.id, f.industryUploadSession);
+  assert.equal(session.tenantId, f.tenant);
+  assert.equal(session.industryContextId, f.industry);
+  assert.equal(session.scopeClass, "TENANT_INDUSTRY");
+  assert.equal(session.principalId, f.principal);
+  assert.deepEqual(session.expectedMediaTypes, ["application/pdf", "image/png"]);
+  assert.equal(session.maxSizeClass, "MEDIUM");
+  assert.equal(session.status, "UPLOADING");
+  assert.equal(session.tempObjectRef, "tmp/industry");
+  assert.equal(session.checksumExpected, "checksum-upload-industry");
+  assert.equal(Object.isFrozen(session), true);
+  assert.equal(Object.isFrozen(session.expectedMediaTypes), true);
+});
+
+test("DOC-UP-PG-002 sibling Industry upload-session is hidden by FORCE-RLS", async () => {
+  const hidden = await uploadStore.loadForContext({
+    requestContext: context(),
+    uploadSessionId: f.siblingUploadSession,
+  });
+  assert.equal(hidden, null);
+
+  const sibling = await uploadStore.loadForContext({
+    requestContext: context(f.sibling),
+    uploadSessionId: f.siblingUploadSession,
+  });
+  assert.ok(sibling);
+  assert.equal(sibling.industryContextId, f.sibling);
+  assert.equal(sibling.status, "CREATED");
+});
+
+test("DOC-UP-PG-003 Tenant Core upload-session is same-Tenant visible from Industry and Tenant Core contexts", async () => {
+  const fromIndustry = await uploadStore.loadForContext({
+    requestContext: context(),
+    uploadSessionId: f.tenantUploadSession,
+  });
+  const fromTenant = await uploadStore.loadForContext({
+    requestContext: tenantContext(),
+    uploadSessionId: f.tenantUploadSession,
+  });
+
+  assert.ok(fromIndustry);
+  assert.ok(fromTenant);
+  assert.equal(fromIndustry.scopeClass, "TENANT_CORE");
+  assert.equal(fromIndustry.industryContextId, undefined);
+  assert.equal(fromTenant.id, f.tenantUploadSession);
+});
+
+test("DOC-UP-PG-004 expired session remains raw evidence and is not interpreted as usable", async () => {
+  const session = await uploadStore.loadForContext({
+    requestContext: context(),
+    uploadSessionId: f.expiredUploadSession,
+  });
+
+  assert.ok(session);
+  assert.equal(session.status, "EXPIRED");
+  assert.ok(Date.parse(session.expiresAt) < Date.now());
+  assert.equal("usable" in session, false);
+  assert.equal("allowed" in session, false);
+});
+
+test("DOC-UP-PG-005 database route/context mismatch fails closed before upload-session disclosure", async () => {
+  await assert.rejects(
+    uploadStore.loadForContext({
+      requestContext: {
+        ...context(),
+        dataHomeId: randomUUID(),
+      },
+      uploadSessionId: f.industryUploadSession,
     }),
   );
 });
