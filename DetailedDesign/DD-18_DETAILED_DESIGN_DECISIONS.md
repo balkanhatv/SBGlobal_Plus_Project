@@ -951,3 +951,35 @@ database object or privilege is introduced.
 
 **Acceptance:** EVT-CAT-001…006 in DD-17 and
 `tests/core/event-envelope-catalog.test.mjs`.
+
+
+## DD-082 — Document access candidate validates RLS metadata/state before authorization or signing
+
+**Context:** DD-08 requires RequestContext resolution and DocumentMeta lookup before
+ACL/permission/entitlement/sensitivity/residency checks or any StoragePort signing.
+Migration 0006 already makes DocumentMeta the FORCE-RLS authorization owner and
+migration 0028 defines the dedicated Document service role. No executable Core
+Document boundary existed. A complete signed-download operation is still missing an
+exact public OperationContract/permission binding, policy-specific step-up rule and
+concrete signer TTL/provider composition.
+
+**Decision:** add a reusable `DocumentAccessCandidateService` with an injected
+RLS-bound metadata port. It accepts only resolved Tenant RequestContext plus a UUID
+document id, loads metadata, validates the authoritative row shape, exact Tenant and
+Industry ownership, ACTIVE state and CLEAN scan status, then returns an immutable
+internal candidate for the existing authorization chain and future signer.
+
+**Security / trade-off:** sibling Industry/foreign Tenant/missing metadata becomes
+`RESOURCE_NOT_FOUND`; unsafe/inactive metadata becomes
+`RESOURCE_STATE_INVALID`; malformed rows or dependency failures become safe
+`DEPENDENCY_UNAVAILABLE`. The candidate may contain the internal
+`storageObjectId` needed by the Document service but never exposes object keys,
+provider references, credentials, URLs or tokens.
+
+**Boundary:** this decision does not authorize a download, interpret Document ACLs,
+select a permission/entitlement, define step-up/residency exceptions, create a
+signed grant, choose TTL/provider configuration, add SQL/privileges or enable public
+sharing.
+
+**Acceptance:** DOC-PRE-001…006 in DD-17 and
+`tests/core/document-access-candidate.test.mjs`.
