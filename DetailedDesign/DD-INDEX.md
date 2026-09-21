@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-EVENT-ENVELOPE-001`
+**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-DOCUMENT-ACCESS-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,11 +24,11 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-081**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-082**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-081 adds a reusable catalog-bound Core event-envelope validator: canonical JSON metadata, event id/type/version/scope, producer/sensitivity, Tenant/Industry/residency and explicit cross-context ownership are checked before an injected catalog payload-schema validator runs. PostgreSQL remains the final physical integrity guard. No dispatcher, retry/DLQ policy, webhook transport, external endpoint, database object or privilege was invented.
+DD-082 adds a reusable pre-sign Document access-candidate boundary: resolved Tenant/Industry context loads DocumentMeta through an injected RLS-bound port, exact ownership plus ACTIVE/CLEAN state is revalidated, and only an immutable internal candidate is returned for later authorization/signing. No signed URL/token, object key, permission/entitlement, step-up rule, TTL/provider, route, SQL or public sharing was invented.
 
-Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
+Full DD-08 signed access remains blocked on exact operation/permission, policy-specific step-up/residency and signer TTL/provider bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch/webhooks, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished.
 
 ## Historical all-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
@@ -37,4 +37,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `535f458ad6b5e0cfef082e8d71dbc8fbe94e610f` / tree `0c0de1c3c5818a2223d973bffff8425942741a69` — 298 Core tests, 65 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD081_VERIFICATION_2026-09-21.md).
+**Current verified executable evidence:** `ef7873141282e420af8f30ef4211cc6f33d011a3` / tree `d889aacc81cc5a752e336dc28b0e34c36d054e41` — 305 Core tests, 65 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD082_VERIFICATION_2026-09-21.md).
