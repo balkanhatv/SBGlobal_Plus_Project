@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-EVENT-ENVELOPE-001",
-  "final_verdict": "DD-081 EVENT ENVELOPE/CATALOG VALIDATION IMPLEMENTED / EXACT-HEAD TESTED; DISPATCHER/WEBHOOK RUNTIME AND NAMED REST/COMMERCIAL/AI PREREQUISITES REMAIN",
+  "checkpoint": "DEV-DOCUMENT-ACCESS-001",
+  "final_verdict": "DD-082 DOCUMENT ACCESS CANDIDATE IMPLEMENTED AND EXACT-HEAD TESTED; FULL SIGNED ACCESS AND NAMED REST/COMMERCIAL/AI/EVENT PREREQUISITES REMAIN",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
-    "verified_code_tree": "0c0de1c3c5818a2223d973bffff8425942741a69",
-    "state_projection_basis_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
+    "verified_code_head": "ef7873141282e420af8f30ef4211cc6f33d011a3",
+    "verified_code_tree": "d889aacc81cc5a752e336dc28b0e34c36d054e41",
+    "state_projection_basis_head": "ef7873141282e420af8f30ef4211cc6f33d011a3",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Event envelope/catalog validation verified; dispatcher/webhook runtime not claimed",
+    "current_phase": "Document pre-sign access candidate verified; full authorization/signing not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
-      "ci_run_id": 35622904410,
-      "ci_job_id": 106410078936,
+      "ci_verified_head": "ef7873141282e420af8f30ef4211cc6f33d011a3",
+      "ci_run_id": 35624301149,
+      "ci_job_id": 106414743073,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "0c0de1c3c5818a2223d973bffff8425942741a69",
+      "ci_verified_tree": "d889aacc81cc5a752e336dc28b0e34c36d054e41",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,10 +99,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
-      "feature_head_bootstrap_verified_tree": "0c0de1c3c5818a2223d973bffff8425942741a69",
-      "feature_head_bootstrap_run_id": 35622904550,
-      "feature_head_bootstrap_job_id": 106410080328,
+      "feature_head_bootstrap_verified_head": "ef7873141282e420af8f30ef4211cc6f33d011a3",
+      "feature_head_bootstrap_verified_tree": "d889aacc81cc5a752e336dc28b0e34c36d054e41",
+      "feature_head_bootstrap_run_id": 35624301394,
+      "feature_head_bootstrap_job_id": 106414744363,
       "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_65_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -111,27 +111,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "REST exposure, DD-076 evaluator and concrete AI Gateway remain blocked on their named source-owned prerequisites. Event dispatcher/retry/DLQ and webhook transport runtime are not claimed by DD-081. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.",
+    "next_action": "Full DD-08 signed access remains blocked on its missing operation/policy/signer bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch and webhook runtime remain governed unfinished scope. Source-audit the next independent source-complete item before implementation.",
     "core_services": {
-      "checkpoint": "DEV-EVENT-ENVELOPE-001",
+      "checkpoint": "DEV-DOCUMENT-ACCESS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–081 current implementation; DD-081 catalog-bound event envelope validation",
-      "verified_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
-      "verified_tree": "0c0de1c3c5818a2223d973bffff8425942741a69",
-      "core_ci_run_id": 35622904550,
-      "core_ci_job_id": 106410080729,
-      "tests": "298/298 PASS",
+      "decision": "DD-040–082 current implementation; DD-082 Document pre-sign access candidate",
+      "verified_head": "ef7873141282e420af8f30ef4211cc6f33d011a3",
+      "verified_tree": "d889aacc81cc5a752e336dc28b0e34c36d054e41",
+      "core_ci_run_id": 35624301394,
+      "core_ci_job_id": 106414744189,
+      "tests": "305/305 PASS",
       "core_test_counts": {
-        "tests": 298,
-        "pass": 298,
+        "tests": 305,
+        "pass": 305,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35622904550,
-      "postgres_ci_job_id": 106410080328,
+      "postgres_ci_run_id": 35624301394,
+      "postgres_ci_job_id": 106414744363,
       "postgres_tests": "65/65 PASS",
       "postgres_test_counts": {
         "tests": 65,
@@ -140,8 +140,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35622904410,
-      "database_regression_job_id": 106410078936,
+      "database_regression_run_id": 35624301149,
+      "database_regression_job_id": 106414743073,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -307,7 +307,11 @@
         "DD-081 catalog-bound event envelope validation floor",
         "DD-081 metadata/catalog/scope validation before payload interpretation",
         "DD-081 authoritative Tenant residency and explicit cross-context ownership verification seam",
-        "EVT-CAT-001–006 executable event-envelope acceptance coverage"
+        "EVT-CAT-001–006 executable event-envelope acceptance coverage",
+        "DD-082 Document pre-sign access candidate boundary",
+        "DD-082 exact Tenant/Industry DocumentMeta ownership and ACTIVE/CLEAN state validation",
+        "DOC-PRE-001–006 executable Document metadata/state acceptance coverage",
+        "Commercial PostgreSQL fixture timestamp determinism correction"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -350,7 +354,10 @@
         "OpenAPI generation/publication pipeline",
         "generic outbox dispatcher/retry/DLQ runtime",
         "webhook endpoint verification/signing/SSRF/delivery runtime",
-        "concrete event payload schema engine selection"
+        "concrete event payload schema engine selection",
+        "full Document signed-download operation/policy binding",
+        "Document step-up and residency policy composition for signed access",
+        "concrete signed-grant TTL/provider signer and external route"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -366,9 +373,9 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "REST exposure, DD-076 evaluator and concrete AI Gateway remain blocked on their named source-owned prerequisites. Event dispatcher/retry/DLQ and webhook transport runtime are not claimed by DD-081. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants."
+      "next_action": "Full DD-08 signed access remains blocked on its missing operation/policy/signer bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch and webhook runtime remain governed unfinished scope. Source-audit the next independent source-complete item before implementation."
     },
-    "application_api_ui_scope_note": "First-party Next.js/tRPC three-query boundary, unmounted external REST Fetch adapter floor and reusable event-envelope/catalog validation are implemented/tested; concrete REST routes/OpenAPI, event dispatcher/webhooks and product UI remain unfinished.",
+    "application_api_ui_scope_note": "First-party tRPC, unmounted REST adapter, event-envelope validation and Document pre-sign metadata/state candidate are implemented/tested; full Document signing and product UI remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -422,7 +429,7 @@
     ],
     "status": "IN_PROGRESS"
   },
-  "current_phase": "DEVELOPMENT_EVENT_ENVELOPE_CATALOG_VALIDATION_VERIFIED",
+  "current_phase": "DEVELOPMENT_DOCUMENT_ACCESS_CANDIDATE_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -454,31 +461,32 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-EVENT-ENVELOPE-001",
+    "checkpoint": "DEV-DOCUMENT-ACCESS-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
-    "verified_code_tree": "0c0de1c3c5818a2223d973bffff8425942741a69",
-    "source_audit": "Development/EVENT_ENVELOPE_CATALOG_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "ef7873141282e420af8f30ef4211cc6f33d011a3",
+    "verified_code_tree": "d889aacc81cc5a752e336dc28b0e34c36d054e41",
+    "source_audit": "Development/DOCUMENT_ACCESS_CANDIDATE_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
       "REPO-001–006 invariant CI implementation",
       "DD-080 external REST adapter source audit and unmounted Fetch boundary",
-      "DD-081 event envelope/catalog source audit and reusable validation boundary"
+      "DD-081 event envelope/catalog source audit and reusable validation boundary",
+      "DD-082 document access candidate source audit and pre-sign boundary"
     ],
-    "next_action": "REST exposure, DD-076 evaluator and concrete AI Gateway remain blocked on their named source-owned prerequisites. Event dispatcher/retry/DLQ and webhook transport runtime are not claimed by DD-081. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.",
+    "next_action": "Full DD-08 signed access remains blocked on its missing operation/policy/signer bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch and webhook runtime remain governed unfinished scope. Source-audit the next independent source-complete item before implementation.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-EVENT-ENVELOPE-001",
-    "verified_executable_basis": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
-    "verified_executable_tree": "0c0de1c3c5818a2223d973bffff8425942741a69",
-    "source_audit": "Development/EVENT_ENVELOPE_CATALOG_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD081_VERIFICATION_2026-09-21.md",
-    "scope": "DD-081 independent source-complete event-envelope/catalog validation continuation; historical audit evidence retained"
+    "checkpoint": "DEV-DOCUMENT-ACCESS-001",
+    "verified_executable_basis": "ef7873141282e420af8f30ef4211cc6f33d011a3",
+    "verified_executable_tree": "d889aacc81cc5a752e336dc28b0e34c36d054e41",
+    "source_audit": "Development/DOCUMENT_ACCESS_CANDIDATE_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD082_VERIFICATION_2026-09-21.md",
+    "scope": "DD-082 source-complete Document metadata/state continuation; full signed access unclaimed"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -491,12 +499,12 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
+    "verified_continuation_head": "ef7873141282e420af8f30ef4211cc6f33d011a3",
     "inventory": {
-      "blobs": 414,
-      "markdown": 164,
-      "source_files": 84,
-      "test_files": 64,
+      "blobs": 418,
+      "markdown": 166,
+      "source_files": 85,
+      "test_files": 65,
       "migrations": 47,
       "verification_files": 41
     },
@@ -519,21 +527,21 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-081 catalog-bound event envelope validation",
-    "checkpoint": "DEV-EVENT-ENVELOPE-001",
-    "verified_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
-    "verified_tree": "0c0de1c3c5818a2223d973bffff8425942741a69",
+    "decision": "DD-082 Document pre-sign access candidate",
+    "checkpoint": "DEV-DOCUMENT-ACCESS-001",
+    "verified_head": "ef7873141282e420af8f30ef4211cc6f33d011a3",
+    "verified_tree": "d889aacc81cc5a752e336dc28b0e34c36d054e41",
     "core": {
-      "run_id": 35622904550,
-      "job_id": 106410080729,
-      "tests": 298,
-      "pass": 298,
+      "run_id": 35624301394,
+      "job_id": 106414744189,
+      "tests": 305,
+      "pass": 305,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35622904550,
-      "job_id": 106410080328,
+      "run_id": 35624301394,
+      "job_id": 106414744363,
       "tests": 65,
       "pass": 65,
       "fail": 0,
@@ -541,29 +549,30 @@
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35622904410,
-      "job_id": 106410078936,
-      "event": "pull_request",
-      "conclusion": "success",
-      "checkout": "EXACT_HEAD_NOT_MERGE"
+      "run_id": 35624301149,
+      "job_id": 106414743073,
+      "conclusion": "success"
     },
     "web": {
-      "run_id": 35622904383,
-      "job_id": 106410078471,
-      "event": "pull_request",
-      "conclusion": "success",
-      "checkout": "EXACT_HEAD_NOT_MERGE"
+      "run_id": 35624301234,
+      "job_id": 106414743342,
+      "conclusion": "success"
     },
     "inventory": {
-      "blobs": 414,
-      "markdown": 164,
-      "source_files": 84,
-      "test_files": 64,
+      "blobs": 418,
+      "markdown": 166,
+      "source_files": 85,
+      "test_files": 65,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD081_VERIFICATION_2026-09-21.md"
+    "evidence": "Registers/DEVELOPMENT_DD082_VERIFICATION_2026-09-21.md",
+    "ci_determinism_correction": {
+      "commit": "57d4ac3d1a95d80bd9026e629cbd3017a9e0728b",
+      "verified_push_core_run": 35623878908,
+      "cause": "one Commercial fixture timestamp now supplies both resolved_at and created_at"
+    }
   },
   "historical_projection_payloads": {
     "continuation": {
