@@ -1,18 +1,16 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-DOCUMENT-POSTGRES-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-DOCUMENT-ACL-READ-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `0595b7a65f0684b15d843d80b77fda6386083c9a` / tree `b22c1be5b2ecc2904873097392436ef88557dc98`: **305/305 Core**, **70/70 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **423 blobs / 168 Markdown / 87 source / 66 test files**.
+Verified executable `176a96b28b24207b6aae8c38a82c7b03326164fd` / tree `6368798edb96e81e3b721d7d9bfe754f4ab60a74`: **305/305 Core**, **74/74 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **427 blobs / 170 Markdown / 89 source / 66 test files**.
 
-DD-083 concretely binds DD-082 Document metadata reads to PostgreSQL: `PostgresDocumentAccessMetadataStore` runs one parameterized DocumentMeta lookup through `RequestScopedSql`, while dedicated `PostgresDocumentDatabase` fixes the existing `sbg_document_service_rw` NOBYPASSRLS role. Real PostgreSQL acceptance proves exact Industry visibility, sibling isolation, Tenant Core visibility and unsafe-state composition. No signer, permission/ACL policy, TTL/provider, route, migration, role, grant or RLS change was introduced.
+DD-084 adds a raw Document ACL persistence boundary: typed ACL entries are read through the existing dedicated Document PostgreSQL/FORCE-RLS path in deterministic order, preserving persisted subject/permission/effect/expiry evidence without deciding authorization. No deny reducer, subject matcher, operation→ACL mapping, signer, route, SQL or privilege change was invented.
 
-Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–083**.
+Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–084**.
 
-Full signed access, REST exposure, DD-076, AI Gateway, event dispatch/webhooks, broad Core/Industry APIs, product experiences and production operations remain bounded by documented unfinished prerequisites.
+Next: Full Document signed access remains blocked on exact operation→Document permission/ACL mapping, final ACL fallback/deny evaluation semantics, policy-specific step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation.
 
-Next: Full DD-08 signed access still requires exact OperationContract/permission binding, policy-specific ACL/step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain blocked or unimplemented on their named prerequisites. Source-audit the next independent source-complete slice before implementation.
-
-Evidence: `Registers/DEVELOPMENT_DD083_VERIFICATION_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD084_VERIFICATION_2026-09-21.md`.
 
 RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains draft/unmerged.

@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-DOCUMENT-POSTGRES-001",
-  "final_verdict": "DD-083 POSTGRESQL DOCUMENT METADATA READER IMPLEMENTED / EXACT-HEAD TESTED; FULL SIGNED ACCESS AND NAMED REST/COMMERCIAL/AI/EVENT PREREQUISITES REMAIN",
+  "checkpoint": "DEV-DOCUMENT-ACL-READ-001",
+  "final_verdict": "DD-084 RAW DOCUMENT ACL READER IMPLEMENTED / EXACT-HEAD TESTED; ACL AUTHORIZATION AND FULL SIGNED ACCESS REMAIN UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "0595b7a65f0684b15d843d80b77fda6386083c9a",
-    "verified_code_tree": "b22c1be5b2ecc2904873097392436ef88557dc98",
-    "state_projection_basis_head": "0595b7a65f0684b15d843d80b77fda6386083c9a",
+    "verified_code_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
+    "verified_code_tree": "6368798edb96e81e3b721d7d9bfe754f4ab60a74",
+    "state_projection_basis_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Concrete Document PostgreSQL metadata reader verified; full signed access not claimed",
+    "current_phase": "Raw Document ACL persistence reader verified; ACL authorization not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Full DD-08 signed access still requires exact OperationContract/permission binding, policy-specific ACL/step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain blocked or unimplemented on their named prerequisites. Source-audit the next independent source-complete slice before implementation.",
+    "next_action": "Full Document signed access remains blocked on exact operation→Document permission/ACL mapping, final ACL fallback/deny evaluation semantics, policy-specific step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation.",
     "core_services": {
-      "checkpoint": "DEV-DOCUMENT-POSTGRES-001",
+      "checkpoint": "DEV-DOCUMENT-ACL-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–083 current implementation; DD-083 PostgreSQL Document metadata reader",
-      "verified_head": "0595b7a65f0684b15d843d80b77fda6386083c9a",
-      "verified_tree": "b22c1be5b2ecc2904873097392436ef88557dc98",
-      "core_ci_run_id": 35626044307,
-      "core_ci_job_id": 106420545737,
+      "decision": "DD-040–084 current implementation; DD-084 raw Document ACL persistence reader",
+      "verified_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
+      "verified_tree": "6368798edb96e81e3b721d7d9bfe754f4ab60a74",
+      "core_ci_run_id": 35626896940,
+      "core_ci_job_id": 106423347192,
       "tests": "305/305 PASS",
       "core_test_counts": {
         "tests": 305,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35626044307,
-      "postgres_ci_job_id": 106420545577,
-      "postgres_tests": "70/70 PASS",
+      "postgres_ci_run_id": 35626896940,
+      "postgres_ci_job_id": 106423346909,
+      "postgres_tests": "74/74 PASS",
       "postgres_test_counts": {
-        "tests": 70,
-        "pass": 70,
+        "tests": 74,
+        "pass": 74,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35626044434,
-      "database_regression_job_id": 106420545456,
+      "database_regression_run_id": 35626897060,
+      "database_regression_job_id": 106423347666,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -314,7 +314,9 @@
         "Commercial PostgreSQL fixture timestamp determinism correction",
         "DD-083 PostgreSQL DocumentAccessMetadataPort binding",
         "DD-083 dedicated PostgresDocumentDatabase fixed service-role boundary",
-        "DOC-PG-001–005 real PostgreSQL FORCE-RLS acceptance"
+        "DOC-PG-001–005 real PostgreSQL FORCE-RLS acceptance",
+        "DD-084 raw Document ACL persistence reader",
+        "DOC-ACL-PG-001–004 real PostgreSQL ACL/RLS acceptance"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -362,7 +364,10 @@
         "Document step-up and residency policy composition for signed access",
         "concrete signed-grant TTL/provider signer and external route",
         "full Document signed-download ACL/permission/step-up/residency composition",
-        "concrete signed-grant TTL/provider signer and public route"
+        "concrete signed-grant TTL/provider signer and public route",
+        "final Document ACL authorization evaluator and operation mapping",
+        "Document ACL subject matching/expiry/fallback/deny reducer",
+        "full Document signed-access policy and signer composition"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -378,7 +383,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Full DD-08 signed access still requires exact OperationContract/permission binding, policy-specific ACL/step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain blocked or unimplemented on their named prerequisites. Source-audit the next independent source-complete slice before implementation."
+      "next_action": "Full Document signed access remains blocked on exact operation→Document permission/ACL mapping, final ACL fallback/deny evaluation semantics, policy-specific step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation."
     },
     "application_api_ui_scope_note": "Document pre-sign candidate now has a concrete FORCE-RLS PostgreSQL reader and dedicated Document service-role database wrapper; full signed access and product UI remain unfinished.",
     "application_services_started": true,
@@ -434,7 +439,7 @@
     ],
     "status": "IN_PROGRESS"
   },
-  "current_phase": "DEVELOPMENT_DOCUMENT_POSTGRES_METADATA_VERIFIED",
+  "current_phase": "DEVELOPMENT_DOCUMENT_ACL_READ_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -466,12 +471,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-DOCUMENT-POSTGRES-001",
+    "checkpoint": "DEV-DOCUMENT-ACL-READ-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "0595b7a65f0684b15d843d80b77fda6386083c9a",
-    "verified_code_tree": "b22c1be5b2ecc2904873097392436ef88557dc98",
-    "source_audit": "Development/DOCUMENT_POSTGRES_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
+    "verified_code_tree": "6368798edb96e81e3b721d7d9bfe754f4ab60a74",
+    "source_audit": "Development/DOCUMENT_ACL_POSTGRES_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
@@ -479,20 +484,21 @@
       "DD-080 external REST adapter source audit and unmounted Fetch boundary",
       "DD-081 event envelope/catalog source audit and reusable validation boundary",
       "DD-082 document access candidate source audit and pre-sign boundary",
-      "DD-083 PostgreSQL Document metadata reader and dedicated service-role database binding"
+      "DD-083 PostgreSQL Document metadata reader and dedicated service-role database binding",
+      "DD-084 raw Document ACL reader source audit and PostgreSQL binding"
     ],
-    "next_action": "Full DD-08 signed access still requires exact OperationContract/permission binding, policy-specific ACL/step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain blocked or unimplemented on their named prerequisites. Source-audit the next independent source-complete slice before implementation.",
+    "next_action": "Full Document signed access remains blocked on exact operation→Document permission/ACL mapping, final ACL fallback/deny evaluation semantics, policy-specific step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-DOCUMENT-POSTGRES-001",
-    "verified_executable_basis": "0595b7a65f0684b15d843d80b77fda6386083c9a",
-    "verified_executable_tree": "b22c1be5b2ecc2904873097392436ef88557dc98",
-    "source_audit": "Development/DOCUMENT_POSTGRES_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD083_VERIFICATION_2026-09-21.md",
-    "scope": "DD-083 concrete FORCE-RLS Document metadata persistence binding; full signed access unclaimed"
+    "checkpoint": "DEV-DOCUMENT-ACL-READ-001",
+    "verified_executable_basis": "176a96b28b24207b6aae8c38a82c7b03326164fd",
+    "verified_executable_tree": "6368798edb96e81e3b721d7d9bfe754f4ab60a74",
+    "source_audit": "Development/DOCUMENT_ACL_POSTGRES_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD084_VERIFICATION_2026-09-21.md",
+    "scope": "DD-084 raw Document ACL persistence evidence only; authorization and signing explicitly unclaimed"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -505,11 +511,11 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "0595b7a65f0684b15d843d80b77fda6386083c9a",
+    "verified_continuation_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
     "inventory": {
-      "blobs": 423,
-      "markdown": 168,
-      "source_files": 87,
+      "blobs": 427,
+      "markdown": 170,
+      "source_files": 89,
       "test_files": 66,
       "migrations": 47,
       "verification_files": 41
@@ -533,52 +539,47 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-083 PostgreSQL Document metadata reader",
-    "checkpoint": "DEV-DOCUMENT-POSTGRES-001",
-    "verified_head": "0595b7a65f0684b15d843d80b77fda6386083c9a",
-    "verified_tree": "b22c1be5b2ecc2904873097392436ef88557dc98",
+    "decision": "DD-084 raw Document ACL persistence reader",
+    "checkpoint": "DEV-DOCUMENT-ACL-READ-001",
+    "verified_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
+    "verified_tree": "6368798edb96e81e3b721d7d9bfe754f4ab60a74",
     "core": {
-      "run_id": 35626044307,
-      "job_id": 106420545737,
+      "run_id": 35626896940,
+      "job_id": 106423347192,
       "tests": 305,
       "pass": 305,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35626044307,
-      "job_id": 106420545577,
-      "tests": 70,
-      "pass": 70,
+      "run_id": 35626896940,
+      "job_id": 106423346909,
+      "tests": 74,
+      "pass": 74,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35626044434,
-      "job_id": 106420545456,
+      "run_id": 35626897060,
+      "job_id": 106423347666,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35626044352,
-      "job_id": 106420545679,
+      "run_id": 35626896931,
+      "job_id": 106423347079,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 423,
-      "markdown": 168,
-      "source_files": 87,
+      "blobs": 427,
+      "markdown": 170,
+      "source_files": 89,
       "test_files": 66,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD083_VERIFICATION_2026-09-21.md",
-    "corrected_ci_attempt": {
-      "head": "a3609fc7a9834f5fac02b64b08da46619e7b543e",
-      "cause": "Document store was initially composed with application-role PostgresDatabase instead of source-owned Document service role",
-      "correction": "dedicated PostgresDocumentDatabase using sbg_document_service_rw"
-    }
+    "evidence": "Registers/DEVELOPMENT_DD084_VERIFICATION_2026-09-21.md"
   },
   "historical_projection_payloads": {
     "continuation": {
