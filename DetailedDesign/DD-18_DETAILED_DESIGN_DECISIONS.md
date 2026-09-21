@@ -1090,3 +1090,30 @@ change is introduced.
 
 **Acceptance:** DOC-STO-PG-001…006 in DD-17 and
 `tests/postgres/document-access-metadata-store.test.mjs`.
+
+
+## DD-087 — Document upload-session persistence is readable without inventing upload-policy semantics
+
+**Context:** DD-08 and migration 0006 define the upload-session storage grammar and
+FORCE-RLS scope. Migration 0031 validates the persisted upload principal belongs to
+the Tenant. The repository still does not own executable semantics for every
+`max_size_class`, media-type policy source, expiry boundary or upload-state
+transition.
+
+**Decision:** add a raw `DocumentUploadSessionReadPort` and concrete
+`PostgresDocumentUploadSessionStore`. The store reads exactly one RLS-visible
+session by UUID through the dedicated Document PostgreSQL boundary and returns an
+immutable typed persistence snapshot.
+
+**Security / trade-off:** RLS hides sibling-Industry sessions and preserves Tenant
+Core same-Tenant visibility. The reader retains expired/cancelled/rejected facts
+rather than silently converting them into an authorization decision. Mutating
+principal ownership remains a write-policy concern owned by the existing RLS
+WITH CHECK contract.
+
+**Boundary:** DD-087 does not decide whether a session is usable, evaluate
+media/size/checksum policy, advance upload states, access temporary storage, sign a
+grant, expose a route or change SQL/roles/privileges.
+
+**Acceptance:** DOC-UP-PG-001…005 in DD-17 and
+`tests/postgres/document-access-metadata-store.test.mjs`.
