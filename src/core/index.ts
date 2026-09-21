@@ -42,3 +42,5 @@ export * from "./commercial/apply-evidence-gate.js";
 export * from "./tenancy/workspace-service.js";
 export * from "./identity/roles-query-service.js";
 export * from "./api/core-operation-contracts.js";
+
+export * from "./integration/event-envelope.js";
