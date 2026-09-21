@@ -3,7 +3,7 @@
 
 Verified executable `ef7873141282e420af8f30ef4211cc6f33d011a3` / tree `d889aacc81cc5a752e336dc28b0e34c36d054e41`: **305/305 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **418 blobs / 166 Markdown / 85 source / 65 test files**.
 
-DD-081 adds a reusable catalog-bound Core event-envelope validator: canonical JSON metadata, event id/type/version/scope, producer/sensitivity, Tenant/Industry/residency and explicit cross-context ownership are checked before an injected catalog payload-schema validator runs. PostgreSQL remains the final physical integrity guard. No dispatcher, retry/DLQ policy, webhook transport, external endpoint, database object or privilege was invented.
+DD-082 adds a reusable pre-sign Document access-candidate boundary: resolved Tenant/Industry context loads DocumentMeta through an injected RLS-bound port, exact ownership plus ACTIVE/CLEAN state is revalidated, and only an immutable internal candidate is returned for later authorization/signing. No signed URL/token, object key, permission/entitlement, step-up rule, TTL/provider, route, SQL or public sharing was invented.
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
