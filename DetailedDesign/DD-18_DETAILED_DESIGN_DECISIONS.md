@@ -1203,3 +1203,31 @@ payload schemas, expose a route or change schema/privileges.
 
 **Acceptance:** EVT-OUT-PG-001…005 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-091 — Event Catalog exact tuple is readable as DD-081 authoritative contract without executing schemas
+
+**Context:** DD-07 and migration 0008 define Event Catalog persistence; migration
+0030 adds exact type/version/scope uniqueness for outbox integrity; DD-081 consumes
+the catalog contract before payload interpretation; migration 0028 already grants
+Integration runtime read access. A payload-schema engine and catalog mutation runtime
+remain separately unresolved.
+
+**Decision:** add `PersistedEventCatalogEntry` extending DD-081's
+`EventCatalogContract`, `EventCatalogReadPort.loadExact`, and concrete
+`PostgresEventCatalogStore`. The store performs one parameterized exact
+type/version/scope lookup through a governed Integration database transaction and
+returns immutable validated persistence facts.
+
+**Security / trade-off:** catalog metadata is global read-only runtime metadata, so
+the exact reader is intentionally not Tenant-RLS scoped. Exact scope is still part of
+the lookup, preventing callers from silently substituting a different scope contract.
+RETIRED is returned as evidence, not converted into a production/consumption
+decision.
+
+**Boundary:** DD-091 does not execute payload schemas, register/retire events,
+interpret compatibility, select consumers, authorize webhooks, expose a route or
+change schema/privileges.
+
+**Acceptance:** EVT-CAT-PG-001…004 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
