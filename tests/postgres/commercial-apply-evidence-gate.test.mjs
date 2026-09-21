@@ -62,12 +62,12 @@ before(async()=>{
     await c.query("BEGIN");
     await c.query("CREATE ROLE "+loginRole+" LOGIN PASSWORD '"+password+"' NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS");
     await c.query("GRANT sbg_commercial_transition_compiler_rw,sbg_commercial_plan_change_evidence_rw,sbg_billing_plan_change_evidence_rw,sbg_workflow_worker_rw TO "+loginRole);
-    await c.query("INSERT INTO platform_directory.data_home(id,code,region_code,jurisdiction_code,topology_class,status) VALUES ($1,$1::text,'IN-APPLY-GATE','IN','SHARED','ACTIVE')",[f.home]);
-    await c.query("INSERT INTO core_tenancy.tenant(id,tenant_code,legal_name,display_name,status,primary_industry_code,data_home_id,residency_region_code,created_at,updated_at) VALUES ($1,$1::text,'Apply gate','Apply gate','ACTIVE','RTL',$2,'IN-APPLY-GATE',now(),now())",[f.tenant,f.home]);
+    await c.query("INSERT INTO platform_directory.data_home(id,code,region_code,jurisdiction_code,topology_class,status) VALUES ($1::uuid,$1::uuid::text,'IN-APPLY-GATE','IN','SHARED','ACTIVE')",[f.home]);
+    await c.query("INSERT INTO core_tenancy.tenant(id,tenant_code,legal_name,display_name,status,primary_industry_code,data_home_id,residency_region_code,created_at,updated_at) VALUES ($1::uuid,$1::uuid::text,'Apply gate','Apply gate','ACTIVE','RTL',$2,'IN-APPLY-GATE',now(),now())",[f.tenant,f.home]);
     await c.query("INSERT INTO core_identity.platform_principal(id,principal_type,status,display_name,service_code,owning_module,allowed_scope_classes,created_at,updated_at) VALUES ($1,'SERVICE','ACTIVE','Apply gate service','APPLY_GATE','Commercial',ARRAY['TENANT_CORE'],now(),now())",[f.actor]);
-    await c.query("INSERT INTO core_commercial.commercial_route_policy(id,code,self_serve_enabled,sales_assisted_enabled,market_scope_json,approval_required,version,status,created_at) VALUES ($1,$1::text,true,true,'{}',false,1,'ACTIVE',now())",[f.route]);
+    await c.query("INSERT INTO core_commercial.commercial_route_policy(id,code,self_serve_enabled,sales_assisted_enabled,market_scope_json,approval_required,version,status,created_at) VALUES ($1::uuid,$1::uuid::text,true,true,'{}',false,1,'ACTIVE',now())",[f.route]);
     for(const [plan,version,name] of [[f.oldPlan,f.oldPlanVersion,"Old"],[f.newPlan,f.newPlanVersion,"New"]]){
-      await c.query("INSERT INTO core_commercial.plan(id,code,name,status,created_at,updated_at) VALUES ($1,$1::text,$2,'ACTIVE',now(),now())",[plan,name]);
+      await c.query("INSERT INTO core_commercial.plan(id,code,name,status,created_at,updated_at) VALUES ($1::uuid,$1::uuid::text,$2,'ACTIVE',now(),now())",[plan,name]);
       await c.query("INSERT INTO core_commercial.plan_version(id,plan_id,version_no,status,effective_from,route_policy_id,entitlement_template_json,limit_set_json,billing_policy_json,support_class,published_at,created_by,created_at) VALUES ($1,$2,1,'ACTIVE',now()-interval '1 day',$3,'{}','{}','{}','TEST',now(),$4,now())",[version,plan,f.route,f.actor]);
     }
     await c.query("INSERT INTO core_commercial.subscription(id,tenant_id,plan_version_id,state,billing_timezone,version,created_at,updated_at) VALUES ($1,$2,$3,'ACTIVE','UTC',4,now(),now())",[f.subscription,f.tenant,f.oldPlanVersion]);
