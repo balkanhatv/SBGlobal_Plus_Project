@@ -56,3 +56,6 @@
 
 ## 2026-09-21 — DD-072 compliance/security restriction input boundary
 After source-auditing F-03/F-14/A-03/A-04/DD-03/DD-04/DD-16, verified that the current repository has narrowing-only security/compliance semantics but no authoritative Commercial restriction persistence/reducer. Added a server-owned exact-target DENY-only normalized resolver seam; unsupported expansion/ALLOW/numeric/opaque semantics fail closed. Feature `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` passed 216 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No DB migration, compliance business rule, final restriction application or public changePlan binding was added.
+
+## 2026-09-21 — DD-073 bounded usage-meter target-impact
+Source audit confirmed BR-SUB-04 plus persisted `usage_meter` and DD-064 least-privilege read ownership, while finding no governed current-period selector or `reserved_value` downgrade formula. Added a server-owned measurement-source seam and deterministic exact-target evaluator. Feature `d982eb59098e4dc51586a2cf5e92771909566ea4` passed 225 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No migration, period convention, reservation arithmetic, remediation producer or public changePlan binding was added.

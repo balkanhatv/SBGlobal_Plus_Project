@@ -1,20 +1,20 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `DEV-COMMERCIAL-RESTRICTION-INPUT-001`  
+**Current checkpoint:** `DEV-COMMERCIAL-USAGE-IMPACT-001`  
 **Branch:** `docs/architecture-branch-2`
 
-Verified feature executable basis `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` / `d7b28ba1310bc77283cc479002052fbde2febe7b`:
-- **216/216 Core PASS**
+Verified feature executable basis `d982eb59098e4dc51586a2cf5e92771909566ea4` / `ad4b22497f93956337f6a86e0fa4f76a13bec46a`:
+- **225/225 Core PASS**
 - **56/56 PostgreSQL PASS**
 - **46 migrations / 40 verification files bootstrap PASS**
 - **Next.js 15.5.25 production build PASS**
 - **9 Industries / 41 canonical MS / 181 Industry tables**
-- **DD-001…DD-072 contiguous**
+- **DD-001…DD-073 contiguous**
 
-DD-071 remains the bounded deterministic Commercial precedence stage. DD-072 adds the server-owned compliance/security restriction-input seam over that preview: exact-existing entitlement targets, DENY-only normalization, versioned policy/evidence, deterministic output and fail-closed unsupported authority.
+DD-071 remains the bounded deterministic Commercial precedence stage. DD-072 adds the server-owned compliance/security restriction-input seam. DD-073 adds deterministic BR-SUB-04 usage impact over server-selected exact usage measurements, without guessing current period or reservation semantics.
 
-This is **not** a final target preview or public plan-change implementation. Concrete eligibility, a concrete governed compliance/security resolver/source, restriction application, usage impact, lifecycle overlay, Billing/payment/proration, Workflow approval and public `core.commercial.subscription.changePlan` remain unfinished.
+This is **not** a final target preview or public plan-change implementation. Concrete eligibility, concrete governed compliance/security authority/application, production usage-period/reservation binding, lifecycle overlay, Billing/payment/proration, Workflow approval and public `core.commercial.subscription.changePlan` remain unfinished.
 
-Next governed work: **source-audit and bounded usage-meter target-impact prerequisite**; final preview remains blocked on concrete governed compliance/security authority/application.
+Next governed work: **source-audit and bounded subscription lifecycle target-overlay prerequisite**; final preview remains blocked on concrete governed compliance/security authority/application and production usage-period/reservation binding.
 
-Evidence: `Registers/DEVELOPMENT_DD071_VERIFICATION_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD073_VERIFICATION_2026-09-21.md`.

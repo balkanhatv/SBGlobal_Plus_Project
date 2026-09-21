@@ -1,18 +1,19 @@
-# D-CHECKPOINT — DEV-COMMERCIAL-RESTRICTION-INPUT-001
+# D-CHECKPOINT — DEV-COMMERCIAL-USAGE-IMPACT-001
 **Updated:** 2026-09-21
 
-Verified feature executable basis `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` / `d7b28ba1310bc77283cc479002052fbde2febe7b`:
-- Core **216/216 PASS**
+Verified feature executable basis `d982eb59098e4dc51586a2cf5e92771909566ea4` / `ad4b22497f93956337f6a86e0fa4f76a13bec46a`:
+- Core **225/225 PASS**
 - PostgreSQL **56/56 PASS**
 - full DB bootstrap **46 migrations / 40 verification files PASS**
 - Next.js 15.5.25 production build **PASS**
-- feature tree **367 blobs / 75 source / 51 tests**
+- Database Verify **PASS**
+- feature tree **371 blobs / 143 Markdown / 76 source / 52 tests**
 - Industry scope **9 / 41 / 181**
 
-Gate: **IMPLEMENTED / TESTED — DD-072 COMPLIANCE/SECURITY RESTRICTION INPUT BOUNDARY**.
+Gate: **IMPLEMENTED / TESTED — DD-073 BOUNDED USAGE-METER TARGET IMPACT**.
 
-DD-072 is deliberately a normalized authority seam only: exact existing entitlement targets, DENY-only, versioned policy/evidence, fail-closed unsupported semantics. It adds no DB schema and does not claim a concrete production restriction policy source or final restriction application.
+DD-073 compares only authoritative selected `used_value` measurements against exact DD-071 target limits. Current-period selection is server-owned but concrete production selection is not yet bound; non-zero reservations fail closed rather than being added or ignored by guess.
 
-No production eligibility, usage, lifecycle, Billing/payment, Workflow approval or public changePlan completion is claimed.
+No production eligibility, concrete compliance/security restriction authority/application, lifecycle, Billing/payment, Workflow approval or public changePlan completion is claimed.
 
-Next: **source-backed usage-meter target-impact prerequisite**, while concrete compliance/security resolver/application remains required before a final target preview.
+Next: **subscription lifecycle target-overlay source audit / bounded implementation**.

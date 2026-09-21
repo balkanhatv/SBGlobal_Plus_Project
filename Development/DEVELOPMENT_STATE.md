@@ -1,19 +1,20 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-RESTRICTION-INPUT-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-USAGE-IMPACT-001`
 
-Development is **IN PROGRESS — COMMERCIAL TARGET PREVIEW RESTRICTION/IMPACT PREREQUISITES**.
+Development is **IN PROGRESS — COMMERCIAL TARGET PREVIEW RESTRICTION / USAGE / LIFECYCLE PREREQUISITES**.
 
-Verified feature executable `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` / `d7b28ba1310bc77283cc479002052fbde2febe7b`:
-- **216/216 Core PASS**
+Verified feature executable `d982eb59098e4dc51586a2cf5e92771909566ea4` / `ad4b22497f93956337f6a86e0fa4f76a13bec46a`:
+- **225/225 Core PASS**
 - **56/56 PostgreSQL PASS**
 - **46 migrations / 40 verification files bootstrap PASS**
 - **Next.js 15.5.25 production build PASS**
-- **367 blobs / 75 source / 51 tests in feature tree**
+- **Database Verify PASS**
+- **371 blobs / 143 Markdown / 76 source / 52 tests in feature tree**
 
-DD-072 now implements the server-owned compliance/security restriction **input seam** over DD-071. It is exact-target and DENY-only, requires versioned evidence and fails closed on missing/ambiguous/unsupported authority. No concrete compliance/security policy source, reducer, legal rule, numeric cap or DB schema was invented.
+DD-073 now implements bounded BR-SUB-04 usage-vs-target impact over server-selected exact usage measurements. It does not guess current period selection or reservation semantics: bounded targets require exactly one selected measurement and non-zero `reserved_value` fails closed.
 
-Still unfinished: concrete production restriction resolver/source, application of prepared denies, usage-meter target-impact, lifecycle overlay, final publication/apply, Billing/payment/proration, Workflow approval and public changePlan.
+Still unfinished: production usage-period selector/reservation rule, concrete add-on eligibility, concrete compliance/security restriction source/application, lifecycle overlay, final publication/apply, Billing/payment/proration, Workflow approval and public changePlan.
 
-Next independent governed dependency: inspect and implement the source-backed **usage-meter target-limit impact evaluator** without treating DD-072 as final restriction enforcement. Final target preview remains blocked until concrete governed restriction authority is bound and applied.
+Next independent governed dependency: source-audit and implement the **subscription lifecycle target overlay** only where F-14/DD-04 semantics are deterministic. Final target preview remains blocked on concrete governed restriction authority/application plus production usage-source binding.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

@@ -1,11 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-RESTRICTION-INPUT-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-USAGE-IMPACT-001`
 
-Current Development checkpoint is `DEV-COMMERCIAL-RESTRICTION-INPUT-001`. Verified feature executable `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` / tree `d7b28ba1310bc77283cc479002052fbde2febe7b` passes **216 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, and the Next.js 15.5.25 production build. Feature tree contains **367 blobs / 141 Markdown / 75 source / 51 test files**.
+Current Development checkpoint is `DEV-COMMERCIAL-USAGE-IMPACT-001`. Verified feature executable `d982eb59098e4dc51586a2cf5e92771909566ea4` / tree `ad4b22497f93956337f6a86e0fa4f76a13bec46a` passes **225 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **371 blobs / 143 Markdown / 76 source / 52 test files**.
 
-DD-072 adds only the server-owned compliance/security restriction-input seam over DD-071: exact-existing entitlement targets, DENY-only normalization, versioned policy/evidence, deterministic immutable output and fail-closed unsupported authority. It adds no DB schema and does not claim a production compliance/security policy source or apply restrictions. Target preview remains incomplete: concrete governed restriction authority/application, usage impact, lifecycle overlay, final publication/apply, Billing/Workflow producers and public changePlan remain unfinished.
+DD-073 adds bounded BR-SUB-04 usage-vs-target impact over server-selected exact measurements. FINITE compares selected persisted `used_value`; NOT_INCLUDED/still-ADD_ON_ONLY are zero included capacity; UNLIMITED is non-blocking. Current-period selection and non-zero reservation reconciliation are deliberately not guessed: missing/multiple selected periods or relevant `reserved_value > 0` fail closed.
 
-Next independent governed dependency is a source audit of F-14/DD-04 BR-SUB-04 plus existing `usage_meter` ownership, followed only by a bounded usage-meter target-impact implementation if the semantics are authoritative. Final preview still requires concrete compliance/security authority/application.
+Target preview remains incomplete: production usage period/reservation binding, concrete governed compliance/security authority/application, lifecycle overlay, final publication/apply, Billing/Workflow producers and public changePlan remain unfinished.
+
+Next independent governed dependency is a source audit of F-14 §2/§6 + DD-04 lifecycle semantics, followed only by a bounded lifecycle target-overlay implementation if deterministic.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

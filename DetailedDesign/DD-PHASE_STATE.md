@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001`
+**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-COMMERCIAL-USAGE-IMPACT-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -21,7 +21,7 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 ## 2026-09-21 current overlay
 - Detailed Design phase remains **COMPLETE at its historical gate**.
-- Current implementation decisions are contiguous through **DD-072**.
-- Verified feature evidence: `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` / `d7b28ba1310bc77283cc479002052fbde2febe7b`; Core 216/216, PostgreSQL 56/56 + full database bootstrap, Next.js build PASS, Database Verify PASS.
-- DD-072 is a normalized server-owned restriction-input seam only; it does not claim a production compliance/security policy source or final target-preview restriction application.
-- Next independent governed dependency is the usage-meter/BR-SUB-04 source audit and bounded target-impact prerequisite; concrete governed restriction authority/application and lifecycle overlay remain required before final target preview.
+- Current implementation decisions are contiguous through **DD-073**.
+- Verified feature evidence: `d982eb59098e4dc51586a2cf5e92771909566ea4` / `ad4b22497f93956337f6a86e0fa4f76a13bec46a`; Core 225/225, PostgreSQL 56/56 + full database bootstrap, Next.js build PASS, Database Verify PASS.
+- DD-073 is a bounded usage-impact prerequisite only; it does not claim a production current-period selector or reservation-reconciliation policy.
+- Next independent governed dependency is lifecycle target-overlay source audit/implementation; concrete governed compliance/security authority/application plus production usage binding remain required before final target preview.

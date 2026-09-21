@@ -31,11 +31,11 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-**Current checkpoint:** `DEV-COMMERCIAL-RESTRICTION-INPUT-001`  
-**Verified feature executable:** `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` / `d7b28ba1310bc77283cc479002052fbde2febe7b`
+**Current checkpoint:** `DEV-COMMERCIAL-USAGE-IMPACT-001`  
+**Verified feature executable:** `d982eb59098e4dc51586a2cf5e92771909566ea4` / `ad4b22497f93956337f6a86e0fa4f76a13bec46a`
 
-Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-072**. DD-072 binds only the server-owned compliance/security restriction-input seam over DD-071: exact-existing entitlement targets, DENY-only normalization, bounded versioned evidence and fail-closed unsupported authority.
+Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-073**. DD-073 implements only bounded BR-SUB-04 usage-vs-target impact over server-selected exact measurements; current-period selection and outstanding-reservation reconciliation remain deliberately unbound.
 
-Feature evidence: Core **216/216**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-072 database migration or privilege change occurred.
+Feature evidence: Core **225/225**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-073 database migration or privilege change occurred.
 
-A concrete production compliance/security policy source/resolver and actual restriction application remain unfinished. Next independent governed prerequisite is source-backed usage-meter target-impact; lifecycle overlay, final publication/apply and producer runtimes remain later work.
+Concrete compliance/security authority/application, production usage period/reservation binding and lifecycle overlay remain unfinished. Next independent governed prerequisite is source-backed lifecycle target-overlay semantics before any final target preview/public apply claim.
