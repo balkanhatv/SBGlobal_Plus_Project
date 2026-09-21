@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-WEBHOOK-DELIVERY-READ-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-OUTBOX-EVENT-READ-001`
 
-Verified executable `79b44a5271e3738d2ea5e869bf0c1afc8742add8` / tree `8223d4918c22e66c313ab0e586356dd360237c8f`: **311/311 Core**, **95/95 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **448 blobs / 180 Markdown / 98 source / 68 test files**.
+Verified executable `9ff139d442158b4fadfa27becc358edade1ccf1f` / tree `d45e327c713391eb35cca147e2ea8da937cf1e9a`: **311/311 Core**, **100/100 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **452 blobs / 182 Markdown / 100 source / 68 test files**.
 
-DD-089 adds a raw typed Webhook Delivery PostgreSQL reader through the dedicated Integration service-role/RLS boundary. It preserves subscription/event identity, attempt number, endpoint snapshot, payload digest, raw status, optional HTTP/error/next-attempt evidence and correlation/timestamps exactly as persisted. Parent subscription + outbox-event RLS governs visibility. The reader deliberately does not classify success/retryability/permanence, schedule retries, transition DLQ, replay, connect to endpoints or sign requests.
+DD-090 adds a raw typed Outbox Event PostgreSQL reader through the dedicated Integration role and final scope-aware FORCE-RLS predicate. It preserves event/catalog identity, aggregate identity/version, immutable envelope JSON and raw dispatcher status/attempt/availability/lock/dispatch/error evidence. It deliberately does not claim/lock, decide readiness/retryability, dispatch, dead-letter, replay or interpret payload schemas.
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
-Next: Webhook execution still requires source-owned endpoint verification/challenge, DNS/IP/redirect SSRF policy, secret/signature/rotation behavior, event-filter evaluation and retry/DLQ/replay orchestration. Document upload/signed-access policy gaps remain separately governed. REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites. Source-audit the next independent source-complete slice before implementation.
+Next: Event Catalog exact-tuple persistence is the next independent source-complete candidate for source audit; payload-schema execution/registration remains separate. Webhook network/signing/filter/retry runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

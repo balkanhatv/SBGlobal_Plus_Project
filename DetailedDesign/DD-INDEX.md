@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-WEBHOOK-DELIVERY-READ-001`
+**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-OUTBOX-EVENT-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-089**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-090**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-089 adds a raw typed Webhook Delivery PostgreSQL reader through the dedicated Integration service-role/RLS boundary. It preserves subscription/event identity, attempt number, endpoint snapshot, payload digest, raw status, optional HTTP/error/next-attempt evidence and correlation/timestamps exactly as persisted. Parent subscription + outbox-event RLS governs visibility. The reader deliberately does not classify success/retryability/permanence, schedule retries, transition DLQ, replay, connect to endpoints or sign requests.
+DD-090 adds a raw typed Outbox Event PostgreSQL reader through the dedicated Integration role and final scope-aware FORCE-RLS predicate. It preserves event/catalog identity, aggregate identity/version, immutable envelope JSON and raw dispatcher status/attempt/availability/lock/dispatch/error evidence. It deliberately does not claim/lock, decide readiness/retryability, dispatch, dead-letter, replay or interpret payload schemas.
 
 Full DD-08 signed access remains blocked on exact operation/permission, policy-specific step-up/residency and signer TTL/provider bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch/webhooks, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished.
 
@@ -37,4 +37,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `79b44a5271e3738d2ea5e869bf0c1afc8742add8` / tree `8223d4918c22e66c313ab0e586356dd360237c8f` — 311 Core tests, 95 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD089_VERIFICATION_2026-09-21.md).
+**Current verified executable evidence:** `9ff139d442158b4fadfa27becc358edade1ccf1f` / tree `d45e327c713391eb35cca147e2ea8da937cf1e9a` — 311 Core tests, 100 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD090_VERIFICATION_2026-09-21.md).

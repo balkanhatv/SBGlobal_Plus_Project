@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-WEBHOOK-DELIVERY-READ-001",
-  "final_verdict": "DD-089 RAW WEBHOOK DELIVERY POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; RETRY/DELIVERY/DLQ/REPLAY RUNTIME REMAINS UNCLAIMED",
+  "checkpoint": "DEV-OUTBOX-EVENT-READ-001",
+  "final_verdict": "DD-090 RAW OUTBOX EVENT POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; DISPATCH/RETRY/DLQ/REPLAY RUNTIME REMAINS UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "79b44a5271e3738d2ea5e869bf0c1afc8742add8",
-    "verified_code_tree": "8223d4918c22e66c313ab0e586356dd360237c8f",
-    "state_projection_basis_head": "79b44a5271e3738d2ea5e869bf0c1afc8742add8",
+    "verified_code_head": "9ff139d442158b4fadfa27becc358edade1ccf1f",
+    "verified_code_tree": "d45e327c713391eb35cca147e2ea8da937cf1e9a",
+    "state_projection_basis_head": "9ff139d442158b4fadfa27becc358edade1ccf1f",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Raw Webhook Delivery PostgreSQL reader verified; retry/delivery policy not claimed",
+    "current_phase": "Raw Outbox Event PostgreSQL reader verified; dispatcher runtime not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "79b44a5271e3738d2ea5e869bf0c1afc8742add8",
-      "ci_run_id": 35631968498,
-      "ci_job_id": 106440072012,
+      "ci_verified_head": "9ff139d442158b4fadfa27becc358edade1ccf1f",
+      "ci_run_id": 35632750408,
+      "ci_job_id": 106442663497,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "8223d4918c22e66c313ab0e586356dd360237c8f",
+      "ci_verified_tree": "d45e327c713391eb35cca147e2ea8da937cf1e9a",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "79b44a5271e3738d2ea5e869bf0c1afc8742add8",
-      "feature_head_bootstrap_verified_tree": "8223d4918c22e66c313ab0e586356dd360237c8f",
-      "feature_head_bootstrap_run_id": 35631968438,
-      "feature_head_bootstrap_job_id": 106440072058,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_95_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "9ff139d442158b4fadfa27becc358edade1ccf1f",
+      "feature_head_bootstrap_verified_tree": "d45e327c713391eb35cca147e2ea8da937cf1e9a",
+      "feature_head_bootstrap_run_id": 35632751638,
+      "feature_head_bootstrap_job_id": 106442666943,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_100_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Webhook execution still requires source-owned endpoint verification/challenge, DNS/IP/redirect SSRF policy, secret/signature/rotation behavior, event-filter evaluation and retry/DLQ/replay orchestration. Document upload/signed-access policy gaps remain separately governed. REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites. Source-audit the next independent source-complete slice before implementation.",
+    "next_action": "Event Catalog exact-tuple persistence is the next independent source-complete candidate for source audit; payload-schema execution/registration remains separate. Webhook network/signing/filter/retry runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
     "core_services": {
-      "checkpoint": "DEV-WEBHOOK-DELIVERY-READ-001",
+      "checkpoint": "DEV-OUTBOX-EVENT-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–089 current implementation; DD-089 raw Webhook Delivery PostgreSQL reader",
-      "verified_head": "79b44a5271e3738d2ea5e869bf0c1afc8742add8",
-      "verified_tree": "8223d4918c22e66c313ab0e586356dd360237c8f",
-      "core_ci_run_id": 35631968438,
-      "core_ci_job_id": 106440071910,
+      "decision": "DD-040–090 current implementation; DD-090 raw Outbox Event PostgreSQL reader",
+      "verified_head": "9ff139d442158b4fadfa27becc358edade1ccf1f",
+      "verified_tree": "d45e327c713391eb35cca147e2ea8da937cf1e9a",
+      "core_ci_run_id": 35632751638,
+      "core_ci_job_id": 106442666672,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35631968438,
-      "postgres_ci_job_id": 106440072058,
-      "postgres_tests": "95/95 PASS",
+      "postgres_ci_run_id": 35632751638,
+      "postgres_ci_job_id": 106442666943,
+      "postgres_tests": "100/100 PASS",
       "postgres_test_counts": {
-        "tests": 95,
-        "pass": 95,
+        "tests": 100,
+        "pass": 100,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35631968498,
-      "database_regression_job_id": 106440072012,
+      "database_regression_run_id": 35632750408,
+      "database_regression_job_id": 106442663497,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -330,7 +330,10 @@
         "WH-SUB-PG-001–005 real PostgreSQL Tenant-RLS acceptance",
         "DD-089 raw Webhook Delivery read contract",
         "DD-089 PostgreSQL Webhook Delivery reader under parent RLS",
-        "WH-DEL-PG-001–005 real PostgreSQL parent-scope acceptance"
+        "WH-DEL-PG-001–005 real PostgreSQL parent-scope acceptance",
+        "DD-090 raw Outbox Event read contract",
+        "DD-090 PostgreSQL Outbox Event reader under final scope-aware RLS",
+        "EVT-OUT-PG-001–005 real PostgreSQL scope/fidelity acceptance"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -393,7 +396,9 @@
         "webhook secret/signature/rotation implementation",
         "webhook event-filter evaluator and delivery/retry/DLQ runtime",
         "webhook delivery status/error retryability reducer",
-        "webhook retry scheduler / DLQ / replay runtime"
+        "webhook retry scheduler / DLQ / replay runtime",
+        "outbox claim/lease dispatcher scheduler",
+        "outbox status/attempt retry/DLQ/replay mutation runtime"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -409,9 +414,9 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Webhook execution still requires source-owned endpoint verification/challenge, DNS/IP/redirect SSRF policy, secret/signature/rotation behavior, event-filter evaluation and retry/DLQ/replay orchestration. Document upload/signed-access policy gaps remain separately governed. REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites. Source-audit the next independent source-complete slice before implementation."
+      "next_action": "Event Catalog exact-tuple persistence is the next independent source-complete candidate for source audit; payload-schema execution/registration remains separate. Webhook network/signing/filter/retry runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites."
     },
-    "application_api_ui_scope_note": "Webhook Subscription and Delivery persistence are now readable through the dedicated Integration role; endpoint/network/signing/filter/retry runtime remains unfinished.",
+    "application_api_ui_scope_note": "Webhook Subscription/Delivery and Outbox Event persistence are now readable through the dedicated Integration role; dispatcher/network/signing/filter/retry runtime remains unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -465,7 +470,7 @@
     ],
     "status": "IN_PROGRESS"
   },
-  "current_phase": "DEVELOPMENT_WEBHOOK_DELIVERY_READ_VERIFIED",
+  "current_phase": "DEVELOPMENT_OUTBOX_EVENT_READ_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -497,12 +502,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-WEBHOOK-DELIVERY-READ-001",
+    "checkpoint": "DEV-OUTBOX-EVENT-READ-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "79b44a5271e3738d2ea5e869bf0c1afc8742add8",
-    "verified_code_tree": "8223d4918c22e66c313ab0e586356dd360237c8f",
-    "source_audit": "Development/WEBHOOK_DELIVERY_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "9ff139d442158b4fadfa27becc358edade1ccf1f",
+    "verified_code_tree": "d45e327c713391eb35cca147e2ea8da937cf1e9a",
+    "source_audit": "Development/OUTBOX_EVENT_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
@@ -516,20 +521,21 @@
       "DD-086 linked Document StorageObject binding",
       "DD-087 raw Document upload-session PostgreSQL reader",
       "DD-088 raw Webhook Subscription PostgreSQL reader",
-      "DD-089 raw Webhook Delivery PostgreSQL reader"
+      "DD-089 raw Webhook Delivery PostgreSQL reader",
+      "DD-090 raw Outbox Event PostgreSQL reader"
     ],
-    "next_action": "Webhook execution still requires source-owned endpoint verification/challenge, DNS/IP/redirect SSRF policy, secret/signature/rotation behavior, event-filter evaluation and retry/DLQ/replay orchestration. Document upload/signed-access policy gaps remain separately governed. REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites. Source-audit the next independent source-complete slice before implementation.",
+    "next_action": "Event Catalog exact-tuple persistence is the next independent source-complete candidate for source audit; payload-schema execution/registration remains separate. Webhook network/signing/filter/retry runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-WEBHOOK-DELIVERY-READ-001",
-    "verified_executable_basis": "79b44a5271e3738d2ea5e869bf0c1afc8742add8",
-    "verified_executable_tree": "8223d4918c22e66c313ab0e586356dd360237c8f",
-    "source_audit": "Development/WEBHOOK_DELIVERY_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD089_VERIFICATION_2026-09-21.md",
-    "scope": "DD-089 raw parent-RLS Webhook Delivery persistence only; no retry/delivery/DLQ/replay decision"
+    "checkpoint": "DEV-OUTBOX-EVENT-READ-001",
+    "verified_executable_basis": "9ff139d442158b4fadfa27becc358edade1ccf1f",
+    "verified_executable_tree": "d45e327c713391eb35cca147e2ea8da937cf1e9a",
+    "source_audit": "Development/OUTBOX_EVENT_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD090_VERIFICATION_2026-09-21.md",
+    "scope": "DD-090 raw scope-aware Outbox Event persistence only; no dispatcher/retry/DLQ/replay action"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -542,11 +548,11 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "79b44a5271e3738d2ea5e869bf0c1afc8742add8",
+    "verified_continuation_head": "9ff139d442158b4fadfa27becc358edade1ccf1f",
     "inventory": {
-      "blobs": 448,
-      "markdown": 180,
-      "source_files": 98,
+      "blobs": 452,
+      "markdown": 182,
+      "source_files": 100,
       "test_files": 68,
       "migrations": 47,
       "verification_files": 41
@@ -570,47 +576,47 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-089 raw Webhook Delivery PostgreSQL reader",
-    "checkpoint": "DEV-WEBHOOK-DELIVERY-READ-001",
-    "verified_head": "79b44a5271e3738d2ea5e869bf0c1afc8742add8",
-    "verified_tree": "8223d4918c22e66c313ab0e586356dd360237c8f",
+    "decision": "DD-090 raw Outbox Event PostgreSQL reader",
+    "checkpoint": "DEV-OUTBOX-EVENT-READ-001",
+    "verified_head": "9ff139d442158b4fadfa27becc358edade1ccf1f",
+    "verified_tree": "d45e327c713391eb35cca147e2ea8da937cf1e9a",
     "core": {
-      "run_id": 35631968438,
-      "job_id": 106440071910,
+      "run_id": 35632751638,
+      "job_id": 106442666672,
       "tests": 311,
       "pass": 311,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35631968438,
-      "job_id": 106440072058,
-      "tests": 95,
-      "pass": 95,
+      "run_id": 35632751638,
+      "job_id": 106442666943,
+      "tests": 100,
+      "pass": 100,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35631968498,
-      "job_id": 106440072012,
+      "run_id": 35632750408,
+      "job_id": 106442663497,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35631968424,
-      "job_id": 106440072001,
+      "run_id": 35632750334,
+      "job_id": 106442662730,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 448,
-      "markdown": 180,
-      "source_files": 98,
+      "blobs": 452,
+      "markdown": 182,
+      "source_files": 100,
       "test_files": 68,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD089_VERIFICATION_2026-09-21.md"
+    "evidence": "Registers/DEVELOPMENT_DD090_VERIFICATION_2026-09-21.md"
   },
   "historical_projection_payloads": {
     "continuation": {
