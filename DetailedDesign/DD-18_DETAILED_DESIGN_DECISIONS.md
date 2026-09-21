@@ -1037,3 +1037,29 @@ change is claimed.
 
 **Acceptance:** DOC-ACL-PG-001…004 in DD-17 and
 `tests/postgres/document-access-metadata-store.test.mjs`.
+
+
+## DD-085 — Document ACL subject matching uses only resolved RequestContext identities and remains non-authorizing
+
+**Context:** DD-084 supplies typed raw ACL evidence. DD-08 defines ACL subject types,
+and the existing RequestContext resolver owns principal id, effective role ids and the
+selected OrgUnit ancestor UUID path. The repository still lacks complete
+operation→ACL mapping, validUntil boundary policy, fallback semantics and final deny
+reduction required for authorization.
+
+**Decision:** add a pure Core `DocumentAclSubjectMatcher`. For one caller-supplied
+explicit ACL permission, it validates resolved single-Tenant context and
+single-document evidence, then matches PRINCIPAL to principalId, ROLE to roleIds and
+ORG_UNIT to orgUnitPath. It returns immutable matching ACL rows in input order.
+
+**Security / trade-off:** caller/client selectors never participate in matching; only
+resolved server-owned RequestContext identities do. Effect and validUntil are
+preserved but deliberately uninterpreted, so the matcher cannot widen or grant
+access.
+
+**Boundary:** no operation mapping, expiry-effectiveness rule, ALLOW/DENY reducer,
+source-resource inheritance/fallback, final authorization decision, signer, route or
+schema/privilege change is introduced.
+
+**Acceptance:** DOC-ACL-MATCH-001…006 in DD-17 and
+`tests/core/document-acl-subject-match.test.mjs`.
