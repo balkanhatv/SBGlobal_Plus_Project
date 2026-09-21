@@ -92,3 +92,28 @@ Wrong Industry Context cannot resolve metadata; storage key cannot bypass Docume
 
 ## 12. StoragePort physical binding [DD-AC]
 Document service uses a portable S3-compatible `StoragePort`. Preferred managed profile: AWS S3 in the approved Data Home region. Preferred regional/self-hosted profile: MinIO-compatible S3 storage inside the regional storage/cell boundary. Object locations remain private and non-authoritative; DocumentMeta/ACL/context remains the authorization owner. Mandatory capabilities: multipart upload, head/get/put/copy/delete-version, object versioning, metadata/checksum, server-side encryption, lifecycle, signed access and quarantine handling.
+
+
+## 13. Pre-sign access candidate boundary [DD-082]
+
+The executable Document access floor stops before storage signing. A resolved Tenant
+RequestContext supplies the only Tenant/Industry authority. An injected metadata
+reader loads DocumentMeta under its RLS boundary; Core then verifies the returned
+metadata is structurally valid, belongs to the resolved Tenant, carries either
+TENANT_CORE ownership or the exact selected TENANT_INDUSTRY context, and is both
+ACTIVE and CLEAN.
+
+A successful result is an **internal immutable access candidate** containing only
+DocumentMeta-derived document/storage-object identifiers, source-resource identity,
+owner, sensitivity, residency, media type, display filename, version and correlation
+metadata. It is input to later DD-03/DD-04/document policy authorization and a future
+StoragePort signer; it is not authorization and is never an external signed grant.
+
+Missing/foreign/sibling-context metadata is normalized as non-disclosing resource
+absence. Non-ACTIVE/non-CLEAN metadata is state-invalid. Malformed authoritative rows
+or metadata dependency failures fail closed.
+
+**Boundary:** DD-082 does not choose a download permission, entitlement, ACL result,
+sensitivity step-up rule, residency exception, signed-grant TTL, bucket/provider,
+object key, public route or sharing model. Full DD-08 §5 signed access remains
+unimplemented until those bindings are source-owned.
