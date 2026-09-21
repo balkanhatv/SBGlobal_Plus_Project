@@ -61,6 +61,9 @@ async function prepareApplyEvidence({
       correlationId,createdAt.toISOString(),
     ],
   );
+  // One authoritative fixture timestamp preserves DD-066 resolved_at >= created_at.
+  // Separate Date() calls made this test race the database constraint by milliseconds.
+  const evidenceAt=new Date().toISOString();
   await admin.query(
     "INSERT INTO core_commercial.plan_change_route_resolution("+
     " id,tenant_id,assessment_id,assessment_version,route_class,resolution_state,"+
@@ -72,7 +75,7 @@ async function prepareApplyEvidence({
     [
       randomUUID(),f.tenant,assessmentId,
       effectiveAt?effectiveAt.toISOString():null,
-      new Date().toISOString(),correlationId,new Date().toISOString(),
+      evidenceAt,correlationId,evidenceAt,
     ],
   );
   return {assessmentId,assessmentVersion:1};
