@@ -7,7 +7,7 @@ import {
   DocumentAccessCandidateError,
   DocumentAccessCandidateService,
 } from "../../dist/core/index.js";
-import { PostgresDatabase } from "../../dist/server/database/postgres-database.js";
+import { PostgresDocumentDatabase } from "../../dist/server/database/postgres-document-database.js";
 import { RequestScopedSql } from "../../dist/server/database/request-scoped-sql.js";
 import {
   PostgresDocumentAccessMetadataStore,
@@ -183,7 +183,7 @@ before(async () => {
     max: 1,
     connectionTimeoutMillis: 5000,
   });
-  const scoped = new RequestScopedSql(new PostgresDatabase(pool), {
+  const scoped = new RequestScopedSql(new PostgresDocumentDatabase(pool), {
     dataHomeId: f.home,
     regionCode: "IN-DOCUMENT-READER",
   });
