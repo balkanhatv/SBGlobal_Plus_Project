@@ -971,3 +971,13 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | EVT-OUT-PG-003 | Tenant-Core outbox event read from same-Tenant Tenant Core and Industry contexts | same raw event evidence visible in both |
 | EVT-OUT-PG-004 | foreign-Tenant outbox event id queried | FORCE-RLS returns no row; owning Tenant/context may read it |
 | EVT-OUT-PG-005 | malformed id or database route/context mismatch | fail closed before event evidence disclosure |
+
+
+### Exact PostgreSQL Event Catalog reader — DD-091
+
+| ID | Scenario | Expected |
+|---|---|---|
+| EVT-CAT-PG-001 | exact type/version/scope tuple | immutable authoritative catalog facts compatible with DD-081 contract |
+| EVT-CAT-PG-002 | exact catalog row status is RETIRED | raw RETIRED evidence returned; no publish/consume decision |
+| EVT-CAT-PG-003 | event type exists but requested version or scope differs | null; no fallback to another tuple |
+| EVT-CAT-PG-004 | empty type, non-positive version or invalid scope | fail closed before persistence query |
