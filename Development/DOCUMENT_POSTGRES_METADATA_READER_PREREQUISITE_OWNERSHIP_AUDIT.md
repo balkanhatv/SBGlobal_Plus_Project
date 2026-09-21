@@ -48,3 +48,24 @@ No migration, grant, role, RLS policy, signer, route, permission or storage-prov
 change is authorized.
 
 Acceptance: DOC-PG-001…005.
+
+
+## CI-discovered composition correction
+
+The first real PostgreSQL run on feature head
+`a3609fc7a9834f5fac02b64b08da46619e7b543e` proved that the generic
+`PostgresDatabase` adapter is intentionally application-role-only: it executes
+`SET LOCAL ROLE sbg_app_rw`. A login granted only `sbg_document_service_rw`
+therefore cannot use the Document service privilege boundary through that adapter.
+
+This is not a missing product-policy decision. Migration 0028 already fixes the
+required runtime role to `sbg_document_service_rw`, and the repository already uses
+dedicated database wrappers for Identity, Authorization compiler, Commercial
+transition compiler and plan-change evidence roles.
+
+The authorized correction is therefore a dedicated
+`PostgresDocumentDatabase` wrapper that follows the existing safe-role pattern,
+sets only `sbg_document_service_rw`, enforces `row_security=on`, verifies both
+runtime and login roles are non-superuser/NOBYPASSRLS, clears transaction-local
+scope before `RequestScopedSql` sets it, and sanitizes pooled connection state on
+release. No role, grant, RLS predicate or business authorization rule changes.
