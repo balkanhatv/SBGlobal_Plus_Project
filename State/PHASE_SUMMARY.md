@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-DOCUMENT-ACL-MATCH-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-DOCUMENT-STORAGE-BINDING-001`
 
-Verified executable `e074dadb571dd35565b9d61040ef25c640a1e385` / tree `fccb480853e4f8ab0cfbff0975f701639faf12b3`: **311/311 Core**, **74/74 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **431 blobs / 172 Markdown / 90 source / 67 test files**.
+Verified executable `c5f827f0981af33e21427a1148c1c50845fc2ba9` / tree `0ed27e344392db885e3ef24fff8fab2b0febe212`: **311/311 Core**, **80/80 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **434 blobs / 174 Markdown / 91 source / 67 test files**.
 
-DD-085 adds a non-authorizing Document ACL subject-match evidence layer: for one explicit ACL permission and one document, PRINCIPAL matches resolved principalId, ROLE matches resolved roleIds, and ORG_UNIT matches the server-resolved current/ancestor orgUnitPath. Effect and validUntil evidence are preserved without expiry or ALLOW/DENY interpretation.
+DD-086 adds the server-internal linked physical StorageObject binding reader. It can resolve private locator metadata only through the exact RLS-visible ACTIVE/CLEAN DocumentMeta row, exact storageObjectId and resolved Data Home, under the dedicated Document service role. Arbitrary StorageObject lookup, signing, provider choice and transport exposure remain prohibited.
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
-Next: Full Document ACL authorization remains blocked on source-owned operation→ACL permission mapping, validUntil effectiveness semantics, no-explicit-ALLOW/source-resource fallback behavior and final DENY reducer/audit semantics. Full signed access additionally requires step-up/residency policy and signed-grant TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway and event/webhook runtime remain separate unfinished governed scopes.
+Next: Full Document signed access still requires final source-owned ACL authorization semantics (operation→ACL mapping, validUntil effectiveness, fallback/DENY reducer), step-up/residency policy and concrete StoragePort signer TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway and event/webhook runtime remain separate unfinished governed scopes.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
