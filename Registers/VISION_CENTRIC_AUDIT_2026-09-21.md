@@ -114,3 +114,15 @@ RawSource blobs remain `a9f63a64448a347edd0f2b0c74094284ee953c1b` and
 Final checkpoint owns post-correction/post-continuation CI and current remote
 confirmation. Historical all-stages audit reports retain their original evaluated
 heads and are not silently rewritten as current proof.
+
+## Correction execution gate
+
+Correction commit `380ae7b984624ae3842e0293b2c075ac250c08a6`, tree
+`e2c20a33e70908064476e6ca848e7ab80c0abbb9`, passed all exact-head checks.
+Core run 35583432591/job 106281224626: **277/277, zero fail/skip**.
+PostgreSQL run 35583432591/job 106281224253: **65/65, zero fail/skip**,
+plus the full **47/41** clean-database bootstrap. Database run 35583432581/job
+106281224080 and Web run 35583432592/job 106281224214: **PASS**.
+Downloaded logs confirm the exact commit/tree. RawSource hashes and 9/41/181
+remain unchanged. VC-01–04 are corrected; this verdict is bounded to the
+documented audit and implemented/tested scope.

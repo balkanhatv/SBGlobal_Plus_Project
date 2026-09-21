@@ -4,6 +4,16 @@
 
 These are implementation acceptance contracts, not executable test code.
 
+## Repository verification invariants — current Development overlay
+
+The existing Core CI suite executes `tests/core/repository-invariants.test.mjs`.
+REPO-001 preserves accepted RawSource hashes; REPO-002 preserves all 2,962 source
+IDs/text; REPO-003 checks nine/41 canonical MS owner and acceptance references;
+REPO-004 requires contiguous unique ADR/DD definitions; REPO-005 compares actual
+migration/verification inventories with current manifest counts; REPO-006 resolves
+local Markdown file links. These checks implement MI §25/§26B/§33A and DD-26
+without substituting counts or references for substantive runtime acceptance.
+
 ## 1. Context & isolation
 | ID | Scenario | Expected |
 |---|---|---|
