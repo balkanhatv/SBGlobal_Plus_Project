@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-DOCUMENT-ACL-READ-001`
+**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-DOCUMENT-ACL-MATCH-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-084**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-085**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-084 adds a raw Document ACL persistence boundary: typed ACL entries are read through the existing dedicated Document PostgreSQL/FORCE-RLS path in deterministic order, preserving persisted subject/permission/effect/expiry evidence without deciding authorization. No deny reducer, subject matcher, operation→ACL mapping, signer, route, SQL or privilege change was invented.
+DD-085 adds a non-authorizing Document ACL subject-match evidence layer: for one explicit ACL permission and one document, PRINCIPAL matches resolved principalId, ROLE matches resolved roleIds, and ORG_UNIT matches the server-resolved current/ancestor orgUnitPath. Effect and validUntil evidence are preserved without expiry or ALLOW/DENY interpretation.
 
 Full DD-08 signed access remains blocked on exact operation/permission, policy-specific step-up/residency and signer TTL/provider bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch/webhooks, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished.
 
@@ -37,4 +37,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `176a96b28b24207b6aae8c38a82c7b03326164fd` / tree `6368798edb96e81e3b721d7d9bfe754f4ab60a74` — 305 Core tests, 74 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD084_VERIFICATION_2026-09-21.md).
+**Current verified executable evidence:** `e074dadb571dd35565b9d61040ef25c640a1e385` / tree `fccb480853e4f8ab0cfbff0975f701639faf12b3` — 311 Core tests, 74 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD085_VERIFICATION_2026-09-21.md).

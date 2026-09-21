@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-DOCUMENT-ACL-READ-001",
-  "final_verdict": "DD-084 RAW DOCUMENT ACL READER IMPLEMENTED / EXACT-HEAD TESTED; ACL AUTHORIZATION AND FULL SIGNED ACCESS REMAIN UNCLAIMED",
+  "checkpoint": "DEV-DOCUMENT-ACL-MATCH-001",
+  "final_verdict": "DD-085 DOCUMENT ACL SUBJECT-MATCH EVIDENCE IMPLEMENTED / EXACT-HEAD TESTED; FINAL ACL AUTHORIZATION AND SIGNED ACCESS REMAIN UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
-    "verified_code_tree": "6368798edb96e81e3b721d7d9bfe754f4ab60a74",
-    "state_projection_basis_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
+    "verified_code_head": "e074dadb571dd35565b9d61040ef25c640a1e385",
+    "verified_code_tree": "fccb480853e4f8ab0cfbff0975f701639faf12b3",
+    "state_projection_basis_head": "e074dadb571dd35565b9d61040ef25c640a1e385",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Raw Document ACL persistence reader verified; ACL authorization not claimed",
+    "current_phase": "Document ACL subject-match evidence verified; final ACL authorization not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -111,27 +111,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Full Document signed access remains blocked on exact operation→Document permission/ACL mapping, final ACL fallback/deny evaluation semantics, policy-specific step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation.",
+    "next_action": "Full Document ACL authorization remains blocked on source-owned operation→ACL permission mapping, validUntil effectiveness semantics, no-explicit-ALLOW/source-resource fallback behavior and final DENY reducer/audit semantics. Full signed access additionally requires step-up/residency policy and signed-grant TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway and event/webhook runtime remain separate unfinished governed scopes.",
     "core_services": {
-      "checkpoint": "DEV-DOCUMENT-ACL-READ-001",
+      "checkpoint": "DEV-DOCUMENT-ACL-MATCH-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–084 current implementation; DD-084 raw Document ACL persistence reader",
-      "verified_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
-      "verified_tree": "6368798edb96e81e3b721d7d9bfe754f4ab60a74",
-      "core_ci_run_id": 35626896940,
-      "core_ci_job_id": 106423347192,
-      "tests": "305/305 PASS",
+      "decision": "DD-040–085 current implementation; DD-085 Document ACL subject-match evidence",
+      "verified_head": "e074dadb571dd35565b9d61040ef25c640a1e385",
+      "verified_tree": "fccb480853e4f8ab0cfbff0975f701639faf12b3",
+      "core_ci_run_id": 35627740043,
+      "core_ci_job_id": 106426134500,
+      "tests": "311/311 PASS",
       "core_test_counts": {
-        "tests": 305,
-        "pass": 305,
+        "tests": 311,
+        "pass": 311,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35626896940,
-      "postgres_ci_job_id": 106423346909,
+      "postgres_ci_run_id": 35627740043,
+      "postgres_ci_job_id": 106426134637,
       "postgres_tests": "74/74 PASS",
       "postgres_test_counts": {
         "tests": 74,
@@ -140,8 +140,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35626897060,
-      "database_regression_job_id": 106423347666,
+      "database_regression_run_id": 35627740018,
+      "database_regression_job_id": 106426134141,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -316,7 +316,9 @@
         "DD-083 dedicated PostgresDocumentDatabase fixed service-role boundary",
         "DOC-PG-001–005 real PostgreSQL FORCE-RLS acceptance",
         "DD-084 raw Document ACL persistence reader",
-        "DOC-ACL-PG-001–004 real PostgreSQL ACL/RLS acceptance"
+        "DOC-ACL-PG-001–004 real PostgreSQL ACL/RLS acceptance",
+        "DD-085 Document ACL subject-match evidence",
+        "DOC-ACL-MATCH-001–006 executable Core acceptance"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -367,7 +369,9 @@
         "concrete signed-grant TTL/provider signer and public route",
         "final Document ACL authorization evaluator and operation mapping",
         "Document ACL subject matching/expiry/fallback/deny reducer",
-        "full Document signed-access policy and signer composition"
+        "full Document signed-access policy and signer composition",
+        "Document ACL validUntil effectiveness semantics",
+        "Document ACL final ALLOW/DENY/fallback reducer and operation mapping"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -383,7 +387,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Full Document signed access remains blocked on exact operation→Document permission/ACL mapping, final ACL fallback/deny evaluation semantics, policy-specific step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation."
+      "next_action": "Full Document ACL authorization remains blocked on source-owned operation→ACL permission mapping, validUntil effectiveness semantics, no-explicit-ALLOW/source-resource fallback behavior and final DENY reducer/audit semantics. Full signed access additionally requires step-up/residency policy and signed-grant TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway and event/webhook runtime remain separate unfinished governed scopes."
     },
     "application_api_ui_scope_note": "Document pre-sign candidate now has a concrete FORCE-RLS PostgreSQL reader and dedicated Document service-role database wrapper; full signed access and product UI remain unfinished.",
     "application_services_started": true,
@@ -439,7 +443,7 @@
     ],
     "status": "IN_PROGRESS"
   },
-  "current_phase": "DEVELOPMENT_DOCUMENT_ACL_READ_VERIFIED",
+  "current_phase": "DEVELOPMENT_DOCUMENT_ACL_MATCH_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -471,12 +475,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-DOCUMENT-ACL-READ-001",
+    "checkpoint": "DEV-DOCUMENT-ACL-MATCH-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
-    "verified_code_tree": "6368798edb96e81e3b721d7d9bfe754f4ab60a74",
-    "source_audit": "Development/DOCUMENT_ACL_POSTGRES_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "e074dadb571dd35565b9d61040ef25c640a1e385",
+    "verified_code_tree": "fccb480853e4f8ab0cfbff0975f701639faf12b3",
+    "source_audit": "Development/DOCUMENT_ACL_SUBJECT_MATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
@@ -485,20 +489,21 @@
       "DD-081 event envelope/catalog source audit and reusable validation boundary",
       "DD-082 document access candidate source audit and pre-sign boundary",
       "DD-083 PostgreSQL Document metadata reader and dedicated service-role database binding",
-      "DD-084 raw Document ACL reader source audit and PostgreSQL binding"
+      "DD-084 raw Document ACL reader source audit and PostgreSQL binding",
+      "DD-085 Document ACL subject-match evidence"
     ],
-    "next_action": "Full Document signed access remains blocked on exact operation→Document permission/ACL mapping, final ACL fallback/deny evaluation semantics, policy-specific step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation.",
+    "next_action": "Full Document ACL authorization remains blocked on source-owned operation→ACL permission mapping, validUntil effectiveness semantics, no-explicit-ALLOW/source-resource fallback behavior and final DENY reducer/audit semantics. Full signed access additionally requires step-up/residency policy and signed-grant TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway and event/webhook runtime remain separate unfinished governed scopes.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-DOCUMENT-ACL-READ-001",
-    "verified_executable_basis": "176a96b28b24207b6aae8c38a82c7b03326164fd",
-    "verified_executable_tree": "6368798edb96e81e3b721d7d9bfe754f4ab60a74",
-    "source_audit": "Development/DOCUMENT_ACL_POSTGRES_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD084_VERIFICATION_2026-09-21.md",
-    "scope": "DD-084 raw Document ACL persistence evidence only; authorization and signing explicitly unclaimed"
+    "checkpoint": "DEV-DOCUMENT-ACL-MATCH-001",
+    "verified_executable_basis": "e074dadb571dd35565b9d61040ef25c640a1e385",
+    "verified_executable_tree": "fccb480853e4f8ab0cfbff0975f701639faf12b3",
+    "source_audit": "Development/DOCUMENT_ACL_SUBJECT_MATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD085_VERIFICATION_2026-09-21.md",
+    "scope": "DD-085 resolved-context ACL subject matching only; expiry/effect/final authorization unclaimed"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -511,12 +516,12 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
+    "verified_continuation_head": "e074dadb571dd35565b9d61040ef25c640a1e385",
     "inventory": {
-      "blobs": 427,
-      "markdown": 170,
-      "source_files": 89,
-      "test_files": 66,
+      "blobs": 431,
+      "markdown": 172,
+      "source_files": 90,
+      "test_files": 67,
       "migrations": 47,
       "verification_files": 41
     },
@@ -539,21 +544,21 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-084 raw Document ACL persistence reader",
-    "checkpoint": "DEV-DOCUMENT-ACL-READ-001",
-    "verified_head": "176a96b28b24207b6aae8c38a82c7b03326164fd",
-    "verified_tree": "6368798edb96e81e3b721d7d9bfe754f4ab60a74",
+    "decision": "DD-085 Document ACL subject-match evidence",
+    "checkpoint": "DEV-DOCUMENT-ACL-MATCH-001",
+    "verified_head": "e074dadb571dd35565b9d61040ef25c640a1e385",
+    "verified_tree": "fccb480853e4f8ab0cfbff0975f701639faf12b3",
     "core": {
-      "run_id": 35626896940,
-      "job_id": 106423347192,
-      "tests": 305,
-      "pass": 305,
+      "run_id": 35627740043,
+      "job_id": 106426134500,
+      "tests": 311,
+      "pass": 311,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35626896940,
-      "job_id": 106423346909,
+      "run_id": 35627740043,
+      "job_id": 106426134637,
       "tests": 74,
       "pass": 74,
       "fail": 0,
@@ -561,25 +566,25 @@
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35626897060,
-      "job_id": 106423347666,
+      "run_id": 35627740018,
+      "job_id": 106426134141,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35626896931,
-      "job_id": 106423347079,
+      "run_id": 35627740105,
+      "job_id": 106426134811,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 427,
-      "markdown": 170,
-      "source_files": 89,
-      "test_files": 66,
+      "blobs": 431,
+      "markdown": 172,
+      "source_files": 90,
+      "test_files": 67,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD084_VERIFICATION_2026-09-21.md"
+    "evidence": "Registers/DEVELOPMENT_DD085_VERIFICATION_2026-09-21.md"
   },
   "historical_projection_payloads": {
     "continuation": {

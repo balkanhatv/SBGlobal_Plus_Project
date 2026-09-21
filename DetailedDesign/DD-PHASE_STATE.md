@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-DOCUMENT-ACL-READ-001`
+**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-DOCUMENT-ACL-MATCH-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -21,12 +21,12 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 ## Current Development overlay — 2026-09-21
 
-Current checkpoint: `DEV-DOCUMENT-ACL-READ-001`. Decisions are contiguous through DD-084. Historical Phase-3 completion applies to its evaluated scope.
+Current checkpoint: `DEV-DOCUMENT-ACL-MATCH-001`. Decisions are contiguous through DD-085. Historical Phase-3 completion applies to its evaluated scope.
 
-Verified executable `176a96b28b24207b6aae8c38a82c7b03326164fd` / tree `6368798edb96e81e3b721d7d9bfe754f4ab60a74`: **305/305 Core**, **74/74 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **427 blobs / 170 Markdown / 89 source / 66 test files**.
+Verified executable `e074dadb571dd35565b9d61040ef25c640a1e385` / tree `fccb480853e4f8ab0cfbff0975f701639faf12b3`: **311/311 Core**, **74/74 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **431 blobs / 172 Markdown / 90 source / 67 test files**.
 
-DD-084 adds a raw Document ACL persistence boundary: typed ACL entries are read through the existing dedicated Document PostgreSQL/FORCE-RLS path in deterministic order, preserving persisted subject/permission/effect/expiry evidence without deciding authorization. No deny reducer, subject matcher, operation→ACL mapping, signer, route, SQL or privilege change was invented.
+DD-085 adds a non-authorizing Document ACL subject-match evidence layer: for one explicit ACL permission and one document, PRINCIPAL matches resolved principalId, ROLE matches resolved roleIds, and ORG_UNIT matches the server-resolved current/ancestor orgUnitPath. Effect and validUntil evidence are preserved without expiry or ALLOW/DENY interpretation.
 
 Full DD-08 signed access remains blocked on exact operation/permission, policy-specific step-up/residency and signer TTL/provider bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch/webhooks, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished.
 
-Next: Full Document signed access remains blocked on exact operation→Document permission/ACL mapping, final ACL fallback/deny evaluation semantics, policy-specific step-up/residency composition and concrete signed-grant TTL/provider signing. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation.
+Next: Full Document ACL authorization remains blocked on source-owned operation→ACL permission mapping, validUntil effectiveness semantics, no-explicit-ALLOW/source-resource fallback behavior and final DENY reducer/audit semantics. Full signed access additionally requires step-up/residency policy and signed-grant TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway and event/webhook runtime remain separate unfinished governed scopes.
