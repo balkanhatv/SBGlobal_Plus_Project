@@ -1177,3 +1177,29 @@ interpret event filters, sign requests, expose a route or change schema/privileg
 
 **Acceptance:** WH-DEL-PG-001…005 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-090 — Outbox Event persistence is readable without inventing dispatcher semantics
+
+**Context:** DD-07 and migrations 0008/0030 already define the exact OutboxEvent
+fields, catalog/envelope integrity and final scope-specific FORCE-RLS predicate.
+Migration 0028 fixes Integration-service privileges. Claim/lock scheduling, retry
+timing and DLQ/replay execution remain separate runtime work.
+
+**Decision:** add typed `OutboxEventEvidence` / `OutboxEventReadPort` and concrete
+`PostgresOutboxEventStore`. The store reads one RLS-visible outbox event by UUID
+through the dedicated Integration PostgreSQL boundary and returns immutable raw
+persistence evidence, including the envelope and dispatcher-state columns.
+
+**Security / trade-off:** the reader does not infer authority from a null Industry
+Context. Tenant Core and Tenant Industry visibility follow `outbox_row_visible`.
+The generic RequestScopedSql path still rejects EXPLICIT_CROSS_CONTEXT, preserving
+the requirement for a dedicated governed repository. Raw lock/status/error evidence
+cannot itself trigger work.
+
+**Boundary:** DD-090 does not claim/lease, mutate status/attempts, decide
+dispatchability/retryability, execute delivery, transition DLQ, replay, interpret
+payload schemas, expose a route or change schema/privileges.
+
+**Acceptance:** EVT-OUT-PG-001…005 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
