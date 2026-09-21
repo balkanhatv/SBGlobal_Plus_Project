@@ -1150,3 +1150,30 @@ delivery, schedule retry/DLQ, expose an endpoint or change schema/privileges.
 
 **Acceptance:** WH-SUB-PG-001…005 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-089 — Webhook Delivery attempt evidence is readable without inventing retry/delivery semantics
+
+**Context:** DD-07 and migration 0008 define WebhookDelivery persisted fields and
+parent-RLS. Migration 0030 strengthens immutable identity linkage and ensures the
+delivery references a same-Tenant webhook-eligible event whose Industry scope is
+allowed by the subscription. The persistence schema intentionally leaves delivery
+`status` and `error_class` as text and DD-07 keeps retry timing symbolic.
+
+**Decision:** add typed `WebhookDeliveryEvidence` / `WebhookDeliveryReadPort` and
+concrete `PostgresWebhookDeliveryStore`. The store reads one parent-RLS-visible
+delivery attempt by UUID through the dedicated Integration PostgreSQL boundary and
+returns immutable raw persisted evidence.
+
+**Security / trade-off:** parent subscription + event visibility is required before
+the delivery row can be read. Tenant-Industry delivery evidence is therefore hidden
+from sibling Industry Contexts while Tenant-Core event delivery remains same-Tenant
+visible. Endpoint snapshot is evidence of where an attempt was aimed, not authority
+to connect.
+
+**Boundary:** DD-089 does not interpret retryability/permanence, schedule next
+attempts, exhaust to DLQ, replay, verify an endpoint, resolve network targets,
+interpret event filters, sign requests, expose a route or change schema/privileges.
+
+**Acceptance:** WH-DEL-PG-001…005 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
