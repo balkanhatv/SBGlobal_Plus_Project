@@ -1,42 +1,42 @@
-# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001
+# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001
 **Updated:** 2026-09-21  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — DD-074 subscription lifecycle target overlay
+**Status:** IMPLEMENTED / TESTED — DD-075 final Commercial target preview
 
 ## Verified executable basis
-- Commit: `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269`.
-- Tree: `014ffdd543f71d4aeddaeb3ac5050c6916d30b54`.
-- Core/server acceptance: **233/233 PASS**.
+- Commit: `380999d41b2bc67903c7eabea714f06b459f754d`.
+- Tree: `d66f5621dcffb542f1343cc40fc016249f0e6759`.
+- Core/server acceptance: **243/243 PASS**.
 - Real PostgreSQL regression: **56/56 PASS**.
 - Full database bootstrap at the same feature HEAD: **46 migrations / 40 verification files PASS**.
 - Next.js 15.5.25 production build: **PASS**.
 - Database Verify: **PASS**.
-- Feature-tree inventory: **375 blobs / 145 Markdown / 77 source / 53 test files**.
+- Feature-tree inventory: **379 blobs / 147 Markdown / 78 source / 54 test files**.
 
-## DD-074 executable boundary
-- canonical states are exactly PENDING, TRIAL, ACTIVE, GRACE, SUSPENDED, EXPIRED and CANCELLED;
-- TRIAL / ACTIVE / GRACE map to `FULL_ACCESS`; GRACE retains full access and ordinary writes subject to later guards;
-- SUSPENDED maps to `RESTRICTED`; generic protected operations and ordinary business writes are denied;
-- EXPIRED / CANCELLED map to `PRESERVATION_ONLY`; generic protected operations and writes remain denied;
-- PENDING maps to `ACTIVATION_PENDING`; generic application access is not activated;
-- restricted/non-active states require dedicated non-generic paths rather than inferred snapshot permission;
-- data-preservation is retained for every posture;
-- PAST_DUE, Renewed-as-state and unknown lifecycle values fail closed;
-- output is deterministic and immutable.
+## DD-075 executable boundary
+- binds DD-072 restrictions and DD-073 usage evidence to one exact target PlanVersion;
+- applies Tenant compliance/security DENY to the Tenant-wide deny set;
+- applies Industry compliance/security DENY as the existing DD-069 type-specific disabled exact scoped fact;
+- preserves DD-071 target limits unchanged;
+- revalidates DD-073 exact limit coverage, target mode/value, used-value comparison and aggregate blocking flag;
+- recomputes DD-074 lifecycle posture from canonical state and rejects tampered posture;
+- preserves restriction policy/evidence and deterministic ordering;
+- produces an immutable final **target preview**.
 
-DD-074 deliberately does **not** mutate entitlement facts/limits, synthesize lifecycle deny-set entries, invent recovery/export operation IDs, predict a future NEXT_RENEWAL state, execute dunning/payment policy or authorize reactivation.
+DD-075 is deliberately **not** a publishable EntitlementSnapshot payload and does not derive source IDs/effective windows/fingerprint, DD-066 blocking codes/remediation state, Billing/Workflow evidence or apply authority.
 
 ## Still unfinished
 - concrete production add-on eligibility resolver;
-- concrete governed compliance/security restriction source/resolver + application;
+- concrete governed compliance/security policy source/resolver;
 - production usage current-period selector and `reserved_value` reconciliation rule;
-- final target-preview orchestration/fact materialization/fingerprint;
+- final snapshot-fact/source-metadata/fingerprint materialization;
 - DD-066 impact/diff/remediation producer integration;
 - Billing/payment/proration + Workflow approval producers;
+- internal SATISFIED-evidence apply orchestration into DD-065 publication;
 - public `core.commercial.subscription.changePlan`;
-- dedicated suspended/expired/cancelled recovery/read-only/billing/export OperationContracts;
+- dedicated restricted-state recovery/read-only/billing/export OperationContracts;
 - broad REST/OpenAPI and product UI/deployment readiness.
 
-**Next governed work:** source-audit the remaining target-preview orchestration gap: apply prepared DD-072 DENY restrictions to DD-071 output and define final target-preview materialization only where existing source contracts are sufficient. Production usage-source and concrete compliance/security resolver bindings remain explicit blockers.
+**Next governed work:** source-audit the boundary from final DD-075 preview to DD-066 assessment evidence / DD-065 publication. Implement only deterministic evidence/fact materialization that is already source-governed; do not invent marker-to-persistence, fingerprint or producer semantics.
 
-Evidence: `Registers/DEVELOPMENT_DD074_VERIFICATION_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD075_VERIFICATION_2026-09-21.md`.

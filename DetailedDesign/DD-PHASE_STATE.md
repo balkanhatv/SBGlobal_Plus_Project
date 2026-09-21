@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001`
+**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -21,7 +21,7 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 ## 2026-09-21 current overlay
 - Detailed Design phase remains **COMPLETE at its historical gate**.
-- Current implementation decisions are contiguous through **DD-074**.
-- Verified feature evidence: `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` / `014ffdd543f71d4aeddaeb3ac5050c6916d30b54`; Core 233/233, PostgreSQL 56/56 + full database bootstrap, Next.js build PASS, Database Verify PASS.
-- DD-074 is lifecycle posture metadata only; it does not mutate entitlement facts, predict future lifecycle, or invent dedicated restricted-operation contracts.
-- Next governed dependency is final target-preview restriction application/materialization; concrete governed compliance/security authority/application and production usage binding remain required before public plan change.
+- Current implementation decisions are contiguous through **DD-075**.
+- Verified feature evidence: `380999d41b2bc67903c7eabea714f06b459f754d` / `d66f5621dcffb542f1343cc40fc016249f0e6759`; Core 243/243, PostgreSQL 56/56 + full database bootstrap, Next.js build PASS, Database Verify PASS.
+- DD-075 is the deterministic final target preview only; it is not persisted snapshot-fact/fingerprint or apply authority.
+- Next governed dependency is the final-preview → DD-066 assessment / DD-065 publication bridge; producer-owned evidence and production source bindings remain required before public plan change.

@@ -31,11 +31,11 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-**Current checkpoint:** `DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001`  
-**Verified feature executable:** `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` / `014ffdd543f71d4aeddaeb3ac5050c6916d30b54`
+**Current checkpoint:** `DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001`  
+**Verified feature executable:** `380999d41b2bc67903c7eabea714f06b459f754d` / `d66f5621dcffb542f1343cc40fc016249f0e6759`
 
-Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-074**. DD-074 implements deterministic lifecycle posture only: GRACE remains full-access; SUSPENDED is restricted; EXPIRED/CANCELLED are preservation-only; PENDING is activation-pending. Entitlement facts/limits are not rewritten.
+Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-075**. DD-075 produces the deterministic final target preview by applying prepared exact-scope DENY restrictions and revalidating usage/lifecycle evidence.
 
-Feature evidence: Core **233/233**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-074 database migration or privilege change occurred.
+Feature evidence: Core **243/243**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-075 database migration or privilege change occurred.
 
-Concrete compliance/security authority/application, production usage period/reservation binding and final target-preview materialization remain unfinished. Next governed dependency is bounded final target-preview restriction application/materialization over already-prepared DD-071…074 evidence.
+This is not snapshot publication/apply authority. Production policy/usage source bindings, snapshot fact/source metadata/fingerprint mapping, DD-066 assessment/remediation production and Billing/Workflow route evidence remain prerequisites. Next governed dependency is the final-preview → assessment/publication bridge.

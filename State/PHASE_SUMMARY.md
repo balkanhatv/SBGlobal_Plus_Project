@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001`
 
-Current Development checkpoint is `DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001`. Verified feature executable `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` / tree `014ffdd543f71d4aeddaeb3ac5050c6916d30b54` passes **233 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **375 blobs / 145 Markdown / 77 source / 53 test files**.
+Current Development checkpoint is `DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001`. Verified feature executable `380999d41b2bc67903c7eabea714f06b459f754d` / tree `d66f5621dcffb542f1343cc40fc016249f0e6759` passes **243 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **379 blobs / 147 Markdown / 78 source / 54 test files**.
 
-DD-074 adds deterministic lifecycle posture without mutating entitlement facts: TRIAL/ACTIVE/GRACE are FULL_ACCESS; SUSPENDED is RESTRICTED; EXPIRED/CANCELLED are PRESERVATION_ONLY; PENDING is ACTIVATION_PENDING. Generic protected operations and ordinary writes remain eligible only in FULL_ACCESS, while every state preserves Tenant data.
+DD-075 now produces the deterministic final target preview: exact target binding, prepared compliance/security DENY application, DD-073 usage-impact consistency and DD-074 lifecycle-posture consistency. This preview is not snapshot publication/apply authority.
 
-Target preview remains incomplete: concrete governed compliance/security authority/application, production usage period/reservation binding, final target-preview materialization/fingerprint, Billing/Workflow producers and public changePlan remain unfinished.
+Remaining prerequisites are production eligibility/compliance/usage source bindings, snapshot fact/source metadata/fingerprint mapping, DD-066 assessment/remediation producer integration, Billing/Workflow evidence and DD-065 apply orchestration before public changePlan.
 
-Next independent governed dependency is a source audit of final target-preview restriction application/materialization over already-prepared DD-071…074 evidence, with no invention of missing production policy sources.
+Next independent governed dependency is a source audit of the final-preview → DD-066 assessment / DD-065 publication bridge, implementing only source-defined deterministic mapping.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

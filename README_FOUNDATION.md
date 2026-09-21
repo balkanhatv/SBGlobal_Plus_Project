@@ -1,21 +1,21 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001`  
+**Current checkpoint:** `DEV-COMMERCIAL-FINAL-TARGET-PREVIEW-001`  
 **Branch:** `docs/architecture-branch-2`
 
-Verified feature executable basis `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` / `014ffdd543f71d4aeddaeb3ac5050c6916d30b54`:
-- **233/233 Core PASS**
+Verified feature executable basis `380999d41b2bc67903c7eabea714f06b459f754d` / `d66f5621dcffb542f1343cc40fc016249f0e6759`:
+- **243/243 Core PASS**
 - **56/56 PostgreSQL PASS**
 - **46 migrations / 40 verification files bootstrap PASS**
 - **Next.js 15.5.25 production build PASS**
 - **Database Verify PASS**
 - **9 Industries / 41 canonical MS / 181 Industry tables**
-- **DD-001…DD-074 contiguous**
+- **DD-001…DD-075 contiguous**
 
-DD-071 provides deterministic adjustment precedence; DD-072 provides the server-owned DENY-only compliance/security restriction-input seam; DD-073 provides bounded usage impact; DD-074 now provides deterministic lifecycle posture without mutating entitlement facts.
+DD-071 provides deterministic adjustment precedence; DD-072 prepares exact DENY-only restriction authority; DD-073 provides bounded usage impact; DD-074 provides lifecycle posture; **DD-075 now combines them into one deterministic final target preview**.
 
-This is **not** a final target preview or public plan-change implementation. Concrete eligibility, concrete governed compliance/security authority/application, production usage-period/reservation binding, final target materialization/fingerprint, Billing/payment/proration, Workflow approval and public `core.commercial.subscription.changePlan` remain unfinished.
+This final preview is **not** yet a publishable EntitlementSnapshot or public plan-change apply. Concrete production eligibility/compliance/usage sources, marker-to-snapshot-fact/source metadata/fingerprint mapping, DD-066 assessment/remediation production, Billing/payment/proration, Workflow approval and public `core.commercial.subscription.changePlan` remain unfinished.
 
-Next governed work: **source-audit and bounded final target-preview restriction application/materialization** over DD-071…074 evidence.
+Next governed work: **source-audit the DD-075 final-preview → DD-066 assessment / DD-065 publication bridge**.
 
-Evidence: `Registers/DEVELOPMENT_DD074_VERIFICATION_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD075_VERIFICATION_2026-09-21.md`.

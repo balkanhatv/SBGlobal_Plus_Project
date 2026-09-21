@@ -62,3 +62,6 @@ Source audit confirmed BR-SUB-04 plus persisted `usage_meter` and DD-064 least-p
 
 ## 2026-09-21 — DD-074 subscription lifecycle target overlay
 Source audit confirmed exact F-14/A-04/DD-04 lifecycle posture: GRACE retains full access; SUSPENDED is restricted; EXPIRED/CANCELLED preserve data; PENDING is activation-pending; Renewed is an event and PAST_DUE is invalid. Added a pure deterministic posture overlay without mutating entitlement facts or inventing restricted operation IDs/future lifecycle prediction. Feature `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` passed 233 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No migration or public changePlan binding was added.
+
+## 2026-09-21 — DD-075 final Commercial target preview
+Combined DD-071…074 into one deterministic target-PlanVersion-bound preview. Prepared compliance/security DENY now applies through the already-governed Tenant deny-set / exact Industry disabled-fact representation; DD-073 usage and DD-074 lifecycle evidence are revalidated. Feature `380999d41b2bc67903c7eabea714f06b459f754d` passed 243 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No migration, snapshot fingerprint/fact mapping, remediation producer, Billing/Workflow evidence or public changePlan binding was added.
