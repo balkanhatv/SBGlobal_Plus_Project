@@ -44,3 +44,6 @@ Locked and implemented the bounded DD-04 precedence stage over DD-068 baseline +
 
 ## 2026-09-21 — DD-072 compliance/security restriction input boundary
 Verified that current F-03/A-03/DD-03/DD-04/DD-16 contracts provide narrowing-only security/compliance semantics but no authoritative Commercial restriction persistence/reducer. Added a server-owned, exact-target, DENY-only normalized resolver seam with fail-closed target/evidence validation. No migration, compliance business rule, numeric cap, generic RESTRICT reducer or public plan-change binding was introduced.
+
+## 2026-09-21 — DD-073 bounded usage-meter target-impact
+Source audit confirmed BR-SUB-04 plus persisted usage_meter/least-privilege read ownership, but found no governed current-period selector or reserved_value downgrade rule. Added a server-owned measurement-source seam and pure evaluator that compares exact selected used_value to DD-071 target limits, treats NOT_INCLUDED/still-ADD_ON_ONLY as zero included capacity, UNLIMITED as non-blocking, and fails closed on missing/multiple periods or non-zero reservations. No DB migration, period convention, reservation formula, remediation producer or public changePlan binding was invented.

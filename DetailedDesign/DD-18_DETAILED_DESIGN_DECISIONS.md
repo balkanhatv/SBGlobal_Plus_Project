@@ -807,3 +807,13 @@ Resolver-ELIGIBLE add-ons are applied after overrides and remain quota-additive 
 **Boundary / trade-off:** this decision deliberately does not invent a compliance persistence schema, legal/regulatory rule, limit-cap formula or generic restriction reducer, and does not apply the prepared denies yet. A concrete production resolver remains unfinished. This preserves one authority chain and allows future security/compliance policy ownership to bind without coupling Commercial to session, ABAC, residency or rate-limit storage.
 
 **Consequence:** DD-072 closes only the normalized restriction-input ownership seam. Final target preview is still incomplete; applying prepared restrictions, usage-meter impact, lifecycle overlay, Billing/approval producer integrations and public `core.commercial.subscription.changePlan` remain separate governed work.
+
+## DD-073 — Downgrade usage impact compares only source-safe selected usage
+
+**Context:** F-01 BR-SUB-04 and F-14 require usage-vs-target impact before a downgrade can take effect. DD-04 persists used/reserved usage by meter and period; DD-064 already provides a same-Tenant, NOBYPASSRLS read boundary. The current governing source does not define which period is authoritative during plan-change assessment or how outstanding reservations participate in BR-SUB-04 current usage.
+
+**Decision:** introduce a server-owned `CommercialUsageImpactSourcePort` and a pure target-impact evaluator. The source owns exact period selection and returns versioned evidence. The evaluator binds measurements only to exact DD-071 limit keys. FINITE compares persisted `used_value` to the target; NOT_INCLUDED and unresolved ADD_ON_ONLY are zero included capacity; UNLIMITED is non-blocking. Missing/duplicate period selection, missing target keys, malformed evidence and relevant non-zero `reserved_value` fail closed. Reservations are never silently added to `used_value`.
+
+**Boundary / trade-off:** this decision deliberately leaves the concrete PostgreSQL period selector and reservation-reconciliation rule unfinished rather than encoding an unsupported convention. It also does not choose remediation, write DD-066 assessment evidence, apply DD-072 restriction decisions, apply lifecycle overlay or calculate Billing/proration.
+
+**Consequence:** deterministic BR-SUB-04 usage comparison is executable once authoritative selected measurements are supplied. Final plan-change impact/remediation remains incomplete until a governed source selector exists and reservation semantics are resolved.

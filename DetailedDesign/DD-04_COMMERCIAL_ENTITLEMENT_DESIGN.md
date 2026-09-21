@@ -499,3 +499,22 @@ DD-072 therefore locks only a server-owned normalized input seam:
 - duplicate control/target tuples, malformed evidence, stale target binding and malformed/duplicate DD-071 target keys fail closed.
 
 This stage **prepares restriction authority; it does not apply it**. No database table, legal/regulatory interpretation, compliance certification, numeric security limit, generic RESTRICT reducer or client-supplied policy authority is introduced. Production remains unbound until a concrete governed resolver source exists. Usage-meter impact, lifecycle overlay, final snapshot/publication and public changePlan remain later work.
+
+## 22. Usage-meter target-impact v1 [DD-073]
+
+BR-SUB-04 requires a downgrade blocker when current usage exceeds target-plan limits. The persisted usage source is `usage_meter`, and DD-064 already gives the dedicated Commercial compiler role same-Tenant read access. Two semantics remain intentionally **unbound** by source: current `period_key` selection and treatment of outstanding `reserved_value`.
+
+DD-073 therefore separates **source selection** from deterministic comparison:
+- `CommercialUsageImpactSourcePort` is server-owned and receives SERVICE + TENANT_CORE context, exact target PlanVersion, effective time and exact DD-071 target limits;
+- source output is rebound to the target PlanVersion and carries `selectionPolicyVersion` + `evidenceReference`;
+- each selected measurement is exact entitlement + meter + optional Industry Context + period + `usedValue` + `reservedValue` + version;
+- every FINITE / NOT_INCLUDED / still-ADD_ON_ONLY target requires exactly one selected measurement; zero/multiple selected measurements fail closed;
+- measurements for missing target keys fail closed; the evaluator never fans out or guesses a meter/scope/period;
+- FINITE compares persisted `usedValue` against its target value;
+- DD-071 NOT_INCLUDED and unresolved ADD_ON_ONLY represent zero included target capacity for this impact comparison;
+- UNLIMITED is non-blocking and requires no usage measurement;
+- any relevant `reservedValue > 0` fails closed as `COMMERCIAL_USAGE_IMPACT_RESERVATION_UNRESOLVED`; DD-073 does not invent whether reservations count as current usage.
+
+Output is deterministic impact evidence with `WITHIN_TARGET | EXCEEDS_TARGET | UNLIMITED` and an aggregate blocking flag. It does not select remediation, write DD-066 assessment evidence, apply DD-072 restrictions, apply lifecycle overlay, calculate Billing/proration or expose public changePlan.
+
+A concrete PostgreSQL source adapter remains unfinished until a governed current-period selection rule exists.

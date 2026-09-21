@@ -717,3 +717,19 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-CSR-008 | target PlanVersion mismatch or malformed policyVersion/evidence/control id | fail closed |
 | COMM-CSR-009 | malformed/duplicate DD-071 entitlement target set | fail before resolver use |
 | COMM-CSR-010 | resolver dependency error | propagates as failure; no implicit no-restriction fallback |
+
+### Commercial usage-meter target impact — DD-073
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-USAGE-001 | HUMAN / Industry-scoped caller | rejected before usage source; SERVICE + TENANT_CORE required |
+| COMM-USAGE-002 | usage source invocation | exact target PlanVersion/effectiveAt + deterministic DD-071 target limits; caller cannot provide authoritative usage |
+| COMM-USAGE-003 | FINITE used_value equals/below target | WITHIN_TARGET |
+| COMM-USAGE-004 | FINITE used_value above target | EXCEEDS_TARGET; aggregate blocking usage=true |
+| COMM-USAGE-005 | NOT_INCLUDED or still-ADD_ON_ONLY target with used_value > 0 | EXCEEDS_TARGET against zero included capacity |
+| COMM-USAGE-006 | UNLIMITED target | UNLIMITED, non-blocking; no selected measurement required |
+| COMM-USAGE-007 | bounded target missing measurement / source selects unknown target / multiple periods | fail closed; no zero/current-period guess |
+| COMM-USAGE-008 | relevant reserved_value > 0 | fail closed as reservation semantics unresolved; do not add reservation to used_value |
+| COMM-USAGE-009 | target PlanVersion/evidence/measurement/version malformed | fail closed |
+| COMM-USAGE-010 | input target/measurement order changes | deterministic impact order unchanged |
+| COMM-USAGE-011 | concrete current-period selector or reservation reconciliation policy | NOT CLAIMED; requires separately governed source semantics |
