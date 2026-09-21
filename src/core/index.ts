@@ -48,3 +48,4 @@ export * from "./document/access-candidate.js";
 export * from "./document/acl.js";
 export * from "./document/acl-subject-match.js";
 export * from "./document/upload-session.js";
+export * from "./integration/webhook-subscription.js";
