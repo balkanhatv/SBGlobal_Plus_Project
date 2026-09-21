@@ -534,3 +534,24 @@ Lifecycle posture is exact:
 DD-074 does **not** rewrite entitlement values/limits or fabricate lifecycle deny-set facts. The current Commercial guard already re-reads Subscription state, and A-04/DD-04 require restricted permitted paths to be operation-contract-owned. A target preview therefore attaches lifecycle posture rather than pretending that entitlement facts alone encode read-only/recovery/export semantics.
 
 The state supplied to this overlay must be authoritative server-owned current state at evaluation/apply time. For future `NEXT_RENEWAL` application, lifecycle is re-read at apply; the compiler does not predict future state from an earlier preview.
+
+## 24. Final target-preview materialization v1 [DD-075]
+
+DD-075 composes only already-governed compiler evidence; it does not create new authority.
+
+Input is exact:
+- DD-071 deterministic entitlement/limit preview;
+- DD-072 prepared compliance/security DENY restrictions bound to the same target PlanVersion;
+- DD-073 usage-impact evidence bound to the same target PlanVersion and exact DD-071 limits;
+- DD-074 canonical lifecycle posture.
+
+Materialization rules:
+- Tenant-scoped compliance/security DENY adds the entitlement code to the Tenant-wide deny set;
+- Industry-scoped compliance/security DENY converts that exact existing scoped entitlement to the DD-069 type-specific disabled VALUE fact; sibling Industries are untouched;
+- multiple distinct control codes may deny the same target; duplicate control+target evidence is invalid;
+- target limits are not rewritten by DD-072 or DD-074;
+- DD-073 impact must cover every DD-071 limit exactly once, retain exact target mode/value semantics and have a status consistent with its selected `usedValue`; aggregate blocking usage is revalidated;
+- DD-074 posture is recomputed from the canonical Subscription state and must exactly match the supplied overlay;
+- all output is deterministic, immutable and target-PlanVersion bound.
+
+**Boundary:** this is the final **preview** object, not an EntitlementSnapshot publication payload. It does not derive DD-066 blocking codes/remediation, resolve missing production policy sources, choose snapshot source IDs/effective windows, convert all plan markers into persistence facts, compute source fingerprint, authorize Billing/Workflow evidence, invoke DD-065 publication or expose public changePlan.

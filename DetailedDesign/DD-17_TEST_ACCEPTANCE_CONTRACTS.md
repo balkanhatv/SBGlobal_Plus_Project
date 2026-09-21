@@ -748,3 +748,19 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-LIFE-008 | lifecycle classification repeated | deterministic immutable result |
 | COMM-LIFE-009 | restricted-state read-only/recovery/export operation IDs | NOT CLAIMED; require separately governed dedicated OperationContracts |
 | COMM-LIFE-010 | future NEXT_RENEWAL lifecycle state | NOT PREDICTED; authoritative state must be re-read at apply time |
+
+### Commercial final target-preview materialization — DD-075
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-TARGET-001 | Tenant compliance/security DENY | entitlement code joins Tenant deny set; underlying scoped fact is not widened |
+| COMM-TARGET-002 | Industry compliance/security DENY | exact Industry entitlement becomes type-specific disabled fact; sibling scope unaffected |
+| COMM-TARGET-003 | multiple distinct controls deny same exact target | one effective denial; all sorted evidence preserved |
+| COMM-TARGET-004 | DD-072 or DD-073 target PlanVersion mismatches | fail closed |
+| COMM-TARGET-005 | restriction targets missing DD-071 entitlement / duplicate control-target | fail closed |
+| COMM-TARGET-006 | DD-073 impact does not exactly cover DD-071 limits or target mode/value differs | fail closed |
+| COMM-TARGET-007 | usage status/aggregate blocker contradicts used-value comparison | fail closed |
+| COMM-TARGET-008 | DD-074 posture fields contradict canonical lifecycle state | fail closed |
+| COMM-TARGET-009 | lifecycle is restricted/non-active | posture attached; entitlement/limit facts are not rewritten |
+| COMM-TARGET-010 | input ordering differs | deterministic immutable final preview is identical |
+| COMM-TARGET-011 | snapshot fact/source-id/fingerprint/remediation/publication authority | NOT CLAIMED; remains separate governed orchestration |

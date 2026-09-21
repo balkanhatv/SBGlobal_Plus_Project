@@ -827,3 +827,13 @@ Resolver-ELIGIBLE add-ons are applied after overrides and remain quota-additive 
 **Boundary / trade-off:** the overlay does not zero entitlement facts/limits, fabricate deny entries, choose restricted-operation identifiers, predict future NEXT_RENEWAL lifecycle, execute dunning/payment policy or authorize reactivation. Restricted capabilities are operation-contract-owned and Subscription state is re-read at apply/runtime, preventing the snapshot from becoming competing authority.
 
 **Consequence:** the deterministic lifecycle stage is executable without widening access. Final target-preview orchestration still requires concrete compliance/security restriction application, production usage-period/reservation binding and final fact/fingerprint materialization before public plan-change apply can be considered.
+
+## DD-075 — Final Commercial target preview composes evidence but is not publication authority
+
+**Context:** DD-071 supplies deterministic plan/adjustment output, DD-072 supplies narrowing-only exact DENY evidence, DD-073 supplies exact-target usage impact, and DD-074 supplies canonical lifecycle posture. The remaining deterministic compiler step is to combine those outputs without turning preview evidence into Billing/remediation/publication authority.
+
+**Decision:** materialize one target-PlanVersion-bound final preview. Apply DD-072 Tenant DENY to the Tenant deny set and Industry DENY as the existing DD-069 type-specific disabled scoped fact. Preserve DD-071 limits. Revalidate DD-073 exact limit coverage, target modes/values, used-value status and aggregate blocker. Recompute DD-074 lifecycle posture from its canonical state and reject any tampered overlay. Preserve versioned restriction/usage evidence and deterministic immutable ordering.
+
+**Boundary / trade-off:** final preview is intentionally not `CommercialCompiledSnapshotFact[]` and not a DD-066 assessment. It does not invent snapshot source IDs/effective windows, marker-to-persistence policy, source fingerprint, blocking impact codes/remediation, concrete policy resolvers, Billing/Workflow evidence or apply authorization.
+
+**Consequence:** the pure target-preview compiler chain through lifecycle is executable. Production/public plan change remains blocked on concrete add-on/compliance/usage source bindings plus assessment/remediation and route-resolution producer orchestration before DD-065 publication.

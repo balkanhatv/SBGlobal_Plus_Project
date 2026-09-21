@@ -50,3 +50,6 @@ Source audit confirmed BR-SUB-04 plus persisted usage_meter/least-privilege read
 
 ## 2026-09-21 — DD-074 subscription lifecycle target overlay
 Source audit confirmed exact F-14/A-04/DD-04 lifecycle posture: GRACE retains full access; SUSPENDED is restricted; EXPIRED/CANCELLED preserve data; PENDING is not activated; Renewed is an event and PAST_DUE is invalid. Added a pure deterministic posture overlay without mutating entitlement facts or inventing restricted operation IDs/future lifecycle prediction.
+
+## 2026-09-21 — DD-075 final target-preview materialization
+Combined verified DD-071…074 evidence into one deterministic target-PlanVersion-bound preview. Compliance/security DENY now uses the already-governed Tenant deny-set / exact Industry disabled-fact representation; usage-impact and lifecycle evidence are revalidated without changing limits or inventing publication/remediation authority. No migration, fingerprint algorithm, concrete policy source, Billing/Workflow evidence or public changePlan binding was added.
