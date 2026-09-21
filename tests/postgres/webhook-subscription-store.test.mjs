@@ -8,6 +8,9 @@ import { RequestScopedSql } from "../../dist/server/database/request-scoped-sql.
 import {
   PostgresWebhookSubscriptionStore,
 } from "../../dist/server/integration/postgres-webhook-subscription-store.js";
+import {
+  PostgresWebhookDeliveryStore,
+} from "../../dist/server/integration/postgres-webhook-delivery-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -34,10 +37,23 @@ const f = Object.fromEntries([
   "activeA",
   "pendingA",
   "activeB",
+  "eventIndustryA",
+  "eventTenantA",
+  "eventIndustryB",
+  "deliveryIndustryA",
+  "deliveryTenantA",
+  "deliveryIndustryB",
+  "correlationIndustryA",
+  "correlationTenantA",
+  "correlationIndustryB",
 ].map((key) => [key, randomUUID()]));
 
 let pool;
 let store;
+let deliveryStore;
+
+const eventTypeIndustry = "webhook.reader.industry." + randomBytes(6).toString("hex");
+const eventTypeTenant = "webhook.reader.tenant." + randomBytes(6).toString("hex");
 
 function contextA(industryContextId = f.industryA1) {
   return Object.freeze({
@@ -172,6 +188,153 @@ before(async () => {
       ],
     );
 
+    await client.query(
+      "SELECT platform_directory.ensure_evidence_month_partitions(date_trunc('month',now())::date)",
+    );
+
+    const fixtureAt = new Date();
+    const completedAt = new Date(fixtureAt.getTime() + 1000);
+    const nextAttemptAt = new Date(fixtureAt.getTime() + 60000);
+
+    await client.query(
+      `INSERT INTO core_integration.event_catalog
+        (event_type,event_version,producer_module,scope_class,payload_schema_json,
+         sensitivity_class,ordering_key,consumer_classes_json,retention_audit_posture,
+         webhook_eligible,backward_compatibility,status,created_at)
+       VALUES
+        ($1,1,'WebhookReaderTest','TENANT_INDUSTRY','{}'::jsonb,'INTERNAL',NULL,
+         '[]'::jsonb,'TEST',true,'NONE','ACTIVE',$3),
+        ($2,1,'WebhookReaderTest','TENANT_CORE','{}'::jsonb,'INTERNAL',NULL,
+         '[]'::jsonb,'TEST',true,'NONE','ACTIVE',$3)`,
+      [eventTypeIndustry, eventTypeTenant, fixtureAt],
+    );
+
+    const events = [
+      [f.eventIndustryA, f.tenantA, f.industryA1, eventTypeIndustry, "TENANT_INDUSTRY", f.correlationIndustryA, "industry-a"],
+      [f.eventTenantA, f.tenantA, null, eventTypeTenant, "TENANT_CORE", f.correlationTenantA, "tenant-a"],
+      [f.eventIndustryB, f.tenantB, f.industryB1, eventTypeIndustry, "TENANT_INDUSTRY", f.correlationIndustryB, "industry-b"],
+    ];
+    for (const [eventId, tenantId, industryContextId, eventType, scopeClass, correlationId, resourceId] of events) {
+      await client.query(
+        "INSERT INTO core_integration.outbox_event_identity(id,created_at) VALUES ($1,$2)",
+        [eventId, fixtureAt],
+      );
+      const envelope = {
+        eventId,
+        eventType,
+        eventVersion: 1,
+        scopeClass,
+        tenantId,
+        ...(industryContextId ? {industryContextId} : {}),
+        actorType: "SERVICE",
+        sourceModule: "WebhookReaderTest",
+        sourceResourceType: "Fixture",
+        sourceResourceId: resourceId,
+        correlationId,
+        occurredAt: fixtureAt.toISOString(),
+        dataSensitivity: "INTERNAL",
+        residencyRegion: "IN-WEBHOOK-READER",
+        payloadSchema: "test.v1",
+        payload: {fixture: true},
+      };
+      await client.query(
+        `INSERT INTO core_integration.outbox_event
+          (id,tenant_id,industry_context_id,event_type,event_version,aggregate_type,
+           aggregate_id,aggregate_version,envelope_jsonb,status,attempt_count,
+           available_at,locked_at,locked_by,dispatched_at,last_error_code,created_at,
+           scope_class)
+         VALUES ($1,$2,$3,$4,1,'Fixture',$5,1,$6::jsonb,'PENDING',0,$7,NULL,NULL,NULL,NULL,$7,$8)`,
+        [
+          eventId,
+          tenantId,
+          industryContextId,
+          eventType,
+          resourceId,
+          JSON.stringify(envelope),
+          fixtureAt,
+          scopeClass,
+        ],
+      );
+    }
+
+    const deliveries = [
+      [
+        f.deliveryIndustryA,
+        f.activeA,
+        f.eventIndustryA,
+        1,
+        "https://example.invalid/hooks/orders",
+        "digest-industry-a",
+        "RETRY_EVIDENCE",
+        503,
+        completedAt,
+        nextAttemptAt,
+        "TRANSPORT_EVIDENCE",
+        f.correlationIndustryA,
+      ],
+      [
+        f.deliveryTenantA,
+        f.activeA,
+        f.eventTenantA,
+        1,
+        "https://example.invalid/hooks/orders",
+        "digest-tenant-a",
+        "PERSISTED_EVIDENCE",
+        null,
+        null,
+        null,
+        null,
+        f.correlationTenantA,
+      ],
+      [
+        f.deliveryIndustryB,
+        f.activeB,
+        f.eventIndustryB,
+        1,
+        "https://foreign.invalid/hook",
+        "digest-industry-b",
+        "PERSISTED_EVIDENCE",
+        202,
+        completedAt,
+        null,
+        null,
+        f.correlationIndustryB,
+      ],
+    ];
+    for (const [
+      deliveryId, subscriptionId, eventId, attemptNo, endpointSnapshot, payloadDigest,
+      status, httpStatus, completed, nextAttempt, errorClass, correlationId,
+    ] of deliveries) {
+      await client.query(
+        `INSERT INTO core_integration.webhook_delivery_identity
+          (id,created_at,subscription_id,event_id,attempt_no)
+         VALUES ($1,$2,$3,$4,$5)`,
+        [deliveryId, fixtureAt, subscriptionId, eventId, attemptNo],
+      );
+      await client.query(
+        `INSERT INTO core_integration.webhook_delivery
+          (id,subscription_id,event_id,attempt_no,endpoint_snapshot,payload_digest,
+           status,http_status,started_at,completed_at,next_attempt_at,error_class,
+           correlation_id,created_at)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$9)`,
+        [
+          deliveryId,
+          subscriptionId,
+          eventId,
+          attemptNo,
+          endpointSnapshot,
+          payloadDigest,
+          status,
+          httpStatus,
+          fixtureAt,
+          completed,
+          nextAttempt,
+          errorClass,
+          correlationId,
+        ],
+      );
+    }
+
     await client.query("COMMIT");
   } catch (error) {
     await client.query("ROLLBACK");
@@ -188,12 +351,12 @@ before(async () => {
     max: 1,
     connectionTimeoutMillis: 5000,
   });
-  store = new PostgresWebhookSubscriptionStore(
-    new RequestScopedSql(new PostgresIntegrationDatabase(pool), {
-      dataHomeId: f.home,
-      regionCode: "IN-WEBHOOK-READER",
-    }),
-  );
+  const scoped = new RequestScopedSql(new PostgresIntegrationDatabase(pool), {
+    dataHomeId: f.home,
+    regionCode: "IN-WEBHOOK-READER",
+  });
+  store = new PostgresWebhookSubscriptionStore(scoped);
+  deliveryStore = new PostgresWebhookDeliveryStore(scoped);
 });
 
 after(async () => {
@@ -203,8 +366,28 @@ after(async () => {
   try {
     await client.query("BEGIN");
     await client.query(
+      "DELETE FROM core_integration.webhook_delivery WHERE id=ANY($1::uuid[])",
+      [[f.deliveryIndustryA, f.deliveryTenantA, f.deliveryIndustryB]],
+    );
+    await client.query(
+      "DELETE FROM core_integration.webhook_delivery_identity WHERE id=ANY($1::uuid[])",
+      [[f.deliveryIndustryA, f.deliveryTenantA, f.deliveryIndustryB]],
+    );
+    await client.query(
+      "DELETE FROM core_integration.outbox_event WHERE id=ANY($1::uuid[])",
+      [[f.eventIndustryA, f.eventTenantA, f.eventIndustryB]],
+    );
+    await client.query(
+      "DELETE FROM core_integration.outbox_event_identity WHERE id=ANY($1::uuid[])",
+      [[f.eventIndustryA, f.eventTenantA, f.eventIndustryB]],
+    );
+    await client.query(
       "DELETE FROM core_integration.webhook_subscription WHERE id=ANY($1::uuid[])",
       [[f.activeA, f.pendingA, f.activeB]],
+    );
+    await client.query(
+      "DELETE FROM core_integration.event_catalog WHERE event_type=ANY($1::text[])",
+      [[eventTypeIndustry, eventTypeTenant]],
     );
     await client.query(
       "DELETE FROM core_identity.tenant_membership WHERE id=ANY($1::uuid[])",
@@ -323,6 +506,105 @@ test("WH-SUB-PG-005 malformed id or route/context mismatch fails closed", async 
         dataHomeId: randomUUID(),
       },
       subscriptionId: f.activeA,
+    }),
+  );
+});
+
+
+test("WH-DEL-PG-001 exact Industry delivery preserves raw persisted attempt evidence", async () => {
+  const delivery = await deliveryStore.loadForContext({
+    requestContext: contextA(),
+    deliveryId: f.deliveryIndustryA,
+  });
+
+  assert.ok(delivery);
+  assert.equal(delivery.id, f.deliveryIndustryA);
+  assert.equal(delivery.subscriptionId, f.activeA);
+  assert.equal(delivery.eventId, f.eventIndustryA);
+  assert.equal(delivery.attemptNo, 1);
+  assert.equal(delivery.endpointSnapshot, "https://example.invalid/hooks/orders");
+  assert.equal(delivery.payloadDigest, "digest-industry-a");
+  assert.equal(delivery.status, "RETRY_EVIDENCE");
+  assert.equal(delivery.httpStatus, 503);
+  assert.equal(delivery.errorClass, "TRANSPORT_EVIDENCE");
+  assert.equal(delivery.correlationId, f.correlationIndustryA);
+  assert.equal(typeof delivery.completedAt, "string");
+  assert.equal(typeof delivery.nextAttemptAt, "string");
+  assert.equal(Object.isFrozen(delivery), true);
+  assert.equal("retryable" in delivery, false);
+  assert.equal("deliverable" in delivery, false);
+});
+
+test("WH-DEL-PG-002 sibling Industry cannot observe delivery whose event is Industry-scoped", async () => {
+  const hidden = await deliveryStore.loadForContext({
+    requestContext: contextA(f.industryA2),
+    deliveryId: f.deliveryIndustryA,
+  });
+  assert.equal(hidden, null);
+
+  const own = await deliveryStore.loadForContext({
+    requestContext: contextA(f.industryA1),
+    deliveryId: f.deliveryIndustryA,
+  });
+  assert.ok(own);
+  assert.equal(own.eventId, f.eventIndustryA);
+});
+
+test("WH-DEL-PG-003 Tenant-Core event delivery is same-Tenant visible from Tenant Core and Industry contexts", async () => {
+  const fromTenant = await deliveryStore.loadForContext({
+    requestContext: tenantCoreA(),
+    deliveryId: f.deliveryTenantA,
+  });
+  const fromIndustry = await deliveryStore.loadForContext({
+    requestContext: contextA(),
+    deliveryId: f.deliveryTenantA,
+  });
+
+  assert.ok(fromTenant);
+  assert.ok(fromIndustry);
+  assert.equal(fromTenant.id, f.deliveryTenantA);
+  assert.equal(fromIndustry.id, f.deliveryTenantA);
+  assert.equal(fromTenant.httpStatus, undefined);
+  assert.equal(fromTenant.completedAt, undefined);
+  assert.equal(fromTenant.nextAttemptAt, undefined);
+  assert.equal(fromTenant.errorClass, undefined);
+});
+
+test("WH-DEL-PG-004 foreign Tenant delivery is hidden by parent subscription/event RLS", async () => {
+  const hidden = await deliveryStore.loadForContext({
+    requestContext: tenantCoreA(),
+    deliveryId: f.deliveryIndustryB,
+  });
+  assert.equal(hidden, null);
+
+  const own = await deliveryStore.loadForContext({
+    requestContext: {
+      ...tenantCoreB(),
+      industryContextId: f.industryB1,
+      scopeClass: "TENANT_INDUSTRY",
+    },
+    deliveryId: f.deliveryIndustryB,
+  });
+  assert.ok(own);
+  assert.equal(own.subscriptionId, f.activeB);
+  assert.equal(own.httpStatus, 202);
+});
+
+test("WH-DEL-PG-005 malformed id or route/context mismatch fails closed", async () => {
+  await assert.rejects(
+    deliveryStore.loadForContext({
+      requestContext: tenantCoreA(),
+      deliveryId: "not-a-uuid",
+    }),
+  );
+
+  await assert.rejects(
+    deliveryStore.loadForContext({
+      requestContext: {
+        ...tenantCoreA(),
+        dataHomeId: randomUUID(),
+      },
+      deliveryId: f.deliveryTenantA,
     }),
   );
 });
