@@ -1,22 +1,20 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`
 
-Development is **IN PROGRESS — COMMERCIAL ATOMIC APPLY / PUBLICATION PREREQUISITES**.
+Development is **IN PROGRESS — COMMERCIAL PRODUCTION ASSESSMENT / PRODUCER ORCHESTRATION PREREQUISITES**.
 
-Verified feature executable `1704259d61c77937eaf866162ca67689dee3b714` / `c5656d68ddc50b480fec63117d267e8a0def1bd2`:
+Verified feature executable `8fa3963f691ccc8d4d913c880556bea5512cc0a3` / `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699`:
 - **265/265 Core PASS**
-- **61/61 PostgreSQL PASS**
-- **46 migrations / 40 verification files bootstrap PASS**
+- **63/63 PostgreSQL PASS**
+- **47 migrations / 41 verification files bootstrap PASS**
 - **Next.js 15.5.25 production build PASS**
 - **Database Verify PASS**
-- **389 blobs / 151 Markdown / 81 source / 57 tests in feature tree**
+- **393 blobs / 153 Markdown / 81 source / 57 tests**
 
-DD-077 now consumes persisted DD-066 evidence through the existing least-privilege Commercial compiler role. It requires the current/latest assessment, exact live Subscription/source/route binding, correct producer-owned latest route evidence, resolved remediation provenance and reached NEXT_RENEWAL effective time.
+DD-078 closes the DD-077 evidence-read→DD-065 mutation transaction gap for the supplied assessment. DD-066 evidence appends and DD-065 publication now serialize on the same Tenant+assessment transaction lock, and current evidence is revalidated before any publication mutation.
 
-This is deliberately a read-only authorization gate. It is **not yet atomic with DD-065 publication**, so it is not sufficient by itself to expose public changePlan.
+This does not create the missing evidence producers. Public plan change remains blocked on concrete DD-076 evaluation/assessment persistence, Billing/Workflow producer runtimes and remaining governed compiler materialization inputs.
 
-Still unfinished: concrete DD-076 evaluator semantics/producer, DD-066 write orchestration, Billing/Workflow producer runtimes, final snapshot fact/source metadata materialization where still unbound, same-transaction evidence validation + DD-065 mutation, and public changePlan.
-
-Next independent governed dependency: source-audit the **DD-077 evidence checks → DD-065 publication transaction atomic binding** and implement only evidence-backed checks inside the existing dedicated compiler transaction.
+Next independent dependency: source-audit **DD-076 prepared assessment → DD-066 assessment persistence/orchestration**. Implement only source-defined producer bindings and keep undefined blocker/diff/fingerprint/dual-route semantics explicit.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

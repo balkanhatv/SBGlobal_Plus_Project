@@ -1,19 +1,19 @@
-# D-CHECKPOINT — DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001
+# D-CHECKPOINT — DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001
 **Updated:** 2026-09-21
 
-Verified feature executable basis `1704259d61c77937eaf866162ca67689dee3b714` / `c5656d68ddc50b480fec63117d267e8a0def1bd2`:
+Verified feature basis `8fa3963f691ccc8d4d913c880556bea5512cc0a3` / `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699`:
 - Core **265/265 PASS**
-- PostgreSQL **61/61 PASS**
-- full DB bootstrap **46 migrations / 40 verification files PASS**
-- Next.js 15.5.25 production build **PASS**
+- PostgreSQL **63/63 PASS**
+- full DB bootstrap **47 migrations / 41 verification files PASS**
+- Next.js 15.5.25 build **PASS**
 - Database Verify **PASS**
-- feature tree **389 blobs / 151 Markdown / 81 source / 57 tests**
+- feature tree **393 blobs / 153 Markdown / 81 source / 57 tests**
 - Industry scope **9 / 41 / 181**
 
-Gate: **IMPLEMENTED / TESTED — DD-077 PERSISTED COMMERCIAL APPLY-EVIDENCE GATE**.
+Gate: **IMPLEMENTED / TESTED — DD-078 ATOMIC PERSISTED-EVIDENCE PUBLICATION BINDING**.
 
-DD-077 consumes current DD-066 evidence fail-closed through the existing compiler role and introduces no new DB authority. It deliberately does not claim same-transaction publication authorization.
+DD-078 closes the same-assessment DD-066 evidence-append race inside DD-065 publication while preserving least privilege and all existing publication validation.
 
-No concrete DD-076 evaluator, Billing/Workflow producer runtime, atomic evidence→DD-065 publication binding or public changePlan completion is claimed.
+No production assessment evaluator/write orchestration, Billing/Workflow producer runtime or public changePlan completion is claimed.
 
-Next: **same-transaction DD-066 evidence validation inside DD-065 publication source audit**.
+Next: **DD-076 prepared assessment → DD-066 persistence/orchestration source audit**.

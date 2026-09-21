@@ -2,15 +2,15 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001",
-  "final_verdict": "DEVELOPMENT IN PROGRESS — DD-077 PERSISTED APPLY-EVIDENCE GATE VERIFIED; ATOMIC EVIDENCE→PUBLICATION BINDING + PRODUCTION PRODUCERS REMAIN",
+  "checkpoint": "DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001",
+  "final_verdict": "DEVELOPMENT IN PROGRESS — DD-078 ATOMIC PERSISTED-EVIDENCE PUBLICATION BINDING VERIFIED; PRODUCTION ASSESSMENT/BILLING/WORKFLOW PRODUCERS + PUBLIC CHANGEPLAN REMAIN",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
     "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD040_DD044_IMPLEMENTATION_OVERLAY",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_COMMERCIAL_ATOMIC_APPLY_PUBLICATION_PREREQUISITES",
+    "development": "IN_PROGRESS_COMMERCIAL_PRODUCTION_ASSESSMENT_PRODUCER_PREREQUISITES",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_BOUNDED_QUERIES_VERIFIED_REST_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
@@ -53,15 +53,15 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "1704259d61c77937eaf866162ca67689dee3b714",
-    "verified_code_tree": "c5656d68ddc50b480fec63117d267e8a0def1bd2",
-    "state_projection_basis_head": "1704259d61c77937eaf866162ca67689dee3b714"
+    "verified_code_head": "8fa3963f691ccc8d4d913c880556bea5512cc0a3",
+    "verified_code_tree": "e79fedbecc4560ebcd5a5d5c876dd4870e7a5699",
+    "state_projection_basis_head": "8fa3963f691ccc8d4d913c880556bea5512cc0a3"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Commercial atomic apply/publication prerequisites",
+    "current_phase": "Commercial production assessment/producer orchestration prerequisites",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -73,9 +73,9 @@
       "apply_verify_harness": "database/scripts/apply-and-verify.sh",
       "ci_workflow": ".github/workflows/database-verify.yml",
       "runtime_postgresql_verification": "PASS",
-      "migration_count": 46,
-      "verification_file_count": 40,
-      "migration_range": "0001-0046",
+      "migration_count": 47,
+      "verification_file_count": 41,
+      "migration_range": "0001-0047",
       "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
       "ci_run_id": 35558948164,
       "ci_job_id": 106207964280,
@@ -98,24 +98,24 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "1704259d61c77937eaf866162ca67689dee3b714",
-      "feature_head_bootstrap_verified_tree": "c5656d68ddc50b480fec63117d267e8a0def1bd2",
-      "feature_head_bootstrap_run_id": 35573131640,
-      "feature_head_bootstrap_job_id": 106248886748,
-      "feature_head_bootstrap_result": "PASS_46_MIGRATIONS_40_VERIFICATION_FILES_PLUS_61_POSTGRES_TESTS"
+      "feature_head_bootstrap_verified_head": "8fa3963f691ccc8d4d913c880556bea5512cc0a3",
+      "feature_head_bootstrap_verified_tree": "e79fedbecc4560ebcd5a5d5c876dd4870e7a5699",
+      "feature_head_bootstrap_run_id": 35576806359,
+      "feature_head_bootstrap_job_id": 106260379658,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_63_POSTGRES_TESTS"
     },
-    "next_action": "Source-audit and bind DD-077 persisted evidence validation into the DD-065 publication transaction. Preserve all current Subscription/target/snapshot revalidation and least-privilege boundaries; do not imply missing production assessment/Billing/Workflow producers exist.",
+    "next_action": "Source-audit DD-076 prepared assessment to DD-066 persistence/orchestration. Implement only source-defined producer binding; do not invent blocker vocabulary, entitlement-diff schema, fingerprint algorithm, route chooser, Billing or Workflow decisions.",
     "core_services": {
-      "checkpoint": "DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001",
+      "checkpoint": "DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040…DD-077 verified shared Core/API/Commercial prerequisite chain plus current audit corrections",
-      "verified_head": "1704259d61c77937eaf866162ca67689dee3b714",
-      "verified_tree": "c5656d68ddc50b480fec63117d267e8a0def1bd2",
-      "core_ci_run_id": 35573131640,
-      "core_ci_job_id": 106248886627,
+      "decision": "DD-040…DD-078 verified shared Core/API/Commercial prerequisite chain plus current audit corrections",
+      "verified_head": "8fa3963f691ccc8d4d913c880556bea5512cc0a3",
+      "verified_tree": "e79fedbecc4560ebcd5a5d5c876dd4870e7a5699",
+      "core_ci_run_id": 35576806359,
+      "core_ci_job_id": 106260379832,
       "tests": "265/265 PASS",
       "core_test_counts": {
         "tests": 265,
@@ -123,18 +123,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35573131640,
-      "postgres_ci_job_id": 106248886748,
-      "postgres_tests": "61/61 PASS",
+      "postgres_ci_run_id": 35576806359,
+      "postgres_ci_job_id": 106260379658,
+      "postgres_tests": "63/63 PASS",
       "postgres_test_counts": {
-        "tests": 61,
-        "pass": 61,
+        "tests": 63,
+        "pass": 63,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35573134878,
-      "database_regression_job_id": 106248896817,
+      "database_regression_run_id": 35576806221,
+      "database_regression_job_id": 106260379214,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -280,7 +280,11 @@
         "DD-077 persisted DD-066 apply-evidence read gate through existing Commercial compiler role",
         "DD-077 latest assessment and latest route-resolution evidence enforcement",
         "DD-077 live Subscription/source/version/Tenant-pointer and current target route-policy revalidation",
-        "DD-077 Billing/Workflow producer ownership, remediation provenance, opaque fingerprint equality and NEXT_RENEWAL timing gate"
+        "DD-077 Billing/Workflow producer ownership, remediation provenance, opaque fingerprint equality and NEXT_RENEWAL timing gate",
+        "DD-078 exact DD-066 assessment binding inside DD-065 publication",
+        "DD-078 Tenant+assessment transaction-lock serialization across DD-066 evidence appends and publication",
+        "DD-078 same-transaction latest assessment/route/remediation/fingerprint/effectiveAt revalidation",
+        "0047 lock-helper least-privilege verification with no compiler evidence DML"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -313,19 +317,17 @@
         "canonical complete Commercial source-fingerprint algorithm",
         "deterministic dual-route chooser for multiple valid target routes",
         "DD-066 assessment write orchestration from DD-076 preparation",
-        "persisted-evidence DD-065 internal apply gate",
-        "atomic DD-077 evidence validation inside DD-065 publication transaction",
         "production DD-076 assessment evaluator implementation",
         "production Billing/payment/proration producer runtime",
-        "production Workflow approval producer runtime"
+        "production Workflow approval producer runtime",
+        "concrete production DD-076 assessment evaluator implementation",
+        "DD-066 assessment persistence orchestration from DD-076 preparation"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
         "actual Billing/payment/proration producer integration",
         "actual Workflow approval producer integration",
-        "internal SATISFIED-evidence apply gate before DD-065 publication",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan binding only after prerequisites",
-        "internal SATISFIED-evidence apply gate before final publication",
         "concrete governed compliance/security restriction resolver source plus restriction application",
         "production usage current-period selector and reserved_value reconciliation semantics",
         "final-preview to DD-066 assessment/DD-065 publication deterministic bridge",
@@ -333,11 +335,13 @@
         "concrete governed compliance/security restriction resolver source",
         "concrete production initial-assessment evaluator for blocking codes/diff/fingerprint/route choice",
         "DD-066 assessment persistence orchestration from prepared DD-076 input",
-        "same-transaction DD-066 evidence validation inside DD-065 publication",
         "concrete production assessment evaluator plus DD-066 assessment-write orchestration",
-        "actual Billing/payment/proration and Workflow approval producer runtimes"
+        "actual Billing/payment/proration and Workflow approval producer runtimes",
+        "concrete production initial-assessment evaluator for blocker/diff/fingerprint/route choice",
+        "DD-076 prepared assessment to DD-066 persistence/orchestration",
+        "public REQUIRED-idempotency core.commercial.subscription.changePlan binding only after producer prerequisites"
       ],
-      "next_action": "Source-audit same-transaction evidence validation inside DD-065 publication; public changePlan remains blocked until atomic binding and producer runtimes are real."
+      "next_action": "Source-audit DD-076 prepared assessment to DD-066 persistence/orchestration; public changePlan remains blocked on concrete evaluator and producer runtimes."
     },
     "application_api_ui_scope_note": "First-party Next.js App Router/tRPC HTTP boundary and three bounded Core queries are implemented/tested; REST/OpenAPI and product UI remain unfinished.",
     "application_services_started": true,
@@ -391,9 +395,9 @@
         "scope": "DD-044 Clerk session-security + PLATFORM_GLOBAL Authorization persistence prerequisite"
       }
     ],
-    "status": "IN_PROGRESS_COMMERCIAL_ATOMIC_APPLY_PUBLICATION_PREREQUISITES"
+    "status": "IN_PROGRESS_COMMERCIAL_PRODUCTION_ASSESSMENT_PRODUCER_PREREQUISITES"
   },
-  "current_phase": "DEVELOPMENT_COMMERCIAL_ATOMIC_APPLY_PUBLICATION_PREREQUISITES",
+  "current_phase": "DEVELOPMENT_COMMERCIAL_PRODUCTION_ASSESSMENT_PRODUCER_PREREQUISITES",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -659,60 +663,46 @@
     "coverage": "Registers/ALL_STAGES_FILE_COVERAGE_2026-09-21.md"
   },
   "current_feature_verification": {
-    "decision": "DD-077",
-    "checkpoint": "DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001",
-    "verified_head": "1704259d61c77937eaf866162ca67689dee3b714",
-    "verified_tree": "c5656d68ddc50b480fec63117d267e8a0def1bd2",
+    "decision": "DD-078",
+    "checkpoint": "DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001",
+    "verified_head": "8fa3963f691ccc8d4d913c880556bea5512cc0a3",
+    "verified_tree": "e79fedbecc4560ebcd5a5d5c876dd4870e7a5699",
     "core": {
-      "run_id": 35573131640,
-      "job_id": 106248886627,
+      "run_id": 35576806359,
+      "job_id": 106260379832,
       "tests": 265,
       "pass": 265,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35573131640,
-      "job_id": 106248886748,
-      "tests": 61,
-      "pass": 61,
+      "run_id": 35576806359,
+      "job_id": 106260379658,
+      "tests": 63,
+      "pass": 63,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35573134878,
-      "job_id": 106248896817,
+      "run_id": 35576806221,
+      "job_id": 106260379214,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35573134842,
-      "job_id": 106248896231,
+      "run_id": 35576806337,
+      "job_id": 106260379640,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 389,
-      "markdown": 151,
+      "blobs": 393,
+      "markdown": 153,
       "source_files": 81,
       "test_files": 57,
-      "migrations": 46,
-      "verification_files": 40
+      "migrations": 47,
+      "verification_files": 41
     },
-    "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD077_VERIFICATION_2026-09-21.md",
-    "failed_attempts": [
-      {
-        "head": "db6d18462419e9d01df27c6fc585b725f220bf39",
-        "reason": "TypeScript optional resolvedAt narrowing failure"
-      },
-      {
-        "head": "2b5b838ef950be6482fdfd259447d83f871cdc90",
-        "reason": "PostgreSQL test fixture UUID/text parameter type inference failure"
-      },
-      {
-        "head": "8aa0b6b2af7f350bd89d05f49bd571843c552344",
-        "reason": "PostgreSQL test fixture violated active-Tenant primary-Industry invariant"
-      }
-    ]
+    "database_schema_change": true,
+    "evidence": "Registers/DEVELOPMENT_DD078_VERIFICATION_2026-09-21.md"
   }
 }

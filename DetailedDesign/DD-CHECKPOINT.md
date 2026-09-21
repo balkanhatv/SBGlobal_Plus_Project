@@ -31,11 +31,11 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-**Current checkpoint:** `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`  
-**Verified feature executable:** `1704259d61c77937eaf866162ca67689dee3b714` / `c5656d68ddc50b480fec63117d267e8a0def1bd2`
+**Current checkpoint:** `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`  
+**Verified feature executable:** `8fa3963f691ccc8d4d913c880556bea5512cc0a3` / `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699`
 
-Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-077**. DD-077 consumes persisted DD-066 evidence through the existing Commercial compiler read boundary and fails closed on stale assessment/subscription/route/fingerprint, unresolved remediation, incorrect route producer and future NEXT_RENEWAL effectiveAt.
+Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-078**. DD-078 binds latest DD-066 assessment/remediation/route evidence into the DD-065 publication transaction and serializes same-assessment evidence appends against publication.
 
-Feature evidence: Core **265/265**, PostgreSQL **61/61 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-077 database migration or privilege change occurred.
+Feature evidence: Core **265/265**, PostgreSQL **63/63 + full 47/41 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. Migration/verification 0047 implements and verifies the transaction-lock protocol without granting compiler evidence DML.
 
-The gate is read-only and remains transactionally separate from DD-065 publication. Next governed dependency is same-transaction evidence validation inside the publication transaction; concrete production assessment/Billing/Workflow producers and public changePlan remain unfinished.
+Concrete DD-076 evaluator/assessment persistence, Billing/Workflow producers and public changePlan remain unfinished. Next governed dependency is the prepared-assessment → DD-066 persistence/orchestration source audit.

@@ -1,21 +1,18 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified feature executable `1704259d61c77937eaf866162ca67689dee3b714`, tree `c5656d68ddc50b480fec63117d267e8a0def1bd2`: **265 Core + 61 PostgreSQL + full 46/40 DB bootstrap + Next.js 15.5.25 build + Database Verify PASS**.
+Verified feature executable `8fa3963f691ccc8d4d913c880556bea5512cc0a3`, tree `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699`: **265 Core + 63 PostgreSQL + full 47/41 DB bootstrap + Next.js build + Database Verify PASS**.
 
-DD-077 is the latest feature decision:
-- persisted DD-066 evidence read through existing Commercial compiler role;
-- requested assessment must be latest and exact-bound;
-- current Subscription/source/version/Tenant pointer revalidated;
-- current target route policy/id/version/enablement revalidated;
-- latest route evidence wins;
-- correct Billing/Workflow producer required;
-- remediation provenance checked;
-- NEXT_RENEWAL effectiveAt enforced;
-- opaque source fingerprint equality enforced.
+DD-078:
+- requires assessment id/version on internal publication;
+- locks Tenant+assessment before evidence reads;
+- serializes all DD-066 evidence inserts on the same transaction lock;
+- revalidates latest assessment, exact compiler fingerprint, remediation, route policy and latest producer-owned SATISFIED route;
+- enforces NEXT_RENEWAL authoritative effectiveAt;
+- then continues all existing DD-065 publication checks/mutations atomically.
 
-Do not overclaim: this read-only gate is not inside the DD-065 mutation transaction, so atomic evidence-to-publication authorization remains unfinished. Production assessment/Billing/Workflow producers and public changePlan remain unimplemented.
+Do not overclaim: no production DD-076 evaluator, DD-066 assessment orchestration, Billing/Workflow producer runtime or public changePlan is implemented.
 
-Next safe slice: bind these evidence checks into the DD-065 publication transaction without weakening current publication guards. RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.
+Next safe slice: audit and close the DD-076 prepared-assessment → DD-066 persistence producer bridge only where source-governed. RawSourceCorpus immutable; `main` unmerged; PR #2 draft.

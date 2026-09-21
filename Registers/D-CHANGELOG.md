@@ -71,3 +71,6 @@ Source audit found no governed blocking-impact code vocabulary, immutable entitl
 
 ## 2026-09-21 — DD-077 persisted Commercial apply-evidence gate
 Implemented read-only same-Tenant consumption of current DD-066 assessment/remediation/route-resolution evidence through the existing Commercial compiler role. The gate requires latest assessment, exact current Subscription/source/route/fingerprint binding, correct producer-owned latest route evidence, remediation provenance and reached NEXT_RENEWAL effectiveAt. Three compile/fixture attempts were not promoted; corrected feature `1704259d61c77937eaf866162ca67689dee3b714` passed 265 Core / 61 PostgreSQL + full DB bootstrap / Web / Database CI. No migration or privilege change was required. Evidence validation is not yet atomic with DD-065 publication, so public changePlan remains unbound.
+
+## 2026-09-21 — DD-078 atomic persisted-evidence publication binding
+Bound exact DD-066 assessment evidence into the DD-065 mutation transaction and added migration 0047 transaction-lock serialization across same Tenant+assessment evidence appends/publication. Feature `8fa3963f691ccc8d4d913c880556bea5512cc0a3` passed 265 Core / 63 PostgreSQL + full 47/41 DB bootstrap / Web / Database CI. Compiler evidence DML remains denied. Production assessment/Billing/Workflow producers and public changePlan remain unfinished.

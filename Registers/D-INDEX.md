@@ -1,21 +1,21 @@
 # D-INDEX — Current Canonical / Development Index
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`
 
 | Layer | Current boundary |
 |---|---|
 | Governance | Active; promotion paths exact-head CI-covered |
 | RawSourceCorpus | Immutable; accepted blobs unchanged |
 | Foundation / Architecture | Revalidated completed scope |
-| Detailed Design | DD-00…DD-31 + implementation decisions through **DD-077** |
-| Development | Shared Core/Authz/Commercial + first-party Next.js/tRPC + DD-063…077 Commercial prerequisites |
-| SQL/CI | 46 migrations / 40 verification files; no DD-077 DB schema change |
+| Detailed Design | DD-00…DD-31 + implementation decisions through **DD-078** |
+| Development | Shared Core/Authz/Commercial + first-party Next.js/tRPC + DD-063…078 Commercial prerequisites |
+| SQL/CI | **47 migrations / 41 verification files** |
 | Industry SQL | 9 Industries / 41 MS / 181 tables; Tenant+Industry/FORCE-RLS verified |
 | DD-075 | deterministic final target preview |
 | DD-076 | server-owned initial-assessment preparation seam |
-| DD-077 | persisted DD-066 apply-evidence read gate; latest evidence/live binding/fingerprint/timing fail-closed |
-| DD-065 publication | atomic Subscription/snapshot/outbox/audit primitive exists but does not yet consume DD-066 evidence in same transaction |
-| Public changePlan | intentionally unbound; concrete producers + atomic evidence/publication orchestration unfinished |
+| DD-077 | persisted DD-066 read-side apply-evidence gate |
+| DD-078 | same-assessment DD-066 evidence validation serialized inside DD-065 publication |
+| Public changePlan | intentionally unbound; concrete assessment/Billing/Workflow producer chain unfinished |
 
-Verified feature basis `1704259d61c77937eaf866162ca67689dee3b714` / `c5656d68ddc50b480fec63117d267e8a0def1bd2`: **265 Core / 61 PostgreSQL PASS + full DB bootstrap + Web + Database Verify**.
+Verified feature basis `8fa3963f691ccc8d4d913c880556bea5512cc0a3` / `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699`: **265 Core / 63 PostgreSQL PASS + full 47/41 DB bootstrap + Web + Database Verify**.
 
-Next: **atomic DD-077 evidence validation inside DD-065 publication transaction**. RawSourceCorpus immutable; `main` unmerged; PR #2 draft.
+Next: **DD-076 prepared assessment → DD-066 persistence/orchestration audit**. RawSourceCorpus immutable; `main` unmerged; PR #2 draft.

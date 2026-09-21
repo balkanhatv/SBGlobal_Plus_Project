@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`
 
-Current Development checkpoint is `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`. Verified feature executable `1704259d61c77937eaf866162ca67689dee3b714` / tree `c5656d68ddc50b480fec63117d267e8a0def1bd2` passes **265 Core + 61 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **389 blobs / 151 Markdown / 81 source / 57 test files**.
+Current Development checkpoint is `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`. Verified feature executable `8fa3963f691ccc8d4d913c880556bea5512cc0a3` / tree `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699` passes **265 Core + 63 PostgreSQL**, full **47 migrations / 41 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **393 blobs / 153 Markdown / 81 source / 57 test files**.
 
-DD-077 now gives the persisted DD-066 evidence substrate executable fail-closed read semantics through the existing Commercial compiler role: latest assessment, live Subscription/source/route binding, correct producer-owned latest route resolution, remediation provenance, fingerprint equality and NEXT_RENEWAL timing.
+DD-078 closes the separate DD-077 read-gate transaction gap for one supplied assessment: DD-066 evidence appends and DD-065 publication use the same Tenant+assessment transaction lock, and latest persisted evidence is revalidated before the existing publication mutation.
 
-This remains a separate read transaction from DD-065 publication. The DD-04 same-authoritative-transaction invariant is therefore still unfinished, and public changePlan remains blocked.
+This closes atomic evidence→publication authorization for the supplied assessment but does not create the missing production assessment evaluator/persistence producer, Billing/payment/proration producer or Workflow approval producer. Public changePlan remains unbound.
 
-Next governed dependency is a source audit of same-transaction DD-066 evidence validation inside DD-065 publication, preserving all current publication guards and least-privilege boundaries.
+Next governed dependency is the DD-076 prepared-assessment → DD-066 persistence/orchestration source audit.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
