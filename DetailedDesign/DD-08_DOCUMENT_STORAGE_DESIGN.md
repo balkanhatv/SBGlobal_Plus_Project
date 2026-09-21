@@ -234,3 +234,25 @@ principal may mutate the session.
 
 **Boundary:** no upload state machine, media/size policy, expiry reducer, StoragePort
 operation, signer, route, migration, role, grant or RLS policy is introduced.
+
+
+## 18. Raw upload-session persistence reader [DD-087]
+
+The persisted `document_upload_session` relation is exposed through a typed raw read
+port only. `DocumentUploadSession` preserves the authoritative Tenant/Industry
+scope, principal, expected media types, max-size class, expiresAt, lifecycle status,
+temporary object reference, expected checksum and createdAt evidence.
+
+`PostgresDocumentUploadSessionStore` reads one session by id through the DD-083
+dedicated Document PostgreSQL role plus `RequestScopedSql`. Migration 0006
+FORCE-RLS remains the visibility authority: sibling Industry sessions are invisible,
+while Tenant Core sessions remain same-Tenant visible.
+
+The reader intentionally does not interpret whether a session is currently usable,
+whether expiresAt has crossed an authorization boundary, whether media/size/checksum
+requirements are satisfied, or whether the current principal owns a future write.
+Those policies and state transitions remain later governed work.
+
+**Boundary:** no upload authorization, state transition engine, media/size policy
+catalog, StoragePort action, signer, route, migration, role, grant or RLS policy is
+introduced.
