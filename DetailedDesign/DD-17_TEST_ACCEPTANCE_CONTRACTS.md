@@ -892,3 +892,13 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-PG-003 | Tenant Core document read from same-Tenant Industry and Tenant Core contexts | visible as Tenant Core metadata in both; no Industry widening |
 | DOC-PG-004 | real PostgreSQL QUARANTINED/non-CLEAN row composed with DD-082 | candidate service rejects before any signer surface |
 | DOC-PG-005 | database route/context mismatch | fail closed before metadata disclosure |
+
+
+### Raw PostgreSQL Document ACL reader — DD-084
+
+| ID | Scenario | Expected |
+|---|---|---|
+| DOC-ACL-PG-001 | same-context ACL rows include ALLOW/DENY and validUntil | immutable typed rows preserve persisted values; no authorization decision |
+| DOC-ACL-PG-002 | sibling Industry document ACL requested from current Industry | parent FORCE-RLS yields no ACL rows; sibling context can read its own |
+| DOC-ACL-PG-003 | Tenant Core document ACL requested from same-Tenant Industry and Tenant Core contexts | same Tenant Core ACL row visible in both |
+| DOC-ACL-PG-004 | persisted ACL row is expired | raw reader still returns expiry/effect evidence; effectiveness is not interpreted |
