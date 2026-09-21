@@ -108,6 +108,15 @@ export class RequestContextService {
       throw new ContextResolutionError("TENANT_INVALID", "Unsupported protected scope.");
     }
 
+    if (authentication.kind === "MACHINE"
+      && (!Array.isArray(authentication.evidence.allowedScopeClasses)
+        || !authentication.evidence.allowedScopeClasses.some(scope => scope === input.scopeClass))) {
+      throw new ContextResolutionError(
+        "CREDENTIAL_INVALID",
+        "The machine credential is not authorized for the requested scope.",
+      );
+    }
+
     const machineBoundTenantId = authentication.kind === "MACHINE"
       ? authentication.evidence.boundTenantId
       : undefined;
@@ -243,7 +252,7 @@ export class RequestContextService {
         ? authentication.evidence.credentialId
         : undefined,
       sessionVersion: authentication.kind === "HUMAN"
-        ? authentication.evidence.sessionVersion
+        ? securityContext.sessionVersion ?? authentication.evidence.sessionVersion
         : undefined,
       authStrength: authentication.kind === "HUMAN"
         ? authentication.evidence.authStrength

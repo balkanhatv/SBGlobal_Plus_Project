@@ -32,6 +32,13 @@ Provider IDs never serve as principal PK.
 ### ServicePrincipal
 represented by PlatformPrincipal principal_type SERVICE plus service metadata: service_code, owning_module, allowed_scope_classes, status.
 
+The verified machine evidence scope allowlist is enforced again during RequestContext
+resolution for every protected Tenant scope, before any Tenant lookup. An Industry
+allowlist does not grant TENANT_CORE, and TENANT_CORE does not grant TENANT_INDUSTRY.
+The generic machine evidence contract grants no EXPLICIT_CROSS_CONTEXT authority.
+Validated Core sessionVersion is projected into human Tenant RequestContext just as
+it is for PLATFORM_GLOBAL; provider metadata does not replace current Core truth.
+
 ### DeviceRegistration
 `id, tenant_id, principal_id, device_fingerprint_hash, platform, status(PENDING/TRUSTED/REVOKED/RISK_HOLD), public_key?, app_instance_id?, last_seen_at, risk_level, registration_version`.
 

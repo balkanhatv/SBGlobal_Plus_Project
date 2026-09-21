@@ -76,9 +76,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
-      "ci_run_id": 35558948164,
-      "ci_job_id": 106207964280,
+      "ci_verified_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
+      "ci_run_id": 35580432342,
+      "ci_job_id": 106271804958,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -90,7 +90,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
+      "ci_verified_tree": "a3bc9ea322a8fa43aaa5e3dc31ee93ffb3e75938",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -102,7 +102,13 @@
       "feature_head_bootstrap_verified_tree": "8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9",
       "feature_head_bootstrap_run_id": 35580023096,
       "feature_head_bootstrap_job_id": 106270493617,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_65_POSTGRES_TESTS"
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_65_POSTGRES_TESTS",
+      "previous_current_ci": {
+        "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
+        "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
+        "ci_run_id": 35558948164,
+        "ci_job_id": 106207964280
+      }
     },
     "next_action": "Source-audit concrete DD-076 evaluator prerequisite ownership. Implement only source-defined pieces; do not invent blocker vocabulary, entitlement-diff schema/producer, complete Commercial fingerprint algorithm, dual-route choice, Billing or Workflow decisions.",
     "core_services": {

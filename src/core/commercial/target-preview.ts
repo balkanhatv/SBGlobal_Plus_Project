@@ -87,6 +87,32 @@ function disabledValue(type:CommercialPrecedenceEntitlementV1["valueType"]):
     case "SET": return Object.freeze([]);
   }
 }
+function entitlementValue(
+  type:CommercialPrecedenceEntitlementV1["valueType"],
+  value:unknown,
+):boolean|number|string|readonly string[]{
+  // Preserve the existing DD-071 value contract at the DD-075 boundary.
+  switch(type){
+    case "BOOLEAN":
+      if(typeof value==="boolean") return value;
+      break;
+    case "INTEGER":
+      if(typeof value==="number" && Number.isSafeInteger(value) && value>=0) return value;
+      break;
+    case "DECIMAL":
+      if(typeof value==="number" && Number.isFinite(value) && value>=0) return value;
+      break;
+    case "TEXT":
+      if(typeof value==="string") return value;
+      break;
+    case "SET":
+      if(Array.isArray(value) && [...value].every(item=>typeof item==="string")){
+        return Object.freeze([...value]);
+      }
+      break;
+  }
+  fail("COMMERCIAL_TARGET_PREVIEW_INPUT_INVALID","Entitlement value does not match its declared type.");
+}
 function copyEntitlement(item:CommercialPrecedenceEntitlementV1):CommercialPrecedenceEntitlementV1{
   const codeValue=code(item.code,"entitlement code");
   const industryContextId=item.industryContextId===undefined
@@ -105,7 +131,7 @@ function copyEntitlement(item:CommercialPrecedenceEntitlementV1):CommercialPrece
     fail("COMMERCIAL_TARGET_PREVIEW_INPUT_INVALID","Marker entitlement must not carry value.");
   }
   const value=item.state==="VALUE"
-    ? (Array.isArray(item.value)?Object.freeze([...item.value]):item.value)
+    ? entitlementValue(item.valueType,item.value)
     : undefined;
   return Object.freeze({
     code:codeValue,

@@ -35,6 +35,8 @@ These are implementation acceptance contracts, not executable test code.
 | ID-014 | Clerk Backend API or internal identity/session-security store is unavailable | DEPENDENCY_UNAVAILABLE; no weaker provider/claim fallback |
 | ID-015 | Clerk fva shows second-factor verification vs first-factor-only | MFA when second-factor age >=0; otherwise baseline PASSWORD; never infer SSO/PHISHING_RESISTANT from fva alone |
 | ID-016 | Clerk custom claim attempts to supply SBGlobal role/permission/entitlement/sessionVersion truth | ignored as authority; current server-owned Core records govern |
+| ID-017 | verified machine evidence omits the requested Tenant scope from allowedScopeClasses | CREDENTIAL_INVALID before Tenant/Industry/directory lookup; no generic cross-context widening |
+| ID-018 | validated Core SessionVersion differs from provider evidence metadata | Tenant RequestContext carries validated Core sessionVersion, consistent with PLATFORM_GLOBAL |
 
 ## 3. Authorization
 | ID | Scenario | Expected |

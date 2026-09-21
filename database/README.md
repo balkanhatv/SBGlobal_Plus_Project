@@ -1,15 +1,16 @@
 # Database Implementation — SBGlobal Plus
 
-**Status:** DEVELOPMENT IN PROGRESS / CURRENT DATABASE PERSISTENCE VERIFIED  
-**Branch:** `docs/architecture-branch-2`  
-**Current repository checkpoint:** [DEV-CORE-PLATFORM-SCOPE-001](../Development/CORE_SERVICE_CHECKPOINT.md)  
+**Status:** DEVELOPMENT IN PROGRESS / CURRENT DATABASE PERSISTENCE VERIFIED
+**Branch:** `docs/architecture-branch-2`
+**Current repository checkpoint:** [current verified Core checkpoint](../Development/CORE_SERVICE_CHECKPOINT.md)
 **Historical SQL checkpoint:** `DEV-DB-CURRENT-STATE-AUDITED-001`
 
 ## Strategy
 PostgreSQL is canonical. No ORM/migration framework is selected by governing truth, so the current implementation is SQL-first and framework-neutral.
 
 ## Migration coverage
-Current migrations: `0001` … `0034`.
+Current migrations: `0001` … `0047`; **47 migrations / 41 SQL verification files**.
+Current exact-commit verification is owned by [DB_CHECKPOINT](../Development/DB_CHECKPOINT.md).
 
 ### Shared Core
 - Tenant + Industry Context / org units
@@ -63,17 +64,26 @@ See [DB_IMPLEMENTATION_MATRIX](../Development/DB_IMPLEMENTATION_MATRIX.md).
 - event catalog, physical scope and envelope metadata must agree; ACTIVE webhooks must be verified;
 - every Industry document reference resolves to exact-scope DocumentMeta, never StorageObject authority.
 
-## Current validation status
+## Historical validation evidence — 2026-09-14
 Commit `0ada4283959ea4abe39a0980574e2dfdcb62e508`: Database Verify run `34823407538`, job `103909903763` — **PASS**, all 32 migrations and 26 verification files including 0099, with the exact branch commit/tree logged. Core Service Verify run `34823407649` additionally passes 40 Core tests and 7 real PostgreSQL adapter/isolation tests after a separate full bootstrap; see [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 ## Historical validation evidence
-Historical run `34736717516`: **PASS for migrations `0001`–`0028`**; its default PR checkout did not prove the exact tested branch commit and it is insufficient for the zero-trust findings.  
+Historical run `34736717516`: **PASS for migrations `0001`–`0028`**; its default PR checkout did not prove the exact tested branch commit and it is insufficient for the zero-trust findings.
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
 This is a clean-database persistence verification harness, not a production upgrade/rollback runner or evidence of application-level RBAC/ABAC, provider calls, deployment, performance, penetration or recovery testing.
 
 - `0033_core_context_read_contracts.sql` — DD-041 compiled Authorization subject/snapshot persistence and DD-042 Current Supported Industry presentation catalog with explicit least-privilege grants.
 
-**Current exact CI:** `3e7b2927…` — Database Verify 35139097903/job 104938820048 PASS (current tree: 34 migrations / 28 verification files); Core Service Verify 35139097825 jobs 104938819674 and 104938820027 PASS (current tree: 47 Core/server + 11 PostgreSQL tests).
+**Historical exact CI (34-migration checkpoint):** `3e7b2927…` — Database Verify 35139097903/job 104938820048 PASS (current tree: 34 migrations / 28 verification files); Core Service Verify 35139097825 jobs 104938819674 and 104938820027 PASS (current tree: 47 Core/server + 11 PostgreSQL tests).
 
 - `0034_platform_global_identity_scope.sql` — DD-043 persisted PLATFORM_GLOBAL machine-credential scope floor; paired RequestContext/RequestScopedSql acceptance prevents ordinary HUMAN/API_CLIENT platform-global use.
+
+## Current Commercial persistence coverage
+
+Migrations 0035–0047 extend platform Authorization persistence/compiler ownership,
+idempotency/rate limiting, context bootstrap reads, Commercial event/catalog and
+compiler isolation, append-only assessment/route/remediation evidence, immutable
+published PlanVersions and atomic evidence/publication serialization.
+The current [DB checkpoint](../Development/DB_CHECKPOINT.md) owns exact commit/CI
+evidence; historical CI above does not certify later migrations.

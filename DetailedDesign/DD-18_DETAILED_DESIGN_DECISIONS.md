@@ -881,3 +881,15 @@ Resolver-ELIGIBLE add-ons are applied after overrides and remain quota-additive 
 **Boundary / trade-off:** this does not create the concrete DD-076 evaluator, blocker vocabulary, entitlement-diff format, fingerprint algorithm, route chooser, remediation reassessment, Billing or Workflow producers. It makes prepared initial evidence durable only after some governed evaluator has produced it.
 
 **Consequence:** once a concrete evaluator exists, its DD-076 output has an executable least-privilege path into the DD-066 evidence chain consumed atomically by DD-078 publication.
+
+## Existing Identity and Commercial contract enforcement corrections — 2026-09-21
+
+Fresh audit at `3dabe35c71e07ff0750095669f025fe9a413e48f` reproduced three runtime
+boundary defects: Tenant machine scope resolution ignored the verified scope
+allowlist; human Tenant context copied provider sessionVersion instead of validated
+Core sessionVersion; DD-075 accepted VALUE payloads incompatible with their declared
+entitlement type. Enforce the existing DD-02/03/043/044 and DD-071/075 contracts at
+those boundaries. No new product semantics, DB grant or decision ID is introduced.
+Regressions are `request-context-boundaries.test.mjs` and
+`commercial-target-preview-values.test.mjs`; no public exploit is inferred from
+these internal-boundary reproductions. First-party web remains human-only.
