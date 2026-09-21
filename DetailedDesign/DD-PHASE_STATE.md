@@ -21,8 +21,7 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 ## 2026-09-21 current overlay
 - Detailed Design phase remains **COMPLETE at its historical gate**.
-- Current implementation decisions are contiguous through **DD-071**.
-- Verified feature evidence: `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / `0792a28622e000beba2e785ce1f0a3282b1fff96`; Core 207/207, PostgreSQL 56/56 + full database bootstrap, Next.js build PASS.
-- DD-071 is an intermediate Commercial target-preview stage only; final target preview remains incomplete.
-- Next governed dependency is the server-owned compliance/security restriction input contract, followed by usage impact and lifecycle overlay.
-
+- Current implementation decisions are contiguous through **DD-072**.
+- Verified feature evidence: `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` / `d7b28ba1310bc77283cc479002052fbde2febe7b`; Core 216/216, PostgreSQL 56/56 + full database bootstrap, Next.js build PASS, Database Verify PASS.
+- DD-072 is a normalized server-owned restriction-input seam only; it does not claim a production compliance/security policy source or final target-preview restriction application.
+- Next independent governed dependency is the usage-meter/BR-SUB-04 source audit and bounded target-impact prerequisite; concrete governed restriction authority/application and lifecycle overlay remain required before final target preview.

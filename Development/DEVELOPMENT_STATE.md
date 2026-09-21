@@ -1,17 +1,19 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-RESTRICTION-INPUT-001`
 
 Development is **IN PROGRESS — COMMERCIAL TARGET PREVIEW RESTRICTION/IMPACT PREREQUISITES**.
 
-Verified feature executable `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / `0792a28622e000beba2e785ce1f0a3282b1fff96`:
-- **207/207 Core PASS**
+Verified feature executable `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` / `d7b28ba1310bc77283cc479002052fbde2febe7b`:
+- **216/216 Core PASS**
 - **56/56 PostgreSQL PASS**
 - **46 migrations / 40 verification files bootstrap PASS**
 - **Next.js 15.5.25 production build PASS**
-- **363 blobs / 74 source / 50 tests in feature tree**
+- **367 blobs / 75 source / 51 tests in feature tree**
 
-DD-071 now implements deterministic baseline → override → resolver-eligible additive add-on precedence with deny-wins and fail-closed meter ambiguity. No concrete eligibility/pricing/payment rule was invented.
+DD-072 now implements the server-owned compliance/security restriction **input seam** over DD-071. It is exact-target and DENY-only, requires versioned evidence and fails closed on missing/ambiguous/unsupported authority. No concrete compliance/security policy source, reducer, legal rule, numeric cap or DB schema was invented.
 
-Next governed dependency: define/bind the **compliance/security restriction input contract** that may only restrict DD-071 output, then usage-meter target-impact and lifecycle overlay. Public changePlan remains unbound.
+Still unfinished: concrete production restriction resolver/source, application of prepared denies, usage-meter target-impact, lifecycle overlay, final publication/apply, Billing/payment/proration, Workflow approval and public changePlan.
+
+Next independent governed dependency: inspect and implement the source-backed **usage-meter target-limit impact evaluator** without treating DD-072 as final restriction enforcement. Final target preview remains blocked until concrete governed restriction authority is bound and applied.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

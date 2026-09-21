@@ -29,7 +29,6 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-Fresh DD-071 implementation evidence at `1c8844ec982ef91cacc3545576d102fbac3fcaf9` creates no new approval-blocked DD ambiguity. The failed `f52f0d1…` attempt was a TypeScript narrowing defect and was not promoted. Corrected DD-071 preserves the governed precedence semantics.
+Fresh DD-072 implementation evidence at `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` creates no new approval-blocked DD ambiguity. DD-072 explicitly records that no authoritative Commercial compliance/security restriction persistence/reducer exists today and therefore locks only a server-owned exact-target DENY-only input seam.
 
-Remaining compliance/security, usage, lifecycle, Billing/Workflow and public changePlan work is unfinished implementation scope. No REVIEW_REQUIRED permission exists to invent those business/policy sources.
-
+Remaining concrete restriction authority/application, usage, lifecycle, Billing/Workflow and public changePlan work is unfinished implementation scope. No REVIEW_REQUIRED permission exists to invent those business/policy sources.

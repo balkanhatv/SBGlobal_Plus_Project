@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001",
-  "final_verdict": "DEVELOPMENT IN PROGRESS — DD-071 DETERMINISTIC COMMERCIAL ADJUSTMENT PRECEDENCE VERIFIED; RESTRICTION/USAGE/LIFECYCLE TARGET-PREVIEW PREREQUISITES NEXT",
+  "checkpoint": "DEV-COMMERCIAL-RESTRICTION-INPUT-001",
+  "final_verdict": "DEVELOPMENT IN PROGRESS — DD-072 SERVER-OWNED COMPLIANCE/SECURITY RESTRICTION INPUT VERIFIED; CONCRETE RESTRICTION AUTHORITY/APPLICATION + USAGE/LIFECYCLE PREREQUISITES REMAIN",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,15 +53,15 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "1c8844ec982ef91cacc3545576d102fbac3fcaf9",
-    "verified_code_tree": "0792a28622e000beba2e785ce1f0a3282b1fff96",
-    "state_projection_basis_head": "1c8844ec982ef91cacc3545576d102fbac3fcaf9"
+    "verified_code_head": "b0ff514b4063b648f8869a7e12008a68ebd8fe5a",
+    "verified_code_tree": "d7b28ba1310bc77283cc479002052fbde2febe7b",
+    "state_projection_basis_head": "b0ff514b4063b648f8869a7e12008a68ebd8fe5a"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Commercial target-preview restriction/impact prerequisites",
+    "current_phase": "Commercial target-preview restriction/usage/lifecycle prerequisites",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -98,33 +98,33 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "1c8844ec982ef91cacc3545576d102fbac3fcaf9",
-      "feature_head_bootstrap_verified_tree": "0792a28622e000beba2e785ce1f0a3282b1fff96",
-      "feature_head_bootstrap_run_id": 35563971430,
-      "feature_head_bootstrap_job_id": 106222014294,
+      "feature_head_bootstrap_verified_head": "b0ff514b4063b648f8869a7e12008a68ebd8fe5a",
+      "feature_head_bootstrap_verified_tree": "d7b28ba1310bc77283cc479002052fbde2febe7b",
+      "feature_head_bootstrap_run_id": 35565135950,
+      "feature_head_bootstrap_job_id": 106225328270,
       "feature_head_bootstrap_result": "PASS_46_MIGRATIONS_40_VERIFICATION_FILES_PLUS_56_POSTGRES_TESTS"
     },
-    "next_action": "Bind server-owned compliance/security restriction inputs that can only restrict DD-071 output; then usage impact and lifecycle overlay. Public changePlan remains unbound.",
+    "next_action": "Source-audit F-14/DD-04 BR-SUB-04 and existing usage_meter ownership, then implement only a bounded usage-meter target-impact prerequisite if authoritative. Final target preview remains blocked on concrete governed compliance/security resolver authority/application plus lifecycle overlay; public changePlan remains unbound.",
     "core_services": {
-      "checkpoint": "DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001",
+      "checkpoint": "DEV-COMMERCIAL-RESTRICTION-INPUT-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040…DD-069 verified shared Core/API/Commercial prerequisite chain plus 2026-09-20 audit correction",
-      "verified_head": "1c8844ec982ef91cacc3545576d102fbac3fcaf9",
-      "verified_tree": "0792a28622e000beba2e785ce1f0a3282b1fff96",
-      "core_ci_run_id": 35563971430,
-      "core_ci_job_id": 106222014138,
-      "tests": "207/207 PASS",
+      "decision": "DD-040…DD-072 verified shared Core/API/Commercial prerequisite chain plus current audit corrections",
+      "verified_head": "b0ff514b4063b648f8869a7e12008a68ebd8fe5a",
+      "verified_tree": "d7b28ba1310bc77283cc479002052fbde2febe7b",
+      "core_ci_run_id": 35565135950,
+      "core_ci_job_id": 106225328049,
+      "tests": "216/216 PASS",
       "core_test_counts": {
-        "tests": 207,
-        "pass": 207,
+        "tests": 216,
+        "pass": 216,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35563971430,
-      "postgres_ci_job_id": 106222014294,
+      "postgres_ci_run_id": 35565135950,
+      "postgres_ci_job_id": 106225328270,
       "postgres_tests": "56/56 PASS",
       "postgres_test_counts": {
         "tests": 56,
@@ -133,8 +133,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35558948164,
-      "database_regression_job_id": 106207964280,
+      "database_regression_run_id": 35565135908,
+      "database_regression_job_id": 106225335240,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -260,7 +260,10 @@
         "2026-09-21 exact-tree 359-blob Vision/current-state audit",
         "DD-071 deterministic baseline -> override -> resolver-eligible additive add-on precedence",
         "DD-071 deny-wins access override handling and unique-meter fail-closed limit mapping",
-        "DD-071 additive FINITE/ADD_ON_ONLY quota handling with deterministic output"
+        "DD-071 additive FINITE/ADD_ON_ONLY quota handling with deterministic output",
+        "DD-072 server-owned compliance/security restriction resolver input seam",
+        "DD-072 exact-existing-target DENY-only restriction normalization with versioned policy/control evidence",
+        "DD-072 fail-closed missing-target/fan-out/ALLOW/numeric-or-opaque restriction semantics"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -279,21 +282,24 @@
         "dynamic user-selected Industry workspace persistence",
         "full Commercial target preview / impact evaluator",
         "actual Billing/payment/proration and Workflow approval producer runtimes",
-        "public core.commercial.subscription.changePlan"
+        "public core.commercial.subscription.changePlan",
+        "concrete production compliance/security restriction resolver/policy source",
+        "application of prepared DD-072 restrictions to the DD-071 target preview",
+        "usage-meter target-limit impact evaluator",
+        "subscription lifecycle target overlay"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
-        "compliance/security restriction inputs into target preview",
         "usage-meter target-limit impact evaluator",
         "actual Billing/payment/proration producer integration",
         "actual Workflow approval producer integration",
         "internal SATISFIED-evidence apply gate before DD-065 publication",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan binding only after prerequisites",
-        "server-owned compliance/security restriction input contract for target preview",
         "subscription lifecycle/grace/suspension target overlay",
-        "internal SATISFIED-evidence apply gate before final publication"
+        "internal SATISFIED-evidence apply gate before final publication",
+        "concrete governed compliance/security restriction resolver source plus restriction application"
       ],
-      "next_action": "Bind compliance/security restriction inputs after DD-071; then usage-meter impact and lifecycle overlay before final target publication."
+      "next_action": "Source-audit usage-meter/BR-SUB-04 semantics for a bounded impact evaluator; keep final preview blocked on concrete governed compliance/security resolver/application and lifecycle overlay."
     },
     "application_api_ui_scope_note": "First-party Next.js App Router/tRPC HTTP boundary and three bounded Core queries are implemented/tested; REST/OpenAPI and product UI remain unfinished.",
     "application_services_started": true,
@@ -615,40 +621,46 @@
     "coverage": "Registers/ALL_STAGES_FILE_COVERAGE_2026-09-21.md"
   },
   "current_feature_verification": {
-    "decision": "DD-071",
-    "checkpoint": "DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001",
-    "verified_head": "1c8844ec982ef91cacc3545576d102fbac3fcaf9",
-    "verified_tree": "0792a28622e000beba2e785ce1f0a3282b1fff96",
-    "failed_unpromoted_attempt": "f52f0d11216792bbf87d10939865fd045aa14b33",
+    "decision": "DD-072",
+    "checkpoint": "DEV-COMMERCIAL-RESTRICTION-INPUT-001",
+    "verified_head": "b0ff514b4063b648f8869a7e12008a68ebd8fe5a",
+    "verified_tree": "d7b28ba1310bc77283cc479002052fbde2febe7b",
     "core": {
-      "run_id": 35563971430,
-      "job_id": 106222014138,
-      "tests": 207,
-      "pass": 207,
+      "run_id": 35565135950,
+      "job_id": 106225328049,
+      "tests": 216,
+      "pass": 216,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35563971430,
-      "job_id": 106222014294,
+      "run_id": 35565135950,
+      "job_id": 106225328270,
       "tests": 56,
       "pass": 56,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
+    "database": {
+      "run_id": 35565135908,
+      "job_id": 106225335240,
+      "conclusion": "success"
+    },
     "web": {
-      "run_id": 35563971387,
-      "job_id": 106222014047,
+      "run_id": 35565135911,
+      "job_id": 106225327863,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 363,
-      "source_files": 74,
-      "test_files": 50,
+      "blobs": 367,
+      "markdown": 141,
+      "source_files": 75,
+      "test_files": 51,
       "migrations": 46,
       "verification_files": 40
     },
-    "evidence": "Registers/DEVELOPMENT_DD071_VERIFICATION_2026-09-21.md"
+    "database_schema_change": false,
+    "evidence": "Registers/DEVELOPMENT_DD072_VERIFICATION_2026-09-21.md"
   }
 }

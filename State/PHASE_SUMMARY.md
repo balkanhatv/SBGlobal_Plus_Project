@@ -1,9 +1,11 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-RESTRICTION-INPUT-001`
 
-Current Development checkpoint is `DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001`. Verified feature executable `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / tree `0792a28622e000beba2e785ce1f0a3282b1fff96` passes **207 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, and the Next.js 15.5.25 production build. Feature tree contains **363 blobs / 74 source / 50 test files**.
+Current Development checkpoint is `DEV-COMMERCIAL-RESTRICTION-INPUT-001`. Verified feature executable `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` / tree `d7b28ba1310bc77283cc479002052fbde2febe7b` passes **216 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, and the Next.js 15.5.25 production build. Feature tree contains **367 blobs / 141 Markdown / 75 source / 51 test files**.
 
-DD-071 now implements only deterministic DD-04 precedence over DD-068 baseline + DD-070 prepared adjustments: deny-wins access overrides, exact unique-meter limit overrides, and resolver-ELIGIBLE quota-additive add-ons. The first attempt `f52f0d1…` failed TypeScript narrowing and was not promoted; corrected `1c8844ec982ef91cacc3545576d102fbac3fcaf9` passed exact feature CI. Target preview is still incomplete: compliance/security restriction input, usage impact, lifecycle overlay, final publication/apply, Billing/Workflow producers and public changePlan remain unfinished.
+DD-072 adds only the server-owned compliance/security restriction-input seam over DD-071: exact-existing entitlement targets, DENY-only normalization, versioned policy/evidence, deterministic immutable output and fail-closed unsupported authority. It adds no DB schema and does not claim a production compliance/security policy source or apply restrictions. Target preview remains incomplete: concrete governed restriction authority/application, usage impact, lifecycle overlay, final publication/apply, Billing/Workflow producers and public changePlan remain unfinished.
+
+Next independent governed dependency is a source audit of F-14/DD-04 BR-SUB-04 plus existing `usage_meter` ownership, followed only by a bounded usage-meter target-impact implementation if the semantics are authoritative. Final preview still requires concrete compliance/security authority/application.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

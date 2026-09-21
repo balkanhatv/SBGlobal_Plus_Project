@@ -31,10 +31,11 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-**Current checkpoint:** `DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001`  
-**Verified feature executable:** `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / `0792a28622e000beba2e785ce1f0a3282b1fff96`
+**Current checkpoint:** `DEV-COMMERCIAL-RESTRICTION-INPUT-001`  
+**Verified feature executable:** `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` / `d7b28ba1310bc77283cc479002052fbde2febe7b`
 
-Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-071**. DD-071 binds only the deterministic baseline → override → resolver-eligible additive add-on precedence stage. It deliberately leaves compliance/security restrictions, usage impact, lifecycle overlay, final publication/apply and producer runtimes outside the slice.
+Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-072**. DD-072 binds only the server-owned compliance/security restriction-input seam over DD-071: exact-existing entitlement targets, DENY-only normalization, bounded versioned evidence and fail-closed unsupported authority.
 
-Feature evidence: Core **207/207**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**. The failed `f52f0d1…` compile attempt was not promoted.
+Feature evidence: Core **216/216**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-072 database migration or privilege change occurred.
 
+A concrete production compliance/security policy source/resolver and actual restriction application remain unfinished. Next independent governed prerequisite is source-backed usage-meter target-impact; lifecycle overlay, final publication/apply and producer runtimes remain later work.

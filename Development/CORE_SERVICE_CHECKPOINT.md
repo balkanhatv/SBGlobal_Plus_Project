@@ -1,40 +1,41 @@
-# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001
+# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-RESTRICTION-INPUT-001
 **Updated:** 2026-09-21  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — DD-071 deterministic adjustment precedence
+**Status:** IMPLEMENTED / TESTED — DD-072 compliance/security restriction input boundary
 
 ## Verified executable basis
-- Commit: `1c8844ec982ef91cacc3545576d102fbac3fcaf9`.
-- Tree: `0792a28622e000beba2e785ce1f0a3282b1fff96`.
-- Core/server acceptance: **207/207 PASS**.
+- Commit: `b0ff514b4063b648f8869a7e12008a68ebd8fe5a`.
+- Tree: `d7b28ba1310bc77283cc479002052fbde2febe7b`.
+- Core/server acceptance: **216/216 PASS**.
 - Real PostgreSQL regression: **56/56 PASS**.
 - Full database bootstrap at the same feature HEAD: **46 migrations / 40 verification files PASS**.
 - Next.js 15.5.25 production build: **PASS**.
-- Feature-tree inventory: **363 blobs / 74 source / 50 test files**.
+- Feature-tree inventory: **367 blobs / 75 source / 51 test files**.
 
-## DD-071 executable boundary
-- consumes only DD-068 resolved baseline + DD-070 prepared adjustments;
-- exact-scope DENY beats ALLOW; multiple ALLOW rows without DENY fail ambiguous;
-- Tenant DENY produces Tenant deny-set; Industry DENY produces scoped disabled value;
-- LIMIT_SET/LIMIT_DELTA require exactly one target meter for the exact entitlement scope; zero target fails invalid, multiple targets fail ambiguous;
-- LIMIT_SET replaces with FINITE; LIMIT_DELTA requires FINITE and a valid non-negative result;
-- resolver-ELIGIBLE add-ons apply after overrides and remain quota-additive only;
-- TENANT/INDUSTRY_CODE/LICENSED_INDUSTRIES selectors resolve only against already-resolved limit targets;
-- FINITE accumulates; ADD_ON_ONLY begins at zero; NOT_INCLUDED/UNLIMITED reject additive quota application;
+## DD-072 executable boundary
+- requires a resolved SERVICE + TENANT_CORE RequestContext before resolver execution;
+- gives the server-owned resolver only the exact target PlanVersion id plus the immutable DD-071 intermediate preview;
+- rebinds resolver output to that exact target PlanVersion and requires bounded policyVersion/evidenceReference;
+- v1 accepts only exact existing entitlement **DENY** targets, optionally exact-Industry scoped, with a controlCode;
+- missing targets, selector fan-out/guessing, ALLOW, numeric/opaque effects, duplicate control-target tuples, malformed evidence and stale target binding fail closed;
+- resolver dependency failure never becomes an implicit empty/allow-like restriction set;
 - output is immutable and deterministic.
 
-The first implementation commit `f52f0d11216792bbf87d10939865fd045aa14b33` failed TypeScript narrowing and was not promoted. Corrected `1c8844ec982ef91cacc3545576d102fbac3fcaf9` passed all feature gates above.
+DD-072 deliberately adds **no database table/migration/role**, legal or regulatory business rule, numeric security cap, generic RESTRICT reducer or client-supplied policy authority. It prepares restriction authority only; it does not yet apply the prepared denies to produce a final target preview.
+
+DD-071 remains the verified predecessor. Its failed `f52f0d1…` compile attempt stays historical/non-promoted; corrected DD-071 feature basis `1c8844ec982ef91cacc3545576d102fbac3fcaf9` remains preserved in history.
 
 ## Still unfinished
 - concrete production add-on eligibility resolver/business rules;
-- compliance/security restriction precedence;
+- concrete governed compliance/security restriction source/resolver;
+- application of prepared DD-072 denies to the DD-071 preview;
 - usage-meter target-impact evaluation;
-- suspension/grace target overlay;
+- suspension/grace lifecycle overlay;
 - final target snapshot/publication/apply gate;
 - Billing/payment/proration + Workflow approval producers;
 - public `core.commercial.subscription.changePlan`;
 - broad REST/OpenAPI and product UI/deployment readiness.
 
-**Next governed work:** compliance/security restriction input contract before final target preview; do not invent policy sources or producer behavior.
+**Next governed work:** usage-meter target-limit impact can proceed as an independent prerequisite only after source-contract recheck; final target preview remains blocked on a concrete governed restriction resolver plus restriction application. Do not invent policy sources or producer behavior.
 
-Evidence: `Registers/DEVELOPMENT_DD071_VERIFICATION_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD072_VERIFICATION_2026-09-21.md`.
