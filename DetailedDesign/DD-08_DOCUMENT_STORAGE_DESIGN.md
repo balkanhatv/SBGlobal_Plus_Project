@@ -184,3 +184,31 @@ interpret expiry or effect.
 source-resource fallback, filter validUntil, apply explicit-deny precedence, return
 ALLOW/DENY authorization, compose sensitivity/residency/step-up policy or sign
 storage access.
+
+
+## 17. Linked physical StorageObject binding [DD-086]
+
+Private physical object metadata may be resolved only through an RLS-visible
+DocumentMeta row. `PostgresDocumentStorageBindingStore` accepts the resolved
+Tenant RequestContext plus the exact document id and storageObjectId already carried
+by the DD-082 candidate, then joins `document_meta` to `storage_object` inside the
+DD-083 dedicated Document PostgreSQL role.
+
+The lookup requires:
+- exact DocumentMeta → StorageObject linkage;
+- current RequestContext Data Home equals StorageObject data_home_id;
+- DocumentMeta ACTIVE + CLEAN;
+- StorageObject ACTIVE.
+
+Only after those predicates pass may server-internal Document code receive the
+physical locator tuple (bucket class, object key/version, checksum, size, encryption
+key reference and optional encrypted provider reference). The tuple is not
+authorization and is never a client/transport response.
+
+This concretely preserves P2-STO-001: possession of an object id/key cannot bypass
+DocumentMeta/RLS authority. Unsafe or quarantined object state also cannot progress
+toward signing.
+
+**Boundary:** DD-086 does not decrypt provider references, choose a provider, sign a
+URL/token, define TTL, evaluate ACL/permission/entitlement/step-up/residency
+exceptions, expose a route, or add SQL/role/grant/RLS changes.
