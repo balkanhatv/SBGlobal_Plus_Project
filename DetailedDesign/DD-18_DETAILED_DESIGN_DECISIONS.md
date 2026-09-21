@@ -1117,3 +1117,30 @@ grant, expose a route or change SQL/roles/privileges.
 
 **Acceptance:** DOC-UP-PG-001…005 in DD-17 and
 `tests/postgres/document-access-metadata-store.test.mjs`.
+
+
+## DD-087 — Document upload-session persistence is readable without inventing upload policy/state semantics
+
+**Context:** DD-08 defines the upload-session fields/lifecycle, migration 0006 owns
+the exact table/FORCE-RLS policy, migration 0031 validates the session principal, and
+migration 0028 already gives the dedicated Document service role access. Exact
+max-size-class semantics, media policy source, expiry authorization boundary and full
+transition orchestration are not yet executable source-owned rules.
+
+**Decision:** add typed `DocumentUploadSessionReadPort` and concrete
+`PostgresDocumentUploadSessionStore`. The store reads one RLS-visible session by
+UUID inside the existing dedicated Document database/request scope and maps the raw
+persisted facts immutably.
+
+**Security / trade-off:** sibling Industry sessions remain undiscoverable and Tenant
+Core rows stay tenant-scoped. Status/expiresAt are evidence only at this layer; the
+reader does not turn them into an allow/deny or mutation right. This avoids silently
+inventing upload policy while making authoritative state available to later governed
+orchestration.
+
+**Boundary:** no usability decision, expiry reducer, upload ownership check for
+mutation, media/size/checksum evaluator, state transition, StoragePort operation,
+route or schema/privilege change is claimed.
+
+**Acceptance:** DOC-UP-PG-001…005 in DD-17 and
+`tests/postgres/document-access-metadata-store.test.mjs`.
