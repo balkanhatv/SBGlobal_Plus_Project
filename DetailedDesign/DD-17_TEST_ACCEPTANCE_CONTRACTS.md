@@ -764,3 +764,20 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-TARGET-009 | lifecycle is restricted/non-active | posture attached; entitlement/limit facts are not rewritten |
 | COMM-TARGET-010 | input ordering differs | deterministic immutable final preview is identical |
 | COMM-TARGET-011 | snapshot fact/source-id/fingerprint/remediation/publication authority | NOT CLAIMED; remains separate governed orchestration |
+
+### Commercial initial assessment preparation — DD-076
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-ASSESS-001 | no governed blockers | version 1 preparation; remediationState=NOT_REQUIRED |
+| COMM-ASSESS-002 | governed blockers present | sorted blockers; remediationState=PENDING |
+| COMM-ASSESS-003 | DD-073 has blocking usage but evaluator returns no blocker | fail closed; BR-SUB-04 blocker cannot disappear |
+| COMM-ASSESS-004 | non-usage governed blocker with usage non-blocking | PENDING is allowed |
+| COMM-ASSESS-005 | evaluator receives Subscription/source/target/version/timing + exact DD-075 preview | exact server-owned binding |
+| COMM-ASSESS-006 | DD-075/evaluator target differs from requested target | fail closed |
+| COMM-ASSESS-007 | duplicate/malformed/oversized blocking codes | fail closed |
+| COMM-ASSESS-008 | malformed route/evidence/fingerprint | fail closed |
+| COMM-ASSESS-009 | HUMAN / TENANT_INDUSTRY / unresolved Tenant context | fail closed before evaluator |
+| COMM-ASSESS-010 | source PlanVersion equals target | fail before evaluator |
+| COMM-ASSESS-011 | same evidence prepared repeatedly | deterministic immutable output |
+| COMM-ASSESS-012 | concrete blocker vocabulary/diff format/fingerprint/dual-route chooser | NOT CLAIMED; production evaluator remains required |

@@ -555,3 +555,20 @@ Materialization rules:
 - all output is deterministic, immutable and target-PlanVersion bound.
 
 **Boundary:** this is the final **preview** object, not an EntitlementSnapshot publication payload. It does not derive DD-066 blocking codes/remediation, resolve missing production policy sources, choose snapshot source IDs/effective windows, convert all plan markers into persistence facts, compute source fingerprint, authorize Billing/Workflow evidence, invoke DD-065 publication or expose public changePlan.
+
+## 25. Initial plan-change assessment preparation v1 [DD-076]
+
+DD-075 provides deterministic final target-preview evidence, but DD-066 assessment persistence additionally requires governed route selection, immutable impact/diff references, blocking-impact codes and a source fingerprint. The current source does not define the concrete impact-code vocabulary, entitlement-diff evidence schema, complete Commercial fingerprint algorithm or deterministic dual-route chooser.
+
+DD-076 therefore locks the authority seam rather than inventing those semantics:
+- only SERVICE + TENANT_CORE may prepare an assessment;
+- input is bound to exact Subscription id, source/target PlanVersion ids, expected Subscription version, effective timing and the DD-075 final preview;
+- a server-owned `CommercialInitialAssessmentEvaluatorPort` owns route selection plus impact/diff/fingerprint evidence production;
+- evaluator target PlanVersion must exactly match DD-075 and the requested target;
+- route class is exactly `SELF_SERVE | SALES_ASSISTED`, with UUID route-policy id and positive policy version;
+- impact/diff references and source fingerprint are bounded opaque server evidence;
+- blocking impact codes are bounded, unique and deterministically sorted;
+- if DD-073 reports blocking usage, an empty blocker set is rejected so BR-SUB-04 cannot be silently bypassed;
+- initial assessment remediation is derived as `PENDING` when blockers exist and `NOT_REQUIRED` otherwise. Initial `SATISFIED` is impossible; later SATISFIED reassessment remains DD-066 remediation-evidence governed.
+
+The output maps to the non-ID fields required by `PlanChangeEvidenceService.recordAssessment` at `assessmentVersion=1`, but DD-076 itself does not persist evidence or claim a production evaluator implementation.

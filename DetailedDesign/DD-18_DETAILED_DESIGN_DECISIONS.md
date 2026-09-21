@@ -837,3 +837,13 @@ Resolver-ELIGIBLE add-ons are applied after overrides and remain quota-additive 
 **Boundary / trade-off:** final preview is intentionally not `CommercialCompiledSnapshotFact[]` and not a DD-066 assessment. It does not invent snapshot source IDs/effective windows, marker-to-persistence policy, source fingerprint, blocking impact codes/remediation, concrete policy resolvers, Billing/Workflow evidence or apply authorization.
 
 **Consequence:** the pure target-preview compiler chain through lifecycle is executable. Production/public plan change remains blocked on concrete add-on/compliance/usage source bindings plus assessment/remediation and route-resolution producer orchestration before DD-065 publication.
+
+## DD-076 — Initial assessment uses a server-owned evaluator seam; missing impact semantics are not invented
+
+**Context:** DD-075 now produces the final target preview, while DD-066 requires a persisted assessment carrying route evidence, impact/diff references, blocking codes, remediation state and source fingerprint. The repository still lacks a concrete blocking-code vocabulary, entitlement-diff evidence schema, canonical full Commercial fingerprint algorithm and deterministic route chooser when multiple target routes are enabled.
+
+**Decision:** add a SERVICE/TENANT_CORE-only initial-assessment preparation service backed by a server-owned evaluator port. The evaluator receives exact Subscription/source/target/version/timing plus DD-075. Its normalized result must rebind to the same target, carry valid route policy identity/version, bounded impact/diff references, bounded unique impact codes and an opaque bounded fingerprint. Preparation sorts blockers and derives initial remediation strictly as PENDING when blockers exist, otherwise NOT_REQUIRED. If DD-073 reports blocking usage, at least one blocker is mandatory.
+
+**Boundary / trade-off:** DD-076 never permits initial SATISFIED, never chooses remediation, never defines impact-code/diff/fingerprint/dual-route semantics and does not write DD-066 evidence or call DD-065 publication. Those remain production evaluator/orchestration responsibilities.
+
+**Consequence:** the final preview can now be handed to one explicit server-owned assessment-authority seam without allowing caller-supplied impact/remediation authority or silently losing a known usage blocker.
