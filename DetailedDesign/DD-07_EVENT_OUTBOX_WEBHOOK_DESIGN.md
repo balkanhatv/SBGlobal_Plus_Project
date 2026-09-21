@@ -175,3 +175,28 @@ Payload interpretation is a separate injected catalog-schema validator and runs
 only after metadata/catalog/scope validation succeeds. This boundary does not
 select a JSON-schema engine, add an event catalog entry, poll the outbox, schedule
 retry/DLQ work, sign a webhook, resolve endpoint networks or expose a route.
+
+
+## 17. Raw Webhook Subscription persistence reader [DD-088]
+
+The persisted `webhook_subscription` relation is exposed to server-side Integration
+code through a typed raw read port. `WebhookSubscription` preserves Tenant owner,
+name, endpoint URL, status, secret version, event-filter JSON, allowed Industry
+Context ids, optional permission profile, creator and verification/audit timestamps.
+
+`PostgresWebhookSubscriptionStore` reads one subscription through
+`RequestScopedSql` under dedicated `PostgresIntegrationDatabase`, which fixes the
+existing migration-0028 `sbg_integration_service_rw` NOBYPASSRLS role.
+WebhookSubscription FORCE-RLS remains Tenant-only: foreign Tenant rows are invisible,
+while a same-Tenant subscription remains visible from Tenant Core or Tenant Industry
+request context.
+
+The reader validates the persisted shape and the already-owned integrity floor:
+positive secret version, object event filter, unique UUID context list, valid status,
+and non-null verification evidence for ACTIVE. It does **not** execute or trust the
+endpoint, decide whether the endpoint is safe, evaluate event filters, access secret
+plaintext, or decide whether delivery may occur.
+
+**Boundary:** no verification challenge, DNS/IP resolution, redirects, SSRF policy,
+secret generation/decryption/rotation overlap, signature algorithm, delivery worker,
+retry/DLQ behavior, public route, migration, role, grant or RLS policy is introduced.
