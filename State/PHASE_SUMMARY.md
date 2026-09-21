@@ -1,9 +1,9 @@
 # PHASE_SUMMARY — SBGlobal Plus
 **Updated:** 2026-09-21
 
-Current Development checkpoint is `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`. Verified executable `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / tree `db85be98f256fd856635fc178ab3220b97d01ba3` passes **199 Core + 56 PostgreSQL**, **46 migrations / 40 verification files**, and the Next.js 15.5.25 production build/lock/clean-state gate. Fresh exact-tree audit covered **359 blobs / 73 source / 49 test files** and revalidated **9 Industries / 41 canonical MS / 181 Industry tables**.
+Current Development checkpoint is `DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001`. Verified feature executable `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / tree `0792a28622e000beba2e785ce1f0a3282b1fff96` passes **207 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, and the Next.js 15.5.25 production build. Feature tree contains **363 blobs / 74 source / 50 test files**.
 
-DD-070 remains the latest governed feature slice: active same-Tenant adjustment-source reads plus a server-owned eligibility resolver seam. The 2026-09-21 targeted correction adds no new pricing or eligibility rule; it enforces the already-governed immutable published PlanVersion contract and fail-closed runtime Commercial state/value-type validation. The next governed feature is deterministic DD-04 baseline → override → resolver-eligible add-on precedence, with non-unique LIMIT_SET/LIMIT_DELTA meter mapping denied rather than guessed.
+DD-071 now implements only deterministic DD-04 precedence over DD-068 baseline + DD-070 prepared adjustments: deny-wins access overrides, exact unique-meter limit overrides, and resolver-ELIGIBLE quota-additive add-ons. The first attempt `f52f0d1…` failed TypeScript narrowing and was not promoted; corrected `1c8844ec982ef91cacc3545576d102fbac3fcaf9` passed exact feature CI. Target preview is still incomplete: compliance/security restriction input, usage impact, lifecycle overlay, final publication/apply, Billing/Workflow producers and public changePlan remain unfinished.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -241,4 +241,5 @@ Verified executable `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`, tree `a1cc883564
 Current checkpoint: **`DEV-AUTHZ-COMPILER-001`**. Publication uses exact SERVICE scope, v1 validation, subject locking, CURRENT→SUPERSEDED transition, monotonically increasing pointer/version, invalidation without version reuse/decrement, and separate Tenant/Industry versus PLATFORM_GLOBAL paths.
 
 Next governed work: **Commercial current-state integration only**.
+
 

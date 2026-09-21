@@ -31,10 +31,10 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-**Current checkpoint:** `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`  
-**Verified executable:** `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / `db85be98f256fd856635fc178ab3220b97d01ba3`
+**Current checkpoint:** `DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001`  
+**Verified feature executable:** `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / `0792a28622e000beba2e785ce1f0a3282b1fff96`
 
-The historical Phase-3 DD completion gate remains preserved. Current implementation decisions now extend contiguously through **DD-070**. Fresh exact-tree audit re-read current authoritative DD and executable dependencies, confirmed no new P0/P1 DD ambiguity, and verified the 2026-09-21 PlanVersion/runtime-enum changes as enforcement of existing F-14/A-04/DD-04 contracts rather than a new business rule.
+Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-071**. DD-071 binds only the deterministic baseline → override → resolver-eligible additive add-on precedence stage. It deliberately leaves compliance/security restrictions, usage impact, lifecycle overlay, final publication/apply and producer runtimes outside the slice.
 
-Exact evidence: Core **199/199**, PostgreSQL **56/56**, Database **46 migrations / 40 verification files**, Next.js 15.5.25 build **PASS**. Next feature design/implementation boundary is deterministic DD-04 precedence over DD-068 baseline + DD-070 prepared adjustments; ambiguous limit-meter mapping must fail closed.
+Feature evidence: Core **207/207**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**. The failed `f52f0d1…` compile attempt was not promoted.
 

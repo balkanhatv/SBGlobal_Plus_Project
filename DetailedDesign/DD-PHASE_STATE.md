@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`
+**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -20,9 +20,9 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## 2026-09-21 current overlay
-- Detailed Design phase remains **COMPLETE at its historical gate**; it is not re-certified by Development labels.
-- Current implementation decisions are contiguous through **DD-070**.
-- Fresh repository audit found **no new current-scope P0/P1 DD ambiguity**.
-- Verified implementation evidence: `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / `db85be98f256fd856635fc178ab3220b97d01ba3`; Core 199/199, PostgreSQL 56/56, 46 migrations / 40 verification files, Next.js build PASS.
-- Next governed implementation slice: deterministic baseline → override → resolver-eligible add-on precedence with ambiguous LIMIT_SET/LIMIT_DELTA meter mapping fail-closed.
+- Detailed Design phase remains **COMPLETE at its historical gate**.
+- Current implementation decisions are contiguous through **DD-071**.
+- Verified feature evidence: `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / `0792a28622e000beba2e785ce1f0a3282b1fff96`; Core 207/207, PostgreSQL 56/56 + full database bootstrap, Next.js build PASS.
+- DD-071 is an intermediate Commercial target-preview stage only; final target preview remains incomplete.
+- Next governed dependency is the server-owned compliance/security restriction input contract, followed by usage impact and lifecycle overlay.
 

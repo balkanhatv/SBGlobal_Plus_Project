@@ -1,20 +1,19 @@
 # D-INDEX — Current Canonical / Development Index
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001`
 
 | Layer | Current boundary |
 |---|---|
-| Governance | Active; exact-head CI-covered current-state promotion paths |
+| Governance | Active; promotion paths exact-head CI-covered |
 | RawSourceCorpus | Immutable; accepted blobs unchanged |
-| Foundation / Architecture | Revalidated completed scope; active stack/context/effective-access contracts remain aligned |
-| Detailed Design | DD-00…DD-31 + implementation decisions through DD-070; 2026-09-21 contract-enforcement correction reconciled |
-| Development | Shared Core/Authz/Commercial kernel + first-party Next.js/tRPC + workspace/current-entitlements + DD-063…070 prerequisites tested |
-| SQL/CI | 46 migrations / 40 verification files; exact-head PostgreSQL bootstrap green |
-| Industry SQL | 9 Industries / 41 canonical MS / 181 registered tables; Tenant+Industry ownership + FORCE RLS verified |
-| First-party web | Next.js 15.5.25 App Router composition + bounded Core queries verified |
-| REST/OpenAPI | Not started / not claimed |
-| Public changePlan | Intentionally unbound; precedence/impact + Billing/approval producers unfinished |
+| Foundation / Architecture | Revalidated completed scope |
+| Detailed Design | DD-00…DD-31 + implementation decisions through **DD-071** |
+| Development | Shared Core/Authz/Commercial + first-party Next.js/tRPC + DD-063…071 Commercial prerequisites |
+| SQL/CI | 46 migrations / 40 verification files; no DD-071 DB schema change |
+| Industry SQL | 9 Industries / 41 MS / 181 tables; Tenant+Industry/FORCE-RLS verified |
+| First-party web | Next.js 15.5.25 App Router composition verified |
+| DD-071 | baseline → override → eligible additive add-on precedence verified |
+| Public changePlan | intentionally unbound; restriction/usage/lifecycle/apply producers unfinished |
 
-Verified executable basis `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / `db85be98f256fd856635fc178ab3220b97d01ba3`: **199 Core / 56 PostgreSQL PASS**, Database bootstrap PASS, Next.js production build PASS.
+Verified feature basis `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / `0792a28622e000beba2e785ce1f0a3282b1fff96`: **207 Core / 56 PostgreSQL PASS + full DB bootstrap + Web build**.
 
-Audit register: `ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-21.md`.  
-Next: **deterministic DD-04 baseline → override → resolver-eligible add-on precedence**. RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.
+Next: **compliance/security restriction input contract**, then usage impact/lifecycle overlay. RawSourceCorpus immutable; `main` unmerged; PR #2 draft.

@@ -1,23 +1,18 @@
-# D-CHECKPOINT — DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001
+# D-CHECKPOINT — DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001
 **Updated:** 2026-09-21
 
-Verified executable basis `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / `db85be98f256fd856635fc178ab3220b97d01ba3`:
-- Core **199/199 PASS**
+Verified feature executable basis `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / `0792a28622e000beba2e785ce1f0a3282b1fff96`:
+- Core **207/207 PASS**
 - PostgreSQL **56/56 PASS**
-- Database **46 migrations / 40 verification files PASS**
-- Next.js 15.5.25 build / deterministic lock / generated-state cleanliness **PASS**
-- Industry scope **9 Industries / 41 canonical MS / 181 registered tables**
-- Exact-tree audit **359 blobs / 73 source / 49 tests**
+- full DB bootstrap **46 migrations / 40 verification files PASS**
+- Next.js 15.5.25 production build **PASS**
+- feature tree **363 blobs / 74 source / 50 tests**
+- Industry scope **9 / 41 / 181**
 
-Gate: **IMPLEMENTED / TESTED — CURRENT-STATE AUDIT CORRECTION OVER DD-070**.
+Gate: **IMPLEMENTED / TESTED — DD-071 DETERMINISTIC ADJUSTMENT PRECEDENCE**.
 
-Correction scope:
-- preserve DD-070 active adjustment-source + eligibility-ownership feature boundary;
-- enforce existing published PlanVersion immutability physically through migration 0046;
-- reject unknown Commercial subscription/value-type runtime inputs before access/projection/publication;
-- synchronize stale current State/Development/Checkpoint projections to exact verified evidence;
-- preserve all historical checkpoint sections, RawSourceCorpus and `main`.
+The failed `f52f0d1…` compile attempt is historical and not promoted. Corrected `1c8844ec982ef91cacc3545576d102fbac3fcaf9` preserves the same bounded semantics and passes feature CI.
 
-No new Commercial eligibility, precedence, money, approval or public changePlan rule is claimed.
+No production eligibility, compliance/security, usage, lifecycle, Billing/payment, Workflow approval or public changePlan completion is claimed.
 
-Next: **deterministic baseline → override → resolver-eligible add-on precedence** with ambiguous meter mapping fail-closed.
+Next: **server-owned compliance/security restriction input contract**.

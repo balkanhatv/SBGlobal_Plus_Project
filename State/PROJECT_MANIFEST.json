@@ -2,15 +2,15 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001",
-  "final_verdict": "DEVELOPMENT IN PROGRESS — 2026-09-21 EXACT-TREE AUDIT / PLANVERSION IMMUTABILITY CORRECTION VERIFIED; DD-070 LAST FEATURE SLICE; DETERMINISTIC ADJUSTMENT PRECEDENCE NEXT",
+  "checkpoint": "DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001",
+  "final_verdict": "DEVELOPMENT IN PROGRESS — DD-071 DETERMINISTIC COMMERCIAL ADJUSTMENT PRECEDENCE VERIFIED; RESTRICTION/USAGE/LIFECYCLE TARGET-PREVIEW PREREQUISITES NEXT",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
     "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD040_DD044_IMPLEMENTATION_OVERLAY",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_COMMERCIAL_ADJUSTMENT_PRECEDENCE",
+    "development": "IN_PROGRESS_COMMERCIAL_TARGET_PREVIEW_RESTRICTION_IMPACT_PREREQUISITES",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_BOUNDED_QUERIES_VERIFIED_REST_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
@@ -53,15 +53,15 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
-    "verified_code_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
-    "state_projection_basis_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e"
+    "verified_code_head": "1c8844ec982ef91cacc3545576d102fbac3fcaf9",
+    "verified_code_tree": "0792a28622e000beba2e785ce1f0a3282b1fff96",
+    "state_projection_basis_head": "1c8844ec982ef91cacc3545576d102fbac3fcaf9"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Commercial adjustment precedence",
+    "current_phase": "Commercial target-preview restriction/impact prerequisites",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -97,29 +97,34 @@
         "ci_job_id": 103841023234,
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
-      }
+      },
+      "feature_head_bootstrap_verified_head": "1c8844ec982ef91cacc3545576d102fbac3fcaf9",
+      "feature_head_bootstrap_verified_tree": "0792a28622e000beba2e785ce1f0a3282b1fff96",
+      "feature_head_bootstrap_run_id": 35563971430,
+      "feature_head_bootstrap_job_id": 106222014294,
+      "feature_head_bootstrap_result": "PASS_46_MIGRATIONS_40_VERIFICATION_FILES_PLUS_56_POSTGRES_TESTS"
     },
-    "next_action": "Implement bounded DD-04 baseline -> override -> resolver-eligible add-on precedence; fail closed on ambiguous LIMIT_SET/LIMIT_DELTA meter mapping. Public changePlan remains unbound.",
+    "next_action": "Bind server-owned compliance/security restriction inputs that can only restrict DD-071 output; then usage impact and lifecycle overlay. Public changePlan remains unbound.",
     "core_services": {
-      "checkpoint": "DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001",
+      "checkpoint": "DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040…DD-069 verified shared Core/API/Commercial prerequisite chain plus 2026-09-20 audit correction",
-      "verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
-      "verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
-      "core_ci_run_id": 35558948195,
-      "core_ci_job_id": 106207964142,
-      "tests": "199/199 PASS",
+      "verified_head": "1c8844ec982ef91cacc3545576d102fbac3fcaf9",
+      "verified_tree": "0792a28622e000beba2e785ce1f0a3282b1fff96",
+      "core_ci_run_id": 35563971430,
+      "core_ci_job_id": 106222014138,
+      "tests": "207/207 PASS",
       "core_test_counts": {
-        "tests": 199,
-        "pass": 199,
+        "tests": 207,
+        "pass": 207,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35558948195,
-      "postgres_ci_job_id": 106207964247,
+      "postgres_ci_run_id": 35563971430,
+      "postgres_ci_job_id": 106222014294,
       "postgres_tests": "56/56 PASS",
       "postgres_test_counts": {
         "tests": 56,
@@ -252,7 +257,10 @@
         "DD-070 active Commercial adjustment-source read boundary and server-owned add-on eligibility resolver seam",
         "0046 immutable published PlanVersion row contract with runtime DELETE/TRUNCATE revocation",
         "fail-closed unknown Commercial Subscription state and entitlement value-type runtime validation",
-        "2026-09-21 exact-tree 359-blob Vision/current-state audit"
+        "2026-09-21 exact-tree 359-blob Vision/current-state audit",
+        "DD-071 deterministic baseline -> override -> resolver-eligible additive add-on precedence",
+        "DD-071 deny-wins access override handling and unique-meter fail-closed limit mapping",
+        "DD-071 additive FINITE/ADD_ON_ONLY quota handling with deterministic output"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -275,15 +283,17 @@
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
-        "deterministic baseline -> override -> eligible add-on precedence",
         "compliance/security restriction inputs into target preview",
         "usage-meter target-limit impact evaluator",
         "actual Billing/payment/proration producer integration",
         "actual Workflow approval producer integration",
         "internal SATISFIED-evidence apply gate before DD-065 publication",
-        "public REQUIRED-idempotency core.commercial.subscription.changePlan binding only after prerequisites"
+        "public REQUIRED-idempotency core.commercial.subscription.changePlan binding only after prerequisites",
+        "server-owned compliance/security restriction input contract for target preview",
+        "subscription lifecycle/grace/suspension target overlay",
+        "internal SATISFIED-evidence apply gate before final publication"
       ],
-      "next_action": "Implement deterministic baseline -> override -> resolver-eligible add-on precedence only; ambiguous LIMIT_SET/LIMIT_DELTA meter mapping fails closed."
+      "next_action": "Bind compliance/security restriction inputs after DD-071; then usage-meter impact and lifecycle overlay before final target publication."
     },
     "application_api_ui_scope_note": "First-party Next.js App Router/tRPC HTTP boundary and three bounded Core queries are implemented/tested; REST/OpenAPI and product UI remain unfinished.",
     "application_services_started": true,
@@ -337,9 +347,9 @@
         "scope": "DD-044 Clerk session-security + PLATFORM_GLOBAL Authorization persistence prerequisite"
       }
     ],
-    "status": "IN_PROGRESS_COMMERCIAL_ADJUSTMENT_PRECEDENCE"
+    "status": "IN_PROGRESS_COMMERCIAL_TARGET_PREVIEW_RESTRICTION_IMPACT_PREREQUISITES"
   },
-  "current_phase": "DEVELOPMENT_COMMERCIAL_ADJUSTMENT_PRECEDENCE",
+  "current_phase": "DEVELOPMENT_COMMERCIAL_TARGET_PREVIEW_RESTRICTION_IMPACT_PREREQUISITES",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -603,5 +613,42 @@
     },
     "report": "Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-21.md",
     "coverage": "Registers/ALL_STAGES_FILE_COVERAGE_2026-09-21.md"
+  },
+  "current_feature_verification": {
+    "decision": "DD-071",
+    "checkpoint": "DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001",
+    "verified_head": "1c8844ec982ef91cacc3545576d102fbac3fcaf9",
+    "verified_tree": "0792a28622e000beba2e785ce1f0a3282b1fff96",
+    "failed_unpromoted_attempt": "f52f0d11216792bbf87d10939865fd045aa14b33",
+    "core": {
+      "run_id": 35563971430,
+      "job_id": 106222014138,
+      "tests": 207,
+      "pass": 207,
+      "fail": 0,
+      "skip": 0
+    },
+    "postgres": {
+      "run_id": 35563971430,
+      "job_id": 106222014294,
+      "tests": 56,
+      "pass": 56,
+      "fail": 0,
+      "skip": 0,
+      "full_database_bootstrap": "PASS"
+    },
+    "web": {
+      "run_id": 35563971387,
+      "job_id": 106222014047,
+      "conclusion": "success"
+    },
+    "inventory": {
+      "blobs": 363,
+      "source_files": 74,
+      "test_files": 50,
+      "migrations": 46,
+      "verification_files": 40
+    },
+    "evidence": "Registers/DEVELOPMENT_DD071_VERIFICATION_2026-09-21.md"
   }
 }

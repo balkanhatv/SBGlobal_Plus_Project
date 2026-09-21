@@ -1,12 +1,13 @@
-# DATABASE CHECKPOINT — DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001
+# DATABASE CHECKPOINT — DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001
 **Date:** 2026-09-21  
-**Verified executable:** `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / `db85be98f256fd856635fc178ab3220b97d01ba3`
+**Feature executable:** `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / `0792a28622e000beba2e785ce1f0a3282b1fff96`
 
-- Database Verify run **35558948164**, job **106207964280**: **PASS**.
-- Full bootstrap: **46 contiguous migrations (0001–0046) / 40 verification files PASS**.
-- Core PostgreSQL adapter/context regression within run **35558948195**, job **106207964247**: **56/56 PASS**.
-- Industry scope remains **9 Industries / 41 canonical MS / 181 registered Industry tables** with FORCE RLS and Tenant+Industry ownership verification.
-- Migration 0046 physicalizes immutable published PlanVersion history and revokes runtime DELETE/TRUNCATE without rewriting prior migrations.
-- Runtime-role/privilege sweep found no new P0/P1 least-privilege/RLS defect; administrative `sbg_migration_admin` remains the explicit migration exception.
+DD-071 required **no database migration or privilege change**.
 
-Next database work is driven only by the next governed Commercial precedence slice if persistence changes are actually required; no speculative migration is authorized.
+- Same-head Core postgres-context job **106222014294**: full database bootstrap **PASS** and **56/56 PostgreSQL PASS**.
+- Persistence baseline remains **46 contiguous migrations / 40 verification files**.
+- Industry scope remains **9 Industries / 41 canonical MS / 181 registered Industry tables** with Tenant+Industry ownership and FORCE RLS.
+- Published PlanVersion immutability remains enforced by migration 0046.
+- No schema/business-rule guess was introduced for LIMIT_SET/LIMIT_DELTA meter mapping; the new pure Core stage fails closed when mapping is absent/ambiguous.
+
+The promotion/state commit must pass exact-head Database Verify before this checkpoint becomes the current branch promotion.

@@ -1,20 +1,20 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`  
+**Current checkpoint:** `DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001`  
 **Branch:** `docs/architecture-branch-2`
 
-Verified executable basis `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / `db85be98f256fd856635fc178ab3220b97d01ba3`:
-- **199/199 Core PASS**
+Verified feature executable basis `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / `0792a28622e000beba2e785ce1f0a3282b1fff96`:
+- **207/207 Core PASS**
 - **56/56 PostgreSQL PASS**
-- **46 migrations / 40 verification files PASS**
-- **Next.js 15.5.25 production build + deterministic lock/generated-state PASS**
+- **46 migrations / 40 verification files bootstrap PASS**
+- **Next.js 15.5.25 production build PASS**
 - **9 Industries / 41 canonical MS / 181 Industry tables**
-- **359-blob exact-tree audit completed**
+- **DD-001…DD-071 contiguous**
 
-Current Development includes the verified shared Core/Authorization/Commercial kernel, Clerk session boundary, tRPC/Next.js first-party composition, workspace/current-entitlements queries, DD-063…070 Commercial prerequisites, and the 2026-09-21 published-PlanVersion/runtime-enum audit correction.
+DD-071 adds the bounded deterministic Commercial precedence stage: PlanVersion baseline → approved/effective override → resolver-ELIGIBLE quota-additive add-ons, with deny-wins and fail-closed missing/ambiguous meter mapping.
 
-The latest correction does **not** promote a new feature: DD-070 remains the latest feature slice. It physicalizes existing published PlanVersion immutability, rejects malformed Commercial runtime enum/value-type inputs, and synchronizes stale current-state evidence.
+This is **not** a final target preview or public plan-change implementation. Concrete eligibility, compliance/security restriction input, usage impact, lifecycle overlay, Billing/payment/proration, Workflow approval and public `core.commercial.subscription.changePlan` remain unfinished.
 
-**Next governed work:** deterministic DD-04 baseline → override → resolver-eligible add-on precedence with ambiguous meter mapping fail-closed. Concrete eligibility/pricing/payment/approval rules and public `core.commercial.subscription.changePlan` remain unfinished.
+Next governed work: **server-owned compliance/security restriction input contract**.
 
-See `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD071_VERIFICATION_2026-09-21.md`.

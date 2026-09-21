@@ -1,18 +1,17 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001`
 
-Development is **IN PROGRESS — COMMERCIAL ADJUSTMENT PRECEDENCE**.
+Development is **IN PROGRESS — COMMERCIAL TARGET PREVIEW RESTRICTION/IMPACT PREREQUISITES**.
 
-Verified `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / `db85be98f256fd856635fc178ab3220b97d01ba3`:
-- **199/199 Core PASS**
+Verified feature executable `1c8844ec982ef91cacc3545576d102fbac3fcaf9` / `0792a28622e000beba2e785ce1f0a3282b1fff96`:
+- **207/207 Core PASS**
 - **56/56 PostgreSQL PASS**
-- **46 migrations / 40 verification files PASS**
-- **Next.js 15.5.25 production build + deterministic lock/config clean-state PASS**
-- **359 blobs / 73 source / 49 test files audited**
-- **9 Industries / 41 canonical MS / 181 Industry tables verified**
+- **46 migrations / 40 verification files bootstrap PASS**
+- **Next.js 15.5.25 production build PASS**
+- **363 blobs / 74 source / 50 tests in feature tree**
 
-DD-070 remains the latest feature slice. The 2026-09-21 correction enforces existing published PlanVersion immutability and fail-closed unknown Commercial runtime enums/value types; it does not add a new commercial business rule.
+DD-071 now implements deterministic baseline → override → resolver-eligible additive add-on precedence with deny-wins and fail-closed meter ambiguity. No concrete eligibility/pricing/payment rule was invented.
 
-Next: implement only deterministic DD-04 precedence over DD-068 baseline + DD-070 prepared adjustments, failing closed on ambiguous LIMIT_SET/LIMIT_DELTA meter mapping. Concrete eligibility/pricing/payment rules, compliance/security restrictions, usage impact, Billing/Workflow producer runtimes and public changePlan remain unfinished.
+Next governed dependency: define/bind the **compliance/security restriction input contract** that may only restrict DD-071 output, then usage-meter target-impact and lifecycle overlay. Public changePlan remains unbound.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.
