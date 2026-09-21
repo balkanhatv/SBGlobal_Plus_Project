@@ -200,3 +200,26 @@ plaintext, or decide whether delivery may occur.
 **Boundary:** no verification challenge, DNS/IP resolution, redirects, SSRF policy,
 secret generation/decryption/rotation overlap, signature algorithm, delivery worker,
 retry/DLQ behavior, public route, migration, role, grant or RLS policy is introduced.
+
+
+## 17. Raw Webhook Delivery persistence reader [DD-089]
+
+The persisted `webhook_delivery` attempt row is exposed to server-side Integration
+code through a raw typed read port only. `WebhookDeliveryEvidence` preserves
+subscription/event identity, attempt number, endpoint snapshot, payload digest, raw
+status, optional HTTP status, start/completion timestamps, optional next-attempt time,
+optional error class, correlation id and createdAt.
+
+`PostgresWebhookDeliveryStore` reads one attempt by delivery id through the existing
+DD-088 dedicated Integration PostgreSQL role + `RequestScopedSql`. Parent-RLS remains
+the physical visibility authority: the delivery is visible only when both its
+WebhookSubscription and its OutboxEvent are visible in the current RequestContext.
+
+This reader deliberately does **not** classify the raw status/error/HTTP evidence as
+success, retryable, permanent failure, DLQ, replayable or deliverable. It does not
+connect to the endpoint, interpret event filters or decide whether another attempt
+should be scheduled.
+
+**Boundary:** no endpoint challenge/network access, DNS/IP/redirect SSRF logic,
+secret/signature handling, retry scheduler, DLQ transition, replay, route, migration,
+role, grant or RLS policy is introduced.
