@@ -921,3 +921,33 @@ introduced. The DD-076 dependent evaluator remains blocked independently.
 
 **Acceptance:** REST-001…008 in DD-17 and
 `tests/server/rest-fetch-handler.test.mjs`.
+
+
+## DD-081 — Event envelope validation binds catalog and authoritative scope before payload interpretation
+
+**Context:** DD-07 and migration 0030 already define the exact event-envelope metadata,
+catalog tuple and Tenant/Industry/residency integrity rules. PostgreSQL enforces them
+at outbox persistence, but reusable Core code had no corresponding pre-persistence /
+consumer boundary. Dispatcher retry timing, webhook transport and a concrete payload
+schema engine remain separate unresolved runtime concerns.
+
+**Decision:** add one reusable Core validator that accepts an untrusted envelope plus
+server-owned persistence binding and event-catalog contract. It validates JSON
+compatibility, event id/type/version/scope, required source/actor/correlation/time
+metadata, producer module, sensitivity, physical Tenant/Industry/residency ownership,
+and exact cross-context endpoint shape. EXPLICIT_CROSS_CONTEXT additionally requires
+an injected authoritative same-Tenant endpoint verifier. Only after those checks pass
+may an injected catalog payload-schema validator interpret the payload.
+
+**Security / trade-off:** the validator duplicates the database integrity floor on
+purpose so malformed events can fail before persistence/dispatch/consumption, while
+PostgreSQL remains the final physical guard. The payload-schema engine is a port
+rather than an invented JSON-schema implementation. No generic Tenant/Industry
+selector becomes authority.
+
+**Boundary:** no outbox poller, claim/lock algorithm, retry interval, DLQ threshold,
+webhook challenge/signature/SSRF implementation, external endpoint, new catalog row,
+database object or privilege is introduced.
+
+**Acceptance:** EVT-CAT-001…006 in DD-17 and
+`tests/core/event-envelope-catalog.test.mjs`.
