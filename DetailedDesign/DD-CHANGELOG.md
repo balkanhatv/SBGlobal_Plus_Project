@@ -42,3 +42,5 @@ Full-repository audit completion and the next compiler feature are not claimed.
 ## 2026-09-21 — DD-071 deterministic adjustment precedence
 Locked and implemented the bounded DD-04 precedence stage over DD-068 baseline + DD-070 prepared adjustments: deny-wins access overrides, exact unique-meter limit overrides, resolver-eligible additive quota add-ons, deterministic output and fail-closed missing/ambiguous/type-invalid targets. No eligibility/pricing/payment/compliance/usage/public-changePlan rule was added.
 
+## 2026-09-21 — DD-072 compliance/security restriction input boundary
+Verified that current F-03/A-03/DD-03/DD-04/DD-16 contracts provide narrowing-only security/compliance semantics but no authoritative Commercial restriction persistence/reducer. Added a server-owned, exact-target, DENY-only normalized resolver seam with fail-closed target/evidence validation. No migration, compliance business rule, numeric cap, generic RESTRICT reducer or public plan-change binding was introduced.

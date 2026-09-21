@@ -486,3 +486,16 @@ Rules:
 
 The output is an intermediate preview: effective entitlement values/markers, effective limits and Tenant deny set. Compliance/security deny still has later precedence and may only restrict; this stage cannot declare the target preview or plan change complete.
 
+## 21. Compliance/security restriction input boundary v1 [DD-072]
+
+F-14 §4 and this design place compliance/security after plan/license/override/add-on inputs and require it to be narrowing-only. The current repository has **no authoritative Commercial compliance/security restriction persistence schema or production entitlement reducer**. DD-16 owns security/compliance controls and evidence, while DD-03 explicitly fails ungoverned ABAC `RESTRICT` closed rather than inventing a restriction payload.
+
+DD-072 therefore locks only a server-owned normalized input seam:
+- caller must be SERVICE + TENANT_CORE with resolved Tenant/Data Home/region context;
+- resolver input is the exact target PlanVersion id plus the immutable DD-071 intermediate preview;
+- resolver output is rebound to the same target PlanVersion and carries bounded `policyVersion` + `evidenceReference`;
+- v1 restrictions are exact existing entitlement `DENY` targets only, optionally at an exact Industry Context, with a `controlCode`;
+- the preparation service never fans a Tenant or Industry selector out, never creates a missing entitlement key, and rejects unsupported ALLOW, numeric cap/delta or opaque restriction effects;
+- duplicate control/target tuples, malformed evidence, stale target binding and malformed/duplicate DD-071 target keys fail closed.
+
+This stage **prepares restriction authority; it does not apply it**. No database table, legal/regulatory interpretation, compliance certification, numeric security limit, generic RESTRICT reducer or client-supplied policy authority is introduced. Production remains unbound until a concrete governed resolver source exists. Usage-meter impact, lifecycle overlay, final snapshot/publication and public changePlan remain later work.

@@ -798,3 +798,12 @@ Resolver-ELIGIBLE add-ons are applied after overrides and remain quota-additive 
 
 **Boundary / trade-off:** this deliberately leaves compliance/security restrictions, usage-meter impact, suspension/grace overlay, final snapshot/publication, concrete eligibility business logic, Billing/payment/proration, Workflow approval and public changePlan outside this slice. Requiring an existing baseline key is consistent with F-14's explicit value/unlimited/not-included/add-on marker requirement and avoids inventing hidden plan dimensions.
 
+## DD-072 — Compliance/security target-preview authority is a server-owned deny-only input seam
+
+**Context:** F-14/A-04/DD-04 require compliance/security to participate after Commercial adjustments and to only restrict. F-03/A-03/DD-16 define the security/compliance control domains, but the current repository has no authoritative Commercial restriction table or production target-plan entitlement reducer. DD-03 already records the analogous ABAC safety rule: an ungoverned RESTRICT payload is not interpreted as allow-like behavior and fails closed.
+
+**Decision:** introduce `CommercialComplianceSecurityRestrictionResolverPort` plus a preparation service. The resolver is server-owned and receives SERVICE + TENANT_CORE RequestContext, exact target PlanVersion id and the exact DD-071 intermediate preview. Its v1 normalized output may only identify exact existing entitlement `DENY` targets, optionally exact-Industry scoped, with a control code and versioned evidence. Missing targets, selector fan-out, ALLOW, numeric/opaque effects, duplicate control-target tuples, malformed evidence and target-version mismatch fail closed.
+
+**Boundary / trade-off:** this decision deliberately does not invent a compliance persistence schema, legal/regulatory rule, limit-cap formula or generic restriction reducer, and does not apply the prepared denies yet. A concrete production resolver remains unfinished. This preserves one authority chain and allows future security/compliance policy ownership to bind without coupling Commercial to session, ABAC, residency or rate-limit storage.
+
+**Consequence:** DD-072 closes only the normalized restriction-input ownership seam. Final target preview is still incomplete; applying prepared restrictions, usage-meter impact, lifecycle overlay, Billing/approval producer integrations and public `core.commercial.subscription.changePlan` remain separate governed work.

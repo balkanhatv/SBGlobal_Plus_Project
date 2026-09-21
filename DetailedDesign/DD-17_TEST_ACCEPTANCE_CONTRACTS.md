@@ -703,3 +703,17 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-ADJ-PRE-012 | LICENSED_INDUSTRIES add-on selector | applies only to already-resolved Industry baseline targets |
 | COMM-ADJ-PRE-013 | input ordering changes | output entitlements, limits and Tenant deny set remain deterministically sorted |
 
+### Commercial compliance/security restriction input — DD-072
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-CSR-001 | HUMAN / Industry-scoped / unresolved caller | rejected before resolver; SERVICE + TENANT_CORE required |
+| COMM-CSR-002 | resolver invocation | receives exact target PlanVersion id and exact DD-071 preview; client cannot supply restriction authority |
+| COMM-CSR-003 | authoritative evaluation returns no restrictions | empty set remains versioned/evidenced; dependency absence is not treated as empty allow-like output |
+| COMM-CSR-004 | exact Tenant or Industry entitlement DENY | accepted only when the exact entitlement key already exists in DD-071 preview |
+| COMM-CSR-005 | missing entitlement target / implicit fan-out required | fail closed; compiler never invents or expands a target selector |
+| COMM-CSR-006 | ALLOW, LIMIT_CAP/LIMIT_DELTA or opaque effect | unsupported in v1; fail closed rather than invent compliance semantics |
+| COMM-CSR-007 | duplicate control + exact target tuple | fail closed; independent controls may separately deny the same exact target |
+| COMM-CSR-008 | target PlanVersion mismatch or malformed policyVersion/evidence/control id | fail closed |
+| COMM-CSR-009 | malformed/duplicate DD-071 entitlement target set | fail before resolver use |
+| COMM-CSR-010 | resolver dependency error | propagates as failure; no implicit no-restriction fallback |
