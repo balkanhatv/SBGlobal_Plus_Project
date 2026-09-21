@@ -212,3 +212,25 @@ toward signing.
 **Boundary:** DD-086 does not decrypt provider references, choose a provider, sign a
 URL/token, define TTL, evaluate ACL/permission/entitlement/step-up/residency
 exceptions, expose a route, or add SQL/role/grant/RLS changes.
+
+
+## 18. Raw upload-session persistence reader [DD-087]
+
+The persisted `document_upload_session` relation is exposed through a raw typed read
+port only. `DocumentUploadSession` preserves scope, principal, expected media types,
+max size class, expiry, status, optional temporary object reference, optional expected
+checksum and creation timestamp exactly as stored.
+
+`PostgresDocumentUploadSessionStore` reads one session through the existing DD-083
+`PostgresDocumentDatabase` + `RequestScopedSql` boundary. FORCE-RLS remains the
+physical visibility authority: sibling-Industry sessions are not observable from the
+active Industry Context, while Tenant Core sessions remain same-Tenant visible.
+
+This reader intentionally does **not** decide upload usability. It does not interpret
+whether `expiresAt` has passed, whether a status may transition, what a
+`maxSizeClass` means, whether a media type is currently allowed, whether checksum
+or temporary-object evidence satisfies upload policy, or whether the current
+principal may mutate the session.
+
+**Boundary:** no upload state machine, media/size policy, expiry reducer, StoragePort
+operation, signer, route, migration, role, grant or RLS policy is introduced.
