@@ -1,18 +1,21 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-INITIAL-ASSESSMENT-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified feature executable `bdc4f65c7d1f84e5b29e15c7b5dbfb8550c1ca11`, tree `8854a68a3fdd102ec06159b6da24864f5f42c32e`: **254 Core + 56 PostgreSQL + full 46/40 DB bootstrap + Next.js 15.5.25 build + Database Verify PASS**.
+Verified feature executable `1704259d61c77937eaf866162ca67689dee3b714`, tree `c5656d68ddc50b480fec63117d267e8a0def1bd2`: **265 Core + 61 PostgreSQL + full 46/40 DB bootstrap + Next.js 15.5.25 build + Database Verify PASS**.
 
-DD-076 is the latest feature decision:
-- SERVICE/TENANT_CORE-only initial-assessment preparation;
-- exact DD-075 target binding;
-- server-owned evaluator authority for route + impact/diff/fingerprint evidence;
-- blockers normalized/sorted;
-- PENDING/NOT_REQUIRED derived for initial assessment;
-- known DD-073 usage blocker cannot disappear.
+DD-077 is the latest feature decision:
+- persisted DD-066 evidence read through existing Commercial compiler role;
+- requested assessment must be latest and exact-bound;
+- current Subscription/source/version/Tenant pointer revalidated;
+- current target route policy/id/version/enablement revalidated;
+- latest route evidence wins;
+- correct Billing/Workflow producer required;
+- remediation provenance checked;
+- NEXT_RENEWAL effectiveAt enforced;
+- opaque source fingerprint equality enforced.
 
-Do not overclaim: no concrete production evaluator semantics or DD-066 assessment write is implemented. Billing/Workflow evidence, apply gate and public changePlan remain unfinished.
+Do not overclaim: this read-only gate is not inside the DD-065 mutation transaction, so atomic evidence-to-publication authorization remains unfinished. Production assessment/Billing/Workflow producers and public changePlan remain unimplemented.
 
-Next safe slice: inspect DD-066 evidence consumption and implement only a fail-closed internal apply-evidence gate if source contracts fully support it. RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.
+Next safe slice: bind these evidence checks into the DD-065 publication transaction without weakening current publication guards. RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.

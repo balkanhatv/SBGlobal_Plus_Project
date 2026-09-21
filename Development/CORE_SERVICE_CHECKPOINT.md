@@ -1,41 +1,44 @@
-# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-INITIAL-ASSESSMENT-001
+# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001
 **Updated:** 2026-09-21  
 **Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — DD-076 initial plan-change assessment preparation
+**Status:** IMPLEMENTED / TESTED — DD-077 persisted Commercial apply-evidence gate
 
 ## Verified executable basis
-- Commit: `bdc4f65c7d1f84e5b29e15c7b5dbfb8550c1ca11`.
-- Tree: `8854a68a3fdd102ec06159b6da24864f5f42c32e`.
-- Core/server acceptance: **254/254 PASS**.
-- Real PostgreSQL regression: **56/56 PASS**.
+- Commit: `1704259d61c77937eaf866162ca67689dee3b714`.
+- Tree: `c5656d68ddc50b480fec63117d267e8a0def1bd2`.
+- Core/server acceptance: **265/265 PASS**.
+- Real PostgreSQL regression: **61/61 PASS**.
 - Full database bootstrap at the same feature HEAD: **46 migrations / 40 verification files PASS**.
 - Next.js 15.5.25 production build: **PASS**.
 - Database Verify: **PASS**.
-- Feature-tree inventory: **383 blobs / 149 Markdown / 79 source / 55 test files**.
+- Feature-tree inventory: **389 blobs / 151 Markdown / 81 source / 57 test files**.
 
-## DD-076 executable boundary
-- only trusted SERVICE + TENANT_CORE may prepare an initial plan-change assessment;
-- exact Subscription/source PlanVersion/target PlanVersion/expected version/effective timing are bound to the DD-075 final preview;
-- one server-owned evaluator seam owns route selection and impact/diff/fingerprint evidence production;
-- evaluator target must exactly match the DD-075/request target;
-- route class/id/version, impact reference, entitlement-diff reference, source fingerprint and blockers are strictly normalized;
-- blockers are bounded, unique and deterministically sorted;
-- initial remediation is derived only as PENDING when blockers exist or NOT_REQUIRED otherwise;
-- DD-073 blocking usage cannot be silently omitted from assessment blockers;
-- initial SATISFIED is impossible through this preparation boundary.
+## DD-077 executable boundary
+- SERVICE + TENANT_CORE-only read-side apply-evidence gate;
+- reads DD-066 evidence through existing `sbg_commercial_transition_compiler_rw` SELECT authority;
+- exact requested assessment version must be the latest version for that assessment id;
+- current Tenant pointer, Subscription version/source PlanVersion and usable lifecycle are revalidated;
+- target PlanVersion/Plan/route policy remain ACTIVE/effective and route id/version/enablement must match assessment;
+- latest route-resolution evidence is authoritative;
+- SELF_SERVE SATISFIED requires Billing producer; SALES_ASSISTED SATISFIED requires Workflow producer;
+- PENDING remediation blocks;
+- current SATISFIED remediation reassessment requires persisted prior-version Commercial remediation evidence;
+- source fingerprint is compared by exact opaque equality only; no hash algorithm is invented;
+- NEXT_RENEWAL requires server-owned effectiveAt and remains blocked until that time;
+- stale/missing/corrupt evidence fails closed.
 
-## Deliberately unfinished
-- concrete production blocking-impact vocabulary;
-- concrete immutable entitlement-diff evidence format/producer;
-- canonical complete Commercial source-fingerprint algorithm;
-- deterministic dual-route chooser when more than one route is valid;
-- concrete production add-on/compliance/usage source policies;
-- DD-066 assessment persistence orchestration from this prepared input;
-- later remediation reassessment/SATISFIED producer flow;
-- Billing/payment/proration + Workflow approval producers;
-- DD-065 apply-evidence gate/publication orchestration;
+## Deliberate boundary
+DD-077 is **not** an atomic evidence-to-publication gate. Its evidence read occurs before any later DD-065 publication transaction, so the DD-04 same-authoritative-transaction invariant remains unfinished. DD-065 still independently revalidates Subscription/target/snapshot truth, but it does not yet consume DD-066 evidence in the same mutation transaction.
+
+Also unfinished:
+- concrete production DD-076 assessment evaluator;
+- actual DD-066 assessment write orchestration from DD-076;
+- Billing/payment/proration producer runtime;
+- Workflow approval producer runtime;
+- snapshot-fact materialization/fingerprint producer completion;
+- atomic DD-077 evidence validation inside DD-065 publication;
 - public `core.commercial.subscription.changePlan`.
 
-**Next governed work:** source-audit persisted DD-066 evidence consumption and implement only a fail-closed internal apply-evidence gate if the existing assessment/remediation/route-resolution substrate is sufficient. Do not bypass missing production evaluator semantics.
+**Next governed work:** source-audit and implement the smallest safe atomic binding that revalidates DD-066 satisfied evidence inside the DD-065 publication transaction, without weakening current publication guards or pretending missing producer runtimes exist.
 
-Evidence: `Registers/DEVELOPMENT_DD076_VERIFICATION_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD077_VERIFICATION_2026-09-21.md`.

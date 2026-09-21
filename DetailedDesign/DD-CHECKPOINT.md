@@ -31,11 +31,11 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-**Current checkpoint:** `DEV-COMMERCIAL-INITIAL-ASSESSMENT-001`  
-**Verified feature executable:** `bdc4f65c7d1f84e5b29e15c7b5dbfb8550c1ca11` / `8854a68a3fdd102ec06159b6da24864f5f42c32e`
+**Current checkpoint:** `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`  
+**Verified feature executable:** `1704259d61c77937eaf866162ca67689dee3b714` / `c5656d68ddc50b480fec63117d267e8a0def1bd2`
 
-Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-076**. DD-076 establishes the server-owned initial-assessment preparation seam after DD-075 and prevents known DD-073 blocking usage from disappearing from assessment blockers.
+Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-077**. DD-077 consumes persisted DD-066 evidence through the existing Commercial compiler read boundary and fails closed on stale assessment/subscription/route/fingerprint, unresolved remediation, incorrect route producer and future NEXT_RENEWAL effectiveAt.
 
-Feature evidence: Core **254/254**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-076 database migration or privilege change occurred.
+Feature evidence: Core **265/265**, PostgreSQL **61/61 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-077 database migration or privilege change occurred.
 
-Concrete blocking-code/diff/fingerprint/dual-route semantics and DD-066 assessment-write orchestration remain unfinished. Next governed dependency is persisted DD-066 evidence consumption for a bounded internal DD-065 apply-evidence gate.
+The gate is read-only and remains transactionally separate from DD-065 publication. Next governed dependency is same-transaction evidence validation inside the publication transaction; concrete production assessment/Billing/Workflow producers and public changePlan remain unfinished.

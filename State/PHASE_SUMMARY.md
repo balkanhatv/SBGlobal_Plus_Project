@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-INITIAL-ASSESSMENT-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`
 
-Current Development checkpoint is `DEV-COMMERCIAL-INITIAL-ASSESSMENT-001`. Verified feature executable `bdc4f65c7d1f84e5b29e15c7b5dbfb8550c1ca11` / tree `8854a68a3fdd102ec06159b6da24864f5f42c32e` passes **254 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **383 blobs / 149 Markdown / 79 source / 55 test files**.
+Current Development checkpoint is `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`. Verified feature executable `1704259d61c77937eaf866162ca67689dee3b714` / tree `c5656d68ddc50b480fec63117d267e8a0def1bd2` passes **265 Core + 61 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **389 blobs / 151 Markdown / 81 source / 57 test files**.
 
-DD-076 adds the server-owned initial plan-change assessment preparation seam after the deterministic DD-075 final preview. Known DD-073 blocking usage cannot be silently dropped, and initial remediation is derived only as PENDING or NOT_REQUIRED.
+DD-077 now gives the persisted DD-066 evidence substrate executable fail-closed read semantics through the existing Commercial compiler role: latest assessment, live Subscription/source/route binding, correct producer-owned latest route resolution, remediation provenance, fingerprint equality and NEXT_RENEWAL timing.
 
-The concrete production evaluator remains unbound because the repository does not define the impact-code vocabulary, immutable entitlement-diff evidence format, complete Commercial source-fingerprint algorithm or deterministic dual-route chooser. DD-066 evidence persistence exists but is not written by DD-076.
+This remains a separate read transaction from DD-065 publication. The DD-04 same-authoritative-transaction invariant is therefore still unfinished, and public changePlan remains blocked.
 
-Next governed dependency is a source audit of DD-066 persisted evidence consumption for a bounded internal DD-065 apply-evidence gate.
+Next governed dependency is a source audit of same-transaction DD-066 evidence validation inside DD-065 publication, preserving all current publication guards and least-privilege boundaries.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

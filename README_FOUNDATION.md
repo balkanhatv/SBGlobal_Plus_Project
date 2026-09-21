@@ -1,21 +1,21 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `DEV-COMMERCIAL-INITIAL-ASSESSMENT-001`  
+**Current checkpoint:** `DEV-COMMERCIAL-APPLY-EVIDENCE-GATE-001`  
 **Branch:** `docs/architecture-branch-2`
 
-Verified feature executable basis `bdc4f65c7d1f84e5b29e15c7b5dbfb8550c1ca11` / `8854a68a3fdd102ec06159b6da24864f5f42c32e`:
-- **254/254 Core PASS**
-- **56/56 PostgreSQL PASS**
+Verified feature executable basis `1704259d61c77937eaf866162ca67689dee3b714` / `c5656d68ddc50b480fec63117d267e8a0def1bd2`:
+- **265/265 Core PASS**
+- **61/61 PostgreSQL PASS**
 - **46 migrations / 40 verification files bootstrap PASS**
 - **Next.js 15.5.25 production build PASS**
 - **Database Verify PASS**
 - **9 Industries / 41 canonical MS / 181 Industry tables**
-- **DD-001…DD-076 contiguous**
+- **DD-001…DD-077 contiguous**
 
-DD-075 provides the deterministic final target preview. DD-076 now provides the server-owned initial-assessment preparation seam that binds that preview to DD-066-compatible server evidence without inventing missing policy semantics.
+DD-075 provides the deterministic final target preview. DD-076 provides the initial-assessment preparation authority seam. DD-077 now consumes persisted DD-066 assessment/remediation/route evidence through the existing least-privilege compiler role and fails closed on stale or unsatisfied evidence.
 
-This is **not** yet a production assessment evaluator, persisted assessment orchestration or public plan-change apply. Concrete blocker vocabulary/diff/fingerprint/route selection, production eligibility/compliance/usage sources, Billing/Workflow producers, internal apply gate and public `core.commercial.subscription.changePlan` remain unfinished.
+This DD-077 gate is **read-only and not yet atomic with DD-065 publication**. Concrete production assessment/Billing/Workflow producers, same-transaction evidence-to-publication binding and public `core.commercial.subscription.changePlan` remain unfinished.
 
-Next governed work: **source-audit DD-066 persisted evidence consumption for an internal DD-065 apply-evidence gate**.
+Next governed work: **source-audit and bind DD-077 evidence validation into the DD-065 publication transaction** without weakening existing publication guards.
 
-Evidence: `Registers/DEVELOPMENT_DD076_VERIFICATION_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD077_VERIFICATION_2026-09-21.md`.
