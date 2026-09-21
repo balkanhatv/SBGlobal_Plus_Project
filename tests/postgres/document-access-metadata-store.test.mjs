@@ -12,6 +12,9 @@ import { RequestScopedSql } from "../../dist/server/database/request-scoped-sql.
 import {
   PostgresDocumentAccessMetadataStore,
 } from "../../dist/server/document/postgres-document-access-metadata-store.js";
+import {
+  PostgresDocumentAclStore,
+} from "../../dist/server/document/postgres-document-acl-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -39,10 +42,15 @@ const f = Object.fromEntries([
   "siblingDocument",
   "tenantDocument",
   "unsafeDocument",
+  "industryAclAllow",
+  "industryAclDeny",
+  "siblingAcl",
+  "tenantAcl",
 ].map((key) => [key, randomUUID()]));
 
 let pool;
 let store;
+let aclStore;
 let service;
 
 function context(industryContextId = f.industry) {
@@ -167,6 +175,26 @@ before(async () => {
         ],
       );
     }
+
+    await client.query(
+      `INSERT INTO core_document.document_acl
+        (id,document_id,subject_type,subject_id,permission,effect,valid_until,created_at)
+       VALUES
+        ($1,$5,'PRINCIPAL',$6,'VIEW','ALLOW',now()+interval '1 day',now()),
+        ($2,$5,'PRINCIPAL',$6,'DOWNLOAD','DENY',now()-interval '1 day',now()),
+        ($3,$7,'PRINCIPAL',$6,'VIEW','ALLOW',NULL,now()),
+        ($4,$8,'PRINCIPAL',$6,'VIEW','ALLOW',NULL,now())`,
+      [
+        f.industryAclAllow,
+        f.industryAclDeny,
+        f.siblingAcl,
+        f.tenantAcl,
+        f.industryDocument,
+        f.principal,
+        f.siblingDocument,
+        f.tenantDocument,
+      ],
+    );
     await client.query("COMMIT");
   } catch (error) {
     await client.query("ROLLBACK");
@@ -188,6 +216,7 @@ before(async () => {
     regionCode: "IN-DOCUMENT-READER",
   });
   store = new PostgresDocumentAccessMetadataStore(scoped);
+  aclStore = new PostgresDocumentAclStore(scoped);
   service = new DocumentAccessCandidateService(store);
 });
 
@@ -197,6 +226,10 @@ after(async () => {
   const client = await admin.connect();
   try {
     await client.query("BEGIN");
+    await client.query(
+      "DELETE FROM core_document.document_acl WHERE document_id=ANY($1::uuid[])",
+      [[f.industryDocument, f.siblingDocument, f.tenantDocument, f.unsafeDocument]],
+    );
     await client.query(
       "DELETE FROM core_document.document_meta WHERE tenant_id=$1",
       [f.tenant],
@@ -307,4 +340,64 @@ test("DOC-PG-005 route/context mismatch fails closed before metadata disclosure"
       documentId: f.industryDocument,
     }),
   );
+});
+
+
+test("DOC-ACL-PG-001 raw ACL reader preserves stored effect and expiry without deciding access", async () => {
+  const entries = await aclStore.loadForDocument({
+    requestContext: context(),
+    documentId: f.industryDocument,
+  });
+
+  assert.equal(entries.length, 2);
+  assert.deepEqual(entries.map((entry) => [entry.permission, entry.effect]), [
+    ["DOWNLOAD", "DENY"],
+    ["VIEW", "ALLOW"],
+  ]);
+  assert.ok(entries.every((entry) => Object.isFrozen(entry)));
+  assert.ok(entries.every((entry) => typeof entry.validUntil === "string"));
+});
+
+test("DOC-ACL-PG-002 parent FORCE-RLS hides sibling Industry ACL rows", async () => {
+  const hidden = await aclStore.loadForDocument({
+    requestContext: context(),
+    documentId: f.siblingDocument,
+  });
+  assert.deepEqual(hidden, []);
+
+  const sibling = await aclStore.loadForDocument({
+    requestContext: context(f.sibling),
+    documentId: f.siblingDocument,
+  });
+  assert.equal(sibling.length, 1);
+  assert.equal(sibling[0].documentId, f.siblingDocument);
+  assert.equal(sibling[0].effect, "ALLOW");
+});
+
+test("DOC-ACL-PG-003 Tenant Core ACL rows remain same-Tenant visible in Industry and Tenant Core contexts", async () => {
+  const fromIndustry = await aclStore.loadForDocument({
+    requestContext: context(),
+    documentId: f.tenantDocument,
+  });
+  const fromTenant = await aclStore.loadForDocument({
+    requestContext: tenantContext(),
+    documentId: f.tenantDocument,
+  });
+
+  assert.equal(fromIndustry.length, 1);
+  assert.equal(fromTenant.length, 1);
+  assert.equal(fromIndustry[0].id, f.tenantAcl);
+  assert.equal(fromTenant[0].id, f.tenantAcl);
+});
+
+test("DOC-ACL-PG-004 raw reader intentionally does not filter expired DENY evidence", async () => {
+  const entries = await aclStore.loadForDocument({
+    requestContext: context(),
+    documentId: f.industryDocument,
+  });
+  const expiredDeny = entries.find((entry) => entry.permission === "DOWNLOAD");
+
+  assert.ok(expiredDeny);
+  assert.equal(expiredDeny.effect, "DENY");
+  assert.ok(Date.parse(expiredDeny.validUntil) < Date.now());
 });
