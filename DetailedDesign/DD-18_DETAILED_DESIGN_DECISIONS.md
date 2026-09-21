@@ -857,3 +857,15 @@ Resolver-ELIGIBLE add-ons are applied after overrides and remain quota-additive 
 **Boundary / trade-off:** a successful DD-077 decision is not a publication capability token. The evidence read and DD-065 mutation still occur in separate transactions, so DD-077 explicitly does not claim the DD-04 same-authoritative-transaction invariant. No new DB grant/migration, production assessment evaluator, Billing/Workflow producer or public command is introduced.
 
 **Consequence:** the persisted DD-066 evidence chain now has executable fail-closed consumption semantics. The next safe slice is to bind this evidence validation into the DD-065 publication transaction while preserving all existing publication revalidation and least-privilege guarantees.
+
+## DD-078 — DD-066 evidence validation is serialized inside DD-065 publication
+
+**Context:** DD-077 made persisted evidence consumable but its read transaction ended before DD-065 mutation. Because DD-066 allows append-only later evidence, a newer route/reassessment could otherwise appear between the read gate and publication.
+
+**Decision:** require assessment id/version on internal publication, acquire a Tenant+assessment advisory transaction lock before evidence reads, and make all DD-066 evidence INSERTs acquire the same lock through migration 0047 triggers. Under that lock, publication revalidates latest assessment version, exact Subscription/source/target/version/fingerprint, remediation readiness, current route policy, latest producer-owned SATISFIED route resolution and NEXT_RENEWAL effectiveAt before continuing the existing DD-065 mutation.
+
+**Security / least privilege:** no evidence DML is granted to the compiler. The only added compiler privilege is EXECUTE on the lock helper. FORCE RLS and producer-isolated evidence writes remain unchanged.
+
+**Boundary / trade-off:** advisory-key collisions only reduce concurrency. DD-078 does not create producer business semantics or public changePlan. Existing DD-065 catalog/snapshot/fact revalidation remains authoritative.
+
+**Consequence:** the supplied DD-066 assessment's evidence append stream can no longer change between validation and publication commit. Public changePlan still depends on concrete assessment/Billing/Workflow producers and remaining compiler materialization bindings.

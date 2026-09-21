@@ -26,6 +26,39 @@ interface TenantRow {
   readonly current_subscription_id:string|null;
 }
 interface DefinitionRow { readonly code:string; readonly value_type:string; }
+interface AtomicAssessmentRow {
+  readonly assessment_id:string;
+  readonly assessment_version:string|number;
+  readonly subscription_id:string;
+  readonly source_plan_version_id:string;
+  readonly target_plan_version_id:string;
+  readonly effective_timing:"IMMEDIATE"|"NEXT_RENEWAL";
+  readonly expected_subscription_version:string|number;
+  readonly route_class:"SELF_SERVE"|"SALES_ASSISTED";
+  readonly route_policy_id:string;
+  readonly route_policy_version:string|number;
+  readonly blocking_impact_codes:string[];
+  readonly remediation_state:"NOT_REQUIRED"|"PENDING"|"SATISFIED";
+  readonly source_fingerprint:string;
+  readonly created_at:Date|string;
+}
+interface AtomicRouteRow {
+  readonly resolution_state:"PENDING"|"SATISFIED"|"REJECTED";
+  readonly producer_module:"Billing"|"Workflow";
+  readonly evidence_version:string|number;
+  readonly evidence_reference:string|null;
+  readonly effective_at:Date|string|null;
+}
+interface AtomicRemediationRow {
+  readonly remediation_state:"SATISFIED";
+  readonly producer_module:"Commercial";
+}
+interface AtomicRoutePolicyRow {
+  readonly route_policy_id:string;
+  readonly route_policy_version:string|number;
+  readonly self_serve_enabled:boolean;
+  readonly sales_assisted_enabled:boolean;
+}
 
 const USABLE=new Set<CommercialSubscriptionState>(["TRIAL","ACTIVE","GRACE"]);
 
@@ -59,6 +92,123 @@ function assertContext(context:RequestContext):void{
 }
 function iso(value:Date):string{
   return value.toISOString();
+}
+
+function persistedDate(value:Date|string,label:string):Date{
+  const parsed=value instanceof Date ? new Date(value.getTime()) : new Date(value);
+  if(Number.isNaN(parsed.getTime())) unavailable("Persisted "+label+" is invalid.");
+  return parsed;
+}
+
+async function validateAtomicApplyEvidence(
+  transaction:SqlTransaction,
+  input:Parameters<CommercialPublicationStorePort["publish"]>[0],
+  context:RequestContext,
+):Promise<{readonly routeEvidenceVersion:number}>{
+  await transaction.query(
+    "SELECT core_commercial.acquire_plan_change_assessment_lock($1::uuid,$2::uuid)",
+    [context.tenantId,input.assessmentId],
+  );
+
+  const assessment=exact((await transaction.query<AtomicAssessmentRow>(
+    "SELECT assessment_id::text,assessment_version,subscription_id::text,"+
+    " source_plan_version_id::text,target_plan_version_id::text,effective_timing::text,"+
+    " expected_subscription_version,route_class::text,route_policy_id::text,route_policy_version,"+
+    " blocking_impact_codes,remediation_state::text,source_fingerprint,created_at"+
+    " FROM core_commercial.plan_change_assessment"+
+    " WHERE tenant_id=$1::uuid AND assessment_id=$2::uuid AND assessment_version=$3",
+    [context.tenantId,input.assessmentId,input.assessmentVersion],
+  )).rows,"Plan-change assessment");
+
+  const latest=exact((await transaction.query<{max_version:string|number|null}>(
+    "SELECT max(assessment_version) AS max_version"+
+    " FROM core_commercial.plan_change_assessment"+
+    " WHERE tenant_id=$1::uuid AND assessment_id=$2::uuid",
+    [context.tenantId,input.assessmentId],
+  )).rows,"Plan-change assessment version");
+  if(latest.max_version===null
+    || version(latest.max_version,"latest assessment")!==input.assessmentVersion){
+    conflict("Plan-change assessment version is stale.");
+  }
+
+  if(assessment.subscription_id!==input.subscriptionId
+    || assessment.source_plan_version_id!==input.expectedSourcePlanVersionId
+    || assessment.target_plan_version_id!==input.targetPlanVersionId
+    || version(assessment.expected_subscription_version,"assessment Subscription")!==input.expectedSubscriptionVersion
+    || assessment.source_fingerprint!==input.sourceFingerprint){
+    conflict("Plan-change assessment binding or compiler fingerprint is stale.");
+  }
+
+  const blockers=assessment.blocking_impact_codes ?? [];
+  if(blockers.length>0 || assessment.remediation_state==="PENDING"){
+    conflict("Plan-change remediation is not satisfied.");
+  }
+  if(assessment.remediation_state==="SATISFIED"){
+    if(input.assessmentVersion<=1){
+      conflict("Initial assessment cannot authorize SATISFIED remediation.");
+    }
+    const remediation=await transaction.query<AtomicRemediationRow>(
+      "SELECT remediation_state::text,producer_module"+
+      " FROM core_commercial.plan_change_remediation_evidence"+
+      " WHERE tenant_id=$1::uuid AND assessment_id=$2::uuid AND assessment_version=$3"+
+      " ORDER BY evidence_version DESC LIMIT 1",
+      [context.tenantId,input.assessmentId,input.assessmentVersion-1],
+    );
+    const row=exact(remediation.rows,"Prior Commercial remediation evidence");
+    if(row.remediation_state!=="SATISFIED" || row.producer_module!=="Commercial"){
+      conflict("Prior remediation evidence is not authoritative.");
+    }
+  }else if(assessment.remediation_state!=="NOT_REQUIRED"){
+    conflict("Plan-change remediation state is invalid.");
+  }
+
+  const routePolicy=exact((await transaction.query<AtomicRoutePolicyRow>(
+    "SELECT version.route_policy_id::text,route.version AS route_policy_version,"+
+    " route.self_serve_enabled,route.sales_assisted_enabled"+
+    " FROM core_commercial.plan_version version"+
+    " JOIN core_commercial.plan plan ON plan.id=version.plan_id AND plan.status='ACTIVE'"+
+    " JOIN core_commercial.commercial_route_policy route"+
+    "   ON route.id=version.route_policy_id AND route.status='ACTIVE'"+
+    " WHERE version.id=$1::uuid AND version.status='ACTIVE'"+
+    "   AND (version.effective_from IS NULL OR version.effective_from<=$2::timestamptz)"+
+    "   AND (version.effective_to IS NULL OR version.effective_to>$2::timestamptz)",
+    [input.targetPlanVersionId,iso(input.occurredAt)],
+  )).rows,"Current target route policy");
+  if(routePolicy.route_policy_id!==assessment.route_policy_id
+    || version(routePolicy.route_policy_version,"current route policy")!==version(assessment.route_policy_version,"assessment route policy")
+    || (assessment.route_class==="SELF_SERVE" && !routePolicy.self_serve_enabled)
+    || (assessment.route_class==="SALES_ASSISTED" && !routePolicy.sales_assisted_enabled)){
+    conflict("Target route policy changed after assessment.");
+  }
+
+  const route=exact((await transaction.query<AtomicRouteRow>(
+    "SELECT resolution_state::text,producer_module,evidence_version,evidence_reference,effective_at"+
+    " FROM core_commercial.plan_change_route_resolution"+
+    " WHERE tenant_id=$1::uuid AND assessment_id=$2::uuid AND assessment_version=$3"+
+    " ORDER BY evidence_version DESC LIMIT 1",
+    [context.tenantId,input.assessmentId,input.assessmentVersion],
+  )).rows,"Latest route resolution");
+  const expectedProducer=assessment.route_class==="SELF_SERVE" ? "Billing" : "Workflow";
+  if(route.resolution_state!=="SATISFIED"
+    || route.producer_module!==expectedProducer
+    || !route.evidence_reference){
+    conflict("Latest route resolution does not authorize plan publication.");
+  }
+
+  if(assessment.effective_timing==="NEXT_RENEWAL"){
+    if(!route.effective_at) conflict("NEXT_RENEWAL route evidence lacks effectiveAt.");
+    const routeEffectiveAt=persistedDate(route.effective_at,"route effectiveAt");
+    if(routeEffectiveAt.getTime()>input.occurredAt.getTime()){
+      conflict("NEXT_RENEWAL effective time has not been reached.");
+    }
+    if(routeEffectiveAt.getTime()!==input.effectiveAt.getTime()){
+      conflict("Publication effectiveAt differs from authoritative route evidence.");
+    }
+  }
+
+  return Object.freeze({
+    routeEvidenceVersion:version(route.evidence_version,"route evidence"),
+  });
 }
 
 async function validateDefinitions(
@@ -201,6 +351,8 @@ export class PostgresCommercialPublicationStore implements CommercialPublication
     const context=input.requestContext;
     try{
       return await this.scopedSql.withContext(context,async(transaction)=>{
+        const applyEvidence=await validateAtomicApplyEvidence(transaction,input,context);
+
         const subscriptionResult=await transaction.query<SubscriptionRow>(
           "SELECT id::text,plan_version_id::text,state::text,version" +
           " FROM core_commercial.subscription" +
@@ -414,6 +566,9 @@ export class PostgresCommercialPublicationStore implements CommercialPublication
               subscriptionVersion:nextSubscriptionVersion,
               snapshotId:input.snapshotId,
               snapshotVersion:nextSnapshotVersion,
+              assessmentId:input.assessmentId,
+              assessmentVersion:input.assessmentVersion,
+              routeEvidenceVersion:applyEvidence.routeEvidenceVersion,
             }),
           ],
         );

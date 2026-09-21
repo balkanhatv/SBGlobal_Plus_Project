@@ -800,3 +800,20 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-APPLY-GATE-012 | SELF_SERVE producer is not Billing / SALES_ASSISTED producer is not Workflow | fail closed |
 | COMM-APPLY-GATE-013 | compiler role reads evidence | same-Tenant FORCE-RLS only; no evidence mutation |
 | COMM-APPLY-GATE-014 | separate gate then later DD-065 publication | atomic evidence-to-mutation guarantee NOT CLAIMED; same-transaction binding remains later work |
+
+### Atomic Commercial evidence→publication — DD-078
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-ATOMIC-001 | publication omits/uses missing assessment binding | fail closed before mutation |
+| COMM-ATOMIC-002 | supplied assessment version is not latest | fail closed; no Subscription/snapshot/outbox/audit mutation |
+| COMM-ATOMIC-003 | assessment Subscription/source/target/version/fingerprint differs | fail closed |
+| COMM-ATOMIC-004 | blockers/PENDING remediation remain | fail closed |
+| COMM-ATOMIC-005 | SATISFIED reassessment lacks prior Commercial remediation evidence | fail closed |
+| COMM-ATOMIC-006 | target route policy id/version/enablement changed | fail closed |
+| COMM-ATOMIC-007 | latest route is PENDING/REJECTED/wrong producer | fail closed; earlier SATISFIED evidence cannot authorize |
+| COMM-ATOMIC-008 | NEXT_RENEWAL effectiveAt differs from route evidence or has not arrived | fail closed |
+| COMM-ATOMIC-009 | valid latest evidence + existing DD-065 guards | publication succeeds atomically |
+| COMM-ATOMIC-010 | concurrent DD-066 evidence insert for same Tenant+assessment | database transaction lock serializes against publication |
+| COMM-ATOMIC-011 | inspect compiler privileges | evidence remains read-only; only lock-helper EXECUTE is added |
+| COMM-ATOMIC-012 | migration/bootstrap | 0047 lock helper + three insert triggers verified |

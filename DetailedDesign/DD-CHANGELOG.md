@@ -59,3 +59,6 @@ Source audit found no governed blocking-impact code vocabulary, entitlement-diff
 
 ## 2026-09-21 — DD-077 persisted apply-evidence gate
 Implemented read-only same-Tenant consumption of DD-066 assessment/remediation/route-resolution evidence through the existing Commercial compiler role. The gate requires latest assessment evidence, exact current Subscription/source/route/fingerprint binding, correct producer-owned SATISFIED route evidence and reached NEXT_RENEWAL effectiveAt. No migration or privilege change was required. This is deliberately not yet atomic with DD-065 publication, so public changePlan remains unbound.
+
+## 2026-09-21 — DD-078 atomic evidence→publication binding
+Bound exact DD-066 assessment evidence into the DD-065 publication transaction and added migration 0047 Tenant+assessment transaction-lock serialization across all evidence inserts and publication. Latest assessment/route, remediation provenance, route policy, source fingerprint and NEXT_RENEWAL effectiveAt are revalidated before mutation. No new business table/role/RLS policy or public changePlan binding was added.

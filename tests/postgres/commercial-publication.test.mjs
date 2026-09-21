@@ -20,7 +20,7 @@ const f=Object.fromEntries([
   "subscription","oldSnapshot","definitionTenant","definitionIndustry","planChangeRequest",
 ].map(key=>[key,randomUUID()]));
 
-let pool,service,database;
+let pool,service,database,firstApplyEvidence;
 
 function context(){
   return Object.freeze({
@@ -30,6 +30,52 @@ function context(){
     entitlementSnapshotId:f.oldSnapshot,entitlementSnapshotVersion:7,
     orgUnitPath:Object.freeze([]),roleIds:Object.freeze([]),scopeClass:"TENANT_CORE",
   });
+}
+
+async function prepareApplyEvidence({
+  sourcePlanVersionId,
+  targetPlanVersionId,
+  expectedSubscriptionVersion,
+  sourceFingerprint,
+  effectiveTiming="IMMEDIATE",
+  effectiveAt,
+}){
+  const assessmentId=randomUUID();
+  const correlationId=randomUUID();
+  const createdAt=effectiveAt
+    ? new Date(Math.min(Date.now()-60_000,effectiveAt.getTime()-60_000))
+    : new Date(Date.now()-60_000);
+  await admin.query(
+    "INSERT INTO core_commercial.plan_change_assessment("+
+    " assessment_id,assessment_version,tenant_id,subscription_id,source_plan_version_id,"+
+    " target_plan_version_id,effective_timing,expected_subscription_version,route_class,"+
+    " route_policy_id,route_policy_version,impact_reference,entitlement_diff_reference,"+
+    " blocking_impact_codes,remediation_state,source_fingerprint,correlation_id,created_at)"+
+    " VALUES ($1::uuid,1,$2::uuid,$3::uuid,$4::uuid,$5::uuid,"+
+    " $6::core_commercial.plan_change_effective_timing,$7::bigint,'SELF_SERVE',"+
+    " $8::uuid,1,'impact:publication:test','diff:publication:test','{}'::text[],"+
+    " 'NOT_REQUIRED',$9,$10::uuid,$11::timestamptz)",
+    [
+      assessmentId,f.tenant,f.subscription,sourcePlanVersionId,targetPlanVersionId,
+      effectiveTiming,expectedSubscriptionVersion,f.route,sourceFingerprint,
+      correlationId,createdAt.toISOString(),
+    ],
+  );
+  await admin.query(
+    "INSERT INTO core_commercial.plan_change_route_resolution("+
+    " id,tenant_id,assessment_id,assessment_version,route_class,resolution_state,"+
+    " evidence_reference,billing_preview_reference,effective_at,producer_module,"+
+    " evidence_version,resolved_at,correlation_id,created_at)"+
+    " VALUES ($1::uuid,$2::uuid,$3::uuid,1,'SELF_SERVE','SATISFIED',"+
+    " 'billing:publication:approved','billing:publication:preview',$4::timestamptz,"+
+    " 'Billing',1,$5::timestamptz,$6::uuid,$7::timestamptz)",
+    [
+      randomUUID(),f.tenant,assessmentId,
+      effectiveAt?effectiveAt.toISOString():null,
+      new Date().toISOString(),correlationId,new Date().toISOString(),
+    ],
+  );
+  return {assessmentId,assessmentVersion:1};
 }
 
 before(async()=>{
@@ -78,6 +124,9 @@ after(async()=>{
     await c.query("DELETE FROM core_audit.audit_event_identity WHERE id NOT IN (SELECT id FROM core_audit.audit_event)");
     await c.query("DELETE FROM core_integration.outbox_event WHERE tenant_id=$1",[f.tenant]);
     await c.query("DELETE FROM core_integration.outbox_event_identity WHERE id NOT IN (SELECT id FROM core_integration.outbox_event)");
+    await c.query("DELETE FROM core_commercial.plan_change_route_resolution WHERE tenant_id=$1::uuid",[f.tenant]);
+    await c.query("DELETE FROM core_commercial.plan_change_remediation_evidence WHERE tenant_id=$1::uuid",[f.tenant]);
+    await c.query("DELETE FROM core_commercial.plan_change_assessment WHERE tenant_id=$1::uuid",[f.tenant]);
     await c.query("DELETE FROM core_commercial.entitlement_snapshot_fact WHERE tenant_id=$1",[f.tenant]);
     await c.query("DELETE FROM core_commercial.entitlement_snapshot WHERE tenant_id=$1",[f.tenant]);
     await c.query("DELETE FROM core_commercial.subscription_transition WHERE tenant_id=$1",[f.tenant]);
@@ -101,12 +150,19 @@ after(async()=>{
 
 test("Commercial publication atomically advances Subscription, snapshot, outbox and audit",async()=>{
   const effectiveAt=new Date(Date.now()-1000);
+  firstApplyEvidence=await prepareApplyEvidence({
+    sourcePlanVersionId:f.oldPlanVersion,
+    targetPlanVersionId:f.newPlanVersion,
+    expectedSubscriptionVersion:4,
+    sourceFingerprint:"commercial-publication-postgres-v1",
+  });
   const result=await service.publish({
     requestContext:context(),
     subscriptionId:f.subscription,
     expectedSubscriptionVersion:4,
     expectedSourcePlanVersionId:f.oldPlanVersion,
     targetPlanVersionId:f.newPlanVersion,
+    ...firstApplyEvidence,
     effectiveAt,
     triggerCode:"PLAN_CHANGE_APPLIED",
     planChangeRequestId:f.planChangeRequest,
@@ -163,11 +219,12 @@ test("stale expected Subscription version rolls back without partial publication
       requestContext:{...context(),entitlementSnapshotId:(await admin.query("SELECT id::text FROM core_commercial.entitlement_snapshot WHERE tenant_id=$1 AND status='CURRENT'",[f.tenant])).rows[0].id,entitlementSnapshotVersion:8},
       subscriptionId:f.subscription,
       expectedSubscriptionVersion:4,
-      expectedSourcePlanVersionId:f.newPlanVersion,
-      targetPlanVersionId:f.oldPlanVersion,
+      expectedSourcePlanVersionId:f.oldPlanVersion,
+      targetPlanVersionId:f.newPlanVersion,
+      ...firstApplyEvidence,
       effectiveAt:new Date(Date.now()-1000),
       triggerCode:"PLAN_CHANGE_APPLIED",
-      sourceFingerprint:"commercial-publication-stale-v1",
+      sourceFingerprint:"commercial-publication-postgres-v1",
       denySet:[],facts:[],
     }),
     error=>error instanceof CommercialPublicationError
@@ -187,13 +244,22 @@ async function currentPublicationInput(){
     " JOIN core_commercial.subscription subscription ON subscription.id=snapshot.source_subscription_id"+
     " WHERE snapshot.tenant_id=$1 AND snapshot.status='CURRENT'",[f.tenant],
   )).rows[0];
+  const targetPlanVersionId=row.plan_version_id===f.oldPlanVersion?f.newPlanVersion:f.oldPlanVersion;
+  const effectiveAt=new Date(Date.now()-1000);
+  const applyEvidence=await prepareApplyEvidence({
+    sourcePlanVersionId:row.plan_version_id,
+    targetPlanVersionId,
+    expectedSubscriptionVersion:Number(row.subscription_version),
+    sourceFingerprint:"commercial-publication-regression-v1",
+  });
   return {
     requestContext:{...context(),entitlementSnapshotId:row.id,entitlementSnapshotVersion:Number(row.snapshot_version)},
     subscriptionId:f.subscription,
     expectedSubscriptionVersion:Number(row.subscription_version),
     expectedSourcePlanVersionId:row.plan_version_id,
-    targetPlanVersionId:row.plan_version_id===f.oldPlanVersion?f.newPlanVersion:f.oldPlanVersion,
-    effectiveAt:new Date(Date.now()-1000),
+    targetPlanVersionId,
+    ...applyEvidence,
+    effectiveAt,
     triggerCode:"PLAN_CHANGE_APPLIED",
     sourceFingerprint:"commercial-publication-regression-v1",
     denySet:[],facts:[],
@@ -269,6 +335,63 @@ test("audit append failure rolls back subscription, snapshots and previously ins
     [[generated[2],generated[3]]],
   );
   assert.equal(identities.rowCount,0,"rolled-back outbox writes must not leave global identities");
+});
+
+test("atomic publication rejects a later REJECTED route resolution with no partial mutation",async()=>{
+  const input=await currentPublicationInput();
+  await admin.query(
+    "INSERT INTO core_commercial.plan_change_route_resolution("+
+    " id,tenant_id,assessment_id,assessment_version,route_class,resolution_state,"+
+    " evidence_reference,producer_module,evidence_version,resolved_at,correlation_id,created_at)"+
+    " VALUES ($1::uuid,$2::uuid,$3::uuid,$4,'SELF_SERVE','REJECTED',"+
+    " 'billing:publication:rejected','Billing',2,now(),$5::uuid,now())",
+    [randomUUID(),f.tenant,input.assessmentId,input.assessmentVersion,randomUUID()],
+  );
+  const before=await persistedPublicationState();
+  await assert.rejects(
+    service.publish(input),
+    error=>error instanceof CommercialPublicationError
+      && error.code==="COMMERCIAL_PUBLICATION_STATE_CONFLICT",
+  );
+  assert.deepEqual(await persistedPublicationState(),before);
+});
+
+test("NEXT_RENEWAL publication effectiveAt must exactly match satisfied route evidence",async()=>{
+  const row=(await admin.query(
+    "SELECT snapshot.id::text,snapshot.version AS snapshot_version,"+
+    " subscription.version AS subscription_version,subscription.plan_version_id::text"+
+    " FROM core_commercial.entitlement_snapshot snapshot"+
+    " JOIN core_commercial.subscription subscription ON subscription.id=snapshot.source_subscription_id"+
+    " WHERE snapshot.tenant_id=$1 AND snapshot.status='CURRENT'",[f.tenant],
+  )).rows[0];
+  const targetPlanVersionId=row.plan_version_id===f.oldPlanVersion?f.newPlanVersion:f.oldPlanVersion;
+  const authoritative=new Date(Date.now()-2000);
+  const applyEvidence=await prepareApplyEvidence({
+    sourcePlanVersionId:row.plan_version_id,
+    targetPlanVersionId,
+    expectedSubscriptionVersion:Number(row.subscription_version),
+    sourceFingerprint:"commercial-publication-renewal-v1",
+    effectiveTiming:"NEXT_RENEWAL",
+    effectiveAt:authoritative,
+  });
+  const before=await persistedPublicationState();
+  await assert.rejects(
+    service.publish({
+      requestContext:{...context(),entitlementSnapshotId:row.id,entitlementSnapshotVersion:Number(row.snapshot_version)},
+      subscriptionId:f.subscription,
+      expectedSubscriptionVersion:Number(row.subscription_version),
+      expectedSourcePlanVersionId:row.plan_version_id,
+      targetPlanVersionId,
+      ...applyEvidence,
+      effectiveAt:new Date(authoritative.getTime()-1000),
+      triggerCode:"PLAN_CHANGE_APPLIED",
+      sourceFingerprint:"commercial-publication-renewal-v1",
+      denySet:[],facts:[],
+    }),
+    error=>error instanceof CommercialPublicationError
+      && error.code==="COMMERCIAL_PUBLICATION_STATE_CONFLICT",
+  );
+  assert.deepEqual(await persistedPublicationState(),before);
 });
 
 test("dedicated Commercial database role cannot update Subscription state",async()=>{

@@ -55,6 +55,8 @@ export interface CommercialPublicationStorePort {
     readonly expectedSubscriptionVersion: number;
     readonly expectedSourcePlanVersionId: string;
     readonly targetPlanVersionId: string;
+    readonly assessmentId: string;
+    readonly assessmentVersion: number;
     readonly effectiveAt: Date;
     readonly triggerCode: string;
     readonly planChangeRequestId?: string;
@@ -252,6 +254,8 @@ export class CommercialPublicationService {
     readonly expectedSubscriptionVersion:number;
     readonly expectedSourcePlanVersionId:string;
     readonly targetPlanVersionId:string;
+    readonly assessmentId:string;
+    readonly assessmentVersion:number;
     readonly effectiveAt:Date;
     readonly triggerCode:string;
     readonly planChangeRequestId?:string;
@@ -281,6 +285,8 @@ export class CommercialPublicationService {
       expectedSubscriptionVersion:positive(input.expectedSubscriptionVersion,"expectedSubscriptionVersion"),
       expectedSourcePlanVersionId:source,
       targetPlanVersionId:target,
+      assessmentId:uuid(input.assessmentId,"assessmentId"),
+      assessmentVersion:positive(input.assessmentVersion,"assessmentVersion"),
       effectiveAt,
       triggerCode:code(input.triggerCode,"triggerCode",128),
       ...(input.planChangeRequestId

@@ -589,3 +589,15 @@ The Core gate is SERVICE + TENANT_CORE only and compares the supplied server/com
 Latest evidence wins. SELF_SERVE SATISFIED must be Billing-produced; SALES_ASSISTED SATISFIED must be Workflow-produced. NEXT_RENEWAL requires server-owned effectiveAt and cannot allow before that time. Stale assessment/version/subscription/source/route/fingerprint bindings fail closed rather than becoming a block-like success result.
 
 **Boundary:** DD-077 is a read-only gate. DD-04 §13.4 still requires these checks to participate in the same authoritative mutation transaction. DD-077 does not yet call or modify DD-065, so it does not claim atomic evidence-to-publication authorization and does not close public changePlan.
+
+## 27. Atomic persisted-evidence publication binding [DD-078]
+
+DD-078 makes the DD-066 evidence decision part of the DD-065 publication transaction. Publication input now requires exact `assessmentId` + `assessmentVersion` in addition to Subscription/source/target/version and source fingerprint.
+
+Before any DD-065 mutation, the compiler transaction acquires a Tenant+assessment transaction lock and verifies latest assessment version, exact core binding/fingerprint, remediation readiness, current route policy and latest producer-owned SATISFIED route evidence. NEXT_RENEWAL additionally requires the authoritative route `effectiveAt` to be reached and to exactly equal publication `effectiveAt`.
+
+All DD-066 inserts acquire the same transaction lock through database triggers. Therefore a newer reassessment/remediation/route-resolution append for that assessment cannot interleave after evidence validation and before publication commit.
+
+The existing DD-065 Subscription/current-snapshot/target/fact/Industry/outbox/audit checks remain mandatory and occur in the same transaction.
+
+**Boundary:** this closes evidence-append TOCTOU for the supplied assessment. It does not implement the missing production assessment/Billing/Workflow producers or expose public changePlan.

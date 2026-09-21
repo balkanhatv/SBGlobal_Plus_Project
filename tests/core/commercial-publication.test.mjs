@@ -49,12 +49,15 @@ test("Commercial publication service normalizes deterministic compiled input bef
     runtime:{now(){return now;}},
   });
   const source=randomUUID(),target=randomUUID(),subscription=randomUUID(),industry=randomUUID();
+  const assessmentId=randomUUID();
   const result=await service.publish({
     requestContext:context(),
     subscriptionId:subscription,
     expectedSubscriptionVersion:4,
     expectedSourcePlanVersionId:source,
     targetPlanVersionId:target,
+    assessmentId,
+    assessmentVersion:1,
     effectiveAt:new Date("2026-09-19T11:59:00.000Z"),
     triggerCode:"PLAN_CHANGE_APPLIED",
     sourceFingerprint:"commercial-publication-fingerprint-v1",
@@ -72,6 +75,8 @@ test("Commercial publication service normalizes deterministic compiled input bef
   });
   assert.equal(result.subscriptionVersion,5);
   assert.equal(seen.length,1);
+  assert.equal(seen[0].assessmentId,assessmentId);
+  assert.equal(seen[0].assessmentVersion,1);
   assert.deepEqual(seen[0].denySet,["a.denied","z.denied"]);
   assert.deepEqual(seen[0].facts.map(f=>f.code),["a.feature","z.feature"]);
   assert.deepEqual(seen[0].facts[1].value,["a","b"]);
@@ -96,6 +101,8 @@ test("Commercial publication service rejects human scope, future apply and dupli
     expectedSubscriptionVersion:4,
     expectedSourcePlanVersionId:randomUUID(),
     targetPlanVersionId:randomUUID(),
+    assessmentId:randomUUID(),
+    assessmentVersion:1,
     effectiveAt:new Date("2026-09-19T11:59:00.000Z"),
     triggerCode:"PLAN_CHANGE_APPLIED",
     sourceFingerprint:"commercial-publication-fingerprint-v1",
@@ -137,6 +144,8 @@ test("Commercial publication rejects unknown runtime value types before persiste
     expectedSubscriptionVersion:4,
     expectedSourcePlanVersionId:randomUUID(),
     targetPlanVersionId:randomUUID(),
+    assessmentId:randomUUID(),
+    assessmentVersion:1,
     effectiveAt:new Date("2026-09-19T11:59:00.000Z"),
     triggerCode:"PLAN_CHANGE_APPLIED",
     sourceFingerprint:"commercial-publication-fingerprint-v1",
