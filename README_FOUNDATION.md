@@ -1,17 +1,20 @@
 # SBGlobal Plus — Canonical Development Branch
 
-**Current checkpoint:** `DEV-COMMERCIAL-AUDIT-CORRECTION-001`  
+**Current checkpoint:** `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`  
 **Branch:** `docs/architecture-branch-2`
 
-Verified executable basis `895f0c6c53dd2cabcf5b3d53f8b5f053803e9122` / `5e4bee4f8ede04024ac3cf4ac0cad8d356106224`:
-- **194/194 Core PASS**
-- **53/53 PostgreSQL PASS**
-- **45 migrations / 39 verification files PASS**
+Verified executable basis `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / `db85be98f256fd856635fc178ab3220b97d01ba3`:
+- **199/199 Core PASS**
+- **56/56 PostgreSQL PASS**
+- **46 migrations / 40 verification files PASS**
 - **Next.js 15.5.25 production build + deterministic lock/generated-state PASS**
 - **9 Industries / 41 canonical MS / 181 Industry tables**
+- **359-blob exact-tree audit completed**
 
-Current Development includes the verified shared Core/Authorization/Commercial kernel, Clerk session boundary, tRPC/Next.js first-party composition, workspace/current-entitlements queries, DD-063…069 Commercial event/write/publication/evidence/schema/baseline/adjustment prerequisites, and the 2026-09-20 current-state hardening correction.
+Current Development includes the verified shared Core/Authorization/Commercial kernel, Clerk session boundary, tRPC/Next.js first-party composition, workspace/current-entitlements queries, DD-063…070 Commercial prerequisites, and the 2026-09-21 published-PlanVersion/runtime-enum audit correction.
 
-The latest audit correction does **not** promote a new feature: it reconciles the canonical Industry lifecycle (PENDING is valid but ineligible), revalidates effective/current Commercial publication state, and makes checkpoint/state promotion paths trigger exact-head Core/Web/Database verification.
+The latest correction does **not** promote a new feature: DD-070 remains the latest feature slice. It physicalizes existing published PlanVersion immutability, rejects malformed Commercial runtime enum/value-type inputs, and synchronizes stale current-state evidence.
 
-**Next governed work:** lock add-on eligibility + active adjustment-source read semantics, then deterministic precedence. Public `core.commercial.subscription.changePlan` remains unbound.
+**Next governed work:** deterministic DD-04 baseline → override → resolver-eligible add-on precedence with ambiguous meter mapping fail-closed. Concrete eligibility/pricing/payment/approval rules and public `core.commercial.subscription.changePlan` remain unfinished.
+
+See `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-21.md`.

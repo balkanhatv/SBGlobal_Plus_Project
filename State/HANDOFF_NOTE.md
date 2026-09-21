@@ -1,20 +1,17 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-20 · **Checkpoint:** `DEV-COMMERCIAL-ADJUSTMENT-SOURCE-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified executable `8b735dd19b18ae5e9f0d1d3894cd497bb56c26b0`, tree `631abc2f75e108027440771507ee85350b9eb698`: **196 Core + 56 PostgreSQL + 45 migrations / 39 verification files PASS + Next.js 15.5.25 production build/lock/clean-state PASS**.
+Verified executable `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e`, tree `db85be98f256fd856635fc178ab3220b97d01ba3`: **199 Core + 56 PostgreSQL + 46 migrations / 40 verification files PASS + Next.js 15.5.25 build/lock/clean-state PASS**.
 
-DD-070 physicalizes the active adjustment-source boundary:
-- current Subscription pointer/version/source PlanVersion revalidated;
-- active/effective target PlanVersion/Plan/route required;
-- exact same-Tenant/Subscription TenantAddOns and active/effective overrides only;
-- sibling Tenant adjustment rows excluded under predicates + FORCE-RLS;
-- add-on eligibility remains an opaque server-owned resolver seam;
-- only resolver-ELIGIBLE add-ons can contribute DD-069 quota deltas.
+Current facts:
+- DD-070 remains the latest feature slice: authoritative active adjustment-source reads + server-owned eligibility resolver seam.
+- Migration 0046 enforces the pre-existing immutable published PlanVersion contract; unknown Commercial runtime subscription/value types now fail closed.
+- Fresh exact-tree audit covered 359 blobs and found no additional P0/P1 semantic/code/database defect.
+- 9 Industries / 41 MS / 181 Industry tables remain verified with Tenant+Industry/FORCE-RLS checks.
+- RawSourceCorpus and `main` are unchanged; PR #2 is draft/review-only.
 
-Do not overclaim eligibility business rules: the repository has no concrete production eligibility resolver yet.
+Next governed slice: deterministic F-14/DD-04 precedence over DD-068 baseline + DD-070 prepared adjustments. Tenant override LIMIT_SET/LIMIT_DELTA must fail closed unless it maps to exactly one target meter key. Do not invent eligibility, pricing, market, payment or approval business rules.
 
-Next governed slice: deterministic F-14/DD-04 precedence over DD-068 baseline + DD-070 prepared adjustments. Tenant override LIMIT_SET/LIMIT_DELTA must fail closed if an entitlement maps to multiple target meter keys; never guess the meter.
-
-RawSourceCorpus immutable; `main` unmerged; PR #2 review-only/draft.
+Public `core.commercial.subscription.changePlan` remains unbound.

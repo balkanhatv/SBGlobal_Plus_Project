@@ -1,7 +1,9 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-20
+**Updated:** 2026-09-21
 
-Current Development checkpoint is `DEV-COMMERCIAL-ADJUSTMENT-SOURCE-001`. Verified executable `8b735dd19b18ae5e9f0d1d3894cd497bb56c26b0` / tree `631abc2f75e108027440771507ee85350b9eb698` passes **196 Core + 56 PostgreSQL**, **45 migrations / 39 verification files**, and the Next.js 15.5.25 production build. DD-070 now binds active same-Tenant TenantAddOn/override source reads plus a server-owned opaque eligibility resolver seam; sibling-Tenant rows and stale Subscription/current-pointer state fail closed. No concrete eligibility/pricing/payment rule is claimed. Next is deterministic baseline → override → resolver-eligible add-on precedence, with ambiguous limit-meter mapping denied rather than guessed.
+Current Development checkpoint is `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`. Verified executable `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / tree `db85be98f256fd856635fc178ab3220b97d01ba3` passes **199 Core + 56 PostgreSQL**, **46 migrations / 40 verification files**, and the Next.js 15.5.25 production build/lock/clean-state gate. Fresh exact-tree audit covered **359 blobs / 73 source / 49 test files** and revalidated **9 Industries / 41 canonical MS / 181 Industry tables**.
+
+DD-070 remains the latest governed feature slice: active same-Tenant adjustment-source reads plus a server-owned eligibility resolver seam. The 2026-09-21 targeted correction adds no new pricing or eligibility rule; it enforces the already-governed immutable published PlanVersion contract and fail-closed runtime Commercial state/value-type validation. The next governed feature is deterministic DD-04 baseline → override → resolver-eligible add-on precedence, with non-unique LIMIT_SET/LIMIT_DELTA meter mapping denied rather than guessed.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -239,3 +241,4 @@ Verified executable `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`, tree `a1cc883564
 Current checkpoint: **`DEV-AUTHZ-COMPILER-001`**. Publication uses exact SERVICE scope, v1 validation, subject locking, CURRENT→SUPERSEDED transition, monotonically increasing pointer/version, invalidation without version reuse/decrement, and separate Tenant/Industry versus PLATFORM_GLOBAL paths.
 
 Next governed work: **Commercial current-state integration only**.
+

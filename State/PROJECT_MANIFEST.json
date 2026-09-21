@@ -1,16 +1,16 @@
 {
   "project": "SBGlobal Plus",
-  "updated": "2026-09-20",
+  "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-COMMERCIAL-AUDIT-CORRECTION-001",
-  "final_verdict": "DEVELOPMENT IN PROGRESS — ZERO-TRUST COMMERCIAL CURRENT-STATE CORRECTION VERIFIED; DD-069 LAST FEATURE SLICE; ADD-ON ELIGIBILITY / ACTIVE ADJUSTMENT SOURCES NEXT",
+  "checkpoint": "DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001",
+  "final_verdict": "DEVELOPMENT IN PROGRESS — 2026-09-21 EXACT-TREE AUDIT / PLANVERSION IMMUTABILITY CORRECTION VERIFIED; DD-070 LAST FEATURE SLICE; DETERMINISTIC ADJUSTMENT PRECEDENCE NEXT",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
     "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD040_DD044_IMPLEMENTATION_OVERLAY",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_COMMERCIAL_TARGET_PREVIEW_PREREQUISITES",
+    "development": "IN_PROGRESS_COMMERCIAL_ADJUSTMENT_PRECEDENCE",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_BOUNDED_QUERIES_VERIFIED_REST_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
@@ -53,15 +53,15 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "895f0c6c53dd2cabcf5b3d53f8b5f053803e9122",
-    "verified_code_tree": "5e4bee4f8ede04024ac3cf4ac0cad8d356106224",
-    "state_projection_basis_head": "895f0c6c53dd2cabcf5b3d53f8b5f053803e9122"
+    "verified_code_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
+    "verified_code_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
+    "state_projection_basis_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Commercial target-preview prerequisites",
+    "current_phase": "Commercial adjustment precedence",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -73,12 +73,12 @@
       "apply_verify_harness": "database/scripts/apply-and-verify.sh",
       "ci_workflow": ".github/workflows/database-verify.yml",
       "runtime_postgresql_verification": "PASS",
-      "migration_count": 45,
-      "verification_file_count": 39,
-      "migration_range": "0001-0045",
-      "ci_verified_head": "895f0c6c53dd2cabcf5b3d53f8b5f053803e9122",
-      "ci_run_id": 35492882333,
-      "ci_job_id": 106030725899,
+      "migration_count": 46,
+      "verification_file_count": 40,
+      "migration_range": "0001-0046",
+      "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
+      "ci_run_id": 35558948164,
+      "ci_job_id": 106207964280,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -88,9 +88,9 @@
         "deployment",
         "load/penetration/restore exercise"
       ],
-      "ci_event": "pull_request",
+      "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "5e4bee4f8ede04024ac3cf4ac0cad8d356106224",
+      "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,37 +99,37 @@
         "scope": "Historical all-stages SQL persistence audit"
       }
     },
-    "next_action": "Lock add-on eligibility and active adjustment-source read semantics, then deterministic precedence. Public changePlan remains unbound.",
+    "next_action": "Implement bounded DD-04 baseline -> override -> resolver-eligible add-on precedence; fail closed on ambiguous LIMIT_SET/LIMIT_DELTA meter mapping. Public changePlan remains unbound.",
     "core_services": {
-      "checkpoint": "DEV-COMMERCIAL-AUDIT-CORRECTION-001",
+      "checkpoint": "DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040…DD-069 verified shared Core/API/Commercial prerequisite chain plus 2026-09-20 audit correction",
-      "verified_head": "895f0c6c53dd2cabcf5b3d53f8b5f053803e9122",
-      "verified_tree": "5e4bee4f8ede04024ac3cf4ac0cad8d356106224",
-      "core_ci_run_id": 35492880766,
-      "core_ci_job_id": 106030721739,
-      "tests": "194/194 PASS",
+      "verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
+      "verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
+      "core_ci_run_id": 35558948195,
+      "core_ci_job_id": 106207964142,
+      "tests": "199/199 PASS",
       "core_test_counts": {
-        "tests": 194,
-        "pass": 194,
+        "tests": 199,
+        "pass": 199,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35492880766,
-      "postgres_ci_job_id": 106030721643,
-      "postgres_tests": "53/53 PASS",
+      "postgres_ci_run_id": 35558948195,
+      "postgres_ci_job_id": 106207964247,
+      "postgres_tests": "56/56 PASS",
       "postgres_test_counts": {
-        "tests": 53,
-        "pass": 53,
+        "tests": 56,
+        "pass": 56,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35492882333,
-      "database_regression_job_id": 106030725899,
+      "database_regression_run_id": 35558948164,
+      "database_regression_job_id": 106207964280,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -248,7 +248,11 @@
         "DD-057 PostgresContextBootstrapDatabase",
         "DD-057 PostgresTenantContextAdapter exact membership-aware Tenant resolution",
         "exact Tenant-owned Industry Context + OrgUnit path resolution",
-        "trusted DataHome/routingVersion bootstrap before RequestScopedSql"
+        "trusted DataHome/routingVersion bootstrap before RequestScopedSql",
+        "DD-070 active Commercial adjustment-source read boundary and server-owned add-on eligibility resolver seam",
+        "0046 immutable published PlanVersion row contract with runtime DELETE/TRUNCATE revocation",
+        "fail-closed unknown Commercial Subscription state and entitlement value-type runtime validation",
+        "2026-09-21 exact-tree 359-blob Vision/current-state audit"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -271,8 +275,6 @@
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
-        "governed add_on.eligibility_json resolver contract",
-        "active TenantAddOn and tenant_override compiler source-read contract",
         "deterministic baseline -> override -> eligible add-on precedence",
         "compliance/security restriction inputs into target preview",
         "usage-meter target-limit impact evaluator",
@@ -281,7 +283,7 @@
         "internal SATISFIED-evidence apply gate before DD-065 publication",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan binding only after prerequisites"
       ],
-      "next_action": "Lock add-on eligibility + active adjustment source-read semantics before applying precedence."
+      "next_action": "Implement deterministic baseline -> override -> resolver-eligible add-on precedence only; ambiguous LIMIT_SET/LIMIT_DELTA meter mapping fails closed."
     },
     "application_api_ui_scope_note": "First-party Next.js App Router/tRPC HTTP boundary and three bounded Core queries are implemented/tested; REST/OpenAPI and product UI remain unfinished.",
     "application_services_started": true,
@@ -335,9 +337,9 @@
         "scope": "DD-044 Clerk session-security + PLATFORM_GLOBAL Authorization persistence prerequisite"
       }
     ],
-    "status": "IN_PROGRESS_COMMERCIAL_TARGET_PREVIEW_PREREQUISITES"
+    "status": "IN_PROGRESS_COMMERCIAL_ADJUSTMENT_PRECEDENCE"
   },
-  "current_phase": "DEVELOPMENT_COMMERCIAL_TARGET_PREVIEW_PREREQUISITES",
+  "current_phase": "DEVELOPMENT_COMMERCIAL_ADJUSTMENT_PRECEDENCE",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -557,5 +559,49 @@
     "main_tip": "3911590ff2020993ce51b32d7b091efd6f5f466f",
     "pr2": "OPEN_DRAFT_UNMERGED",
     "note": "Metadata promotion commits are exact-head CI-triggering; their own SHA is resolved from Git after publication and is not self-invented inside this JSON."
+  },
+  "current_state_audit": {
+    "date": "2026-09-21",
+    "audited_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
+    "audited_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
+    "inventory": {
+      "blobs": 359,
+      "markdown": 137,
+      "source_files": 73,
+      "test_files": 49,
+      "migrations": 46,
+      "verification_files": 40
+    },
+    "industries": 9,
+    "canonical_management_systems": 41,
+    "industry_tables": 181,
+    "core_ci": {
+      "run_id": 35558948195,
+      "job_id": 106207964142,
+      "tests": 199,
+      "pass": 199,
+      "fail": 0,
+      "skip": 0
+    },
+    "postgres_ci": {
+      "run_id": 35558948195,
+      "job_id": 106207964247,
+      "tests": 56,
+      "pass": 56,
+      "fail": 0,
+      "skip": 0
+    },
+    "database_ci": {
+      "run_id": 35558948164,
+      "job_id": 106207964280,
+      "conclusion": "success"
+    },
+    "web_ci": {
+      "run_id": 35558948165,
+      "job_id": 106207964260,
+      "conclusion": "success"
+    },
+    "report": "Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-21.md",
+    "coverage": "Registers/ALL_STAGES_FILE_COVERAGE_2026-09-21.md"
   }
 }

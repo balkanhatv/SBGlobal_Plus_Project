@@ -1,12 +1,12 @@
-# DATABASE CHECKPOINT — DEV-DB-CURRENT-STATE-AUDITED-001
-**Date:** 2026-09-19  
-**Current executable:** `b244187e69eee37ce05e5739df4680b3f0511b54` / `ea017bd7a4ac31226c349dfeaa63a3faae8b97e9`
+# DATABASE CHECKPOINT — DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001
+**Date:** 2026-09-21  
+**Verified executable:** `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / `db85be98f256fd856635fc178ab3220b97d01ba3`
 
-- Database Verify: **41 migrations / 35 verification files PASS**.
-- PostgreSQL runtime suite: **44/44 PASS**.
-- Migration 0041 adds the dedicated pre-context read boundary `sbg_context_bootstrap_ro`.
-- Industry scope remains **9/41/181**.
+- Database Verify run **35558948164**, job **106207964280**: **PASS**.
+- Full bootstrap: **46 contiguous migrations (0001–0046) / 40 verification files PASS**.
+- Core PostgreSQL adapter/context regression within run **35558948195**, job **106207964247**: **56/56 PASS**.
+- Industry scope remains **9 Industries / 41 canonical MS / 181 registered Industry tables** with FORCE RLS and Tenant+Industry ownership verification.
+- Migration 0046 physicalizes immutable published PlanVersion history and revokes runtime DELETE/TRUNCATE without rewriting prior migrations.
+- Runtime-role/privilege sweep found no new P0/P1 least-privilege/RLS defect; administrative `sbg_migration_admin` remains the explicit migration exception.
 
-The bootstrap role is SELECT-only and NOBYPASSRLS, resolves Tenant/Industry/OrgUnit/DataHome before RequestScopedSql exists, and cannot read identity-provider links/API credentials/session-security/PlatformPrincipal truth.
-
-Next Next.js composition must reuse this bootstrap adapter; no in-memory/fake production TenantContextPort is authorized.
+Next database work is driven only by the next governed Commercial precedence slice if persistence changes are actually required; no speculative migration is authorized.

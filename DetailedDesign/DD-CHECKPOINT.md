@@ -29,3 +29,12 @@ That historical overall-Development block was later closed by the final pre-deve
 ## All-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
+
+## Current Development overlay — 2026-09-21
+**Current checkpoint:** `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`  
+**Verified executable:** `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / `db85be98f256fd856635fc178ab3220b97d01ba3`
+
+The historical Phase-3 DD completion gate remains preserved. Current implementation decisions now extend contiguously through **DD-070**. Fresh exact-tree audit re-read current authoritative DD and executable dependencies, confirmed no new P0/P1 DD ambiguity, and verified the 2026-09-21 PlanVersion/runtime-enum changes as enforcement of existing F-14/A-04/DD-04 contracts rather than a new business rule.
+
+Exact evidence: Core **199/199**, PostgreSQL **56/56**, Database **46 migrations / 40 verification files**, Next.js 15.5.25 build **PASS**. Next feature design/implementation boundary is deterministic DD-04 precedence over DD-068 baseline + DD-070 prepared adjustments; ambiguous limit-meter mapping must fail closed.
+

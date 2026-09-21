@@ -1,7 +1,9 @@
 # REVIEW_REQUIRED — Historical Pre-Development / Current Audit Overlay
-**Updated:** 2026-09-20 · **Current checkpoint:** `DEV-COMMERCIAL-AUDIT-CORRECTION-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-IMMUTABILITY-AUDIT-CORRECTION-001`
 
-Current Development evidence is [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md): verified executable basis `895f0c6c53dd2cabcf5b3d53f8b5f053803e9122` / tree `5e4bee4f8ede04024ac3cf4ac0cad8d356106224`, with Core **194/194 PASS**, PostgreSQL **53/53 PASS**, Database **45 migrations / 39 verification files PASS**, and Next.js 15.5.25 production build / deterministic npm lock / generated-state cleanliness **PASS**. The zero-trust correction reconciles canonical Industry lifecycle handling, effective/current Commercial publication checks, DD/API references and exact-head checkpoint CI coverage. DD-069 remains the last governed Commercial feature slice. Add-on eligibility, active adjustment reads, precedence, compliance/security restrictions, usage impact and actual Billing/payment/Workflow approval runtimes remain unfinished. Public `core.commercial.subscription.changePlan` remains unbound. Earlier pre-development and Database sections below retain their historical scope.
+Current Development evidence is [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md): verified executable basis `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` / tree `db85be98f256fd856635fc178ab3220b97d01ba3`, with Core **199/199 PASS**, PostgreSQL **56/56 PASS**, Database **46 migrations / 40 verification files PASS**, and Next.js 15.5.25 build/lock/generated-state **PASS**. Fresh exact-tree audit covered 359 blobs and found no additional current-scope P0/P1 semantic/code/database defect after classification. DD-070 remains the latest governed feature slice; the 2026-09-21 correction enforces existing published PlanVersion immutability and malformed Commercial runtime rejection.
+
+No current approval-blocked REVIEW_REQUIRED item exists. Unfinished Development is not an ambiguity: deterministic adjustment precedence, concrete production add-on eligibility, compliance/security restrictions, usage impact, Billing/payment/proration and Workflow approval runtimes remain governed future slices. Public `core.commercial.subscription.changePlan` remains unbound. Earlier sections below retain historical scope.
 
 ## Historical pre-development result
 - Foundation P0/P1: **0/0**
@@ -43,3 +45,4 @@ No approval-blocked correction remains in the current audited scope. The previou
 
 ## Core adapter continuation boundary — 2026-09-14
 The current physical-source mapping is `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` (DD-040/041/042/043 overlay). Compiled permission persistence/read adapters and the Current Supported Industry presentation catalog/read adapter are implemented and tested. DD-043's protected PLATFORM_GLOBAL identity/API-credential/SQL floor is also implemented and exact-head CI verified at `3e7b2927839d289240eb389902563f5ab3d68074`. No current approval-blocked REVIEW_REQUIRED item exists. The exact next Development dependency is concrete provider/session-security integration, followed by PDP/ABAC, Commercial validation and transports.
+
