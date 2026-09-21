@@ -29,6 +29,6 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-Fresh DD-078 evidence at `8fa3963f691ccc8d4d913c880556bea5512cc0a3` creates no new approval-blocked DD ambiguity. Same-assessment DD-066 evidence appends and DD-065 publication are now serialized, with latest evidence revalidated inside the publication transaction.
+Fresh DD-079 evidence at `e85ed5ddd8e95a7d96c261117b914f95dc41f955` creates no new approval-blocked DD ambiguity. Prepared DD-076 evidence now has an exact DD-066 persistence path under existing producer isolation and DD-078 serialization.
 
-Concrete DD-076 evaluator/DD-066 assessment production, Billing/Workflow producer decisions and public changePlan remain unfinished implementation scope. No REVIEW_REQUIRED permission exists to invent blocker vocabulary, entitlement-diff schema, Commercial fingerprint algorithm, route selection, payment or approval semantics.
+Concrete blocker vocabulary, entitlement-diff evidence production, full Commercial fingerprint algorithm, dual-route selection, Billing/Workflow producer decisions and public changePlan remain unfinished implementation scope. No REVIEW_REQUIRED permission exists to invent those semantics.

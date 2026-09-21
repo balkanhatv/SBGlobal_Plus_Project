@@ -74,3 +74,6 @@ Implemented read-only same-Tenant consumption of current DD-066 assessment/remed
 
 ## 2026-09-21 — DD-078 atomic persisted-evidence publication binding
 Bound exact DD-066 assessment evidence into the DD-065 mutation transaction and added migration 0047 transaction-lock serialization across same Tenant+assessment evidence appends/publication. Feature `8fa3963f691ccc8d4d913c880556bea5512cc0a3` passed 265 Core / 63 PostgreSQL + full 47/41 DB bootstrap / Web / Database CI. Compiler evidence DML remains denied. Production assessment/Billing/Workflow producers and public changePlan remain unfinished.
+
+## 2026-09-21 — DD-079 prepared initial-assessment persistence
+Connected DD-076 prepared version-1 assessment evidence to DD-066 append-only persistence with exact field forwarding and server-owned assessment identity/time/Tenant/correlation. Feature `e85ed5ddd8e95a7d96c261117b914f95dc41f955` passed 271 Core / 65 PostgreSQL + full 47/41 DB bootstrap / Web / Database CI. No migration, privilege, evaluator business semantics, Billing/Workflow producer or public changePlan binding was added.

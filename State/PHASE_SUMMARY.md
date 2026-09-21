@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`
 
-Current Development checkpoint is `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`. Verified feature executable `8fa3963f691ccc8d4d913c880556bea5512cc0a3` / tree `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699` passes **265 Core + 63 PostgreSQL**, full **47 migrations / 41 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **393 blobs / 153 Markdown / 81 source / 57 test files**.
+Current Development checkpoint is `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`. Verified feature executable `e85ed5ddd8e95a7d96c261117b914f95dc41f955` / tree `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9` passes **271 Core + 65 PostgreSQL**, full **47 migrations / 41 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **398 blobs / 155 Markdown / 82 source / 59 test files**.
 
-DD-078 closes the separate DD-077 read-gate transaction gap for one supplied assessment: DD-066 evidence appends and DD-065 publication use the same Tenant+assessment transaction lock, and latest persisted evidence is revalidated before the existing publication mutation.
+DD-079 closes the DD-076 prepared initial-assessment → DD-066 persisted initial-assessment bridge without changing policy semantics, DB authority or DD-078 publication serialization.
 
-This closes atomic evidence→publication authorization for the supplied assessment but does not create the missing production assessment evaluator/persistence producer, Billing/payment/proration producer or Workflow approval producer. Public changePlan remains unbound.
+The remaining production gap is upstream evidence generation: concrete blocker vocabulary, entitlement-diff evidence producer, complete Commercial fingerprint algorithm and deterministic multi-route chooser are not defined by current source. Billing/Workflow producer runtimes and public changePlan remain unfinished.
 
-Next governed dependency is the DD-076 prepared-assessment → DD-066 persistence/orchestration source audit.
+Next governed dependency is a source audit of concrete DD-076 evaluator prerequisite ownership.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

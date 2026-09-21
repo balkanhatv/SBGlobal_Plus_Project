@@ -31,11 +31,11 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-**Current checkpoint:** `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`  
-**Verified feature executable:** `8fa3963f691ccc8d4d913c880556bea5512cc0a3` / `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699`
+**Current checkpoint:** `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`  
+**Verified feature executable:** `e85ed5ddd8e95a7d96c261117b914f95dc41f955` / `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9`
 
-Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-078**. DD-078 binds latest DD-066 assessment/remediation/route evidence into the DD-065 publication transaction and serializes same-assessment evidence appends against publication.
+Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-079**. DD-079 bridges DD-076 prepared initial assessment to DD-066 persistence without reinterpreting route/impact/diff/fingerprint/remediation semantics.
 
-Feature evidence: Core **265/265**, PostgreSQL **63/63 + full 47/41 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. Migration/verification 0047 implements and verifies the transaction-lock protocol without granting compiler evidence DML.
+Feature evidence: Core **271/271**, PostgreSQL **65/65 + full 47/41 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-079 database migration or privilege change occurred.
 
-Concrete DD-076 evaluator/assessment persistence, Billing/Workflow producers and public changePlan remain unfinished. Next governed dependency is the prepared-assessment → DD-066 persistence/orchestration source audit.
+Concrete production DD-076 evaluator semantics and Billing/Workflow producers remain unfinished. Next governed dependency is source-auditing concrete evaluator prerequisite ownership.

@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`
+**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -21,7 +21,7 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 ## 2026-09-21 current overlay
 - Detailed Design phase remains **COMPLETE at its historical gate**.
-- Current implementation decisions are contiguous through **DD-078**.
-- Verified feature evidence: `8fa3963f691ccc8d4d913c880556bea5512cc0a3` / `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699`; Core 265/265, PostgreSQL 63/63 + full 47/41 database bootstrap, Next.js build PASS, Database Verify PASS.
-- DD-078 makes persisted evidence validation and DD-065 mutation atomic for the supplied assessment using the 0047 transaction-lock protocol.
-- Concrete production assessment/Billing/Workflow producer semantics and public plan change remain unbound. Next governed dependency is DD-076 prepared-assessment → DD-066 persistence/orchestration.
+- Current implementation decisions are contiguous through **DD-079**.
+- Verified feature evidence: `e85ed5ddd8e95a7d96c261117b914f95dc41f955` / `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9`; Core 271/271, PostgreSQL 65/65 + full 47/41 database bootstrap, Next.js build PASS, Database Verify PASS.
+- DD-079 gives an already-prepared DD-076 initial assessment an executable DD-066 persistence path; it does not create the missing evaluator semantics.
+- Concrete blocker/diff/fingerprint/route-choice semantics and Billing/Workflow producer runtimes remain unbound. Next governed dependency is the concrete DD-076 evaluator prerequisite/ownership audit.

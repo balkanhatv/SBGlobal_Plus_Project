@@ -1,19 +1,19 @@
-# D-CHECKPOINT — DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001
+# D-CHECKPOINT — DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001
 **Updated:** 2026-09-21
 
-Verified feature basis `8fa3963f691ccc8d4d913c880556bea5512cc0a3` / `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699`:
-- Core **265/265 PASS**
-- PostgreSQL **63/63 PASS**
+Verified feature basis `e85ed5ddd8e95a7d96c261117b914f95dc41f955` / `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9`:
+- Core **271/271 PASS**
+- PostgreSQL **65/65 PASS**
 - full DB bootstrap **47 migrations / 41 verification files PASS**
 - Next.js 15.5.25 build **PASS**
 - Database Verify **PASS**
-- feature tree **393 blobs / 153 Markdown / 81 source / 57 tests**
+- feature tree **398 blobs / 155 Markdown / 82 source / 59 tests**
 - Industry scope **9 / 41 / 181**
 
-Gate: **IMPLEMENTED / TESTED — DD-078 ATOMIC PERSISTED-EVIDENCE PUBLICATION BINDING**.
+Gate: **IMPLEMENTED / TESTED — DD-079 PREPARED INITIAL-ASSESSMENT PERSISTENCE**.
 
-DD-078 closes the same-assessment DD-066 evidence-append race inside DD-065 publication while preserving least privilege and all existing publication validation.
+DD-079 connects DD-076 prepared version-1 evidence to the existing DD-066 append-only producer boundary without reinterpreting route/impact/diff/fingerprint/remediation semantics.
 
-No production assessment evaluator/write orchestration, Billing/Workflow producer runtime or public changePlan completion is claimed.
+No production evaluator, Billing/Workflow producer runtime or public changePlan completion is claimed.
 
-Next: **DD-076 prepared assessment → DD-066 persistence/orchestration source audit**.
+Next: **concrete DD-076 evaluator prerequisite/ownership source audit**.

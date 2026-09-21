@@ -1,18 +1,18 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`
 
 Fresh-fetch branch/HEAD/CI before continuation.
 
-Verified feature executable `8fa3963f691ccc8d4d913c880556bea5512cc0a3`, tree `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699`: **265 Core + 63 PostgreSQL + full 47/41 DB bootstrap + Next.js build + Database Verify PASS**.
+Verified feature executable `e85ed5ddd8e95a7d96c261117b914f95dc41f955`, tree `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9`: **271 Core + 65 PostgreSQL + full 47/41 DB bootstrap + Next.js build + Database Verify PASS**.
 
-DD-078:
-- requires assessment id/version on internal publication;
-- locks Tenant+assessment before evidence reads;
-- serializes all DD-066 evidence inserts on the same transaction lock;
-- revalidates latest assessment, exact compiler fingerprint, remediation, route policy and latest producer-owned SATISFIED route;
-- enforces NEXT_RENEWAL authoritative effectiveAt;
-- then continues all existing DD-065 publication checks/mutations atomically.
+DD-079:
+- accepts only DD-076 version-1 prepared initial assessment;
+- forwards every prepared field unchanged to DD-066;
+- leaves assessment ID/time/Tenant/correlation server-owned;
+- revalidates persisted return against the prepared binding;
+- preserves DD-066 current-state/route guards and DD-078/0047 evidence serialization;
+- adds no migration or privilege.
 
-Do not overclaim: no production DD-076 evaluator, DD-066 assessment orchestration, Billing/Workflow producer runtime or public changePlan is implemented.
+Do not overclaim: the concrete DD-076 evaluator is still missing because blocker vocabulary, entitlement-diff evidence, complete fingerprint algorithm and dual-route chooser are not source-defined. Billing/Workflow producer runtimes and public changePlan remain unfinished.
 
-Next safe slice: audit and close the DD-076 prepared-assessment → DD-066 persistence producer bridge only where source-governed. RawSourceCorpus immutable; `main` unmerged; PR #2 draft.
+Next safe slice: audit concrete DD-076 evaluator prerequisite ownership and implement only governed components. RawSourceCorpus immutable; `main` unmerged; PR #2 draft.

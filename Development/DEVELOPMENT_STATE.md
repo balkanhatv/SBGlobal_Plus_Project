@@ -1,20 +1,20 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ATOMIC-APPLY-EVIDENCE-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`
 
-Development is **IN PROGRESS — COMMERCIAL PRODUCTION ASSESSMENT / PRODUCER ORCHESTRATION PREREQUISITES**.
+Development is **IN PROGRESS — COMMERCIAL PRODUCTION ASSESSMENT EVALUATOR / PRODUCER PREREQUISITES**.
 
-Verified feature executable `8fa3963f691ccc8d4d913c880556bea5512cc0a3` / `e79fedbecc4560ebcd5a5d5c876dd4870e7a5699`:
-- **265/265 Core PASS**
-- **63/63 PostgreSQL PASS**
+Verified feature executable `e85ed5ddd8e95a7d96c261117b914f95dc41f955` / `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9`:
+- **271/271 Core PASS**
+- **65/65 PostgreSQL PASS**
 - **47 migrations / 41 verification files bootstrap PASS**
 - **Next.js 15.5.25 production build PASS**
 - **Database Verify PASS**
-- **393 blobs / 153 Markdown / 81 source / 57 tests**
+- **398 blobs / 155 Markdown / 82 source / 59 tests**
 
-DD-078 closes the DD-077 evidence-read→DD-065 mutation transaction gap for the supplied assessment. DD-066 evidence appends and DD-065 publication now serialize on the same Tenant+assessment transaction lock, and current evidence is revalidated before any publication mutation.
+DD-079 closes the deterministic DD-076 prepared-assessment → DD-066 persisted-initial-assessment bridge without introducing new business semantics or persistence authority. DD-066 continues to own assessment identity/time/Tenant/correlation plus live Subscription/target-route validation; DD-078 continues to own atomic evidence→publication validation.
 
-This does not create the missing evidence producers. Public plan change remains blocked on concrete DD-076 evaluation/assessment persistence, Billing/Workflow producer runtimes and remaining governed compiler materialization inputs.
+The remaining production blocker is upstream evidence production: the repository still does not define concrete blocker-code vocabulary, entitlement-diff evidence format/producer, complete Commercial fingerprint algorithm or deterministic dual-route chooser. Billing/Workflow producers and public changePlan also remain unfinished.
 
-Next independent dependency: source-audit **DD-076 prepared assessment → DD-066 assessment persistence/orchestration**. Implement only source-defined producer bindings and keep undefined blocker/diff/fingerprint/dual-route semantics explicit.
+Next independent governed dependency: source-audit the **concrete DD-076 evaluator prerequisites and ownership**. Implement only evidence-backed pieces; preserve unresolved semantics as explicit blockers.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.
