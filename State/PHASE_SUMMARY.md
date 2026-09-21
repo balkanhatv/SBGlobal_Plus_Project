@@ -7,7 +7,7 @@ DD-082 adds a reusable pre-sign Document access-candidate boundary: resolved Ten
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
-Next: REST exposure, DD-076 evaluator and concrete AI Gateway remain blocked on their named source-owned prerequisites. Event dispatcher/retry/DLQ and webhook transport runtime are not claimed by DD-081. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.
+Next: Full DD-08 signed access remains blocked on exact OperationContract/permission binding, policy-specific step-up/residency decisions and concrete signed-grant TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain blocked or unimplemented on their named prerequisites. Source-audit the next independent source-complete item before implementation and retain exact-head CI/repository invariants.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
