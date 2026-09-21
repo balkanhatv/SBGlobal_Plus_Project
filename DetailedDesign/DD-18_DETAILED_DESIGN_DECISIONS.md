@@ -993,10 +993,11 @@ projection and FORCE-RLS predicate; migration 0028 already grants the dedicated
 NOBYPASSRLS Document service role access. No new persistence semantics are required.
 
 **Decision:** implement `PostgresDocumentAccessMetadataStore` as the concrete port.
-It accepts only resolved single-Tenant contexts, opens the existing transaction-local
-database scope with `RequestScopedSql`, selects one DocumentMeta row by UUID and maps
-only DD-082 fields. RLS-hidden or absent rows return null; ambiguous or malformed
-persistence results fail closed.
+It accepts only resolved single-Tenant contexts, uses dedicated
+`PostgresDocumentDatabase` to set the existing `sbg_document_service_rw` NOBYPASSRLS
+role, opens transaction-local scope with `RequestScopedSql`, selects one DocumentMeta
+row by UUID and maps only DD-082 fields. RLS-hidden or absent rows return null;
+ambiguous or malformed persistence results fail closed.
 
 **Security / trade-off:** Tenant/Industry ownership is enforced twice: physically by
 FORCE-RLS and again by DD-082 candidate validation. Tenant Core rows remain visible
