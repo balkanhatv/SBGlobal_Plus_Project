@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-API-REST-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-EVENT-ENVELOPE-001`
 
-Verified executable `ce4708eec15f6b0a35ae9a77d13505221fe55d51` / tree `9655553773e2b1f63ba1e36a479ef3d574ec6077`: **290/290 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **409 blobs / 161 Markdown / 83 source / 63 test files**.
+Verified executable `535f458ad6b5e0cfef082e8d71dbc8fbe94e610f` / tree `0c0de1c3c5818a2223d973bffff8425942741a69`: **298/298 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **414 blobs / 164 Markdown / 84 source / 64 test files**.
 
-DD-080 adds an unmounted reusable external REST Fetch adapter: edge and credential/context checks precede body/input work, routes bind one OperationContract, the shared executor remains the only business/security pipeline, and DD-052 owns every success/error/control projection. No route, API-key syntax, OpenAPI document, webhook endpoint, database object or Commercial rule was invented.
+DD-081 adds a reusable catalog-bound Core event-envelope validator: canonical JSON metadata, event id/type/version/scope, producer/sensitivity, Tenant/Industry/residency and explicit cross-context ownership are checked before an injected catalog payload-schema validator runs. PostgreSQL remains the final physical integrity guard. No dispatcher, retry/DLQ policy, webhook transport, external endpoint, database object or privilege was invented.
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
-Next: concrete REST exposure remains blocked on an exact external credential scheme and public route catalog; the DD-076 evaluator remains blocked on its named policy/evidence definitions. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.
+Next: REST exposure, DD-076 evaluator and concrete AI Gateway remain blocked on their named source-owned prerequisites. Event dispatcher/retry/DLQ and webhook transport runtime are not claimed by DD-081. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

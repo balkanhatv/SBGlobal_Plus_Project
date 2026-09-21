@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-API-REST-001`
+**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-EVENT-ENVELOPE-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-080**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-081**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-080 adds an unmounted reusable external REST Fetch adapter: edge and credential/context checks precede body/input work, routes bind one OperationContract, the shared executor remains the only business/security pipeline, and DD-052 owns every success/error/control projection. No route, API-key syntax, OpenAPI document, webhook endpoint, database object or Commercial rule was invented.
+DD-081 adds a reusable catalog-bound Core event-envelope validator: canonical JSON metadata, event id/type/version/scope, producer/sensitivity, Tenant/Industry/residency and explicit cross-context ownership are checked before an injected catalog payload-schema validator runs. PostgreSQL remains the final physical integrity guard. No dispatcher, retry/DLQ policy, webhook transport, external endpoint, database object or privilege was invented.
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
@@ -37,4 +37,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `ce4708eec15f6b0a35ae9a77d13505221fe55d51` / tree `9655553773e2b1f63ba1e36a479ef3d574ec6077` — 290 Core tests, 65 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD080_VERIFICATION_2026-09-21.md).
+**Current verified executable evidence:** `535f458ad6b5e0cfef082e8d71dbc8fbe94e610f` / tree `0c0de1c3c5818a2223d973bffff8425942741a69` — 298 Core tests, 65 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD081_VERIFICATION_2026-09-21.md).
