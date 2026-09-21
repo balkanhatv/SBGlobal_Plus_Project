@@ -294,7 +294,7 @@ export class CommercialApplyEvidenceGateService {
     }
     if(route.resolutionState==="REJECTED"){
       const evidenceReference=reference(route.evidenceReference,"rejected route evidenceReference");
-      exactDate(route.resolvedAt,"rejected route resolvedAt");
+      date(route.resolvedAt,"rejected route resolvedAt");
       return baseDecision(assessment,"BLOCK_ROUTE_REJECTED",{
         routeEvidenceVersion:route.evidenceVersion,
         routeEvidenceReference:evidenceReference,
@@ -306,7 +306,7 @@ export class CommercialApplyEvidenceGateService {
     }
 
     const routeEvidenceReference=reference(route.evidenceReference,"route evidenceReference");
-    exactDate(route.resolvedAt,"route resolvedAt");
+    date(route.resolvedAt,"route resolvedAt");
     const billingPreviewReference=route.billingPreviewReference===undefined
       ? undefined : reference(route.billingPreviewReference,"billingPreviewReference");
 
