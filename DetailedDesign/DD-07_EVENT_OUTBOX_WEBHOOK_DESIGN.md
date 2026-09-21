@@ -223,3 +223,28 @@ should be scheduled.
 **Boundary:** no endpoint challenge/network access, DNS/IP/redirect SSRF logic,
 secret/signature handling, retry scheduler, DLQ transition, replay, route, migration,
 role, grant or RLS policy is introduced.
+
+
+## 18. Raw Outbox Event persistence reader [DD-090]
+
+The persisted `outbox_event` row is exposed to server-side Integration code through
+a raw typed read port only. `OutboxEventEvidence` preserves physical scope,
+event/catalog identity, aggregate identity/version, immutable envelope JSON, raw
+outbox status, attempt count, availability, optional lock/dispatch/error evidence and
+createdAt.
+
+`PostgresOutboxEventStore` reads one event by id through the existing DD-088
+Integration PostgreSQL role + `RequestScopedSql`. Migration 0030's final
+`outbox_row_visible` FORCE-RLS predicate remains the physical visibility authority:
+Tenant Core is same-Tenant visible, Tenant Industry is exact-context visible,
+Platform Global requires Platform Global scope, and explicit cross-context access
+continues to require its dedicated governed repository rather than this generic path.
+
+This reader deliberately does **not** claim/lock rows, decide readiness, increment
+attempts, choose workers, dispatch, retry, dead-letter, replay or interpret the event
+payload/schema. DD-081 remains the reusable envelope-validation boundary when a
+producer/consumer interprets an event.
+
+**Boundary:** no dispatcher scheduler, lease/claim algorithm, retry/DLQ/replay
+transition, payload-schema engine, webhook action, route, migration, role, grant or
+RLS policy is introduced.
