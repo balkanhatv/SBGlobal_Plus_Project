@@ -104,6 +104,10 @@ function stateInvalid(message: string): never {
   throw new CommercialStateError("COMMERCIAL_STATE_INVALID", message);
 }
 
+const SUBSCRIPTION_STATES = new Set<CommercialSubscriptionState>([
+  "PENDING", "TRIAL", "ACTIVE", "GRACE", "SUSPENDED", "EXPIRED", "CANCELLED",
+]);
+
 function clientEntitlementValue(
   fact: CurrentCommercialEntitlementRead,
 ): CommercialClientEntitlementValue | undefined {
@@ -143,6 +147,7 @@ function clientEntitlementValue(
       return Object.freeze([...values].sort());
     }
   }
+  stateInvalid("Entitlement value type is invalid.");
 }
 
 function enabledEntitlement(fact: CurrentCommercialEntitlementRead): boolean {
@@ -402,6 +407,9 @@ implements CommercialContextPort, CommercialGuardPort, AuthorizationSupplemental
     }
     if (!state) {
       throw new CommercialStateError("COMMERCIAL_STATE_UNAVAILABLE");
+    }
+    if (!SUBSCRIPTION_STATES.has(state.subscriptionState)) {
+      stateInvalid("Commercial subscription state is invalid.");
     }
     if (!Number.isSafeInteger(state.snapshotVersion) || state.snapshotVersion <= 0) {
       stateInvalid("Commercial snapshot version is invalid.");

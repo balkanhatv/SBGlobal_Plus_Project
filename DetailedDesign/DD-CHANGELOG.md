@@ -30,3 +30,11 @@ Fresh zero-trust audit preserved DD-069 as the last feature slice and corrected 
 
 ## 2026-09-20 — DD-070 Commercial adjustment-source / eligibility boundary
 Recorded the exact implemented source boundary: current Subscription + target PlanVersion revalidation, effective same-Tenant TenantAddOn/override reads under the existing Commercial compiler role, sibling-Tenant isolation, and a server-owned opaque eligibility resolver seam. No concrete eligibility, pricing, market or payment rule is claimed. Exact-head executable evidence is promoted separately through Development/State checkpoint artifacts.
+
+## 2026-09-21 — Published PlanVersion and runtime enum audit correction
+Enforced existing DD-04 published-version immutability through additive migration
+0046 and real control-plane SQL regressions; retired payloads remain preserved and
+runtime deletion is revoked. Added Core regressions for unknown Subscription and
+entitlement type values, including rejection before publication persistence. This
+is correction of existing contracts; DD-070 remains the latest feature slice.
+Full-repository audit completion and the next compiler feature are not claimed.

@@ -767,3 +767,23 @@ Eligibility is delegated to `CommercialAddOnEligibilityResolverPort`. It is serv
 **Audit / trade-off:** this creates a deterministic ownership seam without guessing eligibility semantics. It costs an explicit resolver dependency before production composition, but avoids hardcoded pricing/market/payment rules and preserves Billing ownership.
 
 **Consequence:** active adjustment-source isolation and the eligibility decision boundary are executable/tested. A concrete production eligibility resolver is still unfinished and remains a prerequisite for end-to-end target preview/public plan change. The next safe compiler slice may consume already prepared/resolver-approved adjustments and implement only F-14/DD-04 precedence, failing closed on ambiguous LIMIT_SET/LIMIT_DELTA meter mapping.
+
+## Existing Commercial contract enforcement correction — 2026-09-21
+
+F-14 §1, A-04 §2 and DD-04 §1 already require immutable published PlanVersions.
+Migration 0029 separated the catalog writer role but still allowed that role to
+rewrite published content. Migration 0046 adds the missing row-update invariant
+and removes runtime deletion authority. Status-only retirement remains supported;
+new content requires a new version. This physicalizes existing authority and does
+not introduce a new commercial business rule or a new DD decision ID.
+
+DD-060/065 also require malformed values to fail closed. Runtime enum regressions
+demonstrated that publication accepted unknown fact types, current-state guard
+accepted unknown Subscription states, and projections silently omitted unknown
+fact types. The Core validation correction rejects these before access or writes.
+The PostgreSQL current-state adapter already validated its enums; no external
+exploit or Tenant isolation breach is inferred from the mocked-port regressions.
+
+Affected dependencies: DD-04/05/17, Commercial Core read/publication services,
+migration/verification 0046, Development/DB checkpoints and current State evidence.
+Remote CI must pass at the correction commit before this slice is promoted.

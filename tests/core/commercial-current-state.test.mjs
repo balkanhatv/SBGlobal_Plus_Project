@@ -285,3 +285,25 @@ test("client Commercial projection fails closed on stale snapshot and invalid SE
       && error.code==="COMMERCIAL_STATE_INVALID",
   );
 });
+
+test("Commercial guard rejects unknown subscription states before granting access", async () => {
+  for (const subscriptionState of ["UNKNOWN", "active", undefined, null]) {
+    await assert.rejects(
+      service(state({subscriptionState})).validateCurrent({requestContext:context,operation}),
+      error=>error instanceof CommercialStateError && error.code==="COMMERCIAL_STATE_INVALID",
+    );
+  }
+});
+
+test("Commercial projection and supplemental facts reject unknown entitlement value types", async () => {
+  for (const valueType of ["UNKNOWN", "boolean", undefined, null]) {
+    const current=service(state({entitlements:[{code:"rtl.pos.enabled",valueType,value:true}]}));
+    for (const read of [
+      ()=>current.getClientCurrentProjection({requestContext:context}),
+      ()=>current.load({requestContext:context,operation}),
+    ]) {
+      await assert.rejects(read,error=>error instanceof CommercialStateError
+        && error.code==="COMMERCIAL_STATE_INVALID");
+    }
+  }
+});

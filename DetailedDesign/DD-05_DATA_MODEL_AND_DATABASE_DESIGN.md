@@ -270,3 +270,19 @@ The DB write guards provide the second validation line beneath the TypeScript se
 - missing NEXT_RENEWAL effective timestamp on SATISFIED resolution → fail.
 
 This substrate is intentionally independent from payment-provider or approval-engine implementation.
+
+## 18. Published PlanVersion immutability correction — 2026-09-21
+
+Migration `0046_published_plan_version_immutability.sql` enforces the existing
+F-14 §1 / A-04 §2 / DD-04 §1 immutable published-version contract. A BEFORE UPDATE
+trigger compares the entire old/new row except `status`; it rejects payload,
+identity, validity-window, provenance and publication-marker changes once
+published or ACTIVE/RETIRED, and rejects reopening DRAFT. It uses SECURITY INVOKER
+and a fixed pg_catalog search path; no privileged write helper is exposed.
+
+Control-plane DELETE/TRUNCATE is revoked. Draft editing, first publication,
+status-only retirement and new successor insertion remain available. No existing
+row or preceding migration is rewritten. Migration/admin fixture cleanup remains
+separate from runtime role authority. Verification `0046` executes actual writes
+as `sbg_control_plane_rw`, checks failures come from the immutability guard, and
+rolls back its complete fixture.

@@ -36,6 +36,13 @@ Global PLATFORM_GLOBAL table.
 
 ACTIVE version is immutable; changes publish a new version.
 
+The persistence correction in migration `0046` enforces this existing contract:
+once `published_at` is set, or the stored status is ACTIVE/RETIRED, every column
+other than lifecycle `status` is immutable. Returning that version to DRAFT is
+rejected. Retirement preserves the pinned payload. Runtime control-plane
+DELETE/TRUNCATE is revoked; unpublished drafts remain editable and successor
+versions use a new row. Administrative migration ownership is not runtime authority.
+
 ### commercial_route_policy
 `id uuid PK, code text UNIQUE, self_serve_enabled boolean, sales_assisted_enabled boolean, market_scope_json jsonb, approval_required boolean, version int, status, created_at`.
 Canonical policy semantics: Free/Starter self-serve; Enterprise sales-assisted; Pro/Premium dual-route unless a versioned approved market policy narrows route.
@@ -146,6 +153,7 @@ This executable floor resolves Commercial truth from the existing module-owned p
 
 - RequestContext bootstrap reads exactly one valid CURRENT EntitlementSnapshot joined to its source Subscription, pinned PlanVersion, and the Tenant's exact `current_subscription_id` pointer, then stamps snapshot id + version into RequestContext.
 - Runtime guard re-reads current Commercial state and requires exact snapshot id/version equality. Missing, ambiguous, expired or stale current state fails closed.
+- Unknown Subscription lifecycle values and unknown entitlement value types are rejected at the Core service boundary, including client projection and Authorization supplemental reads; a TypeScript annotation is not runtime validation.
 - Generic protected operations treat `TRIAL`, `ACTIVE` and `GRACE` as usable subscription states. `PENDING`, `SUSPENDED`, `EXPIRED` and `CANCELLED` fail closed in this generic floor until dedicated billing/renewal/export/read-only operation contracts identify the intentionally permitted restricted paths. This avoids widening access from a stale pre-suspension snapshot.
 - TENANT_INDUSTRY operations require an effective INDUSTRY license for the exact active Industry Context. A MANAGEMENT_SYSTEM license is revalidated when a license record exists for the operation's canonical module key. Assigned SEAT licensing, when present, requires an effective seat for the current human principal.
 - Current snapshot facts are read with Tenant + Industry FORCE RLS. For the same entitlement code, an exact Industry fact overrides the tenant-wide fact. Snapshot deny-set wins.
@@ -247,6 +255,7 @@ Runtime invariants:
 - input names exact Subscription id, expected Subscription version, expected source PlanVersion, target PlanVersion, server-owned effective time, trigger/reason references, source fingerprint, deny-set and deterministic compiled facts;
 - generated transition/snapshot/outbox/audit IDs are server-owned;
 - fact values are bounded by the canonical Commercial value types; duplicate entitlement scope, duplicate deny entries, invalid effective windows and future apply attempts fail before persistence.
+- Unknown/missing runtime fact value types return `COMMERCIAL_PUBLICATION_PAYLOAD_INVALID` before the persistence port is called.
 
 The PostgreSQL store then re-locks and revalidates:
 1. exact Tenant-owned Subscription + expected version/source PlanVersion;

@@ -167,6 +167,7 @@ function factValue(
       }
       return normalizedSet(value as readonly string[],"SET fact");
   }
+  failure("COMMERCIAL_PUBLICATION_PAYLOAD_INVALID","Invalid entitlement value type.");
 }
 
 function normalizeFacts(input:readonly CommercialCompiledSnapshotFact[]):readonly CommercialCompiledSnapshotFact[]{

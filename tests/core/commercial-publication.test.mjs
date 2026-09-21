@@ -123,3 +123,32 @@ test("Commercial publication service rejects human scope, future apply and dupli
       && error.code==="COMMERCIAL_PUBLICATION_PAYLOAD_INVALID",
   );
 });
+
+test("Commercial publication rejects unknown runtime value types before persistence",async()=>{
+  let writes=0;
+  const service=new CommercialPublicationService({
+    store:{async publish(){writes++; return {};}},
+    ids:{nextId:randomUUID},
+    runtime:{now(){return new Date("2026-09-19T12:00:00.000Z");}},
+  });
+  const input={
+    requestContext:context(),
+    subscriptionId:randomUUID(),
+    expectedSubscriptionVersion:4,
+    expectedSourcePlanVersionId:randomUUID(),
+    targetPlanVersionId:randomUUID(),
+    effectiveAt:new Date("2026-09-19T11:59:00.000Z"),
+    triggerCode:"PLAN_CHANGE_APPLIED",
+    sourceFingerprint:"commercial-publication-fingerprint-v1",
+    denySet:[],
+  };
+  for(const valueType of ["UNKNOWN","boolean",undefined,null,{},3]){
+    await assert.rejects(service.publish({...input,facts:[{
+      code:"feature.a",valueType,value:true,
+      sourceType:"PLAN",sourceId:input.targetPlanVersionId,
+      effectiveFrom:input.effectiveAt,
+    }]}),error=>error instanceof CommercialPublicationError
+      && error.code==="COMMERCIAL_PUBLICATION_PAYLOAD_INVALID");
+  }
+  assert.equal(writes,0,"Malformed compiler output must never reach persistence");
+});

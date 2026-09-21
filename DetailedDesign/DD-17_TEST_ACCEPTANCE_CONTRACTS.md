@@ -589,6 +589,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-PUB-010 | any evidence/privilege/RLS write fails | PostgreSQL transaction rolls back all business/publication evidence |
 | COMM-PUB-011 | matching CURRENT snapshot is expired or not yet effective | publication fails closed with all subscription/snapshot/event/audit state unchanged |
 | COMM-PUB-012 | Tenant current_subscription_id no longer selects the supplied Subscription | publication fails closed despite matching snapshot/source/version |
+| COMM-PUB-013 | unknown/missing runtime fact valueType | COMMERCIAL_PUBLICATION_PAYLOAD_INVALID before any persistence call |
 
 
 ### Governed plan-change evidence — DD-066 / DEV-COMMERCIAL-PLAN-CHANGE-EVIDENCE-001
@@ -670,3 +671,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-ADJ-SRC-010 | ELIGIBLE add-on | DD-069 delta parses/scales only after eligibility succeeds |
 | COMM-ADJ-SRC-011 | malformed resolver status/version/evidence | fail closed |
 | COMM-ADJ-SRC-012 | concrete production eligibility business rule | NOT CLAIMED; requires separately governed resolver implementation |
+
+### Commercial audit regressions — 2026-09-21
+
+| ID | Scenario | Required result / executable owner |
+|---|---|---|
+| COMM-PV-IMM-001 | edit unpublished DRAFT, then first publication | allowed; verification 0046 checks affected rows |
+| COMM-PV-IMM-002 | rewrite published entitlement/limit/trial/billing policy, identity, validity, provenance or version | rejected by the specific immutability guard; verification 0046 |
+| COMM-PV-IMM-003 | retire published version | status-only update succeeds; entire pinned payload stays identical |
+| COMM-PV-IMM-004 | reopen DRAFT, clear publication marker, or rewrite RETIRED content | rejected; no edit bypass through lifecycle state |
+| COMM-PV-IMM-005 | runtime deletes published catalog history or retains TRUNCATE/DELETE grants | actual delete rejected and all non-migration sbg roles checked |
+| COMM-PV-IMM-006 | publish successor after retirement | new version row succeeds; previous payload remains intact |
+| COMM-ENUM-001 | unknown/missing Subscription state from a store port | COMMERCIAL_STATE_INVALID before guard can grant access; core current-state regression |
+| COMM-ENUM-002 | unknown/missing entitlement value type | client projection and Authorization supplemental reads reject, rather than silently omitting invalid data |
