@@ -914,3 +914,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-ACL-MATCH-004 | matched rows contain expired/future validUntil and ALLOW/DENY | values are preserved; no expiry/effect interpretation |
 | DOC-ACL-MATCH-005 | no subject matches | empty evidence; no access decision is invented |
 | DOC-ACL-MATCH-006 | unresolved context or cross-document evidence | fail closed |
+
+
+### Linked physical Document StorageObject binding — DD-086
+
+| ID | Scenario | Expected |
+|---|---|---|
+| DOC-STO-PG-001 | exact ACTIVE/CLEAN RLS-visible DocumentMeta + linked ACTIVE object | immutable private physical binding |
+| DOC-STO-PG-002 | caller supplies known but unlinked StorageObject id | no binding; object id cannot bypass DocumentMeta |
+| DOC-STO-PG-003 | sibling Industry document/object requested from current Industry | no binding; exact sibling context may resolve its own |
+| DOC-STO-PG-004 | Tenant Core document/object requested from same-Tenant Industry and Tenant Core contexts | same linked physical binding visible in both |
+| DOC-STO-PG-005 | Document or StorageObject is unsafe/non-active | no physical binding; cannot progress toward signing |
+| DOC-STO-PG-006 | resolved RequestContext Data Home mismatches database route/object | fail closed before locator disclosure |
