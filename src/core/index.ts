@@ -47,3 +47,4 @@ export * from "./integration/event-envelope.js";
 export * from "./document/access-candidate.js";
 export * from "./document/acl.js";
 export * from "./document/acl-subject-match.js";
+export * from "./document/upload-session.js";
