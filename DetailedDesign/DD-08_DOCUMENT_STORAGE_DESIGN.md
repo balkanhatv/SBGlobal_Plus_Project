@@ -117,3 +117,24 @@ or metadata dependency failures fail closed.
 sensitivity step-up rule, residency exception, signed-grant TTL, bucket/provider,
 object key, public route or sharing model. Full DD-08 §5 signed access remains
 unimplemented until those bindings are source-owned.
+
+
+## 14. PostgreSQL access-metadata reader [DD-083]
+
+DD-082's metadata port is concretely bound to PostgreSQL through
+`PostgresDocumentAccessMetadataStore`. The adapter accepts only a resolved
+TENANT_CORE or TENANT_INDUSTRY RequestContext and executes one parameterized
+DocumentMeta lookup inside `RequestScopedSql.withContext`.
+
+Migration 0006 FORCE-RLS remains the physical ownership authority: a Tenant Industry
+request can read Tenant Core rows plus only its exact Industry Context rows, while a
+sibling Industry row is invisible. The adapter projects only the DocumentMeta fields
+required by DD-082. It does not join `storage_object` and does not expose object
+keys, provider references, credentials or signed access material.
+
+The adapter validates the persisted row shape and returns null for an RLS-hidden or
+absent document. ACTIVE/CLEAN authorization-state progression remains DD-082 Core
+responsibility, preserving one reusable policy-independent persistence reader.
+
+**Boundary:** no migration, role, grant, RLS policy, ACL evaluator, signer, route,
+permission, entitlement, TTL/provider configuration or public sharing is added.
