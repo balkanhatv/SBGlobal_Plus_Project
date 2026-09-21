@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-DOCUMENT-UPLOAD-SESSION-READ-001",
-  "final_verdict": "DD-087 RAW DOCUMENT UPLOAD-SESSION READER IMPLEMENTED / EXACT-HEAD TESTED; UPLOAD POLICY/STATE ORCHESTRATION REMAINS UNCLAIMED",
+  "checkpoint": "DEV-WEBHOOK-SUBSCRIPTION-READ-001",
+  "final_verdict": "DD-088 RAW WEBHOOK SUBSCRIPTION POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; WEBHOOK NETWORK/SIGNING/DELIVERY RUNTIME REMAINS UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "d2038d13f3950b58f7cbafe99ce93fd1f4f5d115",
-    "verified_code_tree": "dc3d7f16ff13f98b5a376095e3d2ca4a506f8ac3",
-    "state_projection_basis_head": "d2038d13f3950b58f7cbafe99ce93fd1f4f5d115",
+    "verified_code_head": "31fbaeb3ce7b8c2f40ae045639b9589f1eca5815",
+    "verified_code_tree": "dc426535cb99ae5d4e4456b0ec76dd9d65dd6754",
+    "state_projection_basis_head": "31fbaeb3ce7b8c2f40ae045639b9589f1eca5815",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Raw Document upload-session PostgreSQL reader verified; usability/state policy not claimed",
+    "current_phase": "Raw Webhook Subscription PostgreSQL reader verified; webhook execution not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "d2038d13f3950b58f7cbafe99ce93fd1f4f5d115",
-      "ci_run_id": 35629762246,
-      "ci_job_id": 106432820435,
+      "ci_verified_head": "31fbaeb3ce7b8c2f40ae045639b9589f1eca5815",
+      "ci_run_id": 35630832283,
+      "ci_job_id": 106436336517,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "dc3d7f16ff13f98b5a376095e3d2ca4a506f8ac3",
+      "ci_verified_tree": "dc426535cb99ae5d4e4456b0ec76dd9d65dd6754",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "d2038d13f3950b58f7cbafe99ce93fd1f4f5d115",
-      "feature_head_bootstrap_verified_tree": "dc3d7f16ff13f98b5a376095e3d2ca4a506f8ac3",
-      "feature_head_bootstrap_run_id": 35629762518,
-      "feature_head_bootstrap_job_id": 106432821645,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_85_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "31fbaeb3ce7b8c2f40ae045639b9589f1eca5815",
+      "feature_head_bootstrap_verified_tree": "dc426535cb99ae5d4e4456b0ec76dd9d65dd6754",
+      "feature_head_bootstrap_run_id": 35630832563,
+      "feature_head_bootstrap_job_id": 106436337984,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_90_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Document upload orchestration still requires source-owned session usability/expiry semantics, max-size/media/checksum policy and governed state transitions. Full signed access still requires final ACL authorization semantics, step-up/residency policy and concrete StoragePort signer TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway and event/webhook runtime remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation.",
+    "next_action": "Webhook execution still requires source-owned endpoint verification/challenge, DNS/IP/redirect SSRF policy, secret/signature/rotation behavior, event-filter evaluation and delivery/retry/DLQ orchestration. Document upload/signed-access policy gaps remain separately governed. REST exposure, DD-076 evaluator and concrete AI Gateway also remain unfinished on their named prerequisites. Source-audit the next independent source-complete slice before implementation.",
     "core_services": {
-      "checkpoint": "DEV-DOCUMENT-UPLOAD-SESSION-READ-001",
+      "checkpoint": "DEV-WEBHOOK-SUBSCRIPTION-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–087 current implementation; DD-087 raw Document upload-session PostgreSQL reader",
-      "verified_head": "d2038d13f3950b58f7cbafe99ce93fd1f4f5d115",
-      "verified_tree": "dc3d7f16ff13f98b5a376095e3d2ca4a506f8ac3",
-      "core_ci_run_id": 35629762518,
-      "core_ci_job_id": 106432822016,
+      "decision": "DD-040–088 current implementation; DD-088 raw Webhook Subscription PostgreSQL reader",
+      "verified_head": "31fbaeb3ce7b8c2f40ae045639b9589f1eca5815",
+      "verified_tree": "dc426535cb99ae5d4e4456b0ec76dd9d65dd6754",
+      "core_ci_run_id": 35630832563,
+      "core_ci_job_id": 106436337496,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35629762518,
-      "postgres_ci_job_id": 106432821645,
-      "postgres_tests": "85/85 PASS",
+      "postgres_ci_run_id": 35630832563,
+      "postgres_ci_job_id": 106436337984,
+      "postgres_tests": "90/90 PASS",
       "postgres_test_counts": {
-        "tests": 85,
-        "pass": 85,
+        "tests": 90,
+        "pass": 90,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35629762246,
-      "database_regression_job_id": 106432820435,
+      "database_regression_run_id": 35630832283,
+      "database_regression_job_id": 106436336517,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -324,7 +324,10 @@
         "DD-087 raw Document upload-session read contract",
         "DD-087 PostgreSQL upload-session reader through dedicated Document role",
         "DOC-UP-PG-001–005 upload-session/RLS acceptance",
-        "DD-087 duplicate documentation/test cleanup before promotion"
+        "DD-087 duplicate documentation/test cleanup before promotion",
+        "DD-088 raw Webhook Subscription read contract",
+        "DD-088 dedicated Integration PostgreSQL fixed-role boundary",
+        "WH-SUB-PG-001–005 real PostgreSQL Tenant-RLS acceptance"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -382,7 +385,10 @@
         "transport exposure of private Document physical locators",
         "Document upload-session usability/expiry reducer",
         "Document upload media/max-size/checksum evaluator",
-        "Document upload state-transition orchestration"
+        "Document upload state-transition orchestration",
+        "webhook endpoint verification/challenge and SSRF network policy",
+        "webhook secret/signature/rotation implementation",
+        "webhook event-filter evaluator and delivery/retry/DLQ runtime"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -398,9 +404,9 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Document upload orchestration still requires source-owned session usability/expiry semantics, max-size/media/checksum policy and governed state transitions. Full signed access still requires final ACL authorization semantics, step-up/residency policy and concrete StoragePort signer TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway and event/webhook runtime remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation."
+      "next_action": "Webhook execution still requires source-owned endpoint verification/challenge, DNS/IP/redirect SSRF policy, secret/signature/rotation behavior, event-filter evaluation and delivery/retry/DLQ orchestration. Document upload/signed-access policy gaps remain separately governed. REST exposure, DD-076 evaluator and concrete AI Gateway also remain unfinished on their named prerequisites. Source-audit the next independent source-complete slice before implementation."
     },
-    "application_api_ui_scope_note": "Document metadata, raw ACL, ACL subject evidence, linked private storage binding and raw upload-session persistence are implemented/tested; final ACL/upload policy/signed access remain unfinished.",
+    "application_api_ui_scope_note": "Tenant-RLS Webhook Subscription persistence is now executable/readable through the dedicated Integration role; endpoint verification/signing/delivery remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -454,7 +460,7 @@
     ],
     "status": "IN_PROGRESS"
   },
-  "current_phase": "DEVELOPMENT_DOCUMENT_UPLOAD_SESSION_READ_VERIFIED",
+  "current_phase": "DEVELOPMENT_WEBHOOK_SUBSCRIPTION_READ_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -486,12 +492,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-DOCUMENT-UPLOAD-SESSION-READ-001",
+    "checkpoint": "DEV-WEBHOOK-SUBSCRIPTION-READ-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "d2038d13f3950b58f7cbafe99ce93fd1f4f5d115",
-    "verified_code_tree": "dc3d7f16ff13f98b5a376095e3d2ca4a506f8ac3",
-    "source_audit": "Development/DOCUMENT_UPLOAD_SESSION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "31fbaeb3ce7b8c2f40ae045639b9589f1eca5815",
+    "verified_code_tree": "dc426535cb99ae5d4e4456b0ec76dd9d65dd6754",
+    "source_audit": "Development/WEBHOOK_SUBSCRIPTION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
@@ -503,20 +509,21 @@
       "DD-084 raw Document ACL reader source audit and PostgreSQL binding",
       "DD-085 Document ACL subject-match evidence",
       "DD-086 linked Document StorageObject binding",
-      "DD-087 raw Document upload-session PostgreSQL reader"
+      "DD-087 raw Document upload-session PostgreSQL reader",
+      "DD-088 raw Webhook Subscription PostgreSQL reader"
     ],
-    "next_action": "Document upload orchestration still requires source-owned session usability/expiry semantics, max-size/media/checksum policy and governed state transitions. Full signed access still requires final ACL authorization semantics, step-up/residency policy and concrete StoragePort signer TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway and event/webhook runtime remain separate unfinished governed scopes. Source-audit the next independent source-complete slice before implementation.",
+    "next_action": "Webhook execution still requires source-owned endpoint verification/challenge, DNS/IP/redirect SSRF policy, secret/signature/rotation behavior, event-filter evaluation and delivery/retry/DLQ orchestration. Document upload/signed-access policy gaps remain separately governed. REST exposure, DD-076 evaluator and concrete AI Gateway also remain unfinished on their named prerequisites. Source-audit the next independent source-complete slice before implementation.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-DOCUMENT-UPLOAD-SESSION-READ-001",
-    "verified_executable_basis": "d2038d13f3950b58f7cbafe99ce93fd1f4f5d115",
-    "verified_executable_tree": "dc3d7f16ff13f98b5a376095e3d2ca4a506f8ac3",
-    "source_audit": "Development/DOCUMENT_UPLOAD_SESSION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD087_VERIFICATION_2026-09-21.md",
-    "scope": "DD-087 raw upload-session persistence only; no usability/state authorization"
+    "checkpoint": "DEV-WEBHOOK-SUBSCRIPTION-READ-001",
+    "verified_executable_basis": "31fbaeb3ce7b8c2f40ae045639b9589f1eca5815",
+    "verified_executable_tree": "dc426535cb99ae5d4e4456b0ec76dd9d65dd6754",
+    "source_audit": "Development/WEBHOOK_SUBSCRIPTION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD088_VERIFICATION_2026-09-21.md",
+    "scope": "DD-088 raw Tenant-RLS Webhook Subscription persistence only; no delivery/network/signing authority"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -529,12 +536,12 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "d2038d13f3950b58f7cbafe99ce93fd1f4f5d115",
+    "verified_continuation_head": "31fbaeb3ce7b8c2f40ae045639b9589f1eca5815",
     "inventory": {
-      "blobs": 438,
-      "markdown": 176,
-      "source_files": 93,
-      "test_files": 67,
+      "blobs": 444,
+      "markdown": 178,
+      "source_files": 96,
+      "test_files": 68,
       "migrations": 47,
       "verification_files": 41
     },
@@ -557,52 +564,47 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-087 raw Document upload-session PostgreSQL reader",
-    "checkpoint": "DEV-DOCUMENT-UPLOAD-SESSION-READ-001",
-    "verified_head": "d2038d13f3950b58f7cbafe99ce93fd1f4f5d115",
-    "verified_tree": "dc3d7f16ff13f98b5a376095e3d2ca4a506f8ac3",
+    "decision": "DD-088 raw Webhook Subscription PostgreSQL reader",
+    "checkpoint": "DEV-WEBHOOK-SUBSCRIPTION-READ-001",
+    "verified_head": "31fbaeb3ce7b8c2f40ae045639b9589f1eca5815",
+    "verified_tree": "dc426535cb99ae5d4e4456b0ec76dd9d65dd6754",
     "core": {
-      "run_id": 35629762518,
-      "job_id": 106432822016,
+      "run_id": 35630832563,
+      "job_id": 106436337496,
       "tests": 311,
       "pass": 311,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35629762518,
-      "job_id": 106432821645,
-      "tests": 85,
-      "pass": 85,
+      "run_id": 35630832563,
+      "job_id": 106436337984,
+      "tests": 90,
+      "pass": 90,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35629762246,
-      "job_id": 106432820435,
+      "run_id": 35630832283,
+      "job_id": 106436336517,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35629762120,
-      "job_id": 106432820284,
+      "run_id": 35630832344,
+      "job_id": 106436336463,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 438,
-      "markdown": 176,
-      "source_files": 93,
-      "test_files": 67,
+      "blobs": 444,
+      "markdown": 178,
+      "source_files": 96,
+      "test_files": 68,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD087_VERIFICATION_2026-09-21.md",
-    "corrected_attempt": {
-      "head": "124e6a5a277f20ee7b0bc8d53052960638212558",
-      "cause": "concurrent duplicate upload-session import/fixture/test blocks caused Node parse failure",
-      "correction_head": "d2038d13f3950b58f7cbafe99ce93fd1f4f5d115"
-    }
+    "evidence": "Registers/DEVELOPMENT_DD088_VERIFICATION_2026-09-21.md"
   },
   "historical_projection_payloads": {
     "continuation": {
