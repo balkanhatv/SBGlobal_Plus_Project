@@ -881,3 +881,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-PRE-004 | QUARANTINED/DELETED/non-CLEAN metadata | RESOURCE_STATE_INVALID; cannot progress toward signing |
 | DOC-PRE-005 | missing metadata or unresolved Tenant/Industry/principal context | RESOURCE_NOT_FOUND before any signer surface |
 | DOC-PRE-006 | metadata reader failure or malformed authoritative row | safe DEPENDENCY_UNAVAILABLE; no provider/storage detail leakage |
+
+
+### PostgreSQL Document access metadata — DD-083
+
+| ID | Scenario | Expected |
+|---|---|---|
+| DOC-PG-001 | exact Tenant Industry document read through Document service role | exact DD-082 metadata projection; no object key/provider credential |
+| DOC-PG-002 | sibling Industry document id queried from current Industry context | FORCE-RLS returns no row; exact sibling context may read it |
+| DOC-PG-003 | Tenant Core document read from same-Tenant Industry and Tenant Core contexts | visible as Tenant Core metadata in both; no Industry widening |
+| DOC-PG-004 | real PostgreSQL QUARANTINED/non-CLEAN row composed with DD-082 | candidate service rejects before any signer surface |
+| DOC-PG-005 | database route/context mismatch | fail closed before metadata disclosure |
