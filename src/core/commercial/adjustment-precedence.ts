@@ -292,6 +292,9 @@ function applyLimitOverrides(
       limits.set(key,Object.freeze({...target,mode:"FINITE",value:item.value}));
       continue;
     }
+    if(item.overrideType!=="LIMIT_DELTA"){
+      invalid("Unsupported limit override type.");
+    }
     if(target.mode!=="FINITE" || target.value===undefined){
       invalid("LIMIT_DELTA requires an existing finite target limit.");
     }
