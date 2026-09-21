@@ -938,3 +938,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-UP-PG-004 | persisted session is EXPIRED / past expiresAt | raw reader still returns evidence; no usability decision |
 | DOC-UP-PG-005 | malformed session id or database route/context mismatch | fail closed before session disclosure |
 
+
+
+### Raw PostgreSQL Webhook Subscription reader — DD-088
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WH-SUB-PG-001 | exact Tenant ACTIVE subscription | immutable persisted endpoint/status/version/filter/allowed-context facts; no secret plaintext |
+| WH-SUB-PG-002 | foreign-Tenant subscription id queried | FORCE-RLS returns no row; exact owning Tenant context may read it |
+| WH-SUB-PG-003 | Tenant subscription read from same-Tenant Industry and Tenant Core contexts | same Tenant Core subscription visible in both |
+| WH-SUB-PG-004 | PENDING_VERIFICATION subscription without verifiedAt | raw non-executable evidence; no verified/deliverable decision |
+| WH-SUB-PG-005 | malformed id or database route/context mismatch | fail closed before subscription disclosure |
