@@ -857,3 +857,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | REST-006 | missing Authorization or edge denial | canonical 401/declared denial before context/body/input/executor as applicable |
 | REST-007 | generic Tenant/Industry headers are present | no authority unless an explicitly governed route/context port maps a selector; DD-02 still revalidates it |
 | REST-008 | live route/API-key/OpenAPI/webhook/deployment inspection | NOT CLAIMED; adapter floor is not externally mounted |
+
+
+### Event envelope / catalog validation — DD-081
+
+| ID | Scenario | Expected |
+|---|---|---|
+| EVT-CAT-001 | valid catalog-bound Tenant Core envelope | metadata/catalog/scope validates, then payload-schema port executes |
+| EVT-CAT-002 | event id/type/version/scope or catalog producer/sensitivity mismatch | fail before payload interpretation |
+| EVT-CAT-003 | TENANT_INDUSTRY envelope omits or changes authoritative Industry Context | fail before payload interpretation |
+| EVT-CAT-004 | tenant event residency differs from authoritative Tenant residency | fail before payload interpretation |
+| EVT-CAT-005 | EXPLICIT_CROSS_CONTEXT source/target are missing, equal, foreign, or ownership verifier unavailable | fail before payload interpretation |
+| EVT-CAT-006 | catalog payload-schema validator rejects payload | normalized event validation failure; no dispatcher/webhook side effect |
