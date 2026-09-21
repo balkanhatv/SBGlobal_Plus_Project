@@ -1,18 +1,18 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-EVENT-ENVELOPE-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-DOCUMENT-ACCESS-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `535f458ad6b5e0cfef082e8d71dbc8fbe94e610f` / tree `0c0de1c3c5818a2223d973bffff8425942741a69`: **298/298 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **414 blobs / 164 Markdown / 84 source / 64 test files**.
+Verified executable `ef7873141282e420af8f30ef4211cc6f33d011a3` / tree `d889aacc81cc5a752e336dc28b0e34c36d054e41`: **305/305 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **418 blobs / 166 Markdown / 85 source / 65 test files**.
 
-DD-081 adds a reusable catalog-bound Core event-envelope validator: canonical JSON metadata, event id/type/version/scope, producer/sensitivity, Tenant/Industry/residency and explicit cross-context ownership are checked before an injected catalog payload-schema validator runs. PostgreSQL remains the final physical integrity guard. No dispatcher, retry/DLQ policy, webhook transport, external endpoint, database object or privilege was invented.
+DD-082 adds a reusable pre-sign Document access-candidate boundary: resolved Tenant/Industry context loads DocumentMeta through an injected RLS-bound port, exact ownership plus ACTIVE/CLEAN state is revalidated, and only an immutable internal candidate is returned for later authorization/signing. No signed URL/token, object key, permission/entitlement, step-up rule, TTL/provider, route, SQL or public sharing was invented.
 
-Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–081**.
+Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–082**.
 
-Concrete external REST credential syntax/routes/OpenAPI, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. DD-076 and concrete AI Gateway remain blocked on their named source-owned prerequisites. Event dispatcher/retry/DLQ and webhook transport runtime remain outside DD-081.
+The earlier nondeterministic Commercial PostgreSQL fixture used two wall-clock reads for a constraint requiring `resolved_at >= created_at`; one authoritative fixture timestamp now removes that race without changing product semantics or SQL.
 
-Next: REST exposure, DD-076 evaluator and concrete AI Gateway remain blocked on their named source-owned prerequisites. Event dispatcher/retry/DLQ and webhook transport runtime are not claimed by DD-081. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.
+Next: Full DD-08 signed access remains blocked on exact OperationContract/permission binding, policy-specific step-up/residency decisions and concrete signed-grant TTL/provider composition. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatcher/retry/DLQ and webhook transport remain blocked or unimplemented on their named prerequisites. Source-audit the next independent source-complete item before implementation and retain exact-head CI/repository invariants.
 
-Evidence: `Registers/DEVELOPMENT_DD081_VERIFICATION_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD082_VERIFICATION_2026-09-21.md`.
 
 RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains draft/unmerged. The checkpoint/promotion commit must independently pass exact-head CI; this document names its already-verified executable basis, not a recursive self-hash.
