@@ -926,3 +926,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-STO-PG-004 | Tenant Core document/object requested from same-Tenant Industry and Tenant Core contexts | same linked physical binding visible in both |
 | DOC-STO-PG-005 | Document or StorageObject is unsafe/non-active | no physical binding; cannot progress toward signing |
 | DOC-STO-PG-006 | resolved RequestContext Data Home mismatches database route/object | fail closed before locator disclosure |
+
+
+### Raw PostgreSQL Document upload-session reader — DD-087
+
+| ID | Scenario | Expected |
+|---|---|---|
+| DOC-UP-PG-001 | exact Tenant Industry upload session | immutable typed persistence facts preserved exactly |
+| DOC-UP-PG-002 | sibling Industry session requested from current Industry | FORCE-RLS returns no row; exact sibling context may read it |
+| DOC-UP-PG-003 | Tenant Core session requested from same-Tenant Industry and Tenant Core contexts | same Tenant Core session visible in both |
+| DOC-UP-PG-004 | persisted session is EXPIRED / past expiresAt | raw reader still returns evidence; no usability decision |
+| DOC-UP-PG-005 | malformed session id or database route/context mismatch | fail closed before session disclosure |
