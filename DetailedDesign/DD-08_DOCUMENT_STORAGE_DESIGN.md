@@ -140,3 +140,25 @@ responsibility, preserving one reusable policy-independent persistence reader.
 
 **Boundary:** no migration, role, grant, RLS policy, ACL evaluator, signer, route,
 permission, entitlement, TTL/provider configuration or public sharing is added.
+
+
+## 15. Raw ACL persistence reader [DD-084]
+
+The persisted `document_acl` relation is exposed to Document-module code through a
+raw typed read port only. `DocumentAclEntry` preserves id, document id, subject
+type/id, permission, effect, optional expiry and creation timestamp exactly as stored.
+
+`PostgresDocumentAclStore` reads those rows through the DD-083
+`PostgresDocumentDatabase` + `RequestScopedSql` boundary. Parent DocumentMeta
+FORCE-RLS remains the physical visibility authority, so sibling-Industry ACL rows are
+not observable from the active context and Tenant Core ACL rows remain same-Tenant
+visible.
+
+This reader intentionally does **not** decide access. It does not match the current
+principal/roles/org-unit, filter expiry, apply explicit-deny precedence, map an
+OperationContract to VIEW/DOWNLOAD/SHARE/DELETE_VERSION, or choose source-resource
+inheritance versus explicit ACL behavior. Those are later policy-composition work.
+
+**Boundary:** no permission/entitlement/ACL evaluator, signed grant, signer,
+TTL/provider, public route, migration, role, grant, RLS policy or sharing capability
+is introduced.
