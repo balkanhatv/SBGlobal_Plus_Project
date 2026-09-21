@@ -869,3 +869,15 @@ Resolver-ELIGIBLE add-ons are applied after overrides and remain quota-additive 
 **Boundary / trade-off:** advisory-key collisions only reduce concurrency. DD-078 does not create producer business semantics or public changePlan. Existing DD-065 catalog/snapshot/fact revalidation remains authoritative.
 
 **Consequence:** the supplied DD-066 assessment's evidence append stream can no longer change between validation and publication commit. Public changePlan still depends on concrete assessment/Billing/Workflow producers and remaining compiler materialization bindings.
+
+## DD-079 — DD-076 prepared initial assessment persists through DD-066 without semantic reinterpretation
+
+**Context:** DD-076 now produces the exact non-identity fields of a version-1 DD-066 assessment, while DD-066 already owns server-generated identity/time/Tenant/correlation, current-state guards and append-only persistence. The missing step is orchestration, not a new business rule.
+
+**Decision:** add a SERVICE/TENANT_CORE persistence bridge that accepts only the normalized DD-076 version-1 shape and forwards every prepared field unchanged into `PlanChangeEvidenceService.recordAssessment`. The bridge deliberately omits assessment id so DD-066 remains its owner. Returned persisted evidence must exactly match the prepared binding plus RequestContext Tenant/correlation; any drift fails closed.
+
+**Security / persistence:** no new database object or privilege is introduced. Existing DD-066 writer isolation, FORCE RLS, current Subscription/target route guards and DD-078/0047 evidence serialization remain authoritative.
+
+**Boundary / trade-off:** this does not create the concrete DD-076 evaluator, blocker vocabulary, entitlement-diff format, fingerprint algorithm, route chooser, remediation reassessment, Billing or Workflow producers. It makes prepared initial evidence durable only after some governed evaluator has produced it.
+
+**Consequence:** once a concrete evaluator exists, its DD-076 output has an executable least-privilege path into the DD-066 evidence chain consumed atomically by DD-078 publication.

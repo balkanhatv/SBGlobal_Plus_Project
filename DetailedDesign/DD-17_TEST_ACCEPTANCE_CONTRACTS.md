@@ -817,3 +817,18 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-ATOMIC-010 | concurrent DD-066 evidence insert for same Tenant+assessment | database transaction lock serializes against publication |
 | COMM-ATOMIC-011 | inspect compiler privileges | evidence remains read-only; only lock-helper EXECUTE is added |
 | COMM-ATOMIC-012 | migration/bootstrap | 0047 lock helper + three insert triggers verified |
+
+### Prepared initial assessment persistence — DD-079
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-ASSESS-PERSIST-001 | valid DD-076 version-1 prepared assessment | exact fields forwarded to DD-066; assessment id/time/Tenant/correlation remain server-owned |
+| COMM-ASSESS-PERSIST-002 | prepared PENDING blockers | blockers/remediation forwarded unchanged |
+| COMM-ASSESS-PERSIST-003 | assessmentVersion != 1 / malformed UUID, route, timing or evidence | fail before recorder |
+| COMM-ASSESS-PERSIST-004 | unsorted/duplicate blockers or blocker/remediation contradiction | fail before recorder |
+| COMM-ASSESS-PERSIST-005 | HUMAN / Industry-scoped / unresolved Tenant caller | fail before recorder |
+| COMM-ASSESS-PERSIST-006 | DD-066 returns different Tenant/correlation/source/target/evidence | fail closed as persisted mismatch |
+| COMM-ASSESS-PERSIST-007 | live Subscription version/source/current pointer stale | existing DD-066 PostgreSQL guard rejects; no assessment row |
+| COMM-ASSESS-PERSIST-008 | current target PlanVersion/route policy invalid | existing DD-066 PostgreSQL guard rejects |
+| COMM-ASSESS-PERSIST-009 | DB privileges | existing DD-066 producer role/0047 serialization only; no new migration/grant |
+| COMM-ASSESS-PERSIST-010 | blocker/diff/fingerprint/route business semantics | NOT CLAIMED; concrete DD-076 evaluator remains required |

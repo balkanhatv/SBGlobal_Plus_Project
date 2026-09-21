@@ -62,3 +62,6 @@ Implemented read-only same-Tenant consumption of DD-066 assessment/remediation/r
 
 ## 2026-09-21 — DD-078 atomic evidence→publication binding
 Bound exact DD-066 assessment evidence into the DD-065 publication transaction and added migration 0047 Tenant+assessment transaction-lock serialization across all evidence inserts and publication. Latest assessment/route, remediation provenance, route policy, source fingerprint and NEXT_RENEWAL effectiveAt are revalidated before mutation. No new business table/role/RLS policy or public changePlan binding was added.
+
+## 2026-09-21 — DD-079 prepared initial-assessment persistence
+Connected DD-076 version-1 prepared assessment output to the existing DD-066 evidence service with a lossless SERVICE/TENANT_CORE handoff. Assessment identity/time/Tenant/correlation remain DD-066-owned; live Subscription/route validation, FORCE-RLS persistence and 0047 serialization remain unchanged. No migration, evaluator business semantics, Billing/Workflow producer or public changePlan binding was added.

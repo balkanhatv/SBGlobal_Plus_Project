@@ -601,3 +601,19 @@ All DD-066 inserts acquire the same transaction lock through database triggers. 
 The existing DD-065 Subscription/current-snapshot/target/fact/Industry/outbox/audit checks remain mandatory and occur in the same transaction.
 
 **Boundary:** this closes evidence-append TOCTOU for the supplied assessment. It does not implement the missing production assessment/Billing/Workflow producers or expose public changePlan.
+
+## 28. Prepared initial-assessment persistence v1 [DD-079]
+
+DD-076 already emits the complete non-identity payload required for an initial DD-066 assessment. DD-079 connects those contracts without adding policy.
+
+The orchestration service:
+- is SERVICE + TENANT_CORE only;
+- accepts only `assessmentVersion=1`;
+- revalidates the DD-076 deterministic shape, including sorted unique blockers and exact PENDING vs NOT_REQUIRED remediation semantics;
+- forwards Subscription/source/target/version/timing, route policy binding, impact/diff references, blockers/remediation and opaque source fingerprint unchanged;
+- does **not** supply an assessment id, createdAt, Tenant id or correlation id as prepared/client authority; DD-066 derives those from server identity/runtime context;
+- returns only a persisted record whose Tenant/correlation and every prepared field exactly match the handoff; adapter/store drift fails closed.
+
+DD-066 remains authoritative for live Subscription/current-Tenant pointer/target route validation and append-only FORCE-RLS persistence. Migration 0047 automatically participates in the existing evidence/publication serialization protocol.
+
+**Boundary:** DD-079 does not implement the concrete DD-076 evaluator or any Billing/Workflow/remediation producer. It persists only an already-prepared initial assessment.
