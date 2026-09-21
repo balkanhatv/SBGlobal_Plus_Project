@@ -14,6 +14,9 @@ import {
 import {
   PostgresOutboxEventStore,
 } from "../../dist/server/integration/postgres-outbox-event-store.js";
+import {
+  PostgresEventCatalogStore,
+} from "../../dist/server/integration/postgres-event-catalog-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -55,6 +58,7 @@ let pool;
 let store;
 let deliveryStore;
 let outboxStore;
+let catalogStore;
 
 const eventTypeIndustry = "webhook.reader.industry." + randomBytes(6).toString("hex");
 const eventTypeTenant = "webhook.reader.tenant." + randomBytes(6).toString("hex");
@@ -349,6 +353,10 @@ before(async () => {
         WHERE id=$1`,
       [f.eventIndustryA, fixtureAt],
     );
+    await client.query(
+      "UPDATE core_integration.event_catalog SET status='RETIRED' WHERE event_type=$1 AND event_version=1",
+      [eventTypeTenant],
+    );
 
     await client.query("COMMIT");
   } catch (error) {
@@ -366,13 +374,15 @@ before(async () => {
     max: 1,
     connectionTimeoutMillis: 5000,
   });
-  const scoped = new RequestScopedSql(new PostgresIntegrationDatabase(pool), {
+  const integrationDatabase = new PostgresIntegrationDatabase(pool);
+  const scoped = new RequestScopedSql(integrationDatabase, {
     dataHomeId: f.home,
     regionCode: "IN-WEBHOOK-READER",
   });
   store = new PostgresWebhookSubscriptionStore(scoped);
   deliveryStore = new PostgresWebhookDeliveryStore(scoped);
   outboxStore = new PostgresOutboxEventStore(scoped);
+  catalogStore = new PostgresEventCatalogStore(integrationDatabase);
 });
 
 after(async () => {
@@ -724,6 +734,86 @@ test("EVT-OUT-PG-005 malformed id or route/context mismatch fails closed", async
         dataHomeId: randomUUID(),
       },
       eventId: f.eventTenantA,
+    }),
+  );
+});
+
+
+test("EVT-CAT-PG-001 exact Event Catalog tuple preserves authoritative catalog facts", async () => {
+  const entry = await catalogStore.loadExact({
+    eventType: eventTypeIndustry,
+    eventVersion: 1,
+    scopeClass: "TENANT_INDUSTRY",
+  });
+
+  assert.ok(entry);
+  assert.equal(entry.eventType, eventTypeIndustry);
+  assert.equal(entry.eventVersion, 1);
+  assert.equal(entry.producerModule, "WebhookReaderTest");
+  assert.equal(entry.scopeClass, "TENANT_INDUSTRY");
+  assert.deepEqual(entry.payloadSchema, {});
+  assert.equal(entry.sensitivityClass, "INTERNAL");
+  assert.equal(entry.orderingKey, undefined);
+  assert.deepEqual(entry.consumerClassesJson, []);
+  assert.equal(entry.retentionAuditPosture, "TEST");
+  assert.equal(entry.webhookEligible, true);
+  assert.equal(entry.backwardCompatibility, "NONE");
+  assert.equal(entry.status, "ACTIVE");
+  assert.equal(Object.isFrozen(entry), true);
+  assert.equal(Object.isFrozen(entry.payloadSchema), true);
+  assert.equal(Object.isFrozen(entry.consumerClassesJson), true);
+});
+
+test("EVT-CAT-PG-002 RETIRED catalog row remains raw readable evidence", async () => {
+  const entry = await catalogStore.loadExact({
+    eventType: eventTypeTenant,
+    eventVersion: 1,
+    scopeClass: "TENANT_CORE",
+  });
+
+  assert.ok(entry);
+  assert.equal(entry.status, "RETIRED");
+  assert.equal(entry.scopeClass, "TENANT_CORE");
+  assert.equal("usable" in entry, false);
+  assert.equal("publishable" in entry, false);
+});
+
+test("EVT-CAT-PG-003 exact scope/version mismatch returns no catalog tuple", async () => {
+  const wrongScope = await catalogStore.loadExact({
+    eventType: eventTypeIndustry,
+    eventVersion: 1,
+    scopeClass: "TENANT_CORE",
+  });
+  const wrongVersion = await catalogStore.loadExact({
+    eventType: eventTypeIndustry,
+    eventVersion: 2,
+    scopeClass: "TENANT_INDUSTRY",
+  });
+
+  assert.equal(wrongScope, null);
+  assert.equal(wrongVersion, null);
+});
+
+test("EVT-CAT-PG-004 malformed tuple fails closed before query", async () => {
+  await assert.rejects(
+    catalogStore.loadExact({
+      eventType: "",
+      eventVersion: 1,
+      scopeClass: "TENANT_CORE",
+    }),
+  );
+  await assert.rejects(
+    catalogStore.loadExact({
+      eventType: eventTypeTenant,
+      eventVersion: 0,
+      scopeClass: "TENANT_CORE",
+    }),
+  );
+  await assert.rejects(
+    catalogStore.loadExact({
+      eventType: eventTypeTenant,
+      eventVersion: 1,
+      scopeClass: "NOT_A_SCOPE",
     }),
   );
 });
