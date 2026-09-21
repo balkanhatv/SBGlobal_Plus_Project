@@ -684,3 +684,22 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-PV-IMM-006 | publish successor after retirement | new version row succeeds; previous payload remains intact |
 | COMM-ENUM-001 | unknown/missing Subscription state from a store port | COMMERCIAL_STATE_INVALID before guard can grant access; core current-state regression |
 | COMM-ENUM-002 | unknown/missing entitlement value type | client projection and Authorization supplemental reads reject, rather than silently omitting invalid data |
+
+### Commercial adjustment precedence — DD-071 / DEV-COMMERCIAL-ADJUSTMENT-PRECEDENCE-001
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-ADJ-PRE-001 | Plan marker/value with no adjustment | preserved in deterministic intermediate preview |
+| COMM-ADJ-PRE-002 | exact-scope ALLOW | existing baseline entitlement becomes VALUE with canonical typed value |
+| COMM-ADJ-PRE-003 | same exact scope has ALLOW + DENY | DENY wins; Tenant deny-set or Industry disabled scoped fact |
+| COMM-ADJ-PRE-004 | multiple ALLOW rows and no DENY | ambiguous; fail closed |
+| COMM-ADJ-PRE-005 | LIMIT_SET/LIMIT_DELTA has zero matching target meter | invalid; fail closed |
+| COMM-ADJ-PRE-006 | LIMIT_SET/LIMIT_DELTA maps to multiple meters | ambiguous; fail closed; never guess meter |
+| COMM-ADJ-PRE-007 | LIMIT_DELTA target non-FINITE or result negative/non-finite/unsafe integer | invalid; fail closed |
+| COMM-ADJ-PRE-008 | ELIGIBLE quota add-on after override | additive result uses override-adjusted limit |
+| COMM-ADJ-PRE-009 | multiple eligible add-ons same finite target | deterministic additive sum |
+| COMM-ADJ-PRE-010 | ADD_ON_ONLY target + eligible quota delta | becomes FINITE starting from zero |
+| COMM-ADJ-PRE-011 | add-on targets NOT_INCLUDED/UNLIMITED, missing target, wrong type or inactive INDUSTRY_CODE | invalid; fail closed |
+| COMM-ADJ-PRE-012 | LICENSED_INDUSTRIES add-on selector | applies only to already-resolved Industry baseline targets |
+| COMM-ADJ-PRE-013 | input ordering changes | output entitlements, limits and Tenant deny set remain deterministically sorted |
+

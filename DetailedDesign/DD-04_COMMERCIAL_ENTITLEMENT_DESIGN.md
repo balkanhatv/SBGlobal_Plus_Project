@@ -469,3 +469,20 @@ Executable tests prove:
 **Not claimed:** no concrete production eligibility rule engine/policy resolver has been implemented. The tests use a bounded fixture resolver to prove the ownership seam. No eligibility condition, pricing rule, market rule or payment rule is invented here.
 
 This prepared-adjustment boundary is safe input for the next deterministic precedence stage, while production/public plan change remains blocked until an actual governed eligibility resolver and the later impact/Billing/approval gates exist.
+
+## 20. Deterministic adjustment precedence v1 [DD-071]
+
+This bounded target-preview stage consumes only a **DD-068 resolved PlanVersion baseline** plus **DD-070 prepared adjustments**. It does not re-read persistence, re-evaluate add-on eligibility, calculate money/proration, apply compliance/security restrictions, consume usage meters, apply subscription lifecycle overlay, publish a snapshot or expose public changePlan.
+
+Rules:
+- the resolved PlanVersion baseline is the authoritative set of v1 capability/limit keys; because F-14 requires a value or explicit marker for each governed plan dimension, this stage never synthesizes a missing target key;
+- exact-scope access overrides apply before add-ons. DENY wins over ALLOW. Multiple ALLOW rows for the same exact entitlement scope without a DENY are ambiguous and fail closed;
+- Tenant DENY emits the Tenant-wide deny-set entry; Industry DENY emits the DD-069 type-specific disabled scoped entitlement value;
+- LIMIT_SET/LIMIT_DELTA bind by exact entitlement + Tenant/Industry scope. Because persisted override rows have no meter_code, **zero target meters fail invalid and more than one target meter fails ambiguous**; the compiler never guesses;
+- LIMIT_SET replaces the unique target with a non-negative FINITE value. LIMIT_DELTA requires an existing FINITE limit and a non-negative finite/safe-integer result;
+- only DD-070 resolver-ELIGIBLE add-ons are consumed. Add-on deltas apply **after overrides** and remain quota-additive only. TENANT resolves one Tenant limit, INDUSTRY_CODE resolves the matching ACTIVE Industry Context target, and LICENSED_INDUSTRIES applies to all already-resolved Industry baseline targets for that entitlement+meter;
+- add-on delta may add to FINITE or convert explicit ADD_ON_ONLY to FINITE from zero. NOT_INCLUDED and UNLIMITED are not additive quota targets in v1 and fail closed;
+- entitlement value types must match override/add-on value types; all output is immutable and deterministically sorted.
+
+The output is an intermediate preview: effective entitlement values/markers, effective limits and Tenant deny set. Compliance/security deny still has later precedence and may only restrict; this stage cannot declare the target preview or plan change complete.
+

@@ -787,3 +787,14 @@ exploit or Tenant isolation breach is inferred from the mocked-port regressions.
 Affected dependencies: DD-04/05/17, Commercial Core read/publication services,
 migration/verification 0046, Development/DB checkpoints and current State evidence.
 Remote CI must pass at the correction commit before this slice is promoted.
+
+## DD-071 — Deterministic Commercial adjustment precedence is bounded to existing baseline keys
+
+**Context:** DD-068 creates the license-safe resolved PlanVersion baseline; DD-069 normalizes quota-only add-ons and typed overrides; DD-070 supplies active same-Tenant sources and server-owned eligibility decisions. F-14/DD-04 fixes the order as baseline/licenses → overrides → add-ons and requires deny-wins, most-specific limits and additive overlap only for metered quota. Persisted tenant_override has no meter_code, so choosing among multiple meters would invent business meaning.
+
+**Decision:** introduce a pure intermediate precedence function over DD-068 baseline + DD-070 prepared adjustments. It never synthesizes a capability/limit key absent from the validated resolved baseline. Exact-scope access DENY beats ALLOW; multiple ALLOW rows without a DENY are ambiguous. LIMIT_SET/LIMIT_DELTA require exactly one target meter for the exact entitlement scope; zero/multiple targets fail closed. LIMIT_SET creates a FINITE replacement; LIMIT_DELTA requires an existing FINITE target and valid non-negative result.
+
+Resolver-ELIGIBLE add-ons are applied after overrides and remain quota-additive only. TENANT/INDUSTRY_CODE/LICENSED_INDUSTRIES selectors resolve only against existing target limit keys; FINITE accumulates and ADD_ON_ONLY starts from zero, while NOT_INCLUDED/UNLIMITED are rejected as non-additive v1 targets. Value-type mismatches fail closed. Output is immutable/deterministically sorted.
+
+**Boundary / trade-off:** this deliberately leaves compliance/security restrictions, usage-meter impact, suspension/grace overlay, final snapshot/publication, concrete eligibility business logic, Billing/payment/proration, Workflow approval and public changePlan outside this slice. Requiring an existing baseline key is consistent with F-14's explicit value/unlimited/not-included/add-on marker requirement and avoids inventing hidden plan dimensions.
+

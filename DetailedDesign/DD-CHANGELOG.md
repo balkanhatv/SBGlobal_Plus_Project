@@ -38,3 +38,7 @@ runtime deletion is revoked. Added Core regressions for unknown Subscription and
 entitlement type values, including rejection before publication persistence. This
 is correction of existing contracts; DD-070 remains the latest feature slice.
 Full-repository audit completion and the next compiler feature are not claimed.
+
+## 2026-09-21 — DD-071 deterministic adjustment precedence
+Locked and implemented the bounded DD-04 precedence stage over DD-068 baseline + DD-070 prepared adjustments: deny-wins access overrides, exact unique-meter limit overrides, resolver-eligible additive quota add-ons, deterministic output and fail-closed missing/ambiguous/type-invalid targets. No eligibility/pricing/payment/compliance/usage/public-changePlan rule was added.
+
