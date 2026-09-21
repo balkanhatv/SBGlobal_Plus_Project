@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-VISION-AUDIT-INVARIANTS-001`
+**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-API-REST-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,10 +24,11 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Implementation decisions are contiguous through **DD-079**; current Core/API/Commercial boundaries and runtime evidence are in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-080**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-Current provider/session validation, RBAC/ABAC, Commercial components and three first-party query bindings have executable coverage. VC-01–04 correct existing boundaries/evidence, and REPO-001–006 enforce repository invariants. Concrete DD-076 evaluator policy/evidence definitions and producer runtimes remain unfinished; the [prerequisite ownership audit](../Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md) identifies those dependencies. Historical design completion does not certify full product or production readiness.
+DD-080 adds an unmounted reusable external REST Fetch adapter: edge and credential/context checks precede body/input work, routes bind one OperationContract, the shared executor remains the only business/security pipeline, and DD-052 owns every success/error/control projection. No route, API-key syntax, OpenAPI document, webhook endpoint, database object or Commercial rule was invented.
 
+Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
 ## Historical all-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
@@ -36,4 +37,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `20f1f5531a75a711bb88e013d38454f8c171e6b1` / tree `00aac681a7a33e8dc92c6dfb767283fcb544cdf9` — 283 Core tests, 65 PostgreSQL tests, full 47-migration/41-verification bootstrap, Database Verify and Next.js build PASS. The containing checkpoint commit must also pass its own exact-head CI. See [verification evidence](../Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md).
+**Current verified executable evidence:** `ce4708eec15f6b0a35ae9a77d13505221fe55d51` / tree `9655553773e2b1f63ba1e36a479ef3d574ec6077` — 290 Core tests, 65 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD080_VERIFICATION_2026-09-21.md).

@@ -89,3 +89,6 @@ Current projections were reconciled, including stale manifest current overlays
 and already-implemented entries in pending lists; original projection payloads
 remain explicitly historical. RawSource/main unchanged; PR #2 draft/unmerged.
 Evidence: `Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`. Missing evaluator/business definitions remain dependent blocks.
+
+## 2026-09-21 — DD-080 external REST adapter floor
+Source-audited and implemented the reusable external REST Fetch ordering/projection boundary over the existing OperationExecutor and DD-052 envelope. Feature `ce4708eec15f6b0a35ae9a77d13505221fe55d51` passed 290 Core / 65 PostgreSQL / 47+41 bootstrap / Database / Web CI. No live route, credential scheme, OpenAPI document, SQL or Commercial semantics were added.

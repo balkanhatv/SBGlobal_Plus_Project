@@ -77,3 +77,6 @@ Current projections were reconciled, including stale manifest current overlays
 and already-implemented entries in pending lists; original projection payloads
 remain explicitly historical. RawSource/main unchanged; PR #2 draft/unmerged.
 Evidence: `Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`. Missing evaluator/business definitions remain dependent blocks.
+
+## 2026-09-21 — DD-080 shared external REST Fetch adapter
+Implemented auth-before-body ordering, server-owned route/context ports, exact executor handoff and canonical HTTP/error/control projection. Feature `ce4708eec15f6b0a35ae9a77d13505221fe55d51` passed exact-head CI; concrete routes, API-key syntax and OpenAPI publication remain unbound.

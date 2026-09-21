@@ -191,3 +191,6 @@ records unresolved production semantics under their existing canonical owners.
 REPO-001–006 implement existing source/identifier/checkpoint preservation requirements
 in Core CI. Current user direction authorizes targeted corrections and safe
 continuation, not invention of missing commercial policy.
+
+## 2026-09-21 — DD-080 disposition
+The external REST plane reuses the canonical OperationExecutor and DD-052 projector through a metadata-only preflight boundary. Concrete routes and credential syntax require separate source-complete registration; the adapter is not public exposure authority.

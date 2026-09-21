@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-VISION-AUDIT-INVARIANTS-001",
-  "final_verdict": "CURRENT IMPLEMENTED SCOPE CORRECTED / EXACT-HEAD TESTED; EVALUATOR SOURCE AUDIT + REPOSITORY INVARIANTS COMPLETE; DEVELOPMENT IN PROGRESS",
+  "checkpoint": "DEV-API-REST-001",
+  "final_verdict": "DD-080 REST ADAPTER FLOOR IMPLEMENTED / EXACT-HEAD TESTED; EXTERNAL ROUTES/CREDENTIAL SCHEME/OPENAPI AND NAMED COMMERCIAL DEPENDENCIES REMAIN",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD040_DD079_IMPLEMENTATION_OVERLAY_NAMED_EVALUATOR_DEPENDENCIES",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD040_DD080_IMPLEMENTATION_OVERLAY_NAMED_DEPENDENCIES",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
     "development": "IN_PROGRESS_NAMED_EVALUATOR_POLICY_AND_PRODUCER_DEPENDENCIES",
-    "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_BOUNDED_QUERIES_VERIFIED_REST_UI_UNFINISHED",
+    "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "CURRENT_IMPLEMENTED_DD040_DD079_CORE_API_COMMERCIAL_BOUNDARIES_AND_VC01_VC04_CORRECTIONS_EXACT_HEAD_TESTED"
+    "core_services": "CURRENT_IMPLEMENTED_DD040_DD080_CORE_API_COMMERCIAL_BOUNDARIES_EXACT_HEAD_TESTED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
-    "verified_code_tree": "00aac681a7a33e8dc92c6dfb767283fcb544cdf9",
-    "state_projection_basis_head": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
+    "verified_code_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
+    "verified_code_tree": "9655553773e2b1f63ba1e36a479ef3d574ec6077",
+    "state_projection_basis_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Governed evaluator policy/evidence dependencies",
+    "current_phase": "External REST adapter floor verified; concrete exposure dependencies unresolved",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
-      "ci_run_id": 35583986918,
-      "ci_job_id": 106282956510,
+      "ci_verified_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
+      "ci_run_id": 35615703227,
+      "ci_job_id": 106385722227,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "00aac681a7a33e8dc92c6dfb767283fcb544cdf9",
+      "ci_verified_tree": "9655553773e2b1f63ba1e36a479ef3d574ec6077",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,10 +99,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
-      "feature_head_bootstrap_verified_tree": "00aac681a7a33e8dc92c6dfb767283fcb544cdf9",
-      "feature_head_bootstrap_run_id": 35583982706,
-      "feature_head_bootstrap_job_id": 106282942833,
+      "feature_head_bootstrap_verified_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
+      "feature_head_bootstrap_verified_tree": "9655553773e2b1f63ba1e36a479ef3d574ec6077",
+      "feature_head_bootstrap_run_id": 35615703204,
+      "feature_head_bootstrap_job_id": 106385722171,
       "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_65_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -111,27 +111,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Concrete DD-076 evaluator remains blocked on the named policy/evidence definitions in Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md. Source-audit any independent source-complete item before implementation; retain exact-head CI and repository invariants.",
+    "next_action": "concrete REST exposure remains blocked on an exact external credential scheme and public route catalog; the DD-076 evaluator remains blocked on its named policy/evidence definitions. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.",
     "core_services": {
-      "checkpoint": "DEV-VISION-AUDIT-INVARIANTS-001",
+      "checkpoint": "DEV-API-REST-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–079 current implementation plus existing-contract audit corrections and REPO-001–006 invariant verification",
-      "verified_head": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
-      "verified_tree": "00aac681a7a33e8dc92c6dfb767283fcb544cdf9",
-      "core_ci_run_id": 35583982706,
-      "core_ci_job_id": 106282942423,
-      "tests": "283/283 PASS",
+      "decision": "DD-040–080 current implementation; DD-080 external REST adapter floor",
+      "verified_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
+      "verified_tree": "9655553773e2b1f63ba1e36a479ef3d574ec6077",
+      "core_ci_run_id": 35615703204,
+      "core_ci_job_id": 106385722253,
+      "tests": "290/290 PASS",
       "core_test_counts": {
-        "tests": 283,
-        "pass": 283,
+        "tests": 290,
+        "pass": 290,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35583982706,
-      "postgres_ci_job_id": 106282942833,
+      "postgres_ci_run_id": 35615703204,
+      "postgres_ci_job_id": 106385722171,
       "postgres_tests": "65/65 PASS",
       "postgres_test_counts": {
         "tests": 65,
@@ -140,8 +140,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35583986918,
-      "database_regression_job_id": 106282956510,
+      "database_regression_run_id": 35615703227,
+      "database_regression_job_id": 106385722227,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -299,7 +299,11 @@
         "VC-02 validated Core Tenant sessionVersion projection",
         "VC-03 strict DD-075 typed VALUE validation",
         "DD-076 production evaluator prerequisite ownership source audit",
-        "REPO-001–006 source, identifier, decision, database inventory and Markdown reference invariants"
+        "REPO-001–006 source, identifier, decision, database inventory and Markdown reference invariants",
+        "DD-080 external REST Fetch adapter ordering/projection floor",
+        "REST auth-before-body and mandatory edge/body policy ports",
+        "REST route-bound OperationExecutor handoff and selector non-authority",
+        "REST canonical success/error/control status and Retry-After projection"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -311,7 +315,6 @@
         "SURFACE/API_SERVICE Commercial applicability mapping",
         "concrete per-module ResourceResolver/ResourceBusinessRule adapters across Core and 41 MS",
         "PUBLIC and EXPLICIT_CROSS_CONTEXT Authorization audit writers",
-        "concrete REST/OpenAPI adapter",
         "webhook transport adapter",
         "broad Core/Industry tRPC router catalog",
         "machine/API-key Authorization scheme for first-party tRPC",
@@ -337,7 +340,10 @@
         "governed Commercial blocker-code vocabulary",
         "immutable entitlement-diff evidence producer/schema",
         "deterministic dual-route chooser where multiple target routes are valid",
-        "remediation completion/reassessment producer orchestration"
+        "remediation completion/reassessment producer orchestration",
+        "concrete mounted REST routes and operation-specific input mappings",
+        "external machine/API-key wire authorization scheme",
+        "OpenAPI generation/publication pipeline"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -353,9 +359,9 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Concrete DD-076 evaluator remains blocked on the named policy/evidence definitions in Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md. Source-audit any independent source-complete item before implementation; retain exact-head CI and repository invariants."
+      "next_action": "concrete REST exposure remains blocked on an exact external credential scheme and public route catalog; the DD-076 evaluator remains blocked on its named policy/evidence definitions. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants."
     },
-    "application_api_ui_scope_note": "First-party Next.js App Router/tRPC HTTP boundary and three bounded Core queries are implemented/tested; REST/OpenAPI and product UI remain unfinished.",
+    "application_api_ui_scope_note": "First-party Next.js/tRPC three-query boundary plus unmounted external REST Fetch adapter floor implemented/tested; concrete REST routes/OpenAPI and product UI unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -409,7 +415,7 @@
     ],
     "status": "IN_PROGRESS"
   },
-  "current_phase": "DEVELOPMENT_GOVERNED_EVALUATOR_DEPENDENCIES",
+  "current_phase": "DEVELOPMENT_API_REST_ADAPTER_FLOOR_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -441,29 +447,30 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-VISION-AUDIT-INVARIANTS-001",
+    "checkpoint": "DEV-API-REST-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
-    "verified_code_tree": "00aac681a7a33e8dc92c6dfb767283fcb544cdf9",
-    "source_audit": "Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
+    "verified_code_tree": "9655553773e2b1f63ba1e36a479ef3d574ec6077",
+    "source_audit": "Development/REST_ADAPTER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
-      "REPO-001–006 invariant CI implementation"
+      "REPO-001–006 invariant CI implementation",
+      "DD-080 external REST adapter source audit and unmounted Fetch boundary"
     ],
-    "next_action": "Concrete DD-076 evaluator remains blocked on the named policy/evidence definitions in Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md. Source-audit any independent source-complete item before implementation; retain exact-head CI and repository invariants.",
+    "next_action": "concrete REST exposure remains blocked on an exact external credential scheme and public route catalog; the DD-076 evaluator remains blocked on its named policy/evidence definitions. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-VISION-AUDIT-INVARIANTS-001",
-    "verified_executable_basis": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
-    "verified_executable_tree": "00aac681a7a33e8dc92c6dfb767283fcb544cdf9",
-    "source_audit": "Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md",
-    "scope": "Current implemented scope and invariant continuation; earlier overlays preserved in historical_projection_payloads"
+    "checkpoint": "DEV-API-REST-001",
+    "verified_executable_basis": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
+    "verified_executable_tree": "9655553773e2b1f63ba1e36a479ef3d574ec6077",
+    "source_audit": "Development/REST_ADAPTER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD080_VERIFICATION_2026-09-21.md",
+    "scope": "DD-080 independent continuation after vision audit; historical audit evidence retained"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -476,12 +483,12 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
+    "verified_continuation_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
     "inventory": {
-      "blobs": 405,
-      "markdown": 159,
-      "source_files": 82,
-      "test_files": 62,
+      "blobs": 409,
+      "markdown": 161,
+      "source_files": 83,
+      "test_files": 63,
       "migrations": 47,
       "verification_files": 41
     },
@@ -504,21 +511,21 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "Existing contract enforcement + governed invariant verification; latest product DD-079",
-    "checkpoint": "DEV-VISION-AUDIT-INVARIANTS-001",
-    "verified_head": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
-    "verified_tree": "00aac681a7a33e8dc92c6dfb767283fcb544cdf9",
+    "decision": "DD-080 external REST adapter floor",
+    "checkpoint": "DEV-API-REST-001",
+    "verified_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
+    "verified_tree": "9655553773e2b1f63ba1e36a479ef3d574ec6077",
     "core": {
-      "run_id": 35583982706,
-      "job_id": 106282942423,
-      "tests": 283,
-      "pass": 283,
+      "run_id": 35615703204,
+      "job_id": 106385722253,
+      "tests": 290,
+      "pass": 290,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35583982706,
-      "job_id": 106282942833,
+      "run_id": 35615703204,
+      "job_id": 106385722171,
       "tests": 65,
       "pass": 65,
       "fail": 0,
@@ -526,29 +533,29 @@
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35583986918,
-      "job_id": 106282956510,
+      "run_id": 35615703227,
+      "job_id": 106385722227,
       "event": "pull_request",
       "conclusion": "success",
       "checkout": "EXACT_HEAD_NOT_MERGE"
     },
     "web": {
-      "run_id": 35583986872,
-      "job_id": 106282956100,
+      "run_id": 35615703192,
+      "job_id": 106385722745,
       "event": "pull_request",
       "conclusion": "success",
       "checkout": "EXACT_HEAD_NOT_MERGE"
     },
     "inventory": {
-      "blobs": 405,
-      "markdown": 159,
-      "source_files": 82,
-      "test_files": 62,
+      "blobs": 409,
+      "markdown": 161,
+      "source_files": 83,
+      "test_files": 63,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md"
+    "evidence": "Registers/DEVELOPMENT_DD080_VERIFICATION_2026-09-21.md"
   },
   "historical_projection_payloads": {
     "continuation": {
@@ -886,6 +893,12 @@
         "remediation completion/reassessment producer orchestration"
       ],
       "next_action": "Source-audit concrete DD-076 evaluator prerequisites/ownership; public changePlan remains blocked on evaluator and Billing/Workflow producer runtimes."
+    },
+    "vision_audit_invariants_checkpoint": {
+      "checkpoint": "DEV-VISION-AUDIT-INVARIANTS-001",
+      "verified_head": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
+      "verified_tree": "00aac681a7a33e8dc92c6dfb767283fcb544cdf9",
+      "evidence": "Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md"
     }
   }
 }
