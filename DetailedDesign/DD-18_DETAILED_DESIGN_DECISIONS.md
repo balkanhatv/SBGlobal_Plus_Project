@@ -1010,3 +1010,30 @@ TTL/provider, expose a route, add SQL objects/privileges or enable public sharin
 
 **Acceptance:** DOC-PG-001…005 in DD-17 and
 `tests/postgres/document-access-metadata-store.test.mjs`.
+
+
+## DD-084 — Document ACL persistence is readable without inventing final ACL authorization semantics
+
+**Context:** DD-08 defines the physical ACL row grammar and explicit-deny principle,
+while migration 0006 supplies the parent-RLS visibility boundary and migration 0031
+validates ACL subjects stay within document scope. The current source does not yet own
+the complete operation→Document ACL permission mapping or one deterministic fallback
+rule for every operation when explicit ALLOW is absent.
+
+**Decision:** add a raw `DocumentAclReadPort` and concrete
+`PostgresDocumentAclStore`. The store returns immutable typed persisted rows for one
+document through the existing dedicated Document PostgreSQL/RLS boundary, in stable
+order. It preserves `validUntil` instead of filtering it and preserves ALLOW/DENY
+instead of evaluating precedence.
+
+**Security / trade-off:** this separates persistence truth from authorization policy.
+RLS still prevents foreign/sibling ACL discovery, and no raw ACL row can itself grant
+access. A later source-owned evaluator must compose only after parent DD-03
+authorization and must remain narrowing-only.
+
+**Boundary:** no subject matching, expiry-effectiveness interpretation, deny reducer,
+source-resource inheritance rule, operation/action mapping, signer, route or schema
+change is claimed.
+
+**Acceptance:** DOC-ACL-PG-001…004 in DD-17 and
+`tests/postgres/document-access-metadata-store.test.mjs`.
