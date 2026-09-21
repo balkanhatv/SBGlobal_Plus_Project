@@ -270,10 +270,6 @@ after(async () => {
       [f.tenant],
     );
     await client.query(
-      "DELETE FROM core_document.document_upload_session WHERE tenant_id=$1",
-      [f.tenant],
-    );
-    await client.query(
       "DELETE FROM core_document.document_acl WHERE document_id=ANY($1::uuid[])",
       [[f.industryDocument, f.siblingDocument, f.tenantDocument, f.unsafeDocument]],
     );
