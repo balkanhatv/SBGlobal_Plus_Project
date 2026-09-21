@@ -248,3 +248,26 @@ producer/consumer interprets an event.
 **Boundary:** no dispatcher scheduler, lease/claim algorithm, retry/DLQ/replay
 transition, payload-schema engine, webhook action, route, migration, role, grant or
 RLS policy is introduced.
+
+
+## 19. Exact Event Catalog persistence reader [DD-091]
+
+The global `event_catalog` is exposed through an exact typed tuple reader.
+`PersistedEventCatalogEntry` is a structural superset of DD-081
+`EventCatalogContract`: event type/version, producer, scope, payload-schema JSON and
+sensitivity are accompanied by ordering key, consumer classes, retention/audit
+posture, webhook eligibility, backward-compatibility declaration, ACTIVE/RETIRED
+status and createdAt.
+
+`PostgresEventCatalogStore` requires the exact
+`(eventType,eventVersion,scopeClass)` tuple and executes through a governed
+read-capable Integration database role. Event Catalog is global metadata, not
+Tenant-owned RLS data; no RequestContext selector is needed to read an exact tuple.
+
+The reader deliberately does **not** execute payload schemas, decide whether RETIRED
+entries may be produced/consumed, register/retire events, select consumers or
+authorize webhook delivery. DD-081 remains the envelope/catalog validation boundary,
+with a separate injected payload-schema validator.
+
+**Boundary:** no schema engine, catalog writer, producer registration, consumer
+scheduler, route, migration, role, grant or RLS policy is introduced.
