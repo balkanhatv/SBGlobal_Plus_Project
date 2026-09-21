@@ -3,7 +3,7 @@
   "updated": "2026-09-21",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-EVENT-ENVELOPE-001",
-  "final_verdict": "DD-080 REST ADAPTER FLOOR IMPLEMENTED / EXACT-HEAD TESTED; EXTERNAL ROUTES/CREDENTIAL SCHEME/OPENAPI AND NAMED COMMERCIAL DEPENDENCIES REMAIN",
+  "final_verdict": "DD-081 EVENT ENVELOPE/CATALOG VALIDATION IMPLEMENTED / EXACT-HEAD TESTED; DISPATCHER/WEBHOOK RUNTIME AND NAMED REST/COMMERCIAL/AI PREREQUISITES REMAIN",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
-    "verified_code_tree": "9655553773e2b1f63ba1e36a479ef3d574ec6077",
-    "state_projection_basis_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
+    "verified_code_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
+    "verified_code_tree": "0c0de1c3c5818a2223d973bffff8425942741a69",
+    "state_projection_basis_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
@@ -368,7 +368,7 @@
       ],
       "next_action": "REST exposure, DD-076 evaluator and concrete AI Gateway remain blocked on their named source-owned prerequisites. Event dispatcher/retry/DLQ and webhook transport runtime are not claimed by DD-081. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants."
     },
-    "application_api_ui_scope_note": "First-party Next.js/tRPC three-query boundary plus unmounted external REST Fetch adapter floor implemented/tested; concrete REST routes/OpenAPI and product UI unfinished.",
+    "application_api_ui_scope_note": "First-party Next.js/tRPC three-query boundary, unmounted external REST Fetch adapter floor and reusable event-envelope/catalog validation are implemented/tested; concrete REST routes/OpenAPI, event dispatcher/webhooks and product UI remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -454,30 +454,31 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-API-REST-001",
+    "checkpoint": "DEV-EVENT-ENVELOPE-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
-    "verified_code_tree": "9655553773e2b1f63ba1e36a479ef3d574ec6077",
-    "source_audit": "Development/REST_ADAPTER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
+    "verified_code_tree": "0c0de1c3c5818a2223d973bffff8425942741a69",
+    "source_audit": "Development/EVENT_ENVELOPE_CATALOG_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
       "REPO-001–006 invariant CI implementation",
-      "DD-080 external REST adapter source audit and unmounted Fetch boundary"
+      "DD-080 external REST adapter source audit and unmounted Fetch boundary",
+      "DD-081 event envelope/catalog source audit and reusable validation boundary"
     ],
-    "next_action": "concrete REST exposure remains blocked on an exact external credential scheme and public route catalog; the DD-076 evaluator remains blocked on its named policy/evidence definitions. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.",
+    "next_action": "REST exposure, DD-076 evaluator and concrete AI Gateway remain blocked on their named source-owned prerequisites. Event dispatcher/retry/DLQ and webhook transport runtime are not claimed by DD-081. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-API-REST-001",
-    "verified_executable_basis": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
-    "verified_executable_tree": "9655553773e2b1f63ba1e36a479ef3d574ec6077",
-    "source_audit": "Development/REST_ADAPTER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD080_VERIFICATION_2026-09-21.md",
-    "scope": "DD-080 independent continuation after vision audit; historical audit evidence retained"
+    "checkpoint": "DEV-EVENT-ENVELOPE-001",
+    "verified_executable_basis": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
+    "verified_executable_tree": "0c0de1c3c5818a2223d973bffff8425942741a69",
+    "source_audit": "Development/EVENT_ENVELOPE_CATALOG_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD081_VERIFICATION_2026-09-21.md",
+    "scope": "DD-081 independent source-complete event-envelope/catalog validation continuation; historical audit evidence retained"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -490,12 +491,12 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "ce4708eec15f6b0a35ae9a77d13505221fe55d51",
+    "verified_continuation_head": "535f458ad6b5e0cfef082e8d71dbc8fbe94e610f",
     "inventory": {
-      "blobs": 409,
-      "markdown": 161,
-      "source_files": 83,
-      "test_files": 63,
+      "blobs": 414,
+      "markdown": 164,
+      "source_files": 84,
+      "test_files": 64,
       "migrations": 47,
       "verification_files": 41
     },
@@ -907,6 +908,5 @@
       "verified_tree": "00aac681a7a33e8dc92c6dfb767283fcb544cdf9",
       "evidence": "Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md"
     }
-  },
-  "application_api_ui_scope_note": "First-party Next.js/tRPC three-query boundary, unmounted external REST Fetch adapter floor and reusable event-envelope/catalog validation are implemented/tested; concrete REST routes/OpenAPI, event dispatcher/webhooks and product UI remain unfinished."
+  }
 }
