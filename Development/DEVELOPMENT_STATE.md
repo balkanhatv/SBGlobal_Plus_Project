@@ -1,20 +1,20 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-USAGE-IMPACT-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001`
 
-Development is **IN PROGRESS — COMMERCIAL TARGET PREVIEW RESTRICTION / USAGE / LIFECYCLE PREREQUISITES**.
+Development is **IN PROGRESS — COMMERCIAL TARGET PREVIEW FINAL-ORCHESTRATION PREREQUISITES**.
 
-Verified feature executable `d982eb59098e4dc51586a2cf5e92771909566ea4` / `ad4b22497f93956337f6a86e0fa4f76a13bec46a`:
-- **225/225 Core PASS**
+Verified feature executable `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` / `014ffdd543f71d4aeddaeb3ac5050c6916d30b54`:
+- **233/233 Core PASS**
 - **56/56 PostgreSQL PASS**
 - **46 migrations / 40 verification files bootstrap PASS**
 - **Next.js 15.5.25 production build PASS**
 - **Database Verify PASS**
-- **371 blobs / 143 Markdown / 76 source / 52 tests in feature tree**
+- **375 blobs / 145 Markdown / 77 source / 53 tests in feature tree**
 
-DD-073 now implements bounded BR-SUB-04 usage-vs-target impact over server-selected exact usage measurements. It does not guess current period selection or reservation semantics: bounded targets require exactly one selected measurement and non-zero `reserved_value` fails closed.
+DD-074 now locks canonical lifecycle posture without using entitlement facts as competing runtime authority. GRACE retains full access; SUSPENDED is restricted; EXPIRED/CANCELLED are preservation-only; PENDING is activation-pending; generic access remains fail-closed for non-full states.
 
-Still unfinished: production usage-period selector/reservation rule, concrete add-on eligibility, concrete compliance/security restriction source/application, lifecycle overlay, final publication/apply, Billing/payment/proration, Workflow approval and public changePlan.
+Still unfinished: concrete compliance/security resolver/application, production usage period/reservation binding, final target-preview materialization/fingerprint, impact/diff/remediation production, Billing/Workflow producer integrations and public changePlan.
 
-Next independent governed dependency: source-audit and implement the **subscription lifecycle target overlay** only where F-14/DD-04 semantics are deterministic. Final target preview remains blocked on concrete governed restriction authority/application plus production usage-source binding.
+Next independent governed dependency: source-audit and implement only the **final target-preview restriction application/materialization seam** that can deterministically combine already-prepared DD-071/DD-072/DD-073/DD-074 evidence without inventing missing production policy sources.
 
 RawSourceCorpus immutable; `main` unmerged; PR #2 draft/review-only.

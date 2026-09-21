@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-USAGE-IMPACT-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001`
 
-Current Development checkpoint is `DEV-COMMERCIAL-USAGE-IMPACT-001`. Verified feature executable `d982eb59098e4dc51586a2cf5e92771909566ea4` / tree `ad4b22497f93956337f6a86e0fa4f76a13bec46a` passes **225 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **371 blobs / 143 Markdown / 76 source / 52 test files**.
+Current Development checkpoint is `DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001`. Verified feature executable `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` / tree `014ffdd543f71d4aeddaeb3ac5050c6916d30b54` passes **233 Core + 56 PostgreSQL**, full **46 migrations / 40 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **375 blobs / 145 Markdown / 77 source / 53 test files**.
 
-DD-073 adds bounded BR-SUB-04 usage-vs-target impact over server-selected exact measurements. FINITE compares selected persisted `used_value`; NOT_INCLUDED/still-ADD_ON_ONLY are zero included capacity; UNLIMITED is non-blocking. Current-period selection and non-zero reservation reconciliation are deliberately not guessed: missing/multiple selected periods or relevant `reserved_value > 0` fail closed.
+DD-074 adds deterministic lifecycle posture without mutating entitlement facts: TRIAL/ACTIVE/GRACE are FULL_ACCESS; SUSPENDED is RESTRICTED; EXPIRED/CANCELLED are PRESERVATION_ONLY; PENDING is ACTIVATION_PENDING. Generic protected operations and ordinary writes remain eligible only in FULL_ACCESS, while every state preserves Tenant data.
 
-Target preview remains incomplete: production usage period/reservation binding, concrete governed compliance/security authority/application, lifecycle overlay, final publication/apply, Billing/Workflow producers and public changePlan remain unfinished.
+Target preview remains incomplete: concrete governed compliance/security authority/application, production usage period/reservation binding, final target-preview materialization/fingerprint, Billing/Workflow producers and public changePlan remain unfinished.
 
-Next independent governed dependency is a source audit of F-14 §2/§6 + DD-04 lifecycle semantics, followed only by a bounded lifecycle target-overlay implementation if deterministic.
+Next independent governed dependency is a source audit of final target-preview restriction application/materialization over already-prepared DD-071…074 evidence, with no invention of missing production policy sources.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

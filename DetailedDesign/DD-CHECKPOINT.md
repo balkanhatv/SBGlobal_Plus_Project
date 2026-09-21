@@ -31,11 +31,11 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-**Current checkpoint:** `DEV-COMMERCIAL-USAGE-IMPACT-001`  
-**Verified feature executable:** `d982eb59098e4dc51586a2cf5e92771909566ea4` / `ad4b22497f93956337f6a86e0fa4f76a13bec46a`
+**Current checkpoint:** `DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001`  
+**Verified feature executable:** `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` / `014ffdd543f71d4aeddaeb3ac5050c6916d30b54`
 
-Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-073**. DD-073 implements only bounded BR-SUB-04 usage-vs-target impact over server-selected exact measurements; current-period selection and outstanding-reservation reconciliation remain deliberately unbound.
+Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-074**. DD-074 implements deterministic lifecycle posture only: GRACE remains full-access; SUSPENDED is restricted; EXPIRED/CANCELLED are preservation-only; PENDING is activation-pending. Entitlement facts/limits are not rewritten.
 
-Feature evidence: Core **225/225**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-073 database migration or privilege change occurred.
+Feature evidence: Core **233/233**, PostgreSQL **56/56 + full 46/40 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-074 database migration or privilege change occurred.
 
-Concrete compliance/security authority/application, production usage period/reservation binding and lifecycle overlay remain unfinished. Next independent governed prerequisite is source-backed lifecycle target-overlay semantics before any final target preview/public apply claim.
+Concrete compliance/security authority/application, production usage period/reservation binding and final target-preview materialization remain unfinished. Next governed dependency is bounded final target-preview restriction application/materialization over already-prepared DD-071…074 evidence.

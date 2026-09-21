@@ -1,19 +1,19 @@
-# D-CHECKPOINT — DEV-COMMERCIAL-USAGE-IMPACT-001
+# D-CHECKPOINT — DEV-COMMERCIAL-LIFECYCLE-OVERLAY-001
 **Updated:** 2026-09-21
 
-Verified feature executable basis `d982eb59098e4dc51586a2cf5e92771909566ea4` / `ad4b22497f93956337f6a86e0fa4f76a13bec46a`:
-- Core **225/225 PASS**
+Verified feature executable basis `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` / `014ffdd543f71d4aeddaeb3ac5050c6916d30b54`:
+- Core **233/233 PASS**
 - PostgreSQL **56/56 PASS**
 - full DB bootstrap **46 migrations / 40 verification files PASS**
 - Next.js 15.5.25 production build **PASS**
 - Database Verify **PASS**
-- feature tree **371 blobs / 143 Markdown / 76 source / 52 tests**
+- feature tree **375 blobs / 145 Markdown / 77 source / 53 tests**
 - Industry scope **9 / 41 / 181**
 
-Gate: **IMPLEMENTED / TESTED — DD-073 BOUNDED USAGE-METER TARGET IMPACT**.
+Gate: **IMPLEMENTED / TESTED — DD-074 SUBSCRIPTION LIFECYCLE TARGET OVERLAY**.
 
-DD-073 compares only authoritative selected `used_value` measurements against exact DD-071 target limits. Current-period selection is server-owned but concrete production selection is not yet bound; non-zero reservations fail closed rather than being added or ignored by guess.
+DD-074 keeps lifecycle posture separate from entitlement-fact authority. GRACE remains full access; restricted/non-active states keep generic access denied and require separately governed dedicated paths.
 
-No production eligibility, concrete compliance/security restriction authority/application, lifecycle, Billing/payment, Workflow approval or public changePlan completion is claimed.
+No production eligibility, concrete compliance/security authority/application, production usage selector/reservation semantics, final target materialization, Billing/payment, Workflow approval or public changePlan completion is claimed.
 
-Next: **subscription lifecycle target-overlay source audit / bounded implementation**.
+Next: **final target-preview restriction application/materialization source audit**.

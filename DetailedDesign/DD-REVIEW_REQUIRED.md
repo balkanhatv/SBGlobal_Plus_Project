@@ -29,6 +29,6 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-Fresh DD-073 implementation evidence at `d982eb59098e4dc51586a2cf5e92771909566ea4` creates no new approval-blocked DD ambiguity. DD-073 explicitly records that current-period selection and non-zero reservation treatment are not governed by current source and therefore fail closed rather than being guessed.
+Fresh DD-074 implementation evidence at `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` creates no new approval-blocked DD ambiguity. Lifecycle semantics are now bounded without inventing entitlement mutation, future-state prediction or restricted-operation identifiers.
 
-Remaining production usage binding, concrete restriction authority/application, lifecycle, Billing/Workflow and public changePlan work is unfinished implementation scope. No REVIEW_REQUIRED permission exists to invent those business/policy semantics.
+Remaining final target materialization, production usage binding, concrete restriction authority/application, Billing/Workflow and public changePlan work is unfinished implementation scope. No REVIEW_REQUIRED permission exists to invent those business/policy semantics.

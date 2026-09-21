@@ -59,3 +59,6 @@ After source-auditing F-03/F-14/A-03/A-04/DD-03/DD-04/DD-16, verified that the c
 
 ## 2026-09-21 — DD-073 bounded usage-meter target-impact
 Source audit confirmed BR-SUB-04 plus persisted `usage_meter` and DD-064 least-privilege read ownership, while finding no governed current-period selector or `reserved_value` downgrade formula. Added a server-owned measurement-source seam and deterministic exact-target evaluator. Feature `d982eb59098e4dc51586a2cf5e92771909566ea4` passed 225 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No migration, period convention, reservation arithmetic, remediation producer or public changePlan binding was added.
+
+## 2026-09-21 — DD-074 subscription lifecycle target overlay
+Source audit confirmed exact F-14/A-04/DD-04 lifecycle posture: GRACE retains full access; SUSPENDED is restricted; EXPIRED/CANCELLED preserve data; PENDING is activation-pending; Renewed is an event and PAST_DUE is invalid. Added a pure deterministic posture overlay without mutating entitlement facts or inventing restricted operation IDs/future lifecycle prediction. Feature `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` passed 233 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No migration or public changePlan binding was added.
