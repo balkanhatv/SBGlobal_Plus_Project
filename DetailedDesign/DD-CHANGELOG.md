@@ -56,3 +56,6 @@ Combined verified DD-071…074 evidence into one deterministic target-PlanVersio
 
 ## 2026-09-21 — DD-076 initial plan-change assessment preparation
 Source audit found no governed blocking-impact code vocabulary, entitlement-diff evidence schema, full Commercial fingerprint algorithm or deterministic dual-route chooser. Added a SERVICE/TENANT_CORE server-owned evaluator seam that binds exact DD-075 preview to version-1 assessment preparation, derives PENDING/NOT_REQUIRED remediation and refuses to drop DD-073 blocking usage. No DB migration, concrete evaluator policy, DD-066 write, Billing/Workflow evidence or DD-065 publication orchestration was added.
+
+## 2026-09-21 — DD-077 persisted apply-evidence gate
+Implemented read-only same-Tenant consumption of DD-066 assessment/remediation/route-resolution evidence through the existing Commercial compiler role. The gate requires latest assessment evidence, exact current Subscription/source/route/fingerprint binding, correct producer-owned SATISFIED route evidence and reached NEXT_RENEWAL effectiveAt. No migration or privilege change was required. This is deliberately not yet atomic with DD-065 publication, so public changePlan remains unbound.

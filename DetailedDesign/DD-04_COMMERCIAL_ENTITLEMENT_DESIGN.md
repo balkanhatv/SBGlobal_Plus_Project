@@ -572,3 +572,20 @@ DD-076 therefore locks the authority seam rather than inventing those semantics:
 - initial assessment remediation is derived as `PENDING` when blockers exist and `NOT_REQUIRED` otherwise. Initial `SATISFIED` is impossible; later SATISFIED reassessment remains DD-066 remediation-evidence governed.
 
 The output maps to the non-ID fields required by `PlanChangeEvidenceService.recordAssessment` at `assessmentVersion=1`, but DD-076 itself does not persist evidence or claim a production evaluator implementation.
+
+## 26. Persisted apply-evidence gate v1 [DD-077]
+
+DD-077 consumes the already-governed DD-066 evidence substrate through the existing `sbg_commercial_transition_compiler_rw` read boundary. No new persistence or privilege is introduced.
+
+The read store revalidates the exact current assessment version, Subscription/source/version/current-Tenant pointer, target PlanVersion and route-policy identity/version/route enablement. It loads only the latest route-resolution evidence for the current assessment version and, when the current reassessment claims SATISFIED remediation, the prior-version Commercial remediation evidence required by DD-066.
+
+The Core gate is SERVICE + TENANT_CORE only and compares the supplied server/compiler source fingerprint by exact opaque equality; it does not define a fingerprint algorithm. Outcomes are:
+- `ALLOW_APPLY_GATE`;
+- `BLOCK_REMEDIATION_PENDING`;
+- `BLOCK_ROUTE_PENDING`;
+- `BLOCK_ROUTE_REJECTED`;
+- `BLOCK_EFFECTIVE_TIME_PENDING`.
+
+Latest evidence wins. SELF_SERVE SATISFIED must be Billing-produced; SALES_ASSISTED SATISFIED must be Workflow-produced. NEXT_RENEWAL requires server-owned effectiveAt and cannot allow before that time. Stale assessment/version/subscription/source/route/fingerprint bindings fail closed rather than becoming a block-like success result.
+
+**Boundary:** DD-077 is a read-only gate. DD-04 §13.4 still requires these checks to participate in the same authoritative mutation transaction. DD-077 does not yet call or modify DD-065, so it does not claim atomic evidence-to-publication authorization and does not close public changePlan.

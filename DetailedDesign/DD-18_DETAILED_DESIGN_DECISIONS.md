@@ -847,3 +847,13 @@ Resolver-ELIGIBLE add-ons are applied after overrides and remain quota-additive 
 **Boundary / trade-off:** DD-076 never permits initial SATISFIED, never chooses remediation, never defines impact-code/diff/fingerprint/dual-route semantics and does not write DD-066 evidence or call DD-065 publication. Those remain production evaluator/orchestration responsibilities.
 
 **Consequence:** the final preview can now be handed to one explicit server-owned assessment-authority seam without allowing caller-supplied impact/remediation authority or silently losing a known usage blocker.
+
+## DD-077 — Persisted evidence is readable through a fail-closed apply gate, but authorization is not yet atomic with publication
+
+**Context:** DD-066 already persists producer-isolated assessment/remediation/route evidence and grants the Commercial transition/compiler role read-only access. DD-04 §13.4 defines the exact apply conditions, but DD-065 intentionally does not consume DD-066 evidence.
+
+**Decision:** add a read-only persisted evidence store over the existing compiler role plus a SERVICE/TENANT_CORE gate. The store requires the requested assessment version to be the latest, rechecks current Subscription/source/version/Tenant pointer and current target route policy, then loads latest route evidence and required prior remediation evidence. The gate enforces exact opaque source-fingerprint equality, no unresolved blockers, correct Billing/Workflow producer ownership, latest route state and NEXT_RENEWAL effective time.
+
+**Boundary / trade-off:** a successful DD-077 decision is not a publication capability token. The evidence read and DD-065 mutation still occur in separate transactions, so DD-077 explicitly does not claim the DD-04 same-authoritative-transaction invariant. No new DB grant/migration, production assessment evaluator, Billing/Workflow producer or public command is introduced.
+
+**Consequence:** the persisted DD-066 evidence chain now has executable fail-closed consumption semantics. The next safe slice is to bind this evidence validation into the DD-065 publication transaction while preserving all existing publication revalidation and least-privilege guarantees.

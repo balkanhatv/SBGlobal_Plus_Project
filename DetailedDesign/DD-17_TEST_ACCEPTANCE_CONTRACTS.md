@@ -781,3 +781,22 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-ASSESS-010 | source PlanVersion equals target | fail before evaluator |
 | COMM-ASSESS-011 | same evidence prepared repeatedly | deterministic immutable output |
 | COMM-ASSESS-012 | concrete blocker vocabulary/diff format/fingerprint/dual-route chooser | NOT CLAIMED; production evaluator remains required |
+
+### Persisted Commercial apply-evidence gate — DD-077
+
+| ID | Scenario | Expected |
+|---|---|---|
+| COMM-APPLY-GATE-001 | current assessment + SATISFIED correct producer route | ALLOW_APPLY_GATE |
+| COMM-APPLY-GATE-002 | current assessment has blocking impacts/PENDING remediation | BLOCK_REMEDIATION_PENDING |
+| COMM-APPLY-GATE-003 | no route evidence or latest route PENDING | BLOCK_ROUTE_PENDING |
+| COMM-APPLY-GATE-004 | latest route REJECTED after earlier evidence | BLOCK_ROUTE_REJECTED; latest evidence wins |
+| COMM-APPLY-GATE-005 | NEXT_RENEWAL SATISFIED but effectiveAt is future | BLOCK_EFFECTIVE_TIME_PENDING |
+| COMM-APPLY-GATE-006 | NEXT_RENEWAL effectiveAt reached | ALLOW_APPLY_GATE |
+| COMM-APPLY-GATE-007 | SATISFIED reassessment without prior Commercial remediation evidence | fail closed |
+| COMM-APPLY-GATE-008 | requested assessment version is not latest | fail closed as stale |
+| COMM-APPLY-GATE-009 | Subscription/source/version/current pointer changed | fail closed |
+| COMM-APPLY-GATE-010 | target route policy/version/enablement changed | fail closed |
+| COMM-APPLY-GATE-011 | current compiler fingerprint differs from assessment fingerprint | fail closed |
+| COMM-APPLY-GATE-012 | SELF_SERVE producer is not Billing / SALES_ASSISTED producer is not Workflow | fail closed |
+| COMM-APPLY-GATE-013 | compiler role reads evidence | same-Tenant FORCE-RLS only; no evidence mutation |
+| COMM-APPLY-GATE-014 | separate gate then later DD-065 publication | atomic evidence-to-mutation guarantee NOT CLAIMED; same-transaction binding remains later work |
