@@ -937,3 +937,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-UP-PG-003 | Tenant Core session requested from same-Tenant Industry and Tenant Core contexts | same Tenant Core session visible in both |
 | DOC-UP-PG-004 | persisted session is EXPIRED / past expiresAt | raw reader still returns evidence; no usability decision |
 | DOC-UP-PG-005 | malformed session id or database route/context mismatch | fail closed before session disclosure |
+
+
+### Raw PostgreSQL Document upload-session reader — DD-087
+
+| ID | Scenario | Expected |
+|---|---|---|
+| DOC-UP-PG-001 | exact Tenant Industry upload session | immutable raw persisted scope/principal/media/size/expiry/status/temp/checksum facts |
+| DOC-UP-PG-002 | sibling Industry upload-session id in current Industry context | FORCE-RLS returns no row; exact sibling context may read its own |
+| DOC-UP-PG-003 | Tenant Core upload session from same-Tenant Industry and Tenant Core contexts | same Tenant Core session visible in both |
+| DOC-UP-PG-004 | persisted session is EXPIRED / expiresAt in past | raw evidence preserved; reader does not invent usability decision |
+| DOC-UP-PG-005 | database route/context mismatch | fail closed before upload-session disclosure |
