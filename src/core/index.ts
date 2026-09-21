@@ -44,3 +44,4 @@ export * from "./identity/roles-query-service.js";
 export * from "./api/core-operation-contracts.js";
 
 export * from "./integration/event-envelope.js";
+export * from "./document/access-candidate.js";
