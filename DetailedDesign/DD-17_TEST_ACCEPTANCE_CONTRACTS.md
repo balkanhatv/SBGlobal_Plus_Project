@@ -949,3 +949,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WH-SUB-PG-003 | Tenant subscription read from same-Tenant Industry and Tenant Core contexts | same Tenant Core subscription visible in both |
 | WH-SUB-PG-004 | PENDING_VERIFICATION subscription without verifiedAt | raw non-executable evidence; no verified/deliverable decision |
 | WH-SUB-PG-005 | malformed id or database route/context mismatch | fail closed before subscription disclosure |
+
+
+### Raw PostgreSQL Webhook Delivery reader — DD-089
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WH-DEL-PG-001 | exact Tenant Industry delivery attempt | immutable raw attempt evidence including persisted status/HTTP/error/nextAttempt; no retry/delivery decision |
+| WH-DEL-PG-002 | sibling Industry queries delivery whose parent event is Industry-scoped | parent RLS returns no row; exact Industry context may read it |
+| WH-DEL-PG-003 | Tenant-Core event delivery read from same-Tenant Tenant Core and Industry contexts | same delivery evidence visible in both |
+| WH-DEL-PG-004 | foreign-Tenant delivery id queried | parent subscription/event RLS returns no row; owning Tenant/context may read it |
+| WH-DEL-PG-005 | malformed id or database route/context mismatch | fail closed before delivery evidence disclosure |
