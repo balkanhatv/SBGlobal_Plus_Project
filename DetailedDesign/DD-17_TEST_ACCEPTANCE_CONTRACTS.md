@@ -960,3 +960,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WH-DEL-PG-003 | Tenant-Core event delivery read from same-Tenant Tenant Core and Industry contexts | same delivery evidence visible in both |
 | WH-DEL-PG-004 | foreign-Tenant delivery id queried | parent subscription/event RLS returns no row; owning Tenant/context may read it |
 | WH-DEL-PG-005 | malformed id or database route/context mismatch | fail closed before delivery evidence disclosure |
+
+
+### Raw PostgreSQL Outbox Event reader — DD-090
+
+| ID | Scenario | Expected |
+|---|---|---|
+| EVT-OUT-PG-001 | exact Tenant Industry outbox event with persisted dispatcher evidence | immutable raw event/envelope/status/attempt/lock/error facts; no dispatch/retry decision |
+| EVT-OUT-PG-002 | sibling Industry queries Tenant Industry event | FORCE-RLS returns no row; exact Industry context may read it |
+| EVT-OUT-PG-003 | Tenant-Core outbox event read from same-Tenant Tenant Core and Industry contexts | same raw event evidence visible in both |
+| EVT-OUT-PG-004 | foreign-Tenant outbox event id queried | FORCE-RLS returns no row; owning Tenant/context may read it |
+| EVT-OUT-PG-005 | malformed id or database route/context mismatch | fail closed before event evidence disclosure |
