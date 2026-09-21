@@ -869,3 +869,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | EVT-CAT-004 | tenant event residency differs from authoritative Tenant residency | fail before payload interpretation |
 | EVT-CAT-005 | EXPLICIT_CROSS_CONTEXT source/target are missing, equal, foreign, or ownership verifier unavailable | fail before payload interpretation |
 | EVT-CAT-006 | catalog payload-schema validator rejects payload | normalized event validation failure; no dispatcher/webhook side effect |
+
+
+### Document pre-sign access candidate — DD-082
+
+| ID | Scenario | Expected |
+|---|---|---|
+| DOC-PRE-001 | exact ACTIVE/CLEAN Tenant Industry DocumentMeta | immutable internal candidate; no external URL/token/object key |
+| DOC-PRE-002 | Tenant Core DocumentMeta loaded while operating in a Tenant Industry workspace | remains Tenant-scoped candidate; later authorization still required |
+| DOC-PRE-003 | sibling Industry or foreign Tenant metadata | non-disclosing RESOURCE_NOT_FOUND |
+| DOC-PRE-004 | QUARANTINED/DELETED/non-CLEAN metadata | RESOURCE_STATE_INVALID; cannot progress toward signing |
+| DOC-PRE-005 | missing metadata or unresolved Tenant/Industry/principal context | RESOURCE_NOT_FOUND before any signer surface |
+| DOC-PRE-006 | metadata reader failure or malformed authoritative row | safe DEPENDENCY_UNAVAILABLE; no provider/storage detail leakage |
