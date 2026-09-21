@@ -162,3 +162,25 @@ inheritance versus explicit ACL behavior. Those are later policy-composition wor
 **Boundary:** no permission/entitlement/ACL evaluator, signed grant, signer,
 TTL/provider, public route, migration, role, grant, RLS policy or sharing capability
 is introduced.
+
+
+## 16. ACL subject-match evidence [DD-085]
+
+The raw DD-084 ACL rows may be narrowed to subjects already present in the resolved
+server-owned RequestContext without becoming an authorization decision.
+
+For one explicit ACL permission and one document id:
+
+- PRINCIPAL matches only `RequestContext.principalId`;
+- ROLE matches only ids in resolved `RequestContext.roleIds`;
+- ORG_UNIT matches only ids in resolved `RequestContext.orgUnitPath`, whose
+  PostgreSQL resolver supplies the selected OrgUnit plus its ancestor UUIDs.
+
+The matcher requires every supplied row to belong to the same document and preserves
+input order, persisted ALLOW/DENY effect and optional validUntil evidence. It does not
+interpret expiry or effect.
+
+**Boundary:** DD-085 does not map an OperationContract to an ACL permission, decide
+source-resource fallback, filter validUntil, apply explicit-deny precedence, return
+ALLOW/DENY authorization, compose sensitivity/residency/step-up policy or sign
+storage access.
