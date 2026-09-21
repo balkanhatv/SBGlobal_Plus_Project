@@ -15,6 +15,9 @@ import {
 import {
   PostgresDocumentAclStore,
 } from "../../dist/server/document/postgres-document-acl-store.js";
+import {
+  PostgresDocumentStorageBindingStore,
+} from "../../dist/server/document/postgres-document-storage-binding-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -51,6 +54,7 @@ const f = Object.fromEntries([
 let pool;
 let store;
 let aclStore;
+let storageStore;
 let service;
 
 function context(industryContextId = f.industry) {
@@ -217,6 +221,7 @@ before(async () => {
   });
   store = new PostgresDocumentAccessMetadataStore(scoped);
   aclStore = new PostgresDocumentAclStore(scoped);
+  storageStore = new PostgresDocumentStorageBindingStore(scoped);
   service = new DocumentAccessCandidateService(store);
 });
 
@@ -400,4 +405,89 @@ test("DOC-ACL-PG-004 raw reader intentionally does not filter expired DENY evide
   assert.ok(expiredDeny);
   assert.equal(expiredDeny.effect, "DENY");
   assert.ok(Date.parse(expiredDeny.validUntil) < Date.now());
+});
+
+
+test("DOC-STO-PG-001 exact RLS-visible DocumentMeta resolves its linked active StorageObject", async () => {
+  const binding = await storageStore.load({
+    requestContext: context(),
+    documentId: f.industryDocument,
+    storageObjectId: f.industryObject,
+  });
+
+  assert.ok(binding);
+  assert.equal(binding.storageObjectId, f.industryObject);
+  assert.equal(binding.dataHomeId, f.home);
+  assert.equal(binding.objectKey, "doc/industry");
+  assert.equal(binding.bucketClass, "PRIVATE");
+  assert.equal(binding.sizeBytes, "64");
+  assert.equal(binding.checksumSha256, "checksum-industry");
+  assert.equal(binding.status, "ACTIVE");
+  assert.equal(Object.isFrozen(binding), true);
+});
+
+test("DOC-STO-PG-002 known but unlinked StorageObject id cannot bypass DocumentMeta linkage", async () => {
+  const binding = await storageStore.load({
+    requestContext: context(),
+    documentId: f.industryDocument,
+    storageObjectId: f.siblingObject,
+  });
+  assert.equal(binding, null);
+});
+
+test("DOC-STO-PG-003 sibling Industry DocumentMeta cannot disclose its physical StorageObject", async () => {
+  const hidden = await storageStore.load({
+    requestContext: context(),
+    documentId: f.siblingDocument,
+    storageObjectId: f.siblingObject,
+  });
+  assert.equal(hidden, null);
+
+  const sibling = await storageStore.load({
+    requestContext: context(f.sibling),
+    documentId: f.siblingDocument,
+    storageObjectId: f.siblingObject,
+  });
+  assert.ok(sibling);
+  assert.equal(sibling.objectKey, "doc/sibling");
+});
+
+test("DOC-STO-PG-004 Tenant Core physical binding remains same-Tenant visible from Industry and Tenant Core contexts", async () => {
+  const fromIndustry = await storageStore.load({
+    requestContext: context(),
+    documentId: f.tenantDocument,
+    storageObjectId: f.tenantObject,
+  });
+  const fromTenant = await storageStore.load({
+    requestContext: tenantContext(),
+    documentId: f.tenantDocument,
+    storageObjectId: f.tenantObject,
+  });
+
+  assert.ok(fromIndustry);
+  assert.ok(fromTenant);
+  assert.equal(fromIndustry.storageObjectId, f.tenantObject);
+  assert.equal(fromTenant.storageObjectId, f.tenantObject);
+});
+
+test("DOC-STO-PG-005 unsafe/non-active Document or StorageObject cannot resolve a physical binding", async () => {
+  const binding = await storageStore.load({
+    requestContext: context(),
+    documentId: f.unsafeDocument,
+    storageObjectId: f.unsafeObject,
+  });
+  assert.equal(binding, null);
+});
+
+test("DOC-STO-PG-006 Data Home route mismatch fails closed before physical locator disclosure", async () => {
+  await assert.rejects(
+    storageStore.load({
+      requestContext: {
+        ...context(),
+        dataHomeId: randomUUID(),
+      },
+      documentId: f.industryDocument,
+      storageObjectId: f.industryObject,
+    }),
+  );
 });
