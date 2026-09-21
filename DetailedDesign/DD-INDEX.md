@@ -1,7 +1,7 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-17 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-CORE-PLATFORM-SCOPE-001`
+**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-VISION-AUDIT-INVARIANTS-001`
 
-| Range | Current status |
+| Range | Historical Phase-3 design status |
 |---|---|
 | DD-00…DD-08 | Shared/Core DD — fresh revalidated / verified |
 | DD-09…DD-16 | Experience/AI/offline/infra/security DD — fresh revalidated / verified |
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Current scope is the **implemented/tested Core kernel and pooled PostgreSQL adapter / Development IN PROGRESS**. DD-036…039 and DBA-001…013 own prior SQL corrections; DD-040 owns the concrete driver/mapping; DD-041 owns compiled Authorization persistence; DD-042 owns Current Supported Industry presentation persistence; DD-043 owns the protected PLATFORM_GLOBAL principal/machine-credential scope floor. Runtime evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Implementation decisions are contiguous through **DD-079**; current Core/API/Commercial boundaries and runtime evidence are in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-Compiled-permission and Current Supported Industry presentation physical contracts/read adapters remain implemented/tested. DD-043 is now enforced across RequestContext, persisted API-credential validation and RequestScopedSql at DEV-CORE-PLATFORM-SCOPE-001. Provider/session-security, PDP/ABAC, Commercial validation integration and transports remain unfinished.
+Current provider/session validation, RBAC/ABAC, Commercial components and three first-party query bindings have executable coverage. VC-01–04 correct existing boundaries/evidence, and REPO-001–006 enforce repository invariants. Concrete DD-076 evaluator policy/evidence definitions and producer runtimes remain unfinished; the [prerequisite ownership audit](../Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md) identifies those dependencies. Historical design completion does not certify full product or production readiness.
 
 
 ## Historical all-stages checkpoint evidence
@@ -34,4 +34,6 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 
-**Current Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files are present and the exact-head Core Service Verify + Database Verify jobs PASS.
+**Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
+
+**Current verified executable evidence:** `20f1f5531a75a711bb88e013d38454f8c171e6b1` / tree `00aac681a7a33e8dc92c6dfb767283fcb544cdf9` — 283 Core tests, 65 PostgreSQL tests, full 47-migration/41-verification bootstrap, Database Verify and Next.js build PASS. The containing checkpoint commit must also pass its own exact-head CI. See [verification evidence](../Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md).

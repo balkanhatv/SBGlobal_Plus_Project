@@ -20,7 +20,7 @@
 - 165/165 named KPI metrics: mapped.
 - Open DD P0/P1: 0/0.
 
-**Checkpoint: PHASE3-DD-REVALIDATED**  
+**Checkpoint: PHASE3-DD-REVALIDATED**
 **DETAILED DESIGN COMPLETE · HISTORICAL PHASE-3 GATE SATISFIED.**
 
 That historical overall-Development block was later closed by the final pre-development audit plus `UD-BACKUP-01`. Development has since started in the Database phase. The current zero-trust audit has propagated database findings into DD-036…039/DBA-001…013; this does not reopen the whole completed DD phase, but exact-head database runtime evidence is verified at the bounded current checkpoint.
@@ -31,11 +31,17 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 ## Current Development overlay — 2026-09-21
-**Current checkpoint:** `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`  
-**Verified feature executable:** `e85ed5ddd8e95a7d96c261117b914f95dc41f955` / `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9`
 
-Historical Phase-3 DD completion remains preserved. Current implementation decisions now extend contiguously through **DD-079**. DD-079 bridges DD-076 prepared initial assessment to DD-066 persistence without reinterpreting route/impact/diff/fingerprint/remediation semantics.
+Current checkpoint: `DEV-VISION-AUDIT-INVARIANTS-001`. Product decisions remain contiguous through DD-079.
+Historical Phase-3 completion applies to its evaluated scope, not to later unresolved
+production evaluator semantics.
 
-Feature evidence: Core **271/271**, PostgreSQL **65/65 + full 47/41 DB bootstrap**, Next.js build **PASS**, Database Verify **PASS**. No DD-079 database migration or privilege change occurred.
+Verified executable `20f1f5531a75a711bb88e013d38454f8c171e6b1` / tree `00aac681a7a33e8dc92c6dfb767283fcb544cdf9`: **283/283 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **405 blobs / 159 Markdown / 82 source / 62 test files**.
 
-Concrete production DD-076 evaluator semantics and Billing/Workflow producers remain unfinished. Next governed dependency is source-auditing concrete evaluator prerequisite ownership.
+Four demonstrated audit defect groups are corrected: machine scope allowlist enforcement, validated Tenant sessionVersion propagation, typed Commercial preview values, and stale database/current-state evidence. Six REPO-001–006 checks now run in Core CI. The DD-076 prerequisite ownership source audit is complete; no missing business policy was invented.
+
+Current dependency ownership is `Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md`. Missing vocabulary, immutable evidence,
+fingerprint and route policy definitions block the concrete evaluator only. No
+source semantics or permission approval is fabricated to close those dependencies.
+
+Next: Concrete DD-076 evaluator remains blocked on the named policy/evidence definitions in Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md. Source-audit any independent source-complete item before implementation; retain exact-head CI and repository invariants.

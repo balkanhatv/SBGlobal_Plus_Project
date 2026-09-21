@@ -1,20 +1,19 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`
+**Updated:** 2026-09-21 · **Checkpoint:** `DEV-VISION-AUDIT-INVARIANTS-001`
 
-- Branch: `docs/architecture-branch-2`.
-- Verified feature executable: `e85ed5ddd8e95a7d96c261117b914f95dc41f955` / `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9`.
-- Core **271/271 PASS**; PostgreSQL **65/65 PASS**; full DB bootstrap **47 migrations / 41 verification files PASS**.
-- Next.js 15.5.25 production build: **PASS**; Database Verify: **PASS**.
-- Feature-tree inventory: **398 blobs / 155 Markdown / 82 source / 59 tests**.
-- RawSourceCorpus accepted blobs unchanged; `main` remains `3911590ff2020993ce51b32d7b091efd6f5f466f`.
-- **9 Industries / 41 canonical MS / 181 registered Industry tables** remain verified.
-- ADR-001…ADR-020 and DD-001…DD-079 are contiguous.
-- DD-079 persists DD-076 prepared version-1 assessments through the existing DD-066 producer boundary without semantic reinterpretation.
-- DD-066 remains authoritative for current Subscription/source/version/target-route guards and server-generated assessment identity/time.
-- DD-078/0047 atomic evidence→publication serialization remains unchanged.
-- Concrete DD-076 evaluator semantics, Billing/payment/proration, Workflow approval and public `core.commercial.subscription.changePlan` remain unfinished.
-- PR #2 remains OPEN DRAFT / unmerged.
+Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Next: source-audit concrete DD-076 evaluator prerequisites/ownership; do not invent missing impact/diff/fingerprint/route semantics.
+Verified executable `20f1f5531a75a711bb88e013d38454f8c171e6b1` / tree `00aac681a7a33e8dc92c6dfb767283fcb544cdf9`: **283/283 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **405 blobs / 159 Markdown / 82 source / 62 test files**.
 
-Evidence: `Registers/DEVELOPMENT_DD079_VERIFICATION_2026-09-21.md`.
+Four demonstrated audit defect groups are corrected: machine scope allowlist enforcement, validated Tenant sessionVersion propagation, typed Commercial preview values, and stale database/current-state evidence. Six REPO-001–006 checks now run in Core CI. The DD-076 prerequisite ownership source audit is complete; no missing business policy was invented.
+
+Invariants: **9 Industries / 41 canonical MS / 181 registered Industry tables**;
+**2,962 unchanged source requirement IDs/text**; **ADR-001–020 / DD-001–079**.
+
+Concrete DD-076 evaluator, add-on/compliance policy resolvers, usage-period/reservation semantics, Billing/Workflow producers, final snapshot materialization and public changePlan remain unfinished. AI provider/Gateway runtime, Industry application workflows, mobile/desktop, production deployment/load/penetration/restore are not certified.
+
+Next: Concrete DD-076 evaluator remains blocked on the named policy/evidence definitions in Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md. Source-audit any independent source-complete item before implementation; retain exact-head CI and repository invariants.
+
+Evidence: `Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`.
+
+RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 open draft/unmerged. The checkpoint/promotion commit must independently pass exact-head CI; this document names its already-verified executable basis, not a recursive self-hash.

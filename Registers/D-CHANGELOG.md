@@ -77,3 +77,15 @@ Bound exact DD-066 assessment evidence into the DD-065 mutation transaction and 
 
 ## 2026-09-21 — DD-079 prepared initial-assessment persistence
 Connected DD-076 prepared version-1 assessment evidence to DD-066 append-only persistence with exact field forwarding and server-owned assessment identity/time/Tenant/correlation. Feature `e85ed5ddd8e95a7d96c261117b914f95dc41f955` passed 271 Core / 65 PostgreSQL + full 47/41 DB bootstrap / Web / Database CI. No migration, privilege, evaluator business semantics, Billing/Workflow producer or public changePlan binding was added.
+
+## 2026-09-21 — DEV-VISION-AUDIT-INVARIANTS-001
+
+Fresh baseline 3dabe35 was materialized from all 399 hash-verified remote blobs.
+Correction `380ae7b984624ae3842e0293b2c075ac250c08a6` closed VC-01–04 and passed 277 Core / 65 PostgreSQL
+plus exact-head DB/Web CI. Continuation `20f1f5531a75a711bb88e013d38454f8c171e6b1` completed the DD-076
+prerequisite ownership audit and implemented six repository invariant tests;
+283 Core / 65 PostgreSQL / full 47/41 bootstrap / DB / Web PASS.
+Current projections were reconciled, including stale manifest current overlays
+and already-implemented entries in pending lists; original projection payloads
+remain explicitly historical. RawSource/main unchanged; PR #2 draft/unmerged.
+Evidence: `Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`. Missing evaluator/business definitions remain dependent blocks.

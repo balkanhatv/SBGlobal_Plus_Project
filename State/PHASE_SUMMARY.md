@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-VISION-AUDIT-INVARIANTS-001`
 
-Current Development checkpoint is `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`. Verified feature executable `e85ed5ddd8e95a7d96c261117b914f95dc41f955` / tree `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9` passes **271 Core + 65 PostgreSQL**, full **47 migrations / 41 verification files** bootstrap, Next.js 15.5.25 production build and Database Verify. Feature tree contains **398 blobs / 155 Markdown / 82 source / 59 test files**.
+Verified executable `20f1f5531a75a711bb88e013d38454f8c171e6b1` / tree `00aac681a7a33e8dc92c6dfb767283fcb544cdf9`: **283/283 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **405 blobs / 159 Markdown / 82 source / 62 test files**.
 
-DD-079 closes the DD-076 prepared initial-assessment → DD-066 persisted initial-assessment bridge without changing policy semantics, DB authority or DD-078 publication serialization.
+Four demonstrated audit defect groups are corrected: machine scope allowlist enforcement, validated Tenant sessionVersion propagation, typed Commercial preview values, and stale database/current-state evidence. Six REPO-001–006 checks now run in Core CI. The DD-076 prerequisite ownership source audit is complete; no missing business policy was invented.
 
-The remaining production gap is upstream evidence generation: concrete blocker vocabulary, entitlement-diff evidence producer, complete Commercial fingerprint algorithm and deterministic multi-route chooser are not defined by current source. Billing/Workflow producer runtimes and public changePlan remain unfinished.
+Concrete DD-076 evaluator, add-on/compliance policy resolvers, usage-period/reservation semantics, Billing/Workflow producers, final snapshot materialization and public changePlan remain unfinished. AI provider/Gateway runtime, Industry application workflows, mobile/desktop, production deployment/load/penetration/restore are not certified.
 
-Next governed dependency is a source audit of concrete DD-076 evaluator prerequisite ownership.
+Next: Concrete DD-076 evaluator remains blocked on the named policy/evidence definitions in Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md. Source-audit any independent source-complete item before implementation; retain exact-head CI and repository invariants.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -245,5 +245,3 @@ Verified executable `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`, tree `a1cc883564
 Current checkpoint: **`DEV-AUTHZ-COMPILER-001`**. Publication uses exact SERVICE scope, v1 validation, subject locking, CURRENT→SUPERSEDED transition, monotonically increasing pointer/version, invalidation without version reuse/decrement, and separate Tenant/Industry versus PLATFORM_GLOBAL paths.
 
 Next governed work: **Commercial current-state integration only**.
-
-

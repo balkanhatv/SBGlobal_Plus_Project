@@ -1,42 +1,30 @@
-# CORE SERVICE CHECKPOINT — DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001
-**Updated:** 2026-09-21  
-**Branch:** `docs/architecture-branch-2`  
-**Status:** IMPLEMENTED / TESTED — DD-079 prepared initial-assessment persistence
+# CORE SERVICE CHECKPOINT — DEV-VISION-AUDIT-INVARIANTS-001
+**Updated:** 2026-09-21 · **Branch:** `docs/architecture-branch-2`
 
 ## Verified executable basis
-- Commit: `e85ed5ddd8e95a7d96c261117b914f95dc41f955`.
-- Tree: `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9`.
-- Core/server acceptance: **271/271 PASS**.
-- Real PostgreSQL regression: **65/65 PASS**.
-- Full database bootstrap: **47 migrations / 41 verification files PASS**.
-- Next.js 15.5.25 production build: **PASS**.
-- Database Verify: **PASS**.
-- Feature-tree inventory: **398 blobs / 155 Markdown / 82 source / 59 test files**.
 
-## DD-079 executable boundary
-- SERVICE + TENANT_CORE-only initial-assessment persistence bridge;
-- accepts only the normalized DD-076 version-1 prepared shape;
-- forwards Subscription/source/target/version/timing, route-policy binding, impact/diff references, blockers/remediation and source fingerprint unchanged;
-- does not supply assessment id, createdAt, Tenant id or correlation as prepared/client authority;
-- DD-066 remains owner of server-generated assessment identity/time/Tenant/correlation;
-- returned persisted record must exactly match the prepared binding and RequestContext Tenant/correlation;
-- existing DD-066 live Subscription/current-Tenant-pointer/target-route guards remain authoritative;
-- existing FORCE-RLS producer boundary and DD-078/0047 evidence serialization remain unchanged.
+Verified executable `20f1f5531a75a711bb88e013d38454f8c171e6b1` / tree `00aac681a7a33e8dc92c6dfb767283fcb544cdf9`: **283/283 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **405 blobs / 159 Markdown / 82 source / 62 test files**.
 
-## Still unfinished
-- concrete production DD-076 evaluator;
-- governed blocker-code vocabulary;
-- immutable entitlement-diff evidence producer/schema;
-- canonical complete Commercial source-fingerprint algorithm;
-- deterministic route chooser where multiple target routes are valid;
-- remediation completion/reassessment orchestration;
-- actual Billing/payment/proration producer runtime;
-- actual Workflow approval producer runtime;
-- production usage-period/reservation semantics;
-- concrete compliance/security resolver;
-- remaining snapshot fact/source metadata materialization where unbound;
-- public `core.commercial.subscription.changePlan`.
+## Corrected boundaries and governed continuation
 
-**Next governed work:** source-audit the concrete DD-076 evaluator prerequisites/ownership. Implement only source-defined pieces; do not invent blocker/diff/fingerprint/dual-route, payment or approval semantics.
+Four demonstrated audit defect groups are corrected: machine scope allowlist enforcement, validated Tenant sessionVersion propagation, typed Commercial preview values, and stale database/current-state evidence. Six REPO-001–006 checks now run in Core CI. The DD-076 prerequisite ownership source audit is complete; no missing business policy was invented.
 
-Evidence: `Registers/DEVELOPMENT_DD079_VERIFICATION_2026-09-21.md`.
+- VC-01: machine Tenant scope is checked before directory lookup; no generic cross-context grant.
+- VC-02: Tenant human context uses the validated Core sessionVersion.
+- VC-03: final target preview rejects values inconsistent with the declared type.
+- VC-04: current database evidence is separated from historical run projections.
+- REPO-001–006: source immutability, requirement text/IDs, nine/41 ownership,
+  decision/migration sequences, database counts and relative Markdown files.
+
+Existing DD-066 producer isolation and DD-078 evidence/publication serialization
+remain intact; no migration, runtime role or privilege changed.
+
+## Remaining scope
+
+Concrete DD-076 evaluator, add-on/compliance policy resolvers, usage-period/reservation semantics, Billing/Workflow producers, final snapshot materialization and public changePlan remain unfinished. AI provider/Gateway runtime, Industry application workflows, mobile/desktop, production deployment/load/penetration/restore are not certified.
+
+Next: Concrete DD-076 evaluator remains blocked on the named policy/evidence definitions in Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md. Source-audit any independent source-complete item before implementation; retain exact-head CI and repository invariants.
+
+Evidence: `Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`.
+
+RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 open draft/unmerged. The checkpoint/promotion commit must independently pass exact-head CI; this document names its already-verified executable basis, not a recursive self-hash.

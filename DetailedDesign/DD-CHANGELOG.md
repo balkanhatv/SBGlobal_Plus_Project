@@ -65,3 +65,15 @@ Bound exact DD-066 assessment evidence into the DD-065 publication transaction a
 
 ## 2026-09-21 — DD-079 prepared initial-assessment persistence
 Connected DD-076 version-1 prepared assessment output to the existing DD-066 evidence service with a lossless SERVICE/TENANT_CORE handoff. Assessment identity/time/Tenant/correlation remain DD-066-owned; live Subscription/route validation, FORCE-RLS persistence and 0047 serialization remain unchanged. No migration, evaluator business semantics, Billing/Workflow producer or public changePlan binding was added.
+
+## 2026-09-21 — DEV-VISION-AUDIT-INVARIANTS-001
+
+Fresh baseline 3dabe35 was materialized from all 399 hash-verified remote blobs.
+Correction `380ae7b984624ae3842e0293b2c075ac250c08a6` closed VC-01–04 and passed 277 Core / 65 PostgreSQL
+plus exact-head DB/Web CI. Continuation `20f1f5531a75a711bb88e013d38454f8c171e6b1` completed the DD-076
+prerequisite ownership audit and implemented six repository invariant tests;
+283 Core / 65 PostgreSQL / full 47/41 bootstrap / DB / Web PASS.
+Current projections were reconciled, including stale manifest current overlays
+and already-implemented entries in pending lists; original projection payloads
+remain explicitly historical. RawSource/main unchanged; PR #2 draft/unmerged.
+Evidence: `Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`. Missing evaluator/business definitions remain dependent blocks.

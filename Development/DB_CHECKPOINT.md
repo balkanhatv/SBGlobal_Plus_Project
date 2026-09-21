@@ -1,15 +1,20 @@
-# DATABASE CHECKPOINT — DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001
-**Date:** 2026-09-21  
-**Feature executable:** `e85ed5ddd8e95a7d96c261117b914f95dc41f955` / `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9`
+# DATABASE CHECKPOINT — DEV-VISION-AUDIT-INVARIANTS-001
+**Date:** 2026-09-21
 
-DD-079 requires **no new migration, role, RLS policy or privilege**.
+Verified executable `20f1f5531a75a711bb88e013d38454f8c171e6b1` / `00aac681a7a33e8dc92c6dfb767283fcb544cdf9`.
 
-- Same-head Core postgres-context job **106270493617**: **65/65 PostgreSQL PASS** and full **47 migrations / 41 verification files bootstrap PASS**.
-- Same-head Database Verify run **35580023143**, job **106270493675**: **PASS**.
-- Existing DD-066 `sbg_commercial_plan_change_evidence_rw` remains the only assessment/remediation append authority.
-- Existing migration 0045 live Subscription/route/current-Tenant guards remain authoritative.
-- Existing migration 0047 serialization triggers automatically apply to DD-079 assessment inserts.
-- No compiler evidence DML privilege was added or widened.
-- Industry scope remains **9 Industries / 41 canonical MS / 181 registered Industry tables**.
+- PostgreSQL run **35583982706**, job **106282942833**: **65/65 PASS**, zero fail/skip;
+  clean bootstrap **47 migrations / 41 verification files PASS**.
+- Database Verify run **35583986918**, job **106282956510**: **PASS**.
+- Both logs assert the exact executable commit and tree; the Database job is a
+  PR event whose checkout is explicitly pinned to the PR head, not a merge commit.
+- No database SQL, RLS, role, migration or privilege changed in this audit/continuation.
+- **9 Industries / 41 MS / 181 registered Industry tables** remain verified.
+- New REPO-005 compares manifest DB counts with actual files in Core CI.
 
-The promotion/state commit must also pass exact-head Core/Web/Database verification before this checkpoint is treated as current branch promotion.
+This remains clean-database persistence evidence; production upgrades/rollback,
+load/penetration and recovery exercises are unfinished.
+
+Evidence: `Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`.
+
+RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 open draft/unmerged. The checkpoint/promotion commit must independently pass exact-head CI; this document names its already-verified executable basis, not a recursive self-hash.

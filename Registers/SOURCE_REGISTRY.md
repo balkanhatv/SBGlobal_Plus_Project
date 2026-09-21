@@ -34,3 +34,11 @@ Fresh Foundation evidence: requirement-level traceability + MS completeness + `N
 Those earlier audit files retain their historical evaluated scope. Current all-stages revalidation, exact database CI and gate truth are recorded in `ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` and `../State/PROJECT_MANIFEST.json`.
 
 Current Core Development evidence is [DEV-CORE-PLATFORM-SCOPE-001](../Development/CORE_SERVICE_CHECKPOINT.md); its bounded no-loss/current-scope overlay is appended to [NO_LOSS_AUDIT](NO_LOSS_AUDIT.md). This continuation preserves both accepted source blobs and all source IDs; current state projections do not alter source authority.
+
+## Current audit / continuation evidence — 2026-09-21
+
+`VISION_CENTRIC_AUDIT_2026-09-21.md` records the fresh 399-blob baseline and
+VC-01–04 corrections. Current verified checkpoint is `DEV-VISION-AUDIT-INVARIANTS-001`; exact execution
+evidence is `DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`. Prior dated
+audits above retain their original scope. All 2,962 source IDs/text and both
+accepted source blobs remain unchanged.

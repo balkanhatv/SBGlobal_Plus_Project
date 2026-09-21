@@ -1,21 +1,18 @@
 # SBGlobal Plus — Canonical Development Branch
-
-**Current checkpoint:** `DEV-COMMERCIAL-ASSESSMENT-PERSISTENCE-001`  
+**Current checkpoint:** `DEV-VISION-AUDIT-INVARIANTS-001`
 **Branch:** `docs/architecture-branch-2`
 
-Verified feature executable `e85ed5ddd8e95a7d96c261117b914f95dc41f955` / `8a5ea0bd64f8fb67c673620d2df54ccab2e64fa9`:
-- **271/271 Core PASS**
-- **65/65 PostgreSQL PASS**
-- **47 migrations / 41 verification files bootstrap PASS**
-- **Next.js 15.5.25 production build PASS**
-- **Database Verify PASS**
-- **9 Industries / 41 canonical MS / 181 Industry tables**
-- **DD-001…DD-079 contiguous**
+Verified executable `20f1f5531a75a711bb88e013d38454f8c171e6b1` / tree `00aac681a7a33e8dc92c6dfb767283fcb544cdf9`: **283/283 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **405 blobs / 159 Markdown / 82 source / 62 test files**.
 
-DD-075 produces the target preview; DD-076 prepares server-owned assessment evidence; DD-077 reads persisted apply evidence; DD-078 validates it atomically inside publication; **DD-079 now persists prepared DD-076 initial assessments through the existing DD-066 producer boundary without semantic reinterpretation**.
+Four demonstrated audit defect groups are corrected: machine scope allowlist enforcement, validated Tenant sessionVersion propagation, typed Commercial preview values, and stale database/current-state evidence. Six REPO-001–006 checks now run in Core CI. The DD-076 prerequisite ownership source audit is complete; no missing business policy was invented.
 
-Public `core.commercial.subscription.changePlan` remains intentionally unbound. The concrete DD-076 evaluator plus Billing/payment/proration and Workflow approval producer runtimes remain unfinished.
+**9 Industries / 41 canonical MS / 181 Industry tables** remain preserved.
+Current product decisions extend through DD-079; public `changePlan` remains unbound.
 
-Next governed work: **source-audit the concrete DD-076 evaluator prerequisites/ownership**.
+See [current audit](Registers/VISION_CENTRIC_AUDIT_2026-09-21.md),
+[exact verification](Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md)
+and [evaluator dependency audit](Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md).
 
-Evidence: `Registers/DEVELOPMENT_DD079_VERIFICATION_2026-09-21.md`.
+Concrete DD-076 evaluator, add-on/compliance policy resolvers, usage-period/reservation semantics, Billing/Workflow producers, final snapshot materialization and public changePlan remain unfinished. AI provider/Gateway runtime, Industry application workflows, mobile/desktop, production deployment/load/penetration/restore are not certified.
+
+Next: Concrete DD-076 evaluator remains blocked on the named policy/evidence definitions in Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md. Source-audit any independent source-complete item before implementation; retain exact-head CI and repository invariants.

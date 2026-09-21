@@ -182,3 +182,12 @@ DD-18 owns the existing Development completion decisions `DEV-DB-AC-008…010` /
 
 ## DEV-CORE-AC-001 — Concrete SQL adapter continuation (2026-09-14)
 The authoritative decision is `../DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md#dd-040--concrete-sql-driver-and-truthful-repository-binding-dev-core-ac`. Physical mapping and deferred read-side dependencies are in `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md`. This implementation completion preserves the existing Tenant/Industry/region security boundary and does not resolve a Vision-level approval item.
+
+## 2026-09-21 audit enforcement and continuation disposition
+
+VC-01–04 enforce existing scope/session/value/evidence requirements; no new product
+rule or DD identifier is created. The current DD-076 prerequisite ownership audit
+records unresolved production semantics under their existing canonical owners.
+REPO-001–006 implement existing source/identifier/checkpoint preservation requirements
+in Core CI. Current user direction authorizes targeted corrections and safe
+continuation, not invention of missing commercial policy.
