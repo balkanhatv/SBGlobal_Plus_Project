@@ -844,3 +844,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-ASSESS-PERSIST-008 | current target PlanVersion/route policy invalid | existing DD-066 PostgreSQL guard rejects |
 | COMM-ASSESS-PERSIST-009 | DB privileges | existing DD-066 producer role/0047 serialization only; no new migration/grant |
 | COMM-ASSESS-PERSIST-010 | blocker/diff/fingerprint/route business semantics | NOT CLAIMED; concrete DD-076 evaluator remains required |
+
+### Shared external REST Fetch adapter — DD-080
+
+| ID | Scenario | Expected |
+|---|---|---|
+| REST-001 | request has body but authentication/context is invalid | edge/route/authenticated context complete or deny before body preparation/input parsing |
+| REST-002 | valid registered route | exact route-bound operationId, selector facts, idempotency metadata and raw projected input handed once to OperationExecutor; canonical success envelope |
+| REST-003 | executor returns RATE_LIMITED or another governed error | DD-052 error envelope; deterministic HTTP status; Retry-After remains header metadata |
+| REST-004 | executor returns replay/in-progress/final-failure control | explicit control projection; no fabricated output DTO; 200/202/409 respectively |
+| REST-005 | transport/input port throws unknown error | safe DEPENDENCY_UNAVAILABLE/503; no private detail |
+| REST-006 | missing Authorization or edge denial | canonical 401/declared denial before context/body/input/executor as applicable |
+| REST-007 | generic Tenant/Industry headers are present | no authority unless an explicitly governed route/context port maps a selector; DD-02 still revalidates it |
+| REST-008 | live route/API-key/OpenAPI/webhook/deployment inspection | NOT CLAIMED; adapter floor is not externally mounted |

@@ -318,3 +318,30 @@ Server execution derives the current source PlanVersion, route policy, impact/re
 The public result may expose only safe request/evaluation references and normalized state. The internal apply transition remains unavailable until DD-061's event/compiler/least-privilege write prerequisites are implemented. Request creation/evaluation must not mutate the Subscription or current entitlement snapshot.
 
 For `NEXT_RENEWAL`, the apply timestamp is server-owned Billing/contract evidence, not a client field. For every apply attempt, the exact Subscription version and source PlanVersion are re-read and must still match the assessment.
+
+## 33. Shared external REST Fetch adapter floor [DD-080 / DEV-API-REST-001]
+
+The external REST plane uses one reusable Fetch handler around DD-051/DD-052. A
+server-owned route resolver binds request metadata to one operationId and optional
+Tenant/Industry/OrgUnit selectors. These identifiers remain selector facts only;
+the OperationContract-derived scope and DD-02 RequestContext remain authoritative.
+
+The fixed order is: transport IDs → edge metadata policy → route resolution →
+Authorization syntax resolution → authenticated protected context → body policy →
+route input projection → OperationExecutor → canonical transport projection.
+Edge, route, authorization, context and network ports receive metadata only and
+cannot consume a body. Exact DTO validation stays inside the existing executor/Zod
+registry after the route input projection.
+
+Successful execution returns the DD-052 envelope. RATE_LIMITED returns HTTP 429
+with Retry-After; authentication is 401; policy/entitlement denial is 403;
+not-found is 404; idempotency conflict/final failure is 409; system dependency
+failure is 503; remaining safe user errors are 400. IN_PROGRESS is 202. Replay,
+in-progress and final-failure responses serialize the existing explicit control
+projection and never fabricate output DTO data. All responses are no-store and
+echo the normalized correlation ID.
+
+This floor exposes no live route. Concrete machine/API-key syntax, public route
+catalog, route-specific input mapping, OpenAPI publication, deployment policy and
+webhook authenticity remain separate registrations/implementations. First-party
+surfaces continue to use tRPC.

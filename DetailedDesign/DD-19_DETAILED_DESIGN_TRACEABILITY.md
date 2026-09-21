@@ -161,3 +161,12 @@ DD-02/03/04/05/06 → DD-040/041/042/043 → `../Development/CORE_PERSISTENCE_AD
 
 ## Provider/session-security continuation — 2026-09-17
 F-03 + A-03 → DD-03/DD-16 → DD-044 → `src/core/identity/session-security-contracts.ts` + `src/server/identity/clerk-identity-adapter.ts` + `src/server/identity/session-security-service.ts` + `src/server/identity/postgres-identity-security-store.ts` + dedicated `src/server/database/postgres-identity-database.ts` → ID-011…ID-016 → `tests/server/clerk-identity-adapter.test.mjs`, `tests/server/session-security-service.test.mjs`, `tests/server/postgres-identity-database.test.mjs`, `tests/server/postgres-identity-security-store.test.mjs`, `tests/postgres/identity-security.test.mjs`. This is a bounded identity/session-security integration; official Clerk SDK request/bootstrap binding, PDP/ABAC, Commercial validation and transports remain later dependencies.
+
+## External REST adapter continuation — DD-080
+
+F-01 + A-01 §3/§5/§6 + A-06 §1–§3 + ADR-005 → DD-02/03/06/16 +
+DD-049–052/054/080 → `../Development/REST_ADAPTER_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+`src/server/api/rest/fetch-handler.ts` → REST-001…008 →
+`tests/server/rest-fetch-handler.test.mjs`. This binds only the reusable external
+Fetch ordering/projection floor. Concrete routes, machine/API-key syntax, OpenAPI,
+webhooks and deployment remain explicitly unclaimed.

@@ -893,3 +893,31 @@ those boundaries. No new product semantics, DB grant or decision ID is introduce
 Regressions are `request-context-boundaries.test.mjs` and
 `commercial-target-preview-values.test.mjs`; no public exploit is inferred from
 these internal-boundary reproductions. First-party web remains human-only.
+
+## DD-080 — External REST reuses the canonical executor through a body-safe Fetch boundary
+
+**Context:** A-06 requires a stable external REST plane over the same Core and
+DTOs as tRPC. DD-051/DD-052 already own execution and projections, while DD-054
+proves the auth-before-body Fetch ordering for the internal plane. The current
+repository has no REST adapter, and its concrete machine credential scheme, route
+catalog and OpenAPI publication remain undefined.
+
+**Decision:** implement a reusable REST Fetch handler whose mandatory server-owned
+ports resolve edge policy, route, Authorization, authenticated context and input.
+Metadata ports cannot consume the body. Body preparation/input projection occur
+only after authenticated context creation. The route supplies a fixed operationId
+and selector facts; OperationExecutor supplies scope and every business/security
+check. Responses use only DD-052 success/error/control projections plus governed
+HTTP status, correlation, no-store, Retry-After and replay headers.
+
+**Security / trade-off:** a generic injected boundary leaves credential syntax and
+routes unexposed until their own governed registrations exist, while still making
+ordering and projection executable. It costs an explicit composition step but
+avoids guessed API-key parsing, header authority and parallel REST business logic.
+
+**Boundary:** no live endpoint, public route, machine/API-key scheme, OpenAPI
+generator, webhook route, deployment policy, database change or Commercial rule is
+introduced. The DD-076 dependent evaluator remains blocked independently.
+
+**Acceptance:** REST-001…008 in DD-17 and
+`tests/server/rest-fetch-handler.test.mjs`.
