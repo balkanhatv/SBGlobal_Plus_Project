@@ -1063,3 +1063,30 @@ schema/privilege change is introduced.
 
 **Acceptance:** DOC-ACL-MATCH-001…006 in DD-17 and
 `tests/core/document-acl-subject-match.test.mjs`.
+
+
+## DD-086 — Physical StorageObject lookup is reachable only through exact RLS-visible DocumentMeta linkage
+
+**Context:** DD-08 makes DocumentMeta the authorization owner and explicitly says an
+object key is not authorization. `storage_object` itself is intentionally private and
+not Tenant-RLS keyed, while migration 0028 restricts it to the Document service role.
+DD-082/083 now provide an exact RLS-visible Document candidate + PostgreSQL boundary.
+
+**Decision:** add server-internal `PostgresDocumentStorageBindingStore`. It never
+looks up StorageObject by id alone. It joins the exact document id and exact
+storageObjectId through RLS-visible DocumentMeta, requires ACTIVE/CLEAN document
+state, ACTIVE object state and exact RequestContext Data Home, then returns immutable
+private physical locator metadata.
+
+**Security / trade-off:** the physical object layer remains non-authoritative and
+cannot widen access. Known foreign/sibling/unlinked object ids yield no binding.
+Private object-key/provider metadata never enters Core authorization or transport
+contracts. Rechecking state/Data Home immediately before a future signer narrows the
+TOCTOU window relative to relying only on earlier DocumentMeta validation.
+
+**Boundary:** no provider decryptor/selection, StoragePort signer, signed-grant TTL,
+ACL/permission/entitlement/step-up policy, route, migration, role, grant or RLS
+change is introduced.
+
+**Acceptance:** DOC-STO-PG-001…006 in DD-17 and
+`tests/postgres/document-access-metadata-store.test.mjs`.
