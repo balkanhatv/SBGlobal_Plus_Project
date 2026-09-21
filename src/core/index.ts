@@ -51,3 +51,4 @@ export * from "./document/upload-session.js";
 export * from "./integration/webhook-subscription.js";
 export * from "./integration/webhook-delivery.js";
 export * from "./integration/outbox-event.js";
+export * from "./integration/event-catalog.js";
