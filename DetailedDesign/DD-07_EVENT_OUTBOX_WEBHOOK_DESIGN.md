@@ -156,3 +156,22 @@ The DD-065 transaction emits exactly two DD-063 events at successful apply:
 Both envelopes use the canonical DD-07 fields including SERVICE actor, Commercial source module, TENANT_CORE scope, authoritative Tenant residency, correlation id, optional plan-change causation id, INTERNAL sensitivity, versioned payload schema and bounded payload.
 
 Outbox identity row + partitioned event row are inserted in the same business transaction. The same transaction appends one Commercial/TENANT_CORE audit record referencing transition/source-target PlanVersion/subscription/snapshot versions. No payment/pricing/approval secret or raw entitlement compiler source is copied into the outbox/audit payloads.
+
+
+## 16. Runtime envelope/catalog validation boundary [DD-081]
+
+Before a producer, dispatcher or consumer interprets an event payload, the reusable
+Core validator binds the envelope to the authoritative persistence and catalog
+facts. It validates JSON compatibility, event id/type/version/scope, mandatory
+actor/source/correlation/time metadata, producer module, sensitivity, Tenant /
+Industry Context ownership and Tenant residency. PLATFORM_GLOBAL, TENANT_CORE and
+TENANT_INDUSTRY follow the exact DD-07/migration-0030 ownership shapes.
+
+EXPLICIT_CROSS_CONTEXT requires distinct source/target Industry Context identifiers
+and an injected authoritative verifier that confirms both belong to the envelope
+Tenant. No free-text selector or event payload supplies this authority.
+
+Payload interpretation is a separate injected catalog-schema validator and runs
+only after metadata/catalog/scope validation succeeds. This boundary does not
+select a JSON-schema engine, add an event catalog entry, poll the outbox, schedule
+retry/DLQ work, sign a webhook, resolve endpoint networks or expose a route.
