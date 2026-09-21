@@ -1118,3 +1118,35 @@ grant, expose a route or change SQL/roles/privileges.
 **Acceptance:** DOC-UP-PG-001…005 in DD-17 and
 `tests/postgres/document-access-metadata-store.test.mjs`.
 
+
+
+## DD-088 — Webhook Subscription persistence is readable under its dedicated Integration role without making endpoint/delivery decisions
+
+**Context:** DD-07 and migrations 0008/0030 already define the exact
+WebhookSubscription persistence grammar, Tenant FORCE-RLS visibility and integrity
+constraints. Migration 0028 fixes the service privilege owner as
+`sbg_integration_service_rw`. Endpoint challenge, SSRF, signature/rotation and
+delivery retry behavior remain separate runtime concerns.
+
+**Decision:** add typed `WebhookSubscriptionReadPort`,
+`PostgresWebhookSubscriptionStore` and dedicated
+`PostgresIntegrationDatabase`. The database wrapper follows existing fixed-role
+service boundaries: it sets only `sbg_integration_service_rw`, forces row security,
+verifies runtime/login roles are non-superuser/NOBYPASSRLS, clears transaction-local
+scope before use and sanitizes pooled connection state on release.
+
+The store performs one parameterized subscription lookup under `RequestScopedSql`,
+maps persisted facts immutably and returns null for RLS-hidden/absent rows.
+
+**Security / trade-off:** endpoint URL is data, not an instruction to connect.
+secretVersion is version metadata, not secret material. Same-Tenant Industry context
+does not narrow a Tenant Core subscription because the source RLS owner is Tenant;
+allowed Industry Context ids remain raw governed configuration for a later delivery
+filter.
+
+**Boundary:** DD-088 does not verify endpoint control, resolve/allow a network target,
+interpret event filters, decrypt/generate secrets, sign webhook requests, authorize a
+delivery, schedule retry/DLQ, expose an endpoint or change schema/privileges.
+
+**Acceptance:** WH-SUB-PG-001…005 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
