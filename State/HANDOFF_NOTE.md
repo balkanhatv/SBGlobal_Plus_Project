@@ -1,16 +1,14 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-22 · **Checkpoint:** `DEV-WORKFLOW-TASK-READ-001`
+**Updated:** 2026-09-22 · **Checkpoint:** `DEV-WORKFLOW-TRANSITION-READ-001`
 
 Fresh-fetch remote branch/HEAD/tree/checks before further work.
 
-Verified executable `b2fb888477cffd20acb5eacc7c2f453824a4b44d` / tree `3df197ea82c2284470daeb0e0a14c35016ff4b50`: **311/311 Core**, **169/169 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Inventory: **511 blobs / 207 Markdown / 128 source / 74 test files**.
+Verified executable `d02fd15421e41f4d1feee9e6725cc171f188c02a` / tree `a9f68aa0c5f3cf559319da324ec902f05c25c344`: **311/311 Core**, **176/176 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Inventory: **516 blobs / 209 Markdown / 130 source / 75 test files**.
 
-DD-103 adds an exact-by-id raw WorkflowTask PostgreSQL reader through the existing dedicated `sbg_workflow_worker_rw` NOBYPASSRLS + RequestScopedSql boundary. It preserves task type, PRINCIPAL/ROLE/ORG_UNIT assignment, permission code, task state, due/claim/completion evidence and row-version without deciding assignee eligibility or claim/approve/reject/complete authority.
+DD-104 adds an exact-by-id raw WorkflowTransition PostgreSQL reader. Read `Development/WORKFLOW_TRANSITION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md` before extending Workflow behavior. Transition rows are append-only evidence only; from/action/to/version/actor facts must not become transition selection, state-machine execution, approval/rule authority or WorkflowInstance/task mutation authority.
 
-Read `Development/WORKFLOW_TASK_READER_PREREQUISITE_OWNERSHIP_AUDIT.md` before extending task behavior. DD-103 is raw persistence only: assignment/state/due/claim/completion evidence does not authorize a task action.
+Next: Source-audit the next independent source-complete Workflow persistence slice. Do not open workflow execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.
 
-Next: Source-audit WorkflowTransition raw append-only persistence as the next independent source-complete Workflow slice. Transition rows remain evidence only; expected/resulting version facts must not become transition authorization, state-machine/rule execution or WorkflowInstance mutation authority. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.
-
-Evidence: `Registers/DEVELOPMENT_DD103_VERIFICATION_2026-09-22.md`.
+Evidence: `Registers/DEVELOPMENT_DD104_VERIFICATION_2026-09-22.md`.
 
 RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains draft/unmerged.
