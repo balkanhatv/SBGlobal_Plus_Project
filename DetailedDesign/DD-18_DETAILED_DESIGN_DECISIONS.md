@@ -1573,3 +1573,37 @@ SQL/roles/privileges.
 
 **Acceptance:** WFT-PG-001…007 in DD-17 and
 `tests/postgres/workflow-task-store.test.mjs`.
+
+
+## DD-104 — WorkflowTransition raw append-only persistence is readable without becoming transition authority
+
+**Context:** migration 0026 defines parent-scoped WorkflowTransition evidence with
+raw from/action/to state text, actor/reason evidence, positive expected version,
+strictly greater resulting version, occurredAt and correlation id. Migration 0027
+makes transition evidence append-only to the Workflow worker role by granting
+SELECT/INSERT without UPDATE/DELETE. Migration 0031 already validates exact
+parent-instance scope and active Tenant actor identity.
+
+**Decision:** add immutable `PersistedWorkflowTransition`,
+`WorkflowTransitionReadPort.loadForContext(...)` and
+`PostgresWorkflowTransitionStore`. The store reads one exact transition UUID
+through the existing dedicated `PostgresWorkflowDatabase` +
+`RequestScopedSql` boundary.
+
+The reader validates only schema-owned shape. From/action/to/reason text is preserved
+even when empty. Expected/resulting bigint versions are preserved as positive decimal
+text to avoid JavaScript number precision loss, and the schema-owned
+`resulting > expected` invariant is revalidated using decimal-string comparison.
+
+**Security / trade-off:** parent WorkflowInstance FORCE-RLS remains the physical
+Tenant/Industry visibility authority. Tenant Core transition evidence remains
+same-Tenant visible, while sibling Industry and foreign Tenant rows are not
+disclosed. Persisted transition evidence records what occurred; it does not authorize
+what may occur next.
+
+**Boundary:** DD-104 does not select/authorize a transition, interpret
+WorkflowDefinition state-machine/rules/approvals, mutate WorkflowInstance or tasks,
+emit downstream workflow events, expose a route, or change SQL/roles/privileges.
+
+**Acceptance:** WTR-PG-001…007 in DD-17 and
+`tests/postgres/workflow-transition-store.test.mjs`.
