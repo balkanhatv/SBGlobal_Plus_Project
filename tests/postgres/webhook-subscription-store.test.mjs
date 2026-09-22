@@ -29,6 +29,9 @@ import {
 import {
   PostgresTenantIntegrationStore,
 } from "../../dist/server/integration/postgres-tenant-integration-store.js";
+import {
+  PostgresCredentialReferenceMetadataStore,
+} from "../../dist/server/integration/postgres-credential-reference-metadata-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -89,6 +92,7 @@ let definitionStore;
 let capabilityStore;
 let providerAdapterStore;
 let tenantIntegrationStore;
+let credentialMetadataStore;
 
 const eventTypeIndustry = "webhook.reader.industry." + randomBytes(6).toString("hex");
 const eventTypeTenant = "webhook.reader.tenant." + randomBytes(6).toString("hex");
@@ -261,7 +265,7 @@ before(async () => {
        VALUES
         ($1,$5,$6,'fixture-secret-store','secret://a-industry','OAUTH_CLIENT',1,'ACTIVE',NULL,NULL,now()),
         ($2,$5,$7,'fixture-secret-store','secret://a-sibling','API_KEY',2,'ACTIVE',NULL,NULL,now()),
-        ($3,$5,NULL,'fixture-secret-store','secret://a-core','OAUTH_CLIENT',3,'ACTIVE',NULL,NULL,now()),
+        ($3,$5,NULL,'fixture-secret-store','secret://a-core','OAUTH_CLIENT',3,'ACTIVE',now()-interval '1 day',now()+interval '2 days',now()-interval '10 days'),
         ($4,$8,NULL,'fixture-secret-store','secret://b-core','API_KEY',1,'ACTIVE',NULL,NULL,now())`,
       [
         f.credentialAIndustry,
@@ -530,6 +534,7 @@ before(async () => {
   capabilityStore = new PostgresIntegrationCapabilityStore(integrationDatabase);
   providerAdapterStore = new PostgresProviderAdapterStore(integrationDatabase);
   tenantIntegrationStore = new PostgresTenantIntegrationStore(scoped);
+  credentialMetadataStore = new PostgresCredentialReferenceMetadataStore(scoped);
 });
 
 after(async () => {
@@ -1268,5 +1273,97 @@ test("INT-TENANT-PG-005 malformed id or database route/context mismatch fails cl
       dataHomeId: randomUUID(),
     },
     tenantIntegrationId: f.tenantIntegrationACore,
+  }));
+});
+
+
+test("INT-CRED-META-PG-001 exact Industry CredentialReference exposes metadata but never secret locator", async () => {
+  const metadata = await credentialMetadataStore.loadForContext({
+    requestContext: contextA(),
+    credentialReferenceId: f.credentialAIndustry,
+  });
+
+  assert.ok(metadata);
+  assert.equal(metadata.id, f.credentialAIndustry);
+  assert.equal(metadata.tenantId, f.tenantA);
+  assert.equal(metadata.industryContextId, f.industryA1);
+  assert.equal(metadata.secretStoreProvider, "fixture-secret-store");
+  assert.equal(metadata.credentialType, "OAUTH_CLIENT");
+  assert.equal(metadata.keyVersion, 1);
+  assert.equal(metadata.status, "ACTIVE");
+  assert.equal(Object.isFrozen(metadata), true);
+  assert.equal("secretReference" in metadata, false);
+  assert.equal("secret" in metadata, false);
+  assert.equal("credentialMaterial" in metadata, false);
+});
+
+test("INT-CRED-META-PG-002 FORCE-RLS hides sibling Industry CredentialReference", async () => {
+  const hidden = await credentialMetadataStore.loadForContext({
+    requestContext: contextA(),
+    credentialReferenceId: f.credentialASibling,
+  });
+  assert.equal(hidden, null);
+
+  const sibling = await credentialMetadataStore.loadForContext({
+    requestContext: contextA(f.industryA2),
+    credentialReferenceId: f.credentialASibling,
+  });
+  assert.ok(sibling);
+  assert.equal(sibling.industryContextId, f.industryA2);
+  assert.equal(sibling.credentialType, "API_KEY");
+  assert.equal(sibling.keyVersion, 2);
+});
+
+test("INT-CRED-META-PG-003 Tenant Core metadata is same-Tenant visible and preserves rotation/expiry evidence", async () => {
+  const fromIndustry = await credentialMetadataStore.loadForContext({
+    requestContext: contextA(),
+    credentialReferenceId: f.credentialACore,
+  });
+  const fromTenant = await credentialMetadataStore.loadForContext({
+    requestContext: tenantCoreA(),
+    credentialReferenceId: f.credentialACore,
+  });
+
+  assert.ok(fromIndustry);
+  assert.ok(fromTenant);
+  assert.equal(fromIndustry.industryContextId, undefined);
+  assert.equal(fromIndustry.keyVersion, 3);
+  assert.equal(fromIndustry.status, "ACTIVE");
+  assert.equal(typeof fromIndustry.rotatedAt, "string");
+  assert.equal(typeof fromIndustry.expiresAt, "string");
+  assert.ok(Date.parse(fromIndustry.rotatedAt) < Date.now());
+  assert.ok(Date.parse(fromIndustry.expiresAt) > Date.now());
+  assert.equal(fromTenant.id, f.credentialACore);
+});
+
+test("INT-CRED-META-PG-004 foreign Tenant metadata is hidden and owning Tenant sees metadata only", async () => {
+  const hidden = await credentialMetadataStore.loadForContext({
+    requestContext: tenantCoreA(),
+    credentialReferenceId: f.credentialBCore,
+  });
+  assert.equal(hidden, null);
+
+  const own = await credentialMetadataStore.loadForContext({
+    requestContext: tenantCoreB(),
+    credentialReferenceId: f.credentialBCore,
+  });
+  assert.ok(own);
+  assert.equal(own.tenantId, f.tenantB);
+  assert.equal(own.credentialType, "API_KEY");
+  assert.equal("secretReference" in own, false);
+});
+
+test("INT-CRED-META-PG-005 malformed id or database route/context mismatch fails closed", async () => {
+  await assert.rejects(credentialMetadataStore.loadForContext({
+    requestContext: tenantCoreA(),
+    credentialReferenceId: "not-a-uuid",
+  }));
+
+  await assert.rejects(credentialMetadataStore.loadForContext({
+    requestContext: {
+      ...tenantCoreA(),
+      dataHomeId: randomUUID(),
+    },
+    credentialReferenceId: f.credentialACore,
   }));
 });
