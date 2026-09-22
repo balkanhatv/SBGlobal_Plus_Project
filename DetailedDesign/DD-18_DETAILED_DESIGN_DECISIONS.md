@@ -1508,3 +1508,36 @@ creation/mutation, route, migration, role, grant or RLS change is introduced.
 
 **Acceptance:** WFD-PG-001…007 in DD-17 and
 `tests/postgres/workflow-definition-store.test.mjs`.
+
+
+## DD-102 — WorkflowInstance raw persistence is readable without becoming transition/execution authority
+
+**Context:** migration 0026 defines Tenant/Industry-scoped WorkflowInstance rows,
+including WorkflowDefinition id/version, resource identity, current state, lifecycle,
+row version and timestamps. Migration 0031 already requires the exact ACTIVE
+WorkflowDefinition version to apply to the instance scope and requires the creator to
+belong to the Tenant. The repository does not yet own a complete executable
+transition selector/state-machine interpreter/approval-rule engine.
+
+**Decision:** add immutable `PersistedWorkflowInstance`,
+`WorkflowInstanceReadPort.loadForContext(...)` and
+`PostgresWorkflowInstanceStore`. The store reads one exact UUID through the
+existing dedicated `PostgresWorkflowDatabase` + `RequestScopedSql` boundary.
+
+The reader validates only schema-owned shape. `workflow_definition_version` is
+positive because the schema says so; `row_version` is preserved as canonical signed
+decimal text because the schema does not impose a positivity check. Resource/current
+state text is preserved even when empty, and no extra created/updated timestamp order
+is invented.
+
+**Security / trade-off:** FORCE-RLS remains the physical Tenant/Industry visibility
+authority. Tenant Core rows remain same-Tenant visible inside a Tenant Industry
+workspace, while sibling Industry and foreign Tenant instances are not disclosed.
+Persisted current/lifecycle/version evidence is not an authorization result.
+
+**Boundary:** DD-102 does not interpret the referenced state-machine JSON, select or
+authorize transitions, evaluate approval/rules, mutate tasks, advance rowVersion,
+emit workflow events, expose a route or change SQL/roles/privileges.
+
+**Acceptance:** WFI-PG-001…007 in DD-17 and
+`tests/postgres/workflow-instance-store.test.mjs`.
