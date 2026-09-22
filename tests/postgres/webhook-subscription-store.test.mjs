@@ -17,6 +17,9 @@ import {
 import {
   PostgresEventCatalogStore,
 } from "../../dist/server/integration/postgres-event-catalog-store.js";
+import {
+  PostgresIntegrationDefinitionStore,
+} from "../../dist/server/integration/postgres-integration-definition-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -52,6 +55,8 @@ const f = Object.fromEntries([
   "correlationIndustryA",
   "correlationTenantA",
   "correlationIndustryB",
+  "definitionPlatform",
+  "definitionIndustry",
 ].map((key) => [key, randomUUID()]));
 
 let pool;
@@ -59,9 +64,12 @@ let store;
 let deliveryStore;
 let outboxStore;
 let catalogStore;
+let definitionStore;
 
 const eventTypeIndustry = "webhook.reader.industry." + randomBytes(6).toString("hex");
 const eventTypeTenant = "webhook.reader.tenant." + randomBytes(6).toString("hex");
+const definitionCodePlatform = "fixture.platform." + randomBytes(6).toString("hex");
+const definitionCodeIndustry = "fixture.industry." + randomBytes(6).toString("hex");
 
 function contextA(industryContextId = f.industryA1) {
   return Object.freeze({
@@ -167,6 +175,25 @@ before(async () => {
         [id, tenantId, code, primary],
       );
     }
+
+    await client.query(
+      `INSERT INTO core_integration.integration_definition
+        (id,code,name,provider_family,capability_codes,adapter_contract_version,
+         owner_scope,status,data_transfer_class,residency_metadata_json,created_at,updated_at)
+       VALUES
+        ($1,$3,'Platform registry fixture','FixtureProvider',
+         ARRAY['orders.read','orders.write'],'v1','PLATFORM','ACTIVE','INTERNAL',
+         '{"regions":["IN"],"residencyRequired":true}'::jsonb,now(),now()),
+        ($2,$4,'Industry registry fixture','FixtureProvider',
+         ARRAY['lab.receive'],'v2','INDUSTRY','RETIRED','REGULATED',
+         '{"regions":["IN-CENTRAL"],"notes":{"mode":"raw"}}'::jsonb,now(),now())`,
+      [
+        f.definitionPlatform,
+        f.definitionIndustry,
+        definitionCodePlatform,
+        definitionCodeIndustry,
+      ],
+    );
 
     await client.query(
       `INSERT INTO core_integration.webhook_subscription
@@ -383,6 +410,7 @@ before(async () => {
   deliveryStore = new PostgresWebhookDeliveryStore(scoped);
   outboxStore = new PostgresOutboxEventStore(scoped);
   catalogStore = new PostgresEventCatalogStore(integrationDatabase);
+  definitionStore = new PostgresIntegrationDefinitionStore(integrationDatabase);
 });
 
 after(async () => {
@@ -406,6 +434,10 @@ after(async () => {
     await client.query(
       "DELETE FROM core_integration.outbox_event_identity WHERE id=ANY($1::uuid[])",
       [[f.eventIndustryA, f.eventTenantA, f.eventIndustryB]],
+    );
+    await client.query(
+      "DELETE FROM core_integration.integration_definition WHERE id=ANY($1::uuid[])",
+      [[f.definitionPlatform, f.definitionIndustry]],
     );
     await client.query(
       "DELETE FROM core_integration.webhook_subscription WHERE id=ANY($1::uuid[])",
@@ -816,4 +848,49 @@ test("EVT-CAT-PG-004 malformed tuple fails closed before query", async () => {
       scopeClass: "NOT_A_SCOPE",
     }),
   );
+});
+
+
+test("INT-DEF-PG-001 exact IntegrationDefinition id preserves immutable registry metadata", async () => {
+  const definition = await definitionStore.loadById(f.definitionPlatform);
+
+  assert.ok(definition);
+  assert.equal(definition.id, f.definitionPlatform);
+  assert.equal(definition.code, definitionCodePlatform);
+  assert.equal(definition.name, "Platform registry fixture");
+  assert.equal(definition.providerFamily, "FixtureProvider");
+  assert.deepEqual(definition.capabilityCodes, ["orders.read", "orders.write"]);
+  assert.equal(definition.adapterContractVersion, "v1");
+  assert.equal(definition.ownerScope, "PLATFORM");
+  assert.equal(definition.status, "ACTIVE");
+  assert.equal(definition.dataTransferClass, "INTERNAL");
+  assert.deepEqual(definition.residencyMetadata, {
+    regions: ["IN"],
+    residencyRequired: true,
+  });
+  assert.equal(Object.isFrozen(definition), true);
+  assert.equal(Object.isFrozen(definition.capabilityCodes), true);
+  assert.equal(Object.isFrozen(definition.residencyMetadata), true);
+  assert.equal(Object.isFrozen(definition.residencyMetadata.regions), true);
+});
+
+test("INT-DEF-PG-002 ownerScope and raw RETIRED status are preserved without selection authority", async () => {
+  const definition = await definitionStore.loadById(f.definitionIndustry);
+
+  assert.ok(definition);
+  assert.equal(definition.ownerScope, "INDUSTRY");
+  assert.equal(definition.status, "RETIRED");
+  assert.equal(definition.dataTransferClass, "REGULATED");
+  assert.deepEqual(definition.capabilityCodes, ["lab.receive"]);
+  assert.equal("selectable" in definition, false);
+  assert.equal("enabled" in definition, false);
+  assert.equal("healthy" in definition, false);
+});
+
+test("INT-DEF-PG-003 absent definition id returns null without fallback", async () => {
+  assert.equal(await definitionStore.loadById(randomUUID()), null);
+});
+
+test("INT-DEF-PG-004 malformed definition id fails closed before persistence query", async () => {
+  await assert.rejects(definitionStore.loadById("not-a-uuid"));
 });
