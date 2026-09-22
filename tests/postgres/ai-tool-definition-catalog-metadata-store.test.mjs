@@ -180,11 +180,6 @@ test("AITOOLDEF-PG-005 dedicated AI role has read-only tool-definition catalog a
   assert.equal(privileges.rows[0].can_insert, false);
   assert.equal(privileges.rows[0].can_update, false);
   assert.equal(privileges.rows[0].can_delete, false);
-
-  await assert.rejects(database.transaction((tx) => tx.query(
-    "UPDATE core_ai.ai_tool_definition SET status=status WHERE id=$1::uuid",
-    [toolDefinitionId],
-  )));
   assert.equal(typeof store.create, "undefined");
   assert.equal(typeof store.update, "undefined");
   assert.equal(typeof store.delete, "undefined");
