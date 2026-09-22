@@ -1258,3 +1258,29 @@ is claimed.
 
 **Acceptance:** INT-DEF-PG-001…004 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-093 — IntegrationCapability exact tuple reads preserve mapping evidence without execution authority
+
+**Context:** DD-06 §15 and migration 0025 define the exact IntegrationCapability row
+and unique `integration_definition_id + capability_code` tuple. The Integration
+service role already has SELECT-only access. Direction has an exact enum; status and
+rate/idempotency/data classifications are persisted text whose runtime interpretation
+belongs to later policy/execution composition.
+
+**Decision:** add `IntegrationCapabilityReadPort.loadExact` and concrete
+`PostgresIntegrationCapabilityStore`. The reader executes one parameterized exact
+tuple query, validates UUID/direction/text/array shape, freezes event-type data and
+returns null for tuple absence.
+
+**Security / trade-off:** capability mapping evidence remains separate from
+TenantIntegration enablement and provider execution. OperationContract/event ids are
+returned as registry references only; the reader does not dispatch or authorize them.
+Raw ACTIVE/RETIRED status is not transformed into a permission.
+
+**Boundary:** no ProviderAdapter selection, TenantIntegration enablement, health
+fallback, rate/idempotency/data policy evaluation, credential access, callback/event
+execution, route or schema/privilege change is claimed.
+
+**Acceptance:** INT-CAP-PG-001…004 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
