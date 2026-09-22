@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-22",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-INTEGRATION-DEFINITION-READ-001",
-  "final_verdict": "DD-092 INTEGRATIONDEFINITION POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; PROVIDER SELECTION/ENABLEMENT/CREDENTIAL ACCESS UNCLAIMED",
+  "checkpoint": "DEV-INTEGRATION-CAPABILITY-READ-001",
+  "final_verdict": "DD-093 INTEGRATIONCAPABILITY POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; TENANT ENABLEMENT/PROVIDER EXECUTION UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "df44b4b56164cf065cbc5d187072fb99c6cf6dd5",
-    "verified_code_tree": "521ea55dfc70d4348bf2c58437e7c1d163493dd4",
-    "state_projection_basis_head": "df44b4b56164cf065cbc5d187072fb99c6cf6dd5",
+    "verified_code_head": "31ff08fb962c09167b9c4e545593755a2b7111df",
+    "verified_code_tree": "c6762fa966eba0754db56273de619af93985cf5f",
+    "state_projection_basis_head": "31ff08fb962c09167b9c4e545593755a2b7111df",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "IntegrationDefinition exact PostgreSQL reader verified; provider execution/enablement not claimed",
+    "current_phase": "IntegrationCapability exact PostgreSQL reader verified; execution/enablement not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "df44b4b56164cf065cbc5d187072fb99c6cf6dd5",
-      "ci_run_id": 35679648520,
-      "ci_job_id": 106593621782,
+      "ci_verified_head": "31ff08fb962c09167b9c4e545593755a2b7111df",
+      "ci_run_id": 35680045013,
+      "ci_job_id": 106594843215,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "521ea55dfc70d4348bf2c58437e7c1d163493dd4",
+      "ci_verified_tree": "c6762fa966eba0754db56273de619af93985cf5f",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "df44b4b56164cf065cbc5d187072fb99c6cf6dd5",
-      "feature_head_bootstrap_verified_tree": "521ea55dfc70d4348bf2c58437e7c1d163493dd4",
-      "feature_head_bootstrap_run_id": 35679648521,
-      "feature_head_bootstrap_job_id": 106593621739,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_108_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "31ff08fb962c09167b9c4e545593755a2b7111df",
+      "feature_head_bootstrap_verified_tree": "c6762fa966eba0754db56273de619af93985cf5f",
+      "feature_head_bootstrap_run_id": 35680045012,
+      "feature_head_bootstrap_job_id": 106594843012,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_112_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "IntegrationCapability exact definition+capability persistence is the next independent source-complete candidate for source audit. ProviderAdapter selection/execution, CredentialReference secret access, TenantIntegration enablement/health policy, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
+    "next_action": "ProviderAdapter exact definition+adapter+contract-version registry persistence is the next independent source-complete candidate for source audit. Provider execution/selection, CredentialReference secret access, TenantIntegration enablement/health policy, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
     "core_services": {
-      "checkpoint": "DEV-INTEGRATION-DEFINITION-READ-001",
+      "checkpoint": "DEV-INTEGRATION-CAPABILITY-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–092 current implementation; DD-092 IntegrationDefinition PostgreSQL reader",
-      "verified_head": "df44b4b56164cf065cbc5d187072fb99c6cf6dd5",
-      "verified_tree": "521ea55dfc70d4348bf2c58437e7c1d163493dd4",
-      "core_ci_run_id": 35679648521,
-      "core_ci_job_id": 106593621870,
+      "decision": "DD-040–093 current implementation; DD-093 IntegrationCapability PostgreSQL reader",
+      "verified_head": "31ff08fb962c09167b9c4e545593755a2b7111df",
+      "verified_tree": "c6762fa966eba0754db56273de619af93985cf5f",
+      "core_ci_run_id": 35680045012,
+      "core_ci_job_id": 106594843238,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35679648521,
-      "postgres_ci_job_id": 106593621739,
-      "postgres_tests": "108/108 PASS",
+      "postgres_ci_run_id": 35680045012,
+      "postgres_ci_job_id": 106594843012,
+      "postgres_tests": "112/112 PASS",
       "postgres_test_counts": {
-        "tests": 108,
-        "pass": 108,
+        "tests": 112,
+        "pass": 112,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35679648520,
-      "database_regression_job_id": 106593621782,
+      "database_regression_run_id": 35680045013,
+      "database_regression_job_id": 106594843215,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -339,7 +339,10 @@
         "EVT-CAT-PG-001–004 exact tuple acceptance",
         "DD-092 IntegrationDefinition exact read contract",
         "DD-092 PostgreSQL IntegrationDefinition primary-key reader",
-        "INT-DEF-PG-001–004 registry acceptance"
+        "INT-DEF-PG-001–004 registry acceptance",
+        "DD-093 IntegrationCapability exact tuple read contract",
+        "DD-093 PostgreSQL IntegrationCapability reader",
+        "INT-CAP-PG-001–004 capability registry acceptance"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -410,7 +413,10 @@
         "Event Catalog consumer-selection/webhook authorization policy",
         "IntegrationDefinition provider/adapter/capability selection",
         "TenantIntegration enablement/health composition from registry definitions",
-        "CredentialReference secret access from registry definitions"
+        "CredentialReference secret access from registry definitions",
+        "TenantIntegration capability enablement from registry",
+        "ProviderAdapter selection/execution from capability registry",
+        "OperationContract/event dispatch from IntegrationCapability metadata"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -426,9 +432,9 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "IntegrationCapability exact definition+capability persistence is the next independent source-complete candidate for source audit. ProviderAdapter selection/execution, CredentialReference secret access, TenantIntegration enablement/health policy, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites."
+      "next_action": "ProviderAdapter exact definition+adapter+contract-version registry persistence is the next independent source-complete candidate for source audit. Provider execution/selection, CredentialReference secret access, TenantIntegration enablement/health policy, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites."
     },
-    "application_api_ui_scope_note": "Integration registry definition metadata is now exact read-only persistence; capability/provider/tenant enablement and credential execution remain unfinished.",
+    "application_api_ui_scope_note": "Integration definition/capability registry metadata is exact read-only persistence; provider adapter execution, tenant enablement and credentials remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -482,7 +488,7 @@
     ],
     "status": "IN_PROGRESS"
   },
-  "current_phase": "DEVELOPMENT_INTEGRATION_DEFINITION_READ_VERIFIED",
+  "current_phase": "DEVELOPMENT_INTEGRATION_CAPABILITY_READ_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -514,12 +520,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-INTEGRATION-DEFINITION-READ-001",
+    "checkpoint": "DEV-INTEGRATION-CAPABILITY-READ-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "df44b4b56164cf065cbc5d187072fb99c6cf6dd5",
-    "verified_code_tree": "521ea55dfc70d4348bf2c58437e7c1d163493dd4",
-    "source_audit": "Development/INTEGRATION_DEFINITION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "31ff08fb962c09167b9c4e545593755a2b7111df",
+    "verified_code_tree": "c6762fa966eba0754db56273de619af93985cf5f",
+    "source_audit": "Development/INTEGRATION_CAPABILITY_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
@@ -536,20 +542,21 @@
       "DD-089 raw Webhook Delivery PostgreSQL reader",
       "DD-090 raw Outbox Event PostgreSQL reader",
       "DD-091 exact Event Catalog PostgreSQL reader",
-      "DD-092 IntegrationDefinition PostgreSQL reader"
+      "DD-092 IntegrationDefinition PostgreSQL reader",
+      "DD-093 IntegrationCapability PostgreSQL reader"
     ],
-    "next_action": "IntegrationCapability exact definition+capability persistence is the next independent source-complete candidate for source audit. ProviderAdapter selection/execution, CredentialReference secret access, TenantIntegration enablement/health policy, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
+    "next_action": "ProviderAdapter exact definition+adapter+contract-version registry persistence is the next independent source-complete candidate for source audit. Provider execution/selection, CredentialReference secret access, TenantIntegration enablement/health policy, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-INTEGRATION-DEFINITION-READ-001",
-    "verified_executable_basis": "df44b4b56164cf065cbc5d187072fb99c6cf6dd5",
-    "verified_executable_tree": "521ea55dfc70d4348bf2c58437e7c1d163493dd4",
-    "source_audit": "Development/INTEGRATION_DEFINITION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD092_VERIFICATION_2026-09-22.md",
-    "scope": "DD-092 IntegrationDefinition read-only registry persistence; no provider selection/enablement"
+    "checkpoint": "DEV-INTEGRATION-CAPABILITY-READ-001",
+    "verified_executable_basis": "31ff08fb962c09167b9c4e545593755a2b7111df",
+    "verified_executable_tree": "c6762fa966eba0754db56273de619af93985cf5f",
+    "source_audit": "Development/INTEGRATION_CAPABILITY_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD093_VERIFICATION_2026-09-22.md",
+    "scope": "DD-093 exact IntegrationCapability read-only registry persistence; no tenant enablement/provider execution"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -562,11 +569,11 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "df44b4b56164cf065cbc5d187072fb99c6cf6dd5",
+    "verified_continuation_head": "31ff08fb962c09167b9c4e545593755a2b7111df",
     "inventory": {
-      "blobs": 460,
-      "markdown": 186,
-      "source_files": 104,
+      "blobs": 464,
+      "markdown": 188,
+      "source_files": 106,
       "test_files": 68,
       "migrations": 47,
       "verification_files": 41
@@ -590,47 +597,47 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-092 IntegrationDefinition PostgreSQL reader",
-    "checkpoint": "DEV-INTEGRATION-DEFINITION-READ-001",
-    "verified_head": "df44b4b56164cf065cbc5d187072fb99c6cf6dd5",
-    "verified_tree": "521ea55dfc70d4348bf2c58437e7c1d163493dd4",
+    "decision": "DD-093 IntegrationCapability PostgreSQL reader",
+    "checkpoint": "DEV-INTEGRATION-CAPABILITY-READ-001",
+    "verified_head": "31ff08fb962c09167b9c4e545593755a2b7111df",
+    "verified_tree": "c6762fa966eba0754db56273de619af93985cf5f",
     "core": {
-      "run_id": 35679648521,
-      "job_id": 106593621870,
+      "run_id": 35680045012,
+      "job_id": 106594843238,
       "tests": 311,
       "pass": 311,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35679648521,
-      "job_id": 106593621739,
-      "tests": 108,
-      "pass": 108,
+      "run_id": 35680045012,
+      "job_id": 106594843012,
+      "tests": 112,
+      "pass": 112,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35679648520,
-      "job_id": 106593621782,
+      "run_id": 35680045013,
+      "job_id": 106594843215,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35679648505,
-      "job_id": 106593621539,
+      "run_id": 35680045021,
+      "job_id": 106594843115,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 460,
-      "markdown": 186,
-      "source_files": 104,
+      "blobs": 464,
+      "markdown": 188,
+      "source_files": 106,
       "test_files": 68,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD092_VERIFICATION_2026-09-22.md"
+    "evidence": "Registers/DEVELOPMENT_DD093_VERIFICATION_2026-09-22.md"
   },
   "historical_projection_payloads": {
     "continuation": {

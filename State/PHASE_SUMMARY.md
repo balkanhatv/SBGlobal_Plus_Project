@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-INTEGRATION-DEFINITION-READ-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-INTEGRATION-CAPABILITY-READ-001`
 
-Verified executable `df44b4b56164cf065cbc5d187072fb99c6cf6dd5` / tree `521ea55dfc70d4348bf2c58437e7c1d163493dd4`: **311/311 Core**, **108/108 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **460 blobs / 186 Markdown / 104 source / 68 test files**.
+Verified executable `31ff08fb962c09167b9c4e545593755a2b7111df` / tree `c6762fa966eba0754db56273de619af93985cf5f`: **311/311 Core**, **112/112 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **464 blobs / 188 Markdown / 106 source / 68 test files**.
 
-DD-092 adds an exact primary-key IntegrationDefinition PostgreSQL reader through the fixed Integration service role. It preserves immutable registry identity/name/provider/capability metadata, adapter-contract version, PLATFORM/TENANT/INDUSTRY ownerScope, raw status/data-transfer classification, residency JSON and timestamps without inferring provider selection, Tenant enablement, health, compatibility or authorization.
+DD-093 adds an exact IntegrationCapability PostgreSQL reader keyed by IntegrationDefinition id + capability code. It preserves immutable direction, optional OperationContract reference, event types and raw data/idempotency/rate/status metadata without turning registry evidence into Tenant enablement, provider selection, dispatch or authorization.
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
-Next: IntegrationCapability exact definition+capability persistence is the next independent source-complete candidate for source audit. ProviderAdapter selection/execution, CredentialReference secret access, TenantIntegration enablement/health policy, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Next: ProviderAdapter exact definition+adapter+contract-version registry persistence is the next independent source-complete candidate for source audit. Provider execution/selection, CredentialReference secret access, TenantIntegration enablement/health policy, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
