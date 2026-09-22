@@ -20,68 +20,21 @@ jobs:
           ref: docs/architecture-branch-2
           fetch-depth: 0
 
-      - name: Append DD-107 canonical decision and acceptance contracts
+      - name: Append canonical DD-107 traceability
         shell: bash
         run: |
           set -euo pipefail
           DD18='DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md'
           DD17='DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md'
-
           if ! grep -q '^## DD-107 — AI Provider Catalog Metadata Reader$' "$DD18"; then
-            cat >> "$DD18" <<'EOF'
-
-## DD-107 — AI Provider Catalog Metadata Reader
-
-**Decision:** Introduce a bounded exact-by-id PostgreSQL reader for global `core_ai.ai_provider` catalog metadata through the dedicated `sbg_ai_gateway_rw` database role.
-
-**Source ownership and boundary:**
-- DD-101 through DD-106 exhaust the six source-owned Workflow/Automation raw persistence tables: `workflow_definition`, `workflow_instance`, `workflow_task`, `workflow_transition`, `automation_definition`, and `automation_run`. Database privileges over those tables do not supply source authority for workflow execution, mutation, replay, retry, transition, selector, or dispatch semantics.
-- The AI catalog migrations and AI Gateway role establish `core_ai.ai_provider` as a global catalog and grant `sbg_ai_gateway_rw` read authority without catalog mutation grants.
-- `AIProvider.credential_ref` is a secret reference. It is deliberately excluded from the reader SQL projection and returned contract. The existing credential-reference ownership audit forbids disclosure of sensitive secret locators merely because a schema stores the reference.
-- The authorized metadata projection is limited to provider `id`, `code`, raw `status`, `adapter_type`, `supported_regions`, `supported_capabilities`, `security_class`, `residency_metadata`, raw `health_state`, positive `version`, `created_at`, and `updated_at`.
-- The reader preserves schema-valid raw catalog evidence; it does not reinterpret raw status or health values as provider eligibility, routing, selection, or execution authority.
-- No tenant, industry, organization, branch, department, or user `RequestContext` is invented for this global catalog read.
-- No schema, migration, role, grant, RLS, or product-policy change is authorized by this decision.
-
-**Runtime semantics explicitly not claimed:**
-- credential-reference disclosure, credential resolution, or secret-store retrieval;
-- provider/model active-version selection or request eligibility;
-- health-based routing, scoring, fallback, retry, replay, or finality;
-- tenant/industry allow-list, sensitivity, residency, budget, quota, or policy evaluation;
-- provider SDK dispatch, inference, RAG, assistant, agent, or tool execution;
-- AI provisioning snapshot compilation/current-selection or prompt/policy evaluation;
-- Workflow/Automation execution or mutation semantics.
-
-**Acceptance linkage:** `AIPROV-PG-001` through `AIPROV-PG-005`.
-EOF
+            printf '%s' 'CiMjIERELTEwNyDigJQgQUkgUHJvdmlkZXIgQ2F0YWxvZyBNZXRhZGF0YSBSZWFkZXIKCioqRGVjaXNpb246KiogSW50cm9kdWNlIGEgYm91bmRlZCBleGFjdC1ieS1pZCBQb3N0Z3JlU1FMIHJlYWRlciBmb3IgZ2xvYmFsIGBjb3JlX2FpLmFpX3Byb3ZpZGVyYCBjYXRhbG9nIG1ldGFkYXRhIHRocm91Z2ggdGhlIGRlZGljYXRlZCBgc2JnX2FpX2dhdGV3YXlfcndgIGRhdGFiYXNlIHJvbGUuCgoqKlNvdXJjZSBvd25lcnNoaXAgYW5kIGJvdW5kYXJ5OioqCi0gREQtMTAxIHRocm91Z2ggREQtMTA2IGV4aGF1c3QgdGhlIHNpeCBzb3VyY2Utb3duZWQgV29ya2Zsb3cvQXV0b21hdGlvbiByYXcgcGVyc2lzdGVuY2UgdGFibGVzOiBgd29ya2Zsb3dfZGVmaW5pdGlvbmAsIGB3b3JrZmxvd19pbnN0YW5jZWAsIGB3b3JrZmxvd190YXNrYCwgYHdvcmtmbG93X3RyYW5zaXRpb25gLCBgYXV0b21hdGlvbl9kZWZpbml0aW9uYCwgYW5kIGBhdXRvbWF0aW9uX3J1bmAuIERhdGFiYXNlIHByaXZpbGVnZXMgb3ZlciB0aG9zZSB0YWJsZXMgZG8gbm90IHN1cHBseSBzb3VyY2UgYXV0aG9yaXR5IGZvciB3b3JrZmxvdyBleGVjdXRpb24sIG11dGF0aW9uLCByZXBsYXksIHJldHJ5LCB0cmFuc2l0aW9uLCBzZWxlY3Rvciwgb3IgZGlzcGF0Y2ggc2VtYW50aWNzLgotIFRoZSBBSSBjYXRhbG9nIG1pZ3JhdGlvbnMgYW5kIEFJIEdhdGV3YXkgcm9sZSBlc3RhYmxpc2ggYGNvcmVfYWkuYWlfcHJvdmlkZXJgIGFzIGEgZ2xvYmFsIGNhdGFsb2cgYW5kIGdyYW50IGBzYmdfYWlfZ2F0ZXdheV9yd2AgcmVhZCBhdXRob3JpdHkgd2l0aG91dCBjYXRhbG9nIG11dGF0aW9uIGdyYW50cy4KLSBgQUlQcm92aWRlci5jcmVkZW50aWFsX3JlZmAgaXMgYSBzZWNyZXQgcmVmZXJlbmNlLiBJdCBpcyBkZWxpYmVyYXRlbHkgZXhjbHVkZWQgZnJvbSB0aGUgcmVhZGVyIFNRTCBwcm9qZWN0aW9uIGFuZCByZXR1cm5lZCBjb250cmFjdC4gVGhlIGV4aXN0aW5nIGNyZWRlbnRpYWwtcmVmZXJlbmNlIG93bmVyc2hpcCBhdWRpdCBmb3JiaWRzIGRpc2Nsb3N1cmUgb2Ygc2Vuc2l0aXZlIHNlY3JldCBsb2NhdG9ycyBtZXJlbHkgYmVjYXVzZSBhIHNjaGVtYSBzdG9yZXMgdGhlIHJlZmVyZW5jZS4KLSBUaGUgYXV0aG9yaXplZCBtZXRhZGF0YSBwcm9qZWN0aW9uIGlzIGxpbWl0ZWQgdG8gcHJvdmlkZXIgYGlkYCwgYGNvZGVgLCByYXcgYHN0YXR1c2AsIGBhZGFwdGVyX3R5cGVgLCBgc3VwcG9ydGVkX3JlZ2lvbnNgLCBgc3VwcG9ydGVkX2NhcGFiaWxpdGllc2AsIGBzZWN1cml0eV9jbGFzc2AsIGByZXNpZGVuY3lfbWV0YWRhdGFgLCByYXcgYGhlYWx0aF9zdGF0ZWAsIHBvc2l0aXZlIGB2ZXJzaW9uYCwgYGNyZWF0ZWRfYXRgLCBhbmQgYHVwZGF0ZWRfYXRgLgotIFRoZSByZWFkZXIgcHJlc2VydmVzIHNjaGVtYS12YWxpZCByYXcgY2F0YWxvZyBldmlkZW5jZTsgaXQgZG9lcyBub3QgcmVpbnRlcnByZXQgcmF3IHN0YXR1cyBvciBoZWFsdGggdmFsdWVzIGFzIHByb3ZpZGVyIGVsaWdpYmlsaXR5LCByb3V0aW5nLCBzZWxlY3Rpb24sIG9yIGV4ZWN1dGlvbiBhdXRob3JpdHkuCi0gTm8gdGVuYW50LCBpbmR1c3RyeSwgb3JnYW5pemF0aW9uLCBicmFuY2gsIGRlcGFydG1lbnQsIG9yIHVzZXIgYFJlcXVlc3RDb250ZXh0YCBpcyBpbnZlbnRlZCBmb3IgdGhpcyBnbG9iYWwgY2F0YWxvZyByZWFkLgotIE5vIHNjaGVtYSwgbWlncmF0aW9uLCByb2xlLCBncmFudCwgUkxTLCBvciBwcm9kdWN0LXBvbGljeSBjaGFuZ2UgaXMgYXV0aG9yaXplZCBieSB0aGlzIGRlY2lzaW9uLgoKKipSdW50aW1lIHNlbWFudGljcyBleHBsaWNpdGx5IG5vdCBjbGFpbWVkOioqCi0gY3JlZGVudGlhbC1yZWZlcmVuY2UgZGlzY2xvc3VyZSwgY3JlZGVudGlhbCByZXNvbHV0aW9uLCBvciBzZWNyZXQtc3RvcmUgcmV0cmlldmFsOwotIHByb3ZpZGVyL21vZGVsIGFjdGl2ZS12ZXJzaW9uIHNlbGVjdGlvbiBvciByZXF1ZXN0IGVsaWdpYmlsaXR5OwotIGhlYWx0aC1iYXNlZCByb3V0aW5nLCBzY29yaW5nLCBmYWxsYmFjaywgcmV0cnksIHJlcGxheSwgb3IgZmluYWxpdHk7Ci0gdGVuYW50L2luZHVzdHJ5IGFsbG93LWxpc3QsIHNlbnNpdGl2aXR5LCByZXNpZGVuY3ksIGJ1ZGdldCwgcXVvdGEsIG9yIHBvbGljeSBldmFsdWF0aW9uOwotIHByb3ZpZGVyIFNESyBkaXNwYXRjaCwgaW5mZXJlbmNlLCBSQUcsIGFzc2lzdGFudCwgYWdlbnQsIG9yIHRvb2wgZXhlY3V0aW9uOwotIEFJIHByb3Zpc2lvbmluZyBzbmFwc2hvdCBjb21waWxhdGlvbi9jdXJyZW50LXNlbGVjdGlvbiBvciBwcm9tcHQvcG9saWN5IGV2YWx1YXRpb247Ci0gV29ya2Zsb3cvQXV0b21hdGlvbiBleGVjdXRpb24gb3IgbXV0YXRpb24gc2VtYW50aWNzLgoKKipBY2NlcHRhbmNlIGxpbmthZ2U6KiogYEFJUFJPVi1QRy0wMDFgIHRocm91Z2ggYEFJUFJPVi1QRy0wMDVgLgo=' | base64 -d >> "$DD18"
           fi
-
           if ! grep -q '^### AIPROV-PG-001 — Exact provider catalog metadata read$' "$DD17"; then
-            cat >> "$DD17" <<'EOF'
-
-### AIPROV-PG-001 — Exact provider catalog metadata read
-Given a persisted `core_ai.ai_provider` row and its exact identifier, the PostgreSQL AI provider catalog metadata reader returns the authorized metadata projection, preserves schema-owned evidence, returns an immutable/frozen contract, and never selects or exposes `credential_ref`; a secret sentinel persisted in `credential_ref` must not leak through the returned object.
-
-### AIPROV-PG-002 — Missing and malformed identifier behavior
-An exact well-formed provider identifier with no matching row returns `null`; a malformed provider UUID fails closed rather than being normalized into another identity.
-
-### AIPROV-PG-003 — Schema-valid raw evidence preservation
-The reader preserves schema-valid empty text values and nullable/empty array elements instead of inventing non-empty normalization or runtime policy semantics not owned by the source schema.
-
-### AIPROV-PG-004 — Catalog state is not runtime routing authority
-Raw provider `status` and `health_state` values, including `ACTIVE`, remain catalog evidence only. The reader exposes no selected/eligible/route/fallback/generate/select-provider authority and does not convert catalog state into AI Gateway execution semantics.
-
-### AIPROV-PG-005 — Dedicated AI role remains read-only for provider catalog
-The dedicated `sbg_ai_gateway_rw` role can select provider catalog metadata but has no `INSERT`, `UPDATE`, or `DELETE` authority over `core_ai.ai_provider`; an attempted provider update is rejected, and the bounded reader exposes no mutation methods.
-EOF
+            printf '%s' 'CiMjIyBBSVBST1YtUEctMDAxIOKAlCBFeGFjdCBwcm92aWRlciBjYXRhbG9nIG1ldGFkYXRhIHJlYWQKR2l2ZW4gYSBwZXJzaXN0ZWQgYGNvcmVfYWkuYWlfcHJvdmlkZXJgIHJvdyBhbmQgaXRzIGV4YWN0IGlkZW50aWZpZXIsIHRoZSBQb3N0Z3JlU1FMIEFJIHByb3ZpZGVyIGNhdGFsb2cgbWV0YWRhdGEgcmVhZGVyIHJldHVybnMgdGhlIGF1dGhvcml6ZWQgbWV0YWRhdGEgcHJvamVjdGlvbiwgcHJlc2VydmVzIHNjaGVtYS1vd25lZCBldmlkZW5jZSwgcmV0dXJucyBhbiBpbW11dGFibGUvZnJvemVuIGNvbnRyYWN0LCBhbmQgbmV2ZXIgc2VsZWN0cyBvciBleHBvc2VzIGBjcmVkZW50aWFsX3JlZmA7IGEgc2VjcmV0IHNlbnRpbmVsIHBlcnNpc3RlZCBpbiBgY3JlZGVudGlhbF9yZWZgIG11c3Qgbm90IGxlYWsgdGhyb3VnaCB0aGUgcmV0dXJuZWQgb2JqZWN0LgoKIyMjIEFJUFJPVi1QRy0wMDIg4oCUIE1pc3NpbmcgYW5kIG1hbGZvcm1lZCBpZGVudGlmaWVyIGJlaGF2aW9yCkFuIGV4YWN0IHdlbGwtZm9ybWVkIHByb3ZpZGVyIGlkZW50aWZpZXIgd2l0aCBubyBtYXRjaGluZyByb3cgcmV0dXJucyBgbnVsbGA7IGEgbWFsZm9ybWVkIHByb3ZpZGVyIFVVSUQgZmFpbHMgY2xvc2VkIHJhdGhlciB0aGFuIGJlaW5nIG5vcm1hbGl6ZWQgaW50byBhbm90aGVyIGlkZW50aXR5LgoKIyMjIEFJUFJPVi1QRy0wMDMg4oCUIFNjaGVtYS12YWxpZCByYXcgZXZpZGVuY2UgcHJlc2VydmF0aW9uClRoZSByZWFkZXIgcHJlc2VydmVzIHNjaGVtYS12YWxpZCBlbXB0eSB0ZXh0IHZhbHVlcyBhbmQgbnVsbGFibGUvZW1wdHkgYXJyYXkgZWxlbWVudHMgaW5zdGVhZCBvZiBpbnZlbnRpbmcgbm9uLWVtcHR5IG5vcm1hbGl6YXRpb24gb3IgcnVudGltZSBwb2xpY3kgc2VtYW50aWNzIG5vdCBvd25lZCBieSB0aGUgc291cmNlIHNjaGVtYS4KCiMjIyBBSVBST1YtUEctMDA0IOKAlCBDYXRhbG9nIHN0YXRlIGlzIG5vdCBydW50aW1lIHJvdXRpbmcgYXV0aG9yaXR5ClJhdyBwcm92aWRlciBgc3RhdHVzYCBhbmQgYGhlYWx0aF9zdGF0ZWAgdmFsdWVzLCBpbmNsdWRpbmcgYEFDVElWRWAsIHJlbWFpbiBjYXRhbG9nIGV2aWRlbmNlIG9ubHkuIFRoZSByZWFkZXIgZXhwb3NlcyBubyBzZWxlY3RlZC9lbGlnaWJsZS9yb3V0ZS9mYWxsYmFjay9nZW5lcmF0ZS9zZWxlY3QtcHJvdmlkZXIgYXV0aG9yaXR5IGFuZCBkb2VzIG5vdCBjb252ZXJ0IGNhdGFsb2cgc3RhdGUgaW50byBBSSBHYXRld2F5IGV4ZWN1dGlvbiBzZW1hbnRpY3MuCgojIyMgQUlQUk9WLVBHLTAwNSDigJQgRGVkaWNhdGVkIEFJIHJvbGUgcmVtYWlucyByZWFkLW9ubHkgZm9yIHByb3ZpZGVyIGNhdGFsb2cKVGhlIGRlZGljYXRlZCBgc2JnX2FpX2dhdGV3YXlfcndgIHJvbGUgY2FuIHNlbGVjdCBwcm92aWRlciBjYXRhbG9nIG1ldGFkYXRhIGJ1dCBoYXMgbm8gYElOU0VSVGAsIGBVUERBVEVgLCBvciBgREVMRVRFYCBhdXRob3JpdHkgb3ZlciBgY29yZV9haS5haV9wcm92aWRlcmA7IGFuIGF0dGVtcHRlZCBwcm92aWRlciB1cGRhdGUgaXMgcmVqZWN0ZWQsIGFuZCB0aGUgYm91bmRlZCByZWFkZXIgZXhwb3NlcyBubyBtdXRhdGlvbiBtZXRob2RzLgo=' | base64 -d >> "$DD17"
           fi
-
           rm -f .github/workflows/dd107-canonical-promotion.yml
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add "$DD18" "$DD17" .github/workflows/dd107-canonical-promotion.yml
-          if git diff --cached --quiet; then
-            exit 0
-          fi
           git commit -m 'docs(dd): record DD-107 AI provider metadata reader'
           git push origin HEAD:docs/architecture-branch-2
