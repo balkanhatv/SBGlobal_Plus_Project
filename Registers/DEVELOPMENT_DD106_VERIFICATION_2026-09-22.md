@@ -2,7 +2,7 @@
 
 **Branch:** `docs/architecture-branch-2`  
 **Verified executable HEAD/tree:** `0bd4cb33d07836f797d434b21d5e24fcee0a3641` / `e6630c0dc1d01b238e9299c6281cb3ce86ed76e6`  
-**Checkpoint target:** `DEV-AUTOMATION-RUN-READ-001`
+**Checkpoint:** `DEV-AUTOMATION-RUN-READ-001`
 
 ## Source audit and implementation
 
@@ -19,7 +19,7 @@ The reader is exact-by-id. It validates only schema-owned UUID/status/timestamp 
 
 The Workflow worker's existing schema-owned AutomationRun UPDATE privilege remains unchanged. DD-106 is mutation-free because its Core read port exposes no mutation method; it does not narrow database privileges that belong to later source-owned runtime semantics.
 
-## Exact-head CI evidence
+## Exact executable-head CI evidence
 
 | Verification | Run | Job | Result |
 |---|---:|---:|---|
@@ -43,13 +43,45 @@ WFA-RUN-PG-001…007 pass:
 
 Database bootstrap preserves **47 migrations / 41 verification files** and the executable PostgreSQL invariant checks preserve **9 Industries / 41 canonical Management Systems / 181 registered Industry tables**. Requirement preservation remains **2,962 source requirement IDs/text**. No migration, verification SQL, role, grant, RLS policy, route, RawSource or product-policy change is part of DD-106.
 
+Verified executable inventory is **526 blobs / 213 Markdown / 134 TypeScript source / 77 test files**. This is derived from the previously verified DD-105 executable inventory plus the exact `d654a5e8…0bd4cb33` compare, whose only added blobs are the DD-106 source audit, prior DD-105 verification register, two AutomationRun source files and one AutomationRun test file.
+
 ## Canonical traceability
 
 DD-106 and WFA-RUN-PG-001…007 were added to canonical DD-18 / DD-17 by self-removing traceability sync commit `1dd849f0ecda14d8dca67e9b98136261fc5aeb43`.
 
 The first helper run at staged commit `2dde3c4f4aebaa5cc176d79628e88284165144be` failed before editing canonical files because the helper's Node template literal escaped Markdown backticks incorrectly. Workflow-only correction `c096fc2d6cd2c085b3a0d86971081f04aa77bd9b` replaced the helper with literal append blocks; no production source, test, database or policy file changed in that correction.
 
-This connector-authored register commit is the DD-106 canonical invariant-gate trigger. Core/PostgreSQL/Database/Web must be green on this head before checkpoint/state promotion.
+## Canonical invariant gate
+
+Connector-authored invariant-gate head `48eb8202632324417fe588d6374563ad8e352dcd` / tree `d3cab507557758484fd3bc1597b776c29bd53e4b` passed all standard workflows after canonical DD-106/DD-17 traceability was present:
+
+| Verification | Run | Job | Result |
+|---|---:|---:|---|
+| Core Service Verify / Core | 35694105062 | 106637088493 | **SUCCESS** |
+| Core Service Verify / PostgreSQL | 35694105062 | 106637088273 | **SUCCESS**, full DB baseline + concrete PostgreSQL adapter/RLS step |
+| Database Verify | 35694105056 | 106637088194 | **SUCCESS** |
+| Web Boundary Verify | 35694105046 | 106637087909 | **SUCCESS** |
+
+This gate preserves the already-established executable test counts **311 Core / 190 PostgreSQL**, **47 migrations / 41 verification files** and the repository invariants above.
+
+## Checkpoint and state promotion
+
+A self-removing state-sync helper was staged at `d31962216dbc18504c42e910838f315155be4868`. It promoted the current checkpoint/state projection at commit `142fefd64337424817da1299580f341615d4159d` / tree `2c1c33f39ee3a21c37f97a4965da5053050e27cd` and removed itself.
+
+The exact compare `48eb8202…142fefd6` modifies only these nine intended state/checkpoint surfaces:
+- `DetailedDesign/DD-CHECKPOINT.md`
+- `DetailedDesign/DD-INDEX.md`
+- `DetailedDesign/DD-PHASE_STATE.md`
+- `Development/CORE_SERVICE_CHECKPOINT.md`
+- `Development/DEVELOPMENT_STATE.md`
+- `State/HANDOFF_NOTE.md`
+- `State/PHASE_SUMMARY.md`
+- `State/PROJECT_MANIFEST.json`
+- `State/PROJECT_STATE.md`
+
+No source, test, database, migration, verification SQL, role, grant, RLS, RawSource or product-policy file changed in state promotion. Current state records `DEV-AUTOMATION-RUN-READ-001`, contiguous ADR-001–020 / DD-001–106, and keeps executable basis `0bd4cb33… / e6630c0d…` to avoid recursive self-hash claims.
+
+This connector-authored register update is the final DD-106 promotion CI trigger. Core/PostgreSQL/Database/Web must pass on its exact resulting head before promotion is considered closed.
 
 ## Remaining boundary
 
