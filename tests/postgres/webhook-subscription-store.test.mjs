@@ -20,6 +20,9 @@ import {
 import {
   PostgresIntegrationDefinitionStore,
 } from "../../dist/server/integration/postgres-integration-definition-store.js";
+import {
+  PostgresIntegrationCapabilityStore,
+} from "../../dist/server/integration/postgres-integration-capability-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -57,6 +60,8 @@ const f = Object.fromEntries([
   "correlationIndustryB",
   "definitionPlatform",
   "definitionIndustry",
+  "capabilityPlatform",
+  "capabilityIndustry",
 ].map((key) => [key, randomUUID()]));
 
 let pool;
@@ -65,6 +70,7 @@ let deliveryStore;
 let outboxStore;
 let catalogStore;
 let definitionStore;
+let capabilityStore;
 
 const eventTypeIndustry = "webhook.reader.industry." + randomBytes(6).toString("hex");
 const eventTypeTenant = "webhook.reader.tenant." + randomBytes(6).toString("hex");
@@ -192,6 +198,24 @@ before(async () => {
         f.definitionIndustry,
         definitionCodePlatform,
         definitionCodeIndustry,
+      ],
+    );
+
+    await client.query(
+      `INSERT INTO core_integration.integration_capability
+        (id,integration_definition_id,capability_code,direction,operation_contract_id,
+         event_types,data_class,idempotency_class,rate_class,status)
+       VALUES
+        ($1,$3,'orders.read','OUTBOUND','core.orders.read',
+         ARRAY['order.created'],'INTERNAL','READ_ONLY','AUTH_STANDARD','ACTIVE'),
+        ($2,$4,'lab.receive','INBOUND',NULL,
+         ARRAY['lab.result.received','lab.result.corrected'],'REGULATED',
+         'IDEMPOTENT_EXTERNAL','EXTERNAL_WRITE','RETIRED')`,
+      [
+        f.capabilityPlatform,
+        f.capabilityIndustry,
+        f.definitionPlatform,
+        f.definitionIndustry,
       ],
     );
 
@@ -411,6 +435,7 @@ before(async () => {
   outboxStore = new PostgresOutboxEventStore(scoped);
   catalogStore = new PostgresEventCatalogStore(integrationDatabase);
   definitionStore = new PostgresIntegrationDefinitionStore(integrationDatabase);
+  capabilityStore = new PostgresIntegrationCapabilityStore(integrationDatabase);
 });
 
 after(async () => {
@@ -434,6 +459,10 @@ after(async () => {
     await client.query(
       "DELETE FROM core_integration.outbox_event_identity WHERE id=ANY($1::uuid[])",
       [[f.eventIndustryA, f.eventTenantA, f.eventIndustryB]],
+    );
+    await client.query(
+      "DELETE FROM core_integration.integration_capability WHERE id=ANY($1::uuid[])",
+      [[f.capabilityPlatform, f.capabilityIndustry]],
     );
     await client.query(
       "DELETE FROM core_integration.integration_definition WHERE id=ANY($1::uuid[])",
@@ -893,4 +922,65 @@ test("INT-DEF-PG-003 absent definition id returns null without fallback", async 
 
 test("INT-DEF-PG-004 malformed definition id fails closed before persistence query", async () => {
   await assert.rejects(definitionStore.loadById("not-a-uuid"));
+});
+
+
+test("INT-CAP-PG-001 exact definition+capability tuple preserves immutable registry metadata", async () => {
+  const capability = await capabilityStore.loadExact({
+    integrationDefinitionId: f.definitionPlatform,
+    capabilityCode: "orders.read",
+  });
+
+  assert.ok(capability);
+  assert.equal(capability.id, f.capabilityPlatform);
+  assert.equal(capability.integrationDefinitionId, f.definitionPlatform);
+  assert.equal(capability.capabilityCode, "orders.read");
+  assert.equal(capability.direction, "OUTBOUND");
+  assert.equal(capability.operationContractId, "core.orders.read");
+  assert.deepEqual(capability.eventTypes, ["order.created"]);
+  assert.equal(capability.dataClass, "INTERNAL");
+  assert.equal(capability.idempotencyClass, "READ_ONLY");
+  assert.equal(capability.rateClass, "AUTH_STANDARD");
+  assert.equal(capability.status, "ACTIVE");
+  assert.equal(Object.isFrozen(capability), true);
+  assert.equal(Object.isFrozen(capability.eventTypes), true);
+});
+
+test("INT-CAP-PG-002 raw RETIRED and direction evidence do not become execution authority", async () => {
+  const capability = await capabilityStore.loadExact({
+    integrationDefinitionId: f.definitionIndustry,
+    capabilityCode: "lab.receive",
+  });
+
+  assert.ok(capability);
+  assert.equal(capability.direction, "INBOUND");
+  assert.equal(capability.operationContractId, undefined);
+  assert.deepEqual(capability.eventTypes, ["lab.result.received", "lab.result.corrected"]);
+  assert.equal(capability.status, "RETIRED");
+  assert.equal(capability.rateClass, "EXTERNAL_WRITE");
+  assert.equal("enabled" in capability, false);
+  assert.equal("executable" in capability, false);
+  assert.equal("authorized" in capability, false);
+});
+
+test("INT-CAP-PG-003 exact tuple mismatch returns null without definition/provider fallback", async () => {
+  assert.equal(await capabilityStore.loadExact({
+    integrationDefinitionId: f.definitionPlatform,
+    capabilityCode: "lab.receive",
+  }), null);
+  assert.equal(await capabilityStore.loadExact({
+    integrationDefinitionId: randomUUID(),
+    capabilityCode: "orders.read",
+  }), null);
+});
+
+test("INT-CAP-PG-004 malformed definition id or empty capability code fails closed", async () => {
+  await assert.rejects(capabilityStore.loadExact({
+    integrationDefinitionId: "not-a-uuid",
+    capabilityCode: "orders.read",
+  }));
+  await assert.rejects(capabilityStore.loadExact({
+    integrationDefinitionId: f.definitionPlatform,
+    capabilityCode: "",
+  }));
 });
