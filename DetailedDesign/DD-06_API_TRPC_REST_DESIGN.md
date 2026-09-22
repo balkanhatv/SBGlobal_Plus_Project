@@ -368,3 +368,24 @@ selection, Tenant enablement, health, compatibility or authorization decisions.
 IntegrationCapability or ProviderAdapter; does not read secret references; does not
 choose/execute a provider; and does not mutate registry state or introduce a route,
 migration, role, grant or policy.
+
+
+## 36. Exact IntegrationCapability persistence reader [DD-093]
+
+`PersistedIntegrationCapability` exposes one exact registry capability tuple owned
+by migration 0025: id, IntegrationDefinition id, capability code, direction,
+optional OperationContract id, event types, data class, idempotency class, rate
+class and raw status.
+
+`PostgresIntegrationCapabilityStore` reads only the unique
+`integration_definition_id + capability_code` tuple through the fixed Integration
+database role. Direction is validated against INBOUND / OUTBOUND / BIDIRECTIONAL;
+arrays are immutable; all text classifications are preserved as raw registry facts.
+
+The reader does not infer that an ACTIVE row is enabled for a TenantIntegration or
+that a RETIRED row is executable/non-executable in a runtime workflow. It does not
+resolve/execute OperationContract ids or event types, select a ProviderAdapter, apply
+rate/idempotency/data-class policy, or access credentials.
+
+**Boundary:** read-only exact registry persistence; no provider execution, Tenant
+enablement, policy evaluation, route, migration, role, grant or registry mutation.
