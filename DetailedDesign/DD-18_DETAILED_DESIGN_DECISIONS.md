@@ -1418,3 +1418,33 @@ change is introduced.
 
 **Acceptance:** NOTIF-DEL-PG-001…005 in DD-17 and
 `tests/postgres/notification-delivery-store.test.mjs`.
+
+
+## DD-099 — NotificationDeliveryAttempt raw evidence is readable without becoming retry/finality/provider authority
+
+**Context:** migration 0026 defines append-only parent-scoped
+`notification_delivery_attempt` evidence and migration 0027 grants the dedicated
+Notification worker role SELECT/INSERT while revoking UPDATE/DELETE. A-06/DD-06
+require normalized provider state/retry behavior, but the exact Notification retry
+policy, terminality mapping, backoff schedule and provider runtime remain separate
+unimplemented concerns.
+
+**Decision:** add immutable `NotificationDeliveryAttempt`,
+`NotificationDeliveryAttemptReadPort.loadForDelivery(...)` and
+`PostgresNotificationDeliveryAttemptStore`. The store reads attempts for one
+delivery through the DD-098 Notification database/request scope, ordered by
+`attempt_no`, and validates persisted UUID/integer/text/timestamp shape.
+
+**Security / trade-off:** parent NotificationDelivery FORCE-RLS remains the visibility
+authority, so sibling Industry / foreign Tenant attempts are undiscoverable. Provider
+message references, normalized statuses/errors and timestamps are evidence only; they
+do not select a provider, authorize send, determine retryability/finality or schedule
+the next attempt. Worker UPDATE/DELETE remains prohibited and is executable
+acceptance evidence.
+
+**Boundary:** no delivery mutation, retry/finality reducer, backoff policy,
+provider/credential selection, secret retrieval, network call, route, migration, role,
+grant or RLS change is introduced.
+
+**Acceptance:** NOTIF-ATT-PG-001…006 in DD-17 and
+`tests/postgres/notification-delivery-attempt-store.test.mjs`.
