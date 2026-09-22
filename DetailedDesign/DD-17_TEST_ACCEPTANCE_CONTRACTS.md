@@ -1022,3 +1022,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | INT-TENANT-PG-003 | Tenant Core integration requested from same-Tenant Industry and Tenant Core contexts | same Tenant Core row visible in both; raw PAUSED/health evidence preserved |
 | INT-TENANT-PG-004 | foreign-Tenant integration id queried | FORCE-RLS returns no row; owning Tenant may read raw ACTIVE/health evidence without execution authority |
 | INT-TENANT-PG-005 | malformed id or database route/context mismatch | fail closed before TenantIntegration disclosure |
+
+
+### Tenant-scoped CredentialReference metadata reader — DD-096
+
+| ID | Scenario | Expected |
+|---|---|---|
+| INT-CRED-META-PG-001 | exact Tenant Industry credential reference | immutable provider/type/key/status metadata; no secret locator/material field |
+| INT-CRED-META-PG-002 | sibling Industry credential id requested from current Industry | FORCE-RLS returns no row; exact sibling context may read its metadata |
+| INT-CRED-META-PG-003 | Tenant Core credential requested from same-Tenant Industry and Tenant Core contexts | same metadata visible; rotation/expiry evidence preserved without usability decision |
+| INT-CRED-META-PG-004 | foreign-Tenant credential id queried | FORCE-RLS returns no row; owning Tenant sees metadata only |
+| INT-CRED-META-PG-005 | malformed id or database route/context mismatch | fail closed before credential metadata disclosure |
