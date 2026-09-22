@@ -185,9 +185,9 @@ before(async () => {
          NULL,'Tenant B notice',NULL,'{}'::jsonb,$11,$11,
          now()-interval '2 days',now()-interval '1 day'),
         ($5,'PLATFORM',NULL,NULL,'PLATFORM_SECURITY','EMAIL','en-IN',1,'PUBLISHED',
-         'Security notice','Platform security notice','Security notice',
+         'Security notice','Platform security notice','',
          '{"type":"object","additionalProperties":false}'::jsonb,$12,$12,
-         now()-interval '20 days',now()-interval '10 days')`,
+         now()-interval '20 days',now()-interval '30 days')`,
       [
         f.templateIndustryA1,
         f.templateIndustryA2,
@@ -358,6 +358,8 @@ test("NOTIF-TPL-PG-004 Platform template is not implicit Tenant fallback and req
   assert.equal(platform.industryContextId, undefined);
   assert.equal(platform.status, "PUBLISHED");
   assert.equal(platform.createdBy, f.platformService);
+  assert.equal(platform.safePreviewTemplate, "");
+  assert.ok(Date.parse(platform.updatedAt) < Date.parse(platform.createdAt));
 });
 
 test("NOTIF-TPL-PG-005 foreign Tenant template is hidden and owning Tenant can read raw evidence", async () => {
