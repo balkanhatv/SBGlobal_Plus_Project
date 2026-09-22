@@ -1118,3 +1118,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WFT-PG-005 | foreign Tenant task requested | hidden; owning Tenant context may read it |
 | WFT-PG-006 | terminal/claimed/completed task evidence | raw evidence only; no claim/approve/reject/complete or parent-transition authority surfaced |
 | WFT-PG-007 | malformed UUID or database route/context mismatch | fail closed before task disclosure |
+
+
+### Raw PostgreSQL WorkflowTransition reader — DD-104
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WTR-PG-001 | exact Tenant Industry transition | immutable raw from/action/to, actor/reason, version, time and correlation evidence preserved |
+| WTR-PG-002 | sibling Industry transition requested from current Industry | parent FORCE-RLS returns no row; exact sibling context may read its own |
+| WTR-PG-003 | Tenant Core transition with very large bigint versions / empty raw text | same-Tenant visible; exact decimal version and schema-allowed text evidence preserved without JS-number coercion |
+| WTR-PG-004 | foreign Tenant transition requested | hidden; owning Tenant context may read it |
+| WTR-PG-005 | persisted transition evidence read | no next-transition selection, authorization or execution authority surfaced |
+| WTR-PG-006 | malformed UUID or database route/context mismatch | fail closed before transition disclosure |
+| WTR-PG-007 | Workflow worker attempts UPDATE/DELETE of transition evidence | privilege denial; append-only row remains unchanged |
