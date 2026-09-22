@@ -56,4 +56,4 @@ selection, credential use, send permission or worker scheduling.
 No migration, role, grant, RLS policy, provider runtime, secret access, route or
 product-policy change is authorized.
 
-Acceptance: NOTIF-ATT-PG-001…005.
+Acceptance: NOTIF-ATT-PG-001…006.
