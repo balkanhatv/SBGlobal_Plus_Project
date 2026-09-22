@@ -34,25 +34,27 @@ Exact tested head: `e1e53969a3a2869e2c4612e45c65a7a3c66d2d58` / tree `f057bef288
 
 ## Acceptance contracts
 
-- `AIMODEL-PG-001`: exact model metadata read preserves immutable raw catalog evidence.
-- `AIMODEL-PG-002`: absent model returns null and malformed UUID fails closed.
-- `AIMODEL-PG-003`: schema-valid empty text and nullable array evidence is preserved.
-- `AIMODEL-PG-004`: raw catalog status/sensitivity evidence does not become routing or execution authority.
-- `AIMODEL-PG-005`: provider relation is preserved and dedicated AI role has no model mutation authority.
+- `AIMODEL-PG-001`: exact immutable model metadata read preserves the persisted provider/model relationship and raw catalog evidence.
+- `AIMODEL-PG-002`: absent exact model returns null and malformed UUID fails closed.
+- `AIMODEL-PG-003`: schema-valid raw text, arrays, JSON and nullable array evidence are preserved without invented normalization.
+- `AIMODEL-PG-004`: raw `ACTIVE` status and provider pairing remain catalog evidence and do not become selection, routing, fallback, generation or inference authority.
+- `AIMODEL-PG-005`: dedicated `sbg_ai_gateway_rw` can SELECT the model catalog but cannot INSERT/UPDATE/DELETE it; the bounded reader exposes no mutation methods.
 
 ## Explicitly unclaimed runtime semantics
 
-DD-108 does not claim active/current/eligible/preferred model selection, provider/model routing, credential resolution, fallback/retry, provider SDK calls, inference or embedding, Tenant/Industry allowlist evaluation, sensitivity/residency runtime decisions, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, or any public/API route.
+DD-108 does not claim active/current/eligible/preferred model selection, provider/model routing, credential resolution, fallback/retry, provider SDK calls, inference or embedding, Tenant/Industry allowlist evaluation, sensitivity/residency runtime decisions, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, Workflow/Automation execution or mutation, or any public/API route.
 
 ## Canonical traceability promotion
 
-- Canonical DD-108 / DD-17 traceability is present at current canonical head `51cf83a0c3e8e06e0116a2db169620365cda4a96` / tree `52ae1b85e3d91762b7301f39191d5c2bb26ded81`.
-- Earlier corrected self-removing helper run `35740499869` produced the same DD-108 canonical traceability content; subsequent helper cleanup is absent from the current tree.
-- Net comparison from executable implementation head to the current canonical head changes only `DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md`, `DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md`, and this DD-108 verification register; temporary promotion helpers are absent from the resulting tree.
+- Canonical DD-108 / DD-17 traceability is present at self-removed canonical commit `d9fab2e9b644e4401fdfb85426bd33b70d7b227b` / tree `f261317e378b2223591a1a0becb69454d9883472`.
+- Self-removing helper workflow run `35739724711` completed successfully.
+- Net comparison from executable implementation head to the canonical head changes only `DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md`, `DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md`, and this DD-108 verification register; temporary promotion helpers are absent from the resulting canonical tree.
+- The action-authored canonical commit produced `action_required` PR workflow records and is therefore not treated as the invariant verification gate.
+- This connector-authored register update is the invariant verification gate trigger.
 
 ## Promotion evidence
 
-- Invariant gate: pending exact CI on the connector-authored canonical/register head created by this update.
+- Invariant gate: pending exact CI on this connector-authored register head.
 - Promoted checkpoint: pending `DEV-AI-MODEL-CATALOG-READ-001`.
 - State promotion commit/tree: pending.
 - Final exact promotion-head CI: pending.
