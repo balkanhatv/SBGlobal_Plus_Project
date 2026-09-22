@@ -991,3 +991,13 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | INT-DEF-PG-002 | INDUSTRY definition has raw RETIRED status | ownerScope/status/classification preserved; no selectable/enabled/healthy decision |
 | INT-DEF-PG-003 | unknown valid definition UUID | null; no fallback by code/provider/capability |
 | INT-DEF-PG-004 | malformed definition UUID | fail closed before persistence query |
+
+
+### Exact PostgreSQL IntegrationCapability reader — DD-093
+
+| ID | Scenario | Expected |
+|---|---|---|
+| INT-CAP-PG-001 | exact definition id + capability code tuple | immutable exact direction/operation/event/class/status registry facts |
+| INT-CAP-PG-002 | tuple has INBOUND + raw RETIRED status | raw evidence preserved; no enabled/executable/authorized decision |
+| INT-CAP-PG-003 | capability code belongs to another definition / unknown definition | null; no fallback by code/provider/event |
+| INT-CAP-PG-004 | malformed definition UUID or empty capability code | fail closed before persistence query |
