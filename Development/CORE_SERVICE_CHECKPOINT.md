@@ -1,24 +1,24 @@
-# CORE SERVICE CHECKPOINT — DEV-AUTOMATION-RUN-READ-001
+# CORE SERVICE CHECKPOINT — DEV-AI-PROVIDER-CATALOG-READ-001
 **Updated:** 2026-09-22 · **Branch:** `docs/architecture-branch-2`
 
 ## Verified executable basis
 
-Verified executable `0bd4cb33d07836f797d434b21d5e24fcee0a3641` / tree `e6630c0dc1d01b238e9299c6281cb3ce86ed76e6`: **311/311 Core**, **190/190 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Inventory: **526 blobs / 213 Markdown / 134 source / 77 test files**.
+Verified executable `b75b6b2fe93be4dcea2ff5ed9020e66acde03e08` / tree `2a80273e064e7cce7bb8dcb82b6e2f25493f4e9c`: **311/311 Core**, **190/190 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **531 blobs / 214 Markdown / 137 source / 78 test files**.
+
+Promotion invariant gate `0a230cd6828a84fd6112ee00b1a75333d65ec1c4`: Core run `35726430207`, Database run `35726430210`, Web run `35726430254` — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements**.
 
 ## Implemented boundary
 
-DD-106 adds an exact-by-id raw AutomationRun PostgreSQL reader through the existing dedicated `sbg_workflow_worker_rw` NOBYPASSRLS + `RequestScopedSql` boundary. It preserves immutable persisted definition/scope/status/timing plus raw trigger reference, idempotency hash, correlation and optional last-error evidence without selecting/creating a run or deciding automation execution.
+DD-107 adds an exact-by-id global `core_ai.ai_provider` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. `credential_ref` is deliberately absent from the SQL projection and returned contract. Raw status/health and catalog metadata remain evidence only and do not authorize provider/model selection, eligibility, routing, fallback/retry, secret resolution, SDK/inference, RAG, assistant, agent/tool, tenant/industry AI-policy, budget/quota, or other concrete AI Gateway execution semantics. DD-101–106 exhaust the six Workflow/Automation raw persistence readers; their execution/mutation semantics remain unclaimed. No migration, verification SQL, role, grant, RLS policy, or product-policy change is introduced by DD-107.
 
-WFA-RUN-PG-001…007 prove exact Industry RLS isolation, same-Tenant Tenant-Core visibility, foreign-Tenant isolation, raw run evidence fidelity, fail-closed malformed/route mismatch handling, no trigger/retry/finality/next-state authority, and that the schema-owned Workflow worker AutomationRun UPDATE privilege remains while the DD-106 read port exposes no mutation method.
-
-DD-105 AutomationDefinition, DD-104 WorkflowTransition, DD-103 WorkflowTask, DD-102 WorkflowInstance and DD-101 WorkflowDefinition raw readers remain covered. No migration, verification SQL, role, grant or RLS policy changed in DD-106.
+`AIPROV-PG-001`…`AIPROV-PG-005` prove exact metadata read and immutability, missing/malformed identifier handling, schema-valid empty/null evidence preservation, non-authorizing raw status/health, secret-reference non-disclosure, and SELECT-only provider-catalog authority through the dedicated AI role.
 
 ## Remaining scope
 
-AutomationRun persistence cannot authorize execution. Active/effective AutomationDefinition selection, trigger interpretation/execution, idempotency/replay authorization, retry/backoff/finality, AutomationRun status-transition authorization/runtime mutation, condition evaluation, OperationContract dispatch and WorkflowDefinition execution remain unimplemented.
+Concrete AI Gateway provider/model selection, routing, eligibility, health-based decisions, credential retrieval/resolution, tenant/industry allowlists, sensitivity/residency decisions, quota/budget execution, scoring/fallback/retry, provider SDK/inference, `AIProvisioningSnapshot` compilation/current-selection, prompt/policy evaluation, RAG/assistant/agent/tool execution and Workflow/Automation execution/mutation semantics remain unimplemented unless separately source-owned.
 
-Next: Source-audit the next independent source-complete Workflow/Automation persistence slice. Do not open automation runtime execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.
+Next: Fresh source-audit the next independent source-complete AI persistence slice. Do not pre-authorize ai_model or open concrete AI Gateway provider/model selection, routing, secret resolution, fallback/retry, inference, RAG, assistant, agent/tool execution, AIProvisioningSnapshot current-selection, prompt/policy evaluation, or Workflow/Automation runtime semantics without source-owned authority.
 
-Evidence: `Registers/DEVELOPMENT_DD106_VERIFICATION_2026-09-22.md`.
+Evidence: `Registers/DEVELOPMENT_DD107_VERIFICATION_2026-09-22.md`.
 
 RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains draft/unmerged.

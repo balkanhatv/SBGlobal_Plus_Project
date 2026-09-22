@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-22 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AUTOMATION-RUN-READ-001`
+**Updated:** 2026-09-22 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-PROVIDER-CATALOG-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,11 +24,11 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-106**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-107**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-106 adds an exact-by-id raw AutomationRun PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Raw run definition/scope/status/timing/trigger/idempotency/correlation/error evidence is immutable through the read surface and does not become trigger/replay/retry/finality/next-state/runtime-mutation authority. The schema-owned Workflow worker UPDATE privilege remains unchanged.
+DD-107 adds an exact-by-id global `core_ai.ai_provider` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. `credential_ref` is deliberately absent from the SQL projection and returned contract. Raw status/health and catalog metadata remain evidence only and do not authorize provider/model selection, eligibility, routing, fallback/retry, secret resolution, SDK/inference, RAG, assistant, agent/tool, tenant/industry AI-policy, budget/quota, or other concrete AI Gateway execution semantics. DD-101–106 exhaust the six Workflow/Automation raw persistence readers; their execution/mutation semantics remain unclaimed. No migration, verification SQL, role, grant, RLS policy, or product-policy change is introduced by DD-107.
 
-Automation runtime execution, Workflow transition execution, Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
 ## Historical all-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `0bd4cb33d07836f797d434b21d5e24fcee0a3641` / tree `e6630c0dc1d01b238e9299c6281cb3ce86ed76e6` — 311 Core tests, 190 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD106_VERIFICATION_2026-09-22.md).
+**Current verified executable evidence:** `b75b6b2fe93be4dcea2ff5ed9020e66acde03e08` / tree `2a80273e064e7cce7bb8dcb82b6e2f25493f4e9c` — 311 Core tests, 190 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `0a230cd6828a84fd6112ee00b1a75333d65ec1c4`: Core run `35726430207`, Database run `35726430210`, Web run `35726430254` — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements**. See [verification evidence](../Registers/DEVELOPMENT_DD107_VERIFICATION_2026-09-22.md).

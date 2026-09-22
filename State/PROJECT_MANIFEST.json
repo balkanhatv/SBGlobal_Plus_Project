@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-22",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
-  "final_verdict": "DD-106 AUTOMATIONRUN RAW POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; AUTOMATION EXECUTION AND RUN-MUTATION AUTHORITY UNCLAIMED",
+  "checkpoint": "DEV-AI-PROVIDER-CATALOG-READ-001",
+  "final_verdict": "DD-107 AI PROVIDER CATALOG METADATA READER IMPLEMENTED / EXACT-HEAD TESTED; CREDENTIAL_REF EXCLUDED; CONCRETE AI GATEWAY RUNTIME AUTHORITY UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
-    "verified_code_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
-    "state_projection_basis_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
+    "verified_code_head": "b75b6b2fe93be4dcea2ff5ed9020e66acde03e08",
+    "verified_code_tree": "2a80273e064e7cce7bb8dcb82b6e2f25493f4e9c",
+    "state_projection_basis_head": "b75b6b2fe93be4dcea2ff5ed9020e66acde03e08",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "AutomationRun raw persistence reader verified; automation execution and run-mutation authority not claimed",
+    "current_phase": "AI Provider catalog metadata exact-by-id reader verified; credential secret reference and concrete AI Gateway runtime authority not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Source-audit the next independent source-complete Workflow/Automation persistence slice. Do not open automation runtime execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.",
+    "next_action": "Fresh source-audit the next independent source-complete AI persistence slice. Do not pre-authorize ai_model or open concrete AI Gateway provider/model selection, routing, secret resolution, fallback/retry, inference, RAG, assistant, agent/tool execution, AIProvisioningSnapshot current-selection, prompt/policy evaluation, or Workflow/Automation runtime semantics without source-owned authority.",
     "core_services": {
-      "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
+      "checkpoint": "DEV-AI-PROVIDER-CATALOG-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–106 current implementation; DD-106 raw AutomationRun PostgreSQL reader",
-      "verified_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
-      "verified_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
-      "core_ci_run_id": 35691305850,
-      "core_ci_job_id": 106628678648,
+      "decision": "DD-040–107 current implementation; DD-107 bounded AI Provider catalog metadata PostgreSQL reader",
+      "verified_head": "b75b6b2fe93be4dcea2ff5ed9020e66acde03e08",
+      "verified_tree": "2a80273e064e7cce7bb8dcb82b6e2f25493f4e9c",
+      "core_ci_run_id": 35697472320,
+      "core_ci_job_id": 106647432209,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,8 +130,8 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35691305850,
-      "postgres_ci_job_id": 106628678789,
+      "postgres_ci_run_id": 35697472320,
+      "postgres_ci_job_id": 106647432487,
       "postgres_tests": "190/190 PASS",
       "postgres_test_counts": {
         "tests": 190,
@@ -140,7 +140,7 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35691305768,
+      "database_regression_run_id": 35697472248,
       "database_regression_job_id": 106628678181,
       "database_regression_result": "PASS",
       "implemented": [
@@ -379,7 +379,8 @@
         "WFA-DEF-PG-001–007 real PostgreSQL owner-RLS and catalog mutation-denial acceptance",
         "DD-106 raw AutomationRun read contract",
         "DD-106 PostgreSQL AutomationRun exact-by-id reader through dedicated Workflow worker role",
-        "WFA-RUN-PG-001–007 real PostgreSQL scope-RLS, evidence-only and read-surface acceptance"
+        "WFA-RUN-PG-001–007 real PostgreSQL scope-RLS, evidence-only and read-surface acceptance",
+        "DD-107 exact-by-id AI Provider catalog metadata reader through dedicated sbg_ai_gateway_rw boundary with credential_ref excluded"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -557,7 +558,20 @@
         "scope": "DD-044 Clerk session-security + PLATFORM_GLOBAL Authorization persistence prerequisite"
       }
     ],
-    "status": "IN_PROGRESS"
+    "status": "IN_PROGRESS",
+    "dd107_promotion_invariant_gate": {
+      "head": "0a230cd6828a84fd6112ee00b1a75333d65ec1c4",
+      "core_run_id": 35726430207,
+      "database_run_id": 35726430210,
+      "web_run_id": 35726430254,
+      "result": "PASS",
+      "invariants": {
+        "industries": 9,
+        "management_systems": 41,
+        "registered_industry_tables": 181,
+        "requirements_preserved": 2962
+      }
+    }
   },
   "current_phase": "DEVELOPMENT_AUTOMATION_DEFINITION_READ_VERIFIED",
   "audit": {
