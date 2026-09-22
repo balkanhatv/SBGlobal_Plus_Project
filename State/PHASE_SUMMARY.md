@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-NOTIFICATION-ATTEMPT-READ-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-NOTIFICATION-TEMPLATE-READ-001`
 
-Verified executable `7b2e4c960b0ba4e6244c83750a7796c2565a39a1` / tree `9cf348abc38f90b381eafb4c408ffc594c889904`: **311/311 Core**, **142/142 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **491 blobs / 200 Markdown / 119 source / 70 test files**.
+Verified executable `59d4a870a0c09b655708015fca991727ed59cc91` / tree `1228fd709e2c2cd8768520f548035fa3abf0632a`: **311/311 Core**, **148/148 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **496 blobs / 202 Markdown / 121 source / 71 test files**.
 
-DD-099 adds a raw NotificationDeliveryAttempt PostgreSQL reader through the existing dedicated Notification worker/RLS boundary. Parent NotificationDelivery FORCE-RLS controls visibility; immutable attempt rows preserve attempt number, provider message reference, normalized status/error and start/completion timestamps while deliberately withholding retryability, finality, backoff, provider-selection and send authority. Worker UPDATE/DELETE remains denied.
+DD-100 adds an exact-by-id raw NotificationTemplate PostgreSQL reader through the dedicated Notification worker/RLS boundary. It preserves owner scope, code/channel/locale/version/lifecycle/content/variable-schema/creator evidence while deliberately withholding active-version selection, owner/locale fallback, rendering, approval/send eligibility and provider/credential authority. PLATFORM templates require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback.
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
-Next: Source-audit NotificationTemplate raw persistence as the next independent source-complete Notification slice. Template rendering/variable substitution/localization selection/approval policy, send/retry/finality/provider decisions, CredentialReference secret retrieval, ProviderAdapter execution, webhook/event runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Next: Source-audit WorkflowDefinition raw persistence as the next independent source-complete Workflow slice. Workflow selection/activation, state-machine interpretation, approval/rule execution and transition authorization must remain separate; Notification rendering/send/retry/provider runtime, CredentialReference secret retrieval, webhook/event runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
