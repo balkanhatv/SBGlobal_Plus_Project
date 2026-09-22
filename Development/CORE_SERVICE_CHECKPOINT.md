@@ -1,30 +1,29 @@
-# CORE SERVICE CHECKPOINT — DEV-NOTIFICATION-TEMPLATE-READ-001
+# CORE SERVICE CHECKPOINT — DEV-WORKFLOW-DEFINITION-READ-001
 **Updated:** 2026-09-22 · **Branch:** `docs/architecture-branch-2`
 
 ## Verified executable basis
 
-Verified executable `59d4a870a0c09b655708015fca991727ed59cc91` / tree `1228fd709e2c2cd8768520f548035fa3abf0632a`: **311/311 Core**, **148/148 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **496 blobs / 202 Markdown / 121 source / 71 test files**.
+Verified executable `267f920f9a22d03a3902f45f6c9a16498715652b` / tree `7230aa99828e961b602738d086e276d981f1bde0`: **311/311 Core**, **155/155 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Inventory: **502 blobs / 204 Markdown / 124 source / 72 test files**.
 
 ## Implemented boundary
 
-DD-100 adds an exact-by-id raw NotificationTemplate PostgreSQL reader through the dedicated Notification worker/RLS boundary. It preserves owner scope, code/channel/locale/version/lifecycle/content/variable-schema/creator evidence while deliberately withholding active-version selection, owner/locale fallback, rendering, approval/send eligibility and provider/credential authority. PLATFORM templates require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback.
+DD-101 adds an exact-by-id raw WorkflowDefinition PostgreSQL reader through dedicated `sbg_workflow_worker_rw` NOBYPASSRLS + RequestScopedSql. It preserves owner scope, version/lifecycle/schema version, state-machine/approval JSON, rule refs, principals and effective-date evidence without selecting or executing a workflow. The worker cannot mutate the definition catalog.
 
-NOTIF-TPL-PG-001…006 prove exact Industry isolation, Tenant same-Tenant visibility,
-PLATFORM_GLOBAL-only platform visibility, raw lifecycle/content/schema fidelity and
-fail-closed route/id handling.
+WFD-PG-001…007 prove exact Industry isolation, Tenant same-Tenant visibility,
+PLATFORM_GLOBAL-only visibility, raw JSON/rule/effective evidence, fail-closed
+route/id handling and Workflow-worker UPDATE denial.
 
-The first DD-100 PostgreSQL fixture attempt used a SERVICE principal without the
-schema-required `service_code` / `owning_module` fields. The fixture was corrected
-without changing production code or schema; the exact corrected head is 148/148.
+This exact basis also contains the DD-100 raw-reader correction: schema-allowed empty
+template text and non-monotonic created/updated timestamps remain raw evidence rather
+than invented validation rules.
 
 ## Remaining scope
 
-Template evidence cannot choose/render/send a notification. No fallback, locale
-selection, substitution/escaping, approval-to-send, provider or credential behavior
-is claimed.
+WorkflowDefinition evidence is not selection/execution authority.
 
-Next: Source-audit WorkflowDefinition raw persistence as the next independent source-complete Workflow slice. Workflow selection/activation, state-machine interpretation, approval/rule execution and transition authorization must remain separate; Notification rendering/send/retry/provider runtime, CredentialReference secret retrieval, webhook/event runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Next: Source-audit WorkflowInstance raw persistence as the next independent source-complete Workflow slice. Instance-state evidence remains non-executing; transition authorization, task action rules, state-machine/approval/rule execution, Notification render/send/retry/provider runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.
 
-Evidence: `Registers/DEVELOPMENT_DD100_VERIFICATION_2026-09-22.md`.
+Evidence: `Registers/DEVELOPMENT_DD101_VERIFICATION_2026-09-22.md`.
 
-RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains draft/unmerged.
+RawSource accepted blobs unchanged; main remains
+`3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains draft/unmerged.
