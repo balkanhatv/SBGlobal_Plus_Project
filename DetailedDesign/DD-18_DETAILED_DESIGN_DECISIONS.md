@@ -1335,3 +1335,30 @@ change is claimed.
 
 **Acceptance:** INT-TENANT-PG-001…005 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-096 — CredentialReference metadata is readable without creating a generic secret-locator path
+
+**Context:** DD-06 defines CredentialReference persistence but requires secret
+material access to be service-principal-only, purpose-bound and audited. Migration
+0025 FORCE-RLS scopes Tenant/Industry rows; migration 0028 grants the Integration
+service database access. A generic persistence reader returning `secret_reference`
+would bypass the missing purpose/audit composition.
+
+**Decision:** add tenant-scoped `CredentialReferenceMetadataReadPort` and concrete
+`PostgresCredentialReferenceMetadataStore`. The store reads one RLS-visible row by
+UUID but deliberately omits `secret_reference` from SQL projection and the Core
+contract. It returns immutable provider/type/key-version/status/rotation/expiry
+metadata only.
+
+**Security / trade-off:** metadata supports later governed credential selection and
+rotation policy without widening secret disclosure. Platform-global credentials,
+secret locator retrieval and secret material remain separate source-audited
+boundaries. Raw status/expiry does not become an allow/deny decision.
+
+**Boundary:** no secret-reference locator, secret-store request, plaintext secret,
+provider execution, credential usability decision or schema/privilege change is
+claimed.
+
+**Acceptance:** INT-CRED-META-PG-001…005 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
