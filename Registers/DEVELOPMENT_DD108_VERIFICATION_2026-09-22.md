@@ -60,8 +60,14 @@ DD-108 does not claim active/current/eligible/preferred model selection, provide
 
 ## Promotion evidence
 
-- Corrected invariant gate: pending exact CI on this connector-authored register head.
-- Promoted checkpoint: pending `DEV-AI-MODEL-CATALOG-READ-001`.
-- State promotion commit/tree: pending.
-- Final exact promotion-head CI: pending.
-- Final safety verification: pending.
+- Corrected invariant gate: `392c928ac72c58a4347fd4ceaa89b9c90afd8d71` / tree `06a231745bfc2765be9eae4120195e9b627407b9`.
+- Corrected invariant-gate Core run `35745883068`: Core job `106807278646` and PostgreSQL/RLS job `106807279082` — **SUCCESS**.
+- Corrected invariant-gate Database run `35745883189`, job `106807278122` — **SUCCESS**.
+- Corrected invariant-gate Web run `35745883110`, job `106807277653` — **SUCCESS**.
+- Corrected invariant checks preserve **9 Industries / 41 canonical Management Systems / 181 registered Industry tables / 2,962 source requirements** and **108 unique, contiguous DD definitions**.
+- Promoted checkpoint: `DEV-AI-MODEL-CATALOG-READ-001` across the nine governed state/checkpoint files.
+- State promotion commit/tree: `de7cad8e6328d1d909818e0e3b4f70421a27c5fa` / `590fc6ce02bcb83d18cee9b38262ac848aa872a0`.
+- State-promotion exact-head Core run `35752831449`: Core job `106831074592` and PostgreSQL/RLS job `106831074799` — **SUCCESS**.
+- State-promotion exact-head Database run `35752831474`, job `106831077125` — **SUCCESS**.
+- State-promotion exact-head Web run `35752831380`, job `106831074547` — **SUCCESS**.
+- This register update is the final exact-head closure trigger. DD-108 MUST NOT be declared closed until that resulting exact head passes Core Service, PostgreSQL/RLS, Database and Web verification and final safety checks confirm `main` and `RawSourceCorpus` remain unchanged.
