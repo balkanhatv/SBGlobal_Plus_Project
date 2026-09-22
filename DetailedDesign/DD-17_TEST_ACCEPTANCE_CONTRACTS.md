@@ -1055,3 +1055,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | NOTIF-DEL-PG-003 | Tenant Core delivery requested from same-Tenant Industry and Tenant Core contexts | same Tenant Core delivery visible in both; raw FAILED/error evidence preserved |
 | NOTIF-DEL-PG-004 | foreign-Tenant delivery id queried | FORCE-RLS returns no row; owning Tenant sees raw terminal evidence without finality/provider authority |
 | NOTIF-DEL-PG-005 | malformed id or database route/context mismatch | fail closed before delivery disclosure |
+
+
+### Raw PostgreSQL NotificationDeliveryAttempt reader — DD-099
+
+| ID | Scenario | Expected |
+|---|---|---|
+| NOTIF-ATT-PG-001 | exact Tenant Industry delivery has multiple persisted attempts | immutable rows returned in attempt-number order; raw provider/status/error/time evidence preserved; no retry/finality decision |
+| NOTIF-ATT-PG-002 | sibling Industry delivery attempts requested from current Industry | parent FORCE-RLS yields no rows; exact sibling context may read its own |
+| NOTIF-ATT-PG-003 | Tenant Core delivery attempts requested from same-Tenant Industry and Tenant Core contexts | same raw attempt evidence visible in both |
+| NOTIF-ATT-PG-004 | foreign-Tenant delivery attempts requested | no rows; owning Tenant sees raw terminal/provider-reference evidence without authority |
+| NOTIF-ATT-PG-005 | malformed delivery id or database route/context mismatch | fail closed before attempt disclosure |
+| NOTIF-ATT-PG-006 | Notification worker attempts UPDATE/DELETE on attempt evidence | privilege denial; persisted attempt remains unchanged |
