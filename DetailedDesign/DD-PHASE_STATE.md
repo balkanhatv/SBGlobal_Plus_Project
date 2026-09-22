@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-22 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-PROVIDER-CATALOG-READ-001`
+**Date:** 2026-09-22 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-MODEL-CATALOG-READ-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,12 +18,12 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-22
 
-Current checkpoint: `DEV-AI-PROVIDER-CATALOG-READ-001`. Decisions are contiguous through DD-107. Historical Phase-3 completion applies to its evaluated scope.
+Current checkpoint: `DEV-AI-MODEL-CATALOG-READ-001`. Decisions are contiguous through DD-108. Historical Phase-3 completion applies to its evaluated scope.
 
-Verified executable `b75b6b2fe93be4dcea2ff5ed9020e66acde03e08` / tree `2a80273e064e7cce7bb8dcb82b6e2f25493f4e9c`: **311/311 Core**, **190/190 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **531 blobs / 214 Markdown / 137 source / 78 test files**.
+Verified executable `e1e53969a3a2869e2c4612e45c65a7a3c66d2d58` / tree `f057bef288113ff61bd3575239cbabc44c756c9a`: **311/311 Core**, **195/195 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **537 blobs / 217 Markdown / 139 source / 79 test files**.
 
-Promotion invariant gate `0a230cd6828a84fd6112ee00b1a75333d65ec1c4`: Core run `35726430207`, Database run `35726430210`, Web run `35726430254` — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements**.
+Corrected promotion invariant gate `392c928ac72c58a4347fd4ceaa89b9c90afd8d71` / tree `06a231745bfc2765be9eae4120195e9b627407b9`: Core run `35745883068`, Database run `35745883189`, Web run `35745883110` — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements** and **108 unique DD definitions**.
 
-DD-107 adds an exact-by-id global `core_ai.ai_provider` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. `credential_ref` is deliberately absent from the SQL projection and returned contract. Raw status/health and catalog metadata remain evidence only and do not authorize provider/model selection, eligibility, routing, fallback/retry, secret resolution, SDK/inference, RAG, assistant, agent/tool, tenant/industry AI-policy, budget/quota, or other concrete AI Gateway execution semantics. DD-101–106 exhaust the six Workflow/Automation raw persistence readers; their execution/mutation semantics remain unclaimed. No migration, verification SQL, role, grant, RLS policy, or product-policy change is introduced by DD-107.
+DD-108 adds an exact-by-id global `core_ai.ai_model` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. `providerId`, raw status, capabilities, modality, sensitivity, residency, cost, latency and metadata values remain catalog evidence only; they do not authorize active/current/eligible/preferred model selection, provider/model routing, fallback/retry, credential resolution, inference/embedding, RAG, assistant, agent/tool, tenant/industry AI-policy, quota/budget or other concrete AI Gateway execution semantics. No Tenant/Industry RequestContext, migration, schema, verification SQL, role, grant, RLS policy or product-policy change is introduced by DD-108.
 
-Next: Fresh source-audit the next independent source-complete AI persistence slice. Do not pre-authorize ai_model or open concrete AI Gateway provider/model selection, routing, secret resolution, fallback/retry, inference, RAG, assistant, agent/tool execution, AIProvisioningSnapshot current-selection, prompt/policy evaluation, or Workflow/Automation runtime semantics without source-owned authority.
+Next: Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility, routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant, agent/tool execution, `AIProvisioningSnapshot` compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.

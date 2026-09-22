@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-22",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-PROVIDER-CATALOG-READ-001",
-  "final_verdict": "DD-107 AI PROVIDER CATALOG METADATA READER IMPLEMENTED / EXACT-HEAD TESTED; CREDENTIAL_REF EXCLUDED; CONCRETE AI GATEWAY RUNTIME AUTHORITY UNCLAIMED",
+  "checkpoint": "DEV-AI-MODEL-CATALOG-READ-001",
+  "final_verdict": "DD-108 AI MODEL CATALOG METADATA READER IMPLEMENTED / EXACT-HEAD TESTED; RAW CATALOG EVIDENCE ONLY; MODEL SELECTION, ROUTING AND EXECUTION AUTHORITY UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "b75b6b2fe93be4dcea2ff5ed9020e66acde03e08",
-    "verified_code_tree": "2a80273e064e7cce7bb8dcb82b6e2f25493f4e9c",
-    "state_projection_basis_head": "b75b6b2fe93be4dcea2ff5ed9020e66acde03e08",
+    "verified_code_head": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
+    "verified_code_tree": "f057bef288113ff61bd3575239cbabc44c756c9a",
+    "state_projection_basis_head": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "AI Provider catalog metadata exact-by-id reader verified; credential secret reference and concrete AI Gateway runtime authority not claimed",
+    "current_phase": "AI Model catalog metadata exact-by-id reader verified; raw provider relation and model metadata remain non-authorizing evidence",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next independent source-complete AI persistence slice. Do not pre-authorize ai_model or open concrete AI Gateway provider/model selection, routing, secret resolution, fallback/retry, inference, RAG, assistant, agent/tool execution, AIProvisioningSnapshot current-selection, prompt/policy evaluation, or Workflow/Automation runtime semantics without source-owned authority.",
+    "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility, routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant, agent/tool execution, AIProvisioningSnapshot compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.",
     "core_services": {
-      "checkpoint": "DEV-AI-PROVIDER-CATALOG-READ-001",
+      "checkpoint": "DEV-AI-MODEL-CATALOG-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–107 current implementation; DD-107 bounded AI Provider catalog metadata PostgreSQL reader",
-      "verified_head": "b75b6b2fe93be4dcea2ff5ed9020e66acde03e08",
-      "verified_tree": "2a80273e064e7cce7bb8dcb82b6e2f25493f4e9c",
-      "core_ci_run_id": 35697472320,
-      "core_ci_job_id": 106647432209,
+      "decision": "DD-040–108 current implementation; DD-108 bounded AI Model catalog metadata PostgreSQL reader",
+      "verified_head": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
+      "verified_tree": "f057bef288113ff61bd3575239cbabc44c756c9a",
+      "core_ci_run_id": 35738071363,
+      "core_ci_job_id": 106780341230,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35697472320,
-      "postgres_ci_job_id": 106647432487,
-      "postgres_tests": "190/190 PASS",
+      "postgres_ci_run_id": 35738071363,
+      "postgres_ci_job_id": 106780341587,
+      "postgres_tests": "195/195 PASS",
       "postgres_test_counts": {
-        "tests": 190,
-        "pass": 190,
+        "tests": 195,
+        "pass": 195,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35697472248,
-      "database_regression_job_id": 106628678181,
+      "database_regression_run_id": 35738071402,
+      "database_regression_job_id": 106780341661,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -380,7 +380,8 @@
         "DD-106 raw AutomationRun read contract",
         "DD-106 PostgreSQL AutomationRun exact-by-id reader through dedicated Workflow worker role",
         "WFA-RUN-PG-001–007 real PostgreSQL scope-RLS, evidence-only and read-surface acceptance",
-        "DD-107 exact-by-id AI Provider catalog metadata reader through dedicated sbg_ai_gateway_rw boundary with credential_ref excluded"
+        "DD-107 exact-by-id AI Provider catalog metadata reader through dedicated sbg_ai_gateway_rw boundary with credential_ref excluded",
+        "DD-108 exact-by-id AI Model catalog metadata reader through dedicated sbg_ai_gateway_rw boundary with raw catalog evidence only"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -488,7 +489,9 @@
         "AutomationRun idempotency/replay authorization and retry/backoff/finality",
         "AutomationRun status-transition authorization and runtime mutation flow",
         "Automation condition-rule and OperationContract dispatch",
-        "Automation WorkflowDefinition execution"
+        "Automation WorkflowDefinition execution",
+        "active/current/eligible/preferred AI model selection",
+        "provider/model routing, fallback, credential resolution, provider SDK, inference and embedding execution"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -504,9 +507,9 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Source-audit the next independent source-complete Workflow/Automation persistence slice. Do not open automation runtime execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished."
+      "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility, routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant, agent/tool execution, AIProvisioningSnapshot compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority."
     },
-    "application_api_ui_scope_note": "WorkflowDefinition, WorkflowInstance, WorkflowTask, WorkflowTransition and AutomationDefinition exact-by-id raw persistence readers are implemented/tested through the dedicated Workflow worker/RLS boundary; workflow/automation execution, task actions and product UI remain unfinished.",
+    "application_api_ui_scope_note": "The DD-107 provider and DD-108 model exact-by-id catalog metadata readers are implemented/tested through the dedicated AI Gateway role; provider/model selection, routing, execution and product UI remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -571,9 +574,28 @@
         "registered_industry_tables": 181,
         "requirements_preserved": 2962
       }
+    },
+    "dd108_promotion_invariant_gate": {
+      "head": "392c928ac72c58a4347fd4ceaa89b9c90afd8d71",
+      "tree": "06a231745bfc2765be9eae4120195e9b627407b9",
+      "core_run_id": 35745883068,
+      "core_job_id": 106807278646,
+      "postgres_job_id": 106807279082,
+      "database_run_id": 35745883189,
+      "database_job_id": 106807278122,
+      "web_run_id": 35745883110,
+      "web_job_id": 106807277653,
+      "result": "PASS",
+      "invariants": {
+        "industries": 9,
+        "management_systems": 41,
+        "registered_industry_tables": 181,
+        "requirements_preserved": 2962,
+        "unique_dd_definitions": 108
+      }
     }
   },
-  "current_phase": "DEVELOPMENT_AUTOMATION_DEFINITION_READ_VERIFIED",
+  "current_phase": "DEVELOPMENT_AI_MODEL_CATALOG_READ_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -605,12 +627,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
+    "checkpoint": "DEV-AI-MODEL-CATALOG-READ-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
-    "verified_code_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
-    "source_audit": "Development/AUTOMATION_DEFINITION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
+    "verified_code_tree": "f057bef288113ff61bd3575239cbabc44c756c9a",
+    "source_audit": "Development/AI_MODEL_CATALOG_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
@@ -641,20 +663,22 @@
       "DD-103 raw WorkflowTask PostgreSQL reader",
       "DD-104 raw WorkflowTransition PostgreSQL reader",
       "DD-105 raw AutomationDefinition PostgreSQL reader",
-      "DD-106 raw AutomationRun PostgreSQL reader"
+      "DD-106 raw AutomationRun PostgreSQL reader",
+      "DD-107 AI Provider catalog metadata PostgreSQL reader with credential_ref excluded",
+      "DD-108 AI Model catalog metadata PostgreSQL reader with non-authorizing raw evidence"
     ],
-    "next_action": "Source-audit the next independent source-complete Workflow/Automation persistence slice. Do not open automation runtime execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.",
+    "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility, routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant, agent/tool execution, AIProvisioningSnapshot compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
-    "verified_executable_basis": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
-    "verified_executable_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
-    "source_audit": "Development/AUTOMATION_RUN_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD106_VERIFICATION_2026-09-22.md",
-    "scope": "DD-106 exact-by-id raw AutomationRun persistence only; no automation execution or run-mutation authority"
+    "checkpoint": "DEV-AI-MODEL-CATALOG-READ-001",
+    "verified_executable_basis": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
+    "verified_executable_tree": "f057bef288113ff61bd3575239cbabc44c756c9a",
+    "source_audit": "Development/AI_MODEL_CATALOG_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD108_VERIFICATION_2026-09-22.md",
+    "scope": "DD-108 exact-by-id global AI Model catalog metadata read only; no model selection, routing or execution authority"
   },
   "current_state_audit": {
     "date": "2026-09-21",
