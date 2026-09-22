@@ -1144,3 +1144,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WFA-DEF-PG-005 | foreign-Tenant definition requested | no row; owning Tenant sees raw lifecycle/trigger/config evidence without execution authority |
 | WFA-DEF-PG-006 | malformed definition id or database route/context mismatch | fail closed before AutomationDefinition disclosure |
 | WFA-DEF-PG-007 | Workflow worker attempts UPDATE of AutomationDefinition catalog | privilege denial; raw definition remains unchanged |
+
+
+### Raw PostgreSQL AutomationRun reader — DD-106
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WFA-RUN-PG-001 | exact Tenant Industry AutomationRun id | immutable raw trigger/idempotency/status/time/correlation/error evidence; no execution or next-state decision |
+| WFA-RUN-PG-002 | sibling Industry run requested from current Industry | FORCE-RLS returns no row; exact sibling context may read its own raw run |
+| WFA-RUN-PG-003 | Tenant Core run requested from same-Tenant Industry and Tenant Core contexts | same raw run visible; schema-allowed empty text evidence preserved |
+| WFA-RUN-PG-004 | foreign-Tenant run requested | no row; owning Tenant sees raw evidence without execution authority |
+| WFA-RUN-PG-005 | persisted terminal/non-terminal run evidence read | no trigger/retry/finality/next-state execution decision is surfaced |
+| WFA-RUN-PG-006 | malformed run id or database route/context mismatch | fail closed before AutomationRun disclosure |
+| WFA-RUN-PG-007 | Workflow worker privilege/read-port surface inspected | schema-owned AutomationRun UPDATE privilege remains; DD-106 read port exposes no mutation method |

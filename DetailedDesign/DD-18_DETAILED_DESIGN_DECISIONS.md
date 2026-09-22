@@ -1621,3 +1621,17 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** WFA-DEF-PG-001…007 in DD-17 and
 `tests/postgres/automation-definition-store.test.mjs`.
+
+
+## DD-106 — AutomationRun raw persistence is readable without becoming automation execution or mutation authority
+
+**Context:** migration 0026 defines Tenant/Industry-scoped AutomationRun rows with AutomationDefinition linkage, raw trigger/idempotency evidence, lifecycle status, timestamps, correlation and optional error evidence under FORCE-RLS. Migration 0027 grants the dedicated Workflow worker SELECT/INSERT/UPDATE on AutomationRun, while migration 0031 validates the referenced AutomationDefinition is active and compatible with the run scope. The repository does not yet own a source-complete trigger executor, retry/finality policy, run-state transition authorizer or automation runtime.
+
+**Decision:** add immutable `PersistedAutomationRun`, `AutomationRunReadPort.loadForContext(...)` and `PostgresAutomationRunStore`. The store reads one exact UUID through the existing dedicated `PostgresWorkflowDatabase` + `RequestScopedSql` boundary, validates schema-owned UUID/status/timestamp shape and completion ordering, and preserves raw trigger reference, idempotency hash, correlation and optional last-error evidence.
+
+**Security / trade-off:** FORCE-RLS remains authoritative. Industry runs are exact-context only; Tenant Core runs remain same-Tenant visible from Tenant Core and Tenant Industry contexts; foreign Tenant rows are undiscoverable. Persisted status/trigger/idempotency/error evidence does not select a trigger, authorize retry/finality or determine a next state. The schema-owned Workflow worker UPDATE privilege remains unchanged; DD-106 exposes no mutation method through its read port.
+
+**Boundary:** DD-106 does not create/select a run, interpret trigger_ref, treat idempotency evidence as replay/authorization authority, choose or authorize status transitions, schedule retry/backoff/finality, evaluate AutomationDefinition trigger/config/conditions, dispatch an OperationContract or WorkflowDefinition, mutate AutomationRun, expose a route, or change migrations, roles, grants, RLS or product policy.
+
+**Acceptance:** WFA-RUN-PG-001…007 in DD-17 and
+`tests/postgres/automation-run-store.test.mjs`.
