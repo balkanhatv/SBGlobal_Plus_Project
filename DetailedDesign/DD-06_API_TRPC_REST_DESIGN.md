@@ -432,3 +432,27 @@ CredentialReference secret metadata.
 **Boundary:** DD-095 is read-only registry/state persistence. No secret-store access,
 provider SDK/runtime, health evaluation, capability authorization, network call,
 mutation, migration, role, grant or route is introduced.
+
+
+## 39. Tenant-scoped CredentialReference metadata reader [DD-096]
+
+`CredentialReferenceMetadata` exposes only the non-secret metadata required to
+reason about one Tenant-scoped credential reference: id, Tenant/optional Industry
+ownership, secret-store provider, credential type, key version, raw status, optional
+rotation/expiry timestamps and creation time.
+
+`PostgresCredentialReferenceMetadataStore` reads one credential id through the
+fixed Integration service role plus `RequestScopedSql`. Migration 0025 FORCE-RLS
+remains the visibility authority: sibling Industry and foreign-Tenant rows are
+hidden, while Tenant Core metadata remains same-Tenant visible.
+
+The SELECT and returned contract deliberately exclude `secret_reference`. DD-06
+§17 keeps secret-locator/material access on a separate service-principal-only,
+purpose-bound and audited path. Metadata status/expiry/version is evidence only and
+does not by itself authorize provider execution or rotation.
+
+Platform-global CredentialReference rows are outside this tenant-scoped port.
+
+**Boundary:** no secret locator/material, secret-store call, credential usability
+decision, provider selection/runtime, rotation action, route, migration, role, grant
+or RLS change is introduced.
