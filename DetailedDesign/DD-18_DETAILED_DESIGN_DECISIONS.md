@@ -1448,3 +1448,32 @@ grant or RLS change is introduced.
 
 **Acceptance:** NOTIF-ATT-PG-001…006 in DD-17 and
 `tests/postgres/notification-delivery-attempt-store.test.mjs`.
+
+
+## DD-100 — NotificationTemplate raw persistence is readable without becoming selection/render/send authority
+
+**Context:** migration 0026 defines owner-scoped NotificationTemplate versioned
+content plus FORCE-RLS through `row_visible_to_current_context`; migration 0027
+grants Notification workers SELECT only; migration 0031 validates creator/approver
+scope. No executable repository rule defines locale fallback, owner-scope fallback,
+variable rendering/escaping or template-to-send selection.
+
+**Decision:** add immutable `PersistedNotificationTemplate`,
+`NotificationTemplateReadPort.loadForContext(...)` and
+`PostgresNotificationTemplateStore`. The store performs one exact UUID read through
+the existing dedicated Notification database/request scope and validates owner shape,
+channel, lifecycle status, version, JSON schema evidence, principals and timestamps.
+
+**Security / trade-off:** RLS is authoritative. Industry templates are visible only
+to their exact Industry Context; Tenant templates remain same-Tenant visible;
+PLATFORM templates require PLATFORM_GLOBAL trusted service/operator context and are
+not silently exposed as Tenant fallback. Raw DRAFT/REVIEW/PUBLISHED/ACTIVE/RETIRED
+status is evidence only.
+
+**Boundary:** no active-version selection, locale/owner fallback, variable
+substitution, channel escaping, render engine, approval/send eligibility, provider or
+credential selection, secret access, network call, route, migration, role, grant or
+RLS change is introduced.
+
+**Acceptance:** NOTIF-TPL-PG-001…006 in DD-17 and
+`tests/postgres/notification-template-store.test.mjs`.
