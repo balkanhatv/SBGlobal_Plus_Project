@@ -57,3 +57,4 @@ export * from "./integration/integration-capability.js";
 export * from "./integration/provider-adapter.js";
 export * from "./integration/tenant-integration.js";
 export * from "./integration/credential-reference-metadata.js";
+export * from "./integration/sync-cursor.js";
