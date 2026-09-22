@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-22",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-MODEL-CATALOG-READ-001",
-  "final_verdict": "DD-108 AI MODEL CATALOG METADATA READER IMPLEMENTED / EXACT-HEAD TESTED; RAW CATALOG EVIDENCE ONLY; MODEL SELECTION, ROUTING AND EXECUTION AUTHORITY UNCLAIMED",
+  "checkpoint": "DEV-AI-CAPABILITY-CATALOG-READ-001",
+  "final_verdict": "DD-109 AI CAPABILITY CATALOG METADATA READER IMPLEMENTED / EXACT-HEAD TESTED; RAW CATALOG EVIDENCE ONLY; CAPABILITY AUTHORIZATION, POLICY, ROUTING AND EXECUTION AUTHORITY UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
-    "verified_code_tree": "f057bef288113ff61bd3575239cbabc44c756c9a",
-    "state_projection_basis_head": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
+    "verified_code_head": "c9effecdec6508f730a039b89c3e00588a71fb87",
+    "verified_code_tree": "024733156623ade9ad58caeb2711e6032da68dbd",
+    "state_projection_basis_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "AI Model catalog metadata exact-by-id reader verified; raw provider relation and model metadata remain non-authorizing evidence",
+    "current_phase": "AI Capability catalog metadata exact-by-id reader verified; category, entitlement-reference, policy-class and status fields remain non-authorizing evidence",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
-      "ci_run_id": 35691305768,
-      "ci_job_id": 106628678181,
+      "ci_verified_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
+      "ci_run_id": 35757440917,
+      "ci_job_id": 106846680708,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
+      "ci_verified_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
-      "feature_head_bootstrap_verified_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
-      "feature_head_bootstrap_run_id": 35691305850,
-      "feature_head_bootstrap_job_id": 106628678789,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_190_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
+      "feature_head_bootstrap_verified_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
+      "feature_head_bootstrap_run_id": 35757441004,
+      "feature_head_bootstrap_job_id": 106846673057,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_205_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -113,16 +113,16 @@
     },
     "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility, routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant, agent/tool execution, AIProvisioningSnapshot compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.",
     "core_services": {
-      "checkpoint": "DEV-AI-MODEL-CATALOG-READ-001",
+      "checkpoint": "DEV-AI-CAPABILITY-CATALOG-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–108 current implementation; DD-108 bounded AI Model catalog metadata PostgreSQL reader",
-      "verified_head": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
-      "verified_tree": "f057bef288113ff61bd3575239cbabc44c756c9a",
-      "core_ci_run_id": 35738071363,
-      "core_ci_job_id": 106780341230,
+      "decision": "DD-040–109 current implementation; DD-109 bounded AI Capability catalog metadata PostgreSQL reader",
+      "verified_head": "c9effecdec6508f730a039b89c3e00588a71fb87",
+      "verified_tree": "024733156623ade9ad58caeb2711e6032da68dbd",
+      "core_ci_run_id": 35757441004,
+      "core_ci_job_id": 106846672789,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35738071363,
-      "postgres_ci_job_id": 106780341587,
-      "postgres_tests": "200/200 PASS",
+      "postgres_ci_run_id": 35757441004,
+      "postgres_ci_job_id": 106846673057,
+      "postgres_tests": "205/205 PASS",
       "postgres_test_counts": {
-        "tests": 200,
-        "pass": 200,
+        "tests": 205,
+        "pass": 205,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35738071402,
-      "database_regression_job_id": 106780341661,
+      "database_regression_run_id": 35757440917,
+      "database_regression_job_id": 106846680708,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -507,7 +507,12 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility, routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant, agent/tool execution, AIProvisioningSnapshot compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority."
+      "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility, routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant, agent/tool execution, AIProvisioningSnapshot compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.",
+      "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
+      "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
+      "promotion_invariant_gate_web_run_id": 35757440910,
+      "promotion_invariant_gate_web_job_id": 106846672128,
+      "promotion_invariant_gate_unique_dd": 109
     },
     "application_api_ui_scope_note": "The DD-107 provider and DD-108 model exact-by-id catalog metadata readers are implemented/tested through the dedicated AI Gateway role; provider/model selection, routing, execution and product UI remain unfinished.",
     "application_services_started": true,

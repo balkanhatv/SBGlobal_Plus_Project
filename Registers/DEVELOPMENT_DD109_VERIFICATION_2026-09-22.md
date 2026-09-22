@@ -72,9 +72,9 @@ Migration 0031's use of active capability rows remains database relationship-int
 
 ## 6. Promotion invariant gate
 
-This verification-record commit is the intended exact-head invariant gate after canonical DD-109 promotion. Promotion requires Core Service Verify, PostgreSQL/RLS, Database Verify, and Web Boundary Verify to complete successfully at this head, with repository invariants unchanged except the contiguous decision count advancing from 108 to **109 unique DD definitions**.
+Exact invariant-gate head: `0cd3bd299bd2e4a0ca9b6644527d15a701ec9077` / tree `45ebfc04fde83fc4f5f42415d98f288cd5109169`. Core Service Verify run `35757441004` (Core job `106846672789`, PostgreSQL/RLS job `106846673057`), Database Verify run `35757440917` (job `106846680708`), and Web Boundary Verify run `35757440910` (job `106846672128`) all completed **SUCCESS** against that exact SHA. Repository invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements**, with the contiguous canonical decision count advancing exactly once to **109 unique DD definitions**.
 
-Gate run IDs and exact gate SHA are recorded in the follow-up closure update only after exact-head CI completes successfully.
+This green invariant gate authorizes state/checkpoint promotion to `DEV-AI-CAPABILITY-CATALOG-READ-001`; it does not expand DD-109 runtime semantics.
 
 ## 7. Safety invariants
 

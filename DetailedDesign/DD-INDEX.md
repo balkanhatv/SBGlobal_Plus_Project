@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-22 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-MODEL-CATALOG-READ-001`
+**Updated:** 2026-09-22 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-CAPABILITY-CATALOG-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -26,7 +26,7 @@
 
 The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-108**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-108 adds an exact-by-id global `core_ai.ai_model` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. `providerId`, raw status, capabilities, modality, sensitivity, residency, cost, latency and metadata values remain catalog evidence only; they do not authorize active/current/eligible/preferred model selection, provider/model routing, fallback/retry, credential resolution, inference/embedding, RAG, assistant, agent/tool, tenant/industry AI-policy, quota/budget or other concrete AI Gateway execution semantics. No Tenant/Industry RequestContext, migration, schema, verification SQL, role, grant, RLS policy or product-policy change is introduced by DD-108.
+DD-109 adds an exact-by-id global `core_ai.ai_capability` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. `category`, nullable `requiredEntitlement`, `defaultPolicyClass`, positive `schemaVersion`, and raw `status` remain persisted catalog evidence only; they do not authorize runtime capability eligibility, entitlement/policy evaluation, Tenant/Industry allowed-capability resolution, provisioning selection, provider/model routing, credential resolution, quota/budget decisions, or AI execution. No Tenant/Industry RequestContext, migration, schema, verification SQL, role, grant, RLS policy or product-policy change is introduced by DD-109.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `e1e53969a3a2869e2c4612e45c65a7a3c66d2d58` / tree `f057bef288113ff61bd3575239cbabc44c756c9a` — 311 Core tests, 200 PostgreSQL tests including `AIMODEL-PG-001…005`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Corrected promotion invariant gate `392c928ac72c58a4347fd4ceaa89b9c90afd8d71`: Core run `35745883068`, Database run `35745883189`, Web run `35745883110` — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 108 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD108_VERIFICATION_2026-09-22.md).
+**Current verified executable evidence:** `c9effecdec6508f730a039b89c3e00588a71fb87` / tree `024733156623ade9ad58caeb2711e6032da68dbd` — 311 Core tests, 205 PostgreSQL tests including `AICAP-PG-001…005`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `0cd3bd299bd2e4a0ca9b6644527d15a701ec9077`: Core run `35757441004`, Database run `35757440917`, Web run `35757440910` — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 109 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD109_VERIFICATION_2026-09-22.md).
