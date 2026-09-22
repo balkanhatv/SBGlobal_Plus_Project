@@ -23,6 +23,9 @@ import {
 import {
   PostgresIntegrationCapabilityStore,
 } from "../../dist/server/integration/postgres-integration-capability-store.js";
+import {
+  PostgresProviderAdapterStore,
+} from "../../dist/server/integration/postgres-provider-adapter-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -62,6 +65,8 @@ const f = Object.fromEntries([
   "definitionIndustry",
   "capabilityPlatform",
   "capabilityIndustry",
+  "providerAdapterPlatform",
+  "providerAdapterIndustry",
 ].map((key) => [key, randomUUID()]));
 
 let pool;
@@ -71,6 +76,7 @@ let outboxStore;
 let catalogStore;
 let definitionStore;
 let capabilityStore;
+let providerAdapterStore;
 
 const eventTypeIndustry = "webhook.reader.industry." + randomBytes(6).toString("hex");
 const eventTypeTenant = "webhook.reader.tenant." + randomBytes(6).toString("hex");
@@ -214,6 +220,23 @@ before(async () => {
       [
         f.capabilityPlatform,
         f.capabilityIndustry,
+        f.definitionPlatform,
+        f.definitionIndustry,
+      ],
+    );
+
+    await client.query(
+      `INSERT INTO core_integration.provider_adapter
+        (id,definition_id,adapter_code,contract_version,auth_method,timeout_class,
+         retry_class,circuit_class,health_probe_class,normalized_error_map_version,status)
+       VALUES
+        ($1,$3,'fixture-http','v1','OAUTH_CLIENT','STANDARD','EXPONENTIAL',
+         'DEFAULT','HTTP_HEAD','errors.v1','ACTIVE'),
+        ($2,$4,'fixture-device','v2','API_KEY','LONG','BOUNDED_RETRY',
+         'STRICT','DEVICE_PING','errors.v2','RETIRED')`,
+      [
+        f.providerAdapterPlatform,
+        f.providerAdapterIndustry,
         f.definitionPlatform,
         f.definitionIndustry,
       ],
@@ -436,6 +459,7 @@ before(async () => {
   catalogStore = new PostgresEventCatalogStore(integrationDatabase);
   definitionStore = new PostgresIntegrationDefinitionStore(integrationDatabase);
   capabilityStore = new PostgresIntegrationCapabilityStore(integrationDatabase);
+  providerAdapterStore = new PostgresProviderAdapterStore(integrationDatabase);
 });
 
 after(async () => {
@@ -459,6 +483,10 @@ after(async () => {
     await client.query(
       "DELETE FROM core_integration.outbox_event_identity WHERE id=ANY($1::uuid[])",
       [[f.eventIndustryA, f.eventTenantA, f.eventIndustryB]],
+    );
+    await client.query(
+      "DELETE FROM core_integration.provider_adapter WHERE id=ANY($1::uuid[])",
+      [[f.providerAdapterPlatform, f.providerAdapterIndustry]],
     );
     await client.query(
       "DELETE FROM core_integration.integration_capability WHERE id=ANY($1::uuid[])",
@@ -982,5 +1010,76 @@ test("INT-CAP-PG-004 malformed definition id or empty capability code fails clos
   await assert.rejects(capabilityStore.loadExact({
     integrationDefinitionId: f.definitionPlatform,
     capabilityCode: "",
+  }));
+});
+
+
+test("INT-ADAPTER-PG-001 exact definition+adapter+contract tuple preserves raw registry metadata", async () => {
+  const adapter = await providerAdapterStore.loadExact({
+    definitionId: f.definitionPlatform,
+    adapterCode: "fixture-http",
+    contractVersion: "v1",
+  });
+
+  assert.ok(adapter);
+  assert.equal(adapter.id, f.providerAdapterPlatform);
+  assert.equal(adapter.definitionId, f.definitionPlatform);
+  assert.equal(adapter.adapterCode, "fixture-http");
+  assert.equal(adapter.contractVersion, "v1");
+  assert.equal(adapter.authMethod, "OAUTH_CLIENT");
+  assert.equal(adapter.timeoutClass, "STANDARD");
+  assert.equal(adapter.retryClass, "EXPONENTIAL");
+  assert.equal(adapter.circuitClass, "DEFAULT");
+  assert.equal(adapter.healthProbeClass, "HTTP_HEAD");
+  assert.equal(adapter.normalizedErrorMapVersion, "errors.v1");
+  assert.equal(adapter.status, "ACTIVE");
+  assert.equal(Object.isFrozen(adapter), true);
+});
+
+test("INT-ADAPTER-PG-002 raw RETIRED adapter metadata does not instantiate or select a provider", async () => {
+  const adapter = await providerAdapterStore.loadExact({
+    definitionId: f.definitionIndustry,
+    adapterCode: "fixture-device",
+    contractVersion: "v2",
+  });
+
+  assert.ok(adapter);
+  assert.equal(adapter.authMethod, "API_KEY");
+  assert.equal(adapter.retryClass, "BOUNDED_RETRY");
+  assert.equal(adapter.status, "RETIRED");
+  assert.equal("selected" in adapter, false);
+  assert.equal("client" in adapter, false);
+  assert.equal("healthy" in adapter, false);
+  assert.equal("authorized" in adapter, false);
+});
+
+test("INT-ADAPTER-PG-003 exact tuple mismatch returns null without version/adapter fallback", async () => {
+  assert.equal(await providerAdapterStore.loadExact({
+    definitionId: f.definitionPlatform,
+    adapterCode: "fixture-http",
+    contractVersion: "v2",
+  }), null);
+  assert.equal(await providerAdapterStore.loadExact({
+    definitionId: f.definitionPlatform,
+    adapterCode: "fixture-device",
+    contractVersion: "v2",
+  }), null);
+});
+
+test("INT-ADAPTER-PG-004 malformed definition id or empty tuple field fails closed", async () => {
+  await assert.rejects(providerAdapterStore.loadExact({
+    definitionId: "not-a-uuid",
+    adapterCode: "fixture-http",
+    contractVersion: "v1",
+  }));
+  await assert.rejects(providerAdapterStore.loadExact({
+    definitionId: f.definitionPlatform,
+    adapterCode: "",
+    contractVersion: "v1",
+  }));
+  await assert.rejects(providerAdapterStore.loadExact({
+    definitionId: f.definitionPlatform,
+    adapterCode: "fixture-http",
+    contractVersion: "",
   }));
 });
