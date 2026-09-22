@@ -1231,3 +1231,30 @@ change schema/privileges.
 
 **Acceptance:** EVT-CAT-PG-001…004 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-092 — IntegrationDefinition primary-key registry reads preserve metadata without provider-selection authority
+
+**Context:** DD-06 §15 and migration 0025 define the exact IntegrationDefinition
+registry row. Migration 0028 already grants the dedicated Integration service role
+SELECT-only access to that table. `owner_scope` has an exact persisted enum, while
+definition status/classification fields remain text and do not own universal runtime
+selection semantics.
+
+**Decision:** add `IntegrationDefinitionReadPort.loadById` and concrete
+`PostgresIntegrationDefinitionStore`. It performs one parameterized primary-key
+read through the fixed Integration database role, validates persisted structure,
+freezes nested capability/JSON values and returns null for absence.
+
+**Security / trade-off:** this exposes only registry metadata that the Integration
+service is already allowed to read. It intentionally does not traverse into
+CredentialReference/TenantIntegration, so no secret reference or tenant enablement
+state is leaked or conflated with a global definition. Raw RETIRED/other status text
+does not itself authorize or prohibit execution at this layer.
+
+**Boundary:** no provider/adapter/capability selection, health fallback, residency
+policy evaluation, credential access, callback execution, route or registry mutation
+is claimed.
+
+**Acceptance:** INT-DEF-PG-001…004 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
