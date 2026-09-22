@@ -1309,3 +1309,29 @@ callback dispatch, route or schema/privilege change is claimed.
 
 **Acceptance:** INT-ADAPTER-PG-001…004 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-095 — TenantIntegration raw state is readable without becoming execution authority
+
+**Context:** DD-06 and migration 0025 already own the exact TenantIntegration fields,
+scope shape and FORCE-RLS policy. DD-092/093/094 separately expose definition,
+capability and adapter registry metadata. Provider execution, secret retrieval and
+Tenant enablement/health semantics remain separate runtime concerns.
+
+**Decision:** add typed `TenantIntegrationReadPort` and concrete
+`PostgresTenantIntegrationStore`. The store reads exactly one RLS-visible row by
+UUID through the existing fixed Integration service-role database/request scope and
+returns an immutable persistence snapshot.
+
+**Security / trade-off:** the row may carry a CredentialReference **identifier**, but
+the reader never joins `credential_reference` or exposes secret-store provider,
+secret reference or credential material. Raw status, enabled-capability list and
+health state remain evidence only and do not by themselves authorize provider or
+OperationContract execution.
+
+**Boundary:** no provider selection/execution, credential retrieval, health-policy
+decision, capability authorization, network call, mutation or schema/privilege
+change is claimed.
+
+**Acceptance:** INT-TENANT-PG-001…005 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
