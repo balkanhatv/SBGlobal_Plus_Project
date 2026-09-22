@@ -1011,3 +1011,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | INT-ADAPTER-PG-002 | exact tuple has raw RETIRED status | evidence preserved; no selected/client/healthy/authorized runtime decision |
 | INT-ADAPTER-PG-003 | adapter exists under another version/code | null; no version/adapter fallback |
 | INT-ADAPTER-PG-004 | malformed definition UUID or empty adapter/version | fail closed before persistence query |
+
+
+### Raw PostgreSQL TenantIntegration reader — DD-095
+
+| ID | Scenario | Expected |
+|---|---|---|
+| INT-TENANT-PG-001 | exact Tenant Industry integration id | immutable raw scope/definition/status/credential-id/config/capability/health/version facts; no secret/runtime authority |
+| INT-TENANT-PG-002 | sibling Industry TenantIntegration requested from current Industry | FORCE-RLS returns no row; exact sibling context may read its own |
+| INT-TENANT-PG-003 | Tenant Core integration requested from same-Tenant Industry and Tenant Core contexts | same Tenant Core row visible in both; raw PAUSED/health evidence preserved |
+| INT-TENANT-PG-004 | foreign-Tenant integration id queried | FORCE-RLS returns no row; owning Tenant may read raw ACTIVE/health evidence without execution authority |
+| INT-TENANT-PG-005 | malformed id or database route/context mismatch | fail closed before TenantIntegration disclosure |
