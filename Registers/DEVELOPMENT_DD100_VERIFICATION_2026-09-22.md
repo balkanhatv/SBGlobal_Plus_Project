@@ -69,3 +69,22 @@ and `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`. Main remains
 NotificationTemplate persistence is not a selection/render/send engine. Locale/owner
 fallback, variable rendering/escaping, approval/send eligibility, provider selection,
 credentials/secrets and network execution remain unfinished.
+
+
+## Post-promotion raw-persistence correction
+
+A continuation audit found two reader validations not owned by migration 0026:
+non-empty text enforcement and `updatedAt >= createdAt`. Raw persistence must
+preserve schema-allowed text/timestamp evidence rather than invent those rules.
+
+Corrected executable `958a47cb634e0afaddabcc93e577fd13e1841d0c` / tree
+`b80d4c88ed8f7069985500d8c705164af11935fe` removes only those assumptions and
+adds schema-valid empty safe-preview plus non-monotonic created/updated timestamp
+regression evidence.
+
+- Core run `35685159331`, job `106610313127`: **311/311 PASS**
+- PostgreSQL job `106610313299`: **148/148 PASS**
+- Database Verify `35685159424`, job `106610313945`: **PASS**
+- Web Boundary `35685159316`, job `106610312580`: **PASS**
+
+No migration, role, grant, RLS policy or product rule changed.
