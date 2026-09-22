@@ -44,17 +44,23 @@ Exact tested head: `e1e53969a3a2869e2c4612e45c65a7a3c66d2d58` / tree `f057bef288
 
 DD-108 does not claim active/current/eligible/preferred model selection, provider/model routing, credential resolution, fallback/retry, provider SDK calls, inference or embedding, Tenant/Industry allowlist evaluation, sensitivity/residency runtime decisions, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, Workflow/Automation execution or mutation, or any public/API route.
 
-## Canonical traceability promotion
+## Canonical traceability promotion and correction
 
-- Canonical DD-108 / DD-17 traceability is present at self-removed canonical commit `d9fab2e9b644e4401fdfb85426bd33b70d7b227b` / tree `f261317e378b2223591a1a0becb69454d9883472`.
-- Self-removing helper workflow run `35739724711` completed successfully.
-- Net comparison from executable implementation head to the canonical head changes only `DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md`, `DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md`, and this DD-108 verification register; temporary promotion helpers are absent from the resulting canonical tree.
-- The action-authored canonical commit produced `action_required` PR workflow records and is therefore not treated as the invariant verification gate.
-- This connector-authored register update is the invariant verification gate trigger.
+- The first helper-authored canonical append reached `d9fab2e9b644e4401fdfb85426bd33b70d7b227b` / tree `f261317e378b2223591a1a0becb69454d9883472` via helper workflow run `35739724711`.
+- The first connector-authored invariant trigger was `a4234c890bd10ad1ded13fd650e224b8c1ab56e3` / tree `ffcc07042b94b38b6a8c9cdfe2b517b95240c0dc`.
+- Core run `35744384086`, job `106802059295`, reported **310/311 PASS**. The sole failure was `REPO-004`: canonical decision definitions were duplicated (`108` unique DD IDs versus `109` DD definition headings). `REPO-001` RawSource immutability, `REPO-002` all **2,962** source requirements, `REPO-003` all **9 industries / 41 Management Systems**, `REPO-005` database sequence/manifest, and `REPO-006` Markdown link integrity all passed in that same job.
+- The PostgreSQL/RLS job `106802059645`, Database Verify run `35744384170`, and Web Boundary Verify run `35744384224` on that first gate were successful. The failed gate was therefore canonical-traceability duplication, not DD-108 implementation semantics.
+- Investigation found that the canonical files already contained the source-aligned original DD-108 / `AIMODEL-PG-001…005` definitions before the helper append. The later duplicate tail was removed without changing the retained DD-108 semantics.
+- Duplicate-cleanup staging commit: `073d452732167db807392a6fca45f83acff56f48`.
+- Self-removed cleanup result: `8fdc4fc2d6c555398d8a82249297777a4544ddc6`.
+- Corrected canonical baseline: `cb626b6581b29b46d3ae09bf2e4b635115172a2d` / tree `6a7da6cc55203b63053e0325c4f5f2bb9a11c976`.
+- Temporary DD-108 canonical-promotion and duplicate-cleanup helper artifacts are absent from the corrected canonical tree.
+- No implementation, migration, schema, role, grant, RLS, verification-SQL, or product-policy semantics were changed by the duplicate correction.
+- This connector-authored register update is the **corrected invariant verification gate trigger**.
 
 ## Promotion evidence
 
-- Invariant gate: pending exact CI on this connector-authored register head.
+- Corrected invariant gate: pending exact CI on this connector-authored register head.
 - Promoted checkpoint: pending `DEV-AI-MODEL-CATALOG-READ-001`.
 - State promotion commit/tree: pending.
 - Final exact promotion-head CI: pending.
