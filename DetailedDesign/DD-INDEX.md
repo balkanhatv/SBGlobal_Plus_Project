@@ -1,11 +1,11 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-22 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-WORKFLOW-TRANSITION-READ-001`
+**Updated:** 2026-09-22 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AUTOMATION-DEFINITION-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
 | DD-00…DD-08 | Shared/Core DD — fresh revalidated / verified |
 | DD-09…DD-16 | Experience/AI/offline/infra/security DD — fresh revalidated / verified |
-| DD-17…DD-19 | Acceptance/decisions/traceability — Phase-3, Database audit and DD-040 Core driver/binding propagation |
+| DD-17…DD-19 | Acceptance/decisions/traceability — Phase-3, Database audit and current Development propagation |
 | DD-20A/B/H | Historical audit evidence |
 | DD-20C | Historical prior-head Wave-3 audit |
 | DD-20D | Current Phase-3 overall adversarial PASS |
@@ -24,11 +24,11 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-104**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-105**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-104 adds an exact-by-id raw WorkflowTransition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. It preserves append-only from/action/to/reason, actor/correlation/timestamp and exact bigint version evidence while withholding transition selection/authorization, state-machine/rule/approval execution, WorkflowInstance mutation, task mutation and event emission authority.
+DD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. It preserves immutable trigger/config JSON and raw condition-rule / OperationContract / WorkflowDefinition references while withholding active/effective selection, trigger interpretation, condition evaluation and runtime dispatch/execution authority.
 
-Workflow execution/transition authority, Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Automation runtime execution, Workflow transition execution, Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
 ## Historical all-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `d02fd15421e41f4d1feee9e6725cc171f188c02a` / tree `a9f68aa0c5f3cf559319da324ec902f05c25c344` — 311 Core tests, 176 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD104_VERIFICATION_2026-09-22.md).
+**Current verified executable evidence:** `d654a5e8d969d880a0d9a5ebc064c924f6c25e8c` / tree `1a5a94a4c435b756e623a9cf4328cf04047d4409` — 311 Core tests, 183 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD105_VERIFICATION_2026-09-22.md).

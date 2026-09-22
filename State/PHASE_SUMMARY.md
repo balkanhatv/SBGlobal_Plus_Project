@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-22 · **Current checkpoint:** `DEV-WORKFLOW-TRANSITION-READ-001`
+**Updated:** 2026-09-22 · **Current checkpoint:** `DEV-AUTOMATION-DEFINITION-READ-001`
 
-Verified executable `d02fd15421e41f4d1feee9e6725cc171f188c02a` / tree `a9f68aa0c5f3cf559319da324ec902f05c25c344`: **311/311 Core**, **176/176 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **516 blobs / 209 Markdown / 130 source / 75 test files**.
+Verified executable `d654a5e8d969d880a0d9a5ebc064c924f6c25e8c` / tree `1a5a94a4c435b756e623a9cf4328cf04047d4409`: **311/311 Core**, **183/183 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **521 blobs / 211 Markdown / 132 source / 76 test files**.
 
-DD-104 adds an exact-by-id raw WorkflowTransition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Append-only transition evidence remains non-authorizing and cannot select or execute a transition or mutate WorkflowInstance, WorkflowTask or event state.
+DD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Immutable trigger/config JSON and raw condition-rule / OperationContract / WorkflowDefinition references remain persistence evidence and cannot become active/effective selection, trigger interpretation or runtime execution authority.
 
-Workflow transition/state-machine/approval/rule execution remains unfinished. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Automation active/effective selection, trigger interpretation, condition evaluation, OperationContract dispatch, WorkflowDefinition execution and AutomationRun runtime remain unfinished. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
-Next: Source-audit the next independent source-complete Workflow persistence slice. Do not open workflow execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.
+Next: Source-audit the next independent source-complete Workflow/Automation persistence slice. Do not open automation runtime execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
