@@ -1190,3 +1190,21 @@ Raw `ACTIVE`, sensitivity, residency, cost, latency, capability, or provider-lin
 
 ### AIMODEL-PG-005 — Provider relation is preserved under SELECT-only AI role
 `providerId` is returned as raw relation evidence. `sbg_ai_gateway_rw` can SELECT the model catalog but cannot INSERT/UPDATE/DELETE; a mutation attempt is rejected, and the bounded store exposes no create/update/delete methods.
+
+## DD-109 AI Capability Catalog Metadata Reader Acceptance
+
+### AICAP-PG-001 — Exact immutable capability catalog evidence
+Exact capability-id lookup returns only the bounded AI Capability metadata contract, preserving code, constrained category, nullable required-entitlement evidence, default-policy-class evidence, positive schema version, and raw status as an immutable/frozen result.
+
+### AICAP-PG-002 — Absence and malformed identity fail closed
+An absent well-formed UUID returns `null`; a malformed capability UUID fails closed rather than being normalized into another identity or unbounded query.
+
+### AICAP-PG-003 — Schema-valid nullable and empty evidence is preserved
+`required_entitlement=NULL`, schema-valid empty text, and raw status evidence remain distinct persisted facts and are not strengthened into invented non-empty entitlement/policy rules.
+
+### AICAP-PG-004 — Catalog facts are not authorization, routing, or execution authority
+Raw `ACTIVE`, `required_entitlement`, `default_policy_class`, category, or schema-version facts do not create eligible/entitled/allowed/selected/route/policy-decision authority. The store exposes no entitlement evaluator, policy evaluator, route selector, or AI execution operation.
+
+### AICAP-PG-005 — Dedicated AI role remains read-only for capability catalog
+`sbg_ai_gateway_rw` can SELECT the capability catalog but cannot INSERT/UPDATE/DELETE; a mutation attempt is rejected, and the bounded store exposes no create/update/delete methods.
+

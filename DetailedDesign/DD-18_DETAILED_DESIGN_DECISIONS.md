@@ -1672,3 +1672,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-108 does not define active/current model selection, provider/model routing, fallback/retry, credential resolution, provider SDK execution, inference/embedding, Tenant/Industry allowlists, sensitivity/residency runtime policy, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, a public route, or any migration/schema/role/grant/RLS/product-policy change.
 
 **Acceptance:** `AIMODEL-PG-001` through `AIMODEL-PG-005` in DD-17 and `tests/postgres/ai-model-catalog-metadata-store.test.mjs`.
+
+## DD-109 — AI Capability catalog metadata is readable as raw global evidence without creating capability-authorization authority
+
+**Context:** DD-107 and DD-108 established bounded global AI Provider and AI Model catalog metadata readers through the dedicated AI Gateway database role. Migration 0011 also defines `core_ai.ai_capability` as global catalog persistence; migration 0014 grants `sbg_ai_gateway_rw` SELECT without capability-catalog DML; DD-09 owns the capability entity shape. Migration 0031 consumes capability code/id plus `status='ACTIVE'` in persisted relationship-integrity predicates, while A-07 and DD-09 keep request-time entitlement, policy, provisioning, routing and execution behind the AI Gateway. A catalog row is therefore evidence, not standalone authorization.
+
+**Decision:** add an exact-by-id immutable `AICapabilityCatalogMetadataReadPort` and `PostgresAICapabilityCatalogMetadataStore` through the existing `PostgresAIGatewayDatabase` boundary. The reader projects only schema-owned raw capability evidence: `id`, `code`, constrained `category`, nullable raw `requiredEntitlement`, raw `defaultPolicyClass`, positive `schemaVersion`, and raw `status`. Schema-valid empty text and NULL entitlement evidence are preserved instead of strengthened. Missing rows return null; malformed ids, malformed rows, or ambiguous exact-id results fail closed.
+
+**Security / trade-off:** the fixed `sbg_ai_gateway_rw` role remains SELECT-only for `core_ai.ai_capability`; no INSERT/UPDATE/DELETE authority or mutation method is added. `status='ACTIVE'`, `requiredEntitlement`, and `defaultPolicyClass` remain catalog evidence only and do not mean eligible, entitled, permitted, selected, routable, or executable. No Tenant/Industry RequestContext is invented for this global catalog read.
+
+**Boundary:** DD-109 does not evaluate entitlement or `default_policy_class`; resolve effective Tenant/Industry allowed-capability configuration; compile/select an `AIProvisioningSnapshot`; select or route providers/models; perform capability-to-model suitability decisions; enforce sensitivity/residency/quota/budget; resolve credentials; call provider SDKs; execute inference, embedding, rerank, OCR, media generation, RAG, assistants, agents or tools; evaluate prompts/policies; expose a public route; implement Workflow/Automation runtime semantics; or change any migration/schema/verification SQL/role/grant/RLS/product policy.
+
+**Acceptance:** `AICAP-PG-001` through `AICAP-PG-005` in DD-17 and `tests/postgres/ai-capability-catalog-metadata-store.test.mjs`.
+
