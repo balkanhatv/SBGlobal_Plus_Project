@@ -1,0 +1,151 @@
+name: DD105 State Sync
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - .github/workflows/dd105-state-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Synchronize DD-105 checkpoint and state
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const head = 'd654a5e8d969d880a0d9a5ebc064c924f6c25e8c';
+          const tree = '1a5a94a4c435b756e623a9cf4328cf04047d4409';
+          const checkpoint = 'DEV-AUTOMATION-DEFINITION-READ-001';
+          const evidence = 'Registers/DEVELOPMENT_DD105_VERIFICATION_2026-09-22.md';
+          const audit = 'Development/AUTOMATION_DEFINITION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md';
+          const next = 'Source-audit the next independent source-complete Workflow/Automation persistence slice. Do not open automation runtime execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.';
+          const verified = `Verified executable \`${head}\` / tree \`${tree}\`: **311/311 Core**, **183/183 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Inventory: **521 blobs / 211 Markdown / 132 source / 76 test files**.`;
+
+          fs.writeFileSync('Development/CORE_SERVICE_CHECKPOINT.md', `# CORE SERVICE CHECKPOINT — ${checkpoint}\n**Updated:** 2026-09-22 · **Branch:** \`docs/architecture-branch-2\`\n\n## Verified executable basis\n\n${verified}\n\n## Implemented boundary\n\nDD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the existing dedicated \`sbg_workflow_worker_rw\` NOBYPASSRLS + \`RequestScopedSql\` boundary. It preserves immutable trigger/config JSON plus raw condition-rule / OperationContract / WorkflowDefinition references, owner/lifecycle/effective evidence, without selecting or authorizing an automation or dispatching runtime work.\n\nWFA-DEF-PG-001…007 prove exact Industry owner-RLS isolation, Tenant same-Tenant visibility, PLATFORM_GLOBAL-only platform visibility, foreign-Tenant isolation, raw evidence fidelity, fail-closed malformed/route mismatch handling and Workflow worker UPDATE denial.\n\nDD-104 WorkflowTransition, DD-103 WorkflowTask, DD-102 WorkflowInstance and DD-101 WorkflowDefinition raw readers remain covered. No migration, verification SQL, role, grant or RLS policy changed in DD-105.\n\n## Remaining scope\n\nAutomationDefinition persistence cannot authorize execution. Active/effective selection, EVENT/SCHEDULE/MANUAL trigger interpretation, schedule/event selector parsing, condition evaluation, OperationContract dispatch, WorkflowDefinition execution and AutomationRun creation/mutation remain unimplemented.\n\nNext: ${next}\n\nEvidence: \`${evidence}\`.\n\nRawSource accepted blobs unchanged; main remains \`3911590ff2020993ce51b32d7b091efd6f5f466f\`; PR #2 remains draft/unmerged.\n`);
+
+          fs.writeFileSync('Development/DEVELOPMENT_STATE.md', `# DEVELOPMENT STATE — SBGlobal Plus\n**Updated:** 2026-09-22 · **Checkpoint:** \`${checkpoint}\`\n\nBranch: \`docs/architecture-branch-2\`. Development remains **IN PROGRESS**.\n\n${verified}\n\nDD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the existing dedicated Workflow worker/RLS boundary. Trigger/config JSON and optional condition-rule / OperationContract / WorkflowDefinition references remain immutable persistence evidence and deliberately do not become selection, trigger interpretation or execution authority.\n\nInvariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–105**.\n\nNo migration, verification SQL, role, grant or RLS policy changed in DD-105.\n\nNext: ${next}\n\nEvidence: \`${evidence}\`.\n\nRawSource accepted blobs unchanged; main remains \`3911590ff2020993ce51b32d7b091efd6f5f466f\`; PR #2 remains draft/unmerged.\n`);
+
+          fs.writeFileSync('DetailedDesign/DD-CHECKPOINT.md', `# DD CHECKPOINT — PHASE3-DD-REVALIDATED\n**Date:** 2026-09-13 · **Branch:** \`docs/architecture-branch-2\`\n\n## Historical checkpoints\n- DD-W1-COMPLETE — history.\n- DD-W2-COMPLETE — history.\n- DD-COMPLETE — history.\n- DD-F5-RECERTIFIED — historical prior-head recertification.\n\n## Fresh Phase-3 evidence\n- Final substantive DD HEAD: \`b4bba9c4764025af3d4546644f7c67efa463c86d\`.\n- 55/55 DetailedDesign files freshly read.\n- Phase-3 register: \`Registers/PHASE3_DETAILED_DESIGN_REVALIDATION_2026-09-13.md\`.\n- DD-20D: PASS.\n- DD-29 REAL_DD_GAP: 0.\n- DD-30 traceability REAL_GAP: 0.\n- DD-31 Development/QA: 9/9 YES + 9/9 YES.\n- 41/41 MS acceptance namespaces: PASS.\n- 41/41 MS workflow matrices: PASS.\n- 165/165 named KPI metrics: mapped.\n- Open DD P0/P1: 0/0.\n\n**Checkpoint: PHASE3-DD-REVALIDATED**\n**DETAILED DESIGN COMPLETE · HISTORICAL PHASE-3 GATE SATISFIED.**\n\nThat historical overall-Development block was later closed by the final pre-development audit plus \`UD-BACKUP-01\`. Development has since started; current exact-head runtime evidence is verified at the bounded Development checkpoint below.\n\n## All-stages checkpoint evidence\nPostgreSQL+pgvector PASS: commit \`2c36b43a7d55c6600b71f9714389e025a06df580\`, Database Verify run \`34800144921\`, job \`103841023234\`. All 32 migrations and 26 verification files executed, including 0099. The completed all-stages audit and metadata closure are recorded in \`Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md\`.\n\n## Current Development overlay — 2026-09-22\n\nCurrent checkpoint: \`${checkpoint}\`. Decisions are contiguous through DD-105. Historical Phase-3 completion applies to its evaluated scope.\n\n${verified.replace('Inventory:', 'Verified executable inventory:')}\n\nDD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Trigger/config/reference/effective evidence remains non-authorizing and cannot become active/effective selection, trigger interpretation, condition evaluation, operation/workflow dispatch or AutomationRun authority.\n\nNext: ${next}\n`);
+
+          fs.writeFileSync('DetailedDesign/DD-INDEX.md', `# DD-INDEX — DETAILED DESIGN INDEX\n**Updated:** 2026-09-22 · **Historical design checkpoint:** \`PHASE3-DD-REVALIDATED\` · **Current Development:** \`${checkpoint}\`\n\n| Range | Historical Phase-3 design status |\n|---|---|\n| DD-00…DD-08 | Shared/Core DD — fresh revalidated / verified |\n| DD-09…DD-16 | Experience/AI/offline/infra/security DD — fresh revalidated / verified |\n| DD-17…DD-19 | Acceptance/decisions/traceability — Phase-3, Database audit and current Development propagation |\n| DD-20A/B/H | Historical audit evidence |\n| DD-20C | Historical prior-head Wave-3 audit |\n| DD-20D | Current Phase-3 overall adversarial PASS |\n| DD-21 | 41-MS acceptance contracts — verified |\n| DD-22 | 41 workflow matrices — verified |\n| DD-23/23A | behavioral catalogs/indexes/field registry — verified |\n| DD-24 | industry domain-rule decisions — verified |\n| DD-25/DD-28 | KPI contracts + 165/165 named coverage — verified |\n| DD-26 | surfaces/MS/mobile/Future-Industry canonical IDs — Phase-3 updated |\n| DD-27 | 41-MS determinism evidence — verified |\n| DD-29 | Phase-3 ambiguity sweep PASS; current Core binding gaps recorded below |\n| DD-30 | Phase-3 requirement traceability PASS |\n| DD-31 | Phase-3 Development/QA determinism PASS |\n| Industries/* | 9/9 Industry DD artifacts fresh read; mobile app mapping normalized |\n\n## Historical design gate and current Development scope\n**FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**\n\nThe historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-105**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).\n\nDD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. It preserves immutable trigger/config JSON and raw condition-rule / OperationContract / WorkflowDefinition references while withholding active/effective selection, trigger interpretation, condition evaluation and runtime dispatch/execution authority.\n\nAutomation runtime execution, Workflow transition execution, Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.\n\n## Historical all-stages checkpoint evidence\nPostgreSQL+pgvector PASS: commit \`2c36b43a7d55c6600b71f9714389e025a06df580\`, Database Verify run \`34800144921\`, job \`103841023234\`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).\nEarlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.\n\n**Historical Development evidence:** \`3e7b2927…\` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.\n\n**Current verified executable evidence:** \`${head}\` / tree \`${tree}\` — 311 Core tests, 183 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD105_VERIFICATION_2026-09-22.md).\n`);
+
+          fs.writeFileSync('DetailedDesign/DD-PHASE_STATE.md', `# DD PHASE STATE\n**Date:** 2026-09-22 · **Historical DD checkpoint:** \`PHASE3-DD-REVALIDATED\` · **Current Development overlay:** \`${checkpoint}\`\n\n- Foundation: **FRESH RECONCILED — PASS**.\n- Architecture: **FRESH REVALIDATED — PASS**.\n- DD Wave 1 shared contracts: **FRESH REVALIDATED / VERIFIED**.\n- DD Wave 2 platform contracts: **FRESH REVALIDATED / VERIFIED**.\n- DD Wave 3 Industry/MS contracts: **FRESH REVALIDATED / VERIFIED**.\n- Detailed Design: **COMPLETE — PHASE 3 PASS**.\n- Final substantive DD HEAD: \`b4bba9c4764025af3d4546644f7c67efa463c86d\`.\n- Phase-3 evidence: \`Registers/PHASE3_DETAILED_DESIGN_REVALIDATION_2026-09-13.md\`.\n- DD final audits: DD-20D PASS · DD-29 REAL_DD_GAP=0 · DD-30 traceability PASS · DD-31 Development/QA 9/9 YES + 9/9 YES.\n- Historical \`DD-F5-RECERTIFIED\` remains provenance only.\n- Historical Phase-3 boundary: project-wide Development was not yet authorized at that checkpoint; the later pre-development gate and \`UD-BACKUP-01\` subsequently authorized Development to begin.\n\n## All-stages checkpoint evidence\nPostgreSQL+pgvector PASS: commit \`2c36b43a7d55c6600b71f9714389e025a06df580\`, Database Verify run \`34800144921\`, job \`103841023234\`. All 32 migrations and 26 verification files executed, including 0099. The completed all-stages audit and metadata closure are recorded in \`Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md\`.\n\n## Current Development overlay — 2026-09-22\n\nCurrent checkpoint: \`${checkpoint}\`. Decisions are contiguous through DD-105. Historical Phase-3 completion applies to its evaluated scope.\n\n${verified.replace('Inventory:', 'Verified executable inventory:')}\n\nDD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Trigger/config/reference/effective evidence remains non-authorizing; it cannot select/execute automation or dispatch a condition, operation, workflow or AutomationRun mutation.\n\nAutomation runtime execution remains unfinished. Workflow transition/state-machine/approval/rule execution, WorkflowInstance/task mutation and event emission remain unfinished. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.\n\nNext: ${next}\n`);
+
+          fs.writeFileSync('State/HANDOFF_NOTE.md', `# HANDOFF_NOTE — SBGlobal Plus\n**Updated:** 2026-09-22 · **Checkpoint:** \`${checkpoint}\`\n\nFresh-fetch remote branch/HEAD/tree/checks before further work.\n\n${verified}\n\nDD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader. Read \`${audit}\` before extending Workflow/Automation behavior. Trigger/config/reference/lifecycle/effective facts are persistence evidence only; they must not become active/effective selection, trigger interpretation, condition evaluation, OperationContract dispatch, WorkflowDefinition execution or AutomationRun mutation authority.\n\nNext: ${next}\n\nEvidence: \`${evidence}\`.\n\nRawSource accepted blobs unchanged; main remains \`3911590ff2020993ce51b32d7b091efd6f5f466f\`; PR #2 remains draft/unmerged.\n`);
+
+          fs.writeFileSync('State/PROJECT_STATE.md', `# PROJECT_STATE — SBGlobal Plus\n**Updated:** 2026-09-22 · **Checkpoint:** \`${checkpoint}\`\n\nBranch: \`docs/architecture-branch-2\`. Development remains **IN PROGRESS**.\n\n${verified}\n\nDD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Persisted trigger/config/reference/lifecycle/effective evidence remains evidence only; it cannot authorize or execute automation runtime behavior.\n\nInvariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–105**.\n\nAutomation runtime execution, Workflow transition execution, Notification runtime, Document signing, REST exposure, DD-076, concrete AI Gateway, broad product experiences and production operations remain unfinished where documented.\n\nNext: ${next}\n\nEvidence: \`${evidence}\`.\n\nRawSource accepted blobs unchanged; main remains \`3911590ff2020993ce51b32d7b091efd6f5f466f\`; PR #2 remains draft/unmerged.\n`);
+
+          const manifestPath = 'State/PROJECT_MANIFEST.json';
+          const m = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+          const pushUnique = (arr, item) => { if (Array.isArray(arr) && !arr.includes(item)) arr.push(item); };
+          m.updated = '2026-09-22';
+          m.checkpoint = checkpoint;
+          m.final_verdict = 'DD-105 AUTOMATIONDEFINITION RAW POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; AUTOMATION EXECUTION AUTHORITY UNCLAIMED';
+          m.github.verified_code_head = head;
+          m.github.verified_code_tree = tree;
+          m.github.state_projection_basis_head = head;
+          m.development.current_phase = 'AutomationDefinition raw persistence reader verified; automation execution authority not claimed';
+          m.development.next_action = next;
+          m.development.database.ci_verified_head = head;
+          m.development.database.ci_verified_tree = tree;
+          m.development.database.ci_run_id = 35689772258;
+          m.development.database.ci_job_id = 106624070955;
+          m.development.database.feature_head_bootstrap_verified_head = head;
+          m.development.database.feature_head_bootstrap_verified_tree = tree;
+          m.development.database.feature_head_bootstrap_run_id = 35689772269;
+          m.development.database.feature_head_bootstrap_job_id = 106624071049;
+          m.development.database.feature_head_bootstrap_result = 'PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_183_POSTGRES_TESTS';
+          const cs = m.development.core_services;
+          cs.checkpoint = checkpoint;
+          cs.decision = 'DD-040–105 current implementation; DD-105 raw AutomationDefinition PostgreSQL reader';
+          cs.verified_head = head;
+          cs.verified_tree = tree;
+          cs.core_ci_run_id = 35689772269;
+          cs.core_ci_job_id = 106624071181;
+          cs.tests = '311/311 PASS';
+          cs.core_test_counts = {tests:311,pass:311,fail:0,skip:0};
+          cs.postgres_ci_run_id = 35689772269;
+          cs.postgres_ci_job_id = 106624071049;
+          cs.postgres_tests = '183/183 PASS';
+          cs.postgres_test_counts = {tests:183,pass:183,fail:0,skip:0};
+          cs.database_regression_run_id = 35689772258;
+          cs.database_regression_job_id = 106624070955;
+          cs.database_regression_result = 'PASS';
+          cs.next_action = next;
+          for (const item of [
+            'DD-105 raw AutomationDefinition read contract',
+            'DD-105 PostgreSQL AutomationDefinition exact-by-id reader through dedicated Workflow worker role',
+            'WFA-DEF-PG-001–007 real PostgreSQL owner-RLS and catalog mutation-denial acceptance'
+          ]) pushUnique(cs.implemented, item);
+          for (const item of [
+            'AutomationDefinition active/effective selection and trigger interpretation',
+            'Automation condition-rule and OperationContract dispatch',
+            'Automation WorkflowDefinition execution and AutomationRun runtime mutation'
+          ]) pushUnique(cs.not_claimed, item);
+          m.development.application_api_ui_scope_note = 'WorkflowDefinition, WorkflowInstance, WorkflowTask, WorkflowTransition and AutomationDefinition exact-by-id raw persistence readers are implemented/tested through the dedicated Workflow worker/RLS boundary; workflow/automation execution, task actions and product UI remain unfinished.';
+          m.current_phase = 'DEVELOPMENT_AUTOMATION_DEFINITION_READ_VERIFIED';
+          m.continuation.checkpoint = checkpoint;
+          m.continuation.verified_code_head = head;
+          m.continuation.verified_code_tree = tree;
+          m.continuation.source_audit = audit;
+          pushUnique(m.continuation.completed, 'DD-105 raw AutomationDefinition PostgreSQL reader');
+          m.continuation.next_action = next;
+          m.continuation.schema_or_verification_sql_changed = false;
+          m.continuation.main_merge = false;
+          m.current_audit_overlay = {
+            checkpoint,
+            verified_executable_basis: head,
+            verified_executable_tree: tree,
+            source_audit: audit,
+            current_verification: evidence,
+            scope: 'DD-105 exact-by-id raw AutomationDefinition persistence only; no automation execution authority'
+          };
+          m.current_state_audit.verified_continuation_head = head;
+          m.current_state_audit.inventory = {blobs:521,markdown:211,source_files:132,test_files:76,migrations:47,verification_files:41};
+          m.current_feature_verification = {
+            decision: 'DD-105 raw AutomationDefinition PostgreSQL reader',
+            checkpoint,
+            verified_head: head,
+            verified_tree: tree,
+            core: {run_id:35689772269,job_id:106624071181,tests:311,pass:311,fail:0,skip:0},
+            postgres: {run_id:35689772269,job_id:106624071049,tests:183,pass:183,fail:0,skip:0,full_database_bootstrap:'PASS'},
+            database: {run_id:35689772258,job_id:106624070955,conclusion:'success'},
+            web: {run_id:35689772279,job_id:106624071193,conclusion:'success'},
+            inventory: {blobs:521,markdown:211,source_files:132,test_files:76,migrations:47,verification_files:41},
+            database_schema_change: false,
+            evidence
+          };
+          fs.writeFileSync(manifestPath, JSON.stringify(m, null, 2) + '\n');
+
+          const phasePath = 'State/PHASE_SUMMARY.md';
+          let p = fs.readFileSync(phasePath, 'utf8');
+          const marker = 'The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.';
+          const idx = p.indexOf(marker);
+          if (idx < 0) throw new Error('PHASE_SUMMARY history marker missing');
+          const history = p.slice(idx);
+          const current = `# PHASE_SUMMARY — SBGlobal Plus\n**Updated:** 2026-09-22 · **Current checkpoint:** \`${checkpoint}\`\n\nVerified executable \`${head}\` / tree \`${tree}\`: **311/311 Core**, **183/183 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **521 blobs / 211 Markdown / 132 source / 76 test files**.\n\nDD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Immutable trigger/config JSON and raw condition-rule / OperationContract / WorkflowDefinition references remain persistence evidence and cannot become active/effective selection, trigger interpretation or runtime execution authority.\n\nAutomation active/effective selection, trigger interpretation, condition evaluation, OperationContract dispatch, WorkflowDefinition execution and AutomationRun runtime remain unfinished. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.\n\nNext: ${next}\n\n`;
+          fs.writeFileSync(phasePath, current + history);
+          NODE
+      - name: Commit synchronized state and self-remove
+        shell: bash
+        run: |
+          git config user.name "sbglobal-state-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git rm .github/workflows/dd105-state-sync.yml
+          git add Development/CORE_SERVICE_CHECKPOINT.md Development/DEVELOPMENT_STATE.md \
+            DetailedDesign/DD-CHECKPOINT.md DetailedDesign/DD-INDEX.md DetailedDesign/DD-PHASE_STATE.md \
+            State/HANDOFF_NOTE.md State/PROJECT_STATE.md State/PROJECT_MANIFEST.json State/PHASE_SUMMARY.md
+          git commit -m "docs(state): finalize DD-105 automation definition checkpoint"
+          git push origin HEAD:docs/architecture-branch-2
