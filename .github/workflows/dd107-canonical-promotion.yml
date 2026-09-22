@@ -1,0 +1,87 @@
+name: DD-107 Canonical Promotion Helper
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - .github/workflows/dd107-canonical-promotion.yml
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout governed branch
+        uses: actions/checkout@v4
+        with:
+          ref: docs/architecture-branch-2
+          fetch-depth: 0
+
+      - name: Append DD-107 canonical decision and acceptance contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          DD18='DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md'
+          DD17='DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md'
+
+          if ! grep -q '^## DD-107 — AI Provider Catalog Metadata Reader$' "$DD18"; then
+            cat >> "$DD18" <<'EOF'
+
+## DD-107 — AI Provider Catalog Metadata Reader
+
+**Decision:** Introduce a bounded exact-by-id PostgreSQL reader for global `core_ai.ai_provider` catalog metadata through the dedicated `sbg_ai_gateway_rw` database role.
+
+**Source ownership and boundary:**
+- DD-101 through DD-106 exhaust the six source-owned Workflow/Automation raw persistence tables: `workflow_definition`, `workflow_instance`, `workflow_task`, `workflow_transition`, `automation_definition`, and `automation_run`. Database privileges over those tables do not supply source authority for workflow execution, mutation, replay, retry, transition, selector, or dispatch semantics.
+- The AI catalog migrations and AI Gateway role establish `core_ai.ai_provider` as a global catalog and grant `sbg_ai_gateway_rw` read authority without catalog mutation grants.
+- `AIProvider.credential_ref` is a secret reference. It is deliberately excluded from the reader SQL projection and returned contract. The existing credential-reference ownership audit forbids disclosure of sensitive secret locators merely because a schema stores the reference.
+- The authorized metadata projection is limited to provider `id`, `code`, raw `status`, `adapter_type`, `supported_regions`, `supported_capabilities`, `security_class`, `residency_metadata`, raw `health_state`, positive `version`, `created_at`, and `updated_at`.
+- The reader preserves schema-valid raw catalog evidence; it does not reinterpret raw status or health values as provider eligibility, routing, selection, or execution authority.
+- No tenant, industry, organization, branch, department, or user `RequestContext` is invented for this global catalog read.
+- No schema, migration, role, grant, RLS, or product-policy change is authorized by this decision.
+
+**Runtime semantics explicitly not claimed:**
+- credential-reference disclosure, credential resolution, or secret-store retrieval;
+- provider/model active-version selection or request eligibility;
+- health-based routing, scoring, fallback, retry, replay, or finality;
+- tenant/industry allow-list, sensitivity, residency, budget, quota, or policy evaluation;
+- provider SDK dispatch, inference, RAG, assistant, agent, or tool execution;
+- AI provisioning snapshot compilation/current-selection or prompt/policy evaluation;
+- Workflow/Automation execution or mutation semantics.
+
+**Acceptance linkage:** `AIPROV-PG-001` through `AIPROV-PG-005`.
+EOF
+          fi
+
+          if ! grep -q '^### AIPROV-PG-001 — Exact provider catalog metadata read$' "$DD17"; then
+            cat >> "$DD17" <<'EOF'
+
+### AIPROV-PG-001 — Exact provider catalog metadata read
+Given a persisted `core_ai.ai_provider` row and its exact identifier, the PostgreSQL AI provider catalog metadata reader returns the authorized metadata projection, preserves schema-owned evidence, returns an immutable/frozen contract, and never selects or exposes `credential_ref`; a secret sentinel persisted in `credential_ref` must not leak through the returned object.
+
+### AIPROV-PG-002 — Missing and malformed identifier behavior
+An exact well-formed provider identifier with no matching row returns `null`; a malformed provider UUID fails closed rather than being normalized into another identity.
+
+### AIPROV-PG-003 — Schema-valid raw evidence preservation
+The reader preserves schema-valid empty text values and nullable/empty array elements instead of inventing non-empty normalization or runtime policy semantics not owned by the source schema.
+
+### AIPROV-PG-004 — Catalog state is not runtime routing authority
+Raw provider `status` and `health_state` values, including `ACTIVE`, remain catalog evidence only. The reader exposes no selected/eligible/route/fallback/generate/select-provider authority and does not convert catalog state into AI Gateway execution semantics.
+
+### AIPROV-PG-005 — Dedicated AI role remains read-only for provider catalog
+The dedicated `sbg_ai_gateway_rw` role can select provider catalog metadata but has no `INSERT`, `UPDATE`, or `DELETE` authority over `core_ai.ai_provider`; an attempted provider update is rejected, and the bounded reader exposes no mutation methods.
+EOF
+          fi
+
+          rm -f .github/workflows/dd107-canonical-promotion.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$DD18" "$DD17" .github/workflows/dd107-canonical-promotion.yml
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m 'docs(dd): record DD-107 AI provider metadata reader'
+          git push origin HEAD:docs/architecture-branch-2
