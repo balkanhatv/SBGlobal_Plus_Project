@@ -1092,3 +1092,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WFD-PG-005 | foreign-Tenant definition requested | no row; owning Tenant sees raw lifecycle evidence |
 | WFD-PG-006 | malformed definition id or database route/context mismatch | fail closed before definition disclosure |
 | WFD-PG-007 | Workflow worker attempts UPDATE of WorkflowDefinition catalog | privilege denial; raw definition remains unchanged |
+
+
+### Raw PostgreSQL WorkflowInstance reader — DD-102
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WFI-PG-001 | exact Tenant Industry WorkflowInstance | immutable raw definition/resource/state/lifecycle/row-version evidence preserved |
+| WFI-PG-002 | sibling Industry instance requested from current Industry | FORCE-RLS returns no row; exact sibling context may read its own |
+| WFI-PG-003 | Tenant Core instance requested from same-Tenant Industry and Tenant Core contexts | same Tenant Core row visible in both; schema-allowed raw empty text / row-version values preserved |
+| WFI-PG-004 | foreign Tenant instance requested | hidden; owning Tenant context may read it |
+| WFI-PG-005 | COMPLETED/CANCELLED lifecycle evidence | raw evidence only; no transition/finality/execution authority surfaced |
+| WFI-PG-006 | malformed UUID or database route/context mismatch | fail closed before instance disclosure |
+| WFI-PG-007 | exact-by-id read | no alternate instance/definition selection side effect |
