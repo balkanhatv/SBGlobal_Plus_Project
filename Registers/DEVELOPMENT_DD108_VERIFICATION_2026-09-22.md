@@ -28,7 +28,8 @@ DD-108 adds only a bounded exact-by-id PostgreSQL metadata reader for the global
 Exact tested head: `e1e53969a3a2869e2c4612e45c65a7a3c66d2d58` / tree `f057bef288113ff61bd3575239cbabc44c756c9a`.
 
 - Core Service Verify run `35738071363`, Core job `106780341230`: **311/311 PASS**.
-- Same Core Service Verify run, PostgreSQL/RLS job `106780341587`: **195/195 PASS**, including `AIMODEL-PG-001…005`.
+- Same Core Service Verify run, PostgreSQL/RLS job `106780341587`: **200/200 PASS**, including `AIMODEL-PG-001…005`.
+- Raw TAP-log reconciliation confirms DD-107's 195-test PostgreSQL baseline plus the five DD-108 `AIMODEL` cases; `195/195` is therefore predecessor evidence, not the DD-108 implementation-head total.
 - Database Verify run `35738071402`: **PASS**, **47 migrations / 41 verification SQL files** and database bootstrap verification PASS.
 - Web Boundary Verify run `35738071341`: **PASS**, production build compiled successfully.
 

@@ -132,10 +132,10 @@
       },
       "postgres_ci_run_id": 35738071363,
       "postgres_ci_job_id": 106780341587,
-      "postgres_tests": "195/195 PASS",
+      "postgres_tests": "200/200 PASS",
       "postgres_test_counts": {
-        "tests": 195,
-        "pass": 195,
+        "tests": 200,
+        "pass": 200,
         "fail": 0,
         "skip": 0
       },
