@@ -1079,3 +1079,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | NOTIF-TPL-PG-004 | PLATFORM template requested from Tenant then PLATFORM_GLOBAL service context | Tenant gets no implicit fallback; trusted PLATFORM_GLOBAL context may read exact platform template |
 | NOTIF-TPL-PG-005 | foreign-Tenant template requested | no row; owning Tenant sees raw evidence |
 | NOTIF-TPL-PG-006 | malformed template id or database route/context mismatch | fail closed before template disclosure |
+
+
+### Raw PostgreSQL WorkflowDefinition reader — DD-101
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WFD-PG-001 | exact Tenant Industry definition id | immutable raw version/status/schema/state-machine/approval/rule/effective evidence; no selected/executable decision |
+| WFD-PG-002 | sibling Industry definition requested from current Industry | owner-scope FORCE-RLS returns no row; exact sibling context may read its own |
+| WFD-PG-003 | Tenant definition requested from same-Tenant Industry and Tenant Core contexts | same raw definition visible; schema-allowed empty text / optional effective evidence preserved |
+| WFD-PG-004 | PLATFORM definition requested from Tenant then PLATFORM_GLOBAL service context | Tenant gets no implicit fallback; trusted PLATFORM_GLOBAL context may read exact platform definition |
+| WFD-PG-005 | foreign-Tenant definition requested | no row; owning Tenant sees raw lifecycle evidence |
+| WFD-PG-006 | malformed definition id or database route/context mismatch | fail closed before definition disclosure |
+| WFD-PG-007 | Workflow worker attempts UPDATE of WorkflowDefinition catalog | privilege denial; raw definition remains unchanged |
