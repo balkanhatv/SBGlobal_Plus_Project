@@ -1067,3 +1067,15 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | NOTIF-ATT-PG-004 | foreign-Tenant delivery attempts requested | no rows; owning Tenant sees raw terminal/provider-reference evidence without authority |
 | NOTIF-ATT-PG-005 | malformed delivery id or database route/context mismatch | fail closed before attempt disclosure |
 | NOTIF-ATT-PG-006 | Notification worker attempts UPDATE/DELETE on attempt evidence | privilege denial; persisted attempt remains unchanged |
+
+
+### Raw PostgreSQL NotificationTemplate reader — DD-100
+
+| ID | Scenario | Expected |
+|---|---|---|
+| NOTIF-TPL-PG-001 | exact Tenant Industry template id | immutable raw code/channel/locale/version/status/content/variable-schema/creator evidence; no rendered/selected decision |
+| NOTIF-TPL-PG-002 | sibling Industry template requested from current Industry | owner-scope FORCE-RLS returns no row; exact sibling context may read its own |
+| NOTIF-TPL-PG-003 | Tenant template requested from same-Tenant Industry and Tenant Core contexts with raw RETIRED status | same raw template visible in both; RETIRED remains evidence, not selection/send authority |
+| NOTIF-TPL-PG-004 | PLATFORM template requested from Tenant then PLATFORM_GLOBAL service context | Tenant gets no implicit fallback; trusted PLATFORM_GLOBAL context may read exact platform template |
+| NOTIF-TPL-PG-005 | foreign-Tenant template requested | no row; owning Tenant sees raw evidence |
+| NOTIF-TPL-PG-006 | malformed template id or database route/context mismatch | fail closed before template disclosure |
