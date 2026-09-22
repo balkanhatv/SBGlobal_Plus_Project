@@ -44,10 +44,16 @@ Exact tested head: `e1e53969a3a2869e2c4612e45c65a7a3c66d2d58` / tree `f057bef288
 
 DD-108 does not claim active/current/eligible/preferred model selection, provider/model routing, credential resolution, fallback/retry, provider SDK calls, inference or embedding, Tenant/Industry allowlist evaluation, sensitivity/residency runtime decisions, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, or any public/API route.
 
+## Canonical traceability promotion
+
+- Corrected self-removing helper run `35740499869`: **SUCCESS**.
+- Canonical DD-108 / DD-17 action commit: `685379ad2104592bfb3a4e06d08661bf60f95f88`.
+- Canonical action tree: `59c62da27ccf9d313573ecb3f6a8efa39500ef00`.
+- Net comparison from executable implementation head to canonical action head changes only `DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md`, `DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md`, and this DD-108 verification register; the temporary helper is absent from the resulting tree.
+
 ## Promotion evidence
 
-- Canonical DD-108 / DD-17 traceability commit: pending self-removing canonical promotion commit.
-- Invariant gate: pending canonical-head CI.
+- Invariant gate: pending connector-authored canonical-head CI.
 - Promoted checkpoint: pending `DEV-AI-MODEL-CATALOG-READ-001`.
 - State promotion commit/tree: pending.
 - Final exact promotion-head CI: pending.
