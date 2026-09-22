@@ -66,3 +66,4 @@ export * from "./workflow/instance.js";
 export * from "./workflow/task.js";
 export * from "./workflow/transition.js";
 export * from "./workflow/automation-definition.js";
+export * from "./workflow/automation-run.js";
