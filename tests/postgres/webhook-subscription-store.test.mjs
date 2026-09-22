@@ -290,7 +290,7 @@ before(async () => {
          ARRAY['orders.read'],NULL,'AUTH_ERROR',now(),4,now(),now()),
         ($3,$5,NULL,$9,'TENANT_CORE','Orders Tenant A','PAUSED',$12,
          '{"mode":"tenant-core","retry":"raw"}'::jsonb,
-         ARRAY['orders.read','orders.write'],NULL,'DEGRADED',NULL,3,now(),now()),
+         ARRAY['orders.read'],NULL,'DEGRADED',NULL,3,now(),now()),
         ($4,$8,NULL,$9,'TENANT_CORE','Orders Tenant B','ACTIVE',$13,
          '{"mode":"foreign"}'::jsonb,
          ARRAY['orders.read'],NULL,'UNKNOWN',NULL,1,now(),now())`,
@@ -1233,7 +1233,7 @@ test("INT-TENANT-PG-003 Tenant Core TenantIntegration is same-Tenant visible fro
   assert.equal(fromIndustry.status, "PAUSED");
   assert.equal(fromIndustry.healthState, "DEGRADED");
   assert.equal(fromIndustry.lastHealthAt, undefined);
-  assert.deepEqual(fromTenant.enabledCapabilities, ["orders.read", "orders.write"]);
+  assert.deepEqual(fromTenant.enabledCapabilities, ["orders.read"]);
 });
 
 test("INT-TENANT-PG-004 foreign Tenant row is hidden and raw ACTIVE/health evidence remains non-authorizing", async () => {
