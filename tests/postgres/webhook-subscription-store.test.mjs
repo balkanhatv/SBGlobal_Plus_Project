@@ -100,7 +100,6 @@ let providerAdapterStore;
 let tenantIntegrationStore;
 let credentialMetadataStore;
 let syncCursorStore;
-let syncCursorStore;
 
 const eventTypeIndustry = "webhook.reader.industry." + randomBytes(6).toString("hex");
 const eventTypeTenant = "webhook.reader.tenant." + randomBytes(6).toString("hex");
