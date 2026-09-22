@@ -478,26 +478,3 @@ PAUSED/ERROR; runtime resume authorization is a separate decision.
 **Boundary:** no sync execution, cursor mutation/decryption, provider runtime,
 credential secret access, retry/resume policy, route, migration, role, grant or RLS
 change is introduced.
-
-
-## 37. Raw SyncCursor persistence reader [DD-097]
-
-`SyncCursor` persistence is exposed through a typed raw read port only. The exact
-lookup key is `TenantIntegration id + capability code + nullable Industry Context`;
-nullable Industry Context equality uses `IS NOT DISTINCT FROM` so Tenant Core is an
-explicit tuple rather than a wildcard.
-
-`PostgresSyncCursorStore` reads through the fixed Integration service role and
-`RequestScopedSql`. Parent TenantIntegration FORCE-RLS remains the physical
-visibility authority. The reader returns immutable persisted cursor evidence:
-cursor id, parent integration id, capability code, optional Industry Context,
-`cursorEncryptedOrOpaque`, optional watermark/source version and updatedAt.
-
-The cursor payload remains opaque/encrypted evidence. This reader does not decrypt or
-decode it, infer validity/currentness, decide sync resume/replay eligibility, select
-a ProviderAdapter, call an external system, mutate cursor state or expose a public
-route.
-
-**Boundary:** no sync executor, cursor codec/decryptor, watermark reconciler,
-provider runtime, secret retrieval, worker, migration, role/grant/RLS or product
-policy is introduced.
