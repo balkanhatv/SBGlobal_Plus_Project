@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-NOTIFICATION-TEMPLATE-READ-001`
+**Updated:** 2026-09-22 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-WORKFLOW-INSTANCE-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,11 +24,11 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-100**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-102**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-100 adds an exact-by-id raw NotificationTemplate PostgreSQL reader through the dedicated Notification worker/RLS boundary. It preserves owner scope, code/channel/locale/version/lifecycle/content/variable-schema/creator evidence while deliberately withholding active-version selection, owner/locale fallback, rendering, approval/send eligibility and provider/credential authority. PLATFORM templates require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback.
+DD-102 adds an exact-by-id raw WorkflowInstance PostgreSQL reader through the dedicated Workflow worker/RLS boundary. It preserves Tenant/Industry scope, exact WorkflowDefinition id/version, resource identity, current/lifecycle state, row-version and timestamp evidence while deliberately withholding transition selection, finality, task action and execution authority.
 
-Full DD-08 signed access remains blocked on exact operation/permission, policy-specific step-up/residency and signer TTL/provider bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch/webhooks, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished.
+Workflow transition/task authorization and mutation, state-machine/approval/rule execution, Notification render/send/retry/provider runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
 ## Historical all-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
@@ -52,4 +52,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 **Current verified executable evidence:** `9271010240d06eac21dbf750172b4a987a9dddb7` / tree `f4b0375255740ca3a94243d120beac4e94d21f6f` — 311 Core tests, 131 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD097_VERIFICATION_2026-09-22.md).
 
 
-**Current verified executable evidence:** `59d4a870a0c09b655708015fca991727ed59cc91` / tree `1228fd709e2c2cd8768520f548035fa3abf0632a` — 311 Core tests, 148 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD100_VERIFICATION_2026-09-22.md).
+**Current verified executable evidence:** `1dd0f3a5e06aaadf5d51dc24928d80cce773359f` / tree `187524ef8bd19470ccdb5235cc6cfb1758022b14` — 311 Core tests, 162 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD102_VERIFICATION_2026-09-22.md).

@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-21 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-NOTIFICATION-TEMPLATE-READ-001`
+**Date:** 2026-09-22 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-WORKFLOW-INSTANCE-READ-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -21,12 +21,12 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 ## Current Development overlay — 2026-09-21
 
-Current checkpoint: `DEV-NOTIFICATION-TEMPLATE-READ-001`. Decisions are contiguous through DD-100. Historical Phase-3 completion applies to its evaluated scope.
+Current checkpoint: `DEV-WORKFLOW-INSTANCE-READ-001`. Decisions are contiguous through DD-102. Historical Phase-3 completion applies to its evaluated scope.
 
-Verified executable `59d4a870a0c09b655708015fca991727ed59cc91` / tree `1228fd709e2c2cd8768520f548035fa3abf0632a`: **311/311 Core**, **148/148 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **496 blobs / 202 Markdown / 121 source / 71 test files**.
+Verified executable `1dd0f3a5e06aaadf5d51dc24928d80cce773359f` / tree `187524ef8bd19470ccdb5235cc6cfb1758022b14`: **311/311 Core**, **162/162 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **506 blobs / 205 Markdown / 126 source / 73 test files**.
 
-DD-100 adds an exact-by-id raw NotificationTemplate PostgreSQL reader through the dedicated Notification worker/RLS boundary. It preserves owner scope, code/channel/locale/version/lifecycle/content/variable-schema/creator evidence while deliberately withholding active-version selection, owner/locale fallback, rendering, approval/send eligibility and provider/credential authority. PLATFORM templates require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback.
+DD-102 adds an exact-by-id raw WorkflowInstance PostgreSQL reader through the dedicated Workflow worker/RLS boundary. It preserves Tenant/Industry scope, exact WorkflowDefinition id/version, resource identity, current/lifecycle state, row-version and timestamp evidence while deliberately withholding transition selection, finality, task action and execution authority.
 
-Full DD-08 signed access remains blocked on exact operation/permission, policy-specific step-up/residency and signer TTL/provider bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch/webhooks, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished.
+Workflow transition/task authorization and mutation, state-machine/approval/rule execution, Notification render/send/retry/provider runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
-Next: Source-audit WorkflowDefinition raw persistence as the next independent source-complete Workflow slice. Workflow selection/activation, state-machine interpretation, approval/rule execution and transition authorization must remain separate; Notification rendering/send/retry/provider runtime, CredentialReference secret retrieval, webhook/event runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Next: Source-audit WorkflowTask raw persistence as the next independent source-complete Workflow slice. Task assignment/state/due/claim/completion evidence must remain non-authorizing; claim/approve/reject/complete actions, transition authorization and Workflow execution semantics remain separate.
