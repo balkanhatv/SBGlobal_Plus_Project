@@ -1,0 +1,32 @@
+name: DD-108 Canonical Promotion
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - .github/workflows/dd108-canonical-promotion.yml
+      - scripts/dd108_canonical_promotion.py
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: docs/architecture-branch-2
+          fetch-depth: 0
+      - name: Append DD-108 canonical traceability
+        run: python3 scripts/dd108_canonical_promotion.py
+      - name: Commit canonical traceability and self-remove helper
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md
+          git rm .github/workflows/dd108-canonical-promotion.yml scripts/dd108_canonical_promotion.py
+          git commit -m "docs(dd): register DD-108 AI model catalog reader"
+          git push origin HEAD:docs/architecture-branch-2
