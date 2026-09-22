@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-22",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-WORKFLOW-INSTANCE-READ-001",
-  "final_verdict": "DD-102 WORKFLOWINSTANCE RAW POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; TRANSITION/EXECUTION AUTHORITY UNCLAIMED",
+  "checkpoint": "DEV-WORKFLOW-TASK-READ-001",
+  "final_verdict": "DD-103 WORKFLOWTASK RAW POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; TASK-ACTION AUTHORITY UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "1dd0f3a5e06aaadf5d51dc24928d80cce773359f",
-    "verified_code_tree": "187524ef8bd19470ccdb5235cc6cfb1758022b14",
-    "state_projection_basis_head": "1dd0f3a5e06aaadf5d51dc24928d80cce773359f",
+    "verified_code_head": "b2fb888477cffd20acb5eacc7c2f453824a4b44d",
+    "verified_code_tree": "3df197ea82c2284470daeb0e0a14c35016ff4b50",
+    "state_projection_basis_head": "b2fb888477cffd20acb5eacc7c2f453824a4b44d",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "WorkflowInstance raw persistence reader verified; transition/execution authority not claimed",
+    "current_phase": "WorkflowTask raw persistence reader verified; task-action authority not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "1dd0f3a5e06aaadf5d51dc24928d80cce773359f",
-      "ci_run_id": 35686220679,
-      "ci_job_id": 106613459833,
+      "ci_verified_head": "b2fb888477cffd20acb5eacc7c2f453824a4b44d",
+      "ci_run_id": 35686768854,
+      "ci_job_id": 106615160180,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "187524ef8bd19470ccdb5235cc6cfb1758022b14",
+      "ci_verified_tree": "3df197ea82c2284470daeb0e0a14c35016ff4b50",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "1dd0f3a5e06aaadf5d51dc24928d80cce773359f",
-      "feature_head_bootstrap_verified_tree": "187524ef8bd19470ccdb5235cc6cfb1758022b14",
-      "feature_head_bootstrap_run_id": 35686220702,
-      "feature_head_bootstrap_job_id": 106613460297,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_162_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "b2fb888477cffd20acb5eacc7c2f453824a4b44d",
+      "feature_head_bootstrap_verified_tree": "3df197ea82c2284470daeb0e0a14c35016ff4b50",
+      "feature_head_bootstrap_run_id": 35686768851,
+      "feature_head_bootstrap_job_id": 106615160188,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_169_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Source-audit WorkflowTask raw persistence as the next independent source-complete Workflow slice. Task assignment/state/due/claim/completion evidence must remain non-authorizing; claim/approve/reject/complete actions, transition authorization, state-machine/approval/rule execution, Notification render/send/retry/provider runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.",
+    "next_action": "Source-audit WorkflowTransition raw append-only persistence as the next independent source-complete Workflow slice. Transition rows remain evidence only; expected/resulting version facts must not become transition authorization, state-machine/rule execution or WorkflowInstance mutation authority. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.",
     "core_services": {
-      "checkpoint": "DEV-WORKFLOW-INSTANCE-READ-001",
+      "checkpoint": "DEV-WORKFLOW-TASK-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–102 current implementation; DD-102 raw WorkflowInstance PostgreSQL reader",
-      "verified_head": "1dd0f3a5e06aaadf5d51dc24928d80cce773359f",
-      "verified_tree": "187524ef8bd19470ccdb5235cc6cfb1758022b14",
-      "core_ci_run_id": 35686220702,
-      "core_ci_job_id": 106613460026,
+      "decision": "DD-040–103 current implementation; DD-103 raw WorkflowTask PostgreSQL reader",
+      "verified_head": "b2fb888477cffd20acb5eacc7c2f453824a4b44d",
+      "verified_tree": "3df197ea82c2284470daeb0e0a14c35016ff4b50",
+      "core_ci_run_id": 35686768851,
+      "core_ci_job_id": 106615160472,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35686220702,
-      "postgres_ci_job_id": 106613460297,
-      "postgres_tests": "162/162 PASS",
+      "postgres_ci_run_id": 35686768851,
+      "postgres_ci_job_id": 106615160188,
+      "postgres_tests": "169/169 PASS",
       "postgres_test_counts": {
-        "tests": 162,
-        "pass": 162,
+        "tests": 169,
+        "pass": 169,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35686220679,
-      "database_regression_job_id": 106613459833,
+      "database_regression_run_id": 35686768854,
+      "database_regression_job_id": 106615160180,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -367,7 +367,10 @@
         "WFD-PG-001–007 WorkflowDefinition RLS/privilege acceptance",
         "DD-102 raw WorkflowInstance read contract",
         "DD-102 PostgreSQL WorkflowInstance exact-by-id reader through dedicated Workflow worker role",
-        "WFI-PG-001–007 real PostgreSQL RLS acceptance"
+        "WFI-PG-001–007 real PostgreSQL RLS acceptance",
+        "DD-103 raw WorkflowTask read contract",
+        "DD-103 PostgreSQL WorkflowTask exact-by-id reader through dedicated Workflow worker role",
+        "WFT-PG-001–007 real PostgreSQL parent-RLS acceptance"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -464,7 +467,10 @@
         "Workflow state-machine/approval/rule execution and transition authorization",
         "WorkflowInstance transition selection/authorization and optimistic mutation",
         "Workflow state-machine/approval/rule execution",
-        "WorkflowTask action authorization"
+        "WorkflowTask action authorization",
+        "WorkflowTask assignee eligibility and permission interpretation",
+        "WorkflowTask claim/approve/reject/complete action authorization",
+        "WorkflowTask-to-WorkflowInstance transition mutation"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -480,9 +486,9 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Source-audit WorkflowTask raw persistence as the next independent source-complete Workflow slice. Task assignment/state/due/claim/completion evidence must remain non-authorizing; claim/approve/reject/complete actions, transition authorization, state-machine/approval/rule execution, Notification render/send/retry/provider runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished."
+      "next_action": "Source-audit WorkflowTransition raw append-only persistence as the next independent source-complete Workflow slice. Transition rows remain evidence only; expected/resulting version facts must not become transition authorization, state-machine/rule execution or WorkflowInstance mutation authority. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished."
     },
-    "application_api_ui_scope_note": "WorkflowDefinition and WorkflowInstance exact-by-id raw persistence readers are implemented/tested through the dedicated Workflow worker/RLS boundary; selection, transition execution, task actions and product UI remain unfinished.",
+    "application_api_ui_scope_note": "WorkflowDefinition, WorkflowInstance and WorkflowTask exact-by-id raw persistence readers are implemented/tested through the dedicated Workflow worker/RLS boundary; selection, task actions, transitions and product UI remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -536,7 +542,7 @@
     ],
     "status": "IN_PROGRESS"
   },
-  "current_phase": "DEVELOPMENT_WORKFLOW_INSTANCE_READ_VERIFIED",
+  "current_phase": "DEVELOPMENT_WORKFLOW_TASK_READ_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -568,12 +574,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-WORKFLOW-INSTANCE-READ-001",
+    "checkpoint": "DEV-WORKFLOW-TASK-READ-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "1dd0f3a5e06aaadf5d51dc24928d80cce773359f",
-    "verified_code_tree": "187524ef8bd19470ccdb5235cc6cfb1758022b14",
-    "source_audit": "Development/WORKFLOW_INSTANCE_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "b2fb888477cffd20acb5eacc7c2f453824a4b44d",
+    "verified_code_tree": "3df197ea82c2284470daeb0e0a14c35016ff4b50",
+    "source_audit": "Development/WORKFLOW_TASK_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
@@ -600,20 +606,21 @@
       "DD-099 raw NotificationDeliveryAttempt PostgreSQL reader",
       "DD-100 raw NotificationTemplate PostgreSQL reader",
       "DD-101 raw WorkflowDefinition PostgreSQL reader",
-      "DD-102 raw WorkflowInstance PostgreSQL reader"
+      "DD-102 raw WorkflowInstance PostgreSQL reader",
+      "DD-103 raw WorkflowTask PostgreSQL reader"
     ],
-    "next_action": "Source-audit WorkflowTask raw persistence as the next independent source-complete Workflow slice. Task assignment/state/due/claim/completion evidence must remain non-authorizing; claim/approve/reject/complete actions, transition authorization, state-machine/approval/rule execution, Notification render/send/retry/provider runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.",
+    "next_action": "Source-audit WorkflowTransition raw append-only persistence as the next independent source-complete Workflow slice. Transition rows remain evidence only; expected/resulting version facts must not become transition authorization, state-machine/rule execution or WorkflowInstance mutation authority. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-WORKFLOW-INSTANCE-READ-001",
-    "verified_executable_basis": "1dd0f3a5e06aaadf5d51dc24928d80cce773359f",
-    "verified_executable_tree": "187524ef8bd19470ccdb5235cc6cfb1758022b14",
-    "source_audit": "Development/WORKFLOW_INSTANCE_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD102_VERIFICATION_2026-09-22.md",
-    "scope": "DD-102 exact-by-id raw WorkflowInstance persistence only; no transition/execution authority"
+    "checkpoint": "DEV-WORKFLOW-TASK-READ-001",
+    "verified_executable_basis": "b2fb888477cffd20acb5eacc7c2f453824a4b44d",
+    "verified_executable_tree": "3df197ea82c2284470daeb0e0a14c35016ff4b50",
+    "source_audit": "Development/WORKFLOW_TASK_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD103_VERIFICATION_2026-09-22.md",
+    "scope": "DD-103 exact-by-id raw WorkflowTask persistence only; no task-action authority"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -626,12 +633,12 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "1dd0f3a5e06aaadf5d51dc24928d80cce773359f",
+    "verified_continuation_head": "b2fb888477cffd20acb5eacc7c2f453824a4b44d",
     "inventory": {
-      "blobs": 506,
-      "markdown": 205,
-      "source_files": 126,
-      "test_files": 73,
+      "blobs": 511,
+      "markdown": 207,
+      "source_files": 128,
+      "test_files": 74,
       "migrations": 47,
       "verification_files": 41
     },
@@ -654,48 +661,54 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-102 raw WorkflowInstance PostgreSQL reader",
-    "checkpoint": "DEV-WORKFLOW-INSTANCE-READ-001",
-    "verified_head": "1dd0f3a5e06aaadf5d51dc24928d80cce773359f",
-    "verified_tree": "187524ef8bd19470ccdb5235cc6cfb1758022b14",
+    "decision": "DD-103 raw WorkflowTask PostgreSQL reader",
+    "checkpoint": "DEV-WORKFLOW-TASK-READ-001",
+    "verified_head": "b2fb888477cffd20acb5eacc7c2f453824a4b44d",
+    "verified_tree": "3df197ea82c2284470daeb0e0a14c35016ff4b50",
     "core": {
-      "run_id": 35686220702,
-      "job_id": 106613460026,
+      "run_id": 35686768851,
+      "job_id": 106615160472,
       "tests": 311,
       "pass": 311,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35686220702,
-      "job_id": 106613460297,
-      "tests": 162,
-      "pass": 162,
+      "run_id": 35686768851,
+      "job_id": 106615160188,
+      "tests": 169,
+      "pass": 169,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35686220679,
-      "job_id": 106613459833,
+      "run_id": 35686768854,
+      "job_id": 106615160180,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35686220695,
-      "job_id": 106613459840,
+      "run_id": 35686768836,
+      "job_id": 106615160154,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 506,
-      "markdown": 205,
-      "source_files": 126,
-      "test_files": 73,
+      "blobs": 511,
+      "markdown": 207,
+      "source_files": 128,
+      "test_files": 74,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD102_VERIFICATION_2026-09-22.md",
-    "includes_dd100_raw_reader_correction": true
+    "evidence": "Registers/DEVELOPMENT_DD103_VERIFICATION_2026-09-22.md",
+    "corrected_ci_attempt": {
+      "head": "7782535f4162db5fc7f908eebe654950849973d6",
+      "run_id": 35686659651,
+      "job_id": 106614829099,
+      "cause": "WorkflowTask fixture reused WorkflowInstance UUID parameter slots as PRINCIPAL subject/actor ids",
+      "correction": "separate explicit WorkflowInstance, principal, role and OrgUnit parameter slots"
+    }
   },
   "historical_projection_payloads": {
     "continuation": {
