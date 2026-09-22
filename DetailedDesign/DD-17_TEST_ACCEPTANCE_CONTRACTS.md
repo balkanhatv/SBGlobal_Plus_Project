@@ -1131,3 +1131,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WTR-PG-005 | persisted transition evidence read | no next-transition selection, authorization or execution authority surfaced |
 | WTR-PG-006 | malformed UUID or database route/context mismatch | fail closed before transition disclosure |
 | WTR-PG-007 | Workflow worker attempts UPDATE/DELETE of transition evidence | privilege denial; append-only row remains unchanged |
+
+
+### Raw PostgreSQL AutomationDefinition reader — DD-105
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WFA-DEF-PG-001 | exact Tenant Industry AutomationDefinition id | immutable raw trigger/config/reference/lifecycle/effective evidence; no selected/executable decision |
+| WFA-DEF-PG-002 | sibling Industry definition requested from current Industry | owner-scope FORCE-RLS returns no row; exact sibling context may read its own raw definition |
+| WFA-DEF-PG-003 | Tenant definition requested from same-Tenant Industry and Tenant Core contexts | same raw definition visible; schema-allowed empty text and optional effective evidence preserved |
+| WFA-DEF-PG-004 | PLATFORM definition requested from Tenant then PLATFORM_GLOBAL service context | Tenant gets no implicit fallback; trusted PLATFORM_GLOBAL context may read exact platform definition |
+| WFA-DEF-PG-005 | foreign-Tenant definition requested | no row; owning Tenant sees raw lifecycle/trigger/config evidence without execution authority |
+| WFA-DEF-PG-006 | malformed definition id or database route/context mismatch | fail closed before AutomationDefinition disclosure |
+| WFA-DEF-PG-007 | Workflow worker attempts UPDATE of AutomationDefinition catalog | privilege denial; raw definition remains unchanged |

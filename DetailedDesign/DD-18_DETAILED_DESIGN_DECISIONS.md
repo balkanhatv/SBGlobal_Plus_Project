@@ -1607,3 +1607,17 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** WTR-PG-001…007 in DD-17 and
 `tests/postgres/workflow-transition-store.test.mjs`.
+
+
+## DD-105 — AutomationDefinition raw persistence is readable without becoming automation execution authority
+
+**Context:** migration 0026 defines versioned owner-scoped AutomationDefinition rows with trigger/config JSON, optional condition-rule / OperationContract / WorkflowDefinition references and effective-date evidence under FORCE-RLS. Migration 0027 grants the dedicated Workflow worker SELECT-only catalog access, and migration 0031 validates creator/approver scope plus referenced WorkflowDefinition ownership. The repository does not yet own a source-complete scheduler, event/manual trigger interpreter, condition-rule evaluator, OperationContract dispatcher or AutomationRun execution authority.
+
+**Decision:** add immutable `PersistedAutomationDefinition`, `AutomationDefinitionReadPort.loadForContext(...)` and `PostgresAutomationDefinitionStore`. The store reads one exact UUID through the existing dedicated `PostgresWorkflowDatabase` + `RequestScopedSql` boundary, validates schema-owned owner/enums/positive integers/timestamps, preserves optional execution references as raw evidence and deep-normalizes trigger/config JSON into immutable values.
+
+**Security / trade-off:** owner-scope FORCE-RLS remains authoritative. Industry definitions are exact-context only; Tenant definitions remain same-Tenant visible; PLATFORM definitions require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback. Raw lifecycle/effective-date/trigger/reference/config evidence does not itself select, authorize or execute automation. The Workflow worker remains unable to mutate the AutomationDefinition catalog.
+
+**Boundary:** DD-105 does not choose an ACTIVE/effective definition, interpret EVENT/SCHEDULE/MANUAL triggers, parse schedule syntax or event selectors, evaluate condition rules, validate/dispatch an OperationContract, instantiate/execute a WorkflowDefinition, create/update AutomationRun, expose a route, or change migrations, roles, grants, RLS or product policy.
+
+**Acceptance:** WFA-DEF-PG-001…007 in DD-17 and
+`tests/postgres/automation-definition-store.test.mjs`.
