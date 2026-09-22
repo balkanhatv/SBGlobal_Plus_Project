@@ -123,16 +123,18 @@ before(async () => {
       );
     }
 
-    for (const [principalId, type, label] of [
-      [f.tenantPrincipalA, "HUMAN", "Notification template principal A"],
-      [f.tenantPrincipalB, "HUMAN", "Notification template principal B"],
-      [f.platformService, "SERVICE", "Notification template platform service"],
+    for (const [principalId, type, label, serviceCode, owningModule] of [
+      [f.tenantPrincipalA, "HUMAN", "Notification template principal A", null, null],
+      [f.tenantPrincipalB, "HUMAN", "Notification template principal B", null, null],
+      [f.platformService, "SERVICE", "Notification template platform service",
+        "notification-template-reader", "Notification"],
     ]) {
       await client.query(
         `INSERT INTO core_identity.platform_principal
-          (id,principal_type,status,display_name,created_at,updated_at)
-         VALUES ($1,$2,'ACTIVE',$3,now(),now())`,
-        [principalId, type, label],
+          (id,principal_type,status,display_name,service_code,owning_module,
+           created_at,updated_at)
+         VALUES ($1,$2,'ACTIVE',$3,$4,$5,now(),now())`,
+        [principalId, type, label, serviceCode, owningModule],
       );
     }
 
