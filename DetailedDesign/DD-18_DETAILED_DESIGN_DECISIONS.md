@@ -1284,3 +1284,28 @@ execution, route or schema/privilege change is claimed.
 
 **Acceptance:** INT-CAP-PG-001…004 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-094 — ProviderAdapter exact tuple reads keep adapter declarations separate from execution
+
+**Context:** DD-06 §§15–16 and migration 0025 define ProviderAdapter registry metadata
+and unique `definition_id + adapter_code + contract_version`. Migration 0028 grants
+the Integration service SELECT-only access. Auth/timeout/retry/circuit/health/error
+map/status fields are declarative registry strings; their executable implementations
+remain separate.
+
+**Decision:** add `ProviderAdapterReadPort.loadExact` and concrete
+`PostgresProviderAdapterStore`. It performs one parameterized exact tuple query,
+validates UUID/non-empty text and returns an immutable registry snapshot or null.
+
+**Security / trade-off:** adapter metadata cannot become a provider client or
+credential authority. A RETIRED/ACTIVE string is preserved as evidence; the read
+boundary does not choose adapters, probe networks, load secrets or authorize
+execution.
+
+**Boundary:** no provider SDK instantiation, auth material, timeout/retry/circuit
+engine, health probe, normalized-error execution, TenantIntegration enablement,
+callback dispatch, route or schema/privilege change is claimed.
+
+**Acceptance:** INT-ADAPTER-PG-001…004 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
