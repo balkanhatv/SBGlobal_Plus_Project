@@ -1387,3 +1387,30 @@ mutation, retry policy or schema/privilege change is claimed.
 
 **Acceptance:** INT-CURSOR-PG-001…005 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-097 — SyncCursor is raw persistence evidence, not sync execution authority
+
+**Context:** DD-06 defines the SyncCursor tuple. Migration 0025 supplies
+parent-TenantIntegration FORCE-RLS; migration 0028 hardens exact nullable-scope
+uniqueness; migration 0030 constrains writes to ACTIVE parent integration + ACTIVE
+enabled capability + exact Industry Context. The repository does not define one
+generic cursor codec, provider cursor semantics, watermark reconciliation or resume
+decision.
+
+**Decision:** add immutable `PersistedSyncCursor`,
+`SyncCursorReadPort.loadExact(...)` and `PostgresSyncCursorStore`. The store
+performs one parameterized exact tuple read inside the existing Integration
+service-role/request-scope boundary and returns the opaque/encrypted persisted cursor
+facts without interpretation.
+
+**Security / trade-off:** parent RLS prevents sibling/foreign cursor discovery.
+Exact tuple lookup prevents capability/context fallback. A cursor may remain readable
+as historical/raw evidence after its parent later becomes PAUSED/ERROR; this layer
+therefore cannot be mistaken for execution authorization.
+
+**Boundary:** no cursor decode/decrypt, resume/replay decision, provider selection,
+secret access, cursor mutation, worker or route is claimed.
+
+**Acceptance:** INT-CURSOR-PG-001…005 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
