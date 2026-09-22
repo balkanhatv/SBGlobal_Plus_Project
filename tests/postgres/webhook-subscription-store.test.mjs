@@ -35,9 +35,6 @@ import {
 import {
   PostgresSyncCursorStore,
 } from "../../dist/server/integration/postgres-sync-cursor-store.js";
-import {
-  PostgresSyncCursorStore,
-} from "../../dist/server/integration/postgres-sync-cursor-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -351,43 +348,6 @@ before(async () => {
     );
 
     await client.query(
-      "UPDATE core_integration.tenant_integration SET status='ACTIVE' WHERE id=ANY($1::uuid[])",
-      [[f.tenantIntegrationASibling, f.tenantIntegrationACore]],
-    );
-
-    await client.query(
-      `INSERT INTO core_integration.sync_cursor
-        (id,tenant_integration_id,capability_code,industry_context_id,
-         cursor_encrypted_or_opaque,watermark_time,source_version,updated_at)
-       VALUES
-        ($1,$5,'orders.read',$9,'opaque:a-industry',now()-interval '1 hour','src-a1',now()),
-        ($2,$6,'orders.read',$10,'opaque:a-sibling',NULL,'src-a2',now()),
-        ($3,$7,'orders.read',NULL,'opaque:a-core',now()-interval '2 hours',NULL,now()),
-        ($4,$8,'orders.read',NULL,'opaque:b-core',NULL,'src-b1',now())`,
-      [
-        f.syncAIndustry,
-        f.syncASibling,
-        f.syncACore,
-        f.syncBCore,
-        f.tenantIntegrationAIndustry,
-        f.tenantIntegrationASibling,
-        f.tenantIntegrationACore,
-        f.tenantIntegrationBCore,
-        f.industryA1,
-        f.industryA2,
-      ],
-    );
-
-    await client.query(
-      "UPDATE core_integration.tenant_integration SET status='ERROR' WHERE id=$1",
-      [f.tenantIntegrationASibling],
-    );
-    await client.query(
-      "UPDATE core_integration.tenant_integration SET status='PAUSED' WHERE id=$1",
-      [f.tenantIntegrationACore],
-    );
-
-    await client.query(
       `INSERT INTO core_integration.webhook_subscription
         (id,tenant_id,name,endpoint_url,status,secret_version,event_filter_json,
          allowed_industry_context_ids,permission_profile_id,created_by,verified_at,
@@ -608,7 +568,6 @@ before(async () => {
   tenantIntegrationStore = new PostgresTenantIntegrationStore(scoped);
   credentialMetadataStore = new PostgresCredentialReferenceMetadataStore(scoped);
   syncCursorStore = new PostgresSyncCursorStore(scoped);
-  syncCursorStore = new PostgresSyncCursorStore(scoped);
 });
 
 after(async () => {
@@ -636,10 +595,6 @@ after(async () => {
     await client.query(
       "DELETE FROM core_integration.sync_cursor WHERE id=ANY($1::uuid[])",
       [[f.syncCursorAIndustry, f.syncCursorACore, f.syncCursorBCore]],
-    );
-    await client.query(
-      "DELETE FROM core_integration.sync_cursor WHERE id=ANY($1::uuid[])",
-      [[f.syncAIndustry, f.syncASibling, f.syncACore, f.syncBCore]],
     );
     await client.query(
       "DELETE FROM core_integration.tenant_integration WHERE id=ANY($1::uuid[])",
@@ -1558,130 +1513,5 @@ test("INT-CURSOR-PG-005 exact tuple mismatch and malformed/route context fail cl
     },
     tenantIntegrationId: f.tenantIntegrationACore,
     capabilityCode: "orders.read",
-  }));
-});
-
-
-test("INT-CURSOR-PG-001 exact Industry SyncCursor preserves raw opaque evidence", async () => {
-  const cursor = await syncCursorStore.loadExact({
-    requestContext: contextA(),
-    tenantIntegrationId: f.tenantIntegrationAIndustry,
-    capabilityCode: "orders.read",
-    industryContextId: f.industryA1,
-  });
-
-  assert.ok(cursor);
-  assert.equal(cursor.id, f.syncAIndustry);
-  assert.equal(cursor.tenantIntegrationId, f.tenantIntegrationAIndustry);
-  assert.equal(cursor.capabilityCode, "orders.read");
-  assert.equal(cursor.industryContextId, f.industryA1);
-  assert.equal(cursor.cursorEncryptedOrOpaque, "opaque:a-industry");
-  assert.equal(cursor.sourceVersion, "src-a1");
-  assert.equal(typeof cursor.watermarkTime, "string");
-  assert.equal(Object.isFrozen(cursor), true);
-  assert.equal("decoded" in cursor, false);
-  assert.equal("resumable" in cursor, false);
-  assert.equal("executable" in cursor, false);
-});
-
-test("INT-CURSOR-PG-002 parent FORCE-RLS hides sibling Industry SyncCursor", async () => {
-  const hidden = await syncCursorStore.loadExact({
-    requestContext: contextA(),
-    tenantIntegrationId: f.tenantIntegrationASibling,
-    capabilityCode: "orders.read",
-    industryContextId: f.industryA2,
-  });
-  assert.equal(hidden, null);
-
-  const sibling = await syncCursorStore.loadExact({
-    requestContext: contextA(f.industryA2),
-    tenantIntegrationId: f.tenantIntegrationASibling,
-    capabilityCode: "orders.read",
-    industryContextId: f.industryA2,
-  });
-  assert.ok(sibling);
-  assert.equal(sibling.id, f.syncASibling);
-  assert.equal(sibling.cursorEncryptedOrOpaque, "opaque:a-sibling");
-  assert.equal(sibling.watermarkTime, undefined);
-  assert.equal(sibling.sourceVersion, "src-a2");
-});
-
-test("INT-CURSOR-PG-003 Tenant Core cursor is same-Tenant visible even after parent later becomes PAUSED", async () => {
-  const fromIndustry = await syncCursorStore.loadExact({
-    requestContext: contextA(),
-    tenantIntegrationId: f.tenantIntegrationACore,
-    capabilityCode: "orders.read",
-    industryContextId: undefined,
-  });
-  const fromTenant = await syncCursorStore.loadExact({
-    requestContext: tenantCoreA(),
-    tenantIntegrationId: f.tenantIntegrationACore,
-    capabilityCode: "orders.read",
-    industryContextId: undefined,
-  });
-
-  assert.ok(fromIndustry);
-  assert.ok(fromTenant);
-  assert.equal(fromIndustry.id, f.syncACore);
-  assert.equal(fromIndustry.industryContextId, undefined);
-  assert.equal(fromIndustry.cursorEncryptedOrOpaque, "opaque:a-core");
-  assert.equal(fromIndustry.sourceVersion, undefined);
-  assert.equal(fromTenant.id, f.syncACore);
-});
-
-test("INT-CURSOR-PG-004 foreign Tenant and tuple mismatch return null without fallback", async () => {
-  const hidden = await syncCursorStore.loadExact({
-    requestContext: tenantCoreA(),
-    tenantIntegrationId: f.tenantIntegrationBCore,
-    capabilityCode: "orders.read",
-    industryContextId: undefined,
-  });
-  assert.equal(hidden, null);
-
-  const own = await syncCursorStore.loadExact({
-    requestContext: tenantCoreB(),
-    tenantIntegrationId: f.tenantIntegrationBCore,
-    capabilityCode: "orders.read",
-    industryContextId: undefined,
-  });
-  assert.ok(own);
-  assert.equal(own.cursorEncryptedOrOpaque, "opaque:b-core");
-
-  assert.equal(await syncCursorStore.loadExact({
-    requestContext: contextA(),
-    tenantIntegrationId: f.tenantIntegrationAIndustry,
-    capabilityCode: "orders.write",
-    industryContextId: f.industryA1,
-  }), null);
-
-  assert.equal(await syncCursorStore.loadExact({
-    requestContext: contextA(),
-    tenantIntegrationId: f.tenantIntegrationAIndustry,
-    capabilityCode: "orders.read",
-    industryContextId: undefined,
-  }), null);
-});
-
-test("INT-CURSOR-PG-005 malformed tuple or database route mismatch fails closed", async () => {
-  await assert.rejects(syncCursorStore.loadExact({
-    requestContext: contextA(),
-    tenantIntegrationId: "not-a-uuid",
-    capabilityCode: "orders.read",
-    industryContextId: f.industryA1,
-  }));
-  await assert.rejects(syncCursorStore.loadExact({
-    requestContext: contextA(),
-    tenantIntegrationId: f.tenantIntegrationAIndustry,
-    capabilityCode: "",
-    industryContextId: f.industryA1,
-  }));
-  await assert.rejects(syncCursorStore.loadExact({
-    requestContext: {
-      ...contextA(),
-      dataHomeId: randomUUID(),
-    },
-    tenantIntegrationId: f.tenantIntegrationAIndustry,
-    capabilityCode: "orders.read",
-    industryContextId: f.industryA1,
   }));
 });
