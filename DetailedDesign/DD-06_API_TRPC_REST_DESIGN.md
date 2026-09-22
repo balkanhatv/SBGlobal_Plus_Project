@@ -408,3 +408,27 @@ run health probes, apply timeout/retry/circuit behavior or dispatch callbacks/ev
 **Boundary:** exact read-only adapter registry persistence; no network/provider
 execution, Tenant enablement, secret access, policy evaluation, route, migration,
 role, grant or registry mutation.
+
+
+## 38. Exact TenantIntegration persistence reader [DD-095]
+
+`PersistedTenantIntegration` exposes one exact RLS-visible TenantIntegration row:
+Tenant/optional Industry ownership, IntegrationDefinition id, scope class, display
+name, raw status, CredentialReference id, persisted config JSON, enabled capability
+codes, optional permission-profile id, raw health state, optional last-health
+timestamp, version and timestamps.
+
+`PostgresTenantIntegrationStore` reads only by TenantIntegration id through the
+fixed Integration service role plus `RequestScopedSql`. Migration 0025 FORCE-RLS
+remains the visibility authority: sibling Industry rows are invisible from the
+active Industry Context, Tenant Core rows remain same-Tenant visible, and foreign
+Tenant rows are hidden.
+
+The reader preserves ACTIVE/PAUSED/ERROR/health/capability/config facts exactly as
+persistence evidence. It does not convert them into enabled/executable/healthy
+authority, select a ProviderAdapter, dispatch an OperationContract, or join
+CredentialReference secret metadata.
+
+**Boundary:** DD-095 is read-only registry/state persistence. No secret-store access,
+provider SDK/runtime, health evaluation, capability authorization, network call,
+mutation, migration, role, grant or route is introduced.
