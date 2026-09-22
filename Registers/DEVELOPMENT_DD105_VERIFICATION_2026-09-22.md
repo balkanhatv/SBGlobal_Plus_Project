@@ -49,9 +49,28 @@ The verified executable feature tree contains **521 blobs / 211 Markdown / 132 T
 
 RawSource blobs remain `a9f63a64448a347edd0f2b0c74094284ee953c1b` and `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`. `main` remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; no merge is performed.
 
-## Promotion gate
+## Canonical traceability and invariant gate
 
-This connector-authored register commit intentionally triggers the normal Core/PostgreSQL/Database/Web workflows after DD-105 + WFA-DEF-PG-001…007 canonical traceability was added. Checkpoint/state surfaces must not be promoted until these exact-head invariant checks are green.
+DD-105 and WFA-DEF-PG-001…007 were added to the canonical DD-18 / DD-17 surfaces by self-removing traceability sync commit `1e68c55623e3446fba54b97e99440ee4e93da5e7`.
+
+The connector-authored invariant-gate head `72902672088e7beee7c7f13a569216c3738f619d` then passed all standard checks:
+
+| Verification | Run | Job | Result |
+|---|---:|---:|---|
+| Core Service Verify / Core | 35690333521 | 106625772380 | **SUCCESS** |
+| Core Service Verify / PostgreSQL | 35690333521 | 106625772552 | **SUCCESS**, full DB baseline + concrete PostgreSQL adapter/RLS step |
+| Database Verify | 35690333520 | 106625772375 | **SUCCESS** |
+| Web Boundary Verify | 35690333517 | 106625772292 | **SUCCESS** |
+
+This gate proves the canonical DD-105 decision/acceptance additions preserved repository invariants before state promotion.
+
+## State promotion
+
+Primary/overlay state surfaces are synchronized to `DEV-AUTOMATION-DEFINITION-READ-001`. The exact executable basis remains the already-tested feature head `d654a5e8d969d880a0d9a5ebc064c924f6c25e8c` / tree `1a5a94a4c435b756e623a9cf4328cf04047d4409` to avoid recursive self-hash.
+
+A one-time state-sync workflow updated the bounded checkpoint/state surfaces and the history-preserving manifest/phase-summary surfaces, then removed itself in promotion commit `e796b2f6daef9a777868cc31450a790742aa5cd6`. The final tree contains only the three standard repository workflow files. No source, test, database, migration, verification SQL, role/RLS or RawSource file was changed by state promotion.
+
+This register update is the final connector-authored promotion verification trigger. Its exact-head Core/PostgreSQL/Database/Web results must be green before DD-105 promotion is considered fully closed.
 
 ## Remaining boundary
 
