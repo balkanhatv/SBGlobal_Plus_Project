@@ -24,7 +24,7 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-108**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-109**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 DD-109 adds an exact-by-id global `core_ai.ai_capability` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. `category`, nullable `requiredEntitlement`, `defaultPolicyClass`, positive `schemaVersion`, and raw `status` remain persisted catalog evidence only; they do not authorize runtime capability eligibility, entitlement/policy evaluation, Tenant/Industry allowed-capability resolution, provisioning selection, provider/model routing, credential resolution, quota/budget decisions, or AI execution. No Tenant/Industry RequestContext, migration, schema, verification SQL, role, grant, RLS policy or product-policy change is introduced by DD-109.
 
