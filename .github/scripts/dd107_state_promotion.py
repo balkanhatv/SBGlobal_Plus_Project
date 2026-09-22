@@ -46,7 +46,8 @@ s = s.replace(old, f"**Current verified executable evidence:** `{impl_head}` / t
 write(p, s)
 
 p = Path("DetailedDesign/DD-PHASE_STATE.md")
-s = p.read_text(encoding="utf-8")ns = s.replace("**Current Development overlay:** `DEV-AUTOMATION-RUN-READ-001`", f"**Current Development overlay:** `{checkpoint}`", 1)
+s = p.read_text(encoding="utf-8")
+s = s.replace("**Current Development overlay:** `DEV-AUTOMATION-RUN-READ-001`", f"**Current Development overlay:** `{checkpoint}`", 1)
 marker = "## Current Development overlay — 2026-09-22"
 assert marker in s
 prefix = s.split(marker, 1)[0]
