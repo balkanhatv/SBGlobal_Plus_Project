@@ -1,0 +1,48 @@
+name: DD105 Traceability Sync
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - .github/workflows/dd105-traceability-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Append canonical DD-105 decision and acceptance
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          const decisionPath = 'DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md';
+          let decisions = fs.readFileSync(decisionPath, 'utf8');
+          if (!/^## DD-105\b/m.test(decisions)) {
+            decisions = decisions.replace(/\s*$/, '') + `\n\n\n## DD-105 — AutomationDefinition raw persistence is readable without becoming automation execution authority\n\n**Context:** migration 0026 defines versioned owner-scoped AutomationDefinition rows with trigger/config JSON, optional condition-rule / OperationContract / WorkflowDefinition references and effective-date evidence under FORCE-RLS. Migration 0027 grants the dedicated Workflow worker SELECT-only catalog access, and migration 0031 validates creator/approver scope plus referenced WorkflowDefinition ownership. The repository does not yet own a source-complete scheduler, event/manual trigger interpreter, condition-rule evaluator, OperationContract dispatcher or AutomationRun execution authority.\n\n**Decision:** add immutable \`PersistedAutomationDefinition\`, \`AutomationDefinitionReadPort.loadForContext(...)\` and \`PostgresAutomationDefinitionStore\`. The store reads one exact UUID through the existing dedicated \`PostgresWorkflowDatabase\` + \`RequestScopedSql\` boundary, validates schema-owned owner/enums/positive integers/timestamps, preserves optional execution references as raw evidence and deep-normalizes trigger/config JSON into immutable values.\n\n**Security / trade-off:** owner-scope FORCE-RLS remains authoritative. Industry definitions are exact-context only; Tenant definitions remain same-Tenant visible; PLATFORM definitions require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback. Raw lifecycle/effective-date/trigger/reference/config evidence does not itself select, authorize or execute automation. The Workflow worker remains unable to mutate the AutomationDefinition catalog.\n\n**Boundary:** DD-105 does not choose an ACTIVE/effective definition, interpret EVENT/SCHEDULE/MANUAL triggers, parse schedule syntax or event selectors, evaluate condition rules, validate/dispatch an OperationContract, instantiate/execute a WorkflowDefinition, create/update AutomationRun, expose a route, or change migrations, roles, grants, RLS or product policy.\n\n**Acceptance:** WFA-DEF-PG-001…007 in DD-17 and\n\`tests/postgres/automation-definition-store.test.mjs\`.\n`;
+            fs.writeFileSync(decisionPath, decisions);
+          }
+
+          const acceptancePath = 'DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md';
+          let acceptance = fs.readFileSync(acceptancePath, 'utf8');
+          if (!/### Raw PostgreSQL AutomationDefinition reader — DD-105/.test(acceptance)) {
+            acceptance = acceptance.replace(/\s*$/, '') + `\n\n\n### Raw PostgreSQL AutomationDefinition reader — DD-105\n\n| ID | Scenario | Expected |\n|---|---|---|\n| WFA-DEF-PG-001 | exact Tenant Industry AutomationDefinition id | immutable raw trigger/config/reference/lifecycle/effective evidence; no selected/executable decision |\n| WFA-DEF-PG-002 | sibling Industry definition requested from current Industry | owner-scope FORCE-RLS returns no row; exact sibling context may read its own raw definition |\n| WFA-DEF-PG-003 | Tenant definition requested from same-Tenant Industry and Tenant Core contexts | same raw definition visible; schema-allowed empty text and optional effective evidence preserved |\n| WFA-DEF-PG-004 | PLATFORM definition requested from Tenant then PLATFORM_GLOBAL service context | Tenant gets no implicit fallback; trusted PLATFORM_GLOBAL context may read exact platform definition |\n| WFA-DEF-PG-005 | foreign-Tenant definition requested | no row; owning Tenant sees raw lifecycle/trigger/config evidence without execution authority |\n| WFA-DEF-PG-006 | malformed definition id or database route/context mismatch | fail closed before AutomationDefinition disclosure |\n| WFA-DEF-PG-007 | Workflow worker attempts UPDATE of AutomationDefinition catalog | privilege denial; raw definition remains unchanged |\n`;
+            fs.writeFileSync(acceptancePath, acceptance);
+          }
+          NODE
+      - name: Commit traceability and self-remove
+        shell: bash
+        run: |
+          git config user.name "sbglobal-traceability-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git rm .github/workflows/dd105-traceability-sync.yml
+          git add DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md
+          git commit -m "docs(design): promote DD-105 automation definition traceability"
+          git push origin HEAD:docs/architecture-branch-2
