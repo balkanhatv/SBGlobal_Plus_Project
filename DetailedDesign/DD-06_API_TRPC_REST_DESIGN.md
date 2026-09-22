@@ -345,3 +345,26 @@ This floor exposes no live route. Concrete machine/API-key syntax, public route
 catalog, route-specific input mapping, OpenAPI publication, deployment policy and
 webhook authenticity remain separate registrations/implementations. First-party
 surfaces continue to use tRPC.
+
+
+## 35. Exact IntegrationDefinition persistence reader [DD-092]
+
+The Wave-2 Integration registry now has a concrete read-only definition boundary.
+`PersistedIntegrationDefinition` mirrors migration 0025's
+`integration_definition` row: id/code/name/provider family, capability-code array,
+adapter-contract version, owner scope, raw status, data-transfer class, residency
+metadata and timestamps.
+
+`PostgresIntegrationDefinitionStore` reads only by the exact primary-key UUID
+through the fixed-role `PostgresIntegrationDatabase`. The reader validates the
+PLATFORM/TENANT/INDUSTRY owner-scope enum, non-empty registry text, immutable string
+arrays, timestamps and JSON. An absent id returns null.
+
+The persisted `status`, data-transfer classification and adapter-contract metadata
+remain raw registry evidence at this layer. They are not converted into provider
+selection, Tenant enablement, health, compatibility or authorization decisions.
+
+**Boundary:** DD-092 does not join CredentialReference, TenantIntegration,
+IntegrationCapability or ProviderAdapter; does not read secret references; does not
+choose/execute a provider; and does not mutate registry state or introduce a route,
+migration, role, grant or policy.
