@@ -1,0 +1,48 @@
+name: DD106 Traceability Sync
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - .github/workflows/dd106-traceability-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Append canonical DD-106 decision and acceptance
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          const decisionPath = 'DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md';
+          let decisions = fs.readFileSync(decisionPath, 'utf8');
+          if (!/^## DD-106\b/m.test(decisions)) {
+            decisions = decisions.replace(/\s*$/, '') + `\n\n\n## DD-106 — AutomationRun raw persistence is readable without becoming automation execution or mutation authority\n\n**Context:** migration 0026 defines Tenant/Industry-scoped AutomationRun rows with AutomationDefinition linkage, raw trigger/idempotency evidence, lifecycle status, timestamps, correlation and optional error evidence under FORCE-RLS. Migration 0027 grants the dedicated Workflow worker SELECT/INSERT/UPDATE on AutomationRun, while migration 0031 validates the referenced AutomationDefinition is active and compatible with the run scope. The repository does not yet own a source-complete trigger executor, retry/finality policy, run-state transition authorizer or automation runtime.\n\n**Decision:** add immutable \\`PersistedAutomationRun\\`, \\`AutomationRunReadPort.loadForContext(...)\\` and \\`PostgresAutomationRunStore\\`. The store reads one exact UUID through the existing dedicated \\`PostgresWorkflowDatabase\\` + \\`RequestScopedSql\\` boundary, validates schema-owned UUID/status/timestamp shape and completion ordering, and preserves raw trigger reference, idempotency hash, correlation and optional last-error evidence.\n\n**Security / trade-off:** FORCE-RLS remains authoritative. Industry runs are exact-context only; Tenant Core runs remain same-Tenant visible from Tenant Core and Tenant Industry contexts; foreign Tenant rows are undiscoverable. Persisted status/trigger/idempotency/error evidence does not select a trigger, authorize retry/finality or determine a next state. The schema-owned Workflow worker UPDATE privilege remains unchanged; DD-106 exposes no mutation method through its read port.\n\n**Boundary:** DD-106 does not create/select a run, interpret trigger_ref, treat idempotency evidence as replay/authorization authority, choose or authorize status transitions, schedule retry/backoff/finality, evaluate AutomationDefinition trigger/config/conditions, dispatch an OperationContract or WorkflowDefinition, mutate AutomationRun, expose a route, or change migrations, roles, grants, RLS or product policy.\n\n**Acceptance:** WFA-RUN-PG-001…007 in DD-17 and\n\\`tests/postgres/automation-run-store.test.mjs\\`.\n`;
+            fs.writeFileSync(decisionPath, decisions);
+          }
+
+          const acceptancePath = 'DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md';
+          let acceptance = fs.readFileSync(acceptancePath, 'utf8');
+          if (!/### Raw PostgreSQL AutomationRun reader — DD-106/.test(acceptance)) {
+            acceptance = acceptance.replace(/\s*$/, '') + `\n\n\n### Raw PostgreSQL AutomationRun reader — DD-106\n\n| ID | Scenario | Expected |\n|---|---|---|\n| WFA-RUN-PG-001 | exact Tenant Industry AutomationRun id | immutable raw trigger/idempotency/status/time/correlation/error evidence; no execution or next-state decision |\n| WFA-RUN-PG-002 | sibling Industry run requested from current Industry | FORCE-RLS returns no row; exact sibling context may read its own raw run |\n| WFA-RUN-PG-003 | Tenant Core run requested from same-Tenant Industry and Tenant Core contexts | same raw run visible; schema-allowed empty text evidence preserved |\n| WFA-RUN-PG-004 | foreign-Tenant run requested | no row; owning Tenant sees raw evidence without execution authority |\n| WFA-RUN-PG-005 | persisted terminal/non-terminal run evidence read | no trigger/retry/finality/next-state execution decision is surfaced |\n| WFA-RUN-PG-006 | malformed run id or database route/context mismatch | fail closed before AutomationRun disclosure |\n| WFA-RUN-PG-007 | Workflow worker privilege/read-port surface inspected | schema-owned AutomationRun UPDATE privilege remains; DD-106 read port exposes no mutation method |\n`;
+            fs.writeFileSync(acceptancePath, acceptance);
+          }
+          NODE
+      - name: Commit traceability and self-remove
+        shell: bash
+        run: |
+          git config user.name "sbglobal-traceability-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git rm .github/workflows/dd106-traceability-sync.yml
+          git add DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md
+          git commit -m "docs(design): promote DD-106 automation run traceability"
+          git push origin HEAD:docs/architecture-branch-2
