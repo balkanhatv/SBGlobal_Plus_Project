@@ -1477,3 +1477,34 @@ RLS change is introduced.
 
 **Acceptance:** NOTIF-TPL-PG-001…006 in DD-17 and
 `tests/postgres/notification-template-store.test.mjs`.
+
+
+## DD-101 — WorkflowDefinition raw persistence is readable without becoming selection/execution authority
+
+**Context:** migration 0026 defines versioned owner-scoped WorkflowDefinition JSON
+and effective-date evidence plus FORCE-RLS; migration 0027 grants the dedicated
+Workflow worker role SELECT-only catalog access; migration 0031 validates
+creator/approver scope. The repository does not yet bind a runtime active-version
+selector, state-machine interpreter, approval/rule executor or transition
+authorization engine to these persisted definitions.
+
+**Decision:** add immutable `PersistedWorkflowDefinition`,
+`WorkflowDefinitionReadPort.loadForContext(...)`, dedicated
+`PostgresWorkflowDatabase` fixed to `sbg_workflow_worker_rw`, and
+`PostgresWorkflowDefinitionStore`. The store reads one exact UUID through
+`RequestScopedSql` and preserves owner scope, version/lifecycle/schema version,
+state-machine/approval JSON, rule refs, principals and optional effective dates.
+
+**Security / trade-off:** owner-scope FORCE-RLS remains authoritative. Industry
+definitions are exact-context only; Tenant definitions remain same-Tenant visible;
+PLATFORM definitions require trusted PLATFORM_GLOBAL context and are not implicit
+Tenant fallback. Raw ACTIVE/RETIRED/effective-date evidence does not itself make a
+definition selected or executable. The Workflow worker remains unable to UPDATE the
+definition catalog.
+
+**Boundary:** no active-version/effective-date selection, state-machine
+interpretation, approval/rule execution, transition authorization, instance
+creation/mutation, route, migration, role, grant or RLS change is introduced.
+
+**Acceptance:** WFD-PG-001…007 in DD-17 and
+`tests/postgres/workflow-definition-store.test.mjs`.
