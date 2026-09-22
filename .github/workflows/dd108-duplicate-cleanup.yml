@@ -1,0 +1,35 @@
+name: DD-108 Duplicate Traceability Cleanup
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - .github/workflows/dd108-duplicate-cleanup.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: docs/architecture-branch-2
+          fetch-depth: 0
+      - name: Remove duplicate DD-108 traceability tail
+        run: python3 .github/scripts/dd108_duplicate_cleanup.py
+      - name: Commit canonical cleanup and self-remove helpers
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/dd108-duplicate-cleanup.yml
+          rm .github/scripts/dd108_duplicate_cleanup.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md .github/workflows/dd108-duplicate-cleanup.yml .github/scripts/dd108_duplicate_cleanup.py
+          git diff --cached --quiet && exit 1
+          git commit -m "docs(dd108): remove duplicate canonical traceability"
+          git push origin HEAD:docs/architecture-branch-2
