@@ -43,6 +43,12 @@ Repository decisions are contiguous through **DD-104** and the exact feature tre
 
 RawSource blobs remain `a9f63a64448a347edd0f2b0c74094284ee953c1b` and `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`. Main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; no merge is performed.
 
+## State promotion
+
+Primary/overlay state surfaces are synchronized to `DEV-WORKFLOW-TRANSITION-READ-001`. The exact executable basis remains the already-tested feature head above to avoid a recursive self-hash. A one-time state-sync workflow patched the large history-preserving manifest/phase-summary surfaces and removed itself in promotion commit `d6e55f66f2fb43ef276ed39961cdfc7c65a27b66`; the standard repository workflows are the only workflow files left in the final tree.
+
+This register update is the normal connector-authored promotion verification trigger. Its exact-head Core/PostgreSQL/Database/Web results must be green before DD-104 promotion is considered fully closed.
+
 ## Remaining boundary
 
 WorkflowTransition persistence is not transition authority. State-machine/approval/rule evaluation, transition selection/authorization, optimistic WorkflowInstance mutation, task action/mutation and downstream event emission remain unimplemented. Further work must source-audit the next independent Workflow slice before implementation.
