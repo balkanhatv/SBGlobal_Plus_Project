@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-INTEGRATION-CAPABILITY-READ-001`
+**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-PROVIDER-ADAPTER-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-093**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-094**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-093 adds an exact IntegrationCapability PostgreSQL reader keyed by IntegrationDefinition id + capability code. It preserves immutable direction, optional OperationContract reference, event types and raw data/idempotency/rate/status metadata without turning registry evidence into Tenant enablement, provider selection, dispatch or authorization.
+DD-094 adds an exact ProviderAdapter PostgreSQL reader keyed by IntegrationDefinition id + adapter code + contract version. It preserves immutable auth/timeout/retry/circuit/health/error-map/status registry metadata without selecting or instantiating a provider runtime, accessing credentials, evaluating health/enablement, or executing network behavior.
 
 Full DD-08 signed access remains blocked on exact operation/permission, policy-specific step-up/residency and signer TTL/provider bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch/webhooks, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished.
 
@@ -38,3 +38,6 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
 **Current verified executable evidence:** `31ff08fb962c09167b9c4e545593755a2b7111df` / tree `c6762fa966eba0754db56273de619af93985cf5f` — 311 Core tests, 112 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD093_VERIFICATION_2026-09-22.md).
+
+
+**Current verified executable evidence:** `8f170f8512810890d44613173adf3d73bb079ddc` / tree `bcbac03806b393c980508f3d89a10ef1c6de5b31` — 311 Core tests, 116 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD094_VERIFICATION_2026-09-22.md).
