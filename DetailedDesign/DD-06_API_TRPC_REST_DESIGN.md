@@ -456,3 +456,25 @@ Platform-global CredentialReference rows are outside this tenant-scoped port.
 **Boundary:** no secret locator/material, secret-store call, credential usability
 decision, provider selection/runtime, rotation action, route, migration, role, grant
 or RLS change is introduced.
+
+
+## 40. Exact raw SyncCursor persistence reader [DD-097]
+
+`PersistedSyncCursor` exposes one exact persisted cursor tuple:
+TenantIntegration id, capability code, optional Industry Context id,
+`cursorEncryptedOrOpaque`, optional watermark/source version and updated timestamp.
+
+`PostgresSyncCursorStore` reads the unique
+`tenantIntegrationId + capabilityCode + nullable Industry Context` tuple through
+the fixed Integration service role plus `RequestScopedSql`. Parent
+TenantIntegration FORCE-RLS remains the visibility authority.
+
+The reader preserves opaque/encrypted cursor evidence exactly. It does not decrypt,
+interpret or validate cursor payload, decide whether the parent integration is
+currently resumable/executable, or perform sync replay. A cursor persisted while its
+parent was valid may remain readable evidence even if the parent later becomes
+PAUSED/ERROR; runtime resume authorization is a separate decision.
+
+**Boundary:** no sync execution, cursor mutation/decryption, provider runtime,
+credential secret access, retry/resume policy, route, migration, role, grant or RLS
+change is introduced.
