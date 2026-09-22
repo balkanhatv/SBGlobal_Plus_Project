@@ -1044,3 +1044,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | INT-CURSOR-PG-003 | Tenant Core cursor read from same-Tenant Industry and Tenant Core contexts after parent later PAUSED | same raw cursor visible; parent status is not converted into resume authority |
 | INT-CURSOR-PG-004 | foreign Tenant or mismatched capability/context tuple | null; no fallback to another cursor |
 | INT-CURSOR-PG-005 | malformed tuple or database route/context mismatch | fail closed before cursor disclosure |
+
+
+### Raw PostgreSQL NotificationDelivery reader — DD-098
+
+| ID | Scenario | Expected |
+|---|---|---|
+| NOTIF-DEL-PG-001 | exact Tenant Industry delivery id | immutable raw scoped recipient/channel/status/time/error/version evidence; no send/retry/provider decision |
+| NOTIF-DEL-PG-002 | sibling Industry delivery requested from current Industry | FORCE-RLS returns no row; exact sibling context may read its own |
+| NOTIF-DEL-PG-003 | Tenant Core delivery requested from same-Tenant Industry and Tenant Core contexts | same Tenant Core delivery visible in both; raw FAILED/error evidence preserved |
+| NOTIF-DEL-PG-004 | foreign-Tenant delivery id queried | FORCE-RLS returns no row; owning Tenant sees raw terminal evidence without finality/provider authority |
+| NOTIF-DEL-PG-005 | malformed id or database route/context mismatch | fail closed before delivery disclosure |
