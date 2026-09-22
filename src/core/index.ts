@@ -69,3 +69,4 @@ export * from "./workflow/automation-definition.js";
 export * from "./workflow/automation-run.js";
 export * from "./ai/provider-catalog-metadata.js";
 export * from "./ai/model-catalog-metadata.js";
+export * from "./ai/capability-catalog-metadata.js";
