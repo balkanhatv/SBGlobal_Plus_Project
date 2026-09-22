@@ -26,6 +26,9 @@ import {
 import {
   PostgresProviderAdapterStore,
 } from "../../dist/server/integration/postgres-provider-adapter-store.js";
+import {
+  PostgresTenantIntegrationStore,
+} from "../../dist/server/integration/postgres-tenant-integration-store.js";
 
 assert.ok(
   process.env.SBG_POSTGRES_TEST_URL,
@@ -67,6 +70,14 @@ const f = Object.fromEntries([
   "capabilityIndustry",
   "providerAdapterPlatform",
   "providerAdapterIndustry",
+  "credentialAIndustry",
+  "credentialASibling",
+  "credentialACore",
+  "credentialBCore",
+  "tenantIntegrationAIndustry",
+  "tenantIntegrationASibling",
+  "tenantIntegrationACore",
+  "tenantIntegrationBCore",
 ].map((key) => [key, randomUUID()]));
 
 let pool;
@@ -77,6 +88,7 @@ let catalogStore;
 let definitionStore;
 let capabilityStore;
 let providerAdapterStore;
+let tenantIntegrationStore;
 
 const eventTypeIndustry = "webhook.reader.industry." + randomBytes(6).toString("hex");
 const eventTypeTenant = "webhook.reader.tenant." + randomBytes(6).toString("hex");
@@ -239,6 +251,63 @@ before(async () => {
         f.providerAdapterIndustry,
         f.definitionPlatform,
         f.definitionIndustry,
+      ],
+    );
+
+    await client.query(
+      `INSERT INTO core_integration.credential_reference
+        (id,tenant_id,industry_context_id,secret_store_provider,secret_reference,
+         credential_type,key_version,status,rotated_at,expires_at,created_at)
+       VALUES
+        ($1,$5,$6,'fixture-secret-store','secret://a-industry','OAUTH_CLIENT',1,'ACTIVE',NULL,NULL,now()),
+        ($2,$5,$7,'fixture-secret-store','secret://a-sibling','API_KEY',2,'ACTIVE',NULL,NULL,now()),
+        ($3,$5,NULL,'fixture-secret-store','secret://a-core','OAUTH_CLIENT',3,'ACTIVE',NULL,NULL,now()),
+        ($4,$8,NULL,'fixture-secret-store','secret://b-core','API_KEY',1,'ACTIVE',NULL,NULL,now())`,
+      [
+        f.credentialAIndustry,
+        f.credentialASibling,
+        f.credentialACore,
+        f.credentialBCore,
+        f.tenantA,
+        f.industryA1,
+        f.industryA2,
+        f.tenantB,
+      ],
+    );
+
+    await client.query(
+      `INSERT INTO core_integration.tenant_integration
+        (id,tenant_id,industry_context_id,integration_definition_id,scope_class,
+         display_name,status,credential_reference_id,config_json_encrypted_or_safe,
+         enabled_capabilities,permission_profile_id,health_state,last_health_at,
+         version,created_at,updated_at)
+       VALUES
+        ($1,$5,$6,$9,'TENANT_INDUSTRY','Orders Industry A','ACTIVE',$10,
+         '{"mode":"industry","nested":{"raw":true}}'::jsonb,
+         ARRAY['orders.read'],NULL,'HEALTHY',now(),2,now(),now()),
+        ($2,$5,$7,$9,'TENANT_INDUSTRY','Orders Industry A2','ERROR',$11,
+         '{"mode":"sibling"}'::jsonb,
+         ARRAY['orders.read'],NULL,'AUTH_ERROR',now(),4,now(),now()),
+        ($3,$5,NULL,$9,'TENANT_CORE','Orders Tenant A','PAUSED',$12,
+         '{"mode":"tenant-core","retry":"raw"}'::jsonb,
+         ARRAY['orders.read','orders.write'],NULL,'DEGRADED',NULL,3,now(),now()),
+        ($4,$8,NULL,$9,'TENANT_CORE','Orders Tenant B','ACTIVE',$13,
+         '{"mode":"foreign"}'::jsonb,
+         ARRAY['orders.read'],NULL,'UNKNOWN',NULL,1,now(),now())`,
+      [
+        f.tenantIntegrationAIndustry,
+        f.tenantIntegrationASibling,
+        f.tenantIntegrationACore,
+        f.tenantIntegrationBCore,
+        f.tenantA,
+        f.industryA1,
+        f.industryA2,
+        f.tenantB,
+        f.definitionPlatform,
+        f.credentialAIndustry,
+        f.credentialASibling,
+        f.credentialACore,
+        f.credentialBCore,
       ],
     );
 
@@ -460,6 +529,7 @@ before(async () => {
   definitionStore = new PostgresIntegrationDefinitionStore(integrationDatabase);
   capabilityStore = new PostgresIntegrationCapabilityStore(integrationDatabase);
   providerAdapterStore = new PostgresProviderAdapterStore(integrationDatabase);
+  tenantIntegrationStore = new PostgresTenantIntegrationStore(scoped);
 });
 
 after(async () => {
@@ -483,6 +553,24 @@ after(async () => {
     await client.query(
       "DELETE FROM core_integration.outbox_event_identity WHERE id=ANY($1::uuid[])",
       [[f.eventIndustryA, f.eventTenantA, f.eventIndustryB]],
+    );
+    await client.query(
+      "DELETE FROM core_integration.tenant_integration WHERE id=ANY($1::uuid[])",
+      [[
+        f.tenantIntegrationAIndustry,
+        f.tenantIntegrationASibling,
+        f.tenantIntegrationACore,
+        f.tenantIntegrationBCore,
+      ]],
+    );
+    await client.query(
+      "DELETE FROM core_integration.credential_reference WHERE id=ANY($1::uuid[])",
+      [[
+        f.credentialAIndustry,
+        f.credentialASibling,
+        f.credentialACore,
+        f.credentialBCore,
+      ]],
     );
     await client.query(
       "DELETE FROM core_integration.provider_adapter WHERE id=ANY($1::uuid[])",
@@ -1081,5 +1169,104 @@ test("INT-ADAPTER-PG-004 malformed definition id or empty tuple field fails clos
     definitionId: f.definitionPlatform,
     adapterCode: "fixture-http",
     contractVersion: "",
+  }));
+});
+
+
+test("INT-TENANT-PG-001 exact Industry TenantIntegration preserves raw scoped evidence", async () => {
+  const integration = await tenantIntegrationStore.loadForContext({
+    requestContext: contextA(),
+    tenantIntegrationId: f.tenantIntegrationAIndustry,
+  });
+
+  assert.ok(integration);
+  assert.equal(integration.id, f.tenantIntegrationAIndustry);
+  assert.equal(integration.tenantId, f.tenantA);
+  assert.equal(integration.industryContextId, f.industryA1);
+  assert.equal(integration.scopeClass, "TENANT_INDUSTRY");
+  assert.equal(integration.integrationDefinitionId, f.definitionPlatform);
+  assert.equal(integration.status, "ACTIVE");
+  assert.equal(integration.credentialReferenceId, f.credentialAIndustry);
+  assert.deepEqual(integration.config, {mode:"industry", nested:{raw:true}});
+  assert.deepEqual(integration.enabledCapabilities, ["orders.read"]);
+  assert.equal(integration.healthState, "HEALTHY");
+  assert.equal(integration.version, 2);
+  assert.equal(Object.isFrozen(integration), true);
+  assert.equal(Object.isFrozen(integration.config), true);
+  assert.equal(Object.isFrozen(integration.enabledCapabilities), true);
+  assert.equal("secretReference" in integration, false);
+  assert.equal("enabled" in integration, false);
+  assert.equal("executable" in integration, false);
+});
+
+test("INT-TENANT-PG-002 FORCE-RLS hides sibling Industry TenantIntegration", async () => {
+  const hidden = await tenantIntegrationStore.loadForContext({
+    requestContext: contextA(),
+    tenantIntegrationId: f.tenantIntegrationASibling,
+  });
+  assert.equal(hidden, null);
+
+  const sibling = await tenantIntegrationStore.loadForContext({
+    requestContext: contextA(f.industryA2),
+    tenantIntegrationId: f.tenantIntegrationASibling,
+  });
+  assert.ok(sibling);
+  assert.equal(sibling.industryContextId, f.industryA2);
+  assert.equal(sibling.status, "ERROR");
+  assert.equal(sibling.healthState, "AUTH_ERROR");
+});
+
+test("INT-TENANT-PG-003 Tenant Core TenantIntegration is same-Tenant visible from Industry and Tenant Core contexts", async () => {
+  const fromIndustry = await tenantIntegrationStore.loadForContext({
+    requestContext: contextA(),
+    tenantIntegrationId: f.tenantIntegrationACore,
+  });
+  const fromTenant = await tenantIntegrationStore.loadForContext({
+    requestContext: tenantCoreA(),
+    tenantIntegrationId: f.tenantIntegrationACore,
+  });
+
+  assert.ok(fromIndustry);
+  assert.ok(fromTenant);
+  assert.equal(fromIndustry.scopeClass, "TENANT_CORE");
+  assert.equal(fromIndustry.industryContextId, undefined);
+  assert.equal(fromIndustry.status, "PAUSED");
+  assert.equal(fromIndustry.healthState, "DEGRADED");
+  assert.equal(fromIndustry.lastHealthAt, undefined);
+  assert.deepEqual(fromTenant.enabledCapabilities, ["orders.read", "orders.write"]);
+});
+
+test("INT-TENANT-PG-004 foreign Tenant row is hidden and raw ACTIVE/health evidence remains non-authorizing", async () => {
+  const hidden = await tenantIntegrationStore.loadForContext({
+    requestContext: tenantCoreA(),
+    tenantIntegrationId: f.tenantIntegrationBCore,
+  });
+  assert.equal(hidden, null);
+
+  const own = await tenantIntegrationStore.loadForContext({
+    requestContext: tenantCoreB(),
+    tenantIntegrationId: f.tenantIntegrationBCore,
+  });
+  assert.ok(own);
+  assert.equal(own.tenantId, f.tenantB);
+  assert.equal(own.status, "ACTIVE");
+  assert.equal(own.healthState, "UNKNOWN");
+  assert.equal("selectedAdapter" in own, false);
+  assert.equal("credential" in own, false);
+  assert.equal("authorized" in own, false);
+});
+
+test("INT-TENANT-PG-005 malformed id or database route/context mismatch fails closed", async () => {
+  await assert.rejects(tenantIntegrationStore.loadForContext({
+    requestContext: tenantCoreA(),
+    tenantIntegrationId: "not-a-uuid",
+  }));
+
+  await assert.rejects(tenantIntegrationStore.loadForContext({
+    requestContext: {
+      ...tenantCoreA(),
+      dataHomeId: randomUUID(),
+    },
+    tenantIntegrationId: f.tenantIntegrationACore,
   }));
 });
