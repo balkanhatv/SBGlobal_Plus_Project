@@ -89,7 +89,7 @@ before(async () => {
        '{"mode":"raw","enabled":true}'::jsonb,$10,$10,now()-interval '2 days',NULL,now()-interval '5 days',now()-interval '1 day'),
       ($2,'INDUSTRY',$6,$9,'MAINT_SCHEDULE',1,'DRAFT',1,'SCHEDULE',
        '{"cron":"raw-unparsed"}'::jsonb,NULL,'',NULL,'{}'::jsonb,$10,NULL,NULL,NULL,now()-interval '4 days',now()-interval '3 days'),
-      ($3,'TENANT',$6,NULL,'',4,'RETIRED',2,'MANUAL','{}'::jsonb,'',NULL,NULL,
+      ($3,'TENANT',$6,NULL,'',4,'RETIRED',2,'MANUAL','{}'::jsonb,'','tenant.raw',NULL,
        '{"raw":[1,true,null]}'::jsonb,$10,$10,NULL,now()-interval '1 day',now()-interval '9 days',now()-interval '2 days'),
       ($4,'TENANT',$7,NULL,'TENANT_B_AUTO',1,'ACTIVE',1,'MANUAL','{}'::jsonb,NULL,'tenant.b.op',NULL,
        '{}'::jsonb,$11,$11,NULL,NULL,now()-interval '3 days',now()-interval '1 day'),
@@ -156,7 +156,7 @@ test("WFA-DEF-PG-003 Tenant definition remains same-Tenant visible and preserves
   assert.ok(fromIndustry); assert.ok(fromTenant);
   assert.equal(fromIndustry.code,""); assert.equal(fromIndustry.status,"RETIRED");
   assert.equal(fromIndustry.conditionRuleRef,"");
-  assert.equal(fromIndustry.operationContractId,undefined);
+  assert.equal(fromIndustry.operationContractId,"tenant.raw");
   assert.equal(fromIndustry.effectiveFrom,undefined);
   assert.equal(typeof fromIndustry.effectiveTo,"string");
 });
