@@ -1362,3 +1362,28 @@ claimed.
 
 **Acceptance:** INT-CRED-META-PG-001…005 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-097 — SyncCursor raw persistence is readable without implying resume authority
+
+**Context:** DD-06 defines SyncCursor storage; migration 0028 defines exact nullable
+scope uniqueness; migration 0030 validates cursor writes against an ACTIVE
+TenantIntegration and ACTIVE enabled IntegrationCapability. Parent-RLS already owns
+read visibility. None of those facts define future replay/resume authorization.
+
+**Decision:** add typed `SyncCursorReadPort` and concrete
+`PostgresSyncCursorStore`. It reads one exact RLS-visible tuple using
+`IS NOT DISTINCT FROM` for nullable Industry Context and returns immutable opaque
+cursor/watermark/source-version evidence.
+
+**Security / trade-off:** the cursor string stays server-internal and opaque. The
+reader never decrypts or serializes it into a public transport contract. Parent
+state changes after persistence do not silently delete historical cursor evidence;
+later runtime code must re-evaluate current TenantIntegration/capability/policy before
+resuming sync.
+
+**Boundary:** no resume/replay decision, provider call, secret access, cursor
+mutation, retry policy or schema/privilege change is claimed.
+
+**Acceptance:** INT-CURSOR-PG-001…005 in DD-17 and
+`tests/postgres/webhook-subscription-store.test.mjs`.
