@@ -1,0 +1,133 @@
+name: DD108 Canonical Promotion
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - .github/workflows/dd108-canonical-promote.yml
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: docs/architecture-branch-2
+          fetch-depth: 0
+      - name: Verify staging parent
+        shell: bash
+        run: |
+          test "$(git rev-parse HEAD^)" = "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58"
+      - name: Append canonical DD-108 traceability and register
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          dd18_path = Path("DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md")
+          dd18 = dd18_path.read_text(encoding="utf-8")
+          dd108 = r'''
+
+## DD-108 — AI Model catalog metadata is readable as raw global evidence without creating model-selection authority
+
+**Context:** DD-107 established a bounded global AI Provider catalog metadata reader through the dedicated AI Gateway database role. Migration 0011 also defines `core_ai.ai_model` as global catalog persistence, migration 0014 grants `sbg_ai_gateway_rw` SELECT without model-catalog DML, and migration 0031 enforces provider/model integrity. A-07 and DD-09 keep provider/model selection, routing and execution as separate runtime concerns, so catalog status or provider linkage is insufficient authority to choose a model.
+
+**Decision:** add an exact-by-id immutable `AIModelCatalogMetadataReadPort` and `PostgresAIModelCatalogMetadataStore` through the existing `PostgresAIGatewayDatabase` boundary. The reader projects only schema-owned raw model evidence: id, providerId, modelCode, displayName, capabilities, contextWindowClass, input/output modalities, residencyRegions, sensitivityCeiling, costClass, latencyClass, raw status, positive version and metadata. Schema-valid empty text and nullable array elements are preserved instead of strengthened. Missing rows return null; malformed ids, malformed rows or ambiguous exact-id results fail closed.
+
+**Security / trade-off:** the fixed `sbg_ai_gateway_rw` role remains SELECT-only for `core_ai.ai_model`; no INSERT/UPDATE/DELETE authority or mutation method is added. `providerId`, `status='ACTIVE'`, sensitivity and residency facts remain catalog evidence only and do not mean selected, current, eligible, preferred or routable. No Tenant/Industry RequestContext is invented for this global catalog read.
+
+**Boundary:** DD-108 does not define active/current model selection, provider/model routing, fallback/retry, credential resolution, provider SDK execution, inference/embedding, Tenant/Industry allowlists, sensitivity/residency runtime policy, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, a public route, or any migration/schema/role/grant/RLS/product-policy change.
+
+**Acceptance:** `AIMODEL-PG-001…005` in DD-17 and `tests/postgres/ai-model-catalog-metadata-store.test.mjs`.
+'''
+          if "## DD-108 —" not in dd18:
+              dd18_path.write_text(dd18.rstrip() + dd108 + "\n", encoding="utf-8")
+
+          dd17_path = Path("DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md")
+          dd17 = dd17_path.read_text(encoding="utf-8")
+          acceptance = r'''
+
+## DD-108 AI Model Catalog Metadata Reader Acceptance
+
+- **AIMODEL-PG-001 — Exact immutable catalog evidence:** exact model-id lookup returns only the bounded AI Model metadata contract, preserving provider relation, model code/name, capabilities, context-window class, input/output modalities, residency regions, sensitivity ceiling, cost/latency classes, raw status, version and metadata as immutable evidence.
+- **AIMODEL-PG-002 — Absence and malformed identity fail closed:** an absent UUID returns `null`; a malformed model id is rejected before it can become an unbounded query.
+- **AIMODEL-PG-003 — Schema-valid empties remain evidence:** schema-valid empty text plus nullable/empty array elements are preserved and are not silently strengthened into invented non-empty runtime rules.
+- **AIMODEL-PG-004 — Catalog facts are not routing/execution authority:** raw `ACTIVE`, sensitivity and other model facts do not create selected/eligible/current/preferred/route/fallback state, and the store exposes no model-selection, generation or embedding operation.
+- **AIMODEL-PG-005 — Provider relation is preserved under SELECT-only AI role:** `providerId` is returned as raw relation evidence; `sbg_ai_gateway_rw` can SELECT the model catalog but cannot INSERT/UPDATE/DELETE, mutation attempts fail, and the store exposes no create/update/delete methods.
+'''
+          if "AIMODEL-PG-001" not in dd17:
+              dd17_path.write_text(dd17.rstrip() + acceptance + "\n", encoding="utf-8")
+
+          register = Path("Registers/DEVELOPMENT_DD108_VERIFICATION_2026-09-22.md")
+          if not register.exists():
+              register.write_text(r'''# Development DD-108 Verification — 2026-09-22
+
+## Scope
+
+DD-108 adds only a bounded exact-by-id PostgreSQL metadata reader for the global `core_ai.ai_model` catalog. It does not implement concrete AI Gateway provider/model selection, routing or execution semantics.
+
+## Baseline and source ownership audit
+
+- Prior promoted checkpoint: `DEV-AI-PROVIDER-CATALOG-READ-001`.
+- Source audit commit: `cf4b15ec4913e2d8bd3e74e9175345adf68dd13d`.
+- Audit artifact: `Development/AI_MODEL_CATALOG_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- Source ownership basis: migrations 0011/0014/0031 plus A-07 and DD-09 establish global model catalog persistence, dedicated SELECT-only AI role and provider/model integrity while leaving request-time selection/routing as separate runtime semantics.
+- No Tenant/Industry RequestContext is invented for the global catalog reader.
+
+## Executable implementation basis
+
+- Implementation commit: `e1e53969a3a2869e2c4612e45c65a7a3c66d2d58`.
+- Implementation tree: `f057bef288113ff61bd3575239cbabc44c756c9a`.
+- Added bounded contract: `src/core/ai/model-catalog-metadata.ts`.
+- Added PostgreSQL adapter: `src/server/ai/postgres-ai-model-catalog-metadata-store.ts`.
+- Added acceptance suite: `tests/postgres/ai-model-catalog-metadata-store.test.mjs`.
+- Updated only the Core export in `src/core/index.ts` beyond those files.
+- Existing `PostgresAIGatewayDatabase` and fixed `sbg_ai_gateway_rw` boundary are reused.
+- No migration, schema, database verification SQL, role, grant, RLS or product-policy file changed in the implementation commit.
+
+## Implementation-head CI evidence
+
+Exact tested head: `e1e53969a3a2869e2c4612e45c65a7a3c66d2d58` / tree `f057bef288113ff61bd3575239cbabc44c756c9a`.
+
+- Core Service Verify run `35738071363`, Core job `106780341230`: **311/311 PASS**.
+- Same Core Service Verify run, PostgreSQL/RLS job `106780341587`: **195/195 PASS**, including `AIMODEL-PG-001…005`.
+- Database Verify run `35738071402`: **PASS**, **47 migrations / 41 verification SQL files** and database bootstrap verification PASS.
+- Web Boundary Verify run `35738071341`: **PASS**, production build compiled successfully.
+
+## Acceptance contracts
+
+- `AIMODEL-PG-001`: exact model metadata read preserves immutable raw catalog evidence.
+- `AIMODEL-PG-002`: absent model returns null and malformed UUID fails closed.
+- `AIMODEL-PG-003`: schema-valid empty text and nullable array evidence is preserved.
+- `AIMODEL-PG-004`: raw catalog status/sensitivity evidence does not become routing or execution authority.
+- `AIMODEL-PG-005`: provider relation is preserved and dedicated AI role has no model mutation authority.
+
+## Explicitly unclaimed runtime semantics
+
+DD-108 does not claim active/current/eligible/preferred model selection, provider/model routing, credential resolution, fallback/retry, provider SDK calls, inference or embedding, Tenant/Industry allowlist evaluation, sensitivity/residency runtime decisions, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, or any public/API route.
+
+## Promotion evidence
+
+- Canonical DD-108 / DD-17 traceability commit: pending self-removing canonical promotion commit.
+- Invariant gate: pending canonical-head CI.
+- Promoted checkpoint: pending `DEV-AI-MODEL-CATALOG-READ-001`.
+- State promotion commit/tree: pending.
+- Final exact promotion-head CI: pending.
+- Final safety verification: pending.
+''', encoding="utf-8")
+
+          Path(".github/workflows/dd108-canonical-promote.yml").unlink()
+          PY
+      - name: Commit canonical promotion
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md Registers/DEVELOPMENT_DD108_VERIFICATION_2026-09-22.md .github/workflows/dd108-canonical-promote.yml
+          git diff --cached --quiet && exit 1
+          git commit -m "docs(ai): register DD-108 model catalog reader"
+          git push origin HEAD:docs/architecture-branch-2
