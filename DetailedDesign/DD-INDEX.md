@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-EVENT-CATALOG-READ-001`
+**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-INTEGRATION-DEFINITION-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-091**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-092**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-091 adds an exact Event Catalog PostgreSQL reader through the governed Integration read role. It loads only the exact eventType + eventVersion + scopeClass tuple, returns an immutable structural superset of the DD-081 EventCatalogContract, preserves ACTIVE/RETIRED and raw compatibility/consumer/retention/webhook metadata, and deliberately does not execute payload schemas, register/retire events, select consumers or authorize webhook delivery.
+DD-092 adds an exact primary-key IntegrationDefinition PostgreSQL reader through the fixed Integration service role. It preserves immutable registry identity/name/provider/capability metadata, adapter-contract version, PLATFORM/TENANT/INDUSTRY ownerScope, raw status/data-transfer classification, residency JSON and timestamps without inferring provider selection, Tenant enablement, health, compatibility or authorization.
 
 Full DD-08 signed access remains blocked on exact operation/permission, policy-specific step-up/residency and signer TTL/provider bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch/webhooks, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished.
 
@@ -37,4 +37,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `bbe923274f1a8f0238f6f8745c3521c7463c5f99` / tree `c64391d356e1c72b9dbca4829a37d21195d80ecb` — 311 Core tests, 104 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD091_VERIFICATION_2026-09-21.md).
+**Current verified executable evidence:** `df44b4b56164cf065cbc5d187072fb99c6cf6dd5` / tree `521ea55dfc70d4348bf2c58437e7c1d163493dd4` — 311 Core tests, 108 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD092_VERIFICATION_2026-09-22.md).
