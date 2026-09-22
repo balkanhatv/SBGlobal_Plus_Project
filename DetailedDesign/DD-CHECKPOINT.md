@@ -30,10 +30,10 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-22
 
-Current checkpoint: `DEV-AUTOMATION-DEFINITION-READ-001`. Decisions are contiguous through DD-105. Historical Phase-3 completion applies to its evaluated scope.
+Current checkpoint: `DEV-AUTOMATION-RUN-READ-001`. Decisions are contiguous through DD-106. Historical Phase-3 completion applies to its evaluated scope.
 
-Verified executable `d654a5e8d969d880a0d9a5ebc064c924f6c25e8c` / tree `1a5a94a4c435b756e623a9cf4328cf04047d4409`: **311/311 Core**, **183/183 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **521 blobs / 211 Markdown / 132 source / 76 test files**.
+Verified executable `0bd4cb33d07836f797d434b21d5e24fcee0a3641` / tree `e6630c0dc1d01b238e9299c6281cb3ce86ed76e6`: **311/311 Core**, **190/190 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **526 blobs / 213 Markdown / 134 source / 77 test files**.
 
-DD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Trigger/config/reference/effective evidence remains non-authorizing and cannot become active/effective selection, trigger interpretation, condition evaluation, operation/workflow dispatch or AutomationRun authority.
+DD-106 adds an exact-by-id raw AutomationRun PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Persisted run evidence remains non-authorizing and cannot become trigger/replay/retry/finality/next-state or runtime mutation authority; the existing schema-owned Workflow worker UPDATE privilege is unchanged while the read port exposes no mutation method.
 
 Next: Source-audit the next independent source-complete Workflow/Automation persistence slice. Do not open automation runtime execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.

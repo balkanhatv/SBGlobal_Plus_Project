@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-22",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AUTOMATION-DEFINITION-READ-001",
-  "final_verdict": "DD-105 AUTOMATIONDEFINITION RAW POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; AUTOMATION EXECUTION AUTHORITY UNCLAIMED",
+  "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
+  "final_verdict": "DD-106 AUTOMATIONRUN RAW POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; AUTOMATION EXECUTION AND RUN-MUTATION AUTHORITY UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "d654a5e8d969d880a0d9a5ebc064c924f6c25e8c",
-    "verified_code_tree": "1a5a94a4c435b756e623a9cf4328cf04047d4409",
-    "state_projection_basis_head": "d654a5e8d969d880a0d9a5ebc064c924f6c25e8c",
+    "verified_code_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
+    "verified_code_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
+    "state_projection_basis_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "AutomationDefinition raw persistence reader verified; automation execution authority not claimed",
+    "current_phase": "AutomationRun raw persistence reader verified; automation execution and run-mutation authority not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "d654a5e8d969d880a0d9a5ebc064c924f6c25e8c",
-      "ci_run_id": 35689772258,
-      "ci_job_id": 106624070955,
+      "ci_verified_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
+      "ci_run_id": 35691305768,
+      "ci_job_id": 106628678181,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "1a5a94a4c435b756e623a9cf4328cf04047d4409",
+      "ci_verified_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "d654a5e8d969d880a0d9a5ebc064c924f6c25e8c",
-      "feature_head_bootstrap_verified_tree": "1a5a94a4c435b756e623a9cf4328cf04047d4409",
-      "feature_head_bootstrap_run_id": 35689772269,
-      "feature_head_bootstrap_job_id": 106624071049,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_183_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
+      "feature_head_bootstrap_verified_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
+      "feature_head_bootstrap_run_id": 35691305850,
+      "feature_head_bootstrap_job_id": 106628678789,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_190_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -113,16 +113,16 @@
     },
     "next_action": "Source-audit the next independent source-complete Workflow/Automation persistence slice. Do not open automation runtime execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.",
     "core_services": {
-      "checkpoint": "DEV-AUTOMATION-DEFINITION-READ-001",
+      "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–105 current implementation; DD-105 raw AutomationDefinition PostgreSQL reader",
-      "verified_head": "d654a5e8d969d880a0d9a5ebc064c924f6c25e8c",
-      "verified_tree": "1a5a94a4c435b756e623a9cf4328cf04047d4409",
-      "core_ci_run_id": 35689772269,
-      "core_ci_job_id": 106624071181,
+      "decision": "DD-040–106 current implementation; DD-106 raw AutomationRun PostgreSQL reader",
+      "verified_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
+      "verified_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
+      "core_ci_run_id": 35691305850,
+      "core_ci_job_id": 106628678648,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35689772269,
-      "postgres_ci_job_id": 106624071049,
-      "postgres_tests": "183/183 PASS",
+      "postgres_ci_run_id": 35691305850,
+      "postgres_ci_job_id": 106628678789,
+      "postgres_tests": "190/190 PASS",
       "postgres_test_counts": {
-        "tests": 183,
-        "pass": 183,
+        "tests": 190,
+        "pass": 190,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35689772258,
-      "database_regression_job_id": 106624070955,
+      "database_regression_run_id": 35691305768,
+      "database_regression_job_id": 106628678181,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -376,7 +376,10 @@
         "WTR-PG-001–007 real PostgreSQL parent-RLS and append-only acceptance",
         "DD-105 raw AutomationDefinition read contract",
         "DD-105 PostgreSQL AutomationDefinition exact-by-id reader through dedicated Workflow worker role",
-        "WFA-DEF-PG-001–007 real PostgreSQL owner-RLS and catalog mutation-denial acceptance"
+        "WFA-DEF-PG-001–007 real PostgreSQL owner-RLS and catalog mutation-denial acceptance",
+        "DD-106 raw AutomationRun read contract",
+        "DD-106 PostgreSQL AutomationRun exact-by-id reader through dedicated Workflow worker role",
+        "WFA-RUN-PG-001–007 real PostgreSQL scope-RLS, evidence-only and read-surface acceptance"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -480,9 +483,11 @@
         "WorkflowTransition selection/authorization and WorkflowInstance optimistic mutation",
         "Workflow state-machine/approval/rule execution from raw transition evidence",
         "WorkflowTransition-driven task mutation and downstream event emission",
-        "AutomationDefinition active/effective selection and trigger interpretation",
+        "Automation active/effective AutomationDefinition selection and trigger execution",
+        "AutomationRun idempotency/replay authorization and retry/backoff/finality",
+        "AutomationRun status-transition authorization and runtime mutation flow",
         "Automation condition-rule and OperationContract dispatch",
-        "Automation WorkflowDefinition execution and AutomationRun runtime mutation"
+        "Automation WorkflowDefinition execution"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -586,11 +591,11 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AUTOMATION-DEFINITION-READ-001",
+    "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "d654a5e8d969d880a0d9a5ebc064c924f6c25e8c",
-    "verified_code_tree": "1a5a94a4c435b756e623a9cf4328cf04047d4409",
+    "verified_code_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
+    "verified_code_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
     "source_audit": "Development/AUTOMATION_DEFINITION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
@@ -621,7 +626,8 @@
       "DD-102 raw WorkflowInstance PostgreSQL reader",
       "DD-103 raw WorkflowTask PostgreSQL reader",
       "DD-104 raw WorkflowTransition PostgreSQL reader",
-      "DD-105 raw AutomationDefinition PostgreSQL reader"
+      "DD-105 raw AutomationDefinition PostgreSQL reader",
+      "DD-106 raw AutomationRun PostgreSQL reader"
     ],
     "next_action": "Source-audit the next independent source-complete Workflow/Automation persistence slice. Do not open automation runtime execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
@@ -629,12 +635,12 @@
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AUTOMATION-DEFINITION-READ-001",
-    "verified_executable_basis": "d654a5e8d969d880a0d9a5ebc064c924f6c25e8c",
-    "verified_executable_tree": "1a5a94a4c435b756e623a9cf4328cf04047d4409",
-    "source_audit": "Development/AUTOMATION_DEFINITION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD105_VERIFICATION_2026-09-22.md",
-    "scope": "DD-105 exact-by-id raw AutomationDefinition persistence only; no automation execution authority"
+    "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
+    "verified_executable_basis": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
+    "verified_executable_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
+    "source_audit": "Development/AUTOMATION_RUN_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD106_VERIFICATION_2026-09-22.md",
+    "scope": "DD-106 exact-by-id raw AutomationRun persistence only; no automation execution or run-mutation authority"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -647,12 +653,12 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "d654a5e8d969d880a0d9a5ebc064c924f6c25e8c",
+    "verified_continuation_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
     "inventory": {
-      "blobs": 521,
-      "markdown": 211,
-      "source_files": 132,
-      "test_files": 76,
+      "blobs": 526,
+      "markdown": 213,
+      "source_files": 134,
+      "test_files": 77,
       "migrations": 47,
       "verification_files": 41
     },
@@ -675,47 +681,47 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-105 raw AutomationDefinition PostgreSQL reader",
-    "checkpoint": "DEV-AUTOMATION-DEFINITION-READ-001",
-    "verified_head": "d654a5e8d969d880a0d9a5ebc064c924f6c25e8c",
-    "verified_tree": "1a5a94a4c435b756e623a9cf4328cf04047d4409",
+    "decision": "DD-106 raw AutomationRun PostgreSQL reader",
+    "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
+    "verified_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
+    "verified_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
     "core": {
-      "run_id": 35689772269,
-      "job_id": 106624071181,
+      "run_id": 35691305850,
+      "job_id": 106628678648,
       "tests": 311,
       "pass": 311,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35689772269,
-      "job_id": 106624071049,
-      "tests": 183,
-      "pass": 183,
+      "run_id": 35691305850,
+      "job_id": 106628678789,
+      "tests": 190,
+      "pass": 190,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35689772258,
-      "job_id": 106624070955,
+      "run_id": 35691305768,
+      "job_id": 106628678181,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35689772279,
-      "job_id": 106624071193,
+      "run_id": 35691305751,
+      "job_id": 106628678101,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 521,
-      "markdown": 211,
-      "source_files": 132,
-      "test_files": 76,
+      "blobs": 526,
+      "markdown": 213,
+      "source_files": 134,
+      "test_files": 77,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD105_VERIFICATION_2026-09-22.md"
+    "evidence": "Registers/DEVELOPMENT_DD106_VERIFICATION_2026-09-22.md"
   },
   "historical_projection_payloads": {
     "continuation": {

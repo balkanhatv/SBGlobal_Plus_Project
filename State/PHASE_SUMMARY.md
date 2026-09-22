@@ -1,11 +1,11 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-22 · **Current checkpoint:** `DEV-AUTOMATION-DEFINITION-READ-001`
+**Updated:** 2026-09-22 · **Current checkpoint:** `DEV-AUTOMATION-RUN-READ-001`
 
-Verified executable `d654a5e8d969d880a0d9a5ebc064c924f6c25e8c` / tree `1a5a94a4c435b756e623a9cf4328cf04047d4409`: **311/311 Core**, **183/183 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **521 blobs / 211 Markdown / 132 source / 76 test files**.
+Verified executable `0bd4cb33d07836f797d434b21d5e24fcee0a3641` / tree `e6630c0dc1d01b238e9299c6281cb3ce86ed76e6`: **311/311 Core**, **190/190 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **526 blobs / 213 Markdown / 134 source / 77 test files**.
 
-DD-105 adds an exact-by-id raw AutomationDefinition PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Immutable trigger/config JSON and raw condition-rule / OperationContract / WorkflowDefinition references remain persistence evidence and cannot become active/effective selection, trigger interpretation or runtime execution authority.
+DD-106 adds an exact-by-id raw AutomationRun PostgreSQL reader through the dedicated Workflow worker/RLS boundary. Persisted definition/scope/status/timing/trigger/idempotency/correlation/error evidence remains non-authorizing. The existing schema-owned Workflow worker UPDATE privilege is unchanged; DD-106 exposes no mutation method.
 
-Automation active/effective selection, trigger interpretation, condition evaluation, OperationContract dispatch, WorkflowDefinition execution and AutomationRun runtime remain unfinished. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Automation trigger execution, replay/idempotency authorization, retry/backoff/finality, AutomationRun status-transition authorization/runtime mutation, condition evaluation, OperationContract dispatch and WorkflowDefinition execution remain unfinished. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
 Next: Source-audit the next independent source-complete Workflow/Automation persistence slice. Do not open automation runtime execution semantics unless source-owned. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.
 
