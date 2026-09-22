@@ -1659,3 +1659,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 - Workflow/Automation execution or mutation semantics.
 
 **Acceptance linkage:** `AIPROV-PG-001` through `AIPROV-PG-005`.
+
+
+## DD-108 — AI Model catalog metadata is readable as raw global evidence without creating model-selection authority
+
+**Context:** DD-107 established a bounded global AI Provider catalog metadata reader through the dedicated AI Gateway database role. Migration 0011 also defines `core_ai.ai_model` as global catalog persistence, migration 0014 grants `sbg_ai_gateway_rw` SELECT without model-catalog DML, and migration 0031 enforces provider/model integrity. A-07 and DD-09 keep provider/model selection, routing and execution as separate runtime concerns, so catalog status or provider linkage is insufficient authority to choose a model.
+
+**Decision:** add an exact-by-id immutable `AIModelCatalogMetadataReadPort` and `PostgresAIModelCatalogMetadataStore` through the existing `PostgresAIGatewayDatabase` boundary. The reader projects only schema-owned raw model evidence: `id`, `providerId`, `modelCode`, `displayName`, `capabilities`, `contextWindowClass`, `inputModalities`, `outputModalities`, `residencyRegions`, `sensitivityCeiling`, `costClass`, `latencyClass`, raw `status`, positive `version`, and `metadata`. Schema-valid empty text and nullable array elements are preserved instead of strengthened. Missing rows return null; malformed ids, malformed rows, or ambiguous exact-id results fail closed.
+
+**Security / trade-off:** the fixed `sbg_ai_gateway_rw` role remains SELECT-only for `core_ai.ai_model`; no INSERT/UPDATE/DELETE authority or mutation method is added. `providerId`, `status='ACTIVE'`, sensitivity, residency, cost, and latency facts remain catalog evidence only and do not mean selected, current, eligible, preferred, or routable. No Tenant/Industry RequestContext is invented for this global catalog read.
+
+**Boundary:** DD-108 does not define active/current model selection, provider/model routing, fallback/retry, credential resolution, provider SDK execution, inference/embedding, Tenant/Industry allowlists, sensitivity/residency runtime policy, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, a public route, or any migration/schema/role/grant/RLS/product-policy change.
+
+**Acceptance:** `AIMODEL-PG-001` through `AIMODEL-PG-005` in DD-17 and `tests/postgres/ai-model-catalog-metadata-store.test.mjs`.

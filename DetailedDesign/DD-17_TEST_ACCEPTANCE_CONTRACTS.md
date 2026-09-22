@@ -1172,3 +1172,21 @@ Raw provider `status` and `health_state` values, including `ACTIVE`, remain cata
 
 ### AIPROV-PG-005 — Dedicated AI role remains read-only for provider catalog
 The dedicated `sbg_ai_gateway_rw` role can select provider catalog metadata but has no `INSERT`, `UPDATE`, or `DELETE` authority over `core_ai.ai_provider`; an attempted provider update is rejected, and the bounded reader exposes no mutation methods.
+
+
+## DD-108 AI Model Catalog Metadata Reader Acceptance
+
+### AIMODEL-PG-001 — Exact immutable catalog evidence
+Exact model-id lookup returns only the bounded AI Model metadata contract, preserving provider relation, model code/name, capabilities, context-window class, input/output modalities, residency regions, sensitivity ceiling, cost/latency classes, raw status, version, and metadata as immutable/frozen evidence.
+
+### AIMODEL-PG-002 — Absence and malformed identity fail closed
+An absent well-formed UUID returns `null`; a malformed model UUID fails closed rather than being normalized into another identity or unbounded query.
+
+### AIMODEL-PG-003 — Schema-valid empty evidence is preserved
+Schema-valid empty text plus nullable/empty array elements remain raw evidence and are not strengthened into invented non-empty runtime rules.
+
+### AIMODEL-PG-004 — Catalog facts are not routing/execution authority
+Raw `ACTIVE`, sensitivity, residency, cost, latency, capability, or provider-link facts do not create selected/eligible/current/preferred/route/fallback authority. The store exposes no model-selection, generation, or embedding operation.
+
+### AIMODEL-PG-005 — Provider relation is preserved under SELECT-only AI role
+`providerId` is returned as raw relation evidence. `sbg_ai_gateway_rw` can SELECT the model catalog but cannot INSERT/UPDATE/DELETE; a mutation attempt is rejected, and the bounded store exposes no create/update/delete methods.
