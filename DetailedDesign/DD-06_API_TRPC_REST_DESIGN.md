@@ -389,3 +389,22 @@ rate/idempotency/data-class policy, or access credentials.
 
 **Boundary:** read-only exact registry persistence; no provider execution, Tenant
 enablement, policy evaluation, route, migration, role, grant or registry mutation.
+
+
+## 37. Exact ProviderAdapter persistence reader [DD-094]
+
+`PersistedProviderAdapter` exposes one exact provider-adapter registry tuple:
+definition id, adapter code, contract version, auth method, timeout/retry/circuit
+classes, health-probe class, normalized-error-map version and raw status.
+
+`PostgresProviderAdapterStore` reads only the unique
+`definition_id + adapter_code + contract_version` tuple through the fixed
+Integration database role. All classification/status values are validated only as
+non-empty registry text and preserved without execution semantics.
+
+The reader does not instantiate provider SDKs, load credentials, choose an adapter,
+run health probes, apply timeout/retry/circuit behavior or dispatch callbacks/events.
+
+**Boundary:** exact read-only adapter registry persistence; no network/provider
+execution, Tenant enablement, secret access, policy evaluation, route, migration,
+role, grant or registry mutation.
