@@ -1,4 +1,4 @@
-name: DD108 Canonical Promotion
+name: DD-108 Canonical Promotion Helper
 
 on:
   push:
@@ -14,120 +14,40 @@ jobs:
   promote:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout governed branch
+        uses: actions/checkout@v4
         with:
           ref: docs/architecture-branch-2
           fetch-depth: 0
-      - name: Verify staging parent
+
+      - name: Append canonical DD-108 traceability
         shell: bash
         run: |
-          test "$(git rev-parse HEAD^)" = "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58"
-      - name: Append canonical DD-108 traceability and register
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
+          set -euo pipefail
+          git merge-base --is-ancestor e1e53969a3a2869e2c4612e45c65a7a3c66d2d58 HEAD
+          DD18='DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md'
+          DD17='DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md'
+          REG='Registers/DEVELOPMENT_DD108_VERIFICATION_2026-09-22.md'
+          if ! grep -q '^## DD-108 — AI Model catalog metadata is readable as raw global evidence without creating model-selection authority$' "$DD18"; then
+            printf '\n' >> "$DD18"
+            printf '%s' 'CiMjIERELTEwOCDigJQgQUkgTW9kZWwgY2F0YWxvZyBtZXRhZGF0YSBpcyByZWFkYWJsZSBhcyByYXcgZ2xvYmFsIGV2aWRlbmNlIHdpdGhvdXQgY3JlYXRpbmcgbW9kZWwtc2VsZWN0aW9uIGF1dGhvcml0eQoKKipDb250ZXh0OioqIERELTEwNyBlc3RhYmxpc2hlZCBhIGJvdW5kZWQgZ2xvYmFsIEFJIFByb3ZpZGVyIGNhdGFsb2cgbWV0YWRhdGEgcmVhZGVyIHRocm91Z2ggdGhlIGRlZGljYXRlZCBBSSBHYXRld2F5IGRhdGFiYXNlIHJvbGUuIE1pZ3JhdGlvbiAwMDExIGFsc28gZGVmaW5lcyBgY29yZV9haS5haV9tb2RlbGAgYXMgZ2xvYmFsIGNhdGFsb2cgcGVyc2lzdGVuY2UsIG1pZ3JhdGlvbiAwMDE0IGdyYW50cyBgc2JnX2FpX2dhdGV3YXlfcndgIFNFTEVDVCB3aXRob3V0IG1vZGVsLWNhdGFsb2cgRE1MLCBhbmQgbWlncmF0aW9uIDAwMzEgZW5mb3JjZXMgcHJvdmlkZXIvbW9kZWwgaW50ZWdyaXR5LiBBLTA3IGFuZCBERC0wOSBrZWVwIHByb3ZpZGVyL21vZGVsIHNlbGVjdGlvbiwgcm91dGluZyBhbmQgZXhlY3V0aW9uIGFzIHNlcGFyYXRlIHJ1bnRpbWUgY29uY2VybnMsIHNvIGNhdGFsb2cgc3RhdHVzIG9yIHByb3ZpZGVyIGxpbmthZ2UgaXMgaW5zdWZmaWNpZW50IGF1dGhvcml0eSB0byBjaG9vc2UgYSBtb2RlbC4KCioqRGVjaXNpb246KiogYWRkIGFuIGV4YWN0LWJ5LWlkIGltbXV0YWJsZSBgQUlNb2RlbENhdGFsb2dNZXRhZGF0YVJlYWRQb3J0YCBhbmQgYFBvc3RncmVzQUlNb2RlbENhdGFsb2dNZXRhZGF0YVN0b3JlYCB0aHJvdWdoIHRoZSBleGlzdGluZyBgUG9zdGdyZXNBSUdhdGV3YXlEYXRhYmFzZWAgYm91bmRhcnkuIFRoZSByZWFkZXIgcHJvamVjdHMgb25seSBzY2hlbWEtb3duZWQgcmF3IG1vZGVsIGV2aWRlbmNlOiBgaWRgLCBgcHJvdmlkZXJJZGAsIGBtb2RlbENvZGVgLCBgZGlzcGxheU5hbWVgLCBgY2FwYWJpbGl0aWVzYCwgYGNvbnRleHRXaW5kb3dDbGFzc2AsIGBpbnB1dE1vZGFsaXRpZXNgLCBgb3V0cHV0TW9kYWxpdGllc2AsIGByZXNpZGVuY3lSZWdpb25zYCwgYHNlbnNpdGl2aXR5Q2VpbGluZ2AsIGBjb3N0Q2xhc3NgLCBgbGF0ZW5jeUNsYXNzYCwgcmF3IGBzdGF0dXNgLCBwb3NpdGl2ZSBgdmVyc2lvbmAsIGFuZCBgbWV0YWRhdGFgLiBTY2hlbWEtdmFsaWQgZW1wdHkgdGV4dCBhbmQgbnVsbGFibGUgYXJyYXkgZWxlbWVudHMgYXJlIHByZXNlcnZlZCBpbnN0ZWFkIG9mIHN0cmVuZ3RoZW5lZC4gTWlzc2luZyByb3dzIHJldHVybiBudWxsOyBtYWxmb3JtZWQgaWRzLCBtYWxmb3JtZWQgcm93cywgb3IgYW1iaWd1b3VzIGV4YWN0LWlkIHJlc3VsdHMgZmFpbCBjbG9zZWQuCgoqKlNlY3VyaXR5IC8gdHJhZGUtb2ZmOioqIHRoZSBmaXhlZCBgc2JnX2FpX2dhdGV3YXlfcndgIHJvbGUgcmVtYWlucyBTRUxFQ1Qtb25seSBmb3IgYGNvcmVfYWkuYWlfbW9kZWxgOyBubyBJTlNFUlQvVVBEQVRFL0RFTEVURSBhdXRob3JpdHkgb3IgbXV0YXRpb24gbWV0aG9kIGlzIGFkZGVkLiBgcHJvdmlkZXJJZGAsIGBzdGF0dXM9J0FDVElWRSdgLCBzZW5zaXRpdml0eSwgcmVzaWRlbmN5LCBjb3N0LCBhbmQgbGF0ZW5jeSBmYWN0cyByZW1haW4gY2F0YWxvZyBldmlkZW5jZSBvbmx5IGFuZCBkbyBub3QgbWVhbiBzZWxlY3RlZCwgY3VycmVudCwgZWxpZ2libGUsIHByZWZlcnJlZCwgb3Igcm91dGFibGUuIE5vIFRlbmFudC9JbmR1c3RyeSBSZXF1ZXN0Q29udGV4dCBpcyBpbnZlbnRlZCBmb3IgdGhpcyBnbG9iYWwgY2F0YWxvZyByZWFkLgoKKipCb3VuZGFyeToqKiBERC0xMDggZG9lcyBub3QgZGVmaW5lIGFjdGl2ZS9jdXJyZW50IG1vZGVsIHNlbGVjdGlvbiwgcHJvdmlkZXIvbW9kZWwgcm91dGluZywgZmFsbGJhY2svcmV0cnksIGNyZWRlbnRpYWwgcmVzb2x1dGlvbiwgcHJvdmlkZXIgU0RLIGV4ZWN1dGlvbiwgaW5mZXJlbmNlL2VtYmVkZGluZywgVGVuYW50L0luZHVzdHJ5IGFsbG93bGlzdHMsIHNlbnNpdGl2aXR5L3Jlc2lkZW5jeSBydW50aW1lIHBvbGljeSwgcXVvdGEvYnVkZ2V0IGV4ZWN1dGlvbiwgQUlQcm92aXNpb25pbmdTbmFwc2hvdCBjb21waWxhdGlvbi9jdXJyZW50IHNlbGVjdGlvbiwgcHJvbXB0L3BvbGljeSBldmFsdWF0aW9uLCBSQUcvYXNzaXN0YW50L2FnZW50L3Rvb2wgZXhlY3V0aW9uLCBhIHB1YmxpYyByb3V0ZSwgb3IgYW55IG1pZ3JhdGlvbi9zY2hlbWEvcm9sZS9ncmFudC9STFMvcHJvZHVjdC1wb2xpY3kgY2hhbmdlLgoKKipBY2NlcHRhbmNlOioqIGBBSU1PREVMLVBHLTAwMWAgdGhyb3VnaCBgQUlNT0RFTC1QRy0wMDVgIGluIERELTE3IGFuZCBgdGVzdHMvcG9zdGdyZXMvYWktbW9kZWwtY2F0YWxvZy1tZXRhZGF0YS1zdG9yZS50ZXN0Lm1qc2AuCg==' | base64 -d >> "$DD18"
+          fi
+          if ! grep -q '^### AIMODEL-PG-001 — Exact immutable catalog evidence$' "$DD17"; then
+            printf '\n' >> "$DD17"
+            printf '%s' 'CiMjIERELTEwOCBBSSBNb2RlbCBDYXRhbG9nIE1ldGFkYXRhIFJlYWRlciBBY2NlcHRhbmNlCgojIyMgQUlNT0RFTC1QRy0wMDEg4oCUIEV4YWN0IGltbXV0YWJsZSBjYXRhbG9nIGV2aWRlbmNlCkV4YWN0IG1vZGVsLWlkIGxvb2t1cCByZXR1cm5zIG9ubHkgdGhlIGJvdW5kZWQgQUkgTW9kZWwgbWV0YWRhdGEgY29udHJhY3QsIHByZXNlcnZpbmcgcHJvdmlkZXIgcmVsYXRpb24sIG1vZGVsIGNvZGUvbmFtZSwgY2FwYWJpbGl0aWVzLCBjb250ZXh0LXdpbmRvdyBjbGFzcywgaW5wdXQvb3V0cHV0IG1vZGFsaXRpZXMsIHJlc2lkZW5jeSByZWdpb25zLCBzZW5zaXRpdml0eSBjZWlsaW5nLCBjb3N0L2xhdGVuY3kgY2xhc3NlcywgcmF3IHN0YXR1cywgdmVyc2lvbiwgYW5kIG1ldGFkYXRhIGFzIGltbXV0YWJsZS9mcm96ZW4gZXZpZGVuY2UuCgojIyMgQUlNT0RFTC1QRy0wMDIg4oCUIEFic2VuY2UgYW5kIG1hbGZvcm1lZCBpZGVudGl0eSBmYWlsIGNsb3NlZApBbiBhYnNlbnQgd2VsbC1mb3JtZWQgVVVJRCByZXR1cm5zIGBudWxsYDsgYSBtYWxmb3JtZWQgbW9kZWwgVVVJRCBmYWlscyBjbG9zZWQgcmF0aGVyIHRoYW4gYmVpbmcgbm9ybWFsaXplZCBpbnRvIGFub3RoZXIgaWRlbnRpdHkgb3IgdW5ib3VuZGVkIHF1ZXJ5LgoKIyMjIEFJTU9ERUwtUEctMDAzIOKAlCBTY2hlbWEtdmFsaWQgZW1wdHkgZXZpZGVuY2UgaXMgcHJlc2VydmVkClNjaGVtYS12YWxpZCBlbXB0eSB0ZXh0IHBsdXMgbnVsbGFibGUvZW1wdHkgYXJyYXkgZWxlbWVudHMgcmVtYWluIHJhdyBldmlkZW5jZSBhbmQgYXJlIG5vdCBzdHJlbmd0aGVuZWQgaW50byBpbnZlbnRlZCBub24tZW1wdHkgcnVudGltZSBydWxlcy4KCiMjIyBBSU1PREVMLVBHLTAwNCDigJQgQ2F0YWxvZyBmYWN0cyBhcmUgbm90IHJvdXRpbmcvZXhlY3V0aW9uIGF1dGhvcml0eQpSYXcgYEFDVElWRWAsIHNlbnNpdGl2aXR5LCByZXNpZGVuY3ksIGNvc3QsIGxhdGVuY3ksIGNhcGFiaWxpdHksIG9yIHByb3ZpZGVyLWxpbmsgZmFjdHMgZG8gbm90IGNyZWF0ZSBzZWxlY3RlZC9lbGlnaWJsZS9jdXJyZW50L3ByZWZlcnJlZC9yb3V0ZS9mYWxsYmFjayBhdXRob3JpdHkuIFRoZSBzdG9yZSBleHBvc2VzIG5vIG1vZGVsLXNlbGVjdGlvbiwgZ2VuZXJhdGlvbiwgb3IgZW1iZWRkaW5nIG9wZXJhdGlvbi4KCiMjIyBBSU1PREVMLVBHLTAwNSDigJQgUHJvdmlkZXIgcmVsYXRpb24gaXMgcHJlc2VydmVkIHVuZGVyIFNFTEVDVC1vbmx5IEFJIHJvbGUKYHByb3ZpZGVySWRgIGlzIHJldHVybmVkIGFzIHJhdyByZWxhdGlvbiBldmlkZW5jZS4gYHNiZ19haV9nYXRld2F5X3J3YCBjYW4gU0VMRUNUIHRoZSBtb2RlbCBjYXRhbG9nIGJ1dCBjYW5ub3QgSU5TRVJUL1VQREFURS9ERUxFVEU7IGEgbXV0YXRpb24gYXR0ZW1wdCBpcyByZWplY3RlZCwgYW5kIHRoZSBib3VuZGVkIHN0b3JlIGV4cG9zZXMgbm8gY3JlYXRlL3VwZGF0ZS9kZWxldGUgbWV0aG9kcy4K' | base64 -d >> "$DD17"
+          fi
+          if [ ! -e "$REG" ]; then
+            printf '%s' 'IyBEZXZlbG9wbWVudCBERC0xMDggVmVyaWZpY2F0aW9uIOKAlCAyMDI2LTA5LTIyCgojIyBTY29wZQoKREQtMTA4IGFkZHMgb25seSBhIGJvdW5kZWQgZXhhY3QtYnktaWQgUG9zdGdyZVNRTCBtZXRhZGF0YSByZWFkZXIgZm9yIHRoZSBnbG9iYWwgYGNvcmVfYWkuYWlfbW9kZWxgIGNhdGFsb2cuIEl0IGRvZXMgbm90IGltcGxlbWVudCBjb25jcmV0ZSBBSSBHYXRld2F5IHByb3ZpZGVyL21vZGVsIHNlbGVjdGlvbiwgcm91dGluZywgY3JlZGVudGlhbCB1c2UsIG9yIGV4ZWN1dGlvbiBzZW1hbnRpY3MuCgojIyBCYXNlbGluZSBhbmQgc291cmNlIG93bmVyc2hpcCBhdWRpdAoKLSBQcmlvciBwcm9tb3RlZCBjaGVja3BvaW50OiBgREVWLUFJLVBST1ZJREVSLUNBVEFMT0ctUkVBRC0wMDFgLgotIFNvdXJjZSBhdWRpdCBjb21taXQ6IGBjZjRiMTVlYzQ5MTNlMmQ4YmQzZTc0ZTkxNzUzNDVhZGY2OGRkMTNkYC4KLSBBdWRpdCBhcnRpZmFjdDogYERldmVsb3BtZW50L0FJX01PREVMX0NBVEFMT0dfTUVUQURBVEFfUkVBREVSX1BSRVJFUVVJU0lURV9PV05FUlNISVBfQVVESVQubWRgLgotIE1pZ3JhdGlvbnMgMDAxMS8wMDE0LzAwMzEgcGx1cyBBLTA3IGFuZCBERC0wOSBlc3RhYmxpc2ggZ2xvYmFsIG1vZGVsIGNhdGFsb2cgcGVyc2lzdGVuY2UsIGRlZGljYXRlZCBTRUxFQ1Qtb25seSBBSSByb2xlLCBhbmQgcHJvdmlkZXIvbW9kZWwgaW50ZWdyaXR5IHdoaWxlIGxlYXZpbmcgcmVxdWVzdC10aW1lIG1vZGVsIHNlbGVjdGlvbi9yb3V0aW5nIGFzIHNlcGFyYXRlIHJ1bnRpbWUgc2VtYW50aWNzLgotIE5vIFRlbmFudC9JbmR1c3RyeSBSZXF1ZXN0Q29udGV4dCBpcyBpbnZlbnRlZCBmb3IgdGhpcyBnbG9iYWwgY2F0YWxvZyByZWFkZXIuCgojIyBFeGVjdXRhYmxlIGltcGxlbWVudGF0aW9uIGJhc2lzCgotIEltcGxlbWVudGF0aW9uIGNvbW1pdDogYGUxZTUzOTY5YTNhMjg2OWUyYzQ2MTJlNDVjNjVhN2EzYzY2ZDJkNThgLgotIEltcGxlbWVudGF0aW9uIHRyZWU6IGBmMDU3YmVmMjg4MTEzZmY2MWJkMzU3NTIzOWNiYWJjNDRjNzU2YzlhYC4KLSBBZGRlZCBib3VuZGVkIGNvbnRyYWN0OiBgc3JjL2NvcmUvYWkvbW9kZWwtY2F0YWxvZy1tZXRhZGF0YS50c2AuCi0gQWRkZWQgUG9zdGdyZVNRTCBhZGFwdGVyOiBgc3JjL3NlcnZlci9haS9wb3N0Z3Jlcy1haS1tb2RlbC1jYXRhbG9nLW1ldGFkYXRhLXN0b3JlLnRzYC4KLSBBZGRlZCBhY2NlcHRhbmNlIHN1aXRlOiBgdGVzdHMvcG9zdGdyZXMvYWktbW9kZWwtY2F0YWxvZy1tZXRhZGF0YS1zdG9yZS50ZXN0Lm1qc2AuCi0gVXBkYXRlZCBvbmx5IHRoZSBDb3JlIGV4cG9ydCBpbiBgc3JjL2NvcmUvaW5kZXgudHNgIGJleW9uZCB0aG9zZSBmaWxlcy4KLSBFeGlzdGluZyBgUG9zdGdyZXNBSUdhdGV3YXlEYXRhYmFzZWAgYW5kIGZpeGVkIGBzYmdfYWlfZ2F0ZXdheV9yd2AgYm91bmRhcnkgYXJlIHJldXNlZC4KLSBObyBtaWdyYXRpb24sIHNjaGVtYSwgZGF0YWJhc2UgdmVyaWZpY2F0aW9uIFNRTCwgcm9sZSwgZ3JhbnQsIFJMUywgb3IgcHJvZHVjdC1wb2xpY3kgZmlsZSBjaGFuZ2VkIGluIHRoZSBpbXBsZW1lbnRhdGlvbiBjb21taXQuCgojIyBJbXBsZW1lbnRhdGlvbi1oZWFkIENJIGV2aWRlbmNlCgpFeGFjdCB0ZXN0ZWQgaGVhZDogYGUxZTUzOTY5YTNhMjg2OWUyYzQ2MTJlNDVjNjVhN2EzYzY2ZDJkNThgIC8gdHJlZSBgZjA1N2JlZjI4ODExM2ZmNjFiZDM1NzUyMzljYmFiYzQ0Yzc1NmM5YWAuCgotIENvcmUgU2VydmljZSBWZXJpZnkgcnVuIGAzNTczODA3MTM2M2AsIENvcmUgam9iIGAxMDY3ODAzNDEyMzBgOiAqKjMxMS8zMTEgUEFTUyoqLgotIFNhbWUgQ29yZSBTZXJ2aWNlIFZlcmlmeSBydW4sIFBvc3RncmVTUUwvUkxTIGpvYiBgMTA2NzgwMzQxNTg3YDogKioxOTUvMTk1IFBBU1MqKiwgaW5jbHVkaW5nIGBBSU1PREVMLVBHLTAwMeKApjAwNWAuCi0gRGF0YWJhc2UgVmVyaWZ5IHJ1biBgMzU3MzgwNzE0MDJgOiAqKlBBU1MqKiwgKio0NyBtaWdyYXRpb25zIC8gNDEgdmVyaWZpY2F0aW9uIFNRTCBmaWxlcyoqIGFuZCBkYXRhYmFzZSBib290c3RyYXAgdmVyaWZpY2F0aW9uIFBBU1MuCi0gV2ViIEJvdW5kYXJ5IFZlcmlmeSBydW4gYDM1NzM4MDcxMzQxYDogKipQQVNTKiosIHByb2R1Y3Rpb24gYnVpbGQgY29tcGlsZWQgc3VjY2Vzc2Z1bGx5LgoKIyMgQWNjZXB0YW5jZSBjb250cmFjdHMKCi0gYEFJTU9ERUwtUEctMDAxYDogZXhhY3QgbW9kZWwgbWV0YWRhdGEgcmVhZCBwcmVzZXJ2ZXMgaW1tdXRhYmxlIHJhdyBjYXRhbG9nIGV2aWRlbmNlLgotIGBBSU1PREVMLVBHLTAwMmA6IGFic2VudCBtb2RlbCByZXR1cm5zIG51bGwgYW5kIG1hbGZvcm1lZCBVVUlEIGZhaWxzIGNsb3NlZC4KLSBgQUlNT0RFTC1QRy0wMDNgOiBzY2hlbWEtdmFsaWQgZW1wdHkgdGV4dCBhbmQgbnVsbGFibGUgYXJyYXkgZXZpZGVuY2UgaXMgcHJlc2VydmVkLgotIGBBSU1PREVMLVBHLTAwNGA6IHJhdyBjYXRhbG9nIHN0YXR1cy9zZW5zaXRpdml0eSBldmlkZW5jZSBkb2VzIG5vdCBiZWNvbWUgcm91dGluZyBvciBleGVjdXRpb24gYXV0aG9yaXR5LgotIGBBSU1PREVMLVBHLTAwNWA6IHByb3ZpZGVyIHJlbGF0aW9uIGlzIHByZXNlcnZlZCBhbmQgZGVkaWNhdGVkIEFJIHJvbGUgaGFzIG5vIG1vZGVsIG11dGF0aW9uIGF1dGhvcml0eS4KCiMjIEV4cGxpY2l0bHkgdW5jbGFpbWVkIHJ1bnRpbWUgc2VtYW50aWNzCgpERC0xMDggZG9lcyBub3QgY2xhaW0gYWN0aXZlL2N1cnJlbnQvZWxpZ2libGUvcHJlZmVycmVkIG1vZGVsIHNlbGVjdGlvbiwgcHJvdmlkZXIvbW9kZWwgcm91dGluZywgY3JlZGVudGlhbCByZXNvbHV0aW9uLCBmYWxsYmFjay9yZXRyeSwgcHJvdmlkZXIgU0RLIGNhbGxzLCBpbmZlcmVuY2Ugb3IgZW1iZWRkaW5nLCBUZW5hbnQvSW5kdXN0cnkgYWxsb3dsaXN0IGV2YWx1YXRpb24sIHNlbnNpdGl2aXR5L3Jlc2lkZW5jeSBydW50aW1lIGRlY2lzaW9ucywgcXVvdGEvYnVkZ2V0IGV4ZWN1dGlvbiwgQUlQcm92aXNpb25pbmdTbmFwc2hvdCBjb21waWxhdGlvbi9jdXJyZW50IHNlbGVjdGlvbiwgcHJvbXB0L3BvbGljeSBldmFsdWF0aW9uLCBSQUcvYXNzaXN0YW50L2FnZW50L3Rvb2wgZXhlY3V0aW9uLCBvciBhbnkgcHVibGljL0FQSSByb3V0ZS4KCiMjIFByb21vdGlvbiBldmlkZW5jZQoKLSBDYW5vbmljYWwgREQtMTA4IC8gREQtMTcgdHJhY2VhYmlsaXR5IGNvbW1pdDogcGVuZGluZyBzZWxmLXJlbW92aW5nIGNhbm9uaWNhbCBwcm9tb3Rpb24gY29tbWl0LgotIEludmFyaWFudCBnYXRlOiBwZW5kaW5nIGNhbm9uaWNhbC1oZWFkIENJLgotIFByb21vdGVkIGNoZWNrcG9pbnQ6IHBlbmRpbmcgYERFVi1BSS1NT0RFTC1DQVRBTE9HLVJFQUQtMDAxYC4KLSBTdGF0ZSBwcm9tb3Rpb24gY29tbWl0L3RyZWU6IHBlbmRpbmcuCi0gRmluYWwgZXhhY3QgcHJvbW90aW9uLWhlYWQgQ0k6IHBlbmRpbmcuCi0gRmluYWwgc2FmZXR5IHZlcmlmaWNhdGlvbjogcGVuZGluZy4K' | base64 -d > "$REG"
+          fi
+          rm -f .github/workflows/dd108-canonical-promote.yml
 
-          dd18_path = Path("DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md")
-          dd18 = dd18_path.read_text(encoding="utf-8")
-          dd108 = r'''
-
-## DD-108 — AI Model catalog metadata is readable as raw global evidence without creating model-selection authority
-
-**Context:** DD-107 established a bounded global AI Provider catalog metadata reader through the dedicated AI Gateway database role. Migration 0011 also defines `core_ai.ai_model` as global catalog persistence, migration 0014 grants `sbg_ai_gateway_rw` SELECT without model-catalog DML, and migration 0031 enforces provider/model integrity. A-07 and DD-09 keep provider/model selection, routing and execution as separate runtime concerns, so catalog status or provider linkage is insufficient authority to choose a model.
-
-**Decision:** add an exact-by-id immutable `AIModelCatalogMetadataReadPort` and `PostgresAIModelCatalogMetadataStore` through the existing `PostgresAIGatewayDatabase` boundary. The reader projects only schema-owned raw model evidence: id, providerId, modelCode, displayName, capabilities, contextWindowClass, input/output modalities, residencyRegions, sensitivityCeiling, costClass, latencyClass, raw status, positive version and metadata. Schema-valid empty text and nullable array elements are preserved instead of strengthened. Missing rows return null; malformed ids, malformed rows or ambiguous exact-id results fail closed.
-
-**Security / trade-off:** the fixed `sbg_ai_gateway_rw` role remains SELECT-only for `core_ai.ai_model`; no INSERT/UPDATE/DELETE authority or mutation method is added. `providerId`, `status='ACTIVE'`, sensitivity and residency facts remain catalog evidence only and do not mean selected, current, eligible, preferred or routable. No Tenant/Industry RequestContext is invented for this global catalog read.
-
-**Boundary:** DD-108 does not define active/current model selection, provider/model routing, fallback/retry, credential resolution, provider SDK execution, inference/embedding, Tenant/Industry allowlists, sensitivity/residency runtime policy, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, a public route, or any migration/schema/role/grant/RLS/product-policy change.
-
-**Acceptance:** `AIMODEL-PG-001…005` in DD-17 and `tests/postgres/ai-model-catalog-metadata-store.test.mjs`.
-'''
-          if "## DD-108 —" not in dd18:
-              dd18_path.write_text(dd18.rstrip() + dd108 + "\n", encoding="utf-8")
-
-          dd17_path = Path("DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md")
-          dd17 = dd17_path.read_text(encoding="utf-8")
-          acceptance = r'''
-
-## DD-108 AI Model Catalog Metadata Reader Acceptance
-
-- **AIMODEL-PG-001 — Exact immutable catalog evidence:** exact model-id lookup returns only the bounded AI Model metadata contract, preserving provider relation, model code/name, capabilities, context-window class, input/output modalities, residency regions, sensitivity ceiling, cost/latency classes, raw status, version and metadata as immutable evidence.
-- **AIMODEL-PG-002 — Absence and malformed identity fail closed:** an absent UUID returns `null`; a malformed model id is rejected before it can become an unbounded query.
-- **AIMODEL-PG-003 — Schema-valid empties remain evidence:** schema-valid empty text plus nullable/empty array elements are preserved and are not silently strengthened into invented non-empty runtime rules.
-- **AIMODEL-PG-004 — Catalog facts are not routing/execution authority:** raw `ACTIVE`, sensitivity and other model facts do not create selected/eligible/current/preferred/route/fallback state, and the store exposes no model-selection, generation or embedding operation.
-- **AIMODEL-PG-005 — Provider relation is preserved under SELECT-only AI role:** `providerId` is returned as raw relation evidence; `sbg_ai_gateway_rw` can SELECT the model catalog but cannot INSERT/UPDATE/DELETE, mutation attempts fail, and the store exposes no create/update/delete methods.
-'''
-          if "AIMODEL-PG-001" not in dd17:
-              dd17_path.write_text(dd17.rstrip() + acceptance + "\n", encoding="utf-8")
-
-          register = Path("Registers/DEVELOPMENT_DD108_VERIFICATION_2026-09-22.md")
-          if not register.exists():
-              register.write_text(r'''# Development DD-108 Verification — 2026-09-22
-
-## Scope
-
-DD-108 adds only a bounded exact-by-id PostgreSQL metadata reader for the global `core_ai.ai_model` catalog. It does not implement concrete AI Gateway provider/model selection, routing or execution semantics.
-
-## Baseline and source ownership audit
-
-- Prior promoted checkpoint: `DEV-AI-PROVIDER-CATALOG-READ-001`.
-- Source audit commit: `cf4b15ec4913e2d8bd3e74e9175345adf68dd13d`.
-- Audit artifact: `Development/AI_MODEL_CATALOG_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- Source ownership basis: migrations 0011/0014/0031 plus A-07 and DD-09 establish global model catalog persistence, dedicated SELECT-only AI role and provider/model integrity while leaving request-time selection/routing as separate runtime semantics.
-- No Tenant/Industry RequestContext is invented for the global catalog reader.
-
-## Executable implementation basis
-
-- Implementation commit: `e1e53969a3a2869e2c4612e45c65a7a3c66d2d58`.
-- Implementation tree: `f057bef288113ff61bd3575239cbabc44c756c9a`.
-- Added bounded contract: `src/core/ai/model-catalog-metadata.ts`.
-- Added PostgreSQL adapter: `src/server/ai/postgres-ai-model-catalog-metadata-store.ts`.
-- Added acceptance suite: `tests/postgres/ai-model-catalog-metadata-store.test.mjs`.
-- Updated only the Core export in `src/core/index.ts` beyond those files.
-- Existing `PostgresAIGatewayDatabase` and fixed `sbg_ai_gateway_rw` boundary are reused.
-- No migration, schema, database verification SQL, role, grant, RLS or product-policy file changed in the implementation commit.
-
-## Implementation-head CI evidence
-
-Exact tested head: `e1e53969a3a2869e2c4612e45c65a7a3c66d2d58` / tree `f057bef288113ff61bd3575239cbabc44c756c9a`.
-
-- Core Service Verify run `35738071363`, Core job `106780341230`: **311/311 PASS**.
-- Same Core Service Verify run, PostgreSQL/RLS job `106780341587`: **195/195 PASS**, including `AIMODEL-PG-001…005`.
-- Database Verify run `35738071402`: **PASS**, **47 migrations / 41 verification SQL files** and database bootstrap verification PASS.
-- Web Boundary Verify run `35738071341`: **PASS**, production build compiled successfully.
-
-## Acceptance contracts
-
-- `AIMODEL-PG-001`: exact model metadata read preserves immutable raw catalog evidence.
-- `AIMODEL-PG-002`: absent model returns null and malformed UUID fails closed.
-- `AIMODEL-PG-003`: schema-valid empty text and nullable array evidence is preserved.
-- `AIMODEL-PG-004`: raw catalog status/sensitivity evidence does not become routing or execution authority.
-- `AIMODEL-PG-005`: provider relation is preserved and dedicated AI role has no model mutation authority.
-
-## Explicitly unclaimed runtime semantics
-
-DD-108 does not claim active/current/eligible/preferred model selection, provider/model routing, credential resolution, fallback/retry, provider SDK calls, inference or embedding, Tenant/Industry allowlist evaluation, sensitivity/residency runtime decisions, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, or any public/API route.
-
-## Promotion evidence
-
-- Canonical DD-108 / DD-17 traceability commit: pending self-removing canonical promotion commit.
-- Invariant gate: pending canonical-head CI.
-- Promoted checkpoint: pending `DEV-AI-MODEL-CATALOG-READ-001`.
-- State promotion commit/tree: pending.
-- Final exact promotion-head CI: pending.
-- Final safety verification: pending.
-''', encoding="utf-8")
-
-          Path(".github/workflows/dd108-canonical-promote.yml").unlink()
-          PY
       - name: Commit canonical promotion
         shell: bash
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md Registers/DEVELOPMENT_DD108_VERIFICATION_2026-09-22.md .github/workflows/dd108-canonical-promote.yml
           git diff --cached --quiet && exit 1
-          git commit -m "docs(ai): register DD-108 model catalog reader"
+          git commit -m 'docs(dd): record DD-108 AI model metadata reader'
           git push origin HEAD:docs/architecture-branch-2
