@@ -1635,3 +1635,27 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** WFA-RUN-PG-001…007 in DD-17 and
 `tests/postgres/automation-run-store.test.mjs`.
+
+## DD-107 — AI Provider Catalog Metadata Reader
+
+**Decision:** Introduce a bounded exact-by-id PostgreSQL reader for global `core_ai.ai_provider` catalog metadata through the dedicated `sbg_ai_gateway_rw` database role.
+
+**Source ownership and boundary:**
+- DD-101 through DD-106 exhaust the six source-owned Workflow/Automation raw persistence tables: `workflow_definition`, `workflow_instance`, `workflow_task`, `workflow_transition`, `automation_definition`, and `automation_run`. Database privileges over those tables do not supply source authority for workflow execution, mutation, replay, retry, transition, selector, or dispatch semantics.
+- The AI catalog migrations and AI Gateway role establish `core_ai.ai_provider` as a global catalog and grant `sbg_ai_gateway_rw` read authority without catalog mutation grants.
+- `AIProvider.credential_ref` is a secret reference. It is deliberately excluded from the reader SQL projection and returned contract. The existing credential-reference ownership audit forbids disclosure of sensitive secret locators merely because a schema stores the reference.
+- The authorized metadata projection is limited to provider `id`, `code`, raw `status`, `adapter_type`, `supported_regions`, `supported_capabilities`, `security_class`, `residency_metadata`, raw `health_state`, positive `version`, `created_at`, and `updated_at`.
+- The reader preserves schema-valid raw catalog evidence; it does not reinterpret raw status or health values as provider eligibility, routing, selection, or execution authority.
+- No tenant, industry, organization, branch, department, or user `RequestContext` is invented for this global catalog read.
+- No schema, migration, role, grant, RLS, or product-policy change is authorized by this decision.
+
+**Runtime semantics explicitly not claimed:**
+- credential-reference disclosure, credential resolution, or secret-store retrieval;
+- provider/model active-version selection or request eligibility;
+- health-based routing, scoring, fallback, retry, replay, or finality;
+- tenant/industry allow-list, sensitivity, residency, budget, quota, or policy evaluation;
+- provider SDK dispatch, inference, RAG, assistant, agent, or tool execution;
+- AI provisioning snapshot compilation/current-selection or prompt/policy evaluation;
+- Workflow/Automation execution or mutation semantics.
+
+**Acceptance linkage:** `AIPROV-PG-001` through `AIPROV-PG-005`.

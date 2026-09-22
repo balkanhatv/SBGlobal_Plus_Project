@@ -1157,3 +1157,18 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WFA-RUN-PG-005 | persisted terminal/non-terminal run evidence read | no trigger/retry/finality/next-state execution decision is surfaced |
 | WFA-RUN-PG-006 | malformed run id or database route/context mismatch | fail closed before AutomationRun disclosure |
 | WFA-RUN-PG-007 | Workflow worker privilege/read-port surface inspected | schema-owned AutomationRun UPDATE privilege remains; DD-106 read port exposes no mutation method |
+
+### AIPROV-PG-001 — Exact provider catalog metadata read
+Given a persisted `core_ai.ai_provider` row and its exact identifier, the PostgreSQL AI provider catalog metadata reader returns the authorized metadata projection, preserves schema-owned evidence, returns an immutable/frozen contract, and never selects or exposes `credential_ref`; a secret sentinel persisted in `credential_ref` must not leak through the returned object.
+
+### AIPROV-PG-002 — Missing and malformed identifier behavior
+An exact well-formed provider identifier with no matching row returns `null`; a malformed provider UUID fails closed rather than being normalized into another identity.
+
+### AIPROV-PG-003 — Schema-valid raw evidence preservation
+The reader preserves schema-valid empty text values and nullable/empty array elements instead of inventing non-empty normalization or runtime policy semantics not owned by the source schema.
+
+### AIPROV-PG-004 — Catalog state is not runtime routing authority
+Raw provider `status` and `health_state` values, including `ACTIVE`, remain catalog evidence only. The reader exposes no selected/eligible/route/fallback/generate/select-provider authority and does not convert catalog state into AI Gateway execution semantics.
+
+### AIPROV-PG-005 — Dedicated AI role remains read-only for provider catalog
+The dedicated `sbg_ai_gateway_rw` role can select provider catalog metadata but has no `INSERT`, `UPDATE`, or `DELETE` authority over `core_ai.ai_provider`; an attempted provider update is rejected, and the bounded reader exposes no mutation methods.
