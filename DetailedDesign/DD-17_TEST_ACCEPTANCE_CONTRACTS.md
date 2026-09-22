@@ -1033,3 +1033,14 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | INT-CRED-META-PG-003 | Tenant Core credential requested from same-Tenant Industry and Tenant Core contexts | same metadata visible; rotation/expiry evidence preserved without usability decision |
 | INT-CRED-META-PG-004 | foreign-Tenant credential id queried | FORCE-RLS returns no row; owning Tenant sees metadata only |
 | INT-CRED-META-PG-005 | malformed id or database route/context mismatch | fail closed before credential metadata disclosure |
+
+
+### Raw PostgreSQL SyncCursor reader — DD-097
+
+| ID | Scenario | Expected |
+|---|---|---|
+| INT-CURSOR-PG-001 | exact Tenant Industry integration/capability/context tuple | immutable raw opaque cursor/watermark/source-version evidence; no execution decision |
+| INT-CURSOR-PG-002 | sibling Industry cursor tuple requested from current Industry | parent FORCE-RLS returns no row; exact sibling context may read its raw cursor |
+| INT-CURSOR-PG-003 | Tenant Core cursor read from same-Tenant Industry and Tenant Core contexts after parent later PAUSED | same raw cursor visible; parent status is not converted into resume authority |
+| INT-CURSOR-PG-004 | foreign Tenant or mismatched capability/context tuple | null; no fallback to another cursor |
+| INT-CURSOR-PG-005 | malformed tuple or database route/context mismatch | fail closed before cursor disclosure |
