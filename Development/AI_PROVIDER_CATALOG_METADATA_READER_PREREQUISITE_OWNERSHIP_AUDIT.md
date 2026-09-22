@@ -98,8 +98,10 @@ Implement only:
 4. one parameterized exact-by-id read from `core_ai.ai_provider`;
 5. schema-owned validation only for:
    - UUID id;
-   - non-empty code/status/adapter/security/health strings;
-   - string arrays;
+   - text-typed code/status/adapter/security/health values without inventing a
+     non-empty constraint absent from the schema;
+   - text arrays while preserving schema-allowed empty strings and nullable array
+     elements rather than silently strengthening the database contract;
    - JSON residency metadata;
    - positive version;
    - valid timestamps;
@@ -117,8 +119,9 @@ Implement only:
    - createdAt;
    - updatedAt;
 7. PostgreSQL acceptance proving exact read, absent/malformed-id behavior,
-   preservation of raw catalog evidence, omission of `credential_ref`, dedicated-role
-   SELECT capability and absence of catalog mutation authority.
+   preservation of raw catalog evidence including schema-allowed empty text/array
+   elements, omission of `credential_ref`, dedicated-role SELECT capability and
+   absence of catalog mutation authority.
 
 No RequestContext requirement is introduced for this global catalog read. The
 reader uses the dedicated AI database role directly; it does not invent tenant
