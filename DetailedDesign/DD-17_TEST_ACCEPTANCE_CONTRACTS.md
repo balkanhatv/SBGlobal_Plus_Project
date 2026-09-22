@@ -1105,3 +1105,16 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WFI-PG-005 | COMPLETED/CANCELLED lifecycle evidence | raw evidence only; no transition/finality/execution authority surfaced |
 | WFI-PG-006 | malformed UUID or database route/context mismatch | fail closed before instance disclosure |
 | WFI-PG-007 | exact-by-id read | no alternate instance/definition selection side effect |
+
+
+### Raw PostgreSQL WorkflowTask reader — DD-103
+
+| ID | Scenario | Expected |
+|---|---|---|
+| WFT-PG-001 | exact Tenant Industry task assigned to PRINCIPAL | immutable raw task/assignment/state/due/row-version evidence preserved |
+| WFT-PG-002 | ROLE and ORG_UNIT assigned tasks | persisted subject type/id, claim/completion evidence preserved; no eligibility decision |
+| WFT-PG-003 | sibling Industry task requested from current Industry | parent FORCE-RLS returns no row; exact sibling context may read it |
+| WFT-PG-004 | Tenant Core task requested from same-Tenant Industry and Tenant Core contexts | same task visible in both; schema-allowed empty permission/non-positive row-version evidence preserved |
+| WFT-PG-005 | foreign Tenant task requested | hidden; owning Tenant context may read it |
+| WFT-PG-006 | terminal/claimed/completed task evidence | raw evidence only; no claim/approve/reject/complete or parent-transition authority surfaced |
+| WFT-PG-007 | malformed UUID or database route/context mismatch | fail closed before task disclosure |
