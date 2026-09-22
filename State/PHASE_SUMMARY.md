@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-PROVIDER-ADAPTER-READ-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-TENANT-INTEGRATION-READ-001`
 
-Verified executable `8f170f8512810890d44613173adf3d73bb079ddc` / tree `bcbac03806b393c980508f3d89a10ef1c6de5b31`: **311/311 Core**, **116/116 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **468 blobs / 190 Markdown / 108 source / 68 test files**.
+Verified executable `6f16090eb4e74bbb6142f4bbb4f3b4e16e55c0e0` / tree `28af11f04a35f698b5324d40dc1bacfbfd4d68e3`: **311/311 Core**, **121/121 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **472 blobs / 192 Markdown / 110 source / 68 test files**.
 
-DD-094 adds an exact ProviderAdapter PostgreSQL reader keyed by IntegrationDefinition id + adapter code + contract version. It preserves immutable auth/timeout/retry/circuit/health/error-map/status registry metadata without selecting or instantiating a provider runtime, accessing credentials, evaluating health/enablement, or executing network behavior.
+DD-095 adds a raw TenantIntegration PostgreSQL reader by id through the fixed Integration service role and RequestScopedSql. It preserves RLS-scoped Tenant/Industry ownership, definition id, raw status, CredentialReference id, config JSON, capability codes, optional permission profile, health evidence and version without turning those facts into enabled/executable/provider authority or reading secret-reference metadata.
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
-Next: Source-audit the next independent source-complete Integration registry/persistence slice from the exact current checkpoint. Provider execution/selection, CredentialReference secret access, TenantIntegration enablement/health policy, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Next: Source-audit the next independent source-complete Integration persistence slice from this checkpoint. CredentialReference secret retrieval, ProviderAdapter execution/selection, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
