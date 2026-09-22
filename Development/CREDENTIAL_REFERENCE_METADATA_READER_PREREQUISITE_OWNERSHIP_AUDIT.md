@@ -37,7 +37,7 @@ Implement:
 3. `PostgresCredentialReferenceMetadataStore` through the fixed Integration
    service role + `RequestScopedSql`;
 4. one parameterized read by id;
-5. exact Tenant/Industry/platform scope handling already enforced by FORCE-RLS;
+5. exact Tenant/Industry scope handling already enforced by FORCE-RLS; platform-global CredentialReference rows remain outside this tenant-scoped port;
 6. metadata projection containing:
    - id;
    - Tenant id / optional Industry Context id;
