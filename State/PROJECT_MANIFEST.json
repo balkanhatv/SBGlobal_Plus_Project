@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-22",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-TENANT-INTEGRATION-READ-001",
-  "final_verdict": "DD-095 TENANTINTEGRATION POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; SECRET/PROVIDER/ENABLEMENT EXECUTION UNCLAIMED",
+  "checkpoint": "DEV-CREDENTIAL-METADATA-READ-001",
+  "final_verdict": "DD-096 CREDENTIALREFERENCE METADATA READER IMPLEMENTED / EXACT-HEAD TESTED; SECRET LOCATOR/MATERIAL ACCESS UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "6f16090eb4e74bbb6142f4bbb4f3b4e16e55c0e0",
-    "verified_code_tree": "28af11f04a35f698b5324d40dc1bacfbfd4d68e3",
-    "state_projection_basis_head": "6f16090eb4e74bbb6142f4bbb4f3b4e16e55c0e0",
+    "verified_code_head": "5586ebbed06671a70d241f6bd2726aba55364529",
+    "verified_code_tree": "e3dc43ada666ff28ad2cd0e2c29111d01e9961e2",
+    "state_projection_basis_head": "5586ebbed06671a70d241f6bd2726aba55364529",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "TenantIntegration raw RLS reader verified; provider execution/secret access not claimed",
+    "current_phase": "CredentialReference metadata-only RLS reader verified; secret access not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "6f16090eb4e74bbb6142f4bbb4f3b4e16e55c0e0",
-      "ci_run_id": 35682226052,
-      "ci_job_id": 106601414979,
+      "ci_verified_head": "5586ebbed06671a70d241f6bd2726aba55364529",
+      "ci_run_id": 35682569776,
+      "ci_job_id": 106602471062,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "28af11f04a35f698b5324d40dc1bacfbfd4d68e3",
+      "ci_verified_tree": "e3dc43ada666ff28ad2cd0e2c29111d01e9961e2",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "6f16090eb4e74bbb6142f4bbb4f3b4e16e55c0e0",
-      "feature_head_bootstrap_verified_tree": "28af11f04a35f698b5324d40dc1bacfbfd4d68e3",
-      "feature_head_bootstrap_run_id": 35682222004,
-      "feature_head_bootstrap_job_id": 106601402406,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_121_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "5586ebbed06671a70d241f6bd2726aba55364529",
+      "feature_head_bootstrap_verified_tree": "e3dc43ada666ff28ad2cd0e2c29111d01e9961e2",
+      "feature_head_bootstrap_run_id": 35682569801,
+      "feature_head_bootstrap_job_id": 106602470642,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_126_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Source-audit the next independent source-complete Integration persistence slice from this checkpoint. CredentialReference secret retrieval, ProviderAdapter execution/selection, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
+    "next_action": "Source-audit SyncCursor raw persistence as the next independent Integration slice. Cursor evidence must remain opaque/encrypted persistence only; sync execution/resume decisions, CredentialReference secret retrieval, ProviderAdapter runtime selection/execution, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
     "core_services": {
-      "checkpoint": "DEV-TENANT-INTEGRATION-READ-001",
+      "checkpoint": "DEV-CREDENTIAL-METADATA-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–095 current implementation; DD-095 TenantIntegration PostgreSQL reader",
-      "verified_head": "6f16090eb4e74bbb6142f4bbb4f3b4e16e55c0e0",
-      "verified_tree": "28af11f04a35f698b5324d40dc1bacfbfd4d68e3",
-      "core_ci_run_id": 35682222004,
-      "core_ci_job_id": 106601402371,
+      "decision": "DD-040–096 current implementation; DD-096 CredentialReference metadata reader",
+      "verified_head": "5586ebbed06671a70d241f6bd2726aba55364529",
+      "verified_tree": "e3dc43ada666ff28ad2cd0e2c29111d01e9961e2",
+      "core_ci_run_id": 35682569801,
+      "core_ci_job_id": 106602470837,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35682222004,
-      "postgres_ci_job_id": 106601402406,
-      "postgres_tests": "121/121 PASS",
+      "postgres_ci_run_id": 35682569801,
+      "postgres_ci_job_id": 106602470642,
+      "postgres_tests": "126/126 PASS",
       "postgres_test_counts": {
-        "tests": 121,
-        "pass": 121,
+        "tests": 126,
+        "pass": 126,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35682226052,
-      "database_regression_job_id": 106601414979,
+      "database_regression_run_id": 35682569776,
+      "database_regression_job_id": 106602471062,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -346,7 +346,9 @@
         "DD-094 exact ProviderAdapter PostgreSQL registry reader",
         "INT-ADAPTER-PG-001–004 exact tuple acceptance",
         "DD-095 raw TenantIntegration PostgreSQL reader",
-        "INT-TENANT-PG-001–005 FORCE-RLS acceptance"
+        "INT-TENANT-PG-001–005 FORCE-RLS acceptance",
+        "DD-096 tenant-scoped CredentialReference metadata-only PostgreSQL reader",
+        "INT-CRED-META-PG-001–005 secret-safe metadata acceptance"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -426,7 +428,10 @@
         "TenantIntegration enablement/health execution policy",
         "CredentialReference secret retrieval",
         "TenantIntegration enablement/health decision composition",
-        "ProviderAdapter runtime selection/execution"
+        "ProviderAdapter runtime selection/execution",
+        "CredentialReference secret_reference retrieval",
+        "secret-store material access and purpose/audit composition",
+        "platform-global CredentialReference runtime reader"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -442,9 +447,9 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Source-audit the next independent source-complete Integration persistence slice from this checkpoint. CredentialReference secret retrieval, ProviderAdapter execution/selection, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites."
+      "next_action": "Source-audit SyncCursor raw persistence as the next independent Integration slice. Cursor evidence must remain opaque/encrypted persistence only; sync execution/resume decisions, CredentialReference secret retrieval, ProviderAdapter runtime selection/execution, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites."
     },
-    "application_api_ui_scope_note": "IntegrationDefinition/Capability/ProviderAdapter/TenantIntegration exact PostgreSQL reads are implemented/tested; secret retrieval, provider runtime/selection and enablement decisions remain unfinished.",
+    "application_api_ui_scope_note": "Integration registry/TenantIntegration plus tenant-scoped CredentialReference metadata reads are implemented/tested; secret locator/material access and provider runtime remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -498,7 +503,7 @@
     ],
     "status": "IN_PROGRESS"
   },
-  "current_phase": "DEVELOPMENT_TENANT_INTEGRATION_READ_VERIFIED",
+  "current_phase": "DEVELOPMENT_CREDENTIAL_METADATA_READ_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -530,12 +535,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-TENANT-INTEGRATION-READ-001",
+    "checkpoint": "DEV-CREDENTIAL-METADATA-READ-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "6f16090eb4e74bbb6142f4bbb4f3b4e16e55c0e0",
-    "verified_code_tree": "28af11f04a35f698b5324d40dc1bacfbfd4d68e3",
-    "source_audit": "Development/TENANT_INTEGRATION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "5586ebbed06671a70d241f6bd2726aba55364529",
+    "verified_code_tree": "e3dc43ada666ff28ad2cd0e2c29111d01e9961e2",
+    "source_audit": "Development/CREDENTIAL_REFERENCE_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
@@ -555,20 +560,21 @@
       "DD-092 IntegrationDefinition PostgreSQL reader",
       "DD-093 IntegrationCapability PostgreSQL reader",
       "DD-094 ProviderAdapter exact PostgreSQL registry reader",
-      "DD-095 raw TenantIntegration PostgreSQL reader"
+      "DD-095 raw TenantIntegration PostgreSQL reader",
+      "DD-096 CredentialReference metadata-only PostgreSQL reader"
     ],
-    "next_action": "Source-audit the next independent source-complete Integration persistence slice from this checkpoint. CredentialReference secret retrieval, ProviderAdapter execution/selection, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
+    "next_action": "Source-audit SyncCursor raw persistence as the next independent Integration slice. Cursor evidence must remain opaque/encrypted persistence only; sync execution/resume decisions, CredentialReference secret retrieval, ProviderAdapter runtime selection/execution, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-TENANT-INTEGRATION-READ-001",
-    "verified_executable_basis": "6f16090eb4e74bbb6142f4bbb4f3b4e16e55c0e0",
-    "verified_executable_tree": "28af11f04a35f698b5324d40dc1bacfbfd4d68e3",
-    "source_audit": "Development/TENANT_INTEGRATION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD095_VERIFICATION_2026-09-22.md",
-    "scope": "DD-095 raw TenantIntegration RLS persistence only; no secret/provider execution"
+    "checkpoint": "DEV-CREDENTIAL-METADATA-READ-001",
+    "verified_executable_basis": "5586ebbed06671a70d241f6bd2726aba55364529",
+    "verified_executable_tree": "e3dc43ada666ff28ad2cd0e2c29111d01e9961e2",
+    "source_audit": "Development/CREDENTIAL_REFERENCE_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD096_VERIFICATION_2026-09-22.md",
+    "scope": "DD-096 tenant-scoped credential metadata only; secret locator/material excluded"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -581,11 +587,11 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "6f16090eb4e74bbb6142f4bbb4f3b4e16e55c0e0",
+    "verified_continuation_head": "5586ebbed06671a70d241f6bd2726aba55364529",
     "inventory": {
-      "blobs": 472,
-      "markdown": 192,
-      "source_files": 110,
+      "blobs": 476,
+      "markdown": 194,
+      "source_files": 112,
       "test_files": 68,
       "migrations": 47,
       "verification_files": 41
@@ -609,52 +615,47 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-095 TenantIntegration PostgreSQL reader",
-    "checkpoint": "DEV-TENANT-INTEGRATION-READ-001",
-    "verified_head": "6f16090eb4e74bbb6142f4bbb4f3b4e16e55c0e0",
-    "verified_tree": "28af11f04a35f698b5324d40dc1bacfbfd4d68e3",
+    "decision": "DD-096 CredentialReference metadata reader",
+    "checkpoint": "DEV-CREDENTIAL-METADATA-READ-001",
+    "verified_head": "5586ebbed06671a70d241f6bd2726aba55364529",
+    "verified_tree": "e3dc43ada666ff28ad2cd0e2c29111d01e9961e2",
     "core": {
-      "run_id": 35682222004,
-      "job_id": 106601402371,
+      "run_id": 35682569801,
+      "job_id": 106602470837,
       "tests": 311,
       "pass": 311,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35682222004,
-      "job_id": 106601402406,
-      "tests": 121,
-      "pass": 121,
+      "run_id": 35682569801,
+      "job_id": 106602470642,
+      "tests": 126,
+      "pass": 126,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35682226052,
-      "job_id": 106601414979,
+      "run_id": 35682569776,
+      "job_id": 106602471062,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35682226192,
-      "job_id": 106601415341,
+      "run_id": 35682569779,
+      "job_id": 106602474156,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 472,
-      "markdown": 192,
-      "source_files": 110,
+      "blobs": 476,
+      "markdown": 194,
+      "source_files": 112,
       "test_files": 68,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD095_VERIFICATION_2026-09-22.md",
-    "corrected_ci_attempt": {
-      "head": "27cf4b4c4cbeeebf362fc10594fe59721a00d783",
-      "cause": "fixture enabled orders.write without an ACTIVE IntegrationCapability registry row",
-      "correction": "fixture narrowed to existing ACTIVE orders.read; migration-0030 trigger unchanged"
-    }
+    "evidence": "Registers/DEVELOPMENT_DD096_VERIFICATION_2026-09-22.md"
   },
   "historical_projection_payloads": {
     "continuation": {
