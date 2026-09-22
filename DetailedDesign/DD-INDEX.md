@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-SYNC-CURSOR-READ-001`
+**Updated:** 2026-09-21 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-NOTIFICATION-DELIVERY-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-097**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-098**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-097 adds an exact raw SyncCursor PostgreSQL reader through the fixed Integration service role + RequestScopedSql. It reads only the unique TenantIntegration + capability + nullable Industry Context tuple, preserves opaque/encrypted cursor, watermark/source-version and updated-at evidence, and relies on parent TenantIntegration FORCE-RLS for isolation. It deliberately does not decode/decrypt cursor data or decide sync resume/execution.
+DD-098 adds a raw NotificationDelivery PostgreSQL reader through a dedicated `sbg_notification_worker_rw` NOBYPASSRLS database boundary plus RequestScopedSql. It preserves exact Tenant/Industry scope, recipient/channel/template/integration/event/status/time/error/version persistence evidence while deliberately withholding send, retry/finality, provider-selection and credential/secret authority.
 
 Full DD-08 signed access remains blocked on exact operation/permission, policy-specific step-up/residency and signer TTL/provider bindings. REST exposure, DD-076 evaluator, concrete AI Gateway, event dispatch/webhooks, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished.
 
@@ -50,3 +50,6 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 
 **Current verified executable evidence:** `9271010240d06eac21dbf750172b4a987a9dddb7` / tree `f4b0375255740ca3a94243d120beac4e94d21f6f` — 311 Core tests, 131 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD097_VERIFICATION_2026-09-22.md).
+
+
+**Current verified executable evidence:** `224185ec8a0b5bce71262de70fe888c002f77d87` / tree `4ffdb6b8dab19301050ce680caa0c0be1e13b60f` — 311 Core tests, 136 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. See [verification evidence](../Registers/DEVELOPMENT_DD098_VERIFICATION_2026-09-22.md).
