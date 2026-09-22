@@ -1001,3 +1001,13 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | INT-CAP-PG-002 | tuple has INBOUND + raw RETIRED status | raw evidence preserved; no enabled/executable/authorized decision |
 | INT-CAP-PG-003 | capability code belongs to another definition / unknown definition | null; no fallback by code/provider/event |
 | INT-CAP-PG-004 | malformed definition UUID or empty capability code | fail closed before persistence query |
+
+
+### Exact PostgreSQL ProviderAdapter reader — DD-094
+
+| ID | Scenario | Expected |
+|---|---|---|
+| INT-ADAPTER-PG-001 | exact definition + adapter code + contract version | immutable exact auth/timeout/retry/circuit/health/error-map/status metadata |
+| INT-ADAPTER-PG-002 | exact tuple has raw RETIRED status | evidence preserved; no selected/client/healthy/authorized runtime decision |
+| INT-ADAPTER-PG-003 | adapter exists under another version/code | null; no version/adapter fallback |
+| INT-ADAPTER-PG-004 | malformed definition UUID or empty adapter/version | fail closed before persistence query |
