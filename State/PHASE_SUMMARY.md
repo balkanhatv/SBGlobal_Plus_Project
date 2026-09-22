@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-OUTBOX-EVENT-READ-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-EVENT-CATALOG-READ-001`
 
-Verified executable `9ff139d442158b4fadfa27becc358edade1ccf1f` / tree `d45e327c713391eb35cca147e2ea8da937cf1e9a`: **311/311 Core**, **100/100 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **452 blobs / 182 Markdown / 100 source / 68 test files**.
+Verified executable `bbe923274f1a8f0238f6f8745c3521c7463c5f99` / tree `c64391d356e1c72b9dbca4829a37d21195d80ecb`: **311/311 Core**, **104/104 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **456 blobs / 184 Markdown / 102 source / 68 test files**.
 
-DD-090 adds a raw typed Outbox Event PostgreSQL reader through the dedicated Integration role and final scope-aware FORCE-RLS predicate. It preserves event/catalog identity, aggregate identity/version, immutable envelope JSON and raw dispatcher status/attempt/availability/lock/dispatch/error evidence. It deliberately does not claim/lock, decide readiness/retryability, dispatch, dead-letter, replay or interpret payload schemas.
+DD-091 adds an exact Event Catalog PostgreSQL reader through the governed Integration read role. It loads only the exact eventType + eventVersion + scopeClass tuple, returns an immutable structural superset of the DD-081 EventCatalogContract, preserves ACTIVE/RETIRED and raw compatibility/consumer/retention/webhook metadata, and deliberately does not execute payload schemas, register/retire events, select consumers or authorize webhook delivery.
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
-Next: Event Catalog exact-tuple persistence is the next independent source-complete candidate for source audit; payload-schema execution/registration remains separate. Webhook network/signing/filter/retry runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Next: Payload-schema execution/registration remains unimplemented and must not be inferred from DD-091. Source-audit the next independent Integration persistence/read boundary before implementation. Webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
