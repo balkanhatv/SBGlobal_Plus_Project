@@ -73,7 +73,7 @@ function optionalUuid(value: unknown, field: string): string | undefined {
 }
 
 function textValue(value: unknown, field: string): string {
-  if (typeof value !== "string" || value.trim().length === 0) {
+  if (typeof value !== "string") {
     invalid(`Persisted NotificationTemplate ${field} is invalid.`);
   }
   return value;
@@ -199,9 +199,6 @@ function parseRow(row: NotificationTemplateRow): PersistedNotificationTemplate {
 
   const createdAt = timestamp(row.created_at, "createdAt");
   const updatedAt = timestamp(row.updated_at, "updatedAt");
-  if (Date.parse(updatedAt) < Date.parse(createdAt)) {
-    invalid("Persisted NotificationTemplate updatedAt is invalid.");
-  }
 
   return Object.freeze({
     id: uuid(row.id, "id"),
