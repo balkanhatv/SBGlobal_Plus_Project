@@ -1672,28 +1672,3 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-108 does not define active/current model selection, provider/model routing, fallback/retry, credential resolution, provider SDK execution, inference/embedding, Tenant/Industry allowlists, sensitivity/residency runtime policy, quota/budget execution, AIProvisioningSnapshot compilation/current selection, prompt/policy evaluation, RAG/assistant/agent/tool execution, a public route, or any migration/schema/role/grant/RLS/product-policy change.
 
 **Acceptance:** `AIMODEL-PG-001` through `AIMODEL-PG-005` in DD-17 and `tests/postgres/ai-model-catalog-metadata-store.test.mjs`.
-
-## DD-108 — AI Model Catalog Metadata Reader
-
-**Decision:** Introduce a bounded exact-by-id PostgreSQL reader for global `core_ai.ai_model` catalog metadata through the existing dedicated `sbg_ai_gateway_rw` database boundary.
-
-**Source ownership and boundary:**
-- Migration `0011_ai_catalog_config.sql` defines `core_ai.ai_model` as global model-catalog persistence and migration `0014_ai_gateway_role.sql` grants the dedicated AI Gateway role SELECT authority without catalog mutation grants.
-- The authorized metadata projection is limited to model `id`, `provider_id`, `code`, raw `status`, `capability_codes`, `context_window`, `max_output_tokens`, `pricing_metadata`, `residency_metadata`, positive `version`, `created_at`, and `updated_at`.
-- The reader validates only schema-owned shape and preserves schema-valid raw evidence, including nullable array elements and raw status values.
-- Provider/model foreign-key pairing and catalog integrity remain database facts; an exact persisted pairing is evidence only and does not select a provider/model for a request.
-- Raw `ACTIVE` status does not become request eligibility, current-version selection, routing, fallback, health, cost, latency, residency, sensitivity, quota, budget, or inference authority.
-- No tenant, industry, organization, branch, department, user, or synthetic `RequestContext` is invented for this global catalog read.
-- No schema, migration, role, grant, RLS, verification SQL, or product-policy change is authorized by this decision.
-
-**Runtime semantics explicitly not claimed:**
-- provider/model active-version or effective/current selection;
-- provider-model routing, scoring, fallback, retry, replay, or finality;
-- provider health interpretation or provider credential/secret resolution;
-- tenant/industry allow-list, sensitivity, residency, entitlement, quota, or budget evaluation;
-- provider SDK dispatch, inference, embeddings, RAG, assistant, agent, or tool execution;
-- AI provisioning snapshot compilation/current-selection or prompt/policy evaluation;
-- Workflow/Automation execution or mutation semantics.
-
-**Acceptance linkage:** `AIMODEL-PG-001` through `AIMODEL-PG-005`.
-

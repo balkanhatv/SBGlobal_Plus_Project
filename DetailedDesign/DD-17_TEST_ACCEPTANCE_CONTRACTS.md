@@ -1190,19 +1190,3 @@ Raw `ACTIVE`, sensitivity, residency, cost, latency, capability, or provider-lin
 
 ### AIMODEL-PG-005 — Provider relation is preserved under SELECT-only AI role
 `providerId` is returned as raw relation evidence. `sbg_ai_gateway_rw` can SELECT the model catalog but cannot INSERT/UPDATE/DELETE; a mutation attempt is rejected, and the bounded store exposes no create/update/delete methods.
-
-### AIMODEL-PG-001 — Exact model catalog metadata read
-Given a persisted `core_ai.ai_model` row and its exact identifier, the PostgreSQL AI model catalog metadata reader returns the authorized immutable metadata projection and preserves the exact persisted provider/model relationship and raw catalog evidence.
-
-### AIMODEL-PG-002 — Missing and malformed identifier behavior
-An exact well-formed model identifier with no matching row returns `null`; a malformed model UUID fails closed rather than being normalized into another identity.
-
-### AIMODEL-PG-003 — Schema-valid raw evidence preservation
-The reader preserves schema-valid raw text/array/JSON metadata, including nullable or empty array evidence where the schema permits it, instead of inventing normalization or request-time policy semantics.
-
-### AIMODEL-PG-004 — Catalog state and provider pairing are not runtime selection authority
-Raw model `status`, including `ACTIVE`, and the persisted provider pairing remain catalog evidence only. The reader exposes no selected/current/eligible/route/fallback/generate/infer authority and does not convert catalog facts into AI Gateway execution semantics.
-
-### AIMODEL-PG-005 — Dedicated AI role remains read-only for model catalog
-The dedicated `sbg_ai_gateway_rw` role can select model catalog metadata but has no `INSERT`, `UPDATE`, or `DELETE` authority over `core_ai.ai_model`; an attempted model update is rejected, and the bounded reader exposes no mutation methods.
-
