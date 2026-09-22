@@ -1541,3 +1541,35 @@ emit workflow events, expose a route or change SQL/roles/privileges.
 
 **Acceptance:** WFI-PG-001…007 in DD-17 and
 `tests/postgres/workflow-instance-store.test.mjs`.
+
+
+## DD-103 — WorkflowTask raw persistence is readable without becoming task-action authority
+
+**Context:** migration 0026 defines parent-scoped WorkflowTask rows, including task
+type, assigned subject, permission code, lifecycle state, due/claim/completion
+evidence and row version. Migration 0031 already validates parent-instance scope,
+PRINCIPAL/ROLE/ORG_UNIT assignment scope and claimant/completer Tenant identity. The
+repository does not yet own a complete task-action authorization/execution contract.
+
+**Decision:** add immutable `PersistedWorkflowTask`,
+`WorkflowTaskReadPort.loadForContext(...)` and
+`PostgresWorkflowTaskStore`. The store reads one exact task UUID through the
+existing dedicated `PostgresWorkflowDatabase` + `RequestScopedSql` boundary.
+
+The reader validates only schema-owned shape. Permission code text is preserved even
+when empty, and `row_version` is preserved as canonical signed decimal text because
+the schema does not impose positivity. Optional due/claim/completion evidence is
+returned without interpreting eligibility, expiry or action rights.
+
+**Security / trade-off:** task FORCE-RLS delegates visibility to the RLS-visible
+parent WorkflowInstance, so sibling Industry and foreign Tenant tasks are not
+disclosed while Tenant Core tasks remain same-Tenant visible. Persisted assignment
+and state evidence cannot itself grant claim/approve/reject/complete authority.
+
+**Boundary:** DD-103 does not match the current principal to the assigned subject,
+interpret permission_code, apply due/expiry policy, authorize or mutate task actions,
+advance parent WorkflowInstance state, emit workflow events, expose a route or change
+SQL/roles/privileges.
+
+**Acceptance:** WFT-PG-001…007 in DD-17 and
+`tests/postgres/workflow-task-store.test.mjs`.
