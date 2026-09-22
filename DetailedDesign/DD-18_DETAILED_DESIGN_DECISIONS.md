@@ -1387,3 +1387,34 @@ mutation, retry policy or schema/privilege change is claimed.
 
 **Acceptance:** INT-CURSOR-PG-001…005 in DD-17 and
 `tests/postgres/webhook-subscription-store.test.mjs`.
+
+
+## DD-098 — NotificationDelivery raw persistence is readable without becoming send/retry/provider authority
+
+**Context:** F-01/A-01 own Notification delivery tracking and channel routing.
+Migration 0026 defines the exact delivery row/FORCE-RLS contract, migration 0027
+defines the dedicated `sbg_notification_worker_rw` NOBYPASSRLS runtime role, and
+migration 0031 validates template/channel/scope, recipient tenancy, optional
+TenantIntegration scope/activity and optional source-event scope. These persistence
+facts do not define one generic provider-selection, retry/failover or terminal-state
+decision for every channel.
+
+**Decision:** add immutable `PersistedNotificationDelivery`,
+`NotificationDeliveryReadPort.loadForContext(...)`, dedicated
+`PostgresNotificationDatabase`, and `PostgresNotificationDeliveryStore`. The
+store performs one parameterized delivery-id read inside the fixed Notification
+worker role and RequestScopedSql context, returning raw scoped recipient/channel/
+template/integration/event/status/time/error/version evidence.
+
+**Security / trade-off:** FORCE-RLS prevents sibling/foreign delivery discovery.
+The Notification worker role explicitly has no CredentialReference privilege.
+Recipient reference remains server-internal persistence evidence. Raw FAILED,
+SUPPRESSED, CANCELLED or DELIVERED status is not converted into retry/finality or
+provider authority.
+
+**Boundary:** no send, retry, provider/failover selection, credential/secret access,
+delivery mutation, worker loop, route, migration, role/grant/RLS or product-policy
+change is introduced.
+
+**Acceptance:** NOTIF-DEL-PG-001…005 in DD-17 and
+`tests/postgres/notification-delivery-store.test.mjs`.
