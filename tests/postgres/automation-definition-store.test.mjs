@@ -49,12 +49,12 @@ before(async () => {
     await client.query("GRANT sbg_workflow_worker_rw TO " + role);
     await client.query(`INSERT INTO platform_directory.data_home
       (id,code,region_code,jurisdiction_code,topology_class,status)
-      VALUES ($1,$1::text,'IN-AUTOMATION-DEFINITION','IN','SHARED','ACTIVE')`, [f.home]);
+      VALUES ($1::uuid,($1::uuid)::text,'IN-AUTOMATION-DEFINITION','IN','SHARED','ACTIVE')`, [f.home]);
 
     for (const [tenantId, industry, label] of [[f.tenantA,"RTL","Automation A"],[f.tenantB,"EDU","Automation B"]]) {
       await client.query(`INSERT INTO core_tenancy.tenant
         (id,tenant_code,legal_name,display_name,status,primary_industry_code,data_home_id,residency_region_code,created_at,updated_at)
-        VALUES ($1,$1::text,$2,$2,'ACTIVE',$3,$4,'IN-AUTOMATION-DEFINITION',now(),now())`,
+        VALUES ($1::uuid,($1::uuid)::text,$2,$2,'ACTIVE',$3,$4,'IN-AUTOMATION-DEFINITION',now(),now())`,
         [tenantId,label,industry,f.home]);
     }
     for (const [id,type,label,serviceCode,module] of [
