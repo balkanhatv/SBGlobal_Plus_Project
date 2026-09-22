@@ -61,3 +61,4 @@ export * from "./integration/sync-cursor.js";
 export * from "./notification/delivery.js";
 export * from "./notification/delivery-attempt.js";
 export * from "./notification/template.js";
+export * from "./workflow/definition.js";
