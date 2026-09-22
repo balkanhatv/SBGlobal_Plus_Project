@@ -63,3 +63,4 @@ export * from "./notification/delivery-attempt.js";
 export * from "./notification/template.js";
 export * from "./workflow/definition.js";
 export * from "./workflow/instance.js";
+export * from "./workflow/task.js";
