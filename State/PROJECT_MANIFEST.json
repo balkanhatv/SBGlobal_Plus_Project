@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-22",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-NOTIFICATION-DELIVERY-READ-001",
-  "final_verdict": "DD-098 NOTIFICATIONDELIVERY RAW POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; SEND/RETRY/PROVIDER AUTHORITY UNCLAIMED",
+  "checkpoint": "DEV-NOTIFICATION-ATTEMPT-READ-001",
+  "final_verdict": "DD-099 NOTIFICATIONDELIVERYATTEMPT RAW POSTGRESQL READER IMPLEMENTED / EXACT-HEAD TESTED; RETRY/FINALITY/PROVIDER AUTHORITY UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "224185ec8a0b5bce71262de70fe888c002f77d87",
-    "verified_code_tree": "4ffdb6b8dab19301050ce680caa0c0be1e13b60f",
-    "state_projection_basis_head": "224185ec8a0b5bce71262de70fe888c002f77d87",
+    "verified_code_head": "7b2e4c960b0ba4e6244c83750a7796c2565a39a1",
+    "verified_code_tree": "9cf348abc38f90b381eafb4c408ffc594c889904",
+    "state_projection_basis_head": "7b2e4c960b0ba4e6244c83750a7796c2565a39a1",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Raw NotificationDelivery PostgreSQL reader verified; send/retry/provider runtime not claimed",
+    "current_phase": "Raw NotificationDeliveryAttempt PostgreSQL reader verified; retry/finality/provider runtime not claimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "224185ec8a0b5bce71262de70fe888c002f77d87",
-      "ci_run_id": 35683681634,
-      "ci_job_id": 106605876190,
+      "ci_verified_head": "7b2e4c960b0ba4e6244c83750a7796c2565a39a1",
+      "ci_run_id": 35684469744,
+      "ci_job_id": 106608242009,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "4ffdb6b8dab19301050ce680caa0c0be1e13b60f",
+      "ci_verified_tree": "9cf348abc38f90b381eafb4c408ffc594c889904",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "224185ec8a0b5bce71262de70fe888c002f77d87",
-      "feature_head_bootstrap_verified_tree": "4ffdb6b8dab19301050ce680caa0c0be1e13b60f",
-      "feature_head_bootstrap_run_id": 35683681635,
-      "feature_head_bootstrap_job_id": 106605876051,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_136_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "7b2e4c960b0ba4e6244c83750a7796c2565a39a1",
+      "feature_head_bootstrap_verified_tree": "9cf348abc38f90b381eafb4c408ffc594c889904",
+      "feature_head_bootstrap_run_id": 35684469671,
+      "feature_head_bootstrap_job_id": 106608242140,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_142_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Source-audit NotificationDeliveryAttempt raw persistence as the next independent source-complete Notification slice. Attempt evidence must remain append-only/raw; retry/finality/provider decisions, CredentialReference secret retrieval, ProviderAdapter runtime selection/execution, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
+    "next_action": "Source-audit NotificationTemplate raw persistence as the next independent source-complete Notification slice. Template rendering/variable substitution/localization selection/approval policy, send/retry/finality/provider decisions, CredentialReference secret retrieval, ProviderAdapter execution, webhook/event runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
     "core_services": {
-      "checkpoint": "DEV-NOTIFICATION-DELIVERY-READ-001",
+      "checkpoint": "DEV-NOTIFICATION-ATTEMPT-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–098 current implementation; DD-098 raw NotificationDelivery PostgreSQL reader",
-      "verified_head": "224185ec8a0b5bce71262de70fe888c002f77d87",
-      "verified_tree": "4ffdb6b8dab19301050ce680caa0c0be1e13b60f",
-      "core_ci_run_id": 35683681635,
-      "core_ci_job_id": 106605875944,
+      "decision": "DD-040–099 current implementation; DD-099 raw NotificationDeliveryAttempt PostgreSQL reader",
+      "verified_head": "7b2e4c960b0ba4e6244c83750a7796c2565a39a1",
+      "verified_tree": "9cf348abc38f90b381eafb4c408ffc594c889904",
+      "core_ci_run_id": 35684469671,
+      "core_ci_job_id": 106608242039,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35683681635,
-      "postgres_ci_job_id": 106605876051,
-      "postgres_tests": "136/136 PASS",
+      "postgres_ci_run_id": 35684469671,
+      "postgres_ci_job_id": 106608242140,
+      "postgres_tests": "142/142 PASS",
       "postgres_test_counts": {
-        "tests": 136,
-        "pass": 136,
+        "tests": 142,
+        "pass": 142,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35683681634,
-      "database_regression_job_id": 106605876190,
+      "database_regression_run_id": 35684469744,
+      "database_regression_job_id": 106608242009,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -355,7 +355,10 @@
         "DD-098 raw NotificationDelivery read contract",
         "DD-098 dedicated PostgresNotificationDatabase fixed worker-role boundary",
         "DD-098 PostgreSQL NotificationDelivery reader",
-        "NOTIF-DEL-PG-001–005 raw delivery/RLS acceptance"
+        "NOTIF-DEL-PG-001–005 raw delivery/RLS acceptance",
+        "DD-099 raw NotificationDeliveryAttempt read contract",
+        "DD-099 PostgreSQL attempt reader through dedicated Notification worker role",
+        "NOTIF-ATT-PG-001–006 parent-RLS and append-only acceptance"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -443,7 +446,9 @@
         "sync resume/replay authorization and cursor mutation",
         "Notification provider routing/failover execution",
         "Notification retry/DLQ/finality decision",
-        "Notification worker credential/secret retrieval"
+        "Notification worker credential/secret retrieval",
+        "Notification attempt retry/finality/backoff evaluator",
+        "Notification provider/credential/secret runtime and send execution"
       ],
       "db_scope_boundary": "TRANSACTION_LOCAL_CONTEXT_REAL_POSTGRESQL_POOL_REUSE_AUTHORIZATION_COMMERCIAL_CURRENT_PUBLICATION_AND_EVIDENCE_BOUNDARIES_TESTED",
       "pending_physical_contracts": [
@@ -459,9 +464,9 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Source-audit NotificationDeliveryAttempt raw persistence as the next independent source-complete Notification slice. Attempt evidence must remain append-only/raw; retry/finality/provider decisions, CredentialReference secret retrieval, ProviderAdapter runtime selection/execution, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites."
+      "next_action": "Source-audit NotificationTemplate raw persistence as the next independent source-complete Notification slice. Template rendering/variable substitution/localization selection/approval policy, send/retry/finality/provider decisions, CredentialReference secret retrieval, ProviderAdapter execution, webhook/event runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites."
     },
-    "application_api_ui_scope_note": "Notification raw delivery persistence now has a dedicated-role RLS reader; notification execution/provider routing and product UI remain unfinished.",
+    "application_api_ui_scope_note": "NotificationDelivery and append-only NotificationDeliveryAttempt raw persistence are implemented/tested through the dedicated Notification worker role; template rendering and send/retry/provider runtime remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -515,7 +520,7 @@
     ],
     "status": "IN_PROGRESS"
   },
-  "current_phase": "DEVELOPMENT_NOTIFICATION_DELIVERY_READ_VERIFIED",
+  "current_phase": "DEVELOPMENT_NOTIFICATION_ATTEMPT_READ_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -547,12 +552,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-NOTIFICATION-DELIVERY-READ-001",
+    "checkpoint": "DEV-NOTIFICATION-ATTEMPT-READ-001",
     "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
     "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "224185ec8a0b5bce71262de70fe888c002f77d87",
-    "verified_code_tree": "4ffdb6b8dab19301050ce680caa0c0be1e13b60f",
-    "source_audit": "Development/NOTIFICATION_DELIVERY_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "7b2e4c960b0ba4e6244c83750a7796c2565a39a1",
+    "verified_code_tree": "9cf348abc38f90b381eafb4c408ffc594c889904",
+    "source_audit": "Development/NOTIFICATION_DELIVERY_ATTEMPT_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "completed": [
       "VC-01–04 existing-contract corrections",
       "DD-076 prerequisite ownership source audit",
@@ -575,20 +580,21 @@
       "DD-095 raw TenantIntegration PostgreSQL reader",
       "DD-096 CredentialReference metadata-only PostgreSQL reader",
       "DD-097 raw SyncCursor PostgreSQL reader",
-      "DD-098 raw NotificationDelivery PostgreSQL reader"
+      "DD-098 raw NotificationDelivery PostgreSQL reader",
+      "DD-099 raw NotificationDeliveryAttempt PostgreSQL reader"
     ],
-    "next_action": "Source-audit NotificationDeliveryAttempt raw persistence as the next independent source-complete Notification slice. Attempt evidence must remain append-only/raw; retry/finality/provider decisions, CredentialReference secret retrieval, ProviderAdapter runtime selection/execution, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
+    "next_action": "Source-audit NotificationTemplate raw persistence as the next independent source-complete Notification slice. Template rendering/variable substitution/localization selection/approval policy, send/retry/finality/provider decisions, CredentialReference secret retrieval, ProviderAdapter execution, webhook/event runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.",
     "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
     "schema_or_verification_sql_changed": false,
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-NOTIFICATION-DELIVERY-READ-001",
-    "verified_executable_basis": "224185ec8a0b5bce71262de70fe888c002f77d87",
-    "verified_executable_tree": "4ffdb6b8dab19301050ce680caa0c0be1e13b60f",
-    "source_audit": "Development/NOTIFICATION_DELIVERY_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD098_VERIFICATION_2026-09-22.md",
-    "scope": "DD-098 raw NotificationDelivery persistence only; no send/retry/provider authority"
+    "checkpoint": "DEV-NOTIFICATION-ATTEMPT-READ-001",
+    "verified_executable_basis": "7b2e4c960b0ba4e6244c83750a7796c2565a39a1",
+    "verified_executable_tree": "9cf348abc38f90b381eafb4c408ffc594c889904",
+    "source_audit": "Development/NOTIFICATION_DELIVERY_ATTEMPT_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD099_VERIFICATION_2026-09-22.md",
+    "scope": "DD-099 raw append-only NotificationDeliveryAttempt persistence only; no retry/finality/provider authority"
   },
   "current_state_audit": {
     "date": "2026-09-21",
@@ -601,12 +607,12 @@
       "test_files": 59
     },
     "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "224185ec8a0b5bce71262de70fe888c002f77d87",
+    "verified_continuation_head": "7b2e4c960b0ba4e6244c83750a7796c2565a39a1",
     "inventory": {
-      "blobs": 486,
-      "markdown": 198,
-      "source_files": 117,
-      "test_files": 69,
+      "blobs": 491,
+      "markdown": 200,
+      "source_files": 119,
+      "test_files": 70,
       "migrations": 47,
       "verification_files": 41
     },
@@ -629,47 +635,47 @@
     "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-098 raw NotificationDelivery PostgreSQL reader",
-    "checkpoint": "DEV-NOTIFICATION-DELIVERY-READ-001",
-    "verified_head": "224185ec8a0b5bce71262de70fe888c002f77d87",
-    "verified_tree": "4ffdb6b8dab19301050ce680caa0c0be1e13b60f",
+    "decision": "DD-099 raw NotificationDeliveryAttempt PostgreSQL reader",
+    "checkpoint": "DEV-NOTIFICATION-ATTEMPT-READ-001",
+    "verified_head": "7b2e4c960b0ba4e6244c83750a7796c2565a39a1",
+    "verified_tree": "9cf348abc38f90b381eafb4c408ffc594c889904",
     "core": {
-      "run_id": 35683681635,
-      "job_id": 106605875944,
+      "run_id": 35684469671,
+      "job_id": 106608242039,
       "tests": 311,
       "pass": 311,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35683681635,
-      "job_id": 106605876051,
-      "tests": 136,
-      "pass": 136,
+      "run_id": 35684469671,
+      "job_id": 106608242140,
+      "tests": 142,
+      "pass": 142,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35683681634,
-      "job_id": 106605876190,
+      "run_id": 35684469744,
+      "job_id": 106608242009,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35683681670,
-      "job_id": 106605876092,
+      "run_id": 35684469691,
+      "job_id": 106608242434,
       "conclusion": "success"
     },
     "inventory": {
-      "blobs": 486,
-      "markdown": 198,
-      "source_files": 117,
-      "test_files": 69,
+      "blobs": 491,
+      "markdown": 200,
+      "source_files": 119,
+      "test_files": 70,
       "migrations": 47,
       "verification_files": 41
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD098_VERIFICATION_2026-09-22.md"
+    "evidence": "Registers/DEVELOPMENT_DD099_VERIFICATION_2026-09-22.md"
   },
   "historical_projection_payloads": {
     "continuation": {

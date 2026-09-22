@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-READ-001`
+**Updated:** 2026-09-21 · **Current checkpoint:** `DEV-NOTIFICATION-ATTEMPT-READ-001`
 
-Verified executable `224185ec8a0b5bce71262de70fe888c002f77d87` / tree `4ffdb6b8dab19301050ce680caa0c0be1e13b60f`: **311/311 Core**, **136/136 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **486 blobs / 198 Markdown / 117 source / 69 test files**.
+Verified executable `7b2e4c960b0ba4e6244c83750a7796c2565a39a1` / tree `9cf348abc38f90b381eafb4c408ffc594c889904`: **311/311 Core**, **142/142 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **491 blobs / 200 Markdown / 119 source / 70 test files**.
 
-DD-098 adds a raw NotificationDelivery PostgreSQL reader through a dedicated `sbg_notification_worker_rw` NOBYPASSRLS database boundary plus RequestScopedSql. It preserves exact Tenant/Industry scope, recipient/channel/template/integration/event/status/time/error/version persistence evidence while deliberately withholding send, retry/finality, provider-selection and credential/secret authority.
+DD-099 adds a raw NotificationDeliveryAttempt PostgreSQL reader through the existing dedicated Notification worker/RLS boundary. Parent NotificationDelivery FORCE-RLS controls visibility; immutable attempt rows preserve attempt number, provider message reference, normalized status/error and start/completion timestamps while deliberately withholding retryability, finality, backoff, provider-selection and send authority. Worker UPDATE/DELETE remains denied.
 
 Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
 
-Next: Source-audit NotificationDeliveryAttempt raw persistence as the next independent source-complete Notification slice. Attempt evidence must remain append-only/raw; retry/finality/provider decisions, CredentialReference secret retrieval, ProviderAdapter runtime selection/execution, TenantIntegration enablement/health decisions, webhook network/signing/filter/retry runtime, event dispatch mutation/retry/DLQ, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Next: Source-audit NotificationTemplate raw persistence as the next independent source-complete Notification slice. Template rendering/variable substitution/localization selection/approval policy, send/retry/finality/provider decisions, CredentialReference secret retrieval, ProviderAdapter execution, webhook/event runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
