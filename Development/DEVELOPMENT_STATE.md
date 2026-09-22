@@ -1,22 +1,21 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-22 · **Checkpoint:** `DEV-NOTIFICATION-TEMPLATE-READ-001`
+**Updated:** 2026-09-22 · **Checkpoint:** `DEV-WORKFLOW-DEFINITION-READ-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `59d4a870a0c09b655708015fca991727ed59cc91` / tree `1228fd709e2c2cd8768520f548035fa3abf0632a`: **311/311 Core**, **148/148 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **496 blobs / 202 Markdown / 121 source / 71 test files**.
+Verified executable `267f920f9a22d03a3902f45f6c9a16498715652b` / tree `7230aa99828e961b602738d086e276d981f1bde0`: **311/311 Core**, **155/155 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests. Inventory: **502 blobs / 204 Markdown / 124 source / 72 test files**.
 
-DD-100 adds an exact-by-id raw NotificationTemplate PostgreSQL reader through the dedicated Notification worker/RLS boundary. It preserves owner scope, code/channel/locale/version/lifecycle/content/variable-schema/creator evidence while deliberately withholding active-version selection, owner/locale fallback, rendering, approval/send eligibility and provider/credential authority. PLATFORM templates require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback.
+DD-101 adds an exact-by-id raw WorkflowDefinition PostgreSQL reader through dedicated `sbg_workflow_worker_rw` NOBYPASSRLS + RequestScopedSql. It preserves owner scope, version/lifecycle/schema version, state-machine/approval JSON, rule refs, principals and effective-date evidence without selecting or executing a workflow. The worker cannot mutate the definition catalog.
 
 Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**,
 **2,962 unchanged source requirement IDs/text**, and contiguous
-**ADR-001–020 / DD-001–100**.
+**ADR-001–020 / DD-001–101**.
 
-No migration, verification SQL, role, grant or RLS policy changed in DD-100. The only
-CI-discovered correction was test-fixture completion for the existing SERVICE
-principal schema contract.
+No migration, verification SQL, role, grant or RLS policy changed in DD-101.
 
-Next: Source-audit WorkflowDefinition raw persistence as the next independent source-complete Workflow slice. Workflow selection/activation, state-machine interpretation, approval/rule execution and transition authorization must remain separate; Notification rendering/send/retry/provider runtime, CredentialReference secret retrieval, webhook/event runtime, Document policy/signing, REST exposure, DD-076 evaluator and concrete AI Gateway remain unfinished on their named prerequisites.
+Next: Source-audit WorkflowInstance raw persistence as the next independent source-complete Workflow slice. Instance-state evidence remains non-executing; transition authorization, task action rules, state-machine/approval/rule execution, Notification render/send/retry/provider runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure, DD-076 and concrete AI Gateway remain unfinished.
 
-Evidence: `Registers/DEVELOPMENT_DD100_VERIFICATION_2026-09-22.md`.
+Evidence: `Registers/DEVELOPMENT_DD101_VERIFICATION_2026-09-22.md`.
 
-RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains draft/unmerged.
+RawSource accepted blobs unchanged; main remains
+`3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains draft/unmerged.
