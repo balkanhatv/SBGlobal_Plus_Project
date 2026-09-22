@@ -981,3 +981,13 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | EVT-CAT-PG-002 | exact catalog row status is RETIRED | raw RETIRED evidence returned; no publish/consume decision |
 | EVT-CAT-PG-003 | event type exists but requested version or scope differs | null; no fallback to another tuple |
 | EVT-CAT-PG-004 | empty type, non-positive version or invalid scope | fail closed before persistence query |
+
+
+### Exact PostgreSQL IntegrationDefinition reader — DD-092
+
+| ID | Scenario | Expected |
+|---|---|---|
+| INT-DEF-PG-001 | exact definition primary key | immutable exact registry fields, capability list and residency JSON |
+| INT-DEF-PG-002 | INDUSTRY definition has raw RETIRED status | ownerScope/status/classification preserved; no selectable/enabled/healthy decision |
+| INT-DEF-PG-003 | unknown valid definition UUID | null; no fallback by code/provider/capability |
+| INT-DEF-PG-004 | malformed definition UUID | fail closed before persistence query |
