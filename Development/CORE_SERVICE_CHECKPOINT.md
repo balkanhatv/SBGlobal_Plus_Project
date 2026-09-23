@@ -1,18 +1,18 @@
-# CORE SERVICE CHECKPOINT — DEV-AUDIT-EVENT-READ-001
+# CORE SERVICE CHECKPOINT — DEV-API-CREDENTIAL-METADATA-READ-001
 **Updated:** 2026-09-23 · **Branch:** `docs/architecture-branch-2`
 
-Verified executable `862c1b9837419c8787016ce2584f9e433489cc08` / tree `7f59571b2319bc0b3d2fe0d36cd019330a70ea81`: **311/311 Core**, **448/448 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `031b4068685172f5a9c6c461f5ab73e237737e27` / tree `8c8a9a4c21653e7ef4d5962eaac23bdd7412acb8`: **311/311 Core**, **455/455 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `b736ffc4e367b0b2f3214ca2c8d77b4fcbb7b099` / tree `ed5bf656c6288e7f56fdc51f883cd4909350f3de`: Core run `35903393431` (Core job `107324908281`, PostgreSQL job `107324908641`), Database run `35903393183` (job `107324908479`), Web run `35903393251` (job `107324908154`) — SUCCESS; **144 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `c06225eeeee9b203afafb2359d31a831408abbd0` / tree `3e07ac1bdb823753a849e79a2503dd687ee2c8d6`: Core run `35906282606` (Core job `107334685860`, PostgreSQL job `107334686239`), Database run `35906282548` (job `107334685959`), Web run `35906282562` (job `107334685244`) — SUCCESS; **145 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-144 adds one exact raw AuditEvent persistence reader. Final FORCE-RLS scope visibility and partition identity remain database-owned; the DD-144 port is exact-id read only. Raw actor/action/resource/outcome/reason/permission/decision/module/correlation/causation/request/routing/sensitivity/evidence/schema-version fields remain non-semantic persistence evidence.
+DD-145 adds one exact API Credential metadata-only persistence reader through the fixed Identity-service role. `secret_hash` is absent from the SELECT and returned contract. Tenant/Industry/principal ownership, raw key prefix/status/permission-profile/expiry/last-used/CIDR/allowed-Industry evidence, exact signed bigint credential version and timestamps remain non-authorizing persistence evidence.
 
-`AUDITEVENT-PG-001`…`AUDITEVENT-PG-007` prove Tenant-Core visibility, same-Tenant Industry visibility for Tenant-Core rows, exact Industry isolation, explicit cross-context source/target endpoint privacy, PLATFORM_GLOBAL isolation, raw nullable/text/JSON fidelity, fail-closed malformed/route handling and append/read schema privilege without DD-144 mutation/search/retention authority.
+`APICRED-META-PG-001`…`APICRED-META-PG-007` prove Tenant-Core metadata, Tenant-Industry exact ownership evidence, PLATFORM_GLOBAL metadata through the dedicated Identity boundary while direct app SELECT remains revoked, secret-verifier exclusion, raw nullable/CIDR evidence, signed bigint fidelity, fail-closed malformed ids, and exact-read-only port semantics.
 
 ## Remaining scope
 
-AuditEvent append/update/delete through DD-144; audit search/list/filter/page/order; retention/legal-hold/archive/purge/partition lifecycle; audit export/reporting; event-content authorization; current actor/Tenant/Data-Home routing revalidation; resource/decision/principal dereference; and dedicated EXPLICIT_CROSS_CONTEXT repository behavior remain unimplemented unless separately source-owned.
+`MachineCredentialVerifierPort`; presented-token parsing; key-prefix authentication lookup; Argon2/approved verifier comparison/parameters; CIDR enforcement at request time; lifecycle/current usability decisions; permission-profile resolution; last-used mutation; create/rotate/revoke/update/delete; credential-use audit; RequestContext authorization; public/admin transport; enumeration/search; and operator-elevation authorization remain unimplemented unless separately source-owned.
 
-Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep those AuditEvent semantics outside scope unless separately source-owned.
+Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep those credential/elevation semantics outside scope unless separately source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD144_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD145_VERIFICATION_2026-09-23.md`.

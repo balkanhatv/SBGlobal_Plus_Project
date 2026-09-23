@@ -30,12 +30,12 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-23
 
-Current checkpoint: `DEV-AUDIT-EVENT-READ-001`. Decisions are contiguous through DD-144.
+Current checkpoint: `DEV-API-CREDENTIAL-METADATA-READ-001`. Decisions are contiguous through DD-145.
 
-Verified executable `862c1b9837419c8787016ce2584f9e433489cc08` / tree `7f59571b2319bc0b3d2fe0d36cd019330a70ea81`: **311/311 Core**, **448/448 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `031b4068685172f5a9c6c461f5ab73e237737e27` / tree `8c8a9a4c21653e7ef4d5962eaac23bdd7412acb8`: **311/311 Core**, **455/455 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `b736ffc4e367b0b2f3214ca2c8d77b4fcbb7b099` / tree `ed5bf656c6288e7f56fdc51f883cd4909350f3de`: Core run `35903393431` (Core job `107324908281`, PostgreSQL job `107324908641`), Database run `35903393183` (job `107324908479`), Web run `35903393251` (job `107324908154`) — SUCCESS; **144 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `c06225eeeee9b203afafb2359d31a831408abbd0` / tree `3e07ac1bdb823753a849e79a2503dd687ee2c8d6`: Core run `35906282606` (Core job `107334685860`, PostgreSQL job `107334686239`), Database run `35906282548` (job `107334685959`), Web run `35906282562` (job `107334685244`) — SUCCESS; **145 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-144 adds one exact raw `core_audit.audit_event` reader through the ordinary `RequestScopedSql` application boundary. Final migration-0030 source/target Industry endpoints and helper-owned FORCE-RLS remain authoritative: platform rows are platform-private, Tenant-Core rows remain same-Tenant visible, Tenant-Industry rows are exact-context private, and explicit cross-context rows are endpoint-private. Raw nullable/empty text and immutable generic JSON evidence remain persistence evidence only.
+DD-145 adds one exact `core_identity.api_credential` metadata-only reader through the dedicated pre-context `PostgresIdentityDatabase` / `sbg_identity_service_rw` boundary. `secret_hash` is excluded from SQL projection and contract. Raw Tenant/Industry/principal/key-prefix/status/nullable/CIDR/allowed-Industry/timestamp evidence and exact signed bigint credential-version text remain persistence facts only.
 
-Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep AuditEvent production, search/list/pagination, retention/legal-hold/archive/purge/partition management, export/reporting, event-content authorization, current actor/routing revalidation and dedicated EXPLICIT_CROSS_CONTEXT repository behavior outside scope unless separately source-owned.
+Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep machine credential verification/token parsing/hash comparison, CIDR enforcement, lifecycle usability, last-used mutation, rotation/revocation/use-audit, RequestContext authorization and operator-elevation behavior outside scope unless separately source-owned.
