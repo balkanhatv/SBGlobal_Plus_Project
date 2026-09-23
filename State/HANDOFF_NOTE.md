@@ -1,16 +1,16 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-23 · **Checkpoint:** `DEV-FORM-DEFINITION-READ-001`
+**Updated:** 2026-09-23 · **Checkpoint:** `DEV-FORM-FIELD-DEFINITION-READ-001`
 
 Fresh-fetch remote branch/HEAD/tree/checks before further work.
 
-Verified executable `25acd95e67b3af83066027eed8fbae5b2c2b8b65` / tree `3b5b35ec691376b4396d97660113c8153dbcf711`: **311/311 Core**, **385/385 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `9a679117f07da46e61709519f7ed0a9b0b86ab4b` / tree `7bfe5afa3a751817e438b4b4d1e5dbf35c543af8`: **311/311 Core**, **392/392 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `3c15f21fe991c69f770da8cca6d66a0144caa307` / tree `35aa579d111ac7b7127148debcd517d0412b2724`: Core run `35862282150` (Core job `107185140792`, PostgreSQL job `107185140646`), Database run `35862282115` (job `107185140616`), Web run `35862282331` (job `107185141532`) — SUCCESS; **135 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `7ea2ff44e999a9422f61e598340fc39a09683ced` / tree `f189919723ff9667f221024da50204f879a7cf79`: Core run `35863943108` (Core job `107190697712`, PostgreSQL job `107190698052`), Database run `35863942902` (job `107190697121`), Web run `35863942830` (job `107190696746`) — SUCCESS; **136 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-135 adds an exact-by-id scoped `core_config.form_definition` raw parent persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. PLATFORM/TENANT/INDUSTRY FORCE-RLS visibility, raw code/version/status/schema version, purpose/submit references, immutable layout JSON, raw frozen validation-rule/surface arrays, localization evidence, creator/approver references and optional effective/audit timestamps remain persisted evidence only. ACTIVE/layout/rule/surface/submit evidence does not mean selected/current/effective/expanded/rendered/validated/submitted form. Existing table privileges plus migration 0029/0032 write hardening remain schema-owned; the DD-135 port is read-only.
+DD-136 adds an exact-by-id `core_config.form_field_definition` raw child persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. Visibility remains parent-FormDefinition-derived FORCE-RLS: Tenant parent is same-Tenant visible, Industry parent requires exact Industry Context, and PLATFORM parent requires trusted PLATFORM_GLOBAL context; parent lifecycle status is not promoted into visibility. Raw field key/type/label/required/read-only/visibility/validation/reference/sort/sensitivity evidence remains non-enforcing, non-rendering, non-validating, non-authorizing and non-submitting. Existing table privileges and the migration-0032 PLATFORM-parent child write floor remain schema-owned; the DD-136 port is read-only.
 
-Read `Development/FORM_DEFINITION_RAW_PERSISTENCE_READER_PREREQUISITE_OWNERSHIP_AUDIT.md` and `Registers/DEVELOPMENT_DD135_VERIFICATION_2026-09-23.md` before extending form behavior.
+Read `Development/FORM_FIELD_DEFINITION_RAW_PERSISTENCE_READER_PREREQUISITE_OWNERSHIP_AUDIT.md` and `Registers/DEVELOPMENT_DD136_VERIFICATION_2026-09-23.md` before extending field behavior.
 
-Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep FormFieldDefinition expansion, field semantics, current/effective FormDefinition selection, rendering/layout compilation, RuleDefinition resolution/validation-chain execution, submit-operation binding/invocation and definition mutation outside scope unless separately source-owned.
+Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep FormDefinition current/effective selection, sibling field listing/ordering, field enforcement/rendering, visibility/validation rule execution, catalog resolution, sensitivity policy, layout composition, submit-operation invocation and form/field mutation outside scope unless separately source-owned.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.
