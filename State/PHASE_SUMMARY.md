@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-23 · **Current checkpoint:** `DEV-AI-RAG-CHUNK-READ-001`
+**Updated:** 2026-09-23 · **Current checkpoint:** `DEV-AI-MEMORY-RECORD-READ-001`
 
-Verified executable `f713a05d7f03e29938198dac96663dc0222a26b6` / tree `d6420945deba39281963d374cccde327e422e57a`: **311/311 Core**, **336/336 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
+Verified executable `96be4b78ab610a23e368aeced6143b6aabd09d78` / tree `96bbc642a0005172c8376d832b1642b01a1e4865`: **311/311 Core**, **343/343 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS.
 
-Promotion invariant gate `d79c4fdca4645d4b95d6442a621eb4cf3678f065` / tree `6ff1b8fddbb3e2b6c18419dca7cebbc84ae86667`: Core run `35846762899` (Core job `107134668672`, PostgreSQL job `107134669061`), Database run `35846763723` (job `107134671660`), Web run `35846763020` (job `107134669327`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 128 unique DD definitions**.
+Promotion invariant gate `0fe3cd71aa21b83beade05f091aa0bc6ae67d064` / tree `f4f0d3f952f79043142f1445c65c339d1e5fd58c`: Core run `35849137294`, Database run `35849137238`, Web run `35849137218` — SUCCESS; 129 unique DD definitions, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-128 adds an exact-by-id scoped `core_ai.rag_chunk` raw metadata reader excluding the persisted vector payload. Persisted ACL/model/chunk evidence remains non-authorizing and non-retrieving.
+DD-129 adds an exact-by-id scoped `core_ai.ai_memory_record` raw persistence reader. It preserves FORCE-RLS visibility plus raw lifecycle, ACL, retention, expiry and supersession evidence without current-memory selection, ACL evaluation, retention execution, history assembly, decryption or AI execution.
 
-Next: Fresh source-audit the next independent source-complete persistence slice without opening effective RAG retrieval/ACL evaluation, vector search, grounding or inference semantics.
+Next: Fresh source-audit the next independent source-complete persistence slice. Keep current/effective memory lookup and runtime execution semantics outside scope unless source-owned.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -245,6 +245,7 @@ Verified executable `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`, tree `a1cc883564
 Current checkpoint: **`DEV-AUTHZ-COMPILER-001`**. Publication uses exact SERVICE scope, v1 validation, subject locking, CURRENT→SUPERSEDED transition, monotonically increasing pointer/version, invalidation without version reuse/decrement, and separate Tenant/Industry versus PLATFORM_GLOBAL paths.
 
 Next governed work: **Commercial current-state integration only**.
+
 
 
 
