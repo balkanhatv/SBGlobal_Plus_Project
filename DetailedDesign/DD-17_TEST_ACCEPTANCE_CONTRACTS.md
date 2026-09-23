@@ -1960,3 +1960,26 @@ A missing well-formed OrgUnit UUID returns `null`; malformed id or Data Home rou
 
 ### ORGIND-PG-007 — Raw link read does not become mutation or authorization authority
 Existing application-role table DML and migration-0029 immutable Tenant/Industry ownership remain schema-owned. The DD-142 port exposes no create/update/delete/list/activate/deactivate, hierarchy resolution, config resolution, document authorization or workflow-assignment authorization method.
+
+## DD-143 UsageMeter Raw Persistence Reader Acceptance
+
+### USAGEMETER-PG-001 — Exact Tenant-Core meter preserves lossless raw evidence
+Exact UsageMeter-id lookup in the owning Tenant-Core context returns immutable Tenant ownership, raw meter/period text, exact PostgreSQL numeric evidence, exact bigint version and updated timestamp without JavaScript-number coercion or usage semantics.
+
+### USAGEMETER-PG-002 — Tenant-Core row remains visible from same-Tenant Industry context
+Because the physical RLS permits null-Industry rows within the same Tenant, a Tenant-Core UsageMeter is visible from both TENANT_CORE and same-Tenant TENANT_INDUSTRY application contexts.
+
+### USAGEMETER-PG-003 — Industry row requires exact Industry Context
+A non-null Industry-scoped UsageMeter is hidden from Tenant-Core and sibling Industry contexts and is visible only from its exact owning Tenant + Industry Context.
+
+### USAGEMETER-PG-004 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts cannot bypass UsageMeter FORCE-RLS or the private application reader boundary.
+
+### USAGEMETER-PG-005 — Empty/raw/special numeric/non-positive version evidence remains unstrengthened
+Schema-valid empty meter/period text, exact high-precision finite numerics, PostgreSQL `NaN` / `Infinity`, and zero/negative bigint version remain raw persisted evidence. No entitlement/current-period/authoritative-period/available-capacity/usage-impact semantics are invented.
+
+### USAGEMETER-PG-006 — Missing/malformed/route mismatch fail closed
+A missing well-formed UsageMeter UUID returns `null`; malformed ids and Data Home route/context mismatch fail closed.
+
+### USAGEMETER-PG-007 — Read-only privilege and port boundary
+Ordinary application and dedicated Commercial compiler roles retain SELECT but no INSERT/UPDATE/DELETE on UsageMeter. The DD-143 port exposes no create/update/delete/list/selectCurrent/selectPeriod/aggregate/reserve/release/resolveEntitlement/evaluateImpact method.
