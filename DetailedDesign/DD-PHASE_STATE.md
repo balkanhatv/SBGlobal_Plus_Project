@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-API-CREDENTIAL-VERIFICATION-MATERIAL-READ-001`
+**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-OPERATOR-ELEVATION-TIME-STATUS-FLOOR-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,14 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-23
 
-Current checkpoint: `DEV-API-CREDENTIAL-VERIFICATION-MATERIAL-READ-001`. Decisions are contiguous through DD-147.
+Current checkpoint: `DEV-OPERATOR-ELEVATION-TIME-STATUS-FLOOR-001`. Decisions are contiguous through DD-148.
 
-Verified executable `9b0662aee55e710b256033561790609dbfa6eeaa` / tree `a4221561bb8260b9093451117ab411562cb2683b`: **311/311 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `f94cd8287e66daf7e9c2974a4539056f81bdebc9` / tree `9ca5cff5644470676fa3d8fb0ec560c522a1266d`: **318/318 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
 
-Promotion invariant gate `539524aaaf93ef14d72c0165163f6a5bd1c660cf` / tree `0a56b0d946e8090809f32cb4f7d41587577794fb`: Core run `35910799265` (Core job `107349828531`, PostgreSQL job `107349828859`), Database run `35910799281` (job `107349828748`), Web run `35910799187` (job `107349828182`) — SUCCESS; **147 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `86840d3edcc45752d0aa9abcfe2de6268fb2b113` / tree `c171e7dee52b156c0c8af68d340124aa137db1dd`: Core run `35912001993` (Core job `107353903952`, PostgreSQL job `107353903392`), Database run `35912001954` (job `107353904022`), Web run `35912002028` (job `107353903368`) — SUCCESS; **148 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-147 adds a server-internal exact persisted API Credential key-prefix verification-material source through the fixed Identity role. Opaque verifier hash material stays server-internal and does not itself authenticate or authorize.
+DD-148 adds only the migration-owned OperatorElevation ACTIVE/time-window necessary floor. It does not bind principal/Tenant/Industry, evaluate permissions/approval, set request elevation scope or authorize access.
 
-Next: Fresh source-audit the next runtime prerequisite. Full machine verification remains blocked on presented-token format/parsing, verifier execution, CIDR/lifecycle handling, usage/audit mutation and final VerifiedMachineEvidence construction.
+Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation selection, PLATFORM_OPERATOR binding, exact Tenant/Industry target binding, permission-profile evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.
