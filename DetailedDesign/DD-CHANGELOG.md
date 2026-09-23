@@ -138,3 +138,6 @@ Fresh source reconciliation selected `core_ai.rag_source` as the next independen
 ## 2026-09-23 — DD-128 AI RAGChunk raw metadata reader
 Fresh source reconciliation selected exact-by-id non-vector `core_ai.rag_chunk` metadata as the next independent persistence slice. The implementation preserves FORCE-RLS scope, raw chunk/ACL/embedding-reference metadata and schema bounds while deliberately excluding the persisted vector payload and not claiming ACL authorization, current-model eligibility, vector search, retrieval, grounding or inference authority. No migration/schema/role/grant/RLS/product-policy change was introduced.
 
+## 2026-09-23 — DD-129 AI MemoryRecord raw persistence reader
+Fresh source reconciliation selected one exact `core_ai.ai_memory_record` row as the next independent persistence slice. The implementation preserves principal-private versus scope-shared FORCE-RLS, raw lifecycle/expiry/supersession/ACL/retention/content evidence and Tenant-Core visibility without claiming current-memory selection, governed lookup/history carry, ACL evaluation, retention/erasure, decryption or AI execution. A fixture-parameter defect in the initial PostgreSQL test was corrected forward-only; no production schema/runtime semantics changed.
+

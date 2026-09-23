@@ -1639,3 +1639,26 @@ A missing well-formed chunk UUID returns `null`; malformed UUID or database rout
 ### AIRAGCHUNK-PG-007 — Raw metadata is not ACL/vector/retrieval/grounding/inference authority
 A referenced embedding model may later be RETIRED without changing the persisted row. The DD-128 store exposes no create/update/delete/vector-load/ACL-evaluate/retrieve/search/rerank/ground/execute method, and raw ACL/model/text/hash/metadata evidence does not authorize retrieval or inference.
 
+## DD-129 AI MemoryRecord Raw Persistence Reader Acceptance
+
+### AIMEM-PG-001 — Exact principal-owned Industry memory raw evidence
+Exact MemoryRecord-id lookup in the owning principal + Industry Context returns immutable Tenant/Industry/principal ownership, memory/content/source/sensitivity/retention/ACL/status/expiry/supersession evidence without current/authorized/decrypted authority.
+
+### AIMEM-PG-002 — Sibling Industry isolation
+An Industry-scoped memory row requested from a sibling Industry Context is hidden; the exact owning Industry Context may read the raw row.
+
+### AIMEM-PG-003 — Principal-private versus scope-shared memory
+Another principal cannot read a principal-owned memory row. A row with `principal_id IS NULL` is visible within the same governed scope because the persisted RLS policy intentionally treats it as scope-shared evidence.
+
+### AIMEM-PG-004 — Tenant-Core visibility is not automatic cross-context history carry
+A same-principal Tenant-Core MemoryRecord is visible from Tenant Core and same-Tenant Industry contexts according to the persisted RLS predicate, including schema-valid raw empty text. The reader exposes no history-list/carry semantics and does not turn this raw visibility into automatic Industry-context history reuse.
+
+### AIMEM-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+A foreign-Tenant context cannot expose the row, and trusted PLATFORM_GLOBAL context does not bypass Tenant MemoryRecord RLS.
+
+### AIMEM-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed memory UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIMEM-PG-007 — Raw lifecycle/ACL/supersession evidence is not current/retrieval/retention/execution authority
+ACTIVE/SUPERSEDED/ERASED/EXPIRED, expiry, supersedes, ACL, retention and raw content/source fields remain persistence evidence only. The DD-129 store exposes no create/update/delete/list/current-selection/supersession-resolution/ACL-evaluation/decrypt/retention/execute method.
+
