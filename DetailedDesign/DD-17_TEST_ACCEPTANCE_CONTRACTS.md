@@ -2174,3 +2174,27 @@ Operator/Tenant/Industry, status/time, purpose/ticket/approval and permission-pr
 
 ### OPELEV-SEL-007 — Equality floor has no selection or authorization behavior
 The helper mutates neither metadata nor selected-id input and exposes only exact selected-id equality; it does not choose, trust, load or authorize an elevation.
+
+
+## DD-152 OperatorElevation Core Necessary-Floor Composition Acceptance
+
+### OPELEV-CORE-001 — All four necessary floors true
+Exact selected id, verified PLATFORM_OPERATOR identity, subject/target binding and current ACTIVE/time-window floors all matching returns true.
+
+### OPELEV-CORE-002 — Selected-id failure fails the composition
+A DD-151 selected-id mismatch returns false even when all other floors match.
+
+### OPELEV-CORE-003 — Verified operator identity failure fails the composition
+A DD-150 identity-floor failure returns false even when selected id, target and time/status match.
+
+### OPELEV-CORE-004 — Subject/target failure fails the composition
+A DD-149 binding-floor failure returns false even when the other floors match.
+
+### OPELEV-CORE-005 — Status/time failure fails the composition
+A DD-148 current-time/status failure returns false even when selected id, identity and target match.
+
+### OPELEV-CORE-006 — Multiple malformed/failed floors have no fallback
+Malformed or failed inputs across multiple floors remain false; no fallback or partial success exists.
+
+### OPELEV-CORE-007 — Policy/session extras remain uninterpreted
+Permission-profile, approval/purpose/ticket, step-up/session extras and unrelated fields do not gain authorization semantics, and inputs are not mutated.

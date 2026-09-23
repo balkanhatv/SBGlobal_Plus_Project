@@ -2195,3 +2195,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-151 does not choose/discover/mint/trust an elevation id; accept client selection as authoritative; load an elevation row; verify PLATFORM_OPERATOR identity; evaluate DD-148 or DD-149 on the caller's behalf; interpret permission profiles; decide approval/purpose/ticket or step-up policy; set `app.operator_elevation_id`; modify `RequestContext` or `RequestScopedSql`; grant access or return AuthorizationDecision; emit mandatory elevation-use audit; mutate elevation state; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `OPELEV-SEL-001` through `OPELEV-SEL-007` in DD-17 and `tests/core/operator-elevation-selected-id.test.mjs`.
+
+
+## DD-152 — DD-148…151 may be composed as one pure necessary OperatorElevation floor without becoming final elevation authorization
+
+**Context:** DD-148 owns migration 0029's ACTIVE/time predicate, DD-149 owns operator/Tenant/optional-Industry binding, DD-150 owns verified interactive PLATFORM_OPERATOR identity, and DD-151 owns exact selected-id equality. Migration 0029 requires its selected-id, binding and time predicates together; DD-03 separately requires interactive Platform Operator identity. Trusted selected-id sourcing remains under-specified and is deliberately not solved here.
+
+**Decision:** add deterministic Core helper `matchesOperatorElevationCoreNecessaryFloors(metadata,input)` that composes the existing DD-151 selected-id helper, DD-150 verified-operator helper, DD-149 subject/target helper and DD-148 time/status helper. It returns true only when all four existing floors return true.
+
+**Security / trade-off:** composition reduces accidental partial checks but does not strengthen any floor into a final authorization decision. A true result means only that four necessary predicates match for the provided server-owned inputs. The source/trust of the selected id, step-up policy, permission profile, approval/purpose policy, effective permissions, RequestContext/SQL injection and audit remain separate.
+
+**Boundary:** DD-152 does not choose/discover/mint/trust the selected id; make client selection authoritative; load elevation rows; call IdentityPort; decide MFA/step-up; interpret `permission_profile_id`; decide approval/purpose/ticket; construct final effective permissions or AuthorizationDecision; set `app.operator_elevation_id`; modify RequestContext/RequestScopedSql; grant access; emit mandatory elevation-use audit; mutate elevation state; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `OPELEV-CORE-001` through `OPELEV-CORE-007` in DD-17 and `tests/core/operator-elevation-core-floors.test.mjs`.

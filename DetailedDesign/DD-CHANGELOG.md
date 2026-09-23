@@ -217,3 +217,7 @@ After DD-149 isolated the migration-owned subject/target binding predicate, DD-0
 
 ## 2026-09-24 — DD-151 OperatorElevation selected-id floor
 After DD-150 isolated verified interactive PLATFORM_OPERATOR identity, migration 0029's exact selected-elevation-id predicate was selected as the next independent deterministic prerequisite. The implementation adds a pure Core helper that validates UUID shape and requires exact persisted/selected id equality, while explicitly not choosing, trusting, loading or authorizing the selected elevation. Audit commit `e70b5d3b…`; exact implementation head `fd1e6b32…` is green at 339/339 Core and 469/469 PostgreSQL plus Database/Web PASS. No database, migration, RLS, role/grant, RequestContext, transport or product-policy behavior changed.
+
+
+## 2026-09-24 — DD-152 OperatorElevation core necessary-floor composition
+After DD-151 completed the migration-owned selected-id equality floor, DD-148…151 were reconciled into one pure Core composition. The implementation returns true only when selected-id, verified PLATFORM_OPERATOR identity, subject/target and ACTIVE/time floors all match, while explicitly not trusting the selected-id source, evaluating step-up/profile/approval policy, injecting request SQL scope or granting access. Audit commit `da9e1ebf…`; exact implementation head `0aab1a26…` is green at 346/346 Core and 469/469 PostgreSQL plus Database/Web PASS. No database, migration, RLS, role/grant, RequestContext, transport or product-policy behavior changed.
