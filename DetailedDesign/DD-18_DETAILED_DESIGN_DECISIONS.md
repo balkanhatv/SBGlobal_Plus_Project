@@ -1877,3 +1877,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIMEDIAREQ-PG-001` through `AIMEDIAREQ-PG-007` in DD-17 and `tests/postgres/ai-media-request-store.test.mjs`.
 
+## DD-126 — AIMessage raw persistence is readable without becoming history, decryption, source-authorization, routing or retention authority
+
+**Context:** migration 0012 physically owns `core_ai.ai_message` as a child of `core_ai.ai_conversation`. Message FORCE-RLS visibility is parent-derived: a message is visible only when its parent Conversation is visible, and Conversation RLS is Tenant + optional exact Industry + exact owner principal. Migration 0014 grants the AI Gateway role message DML. DD-09 states that message persistence follows policy and not every interaction must be retained; role/content/source/model-route/deleted fields therefore remain persistence evidence rather than execution semantics.
+
+**Decision:** add immutable `PersistedAIMessage`, `AIMessageReadPort.loadForContext(...)` and `PostgresAIMessageStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and returns only id, Conversation id, raw role, raw content reference/encrypted content, optional normalized immutable source JSON, optional model-route UUID, created timestamp and optional deleted timestamp. Schema-valid empty text and timestamp ordering are preserved without invented meaning.
+
+**Security / trade-off:** message visibility remains principal-private through the visible parent Conversation. Sibling Industry, another same-Tenant principal, foreign Tenant and PLATFORM_GLOBAL contexts cannot bypass the parent policy. The new port is read-only even though the AI Gateway database role retains migration-owned DML authority.
+
+**Boundary:** DD-126 does not list/order conversation history; interpret roles; decrypt/dereference content; resolve/authorize source refs; resolve/select model routes or providers/models; treat deleted-at as completed retention/erasure/legal-hold evidence; reconstruct prompts; perform inference/RAG; expose public routes; or change schema/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIMSG-PG-001` through `AIMSG-PG-007` in DD-17 and `tests/postgres/ai-message-store.test.mjs`.
+

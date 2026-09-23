@@ -1570,3 +1570,26 @@ A missing well-formed MediaRequest UUID returns `null`; malformed UUID or databa
 ### AIMEDIAREQ-PG-007 — Raw request evidence is not generation/moderation/publication/execution authority
 The AI Gateway role retains migration-owned MediaRequest DML privileges, but the DD-125 store exposes no create/update/delete/render/generate/moderate/publish/route/execute method.
 
+## DD-126 AIMessage Raw Persistence Reader Acceptance
+
+### AIMSG-PG-001 — Exact visible Industry message raw evidence
+Exact message-id lookup through the owning Conversation returns immutable raw role/content/source JSON/model-route/timestamp evidence without decrypted/authorized-source/selected-model authority.
+
+### AIMSG-PG-002 — Sibling Industry parent isolation
+A message whose parent Conversation belongs to a sibling Industry Context is hidden; the exact sibling owner context may read its own message.
+
+### AIMSG-PG-003 — Tenant-Core parent visibility
+A Tenant-Core parent message remains visible to its owner from Tenant Core and same-Tenant Industry contexts. Empty raw text, nullable fields and schema-valid timestamp ordering are preserved.
+
+### AIMSG-PG-004 — Principal-private parent boundary
+A different same-Tenant principal cannot read another principal's message; its own parent Conversation/message remains visible.
+
+### AIMSG-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts cannot bypass the parent Conversation RLS boundary.
+
+### AIMSG-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed UUID returns `null`; malformed UUID or route/context mismatch fails closed.
+
+### AIMSG-PG-007 — Raw message evidence is not runtime authority
+The AI Gateway role retains migration-owned message DML, while the DD-126 store exposes no create/update/delete/list-history/decrypt/source-resolve/model-route/retention/execute method.
+

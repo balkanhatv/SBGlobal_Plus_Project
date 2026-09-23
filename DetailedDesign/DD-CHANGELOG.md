@@ -129,3 +129,6 @@ Fresh source reconciliation selected one exact `core_ai.ai_provisioning_snapshot
 ## 2026-09-23 — DD-125 AI MediaRequest raw persistence reader
 Fresh source reconciliation selected `core_ai.ai_media_request` as the next independent persistence slice. The implementation reads one exact Tenant/Industry-scoped request, preserves bigint brand-version precision and raw prompt/document/moderation/status evidence, and deliberately does not claim media generation, prompt execution, moderation or publication authority. An initial PostgreSQL fixture used an unreferenced `$10` parameter; the test-only correction bound the sibling-Industry row to the intended second principal. No production schema/runtime semantics changed.
 
+## 2026-09-23 — DD-126 AIMessage raw persistence reader
+Fresh source reconciliation selected `core_ai.ai_message` as the next independent child persistence slice. The implementation reads one exact message through parent Conversation FORCE-RLS and preserves raw role/content/source/model-route/deletion evidence without claiming history, decryption, source authorization, routing, retention or inference semantics.
+
