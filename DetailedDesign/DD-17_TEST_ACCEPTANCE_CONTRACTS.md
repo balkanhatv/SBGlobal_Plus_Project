@@ -1501,3 +1501,26 @@ A missing well-formed usage UUID returns `null`; malformed UUID or database rout
 ### AIUSAGE-PG-007 — Historical usage evidence is not routing/billing/quota/execution authority
 Historical provider/model/capability references remain readable even after those catalog rows are retired. The AI Gateway role retains migration-owned TokenUsage DML privileges, but the DD-122 store exposes no create/update/delete/aggregate/cost/quota/route/execute method.
 
+## DD-123 AI Cost Raw Persistence Reader Acceptance
+
+### AICOST-PG-001 — Exact Industry cost raw evidence
+Exact usage-id lookup in the owning Industry Context returns immutable raw currency, exact PostgreSQL bigint-text estimated minor units, provider-rate version, billable class and optional finalized timestamp without computed/invoice/finalization authority.
+
+### AICOST-PG-002 — Sibling Industry isolation
+An Industry cost row is hidden from a sibling Industry Context; the exact sibling context may read its raw cost evidence.
+
+### AICOST-PG-003 — Tenant-Core same-Tenant visibility
+A Tenant-Core cost row is visible from same-Tenant Core and Industry contexts. Zero estimated units and schema-valid empty raw rate-version/billable text remain persisted evidence rather than strengthened semantics.
+
+### AICOST-PG-004 — Parent principal attribution is not cost-row read ownership
+A different active principal in the same authorized Tenant/Industry context may read cost whose TokenUsage parent is attributed to another principal because Cost visibility derives from TokenUsage Tenant/Industry RLS rather than principal ownership.
+
+### AICOST-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts cannot bypass the parent-derived cost visibility; the owning Tenant/Industry context may read its row.
+
+### AICOST-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed usage UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AICOST-PG-007 — Raw cost evidence is not pricing/billing/finalization/execution authority
+The AI Gateway role retains migration-owned Cost DML privileges, but the DD-123 store exposes no create/update/delete/aggregate/rate/currency-conversion/finalize/invoice/execute method.
+

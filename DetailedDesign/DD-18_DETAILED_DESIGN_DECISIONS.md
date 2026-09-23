@@ -1841,3 +1841,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIUSAGE-PG-001` through `AIUSAGE-PG-007` in DD-17 and `tests/postgres/ai-token-usage-store.test.mjs`.
 
+## DD-123 — AI Cost raw persistence is readable without becoming pricing, billing, finalization or execution authority
+
+**Context:** migration 0012 physically owns `core_ai.ai_cost` as one cost row keyed by `token_usage.usage_id`, with raw three-character currency, non-negative PostgreSQL bigint estimated minor units, raw provider-rate version, raw billable class and optional finalized timestamp. AI Cost FORCE-RLS derives visibility from the referenced TokenUsage row, so Tenant/Industry visibility follows the already-governed TokenUsage parent rather than principal-private ownership. Migration 0014 grants the AI Gateway role table DML. DD-09 names usage/cost as observability evidence but does not define a provider-rate formula, currency conversion rule, invoice linkage or billing-posting behavior for this reader.
+
+**Decision:** add immutable `PersistedAICost`, `AICostReadPort.loadForContext(...)` and `PostgresAICostStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact usage UUID and returns only persisted evidence: usage id, raw currency, exact `bigint::text` estimated minor units, raw provider-rate version, raw billable class and optional finalized timestamp. PostgreSQL bigint evidence is not converted through JavaScript number arithmetic. Missing rows return null; malformed identifiers, invalid persisted types or route/context mismatch fail closed.
+
+**Security / trade-off:** parent TokenUsage FORCE-RLS remains authoritative. Industry cost is exact-context visible; Tenant-Core cost is same-Tenant visible from Tenant Core or Tenant Industry contexts; principal attribution on the parent is not a read-ownership predicate; foreign-Tenant and PLATFORM_GLOBAL contexts do not expose the row. Existing migration-owned AI Gateway Cost DML authority remains unchanged; the DD-123 application port itself is read-only.
+
+**Boundary:** DD-123 does not look up/apply provider rates; convert currency; recompute/reconcile/finalize cost; aggregate usage; select metering windows; evaluate quota/entitlement/budget; interpret billable class; create invoices/tax/payment/dunning/ledger entries; select providers/models/routes; mutate TokenUsage or Cost; load prompt/conversation/message content; perform inference/RAG/media/tool/agent execution; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AICOST-PG-001` through `AICOST-PG-007` in DD-17 and `tests/postgres/ai-cost-store.test.mjs`.
+
