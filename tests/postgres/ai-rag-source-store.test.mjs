@@ -185,7 +185,7 @@ before(async () => {
         ($2,$5,$8,'TENANT_INDUSTRY','Manufacturing','MFG-PROD','WORK_ORDER','wo-002',NULL,NULL,
           'INTERNAL','IN-AI-RAG-SOURCE','RAG_STANDARD',NULL,'ACTIVE',
           2,'chunk-v2','2026-09-23T02:02:01Z','2026-09-23T02:03:01Z'),
-        ($3,$5,NULL,'TENANT_CORE','','','','',NULL,NULL,
+        ($3,$5,NULL,'TENANT_CORE','',NULL,'','',NULL,NULL,
           'PUBLIC','','',NULL,'',
           3,'','2026-09-23T02:04:01Z','2026-09-23T02:05:01Z'),
         ($4,$6,$9,'TENANT_INDUSTRY','Education','EDU-LMS','COURSE','course-004',NULL,NULL,
