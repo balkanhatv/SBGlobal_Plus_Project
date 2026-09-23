@@ -79,4 +79,4 @@ export * from "./ai/prompt-template.js";
 export * from "./ai/policy.js";
 export * from "./ai/assistant-definition.js";
 export * from "./ai/agent-definition.js";
-export * from "./ai/tenant-config.js";
+export * from "./ai/tenant-config.js";\nexport * from "./ai/industry-config.js";
