@@ -1937,3 +1937,26 @@ Missing well-formed UUID returns `null`; malformed id and mismatched Data Home r
 
 ### SUBTRANS-PG-007 — Append-only write ownership remains schema-owned
 Ordinary application role remains SELECT-only. Dedicated Commercial transition compiler remains SELECT+INSERT with no UPDATE/DELETE. The read port exposes no create/update/delete/list/latest/execute/authorize/replay/publish method.
+
+## DD-142 OrgUnitIndustry Raw Persistence Reader Acceptance
+
+### ORGIND-PG-001 — Exact Industry-private link raw evidence
+Exact OrgUnit id lookup in the owning Tenant Industry context returns immutable Tenant/OrgUnit/Industry ownership, raw lifecycle status and normalized immutable config JSON without activation, hierarchy or authorization authority.
+
+### ORGIND-PG-002 — Exact Industry isolation
+The same OrgUnit may have independently persisted links in multiple Industry Contexts. FORCE-RLS exposes only the link for the exact current Tenant + Industry Context; a sibling context cannot see another link.
+
+### ORGIND-PG-003 — No Tenant-Core / foreign-Tenant / PLATFORM_GLOBAL bypass
+The read port requires a resolved TENANT_INDUSTRY context. Tenant-Core and PLATFORM_GLOBAL contexts fail closed, while a foreign-Tenant Industry context cannot see another Tenant's link.
+
+### ORGIND-PG-004 — Status/config evidence stays raw
+ACTIVE, SUSPENDED and ARCHIVED status plus arbitrary schema-valid config JSON remain persisted evidence only. The reader does not infer effective/current status, OrgUnit/Industry activation, authorization or config materialization.
+
+### ORGIND-PG-005 — No cross-Industry fallback
+A shared OrgUnit id may resolve to distinct exact-context links. Missing linkage in the current Industry Context returns `null`; no fallback to another Industry Context is permitted.
+
+### ORGIND-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed OrgUnit UUID returns `null`; malformed id or Data Home route/context mismatch fails closed.
+
+### ORGIND-PG-007 — Raw link read does not become mutation or authorization authority
+Existing application-role table DML and migration-0029 immutable Tenant/Industry ownership remain schema-owned. The DD-142 port exposes no create/update/delete/list/activate/deactivate, hierarchy resolution, config resolution, document authorization or workflow-assignment authorization method.
