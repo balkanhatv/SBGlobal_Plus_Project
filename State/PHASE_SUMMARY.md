@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-23 · **Current checkpoint:** `DEV-AI-TOKEN-USAGE-READ-001`
+**Updated:** 2026-09-23 · **Current checkpoint:** `DEV-AI-COST-READ-001`
 
-Verified executable `bb4dd51ee9732be8ae95e14c72ef1d60c7bac8cb` / tree `2a3a032a2ea72191878d432c15269cdc563f7dc4`: **311/311 Core**, **294/294 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
+Verified executable `38306fac5afb1b93a7ad16123e42c14bd2062f88` / tree `ba11e9b3eec3e92a749e46b0df1913a06be3e6b4`: **311/311 Core**, **301/301 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
 
-Promotion invariant gate `ac679e24feb8dc12cc494bca4bd8d0e2fb9724f9` / tree `cf44eda351e6ada82e0213ecc6963408d94d0919`: Core run `35829783643` (Core job `107079469547`, PostgreSQL job `107079469612`), Database run `35829783632` (job `107079469285`), Web run `35829783642` (job `107079469687`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 122 unique DD definitions**.
+Promotion invariant gate `68bbf796d747a7a96fd5a95f91472229f3bc7729` / tree `37431df2092822ae8486869b35fb7f1300cbfcbb`: Core run `35831170612` (Core job `107083868099`, PostgreSQL job `107083868071`), Database run `35831170611` (job `107083868006`), Web run `35831170615` (job `107083867936`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 123 unique DD definitions**.
 
-DD-122 adds an exact-by-id Tenant/Industry-scoped `core_ai.token_usage` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. FORCE-RLS scope, optional principal attribution, capability/provider/model references, PostgreSQL numeric-text input/output/media units, occurrence timestamp and correlation id remain historical usage evidence only. Principal attribution is not a TokenUsage read-ownership predicate. The reader does not revalidate current catalog status, select routes, aggregate usage, evaluate quota/entitlement, compute/load cost or execute AI. Existing migration-owned TokenUsage DML authority remains unchanged.
+DD-123 adds an exact-by-usage-id Tenant/Industry-scoped `core_ai.ai_cost` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. Cost visibility remains parent-derived from TokenUsage FORCE-RLS. Raw currency, exact PostgreSQL bigint-text estimated minor units, provider-rate version, billable class and optional finalized timestamp remain persisted observability evidence only. The reader does not apply rates, convert currency, aggregate usage, evaluate quota/budget, finalize costs, invoice or execute AI. Existing migration-owned Cost DML authority remains unchanged.
 
-Next: Fresh source-audit the next independent source-complete persistence slice. Do not open usage aggregation/billing semantics, conversation history/message content, effective Tenant/Industry AI configuration, AIProvisioningSnapshot compilation/current-selection, provider/model selection, eligibility/routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent/tool execution, prompt-policy evaluation or Workflow/Automation runtime semantics without source-owned authority.
+Next: Fresh source-audit the next independent source-complete persistence slice. Do not open pricing/billing/finalization semantics, usage aggregation, effective Tenant/Industry AI configuration, `AIProvisioningSnapshot` compilation/current-selection, provider/model selection, eligibility/routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent/tool execution, prompt-policy evaluation or Workflow/Automation runtime semantics without source-owned authority.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -245,6 +245,7 @@ Verified executable `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`, tree `a1cc883564
 Current checkpoint: **`DEV-AUTHZ-COMPILER-001`**. Publication uses exact SERVICE scope, v1 validation, subject locking, CURRENT→SUPERSEDED transition, monotonically increasing pointer/version, invalidation without version reuse/decrement, and separate Tenant/Industry versus PLATFORM_GLOBAL paths.
 
 Next governed work: **Commercial current-state integration only**.
+
 
 
 

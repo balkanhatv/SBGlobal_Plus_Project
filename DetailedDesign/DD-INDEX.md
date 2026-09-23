@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-TOKEN-USAGE-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-COST-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,7 +24,7 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-122**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-123**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 DD-121 adds an exact-by-id owner-principal-scoped `core_ai.ai_conversation` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. Tenant/principal and exact-Industry FORCE-RLS, raw scope/sensitivity/retention/status and timestamp evidence remain persisted conversation metadata only. The reader does not load messages, aggregate/carry history, select/revalidate an Assistant, execute retention/erasure, route or perform inference. Existing migration-owned conversation DML authority remains unchanged.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `bb4dd51ee9732be8ae95e14c72ef1d60c7bac8cb` / tree `2a3a032a2ea72191878d432c15269cdc563f7dc4` — 311 Core tests, 294 PostgreSQL tests including `AIUSAGE-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `ac679e24feb8dc12cc494bca4bd8d0e2fb9724f9` / tree `cf44eda351e6ada82e0213ecc6963408d94d0919`: Core run `35829783643` (Core job `107079469547`, PostgreSQL job `107079469612`), Database run `35829783632` (job `107079469285`), Web run `35829783642` (job `107079469687`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 122 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD122_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `38306fac5afb1b93a7ad16123e42c14bd2062f88` / tree `ba11e9b3eec3e92a749e46b0df1913a06be3e6b4` — 311 Core tests, 301 PostgreSQL tests including `AICOST-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `68bbf796d747a7a96fd5a95f91472229f3bc7729` / tree `37431df2092822ae8486869b35fb7f1300cbfcbb`: Core run `35831170612` (Core job `107083868099`, PostgreSQL job `107083868071`), Database run `35831170611` (job `107083868006`), Web run `35831170615` (job `107083867936`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 123 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD123_VERIFICATION_2026-09-23.md).

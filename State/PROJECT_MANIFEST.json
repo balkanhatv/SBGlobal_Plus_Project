@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-TOKEN-USAGE-READ-001",
-  "final_verdict": "DD-122 AI TOKENUSAGE RAW PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; USAGE EVIDENCE ONLY; ROUTING, ELIGIBILITY, QUOTA, BILLING AND EXECUTION UNCLAIMED",
+  "checkpoint": "DEV-AI-COST-READ-001",
+  "final_verdict": "DD-123 AI COST RAW PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; OBSERVABILITY EVIDENCE ONLY; PRICING, BILLING, FINALIZATION AND EXECUTION UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "bb4dd51ee9732be8ae95e14c72ef1d60c7bac8cb",
-    "verified_code_tree": "2a3a032a2ea72191878d432c15269cdc563f7dc4",
-    "state_projection_basis_head": "ac679e24feb8dc12cc494bca4bd8d0e2fb9724f9",
+    "verified_code_head": "38306fac5afb1b93a7ad16123e42c14bd2062f88",
+    "verified_code_tree": "ba11e9b3eec3e92a749e46b0df1913a06be3e6b4",
+    "state_projection_basis_head": "68bbf796d747a7a96fd5a95f91472229f3bc7729",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "AI TokenUsage exact-by-id Tenant/Industry raw persistence reader verified; principal/catalog/unit evidence remains non-routing/non-billing/non-executing",
+    "current_phase": "AI Cost exact-by-usage-id scoped raw persistence reader verified; parent-derived visibility and exact bigint-text cost evidence remain non-pricing/non-billing",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "ac679e24feb8dc12cc494bca4bd8d0e2fb9724f9",
-      "ci_run_id": 35829783632,
-      "ci_job_id": 107079469285,
+      "ci_verified_head": "68bbf796d747a7a96fd5a95f91472229f3bc7729",
+      "ci_run_id": 35831170611,
+      "ci_job_id": 107083868006,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -89,9 +89,9 @@
         "deployment",
         "load/penetration/restore exercise"
       ],
-      "ci_event": "push",
+      "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "cf44eda351e6ada82e0213ecc6963408d94d0919",
+      "ci_verified_tree": "37431df2092822ae8486869b35fb7f1300cbfcbb",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "ac679e24feb8dc12cc494bca4bd8d0e2fb9724f9",
-      "feature_head_bootstrap_verified_tree": "cf44eda351e6ada82e0213ecc6963408d94d0919",
-      "feature_head_bootstrap_run_id": 35829783643,
-      "feature_head_bootstrap_job_id": 107079469612,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_294_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "68bbf796d747a7a96fd5a95f91472229f3bc7729",
+      "feature_head_bootstrap_verified_tree": "37431df2092822ae8486869b35fb7f1300cbfcbb",
+      "feature_head_bootstrap_run_id": 35831170612,
+      "feature_head_bootstrap_job_id": 107083868071,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_301_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open usage aggregation/billing semantics, conversation history/message content, effective Tenant/Industry AI configuration, AIProvisioningSnapshot compilation/current-selection, provider/model selection, eligibility/routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent/tool execution, prompt-policy evaluation or Workflow/Automation runtime semantics without source-owned authority.",
+    "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open pricing/billing/finalization semantics, usage aggregation, effective Tenant/Industry AI configuration, AIProvisioningSnapshot compilation/current-selection, provider/model selection, eligibility/routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent/tool execution, prompt-policy evaluation or Workflow/Automation runtime semantics without source-owned authority.",
     "core_services": {
-      "checkpoint": "DEV-AI-TOKEN-USAGE-READ-001",
+      "checkpoint": "DEV-AI-COST-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–122 current implementation; DD-122 bounded Tenant/Industry AI TokenUsage raw persistence reader",
-      "verified_head": "bb4dd51ee9732be8ae95e14c72ef1d60c7bac8cb",
-      "verified_tree": "2a3a032a2ea72191878d432c15269cdc563f7dc4",
-      "core_ci_run_id": 35829783643,
-      "core_ci_job_id": 107079469547,
+      "decision": "DD-040–123 current implementation; DD-123 bounded scoped AI Cost raw persistence reader",
+      "verified_head": "38306fac5afb1b93a7ad16123e42c14bd2062f88",
+      "verified_tree": "ba11e9b3eec3e92a749e46b0df1913a06be3e6b4",
+      "core_ci_run_id": 35831170612,
+      "core_ci_job_id": 107083868099,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35829783643,
-      "postgres_ci_job_id": 107079469612,
-      "postgres_tests": "294/294 PASS",
+      "postgres_ci_run_id": 35831170612,
+      "postgres_ci_job_id": 107083868071,
+      "postgres_tests": "301/301 PASS",
       "postgres_test_counts": {
-        "tests": 294,
-        "pass": 294,
+        "tests": 301,
+        "pass": 301,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35829783632,
-      "database_regression_job_id": 107079469285,
+      "database_regression_run_id": 35831170611,
+      "database_regression_job_id": 107083868006,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -394,7 +394,8 @@
         "DD-119 exact-by-id Tenant-scoped AI TenantAIConfig raw persistence reader with exact-version evidence and no latest/effective/provisioning semantics",
         "DD-120 exact-by-id exact-Industry AI IndustryAIConfig raw persistence reader with exact-version evidence and no effective Tenant merge/provisioning semantics",
         "DD-121 exact-by-id owner-principal scoped AI Conversation raw persistence reader with Tenant/Industry FORCE-RLS and non-history/non-executing metadata evidence",
-        "DD-122 exact-by-id Tenant/Industry AI TokenUsage raw persistence reader with principal attribution and exact PostgreSQL numeric-text usage evidence"
+        "DD-122 exact-by-id Tenant/Industry AI TokenUsage raw persistence reader with principal attribution and exact PostgreSQL numeric-text usage evidence",
+        "DD-123 exact-by-usage-id scoped AI Cost raw persistence reader with parent-derived TokenUsage RLS and exact bigint-text estimated cost evidence"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
