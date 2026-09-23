@@ -21,6 +21,7 @@ const role = "sbg_ai_tool_set_member_reader_" + randomBytes(8).toString("hex");
 const password = randomBytes(24).toString("hex");
 const capabilityCode = "AI_TOOL_MEMBER_CAP_" + randomBytes(8).toString("hex");
 const toolId = "AI_TOOL_MEMBER_" + randomBytes(8).toString("hex");
+const platformToolSetCode = "PLATFORM_TOOLS_DD113_" + randomBytes(8).toString("hex");
 const f = Object.fromEntries([
   "home",
   "tenantA",
@@ -196,7 +197,7 @@ before(async () => {
         ($2,'INDUSTRY',$6,$9,'MAINT_TOOLS',1,'DRAFT',now()-interval '8 days',now()-interval '2 days'),
         ($3,'TENANT',$6,NULL,'TENANT_TOOLS',3,'RETIRED',now()-interval '12 days',now()-interval '3 days'),
         ($4,'TENANT',$7,NULL,'TENANT_B_TOOLS',1,'ACTIVE',now()-interval '7 days',now()-interval '1 day'),
-        ($5,'PLATFORM',NULL,NULL,'PLATFORM_TOOLS',4,'PUBLISHED',now()-interval '2 days',now()-interval '9 days')`,
+        ($5,'PLATFORM',NULL,NULL,$10,4,'PUBLISHED',now()-interval '2 days',now()-interval '9 days')`,
       [
         f.toolSetIndustryA1,
         f.toolSetIndustryA2,
@@ -207,6 +208,7 @@ before(async () => {
         f.tenantB,
         f.industryA1,
         f.industryA2,
+        platformToolSetCode,
       ],
     );
 
