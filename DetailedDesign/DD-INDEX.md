@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-METADATA-DEFINITION-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-RULE-DEFINITION-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-133**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-134**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-133 adds an exact-by-id scoped `core_config.metadata_definition` raw persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. PLATFORM/TENANT/INDUSTRY FORCE-RLS visibility, raw code/kind, positive version/schema version, constrained lifecycle status, immutable schema JSON, creator/approver references and optional effective timestamps remain persisted evidence only. ACTIVE/effective timestamps do not mean selected/current/effective/validated/compiled metadata. Existing `sbg_app_rw` DML authority remains schema-owned; the DD-133 port is read-only.
+DD-134 adds an exact-by-id scoped `core_config.rule_definition` raw persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. PLATFORM/TENANT/INDUSTRY FORCE-RLS visibility, raw code/version/status/schema version, immutable input-schema/condition-AST/decision JSON, signed safe-integer priority, safety class, optional required permission, creator/approver references and optional effective/audit timestamps remain persisted evidence only. ACTIVE/priority/safety/permission/condition/decision evidence does not mean selected/current/effective/evaluated/authorized/applied rule. Existing table privileges and later write floors remain schema-owned; the DD-134 port is read-only.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `a1ca7fd78a1d099c74f11d3c71a8f7be3418e032` / tree `0f68a014750d91e90bedceaa6059b921c2fa65f5` — 311 Core tests, 371 PostgreSQL tests including `METADATADEF-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `de4a44c8944180ee1f18ce42b61a312b807b952e` / tree `b14d96fd38b9dd49545695a8766530b83e6dc93b`: Core run `35858660793` (Core job `107173187619`, PostgreSQL job `107173187435`), Database run `35858660746` (job `107173187544`), Web run `35858660771` (job `107173187119`) — SUCCESS; **133 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD133_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `2fa1f6d6f3f8be92ea9f3cca6970bcf72f3398a3` / tree `1d1fb8a4f7abc3184e8796db6d8225075683f4a7` — 311 Core tests, 378 PostgreSQL tests including `RULEDEF-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `7aa5d4026dcd5321d450cf2181cdeda8408847d8` / tree `b3ca9b7bfe98bc2826f43bf2b7e3b074bb318932`: Core run `35860587616` (Core job `107179547972`, PostgreSQL job `107179547675`), Database run `35860587705` (job `107179547851`), Web run `35860587681` (job `107179547939`) — SUCCESS; **134 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD134_VERIFICATION_2026-09-23.md).
