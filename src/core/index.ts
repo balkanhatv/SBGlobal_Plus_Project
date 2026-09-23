@@ -25,6 +25,7 @@ export * from "./authorization/decision-service.js";
 export * from "./authorization/guard-ports.js";
 export * from "./authorization/guard-pipeline.js";
 export * from "./commercial/current-state.js";
+export * from "./commercial/subscription-transition.js";
 export * from "./commercial/publication.js";
 export * from "./commercial/plan-change-evidence.js";
 export * from "./commercial/plan-version-schema.js";
