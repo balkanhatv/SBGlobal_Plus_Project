@@ -1,18 +1,18 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-23 · **Checkpoint:** `DEV-AI-RAG-CHUNK-READ-001`
+**Updated:** 2026-09-23 · **Checkpoint:** `DEV-AI-MEMORY-RECORD-READ-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `f713a05d7f03e29938198dac96663dc0222a26b6` / tree `d6420945deba39281963d374cccde327e422e57a`: **311/311 Core**, **336/336 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
+Verified executable `96be4b78ab610a23e368aeced6143b6aabd09d78` / tree `96bbc642a0005172c8376d832b1642b01a1e4865`: **311/311 Core**, **343/343 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS.
 
-Promotion invariant gate `d79c4fdca4645d4b95d6442a621eb4cf3678f065` / tree `6ff1b8fddbb3e2b6c18419dca7cebbc84ae86667`: Core run `35846762899` (Core job `107134668672`, PostgreSQL job `107134669061`), Database run `35846763723` (job `107134671660`), Web run `35846763020` (job `107134669327`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 128 unique DD definitions**.
+Promotion invariant gate `0fe3cd71aa21b83beade05f091aa0bc6ae67d064` / tree `f4f0d3f952f79043142f1445c65c339d1e5fd58c`: Core run `35849137294` (Core `107142380232`, PostgreSQL `107142380451`), Database run `35849137238` (`107142380072`), Web run `35849137218` (`107142379670`) — SUCCESS; **129 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-128 adds an exact-by-id scoped `core_ai.rag_chunk` raw metadata reader excluding the persisted vector payload. FORCE-RLS remains authoritative; raw ACL/model/chunk evidence remains non-authorizing and non-retrieving.
+DD-129 adds an exact-by-id scoped `core_ai.ai_memory_record` raw persistence reader. FORCE-RLS remains authoritative. Principal-owned rows are principal-private; null-principal rows are scope-shared; Industry rows are exact-context; Tenant-Core rows remain same-Tenant visible. The reader preserves raw memory/content/source/sensitivity/retention/ACL/status/expiry/supersession evidence only and does not choose current memory, evaluate ACL/expiry/retention, resolve supersession, decrypt content, assemble history, or execute AI.
 
-Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–128**.
+Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–129**.
 
-Next: Fresh source-audit the next independent source-complete persistence slice. Do not open effective RAG retrieval/ACL evaluation, vector or FTS search, current-document authorization, provider/model routing, secret resolution, fallback/retry, inference/embedding execution, prompt-policy evaluation, assistant/agent/tool execution or Workflow/Automation runtime semantics without source-owned authority.
+Next: Fresh source-audit the next independent source-complete persistence slice. Keep current/effective memory lookup, ACL/retention/history execution, decryption, provider/model runtime, inference/RAG, and tool/agent execution outside scope unless separately source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD128_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD129_VERIFICATION_2026-09-23.md`.
 
 RawSource accepted blobs remain immutable; `main` is not merged by this continuation; PR #2 remains draft/unmerged unless explicitly authorized.

@@ -1,24 +1,20 @@
-# CORE SERVICE CHECKPOINT — DEV-AI-RAG-CHUNK-READ-001
+# CORE SERVICE CHECKPOINT — DEV-AI-MEMORY-RECORD-READ-001
 **Updated:** 2026-09-23 · **Branch:** `docs/architecture-branch-2`
 
 ## Verified executable basis
 
-Verified executable `f713a05d7f03e29938198dac96663dc0222a26b6` / tree `d6420945deba39281963d374cccde327e422e57a`: **311/311 Core**, **336/336 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
+Verified executable `96be4b78ab610a23e368aeced6143b6aabd09d78` / tree `96bbc642a0005172c8376d832b1642b01a1e4865`: **311/311 Core**, **343/343 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS.
 
-Promotion invariant gate `d79c4fdca4645d4b95d6442a621eb4cf3678f065` / tree `6ff1b8fddbb3e2b6c18419dca7cebbc84ae86667`: Core run `35846762899` (Core job `107134668672`, PostgreSQL job `107134669061`), Database run `35846763723` (job `107134671660`), Web run `35846763020` (job `107134669327`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 128 unique DD definitions**.
+Promotion invariant gate `0fe3cd71aa21b83beade05f091aa0bc6ae67d064` / tree `f4f0d3f952f79043142f1445c65c339d1e5fd58c`: Core run `35849137294` (Core `107142380232`, PostgreSQL `107142380451`), Database run `35849137238` (`107142380072`), Web run `35849137218` (`107142379670`) — SUCCESS; **129 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
 ## Implemented boundary
 
-DD-128 adds an exact-by-id scoped `core_ai.rag_chunk` raw metadata reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The persisted vector payload is intentionally excluded. FORCE-RLS remains authoritative; raw ACL/model/chunk evidence does not authorize retrieval, prove current source/model/document state, or perform vector search, ranking, grounding or inference.
+DD-129 adds an exact-by-id scoped `core_ai.ai_memory_record` raw persistence reader. FORCE-RLS remains authoritative. Principal-owned rows are principal-private; null-principal rows are scope-shared; Industry rows are exact-context; Tenant-Core rows remain same-Tenant visible. The reader preserves raw memory/content/source/sensitivity/retention/ACL/status/expiry/supersession evidence only and does not choose current memory, evaluate ACL/expiry/retention, resolve supersession, decrypt content, assemble history, or execute AI.
 
-`AIRAGCHUNK-PG-001`…`AIRAGCHUNK-PG-007` prove exact immutable non-vector metadata read, sibling-Industry/foreign-Tenant/PLATFORM isolation, same-scope non-principal-private visibility, safe missing/malformed/route-mismatch handling, immutable JSON evidence, and no vector-load/ACL-evaluate/retrieve/search/rerank/ground/execute surface.
+`AIMEM-PG-001`…`AIMEM-PG-007` cover exact scoped read, principal privacy, scope-shared rows, Tenant/Industry isolation, missing/malformed behavior, and non-escalation of raw lifecycle/ACL/supersession evidence.
 
 ## Remaining scope
 
-Vector/FTS retrieval, current RAGSource/DocumentMeta/ACL/scan/sensitivity/residency revalidation, acting-principal ACL evaluation, embedding-model currentness/eligibility, chunk currentness/dedup/reindex, chunking-policy execution, retrieval/ranking/reranking/filtering/grounding/citation, text decryption/dereference, prompt composition/injection defense, provider/model routing, inference/RAG and Workflow/Automation runtime remain unimplemented unless separately source-owned.
+Fresh source-audit the next independent source-complete persistence slice. Keep current/effective memory lookup, ACL/retention/history execution, decryption, provider/model runtime, inference/RAG, and tool/agent execution outside scope unless separately source-owned.
 
-Next: Fresh source-audit the next independent source-complete persistence slice without opening effective RAG retrieval/ACL evaluation or execution semantics.
-
-Evidence: `Registers/DEVELOPMENT_DD128_VERIFICATION_2026-09-23.md`.
-
-RawSource accepted blobs unchanged; `main` remains outside this branch continuation; PR #2 remains review-only/draft until explicitly authorized.
+Evidence: `Registers/DEVELOPMENT_DD129_VERIFICATION_2026-09-23.md`.
