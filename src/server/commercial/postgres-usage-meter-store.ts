@@ -27,8 +27,8 @@ export class UsageMeterPersistenceError extends Error {
 
 const UUID_PATTERN =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-const NON_NEGATIVE_NUMERIC_TEXT =
-  /^(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$/;
+const NON_NEGATIVE_NUMERIC_EVIDENCE_TEXT =
+  /^(?:(?:0|[1-9][0-9]*)(?:\.[0-9]+)?|Infinity|NaN)$/;
 const BIGINT_TEXT = /^-?(?:0|[1-9][0-9]*)$/;
 
 function invalid(message: string): never {

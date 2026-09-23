@@ -52,7 +52,7 @@ The physical schema does **not**:
 - define how `reserved_value` participates in downgrade impact;
 - select one row for a target limit.
 
-For lossless raw persistence evidence, PostgreSQL `numeric` and `bigint` values must remain canonical decimal text rather than being coerced to JavaScript numbers.
+For lossless raw persistence evidence, PostgreSQL `numeric` and `bigint` values must remain canonical text rather than being coerced to JavaScript numbers. Finite `numeric` values remain exact decimals, while schema-admitted `Infinity` / `NaN` evidence is preserved as PostgreSQL text.
 
 ## Final RLS / privilege boundary
 
