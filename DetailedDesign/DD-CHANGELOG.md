@@ -108,3 +108,6 @@ Fresh source reconciliation selected `core_ai.assistant_definition` as the next 
 ## 2026-09-23 — DD-118 AI AgentDefinition raw persistence reader
 Fresh source reconciliation selected `core_ai.agent_definition` as the next independent persistence slice. The implementation reads one exact scoped AgentDefinition and preserves raw objective/risk/status plus ToolSet/approval/budget references without claiming current agent selection, effective ToolSet resolution, approval satisfaction, budget enforcement, planning or execution. Acceptance proves that a ToolSet valid at write time may later retire without silently turning the reader into a runtime revalidator. No production schema/role/grant/RLS/product-policy/runtime execution behavior changed.
 
+## 2026-09-23 — DD-119 AI TenantAIConfig raw persistence reader
+Fresh source reconciliation selected one exact `core_ai.tenant_ai_config` row as the next independent persistence slice. The implementation preserves Tenant FORCE-RLS, raw enablement/allowlists/sensitivity/policy references and distinct persisted versions, while deliberately not selecting latest/effective configuration, compiling provisioning, evaluating eligibility/policy or routing/executing AI. Existing AI Gateway TenantAIConfig DML privileges remain schema-owned; no migration/schema/role/grant/RLS/product-policy/runtime execution behavior changed.
+
