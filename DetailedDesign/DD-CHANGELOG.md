@@ -80,3 +80,7 @@ Evidence: `Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`. Missi
 
 ## 2026-09-21 — DD-080 shared external REST Fetch adapter
 Implemented auth-before-body ordering, server-owned route/context ports, exact executor handoff and canonical HTTP/error/control projection. Feature `ce4708eec15f6b0a35ae9a77d13505221fe55d51` passed exact-head CI; concrete routes, API-key syntax and OpenAPI publication remain unbound.
+
+## 2026-09-23 — DD-110 AI Tool Definition Catalog Metadata Reader
+Fresh source reconciliation corrected the prerequisite audit to include migration 0029's governed AI tool-definition `scope_class` vocabulary, then verified the bounded exact-by-id global catalog reader through the dedicated SELECT-only AI Gateway role. DD-110 preserves constrained scope/side-effect values and raw permission, entitlement, approval, idempotency, audit, status and OperationContract references as metadata evidence only; it does not create tool eligibility, authorization, approval or execution authority. No migration, schema, verification SQL, role, grant, RLS, product-policy or public-route change was introduced.
+
