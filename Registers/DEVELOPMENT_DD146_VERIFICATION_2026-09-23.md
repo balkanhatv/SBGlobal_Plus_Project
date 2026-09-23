@@ -73,3 +73,16 @@ DD-146 does not select an elevation for an incoming request; bind interactive PL
 - `main` remains unmerged.
 - RawSourceCorpus remains untouched.
 - PR #2 remains draft/review-only unless explicitly authorized.
+
+
+## 9. Current executable overlay after DD-145 fidelity correction
+
+The later forward-only correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec` fixes DD-145 nullable `allowed_cidrs` fidelity only. It does not modify DD-146 code, canonical decision, Control Plane role boundary, RequestContext, RequestScopedSql or OperatorElevation semantics.
+
+Exact correction-head CI remains fully green:
+- Core run `35909155774`, job `107344302164`: **311/311**.
+- PostgreSQL job `107344301757`: **462/462**, including `OPELEV-META-PG-001…007` and corrected `APICRED-META-PG-004`.
+- Database run `35909155819`, job `107344301870`: **SUCCESS**.
+- Web run `35909155798`, job `107344301871`: **SUCCESS**.
+
+Therefore the current executable basis advances to `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` while checkpoint `DEV-OPERATOR-ELEVATION-METADATA-READ-001` and DD-146 scope remain unchanged.

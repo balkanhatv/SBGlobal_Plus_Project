@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "de8e4c93982102c1547e747667534defea7fcb6a",
-    "verified_code_tree": "ed4fede7d478c8977f12242e0ccc7db08641b33e",
-    "state_projection_basis_head": "0da4a8063f21b177df8de241e4080fbddc1d1dd8",
+    "verified_code_head": "14b69ad4c66d78340c0bd020d65ff1f444b7c02c",
+    "verified_code_tree": "35d7e5dafb39c53384f817cfba3a8d56ffd048ec",
+    "state_projection_basis_head": "14b69ad4c66d78340c0bd020d65ff1f444b7c02c",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "OperatorElevation Control Plane metadata reader verified; request-time elevation activation remains a separate runtime prerequisite",
+    "current_phase": "OperatorElevation Control Plane metadata reader remains current; DD-145 nullable CIDR fidelity correction verified on the current executable head",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "0da4a8063f21b177df8de241e4080fbddc1d1dd8",
-      "ci_run_id": 35908101578,
-      "ci_job_id": 107340750340,
+      "ci_verified_head": "14b69ad4c66d78340c0bd020d65ff1f444b7c02c",
+      "ci_run_id": 35909155819,
+      "ci_job_id": 107344301870,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "9b8428bda8cb10b970df0e890b48443d9084eb1d",
+      "ci_verified_tree": "35d7e5dafb39c53384f817cfba3a8d56ffd048ec",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,10 +99,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "0da4a8063f21b177df8de241e4080fbddc1d1dd8",
-      "feature_head_bootstrap_verified_tree": "9b8428bda8cb10b970df0e890b48443d9084eb1d",
-      "feature_head_bootstrap_run_id": 35908101390,
-      "feature_head_bootstrap_job_id": 107340749373,
+      "feature_head_bootstrap_verified_head": "14b69ad4c66d78340c0bd020d65ff1f444b7c02c",
+      "feature_head_bootstrap_verified_tree": "35d7e5dafb39c53384f817cfba3a8d56ffd048ec",
+      "feature_head_bootstrap_run_id": 35909155774,
+      "feature_head_bootstrap_job_id": 107344301757,
       "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_462_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -119,10 +119,10 @@
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040–146 current implementation; DD-146 bounded exact OperatorElevation Control Plane metadata reader with no request-time elevation activation",
-      "verified_head": "de8e4c93982102c1547e747667534defea7fcb6a",
-      "verified_tree": "ed4fede7d478c8977f12242e0ccc7db08641b33e",
-      "core_ci_run_id": 35908101390,
-      "core_ci_job_id": 107340749188,
+      "verified_head": "14b69ad4c66d78340c0bd020d65ff1f444b7c02c",
+      "verified_tree": "35d7e5dafb39c53384f817cfba3a8d56ffd048ec",
+      "core_ci_run_id": 35909155774,
+      "core_ci_job_id": 107344302164,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,8 +130,8 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35908101390,
-      "postgres_ci_job_id": 107340749373,
+      "postgres_ci_run_id": 35909155774,
+      "postgres_ci_job_id": 107344301757,
       "postgres_tests": "462/462 PASS",
       "postgres_test_counts": {
         "tests": 462,
@@ -140,8 +140,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35908101578,
-      "database_regression_job_id": 107340750340,
+      "database_regression_run_id": 35909155819,
+      "database_regression_job_id": 107344301870,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -418,7 +418,8 @@
         "DD-143 exact-by-id scoped UsageMeter raw persistence reader with lossless PostgreSQL numeric/bigint text evidence and no DD-073 source authority",
         "DD-144 exact-by-id partitioned AuditEvent raw persistence reader with final platform/Tenant/Industry/explicit-cross-context FORCE-RLS and no search/retention/export/authorization authority",
         "DD-145 exact-by-id API Credential metadata-only reader through fixed Identity-service role with secret_hash excluded and signed bigint credential-version fidelity",
-        "DD-146 exact-by-id OperatorElevation Control Plane metadata reader plus fixed sbg_control_plane_rw database boundary with normal request elevation left inactive"
+        "DD-146 exact-by-id OperatorElevation Control Plane metadata reader plus fixed sbg_control_plane_rw database boundary with normal request elevation left inactive",
+        "DD-145 nullable API Credential allowed_cidrs fidelity correction preserving SQL NULL as absence without changing verifier/authentication scope"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",

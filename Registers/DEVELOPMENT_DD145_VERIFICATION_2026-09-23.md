@@ -73,3 +73,25 @@ DD-145 does not implement `MachineCredentialVerifierPort`; parse presented API k
 - `main` remains unmerged.
 - RawSourceCorpus remains untouched.
 - PR #2 remains draft/review-only unless explicitly authorized.
+
+
+## 9. Post-promotion nullable CIDR fidelity correction
+
+Fresh source reconciliation after DD-146 promotion found one DD-145 fidelity defect: migration 0003 declares `allowed_cidrs cidr[]` nullable, while the initial metadata parser required an array. Schema-valid SQL NULL therefore failed instead of remaining absence.
+
+Correction commit: `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`.
+
+The correction:
+- changes `ApiCredentialMetadata.allowedCidrs` to optional;
+- preserves PostgreSQL NULL as absence;
+- keeps non-null CIDR arrays immutable;
+- updates `APICRED-META-PG-004` to exercise a real NULL row;
+- does not select `secret_hash`, implement machine verification, enforce CIDRs, mutate credentials or change database schema/RLS/privileges.
+
+Exact correction-head CI:
+- Core run `35909155774`, job `107344302164`: **SUCCESS**, **311/311**.
+- PostgreSQL job `107344301757`: **SUCCESS**, **462/462**, corrected `APICRED-META-PG-004` PASS.
+- Database run `35909155819`, job `107344301870`: **SUCCESS**.
+- Web run `35909155798`, job `107344301871`: **SUCCESS**.
+
+DD-145 canonical scope remains metadata-only.
