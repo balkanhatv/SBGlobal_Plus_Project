@@ -1208,3 +1208,20 @@ Raw `ACTIVE`, `required_entitlement`, `default_policy_class`, category, or schem
 ### AICAP-PG-005 — Dedicated AI role remains read-only for capability catalog
 `sbg_ai_gateway_rw` can SELECT the capability catalog but cannot INSERT/UPDATE/DELETE; a mutation attempt is rejected, and the bounded store exposes no create/update/delete methods.
 
+## DD-110 AI Tool Definition Catalog Metadata Reader Acceptance
+
+### AITOOLDEF-PG-001 — Exact immutable tool-definition catalog evidence
+Exact tool-definition-id lookup returns only the bounded AI Tool Definition metadata contract, preserving capability linkage, OperationContract reference, constrained scope class, permission/entitlement references, positive schema versions, constrained side-effect class, approval-policy reference, idempotency flag, audit class, raw status/version and timestamps as an immutable/frozen result.
+
+### AITOOLDEF-PG-002 — Absence and malformed identity fail closed
+An absent well-formed UUID returns `null`; a malformed tool-definition UUID fails closed rather than being normalized into another identity or unbounded query.
+
+### AITOOLDEF-PG-003 — Schema-valid nullable and empty/raw evidence is preserved
+Nullable approval/entitlement evidence, governed scope-class evidence, and schema-valid empty raw text remain distinct persisted facts and are not strengthened into invented non-empty runtime policy or execution rules.
+
+### AITOOLDEF-PG-004 — Catalog facts are not authorization, approval, or execution authority
+Raw `ACTIVE`, permission/entitlement references, side-effect class, idempotency flag, audit class, scope class and OperationContract reference do not create eligible/authorized/permission-granted/entitlement-granted/approval-satisfied/executable authority. The store exposes no permission evaluator, entitlement evaluator, approval, invocation, idempotency reservation, audit append, or execution operation.
+
+### AITOOLDEF-PG-005 — Dedicated AI role remains read-only for tool-definition catalog
+`sbg_ai_gateway_rw` can SELECT the tool-definition catalog but cannot INSERT/UPDATE/DELETE; the bounded store exposes no create/update/delete methods.
+

@@ -1685,3 +1685,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AICAP-PG-001` through `AICAP-PG-005` in DD-17 and `tests/postgres/ai-capability-catalog-metadata-store.test.mjs`.
 
+## DD-110 — AI Tool Definition catalog metadata is readable as raw global evidence without creating tool-execution authority
+
+**Context:** migration 0013 defines the global `core_ai.ai_tool_definition` catalog, migration 0029 constrains `scope_class` to the governed `PLATFORM_GLOBAL`, `TENANT_CORE`, `TENANT_INDUSTRY`, or `EXPLICIT_CROSS_CONTEXT` vocabulary, and migration 0014 grants the dedicated `sbg_ai_gateway_rw` role SELECT without tool-definition catalog DML. Migration 0031 consumes active tool definitions only in persisted ToolSet/AgentStep relationship-integrity predicates. A-07 and DD-09 keep request-time permission, entitlement, approval, OperationContract, idempotency, audit and tool execution behind separate AI Gateway runtime checks, so a catalog row is evidence rather than execution authority.
+
+**Decision:** add an exact-by-id immutable `AIToolDefinitionCatalogMetadataReadPort` and `PostgresAIToolDefinitionCatalogMetadataStore` through the existing `PostgresAIGatewayDatabase` boundary. The reader projects only schema-owned evidence: `id`, `toolId`, `capabilityCode`, raw `operationContractId`, constrained `scopeClass`, raw `requiredPermission`, nullable raw `requiredEntitlement`, positive input/output schema versions, constrained `sideEffectClass`, nullable `approvalPolicyId`, raw `idempotencyRequired`, raw `auditClass`, raw `status`, positive `version`, and created/updated timestamps. Schema-valid empty text and NULL evidence are preserved where the database permits them; missing rows return null and malformed identifiers or malformed persisted shapes fail closed.
+
+**Security / trade-off:** the fixed `sbg_ai_gateway_rw` role remains SELECT-only for `core_ai.ai_tool_definition`; no INSERT/UPDATE/DELETE authority or mutation/execute method is added. `status='ACTIVE'`, capability linkage, permission/entitlement references, scope, side-effect class, approval-policy reference, idempotency flag, audit class and OperationContract reference remain catalog facts only. They do not mean eligible, authorized, approved, selected, invokable or executable. No Tenant/Industry RequestContext is invented for this global catalog read.
+
+**Boundary:** DD-110 does not evaluate permissions or entitlements; interpret scope into resource authority; resolve effective Tenant/Industry AI configuration; select ToolSets, Assistants, Agents, providers, models, prompts, policies or routes; enforce side effects or approval satisfaction; execute OperationContracts or DTO/schema registries; reserve idempotency; append audit; invoke tools; plan/execute agents; run Workflow/Automation behavior; resolve credentials; call provider SDKs; perform inference/RAG; expose a public route; or change any migration/schema/verification SQL/role/grant/RLS/product policy.
+
+**Acceptance:** `AITOOLDEF-PG-001` through `AITOOLDEF-PG-005` in DD-17 and `tests/postgres/ai-tool-definition-catalog-metadata-store.test.mjs`.
+
