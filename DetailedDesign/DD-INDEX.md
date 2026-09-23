@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-DATA-EXPORT-REQUEST-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-SUBSCRIPTION-TRANSITION-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-140**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-141**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-140 adds an exact-by-id `core_config.data_export_request` raw persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` boundary. Final FORCE-RLS preserves exact Tenant Core / Tenant Industry scope; raw requester/subject/resource-class/residency/sensitivity/status/approval/document/expiry evidence remains non-authorizing persistence data. Write-time membership/document integrity is preserved without turning the reader into approval, generation, download, current-authorization or cross-context export authority.
+DD-141 adds an exact-by-id `core_commercial.subscription_transition` raw Tenant persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` boundary. Tenant FORCE-RLS permits the owning row from same-Tenant Core or Industry contexts while foreign Tenant/PLATFORM_GLOBAL remain hidden. Raw from/to state, trigger, actor/source-event/reason, occurrence and correlation evidence remains append-only evidence only; it does not become lifecycle legality, current Subscription state, replayability or transition execution authority.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `f516a4cd8731708ce101e24ca06b8175a4deabf3` / tree `a6d22783b0c0f5bd8d599526adedf9efa1ff8418` — 311 Core tests, 420 PostgreSQL tests including `DATAEXPORT-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `b541f53a6881708d0326fcc7fe40c8ac264e685a` / tree `66f25de6cd656a392e9d95ee3c783037a866360a`: Core run `35879257481` (Core job `107243141049`, PostgreSQL job `107243141323`), Database run `35879257689` (job `107243142502`), Web run `35879257587` (job `107243141812`) — SUCCESS; **140 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD140_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `39ad7e1f7fd39401811de0b6efa7f3bf0d35c3ff` / tree `f184bfc07a41c1199568f10ca45e2ddb6aa39da5` — 311 Core tests, 427 PostgreSQL tests including `SUBTRANS-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `882ecc5532c81dedc3f4b3f983a7edfc12a49dd0` / tree `409ed54a8c3cacd7500c5c03aa27560147c4b25e`: Core run `35881695463` (Core job `107251481728`, PostgreSQL job `107251481464`), Database run `35881695666` (job `107251483307`), Web run `35881695790` (job `107251483129`) — SUCCESS; **141 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD141_VERIFICATION_2026-09-23.md).
