@@ -135,3 +135,6 @@ Fresh source reconciliation selected `core_ai.ai_message` as the next independen
 ## 2026-09-23 — DD-127 AI RAGSource raw persistence reader
 Fresh source reconciliation selected `core_ai.rag_source` as the next independent persistence slice. The implementation reads one exact scoped source-registration row, preserves raw source/document/ACL/chunking metadata and exact bigint-text source version, and deliberately does not claim current-document authorization, chunk retrieval, embedding/vector search, grounding or inference semantics. Two test-only corrections kept source-version evidence within PostgreSQL bigint range while remaining above JavaScript safe-integer range, and preserved intended NULL Management-System evidence. No production schema/runtime semantics changed.
 
+## 2026-09-23 — DD-128 AI RAGChunk raw metadata reader
+Fresh source reconciliation selected exact-by-id non-vector `core_ai.rag_chunk` metadata as the next independent persistence slice. The implementation preserves FORCE-RLS scope, raw chunk/ACL/embedding-reference metadata and schema bounds while deliberately excluding the persisted vector payload and not claiming ACL authorization, current-model eligibility, vector search, retrieval, grounding or inference authority. No migration/schema/role/grant/RLS/product-policy change was introduced.
+

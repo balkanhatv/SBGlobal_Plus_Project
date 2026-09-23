@@ -1616,3 +1616,26 @@ A missing well-formed source UUID returns `null`; malformed UUID or database rou
 ### AIRAGSRC-PG-007 — Raw source registration is not retrieval/authorization/execution authority
 The AI Gateway role retains migration-owned RAGSource DML privileges, but the DD-127 store exposes no create/update/delete/list-chunks/document-revalidation/ACL-evaluation/retrieve/embed/search/execute method.
 
+## DD-128 AI RAGChunk Raw Metadata Reader Acceptance
+
+### AIRAGCHUNK-PG-001 — Exact Industry chunk returns immutable non-vector metadata
+Exact chunk-id lookup in the owning Industry Context returns immutable raw chunk metadata while excluding the persisted embedding vector payload and without adding authorized/relevance authority.
+
+### AIRAGCHUNK-PG-002 — Sibling Industry chunk isolation
+A chunk owned by a sibling Industry Context is hidden; the exact sibling context may read its own raw metadata.
+
+### AIRAGCHUNK-PG-003 — Tenant-Core chunk same-Tenant visibility
+A Tenant-Core chunk is visible from the same Tenant Core and Tenant Industry contexts. Schema-valid empty/raw text and immutable JSON evidence are preserved rather than strengthened.
+
+### AIRAGCHUNK-PG-004 — RAGChunk visibility is scope-based rather than principal-private
+A different active principal in the same visible Tenant/Industry scope may read the chunk because the persisted RLS policy does not predicate on principal ownership.
+
+### AIRAGCHUNK-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+A foreign-Tenant context and a PLATFORM_GLOBAL context cannot expose a Tenant-owned RAGChunk; the owning Tenant/Industry context may read it.
+
+### AIRAGCHUNK-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed chunk UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIRAGCHUNK-PG-007 — Raw metadata is not ACL/vector/retrieval/grounding/inference authority
+A referenced embedding model may later be RETIRED without changing the persisted row. The DD-128 store exposes no create/update/delete/vector-load/ACL-evaluate/retrieve/search/rerank/ground/execute method, and raw ACL/model/text/hash/metadata evidence does not authorize retrieval or inference.
+
