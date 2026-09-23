@@ -1455,3 +1455,26 @@ A missing well-formed config UUID returns `null`; malformed UUID or database rou
 ### AIINDCFG-PG-007 — Database DML privilege is not application merge/provision authority
 The AI Gateway role retains migration-owned IndustryAIConfig DML privileges, but the DD-120 store exposes no create/update/delete/latest/effective/Tenant-merge/provision/route/execute method.
 
+## DD-121 AI Conversation Raw Persistence Reader Acceptance
+
+### AICONV-PG-001 — Exact owner + Industry raw evidence
+Exact conversation-id lookup by the owning principal in the exact Industry Context returns immutable raw scope/sensitivity/retention/status/timestamp evidence without messages, effective Assistant or executable authority.
+
+### AICONV-PG-002 — Sibling Industry isolation
+A Tenant-Industry conversation is hidden from a sibling Industry Context; the exact owning Industry Context may read it.
+
+### AICONV-PG-003 — Tenant-Core owner visibility without history merge
+A Tenant-Core conversation remains visible to its owner from same-Tenant Core and Industry RequestContexts because its persisted Industry Context is null. The reader does not list or merge history.
+
+### AICONV-PG-004 — Same-Tenant principal isolation
+A same-Tenant different principal cannot read another principal's conversation; that principal may read its own persisted conversation.
+
+### AICONV-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts cannot bypass conversation FORCE-RLS; the foreign owning Tenant/principal context may read its own row.
+
+### AICONV-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed UUID returns `null`; malformed UUID or database route/context mismatch fails closed. Schema-valid empty retention/status text and persisted timestamp ordering are preserved without strengthening.
+
+### AICONV-PG-007 — Database DML remains schema-owned while read port adds no runtime authority
+The AI Gateway role retains migration-owned conversation DML privileges, but the DD-121 store exposes no create/update/delete/list/message/history/Assistant-selection/retention/execute method.
+

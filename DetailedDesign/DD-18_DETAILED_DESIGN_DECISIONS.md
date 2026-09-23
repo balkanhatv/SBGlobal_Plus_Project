@@ -1817,3 +1817,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIINDCFG-PG-001` through `AIINDCFG-PG-007` in DD-17 and `tests/postgres/ai-industry-config-store.test.mjs`.
 
+## DD-121 — AI Conversation raw persistence is readable without becoming history aggregation, Assistant selection, retention execution or inference authority
+
+**Context:** migration 0012 physically owns `core_ai.ai_conversation` as a Tenant/principal-scoped conversation record with either Tenant-Core or exact Tenant-Industry scope under FORCE-RLS. RLS requires same Tenant and exact owner principal; Tenant-Core rows remain visible to the owner from same-Tenant Core or Industry request contexts, while Industry rows require the exact Industry Context. Migration 0031 validates at write time that the owner principal is active for the Tenant and any referenced AssistantDefinition is then ACTIVE/applicable. Those write-time facts do not make a persisted conversation row a current Assistant selection, message history, retention action or executable AI request.
+
+**Decision:** add immutable `PersistedAIConversation`, `AIConversationReadPort.loadForContext(...)` and `PostgresAIConversationStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact conversation UUID and returns only persisted evidence: id, Tenant id, optional Industry Context, constrained raw scope class, owner principal id, optional AssistantDefinition id, constrained raw sensitivity class, raw retention class, raw status, created timestamp and last-activity timestamp. No timestamp ordering is invented because the database declares none. Missing rows return null; malformed identifiers, malformed persisted shape/types or route/context mismatch fail closed.
+
+**Security / trade-off:** owner-principal + Tenant/Industry FORCE-RLS remains authoritative. Sibling Industry, same-Tenant different principal, foreign Tenant and PLATFORM_GLOBAL contexts cannot bypass it. Existing migration-owned AI Gateway conversation DML authority remains unchanged; the DD-121 application port itself is read-only.
+
+**Boundary:** DD-121 does not list/search conversations; aggregate/carry history across Industry Contexts; load AIMessage content; execute retention/erasure; evaluate sensitivity policy; select/revalidate current Assistants; resolve PromptSets/prompts; merge effective AI configuration; compile/select provisioning; evaluate entitlement/permission/budget/residency; route providers/models; execute tools/agents; call provider SDKs; perform inference/embeddings/RAG; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AICONV-PG-001` through `AICONV-PG-007` in DD-17 and `tests/postgres/ai-conversation-store.test.mjs`.
+
