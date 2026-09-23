@@ -1914,3 +1914,26 @@ A missing well-formed UUID returns `null`; malformed id or database route/contex
 
 ### DATAEXPORT-PG-007 — Raw export evidence is not export-operation authority
 Existing application-role DML, immutable scope columns and migration-0031 relationship integrity remain schema-owned, while DD-140 exposes no create/update/delete/list/approve/generate/download/authorize/document-revalidation/residency-resolution method.
+
+## DD-141 SubscriptionTransition Raw Persistence Reader Acceptance
+
+### SUBTRANS-PG-001 — Exact Tenant transition raw evidence
+Exact SubscriptionTransition-id lookup returns immutable Tenant/subscription/state/trigger/actor/source-event/reason/occurrence/correlation evidence without converting it into lifecycle legality, current-state or replay authority.
+
+### SUBTRANS-PG-002 — Tenant-owned visibility from Core and Industry contexts
+Because SubscriptionTransition RLS is Tenant-only, the same owning Tenant transition is visible from both TENANT_CORE and TENANT_INDUSTRY contexts for that Tenant.
+
+### SUBTRANS-PG-003 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts do not bypass Tenant FORCE-RLS.
+
+### SUBTRANS-PG-004 — Nullable/raw evidence remains unstrengthened
+Nullable from-state, actor, source-event and reason fields remain absent when null; schema-valid empty trigger/reason text remains raw persisted evidence.
+
+### SUBTRANS-PG-005 — Equal states and arbitrary chronology remain evidence only
+Schema-valid equal from/to states and arbitrary past/future occurred-at evidence are preserved and are not interpreted as legal/current/replayable/authorized transition semantics.
+
+### SUBTRANS-PG-006 — Missing/malformed/route mismatch fail closed
+Missing well-formed UUID returns `null`; malformed id and mismatched Data Home route/context fail closed.
+
+### SUBTRANS-PG-007 — Append-only write ownership remains schema-owned
+Ordinary application role remains SELECT-only. Dedicated Commercial transition compiler remains SELECT+INSERT with no UPDATE/DELETE. The read port exposes no create/update/delete/list/latest/execute/authorize/replay/publish method.
