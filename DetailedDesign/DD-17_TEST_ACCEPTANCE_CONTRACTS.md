@@ -1294,3 +1294,26 @@ A missing well-formed member UUID returns `null`; malformed UUID or database rou
 ### AITOOLMEM-PG-007 — Raw child evidence is not effective membership or execution authority
 The AI Gateway role retains migration-owned ToolSet-member DML privileges, but the DD-113 store exposes no create/update/delete/list/effective-resolution/constraint-evaluation/execute method. PLATFORM-parent mutation remains blocked by the existing write-governance policies.
 
+## DD-114 AI PromptSetMember Raw Persistence Reader Acceptance
+
+### AIPROMPTMEM-PG-001 — Exact visible member raw evidence
+Exact member-id lookup in an authorized parent scope returns immutable PromptSet id, PromptTemplate id, raw integer priority, raw enabled state and created timestamp without effective/selected/renderable/executable authority.
+
+### AIPROMPTMEM-PG-002 — Sibling Industry parent isolation
+A member whose PromptSet parent belongs to a sibling Industry Context is hidden; the exact sibling context may read its own raw member evidence.
+
+### AIPROMPTMEM-PG-003 — Tenant-parent same-Tenant visibility
+A member under a Tenant-owned PromptSet is visible from the same Tenant Core and Tenant Industry contexts. Schema-valid priority values including zero/negative values and raw enabled evidence are preserved rather than strengthened.
+
+### AIPROMPTMEM-PG-004 — PLATFORM-parent member requires PLATFORM_GLOBAL
+A Tenant context receives no implicit PLATFORM-parent member fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact child row.
+
+### AIPROMPTMEM-PG-005 — Foreign Tenant parent isolation
+A member under a foreign-Tenant PromptSet is hidden; the owning Tenant context may read it.
+
+### AIPROMPTMEM-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed member UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIPROMPTMEM-PG-007 — Raw child evidence is not effective prompt selection/rendering/execution authority
+The AI Gateway role retains migration-owned PromptSet-member DML privileges, but the DD-114 store exposes no create/update/delete/list/effective-resolution/render/execute method. PLATFORM-parent mutation remains blocked by existing write-governance policies.
+

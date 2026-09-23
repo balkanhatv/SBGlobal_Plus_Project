@@ -1733,3 +1733,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AITOOLMEM-PG-001` through `AITOOLMEM-PG-007` in DD-17 and `tests/postgres/ai-tool-set-member-store.test.mjs`.
 
+## DD-114 — AI PromptSetMember raw persistence is readable without becoming effective prompt selection, rendering or execution authority
+
+**Context:** migration 0011 owns PromptTemplate scope/version/status persistence, while migration 0031 physically owns `core_ai.ai_prompt_set_member` as a child binding from a PromptSet to a PromptTemplate. The child table is FORCE-RLS and inherits SELECT visibility from its parent PromptSet. On member insert/update, migration 0031 requires an ACTIVE parent PromptSet, an ACTIVE referenced PromptTemplate, and same-or-broader applicable PromptTemplate scope. Those historical write invariants do not make a persisted child row a current prompt-selection or execution decision.
+
+**Decision:** add immutable `PersistedAIPromptSetMember`, `AIPromptSetMemberReadPort.loadForContext(...)` and `PostgresAIPromptSetMemberStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact member UUID and returns only persisted evidence: id, PromptSet id, PromptTemplate id, raw integer priority, raw enabled boolean, and created timestamp. Priority remains any schema-valid integer; no positive/range constraint is invented. Missing rows return null; malformed identifiers, invalid persisted types or route/context mismatch fail closed.
+
+**Security / trade-off:** child SELECT visibility remains parent-derived FORCE-RLS. Industry-parent members are exact Industry Context only; Tenant-parent members remain same-Tenant visible; PLATFORM-parent members require trusted PLATFORM_GLOBAL context and are not Tenant fallback. Existing AI Gateway child DML privileges remain migration-owned and are constrained by definition-member write policy plus migration-0032 PLATFORM-parent write floors. The DD-114 port itself is read-only.
+
+**Boundary:** DD-114 does not list/sort PromptSet members; resolve enabled/effective membership; select ACTIVE/current/latest PromptSets; revalidate current PromptSet/PromptTemplate activity as an execution decision; load/render PromptTemplates; evaluate variable schemas, overrides or grounding behavior; resolve `IndustryAIConfig.domain_prompt_set_id`; select Assistant prompts; compose runtime prompts; evaluate prompt-policy precedence; select providers/models/routes; execute tools/agents; perform inference/RAG/media generation; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIPROMPTMEM-PG-001` through `AIPROMPTMEM-PG-007` in DD-17 and `tests/postgres/ai-prompt-set-member-store.test.mjs`.
+
