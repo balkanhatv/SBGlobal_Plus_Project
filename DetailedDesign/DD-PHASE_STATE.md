@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-MESSAGE-READ-001`
+**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-RAG-SOURCE-READ-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,12 +18,12 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-23
 
-Current checkpoint: `DEV-AI-MESSAGE-READ-001`. Decisions are contiguous through DD-126. Historical Phase-3 completion applies to its evaluated scope.
+Current checkpoint: `DEV-AI-RAG-SOURCE-READ-001`. Decisions are contiguous through DD-127. Historical Phase-3 completion applies to its evaluated scope.
 
-Verified executable `fec7fd3a6c699f1284fe170a92ac68c1d9ecdb2e` / tree `ec0afe1fc58f3be5bf9ed34084a4cd06226a9ed5`: **311/311 Core**, **322/322 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
+Verified executable `f4b5339f0c555c6d8e6a267c97114e1e98ee3ca7` / tree `2b81ef41d405db3092bdcb02d1ec70bff4643f73`: **311/311 Core**, **329/329 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
 
-Promotion invariant gate `a3c7dafc0df0dfd01edba42f9dce85c98b9ae9c6` / tree `b66ae8e0935d65e86283624c624511555c54b2b8`: Core run `35839860371` (Core job `107112086949`, PostgreSQL job `107112086571`), Database run `35839860327` (job `107112086412`), Web run `35839860622` (job `107112087219`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 126 unique DD definitions**.
+Promotion invariant gate `d9fae13df32c6a4c7a820cb4f8e2b5db4dd84394` / tree `9818fc5417c001c2e84fcdda627a7093a9920e6c`: Core run `35843162507` (Core job `107122846431`, PostgreSQL job `107122847008`), Database run `35843162489` (job `107122846736`), Web run `35843162523` (job `107122847563`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 127 unique DD definitions**.
 
-DD-126 adds an exact-by-id scoped `core_ai.ai_message` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. Message visibility remains parent-Conversation-derived FORCE-RLS and therefore Tenant/optional Industry + exact owner-principal private. The reader returns only id, Conversation id, raw role, raw content reference/encrypted content, optional immutable normalized source JSON, optional model-route UUID, created timestamp and optional deleted timestamp. It does not list/order history, interpret roles, decrypt/dereference content, authorize sources, resolve/select model routes/providers/models, evaluate retention/erasure/legal hold, reconstruct prompts or perform inference/RAG. Existing AI Gateway message DML authority remains migration-owned; the DD-126 port itself is read-only.
+DD-127 adds an exact-by-id scoped `core_ai.rag_source` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. Tenant-Core/exact Tenant-Industry FORCE-RLS, raw source/module/MS/resource metadata, optional document id/version, constrained scope/sensitivity classes, raw residency/retention/ACL/status, exact bigint-text source version, raw chunking-policy version and timestamps remain source-registration evidence only. It does not revalidate current DocumentMeta/ACL/scan/residency, select current source versions, list chunks, execute chunking policy, select embeddings, perform vector search/retrieval/ranking/grounding, compose prompts or perform inference/RAG. Existing migration-owned RAGSource DML authority remains unchanged; the DD-127 port itself is read-only.
 
-Next: Fresh source-audit the next independent source-complete persistence slice. Do not open message-history runtime, decryption/source authorization, model/provider routing, retention execution, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent/tool execution, prompt current-selection/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.
+Next: Fresh source-audit the next independent source-complete persistence slice. Do not open effective RAG retrieval/ACL evaluation, chunk/vector search, current document authorization, provider/model routing, secret resolution, fallback/retry, inference/embedding execution, prompt-policy evaluation, assistant/agent/tool execution or Workflow/Automation runtime semantics without source-owned authority.

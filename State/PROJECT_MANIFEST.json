@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-MESSAGE-READ-001",
-  "final_verdict": "DD-126 AI MESSAGE RAW PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; MESSAGE EVIDENCE ONLY; HISTORY, DECRYPTION, SOURCE AUTHORIZATION, ROUTING, RETENTION AND INFERENCE UNCLAIMED",
+  "checkpoint": "DEV-AI-RAG-SOURCE-READ-001",
+  "final_verdict": "DD-127 AI RAGSOURCE RAW PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; SOURCE REGISTRATION EVIDENCE ONLY; DOCUMENT AUTHORIZATION, RETRIEVAL, CHUNKING, EMBEDDING, GROUNDING AND INFERENCE UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "fec7fd3a6c699f1284fe170a92ac68c1d9ecdb2e",
-    "verified_code_tree": "ec0afe1fc58f3be5bf9ed34084a4cd06226a9ed5",
-    "state_projection_basis_head": "a3c7dafc0df0dfd01edba42f9dce85c98b9ae9c6",
+    "verified_code_head": "f4b5339f0c555c6d8e6a267c97114e1e98ee3ca7",
+    "verified_code_tree": "2b81ef41d405db3092bdcb02d1ec70bff4643f73",
+    "state_projection_basis_head": "d9fae13df32c6a4c7a820cb4f8e2b5db4dd84394",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "AI Message exact-by-id raw persistence reader verified; parent-Conversation privacy and raw role/content/source/model-route/deletion fields remain non-runtime evidence",
+    "current_phase": "AI RAGSource exact-by-id raw persistence reader verified; scoped source/document/ACL/chunking metadata remains non-retrieving/non-authorizing evidence",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "a3c7dafc0df0dfd01edba42f9dce85c98b9ae9c6",
-      "ci_run_id": 35839860327,
-      "ci_job_id": 107112086412,
+      "ci_verified_head": "d9fae13df32c6a4c7a820cb4f8e2b5db4dd84394",
+      "ci_run_id": 35843162489,
+      "ci_job_id": 107122846736,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "b66ae8e0935d65e86283624c624511555c54b2b8",
+      "ci_verified_tree": "9818fc5417c001c2e84fcdda627a7093a9920e6c",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "a3c7dafc0df0dfd01edba42f9dce85c98b9ae9c6",
-      "feature_head_bootstrap_verified_tree": "b66ae8e0935d65e86283624c624511555c54b2b8",
-      "feature_head_bootstrap_run_id": 35839860371,
-      "feature_head_bootstrap_job_id": 107112086571,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_322_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "d9fae13df32c6a4c7a820cb4f8e2b5db4dd84394",
+      "feature_head_bootstrap_verified_tree": "9818fc5417c001c2e84fcdda627a7093a9920e6c",
+      "feature_head_bootstrap_run_id": 35843162507,
+      "feature_head_bootstrap_job_id": 107122847008,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_329_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open message-history runtime, decryption/source authorization, model/provider routing, retention execution, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent/tool execution, prompt current-selection/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.",
+    "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open effective RAG retrieval/ACL evaluation, chunk/vector search, current document authorization, provider/model routing, secret resolution, fallback/retry, inference/embedding execution, prompt-policy evaluation, assistant/agent/tool execution or Workflow/Automation runtime semantics without source-owned authority.",
     "core_services": {
-      "checkpoint": "DEV-AI-MESSAGE-READ-001",
+      "checkpoint": "DEV-AI-RAG-SOURCE-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–126 current implementation; DD-126 bounded scoped AI Message raw persistence reader",
-      "verified_head": "fec7fd3a6c699f1284fe170a92ac68c1d9ecdb2e",
-      "verified_tree": "ec0afe1fc58f3be5bf9ed34084a4cd06226a9ed5",
-      "core_ci_run_id": 35839860371,
-      "core_ci_job_id": 107112086949,
+      "decision": "DD-040–127 current implementation; DD-127 bounded scoped AI RAGSource raw persistence reader",
+      "verified_head": "f4b5339f0c555c6d8e6a267c97114e1e98ee3ca7",
+      "verified_tree": "2b81ef41d405db3092bdcb02d1ec70bff4643f73",
+      "core_ci_run_id": 35843162507,
+      "core_ci_job_id": 107122846431,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35839860371,
-      "postgres_ci_job_id": 107112086571,
-      "postgres_tests": "322/322 PASS",
+      "postgres_ci_run_id": 35843162507,
+      "postgres_ci_job_id": 107122847008,
+      "postgres_tests": "329/329 PASS",
       "postgres_test_counts": {
-        "tests": 322,
-        "pass": 322,
+        "tests": 329,
+        "pass": 329,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35839860327,
-      "database_regression_job_id": 107112086412,
+      "database_regression_run_id": 35843162489,
+      "database_regression_job_id": 107122846736,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -398,7 +398,8 @@
         "DD-123 exact-by-usage-id scoped AI Cost raw persistence reader with parent-derived TokenUsage RLS and exact bigint-text estimated cost evidence",
         "DD-124 exact-by-id scoped AI ProvisioningSnapshot raw persistence reader with exact bigint-text version evidence and frozen pack/allowlist evidence",
         "DD-125 exact-by-id Tenant/Industry AI MediaRequest raw persistence reader with scope-based FORCE-RLS and immutable request evidence",
-        "DD-126 exact-by-id scoped AI Message raw persistence reader with parent-Conversation principal-private FORCE-RLS and immutable source JSON evidence"
+        "DD-126 exact-by-id scoped AI Message raw persistence reader with parent-Conversation principal-private FORCE-RLS and immutable source JSON evidence",
+        "DD-127 exact-by-id scoped AI RAGSource raw persistence reader with source-version bigint precision and non-retrieval/non-authorization semantics"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
