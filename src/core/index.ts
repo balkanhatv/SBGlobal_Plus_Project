@@ -34,7 +34,7 @@ export * from "./commercial/adjustment-schema.js";
 export * from "./commercial/adjustment-source.js";
 export * from "./commercial/adjustment-precedence.js";
 export * from "./commercial/compliance-security-restriction.js";
-export * from "./commercial/usage-impact.js";
+export * from "./commercial/usage-impact.js";\nexport * from "./commercial/usage-meter.js";
 export * from "./commercial/lifecycle-overlay.js";
 export * from "./commercial/target-preview.js";
 export * from "./commercial/assessment-preparation.js";
