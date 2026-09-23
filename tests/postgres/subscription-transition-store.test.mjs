@@ -22,7 +22,7 @@ const password = randomBytes(24).toString("hex");
 const suffix = randomBytes(8).toString("hex");
 
 const f = Object.fromEntries([
-  "home","tenantA","tenantB","industryA",
+  "home","tenantA","tenantB","industryA","industryB",
   "principalA","principalB","platformService",
   "routePolicy","plan","planVersion",
   "subscriptionA","subscriptionB",
@@ -109,12 +109,17 @@ before(async () => {
       );
     }
 
-    await client.query(
-      `INSERT INTO core_tenancy.industry_context
-        (id,tenant_id,industry_code,status,is_primary,created_at,updated_at)
-       VALUES ($1,$2,'RTL','ACTIVE',true,now()-interval '30 days',now())`,
-      [f.industryA, f.tenantA],
-    );
+    for (const [industryId, tenantId, industryCode] of [
+      [f.industryA, f.tenantA, "RTL"],
+      [f.industryB, f.tenantB, "EDU"],
+    ]) {
+      await client.query(
+        `INSERT INTO core_tenancy.industry_context
+          (id,tenant_id,industry_code,status,is_primary,created_at,updated_at)
+         VALUES ($1,$2,$3,'ACTIVE',true,now()-interval '30 days',now())`,
+        [industryId, tenantId, industryCode],
+      );
+    }
 
     for (const [principalId, label] of [
       [f.principalA, "Subscription transition principal A"],
@@ -233,7 +238,7 @@ after(async () => {
     await client.query("DELETE FROM core_commercial.plan_version WHERE id=$1", [f.planVersion]);
     await client.query("DELETE FROM core_commercial.plan WHERE id=$1", [f.plan]);
     await client.query("DELETE FROM core_commercial.commercial_route_policy WHERE id=$1", [f.routePolicy]);
-    await client.query("DELETE FROM core_tenancy.industry_context WHERE id=$1", [f.industryA]);
+    await client.query("DELETE FROM core_tenancy.industry_context WHERE id=ANY($1::uuid[])", [[f.industryA,f.industryB]]);
     await client.query(
       "DELETE FROM core_identity.platform_principal WHERE id=ANY($1::uuid[])",
       [[f.principalA,f.principalB]],
