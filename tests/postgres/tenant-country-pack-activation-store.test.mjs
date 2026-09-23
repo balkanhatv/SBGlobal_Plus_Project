@@ -150,16 +150,16 @@ before(async () => {
       `INSERT INTO core_config.tenant_country_pack_activation
         (id,tenant_id,country_pack_id,status,config_override_json,activated_at,disabled_at,row_version)
        VALUES
-        ($1,$5,$9,'ACTIVE',
+        ($1,$5,$7,'ACTIVE',
           '{"currency":"INR","nested":{"date":"dd-MM-yyyy"}}'::jsonb,
           now()-interval '10 days',NULL,'9223372036854775807'::bigint),
-        ($2,$5,$10,'PENDING',
+        ($2,$5,$8,'PENDING',
           '{"raw":{"empty":"","nullable":null}}'::jsonb,
           now()+interval '10 days',now()-interval '10 days',-7),
-        ($3,$5,$11,'DISABLED',
+        ($3,$5,$9,'DISABLED',
           '{"disabled":true}'::jsonb,
           NULL,NULL,0),
-        ($4,$6,$12,'ACTIVE',
+        ($4,$6,$10,'ACTIVE',
           '{"currency":"CAD"}'::jsonb,
           now()-interval '5 days',NULL,3)`,
       [
@@ -169,8 +169,6 @@ before(async () => {
         f.activationB1,
         f.tenantA,
         f.tenantB,
-        f.principalA,
-        f.principalB,
         f.packA1,
         f.packA2,
         f.packA3,
