@@ -2126,3 +2126,27 @@ Malformed persisted or input operator/Tenant/Industry identifiers return false r
 
 ### OPELEV-BIND-007 — Lifecycle/policy evidence is not interpreted
 Status, time window, purpose, ticket, approver and permission-profile fields do not affect this helper, and neither metadata nor input is mutated.
+
+
+## DD-150 OperatorElevation Verified PLATFORM_OPERATOR Identity Floor Acceptance
+
+### OPELEV-ID-001 — Exact verified PLATFORM_OPERATOR principal matches
+IdentityPort-produced verified human evidence with `principalType='PLATFORM_OPERATOR'` and exact persisted `operatorPrincipalId` satisfies this necessary identity floor.
+
+### OPELEV-ID-002 — HUMAN with the same principal id fails
+A verified HUMAN principal does not satisfy the operator-elevation identity floor even when its principal id is identical.
+
+### OPELEV-ID-003 — API_CLIENT/SERVICE principal types fail
+API_CLIENT and SERVICE principal types never satisfy this interactive operator identity floor. Machine credentials cannot substitute for Platform Operator elevation identity.
+
+### OPELEV-ID-004 — Different PLATFORM_OPERATOR principal fails
+A verified PLATFORM_OPERATOR principal whose id differs from the persisted elevation operator principal fails closed.
+
+### OPELEV-ID-005 — Malformed UUID evidence fails closed
+Malformed persisted or verified principal UUIDs return false rather than being treated as identity-binding evidence.
+
+### OPELEV-ID-006 — Auth/session/provider metadata is not elevated into policy
+Auth strength, session version, device id, auth epoch and provider metadata do not strengthen or weaken this identity floor; MFA/step-up remains separately governed.
+
+### OPELEV-ID-007 — Unrelated elevation fields are not interpreted
+Tenant/Industry, status/time, purpose/ticket/approver and permission-profile fields do not affect this helper, and neither metadata nor verified evidence is mutated.

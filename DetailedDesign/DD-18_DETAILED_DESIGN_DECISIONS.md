@@ -2169,3 +2169,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-149 does not select/load/trust an elevation id; establish authenticated interactive `PLATFORM_OPERATOR` principal type; resolve Tenant/Industry lifecycle or Data Home; invoke DD-148 on the caller's behalf; interpret `permission_profile_id`; decide approval/purpose/ticket policy; set `app.operator_elevation_id`; modify `RequestContext` or `RequestScopedSql`; grant access or return an AuthorizationDecision; mutate elevation state; emit mandatory elevation-use audit; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `OPELEV-BIND-001` through `OPELEV-BIND-007` in DD-17 and `tests/core/operator-elevation-subject-target.test.mjs`.
+
+
+## DD-150 — OperatorElevation may require exact IdentityPort-verified PLATFORM_OPERATOR identity as a pure necessary floor without deciding step-up or access
+
+**Context:** DD-03 defines `PLATFORM_OPERATOR` as a first-class principal type, requires Platform Operators to use DD-05 time-bounded elevation rather than persistent Tenant roles, and forbids API credentials from substituting for interactive platform identity/elevation. `IdentityPort.verifyHumanSession(...)` returns `VerifiedIdentityEvidence`; current machine evidence can represent only API_CLIENT or SERVICE. DD-146 exposes the persisted elevation operator principal, while DD-149 separately owns raw subject/Tenant/Industry binding.
+
+**Decision:** add deterministic Core helper `matchesOperatorElevationVerifiedPlatformOperatorFloor(metadata,evidence)`. The helper accepts already-verified human identity evidence, requires `principalType === 'PLATFORM_OPERATOR'`, validates UUID shape for persisted and verified principal ids, and requires exact principal-id equality. It performs no provider call and does not inspect authorization policy.
+
+**Security / trade-off:** the helper deliberately does not infer elevation eligibility from authStrength, sessionVersion, deviceId, provider subject/session or authEpoch. Those are verified identity/session facts, not an implicit MFA/step-up or elevation-approval policy. HUMAN, API_CLIENT and SERVICE types fail even with a matching id.
+
+**Boundary:** DD-150 does not select/load/trust an elevation id; verify a raw session token itself; decide MFA/step-up policy; evaluate DD-148 time/status or DD-149 target floor on the caller's behalf; interpret `permission_profile_id`; decide approval/purpose/ticket policy; set `app.operator_elevation_id`; modify `RequestContext` or `RequestScopedSql`; grant access or return AuthorizationDecision; audit elevation use; mutate elevation state; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `OPELEV-ID-001` through `OPELEV-ID-007` in DD-17 and `tests/core/operator-elevation-verified-operator.test.mjs`.
