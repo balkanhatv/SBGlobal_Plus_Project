@@ -1225,3 +1225,26 @@ Raw `ACTIVE`, permission/entitlement references, side-effect class, idempotency 
 ### AITOOLDEF-PG-005 — Dedicated AI role remains read-only for tool-definition catalog
 `sbg_ai_gateway_rw` can SELECT the tool-definition catalog but cannot INSERT/UPDATE/DELETE; the bounded store exposes no create/update/delete methods.
 
+## DD-111 AI ToolSet Raw Persistence Reader Acceptance
+
+### AITOOLSET-PG-001 — Exact Industry ToolSet raw evidence
+Exact ToolSet-id lookup in the owning Industry Context returns immutable owner scope, Tenant/Industry ownership, raw code, positive version, constrained lifecycle status and timestamps without selected/member/executable authority.
+
+### AITOOLSET-PG-002 — Sibling Industry isolation
+An Industry ToolSet requested from a sibling Industry Context is hidden by FORCE-RLS; the exact sibling context may read its own raw ToolSet evidence.
+
+### AITOOLSET-PG-003 — Tenant ToolSet same-Tenant visibility
+A Tenant-owned ToolSet is visible from the same Tenant Core and Tenant Industry contexts. Schema-valid empty code and raw lifecycle status are preserved rather than strengthened.
+
+### AITOOLSET-PG-004 — PLATFORM ToolSet requires PLATFORM_GLOBAL context
+A Tenant context receives no implicit PLATFORM ToolSet fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact PLATFORM ToolSet; timestamp ordering is preserved as persisted rather than inferred.
+
+### AITOOLSET-PG-005 — Foreign Tenant isolation
+A foreign-Tenant ToolSet is hidden; its owning Tenant context may read the raw row.
+
+### AITOOLSET-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed ToolSet UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AITOOLSET-PG-007 — Read-port boundary preserves existing write governance
+The dedicated AI Gateway role retains the migration-owned ToolSet table privileges rather than being falsely described as read-only, but the DD-111 store exposes no create/update/delete/member-load/active-select/execute method. PLATFORM ToolSet mutation remains blocked for the AI Gateway role by the migration-0032 restrictive write floor.
+

@@ -1697,3 +1697,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AITOOLDEF-PG-001` through `AITOOLDEF-PG-005` in DD-17 and `tests/postgres/ai-tool-definition-catalog-metadata-store.test.mjs`.
 
+## DD-111 — AI ToolSet raw persistence is readable without becoming ToolSet selection or tool-execution authority
+
+**Context:** migration 0031 physically owns `core_ai.ai_tool_set` as a versioned PLATFORM/TENANT/INDUSTRY-scoped definition under FORCE-RLS, with exact ownership-shape checks, positive version, constrained lifecycle status, scoped uniqueness and at most one ACTIVE version per scoped code. The same migration grants the dedicated AI Gateway role table-level ToolSet DML for Tenant/Industry authoring, while migration 0032 adds a restrictive floor that reserves PLATFORM definition writes for the control-plane role. DD-09 uses ToolSets as persisted Assistant/Agent tool-binding ownership, but separately requires current context, schema, permission, entitlement, approval, OperationContract and audit checks before tool execution.
+
+**Decision:** add immutable `PersistedAIToolSet`, `AIToolSetReadPort.loadForContext(...)` and `PostgresAIToolSetStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and projects only schema-owned parent ToolSet evidence: id, owner scope, optional Tenant/Industry ownership, raw code, positive version, constrained raw status, and timestamps. Schema-valid empty code is preserved; created/updated ordering is not invented. Missing rows return null; malformed identifiers, malformed persisted shape or route/context mismatch fail closed.
+
+**Security / trade-off:** FORCE-RLS remains authoritative. Industry ToolSets are exact-context only; Tenant ToolSets remain same-Tenant visible from Tenant Core and Tenant Industry contexts; PLATFORM ToolSets require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback. DD-111 does not mischaracterize `sbg_ai_gateway_rw` as read-only: migration 0031 intentionally gives it ToolSet DML privileges, constrained by RLS and migration-0032 PLATFORM write protection. The new DD-111 port itself is read-only and exposes no mutation, active-selector, member-loader or execution method.
+
+**Boundary:** DD-111 does not select ACTIVE/current/latest ToolSets; perform code/version fallback; load or interpret ToolSet members/constraints; determine tool eligibility; evaluate permission/entitlement/approval/side effects; select Assistants/Agents; validate AgentSteps; execute Tool Definitions or OperationContracts; resolve AI provisioning/configuration; select providers/models/prompts/policies/routes; resolve credentials; perform inference/RAG/agent execution; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AITOOLSET-PG-001` through `AITOOLSET-PG-007` in DD-17 and `tests/postgres/ai-tool-set-store.test.mjs`.
+
