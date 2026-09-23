@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-RAG-SOURCE-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-RAG-CHUNK-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-127**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-128**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-127 adds an exact-by-id scoped `core_ai.rag_source` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. Tenant-Core/exact Tenant-Industry FORCE-RLS, raw source/module/MS/resource metadata, optional document id/version, constrained scope/sensitivity classes, raw residency/retention/ACL/status, exact bigint-text source version, raw chunking-policy version and timestamps remain source-registration evidence only. It does not revalidate current DocumentMeta/ACL/scan/residency, select current source versions, list chunks, execute chunking policy, select embeddings, perform vector search/retrieval/ranking/grounding, compose prompts or perform inference/RAG. Existing migration-owned RAGSource DML authority remains unchanged; the DD-127 port itself is read-only.
+DD-128 adds an exact-by-id scoped `core_ai.rag_chunk` raw metadata reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The persisted vector payload is intentionally excluded. FORCE-RLS remains authoritative, while raw ACL/model/chunk evidence does not authorize retrieval, prove current source/model/document state, or perform vector search, ranking, grounding or inference.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `f4b5339f0c555c6d8e6a267c97114e1e98ee3ca7` / tree `2b81ef41d405db3092bdcb02d1ec70bff4643f73` — 311 Core tests, 329 PostgreSQL tests including `AIRAGSRC-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `d9fae13df32c6a4c7a820cb4f8e2b5db4dd84394` / tree `9818fc5417c001c2e84fcdda627a7093a9920e6c`: Core run `35843162507` (Core job `107122846431`, PostgreSQL job `107122847008`), Database run `35843162489` (job `107122846736`), Web run `35843162523` (job `107122847563`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 127 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD127_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `f713a05d7f03e29938198dac96663dc0222a26b6` / tree `d6420945deba39281963d374cccde327e422e57a` — 311 Core tests, 336 PostgreSQL tests including `AIRAGCHUNK-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `d79c4fdca4645d4b95d6442a621eb4cf3678f065` / tree `6ff1b8fddbb3e2b6c18419dca7cebbc84ae86667`: Core run `35846762899` (Core job `107134668672`, PostgreSQL job `107134669061`), Database run `35846763723` (job `107134671660`), Web run `35846763020` (job `107134669327`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 128 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD128_VERIFICATION_2026-09-23.md).
