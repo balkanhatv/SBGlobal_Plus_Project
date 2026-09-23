@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-RULE-DEFINITION-READ-001",
-  "final_verdict": "DD-134 RULEDEFINITION RAW PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; RAW SCOPED RULE EVIDENCE ONLY; CURRENT/EFFECTIVE SELECTION, EVALUATION, AUTHORIZATION AND APPLICATION UNCLAIMED",
+  "checkpoint": "DEV-FORM-DEFINITION-READ-001",
+  "final_verdict": "DD-135 FORMDEFINITION RAW PARENT PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; RAW SCOPED FORM EVIDENCE ONLY; FIELD EXPANSION, CURRENT/EFFECTIVE SELECTION, RENDERING, VALIDATION AND SUBMIT EXECUTION UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "2fa1f6d6f3f8be92ea9f3cca6970bcf72f3398a3",
-    "verified_code_tree": "1d1fb8a4f7abc3184e8796db6d8225075683f4a7",
-    "state_projection_basis_head": "7aa5d4026dcd5321d450cf2181cdeda8408847d8",
+    "verified_code_head": "25acd95e67b3af83066027eed8fbae5b2c2b8b65",
+    "verified_code_tree": "3b5b35ec691376b4396d97660113c8153dbcf711",
+    "state_projection_basis_head": "3c15f21fe991c69f770da8cca6d66a0144caa307",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "RuleDefinition exact-by-id scoped raw persistence reader verified; lifecycle/priority/safety/permission/condition/decision fields remain non-selecting/non-evaluating evidence",
+    "current_phase": "FormDefinition exact-by-id scoped raw parent persistence reader verified; layout/rule-ref/surface/submit evidence remains non-expanding/non-rendering/non-validating",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "7aa5d4026dcd5321d450cf2181cdeda8408847d8",
-      "ci_run_id": 35860587705,
-      "ci_job_id": 107179547851,
+      "ci_verified_head": "3c15f21fe991c69f770da8cca6d66a0144caa307",
+      "ci_run_id": 35862282115,
+      "ci_job_id": 107185140616,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "b3ca9b7bfe98bc2826f43bf2b7e3b074bb318932",
+      "ci_verified_tree": "35aa579d111ac7b7127148debcd517d0412b2724",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "7aa5d4026dcd5321d450cf2181cdeda8408847d8",
-      "feature_head_bootstrap_verified_tree": "b3ca9b7bfe98bc2826f43bf2b7e3b074bb318932",
-      "feature_head_bootstrap_run_id": 35860587616,
-      "feature_head_bootstrap_job_id": 107179547675,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_378_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "3c15f21fe991c69f770da8cca6d66a0144caa307",
+      "feature_head_bootstrap_verified_tree": "35aa579d111ac7b7127148debcd517d0412b2724",
+      "feature_head_bootstrap_run_id": 35862282150,
+      "feature_head_bootstrap_job_id": 107185140646,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_385_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next independent source-complete Core persistence slice. Keep current/effective rule selection, runtime schema/safe-expression validation, rule evaluation/application, priority/conflict resolution, required-permission evaluation, FormDefinition binding/validation-chain composition and definition mutation outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit the next independent source-complete Core persistence slice. Keep FormFieldDefinition expansion, field semantics, current/effective FormDefinition selection, rendering/layout compilation, RuleDefinition resolution/validation-chain execution, submit-operation binding/invocation and definition mutation outside scope unless separately source-owned.",
     "core_services": {
-      "checkpoint": "DEV-RULE-DEFINITION-READ-001",
+      "checkpoint": "DEV-FORM-DEFINITION-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–134 current implementation; DD-134 bounded scoped RuleDefinition raw persistence reader",
-      "verified_head": "2fa1f6d6f3f8be92ea9f3cca6970bcf72f3398a3",
-      "verified_tree": "1d1fb8a4f7abc3184e8796db6d8225075683f4a7",
-      "core_ci_run_id": 35860587616,
-      "core_ci_job_id": 107179547972,
+      "decision": "DD-040–135 current implementation; DD-135 bounded scoped FormDefinition raw parent persistence reader",
+      "verified_head": "25acd95e67b3af83066027eed8fbae5b2c2b8b65",
+      "verified_tree": "3b5b35ec691376b4396d97660113c8153dbcf711",
+      "core_ci_run_id": 35862282150,
+      "core_ci_job_id": 107185140792,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35860587616,
-      "postgres_ci_job_id": 107179547675,
-      "postgres_tests": "378/378 PASS",
+      "postgres_ci_run_id": 35862282150,
+      "postgres_ci_job_id": 107185140646,
+      "postgres_tests": "385/385 PASS",
       "postgres_test_counts": {
-        "tests": 378,
-        "pass": 378,
+        "tests": 385,
+        "pass": 385,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35860587705,
-      "database_regression_job_id": 107179547851,
+      "database_regression_run_id": 35862282115,
+      "database_regression_job_id": 107185140616,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -406,7 +406,8 @@
         "DD-131 exact-by-id parent-scoped AI AgentStep raw persistence reader with parent AgentRun FORCE-RLS inheritance and non-executing raw step evidence",
         "DD-132 exact-by-id Tenant/Industry AI AgentApproval raw persistence reader",
         "DD-133 exact-by-id scoped MetadataDefinition raw persistence reader with FORCE-RLS and immutable schema JSON evidence",
-        "DD-134 exact-by-id scoped RuleDefinition raw persistence reader with FORCE-RLS and immutable rule JSON evidence"
+        "DD-134 exact-by-id scoped RuleDefinition raw persistence reader with FORCE-RLS and immutable rule JSON evidence",
+        "DD-135 exact-by-id scoped FormDefinition raw parent persistence reader with FORCE-RLS, immutable layout JSON and raw form-array evidence"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
