@@ -98,8 +98,8 @@ Authorized returned evidence:
 - optional `industryContextId`;
 - raw `meterCode`;
 - raw `periodKey`;
-- exact non-negative PostgreSQL numeric `usedValue` as decimal text;
-- exact non-negative PostgreSQL numeric `reservedValue` as decimal text;
+- exact PostgreSQL numeric `usedValue` as raw canonical text, preserving finite non-negative decimals plus schema-admitted `Infinity` / `NaN` evidence;
+- exact PostgreSQL numeric `reservedValue` as raw canonical text, preserving finite non-negative decimals plus schema-admitted `Infinity` / `NaN` evidence;
 - exact PostgreSQL bigint `version` as decimal text, including zero/negative values if physically persisted;
 - `updatedAt`.
 
@@ -107,8 +107,8 @@ Validation remains schema-aligned only:
 
 - UUID validation for identifiers;
 - exact persisted ownership shape;
-- canonical decimal-text validation for numeric/bigint fields without precision loss;
-- `usedValue` / `reservedValue` must be non-negative because the database enforces that;
+- PostgreSQL-16-aligned numeric-text validation without precision loss; finite values must be canonical non-negative decimals, while unconstrained `numeric` special values `Infinity` and `NaN` are preserved because the physical `>= 0` CHECK does not exclude them under PostgreSQL ordering semantics; `-Infinity` remains invalid;
+- `usedValue` / `reservedValue` are raw persistence evidence, not JavaScript numbers or finite-value business assertions;
 - `version` must be valid bigint decimal text but is not strengthened to positive;
 - raw text remains raw, including schema-valid empty strings;
 - timestamp must be valid persisted evidence;
@@ -138,7 +138,7 @@ This slice does **not** implement or authorize:
 1. exact Tenant-Core UsageMeter returns complete immutable raw decimal/text/timestamp evidence and remains same-Tenant visible from Core and Industry contexts;
 2. exact Industry UsageMeter is visible only in its Industry Context and hidden from sibling Industry;
 3. foreign Tenant and PLATFORM_GLOBAL cannot read a Tenant UsageMeter;
-4. raw empty meter/period text, exact high-precision numeric values and non-positive bigint version evidence are preserved without JavaScript-number coercion or semantic strengthening;
+4. raw empty meter/period text, exact high-precision finite numeric values, schema-admitted `Infinity` / `NaN`, and non-positive bigint version evidence are preserved without JavaScript-number coercion or semantic strengthening;
 5. status/current-period/entitlement/target/reservation/available-capacity fields are not invented and the port cannot satisfy `CommercialUsageImpactSourcePort`;
 6. missing well-formed id returns `null`; malformed id and route/context mismatch fail closed;
 7. ordinary application role is SELECT-only after migration 0043, while the port exposes no create/update/delete/list/selectCurrent/aggregate/reserve/release/usage-impact method.

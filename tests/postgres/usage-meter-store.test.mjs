@@ -24,7 +24,7 @@ const suffix = randomBytes(8).toString("hex");
 const f = Object.fromEntries([
   "home","tenantA","tenantB","principalA","principalB","platformService",
   "industryA1","industryA2","industryB1",
-  "meterTenantCore","meterIndustryA1","meterRaw","meterTenantB","missingMeter",
+  "meterTenantCore","meterIndustryA1","meterRaw","meterSpecial","meterTenantB","missingMeter",
 ].map((key) => [key, randomUUID()]));
 
 let pool;
@@ -153,6 +153,15 @@ before(async () => {
       ],
     );
 
+    await client.query(
+      `INSERT INTO core_commercial.usage_meter
+        (id,tenant_id,industry_context_id,meter_code,period_key,
+         used_value,reserved_value,version,updated_at)
+       VALUES ($1,$2,NULL,'SPECIAL_NUMERIC','SPECIAL',
+         'NaN'::numeric,'Infinity'::numeric,0,now()-interval '5 hours')`,
+      [f.meterSpecial,f.tenantA],
+    );
+
     await client.query("COMMIT");
   } catch (error) {
     await client.query("ROLLBACK");
@@ -184,7 +193,7 @@ after(async () => {
     await client.query("BEGIN");
     await client.query(
       "DELETE FROM core_commercial.usage_meter WHERE id=ANY($1::uuid[])",
-      [[f.meterTenantCore,f.meterIndustryA1,f.meterRaw,f.meterTenantB]],
+      [[f.meterTenantCore,f.meterIndustryA1,f.meterRaw,f.meterSpecial,f.meterTenantB]],
     );
     await client.query(
       "DELETE FROM core_tenancy.industry_context WHERE id=ANY($1::uuid[])",
@@ -292,6 +301,16 @@ test("USAGEMETER-PG-005 raw empty text, exact decimals, and non-positive version
   assert.equal(row.usedValue, "0");
   assert.equal(row.reservedValue, "7.25000000000000000000");
   assert.equal(row.version, "-7");
+
+  const special = await store.loadForContext({
+    requestContext: tenantCoreA(),
+    usageMeterId: f.meterSpecial,
+  });
+  assert.ok(special);
+  assert.equal(special.usedValue, "NaN");
+  assert.equal(special.reservedValue, "Infinity");
+  assert.equal(special.version, "0");
+
   assert.equal("entitlementCode" in row, false);
   assert.equal("current" in row, false);
   assert.equal("authoritativePeriod" in row, false);

@@ -55,7 +55,7 @@ function rawText(value: unknown, field: string): string {
 }
 
 function numericText(value: unknown, field: string): string {
-  if (typeof value !== "string" || !NON_NEGATIVE_NUMERIC_TEXT.test(value)) {
+  if (typeof value !== "string" || !NON_NEGATIVE_NUMERIC_EVIDENCE_TEXT.test(value)) {
     invalid(`Persisted UsageMeter ${field} is invalid.`);
   }
   return value;
