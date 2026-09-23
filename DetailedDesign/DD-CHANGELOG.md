@@ -141,3 +141,6 @@ Fresh source reconciliation selected exact-by-id non-vector `core_ai.rag_chunk` 
 ## 2026-09-23 — DD-129 AI MemoryRecord raw persistence reader
 Fresh source reconciliation selected one exact `core_ai.ai_memory_record` row as the next independent persistence slice. The implementation preserves principal-private versus scope-shared FORCE-RLS, raw lifecycle/expiry/supersession/ACL/retention/content evidence and Tenant-Core visibility without claiming current-memory selection, governed lookup/history carry, ACL evaluation, retention/erasure, decryption or AI execution. A fixture-parameter defect in the initial PostgreSQL test was corrected forward-only; no production schema/runtime semantics changed.
 
+## 2026-09-23 — DD-130 AI AgentRun raw persistence reader
+Fresh source reconciliation selected `core_ai.agent_run` as the next independent persistence slice. The implementation reads one exact principal-scoped run through FORCE-RLS, preserves startup permission/entitlement versions as exact bigint text and requested resource scope as immutable JSON evidence, and deliberately does not claim current authorization, resume, AgentStep/Approval execution or tool execution.
+

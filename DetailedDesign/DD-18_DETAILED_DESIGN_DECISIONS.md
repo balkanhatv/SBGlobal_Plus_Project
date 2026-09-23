@@ -1925,3 +1925,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIMEM-PG-001` through `AIMEM-PG-007` in DD-17 and `tests/postgres/ai-memory-record-store.test.mjs`.
 
+## DD-130 — AI AgentRun raw persistence is readable without becoming current authorization, resume or execution authority
+
+**Context:** migration 0013 physically owns `core_ai.agent_run` with Tenant/optional Industry scope, acting principal, optional membership, startup entitlement/permission versions, raw requested-resource scope JSON, constrained lifecycle status, raw step/token budget classes, timestamps and correlation id. FORCE-RLS requires exact Tenant + acting principal and exact Industry Context for Industry runs; Tenant-Core runs remain same-principal/same-Tenant visible from Tenant Core or Tenant Industry contexts. Migration 0031 validates AgentDefinition/principal/membership applicability at write time. DD-09 explicitly requires the acting principal's current AccessDecision at each tool step, so startup snapshots and persisted run state are not permanent authorization.
+
+**Decision:** add immutable `PersistedAIAgentRun`, `AIAgentRunReadPort.loadForContext(...)` and `PostgresAIAgentRunStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and returns only persisted evidence: AgentDefinition/Tenant/optional Industry/acting-principal/optional membership ids, exact bigint-text entitlement and permission versions, normalized immutable requested-resource-scope JSON, constrained raw status, raw budget classes, timestamps and correlation id. Missing rows return null; malformed identifiers/types/JSON or route/context mismatch fail closed.
+
+**Security / trade-off:** AgentRun visibility remains principal-scoped FORCE-RLS. Sibling Industry, other principal, foreign Tenant and PLATFORM_GLOBAL contexts cannot bypass it. Existing `sbg_ai_gateway_rw` AgentRun DML authority remains migration-owned; the DD-130 application port is read-only.
+
+**Boundary:** DD-130 does not list/select current runs; interpret status as resumable/executable authority; transition/cancel/resume runs; load/plan/execute AgentSteps; load/satisfy AgentApprovals; revalidate current AgentDefinition/principal/membership/permission/entitlement; interpret requested resource scope as authorization; evaluate or consume budgets; resolve ToolSets/members; perform permission/entitlement/approval checks; execute OperationContracts; select providers/models/prompts/RAG routes; perform inference; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIAGENTRUN-PG-001` through `AIAGENTRUN-PG-007` in DD-17 and `tests/postgres/ai-agent-run-store.test.mjs`.
+

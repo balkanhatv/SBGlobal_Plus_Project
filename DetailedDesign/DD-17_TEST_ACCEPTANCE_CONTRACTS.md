@@ -1662,3 +1662,26 @@ A missing well-formed memory UUID returns `null`; malformed UUID or database rou
 ### AIMEM-PG-007 — Raw lifecycle/ACL/supersession evidence is not current/retrieval/retention/execution authority
 ACTIVE/SUPERSEDED/ERASED/EXPIRED, expiry, supersedes, ACL, retention and raw content/source fields remain persistence evidence only. The DD-129 store exposes no create/update/delete/list/current-selection/supersession-resolution/ACL-evaluation/decrypt/retention/execute method.
 
+## DD-130 AI AgentRun Raw Persistence Reader Acceptance
+
+### AIAGENTRUN-PG-001 — Exact principal-owned Industry run evidence
+Exact run-id lookup returns immutable raw AgentRun evidence, including exact bigint-text startup versions and frozen requested-resource-scope JSON, without authorized/resumable/executable authority.
+
+### AIAGENTRUN-PG-002 — Sibling Industry isolation
+An Industry-scoped AgentRun is hidden from a sibling Industry Context; the matching sibling context may read its own run.
+
+### AIAGENTRUN-PG-003 — Acting-principal privacy
+Another principal in the same Tenant/Industry cannot read the run; the owning principal may read its own persisted run.
+
+### AIAGENTRUN-PG-004 — Tenant-Core visibility is not continuation authority
+A Tenant-Core run is same-principal/same-Tenant visible from Tenant Core and Tenant Industry contexts, while raw status/version/scope evidence does not authorize cross-context continuation.
+
+### AIAGENTRUN-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts cannot expose Tenant AgentRun rows.
+
+### AIAGENTRUN-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed UUID returns `null`; malformed id or database route/context mismatch fails closed.
+
+### AIAGENTRUN-PG-007 — Startup evidence is not current authorization/resume/tool execution authority
+The AI Gateway role retains migration-owned AgentRun DML privileges, but the DD-130 store exposes no create/update/delete/list/current-selection/steps/approvals/resume/execute method.
+
