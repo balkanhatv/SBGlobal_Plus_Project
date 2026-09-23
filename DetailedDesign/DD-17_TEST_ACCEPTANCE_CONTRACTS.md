@@ -1777,3 +1777,26 @@ A missing well-formed UUID returns `null`; malformed id or database route/contex
 ### RULEDEF-PG-007 — Raw rule evidence is not selection/evaluation/authorization/application authority
 The application role retains migration-owned table privileges subject to current RLS/write floors, but DD-134 exposes no create/update/delete/current-selection/effective-resolution/evaluate/authorize/apply method.
 
+## DD-135 FormDefinition Raw Persistence Reader Acceptance
+
+### FORMDEF-PG-001 — Exact Industry parent definition raw evidence
+Exact FormDefinition-id lookup in the owning Industry Context returns immutable parent scope, code/version/status/schema-version, purpose/submit references, frozen layout JSON and raw validation-rule/surface arrays, creator/approver and timestamp evidence without field/render/validation/submit authority.
+
+### FORMDEF-PG-002 — Sibling Industry isolation
+A sibling-Industry FormDefinition is hidden by FORCE-RLS; its exact Industry Context may read the row.
+
+### FORMDEF-PG-003 — Tenant definition same-Tenant visibility and raw evidence preservation
+A Tenant-owned FormDefinition is visible from same-Tenant Core and Industry contexts. Schema-valid empty text, duplicate/null array elements, nullable approver and unordered effective timestamps remain raw persistence facts.
+
+### FORMDEF-PG-004 — PLATFORM definition requires PLATFORM_GLOBAL
+Tenant contexts receive no implicit PLATFORM FormDefinition fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact PLATFORM row.
+
+### FORMDEF-PG-005 — Foreign Tenant isolation
+A foreign-Tenant FormDefinition is hidden; the owning Tenant context may read its raw row.
+
+### FORMDEF-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed UUID returns `null`; malformed id or database route/context mismatch fails closed before disclosure.
+
+### FORMDEF-PG-007 — Raw form evidence is not field/render/validation/submit authority
+The application role retains migration-owned table privileges subject to current RLS/write floors, but DD-135 exposes no create/update/delete/current-selection/list-fields/compile/render/validate/submit method.
+
