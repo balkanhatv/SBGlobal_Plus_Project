@@ -206,7 +206,7 @@ before(async () => {
         ($1,$5,$7,$9,$13,'IMAGE',$14,1,$15::bigint,'',
          '{}'::uuid[],'CONFIDENTIAL','IN-AI-MEDIA-REQUEST','moderation:raw','QUEUED',
          '2026-09-20T00:00:00Z'::timestamptz,NULL),
-        ($2,$5,$8,$9,$13,'SVG',NULL,NULL,NULL,NULL,
+        ($2,$5,$8,$10,$13,'SVG',NULL,NULL,NULL,NULL,
          '{}'::uuid[],'INTERNAL','IN-AI-MEDIA-REQUEST','','RAW_STATUS',
          '2026-09-19T00:00:00Z'::timestamptz,'2026-09-19T01:00:00Z'::timestamptz),
         ($3,$5,NULL,$9,$13,'AUDIO',NULL,NULL,NULL,'tenant-core',
