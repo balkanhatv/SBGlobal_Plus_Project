@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-AGENT-RUN-READ-001`
+**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-AGENT-STEP-READ-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,12 +18,12 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-23
 
-Current checkpoint: `DEV-AI-AGENT-RUN-READ-001`. Decisions are contiguous through DD-130.
+Current checkpoint: `DEV-AI-AGENT-STEP-READ-001`. Decisions are contiguous through DD-131.
 
-Verified executable `eb814317f0613724c175eaa8181d0e17aad856d3` / tree `42218d9b1794773c1d12c1c23dcda1cef87e9140`: **311/311 Core**, **350/350 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS.
+Verified executable `fddfc39252d89508d093633ec79a141739bf56d4` / tree `9758436cc7638963f40f5b45dbb3db7d1ce12f18`: **311/311 Core**, **357/357 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS.
 
-Promotion invariant gate `95827395c065d840b0fd1aff43a7176350385c0b` / tree `7f59266585a8e136afebc4cb6d8c202fbf5ef8c2`: Core run `35851164022` (Core `107148922724`, PostgreSQL `107148922295`), Database run `35851163994` (`107148922057`), Web run `35851163976` (`107148922094`) — SUCCESS; **130 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `9f79d33f9d16f5ef9392fa1b1820a18f3a04973a` / tree `fe697622ea9d8119345f6b54d5e8359f3294d387`: Core run `35852604308` (Core `107153562830`, PostgreSQL `107153563110`), Database run `35852604292` (`107153563084`), Web run `35852604279` (`107153562758`) — SUCCESS; **131 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-130 adds an exact-by-id principal-scoped `core_ai.agent_run` raw persistence reader. FORCE-RLS remains authoritative. It preserves raw run/startup evidence only and does not authorize resume, current access, AgentStep/Approval execution, or tool execution.
+DD-131 adds an exact-by-id parent-scoped `core_ai.agent_step` raw persistence reader. Parent AgentRun FORCE-RLS remains authoritative. Raw step type/status/input/output/tool-binding/approval/audit references and timestamps remain persisted evidence only; they do not authorize next-step selection, approval satisfaction, current tool eligibility or execution.
 
-Next: Fresh source-audit the next independent source-complete persistence slice. Keep current AgentRun authorization/resume, AgentStep/Approval execution, tool execution, provider/model runtime, inference/RAG and Workflow/Automation runtime outside scope unless separately source-owned.
+Next: Fresh source-audit the next independent source-complete persistence slice. Keep AgentStep planning/next-step selection, approval satisfaction, current tool authorization/execution, AgentRun resume, provider/model runtime, inference/RAG and Workflow/Automation runtime outside scope unless separately source-owned.
