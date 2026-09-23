@@ -19,6 +19,7 @@ export * from "./api/rate-limit.js";
 export * from "./authorization/contracts.js";
 export * from "./authorization/operator-elevation-metadata.js";
 export * from "./authorization/operator-elevation-window.js";
+export * from "./authorization/operator-elevation-subject-target.js";
 export * from "./authorization/audit.js";
 export * from "./audit/audit-event.js";
 export * from "./authorization/policy-grammar.js";
