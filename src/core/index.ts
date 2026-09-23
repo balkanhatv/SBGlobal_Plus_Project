@@ -82,6 +82,7 @@ export * from "./ai/agent-definition.js";
 export * from "./ai/tenant-config.js";
 export * from "./ai/industry-config.js";
 export * from "./ai/conversation.js";
+export * from "./ai/message.js";
 export * from "./ai/token-usage.js";
 export * from "./ai/cost.js";
 export * from "./ai/provisioning-snapshot.js";
