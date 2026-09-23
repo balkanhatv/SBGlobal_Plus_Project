@@ -1,20 +1,18 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-23 · **Checkpoint:** `DEV-OPERATOR-ELEVATION-METADATA-READ-001`
+**Updated:** 2026-09-23 · **Checkpoint:** `DEV-API-CREDENTIAL-VERIFICATION-MATERIAL-READ-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: **311/311 Core**, **462/462 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `9b0662aee55e710b256033561790609dbfa6eeaa` / tree `a4221561bb8260b9093451117ab411562cb2683b`: **311/311 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
+Promotion invariant gate `539524aaaf93ef14d72c0165163f6a5bd1c660cf` / tree `0a56b0d946e8090809f32cb4f7d41587577794fb`: Core run `35910799265` (Core job `107349828531`, PostgreSQL job `107349828859`), Database run `35910799281` (job `107349828748`), Web run `35910799187` (job `107349828182`) — SUCCESS; **147 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-Promotion invariant gate `0da4a8063f21b177df8de241e4080fbddc1d1dd8` / tree `9b8428bda8cb10b970df0e890b48443d9084eb1d`: Core run `35908101390` (Core job `107340749188`, PostgreSQL job `107340749373`), Database run `35908101578` (job `107340750340`), Web run `35908101452` (job `107340749629`) — SUCCESS; **146 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+DD-147 adds a server-internal exact API Credential key-prefix verification-material source under the fixed Identity role. Opaque verifier hashes remain internal and raw lifecycle/scope evidence is not authentication or authorization.
 
-DD-146 adds an exact OperatorElevation metadata-only Control Plane reader. It deliberately does not change normal request context resolution or `RequestScopedSql`; `app.operator_elevation_id` remains unset there absent a future verified elevation flow.
+Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–147**.
 
-Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–146**.
+Next: Fresh source-audit the next runtime prerequisite. Full machine verification remains blocked on presented-token parsing, verifier execution, CIDR/lifecycle handling, usage/audit mutation and final `VerifiedMachineEvidence`.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep elevation selection, approval/purpose policy, permission-profile evaluation, RequestContext injection, transaction-local elevation scope and mandatory audit outside scope unless separately source-owned.
-
-Evidence: `Registers/DEVELOPMENT_DD146_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD147_VERIFICATION_2026-09-23.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.
