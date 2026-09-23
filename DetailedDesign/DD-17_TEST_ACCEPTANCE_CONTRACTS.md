@@ -1593,3 +1593,26 @@ A missing well-formed UUID returns `null`; malformed UUID or route/context misma
 ### AIMSG-PG-007 — Raw message evidence is not runtime authority
 The AI Gateway role retains migration-owned message DML, while the DD-126 store exposes no create/update/delete/list-history/decrypt/source-resolve/model-route/retention/execute method.
 
+## DD-127 AI RAGSource Raw Persistence Reader Acceptance
+
+### AIRAGSRC-PG-001 — Exact Industry source raw evidence
+Exact source-id lookup in the owning Industry Context returns immutable raw registration metadata, exact bigint-text source version and persisted timestamps without retrievable/authorized/embedded authority.
+
+### AIRAGSRC-PG-002 — Sibling Industry isolation
+A RAGSource in a sibling Industry Context is hidden; the exact sibling context may read its own raw source evidence.
+
+### AIRAGSRC-PG-003 — Tenant-Core same-Tenant visibility
+A Tenant-Core RAGSource is visible from the same Tenant Core and Tenant Industry contexts. Schema-valid raw empty/null text/document/ACL evidence remains unstrengthened.
+
+### AIRAGSRC-PG-004 — Scope-based rather than principal-private visibility
+A different principal in the same visible Tenant+Industry scope may read the RAGSource because the persisted RLS policy does not predicate on principal id.
+
+### AIRAGSRC-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts cannot read a Tenant RAGSource; the exact owning foreign-Tenant context may read its own source row.
+
+### AIRAGSRC-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed source UUID returns `null`; malformed UUID or database route/context mismatch fails closed.
+
+### AIRAGSRC-PG-007 — Raw source registration is not retrieval/authorization/execution authority
+The AI Gateway role retains migration-owned RAGSource DML privileges, but the DD-127 store exposes no create/update/delete/list-chunks/document-revalidation/ACL-evaluation/retrieve/embed/search/execute method.
+

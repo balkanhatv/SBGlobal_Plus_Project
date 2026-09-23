@@ -132,3 +132,6 @@ Fresh source reconciliation selected `core_ai.ai_media_request` as the next inde
 ## 2026-09-23 — DD-126 AIMessage raw persistence reader
 Fresh source reconciliation selected `core_ai.ai_message` as the next independent child persistence slice. The implementation reads one exact message through parent Conversation FORCE-RLS and preserves raw role/content/source/model-route/deletion evidence without claiming history, decryption, source authorization, routing, retention or inference semantics.
 
+## 2026-09-23 — DD-127 AI RAGSource raw persistence reader
+Fresh source reconciliation selected `core_ai.rag_source` as the next independent persistence slice. The implementation reads one exact scoped source-registration row, preserves raw source/document/ACL/chunking metadata and exact bigint-text source version, and deliberately does not claim current-document authorization, chunk retrieval, embedding/vector search, grounding or inference semantics. Two test-only corrections kept source-version evidence within PostgreSQL bigint range while remaining above JavaScript safe-integer range, and preserved intended NULL Management-System evidence. No production schema/runtime semantics changed.
+

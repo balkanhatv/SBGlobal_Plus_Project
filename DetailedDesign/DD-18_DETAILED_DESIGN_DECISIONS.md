@@ -1889,3 +1889,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIMSG-PG-001` through `AIMSG-PG-007` in DD-17 and `tests/postgres/ai-message-store.test.mjs`.
 
+## DD-127 — AI RAGSource raw persistence is readable without becoming retrieval, ACL, chunking, embedding, grounding or inference authority
+
+**Context:** migration 0012 physically owns `core_ai.rag_source` as Tenant-Core or exact Tenant-Industry source-registration evidence under FORCE-RLS. Migration 0031 adds write-time DocumentMeta integrity: when a document reference exists, version/scope/residency/sensitivity must match an then-ACTIVE/CLEAN document; a document version cannot exist without a document id. Those write-time facts do not prove that the document remains current, clean, authorized or retrievable later. DD-09 separately requires scoped/ACL-governed RAG retrieval and treats retrieved content as untrusted data that cannot alter tool/authorization policy.
+
+**Decision:** add immutable `PersistedAIRAGSource`, `AIRAGSourceReadPort.loadForContext(...)` and `PostgresAIRAGSourceStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and returns only persisted source-registration evidence: Tenant/optional Industry ownership, constrained scope/sensitivity classes, raw source/module/MS/resource metadata, optional document id/version, raw residency/retention/ACL/status, exact bigint-text source version, raw chunking-policy version and timestamps. Schema-valid raw empty/null evidence is preserved and no timestamp ordering is invented.
+
+**Security / trade-off:** RAGSource FORCE-RLS remains authoritative. Industry sources are exact-context only; Tenant-Core sources are same-Tenant visible from Tenant Core or Tenant Industry contexts; the policy is scope-based rather than principal-private. Foreign-Tenant and PLATFORM_GLOBAL contexts do not expose Tenant source rows. Existing migration-owned AI Gateway RAGSource DML remains unchanged; the DD-127 application port itself is read-only.
+
+**Boundary:** DD-127 does not reload/revalidate current DocumentMeta; evaluate document ACL or `acl_policy_ref`; revalidate scan/status/sensitivity/residency; select current/latest source versions; dereference source resources; list chunks; execute chunking policy; select embedding models; perform vector search/retrieval/ranking/filtering/grounding; compose prompts; execute prompt-injection defenses; route providers/models; perform inference/RAG; expose public routes; or change schema/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIRAGSRC-PG-001` through `AIRAGSRC-PG-007` in DD-17 and `tests/postgres/ai-rag-source-store.test.mjs`.
+
