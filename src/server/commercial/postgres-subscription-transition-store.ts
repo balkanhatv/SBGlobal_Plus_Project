@@ -1,6 +1,6 @@
 import type { RequestContext } from "../../core/context/contracts.js";
+import type { CommercialSubscriptionState } from "../../core/commercial/current-state.js";
 import type {
-  CommercialSubscriptionState,
   PersistedSubscriptionTransition,
   SubscriptionTransitionReadPort,
 } from "../../core/commercial/subscription-transition.js";

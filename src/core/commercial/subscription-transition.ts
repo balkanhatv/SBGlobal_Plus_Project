@@ -1,13 +1,5 @@
 import type { RequestContext } from "../context/contracts.js";
-
-export type CommercialSubscriptionState =
-  | "PENDING"
-  | "TRIAL"
-  | "ACTIVE"
-  | "GRACE"
-  | "SUSPENDED"
-  | "EXPIRED"
-  | "CANCELLED";
+import type { CommercialSubscriptionState } from "./current-state.js";
 
 export interface PersistedSubscriptionTransition {
   readonly id: string;
