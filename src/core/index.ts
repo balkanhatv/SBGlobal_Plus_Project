@@ -17,6 +17,7 @@ export * from "./api/idempotency.js";
 export * from "./api/rate-limit.js";
 export * from "./authorization/contracts.js";
 export * from "./authorization/audit.js";
+export * from "./audit/audit-event.js";
 export * from "./authorization/policy-grammar.js";
 export * from "./authorization/read-store.js";
 export * from "./authorization/compiler-write.js";
