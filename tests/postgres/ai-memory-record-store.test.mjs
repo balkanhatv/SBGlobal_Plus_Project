@@ -94,20 +94,20 @@ before(async()=>{
        content_ref_or_encrypted_content,source_ref,sensitivity_class,retention_class,
        acl_policy_ref,status,created_at,expires_at,supersedes_id)
       VALUES
-      ($1,$8,$10,$9,NULL,'WORKING_CONTEXT','enc://old','source://old','CONFIDENTIAL','',
+      ($1,$7,$9,$8,NULL,'WORKING_CONTEXT','enc://old','source://old','CONFIDENTIAL','',
        'acl://principal-a','SUPERSEDED','2026-01-01T00:00:00Z','2027-01-01T00:00:00Z',NULL),
-      ($2,$8,$10,$9,NULL,'WORKING_CONTEXT','enc://current','source://current','REGULATED','LONG',
+      ($2,$7,$9,$8,NULL,'WORKING_CONTEXT','enc://current','source://current','REGULATED','LONG',
        'acl://principal-a','ACTIVE','2026-02-01T00:00:00Z','2027-02-01T00:00:00Z',$1),
-      ($3,$8,$11,$9,NULL,'SESSION','industry-a2',NULL,'INTERNAL','SESSION',
+      ($3,$7,$10,$8,NULL,'SESSION','industry-a2',NULL,'INTERNAL','SESSION',
        NULL,'ACTIVE','2026-03-01T00:00:00Z',NULL,NULL),
-      ($4,$8,$10,NULL,NULL,'INDUSTRY_KNOWLEDGE','shared-industry',NULL,'PUBLIC','KNOWLEDGE',
+      ($4,$7,$9,NULL,NULL,'INDUSTRY_KNOWLEDGE','shared-industry',NULL,'PUBLIC','KNOWLEDGE',
        'acl://shared','EXPIRED','2025-01-01T00:00:00Z','2026-01-01T00:00:00Z',NULL),
-      ($5,$8,NULL,$9,NULL,'USER_PREFERENCE','','','SENSITIVE_PERSONAL','',
+      ($5,$7,NULL,$8,NULL,'USER_PREFERENCE','','','SENSITIVE_PERSONAL','',
        NULL,'ERASED','2026-04-01T00:00:00Z',NULL,NULL),
-      ($6,$12,$13,$14,NULL,'INDUSTRY_KNOWLEDGE','tenant-b',NULL,'REGULATED','KNOWLEDGE',
+      ($6,$11,$12,$13,NULL,'INDUSTRY_KNOWLEDGE','tenant-b',NULL,'REGULATED','KNOWLEDGE',
        NULL,'ACTIVE','2026-05-01T00:00:00Z',NULL,NULL)`,
       [f.memoryOldA1,f.memoryCurrentA1,f.memoryIndustryA2,f.memorySharedA1,f.memoryTenantA,f.memoryTenantB,
-       null,f.tenantA,f.principalA,f.industryA1,f.industryA2,f.tenantB,f.industryB1,f.principalB]);
+       f.tenantA,f.principalA,f.industryA1,f.industryA2,f.tenantB,f.industryB1,f.principalB]);
 
     await client.query("COMMIT");
   }catch(error){await client.query("ROLLBACK");throw error;}finally{client.release();}
