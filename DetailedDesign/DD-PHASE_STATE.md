@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-OPERATOR-ELEVATION-TIME-STATUS-FLOOR-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-OPERATOR-ELEVATION-SUBJECT-TARGET-FLOOR-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -16,16 +16,16 @@
 ## All-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
-## Current Development overlay — 2026-09-23
+## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-OPERATOR-ELEVATION-TIME-STATUS-FLOOR-001`. Decisions are contiguous through DD-148.
+Current checkpoint: `DEV-OPERATOR-ELEVATION-SUBJECT-TARGET-FLOOR-001`. Decisions are contiguous through DD-149.
 
-Verified executable `f94cd8287e66daf7e9c2974a4539056f81bdebc9` / tree `9ca5cff5644470676fa3d8fb0ec560c522a1266d`: **318/318 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `51c936d935bbe7ff3d7f575e58eee139c7fe92ea` / tree `342e128a09553780e5383a86d640090ff2fd1e4e`: **325/325 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
 
-Promotion invariant gate `86840d3edcc45752d0aa9abcfe2de6268fb2b113` / tree `c171e7dee52b156c0c8af68d340124aa137db1dd`: Core run `35912001993` (Core job `107353903952`, PostgreSQL job `107353903392`), Database run `35912001954` (job `107353904022`), Web run `35912002028` (job `107353903368`) — SUCCESS; **148 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `3d7f96f4a7c2ec95efa6b31639bea0c05dde1d6a` / tree `8cd45ced033028fdaf814c94190e9cfc7923dd4b`: Core run `35913170548` (Core job `107357883015`, PostgreSQL job `107357883220`), Database run `35913170633` (job `107357883236`), Web run `35913170525` (job `107357883965`) — SUCCESS; **149 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-148 adds only the migration-owned OperatorElevation ACTIVE/time-window necessary floor. It does not bind principal/Tenant/Industry, evaluate permissions/approval, set request elevation scope or authorize access.
+DD-149 adds only the migration-owned OperatorElevation subject/target necessary floor: exact operator + Tenant, Tenant-wide NULL Industry compatibility, and exact Industry match when targeted. It does not establish PLATFORM_OPERATOR identity, evaluate DD-148 time/status, permissions/approval, set request elevation scope or authorize access.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation selection, PLATFORM_OPERATOR binding, exact Tenant/Industry target binding, permission-profile evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.
+Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation selection, interactive PLATFORM_OPERATOR identity binding, permission-profile evaluation, approval/purpose policy, combined elevation decision, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.
