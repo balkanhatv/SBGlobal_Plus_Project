@@ -1708,3 +1708,26 @@ Missing well-formed id returns `null`; malformed id or route/context mismatch fa
 ### AIAGENTSTEP-PG-007 — Raw step fields are not current eligibility/approval/execution authority
 The store exposes no mutation/list/plan/next-step/tool-binding-resolution/approval-resolution/execute method; migration-owned DML privileges remain unchanged.
 
+## DD-132 AI AgentApproval Raw Persistence Reader Acceptance
+
+### AIAGENTAPP-PG-001 — Exact Industry approval evidence
+Exact approval-id lookup returns immutable raw scope/status/permission/approver/timestamp evidence without approval-satisfied/resumable/executable semantics.
+
+### AIAGENTAPP-PG-002 — Sibling Industry isolation
+An Industry approval is hidden from a sibling Industry Context; its exact context may read it.
+
+### AIAGENTAPP-PG-003 — Tenant-Core visibility and raw evidence preservation
+A Tenant-Core approval is same-Tenant visible from Core and Industry contexts; schema-valid empty and nullable evidence remains raw.
+
+### AIAGENTAPP-PG-004 — Scope-only RLS is not approver authority
+Another principal in the same Tenant/Industry may read approval evidence because AgentApproval RLS is scope-only; the read result confers no approval authority.
+
+### AIAGENTAPP-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts cannot expose Tenant approval rows.
+
+### AIAGENTAPP-PG-006 — Missing/malformed/route mismatch behavior
+Missing well-formed id returns `null`; malformed id or route/context mismatch fails closed.
+
+### AIAGENTAPP-PG-007 — APPROVED persistence is not current satisfaction/resume/execution authority
+Migration-owned DML privileges remain unchanged; the DD-132 store exposes no mutation/revalidation/satisfaction/resume/tool-execution method.
+
