@@ -1,14 +1,13 @@
-# CORE SERVICE CHECKPOINT — DEV-OPERATOR-ELEVATION-TIME-STATUS-FLOOR-001
+# CORE SERVICE CHECKPOINT — DEV-OPERATOR-ELEVATION-SUBJECT-TARGET-FLOOR-001
 **Updated:** 2026-09-23 · **Branch:** `docs/architecture-branch-2`
 
-Verified executable `f94cd8287e66daf7e9c2974a4539056f81bdebc9` / tree `9ca5cff5644470676fa3d8fb0ec560c522a1266d`: **318/318 Core**, **469/469 PostgreSQL**, Database/Web PASS. Zero failed/skipped tests.
+Verified executable `51c936d935bbe7ff3d7f575e58eee139c7fe92ea` / tree `342e128a09553780e5383a86d640090ff2fd1e4e`: **325/325 Core**, **469/469 PostgreSQL**, Database/Web PASS.
 
-Promotion invariant gate `86840d3edcc45752d0aa9abcfe2de6268fb2b113` / tree `c171e7dee52b156c0c8af68d340124aa137db1dd`: Core run `35912001993` (Core job `107353903952`, PostgreSQL job `107353903392`), Database run `35912001954` (job `107353904022`), Web run `35912002028` (job `107353903368`) — SUCCESS; **148 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `3d7f96f4a7c2ec95efa6b31639bea0c05dde1d6a` / tree `8cd45ced033028fdaf814c94190e9cfc7923dd4b`: Core run `35913170548` (Core job `107357883015`, PostgreSQL job `107357883220`), Database run `35913170633` (job `107357883236`), Web run `35913170525` (job `107357883965`) — SUCCESS; **149 unique DD definitions**.
 
-`OPELEV-WIN-001…007` prove ACTIVE-only matching, inclusive start, exclusive expiry, non-ACTIVE denial, outside-window denial, malformed-time fail closed and non-interpretation/non-mutation of unrelated elevation metadata.
+`OPELEV-BIND-001…007` prove exact operator/Tenant matching, Tenant-wide Industry behavior, exact Industry target matching, sibling/missing Industry denial, mismatch denial, malformed-UUID fail-closed and non-interpretation of lifecycle/policy evidence.
 
 ## Remaining scope
+Trusted elevation-id selection; interactive PLATFORM_OPERATOR authentication/binding; permission-profile evaluation; approval/purpose/ticket policy; DD-148 time/status composition into a final decision; RequestContext/SQL elevation injection; mandatory audit; mutation and transport remain unimplemented unless separately source-owned.
 
-Trusted elevation selection; interactive PLATFORM_OPERATOR binding; Tenant/Industry target binding; permission-profile evaluation; approval/purpose/ticket policy; RequestContext and transaction-local `app.operator_elevation_id` injection; mandatory elevation-use audit; mutation workflow; transport/UI remain unimplemented unless separately source-owned.
-
-Evidence: `Registers/DEVELOPMENT_DD148_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD149_VERIFICATION_2026-09-23.md`.

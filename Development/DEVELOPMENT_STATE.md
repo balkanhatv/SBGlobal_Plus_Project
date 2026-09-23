@@ -1,18 +1,18 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-23 · **Checkpoint:** `DEV-OPERATOR-ELEVATION-TIME-STATUS-FLOOR-001`
+**Updated:** 2026-09-23 · **Checkpoint:** `DEV-OPERATOR-ELEVATION-SUBJECT-TARGET-FLOOR-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `f94cd8287e66daf7e9c2974a4539056f81bdebc9` / tree `9ca5cff5644470676fa3d8fb0ec560c522a1266d`: **318/318 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `51c936d935bbe7ff3d7f575e58eee139c7fe92ea` / tree `342e128a09553780e5383a86d640090ff2fd1e4e`: **325/325 Core**, **469/469 PostgreSQL**, Database/Web PASS.
 
-Promotion invariant gate `86840d3edcc45752d0aa9abcfe2de6268fb2b113` / tree `c171e7dee52b156c0c8af68d340124aa137db1dd`: Core run `35912001993` (Core job `107353903952`, PostgreSQL job `107353903392`), Database run `35912001954` (job `107353904022`), Web run `35912002028` (job `107353903368`) — SUCCESS; **148 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `3d7f96f4a7c2ec95efa6b31639bea0c05dde1d6a` / tree `8cd45ced033028fdaf814c94190e9cfc7923dd4b`: Core run `35913170548` (Core job `107357883015`, PostgreSQL job `107357883220`), Database run `35913170633` (job `107357883236`), Web run `35913170525` (job `107357883965`) — SUCCESS; **149 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-148 implements only the deterministic OperatorElevation ACTIVE/time-window necessary floor. It does not activate elevation or grant request access.
+DD-149 implements only the deterministic OperatorElevation subject/target necessary floor. It does not trust elevation selection or authorize request access.
 
-Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–148**.
+Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–149**.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep elevation selection/binding/profile/approval/request-scope/audit semantics outside scope unless separately source-owned.
+Next: Fresh source-audit the next runtime prerequisite. Keep trusted selection, PLATFORM_OPERATOR authentication, profile/approval policy, request-scope injection and mandatory audit outside scope unless separately source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD148_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD149_VERIFICATION_2026-09-23.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.

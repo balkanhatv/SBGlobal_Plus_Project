@@ -30,12 +30,12 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-23
 
-Current checkpoint: `DEV-OPERATOR-ELEVATION-TIME-STATUS-FLOOR-001`. Decisions are contiguous through DD-148.
+Current checkpoint: `DEV-OPERATOR-ELEVATION-SUBJECT-TARGET-FLOOR-001`. Decisions are contiguous through DD-149.
 
-Verified executable `f94cd8287e66daf7e9c2974a4539056f81bdebc9` / tree `9ca5cff5644470676fa3d8fb0ec560c522a1266d`: **318/318 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `51c936d935bbe7ff3d7f575e58eee139c7fe92ea` / tree `342e128a09553780e5383a86d640090ff2fd1e4e`: **325/325 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `86840d3edcc45752d0aa9abcfe2de6268fb2b113` / tree `c171e7dee52b156c0c8af68d340124aa137db1dd`: Core run `35912001993` (Core job `107353903952`, PostgreSQL job `107353903392`), Database run `35912001954` (job `107353904022`), Web run `35912002028` (job `107353903368`) — SUCCESS; **148 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `3d7f96f4a7c2ec95efa6b31639bea0c05dde1d6a` / tree `8cd45ced033028fdaf814c94190e9cfc7923dd4b`: Core run `35913170548` (Core job `107357883015`, PostgreSQL job `107357883220`), Database run `35913170633` (job `107357883236`), Web run `35913170525` (job `107357883965`) — SUCCESS; **149 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-148 adds only the migration-0029-owned OperatorElevation current status/time floor: ACTIVE status, inclusive start, exclusive expiry, explicit evaluation instant, malformed-time fail closed. This is a necessary predicate only and does not select/bind/activate elevation or grant access.
+DD-149 adds only migration 0029's exact operator-principal + Tenant + optional Industry target binding floor. A persisted null Industry target is Tenant-wide for this elevation-record predicate; a non-null Industry target requires exact Industry. It does not select/trust an elevation id or grant access.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation selection, PLATFORM_OPERATOR identity binding, exact Tenant/Industry target binding, permission-profile evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.
+Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation-id selection, interactive PLATFORM_OPERATOR authentication, permission-profile evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.

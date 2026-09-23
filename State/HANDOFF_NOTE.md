@@ -1,14 +1,12 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-23 · **Checkpoint:** `DEV-OPERATOR-ELEVATION-TIME-STATUS-FLOOR-001`
+**Updated:** 2026-09-23 · **Checkpoint:** `DEV-OPERATOR-ELEVATION-SUBJECT-TARGET-FLOOR-001`
 
 Fresh-fetch remote branch/HEAD/tree/checks before further work.
 
-Verified executable `f94cd8287e66daf7e9c2974a4539056f81bdebc9` / tree `9ca5cff5644470676fa3d8fb0ec560c522a1266d`: **318/318 Core**, **469/469 PostgreSQL**, Database/Web PASS.
+Verified executable `51c936d935bbe7ff3d7f575e58eee139c7fe92ea` / tree `342e128a09553780e5383a86d640090ff2fd1e4e`: **325/325 Core**, **469/469 PostgreSQL**, Database/Web PASS.
 
-Promotion invariant gate `86840d3edcc45752d0aa9abcfe2de6268fb2b113` / tree `c171e7dee52b156c0c8af68d340124aa137db1dd`: Core run `35912001993` (Core job `107353903952`, PostgreSQL job `107353903392`), Database run `35912001954` (job `107353904022`), Web run `35912002028` (job `107353903368`) — SUCCESS; **148 unique DD definitions**.
+Promotion invariant gate `3d7f96f4a7c2ec95efa6b31639bea0c05dde1d6a` / tree `8cd45ced033028fdaf814c94190e9cfc7923dd4b`: Core run `35913170548` (Core job `107357883015`, PostgreSQL job `107357883220`), Database run `35913170633` (job `107357883236`), Web run `35913170525` (job `107357883965`) — SUCCESS.
 
-DD-148 is only the status/time floor from migration 0029. Read `Development/OPERATOR_ELEVATION_CURRENT_WINDOW_PREREQUISITE_OWNERSHIP_AUDIT.md` and `Registers/DEVELOPMENT_DD148_VERIFICATION_2026-09-23.md` before extending OperatorElevation.
-
-Next: Fresh source-audit trusted selection/binding/profile/approval/request-scope/audit prerequisites.
+DD-149 is only the operator/Tenant/optional-Industry binding floor. Read `Development/OPERATOR_ELEVATION_SUBJECT_TARGET_PREREQUISITE_OWNERSHIP_AUDIT.md` and `Registers/DEVELOPMENT_DD149_VERIFICATION_2026-09-23.md` before extending elevation behavior.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.
