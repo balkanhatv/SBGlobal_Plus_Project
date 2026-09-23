@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-TOOL-SET-MEMBER-READ-001`
+**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-PROMPT-SET-MEMBER-READ-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,12 +18,12 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-23
 
-Current checkpoint: `DEV-AI-TOOL-SET-MEMBER-READ-001`. Decisions are contiguous through DD-113. Historical Phase-3 completion applies to its evaluated scope.
+Current checkpoint: `DEV-AI-PROMPT-SET-MEMBER-READ-001`. Decisions are contiguous through DD-114. Historical Phase-3 completion applies to its evaluated scope.
 
-Verified executable `85e16581eb117314ada8ab9ba137768371016bf3` / tree `69a30456316baac98c439499b73669be8af445b2`: **311/311 Core**, **231/231 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
+Verified executable `33649045e4cf6de2f043614ad07c26ed957ca241` / tree `9749a789be340dffc7b7e502715a5619e8f06624`: **311/311 Core**, **238/238 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
 
-Promotion invariant gate `1ee703d58d21a25f7c96ad056b34c1f0babb554a` / tree `24d7702008d3c77f7c54ea7d9379f7422e113402`: Core run `35818233377` (Core job `107044302891`, PostgreSQL job `107044302945`), Database run `35818233384` (job `107044303161`), Web run `35818233378` (job `107044302822`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 113 unique DD definitions**.
+Promotion invariant gate `c487cb825494bc53fc794202dbe691c8d050f61c` / tree `6e0943855ddcce4cd3dd7bf0f59d24a55a1a7784`: Core run `35819342841` (Core job `107047649300`, PostgreSQL job `107047649020`), Database run `35819342753` (job `107047648783`), Web run `35819342805` (job `107047648893`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 114 unique DD definitions**.
 
-DD-113 adds an exact-by-id scoped `core_ai.ai_tool_set_member` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. Child-row visibility remains parent-derived FORCE-RLS. The reader returns only member id, ToolSet id, Tool Definition id, raw enabled flag, immutable normalized `constraint_json`, and created timestamp. It does not calculate effective membership, interpret constraints, select ACTIVE/current ToolSets, revalidate execution eligibility or execute a tool. Existing database DML privileges remain migration-owned; PLATFORM-parent writes remain protected by existing definition-member/control-plane policies.
+DD-114 adds an exact-by-id scoped `core_ai.ai_prompt_set_member` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. Child-row visibility remains parent-derived FORCE-RLS. The reader returns only member id, PromptSet id, PromptTemplate id, raw integer priority, raw enabled flag and created timestamp. It does not calculate effective membership, order/select prompts, revalidate execution eligibility, render a PromptTemplate or execute a prompt. Existing database DML privileges remain migration-owned; PLATFORM-parent writes remain protected by existing definition-member/control-plane policies.
 
-Next: Fresh source-audit the next independent source-complete persistence slice. Do not open effective ToolSet membership, constraint interpretation, tool authorization/execution, provider/model selection, eligibility/routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent execution, `AIProvisioningSnapshot` compilation/current-selection, prompt rendering/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.
+Next: Fresh source-audit the next independent source-complete persistence slice. Do not open effective PromptSet membership, prompt rendering/composition, IndustryAIConfig current resolution, provider/model selection, eligibility/routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent/tool execution, `AIProvisioningSnapshot` compilation/current-selection, prompt-policy evaluation or Workflow/Automation runtime semantics without source-owned authority.
