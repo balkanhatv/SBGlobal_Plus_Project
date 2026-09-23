@@ -2054,3 +2054,27 @@ A missing well-formed OperatorElevation UUID returns `null`; malformed ids fail 
 
 ### OPELEV-META-PG-007 — Control Plane DML ownership does not become DD-146 mutation/approval/authorization authority
 Schema-owned Control Plane SELECT/INSERT/UPDATE/DELETE remains unchanged, while the DD-146 port exposes exact read only. It exposes no create/approve/activate/revoke/expire/update/delete/list/search/authorize/permission-profile-resolution method.
+
+
+## DD-147 API Credential Verification-Material Source Acceptance
+
+### APICRED-VERIFY-PG-001 — Exact unique prefix returns opaque verifier material and Tenant-Core scope evidence
+An exact persisted API Credential key-prefix lookup through the fixed Identity-service boundary returns one unique candidate with opaque one-way verifier hash and physical Tenant-Core ownership/version evidence. The reader itself does not authenticate the presented credential.
+
+### APICRED-VERIFY-PG-002 — Tenant-Industry candidate preserves exact Industry evidence
+An Industry-scoped candidate preserves its exact persisted Industry Context and immutable allowed-Industry evidence without widening to sibling/cross-context authority.
+
+### APICRED-VERIFY-PG-003 — PLATFORM_GLOBAL service material remains Identity-service-only
+A PLATFORM_GLOBAL service credential candidate is readable through the dedicated pre-context `sbg_identity_service_rw` boundary while ordinary application direct SELECT remains revoked.
+
+### APICRED-VERIFY-PG-004 — Non-active/expired candidates remain raw verification material
+SUSPENDED, REVOKED and EXPIRED candidates remain readable as source material. The reader does not decide current usability, authentication success or authorization.
+
+### APICRED-VERIFY-PG-005 — Nullable CIDR and signed bigint version evidence remain lossless
+Schema-valid NULL CIDR evidence remains absent, non-null CIDR arrays remain immutable, and the exact signed PostgreSQL bigint credential version remains decimal text without safe-integer coercion.
+
+### APICRED-VERIFY-PG-006 — Unknown prefix is null and source uniqueness remains authoritative
+An unknown exact prefix returns `null`; migration-owned `api_credential_key_prefix_uq` remains the authority preventing ambiguous matches.
+
+### APICRED-VERIFY-PG-007 — Sensitive source remains internal and does not become the machine verifier
+The server-internal port exposes exact prefix lookup only. It exposes no verify/authenticate/hash-compare/CIDR-enforcement/last-used mutation/create/rotate/revoke/update/delete/list/search method and is not exported through the Core index.
