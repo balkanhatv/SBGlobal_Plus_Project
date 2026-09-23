@@ -1800,3 +1800,26 @@ A missing well-formed UUID returns `null`; malformed id or database route/contex
 ### FORMDEF-PG-007 — Raw form evidence is not field/render/validation/submit authority
 The application role retains migration-owned table privileges subject to current RLS/write floors, but DD-135 exposes no create/update/delete/current-selection/list-fields/compile/render/validate/submit method.
 
+## DD-136 FormFieldDefinition Raw Persistence Reader Acceptance
+
+### FORMFIELD-PG-001 — Exact Industry-parent field raw evidence
+Exact FormFieldDefinition-id lookup in the owning Industry Context returns immutable parent id, raw key/type/label/required/read-only/visibility/validation/reference/sort/sensitivity and created timestamp evidence without field enforcement/render/validation/catalog/access/submit authority.
+
+### FORMFIELD-PG-002 — Sibling Industry parent-scope isolation
+A FormFieldDefinition under a sibling-Industry FormDefinition is hidden by parent-derived FORCE-RLS; its exact Industry Context may read the child.
+
+### FORMFIELD-PG-003 — Tenant-parent same-Tenant visibility and raw evidence preservation
+A child under a Tenant FormDefinition is visible from same-Tenant Core and Industry contexts even when the parent is non-ACTIVE. Schema-valid empty text, nullable references, negative sort order and raw validation JSON remain persistence facts.
+
+### FORMFIELD-PG-004 — PLATFORM-parent field requires PLATFORM_GLOBAL
+Tenant contexts receive no implicit PLATFORM-parent field fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact child.
+
+### FORMFIELD-PG-005 — Foreign Tenant parent isolation
+A child under a foreign-Tenant FormDefinition is hidden; the owning Tenant context may read its raw row.
+
+### FORMFIELD-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed UUID returns `null`; malformed id or database route/context mismatch fails closed before disclosure.
+
+### FORMFIELD-PG-007 — Raw field evidence is not enforcement/render/validation/catalog/access/submit authority
+The application role retains migration-owned table privileges subject to parent-derived RLS and PLATFORM-parent write floors, but DD-136 exposes no create/update/delete/list/sort/render/validate/evaluate-visibility/resolve-catalog/submit method.
+
