@@ -1754,3 +1754,26 @@ A missing well-formed UUID returns `null`; malformed id or database route/contex
 ### METADATADEF-PG-007 — Raw ACTIVE/schema/effective evidence is not selection/validation/compile authority
 The application role retains migration-owned MetadataDefinition DML privileges, but DD-133 exposes no create/update/delete/current-selection/effective-resolution/schema-validation/compile method.
 
+## DD-134 RuleDefinition Raw Persistence Reader Acceptance
+
+### RULEDEF-PG-001 — Exact Industry definition raw evidence
+Exact RuleDefinition-id lookup in the owning Industry Context returns immutable scope, code/version/status/schema-version, frozen input-schema/condition-AST/decision JSON, raw priority/safety/permission, creator/approver and timestamp evidence without selected/evaluated/authorized/applied authority.
+
+### RULEDEF-PG-002 — Sibling Industry isolation
+A sibling-Industry RuleDefinition is hidden by FORCE-RLS; its exact Industry Context may read the row.
+
+### RULEDEF-PG-003 — Tenant definition same-Tenant visibility and raw evidence preservation
+A Tenant-owned RuleDefinition is visible from same-Tenant Core and Industry contexts. Schema-valid empty code/permission, negative priority, nullable approver and unordered effective timestamps remain raw persistence facts.
+
+### RULEDEF-PG-004 — PLATFORM definition requires PLATFORM_GLOBAL
+Tenant contexts receive no implicit PLATFORM RuleDefinition fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact PLATFORM row.
+
+### RULEDEF-PG-005 — Foreign Tenant isolation
+A foreign-Tenant RuleDefinition is hidden; the owning Tenant context may read its raw row.
+
+### RULEDEF-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed UUID returns `null`; malformed id or database route/context mismatch fails closed before disclosure.
+
+### RULEDEF-PG-007 — Raw rule evidence is not selection/evaluation/authorization/application authority
+The application role retains migration-owned table privileges subject to current RLS/write floors, but DD-134 exposes no create/update/delete/current-selection/effective-resolution/evaluate/authorize/apply method.
+
