@@ -1,3 +1,9 @@
+export type AIToolDefinitionScopeClass =
+  | "PLATFORM_GLOBAL"
+  | "TENANT_CORE"
+  | "TENANT_INDUSTRY"
+  | "EXPLICIT_CROSS_CONTEXT";
+
 export type AIToolSideEffectClass = "NONE" | "LOW" | "CONTROLLED" | "HIGH";
 
 export interface AIToolDefinitionCatalogMetadata {
@@ -5,7 +11,7 @@ export interface AIToolDefinitionCatalogMetadata {
   readonly toolId: string;
   readonly capabilityCode: string;
   readonly operationContractId: string;
-  readonly scopeClass: string;
+  readonly scopeClass: AIToolDefinitionScopeClass;
   readonly requiredPermission: string;
   readonly requiredEntitlement: string | null;
   readonly inputSchemaVersion: number;

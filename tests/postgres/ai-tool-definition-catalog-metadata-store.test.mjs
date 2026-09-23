@@ -58,7 +58,7 @@ before(async () => {
         (id,tool_id,capability_code,operation_contract_id,scope_class,required_permission,
          required_entitlement,input_schema_version,output_schema_version,side_effect_class,
          approval_policy_id,idempotency_required,audit_class,status,version,created_at,updated_at)
-       VALUES ($1::uuid,$2,$3,'','','','',1,1,'NONE',NULL,false,'','',1,$4::timestamptz,$4::timestamptz)`,
+       VALUES ($1::uuid,$2,$3,'','PLATFORM_GLOBAL','','',1,1,'NONE',NULL,false,'','',1,$4::timestamptz,$4::timestamptz)`,
       [emptyEvidenceToolDefinitionId, emptyEvidenceToolId, capabilityCode, createdAt],
     );
     await client.query("COMMIT");
@@ -126,11 +126,11 @@ test("AITOOLDEF-PG-002 absent tool definition returns null and malformed id fail
   await assert.rejects(store.loadById("not-a-uuid"));
 });
 
-test("AITOOLDEF-PG-003 nullable and empty schema-valid catalog evidence is not strengthened", async () => {
+test("AITOOLDEF-PG-003 nullable and schema-valid empty/raw catalog evidence is not strengthened", async () => {
   const row = await store.loadById(emptyEvidenceToolDefinitionId);
   assert.ok(row);
   assert.equal(row.operationContractId, "");
-  assert.equal(row.scopeClass, "");
+  assert.equal(row.scopeClass, "PLATFORM_GLOBAL");
   assert.equal(row.requiredPermission, "");
   assert.equal(row.requiredEntitlement, "");
   assert.equal(row.sideEffectClass, "NONE");

@@ -1,6 +1,7 @@
 import type {
   AIToolDefinitionCatalogMetadata,
   AIToolDefinitionCatalogMetadataReadPort,
+  AIToolDefinitionScopeClass,
   AIToolSideEffectClass,
 } from "../../core/ai/tool-definition-catalog-metadata.js";
 import type { SqlDatabase, SqlTransaction } from "../database/contracts.js";
@@ -34,6 +35,13 @@ export class AIToolDefinitionCatalogPersistenceError extends Error {
 
 const UUID_PATTERN =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+const TOOL_SCOPE_CLASSES = new Set<AIToolDefinitionScopeClass>([
+  "PLATFORM_GLOBAL",
+  "TENANT_CORE",
+  "TENANT_INDUSTRY",
+  "EXPLICIT_CROSS_CONTEXT",
+]);
 
 const SIDE_EFFECT_CLASSES = new Set<AIToolSideEffectClass>([
   "NONE",
@@ -87,6 +95,13 @@ function booleanValue(value: unknown, field: string): boolean {
   return value;
 }
 
+function toolScopeClass(value: unknown): AIToolDefinitionScopeClass {
+  if (typeof value !== "string" || !TOOL_SCOPE_CLASSES.has(value as AIToolDefinitionScopeClass)) {
+    invalid("Persisted AIToolDefinition scope class is invalid.");
+  }
+  return value as AIToolDefinitionScopeClass;
+}
+
 function sideEffectClass(value: unknown): AIToolSideEffectClass {
   if (typeof value !== "string" || !SIDE_EFFECT_CLASSES.has(value as AIToolSideEffectClass)) {
     invalid("Persisted AIToolDefinition side effect class is invalid.");
@@ -108,7 +123,7 @@ function parseRow(row: AIToolDefinitionCatalogMetadataRow): AIToolDefinitionCata
     toolId: textValue(row.tool_id, "tool id"),
     capabilityCode: textValue(row.capability_code, "capability code"),
     operationContractId: textValue(row.operation_contract_id, "operation contract id"),
-    scopeClass: textValue(row.scope_class, "scope class"),
+    scopeClass: toolScopeClass(row.scope_class),
     requiredPermission: textValue(row.required_permission, "required permission"),
     requiredEntitlement: nullableText(row.required_entitlement, "required entitlement"),
     inputSchemaVersion: positiveInteger(row.input_schema_version, "input schema version"),

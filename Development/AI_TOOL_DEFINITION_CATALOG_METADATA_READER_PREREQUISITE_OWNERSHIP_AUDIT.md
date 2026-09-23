@@ -1,6 +1,7 @@
 # AI Tool Definition Catalog Metadata Reader prerequisite ownership audit
 
 **Date:** 2026-09-22  
+**Correction:** 2026-09-23 — reconciled migration `0029_scope_privilege_identity_hardening.sql`, which constrains AI tool-definition `scope_class` to the governed four-value catalog vocabulary.  
 **Baseline checkpoint:** `DEV-AI-CAPABILITY-CATALOG-READ-001`  
 **Baseline branch head:** `a5f26ca269fc202ccda9c23f8b3442ec57433393`  
 **Scope:** next independent governed continuation after DD-109.
@@ -13,6 +14,7 @@ Relevant source owners:
 
 - `database/migrations/0013_ai_agents_tools.sql`
 - `database/migrations/0014_ai_gateway_role.sql`
+- `database/migrations/0029_scope_privilege_identity_hardening.sql`
 - `database/migrations/0031_document_workflow_ai_integrity.sql`
 - `Architecture/A-07_AI_PLATFORM_ARCHITECTURE.md`
 - `DetailedDesign/DD-09_AI_RAG_AGENT_DESIGN.md`
@@ -29,7 +31,7 @@ Migration 0013 and DD-09 own exactly these persisted tool-definition facts:
 - unique non-null `tool_id` text;
 - non-null `capability_code` text referencing `core_ai.ai_capability(code)`;
 - non-null `operation_contract_id` text;
-- non-null `scope_class` text;
+- non-null `scope_class` text constrained by migration 0029 to `PLATFORM_GLOBAL`, `TENANT_CORE`, `TENANT_INDUSTRY`, or `EXPLICIT_CROSS_CONTEXT`;
 - non-null `required_permission` text;
 - nullable `required_entitlement` text;
 - positive non-null `input_schema_version`;
@@ -58,7 +60,7 @@ Authorized returned evidence:
 - `toolId`;
 - `capabilityCode`;
 - raw `operationContractId`;
-- raw `scopeClass`;
+- raw constrained `scopeClass`;
 - raw `requiredPermission`;
 - nullable raw `requiredEntitlement`;
 - positive `inputSchemaVersion`;
@@ -75,7 +77,8 @@ Validation must remain schema-aligned only:
 
 - UUID validation for `id` and nullable `approval_policy_id`;
 - side-effect validation only against the exact database-owned enum values;
-- text values remain text without inventing non-empty constraints absent from the schema;
+- scope-class validation only against the exact database-owned CHECK values;
+- other text values remain text without inventing non-empty constraints absent from the schema;
 - nullable `required_entitlement` preserves `NULL` versus text exactly;
 - schema versions and `version` are positive safe integers;
 - `idempotency_required` remains a boolean fact and does not execute idempotency;
