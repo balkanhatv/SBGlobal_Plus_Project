@@ -22,6 +22,7 @@ export * from "./authorization/operator-elevation-window.js";
 export * from "./authorization/operator-elevation-subject-target.js";
 export * from "./authorization/operator-elevation-verified-operator.js";
 export * from "./authorization/operator-elevation-selected-id.js";
+export * from "./authorization/operator-elevation-core-floors.js";
 export * from "./authorization/audit.js";
 export * from "./audit/audit-event.js";
 export * from "./authorization/policy-grammar.js";
