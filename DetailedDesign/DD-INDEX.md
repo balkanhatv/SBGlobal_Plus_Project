@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-AGENT-DEFINITION-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-TENANT-CONFIG-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-118**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-119**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-118 adds an exact-by-id scoped `core_ai.agent_definition` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. FORCE-RLS scope, raw code/objective/risk/status, allowed ToolSet, approval-policy and budget-policy references, positive version and timestamps remain persisted definition evidence only. The reader intentionally does not revalidate the referenced ToolSet current activity and does not select, authorize, approve, budget or execute an Agent. Existing migration-owned AgentDefinition DML authority remains unchanged; PLATFORM mutation remains protected by migration 0032.
+DD-119 adds an exact-by-id Tenant-scoped `core_ai.tenant_ai_config` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. Tenant FORCE-RLS, raw enablement, capability/provider/model allowlists, sensitivity ceiling, policy references, positive version and updated timestamp remain persisted configuration evidence only. The reader does not select latest/current/effective Tenant configuration, compile provisioning, evaluate eligibility/policy or route/execute AI. Existing migration-owned TenantAIConfig DML authority remains unchanged.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `5875b5ddf7b6a5b80f40cbb30dcc21015b96805e` / tree `c4468cd7975eafb9f4fc95c042d55f20824d0a9e` — 311 Core tests, 266 PostgreSQL tests including `AIAGENTDEF-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `fabf46efd14a74d4f2d7d1383bfc96af3de8322a` / tree `d5b096b14b83198ef50b3b0cde553b53a53aa2d0`: Core run `35822809880` (Core job `107058085907`, PostgreSQL job `107058085730`), Database run `35822809882` (job `107058085633`), Web run `35822809806` (job `107058085407`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 118 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD118_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `20f7f4929eaef9a5eee23fd601efa35c44c35139` / tree `63685b07fb9ac60f63aa8b081130fb905e4b327b` — 311 Core tests, 273 PostgreSQL tests including `AITENCFG-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `1ea88e19e17b1157a55133e3f6dbf7e5fe4c0360` / tree `02a7ea6d3a22e35a149f01f140d8d352345359fd`: Core run `35825278568` (Core job `107065518567`, PostgreSQL job `107065518916`), Database run `35825278683` (job `107065518957`), Web run `35825278656` (job `107065519027`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 119 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD119_VERIFICATION_2026-09-23.md).
