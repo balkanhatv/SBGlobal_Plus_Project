@@ -1432,3 +1432,26 @@ A missing well-formed config UUID returns `null`; malformed UUID or database rou
 ### AITENCFG-PG-007 — Database DML privilege is not application mutation/provisioning authority
 The AI Gateway role retains migration-owned TenantAIConfig DML privileges, but the DD-119 store exposes no create/update/delete/latest/effective/provision/route/execute method.
 
+## DD-120 AI IndustryAIConfig Raw Persistence Reader Acceptance
+
+### AIINDCFG-PG-001 — Exact Industry configuration raw evidence
+Exact config-id lookup in the owning Tenant+Industry Context returns immutable raw enablement, capability/provider/model allowlists, optional domain PromptSet reference, country-pack refs, optional localization-profile reference, positive version and updated timestamp without current/effective/provisioned authority.
+
+### AIINDCFG-PG-002 — Tenant Core and sibling Industry non-visibility
+Tenant Core and sibling Industry Contexts cannot read an IndustryAIConfig row; the exact owning Industry Context may read it.
+
+### AIINDCFG-PG-003 — Foreign Tenant isolation
+A foreign-Tenant IndustryAIConfig row is hidden; its owning Tenant+Industry Context may read the exact persisted row.
+
+### AIINDCFG-PG-004 — PLATFORM_GLOBAL does not bypass Industry RLS
+Trusted PLATFORM_GLOBAL context does not implicitly expose IndustryAIConfig rows through the exact-Industry reader.
+
+### AIINDCFG-PG-005 — Exact versions remain distinct
+Two persisted versions for one Industry Context remain independently addressable by id. Nullable/empty localization and optional PromptSet evidence is preserved; the reader does not choose latest/current/effective configuration or merge Tenant policy.
+
+### AIINDCFG-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed config UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIINDCFG-PG-007 — Database DML privilege is not application merge/provision authority
+The AI Gateway role retains migration-owned IndustryAIConfig DML privileges, but the DD-120 store exposes no create/update/delete/latest/effective/Tenant-merge/provision/route/execute method.
+
