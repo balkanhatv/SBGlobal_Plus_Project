@@ -1769,3 +1769,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIPOLICY-PG-001` through `AIPOLICY-PG-007` in DD-17 and `tests/postgres/ai-policy-store.test.mjs`.
 
+## DD-117 — AI AssistantDefinition raw persistence is readable without becoming Assistant selection, prompt/RAG/tool resolution or execution authority
+
+**Context:** migration 0012 physically owns `core_ai.assistant_definition` with PLATFORM/TENANT/INDUSTRY ownership, allowed-capability array, RAG-scope JSON and prompt/tool/model/retention references. Migration 0031 adds the ToolSet foreign key, ACTIVE-version uniqueness and write-time integrity requiring a duplicate-free/null-free capability set whose codes are ACTIVE, an ACTIVE same-or-broader PromptTemplate, and an ACTIVE same-or-broader optional ToolSet. Those write-time facts do not make a persisted AssistantDefinition row a current runtime selection or authorization decision. DD-09 keeps prompt execution, RAG, model routing, current RequestContext authorization and tool execution in separate runtime behavior.
+
+**Decision:** add immutable `PersistedAIAssistantDefinition`, `AIAssistantDefinitionReadPort.loadForContext(...)` and `PostgresAIAssistantDefinitionStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and returns only persisted evidence: id, owner scope, optional Tenant/Industry ownership, raw code, immutable duplicate-free allowed-capability string array, normalized/frozen RAG-scope JSON, PromptTemplate id, optional ToolSet id, optional model-policy id, retention-policy id, positive version, raw status and timestamps. Missing rows return null; malformed identifiers, malformed persisted shapes or route/context mismatch fail closed.
+
+**Security / trade-off:** FORCE-RLS remains authoritative. Industry AssistantDefinitions are exact-context only; Tenant definitions remain same-Tenant visible; PLATFORM definitions require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback. Existing migration-owned AssistantDefinition DML authority remains unchanged and migration 0032 still blocks PLATFORM mutation for the AI Gateway role. DD-117 intentionally does not revalidate referenced capability/PromptTemplate/ToolSet current activity while reading; historical persisted references remain evidence only.
+
+**Boundary:** DD-117 does not select ACTIVE/current/latest Assistants; perform code/version fallback; re-evaluate capability activity/eligibility or entitlements; load/render PromptTemplates; resolve effective ToolSets/members; interpret `rag_scope_rules`; resolve model/retention policies; select providers/models/routes; create/bind conversations; evaluate RequestContext permissions/approvals; execute tools/agents; resolve credentials; perform inference/embeddings/RAG; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIASSIST-PG-001` through `AIASSIST-PG-007` in DD-17 and `tests/postgres/ai-assistant-definition-store.test.mjs`.
+

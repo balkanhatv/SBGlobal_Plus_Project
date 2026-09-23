@@ -1363,3 +1363,26 @@ A missing well-formed policy UUID returns `null`; malformed UUID or database rou
 ### AIPOLICY-PG-007 — Raw policy evidence is not evaluator/execution authority
 The AI Gateway role retains migration-owned AI Policy DML privileges, but the DD-116 store exposes no create/update/delete/list/sort/condition-evaluation/constraint-evaluation/decision/execute method. PLATFORM mutation remains blocked by existing write governance.
 
+## DD-117 AI AssistantDefinition Raw Persistence Reader Acceptance
+
+### AIASSIST-PG-001 — Exact Industry AssistantDefinition raw evidence
+Exact AssistantDefinition-id lookup in the owning Industry Context returns immutable scope, raw code, allowed-capability set, RAG-scope JSON, prompt/tool/model/retention references, version, raw status and timestamps without selected/eligible/rendered/executable authority.
+
+### AIASSIST-PG-002 — Sibling Industry isolation
+An Industry AssistantDefinition requested from a sibling Industry Context is hidden by FORCE-RLS; the exact sibling context may read its own persisted definition.
+
+### AIASSIST-PG-003 — Tenant same-Tenant visibility and raw-value preservation
+A Tenant-owned AssistantDefinition is visible from same-Tenant Core and Industry contexts. Schema-valid empty code/status, empty capability set, nullable optional references and raw JSON are preserved rather than strengthened into invented lifecycle/runtime rules.
+
+### AIASSIST-PG-004 — PLATFORM AssistantDefinition requires PLATFORM_GLOBAL context
+A Tenant context receives no implicit PLATFORM Assistant fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact PLATFORM definition; timestamp ordering remains persisted evidence rather than an invented invariant.
+
+### AIASSIST-PG-005 — Foreign Tenant isolation
+A foreign-Tenant AssistantDefinition is hidden; its owning Tenant context may read the raw row.
+
+### AIASSIST-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed AssistantDefinition UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIASSIST-PG-007 — Persisted references are not current selection/render/RAG/tool-execution authority
+After valid write-time insertion, referenced capability/PromptTemplate/ToolSet rows may later become non-ACTIVE without turning this raw reader into a revalidation or selection engine. The AI Gateway role retains migration-owned AssistantDefinition DML privileges, but the DD-117 store exposes no create/update/delete/active-select/capability-resolution/prompt-render/RAG-resolution/execute method. PLATFORM mutation remains blocked by existing write governance.
+

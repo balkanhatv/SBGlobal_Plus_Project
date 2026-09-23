@@ -102,3 +102,6 @@ Fresh source reconciliation selected `core_ai.prompt_template` as the next indep
 ## 2026-09-23 — DD-116 AI Policy raw persistence reader
 Fresh source reconciliation selected `core_ai.ai_policy` as the next independent persistence slice. The implementation reads one exact scoped policy row, freezes raw condition/constraint JSON, preserves schema-valid priority/status evidence, and deliberately does not claim applicability, precedence, evaluation, authorization or execution. No migration/schema/role/grant/RLS/product-policy/runtime evaluator behavior changed.
 
+## 2026-09-23 — DD-117 AI AssistantDefinition raw persistence reader
+Fresh source reconciliation selected `core_ai.assistant_definition` as the next independent persistence slice. The implementation reads one exact scoped AssistantDefinition, freezes allowed-capability/RAG-scope evidence, preserves prompt/tool/model/retention references, and deliberately does not claim current Assistant selection, capability eligibility, prompt rendering, RAG resolution, model routing or tool/agent execution. Acceptance also proves the reader does not silently re-evaluate write-time capability/PromptTemplate/ToolSet activity. No production schema/role/grant/RLS/product-policy/runtime execution behavior changed.
+
