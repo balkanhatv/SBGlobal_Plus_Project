@@ -2006,3 +2006,27 @@ A missing well-formed AuditEvent UUID returns `null`; malformed ids and Data Hom
 
 ### AUDITEVENT-PG-007 — Append/read schema ownership does not become DD-144 mutation/search authority
 The ordinary application role retains SELECT+INSERT and no UPDATE/DELETE on AuditEvent, while the DD-144 store exposes only exact read. It adds no append/create/update/delete/list/search/export/retention/purge/authorization method.
+
+
+## DD-145 API Credential Metadata-Only Persistence Reader Acceptance
+
+### APICRED-META-PG-001 — Exact Tenant-Core credential preserves physical ownership and raw metadata
+Exact API Credential-id lookup through the fixed Identity-service boundary returns persisted Tenant/principal ownership, raw key-prefix/status/permission-profile/expiry/last-used/CIDR/allowed-Industry/version/timestamp evidence without becoming credential authentication or authorization authority.
+
+### APICRED-META-PG-002 — Tenant-Industry credential preserves exact Industry and allowed-Industry evidence
+An Industry-scoped credential returns its exact persisted Industry Context plus immutable allowed-Industry evidence. The metadata reader does not widen, intersect, resolve or authorize from that array.
+
+### APICRED-META-PG-003 — PLATFORM_GLOBAL metadata remains Identity-service-only
+A PLATFORM_GLOBAL service credential is readable through the dedicated pre-context `sbg_identity_service_rw` boundary while direct ordinary application-role SELECT remains revoked.
+
+### APICRED-META-PG-004 — Secret verifier is excluded and raw nullable metadata stays unstrengthened
+`secret_hash` is absent from the reader SELECT and returned contract. Schema-valid empty key-prefix text, nullable permission/expiry/last-used/revocation evidence and raw CIDR/status metadata remain persistence facts only.
+
+### APICRED-META-PG-005 — Signed bigint credential version remains lossless evidence
+The exact PostgreSQL bigint credential-version value is returned as signed decimal text, including schema-valid zero/negative values and values outside JavaScript safe-integer range; no positive/current concurrency invariant is invented.
+
+### APICRED-META-PG-006 — Missing/malformed exact-id behavior fails closed
+A missing well-formed API Credential UUID returns `null`; malformed ids fail closed before SQL.
+
+### APICRED-META-PG-007 — Identity-service schema ownership does not become DD-145 verifier/mutation authority
+The fixed Identity service retains schema-owned SELECT/INSERT/UPDATE privileges and no DELETE, while the DD-145 port exposes exact read only. It exposes no verify/authenticate/create/rotate/revoke/update/delete/list/search method.
