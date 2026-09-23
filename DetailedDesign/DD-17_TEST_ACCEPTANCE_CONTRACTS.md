@@ -1248,3 +1248,26 @@ A missing well-formed ToolSet UUID returns `null`; malformed UUID or database ro
 ### AITOOLSET-PG-007 — Read-port boundary preserves existing write governance
 The dedicated AI Gateway role retains the migration-owned ToolSet table privileges rather than being falsely described as read-only, but the DD-111 store exposes no create/update/delete/member-load/active-select/execute method. PLATFORM ToolSet mutation remains blocked for the AI Gateway role by the migration-0032 restrictive write floor.
 
+## DD-112 AI PromptSet Raw Persistence Reader Acceptance
+
+### AIPROMPTSET-PG-001 — Exact Industry PromptSet raw evidence
+Exact PromptSet-id lookup in the owning Industry Context returns immutable owner scope, Tenant/Industry ownership, raw code, positive version, constrained lifecycle status and timestamps without selection/member/render/execution authority.
+
+### AIPROMPTSET-PG-002 — Sibling Industry isolation
+An Industry PromptSet requested from a sibling Industry Context is hidden by FORCE-RLS; the exact sibling context may read its own raw PromptSet evidence.
+
+### AIPROMPTSET-PG-003 — Tenant PromptSet same-Tenant visibility
+A Tenant-owned PromptSet is visible from the same Tenant Core and Tenant Industry contexts. Schema-valid empty code and raw lifecycle status remain persisted evidence rather than being strengthened.
+
+### AIPROMPTSET-PG-004 — PLATFORM PromptSet requires PLATFORM_GLOBAL context
+A Tenant context receives no implicit PLATFORM PromptSet fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact PLATFORM PromptSet; timestamp ordering is preserved as stored rather than inferred.
+
+### AIPROMPTSET-PG-005 — Foreign Tenant isolation
+A foreign-Tenant PromptSet is hidden; its owning Tenant context may read the raw row.
+
+### AIPROMPTSET-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed PromptSet UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIPROMPTSET-PG-007 — Read-port boundary preserves prompt write governance
+The dedicated AI Gateway role retains migration-owned PromptSet table privileges, but the DD-112 store exposes no create/update/delete/member-load/active-select/render/execute method. PLATFORM PromptSet mutation remains blocked for the AI Gateway role by the migration-0032 restrictive write floor.
+

@@ -87,3 +87,6 @@ Fresh source reconciliation corrected the prerequisite audit to include migratio
 ## 2026-09-23 — DD-111 AI ToolSet raw persistence reader
 Fresh source reconciliation selected `core_ai.ai_tool_set` as the next independent source-complete persistence slice. The implementation reads one exact ToolSet through the existing AI Gateway + RequestScopedSql boundary, preserves PLATFORM/TENANT/INDUSTRY FORCE-RLS semantics and raw lifecycle metadata, and deliberately does not claim ACTIVE selection, member resolution, Assistant/Agent binding, tool authorization or execution. Existing Tenant/Industry ToolSet DML privileges and PLATFORM control-plane write protection remain unchanged.
 
+## 2026-09-23 — DD-112 AI PromptSet raw persistence reader
+Fresh source reconciliation selected `core_ai.ai_prompt_set` as the next independent source-complete persistence slice. The implementation reads one exact scoped PromptSet through the existing AI Gateway + RequestScopedSql boundary, preserves PLATFORM/TENANT/INDUSTRY FORCE-RLS semantics and raw lifecycle metadata, and deliberately does not claim ACTIVE selection, member resolution, PromptTemplate rendering, IndustryAIConfig resolution or prompt execution. Existing Tenant/Industry PromptSet DML privileges and PLATFORM control-plane write protection remain unchanged.
+

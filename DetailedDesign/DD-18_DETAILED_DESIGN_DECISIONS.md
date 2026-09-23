@@ -1709,3 +1709,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AITOOLSET-PG-001` through `AITOOLSET-PG-007` in DD-17 and `tests/postgres/ai-tool-set-store.test.mjs`.
 
+## DD-112 — AI PromptSet raw persistence is readable without becoming prompt selection, composition, or execution authority
+
+**Context:** migration 0031 physically owns `core_ai.ai_prompt_set` as a versioned PLATFORM/TENANT/INDUSTRY-scoped definition under FORCE-RLS, with exact ownership-shape checks, positive version, constrained lifecycle status, scoped uniqueness and at most one ACTIVE version per scoped code. DD-09 §2A defines AIPromptSet/AIPromptSetMember and separately states that members must bind ACTIVE PromptTemplates at applicable scope, `IndustryAIConfig.domain_prompt_set_id` must reference an ACTIVE applicable set, and only ACTIVE prompt versions execute. Migration 0031 grants the AI Gateway role PromptSet DML for governed Tenant/Industry authoring; migration 0032 reserves PLATFORM definition writes for the control-plane role.
+
+**Decision:** add immutable `PersistedAIPromptSet`, `AIPromptSetReadPort.loadForContext(...)` and `PostgresAIPromptSetStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and projects only schema-owned parent PromptSet evidence: id, owner scope, optional Tenant/Industry ownership, raw code, positive version, constrained raw status and timestamps. Schema-valid empty code is preserved; timestamp ordering is not invented. Missing rows return null; malformed ids, persisted shapes or route/context mismatch fail closed.
+
+**Security / trade-off:** FORCE-RLS remains authoritative. Industry PromptSets are exact-context only; Tenant PromptSets remain same-Tenant visible from Tenant Core and Tenant Industry contexts; PLATFORM PromptSets require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback. DD-112 does not relabel `sbg_ai_gateway_rw` as read-only: existing PromptSet DML authority remains schema-owned and constrained by RLS, while migration-0032 still prevents PLATFORM mutation. The DD-112 port itself is read-only and exposes no mutation, member-loader, active-selector, renderer or execution method.
+
+**Boundary:** DD-112 does not select ACTIVE/current/latest PromptSets; perform code/version fallback; load PromptSet members; apply member priority/enabled filtering; select/approve/render PromptTemplates; resolve `IndustryAIConfig.domain_prompt_set_id`; compose Assistant/system prompts; evaluate prompt-governance precedence; select providers/models/policies/routes; execute tools/agents; resolve credentials; perform inference/RAG/media generation; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIPROMPTSET-PG-001` through `AIPROMPTSET-PG-007` in DD-17 and `tests/postgres/ai-prompt-set-store.test.mjs`.
+
