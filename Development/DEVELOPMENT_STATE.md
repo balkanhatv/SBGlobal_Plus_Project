@@ -1,18 +1,18 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-23 · **Checkpoint:** `DEV-USAGE-METER-READ-001`
+**Updated:** 2026-09-23 · **Checkpoint:** `DEV-AUDIT-EVENT-READ-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `11f3d43bba8948f517723ac6ef0fb5051420c97f` / tree `79919d02b2e2f90cf2eb7a85b65c2d4797466056`: **311/311 Core**, **441/441 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `862c1b9837419c8787016ce2584f9e433489cc08` / tree `7f59571b2319bc0b3d2fe0d36cd019330a70ea81`: **311/311 Core**, **448/448 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `f1bb51d262785f4eb29910111335e532e723817c` / tree `bda17f3cb3cf7d7c9b17902f0f91ec746e28127f`: Core run `35900569534` (Core job `107315391758`, PostgreSQL job `107315392022`), Database run `35900569562` (job `107315389151`), Web run `35900569541` (job `107315389208`) — SUCCESS; **143 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `b736ffc4e367b0b2f3214ca2c8d77b4fcbb7b099` / tree `ed5bf656c6288e7f56fdc51f883cd4909350f3de`: Core run `35903393431` (Core job `107324908281`, PostgreSQL job `107324908641`), Database run `35903393183` (job `107324908479`), Web run `35903393251` (job `107324908154`) — SUCCESS; **144 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-143 adds an exact raw UsageMeter reader and preserves the database-owned Tenant/optional-Industry scope, raw meter/period text, exact numeric evidence and signed version without inventing current-period, entitlement, reservation or usage-impact semantics.
+DD-144 adds an exact raw partitioned AuditEvent reader and preserves final database-owned PLATFORM_GLOBAL/TENANT_CORE/TENANT_INDUSTRY/EXPLICIT_CROSS_CONTEXT visibility without inventing audit search, retention, export or authorization semantics.
 
-Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–143**.
+Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–144**.
 
-Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep UsageMeter writer/current-period/entitlement-binding/reservation-reconciliation/aggregation/available-capacity/DD-073 usage-impact semantics outside scope unless separately source-owned.
+Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep AuditEvent production, search/list/pagination, retention/legal-hold/archive/purge/partition management, export/reporting, event-content authorization and dedicated cross-context repository behavior outside scope unless separately source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD143_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD144_VERIFICATION_2026-09-23.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.
