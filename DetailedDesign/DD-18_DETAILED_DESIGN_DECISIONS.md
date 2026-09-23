@@ -2182,3 +2182,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-150 does not select/load/trust an elevation id; verify a raw session token itself; decide MFA/step-up policy; evaluate DD-148 time/status or DD-149 target floor on the caller's behalf; interpret `permission_profile_id`; decide approval/purpose/ticket policy; set `app.operator_elevation_id`; modify `RequestContext` or `RequestScopedSql`; grant access or return AuthorizationDecision; audit elevation use; mutate elevation state; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `OPELEV-ID-001` through `OPELEV-ID-007` in DD-17 and `tests/core/operator-elevation-verified-operator.test.mjs`.
+
+
+## DD-151 — OperatorElevation selected id may be checked as a pure exact-id necessary floor without choosing or trusting the selection
+
+**Context:** migration 0029's ordinary application `operator_elevation_current_read_policy` begins with exact row identity: `id::text = NULLIF(current_setting('app.operator_elevation_id', true), '')`. The same policy separately requires the DD-149 subject/target predicates and DD-148 ACTIVE/time predicates. DD-146 exposes immutable persisted `OperatorElevationMetadata.id`; DD-150 separately owns verified interactive PLATFORM_OPERATOR identity.
+
+**Decision:** add deterministic Core helper `matchesOperatorElevationSelectedIdFloor(metadata, selectedElevationId)`. It validates UUID shape for persisted and selected ids and returns true only for exact equality. The helper reads no database state and mutates neither input.
+
+**Security / trade-off:** exact equality is only one necessary migration-owned predicate. This helper deliberately does not establish where the selected id came from or whether it is trusted. A client-provided id does not become authoritative merely because it matches a persisted row.
+
+**Boundary:** DD-151 does not choose/discover/mint/trust an elevation id; accept client selection as authoritative; load an elevation row; verify PLATFORM_OPERATOR identity; evaluate DD-148 or DD-149 on the caller's behalf; interpret permission profiles; decide approval/purpose/ticket or step-up policy; set `app.operator_elevation_id`; modify `RequestContext` or `RequestScopedSql`; grant access or return AuthorizationDecision; emit mandatory elevation-use audit; mutate elevation state; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `OPELEV-SEL-001` through `OPELEV-SEL-007` in DD-17 and `tests/core/operator-elevation-selected-id.test.mjs`.

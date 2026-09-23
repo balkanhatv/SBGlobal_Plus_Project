@@ -2150,3 +2150,27 @@ Auth strength, session version, device id, auth epoch and provider metadata do n
 
 ### OPELEV-ID-007 — Unrelated elevation fields are not interpreted
 Tenant/Industry, status/time, purpose/ticket/approver and permission-profile fields do not affect this helper, and neither metadata nor verified evidence is mutated.
+
+
+## DD-151 OperatorElevation Selected-ID Floor Acceptance
+
+### OPELEV-SEL-001 — Exact selected UUID matches persisted elevation id
+A valid server-owned selected elevation UUID satisfies this necessary floor only when it exactly equals the persisted `OperatorElevationMetadata.id`.
+
+### OPELEV-SEL-002 — Different valid elevation UUID fails
+A different valid UUID fails closed even when all other elevation metadata could otherwise match.
+
+### OPELEV-SEL-003 — Empty selected id fails closed
+An empty selected elevation id does not satisfy the migration-owned exact-id predicate.
+
+### OPELEV-SEL-004 — Malformed selected id fails closed
+Malformed selected-id input returns false rather than being treated as trusted selection evidence.
+
+### OPELEV-SEL-005 — Malformed persisted id fails closed
+Malformed persisted elevation id evidence also returns false.
+
+### OPELEV-SEL-006 — Unrelated elevation fields are not interpreted
+Operator/Tenant/Industry, status/time, purpose/ticket/approval and permission-profile fields do not affect this helper.
+
+### OPELEV-SEL-007 — Equality floor has no selection or authorization behavior
+The helper mutates neither metadata nor selected-id input and exposes only exact selected-id equality; it does not choose, trust, load or authorize an elevation.
