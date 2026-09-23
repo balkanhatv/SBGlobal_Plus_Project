@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-OPERATOR-ELEVATION-VERIFIED-PLATFORM-OPERATOR-FLOOR-001`
+**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-OPERATOR-ELEVATION-SELECTED-ID-FLOOR-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,7 +24,7 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-150**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-151**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 DD-150 adds the deterministic verified interactive PLATFORM_OPERATOR identity floor: already-verified human evidence must be `PLATFORM_OPERATOR` and exactly match the persisted elevation operator principal. It remains a necessary predicate only and does not decide MFA/step-up, select/activate elevation or authorize access.
 
@@ -36,6 +36,6 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `5dd0c9a13e747249b742df71e2dce79a1b6c1917` / tree `9380c132af1a39009e3074300d97ec34a9f23be3` — 332 Core tests including `OPELEV-ID-001…007`, 469 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `d583353e1ab41acd69309d0c2af0d17c764d2e02` / tree `22c335ca0bb522556f38ce992ac354104b2ba351`: Core run `35922316805` (Core job `107389012367`, PostgreSQL job `107389012165`), Database run `35922316809` (job `107389012033`), Web run `35922316808` (job `107389017072`) — SUCCESS; **150 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD150_VERIFICATION_2026-09-24.md).
+**Current verified executable evidence:** `fd1e6b32c94e37ba238bf90395f5b190f33a4175` / tree `d41acd51d9327773d7d09d70231453dc39ac4336` — 339 Core tests including `OPELEV-SEL-001…007`, 469 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `66054051a23bff63e4f28b4b38ccac212a3cfeaf` / tree `10fc7705417894fa2b0a98e8eb6ab4192dd5dca4`: Core run `35923363334` (Core job `107392468462`, PostgreSQL job `107392468199`), Database run `35923363141` (job `107392467609`), Web run `35923363156` (job `107392467492`) — SUCCESS; **151 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD151_VERIFICATION_2026-09-24.md).
 
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
