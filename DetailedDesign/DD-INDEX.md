@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AUDIT-EVENT-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-API-CREDENTIAL-METADATA-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-144**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-145**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-144 adds an exact raw `core_audit.audit_event` reader through the ordinary `RequestScopedSql` application boundary. Final partitioned FORCE-RLS preserves PLATFORM_GLOBAL, same-Tenant Core, exact Tenant-Industry and source/target-only explicit cross-context visibility. Raw nullable/empty actor/action/resource/outcome/routing/sensitivity text plus immutable generic JSON and schema-version evidence remain historical persistence facts only; production, search/pagination, retention/export/current-state revalidation and event-content authorization are not claimed.
+DD-145 adds an exact metadata-only `core_identity.api_credential` reader through the dedicated pre-context Identity-service database boundary. `secret_hash` is excluded from SQL projection and contract; raw scope/key-prefix/status/nullable/CIDR/allowed-Industry/timestamp evidence plus exact signed bigint credential version remain persistence facts only. Machine-token verification, CIDR enforcement, lifecycle usability, mutation/use-audit and operator-elevation authority remain unclaimed.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `862c1b9837419c8787016ce2584f9e433489cc08` / tree `7f59571b2319bc0b3d2fe0d36cd019330a70ea81` — 311 Core tests, 448 PostgreSQL tests including `AUDITEVENT-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `b736ffc4e367b0b2f3214ca2c8d77b4fcbb7b099` / tree `ed5bf656c6288e7f56fdc51f883cd4909350f3de`: Core run `35903393431` (Core job `107324908281`, PostgreSQL job `107324908641`), Database run `35903393183` (job `107324908479`), Web run `35903393251` (job `107324908154`) — SUCCESS; **144 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD144_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `031b4068685172f5a9c6c461f5ab73e237737e27` / tree `8c8a9a4c21653e7ef4d5962eaac23bdd7412acb8` — 311 Core tests, 455 PostgreSQL tests including `APICRED-META-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `c06225eeeee9b203afafb2359d31a831408abbd0` / tree `3e07ac1bdb823753a849e79a2503dd687ee2c8d6`: Core run `35906282606` (Core job `107334685860`, PostgreSQL job `107334686239`), Database run `35906282548` (job `107334685959`), Web run `35906282562` (job `107334685244`) — SUCCESS; **145 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD145_VERIFICATION_2026-09-23.md).
