@@ -1983,3 +1983,26 @@ A missing well-formed UsageMeter UUID returns `null`; malformed ids and Data Hom
 
 ### USAGEMETER-PG-007 — Read-only privilege and port boundary
 Ordinary application and dedicated Commercial compiler roles retain SELECT but no INSERT/UPDATE/DELETE on UsageMeter. The DD-143 port exposes no create/update/delete/list/selectCurrent/selectPeriod/aggregate/reserve/release/resolveEntitlement/evaluateImpact method.
+
+## DD-144 AuditEvent Raw Persistence Reader Acceptance
+
+### AUDITEVENT-PG-001 — Exact Tenant-Core event preserves raw immutable evidence
+Exact AuditEvent-id lookup in the owning Tenant-Core context returns persisted ownership, scope, actor/action/resource/outcome/reason/permission/decision/module/correlation/causation/request/routing/sensitivity/evidence/schema-version fields without strengthening raw nullable or empty text.
+
+### AUDITEVENT-PG-002 — Tenant-Core evidence remains visible from same-Tenant Industry context
+Final AuditEvent RLS exposes a same-Tenant TENANT_CORE row from both TENANT_CORE and same-Tenant TENANT_INDUSTRY contexts.
+
+### AUDITEVENT-PG-003 — Tenant-Industry evidence requires exact Industry Context
+A TENANT_INDUSTRY AuditEvent is hidden from Tenant-Core, sibling Industry and foreign-Tenant contexts and is visible only from its exact same-Tenant Industry Context.
+
+### AUDITEVENT-PG-004 — Explicit cross-context evidence is endpoint-private
+An EXPLICIT_CROSS_CONTEXT AuditEvent is visible from its exact same-Tenant source and target Industry Contexts only; Tenant-Core and unrelated sibling Industry contexts cannot see it. No EXPLICIT_CROSS_CONTEXT RequestScopedSql bypass is introduced.
+
+### AUDITEVENT-PG-005 — PLATFORM_GLOBAL isolation and raw nullable/JSON evidence
+A PLATFORM_GLOBAL AuditEvent is visible only from a trusted PLATFORM_GLOBAL context. Tenant contexts cannot see it, platform context cannot see Tenant rows, and schema-valid raw nullable/empty text plus immutable JSON evidence are preserved.
+
+### AUDITEVENT-PG-006 — Missing/malformed/route mismatch fail closed
+A missing well-formed AuditEvent UUID returns `null`; malformed ids and Data Home route/context mismatch fail closed.
+
+### AUDITEVENT-PG-007 — Append/read schema ownership does not become DD-144 mutation/search authority
+The ordinary application role retains SELECT+INSERT and no UPDATE/DELETE on AuditEvent, while the DD-144 store exposes only exact read. It adds no append/create/update/delete/list/search/export/retention/purge/authorization method.
