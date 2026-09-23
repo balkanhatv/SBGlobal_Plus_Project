@@ -181,7 +181,7 @@ before(async () => {
        VALUES
         ($1,$5,$7,'TENANT_INDUSTRY','Retail','RTL-OMS','ORDER','order-001',NULL,NULL,
           'CONFIDENTIAL','IN-AI-RAG-SOURCE','RAG_STANDARD','acl://orders','REGISTERED',
-          12345678901234567890,'chunk-v7','2026-09-23T02:01:01Z','2026-09-22T02:01:01Z'),
+          9007199254740993,'chunk-v7','2026-09-23T02:01:01Z','2026-09-22T02:01:01Z'),
         ($2,$5,$8,'TENANT_INDUSTRY','Manufacturing','MFG-PROD','WORK_ORDER','wo-002',NULL,NULL,
           'INTERNAL','IN-AI-RAG-SOURCE','RAG_STANDARD',NULL,'ACTIVE',
           2,'chunk-v2','2026-09-23T02:02:01Z','2026-09-23T02:03:01Z'),
@@ -291,7 +291,7 @@ test("AIRAGSRC-PG-001 exact Industry RAGSource preserves immutable raw registrat
   assert.equal(row.retentionClass, "RAG_STANDARD");
   assert.equal(row.aclPolicyRef, "acl://orders");
   assert.equal(row.status, "REGISTERED");
-  assert.equal(row.sourceVersion, "12345678901234567890");
+  assert.equal(row.sourceVersion, "9007199254740993");
   assert.equal(row.chunkingPolicyVersion, "chunk-v7");
   assert.equal(row.createdAt, "2026-09-23T02:01:01.000Z");
   assert.equal(row.updatedAt, "2026-09-22T02:01:01.000Z");
