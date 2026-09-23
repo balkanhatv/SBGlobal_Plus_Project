@@ -1757,3 +1757,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIPROMPTTPL-PG-001` through `AIPROMPTTPL-PG-007` in DD-17 and `tests/postgres/ai-prompt-template-store.test.mjs`.
 
+## DD-116 — AI Policy raw persistence is readable without becoming an evaluated AI policy decision
+
+**Context:** migration 0011 physically owns `core_ai.ai_policy` with PLATFORM/TENANT/INDUSTRY scope, raw integer priority, constrained effect `ALLOW | DENY | RESTRICT`, condition/constraint JSON, positive version and raw status text. Migration 0031 preserves FORCE-RLS reads and moves writes behind `definition_write_allowed`; migration 0032 independently protects PLATFORM definition mutation behind the control-plane role. DD-09 defines persisted AIPolicy fields but does not make a stored row an evaluated request-time decision.
+
+**Decision:** add immutable `PersistedAIPolicy`, `AIPolicyReadPort.loadForContext(...)` and `PostgresAIPolicyStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and returns only persisted evidence: id, owner scope, optional Tenant/Industry ownership, raw code, raw safe-integer priority, constrained raw effect, normalized/frozen condition AST JSON, normalized/frozen constraint JSON, positive version, raw status, and timestamps. Missing rows return null; malformed identifiers, malformed persisted shapes or route/context mismatch fail closed.
+
+**Security / trade-off:** FORCE-RLS remains authoritative. Industry policies are exact-context only; Tenant policies remain same-Tenant visible from Tenant Core and Tenant Industry contexts; PLATFORM policies require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback. Existing migration-owned AI Policy DML authority of `sbg_ai_gateway_rw` remains unchanged, while PLATFORM mutation remains protected by migration 0032. The DD-116 port itself is read-only.
+
+**Boundary:** DD-116 does not list or priority-sort policies; determine applicability; parse/evaluate condition ASTs; interpret constraints; apply ALLOW/DENY/RESTRICT precedence; resolve inherited/effective policies; select current/latest policy versions; authorize capabilities; evaluate entitlements; select providers/models/prompts/tools/agents/routes; enforce grounding/override policy; resolve credentials; perform inference/RAG/media generation; execute tools/agents; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIPOLICY-PG-001` through `AIPOLICY-PG-007` in DD-17 and `tests/postgres/ai-policy-store.test.mjs`.
+

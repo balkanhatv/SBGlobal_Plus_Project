@@ -99,3 +99,6 @@ Fresh source reconciliation selected `core_ai.ai_prompt_set_member` as the next 
 ## 2026-09-23 — DD-115 AI PromptTemplate raw persistence reader
 Fresh source reconciliation selected `core_ai.prompt_template` as the next independent persistence slice. The implementation reads one exact scoped PromptTemplate, freezes raw variable-schema JSON and override-field evidence, and deliberately does not claim publication/current selection, approval satisfaction, override authorization, rendering or execution. No migration/schema/role/grant/RLS/product-policy/runtime execution behavior changed.
 
+## 2026-09-23 — DD-116 AI Policy raw persistence reader
+Fresh source reconciliation selected `core_ai.ai_policy` as the next independent persistence slice. The implementation reads one exact scoped policy row, freezes raw condition/constraint JSON, preserves schema-valid priority/status evidence, and deliberately does not claim applicability, precedence, evaluation, authorization or execution. No migration/schema/role/grant/RLS/product-policy/runtime evaluator behavior changed.
+

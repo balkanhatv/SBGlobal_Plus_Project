@@ -1340,3 +1340,26 @@ A missing well-formed PromptTemplate UUID returns `null`; malformed UUID or data
 ### AIPROMPTTPL-PG-007 — Raw template evidence is not lifecycle/approval/render/execution authority
 The AI Gateway role retains migration-owned PromptTemplate DML privileges, but the DD-115 store exposes no create/update/delete/active-select/variable-validation/override/render/execute method. PLATFORM mutation remains blocked by existing write governance.
 
+## DD-116 AI Policy Raw Persistence Reader Acceptance
+
+### AIPOLICY-PG-001 — Exact Industry AI Policy raw evidence
+Exact policy-id lookup in the owning Industry Context returns immutable raw scope, code, priority, effect, condition AST, constraint JSON, version, status and timestamps without applicable/effective/decision authority.
+
+### AIPOLICY-PG-002 — Sibling Industry isolation
+An Industry AI Policy requested from a sibling Industry Context is hidden by FORCE-RLS; the exact sibling context may read its own raw policy evidence.
+
+### AIPOLICY-PG-003 — Tenant same-Tenant visibility and raw-value preservation
+A Tenant-owned AI Policy is visible from same-Tenant Core and Industry contexts. Schema-valid negative/zero priority, empty code/status and raw JSON are preserved rather than strengthened into invented policy grammar or lifecycle constraints.
+
+### AIPOLICY-PG-004 — PLATFORM AI Policy requires PLATFORM_GLOBAL context
+A Tenant context receives no implicit PLATFORM AI Policy fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact PLATFORM row. Raw `DENY` or `ALLOW` effect remains evidence rather than an evaluated decision.
+
+### AIPOLICY-PG-005 — Foreign Tenant isolation
+A foreign-Tenant AI Policy is hidden; its owning Tenant context may read the raw row.
+
+### AIPOLICY-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed policy UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIPOLICY-PG-007 — Raw policy evidence is not evaluator/execution authority
+The AI Gateway role retains migration-owned AI Policy DML privileges, but the DD-116 store exposes no create/update/delete/list/sort/condition-evaluation/constraint-evaluation/decision/execute method. PLATFORM mutation remains blocked by existing write governance.
+
