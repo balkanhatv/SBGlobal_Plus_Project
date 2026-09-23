@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-API-CREDENTIAL-METADATA-READ-001`
+**Date:** 2026-09-23 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-OPERATOR-ELEVATION-METADATA-READ-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,12 +18,12 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-23
 
-Current checkpoint: `DEV-API-CREDENTIAL-METADATA-READ-001`. Decisions are contiguous through DD-145.
+Current checkpoint: `DEV-OPERATOR-ELEVATION-METADATA-READ-001`. Decisions are contiguous through DD-146.
 
-Verified executable `031b4068685172f5a9c6c461f5ab73e237737e27` / tree `8c8a9a4c21653e7ef4d5962eaac23bdd7412acb8`: **311/311 Core**, **455/455 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `de8e4c93982102c1547e747667534defea7fcb6a` / tree `ed4fede7d478c8977f12242e0ccc7db08641b33e`: **311/311 Core**, **462/462 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `c06225eeeee9b203afafb2359d31a831408abbd0` / tree `3e07ac1bdb823753a849e79a2503dd687ee2c8d6`: Core run `35906282606` (Core job `107334685860`, PostgreSQL job `107334686239`), Database run `35906282548` (job `107334685959`), Web run `35906282562` (job `107334685244`) — SUCCESS; **145 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `0da4a8063f21b177df8de241e4080fbddc1d1dd8` / tree `9b8428bda8cb10b970df0e890b48443d9084eb1d`: Core run `35908101390` (Core job `107340749188`, PostgreSQL job `107340749373`), Database run `35908101578` (job `107340750340`), Web run `35908101452` (job `107340749629`) — SUCCESS; **146 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-145 adds an exact metadata-only `core_identity.api_credential` reader through the fixed pre-context Identity-service role. `secret_hash` is excluded; raw physical scope/status/CIDR/allowed-Industry/timestamp evidence and exact signed bigint credential version remain non-authorizing persistence facts.
+DD-146 adds an exact metadata-only `core_authz.operator_elevation` reader through a fixed `sbg_control_plane_rw` boundary. PENDING/future, ACTIVE, EXPIRED and REVOKED rows remain raw Control Plane evidence; normal request-time elevation stays inactive.
 
-Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep machine credential verification/token parsing/hash comparison, CIDR enforcement, lifecycle usability, credential mutation/use-audit, RequestContext authorization and operator-elevation behavior outside scope unless separately source-owned.
+Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation selection, interactive PLATFORM_OPERATOR binding, approval/purpose policy, permission-profile evaluation, RequestContext injection, transaction-local elevation scope and mandatory audit outside scope unless separately source-owned.
