@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-23 · **Current checkpoint:** `DEV-AI-AGENT-STEP-READ-001`
+**Updated:** 2026-09-23 · **Current checkpoint:** `DEV-AI-AGENT-APPROVAL-READ-001`
 
-Verified executable `fddfc39252d89508d093633ec79a141739bf56d4` / tree `9758436cc7638963f40f5b45dbb3db7d1ce12f18`: **311/311 Core**, **357/357 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS.
+Verified executable `5a278df461e482df5906725e0a0a49725be8c2ca` / tree `c0f5a98548d8ad5dd7aba419c09aa6a907d0e512`: **311/311 Core**, **364/364 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS.
 
-Promotion invariant gate `9f79d33f9d16f5ef9392fa1b1820a18f3a04973a` / tree `fe697622ea9d8119345f6b54d5e8359f3294d387`: Core run `35852604308`, Database run `35852604292`, Web run `35852604279` — SUCCESS; 131 unique DD definitions, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `f075d43f0f0734f33d506f595eed441843f7ef2d` / tree `e2d3aa6f90e5fb5e8e19ab4a6c6d04ddccc59654`: Core run `35854820755` (Core job `107160703238`, PostgreSQL job `107160703082`), Database run `35854820849` (job `107160703608`), Web run `35854820760` (job `107160703179`) — SUCCESS; **132 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-131 adds an exact-by-id parent-scoped `core_ai.agent_step` raw persistence reader without next-step, approval, current tool-eligibility or execution authority.
+DD-132 adds an exact-by-id Tenant/Industry-scoped `core_ai.agent_approval` raw persistence reader. Persisted approval status, required-permission, approver, reason and timestamps remain evidence only. Same-scope read visibility follows direct AgentApproval RLS and does not confer approver authority. APPROVED does not mean currently revalidated/satisfied, resumable or executable.
 
-Next: Fresh source-audit the next independent source-complete persistence slice; keep AgentStep planning/execution and AgentRun runtime authorization outside scope unless separately source-owned.
+Next: Fresh source-audit the next independent source-complete persistence slice. Keep approval revalidation/satisfaction, AgentRun resume, AgentStep planning, current tool authorization/execution, provider/model runtime, inference/RAG and Workflow/Automation runtime outside scope unless separately source-owned.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -245,6 +245,7 @@ Verified executable `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`, tree `a1cc883564
 Current checkpoint: **`DEV-AUTHZ-COMPILER-001`**. Publication uses exact SERVICE scope, v1 validation, subject locking, CURRENT→SUPERSEDED transition, monotonically increasing pointer/version, invalidation without version reuse/decrement, and separate Tenant/Industry versus PLATFORM_GLOBAL paths.
 
 Next governed work: **Commercial current-state integration only**.
+
 
 
 

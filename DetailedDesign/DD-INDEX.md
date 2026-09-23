@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-AGENT-STEP-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-AGENT-APPROVAL-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,7 +24,7 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-131**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-132**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 DD-131 adds an exact-by-id parent-scoped `core_ai.agent_step` raw persistence reader. Parent AgentRun FORCE-RLS remains authoritative. Raw step type/status/input/output/tool-binding/approval/audit references and timestamps remain persisted evidence only; they do not authorize next-step selection, approval satisfaction, current tool eligibility or execution.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** Verified executable `fddfc39252d89508d093633ec79a141739bf56d4` / tree `9758436cc7638963f40f5b45dbb3db7d1ce12f18`: **311/311 Core**, **357/357 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Promotion invariant gate `9f79d33f9d16f5ef9392fa1b1820a18f3a04973a` / tree `fe697622ea9d8119345f6b54d5e8359f3294d387`: Core run `35852604308` (Core `107153562830`, PostgreSQL `107153563110`), Database run `35852604292` (`107153563084`), Web run `35852604279` (`107153562758`) — SUCCESS; **131 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD131_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `5a278df461e482df5906725e0a0a49725be8c2ca` / tree `c0f5a98548d8ad5dd7aba419c09aa6a907d0e512` — 311 Core tests, 364 PostgreSQL tests including `AIAGENTAPP-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `f075d43f0f0734f33d506f595eed441843f7ef2d` / tree `e2d3aa6f90e5fb5e8e19ab4a6c6d04ddccc59654`: Core run `35854820755` (Core job `107160703238`, PostgreSQL job `107160703082`), Database run `35854820849` (job `107160703608`), Web run `35854820760` (job `107160703179`) — SUCCESS; **132 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD132_VERIFICATION_2026-09-23.md).
