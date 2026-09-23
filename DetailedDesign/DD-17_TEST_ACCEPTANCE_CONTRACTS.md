@@ -1317,3 +1317,26 @@ A missing well-formed member UUID returns `null`; malformed UUID or database rou
 ### AIPROMPTMEM-PG-007 — Raw child evidence is not effective prompt selection/rendering/execution authority
 The AI Gateway role retains migration-owned PromptSet-member DML privileges, but the DD-114 store exposes no create/update/delete/list/effective-resolution/render/execute method. PLATFORM-parent mutation remains blocked by existing write-governance policies.
 
+## DD-115 AI PromptTemplate Raw Persistence Reader Acceptance
+
+### AIPROMPTTPL-PG-001 — Exact Industry PromptTemplate raw evidence
+Exact PromptTemplate-id lookup in the owning Industry Context returns immutable raw scope, code/version, system-template text, variable-schema JSON, grounding flag, override fields, lifecycle status, creator/approver references and timestamps without selected/approved/rendered/executable authority.
+
+### AIPROMPTTPL-PG-002 — Sibling Industry isolation
+An Industry PromptTemplate requested from a sibling Industry Context is hidden by FORCE-RLS; the exact sibling context may read its own raw persisted template.
+
+### AIPROMPTTPL-PG-003 — Tenant same-Tenant visibility and raw-value preservation
+A Tenant-owned PromptTemplate is visible from same-Tenant Core and Industry contexts. Schema-valid empty code/template text, duplicate/empty override fields and raw JSON are preserved rather than strengthened into invented policy constraints.
+
+### AIPROMPTTPL-PG-004 — PLATFORM PromptTemplate requires PLATFORM_GLOBAL context
+A Tenant context receives no implicit PLATFORM PromptTemplate fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact PLATFORM row. An approver reference remains persisted evidence rather than an independent approval verdict.
+
+### AIPROMPTTPL-PG-005 — Foreign Tenant isolation
+A foreign-Tenant PromptTemplate is hidden; its owning Tenant context may read the raw row.
+
+### AIPROMPTTPL-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed PromptTemplate UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIPROMPTTPL-PG-007 — Raw template evidence is not lifecycle/approval/render/execution authority
+The AI Gateway role retains migration-owned PromptTemplate DML privileges, but the DD-115 store exposes no create/update/delete/active-select/variable-validation/override/render/execute method. PLATFORM mutation remains blocked by existing write governance.
+

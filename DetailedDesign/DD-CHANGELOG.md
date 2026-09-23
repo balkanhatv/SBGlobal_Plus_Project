@@ -96,3 +96,6 @@ Fresh source reconciliation selected `core_ai.ai_tool_set_member` as the next in
 ## 2026-09-23 — DD-114 AI PromptSetMember raw persistence reader
 Fresh source reconciliation selected `core_ai.ai_prompt_set_member` as the next independent persistence slice. The implementation reads one exact child row through parent-derived FORCE-RLS, preserves raw integer priority and enabled evidence, and deliberately does not claim effective membership, prompt selection, rendering or execution. Fixtures use uniquely-coded PLATFORM PromptSet/PromptTemplate definitions to remain safe under parallel PostgreSQL execution; no production schema/runtime semantics changed.
 
+## 2026-09-23 — DD-115 AI PromptTemplate raw persistence reader
+Fresh source reconciliation selected `core_ai.prompt_template` as the next independent persistence slice. The implementation reads one exact scoped PromptTemplate, freezes raw variable-schema JSON and override-field evidence, and deliberately does not claim publication/current selection, approval satisfaction, override authorization, rendering or execution. No migration/schema/role/grant/RLS/product-policy/runtime execution behavior changed.
+

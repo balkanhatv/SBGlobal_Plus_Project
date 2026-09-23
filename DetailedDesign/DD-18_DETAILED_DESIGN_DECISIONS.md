@@ -1745,3 +1745,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIPROMPTMEM-PG-001` through `AIPROMPTMEM-PG-007` in DD-17 and `tests/postgres/ai-prompt-set-member-store.test.mjs`.
 
+## DD-115 — AI PromptTemplate raw persistence is readable without becoming publication, approval, rendering or execution authority
+
+**Context:** migration 0011 physically owns `core_ai.prompt_template` with PLATFORM/TENANT/INDUSTRY scope, versioned raw template/schema/grounding/override metadata, lifecycle status and creator/approver references. Migration 0031 preserves FORCE-RLS reads, moves writes behind `definition_write_allowed`, and verifies creator/approver scope activity at persisted write time. Migration 0032 separately protects PLATFORM definition mutation behind the control-plane role. DD-09 defines prompt publication and states only ACTIVE versions execute, but reading one persisted row is not lifecycle selection, approval satisfaction, rendering or execution.
+
+**Decision:** add immutable `PersistedAIPromptTemplate`, `AIPromptTemplateReadPort.loadForContext(...)` and `PostgresAIPromptTemplateStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and returns only persisted evidence: id, owner scope, optional Tenant/Industry ownership, raw code, positive version, raw system template, normalized/frozen variable-schema JSON, raw grounding flag, immutable ordered override-field array, raw lifecycle status, creator/optional approver ids, and timestamps. Schema-valid empty text, duplicate/empty override fields, and nullable approval evidence are preserved. Missing rows return null; malformed identifiers, malformed persisted shapes or route/context mismatch fail closed.
+
+**Security / trade-off:** FORCE-RLS remains authoritative. Industry templates are exact-context only; Tenant templates remain same-Tenant visible from Tenant Core and Tenant Industry contexts; PLATFORM templates require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback. DD-115 does not mischaracterize `sbg_ai_gateway_rw` as read-only: existing migration-owned PromptTemplate DML remains unchanged and PLATFORM mutation remains restricted by migration 0032. The new port itself is read-only.
+
+**Boundary:** DD-115 does not select ACTIVE/current/latest versions; publish or roll back prompts; evaluate approval satisfaction; render template text; execute variable schemas; authorize/merge override fields; enforce grounding; resolve effective PromptSet membership; resolve `IndustryAIConfig.domain_prompt_set_id`; select Assistant prompts; compose runtime prompts; evaluate prompt-policy precedence; select providers/models/routes; execute tools/agents; perform inference/RAG/media generation; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIPROMPTTPL-PG-001` through `AIPROMPTTPL-PG-007` in DD-17 and `tests/postgres/ai-prompt-template-store.test.mjs`.
+
