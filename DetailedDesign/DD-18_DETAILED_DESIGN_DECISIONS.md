@@ -1829,3 +1829,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AICONV-PG-001` through `AICONV-PG-007` in DD-17 and `tests/postgres/ai-conversation-store.test.mjs`.
 
+## DD-122 — AI TokenUsage raw persistence is readable without becoming routing, eligibility, quota, billing or execution authority
+
+**Context:** migration 0012 physically owns `core_ai.token_usage` as Tenant/Industry-scoped usage evidence with optional principal attribution, capability/provider/model references, non-negative PostgreSQL numeric unit fields, occurrence time and correlation id. FORCE-RLS is Tenant/Industry based; `principal_id` is attribution rather than a read-visibility predicate. Migration 0031 adds exact model/provider pair referential integrity and validates a non-null usage principal as active for the Tenant at write time. Those persisted relationships do not make historical usage evidence a current provider/model/capability selection or authorization decision. DD-09 owns usage/cost as observability evidence and separates routing, permission/entitlement, provider execution and billing semantics.
+
+**Decision:** add immutable `PersistedAITokenUsage`, `AITokenUsageReadPort.loadForContext(...)` and `PostgresAITokenUsageStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and returns only persisted evidence: id, Tenant id, optional Industry Context, optional principal attribution, raw capability code, provider/model ids, PostgreSQL `numeric::text` input/output/media unit evidence, occurrence timestamp and correlation id. Numeric values are not converted through JavaScript floating-point arithmetic. Missing rows return null; malformed identifiers, invalid persisted types or route/context mismatch fail closed.
+
+**Security / trade-off:** FORCE-RLS remains authoritative. Industry usage is exact-context only; Tenant-Core usage is same-Tenant visible from Tenant Core or Tenant Industry contexts; foreign-Tenant and PLATFORM_GLOBAL contexts cannot expose a Tenant usage row. Same-scope access is not principal-private because the database policy does not predicate on `principal_id`. Existing migration-owned AI Gateway TokenUsage DML authority remains unchanged; the DD-122 application port itself is read-only.
+
+**Boundary:** DD-122 does not select/revalidate current providers, models or capabilities; infer routing/eligibility/preference/fallback; evaluate entitlement, permission, budget, quota or limits; aggregate usage or select metering windows; apply provider rates; compute/load/finalize `ai_cost`; perform billing; load conversation/message/prompt content; perform inference/embeddings/RAG/media generation; execute tools/agents; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIUSAGE-PG-001` through `AIUSAGE-PG-007` in DD-17 and `tests/postgres/ai-token-usage-store.test.mjs`.
+

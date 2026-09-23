@@ -1478,3 +1478,26 @@ A missing well-formed UUID returns `null`; malformed UUID or database route/cont
 ### AICONV-PG-007 — Database DML remains schema-owned while read port adds no runtime authority
 The AI Gateway role retains migration-owned conversation DML privileges, but the DD-121 store exposes no create/update/delete/list/message/history/Assistant-selection/retention/execute method.
 
+## DD-122 AI TokenUsage Raw Persistence Reader Acceptance
+
+### AIUSAGE-PG-001 — Exact Industry usage raw evidence
+Exact usage-id lookup in the owning Industry Context returns immutable Tenant/Industry/principal attribution, capability/provider/model references, exact PostgreSQL numeric-text units, occurrence timestamp and correlation id without selected/eligible/cost/billable/executable authority.
+
+### AIUSAGE-PG-002 — Sibling Industry isolation
+An Industry usage row is hidden from a sibling Industry Context; the exact sibling context may read its own raw usage evidence.
+
+### AIUSAGE-PG-003 — Tenant-Core usage same-Tenant visibility
+A Tenant-Core usage row is visible from same-Tenant Core and Industry contexts. Nullable principal evidence and raw numeric-text units are preserved without aggregation or policy interpretation.
+
+### AIUSAGE-PG-004 — Principal id is attribution, not TokenUsage RLS ownership
+A different active current principal in the same authorized Tenant/Industry context may read a row attributed to another principal because the persisted TokenUsage RLS predicate is Tenant/Industry scoped rather than principal scoped.
+
+### AIUSAGE-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts cannot bypass TokenUsage FORCE-RLS; the owning Tenant/Industry context may read its row.
+
+### AIUSAGE-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed usage UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIUSAGE-PG-007 — Historical usage evidence is not routing/billing/quota/execution authority
+Historical provider/model/capability references remain readable even after those catalog rows are retired. The AI Gateway role retains migration-owned TokenUsage DML privileges, but the DD-122 store exposes no create/update/delete/aggregate/cost/quota/route/execute method.
+

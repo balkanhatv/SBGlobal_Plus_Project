@@ -117,3 +117,6 @@ Fresh source reconciliation selected one exact `core_ai.industry_ai_config` row 
 ## 2026-09-23 — DD-121 AI Conversation raw persistence reader
 Fresh source reconciliation selected one exact `core_ai.ai_conversation` row as the next independent persistence slice. The implementation preserves Tenant/principal and exact-Industry FORCE-RLS, raw scope/sensitivity/retention/status/timestamp evidence, and deliberately does not claim message/history access, Assistant selection, retention execution, routing or inference. No production schema/role/grant/RLS/product-policy/runtime execution behavior changed.
 
+## 2026-09-23 — DD-122 AI TokenUsage raw persistence reader
+Fresh source reconciliation selected one exact `core_ai.token_usage` row as the next independent persistence slice. The implementation preserves Tenant/Industry FORCE-RLS, optional principal attribution, provider/model/capability references and exact PostgreSQL numeric-text usage evidence without converting usage through JavaScript floating-point arithmetic. It deliberately does not claim current routing/eligibility, quota/entitlement evaluation, aggregation, cost/billing or execution. Existing AI Gateway TokenUsage DML privileges remain schema-owned; no production migration/schema/role/grant/RLS/product-policy/runtime execution behavior changed.
+
