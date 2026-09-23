@@ -1865,3 +1865,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIPROVSNAP-PG-001` through `AIPROVSNAP-PG-007` in DD-17 and `tests/postgres/ai-provisioning-snapshot-store.test.mjs`.
 
+## DD-125 — AI MediaRequest raw persistence is readable without becoming media-generation, moderation or publication authority
+
+**Context:** migration 0011 physically owns `core_ai.ai_media_request` as Tenant/Industry-scoped persisted request evidence, and migration 0031 adds relationship-integrity checks for active principals, duplicate-free document refs, optional prompt/version applicability, and exact input-document scope/security/residency at write time. The table is FORCE-RLS. SELECT visibility is same Tenant plus either Tenant-Core or exact Industry Context; it is not principal-private. Migration 0014 gives the AI Gateway role MediaRequest DML, while A-07/DD-09 keep provider/model selection, prompt execution, moderation, generated-output governance and DocumentMeta registration behind separate runtime boundaries.
+
+**Decision:** add immutable `PersistedAIMediaRequest`, `AIMediaRequestReadPort.loadForContext(...)` and `PostgresAIMediaRequestStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact request UUID and returns only persisted evidence: Tenant/Industry ownership, principal attribution, raw capability code, constrained media type, optional prompt id/version, optional bigint-text brand-config version, optional raw localization profile reference, immutable UUID input-document refs, constrained sensitivity class, raw residency/moderation/status fields, and created/completed timestamps. Missing rows return null; malformed identifiers, invalid persisted shapes or route/context mismatch fail closed.
+
+**Security / trade-off:** sibling Industry, foreign Tenant and PLATFORM_GLOBAL contexts cannot read a Tenant/Industry request, while another active principal in the same visible scope may read it because the SELECT RLS policy is scope-based rather than principal-private. Bigint brand version is selected as text to avoid JavaScript precision loss. The DD-125 port itself is read-only and does not expose MediaRequest DML even though the database role retains migration-owned write privileges.
+
+**Boundary:** DD-125 does not generate media; select providers/models/routes; load/render prompts or select current prompt versions; revalidate current input-document ACL/state/scan/sensitivity/residency; execute or interpret moderation policy; treat raw status/completed-at as a governed completion/publication verdict; create generated outputs or DocumentMeta provenance; resolve brand/localization profiles; evaluate capability/entitlement/permission/budget/residency authorization; perform retry/fallback; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIMEDIAREQ-PG-001` through `AIMEDIAREQ-PG-007` in DD-17 and `tests/postgres/ai-media-request-store.test.mjs`.
+

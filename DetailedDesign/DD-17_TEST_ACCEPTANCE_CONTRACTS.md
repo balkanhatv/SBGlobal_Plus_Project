@@ -1547,3 +1547,26 @@ A missing well-formed snapshot UUID returns `null`; malformed UUID or database r
 ### AIPROVSNAP-PG-007 — Raw snapshot evidence is not current/compile/authorize/route/execute authority
 The AI Gateway role retains migration-owned ProvisioningSnapshot DML privileges, but the DD-124 store exposes no create/update/delete/current-selector/compile/revalidate/authorize/route/execute method.
 
+## DD-125 AI MediaRequest Raw Persistence Reader Acceptance
+
+### AIMEDIAREQ-PG-001 — Exact Industry request raw evidence
+Exact MediaRequest-id lookup in the owning Industry Context returns immutable ownership, principal attribution, raw capability, constrained media type, prompt/version evidence, exact bigint-text brand version, frozen input-document refs, sensitivity/residency/moderation/status fields and timestamps without generated/moderated/published/authorized authority.
+
+### AIMEDIAREQ-PG-002 — Sibling Industry isolation
+A MediaRequest owned by a sibling Industry Context is hidden; the exact sibling context may read its own persisted request evidence.
+
+### AIMEDIAREQ-PG-003 — Tenant-Core same-Tenant visibility and nullable/raw preservation
+A Tenant-Core request is visible from same-Tenant Tenant Core and Tenant Industry contexts. Nullable prompt/brand fields, raw localization/moderation/status evidence and completed timestamp are preserved without reinterpretation.
+
+### AIMEDIAREQ-PG-004 — SELECT visibility is scope-based, not principal-private
+Another active principal in the same visible Industry scope may read the request and receives the original persisted principal attribution; write-time principal equality is not invented as a SELECT restriction.
+
+### AIMEDIAREQ-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+A foreign-Tenant request is hidden while its owning context may read it. PLATFORM_GLOBAL context does not bypass Tenant/Industry MediaRequest RLS.
+
+### AIMEDIAREQ-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed MediaRequest UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIMEDIAREQ-PG-007 — Raw request evidence is not generation/moderation/publication/execution authority
+The AI Gateway role retains migration-owned MediaRequest DML privileges, but the DD-125 store exposes no create/update/delete/render/generate/moderate/publish/route/execute method.
+
