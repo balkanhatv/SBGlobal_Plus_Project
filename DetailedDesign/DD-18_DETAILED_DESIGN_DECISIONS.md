@@ -1781,3 +1781,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIASSIST-PG-001` through `AIASSIST-PG-007` in DD-17 and `tests/postgres/ai-assistant-definition-store.test.mjs`.
 
+## DD-118 — AI AgentDefinition raw persistence is readable without becoming Agent selection, approval, budget or tool-execution authority
+
+**Context:** migration 0013 physically owns `core_ai.agent_definition` with PLATFORM/TENANT/INDUSTRY ownership, raw objective/risk classes, allowed ToolSet reference, approval/budget policy references, positive version and raw status. Migration 0031 adds the ToolSet foreign key, ACTIVE-version uniqueness, and write-time integrity requiring the allowed ToolSet to be ACTIVE and at the same or broader applicable definition scope. That write-time relationship does not make a persisted AgentDefinition a current agent-selection, approval, budget or execution decision. DD-09 separately defines AgentRun/AgentStep/AgentApproval and requires current acting-principal authorization at tool steps.
+
+**Decision:** add immutable `PersistedAIAgentDefinition`, `AIAgentDefinitionReadPort.loadForContext(...)` and `PostgresAIAgentDefinitionStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and returns only persisted evidence: id, owner scope, optional Tenant/Industry ownership, raw code, raw objective class, allowed ToolSet id, raw max-risk class, approval-policy id, budget-policy id, positive version, raw status and timestamps. Missing rows return null; malformed identifiers, malformed persisted shapes or route/context mismatch fail closed.
+
+**Security / trade-off:** FORCE-RLS remains authoritative. Industry AgentDefinitions are exact-context only; Tenant definitions remain same-Tenant visible; PLATFORM definitions require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback. Existing migration-owned AgentDefinition DML authority remains unchanged and migration 0032 still blocks PLATFORM mutation for the AI Gateway role. DD-118 intentionally does not revalidate the referenced ToolSet current activity while reading; persisted relationship evidence remains historical/raw.
+
+**Boundary:** DD-118 does not select ACTIVE/current/latest Agents; perform code/version fallback; revalidate effective ToolSet membership; interpret objective or risk classes; resolve approval or budget policies; satisfy approvals/budgets; create AgentRuns; plan/validate/execute AgentSteps; evaluate acting-principal permission/entitlement; execute Tool Definitions/OperationContracts; select Assistants/providers/models/prompts/policies/routes; resolve credentials; perform inference/embeddings/RAG; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIAGENTDEF-PG-001` through `AIAGENTDEF-PG-007` in DD-17 and `tests/postgres/ai-agent-definition-store.test.mjs`.
+

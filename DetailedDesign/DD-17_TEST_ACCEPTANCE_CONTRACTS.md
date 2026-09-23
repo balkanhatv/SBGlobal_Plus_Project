@@ -1386,3 +1386,26 @@ A missing well-formed AssistantDefinition UUID returns `null`; malformed UUID or
 ### AIASSIST-PG-007 — Persisted references are not current selection/render/RAG/tool-execution authority
 After valid write-time insertion, referenced capability/PromptTemplate/ToolSet rows may later become non-ACTIVE without turning this raw reader into a revalidation or selection engine. The AI Gateway role retains migration-owned AssistantDefinition DML privileges, but the DD-117 store exposes no create/update/delete/active-select/capability-resolution/prompt-render/RAG-resolution/execute method. PLATFORM mutation remains blocked by existing write governance.
 
+## DD-118 AI AgentDefinition Raw Persistence Reader Acceptance
+
+### AIAGENTDEF-PG-001 — Exact Industry AgentDefinition raw evidence
+Exact AgentDefinition-id lookup in the owning Industry Context returns immutable scope, raw code/objective/risk/status, allowed ToolSet, approval/budget policy references, version and timestamps without selected/authorized/approved/budget-satisfied/executable authority.
+
+### AIAGENTDEF-PG-002 — Sibling Industry isolation
+An Industry AgentDefinition requested from a sibling Industry Context is hidden by FORCE-RLS; the exact sibling context may read its own persisted definition.
+
+### AIAGENTDEF-PG-003 — Tenant same-Tenant visibility and raw-value preservation
+A Tenant-owned AgentDefinition is visible from same-Tenant Core and Industry contexts. Schema-valid empty code/objective/risk/status text is preserved rather than strengthened into invented enums or lifecycle rules.
+
+### AIAGENTDEF-PG-004 — PLATFORM AgentDefinition requires PLATFORM_GLOBAL context
+A Tenant context receives no implicit PLATFORM Agent fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact PLATFORM definition; timestamp ordering remains persisted evidence rather than an invented invariant.
+
+### AIAGENTDEF-PG-005 — Foreign Tenant isolation
+A foreign-Tenant AgentDefinition is hidden; its owning Tenant context may read the raw row and its distinct approval/budget references.
+
+### AIAGENTDEF-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed AgentDefinition UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIAGENTDEF-PG-007 — Persisted ToolSet/objective/risk/policy evidence is not agent execution authority
+After valid write-time insertion, the referenced ToolSet may later become non-ACTIVE without turning this raw reader into a current selector. The AI Gateway role retains migration-owned AgentDefinition DML privileges, but the DD-118 store exposes no create/update/delete/active-select/plan/approve/budget-evaluate/execute method. PLATFORM mutation remains blocked by existing write governance.
+
