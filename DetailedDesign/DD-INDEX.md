@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-ORG-UNIT-INDUSTRY-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-USAGE-METER-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-142**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-143**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-142 adds an exact OrgUnit linkage reader for `core_tenancy.org_unit_industry` through the existing `RequestScopedSql` boundary. Exact Tenant + Industry FORCE-RLS exposes only the current Industry link; raw `ACTIVE | SUSPENDED | ARCHIVED` status and immutable config JSON remain persistence evidence only. The reader does not become OrgUnit/Industry activation, hierarchy, config-resolution, document-ACL or workflow-assignment authority.
+DD-143 adds an exact raw `core_commercial.usage_meter` reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. Same-Tenant null-Industry rows remain visible from Tenant Core and same-Tenant Industry contexts; non-null Industry rows require exact Industry Context. Raw meter/period text, exact numeric evidence including schema-admitted `Infinity` / `NaN`, signed bigint version and update timestamp remain persistence evidence only. The reader does not become authoritative-period selection, entitlement binding, reservation reconciliation, aggregation, available-capacity or DD-073 usage-impact authority.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `28546f407042f2839d5861cd40d4f679675c6484` / tree `2934474535016628be15c6be5d855646af184225` — 311 Core tests, 434 PostgreSQL tests including `ORGIND-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `6a65e113a1cdc6e2011b297943eb7ca76bdb900d` / tree `26db1b2b26e530180ade6ae1a2262e388893baf3`: Core run `35883193670` (Core job `107256589373`, PostgreSQL job `107256589090`), Database run `35883193683` (job `107256589481`), Web run `35883193664` (job `107256589992`) — SUCCESS; **142 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD142_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `11f3d43bba8948f517723ac6ef0fb5051420c97f` / tree `79919d02b2e2f90cf2eb7a85b65c2d4797466056` — 311 Core tests, 441 PostgreSQL tests including `ORGIND-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `f1bb51d262785f4eb29910111335e532e723817c` / tree `bda17f3cb3cf7d7c9b17902f0f91ec746e28127f`: Core run `35900569534` (Core job `107315391758`, PostgreSQL job `107315392022`), Database run `35900569562` (job `107315389151`), Web run `35900569541` (job `107315389208`) — SUCCESS; **143 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD143_VERIFICATION_2026-09-23.md).
