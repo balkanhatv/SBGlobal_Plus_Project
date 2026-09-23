@@ -1,24 +1,24 @@
-# CORE SERVICE CHECKPOINT — DEV-AI-PROMPT-SET-READ-001
+# CORE SERVICE CHECKPOINT — DEV-AI-TOOL-SET-MEMBER-READ-001
 **Updated:** 2026-09-23 · **Branch:** `docs/architecture-branch-2`
 
 ## Verified executable basis
 
-Verified executable `14cf54776df8446f1a83c66c834421cf5119614c` / tree `b1163db6fc833ec5810bbb049da0bee6728f7a2e`: **311/311 Core**, **224/224 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
+Verified executable `85e16581eb117314ada8ab9ba137768371016bf3` / tree `69a30456316baac98c439499b73669be8af445b2`: **311/311 Core**, **231/231 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
 
-Promotion invariant gate `7e4d5e18aabb8a2a8950ebb0eeba46ab6713bc19` / tree `4a8136c832137f604c032a4f8342da47b19fa1bf`: Core run `35817372068` (Core job `107041678390`, PostgreSQL job `107041678174`), Database run `35817372133` (job `107041678241`), Web run `35817372062` (job `107041678180`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 112 unique DD definitions**.
+Promotion invariant gate `1ee703d58d21a25f7c96ad056b34c1f0babb554a` / tree `24d7702008d3c77f7c54ea7d9379f7422e113402`: Core run `35818233377` (Core job `107044302891`, PostgreSQL job `107044302945`), Database run `35818233384` (job `107044303161`), Web run `35818233378` (job `107044302822`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 113 unique DD definitions**.
 
 ## Implemented boundary
 
-DD-112 adds an exact-by-id owner-scoped `core_ai.ai_prompt_set` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. PLATFORM/TENANT/INDUSTRY ownership, raw code, positive version, constrained lifecycle status and timestamps remain persisted definition evidence only; they do not select an ACTIVE/current PromptSet, resolve members, select/render PromptTemplates, resolve IndustryAIConfig prompt binding or execute prompts. Existing schema-owned Tenant/Industry PromptSet DML privileges of `sbg_ai_gateway_rw` remain unchanged, while migration-0032 continues to protect PLATFORM PromptSet writes behind the control-plane role.
+DD-113 adds an exact-by-id scoped `core_ai.ai_tool_set_member` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. Child-row visibility remains parent-derived FORCE-RLS. The reader returns only member id, ToolSet id, Tool Definition id, raw enabled flag, immutable normalized `constraint_json`, and created timestamp. It does not calculate effective membership, interpret constraints, select ACTIVE/current ToolSets, revalidate execution eligibility or execute a tool. Existing database DML privileges remain migration-owned; PLATFORM-parent writes remain protected by existing definition-member/control-plane policies.
 
-`AIPROMPTSET-PG-001`…`AIPROMPTSET-PG-007` prove exact scoped raw PromptSet read, sibling-Industry and foreign-Tenant isolation, same-Tenant visibility, PLATFORM_GLOBAL-only platform read, safe missing/malformed/route-mismatch behavior, and preservation of existing database write governance without exposing mutation/selection/render/execution methods through the new port.
+`AITOOLMEM-PG-001`…`AITOOLMEM-PG-007` prove exact immutable scoped member read, sibling-Industry and foreign-Tenant isolation through the parent, same-Tenant visibility, PLATFORM_GLOBAL-only platform-parent read, safe missing/malformed/route-mismatch behavior, immutable raw JSON evidence, and preservation of existing write governance without exposing mutation/list/effective-resolution/constraint-evaluation/execute methods through the new port.
 
 ## Remaining scope
 
-ACTIVE/current/latest PromptSet selection, code/version fallback, PromptSet member loading/priority/enabled filtering, effective prompt-set calculation, PromptTemplate approval/publication/selection/rendering, IndustryAIConfig domain-prompt resolution, Assistant/system prompt composition, prompt-governance precedence evaluation, provider/model/policy/routing selection, tool/agent execution, credentials, inference/RAG/media generation and Workflow/Automation runtime semantics remain unimplemented unless separately source-owned.
+ToolSet member listing/effective resolution, constraint interpretation, current ToolDefinition activity revalidation for execution, tool eligibility/permission/entitlement/approval/side-effect/resource-scope enforcement, Assistant/Agent binding, AgentStep execution, Tool Definition/OperationContract execution, AI provisioning/configuration, provider/model/prompt/policy/routing selection, credentials, inference/RAG and Workflow/Automation runtime semantics remain unimplemented unless separately source-owned.
 
-Next: Fresh source-audit the next independent source-complete persistence slice. Do not open PromptSet-member effective selection, prompt rendering/composition, IndustryAIConfig prompt resolution, provider/model selection, eligibility/routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent/tool execution, `AIProvisioningSnapshot` compilation/current-selection, prompt-policy evaluation or Workflow/Automation runtime semantics without source-owned authority.
+Next: Fresh source-audit the next independent source-complete persistence slice. Do not open effective ToolSet membership, constraint interpretation, tool authorization/execution, provider/model selection, eligibility/routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent execution, `AIProvisioningSnapshot` compilation/current-selection, prompt rendering/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.
 
-Evidence: `Registers/DEVELOPMENT_DD112_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD113_VERIFICATION_2026-09-23.md`.
 
 RawSource accepted blobs unchanged; `main` remains outside this branch continuation; PR #2 remains review-only/draft until explicitly authorized.
