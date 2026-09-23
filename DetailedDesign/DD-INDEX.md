@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-MEDIA-REQUEST-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-MESSAGE-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-125**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-126**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-125 adds an exact-by-id Tenant/Industry-scoped `core_ai.ai_media_request` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. MediaRequest FORCE-RLS, principal attribution, raw capability/status/moderation/localization/residency evidence, constrained media/sensitivity classes, optional prompt/version and bigint-text brand version, immutable input-document refs, and created/completed timestamps remain persisted request evidence only. The reader does not generate media, render prompts, revalidate current documents, moderate/publish outputs, resolve providers/models/brand/localization, authorize requests or route/execute AI. Existing migration-owned MediaRequest DML authority remains unchanged.
+DD-126 adds an exact-by-id scoped `core_ai.ai_message` raw persistence reader through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. Message visibility remains parent-Conversation-derived FORCE-RLS and therefore Tenant/optional Industry + exact owner-principal private. The reader returns only id, Conversation id, raw role, raw content reference/encrypted content, optional immutable normalized source JSON, optional model-route UUID, created timestamp and optional deleted timestamp. It does not list/order history, interpret roles, decrypt/dereference content, authorize sources, resolve/select model routes/providers/models, evaluate retention/erasure/legal hold, reconstruct prompts or perform inference/RAG. Existing AI Gateway message DML authority remains migration-owned; the DD-126 port itself is read-only.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `16a99ef781d07eb8048062cc3bab637d10a7c35b` / tree `ed32932282221ff26108aeb0c10a2dcad3e1957b` — 311 Core tests, 315 PostgreSQL tests including `AIMEDIAREQ-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `ef252b21265e149faefe7b3ad21c1de679ddadd3` / tree `ed06ffb7c00f9402297d26924cef6707762bf0cd`: Core run `35838398283` (Core job `107107322184`, PostgreSQL job `107107322294`), Database run `35838398233` (job `107107321984`), Web run `35838398159` (job `107107321869`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 125 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD125_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `fec7fd3a6c699f1284fe170a92ac68c1d9ecdb2e` / tree `ec0afe1fc58f3be5bf9ed34084a4cd06226a9ed5` — 311 Core tests, 322 PostgreSQL tests including `AIMSG-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `a3c7dafc0df0dfd01edba42f9dce85c98b9ae9c6` / tree `b66ae8e0935d65e86283624c624511555c54b2b8`: Core run `35839860371` (Core job `107112086949`, PostgreSQL job `107112086571`), Database run `35839860327` (job `107112086412`), Web run `35839860622` (job `107112087219`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 126 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD126_VERIFICATION_2026-09-23.md).
