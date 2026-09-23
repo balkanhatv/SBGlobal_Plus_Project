@@ -1805,3 +1805,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AITENCFG-PG-001` through `AITENCFG-PG-007` in DD-17 and `tests/postgres/ai-tenant-config-store.test.mjs`.
 
+## DD-120 — AI IndustryAIConfig raw persistence is readable without becoming effective Tenant+Industry configuration or provisioning authority
+
+**Context:** migration 0011 physically owns `core_ai.industry_ai_config` as versioned exact-Industry configuration under FORCE-RLS. Migration 0031 adds write-time integrity requiring duplicate-free/non-null allowlists, non-widening against the latest TenantAIConfig at write time, active Tenant country-pack references, and an ACTIVE applicable optional domain PromptSet. IndustryAIConfig stores no TenantAIConfig version reference, so a persisted row does not identify or reconstruct the Tenant config used at write time. DD-09/A-07 separately define non-widening configuration and compiled provisioning.
+
+**Decision:** add immutable `PersistedAIIndustryConfig`, `AIIndustryConfigReadPort.loadForContext(...)` and `PostgresAIIndustryConfigStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and returns only persisted evidence: id, Tenant id, Industry Context id, raw enabled flag, immutable raw capability/provider/model arrays, nullable domain PromptSet id, immutable raw country-pack refs, nullable raw localization-profile reference, positive version and updated timestamp. Missing rows return null; malformed identifiers, malformed persisted values or route/context mismatch fail closed.
+
+**Security / trade-off:** exact Industry FORCE-RLS remains authoritative. Tenant Core, sibling Industry, foreign Tenant and PLATFORM_GLOBAL contexts do not implicitly expose a row; the exact owning Tenant+Industry context may read it. Existing migration-owned `sbg_ai_gateway_rw` DML authority remains unchanged; DD-120 does not relabel that database role read-only. The new application port itself is read-only.
+
+**Boundary:** DD-120 does not select latest/current IndustryAIConfig; merge Tenant+Industry configuration; revalidate against current/latest TenantAIConfig; evaluate current catalog/country-pack/domain-PromptSet activity; resolve effective PromptSet membership; compile/select/validate `AIProvisioningSnapshot`; evaluate entitlement/subscription/permission/sensitivity/residency/budget/retention/prompt-policy; route/fallback providers/models; select/render prompts; select/execute assistants/agents/tools; resolve credentials; perform inference/embeddings/RAG/media generation; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AIINDCFG-PG-001` through `AIINDCFG-PG-007` in DD-17 and `tests/postgres/ai-industry-config-store.test.mjs`.
+
