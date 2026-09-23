@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-USAGE-METER-READ-001",
-  "final_verdict": "DD-143 USAGEMETER RAW SCOPED PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; RAW METER/PERIOD/NUMERIC/VERSION EVIDENCE ONLY; AUTHORITATIVE PERIOD, ENTITLEMENT BINDING, RESERVATION RECONCILIATION, AGGREGATION, AVAILABLE CAPACITY AND DD-073 USAGE-IMPACT AUTHORITY UNCLAIMED",
+  "checkpoint": "DEV-AUDIT-EVENT-READ-001",
+  "final_verdict": "DD-144 AUDITEVENT RAW SCOPED PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; RAW HISTORICAL EVENT EVIDENCE ONLY; PRODUCTION, SEARCH/PAGINATION, RETENTION/LEGAL-HOLD/ARCHIVE/PURGE, EXPORT/REPORTING, CURRENT-STATE REVALIDATION AND EVENT-CONTENT AUTHORIZATION UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "11f3d43bba8948f517723ac6ef0fb5051420c97f",
-    "verified_code_tree": "79919d02b2e2f90cf2eb7a85b65c2d4797466056",
-    "state_projection_basis_head": "f1bb51d262785f4eb29910111335e532e723817c",
+    "verified_code_head": "862c1b9837419c8787016ce2584f9e433489cc08",
+    "verified_code_tree": "7f59571b2319bc0b3d2fe0d36cd019330a70ea81",
+    "state_projection_basis_head": "b736ffc4e367b0b2f3214ca2c8d77b4fcbb7b099",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "UsageMeter exact raw scoped persistence reader verified; period/entitlement/reservation/usage-impact semantics remain unbound",
+    "current_phase": "AuditEvent exact raw persistence reader verified; production/search/retention/export/current-state revalidation/authorization semantics remain unbound",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "f1bb51d262785f4eb29910111335e532e723817c",
-      "ci_run_id": 35900569562,
-      "ci_job_id": 107315389151,
+      "ci_verified_head": "b736ffc4e367b0b2f3214ca2c8d77b4fcbb7b099",
+      "ci_run_id": 35903393183,
+      "ci_job_id": 107324908479,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "bda17f3cb3cf7d7c9b17902f0f91ec746e28127f",
+      "ci_verified_tree": "ed5bf656c6288e7f56fdc51f883cd4909350f3de",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "f1bb51d262785f4eb29910111335e532e723817c",
-      "feature_head_bootstrap_verified_tree": "bda17f3cb3cf7d7c9b17902f0f91ec746e28127f",
-      "feature_head_bootstrap_run_id": 35900569534,
-      "feature_head_bootstrap_job_id": 107315392022,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_441_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "b736ffc4e367b0b2f3214ca2c8d77b4fcbb7b099",
+      "feature_head_bootstrap_verified_tree": "ed5bf656c6288e7f56fdc51f883cd4909350f3de",
+      "feature_head_bootstrap_run_id": 35903393431,
+      "feature_head_bootstrap_job_id": 107324908641,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_448_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next independent source-complete Core persistence slice. Keep UsageMeter mutation, current/authoritative period selection, entitlement/target binding, reservation reconciliation, aggregation, available-capacity calculation and DD-073 usage-impact authority outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit the next independent source-complete Core persistence slice. Keep AuditEvent production, search/list/filter/order/pagination, retention/legal-hold/archive/purge/partition management, export/reporting, current actor/routing revalidation, event-content authorization and dedicated cross-context repository behavior outside scope unless separately source-owned.",
     "core_services": {
-      "checkpoint": "DEV-USAGE-METER-READ-001",
+      "checkpoint": "DEV-AUDIT-EVENT-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–143 current implementation; DD-143 bounded exact raw UsageMeter persistence reader with no authoritative-period/entitlement/reservation/usage-impact authority",
-      "verified_head": "11f3d43bba8948f517723ac6ef0fb5051420c97f",
-      "verified_tree": "79919d02b2e2f90cf2eb7a85b65c2d4797466056",
-      "core_ci_run_id": 35900569534,
-      "core_ci_job_id": 107315391758,
+      "decision": "DD-040–144 current implementation; DD-144 bounded exact raw AuditEvent persistence reader with final scope visibility and no production/search/retention/export/authorization authority",
+      "verified_head": "862c1b9837419c8787016ce2584f9e433489cc08",
+      "verified_tree": "7f59571b2319bc0b3d2fe0d36cd019330a70ea81",
+      "core_ci_run_id": 35903393431,
+      "core_ci_job_id": 107324908281,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35900569534,
-      "postgres_ci_job_id": 107315392022,
-      "postgres_tests": "441/441 PASS",
+      "postgres_ci_run_id": 35903393431,
+      "postgres_ci_job_id": 107324908641,
+      "postgres_tests": "448/448 PASS",
       "postgres_test_counts": {
-        "tests": 441,
-        "pass": 441,
+        "tests": 448,
+        "pass": 448,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35900569562,
-      "database_regression_job_id": 107315389151,
+      "database_regression_run_id": 35903393183,
+      "database_regression_job_id": 107324908479,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -415,7 +415,8 @@
         "DD-140 exact-by-id Tenant-scoped DataExportRequest raw persistence reader with exact scope FORCE-RLS, immutable resource-class array and raw residency/status/approval/document/expiry evidence",
         "DD-141 exact-by-id Tenant SubscriptionTransition raw persistence reader with same-Tenant Core/Industry visibility, immutable raw transition evidence and append-only privilege proof",
         "DD-142 exact Tenant+Industry OrgUnitIndustry raw persistence reader with exact Industry FORCE-RLS, raw status and immutable config JSON",
-        "DD-143 exact-by-id scoped UsageMeter raw persistence reader with lossless PostgreSQL numeric/bigint text evidence and no DD-073 source authority"
+        "DD-143 exact-by-id scoped UsageMeter raw persistence reader with lossless PostgreSQL numeric/bigint text evidence and no DD-073 source authority",
+        "DD-144 exact-by-id partitioned AuditEvent raw persistence reader with final platform/Tenant/Industry/explicit-cross-context FORCE-RLS and no search/retention/export/authorization authority"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",

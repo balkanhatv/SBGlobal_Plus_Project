@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-USAGE-METER-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AUDIT-EVENT-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-143**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-144**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-143 adds an exact raw `core_commercial.usage_meter` reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. Same-Tenant null-Industry rows remain visible from Tenant Core and same-Tenant Industry contexts; non-null Industry rows require exact Industry Context. Raw meter/period text, exact numeric evidence including schema-admitted `Infinity` / `NaN`, signed bigint version and update timestamp remain persistence evidence only. The reader does not become authoritative-period selection, entitlement binding, reservation reconciliation, aggregation, available-capacity or DD-073 usage-impact authority.
+DD-144 adds an exact raw `core_audit.audit_event` reader through the ordinary `RequestScopedSql` application boundary. Final partitioned FORCE-RLS preserves PLATFORM_GLOBAL, same-Tenant Core, exact Tenant-Industry and source/target-only explicit cross-context visibility. Raw nullable/empty actor/action/resource/outcome/routing/sensitivity text plus immutable generic JSON and schema-version evidence remain historical persistence facts only; production, search/pagination, retention/export/current-state revalidation and event-content authorization are not claimed.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `11f3d43bba8948f517723ac6ef0fb5051420c97f` / tree `79919d02b2e2f90cf2eb7a85b65c2d4797466056` — 311 Core tests, 441 PostgreSQL tests including `USAGEMETER-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `f1bb51d262785f4eb29910111335e532e723817c` / tree `bda17f3cb3cf7d7c9b17902f0f91ec746e28127f`: Core run `35900569534` (Core job `107315391758`, PostgreSQL job `107315392022`), Database run `35900569562` (job `107315389151`), Web run `35900569541` (job `107315389208`) — SUCCESS; **143 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD143_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `862c1b9837419c8787016ce2584f9e433489cc08` / tree `7f59571b2319bc0b3d2fe0d36cd019330a70ea81` — 311 Core tests, 448 PostgreSQL tests including `AUDITEVENT-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `b736ffc4e367b0b2f3214ca2c8d77b4fcbb7b099` / tree `ed5bf656c6288e7f56fdc51f883cd4909350f3de`: Core run `35903393431` (Core job `107324908281`, PostgreSQL job `107324908641`), Database run `35903393183` (job `107324908479`), Web run `35903393251` (job `107324908154`) — SUCCESS; **144 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD144_VERIFICATION_2026-09-23.md).
