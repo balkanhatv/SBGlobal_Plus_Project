@@ -15,7 +15,7 @@ interface ApiCredentialMetadataRow {
   readonly permission_profile_id: string | null;
   readonly expires_at: string | Date | null;
   readonly last_used_at: string | Date | null;
-  readonly allowed_cidrs: readonly string[];
+  readonly allowed_cidrs: readonly string[] | null;
   readonly credential_version: string;
   readonly created_at: string | Date;
   readonly revoked_at: string | Date | null;
@@ -139,7 +139,9 @@ function parseRow(row: ApiCredentialMetadataRow): ApiCredentialMetadata {
     ...(row.last_used_at !== null
       ? {lastUsedAt: optionalTimestamp(row.last_used_at, "lastUsedAt")}
       : {}),
-    allowedCidrs: stringArray(row.allowed_cidrs, "allowed CIDRs"),
+    ...(row.allowed_cidrs !== null
+      ? {allowedCidrs: stringArray(row.allowed_cidrs, "allowed CIDRs")}
+      : {}),
     credentialVersion: bigintText(row.credential_version),
     createdAt: timestamp(row.created_at, "createdAt"),
     ...(row.revoked_at !== null

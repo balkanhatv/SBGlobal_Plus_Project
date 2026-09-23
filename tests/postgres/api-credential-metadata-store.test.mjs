@@ -117,7 +117,7 @@ before(async () => {
          ARRAY[]::cidr[],0::bigint,now()-interval '5 days',NULL,
          ARRAY[$6::uuid]::uuid[]),
         ($3::uuid,NULL,NULL,$9::uuid,'platform-prefix','argon2id$platform','REVOKED',
-         NULL,NULL,NULL,ARRAY['192.0.2.0/24'::cidr],
+         NULL,NULL,NULL,NULL,
          '9223372036854775807'::bigint,now()-interval '30 days',now()-interval '1 day',
          ARRAY[]::uuid[])`,
       [
@@ -246,7 +246,7 @@ test("APICRED-META-PG-004 secret verifier is excluded while nullable and raw met
   assert.deepEqual(industry.allowedCidrs, []);
   assert.equal(platform.status, "REVOKED");
   assert.ok(platform.revokedAt);
-  assert.deepEqual(platform.allowedCidrs, ["192.0.2.0/24"]);
+  assert.equal(platform.allowedCidrs, undefined);
 });
 
 test("APICRED-META-PG-005 signed bigint credential-version evidence is preserved losslessly", async () => {

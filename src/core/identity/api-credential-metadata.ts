@@ -14,7 +14,7 @@ export interface ApiCredentialMetadata {
   readonly permissionProfileId?: string;
   readonly expiresAt?: string;
   readonly lastUsedAt?: string;
-  readonly allowedCidrs: readonly string[];
+  readonly allowedCidrs?: readonly string[];
   readonly credentialVersion: string;
   readonly createdAt: string;
   readonly revokedAt?: string;
