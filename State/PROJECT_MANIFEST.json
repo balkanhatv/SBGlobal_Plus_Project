@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-TENANT-COUNTRY-PACK-ACTIVATION-READ-001",
-  "final_verdict": "DD-138 TENANTCOUNTRYPACKACTIVATION RAW TENANT PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; TENANT-RLS RAW ACTIVATION EVIDENCE ONLY; CURRENT/EFFECTIVE SELECTION, TRANSITIONS, OVERRIDE MATERIALIZATION, DEFAULT APPLICATION AND AI ELIGIBILITY UNCLAIMED",
+  "checkpoint": "DEV-BRAND-CONFIGURATION-READ-001",
+  "final_verdict": "DD-139 BRANDCONFIGURATION RAW SCOPED PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; RAW BRAND EVIDENCE ONLY; HIERARCHY RESOLUTION, PROTECTED-TOKEN ENFORCEMENT, ACCESSIBILITY REVALIDATION, RENDERING AND DOCUMENT ACCESS UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "b211abda587247d3f889bcd85c54c270391d0a09",
-    "verified_code_tree": "4ea29008e0fd33cef2c7b6747ec969560a22d761",
-    "state_projection_basis_head": "71efba263d9f11b9ac5e2588d90b05f40a2e2b05",
+    "verified_code_head": "46d7c8a4d0827678f0b741d06880af55814e1724",
+    "verified_code_tree": "7f76ad448d2a392d2e1d83bd74ca70d682cab63f",
+    "state_projection_basis_head": "de677419568b023b3777fe234b3fbabec2ab5c07",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "TenantCountryPackActivation exact-by-id Tenant-scoped raw persistence reader verified; activation/override/timestamp/row-version evidence remains non-selecting/non-materializing/non-authorizing",
+    "current_phase": "BrandConfiguration exact-by-id scoped raw persistence reader verified; token/typography/document/accessibility evidence remains non-resolving/non-rendering/non-authorizing",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "71efba263d9f11b9ac5e2588d90b05f40a2e2b05",
-      "ci_run_id": 35874528645,
-      "ci_job_id": 107226899038,
+      "ci_verified_head": "de677419568b023b3777fe234b3fbabec2ab5c07",
+      "ci_run_id": 35877360246,
+      "ci_job_id": 107236639493,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "646500b4829385be3b4573a02ef741baf05b0306",
+      "ci_verified_tree": "aa4fc80f8402fcd5f44d3611354d72031fe543a4",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "71efba263d9f11b9ac5e2588d90b05f40a2e2b05",
-      "feature_head_bootstrap_verified_tree": "646500b4829385be3b4573a02ef741baf05b0306",
-      "feature_head_bootstrap_run_id": 35874528689,
-      "feature_head_bootstrap_job_id": 107226899737,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_406_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "de677419568b023b3777fe234b3fbabec2ab5c07",
+      "feature_head_bootstrap_verified_tree": "aa4fc80f8402fcd5f44d3611354d72031fe543a4",
+      "feature_head_bootstrap_run_id": 35877360444,
+      "feature_head_bootstrap_job_id": 107236640983,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_413_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next independent source-complete Core persistence slice. Keep current/effective Tenant CountryPack selection, activation/deactivation transition authority, row-version compare-and-swap writes, CountryPack lifecycle revalidation, override merge/materialization, localization default application, reference-bundle loading and AI eligibility outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit the next independent source-complete Core persistence slice. Keep BrandConfiguration current/effective selection, Platform→Industry→Tenant→user hierarchy resolution, protected semantic-token enforcement, accessibility revalidation, theme rendering, logo/favicon document access and BrandConfiguration mutation outside scope unless separately source-owned.",
     "core_services": {
-      "checkpoint": "DEV-TENANT-COUNTRY-PACK-ACTIVATION-READ-001",
+      "checkpoint": "DEV-BRAND-CONFIGURATION-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–138 current implementation; DD-138 bounded exact-by-id TenantCountryPackActivation raw Tenant persistence reader",
-      "verified_head": "b211abda587247d3f889bcd85c54c270391d0a09",
-      "verified_tree": "4ea29008e0fd33cef2c7b6747ec969560a22d761",
-      "core_ci_run_id": 35874528689,
-      "core_ci_job_id": 107226900095,
+      "decision": "DD-040–139 current implementation; DD-139 bounded exact-by-id scoped BrandConfiguration raw persistence reader",
+      "verified_head": "46d7c8a4d0827678f0b741d06880af55814e1724",
+      "verified_tree": "7f76ad448d2a392d2e1d83bd74ca70d682cab63f",
+      "core_ci_run_id": 35877360444,
+      "core_ci_job_id": 107236641285,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35874528689,
-      "postgres_ci_job_id": 107226899737,
-      "postgres_tests": "406/406 PASS",
+      "postgres_ci_run_id": 35877360444,
+      "postgres_ci_job_id": 107236640983,
+      "postgres_tests": "413/413 PASS",
       "postgres_test_counts": {
-        "tests": 406,
-        "pass": 406,
+        "tests": 413,
+        "pass": 413,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35874528645,
-      "database_regression_job_id": 107226899038,
+      "database_regression_run_id": 35877360246,
+      "database_regression_job_id": 107236639493,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -410,7 +410,8 @@
         "DD-135 exact-by-id scoped FormDefinition raw parent persistence reader with FORCE-RLS, immutable layout JSON and raw form-array evidence",
         "DD-136 exact-by-id parent-scoped FormFieldDefinition raw child persistence reader with parent-derived FORCE-RLS and immutable validation JSON evidence",
         "DD-137 exact-by-id CountryPack raw global/reference catalog reader with immutable locale/default/reference/JSON evidence and application-role SELECT-only privilege",
-        "DD-138 exact-by-id Tenant-scoped TenantCountryPackActivation raw persistence reader with Tenant FORCE-RLS, immutable override JSON and exact bigint row-version evidence"
+        "DD-138 exact-by-id Tenant-scoped TenantCountryPackActivation raw persistence reader with Tenant FORCE-RLS, immutable override JSON and exact bigint row-version evidence",
+        "DD-139 exact-by-id scoped BrandConfiguration raw persistence reader with FORCE-RLS, immutable token/typography JSON, raw document references and accessibility evidence"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
