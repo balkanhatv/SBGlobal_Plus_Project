@@ -78,3 +78,4 @@ export * from "./ai/prompt-set-member.js";
 export * from "./ai/prompt-template.js";
 export * from "./ai/policy.js";
 export * from "./ai/assistant-definition.js";
+export * from "./ai/agent-definition.js";
