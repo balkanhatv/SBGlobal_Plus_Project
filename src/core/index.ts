@@ -85,3 +85,4 @@ export * from "./ai/conversation.js";
 export * from "./ai/token-usage.js";
 export * from "./ai/cost.js";
 export * from "./ai/provisioning-snapshot.js";
+export * from "./ai/media-request.js";
