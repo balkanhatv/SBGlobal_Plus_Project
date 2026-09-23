@@ -87,3 +87,4 @@ export * from "./ai/token-usage.js";
 export * from "./ai/cost.js";
 export * from "./ai/provisioning-snapshot.js";
 export * from "./ai/media-request.js";
+export * from "./ai/rag-source.js";
