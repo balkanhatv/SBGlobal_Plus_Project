@@ -1409,3 +1409,26 @@ A missing well-formed AgentDefinition UUID returns `null`; malformed UUID or dat
 ### AIAGENTDEF-PG-007 — Persisted ToolSet/objective/risk/policy evidence is not agent execution authority
 After valid write-time insertion, the referenced ToolSet may later become non-ACTIVE without turning this raw reader into a current selector. The AI Gateway role retains migration-owned AgentDefinition DML privileges, but the DD-118 store exposes no create/update/delete/active-select/plan/approve/budget-evaluate/execute method. PLATFORM mutation remains blocked by existing write governance.
 
+## DD-119 AI TenantConfig Raw Persistence Reader Acceptance
+
+### AITENCFG-PG-001 — Exact Tenant configuration raw evidence
+Exact config-id lookup in the owning Tenant context returns immutable Tenant id, raw enabled state, capability/provider/model allowlists, sensitivity ceiling, policy references, positive version and updated timestamp without current/effective/provisioned authority.
+
+### AITENCFG-PG-002 — Same-Tenant Core/Industry visibility
+The same TenantAIConfig row is visible from Tenant Core and Tenant Industry RequestContexts because the table is Tenant-scoped rather than Industry-owned.
+
+### AITENCFG-PG-003 — Foreign Tenant isolation
+A foreign-Tenant TenantAIConfig row is hidden by FORCE-RLS; the owning Tenant may read the exact persisted row.
+
+### AITENCFG-PG-004 — PLATFORM_GLOBAL does not bypass Tenant RLS
+Trusted PLATFORM_GLOBAL context does not implicitly expose TenantAIConfig rows through the Tenant-scoped reader.
+
+### AITENCFG-PG-005 — Exact versions remain distinct
+Two persisted versions for the same Tenant remain independently addressable by id. Raw nullable/empty monthly-budget-policy evidence is preserved and the reader does not choose latest/current/effective configuration.
+
+### AITENCFG-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed config UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AITENCFG-PG-007 — Database DML privilege is not application mutation/provisioning authority
+The AI Gateway role retains migration-owned TenantAIConfig DML privileges, but the DD-119 store exposes no create/update/delete/latest/effective/provision/route/execute method.
+
