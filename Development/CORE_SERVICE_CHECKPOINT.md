@@ -1,18 +1,14 @@
-# CORE SERVICE CHECKPOINT — DEV-API-CREDENTIAL-VERIFICATION-MATERIAL-READ-001
+# CORE SERVICE CHECKPOINT — DEV-OPERATOR-ELEVATION-TIME-STATUS-FLOOR-001
 **Updated:** 2026-09-23 · **Branch:** `docs/architecture-branch-2`
 
-Verified executable `9b0662aee55e710b256033561790609dbfa6eeaa` / tree `a4221561bb8260b9093451117ab411562cb2683b`: **311/311 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `f94cd8287e66daf7e9c2974a4539056f81bdebc9` / tree `9ca5cff5644470676fa3d8fb0ec560c522a1266d`: **318/318 Core**, **469/469 PostgreSQL**, Database/Web PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `539524aaaf93ef14d72c0165163f6a5bd1c660cf` / tree `0a56b0d946e8090809f32cb4f7d41587577794fb`: Core run `35910799265` (Core job `107349828531`, PostgreSQL job `107349828859`), Database run `35910799281` (job `107349828748`), Web run `35910799187` (job `107349828182`) — SUCCESS; **147 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `86840d3edcc45752d0aa9abcfe2de6268fb2b113` / tree `c171e7dee52b156c0c8af68d340124aa137db1dd`: Core run `35912001993` (Core job `107353903952`, PostgreSQL job `107353903392`), Database run `35912001954` (job `107353904022`), Web run `35912002028` (job `107353903368`) — SUCCESS; **148 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-147 adds the server-internal API Credential verification-material source. Exact persisted key-prefix lookup is unique and uses `PostgresIdentityDatabase`; opaque `secret_hash` never crosses into Core exports or transports. ACTIVE/SUSPENDED/REVOKED/EXPIRED rows remain raw material rather than an authentication decision.
-
-`APICRED-VERIFY-PG-001`…`APICRED-VERIFY-PG-007` prove exact prefix lookup, Tenant/Industry/platform scope fidelity, non-active lifecycle evidence, nullable CIDR + bigint fidelity, source uniqueness, Identity-service-only access and non-verifier/read-only surface behavior.
+`OPELEV-WIN-001…007` prove ACTIVE-only matching, inclusive start, exclusive expiry, non-ACTIVE denial, outside-window denial, malformed-time fail closed and non-interpretation/non-mutation of unrelated elevation metadata.
 
 ## Remaining scope
 
-Presented API-key wire format and parsing; prefix extraction rules; Argon2id/approved verifier comparison and parameters/library contract; CIDR/network enforcement; current lifecycle usability; permission-profile resolution; last-used mutation; credential-use/auth audit; rotation/revocation orchestration; `VerifiedMachineEvidence` construction; and `IdentityPort.verifyMachineCredential` remain unimplemented unless separately source-owned.
+Trusted elevation selection; interactive PLATFORM_OPERATOR binding; Tenant/Industry target binding; permission-profile evaluation; approval/purpose/ticket policy; RequestContext and transaction-local `app.operator_elevation_id` injection; mandatory elevation-use audit; mutation workflow; transport/UI remain unimplemented unless separately source-owned.
 
-Next: Fresh source-audit the next runtime prerequisite. Do not treat verifier-material availability as successful authentication.
-
-Evidence: `Registers/DEVELOPMENT_DD147_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD148_VERIFICATION_2026-09-23.md`.
