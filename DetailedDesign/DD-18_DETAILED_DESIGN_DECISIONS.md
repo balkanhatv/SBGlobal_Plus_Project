@@ -1793,3 +1793,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIAGENTDEF-PG-001` through `AIAGENTDEF-PG-007` in DD-17 and `tests/postgres/ai-agent-definition-store.test.mjs`.
 
+## DD-119 — AI TenantAIConfig raw persistence is readable without becoming latest/effective configuration or provisioning authority
+
+**Context:** migration 0011 physically owns `core_ai.tenant_ai_config` as versioned Tenant-scoped AI configuration under FORCE-RLS. It stores raw enablement, capability/provider/model allowlists, sensitivity ceiling and policy references. Migration 0031 adds write-time integrity requiring duplicate-free/non-null allowlists and ACTIVE referenced capability/provider/model catalog rows, with allowed models bound to allowed providers. Multiple versions may exist for one Tenant, and `AIProvisioningSnapshot` separately references a concrete `tenant_ai_config_version`. DD-09/A-07 distinguish persisted Tenant configuration from compiled provisioning and live gateway authorization.
+
+**Decision:** add immutable `PersistedAITenantConfig`, `AITenantConfigReadPort.loadForContext(...)` and `PostgresAITenantConfigStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact UUID and returns only persisted evidence: id, Tenant id, raw enabled flag, immutable raw capability/provider/model arrays, constrained raw sensitivity class, residency-policy id, nullable raw monthly-budget-policy reference, retention-policy id, prompt-override-policy id, positive version and updated timestamp. Missing rows return null; malformed identifiers, malformed persisted values or route/context mismatch fail closed.
+
+**Security / trade-off:** Tenant FORCE-RLS remains authoritative. The same Tenant Core or Tenant Industry RequestContext may read Tenant-owned configuration; foreign-Tenant rows are hidden and PLATFORM_GLOBAL context does not bypass Tenant RLS. Existing migration-owned `sbg_ai_gateway_rw` DML authority remains unchanged; DD-119 does not mischaracterize that database role as read-only. The new application port itself is read-only.
+
+**Boundary:** DD-119 does not select latest/current TenantAIConfig; treat `enabled` as runtime authorization; evaluate capability/provider/model eligibility; revalidate current catalog activity; merge/narrow IndustryAIConfig; compile/select/validate `AIProvisioningSnapshot`; evaluate entitlement/subscription/permission/sensitivity/residency/budget/retention/prompt-override policy; route/fallback providers/models; select/render prompts; select/execute assistants/agents/tools; resolve credentials; perform inference/embeddings/RAG/media generation; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AITENCFG-PG-001` through `AITENCFG-PG-007` in DD-17 and `tests/postgres/ai-tenant-config-store.test.mjs`.
+
