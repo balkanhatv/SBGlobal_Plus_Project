@@ -66,16 +66,16 @@ Authorized returned evidence:
 - raw `capabilityCode`;
 - `providerId`;
 - `modelId`;
-- exact decimal-string `inputUnits`;
-- exact decimal-string `outputUnits`;
-- optional exact decimal-string `mediaUnits`;
+- exact PostgreSQL numeric-text `inputUnits`;
+- exact PostgreSQL numeric-text `outputUnits`;
+- optional exact PostgreSQL numeric-text `mediaUnits`;
 - `occurredAt`;
 - `correlationId`.
 
 Validation remains schema-aligned only:
 
 - UUID validation for persisted identifiers;
-- numeric evidence is selected as PostgreSQL text and validated as non-negative decimal text, avoiding JavaScript floating-point precision loss;
+- numeric evidence is selected as PostgreSQL `numeric::text` and preserved as raw text, avoiding JavaScript floating-point precision loss or invented numeric grammar beyond the database type/CHECK;
 - optional principal/media evidence stays optional;
 - no unit conversion, aggregation, pricing, cost or quota interpretation is introduced;
 - no provider/model/capability current-state lookup is performed;
@@ -98,7 +98,7 @@ DD-122 does **not** implement or authorize:
 
 ## Acceptance expectations
 
-1. exact Industry TokenUsage returns immutable raw usage evidence with exact decimal strings;
+1. exact Industry TokenUsage returns immutable raw usage evidence with exact PostgreSQL numeric text;
 2. sibling Industry usage is hidden while exact sibling context may read it;
 3. Tenant-Core usage is same-Tenant visible from Tenant Core and Tenant Industry contexts;
 4. `principal_id` remains attribution rather than RLS ownership: another active principal in the same Tenant/Industry context can read the row;
