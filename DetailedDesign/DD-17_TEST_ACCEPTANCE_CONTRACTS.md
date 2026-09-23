@@ -1524,3 +1524,26 @@ A missing well-formed usage UUID returns `null`; malformed UUID or database rout
 ### AICOST-PG-007 — Raw cost evidence is not pricing/billing/finalization/execution authority
 The AI Gateway role retains migration-owned Cost DML privileges, but the DD-123 store exposes no create/update/delete/aggregate/rate/currency-conversion/finalize/invoice/execute method.
 
+## DD-124 AI ProvisioningSnapshot Raw Persistence Reader Acceptance
+
+### AIPROVSNAP-PG-001 — Exact Industry snapshot raw evidence
+Exact snapshot-id lookup in the owning Industry Context returns immutable Tenant/Industry ownership, exact bigint-text version evidence, frozen pack maps, frozen governed/raw allowlists, optional budget-policy reference, raw lifecycle status and timestamps without current/effective/authorized authority.
+
+### AIPROVSNAP-PG-002 — Sibling Industry isolation
+An Industry snapshot is hidden from a sibling Industry Context; the exact sibling context may read its raw persisted snapshot.
+
+### AIPROVSNAP-PG-003 — Tenant-Core same-Tenant visibility and raw lifecycle preservation
+A Tenant-Core snapshot is visible from same-Tenant Core and Industry contexts. Nullable Industry activation evidence, SUPERSEDED status, schema-valid empty budget-policy text and an already elapsed valid-until timestamp remain persisted evidence rather than being converted into selection/validity decisions.
+
+### AIPROVSNAP-PG-004 — Snapshot visibility is not principal-private
+A different active principal in the same authorized Tenant/Industry context may read the same snapshot because ProvisioningSnapshot RLS is Tenant/Industry scoped rather than principal scoped.
+
+### AIPROVSNAP-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts cannot bypass ProvisioningSnapshot FORCE-RLS; the owning Tenant/Industry context may read the exact row.
+
+### AIPROVSNAP-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed snapshot UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AIPROVSNAP-PG-007 — Raw snapshot evidence is not current/compile/authorize/route/execute authority
+The AI Gateway role retains migration-owned ProvisioningSnapshot DML privileges, but the DD-124 store exposes no create/update/delete/current-selector/compile/revalidate/authorize/route/execute method.
+
