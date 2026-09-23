@@ -1,18 +1,18 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-23 · **Checkpoint:** `DEV-BRAND-CONFIGURATION-READ-001`
+**Updated:** 2026-09-23 · **Checkpoint:** `DEV-DATA-EXPORT-REQUEST-READ-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `46d7c8a4d0827678f0b741d06880af55814e1724` / tree `7f76ad448d2a392d2e1d83bd74ca70d682cab63f`: **311/311 Core**, **413/413 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `f516a4cd8731708ce101e24ca06b8175a4deabf3` / tree `a6d22783b0c0f5bd8d599526adedf9efa1ff8418`: **311/311 Core**, **420/420 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `de677419568b023b3777fe234b3fbabec2ab5c07` / tree `aa4fc80f8402fcd5f44d3611354d72031fe543a4`: Core run `35877360444` (Core job `107236641285`, PostgreSQL job `107236640983`), Database run `35877360246` (job `107236639493`), Web run `35877360364` (job `107236639958`) — SUCCESS; **139 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `b541f53a6881708d0326fcc7fe40c8ac264e685a` / tree `66f25de6cd656a392e9d95ee3c783037a866360a`: Core run `35879257481` (Core job `107243141049`, PostgreSQL job `107243141323`), Database run `35879257689` (job `107243142502`), Web run `35879257587` (job `107243141812`) — SUCCESS; **140 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-139 adds an exact-by-id scoped `core_config.brand_configuration` raw persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. FORCE-RLS preserves PLATFORM/TENANT/INDUSTRY visibility; ACTIVE rows are database-constrained to accessibility PASS, while raw token/typography JSON, logo/favicon UUID references, creator/approver evidence and audit timestamps remain non-resolving persistence facts. Raw BrandConfiguration evidence does not mean current/effective hierarchy resolution, protected-token enforcement, rendered theme, accessibility revalidation or document access.
+DD-140 adds an exact-by-id `core_config.data_export_request` raw persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` boundary. Final FORCE-RLS preserves exact Tenant Core / Tenant Industry scope; raw requester/subject/resource-class/residency/sensitivity/status/approval/document/expiry evidence remains non-authorizing persistence data. Write-time membership/document integrity is preserved without turning the reader into approval, generation, download, current-authorization or cross-context export authority.
 
-Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–139**.
+Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–140**.
 
-Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep BrandConfiguration current/effective selection, Platform→Industry→Tenant→user hierarchy resolution, protected semantic-token enforcement, accessibility revalidation, theme rendering, logo/favicon document access and BrandConfiguration mutation outside scope unless separately source-owned.
+Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep export creation/validation/approval/generation/cancellation/download, current requester/subject authorization, current Document revalidation/access, resource-class query construction, residency-policy resolution, expiry enforcement and cross-context export outside scope unless separately source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD139_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD140_VERIFICATION_2026-09-23.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.
