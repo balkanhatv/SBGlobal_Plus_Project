@@ -150,3 +150,6 @@ Added exact-by-id parent-scoped AgentStep raw persistence read evidence. Step ty
 ## 2026-09-23 — DD-132 AI AgentApproval raw persistence reader
 Fresh source reconciliation selected `core_ai.agent_approval` as the final missing physical core_ai table reader. The implementation reads one exact Tenant/Industry-scoped approval row, preserves raw status/permission/approver/reason/timestamp evidence, and deliberately does not claim current approval satisfaction, approver authorization, AgentRun resume or tool execution.
 
+## 2026-09-23 — DD-133 MetadataDefinition raw persistence reader
+Fresh source reconciliation selected `core_config.metadata_definition` as the next independent Core persistence slice after the AI table inventory reached DD-132. The implementation reads one exact scoped definition through `PostgresDatabase` + `RequestScopedSql`, freezes raw schema JSON, preserves schema-valid lifecycle/effective evidence, and deliberately does not claim current/effective selection, schema validation, dynamic compilation or definition mutation. Existing `sbg_app_rw` DML authority remains schema-owned; no migration/schema/role/grant/RLS/product-policy behavior changed.
+

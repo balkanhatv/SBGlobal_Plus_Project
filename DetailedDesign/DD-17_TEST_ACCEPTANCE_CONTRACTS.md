@@ -1731,3 +1731,26 @@ Missing well-formed id returns `null`; malformed id or route/context mismatch fa
 ### AIAGENTAPP-PG-007 — APPROVED persistence is not current satisfaction/resume/execution authority
 Migration-owned DML privileges remain unchanged; the DD-132 store exposes no mutation/revalidation/satisfaction/resume/tool-execution method.
 
+## DD-133 MetadataDefinition Raw Persistence Reader Acceptance
+
+### METADATADEF-PG-001 — Exact Industry definition raw evidence
+Exact MetadataDefinition-id lookup in the owning Industry Context returns immutable scope, code/kind, version/status, frozen schema JSON, schema version, creator/approver and timestamp evidence without selected/validated/effective/compiled authority.
+
+### METADATADEF-PG-002 — Sibling Industry isolation
+A sibling-Industry MetadataDefinition is hidden by FORCE-RLS; its exact Industry Context may read the row.
+
+### METADATADEF-PG-003 — Tenant definition same-Tenant visibility and raw evidence preservation
+A Tenant-owned definition is visible from same-Tenant Core and Industry contexts. Schema-valid empty code/kind, nullable approver and unordered effective timestamps remain raw persistence facts.
+
+### METADATADEF-PG-004 — PLATFORM definition requires PLATFORM_GLOBAL
+Tenant contexts receive no implicit PLATFORM MetadataDefinition fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact PLATFORM row.
+
+### METADATADEF-PG-005 — Foreign Tenant isolation
+A foreign-Tenant definition is hidden; the owning Tenant context may read its raw row.
+
+### METADATADEF-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed UUID returns `null`; malformed id or database route/context mismatch fails closed before disclosure.
+
+### METADATADEF-PG-007 — Raw ACTIVE/schema/effective evidence is not selection/validation/compile authority
+The application role retains migration-owned MetadataDefinition DML privileges, but DD-133 exposes no create/update/delete/current-selection/effective-resolution/schema-validation/compile method.
+

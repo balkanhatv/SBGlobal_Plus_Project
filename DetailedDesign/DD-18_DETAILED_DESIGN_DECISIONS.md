@@ -1961,3 +1961,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIAGENTAPP-PG-001` through `AIAGENTAPP-PG-007`.
 
+## DD-133 — MetadataDefinition raw persistence is readable without becoming current/effective metadata, schema-validation or compilation authority
+
+**Context:** migration 0001 physically owns `core_config.metadata_definition` as a versioned PLATFORM/TENANT/INDUSTRY definition under FORCE-RLS. It persists raw code/kind, lifecycle status, schema JSON/schema version, creator/approver references and optional effective timestamps. The table has scoped uniqueness and at most one ACTIVE row per scoped code, but no database-owned effective-window ordering/current-selection rule. A-01 owns Metadata as reusable configuration/field/schema-independent definition evidence with explicit draft/publish/activate/rollback semantics. Reading one row therefore does not itself perform those lifecycle transitions or select an effective definition.
+
+**Decision:** add immutable `PersistedMetadataDefinition`, `MetadataDefinitionReadPort.loadForContext(...)` and `PostgresMetadataDefinitionStore` through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. The reader loads one exact UUID and returns only schema-owned persistence evidence: id, constrained owner scope, optional Tenant/Industry ownership, raw code/kind, positive version, constrained lifecycle status, normalized immutable schema JSON, positive schema version, creator/optional approver UUIDs, optional effective timestamps, and created/updated timestamps. Schema-valid empty text and even non-ordered effective timestamps are preserved rather than strengthened.
+
+**Security / trade-off:** FORCE-RLS remains authoritative. Industry definitions require exact Industry Context; Tenant definitions remain same-Tenant visible from Tenant Core or Tenant Industry contexts; PLATFORM definitions require trusted PLATFORM_GLOBAL context and are not implicit Tenant fallback. Migration 0009 intentionally gives `sbg_app_rw` table-level DML on `core_config`; DD-133 does not relabel that database role read-only. The new application port itself exposes only exact read.
+
+**Boundary:** DD-133 does not select ACTIVE/current/latest definitions; perform code/version fallback, inheritance or override precedence; publish/activate/retire/rollback definitions; interpret or execute schema JSON; validate runtime payloads; compile dynamic fields/forms/rules; resolve effective metadata merges; invalidate caches/search/projections; evaluate permission/entitlement; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `METADATADEF-PG-001` through `METADATADEF-PG-007` in DD-17 and `tests/postgres/metadata-definition-store.test.mjs`.
+
