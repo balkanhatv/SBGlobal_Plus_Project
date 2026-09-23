@@ -2156,3 +2156,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-148 does not load/select an elevation; bind interactive PLATFORM_OPERATOR identity; check principal/Tenant/Industry targets; interpret `permission_profile_id`; decide approval/purpose/ticket policy; accept client-controlled time as authority; set `app.operator_elevation_id`; modify RequestContext or RequestScopedSql; return an AuthorizationDecision; create/approve/activate/revoke/expire elevations; emit mandatory elevation-use audit; or change migrations/schema/RLS/roles/grants/product policy.
 
 **Acceptance:** `OPELEV-WIN-001` through `OPELEV-WIN-007` in DD-17 and `tests/core/operator-elevation-window.test.mjs`.
+
+
+## DD-149 — OperatorElevation persisted subject/target fields may be checked as a pure necessary binding floor without selecting or authorizing an elevation
+
+**Context:** migration 0029's ordinary application `operator_elevation_current_read_policy` requires exact `operator_principal_id = current_principal_id()`, exact `tenant_id = current_tenant_id()`, and `industry_context_id IS NULL OR industry_context_id = current_industry_context_id()`, in addition to exact selected elevation id and the ACTIVE/time predicates isolated by DD-148. DD-05 §6–§7 owns the same operator/Tenant/optional-Industry target concept. DD-146 exposes these persisted identifiers as immutable metadata.
+
+**Decision:** add deterministic Core helper `matchesOperatorElevationSubjectTargetFloor(metadata,input)`. The input carries server-owned operator principal, Tenant and optional Industry identifiers. The helper validates UUID shape, requires exact operator + Tenant equality, treats absent persisted Industry target as Tenant-wide for this predicate, and otherwise requires exact Industry equality. It reads no database state and mutates neither input.
+
+**Security / trade-off:** this helper mirrors only one necessary RLS predicate. A Tenant-wide elevation record may satisfy this target predicate from a same-Tenant Industry input because the authoritative migration predicate explicitly permits persisted NULL Industry. That fact must not be strengthened into broad access authority; final elevation use still requires trusted selection, identity type, DD-148 current-time/status floor, permission/policy and audit composition.
+
+**Boundary:** DD-149 does not select/load/trust an elevation id; establish authenticated interactive `PLATFORM_OPERATOR` principal type; resolve Tenant/Industry lifecycle or Data Home; invoke DD-148 on the caller's behalf; interpret `permission_profile_id`; decide approval/purpose/ticket policy; set `app.operator_elevation_id`; modify `RequestContext` or `RequestScopedSql`; grant access or return an AuthorizationDecision; mutate elevation state; emit mandatory elevation-use audit; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `OPELEV-BIND-001` through `OPELEV-BIND-007` in DD-17 and `tests/core/operator-elevation-subject-target.test.mjs`.

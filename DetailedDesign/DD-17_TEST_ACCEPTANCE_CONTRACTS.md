@@ -2102,3 +2102,27 @@ Malformed evaluation/start/expiry timestamps and an invalid persisted interval w
 
 ### OPELEV-WIN-007 — Unrelated elevation metadata remains uninterpreted and immutable
 The helper does not use operator principal, Tenant, Industry, purpose, ticket, approver or permission-profile fields and does not mutate input metadata; therefore a positive result is not an authorization decision.
+
+
+## DD-149 OperatorElevation Subject/Target Binding Floor Acceptance
+
+### OPELEV-BIND-001 — Exact operator and Tenant match Tenant-wide elevation
+Given valid server-owned identifiers, exact persisted operator-principal and Tenant equality satisfies the subject/Tenant portion of migration 0029's current-read predicate for an elevation with no Industry target.
+
+### OPELEV-BIND-002 — Tenant-wide elevation also matches same-Tenant Industry input
+A persisted NULL/absent Industry target does not require an Industry id and remains target-compatible with a same-Tenant Industry input, exactly mirroring migration 0029's `industry_context_id IS NULL OR ...` predicate.
+
+### OPELEV-BIND-003 — Industry-targeted elevation requires exact Industry
+When persisted `industryContextId` exists, the binding floor matches only the exact same Industry Context.
+
+### OPELEV-BIND-004 — Sibling or missing Industry fails
+An Industry-targeted elevation does not match a sibling Industry Context or an input with no Industry Context.
+
+### OPELEV-BIND-005 — Operator or Tenant mismatch fails
+Any operator-principal mismatch or Tenant mismatch fails closed even if other target evidence happens to match.
+
+### OPELEV-BIND-006 — Malformed UUID evidence fails closed
+Malformed persisted or input operator/Tenant/Industry identifiers return false rather than being compared as trusted binding evidence.
+
+### OPELEV-BIND-007 — Lifecycle/policy evidence is not interpreted
+Status, time window, purpose, ticket, approver and permission-profile fields do not affect this helper, and neither metadata nor input is mutated.
