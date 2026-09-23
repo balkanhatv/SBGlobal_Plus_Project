@@ -1271,3 +1271,26 @@ A missing well-formed PromptSet UUID returns `null`; malformed UUID or database 
 ### AIPROMPTSET-PG-007 — Read-port boundary preserves prompt write governance
 The dedicated AI Gateway role retains migration-owned PromptSet table privileges, but the DD-112 store exposes no create/update/delete/member-load/active-select/render/execute method. PLATFORM PromptSet mutation remains blocked for the AI Gateway role by the migration-0032 restrictive write floor.
 
+## DD-113 AI ToolSetMember Raw Persistence Reader Acceptance
+
+### AITOOLMEM-PG-001 — Exact visible member raw evidence
+Exact member-id lookup in an authorized parent scope returns immutable ToolSet id, Tool Definition id, raw enabled state, normalized/frozen constraint JSON and created timestamp without effective/eligible/executable authority.
+
+### AITOOLMEM-PG-002 — Sibling Industry parent isolation
+A member whose ToolSet parent belongs to a sibling Industry Context is hidden; the exact sibling context may read its own raw member evidence.
+
+### AITOOLMEM-PG-003 — Tenant-parent same-Tenant visibility
+A member under a Tenant-owned ToolSet is visible from the same Tenant Core and Tenant Industry contexts. Raw enabled/constraint evidence is preserved rather than interpreted.
+
+### AITOOLMEM-PG-004 — PLATFORM-parent member requires PLATFORM_GLOBAL
+A Tenant context receives no implicit PLATFORM-parent member fallback. Trusted PLATFORM_GLOBAL service/operator context may read the exact child row.
+
+### AITOOLMEM-PG-005 — Foreign Tenant parent isolation
+A member under a foreign-Tenant ToolSet is hidden; the owning Tenant context may read it.
+
+### AITOOLMEM-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed member UUID returns `null`; malformed UUID or database route/context mismatch fails closed before disclosure.
+
+### AITOOLMEM-PG-007 — Raw child evidence is not effective membership or execution authority
+The AI Gateway role retains migration-owned ToolSet-member DML privileges, but the DD-113 store exposes no create/update/delete/list/effective-resolution/constraint-evaluation/execute method. PLATFORM-parent mutation remains blocked by the existing write-governance policies.
+

@@ -1721,3 +1721,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIPROMPTSET-PG-001` through `AIPROMPTSET-PG-007` in DD-17 and `tests/postgres/ai-prompt-set-store.test.mjs`.
 
+## DD-113 — AI ToolSetMember raw persistence is readable without becoming effective membership or tool-execution authority
+
+**Context:** migration 0031 physically owns `core_ai.ai_tool_set_member` as the concrete persisted binding from a ToolSet to an AI Tool Definition. The child row is FORCE-RLS and inherits SELECT visibility from its parent ToolSet. Migration 0031 validates that the referenced Tool Definition is ACTIVE when the member is inserted or updated, but persisted member evidence does not prove that the definition or parent ToolSet remains ACTIVE/current later. DD-09 separately requires effective ToolSet membership, schema, fresh RequestContext, DD-03 permission, DD-04 entitlement/limits, approval, OperationContract execution and audit/usage before any tool execution.
+
+**Decision:** add immutable `PersistedAIToolSetMember`, `AIToolSetMemberReadPort.loadForContext(...)` and `PostgresAIToolSetMemberStore` through the existing `PostgresAIGatewayDatabase` + `RequestScopedSql` boundary. The reader loads one exact member UUID and returns only persisted evidence: id, ToolSet id, Tool Definition id, raw enabled boolean, normalized immutable `constraint_json`, and created timestamp. Missing rows return null; malformed identifiers, invalid persisted types/JSON or route/context mismatch fail closed.
+
+**Security / trade-off:** member SELECT visibility remains parent-derived FORCE-RLS. Industry-parent members are exact Industry Context only; Tenant-parent members remain same-Tenant visible; PLATFORM-parent members require trusted PLATFORM_GLOBAL context and are not Tenant fallback. Existing AI Gateway child DML privileges remain migration-owned and are constrained by `definition_member_write_allowed` plus migration-0032 PLATFORM-parent write floors. The DD-113 port itself is read-only.
+
+**Boundary:** DD-113 does not list all ToolSet members; calculate an effective member set; interpret `constraint_json`; select ACTIVE/current ToolSets; revalidate current Tool Definition activity as an execution decision; determine tool eligibility; evaluate permission/entitlement/approval/side effects/resource scope; bind or execute AgentSteps; execute Tool Definitions or OperationContracts; select Assistants/Agents/providers/models/prompts/policies/routes; resolve credentials; perform inference/RAG; expose a public route; or change migrations/schema/verification SQL/roles/grants/RLS/product policy.
+
+**Acceptance:** `AITOOLMEM-PG-001` through `AITOOLMEM-PG-007` in DD-17 and `tests/postgres/ai-tool-set-member-store.test.mjs`.
+

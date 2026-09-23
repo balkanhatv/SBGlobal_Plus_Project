@@ -90,3 +90,6 @@ Fresh source reconciliation selected `core_ai.ai_tool_set` as the next independe
 ## 2026-09-23 — DD-112 AI PromptSet raw persistence reader
 Fresh source reconciliation selected `core_ai.ai_prompt_set` as the next independent source-complete persistence slice. The implementation reads one exact scoped PromptSet through the existing AI Gateway + RequestScopedSql boundary, preserves PLATFORM/TENANT/INDUSTRY FORCE-RLS semantics and raw lifecycle metadata, and deliberately does not claim ACTIVE selection, member resolution, PromptTemplate rendering, IndustryAIConfig resolution or prompt execution. Existing Tenant/Industry PromptSet DML privileges and PLATFORM control-plane write protection remain unchanged.
 
+## 2026-09-23 — DD-113 AI ToolSetMember raw persistence reader
+Fresh source reconciliation selected `core_ai.ai_tool_set_member` as the next independent persistence slice. The implementation reads one exact child row through parent-derived FORCE-RLS, freezes raw `constraint_json`, and deliberately does not claim effective membership, constraint interpretation, tool authorization or execution. A PostgreSQL fixture collision with DD-111's global PLATFORM ToolSet code was isolated by giving the DD-113 test fixture a unique platform code; no production schema/runtime semantics changed.
+
