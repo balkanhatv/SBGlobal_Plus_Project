@@ -2143,3 +2143,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-147 does not implement `IdentityPort.verifyMachineCredential`; parse a presented API-key wire format; choose prefix length/encoding/delimiter; compare Argon2id/other verifier hashes; choose crypto parameters/libraries; enforce CIDR/network policy; decide current lifecycle usability; update `last_used_at`; emit credential-use/authentication audit; rotate/revoke/create/update credentials; resolve permission profiles; construct `VerifiedMachineEvidence`; grant Tenant/Industry/PLATFORM_GLOBAL access; or change migrations/schema/roles/grants/RLS/product policy.
 
 **Acceptance:** `APICRED-VERIFY-PG-001` through `APICRED-VERIFY-PG-007` in DD-17 and `tests/postgres/api-credential-verification-material-store.test.mjs`.
+
+
+## DD-148 — OperatorElevation current status/time floor is a deterministic necessary predicate, not an access decision
+
+**Context:** DD-05 §6–§7, DD-16 §17 and migration 0029 define OperatorElevation. Migration 0029's ordinary-application current-read predicate requires exact elevation/principal/Tenant/optional Industry binding plus `status='ACTIVE'`, `starts_at <= now()` and `expires_at > now()`. DD-146 exposes raw Control Plane metadata only and explicitly does not decide current/effective usability.
+
+**Decision:** add pure Core helper `matchesOperatorElevationCurrentTimeStatusFloor(metadata, evaluatedAt)`. It uses an explicit caller-supplied server evaluation instant rather than reading the system clock, requires raw status `ACTIVE`, applies inclusive-start/exclusive-expiry semantics, and fails closed on malformed evaluation or persisted timestamps. It also rejects internally invalid `expiresAt <= startsAt` evidence rather than allowing a malformed object to satisfy the floor.
+
+**Security / trade-off:** this helper mirrors only the migration-owned time/status portion of the ordinary-app RLS predicate. It intentionally ignores principal, Tenant, Industry, purpose, ticket, approver and permission-profile fields. A true result is necessary evidence only and cannot be treated as elevation selection, scope binding, permission evaluation or authorization.
+
+**Boundary:** DD-148 does not load/select an elevation; bind interactive PLATFORM_OPERATOR identity; check principal/Tenant/Industry targets; interpret `permission_profile_id`; decide approval/purpose/ticket policy; accept client-controlled time as authority; set `app.operator_elevation_id`; modify RequestContext or RequestScopedSql; return an AuthorizationDecision; create/approve/activate/revoke/expire elevations; emit mandatory elevation-use audit; or change migrations/schema/RLS/roles/grants/product policy.
+
+**Acceptance:** `OPELEV-WIN-001` through `OPELEV-WIN-007` in DD-17 and `tests/core/operator-elevation-window.test.mjs`.

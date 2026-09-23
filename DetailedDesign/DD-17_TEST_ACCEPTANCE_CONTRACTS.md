@@ -2078,3 +2078,27 @@ An unknown exact prefix returns `null`; migration-owned `api_credential_key_pref
 
 ### APICRED-VERIFY-PG-007 — Sensitive source remains internal and does not become the machine verifier
 The server-internal port exposes exact prefix lookup only. It exposes no verify/authenticate/hash-compare/CIDR-enforcement/last-used mutation/create/rotate/revoke/update/delete/list/search method and is not exported through the Core index.
+
+
+## DD-148 OperatorElevation Current Time/Status Floor Acceptance
+
+### OPELEV-WIN-001 — ACTIVE strictly inside the persisted window matches
+Given already-loaded OperatorElevation metadata and a server-owned evaluation instant strictly after `startsAt` and strictly before `expiresAt`, persisted `ACTIVE` status satisfies the migration-owned current time/status floor.
+
+### OPELEV-WIN-002 — Exact start boundary is inclusive
+An `ACTIVE` elevation evaluated exactly at `startsAt` satisfies the floor.
+
+### OPELEV-WIN-003 — Exact expiry boundary is exclusive
+An `ACTIVE` elevation evaluated exactly at `expiresAt` does not satisfy the floor.
+
+### OPELEV-WIN-004 — Non-ACTIVE lifecycle status never matches
+`PENDING`, `REVOKED` and `EXPIRED` do not satisfy the floor even when their persisted timestamps surround the evaluation instant.
+
+### OPELEV-WIN-005 — Before-start and after-expiry instants fail closed
+An evaluation instant before `startsAt` or after `expiresAt` does not satisfy the floor.
+
+### OPELEV-WIN-006 — Malformed or internally invalid time evidence fails closed
+Malformed evaluation/start/expiry timestamps and an invalid persisted interval with `expiresAt <= startsAt` do not satisfy the floor.
+
+### OPELEV-WIN-007 — Unrelated elevation metadata remains uninterpreted and immutable
+The helper does not use operator principal, Tenant, Industry, purpose, ticket, approver or permission-profile fields and does not mutate input metadata; therefore a positive result is not an authorization decision.
