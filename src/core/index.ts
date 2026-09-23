@@ -39,6 +39,7 @@ export * from "./commercial/target-preview.js";
 export * from "./commercial/assessment-preparation.js";
 export * from "./commercial/assessment-persistence.js";
 export * from "./commercial/apply-evidence-gate.js";
+export * from "./config/metadata-definition.js";
 export * from "./tenancy/workspace-service.js";
 export * from "./identity/roles-query-service.js";
 export * from "./api/core-operation-contracts.js";
