@@ -124,17 +124,17 @@ before(async () => {
         (id,tenant_id,industry_context_id,meter_code,period_key,
          used_value,reserved_value,version,updated_at)
        VALUES
-        ($1,$5,NULL,$9,$10,
+        ($1,$5,NULL,$8,$9,
           '12345678901234567890.12345678901234567890'::numeric,
           '0.00000000000000000001'::numeric,
           '9223372036854775807'::bigint,now()-interval '1 day'),
-        ($2,$5,$7,$11,$12,
+        ($2,$5,$7,$10,$11,
           '42.50000000000000000000'::numeric,
           '0'::numeric,3,now()-interval '2 hours'),
         ($3,$5,NULL,'','',
           '0'::numeric,'7.25000000000000000000'::numeric,
           '-7'::bigint,now()-interval '3 hours'),
-        ($4,$6,NULL,$13,$14,
+        ($4,$6,NULL,$12,$13,
           '9'::numeric,'0'::numeric,1,now()-interval '4 hours')`,
       [
         f.meterTenantCore,
@@ -144,7 +144,6 @@ before(async () => {
         f.tenantA,
         f.tenantB,
         f.industryA1,
-        f.industryA2,
         "TENANT_TOTAL_" + suffix,
         "2026-09",
         "INDUSTRY_TOTAL_" + suffix,
