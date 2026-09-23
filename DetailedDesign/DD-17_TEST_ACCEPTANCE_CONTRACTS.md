@@ -1845,3 +1845,26 @@ A missing well-formed UUID returns `null`; malformed id fails closed before SQL.
 
 ### COUNTRYPACK-PG-007 — Raw pack evidence is not selection/activation/materialization/authorization authority
 DD-137 exposes no current-selection, activation/deactivation, Tenant override merge, materialization, permission/entitlement grant or mutation method.
+
+## DD-138 TenantCountryPackActivation Raw Persistence Reader Acceptance
+
+### TENANTPACK-PG-001 — Exact Tenant activation raw evidence
+Exact activation-id lookup in the owning Tenant returns immutable activation/Tenant/CountryPack identifiers, constrained raw status, frozen override JSON, optional timestamps and exact PostgreSQL bigint row-version text without current/effective/applied/materialized authority.
+
+### TENANTPACK-PG-002 — Same-Tenant Core and Industry visibility
+TenantCountryPackActivation uses Tenant-only FORCE-RLS. The same owning row is visible from Tenant Core and Tenant Industry contexts for that Tenant; Industry Context is not added as a selector.
+
+### TENANTPACK-PG-003 — Foreign Tenant isolation
+A foreign-Tenant activation is hidden by FORCE-RLS; the owning Tenant context may read its exact raw row.
+
+### TENANTPACK-PG-004 — PLATFORM_GLOBAL does not bypass Tenant RLS
+Trusted PLATFORM_GLOBAL context does not make Tenant-owned CountryPack activation visible without a Tenant id.
+
+### TENANTPACK-PG-005 — Raw lifecycle/timestamp/override/row-version evidence is preserved
+PENDING/DISABLED status, nullable or non-ordered lifecycle timestamps, frozen raw override JSON and zero/negative bigint row-version evidence remain persisted facts; they do not become current/effective/applied/materialized configuration.
+
+### TENANTPACK-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed UUID returns `null`; malformed id or database route/context mismatch fails closed before disclosure.
+
+### TENANTPACK-PG-007 — Schema-owned DML/ownership is not application-port activation authority
+The ordinary application role retains migration-owned DML subject to Tenant RLS and immutable Tenant ownership, while DD-138 exposes no create/update/delete/current-selection/activate/deactivate/override-merge/materialize/default-application/AI-eligibility method.
