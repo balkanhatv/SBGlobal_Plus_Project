@@ -1891,3 +1891,26 @@ Missing well-formed UUID returns `null`; malformed id and mismatched Data Home r
 
 ### BRANDCFG-PG-007 — Raw brand evidence adds no hierarchy/render/document authority
 Existing application-role DML and migration-0032 PLATFORM write floor remain schema-owned. The read port exposes no create/update/delete, current selection, hierarchy resolution, protected-token enforcement, accessibility validation, theme rendering or logo/favicon document-loading method.
+
+## DD-140 DataExportRequest Raw Persistence Reader Acceptance
+
+### DATAEXPORT-PG-001 — Exact Tenant-Industry export raw evidence
+Exact DataExportRequest-id lookup in the owning Industry Context returns immutable Tenant/Industry/requester/subject/scope/export/resource/residency/sensitivity/status/approval/document/expiry/timestamp evidence without approval, generation, download or authorization authority.
+
+### DATAEXPORT-PG-002 — Sibling Industry isolation
+A Tenant-Industry DataExportRequest is hidden from a sibling Industry Context; its exact Industry Context may read the row.
+
+### DATAEXPORT-PG-003 — Tenant-Core same-Tenant visibility is not requester-private
+A Tenant-Core DataExportRequest is visible from same-Tenant Core and Tenant Industry contexts under the final FORCE-RLS policy. A different active principal in the same Tenant may read the row; requester identity is evidence, not an RLS ownership predicate.
+
+### DATAEXPORT-PG-004 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts do not bypass DataExportRequest FORCE-RLS. The owning Tenant context may read its raw row.
+
+### DATAEXPORT-PG-005 — Lifecycle/reference/expiry evidence stays raw
+Persisted status, approval/document references, requested resource classes, residency-policy version and expiry remain raw evidence. Duplicate/null/empty resource-class values and an expiry preceding creation remain preserved when physically schema-valid; none becomes current authorization, generation or download authority.
+
+### DATAEXPORT-PG-006 — Missing/malformed/route mismatch behavior
+A missing well-formed UUID returns `null`; malformed id or database route/context mismatch fails closed before disclosure.
+
+### DATAEXPORT-PG-007 — Raw export evidence is not export-operation authority
+Existing application-role DML, immutable scope columns and migration-0031 relationship integrity remain schema-owned, while DD-140 exposes no create/update/delete/list/approve/generate/download/authorize/document-revalidation/residency-resolution method.
