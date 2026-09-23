@@ -44,6 +44,7 @@ export * from "./config/rule-definition.js";
 export * from "./config/form-definition.js";
 export * from "./config/form-field-definition.js";
 export * from "./config/country-pack.js";
+export * from "./config/tenant-country-pack-activation.js";
 export * from "./tenancy/workspace-service.js";
 export * from "./identity/roles-query-service.js";
 export * from "./api/core-operation-contracts.js";
