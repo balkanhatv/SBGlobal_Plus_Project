@@ -1823,3 +1823,25 @@ A missing well-formed UUID returns `null`; malformed id or database route/contex
 ### FORMFIELD-PG-007 — Raw field evidence is not enforcement/render/validation/catalog/access/submit authority
 The application role retains migration-owned table privileges subject to parent-derived RLS and PLATFORM-parent write floors, but DD-136 exposes no create/update/delete/list/sort/render/validate/evaluate-visibility/resolve-catalog/submit method.
 
+## DD-137 CountryPack Raw Persistence Reader Acceptance
+
+### COUNTRYPACK-PG-001 — Exact global catalog row raw evidence
+Exact CountryPack-id lookup returns immutable country/code/version/status, raw locale/default/reference evidence, normalized immutable address/phone/metadata JSON, approver and timestamp evidence without current/effective/activated/materialized authority.
+
+### COUNTRYPACK-PG-002 — Global read requires no Tenant/Industry RequestContext
+CountryPack is a platform/reference global-read catalog rather than a Tenant-RLS table. The ordinary application role may read the exact row with cleared Tenant/Industry/scope settings; no Tenant or Industry visibility is invented.
+
+### COUNTRYPACK-PG-003 — Lifecycle/effective evidence stays raw
+DRAFT, RETIRED and future-effective rows remain readable as persisted evidence. Status or `effective_from` is not converted into current/effective/activated selection.
+
+### COUNTRYPACK-PG-004 — Raw locale/default/nullable evidence is preserved
+Locale-array order/duplicates/null elements, schema-valid empty text, nullable defaults and nullable JSON remain raw persistence facts; no locale/currency/timezone/date/address/phone vocabulary or default interpretation is added.
+
+### COUNTRYPACK-PG-005 — Missing/malformed behavior
+A missing well-formed UUID returns `null`; malformed id fails closed before SQL.
+
+### COUNTRYPACK-PG-006 — Runtime application role is SELECT-only
+`sbg_app_rw` retains SELECT and has no INSERT/UPDATE/DELETE on `core_config.country_pack`; Control Plane mutation ownership remains schema-owned.
+
+### COUNTRYPACK-PG-007 — Raw pack evidence is not selection/activation/materialization/authorization authority
+DD-137 exposes no current-selection, activation/deactivation, Tenant override merge, materialization, permission/entitlement grant or mutation method.
