@@ -1937,3 +1937,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIAGENTRUN-PG-001` through `AIAGENTRUN-PG-007` in DD-17 and `tests/postgres/ai-agent-run-store.test.mjs`.
 
+## DD-131 — AI AgentStep raw persistence is readable without becoming current step eligibility, approval or execution authority
+
+**Context:** migration 0013 owns `core_ai.agent_step` as a child of AgentRun with non-negative ordinal, constrained step type/status, optional raw input/output/tool-binding/approval/audit references and lifecycle timestamps. FORCE-RLS visibility is parent-derived through AgentRun, therefore preserving its Tenant + acting-principal + optional exact-Industry boundary. Migration 0031 validates TOOL binding and same-step/run approval relationships at write time. DD-09 separately requires current RequestContext, permission, entitlement and approval checks before tool execution.
+
+**Decision:** add immutable `PersistedAIAgentStep`, `AIAgentStepReadPort.loadForContext(...)` and `PostgresAIAgentStepStore` through the existing AI Gateway + RequestScopedSql boundary. The reader returns only exact persisted evidence and validates only schema-owned UUID/ordinal/type/status/timestamp constraints. Missing rows return null; malformed ids/types or route/context mismatch fail closed.
+
+**Security / trade-off:** AgentStep visibility remains parent-derived FORCE-RLS. Sibling Industry, different principal, foreign Tenant and PLATFORM_GLOBAL contexts cannot bypass the parent AgentRun boundary. Existing AI Gateway AgentStep DML authority remains schema-owned; DD-131 exposes only a read port.
+
+**Boundary:** DD-131 does not list/plan/select next steps; transition statuses; interpret input/output refs; resolve current ToolSet/member/ToolDefinition eligibility; evaluate current permission/entitlement/approval/resource scope; satisfy approvals; execute OperationContracts; retry/resume/cancel AgentRuns; route provider/model/prompt/RAG or perform inference.
+
+**Acceptance:** `AIAGENTSTEP-PG-001` through `AIAGENTSTEP-PG-007`.
+

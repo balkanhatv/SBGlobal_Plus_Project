@@ -144,3 +144,6 @@ Fresh source reconciliation selected one exact `core_ai.ai_memory_record` row as
 ## 2026-09-23 — DD-130 AI AgentRun raw persistence reader
 Fresh source reconciliation selected `core_ai.agent_run` as the next independent persistence slice. The implementation reads one exact principal-scoped run through FORCE-RLS, preserves startup permission/entitlement versions as exact bigint text and requested resource scope as immutable JSON evidence, and deliberately does not claim current authorization, resume, AgentStep/Approval execution or tool execution.
 
+## 2026-09-23 — DD-131 AI AgentStep raw persistence reader
+Added exact-by-id parent-scoped AgentStep raw persistence read evidence. Step type/status and optional refs remain historical persistence facts only; current access, approval, ToolSet eligibility and execution remain separate runtime concerns.
+

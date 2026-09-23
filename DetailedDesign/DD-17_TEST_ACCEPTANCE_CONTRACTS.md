@@ -1685,3 +1685,26 @@ A missing well-formed UUID returns `null`; malformed id or database route/contex
 ### AIAGENTRUN-PG-007 — Startup evidence is not current authorization/resume/tool execution authority
 The AI Gateway role retains migration-owned AgentRun DML privileges, but the DD-130 store exposes no create/update/delete/list/current-selection/steps/approvals/resume/execute method.
 
+## DD-131 AI AgentStep Raw Persistence Reader Acceptance
+
+### AIAGENTSTEP-PG-001 — Exact visible step evidence
+Exact step-id lookup returns immutable raw AgentStep evidence without current/authorized/executable semantics.
+
+### AIAGENTSTEP-PG-002 — Sibling Industry isolation
+A step under an Industry AgentRun is hidden from a sibling Industry Context.
+
+### AIAGENTSTEP-PG-003 — Acting-principal privacy inheritance
+Another principal in the same Tenant/Industry cannot read the step under the first principal's AgentRun.
+
+### AIAGENTSTEP-PG-004 — Tenant-Core parent visibility is not continuation authority
+A Tenant-Core AgentRun step is same-principal/same-Tenant visible from Core and Industry contexts without becoming automatic continuation/next-step authority.
+
+### AIAGENTSTEP-PG-005 — Foreign Tenant and PLATFORM_GLOBAL isolation
+Foreign-Tenant and PLATFORM_GLOBAL contexts cannot expose the step.
+
+### AIAGENTSTEP-PG-006 — Missing/malformed/route mismatch behavior
+Missing well-formed id returns `null`; malformed id or route/context mismatch fails closed.
+
+### AIAGENTSTEP-PG-007 — Raw step fields are not current eligibility/approval/execution authority
+The store exposes no mutation/list/plan/next-step/tool-binding-resolution/approval-resolution/execute method; migration-owned DML privileges remain unchanged.
+
