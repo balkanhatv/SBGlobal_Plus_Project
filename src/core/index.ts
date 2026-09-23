@@ -81,6 +81,7 @@ export * from "./ai/assistant-definition.js";
 export * from "./ai/agent-definition.js";
 export * from "./ai/agent-run.js";
 export * from "./ai/agent-step.js";
+export * from "./ai/agent-approval.js";
 export * from "./ai/tenant-config.js";
 export * from "./ai/industry-config.js";
 export * from "./ai/conversation.js";
