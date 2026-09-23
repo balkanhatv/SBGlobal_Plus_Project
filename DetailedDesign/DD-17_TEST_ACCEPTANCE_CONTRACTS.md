@@ -1868,3 +1868,26 @@ A missing well-formed UUID returns `null`; malformed id or database route/contex
 
 ### TENANTPACK-PG-007 — Schema-owned DML/ownership is not application-port activation authority
 The ordinary application role retains migration-owned DML subject to Tenant RLS and immutable Tenant ownership, while DD-138 exposes no create/update/delete/current-selection/activate/deactivate/override-merge/materialize/default-application/AI-eligibility method.
+
+## DD-139 BrandConfiguration Raw Persistence Reader Acceptance
+
+### BRANDCFG-PG-001 — Exact Industry BrandConfiguration raw evidence
+Exact BrandConfiguration-id lookup returns immutable owner/scope/code/version/lifecycle/accessibility evidence, immutable raw token/typography JSON, raw logo/favicon/creator/approver UUID references and audit timestamps without hierarchy/render/document-access authority.
+
+### BRANDCFG-PG-002 — Exact Industry scope isolation
+An Industry-owned row is hidden from sibling Industry Context and visible only to its exact Tenant + Industry Context under FORCE-RLS.
+
+### BRANDCFG-PG-003 — Tenant row same-Tenant visibility and raw non-ACTIVE evidence
+Tenant-owned BrandConfiguration is visible from same-Tenant Core and Industry contexts. DRAFT/FAIL, schema-valid empty code, raw JSON, null references and duplicate/null JSON-array elements remain persisted evidence only.
+
+### BRANDCFG-PG-004 — PLATFORM row requires PLATFORM_GLOBAL and is not Tenant fallback
+PLATFORM BrandConfiguration is hidden from Tenant contexts and visible only in trusted PLATFORM_GLOBAL context. Raw PLATFORM evidence is not automatically resolved/applied to a Tenant.
+
+### BRANDCFG-PG-005 — Foreign Tenant isolation and ACTIVE/PASS non-resolution
+Foreign-Tenant configuration remains hidden. ACTIVE + accessibility PASS remains database-valid raw evidence and is not converted into current/resolved/effective/protected-token-applied authority.
+
+### BRANDCFG-PG-006 — Missing/malformed/route mismatch fail closed
+Missing well-formed UUID returns `null`; malformed id and mismatched Data Home route/context fail closed.
+
+### BRANDCFG-PG-007 — Raw brand evidence adds no hierarchy/render/document authority
+Existing application-role DML and migration-0032 PLATFORM write floor remain schema-owned. The read port exposes no create/update/delete, current selection, hierarchy resolution, protected-token enforcement, accessibility validation, theme rendering or logo/favicon document-loading method.
