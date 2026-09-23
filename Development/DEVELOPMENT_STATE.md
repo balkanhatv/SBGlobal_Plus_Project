@@ -1,18 +1,18 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-23 · **Checkpoint:** `DEV-ORG-UNIT-INDUSTRY-READ-001`
+**Updated:** 2026-09-23 · **Checkpoint:** `DEV-USAGE-METER-READ-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `28546f407042f2839d5861cd40d4f679675c6484` / tree `2934474535016628be15c6be5d855646af184225`: **311/311 Core**, **434/434 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `11f3d43bba8948f517723ac6ef0fb5051420c97f` / tree `79919d02b2e2f90cf2eb7a85b65c2d4797466056`: **311/311 Core**, **441/441 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `6a65e113a1cdc6e2011b297943eb7ca76bdb900d` / tree `26db1b2b26e530180ade6ae1a2262e388893baf3`: Core run `35883193670` (Core job `107256589373`, PostgreSQL job `107256589090`), Database run `35883193683` (job `107256589481`), Web run `35883193664` (job `107256589992`) — SUCCESS; **142 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `f1bb51d262785f4eb29910111335e532e723817c` / tree `bda17f3cb3cf7d7c9b17902f0f91ec746e28127f`: Core run `35900569534` (Core job `107315391758`, PostgreSQL job `107315392022`), Database run `35900569562` (job `107315389151`), Web run `35900569541` (job `107315389208`) — SUCCESS; **143 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-142 adds an exact OrgUnit linkage reader for `core_tenancy.org_unit_industry` through the existing `RequestScopedSql` boundary. Exact Tenant + Industry FORCE-RLS exposes only the current Industry link; raw `ACTIVE | SUSPENDED | ARCHIVED` status and immutable config JSON remain persistence evidence only. The reader does not become OrgUnit/Industry activation, hierarchy, config-resolution, document-ACL or workflow-assignment authority.
+DD-143 adds an exact raw UsageMeter reader and preserves the database-owned Tenant/optional-Industry scope, raw meter/period text, exact numeric evidence and signed version without inventing current-period, entitlement, reservation or usage-impact semantics.
 
-Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–142**.
+Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–143**.
 
-Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep OrgUnitIndustry mutation/status transitions, current/effective link selection, OrgUnit hierarchy/inheritance, OrgUnit/Industry lifecycle revalidation, config interpretation/materialization, document/workflow authorization and pre-context visibility outside scope unless separately source-owned.
+Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep UsageMeter writer/current-period/entitlement-binding/reservation-reconciliation/aggregation/available-capacity/DD-073 usage-impact semantics outside scope unless separately source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD142_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD143_VERIFICATION_2026-09-23.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.

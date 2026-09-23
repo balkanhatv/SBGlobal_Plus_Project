@@ -30,12 +30,12 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-23
 
-Current checkpoint: `DEV-ORG-UNIT-INDUSTRY-READ-001`. Decisions are contiguous through DD-142.
+Current checkpoint: `DEV-USAGE-METER-READ-001`. Decisions are contiguous through DD-143.
 
-Verified executable `28546f407042f2839d5861cd40d4f679675c6484` / tree `2934474535016628be15c6be5d855646af184225`: **311/311 Core**, **434/434 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `11f3d43bba8948f517723ac6ef0fb5051420c97f` / tree `79919d02b2e2f90cf2eb7a85b65c2d4797466056`: **311/311 Core**, **441/441 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `6a65e113a1cdc6e2011b297943eb7ca76bdb900d` / tree `26db1b2b26e530180ade6ae1a2262e388893baf3`: Core run `35883193670` (Core job `107256589373`, PostgreSQL job `107256589090`), Database run `35883193683` (job `107256589481`), Web run `35883193664` (job `107256589992`) — SUCCESS; **142 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `f1bb51d262785f4eb29910111335e532e723817c` / tree `bda17f3cb3cf7d7c9b17902f0f91ec746e28127f`: Core run `35900569534` (Core job `107315391758`, PostgreSQL job `107315392022`), Database run `35900569562` (job `107315389151`), Web run `35900569541` (job `107315389208`) — SUCCESS; **143 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-142 adds an exact OrgUnit linkage reader for `core_tenancy.org_unit_industry` through the existing `RequestScopedSql` boundary. Exact Tenant + Industry FORCE-RLS exposes only the current Industry link; raw `ACTIVE | SUSPENDED | ARCHIVED` status and immutable config JSON remain persistence evidence only. The reader does not become OrgUnit/Industry activation, hierarchy, config-resolution, document-ACL or workflow-assignment authority.
+DD-143 adds one exact raw `core_commercial.usage_meter` reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. Same-Tenant null-Industry evidence remains visible from Tenant Core and same-Tenant Industry contexts; non-null Industry rows require exact Industry Context. Raw meter/period text, exact PostgreSQL numeric evidence including schema-admitted `Infinity` / `NaN`, signed bigint version and update timestamp remain persistence evidence only. The reader does not become authoritative-period selection, entitlement binding, reservation reconciliation, aggregation, available-capacity or DD-073 usage-impact authority.
 
-Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep OrgUnitIndustry mutation/status transitions, current/effective link selection, OrgUnit hierarchy/inheritance, OrgUnit/Industry lifecycle revalidation, config interpretation/materialization, document/workflow authorization and pre-context visibility outside scope unless separately source-owned.
+Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep UsageMeter writer/increment/reserve/release/reset semantics, authoritative/current period selection, entitlement/target binding, reservation reconciliation, aggregation, available-capacity calculation and `CommercialUsageImpactSourcePort` binding outside scope unless separately source-owned.
