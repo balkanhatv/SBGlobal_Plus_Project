@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-FORM-FIELD-DEFINITION-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-COUNTRY-PACK-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-136**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-137**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-136 adds an exact-by-id `core_config.form_field_definition` raw child persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. Visibility remains parent-FormDefinition-derived FORCE-RLS: Tenant parent is same-Tenant visible, Industry parent requires exact Industry Context, and PLATFORM parent requires trusted PLATFORM_GLOBAL context; parent lifecycle status is not promoted into visibility. Raw field key/type/label/required/read-only/visibility/validation/reference/sort/sensitivity evidence remains non-enforcing, non-rendering, non-validating, non-authorizing and non-submitting. Existing table privileges and the migration-0032 PLATFORM-parent child write floor remain schema-owned; the DD-136 port is read-only.
+DD-137 adds an exact-by-id `core_config.country_pack` raw global/reference catalog reader through the existing `PostgresDatabase` application-role boundary. CountryPack is intentionally global-read and has no Tenant/Industry RLS; migration 0029 makes the ordinary application role SELECT-only while Control Plane owns mutation. Raw country/code/version/status, locale/default/reference values, immutable address/phone/metadata JSON, approver and optional effective timestamp remain persisted evidence only. DRAFT/RETIRED/future-effective evidence does not mean current/effective/activated/materialized configuration.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `9a679117f07da46e61709519f7ed0a9b0b86ab4b` / tree `7bfe5afa3a751817e438b4b4d1e5dbf35c543af8` — 311 Core tests, 392 PostgreSQL tests including `FORMFIELD-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `7ea2ff44e999a9422f61e598340fc39a09683ced` / tree `f189919723ff9667f221024da50204f879a7cf79`: Core run `35863943108` (Core job `107190697712`, PostgreSQL job `107190698052`), Database run `35863942902` (job `107190697121`), Web run `35863942830` (job `107190696746`) — SUCCESS; **136 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD136_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `e03546f122c56e80632a96a01eaf423ce8a4c3ef` / tree `62fe5013b8765632960d5ee4502020615df05a40` — 311 Core tests, 399 PostgreSQL tests including `COUNTRYPACK-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `1f5674dfb8211981a456d93761fa3ddb5dbe9875` / tree `99f15f43160d08a28f7380ba3e9d6e8aa6085738`: Core run `35872265125` (Core job `107219111511`, PostgreSQL job `107219111531`), Database run `35872264999` (job `107219110377`), Web run `35872265039` (job `107219110748`) — SUCCESS; **137 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD137_VERIFICATION_2026-09-23.md).
