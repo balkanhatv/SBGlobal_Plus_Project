@@ -147,3 +147,6 @@ Fresh source reconciliation selected `core_ai.agent_run` as the next independent
 ## 2026-09-23 — DD-131 AI AgentStep raw persistence reader
 Added exact-by-id parent-scoped AgentStep raw persistence read evidence. Step type/status and optional refs remain historical persistence facts only; current access, approval, ToolSet eligibility and execution remain separate runtime concerns.
 
+## 2026-09-23 — DD-132 AI AgentApproval raw persistence reader
+Fresh source reconciliation selected `core_ai.agent_approval` as the final missing physical core_ai table reader. The implementation reads one exact Tenant/Industry-scoped approval row, preserves raw status/permission/approver/reason/timestamp evidence, and deliberately does not claim current approval satisfaction, approver authorization, AgentRun resume or tool execution.
+
