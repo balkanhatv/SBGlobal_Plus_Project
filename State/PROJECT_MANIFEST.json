@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-SUBSCRIPTION-TRANSITION-READ-001",
-  "final_verdict": "DD-141 SUBSCRIPTIONTRANSITION RAW TENANT PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; APPEND-ONLY TRANSITION EVIDENCE ONLY; LIFECYCLE LEGALITY, CURRENT-STATE SELECTION, REPLAY, EXECUTION AND MUTATION UNCLAIMED",
+  "checkpoint": "DEV-ORG-UNIT-INDUSTRY-READ-001",
+  "final_verdict": "DD-142 ORGUNITINDUSTRY RAW EXACT-CONTEXT PERSISTENCE READER IMPLEMENTED / EXACT-HEAD TESTED; RAW LINK EVIDENCE ONLY; ACTIVATION, HIERARCHY, CONFIG RESOLUTION, DOCUMENT/WORKFLOW AUTHORIZATION AND PRE-CONTEXT VISIBILITY UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "39ad7e1f7fd39401811de0b6efa7f3bf0d35c3ff",
-    "verified_code_tree": "f184bfc07a41c1199568f10ca45e2ddb6aa39da5",
-    "state_projection_basis_head": "882ecc5532c81dedc3f4b3f983a7edfc12a49dd0",
+    "verified_code_head": "28546f407042f2839d5861cd40d4f679675c6484",
+    "verified_code_tree": "2934474535016628be15c6be5d855646af184225",
+    "state_projection_basis_head": "6a65e113a1cdc6e2011b297943eb7ca76bdb900d",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "SubscriptionTransition exact-by-id Tenant raw persistence reader verified; append-only transition evidence remains non-executing/non-current/non-replay-authorizing",
+    "current_phase": "OrgUnitIndustry exact Tenant+Industry raw persistence reader verified; status/config evidence remains non-resolving/non-authorizing",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "882ecc5532c81dedc3f4b3f983a7edfc12a49dd0",
-      "ci_run_id": 35881695666,
-      "ci_job_id": 107251483307,
+      "ci_verified_head": "6a65e113a1cdc6e2011b297943eb7ca76bdb900d",
+      "ci_run_id": 35883193683,
+      "ci_job_id": 107256589481,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "409ed54a8c3cacd7500c5c03aa27560147c4b25e",
+      "ci_verified_tree": "26db1b2b26e530180ade6ae1a2262e388893baf3",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "882ecc5532c81dedc3f4b3f983a7edfc12a49dd0",
-      "feature_head_bootstrap_verified_tree": "409ed54a8c3cacd7500c5c03aa27560147c4b25e",
-      "feature_head_bootstrap_run_id": 35881695463,
-      "feature_head_bootstrap_job_id": 107251481464,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_427_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "6a65e113a1cdc6e2011b297943eb7ca76bdb900d",
+      "feature_head_bootstrap_verified_tree": "26db1b2b26e530180ade6ae1a2262e388893baf3",
+      "feature_head_bootstrap_run_id": 35883193670,
+      "feature_head_bootstrap_job_id": 107256589090,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_434_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next independent source-complete Core persistence slice. Keep Subscription transition execution, lifecycle legality/current-state selection, chain reconstruction, source-event/idempotency resolution, actor current authorization, plan-change/entitlement publication, billing/proration/payment and transition mutation outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit the next independent source-complete Core persistence slice. Keep OrgUnitIndustry mutation/status transitions, current/effective link selection, OrgUnit hierarchy/inheritance, OrgUnit/Industry lifecycle revalidation, config interpretation/materialization, document/workflow authorization and pre-context visibility outside scope unless separately source-owned.",
     "core_services": {
-      "checkpoint": "DEV-SUBSCRIPTION-TRANSITION-READ-001",
+      "checkpoint": "DEV-ORG-UNIT-INDUSTRY-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–141 current implementation; DD-141 bounded exact-by-id Tenant SubscriptionTransition raw persistence reader",
-      "verified_head": "39ad7e1f7fd39401811de0b6efa7f3bf0d35c3ff",
-      "verified_tree": "f184bfc07a41c1199568f10ca45e2ddb6aa39da5",
-      "core_ci_run_id": 35881695463,
-      "core_ci_job_id": 107251481728,
+      "decision": "DD-040–142 current implementation; DD-142 bounded exact Tenant+Industry OrgUnitIndustry raw persistence reader",
+      "verified_head": "28546f407042f2839d5861cd40d4f679675c6484",
+      "verified_tree": "2934474535016628be15c6be5d855646af184225",
+      "core_ci_run_id": 35883193670,
+      "core_ci_job_id": 107256589373,
       "tests": "311/311 PASS",
       "core_test_counts": {
         "tests": 311,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35881695463,
-      "postgres_ci_job_id": 107251481464,
-      "postgres_tests": "427/427 PASS",
+      "postgres_ci_run_id": 35883193670,
+      "postgres_ci_job_id": 107256589090,
+      "postgres_tests": "434/434 PASS",
       "postgres_test_counts": {
-        "tests": 427,
-        "pass": 427,
+        "tests": 434,
+        "pass": 434,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35881695666,
-      "database_regression_job_id": 107251483307,
+      "database_regression_run_id": 35883193683,
+      "database_regression_job_id": 107256589481,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -413,7 +413,8 @@
         "DD-138 exact-by-id Tenant-scoped TenantCountryPackActivation raw persistence reader with Tenant FORCE-RLS, immutable override JSON and exact bigint row-version evidence",
         "DD-139 exact-by-id scoped BrandConfiguration raw persistence reader with FORCE-RLS, immutable token/typography JSON, raw document references and accessibility evidence",
         "DD-140 exact-by-id Tenant-scoped DataExportRequest raw persistence reader with exact scope FORCE-RLS, immutable resource-class array and raw residency/status/approval/document/expiry evidence",
-        "DD-141 exact-by-id Tenant SubscriptionTransition raw persistence reader with same-Tenant Core/Industry visibility, immutable raw transition evidence and append-only privilege proof"
+        "DD-141 exact-by-id Tenant SubscriptionTransition raw persistence reader with same-Tenant Core/Industry visibility, immutable raw transition evidence and append-only privilege proof",
+        "DD-142 exact Tenant+Industry OrgUnitIndustry raw persistence reader with exact Industry FORCE-RLS, raw status and immutable config JSON"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",

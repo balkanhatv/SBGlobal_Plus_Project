@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-SUBSCRIPTION-TRANSITION-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-ORG-UNIT-INDUSTRY-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-141**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-142**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-141 adds an exact-by-id `core_commercial.subscription_transition` raw Tenant persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` boundary. Tenant FORCE-RLS permits the owning row from same-Tenant Core or Industry contexts while foreign Tenant/PLATFORM_GLOBAL remain hidden. Raw from/to state, trigger, actor/source-event/reason, occurrence and correlation evidence remains append-only evidence only; it does not become lifecycle legality, current Subscription state, replayability or transition execution authority.
+DD-142 adds an exact OrgUnit linkage reader for `core_tenancy.org_unit_industry` through the existing `RequestScopedSql` boundary. Exact Tenant + Industry FORCE-RLS exposes only the current Industry link; raw `ACTIVE | SUSPENDED | ARCHIVED` status and immutable config JSON remain persistence evidence only. The reader does not become OrgUnit/Industry activation, hierarchy, config-resolution, document-ACL or workflow-assignment authority.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `39ad7e1f7fd39401811de0b6efa7f3bf0d35c3ff` / tree `f184bfc07a41c1199568f10ca45e2ddb6aa39da5` — 311 Core tests, 427 PostgreSQL tests including `SUBTRANS-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `882ecc5532c81dedc3f4b3f983a7edfc12a49dd0` / tree `409ed54a8c3cacd7500c5c03aa27560147c4b25e`: Core run `35881695463` (Core job `107251481728`, PostgreSQL job `107251481464`), Database run `35881695666` (job `107251483307`), Web run `35881695790` (job `107251483129`) — SUCCESS; **141 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD141_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `28546f407042f2839d5861cd40d4f679675c6484` / tree `2934474535016628be15c6be5d855646af184225` — 311 Core tests, 434 PostgreSQL tests including `ORGIND-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `6a65e113a1cdc6e2011b297943eb7ca76bdb900d` / tree `26db1b2b26e530180ade6ae1a2262e388893baf3`: Core run `35883193670` (Core job `107256589373`, PostgreSQL job `107256589090`), Database run `35883193683` (job `107256589481`), Web run `35883193664` (job `107256589992`) — SUCCESS; **142 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD142_VERIFICATION_2026-09-23.md).
