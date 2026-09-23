@@ -1949,3 +1949,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIAGENTSTEP-PG-001` through `AIAGENTSTEP-PG-007`.
 
+## DD-132 — AI AgentApproval raw persistence is readable without becoming current approval satisfaction, resume or tool-execution authority
+
+**Context:** migration 0013 owns `core_ai.agent_approval` with direct Tenant/Industry FORCE-RLS and status `PENDING | APPROVED | REJECTED | EXPIRED`. Migration 0031 binds approval run/step/scope and optional approver tenancy at write time. DD-09 states that required approval blocks execution unless APPROVED and that approval itself is revalidated for approver permission/context.
+
+**Decision:** add immutable `PersistedAIAgentApproval`, `AIAgentApprovalReadPort.loadForContext(...)` and `PostgresAIAgentApprovalStore` through the existing AI Gateway + RequestScopedSql boundary. The reader returns only persisted approval identifiers, scope, requested-by-agent flag, raw type/permission/summary/reason, optional approver/approved timestamp, constrained raw status, correlation id and created timestamp. Schema-valid empty text and nullable evidence are preserved.
+
+**Security / trade-off:** approval SELECT visibility follows direct Tenant/Industry RLS rather than AgentRun acting-principal privacy; another principal in the same exact scope may read approval evidence. That visibility does not confer approver authority. Existing AI Gateway AgentApproval DML authority remains migration-owned; DD-132 exposes only a read port.
+
+**Boundary:** DD-132 does not satisfy/revalidate approval; evaluate approver/current permission/risk/side-effect policy; select next AgentStep; resume AgentRun; validate current ToolSet/ToolDefinition; execute OperationContracts/tools/agents; route providers/models/prompts/RAG; or change database policy.
+
+**Acceptance:** `AIAGENTAPP-PG-001` through `AIAGENTAPP-PG-007`.
+
