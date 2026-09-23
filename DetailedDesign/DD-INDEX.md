@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-22 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-CAPABILITY-CATALOG-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-TOOL-DEFINITION-CATALOG-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-109**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-110**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-109 adds an exact-by-id global `core_ai.ai_capability` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. `category`, nullable `requiredEntitlement`, `defaultPolicyClass`, positive `schemaVersion`, and raw `status` remain persisted catalog evidence only; they do not authorize runtime capability eligibility, entitlement/policy evaluation, Tenant/Industry allowed-capability resolution, provisioning selection, provider/model routing, credential resolution, quota/budget decisions, or AI execution. No Tenant/Industry RequestContext, migration, schema, verification SQL, role, grant, RLS policy or product-policy change is introduced by DD-109.
+DD-110 adds an exact-by-id global `core_ai.ai_tool_definition` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. Governed `scopeClass` and `sideEffectClass`, capability/OperationContract references, permission/entitlement references, schema versions, approval-policy reference, idempotency flag, audit class, raw status/version and timestamps remain persisted catalog evidence only; they do not authorize runtime eligibility, permission/entitlement, approval, routing, invocation or execution. No Tenant/Industry RequestContext, migration, schema, verification SQL, role, grant, RLS policy, product-policy or public-route change is introduced by DD-110.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `c9effecdec6508f730a039b89c3e00588a71fb87` / tree `024733156623ade9ad58caeb2711e6032da68dbd` — 311 Core tests, 205 PostgreSQL tests including `AICAP-PG-001…005`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `0cd3bd299bd2e4a0ca9b6644527d15a701ec9077`: Core run `35757441004`, Database run `35757440917`, Web run `35757440910` — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 109 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD109_VERIFICATION_2026-09-22.md).
+**Current verified executable evidence:** `c8a074dfc8bccf8c9deabd6ab7fa1e434be42f02` / tree `3783cd76c9cd83a9ad29a1cd33f14800b5ff3406` — 311 Core tests, 210 PostgreSQL tests including `AITOOLDEF-PG-001…005`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `4d9f53a08ce7096f44f04abee4c6f5ae75e25fe8` / tree `fc9ed9a8c8b8531045aa49552dca5b3095e67de3`: Core run `35814192221` (Core job `107032087794`, PostgreSQL job `107032087898`), Database run `35814192200` (job `107032087583`), Web run `35814192248` (job `107032087910`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 110 unique DD definitions**. See [verification evidence](../Registers/DEVELOPMENT_DD110_VERIFICATION_2026-09-23.md).

@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-22 · **Current checkpoint:** `DEV-AI-CAPABILITY-CATALOG-READ-001`
+**Updated:** 2026-09-23 · **Current checkpoint:** `DEV-AI-TOOL-DEFINITION-CATALOG-READ-001`
 
-Verified executable `c9effecdec6508f730a039b89c3e00588a71fb87` / tree `024733156623ade9ad58caeb2711e6032da68dbd`: **311/311 Core**, **205/205 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
+Verified executable `c8a074dfc8bccf8c9deabd6ab7fa1e434be42f02` / tree `3783cd76c9cd83a9ad29a1cd33f14800b5ff3406`: **311/311 Core**, **210/210 PostgreSQL**, **47 migrations / 41 SQL verification files**, **Next.js build** and **Database Verify PASS**. Zero failed/skipped tests.
 
-Promotion invariant gate `0cd3bd299bd2e4a0ca9b6644527d15a701ec9077` / tree `45ebfc04fde83fc4f5f42415d98f288cd5109169`: Core run `35757441004`, Database run `35757440917`, Web run `35757440910` — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 109 unique DD definitions**.
+Promotion invariant gate `4d9f53a08ce7096f44f04abee4c6f5ae75e25fe8` / tree `fc9ed9a8c8b8531045aa49552dca5b3095e67de3`: Core run `35814192221` (Core job `107032087794`, PostgreSQL job `107032087898`), Database run `35814192200` (job `107032087583`), Web run `35814192248` (job `107032087910`) — SUCCESS; invariants **9 Industries / 41 canonical MS / 181 registered Industry tables / 2,962 preserved requirements / 110 unique DD definitions**.
 
-DD-109 adds an exact-by-id global `core_ai.ai_capability` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. `category`, nullable `requiredEntitlement`, `defaultPolicyClass`, positive `schemaVersion`, and raw `status` remain persisted catalog evidence only; they do not authorize runtime capability eligibility, entitlement/policy evaluation, Tenant/Industry allowed-capability resolution, provisioning selection, provider/model routing, credential resolution, quota/budget decisions, or AI execution. No Tenant/Industry RequestContext, migration, schema, verification SQL, role, grant, RLS policy or product-policy change is introduced by DD-109.
+DD-110 adds an exact-by-id global `core_ai.ai_tool_definition` catalog metadata reader through the dedicated `sbg_ai_gateway_rw` boundary. Governed `scopeClass` and `sideEffectClass`, capability/OperationContract references, permission/entitlement references, schema versions, approval-policy reference, idempotency flag, audit class, raw status/version and timestamps remain persisted catalog evidence only; they do not authorize runtime eligibility, permission/entitlement, approval, routing, invocation or execution. No Tenant/Industry RequestContext, migration, schema, verification SQL, role, grant, RLS policy, product-policy or public-route change is introduced by DD-110.
 
-Next: Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility, routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant, agent/tool execution, `AIProvisioningSnapshot` compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.
+Next: Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility/routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant/agent/tool execution, `AIProvisioningSnapshot` compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -245,3 +245,4 @@ Verified executable `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`, tree `a1cc883564
 Current checkpoint: **`DEV-AUTHZ-COMPILER-001`**. Publication uses exact SERVICE scope, v1 validation, subject locking, CURRENT→SUPERSEDED transition, monotonically increasing pointer/version, invalidation without version reuse/decrement, and separate Tenant/Industry versus PLATFORM_GLOBAL paths.
 
 Next governed work: **Commercial current-state integration only**.
+
