@@ -48,7 +48,7 @@ export * from "./config/country-pack.js";
 export * from "./config/tenant-country-pack-activation.js";
 export * from "./config/brand-configuration.js";
 export * from "./config/data-export-request.js";
-export * from "./tenancy/workspace-service.js";
+export * from "./tenancy/workspace-service.js";\nexport * from "./tenancy/org-unit-industry.js";
 export * from "./identity/roles-query-service.js";
 export * from "./api/core-operation-contracts.js";
 
