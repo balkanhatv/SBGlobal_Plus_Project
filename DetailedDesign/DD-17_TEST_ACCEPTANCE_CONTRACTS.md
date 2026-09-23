@@ -2030,3 +2030,27 @@ A missing well-formed API Credential UUID returns `null`; malformed ids fail clo
 
 ### APICRED-META-PG-007 — Identity-service schema ownership does not become DD-145 verifier/mutation authority
 The fixed Identity service retains schema-owned SELECT/INSERT/UPDATE privileges and no DELETE, while the DD-145 port exposes exact read only. It exposes no verify/authenticate/create/rotate/revoke/update/delete/list/search method.
+
+
+## DD-146 OperatorElevation Control Plane Metadata Reader Acceptance
+
+### OPELEV-META-PG-001 — Exact Tenant-Core elevation preserves raw ownership/purpose/profile/time evidence
+Exact OperatorElevation-id lookup through the fixed Control Plane boundary returns persisted operator/Tenant ownership, raw purpose/ticket/approval/profile/status and timestamp evidence without becoming an elevation allow decision.
+
+### OPELEV-META-PG-002 — Tenant-Industry target remains exact metadata
+An Industry-targeted elevation returns its exact persisted Industry Context. The metadata reader does not create sibling/cross-context authority, allowed-Industry expansion or RequestContext scope.
+
+### OPELEV-META-PG-003 — Future PENDING, EXPIRED and REVOKED rows remain evidence
+Control Plane exact-id reads may return future PENDING, historical EXPIRED or REVOKED rows. DD-146 does not filter on wall-clock time/status or label them current/usable/authorized.
+
+### OPELEV-META-PG-004 — Nullable/empty metadata remains unstrengthened
+Nullable approver/ticket/revocation fields remain absent when null, and schema-valid empty purpose text remains raw persistence evidence.
+
+### OPELEV-META-PG-005 — Fixed Control Plane role is distinct from ordinary application visibility
+The dedicated NOBYPASSRLS `sbg_control_plane_rw` boundary can read exact metadata under its control policy. Ordinary `sbg_app_rw` retains schema-owned SELECT but sees no row without the separately verified transaction-local elevation/principal/Tenant context.
+
+### OPELEV-META-PG-006 — Missing/malformed exact-id behavior fails closed
+A missing well-formed OperatorElevation UUID returns `null`; malformed ids fail closed before SQL.
+
+### OPELEV-META-PG-007 — Control Plane DML ownership does not become DD-146 mutation/approval/authorization authority
+Schema-owned Control Plane SELECT/INSERT/UPDATE/DELETE remains unchanged, while the DD-146 port exposes exact read only. It exposes no create/approve/activate/revoke/expire/update/delete/list/search/authorize/permission-profile-resolution method.
