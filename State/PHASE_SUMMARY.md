@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-23 · **Current checkpoint:** `DEV-AI-MEMORY-RECORD-READ-001`
+**Updated:** 2026-09-23 · **Current checkpoint:** `DEV-AI-AGENT-RUN-READ-001`
 
-Verified executable `96be4b78ab610a23e368aeced6143b6aabd09d78` / tree `96bbc642a0005172c8376d832b1642b01a1e4865`: **311/311 Core**, **343/343 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS.
+Verified executable `eb814317f0613724c175eaa8181d0e17aad856d3` / tree `42218d9b1794773c1d12c1c23dcda1cef87e9140`: **311/311 Core**, **350/350 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS.
 
-Promotion invariant gate `0fe3cd71aa21b83beade05f091aa0bc6ae67d064` / tree `f4f0d3f952f79043142f1445c65c339d1e5fd58c`: Core run `35849137294`, Database run `35849137238`, Web run `35849137218` — SUCCESS; 129 unique DD definitions, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `95827395c065d840b0fd1aff43a7176350385c0b` / tree `7f59266585a8e136afebc4cb6d8c202fbf5ef8c2`: Core run `35851164022`, Database run `35851163994`, Web run `35851163976` — SUCCESS; 130 unique DD definitions, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-129 adds an exact-by-id scoped `core_ai.ai_memory_record` raw persistence reader. It preserves FORCE-RLS visibility plus raw lifecycle, ACL, retention, expiry and supersession evidence without current-memory selection, ACL evaluation, retention execution, history assembly, decryption or AI execution.
+DD-130 adds an exact-by-id principal-scoped `core_ai.agent_run` raw persistence reader without current authorization, resume, step/approval or tool-execution authority.
 
-Next: Fresh source-audit the next independent source-complete persistence slice. Keep current/effective memory lookup and runtime execution semantics outside scope unless source-owned.
+Next: Fresh source-audit the next independent source-complete persistence slice; keep AgentRun runtime authorization/execution and provider/model/inference/RAG runtime outside scope unless separately source-owned.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
@@ -245,6 +245,7 @@ Verified executable `2c9157e3a1ed30f18f8014e1b04aa799f2d73d15`, tree `a1cc883564
 Current checkpoint: **`DEV-AUTHZ-COMPILER-001`**. Publication uses exact SERVICE scope, v1 validation, subject locking, CURRENT→SUPERSEDED transition, monotonically increasing pointer/version, invalidation without version reuse/decrement, and separate Tenant/Industry versus PLATFORM_GLOBAL paths.
 
 Next governed work: **Commercial current-state integration only**.
+
 
 
 
