@@ -1,18 +1,18 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-23 · **Checkpoint:** `DEV-AI-AGENT-APPROVAL-READ-001`
+**Updated:** 2026-09-23 · **Checkpoint:** `DEV-METADATA-DEFINITION-READ-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `5a278df461e482df5906725e0a0a49725be8c2ca` / tree `c0f5a98548d8ad5dd7aba419c09aa6a907d0e512`: **311/311 Core**, **364/364 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS.
+Verified executable `a1ca7fd78a1d099c74f11d3c71a8f7be3418e032` / tree `0f68a014750d91e90bedceaa6059b921c2fa65f5`: **311/311 Core**, **371/371 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `f075d43f0f0734f33d506f595eed441843f7ef2d` / tree `e2d3aa6f90e5fb5e8e19ab4a6c6d04ddccc59654`: Core run `35854820755` (Core job `107160703238`, PostgreSQL job `107160703082`), Database run `35854820849` (job `107160703608`), Web run `35854820760` (job `107160703179`) — SUCCESS; **132 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `de4a44c8944180ee1f18ce42b61a312b807b952e` / tree `b14d96fd38b9dd49545695a8766530b83e6dc93b`: Core run `35858660793` (Core job `107173187619`, PostgreSQL job `107173187435`), Database run `35858660746` (job `107173187544`), Web run `35858660771` (job `107173187119`) — SUCCESS; **133 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-132 adds an exact-by-id Tenant/Industry-scoped `core_ai.agent_approval` raw persistence reader. Persisted approval status, required-permission, approver, reason and timestamps remain evidence only. Same-scope read visibility follows direct AgentApproval RLS and does not confer approver authority. APPROVED does not mean currently revalidated/satisfied, resumable or executable.
+DD-133 adds an exact-by-id scoped `core_config.metadata_definition` raw persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. PLATFORM/TENANT/INDUSTRY FORCE-RLS visibility, raw code/kind, positive version/schema version, constrained lifecycle status, immutable schema JSON, creator/approver references and optional effective timestamps remain persisted evidence only. ACTIVE/effective timestamps do not mean selected/current/effective/validated/compiled metadata. Existing `sbg_app_rw` DML authority remains schema-owned; the DD-133 port is read-only.
 
-Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–132**.
+Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–133**.
 
-Next: Fresh source-audit the next independent source-complete persistence slice. Keep approval revalidation/satisfaction, AgentRun resume, AgentStep planning, current tool authorization/execution, provider/model runtime, inference/RAG and Workflow/Automation runtime outside scope unless separately source-owned.
+Next: Fresh source-audit the next independent source-complete Core persistence slice. Keep effective metadata selection/merge, schema validation, dynamic compilation and definition mutation outside scope unless separately source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD132_VERIFICATION_2026-09-23.md`.
+Evidence: `Registers/DEVELOPMENT_DD133_VERIFICATION_2026-09-23.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.

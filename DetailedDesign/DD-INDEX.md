@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-AGENT-APPROVAL-READ-001`
+**Updated:** 2026-09-23 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-METADATA-DEFINITION-READ-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-132**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-133**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-131 adds an exact-by-id parent-scoped `core_ai.agent_step` raw persistence reader. Parent AgentRun FORCE-RLS remains authoritative. Raw step type/status/input/output/tool-binding/approval/audit references and timestamps remain persisted evidence only; they do not authorize next-step selection, approval satisfaction, current tool eligibility or execution.
+DD-133 adds an exact-by-id scoped `core_config.metadata_definition` raw persistence reader through the existing `PostgresDatabase` + `RequestScopedSql` application boundary. PLATFORM/TENANT/INDUSTRY FORCE-RLS visibility, raw code/kind, positive version/schema version, constrained lifecycle status, immutable schema JSON, creator/approver references and optional effective timestamps remain persisted evidence only. ACTIVE/effective timestamps do not mean selected/current/effective/validated/compiled metadata. Existing `sbg_app_rw` DML authority remains schema-owned; the DD-133 port is read-only.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,4 +36,4 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `5a278df461e482df5906725e0a0a49725be8c2ca` / tree `c0f5a98548d8ad5dd7aba419c09aa6a907d0e512` — 311 Core tests, 364 PostgreSQL tests including `AIAGENTAPP-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `f075d43f0f0734f33d506f595eed441843f7ef2d` / tree `e2d3aa6f90e5fb5e8e19ab4a6c6d04ddccc59654`: Core run `35854820755` (Core job `107160703238`, PostgreSQL job `107160703082`), Database run `35854820849` (job `107160703608`), Web run `35854820760` (job `107160703179`) — SUCCESS; **132 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD132_VERIFICATION_2026-09-23.md).
+**Current verified executable evidence:** `a1ca7fd78a1d099c74f11d3c71a8f7be3418e032` / tree `0f68a014750d91e90bedceaa6059b921c2fa65f5` — 311 Core tests, 371 PostgreSQL tests including `METADATADEF-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `de4a44c8944180ee1f18ce42b61a312b807b952e` / tree `b14d96fd38b9dd49545695a8766530b83e6dc93b`: Core run `35858660793` (Core job `107173187619`, PostgreSQL job `107173187435`), Database run `35858660746` (job `107173187544`), Web run `35858660771` (job `107173187119`) — SUCCESS; **133 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD133_VERIFICATION_2026-09-23.md).
