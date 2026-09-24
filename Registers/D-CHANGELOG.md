@@ -101,3 +101,7 @@ Fresh remote audit reconciled the 796-blob DD-163 promotion baseline with MI/MP,
 
 ## 2026-09-24 — DD-164 SyncCursor current-binding promotion
 Post-DD-163 Webhook execution seams were locked as source-incomplete. DD-164 then implemented the independent migration-0030-owned SyncCursor parent/capability current-binding necessary floor. Implementation `f38297dc37f269cb29dcaa5e8bbd80f4b57aec25` passed 402 Core / 497 PostgreSQL plus Database/Web; canonical promotion `b37242298bff0c2b8e95a9b957896d6a7278e8fd` / tree `749064f6d423f4d685c715e905538a06dbc77613` passed the same exact-head gates and REPO-004 contiguity. No SQL/schema/RLS/role/grant/RawSource/main change; sync/provider/network authority remains unclaimed.
+
+
+## 2026-09-24 — Post-DD-164 DD-165 prerequisite selection
+Fresh Integration reconciliation selected migration 0030's exact TenantIntegration→CredentialReference current binding as the next source-complete prerequisite. It is limited to exact credential id/Tenant/optional-Industry relationship, raw ACTIVE status and strict expiry currentness using DD-095/DD-096 evidence. Secret locator/material, rotation semantics, provider selection, health/profile policy and network execution remain explicitly unclaimed.
