@@ -192,3 +192,6 @@ Fresh AI reconciliation selected migration 0031 + migration 0048's AssistantDefi
 
 ## 2026-09-24 — DD-179 canonical promotion / checkpoint advance
 DD-179 promotion `58b4a9c17831aac335819190b7e7aad9b394ec85` / tree `2b131a362a805748f780e635e5ef55f6970bb379` passed exact-head **500 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-ASSISTANT-DEFINITION-RELATIONSHIP-CURRENT-BINDING-FLOORS-001`. Assistant capability currentness, rendering, effective ToolSet resolution and AI execution remain unclaimed.
+
+## 2026-09-24 — Post-DD-179 DD-180 prerequisite selection
+Fresh AI reconciliation selected migration 0031 + migration 0048's AgentDefinition→allowed ToolSet exact-id/ACTIVE/broader-or-equal containment relationship as the next independent source-complete prerequisite. Objective/risk/approval/budget semantics, effective ToolSet resolution and Agent/tool execution remain explicitly outside the floor.
