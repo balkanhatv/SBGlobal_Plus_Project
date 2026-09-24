@@ -183,3 +183,6 @@ DD-177 promotion `ffb619a50a7f281649e989a21c3990abc7434419` / tree `ece532fbc880
 
 ## 2026-09-24 — Post-DD-177 DD-178 prerequisite selection
 Fresh AI relationship reconciliation selected migration 0031's AIToolSetMember→AIToolDefinition exact id/ACTIVE relationship as the next independent source-complete prerequisite. Member enabled/constraint semantics, parent ToolSet currentness and tool permission/entitlement/approval/OperationContract execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-178 canonical promotion / checkpoint advance
+DD-178 promotion `1ab2ef046706ba2c21b90f873236d68d3e929329` / tree `c80e2f711f3889e0453d7beec2b4dafe14739803` passed exact-head **493 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-TOOL-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. Effective ToolSet membership and AI execution semantics remain unclaimed.

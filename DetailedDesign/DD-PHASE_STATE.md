@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-PROMPT-SET-MEMBER-CURRENT-BINDING-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-TOOL-SET-MEMBER-CURRENT-BINDING-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,14 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-AI-PROMPT-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-177.
+Current checkpoint: `DEV-AI-TOOL-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-178.
 
-Verified canonical DD-177 promotion `ffb619a50a7f281649e989a21c3990abc7434419` / tree `ece532fbc88043c37393e8b476c85e5a514b2300`: **486/486 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35982061284` (Core job `107576049554`, PostgreSQL job `107576049432`), Database `35982061330` (job `107576049416`), Web `35982061193` (job `107576050070`).
+Verified canonical DD-178 promotion `1ab2ef046706ba2c21b90f873236d68d3e929329` / tree `c80e2f711f3889e0453d7beec2b4dafe14739803`: **493/493 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35989486640` (Core job `107599889710`, PostgreSQL job `107599889838`), Database `35989486725` (job `107599890232`), Web `35989486657` (job `107599890082`).
 
-DD-177 re-evaluates only migration-0031 + migration-0048's PromptSetMember relationship: exact PromptSet/PromptTemplate ids, raw ACTIVE status on both definitions, and PromptTemplate broader/equal containment of PromptSet scope.
+DD-178 re-evaluates only migration-0031's AIToolSetMember→AIToolDefinition relationship: exact referenced ToolDefinition id and raw ACTIVE status.
 
-A true result is not effective-member selection, priority ordering, enabled filtering, current-version selection, prompt rendering, provider/model selection, tool/agent execution or AI inference authority.
+A true result is not effective ToolSet membership, parent ToolSet currentness, member enabled/constraint resolution, permission/entitlement/approval satisfaction, OperationContract execution, Agent runtime, provider/model/tool invocation or AI inference authority.
 
-Evidence: `Registers/DEVELOPMENT_DD177_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD178_VERIFICATION_2026-09-24.md`.
 
 Next: fresh source-audit another independent AI relationship prerequisite; do not infer effective-set resolution or AI execution semantics.

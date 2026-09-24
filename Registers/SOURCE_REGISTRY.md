@@ -35,8 +35,8 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 - API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
 ## Current audit / continuation evidence — 2026-09-24
-- Current checkpoint: `DEV-AI-PROMPT-SET-MEMBER-CURRENT-BINDING-FLOORS-001`.
-- DD-177 source audit: `Development/AI_PROMPT_SET_MEMBER_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- DD-177 verification: `Registers/DEVELOPMENT_DD177_VERIFICATION_2026-09-24.md`.
-- Canonical promotion: `ffb619a50a7f281649e989a21c3990abc7434419` / `ece532fbc88043c37393e8b476c85e5a514b2300`; 486 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
+- Current checkpoint: `DEV-AI-TOOL-SET-MEMBER-CURRENT-BINDING-FLOORS-001`.
+- DD-178 source audit: `Development/AI_TOOL_SET_MEMBER_DEFINITION_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- DD-178 verification: `Registers/DEVELOPMENT_DD178_VERIFICATION_2026-09-24.md`.
+- Canonical promotion: `1ab2ef046706ba2c21b90f873236d68d3e929329` / `c80e2f711f3889e0453d7beec2b4dafe14739803`; 493 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
 - RawSource accepted blobs remain unchanged.

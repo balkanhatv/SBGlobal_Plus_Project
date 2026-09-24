@@ -37,6 +37,14 @@ A true result is not effective ToolSet membership or tool execution authorizatio
 
 DD-178 does not interpret member enabled/constraint evidence; validate parent ToolSet currentness; compute effective members; authorize permission/entitlement/approval; interpret side-effect/idempotency/audit policy; execute OperationContracts; validate Agent runtime; invoke tools/providers/models; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-178 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-178 decision, acceptance and Detailed Design changelog are committed in `1ab2ef046706ba2c21b90f873236d68d3e929329` / tree `c80e2f711f3889e0453d7beec2b4dafe14739803`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35989486640`, Core job `107599889710`: **SUCCESS — 493/493**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107599889838`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `35989486725`, job `107599890232`: **SUCCESS**.
+- Web Boundary Verify run `35989486657`, job `107599890082`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-AI-TOOL-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.
