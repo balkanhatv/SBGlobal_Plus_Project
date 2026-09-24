@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-CURRENT-MACHINE-PRINCIPAL-FLOOR-001`
+**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-API-CREDENTIAL-REQUESTED-SCOPE-FLOOR-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-160**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-161**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-160 adds the current machine-principal necessary floor over DD-159 metadata: ACTIVE API_CLIENT matches; ACTIVE SERVICE requires non-blank service code/owning module; HUMAN/PLATFORM_OPERATOR and non-active statuses fail. Requested-scope authorization and final machine authentication remain absent.
+DD-161 adds the requested-scope compatibility floor over persisted API Credential + machine-principal metadata: exact Platform/Tenant/Industry target compatibility, explicit Tenant-Core→allowlisted-Industry widening, SERVICE requested-scope allowlists and EXPLICIT_CROSS_CONTEXT denial. Final machine authentication remains absent.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,6 +36,6 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `4aaddec1c42f4004b256401df231319b9ee84850` / tree `4878d9043f4ade7083146ab3cc03b7b400ab8811` — 374 Core tests including `MACHPRINC-CUR-001…007`, 497 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `94d3767e45b71d9be36e06de0ea7741b4abb193b` / tree `37067fbb0f95e6cd86d87d265adeaaa6e5a9c0fd`: Core run `35953669851` (Core job `107487338208`, PostgreSQL job `107487338411`), Database run `35953669860` (job `107487338128`), Web run `35953669843` (job `107487338021`) — SUCCESS; **160 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD160_VERIFICATION_2026-09-24.md).
+**Current verified executable evidence:** `3c9fad6e0df4e0f2b1c048ee49fff5767ecbb6c7` / tree `f338bb14bef9e1919bd5aa455013a8d90a289c10` — 381 Core/server tests including `APICRED-SCOPE-001…007`, 497 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `dc1891c8dea75ce257729dd320cb6086716ecda1` / tree `85a6f0794c352a44f1ce282511ce803620c4896b`: Core run `35954596377` (Core job `107490107603`, PostgreSQL job `107490107434`), Database run `35954596379` (job `107490107463`), Web run `35954596384` (job `107490107321`) — SUCCESS; **161 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD161_VERIFICATION_2026-09-24.md).
 
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
