@@ -228,3 +228,6 @@ Fresh AIConversation reconciliation selected migration 0031's optional AIConvers
 
 ## 2026-09-24 — DD-185 canonical promotion / checkpoint advance
 DD-185 promotion `2e5b10af8e48794e3a1a8a33a75ba9e9a0f6f732` / tree `314f9cac0230c5b129998d0cf9a00bd7b625ba37` passed exact-head **542 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-CONVERSATION-ASSISTANT-CURRENT-BINDING-FLOORS-001`. Conversation owner-principal and AI execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-185 DD-186 prerequisite selection
+Fresh AI-memory reconciliation selected migration 0031's optional AIMemoryRecord→AssistantDefinition exact id/ACTIVE/scope relationship as the next independent source-complete prerequisite. Principal currentness, supersession resolution, expiry/retention/ACL and AI runtime semantics remain explicitly outside the floor.
