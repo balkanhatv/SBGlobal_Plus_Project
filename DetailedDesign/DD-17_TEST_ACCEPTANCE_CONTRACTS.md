@@ -2600,3 +2600,26 @@ Malformed delivery/event identity/scope shape fails; extra event evidence for an
 ### NOTIF-EVT-CUR-007 — Dispatcher/payload and delivery semantics remain uninterpreted
 Event type/version/aggregate/envelope/status/attempt/availability/lock/error and delivery channel/template/recipient/status/timestamps do not create acceptance, and inputs remain unchanged.
 
+## DD-170 Definition-Scope Fail-Closed Acceptance
+
+### DEF-SCOPE-FC-001 — PLATFORM applicability is preserved
+A well-formed PLATFORM definition applies to Tenant-Core and Tenant-Industry targets.
+
+### DEF-SCOPE-FC-002 — TENANT applicability is preserved
+A well-formed TENANT definition applies to same-Tenant Core/Industry targets and fails for a foreign Tenant.
+
+### DEF-SCOPE-FC-003 — INDUSTRY applicability is exact
+A well-formed INDUSTRY definition applies only to the exact same-Tenant Industry Context and fails for a sibling Industry.
+
+### DEF-SCOPE-FC-004 — INDUSTRY to Tenant-Core is false, never NULL
+A narrower Industry definition evaluated against a Tenant-Core target returns exact false.
+
+### DEF-SCOPE-FC-005 — Definition containment is fail-closed
+An INDUSTRY parent does not contain a broader TENANT child and returns exact false rather than NULL.
+
+### DEF-SCOPE-FC-006 — Malformed/null inputs fail closed
+Unsupported/null owner scope or missing required Tenant/Industry ownership evidence returns exact false.
+
+### DEF-SCOPE-FC-007 — Trigger-style rejection works
+`NOT definition_applies_to_scope(INDUSTRY → Tenant-Core)` evaluates true; helper functions remain IMMUTABLE and non-PUBLIC-executable.
+

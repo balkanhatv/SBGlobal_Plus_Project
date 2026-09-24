@@ -2425,3 +2425,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `NOTIF-EVT-CUR-001…007` in DD-17 and `tests/core/notification-source-event-binding-floors.test.mjs`.
 
+## DD-170 — Shared definition-scope applicability/containment predicates must be total fail-closed booleans
+
+**Context:** migration 0031 explicitly labels `core_tenancy.definition_applies_to_scope()` and `definition_contains_definition()` as shared fail-closed predicates. The original ordinary nullable equality could return SQL NULL for a narrower Industry definition evaluated against a Tenant-Core target. Integrity callers commonly use `NOT predicate` inside PL/pgSQL `IF` conditions, where UNKNOWN/NULL is not a true rejection condition.
+
+**Decision:** forward migration 0048 replaces both predicate bodies with the same existing PLATFORM/TENANT/INDUSTRY hierarchy wrapped in `COALESCE(..., false)`. Function signatures, IMMUTABLE classification, fixed search path and PUBLIC revocation are preserved. No owner hierarchy or applicability rule is widened.
+
+**Security / trade-off:** malformed or nullable mismatches now deterministically resolve to false, restoring the fail-closed semantics already declared by migration 0031 and preventing `NOT NULL` integrity-trigger bypass. Direct verification covers PLATFORM/TENANT/INDUSTRY applicability, exact Industry matching, Industry→Tenant-Core rejection, Industry-parent→Tenant-child containment rejection, malformed/null inputs and trigger-style `NOT` behavior.
+
+**Boundary:** DD-170 does not define NotificationTemplate selection/rendering/locale fallback; authorize notification delivery/provider/retry; alter Identity/Authz policy; modify existing data; add tables/indexes/RLS/roles/grants/routes; change the PLATFORM/TENANT/INDUSTRY hierarchy; or widen machine-auth, Webhook, SyncCursor or Integration execution boundaries.
+
+**Acceptance:** `DEF-SCOPE-FC-001…007` in DD-17 and `database/verification/0048_definition_scope_fail_closed.verify.sql`.
+
