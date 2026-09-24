@@ -97,6 +97,7 @@ export * from "./workflow/transition.js";
 export * from "./workflow/child-parent-binding-floors.js";
 export * from "./workflow/automation-definition.js";
 export * from "./workflow/automation-run.js";
+export * from "./workflow/automation-run-definition-binding-floors.js";
 export * from "./ai/provider-catalog-metadata.js";
 export * from "./ai/model-catalog-metadata.js";
 export * from "./ai/capability-catalog-metadata.js";
