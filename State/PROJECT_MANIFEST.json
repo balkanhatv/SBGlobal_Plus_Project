@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-OPERATOR-ELEVATION-RLS-PARITY-001",
-  "final_verdict": "DD-153 OPERATOR ELEVATION PHYSICAL RLS PARITY VERIFIED / EXACT-HEAD TESTED; REQUEST-TIME ELEVATION REMAINS INACTIVE; TRUSTED SELECTION, STEP-UP, PERMISSION/APPROVAL, REQUEST-SCOPE INJECTION AND MANDATORY AUDIT UNCLAIMED",
+  "checkpoint": "DEV-OPERATOR-ELEVATION-RELATIONSHIP-INTEGRITY-001",
+  "final_verdict": "DD-154 OPERATOR ELEVATION PERSISTED RELATIONSHIP INTEGRITY VERIFIED / EXACT-HEAD TESTED; TRUSTED SELECTION SOURCE, STEP-UP, PERMISSION/EFFECTIVE-PERMISSION, BROADER APPROVAL POLICY, REQUEST-SCOPE INJECTION AND MANDATORY AUDIT UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "91b7db1696701b90e27c3e622c6b39df82fc67c3",
-    "verified_code_tree": "e38ec10d70b4affa29cca55a742c8b9ca2b9cbdf",
-    "state_projection_basis_head": "f4168ea19b693934bf9971608147911d83e2afb6",
+    "verified_code_head": "d2c8d9598401859541b72383d78bd6bb633c1b80",
+    "verified_code_tree": "848b24f36d08710d6a378900ba36456c429e3d6d",
+    "state_projection_basis_head": "aa23b2f9c42aca61dad47483778369e0e1aa8cba",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "OperatorElevation physical current-read RLS parity verified; runtime elevation selection/injection/policy remains inactive",
+    "current_phase": "OperatorElevation persisted operator/approver relationship integrity verified; request-time selection/policy/scope authorization remains separate",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "f4168ea19b693934bf9971608147911d83e2afb6",
-      "ci_run_id": 35941965967,
-      "ci_job_id": 107451593412,
+      "ci_verified_head": "aa23b2f9c42aca61dad47483778369e0e1aa8cba",
+      "ci_run_id": 35946118591,
+      "ci_job_id": 107464317181,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "65ddf4725ef8ccdad1b44fffa17b957322dcf86f",
+      "ci_verified_tree": "3afc27e882f4e76238edd88bef7448f133a0cc49",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "f4168ea19b693934bf9971608147911d83e2afb6",
-      "feature_head_bootstrap_verified_tree": "65ddf4725ef8ccdad1b44fffa17b957322dcf86f",
-      "feature_head_bootstrap_run_id": 35941965972,
-      "feature_head_bootstrap_job_id": 107451593496,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_476_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "aa23b2f9c42aca61dad47483778369e0e1aa8cba",
+      "feature_head_bootstrap_verified_tree": "3afc27e882f4e76238edd88bef7448f133a0cc49",
+      "feature_head_bootstrap_run_id": 35946118505,
+      "feature_head_bootstrap_job_id": 107464316811,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_483_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next runtime prerequisite. Keep trusted selected-id sourcing, step-up/MFA policy, permission-profile/effective-permission evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory elevation-use audit outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit the next runtime prerequisite. Keep trusted elevation-id selection/source, step-up/MFA policy, permission-profile/effective-permission evaluation, broader approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.",
     "core_services": {
-      "checkpoint": "DEV-OPERATOR-ELEVATION-RLS-PARITY-001",
+      "checkpoint": "DEV-OPERATOR-ELEVATION-RELATIONSHIP-INTEGRITY-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–153 current implementation; DD-153 physical OperatorElevation current-read RLS parity acceptance only",
-      "verified_head": "91b7db1696701b90e27c3e622c6b39df82fc67c3",
-      "verified_tree": "e38ec10d70b4affa29cca55a742c8b9ca2b9cbdf",
-      "core_ci_run_id": 35941965972,
-      "core_ci_job_id": 107451593773,
+      "decision": "DD-040–154 current implementation; DD-154 persisted OperatorElevation operator/approver relationship integrity acceptance only",
+      "verified_head": "d2c8d9598401859541b72383d78bd6bb633c1b80",
+      "verified_tree": "848b24f36d08710d6a378900ba36456c429e3d6d",
+      "core_ci_run_id": 35946118505,
+      "core_ci_job_id": 107464316684,
       "tests": "346/346 PASS",
       "core_test_counts": {
         "tests": 346,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35941965972,
-      "postgres_ci_job_id": 107451593496,
-      "postgres_tests": "476/476 PASS",
+      "postgres_ci_run_id": 35946118505,
+      "postgres_ci_job_id": 107464316811,
+      "postgres_tests": "483/483 PASS",
       "postgres_test_counts": {
-        "tests": 476,
-        "pass": 476,
+        "tests": 483,
+        "pass": 483,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35941965967,
-      "database_regression_job_id": 107451593412,
+      "database_regression_run_id": 35946118591,
+      "database_regression_job_id": 107464317181,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -426,7 +426,8 @@
         "DD-150 deterministic verified PLATFORM_OPERATOR identity floor requiring exact persisted/evidence principal match without inferring MFA/step-up policy",
         "DD-151 exact OperatorElevation selected-id UUID equality necessary floor with no selection trust or authorization semantics",
         "DD-152 pure composition of OperatorElevation selected-id, verified-operator, subject-target and status-time necessary floors",
-        "DD-153 physical PostgreSQL OperatorElevation current-read RLS parity acceptance under sbg_app_rw"
+        "DD-153 physical PostgreSQL OperatorElevation current-read RLS parity acceptance under sbg_app_rw",
+        "DD-154 persisted OperatorElevation operator/approver relationship-integrity acceptance for migration 0031"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
