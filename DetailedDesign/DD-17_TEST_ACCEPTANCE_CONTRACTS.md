@@ -2342,3 +2342,27 @@ Malformed evaluation or persisted expiry timestamps return false.
 
 ### APICRED-LIFE-007 — Non-lifecycle verification material is not interpreted
 Verifier hash, CIDR, permission-profile, scope, version and usage metadata do not affect this helper, and the material is not mutated.
+
+
+## DD-159 API Credential Machine-Principal Metadata Reader Acceptance
+
+### MACHPRINC-PG-001 — Exact ACTIVE API_CLIENT raw principal metadata is readable
+The fixed Identity-service database boundary can read the exact principal id, type, raw status and auth epoch for an ACTIVE API_CLIENT without projecting display name, email or mobile PII.
+
+### MACHPRINC-PG-002 — ACTIVE SERVICE preserves service metadata and allowed scopes
+An ACTIVE SERVICE principal preserves service code, owning module and immutable persisted allowed-scope evidence.
+
+### MACHPRINC-PG-003 — HUMAN and PLATFORM_OPERATOR remain raw evidence
+HUMAN and PLATFORM_OPERATOR rows may be returned by the exact metadata reader but are not reinterpreted as accepted machine principals.
+
+### MACHPRINC-PG-004 — Non-active statuses remain raw evidence
+PENDING, SUSPENDED and REVOKED principal statuses are returned as persisted metadata without a current-principal decision.
+
+### MACHPRINC-PG-005 — Nullable scopes and signed bigint auth epoch remain lossless
+Nullable allowed scope evidence and the full signed bigint auth-epoch domain are preserved without numeric truncation; returned arrays are immutable.
+
+### MACHPRINC-PG-006 — Missing/malformed exact id fails closed
+A missing exact principal id returns null; malformed UUID input fails before SQL execution.
+
+### MACHPRINC-PG-007 — Reader remains Identity-service-only and exact-read-only
+The fixed Identity-service role can read the directory, while the DD-159 surface exposes no create/update/delete/list/search/authenticate behavior and no PII projection.

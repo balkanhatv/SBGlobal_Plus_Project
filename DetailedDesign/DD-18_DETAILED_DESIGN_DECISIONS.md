@@ -2288,3 +2288,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-158 does not parse presented API credentials or key-prefix wire format; compare `secretHash`; select verifier algorithm/parameters/library; enforce CIDR; interpret permission profiles; decide scope authorization; validate principal/membership/service scope; update last-used evidence; emit credential-use audit; construct `VerifiedMachineEvidence`; implement `IdentityPort.verifyMachineCredential`; mutate credential lifecycle; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `APICRED-LIFE-001` through `APICRED-LIFE-007` in DD-17 and `tests/server/api-credential-current-lifecycle.test.mjs`.
+
+
+## DD-159 — Machine principal directory metadata must be read as raw server-internal evidence before current-principal validation or machine authentication
+
+**Context:** DD-03 requires final `VerifiedMachineEvidence` to carry machine principal type and allowed scope classes. DD-147 API Credential verification material contains only the persisted `principalId`; it does not carry current PlatformPrincipal type/status/service metadata. Migration 0003 owns PlatformPrincipal type/status/auth epoch/service metadata; migration 0029 constrains allowed scope classes and grants the fixed Identity-service role pre-context access; migrations 0030/0034 consume that metadata when enforcing API Credential persistence integrity.
+
+**Decision:** add server-internal immutable `MachinePrincipalMetadata`, exact `loadById({principalId})` read port and `PostgresMachinePrincipalMetadataStore` through `PostgresIdentityDatabase`. The projection contains only id, principal type, raw status, exact bigint auth epoch text, optional service code/owning module and optional allowed-scope array. It excludes display name/email/mobile and is not exported through Core/client DTOs.
+
+**Security / trade-off:** DD-159 intentionally reads HUMAN, PLATFORM_OPERATOR and non-active principal rows as raw evidence so the reader itself cannot silently become the authentication policy. Current machine-principal validity, service-scope compatibility, lifecycle composition, verifier execution and final evidence construction remain separately governed.
+
+**Boundary:** DD-159 does not decide current machine-principal validity; map principal evidence into final machine acceptance; compose DD-158 lifecycle; decide Tenant/Industry/PLATFORM_GLOBAL authorization; interpret permission profiles; parse credentials or compare verifier hashes; enforce CIDR; update auth epoch or credential usage; emit authentication audit; construct `VerifiedMachineEvidence`; implement `IdentityPort.verifyMachineCredential`; mutate principal/credential state; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `MACHPRINC-PG-001` through `MACHPRINC-PG-007` in DD-17 and `tests/postgres/machine-principal-metadata-store.test.mjs`.

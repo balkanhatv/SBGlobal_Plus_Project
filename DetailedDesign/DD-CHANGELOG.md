@@ -245,3 +245,7 @@ After DD-156 verified persisted lifecycle/time/scope integrity, the existing int
 
 ## 2026-09-24 — DD-158 API Credential current lifecycle floor
 After DD-157 closed the OperatorElevation Control Plane SQL boundary, the machine-credential chain resumed at the next source-complete deterministic prerequisite. DD-03/DD-16 plus migration 0030 own ACTIVE status and optional-expiry currentness; the implementation adds only a server-internal pure lifecycle helper over DD-147 verification material. Exact implementation head `a5e1de8d…` / tree `493fe33e…` is green at 367/367 Core and 490/490 PostgreSQL plus Database/Web PASS. Presented-token parsing, verifier execution, CIDR, profile/scope mapping, usage/audit and final machine authentication remain unclaimed.
+
+
+## 2026-09-24 — DD-159 machine principal metadata reader
+After DD-158 isolated the API Credential current-lifecycle floor, the next source-complete prerequisite was the current PlatformPrincipal metadata source needed by eventual machine verification. DD-159 adds a server-internal exact-id metadata reader through the fixed Identity-service database boundary, preserving principal type/status, bigint auth epoch and SERVICE scope metadata while excluding PII and making no machine-authentication decision. Audit commit `7f44021a…`; exact implementation head `3cbed051…` / tree `bbd14cdb…` is green at 367/367 Core and 497/497 PostgreSQL plus Database/Web PASS. No migration, RLS, role/grant, public DTO or product-policy behavior changed.
