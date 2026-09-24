@@ -108,3 +108,6 @@ Fresh Integration reconciliation selected migration 0030's exact TenantIntegrati
 
 ## 2026-09-24 — DD-165 canonical promotion / checkpoint advance
 DD-165 canonical decision/acceptance/evidence promotion `d6c09a2fde3f173892c311af36335dc1f6ef8313` / tree `daec42114b4a76fa4f25edf71b410f230d3a37d0` passed exact-head **409 Core / 497 PostgreSQL** plus Database/Web CI. Current DD/Development/State/Register projections advanced to `DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001` only after that gate. Machine verification, Webhook execution, SyncCursor runtime and secret/provider runtime boundaries remain locked. RawSource/main unchanged; PR #2 remains draft/unmerged.
+
+## 2026-09-24 — Post-DD-165 DD-166 prerequisite selection
+Fresh Integration reconciliation selected migration 0030's Definition/config/enabled-capability half of TenantIntegration integrity as the next independent source-complete prerequisite. It is limited to exact ACTIVE IntegrationDefinition, object config, duplicate-free enabled codes, Definition membership and exact ACTIVE capability existence. TenantIntegration lifecycle, DD-165 credential currentness, provider/OperationContract/event/secret/network authority remain explicitly separate.
