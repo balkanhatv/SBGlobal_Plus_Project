@@ -2876,3 +2876,26 @@ Malformed run/definition UUIDs or invalid PLATFORM/TENANT/INDUSTRY owner shapes 
 ### AIARUN-DEF-CUR-007 — principal/snapshot/run policy evidence remains uninterpreted
 Acting-principal/membership, permission/entitlement snapshots, requested resource scope, run status/budgets/timestamps/correlation and AgentDefinition policy/ToolSet/version evidence do not affect this floor, and inputs remain unchanged.
 
+## DD-182 AgentStep Tool-Binding Current-Floor Acceptance
+
+### AISTEP-TOOL-CUR-001 — Exact TOOL chain matches
+A TOOL step with exact run/definition parents, exact enabled ToolSetMember, exact ACTIVE ToolDefinition and member ToolSet equal to the persisted AgentDefinition allowed ToolSet returns true.
+
+### AISTEP-TOOL-CUR-002 — Parent id mismatch fails
+Wrong AgentRun id or AgentDefinition parent id fails closed.
+
+### AISTEP-TOOL-CUR-003 — Member/tool identity mismatch fails
+Missing/wrong ToolSetMember or wrong ToolDefinition id fails closed.
+
+### AISTEP-TOOL-CUR-004 — Disabled/inactive/outside ToolSet fails
+Disabled member, non-ACTIVE ToolDefinition or member outside the AgentDefinition allowed ToolSet fails closed.
+
+### AISTEP-TOOL-CUR-005 — Non-TOOL steps require no binding
+PLAN/RAG/APPROVAL/INFERENCE with absent persisted binding and no member/tool evidence return true; any persisted/extra binding evidence fails closed.
+
+### AISTEP-TOOL-CUR-006 — Malformed/unsupported evidence fails
+Malformed identifiers, malformed allowed ToolSet id or unsupported step type fail closed.
+
+### AISTEP-TOOL-CUR-007 — Approval/policy/runtime semantics remain uninterpreted
+Step approval/status/timestamps/audit, run principal/membership/snapshot/resource/lifecycle/budgets, definition policy/status/version, member constraint and tool permission/entitlement/approval/OperationContract metadata do not affect this floor, and inputs remain unchanged.
+

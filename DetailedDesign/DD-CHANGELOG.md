@@ -319,3 +319,6 @@ After DD-179, migration 0031 + migration 0048's AgentDefinition→allowed ToolSe
 ## 2026-09-24 — DD-181 AgentRun definition current-binding floor
 After DD-180, migration 0031 + migration 0048's AgentRun→AgentDefinition exact-id/ACTIVE/scope relationship was selected as the next source-complete prerequisite. DD-181 adds only a pure Core recheck of that relationship. Exact implementation head `cde1f664682ad9a4cae3f9460ae3878476a4eed6` / tree `117c19d0abc7ba1e216a73393488a3781cfd5e59` is green at **514/514 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Acting-principal/membership and Agent execution semantics remain unclaimed.
 
+## 2026-09-24 — DD-182 AgentStep tool-binding current floor
+After DD-181, migration 0031's AgentStep TOOL/non-TOOL persisted binding predicate was selected as the next source-complete prerequisite. DD-182 adds only a pure Core recheck of the exact step→run→definition parent chain plus enabled ToolSetMember, ACTIVE ToolDefinition and allowed-ToolSet equality for TOOL steps; non-TOOL steps require no binding. Exact implementation head `685064ad35d5f8075ad05fea2bdc5ae95207ae63` / tree `081726e2f96749e975e41487f757b8e9cf3c7d4b` passed **521/521 Core**, **497/497 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Approval satisfaction and tool execution remain unclaimed.
+

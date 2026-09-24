@@ -2571,3 +2571,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIARUN-DEF-CUR-001…007` in DD-17 and `tests/core/ai-agent-run-definition-binding-floors.test.mjs`.
 
+## DD-182 — AgentStep TOOL/non-TOOL persisted binding may be re-evaluated without authorizing tool execution
+
+**Context:** migration 0031 resolves AgentStep→AgentRun→AgentDefinition and, for TOOL steps, validates the persisted ToolSetMember/ToolDefinition chain against the AgentDefinition's persisted allowed ToolSet. Non-TOOL steps must not carry a tool binding.
+
+**Decision:** add pure Core helper `matchesAIAgentStepToolBindingFloors(step, run, definition, member?, toolDefinition?)`. It validates only the exact parent id chain and migration-owned TOOL/non-TOOL binding relationship: TOOL requires exact member id, enabled member, exact ACTIVE ToolDefinition and exact member ToolSet equality to `definition.allowedToolSetId`; PLAN/RAG/APPROVAL/INFERENCE require no binding/evidence.
+
+**Security / trade-off:** DD-182 deliberately does not compose DD-180 ToolSet currentness or DD-181 AgentDefinition currentness beyond the exact persisted parent-id chain. A true result is not acting-principal authorization, permission/entitlement/approval satisfaction, OperationContract eligibility or tool execution authority.
+
+**Boundary:** DD-182 does not evaluate approval backlinks/satisfaction, ToolSetMember constraint JSON, ToolDefinition permission/entitlement/approval/side-effect/risk/idempotency/audit/schema metadata, provider/model selection, inference/RAG/media, step selection/retry/resume/cancel, run mutation or network/tool execution.
+
+**Acceptance:** `AISTEP-TOOL-CUR-001…007` in DD-17 and `tests/core/ai-agent-step-tool-binding-floors.test.mjs`.
+
