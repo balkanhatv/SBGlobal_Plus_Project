@@ -2414,3 +2414,27 @@ EXPLICIT_CROSS_CONTEXT always fails; malformed UUIDs or missing required target 
 
 ### APICRED-SCOPE-007 — Other authentication evidence remains separate
 Lifecycle, hash, CIDR, permission profile, version, usage and principal-currentness evidence is not interpreted and inputs remain unchanged.
+
+
+## DD-162 API Credential Core Necessary-Floor Composition Acceptance
+
+### APICRED-CORE-001 — All three machine-credential floors true
+Current credential lifecycle, current machine principal and requested-scope compatibility all matching returns true.
+
+### APICRED-CORE-002 — Lifecycle failure fails the composition
+A DD-158 lifecycle failure returns false even when principal and requested scope match.
+
+### APICRED-CORE-003 — Current principal failure fails the composition
+A DD-160 current machine-principal failure returns false even when lifecycle and requested scope match.
+
+### APICRED-CORE-004 — Requested-scope failure fails the composition
+A DD-161 requested-scope failure returns false even when lifecycle and current principal match.
+
+### APICRED-CORE-005 — Multiple malformed/failed floors have no fallback
+Malformed or failed evidence across multiple floors remains false; no partial-success fallback exists.
+
+### APICRED-CORE-006 — Platform and Tenant-Industry success paths preserve DD-161 rules
+When lifecycle and principal are current, PLATFORM_GLOBAL SERVICE and Tenant-Industry success still require the exact DD-161 scope rules.
+
+### APICRED-CORE-007 — Verifier/CIDR/profile/use evidence remains uninterpreted
+Secret hash, CIDR, permission-profile, version and last-use evidence do not gain authentication semantics, and inputs are not mutated.

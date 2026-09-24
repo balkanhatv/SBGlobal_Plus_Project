@@ -257,3 +257,7 @@ After DD-159 added the exact machine-principal metadata source, DD-03 plus migra
 
 ## 2026-09-24 — DD-161 API Credential requested-scope floor
 After DD-160 isolated current machine-principal admissibility, DD-03 plus migrations 0030/0034 and RequestContext machine-scope rules were reconciled into a pure requested-scope predicate. It binds credential→principal id, exact Tenant/Industry targets, Tenant-Core allowed-Industry consumption and SERVICE requested-scope allowlists while denying EXPLICIT_CROSS_CONTEXT. Lifecycle/currentness/verifier/CIDR/profile/use-audit remain separate. Audit commit `c53c94f6…`; exact implementation head `3c9fad6e…` / tree `f338bb14…` is green at 381/381 Core and 497/497 PostgreSQL plus Database/Web PASS.
+
+
+## 2026-09-24 — DD-162 API Credential core necessary-floor composition
+After DD-161 completed requested-scope compatibility, DD-158 lifecycle, DD-160 current machine-principal and DD-161 requested-scope floors were reconciled into one pure server-internal composition. The implementation returns true only when all three existing predicates match and deliberately does not parse presented credentials, compare verifier hashes, enforce CIDR, interpret permission profiles, mutate usage/audit state or construct final machine evidence. Audit commit `b612f4d5…`; exact implementation head `a68a89f1…` is green at 388/388 Core and 497/497 PostgreSQL plus Database/Web PASS. No database, migration, RLS, role/grant, RequestContext, transport or product-policy behavior changed.

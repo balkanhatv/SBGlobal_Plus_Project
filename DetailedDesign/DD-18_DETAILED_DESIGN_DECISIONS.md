@@ -2327,3 +2327,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-161 does not evaluate DD-158 lifecycle or DD-160 currentness on the caller's behalf; verify principal current status; parse credentials or compare verifier hashes; enforce CIDR; interpret permission profiles; update usage/auth epoch; emit authentication audit; construct final `VerifiedMachineEvidence`; implement `IdentityPort.verifyMachineCredential`; mutate principal/credential state; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `APICRED-SCOPE-001` through `APICRED-SCOPE-007` in DD-17 and `tests/server/api-credential-requested-scope.test.mjs`.
+
+
+## DD-162 — DD-158, DD-160 and DD-161 may be composed as one pure API Credential necessary floor without becoming machine authentication
+
+**Context:** DD-158 owns current API Credential lifecycle, DD-160 owns current machine-principal admissibility, and DD-161 owns requested-scope compatibility over persisted credential/principal evidence. DD-147 and DD-159 provide the raw server-internal source material. None of those decisions owns presented-token parsing, verifier execution, CIDR, permission-profile evaluation, use mutation/audit or final machine evidence.
+
+**Decision:** add server-internal deterministic helper `matchesApiCredentialCoreNecessaryFloors(material, principal, input)`. The input carries the DD-161 requested-scope target plus an explicit server-owned evaluation instant. The helper returns true only when DD-158 lifecycle, DD-160 current principal and DD-161 requested scope all return true.
+
+**Security / trade-off:** composition reduces accidental partial checks but does not strengthen any necessary predicate into authentication. A true result says only that persisted lifecycle, principal-currentness and requested-scope evidence are compatible for the supplied server-owned inputs.
+
+**Boundary:** DD-162 does not parse presented credentials or extract prefixes; compare `secretHash`; choose crypto/verifier algorithms or parameters; enforce CIDR; interpret `permissionProfileId`; update `lastUsedAt`, credential version or auth epoch; emit authentication/use audit; construct final `VerifiedMachineEvidence`; implement `IdentityPort.verifyMachineCredential`; mutate credential/principal state; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `APICRED-CORE-001` through `APICRED-CORE-007` in DD-17 and `tests/server/api-credential-core-floors.test.mjs`.
