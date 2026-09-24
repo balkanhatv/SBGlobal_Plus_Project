@@ -94,6 +94,7 @@ export * from "./workflow/instance.js";
 export * from "./workflow/instance-definition-binding-floors.js";
 export * from "./workflow/task.js";
 export * from "./workflow/transition.js";
+export * from "./workflow/child-parent-binding-floors.js";
 export * from "./workflow/automation-definition.js";
 export * from "./workflow/automation-run.js";
 export * from "./ai/provider-catalog-metadata.js";
