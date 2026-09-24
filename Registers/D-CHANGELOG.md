@@ -132,3 +132,6 @@ Fresh Notification reconciliation selected migration 0031's optional Notificatio
 
 ## 2026-09-24 — DD-169 canonical promotion / checkpoint advance
 DD-169 promotion `19d4af6b662e6c8de7df0fc54c1a61aab09a5b3f` / tree `264cfb4d5df164ea1e1893013698cb17b811f919` passed exact-head **437 Core / 497 PostgreSQL** plus Database/Web. Projections advanced to `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`. Post-promotion source review flagged `definition_applies_to_scope()` NULL/fail-closed behavior as the next prerequisite before NotificationTemplate relationship continuation.
+
+## 2026-09-24 — Post-DD-169 DD-170 fail-closed scope-predicate correction selected
+Post-DD-169 reconciliation found that migration 0031 labels `definition_applies_to_scope()` fail-closed but ordinary nullable equality can return SQL NULL for INDUSTRY→Tenant-Core comparison. Integrity callers commonly use `NOT predicate`, allowing NULL to bypass the intended rejection. DD-170 is limited to making definition applicability/containment total booleans via a forward-only migration plus direct verification; owner hierarchy is unchanged.
