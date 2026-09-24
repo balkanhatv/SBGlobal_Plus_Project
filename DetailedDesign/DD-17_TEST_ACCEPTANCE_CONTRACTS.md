@@ -2692,3 +2692,26 @@ Malformed instance/definition identity or invalid instance/definition owner scop
 ### WFI-DEF-CUR-007 — Workflow execution semantics remain uninterpreted
 Resource/currentState/lifecycle/rowVersion/timestamps/creator and definition code/schema/stateMachine/approval/rules/effective/creator/approver evidence do not create acceptance, and inputs remain unchanged.
 
+## DD-174 Workflow Child WorkflowInstance Current-Binding Acceptance
+
+### WFCH-PARENT-CUR-001 — Tenant-Core task exact parent matches
+A valid Tenant-Core task matches an exact same-Tenant WorkflowInstance with absent Industry Context.
+
+### WFCH-PARENT-CUR-002 — Tenant-Industry task exact parent matches
+A valid Tenant-Industry task matches an exact same-Tenant WorkflowInstance with the exact Industry Context.
+
+### WFCH-PARENT-CUR-003 — Tenant-Core transition exact parent matches
+A valid Tenant-Core transition matches an exact same-Tenant WorkflowInstance with absent Industry Context.
+
+### WFCH-PARENT-CUR-004 — Tenant-Industry transition exact parent matches
+A valid Tenant-Industry transition matches an exact same-Tenant WorkflowInstance with the exact Industry Context.
+
+### WFCH-PARENT-CUR-005 — Parent identity or scope mismatch fails
+Wrong parent id, foreign Tenant, sibling Industry or Core/Industry mismatch fails closed.
+
+### WFCH-PARENT-CUR-006 — Malformed ownership fails closed
+Malformed child/parent UUIDs or inconsistent parent scope shape fail closed.
+
+### WFCH-PARENT-CUR-007 — Task/transition execution semantics remain uninterpreted
+Task assignment/state/due/claim/completion and transition from/action/to/actor/version/reason/time evidence do not create acceptance, and inputs remain unchanged.
+

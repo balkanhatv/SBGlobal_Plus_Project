@@ -2473,3 +2473,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `WFI-DEF-CUR-001…007` in DD-17 and `tests/core/workflow-instance-definition-binding-floors.test.mjs`.
 
+## DD-174 — WorkflowTask/WorkflowTransition parent scope may be re-evaluated as a pure exact WorkflowInstance relationship floor
+
+**Context:** DD-102 exposes raw WorkflowInstance evidence; DD-103/DD-104 expose raw WorkflowTask/WorkflowTransition evidence. Migration 0031 validates both child types against the referenced WorkflowInstance by exact parent id, same Tenant and exact nullable Industry Context.
+
+**Decision:** add pure Core helper `matchesWorkflowChildParentBindingFloors(child, instance)` for `PersistedWorkflowTask | PersistedWorkflowTransition`. It validates child/parent identity and parent ownership shape, then requires exact parent id, same Tenant and exact nullable Industry Context.
+
+**Security / trade-off:** the helper mirrors only migration-0031 parent-scope relationship integrity. It deliberately does not evaluate task assignee/claimant/completer identity, transition actor identity, permission codes, due/expiry, state-machine/rule semantics, task actions or transition execution.
+
+**Boundary:** DD-174 does not authorize task claim/approve/reject/complete, validate assigned PRINCIPAL/ROLE/ORG_UNIT currentness, validate transition actors, interpret current state/action/to state/version evidence, mutate Workflow state, emit events, or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `WFCH-PARENT-CUR-001…007` in DD-17 and `tests/core/workflow-child-parent-binding-floors.test.mjs`.
+

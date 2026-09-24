@@ -295,3 +295,6 @@ Recipient-principal later re-evaluation was explicitly locked as source-incomple
 ## 2026-09-24 — DD-173 WorkflowInstance WorkflowDefinition current-binding floor
 After DD-172, migration 0031's WorkflowInstance→WorkflowDefinition relationship was selected as the next independent source-complete prerequisite. DD-173 adds only a pure Core recheck of exact definition id/version, raw ACTIVE status and DD-170-corrected scope applicability. Exact implementation head `d34f422aa003201400bd0554c9539b6636e4e153` / tree `85f257ce31bc5de6ad68199e1599b2fdc595ed53` is green at **458/458 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Creator-principal currentness, state-machine interpretation and workflow execution remain unclaimed.
 
+## 2026-09-24 — DD-174 Workflow child parent current-binding floor
+After DD-173, migration 0031's shared WorkflowTask/WorkflowTransition→WorkflowInstance exact parent-scope relationship was selected as the next source-complete prerequisite. DD-174 adds only a pure Core recheck of exact parent id, same Tenant and exact nullable Industry Context. Exact implementation head `d4c81f63fe10d8e363ac1131bfe079e61b959ae7` / tree `ad9bfe371b003fa42548dd494694037a35698d85` is green at **465/465 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Assignee/claimant/completer/actor validity and Workflow execution remain unclaimed.
+
