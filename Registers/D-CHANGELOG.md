@@ -105,3 +105,6 @@ Post-DD-163 Webhook execution seams were locked as source-incomplete. DD-164 the
 
 ## 2026-09-24 — Post-DD-164 DD-165 prerequisite selection
 Fresh Integration reconciliation selected migration 0030's exact TenantIntegration→CredentialReference current binding as the next source-complete prerequisite. It is limited to exact credential id/Tenant/optional-Industry relationship, raw ACTIVE status and strict expiry currentness using DD-095/DD-096 evidence. Secret locator/material, rotation semantics, provider selection, health/profile policy and network execution remain explicitly unclaimed.
+
+## 2026-09-24 — DD-165 canonical promotion / checkpoint advance
+DD-165 canonical decision/acceptance/evidence promotion `d6c09a2fde3f173892c311af36335dc1f6ef8313` / tree `daec42114b4a76fa4f25edf71b410f230d3a37d0` passed exact-head **409 Core / 497 PostgreSQL** plus Database/Web CI. Current DD/Development/State/Register projections advanced to `DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001` only after that gate. Machine verification, Webhook execution, SyncCursor runtime and secret/provider runtime boundaries remain locked. RawSource/main unchanged; PR #2 remains draft/unmerged.

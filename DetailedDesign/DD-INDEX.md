@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001`
+**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,13 +24,19 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-164**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-165**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 DD-162 composes current credential lifecycle, current machine-principal admissibility and requested-scope compatibility into one pure necessary floor. Final presented-credential verification and machine authentication remain absent.
 
 The post-DD-162 machine-verifier boundary audit at `a453fc2f2f555972cd0391a3db04bc67a6e7d497` (`Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`) remains binding for machine auth. DD-163 is independently the Webhook delivery necessary-floor decision; it does not widen machine authentication.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
+
+DD-165 is the current bounded Development decision: a pure TenantIntegration→CredentialReference current-binding necessary floor. It does not authorize provider execution, secret access, callback/sync execution or network behavior.
+
+The DD-162 machine-verifier audit, post-DD-163 Webhook remaining-boundary audit and DD-164 SyncCursor runtime limits remain binding. Other named runtime seams remain unfinished where their source audits say so.
+
+**Current verified canonical evidence:** `d6c09a2fde3f173892c311af36335dc1f6ef8313` / tree `daec42114b4a76fa4f25edf71b410f230d3a37d0` — **409/409 Core**, **497/497 PostgreSQL**, full 47/41 database bootstrap, Database Verify and Web build PASS. See [DD-165 verification](../Registers/DEVELOPMENT_DD165_VERIFICATION_2026-09-24.md).
 
 ## Historical all-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).

@@ -1,14 +1,14 @@
-# D-CHECKPOINT — DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001
+# D-CHECKPOINT — DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001
 **Updated:** 2026-09-24
 
-Verified canonical DD-164 promotion `b37242298bff0c2b8e95a9b957896d6a7278e8fd` / tree `749064f6d423f4d685c715e905538a06dbc77613`: **402/402 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS.
+Verified canonical DD-165 promotion `d6c09a2fde3f173892c311af36335dc1f6ef8313` / tree `daec42114b4a76fa4f25edf71b410f230d3a37d0`: **409/409 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35961356094` (Core job `107510411453`, PostgreSQL job `107510411660`), Database `35961356136` (job `107510411709`), Web `35961356138` (job `107510411745`).
 
-Gate: **DD-164 IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED FOR ITS BOUNDED SYNC-CURSOR CURRENT-BINDING SCOPE**. Synchronization runtime, full Webhook delivery, machine credential verification, product completion and production readiness are not claimed.
+Gate: **DD-165 IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED FOR ITS BOUNDED TENANT-INTEGRATION CREDENTIAL CURRENT-BINDING SCOPE**. Full Integration runtime, provider/secret execution, synchronization, full Webhook delivery, product completion and production readiness are not claimed.
 
-DD-164 requires exact valid cursor→TenantIntegration identity, ACTIVE parent, exact ACTIVE capability under the same IntegrationDefinition, enabled-capability membership and exact nullable Industry binding. True is not synchronization authorization.
+DD-165 requires exact CredentialReference id/Tenant binding, Tenant-wide-or-exact-Industry scope compatibility, raw ACTIVE status and strict expiry currentness. True is not provider or secret authority.
 
-The DD-162 machine-verifier boundary and post-DD-163 Webhook execution boundary remain locked. Cursor decode/freshness, atomic multi-reader refresh, provider/OperationContract/event selection, secrets, state mutation, resume/replay/sync and network execution remain separately blocked/unimplemented unless source-owned.
+DD-162 machine verification, DD-163 Webhook execution and DD-164 SyncCursor runtime remain separately blocked. DD-165 secret/rotation/provider/health/profile/OperationContract/event/network semantics remain unimplemented unless source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD164_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD165_VERIFICATION_2026-09-24.md`.
 
-RawSource accepted blobs unchanged; `main` remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains open draft/unmerged. This document names the already-verified promotion basis; its containing state-projection commit is verified separately to avoid recursive self-hash.
+RawSource accepted blobs unchanged; `main` remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains open draft/unmerged. This document names the already-verified canonical promotion basis; its containing state-sync commit is verified separately to avoid a recursive self-hash.

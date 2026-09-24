@@ -1,15 +1,15 @@
 # PHASE SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001`
 
-Verified DD-164 canonical promotion `b37242298bff0c2b8e95a9b957896d6a7278e8fd` / tree `749064f6d423f4d685c715e905538a06dbc77613`: **402/402 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS.
+Verified canonical DD-165 promotion `d6c09a2fde3f173892c311af36335dc1f6ef8313` / tree `daec42114b4a76fa4f25edf71b410f230d3a37d0`: **409/409 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35961356094` (Core job `107510411453`, PostgreSQL job `107510411660`), Database `35961356136` (job `107510411709`), Web `35961356138` (job `107510411745`).
 
-DD-164 is a bounded pure SyncCursor current-binding necessary floor only. It rechecks the migration-0030-owned active parent/capability/enabled-capability/exact Industry binding over already-loaded evidence. It does not authorize synchronization or interpret cursor/runtime/provider semantics.
+DD-165 is a bounded TenantIntegration→CredentialReference current-binding necessary floor only. It validates exact id/Tenant/optional-Industry relationship, raw ACTIVE status and strict expiry currentness. It does not authorize secret/provider/runtime execution.
 
-The DD-162 machine-auth verifier boundary and post-DD-163 Webhook execution boundary remain intentionally blocked. Cursor decode/freshness, atomic refresh composition, provider/secret/runtime selection, sync resume/replay and network execution remain outside DD-164.
+DD-162 machine-auth verifier, DD-163 remaining Webhook execution and DD-164 SyncCursor runtime boundaries remain intentionally blocked. DD-165 secret locator/material, rotation/provider/health/profile/network semantics also remain outside the verified floor.
 
 Canonical invariants remain 9 equal Industries / 41 MS / 181 Industry tables / 2,962 preserved requirements / exactly two logical Tenant mobile app classes.
 
-Next: source-audit the next named unfinished prerequisite; open another DD only if its deterministic semantics are source-complete.
+Next: fresh source-audit the next independent prerequisite; open a new DD only if its deterministic semantics are source-complete.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

@@ -30,14 +30,18 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-164.
+Current checkpoint: `DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001`. Decisions are contiguous through DD-165.
 
-Verified DD-164 canonical promotion `b37242298bff0c2b8e95a9b957896d6a7278e8fd` / tree `749064f6d423f4d685c715e905538a06dbc77613`: **402/402 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS.
+Verified canonical DD-165 promotion `d6c09a2fde3f173892c311af36335dc1f6ef8313` / tree `daec42114b4a76fa4f25edf71b410f230d3a37d0`: **409/409 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35961356094` (Core job `107510411453`, PostgreSQL job `107510411660`), Database `35961356136` (job `107510411709`), Web `35961356138` (job `107510411745`).
 
-Promotion invariant gate `369bf76073d14ae625217b6a55e2bd9082ad4d9b` / tree `b3d376fa7cc0e50a17e032cc0e79017b7c589ac6`: Core run `35955447920` (Core job `107492688508`, PostgreSQL job `107492688659`), Database run `35955447871` (job `107492688241`), Web run `35955447955` (job `107492688562`) — SUCCESS; **162 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+DD-165 re-evaluates only migration-0030-owned TenantIntegration→CredentialReference current binding over already-loaded DD-095/DD-096 evidence: exact credential id and Tenant, exact optional Industry binding, raw ACTIVE credential status and strict expiry currentness. A Tenant-wide credential may bind the same Tenant's Core or Industry integration; an Industry credential may bind only its exact Industry integration.
 
-DD-162 composes DD-158 credential lifecycle, DD-160 current machine-principal admissibility and DD-161 requested-scope compatibility into one pure necessary floor. A true result is not machine authentication.
+A true result is not Integration execution, provider selection, secret access or network authority.
 
-Post-DD-162 machine-verifier boundary audit completed at `a453fc2f2f555972cd0391a3db04bc67a6e7d497`: `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. It confirms that presented-token grammar, verifier execution, trusted CIDR evidence, permission-profile mapping, successful-use/audit ordering and final `VerifiedMachineEvidence` are not source-complete; no machine-auth verifier implementation is authorized. DD-163 is independently assigned to the bounded Webhook delivery necessary floors.
+The DD-162 machine-auth verifier boundary remains blocked by `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. The post-DD-163 Webhook execution boundary remains locked by `Development/WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md`. DD-164 remains only the SyncCursor parent/capability current-binding floor. DD-165 widens none of those boundaries.
 
-DD-164 SyncCursor binding evidence: `Registers/DEVELOPMENT_DD164_VERIFICATION_2026-09-24.md`. The DD-162 machine-verifier and post-DD-163 Webhook remaining-boundary audits remain binding. Next: source-audit another named unfinished prerequisite; do not infer sync/provider execution semantics.
+Secret locator/material access, credential rotation-overlap semantics, ProviderAdapter/provider selection, permission-profile semantics, Integration health/config policy, callbacks/sync/OperationContract/event/network execution remain unimplemented unless separately source-owned.
+
+Evidence: `Registers/DEVELOPMENT_DD165_VERIFICATION_2026-09-24.md`.
+
+Next: fresh source-audit another named unfinished prerequisite and open a new DD only where deterministic behavior, authority and executable acceptance are canonically owned.
