@@ -2301,3 +2301,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-159 does not decide current machine-principal validity; map principal evidence into final machine acceptance; compose DD-158 lifecycle; decide Tenant/Industry/PLATFORM_GLOBAL authorization; interpret permission profiles; parse credentials or compare verifier hashes; enforce CIDR; update auth epoch or credential usage; emit authentication audit; construct `VerifiedMachineEvidence`; implement `IdentityPort.verifyMachineCredential`; mutate principal/credential state; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `MACHPRINC-PG-001` through `MACHPRINC-PG-007` in DD-17 and `tests/postgres/machine-principal-metadata-store.test.mjs`.
+
+
+## DD-160 — Current machine-principal admissibility must be a pure ACTIVE API_CLIENT/SERVICE floor over DD-159 raw principal metadata
+
+**Context:** DD-03 defines final `VerifiedMachineEvidence.principalType` as only API_CLIENT or SERVICE and explicitly forbids Platform Operators from substituting API credentials for interactive platform identity/elevation. Migration 0030 requires the API Credential principal to exist and be ACTIVE, rejects PLATFORM_OPERATOR, and separately owns SERVICE scope compatibility. Migration 0003 requires SERVICE principals to carry service code and owning module. DD-159 now supplies raw principal type/status/service metadata.
+
+**Decision:** add server-internal pure helper `matchesCurrentMachinePrincipalFloor(metadata)`. It requires ACTIVE status, accepts API_CLIENT, accepts SERVICE only with non-blank service code and owning module, and rejects HUMAN/PLATFORM_OPERATOR and all non-active statuses. It does not interpret requested scope.
+
+**Security / trade-off:** persistence admissibility for a HUMAN API Credential is not equivalent to runtime machine authentication: the canonical machine-evidence contract excludes HUMAN. Likewise, allowed scope classes are not converted into access authority by this helper.
+
+**Boundary:** DD-160 does not evaluate DD-158 lifecycle on the caller's behalf; decide credential Tenant/Industry/PLATFORM_GLOBAL compatibility; decide SERVICE requested-scope compatibility; validate HUMAN membership administration rules; parse tokens or compare verifier hashes; enforce CIDR; interpret permission profiles; update auth epoch/credential usage; emit authentication audit; construct `VerifiedMachineEvidence`; implement `IdentityPort.verifyMachineCredential`; mutate principal/credential state; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `MACHPRINC-CUR-001` through `MACHPRINC-CUR-007` in DD-17 and `tests/server/machine-principal-currentness.test.mjs`.

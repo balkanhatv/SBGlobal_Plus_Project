@@ -2366,3 +2366,27 @@ A missing exact principal id returns null; malformed UUID input fails before SQL
 
 ### MACHPRINC-PG-007 — Reader remains Identity-service-only and exact-read-only
 The fixed Identity-service role can read the directory, while the DD-159 surface exposes no create/update/delete/list/search/authenticate behavior and no PII projection.
+
+
+## DD-160 API Credential Current Machine-Principal Floor Acceptance
+
+### MACHPRINC-CUR-001 — ACTIVE API_CLIENT matches
+Raw DD-159 principal metadata with `principalType='API_CLIENT'` and `status='ACTIVE'` satisfies this necessary current machine-principal floor.
+
+### MACHPRINC-CUR-002 — ACTIVE SERVICE with required service metadata matches
+An ACTIVE SERVICE principal satisfies the floor only when persisted service code and owning module are present and non-blank.
+
+### MACHPRINC-CUR-003 — HUMAN and PLATFORM_OPERATOR fail
+HUMAN and PLATFORM_OPERATOR principal types do not satisfy runtime machine-evidence principal acceptance even when ACTIVE.
+
+### MACHPRINC-CUR-004 — Non-active statuses fail
+PENDING, SUSPENDED and REVOKED fail regardless of API_CLIENT/SERVICE type.
+
+### MACHPRINC-CUR-005 — Malformed SERVICE structural evidence fails closed
+SERVICE metadata missing or blank service code or owning module fails closed.
+
+### MACHPRINC-CUR-006 — Scope/auth-epoch metadata does not create acceptance
+Allowed scope classes and auth epoch remain raw evidence and do not independently create machine acceptance or requested-scope authorization.
+
+### MACHPRINC-CUR-007 — Helper is deterministic and non-mutating
+Repeated evaluation is stable and metadata remains unchanged.

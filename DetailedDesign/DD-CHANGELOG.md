@@ -249,3 +249,7 @@ After DD-157 closed the OperatorElevation Control Plane SQL boundary, the machin
 
 ## 2026-09-24 — DD-159 machine principal metadata reader
 After DD-158 isolated the API Credential current-lifecycle floor, the next source-complete prerequisite was the current PlatformPrincipal metadata source needed by eventual machine verification. DD-159 adds a server-internal exact-id metadata reader through the fixed Identity-service database boundary, preserving principal type/status, bigint auth epoch and SERVICE scope metadata while excluding PII and making no machine-authentication decision. Audit commit `7f44021a…`; exact implementation head `3cbed051…` / tree `bbd14cdb…` is green at 367/367 Core and 497/497 PostgreSQL plus Database/Web PASS. No migration, RLS, role/grant, public DTO or product-policy behavior changed.
+
+
+## 2026-09-24 — DD-160 current machine-principal floor
+After DD-159 added the exact machine-principal metadata source, DD-03 plus migrations 0003/0030 were reconciled into a pure current machine-principal necessary floor. ACTIVE API_CLIENT matches; ACTIVE SERVICE additionally requires service code and owning module; HUMAN/PLATFORM_OPERATOR and non-active statuses fail. Allowed scopes/auth epoch remain raw evidence and are not converted into authorization. Audit commit `1634081a…`; exact implementation head `4aaddec1…` / tree `4878d904…` is green at 374/374 Core and 497/497 PostgreSQL plus Database/Web PASS. No database, public DTO or product-policy behavior changed.
