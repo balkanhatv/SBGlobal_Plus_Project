@@ -16,6 +16,7 @@ const admin = new pg.Pool({
 const f = Object.fromEntries([
   "home",
   "tenant",
+  "industry",
   "operator",
   "operatorInactive",
   "human",
@@ -105,6 +106,13 @@ before(async () => {
     );
 
     await setup.query(
+      `INSERT INTO core_tenancy.industry_context
+        (id,tenant_id,industry_code,status,is_primary,created_at,updated_at)
+       VALUES ($1::uuid,$2::uuid,'RTL','ACTIVE',true,now(),now())`,
+      [f.industry, f.tenant],
+    );
+
+    await setup.query(
       `INSERT INTO core_identity.platform_principal
         (id,principal_type,status,display_name,auth_epoch,service_code,owning_module,
          allowed_scope_classes,created_at,updated_at)
@@ -145,6 +153,10 @@ after(async () => {
           f.approverService,
           f.approverInactive,
         ]],
+      );
+      await cleanup.query(
+        "DELETE FROM core_tenancy.industry_context WHERE id=$1::uuid",
+        [f.industry],
       );
       await cleanup.query(
         "DELETE FROM core_tenancy.tenant WHERE id=$1::uuid",
