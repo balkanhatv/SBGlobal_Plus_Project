@@ -126,3 +126,6 @@ Fresh Notification reconciliation selected migration 0031's optional Notificatio
 
 ## 2026-09-24 — DD-168 canonical promotion / checkpoint advance
 Promotion `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / tree `c74f9411a25cbbfb27c39ff7a94fc856d03dc707` passed 430 Core / 497 PostgreSQL + Database/Web. Current projections advanced to `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`; delivery execution remains unclaimed.
+
+## 2026-09-24 — Post-DD-168 DD-169 prerequisite selection
+Fresh Notification reconciliation selected migration 0031's optional NotificationDelivery→OutboxEvent relationship as the next independent source-complete prerequisite. The bounded floor covers exact source-event id, same Tenant, exact scope class and exact nullable Industry Context only. Outbox readiness/status/attempt/lock/retry/payload and notification send/provider execution remain unclaimed.
