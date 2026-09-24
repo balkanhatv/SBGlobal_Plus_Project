@@ -105,6 +105,7 @@ export * from "./ai/capability-catalog-metadata.js";
 export * from "./ai/tool-definition-catalog-metadata.js";
 export * from "./ai/tool-set.js";
 export * from "./ai/tool-set-member.js";
+export * from "./ai/tool-set-member-definition-binding-floors.js";
 export * from "./ai/prompt-set.js";
 export * from "./ai/prompt-set-member.js";
 export * from "./ai/prompt-set-member-binding-floors.js";
