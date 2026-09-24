@@ -304,3 +304,6 @@ After DD-174, migration 0031's AutomationRun→AutomationDefinition exact id/ACT
 ## 2026-09-24 — DD-176 AutomationDefinition WorkflowDefinition containment floor
 After DD-175, migration 0031 + migration 0048's optional AutomationDefinition→WorkflowDefinition exact-id broader/equal containment relationship was selected as the next source-complete prerequisite. Exact implementation head `f4adec86b830a84ab1b5c26cd8e9b0206ce3152f` / tree `45c308cb3122792e06b1612e31eee2b5efeafc6b` is green at **479/479 Core** and **497/497 PostgreSQL** plus Database/Web PASS. WorkflowDefinition status/version/effective dates and Automation/Workflow execution semantics remain unclaimed.
 
+## 2026-09-24 — DD-177 AI PromptSetMember current-binding floor
+After DD-176, migration 0031 + migration 0048's PromptSetMember→ACTIVE PromptSet + ACTIVE same/broader PromptTemplate relationship was selected as the next source-complete prerequisite. Exact implementation head `3c4c8ba2157aa368c4e15b8eae6f062205374177` / tree `055daa986f27fd924e4f4a1c3e2562b312aeec19` is green at **486/486 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Effective-set priority/enabled filtering, rendering and AI execution remain unclaimed.
+

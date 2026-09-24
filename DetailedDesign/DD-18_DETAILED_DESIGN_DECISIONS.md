@@ -2511,3 +2511,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `WFA-DEF-WF-CUR-001…007` in DD-17 and `tests/core/automation-definition-workflow-containment-floors.test.mjs`.
 
+## DD-177 — PromptSetMember current relationship may be re-evaluated as an ACTIVE parent/template plus broader/equal containment floor
+
+**Context:** DD-112 exposes raw PromptSet evidence, DD-114 raw PromptSetMember evidence and DD-115 raw PromptTemplate evidence. Migration 0031 validates PromptSetMember against an ACTIVE PromptSet and ACTIVE PromptTemplate; migration 0048 defines template-scope containment.
+
+**Decision:** add pure Core helper `matchesAIPromptSetMemberBindingFloors(member, promptSet, promptTemplate)`. It requires exact member reference identities, valid owner shapes, raw ACTIVE statuses on both referenced definitions and PromptTemplate broader/equal containment of PromptSet scope.
+
+**Security / trade-off:** member `priority`, `enabled`, createdAt and PromptTemplate content/schema/grounding/override fields are not part of migration-0031's relationship predicate. DD-177 does not convert them into effective-set, rendering or execution authority.
+
+**Boundary:** DD-177 does not list/order members, filter by enabled, select current/latest versions, render prompts, validate variables/overrides/grounding, resolve IndustryAIConfig prompt sets, compose prompts, select providers/models/policies, execute AI tools/agents, mutate persistence, or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `AIPROMPTMEM-CUR-001…007` in DD-17 and `tests/core/ai-prompt-set-member-binding-floors.test.mjs`.
+

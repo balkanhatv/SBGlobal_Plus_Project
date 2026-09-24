@@ -2761,3 +2761,26 @@ Invalid AutomationDefinition or WorkflowDefinition owner shape fails closed.
 ### WFA-DEF-WF-CUR-007 — currentness/execution evidence remains uninterpreted
 Status/version/effective dates/code/schema/stateMachine/approval/rules/trigger/config/condition/operation evidence do not affect this containment floor, and inputs remain unchanged.
 
+## DD-177 AI PromptSetMember Current-Binding Acceptance
+
+### AIPROMPTMEM-CUR-001 — PLATFORM set requires ACTIVE PLATFORM template
+An exact ACTIVE PLATFORM PromptSet with exact ACTIVE PLATFORM PromptTemplate matches.
+
+### AIPROMPTMEM-CUR-002 — TENANT set accepts broader/equal ACTIVE template
+An ACTIVE TENANT PromptSet accepts ACTIVE PLATFORM or same-Tenant TENANT PromptTemplate; foreign Tenant or narrower INDUSTRY template fails closed.
+
+### AIPROMPTMEM-CUR-003 — INDUSTRY set accepts broader/equal ACTIVE template
+An ACTIVE INDUSTRY PromptSet accepts ACTIVE PLATFORM, same-Tenant TENANT or exact same-Tenant INDUSTRY PromptTemplate; sibling/foreign Industry fails closed.
+
+### AIPROMPTMEM-CUR-004 — member reference mismatch fails
+Wrong PromptSet or PromptTemplate identity fails closed.
+
+### AIPROMPTMEM-CUR-005 — non-ACTIVE referenced definition fails
+Any non-ACTIVE PromptSet or PromptTemplate fails closed.
+
+### AIPROMPTMEM-CUR-006 — malformed identity/ownership fails
+Malformed member/reference UUIDs or invalid owner shape fail closed.
+
+### AIPROMPTMEM-CUR-007 — effective/rendering evidence remains uninterpreted
+Priority/enabled/createdAt and PromptSet/PromptTemplate content/version/schema/grounding/override/creator/approver evidence do not affect this relationship floor, and inputs remain unchanged.
+
