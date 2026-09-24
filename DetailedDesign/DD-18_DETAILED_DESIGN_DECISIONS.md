@@ -2236,3 +2236,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-154 does not implement elevation create/approve/activate APIs; decide who may approve a request; enforce Tenant/compliance approval policy; interpret purpose/ticket or `permission_profile_id`; require request-time revalidation of approver status; decide MFA/step-up; choose/trust selected elevation ids; inject RequestContext/SQL elevation scope; grant access; emit mandatory use audit; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `OPELEV-REL-PG-001` through `OPELEV-REL-PG-007` in DD-17 and `tests/postgres/operator-elevation-relationship-integrity.test.mjs`.
+
+
+## DD-155 — Generic pooled SQL paths must remain explicitly elevation-off until a separately governed activation contract exists
+
+**Context:** the current RequestContext contract intentionally carries no OperatorElevation id. `RequestScopedSql` always writes the fifth transaction-local setting `app.operator_elevation_id` as empty. Both `PostgresDatabase` and `PostgresContextBootstrapDatabase` clear elevation scope at transaction start, RESET it before pooled release, and destroy the connection if cleanup fails. DD-153 proves the physical RLS behavior that a future governed activation path must satisfy; DD-154 proves persisted operator/approver relationship integrity.
+
+**Decision:** add server acceptance coverage that explicitly locks this fail-closed SQL hygiene. Generic application/bootstrap transactions must begin without inherited elevation state, must reset elevation state before connection reuse, and must destroy connections on elevation-reset cleanup failure. `RequestScopedSql` must ignore an extra unsanctioned `operatorElevationId` object property while the governed RequestContext contract has no such field.
+
+**Security / trade-off:** this protects against pooled-session elevation leakage and accidental activation through shape-smuggling without introducing an elevation runtime path. The implementation remains intentionally conservative until trusted selection, policy evaluation, RequestContext integration, SQL activation and mandatory audit are separately source-owned.
+
+**Boundary:** DD-155 does not add `operatorElevationId` to RequestContext; permit RequestScopedSql to populate elevation scope; choose/discover/mint/trust an elevation id; activate an elevation; evaluate DD-148…154 on behalf of a request; interpret permission profile, approval/purpose/ticket or step-up policy; grant access; emit mandatory elevation-use audit; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `OPELEV-SQL-001` through `OPELEV-SQL-007` in DD-17 and `tests/server/operator-elevation-sql-scope-hygiene.test.mjs`.

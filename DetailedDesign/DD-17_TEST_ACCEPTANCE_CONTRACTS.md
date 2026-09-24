@@ -2246,3 +2246,27 @@ A HUMAN principal or a non-ACTIVE PLATFORM_OPERATOR cannot be persisted as the e
 
 ### OPELEV-REL-PG-007 — PENDING may be unapproved but ACTIVE promotion revalidates approver integrity
 A PENDING elevation may persist without an approver; updating it to ACTIVE without a valid independent active approver is rejected.
+
+
+## DD-155 OperatorElevation SQL Scope Hygiene Acceptance
+
+### OPELEV-SQL-001 — Application database startup clears elevation scope
+Before application transaction work executes, `PostgresDatabase` explicitly sets transaction-local `app.operator_elevation_id` to the empty string.
+
+### OPELEV-SQL-002 — Application cleanup resets elevation scope before reusable release
+Application database cleanup explicitly issues `RESET app.operator_elevation_id` before a reusable pooled connection is released.
+
+### OPELEV-SQL-003 — Application elevation-reset failure destroys the connection
+If cleanup fails while resetting elevation scope, the pooled connection is destroyed rather than returned for another request.
+
+### OPELEV-SQL-004 — Bootstrap database startup clears elevation scope
+Before bootstrap transaction work executes, `PostgresContextBootstrapDatabase` explicitly starts with empty `app.operator_elevation_id`.
+
+### OPELEV-SQL-005 — Bootstrap cleanup resets elevation scope before reusable release
+Bootstrap cleanup explicitly includes `RESET app.operator_elevation_id` before reusable release.
+
+### OPELEV-SQL-006 — Bootstrap elevation-reset failure destroys the connection
+If bootstrap cleanup fails on the elevation reset, the pooled connection is destroyed.
+
+### OPELEV-SQL-007 — Smuggled RequestContext-like elevation id is ignored
+An extra runtime object property named `operatorElevationId` that is not part of the governed RequestContext contract is ignored by `RequestScopedSql`; the fifth transaction-local setting remains empty.
