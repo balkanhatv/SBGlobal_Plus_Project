@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`
+**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,7 +24,7 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-171**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-172**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 DD-162 composes current credential lifecycle, current machine-principal admissibility and requested-scope compatibility into one pure necessary floor. Final presented-credential verification and machine authentication remain absent.
 
@@ -42,9 +42,9 @@ DD-169 is the current bounded Development decision: NotificationDelivery optiona
 
 DD-170 is the current bounded Development decision: shared definition applicability/containment predicates are total fail-closed booleans with no owner-hierarchy change.
 
-DD-171 is the current bounded Development decision: NotificationDelivery optional NotificationTemplate current-binding floor only. It is not rendering or delivery execution authority.
+DD-172 is the current bounded Development decision: pure conjunction of the already-governed DD-168, DD-169 and DD-171 NotificationDelivery relationship floors. Recipient-principal currentness remains outside the composition.
 
-**Current verified executable evidence:** `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af` — **444/444 Core**, **497/497 PostgreSQL**, **48/42 database inventory**, Database/Web PASS. See DD-171 verification.
+**Current verified executable evidence:** `607355481617e96a9c7ff29f63047b5c6a5e49b6` / tree `ffee6678093180b9ee8a341b5a7290d0f44bc85f` — **451/451 Core**, **497/497 PostgreSQL**, **48/42 database inventory**, Database/Web PASS. See DD-172 verification.
 
 ## Historical all-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).

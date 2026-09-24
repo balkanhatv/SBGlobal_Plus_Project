@@ -147,3 +147,6 @@ DD-171 promotion `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc8
 
 ## 2026-09-24 — Post-DD-171 recipient boundary lock / DD-172 composition selection
 Recipient-principal currentness was audited and locked as source-incomplete for general later re-evaluation because migration 0031's PLATFORM_OPERATOR path depends on request-local elevation/current-principal/current-Tenant state that NotificationDelivery does not persist. No weakened surrogate was invented. The next source-complete prerequisite is a no-new-semantics conjunction of DD-168, DD-169 and DD-171 as the known NotificationDelivery persisted-relationship necessary floor; recipient validity remains explicitly outside it.
+
+## 2026-09-24 — DD-172 canonical promotion / checkpoint advance
+DD-172 promotion `607355481617e96a9c7ff29f63047b5c6a5e49b6` / tree `ffee6678093180b9ee8a341b5a7290d0f44bc85f` passed exact-head **451 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001`. Recipient-principal replay remains source-incomplete and excluded; no delivery execution authority was added.

@@ -1,11 +1,11 @@
 # PHASE SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001`
 
-Verified canonical DD-171 promotion `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af`: **444/444 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35967907330` (Core job `107530583772`, PostgreSQL job `107530583559`), Database `35967907358` (job `107530584175`), Web `35967907245` (job `107530583512`).
+Verified canonical DD-172 promotion `607355481617e96a9c7ff29f63047b5c6a5e49b6` / tree `ffee6678093180b9ee8a341b5a7290d0f44bc85f`: **451/451 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35969063472` (Core job `107534244133`, PostgreSQL job `107534244275`), Database `35969063564` (job `107534244429`), Web `35969063483` (job `107534244180`).
 
-DD-171 is NotificationDelivery optional template current-binding only.
+DD-172 composes the three already-governed known NotificationDelivery persisted relationship floors only. Recipient-principal replay and notification execution remain unclaimed.
 
-Next governed work: recipient-principal currentness source audit.
+Next governed work: fresh source-audit another independent prerequisite.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

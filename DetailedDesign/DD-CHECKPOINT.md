@@ -30,14 +30,16 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-171.
+Current checkpoint: `DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001`. Decisions are contiguous through DD-172.
 
-Verified canonical DD-171 promotion `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af`: **444/444 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35967907330` (Core job `107530583772`, PostgreSQL job `107530583559`), Database `35967907358` (job `107530584175`), Web `35967907245` (job `107530583512`).
+Verified canonical DD-172 promotion `607355481617e96a9c7ff29f63047b5c6a5e49b6` / tree `ffee6678093180b9ee8a341b5a7290d0f44bc85f`: **451/451 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35969063472` (Core job `107534244133`, PostgreSQL job `107534244275`), Database `35969063564` (job `107534244429`), Web `35969063483` (job `107534244180`).
 
-DD-171 re-evaluates only migration-0031's optional NotificationDelivery→NotificationTemplate relationship: exact template id/version, raw ACTIVE status, exact channel and DD-170-corrected PLATFORM/TENANT/INDUSTRY applicability.
+DD-172 composes only DD-168 TenantIntegration binding, DD-169 OutboxEvent binding and DD-171 NotificationTemplate binding. It adds no primitive relationship rule.
 
-A true result is not template selection/rendering, locale/scope fallback, creator/approver send authorization, provider selection, secret access, notification send/retry or network authority.
+Recipient-principal later re-evaluation remains locked as source-incomplete because migration 0031 may depend on request-local OperatorElevation/current-principal/current-Tenant context not persisted on NotificationDelivery.
 
-Evidence: `Registers/DEVELOPMENT_DD171_VERIFICATION_2026-09-24.md`.
+A true result is not complete NotificationDelivery validity, recipient validity, lifecycle/finality, rendering/fallback, provider/secret selection, Outbox dispatch/retry, notification send/retry or network authority.
 
-Next: source-audit migration-0031's optional NotificationDelivery recipient-principal currentness relationship only if its current raw evidence source is complete.
+Evidence: `Registers/DEVELOPMENT_DD172_VERIFICATION_2026-09-24.md`.
+
+Next: fresh source-audit another independent prerequisite; do not bypass the recipient boundary or infer notification execution semantics.

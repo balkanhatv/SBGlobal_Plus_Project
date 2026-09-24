@@ -34,6 +34,14 @@ Recipient-principal validity is intentionally excluded because its later re-eval
 
 DD-172 does not claim complete NotificationDelivery validity; recipient currentness; membership/elevation provenance; lifecycle/finality; rendering/fallback; provider/secret selection; Outbox dispatch/retry; notification send/retry; network execution; mutation; or persistence/security-policy changes.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-172 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-172 decision, acceptance and Detailed Design changelog are committed in `607355481617e96a9c7ff29f63047b5c6a5e49b6` / tree `ffee6678093180b9ee8a341b5a7290d0f44bc85f`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35969063472`, Core job `107534244133`: **SUCCESS — 451/451**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107534244275`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `35969063564`, job `107534244429`: **SUCCESS**.
+- Web Boundary Verify run `35969063483`, job `107534244180`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001`. State synchronization changes documentation only.
