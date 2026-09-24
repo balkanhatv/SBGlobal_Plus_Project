@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-OPERATOR-ELEVATION-RELATIONSHIP-INTEGRITY-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-OPERATOR-ELEVATION-SQL-SCOPE-HYGIENE-001`
 
-Verified executable `d2c8d9598401859541b72383d78bd6bb633c1b80` / tree `848b24f36d08710d6a378900ba36456c429e3d6d`: **346/346 Core**, **483/483 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `96c839a8cdef384930ccb1132d80b767e1c4377e` / tree `6ae18f231883603df4c875e66ae63a0773c4aa2f`: **353/353 Core**, **483/483 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `aa23b2f9c42aca61dad47483778369e0e1aa8cba` / tree `3afc27e882f4e76238edd88bef7448f133a0cc49`: Core run `35946118505` (Core job `107464316684`, PostgreSQL job `107464316811`), Database run `35946118591` (job `107464317181`), Web run `35946118597` (job `107464317184`) — SUCCESS; **154 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `ac63d6fcc60de4c29b6cb496c690f389caef0228` / tree `7bdea938cac1053ae6c0b5f926ae125941c6c1e0`: Core run `35948679186` (Core job `107472259241`, PostgreSQL job `107472259359`), Database run `35948679155` (job `107472259206`), Web run `35948679161` (job `107472259244`) — SUCCESS; **155 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-154 verifies persisted operator/approver relationship integrity only. It does not establish complete approval authorization or request-time elevation activation.
+DD-155 explicitly verifies fail-closed pooled SQL elevation-off hygiene while runtime elevation activation remains absent.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep trusted selected-id source, step-up/MFA policy, permission/effective-permission evaluation, broader approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.
+Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation selection/activation, step-up/MFA policy, permission/effective-permission evaluation, broader approval/purpose policy, governed RequestContext/SQL injection and mandatory audit outside scope unless separately source-owned.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
