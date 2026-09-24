@@ -11,4 +11,6 @@ Promotion invariant gate `369bf76073d14ae625217b6a55e2bd9082ad4d9b` / tree `b3d3
 
 Presented-token parsing/prefix extraction; secret verifier comparison and crypto governance; CIDR/network enforcement; permission-profile mapping; usage mutation/audit; final `VerifiedMachineEvidence`; and `IdentityPort.verifyMachineCredential` remain unimplemented unless separately source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD162_VERIFICATION_2026-09-24.md`.
+The post-DD-162 audit at `a453fc2f2f555972cd0391a3db04bc67a6e7d497` (`Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`) confirms these seams are not source-complete and therefore no DD-163 machine-auth implementation is authorized.
+
+Evidence: `Registers/DEVELOPMENT_DD162_VERIFICATION_2026-09-24.md` plus `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`.
