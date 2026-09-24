@@ -2437,3 +2437,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `DEF-SCOPE-FC-001…007` in DD-17 and `database/verification/0048_definition_scope_fail_closed.verify.sql`.
 
+## DD-171 — NotificationDelivery optional NotificationTemplate binding may be re-evaluated as a pure current relationship floor without authorizing rendering or delivery
+
+**Context:** DD-098 exposes raw NotificationDelivery evidence and DD-100 exposes raw NotificationTemplate evidence. Migration 0031 conditionally validates `template_id`: exact template version, raw ACTIVE status, exact channel and canonical definition applicability. DD-170 restored that shared applicability predicate to a total fail-closed boolean without changing the owner hierarchy.
+
+**Decision:** add pure Core helper `matchesNotificationDeliveryTemplateBindingFloors(delivery, template?)`. An unbound delivery requires both template id/version and template evidence to be absent. A bound delivery requires exact template id/version, ACTIVE status, exact channel and valid PLATFORM/TENANT/INDUSTRY ownership applicability to the delivery.
+
+**Security / trade-off:** this helper mirrors only persisted relationship/currentness semantics. It deliberately does not select another version, choose scope/locale fallback, render/escape variables, infer creator/approver send authority, select provider/integration or send/retry.
+
+**Boundary:** DD-171 does not choose templates by code; select latest versions; define scope/locale fallback; render/sanitize/substitute content; authorize send from creator/approver evidence; select integration/provider/credentials; send/retry/finalize; validate recipient/source-event/integration relationships beyond their independent floors; mutate state; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `NOTIF-TPL-CUR-001…007` in DD-17 and `tests/core/notification-template-binding-floors.test.mjs`.
+

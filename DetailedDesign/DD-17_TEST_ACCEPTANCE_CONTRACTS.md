@@ -2623,3 +2623,26 @@ Unsupported/null owner scope or missing required Tenant/Industry ownership evide
 ### DEF-SCOPE-FC-007 — Trigger-style rejection works
 `NOT definition_applies_to_scope(INDUSTRY → Tenant-Core)` evaluates true; helper functions remain IMMUTABLE and non-PUBLIC-executable.
 
+## DD-171 NotificationDelivery NotificationTemplate Current-Binding Acceptance
+
+### NOTIF-TPL-CUR-001 — Unbound delivery requires no template version/evidence
+A valid delivery without template id matches only when template version and template evidence are also absent.
+
+### NOTIF-TPL-CUR-002 — PLATFORM template applies across Tenant scopes
+An exact ACTIVE PLATFORM template with matching version/channel applies to Tenant-Core and Tenant-Industry deliveries.
+
+### NOTIF-TPL-CUR-003 — TENANT template applies only inside the same Tenant
+A valid same-Tenant TENANT template applies to Tenant-Core and Tenant-Industry; a foreign Tenant template fails.
+
+### NOTIF-TPL-CUR-004 — INDUSTRY template applies only to exact Industry
+A valid INDUSTRY template applies only to the exact same-Tenant Industry delivery; sibling Industry and Tenant-Core fail.
+
+### NOTIF-TPL-CUR-005 — Identity/version/status/channel mismatches fail
+Wrong template id, missing/invalid/mismatched version, non-ACTIVE status or channel mismatch fails closed.
+
+### NOTIF-TPL-CUR-006 — Malformed ownership or unexpected evidence fails closed
+Malformed delivery/template ownership shape fails; extra template evidence for an unbound delivery fails.
+
+### NOTIF-TPL-CUR-007 — Rendering/approval/runtime semantics remain uninterpreted
+Template code/locale/content/schema/creator/approver/timestamps and delivery recipient/status/integration/source-event/timestamps do not create acceptance, and inputs remain unchanged.
+
