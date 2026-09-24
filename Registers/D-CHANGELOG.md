@@ -222,3 +222,6 @@ Fresh AgentApproval reconciliation selected migration 0031's AgentApproval→Age
 
 ## 2026-09-24 — DD-184 canonical promotion / checkpoint advance
 DD-184 promotion `6cf9b06340b5a168532c20b46faea681f4e68208` / tree `cdea91c0e5369fef1ff7106e53909d3b81cd2670` passed exact-head **535 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001`. Approval satisfaction, approver authorization and Agent/tool execution remain unclaimed.
+
+## 2026-09-24 — Post-DD-184 DD-185 prerequisite selection
+Fresh AIConversation reconciliation selected migration 0031's optional AIConversation→AssistantDefinition exact id/ACTIVE/scope relationship as the next independent source-complete prerequisite. Owner-principal currentness and DD-179 nested AssistantDefinition relationship currentness are intentionally not auto-composed; AI selection/rendering/provider/tool execution remains unclaimed.
