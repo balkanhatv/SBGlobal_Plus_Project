@@ -2275,3 +2275,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-157 does not implement create/approve/activate/revoke/expire services; decide transition authorization; choose/trust an elevation id; populate RequestContext or RequestScopedSql elevation scope; interpret permission profiles/effective permissions; decide step-up/MFA or broader approval/purpose/ticket policy; grant access; emit mandatory elevation-use audit; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `OPELEV-CP-SQL-001` through `OPELEV-CP-SQL-007` in DD-17 and `tests/server/postgres-control-plane-database.test.mjs`.
+
+
+## DD-158 — API Credential persisted status/expiry may be checked as a deterministic current lifecycle floor without implementing machine authentication
+
+**Context:** DD-03 canonical evaluation requires an API credential to be valid before entitlement/RBAC/ABAC evaluation. DD-16 requires rotation/revocation/expiry policy. Migration 0003 owns the credential status enum, while migration 0030 consumes persisted API credentials only when `status='ACTIVE'` and `expires_at IS NULL OR expires_at > evaluation time`. DD-147 already provides server-internal raw verifier material containing status and optional expiry.
+
+**Decision:** add server-internal deterministic helper `matchesApiCredentialCurrentLifecycleFloor(material,evaluatedAt)`. It requires ACTIVE status, accepts absent expiry, requires non-null expiry to be strictly after the explicit evaluation instant, treats the exact expiry boundary as expired, fails closed on malformed timestamps and calls no system clock internally.
+
+**Security / trade-off:** this is one necessary machine-verification predicate only. It deliberately does not inspect the verifier hash, CIDR, permission profile, Tenant/Industry scope, principal status, credential version or usage metadata and does not produce authenticated machine evidence.
+
+**Boundary:** DD-158 does not parse presented API credentials or key-prefix wire format; compare `secretHash`; select verifier algorithm/parameters/library; enforce CIDR; interpret permission profiles; decide scope authorization; validate principal/membership/service scope; update last-used evidence; emit credential-use audit; construct `VerifiedMachineEvidence`; implement `IdentityPort.verifyMachineCredential`; mutate credential lifecycle; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `APICRED-LIFE-001` through `APICRED-LIFE-007` in DD-17 and `tests/server/api-credential-current-lifecycle.test.mjs`.

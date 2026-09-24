@@ -241,3 +241,7 @@ After DD-155 locked pooled SQL elevation-off hygiene, migration 0029's existing 
 
 ## 2026-09-24 — DD-157 OperatorElevation fixed Control Plane SQL boundary
 After DD-156 verified persisted lifecycle/time/scope integrity, the existing internal `PostgresControlPlaneDatabase` was selected as the next source-complete prerequisite. Seven server acceptance tests prove fixed `sbg_control_plane_rw` role pinning, RLS-on, startup scope/elevation clear, unsafe-role denial, cleanup RESET, destroy-on-cleanup-failure, closed leaked transaction handles and safe database errors. Exact implementation head `7628751f…` / tree `b2364917…` is green at 360/360 Core and 490/490 PostgreSQL plus Database/Web PASS. No production adapter, migration, RLS, role/grant, RequestContext or product-policy behavior changed.
+
+
+## 2026-09-24 — DD-158 API Credential current lifecycle floor
+After DD-157 closed the OperatorElevation Control Plane SQL boundary, the machine-credential chain resumed at the next source-complete deterministic prerequisite. DD-03/DD-16 plus migration 0030 own ACTIVE status and optional-expiry currentness; the implementation adds only a server-internal pure lifecycle helper over DD-147 verification material. Exact implementation head `a5e1de8d…` / tree `493fe33e…` is green at 367/367 Core and 490/490 PostgreSQL plus Database/Web PASS. Presented-token parsing, verifier execution, CIDR, profile/scope mapping, usage/audit and final machine authentication remain unclaimed.

@@ -2318,3 +2318,27 @@ A delegated transaction handle cannot issue SQL after the transaction completes 
 
 ### OPELEV-CP-SQL-007 — Database failures expose safe errors only
 Connect, setup and delegated query failures surface only governed database error codes; private SQL/provider/credential diagnostics do not cross the adapter boundary.
+
+
+## DD-158 API Credential Current Lifecycle Floor Acceptance
+
+### APICRED-LIFE-001 — ACTIVE credential without expiry matches
+Persisted `status='ACTIVE'` with no expiry satisfies this necessary lifecycle floor for a valid explicit evaluation instant.
+
+### APICRED-LIFE-002 — ACTIVE credential before future expiry matches
+An ACTIVE credential whose `expiresAt` is strictly after the explicit evaluation instant satisfies the floor.
+
+### APICRED-LIFE-003 — Exact expiry boundary fails
+When `expiresAt === evaluatedAt`, the credential is no longer current and the floor fails.
+
+### APICRED-LIFE-004 — After expiry fails
+An ACTIVE credential whose persisted expiry is before the evaluation instant fails.
+
+### APICRED-LIFE-005 — Non-ACTIVE statuses fail
+SUSPENDED, REVOKED and EXPIRED credentials fail regardless of a future or absent expiry.
+
+### APICRED-LIFE-006 — Malformed time evidence fails closed
+Malformed evaluation or persisted expiry timestamps return false.
+
+### APICRED-LIFE-007 — Non-lifecycle verification material is not interpreted
+Verifier hash, CIDR, permission-profile, scope, version and usage metadata do not affect this helper, and the material is not mutated.
