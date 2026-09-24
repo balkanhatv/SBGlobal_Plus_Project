@@ -174,3 +174,6 @@ Fresh Workflow/Automation reconciliation selected migration 0031 + migration 004
 
 ## 2026-09-24 — DD-176 canonical promotion / checkpoint advance
 DD-176 promotion `0e586f7288dd9f6624f0bfa7071d97a0549fb586` / tree `201de95d4d02a1d432b15dd00fe132e3b62c32e4` passed exact-head **479 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AUTOMATION-DEFINITION-WORKFLOW-CONTAINMENT-FLOORS-001`. WorkflowDefinition currentness and Automation/Workflow execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-176 DD-177 prerequisite selection
+Fresh AI reconciliation selected migration 0031 + migration 0048's PromptSetMember→ACTIVE PromptSet + ACTIVE PromptTemplate + broader/equal containment relationship as the next independent source-complete prerequisite. Priority/enabled effective-set resolution, rendering and AI execution remain explicitly outside the floor.
