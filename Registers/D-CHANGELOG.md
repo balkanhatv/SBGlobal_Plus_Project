@@ -114,3 +114,6 @@ Fresh Integration reconciliation selected migration 0030's Definition/config/ena
 
 ## 2026-09-24 — DD-166 canonical promotion / checkpoint advance
 DD-166 canonical decision/acceptance/evidence promotion `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa` passed exact-head **416 Core / 497 PostgreSQL** plus Database/Web CI. Current projections advanced to `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`. RawSource/main unchanged; PR #2 remains draft/unmerged.
+
+## 2026-09-24 — Post-DD-166 DD-167 composition prerequisite
+Migration 0030 owns DD-165 credential currentness and DD-166 Definition/config/enabled-capability integrity as one write-time predicate. DD-167 is authorized only as their boolean conjunction with no new primitive semantics. TenantIntegration lifecycle/health/profile/provider/secret/network authority remains explicitly unclaimed.
