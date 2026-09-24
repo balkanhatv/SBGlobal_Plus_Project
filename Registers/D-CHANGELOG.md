@@ -231,3 +231,6 @@ DD-185 promotion `2e5b10af8e48794e3a1a8a33a75ba9e9a0f6f732` / tree `314f9cac0230
 
 ## 2026-09-24 — Post-DD-185 DD-186 prerequisite selection
 Fresh AI-memory reconciliation selected migration 0031's optional AIMemoryRecord→AssistantDefinition exact id/ACTIVE/scope relationship as the next independent source-complete prerequisite. Principal currentness, supersession resolution, expiry/retention/ACL and AI runtime semantics remain explicitly outside the floor.
+
+## 2026-09-24 — DD-186 canonical promotion / checkpoint advance
+DD-186 promotion `c354aa1422c68a5e0ef2a2b96e28f6384da0e102` / tree `0262e2f2c33c2ab0beabdc432b232fb3eead1a39` passed exact-head **549 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001`. Memory principal/supersession/retention/ACL and AI execution semantics remain unclaimed.

@@ -38,6 +38,14 @@ A true result is not principal authorization, current-memory selection, superses
 
 DD-186 does not validate principal currentness; resolve supersession chains; evaluate expiry/currentness; enforce retention/legal-hold/erasure; interpret ACL; decrypt/dereference memory content/source; carry memory across Industry experiences; select effective Assistant versions; compose DD-179 nested relationships; resolve prompt/RAG/model/provider/tool policy; execute AI; mutate state; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-186 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-186 decision, acceptance and Detailed Design changelog are committed in `c354aa1422c68a5e0ef2a2b96e28f6384da0e102` / tree `0262e2f2c33c2ab0beabdc432b232fb3eead1a39`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `36024407383`, Core job `107717146883`: **SUCCESS — 549/549**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107717146779`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `36024407420`, job `107717146615`: **SUCCESS**.
+- Web Boundary Verify run `36024407334`, job `107717146107`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.
