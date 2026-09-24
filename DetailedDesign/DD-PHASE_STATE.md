@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-WORKFLOW-INSTANCE-DEFINITION-CURRENT-BINDING-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,14 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-WORKFLOW-INSTANCE-DEFINITION-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-173.
+Current checkpoint: `DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-174.
 
-Verified canonical DD-173 promotion `3e6ea0257fe5eeef63489cbdc760976419124c80` / tree `30b6267d7369066a32009ec7801ec312fc755e87`: **458/458 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35970365760` (Core job `107538393207`, PostgreSQL job `107538392805`), Database `35970365819` (job `107538393160`), Web `35970365767` (job `107538392997`).
+Verified canonical DD-174 promotion `e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e` / tree `8e7feb1f9343295c7a7ac9613e652c30f0582eeb`: **465/465 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35971421034` (Core job `107541782130`, PostgreSQL job `107541782352`), Database `35971421057` (job `107541782044`), Web `35971421038` (job `107541782070`).
 
-DD-173 re-evaluates only migration-0031's WorkflowInstance→WorkflowDefinition relationship: exact definition id, exact positive persisted version, raw ACTIVE status, and DD-170-corrected PLATFORM/TENANT/INDUSTRY applicability.
+DD-174 re-evaluates only migration-0031's shared WorkflowTask/WorkflowTransition→WorkflowInstance relationship: exact parent id, same Tenant and exact nullable Industry Context.
 
-A true result is not creator-principal authorization, state-machine/current-state validity, transition authorization, task mutation, event emission or Workflow execution authority.
+A true result is not task assignee/claimant/completer authorization, transition actor authorization, task-action authority, transition authorization or Workflow execution authority.
 
-Evidence: `Registers/DEVELOPMENT_DD173_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD174_VERIFICATION_2026-09-24.md`.
 
-Next: fresh source-audit another independent Workflow relationship prerequisite; do not infer creator-principal or execution semantics.
+Next: source-audit AutomationRun→AutomationDefinition exact current binding as the next independent prerequisite.

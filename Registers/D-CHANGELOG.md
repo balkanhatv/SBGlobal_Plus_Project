@@ -159,3 +159,6 @@ DD-173 promotion `3e6ea0257fe5eeef63489cbdc760976419124c80` / tree `30b6267d7369
 
 ## 2026-09-24 — Post-DD-173 DD-174 prerequisite selection
 Fresh Workflow reconciliation selected migration 0031's shared WorkflowTask/WorkflowTransition→WorkflowInstance exact parent id/Tenant/nullable-Industry relationship as the next independent source-complete prerequisite. Assignee/claimant/completer/actor validity and Workflow execution semantics remain explicitly outside the floor.
+
+## 2026-09-24 — DD-174 canonical promotion / checkpoint advance
+DD-174 promotion `e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e` / tree `8e7feb1f9343295c7a7ac9613e652c30f0582eeb` passed exact-head **465 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001`. Assignee/actor and Workflow execution semantics remain unclaimed.

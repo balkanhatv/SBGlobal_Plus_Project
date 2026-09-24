@@ -37,6 +37,14 @@ A true result is not Workflow task/transition authorization.
 
 DD-174 does not validate assignee PRINCIPAL/ROLE/ORG_UNIT, claimant/completer, transition actor, due/expiry, permissionCode, state-machine/rule semantics, task actions, transitions, Workflow mutation or event emission.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-174 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-174 decision, acceptance and Detailed Design changelog are committed in `e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e` / tree `8e7feb1f9343295c7a7ac9613e652c30f0582eeb`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35971421034`, Core job `107541782130`: **SUCCESS — 465/465**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107541782352`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `35971421057`, job `107541782044`: **SUCCESS**.
+- Web Boundary Verify run `35971421038`, job `107541782070`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.
