@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-24",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001",
-  "final_verdict": "DD-174 WORKFLOW CHILD PARENT CURRENT-BINDING FLOOR PROMOTED / EXACT-HEAD TESTED; WORKFLOW EXECUTION REMAINS BLOCKED",
+  "checkpoint": "DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001",
+  "final_verdict": "DD-175 AUTOMATIONRUN DEFINITION CURRENT-BINDING FLOOR PROMOTED / EXACT-HEAD TESTED; AUTOMATION EXECUTION REMAINS BLOCKED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD174_CONTIGUOUS",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD175_CONTIGUOUS",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD174_WORKFLOW_CHILD_PARENT_CURRENT_BINDING_VERIFIED",
+    "development": "IN_PROGRESS_DD175_AUTOMATION_RUN_DEFINITION_CURRENT_BINDING_VERIFIED",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "CURRENT_IMPLEMENTED_DD040_DD174_BOUNDED_CORE_WORKFLOW_BOUNDARIES_EXACT_HEAD_TESTED"
+    "core_services": "CURRENT_IMPLEMENTED_DD040_DD175_BOUNDED_CORE_WORKFLOW_AUTOMATION_BOUNDARIES_EXACT_HEAD_TESTED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e",
-    "verified_code_tree": "8e7feb1f9343295c7a7ac9613e652c30f0582eeb",
-    "state_projection_basis_head": "e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e",
+    "verified_code_head": "106188b29afea27920e8cbdb1e59815923b24618",
+    "verified_code_tree": "534bf66bbc57995a89ea44dff6f56af820f0929d",
+    "state_projection_basis_head": "106188b29afea27920e8cbdb1e59815923b24618",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -201,13 +201,25 @@
       "web_run_id": 35971421038,
       "web_job_id": 107541782070,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd175_promotion_head": "106188b29afea27920e8cbdb1e59815923b24618",
+    "dd175_promotion_tree": "534bf66bbc57995a89ea44dff6f56af820f0929d",
+    "dd175_ci": {
+      "core_run_id": 35979582286,
+      "core_job_id": 107568017227,
+      "postgres_job_id": 107568016883,
+      "database_run_id": 35979582367,
+      "database_job_id": 107568016913,
+      "web_run_id": 35979582241,
+      "web_job_id": 107568016696,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DD-174 Workflow child parent current-binding floor verified",
+    "current_phase": "DD-175 AutomationRun AutomationDefinition current-binding floor verified",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -222,9 +234,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e",
-      "ci_run_id": 35971421057,
-      "ci_job_id": 107541782044,
+      "ci_verified_head": "106188b29afea27920e8cbdb1e59815923b24618",
+      "ci_run_id": 35979582367,
+      "ci_job_id": 107568016913,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -236,7 +248,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "8e7feb1f9343295c7a7ac9613e652c30f0582eeb",
+      "ci_verified_tree": "534bf66bbc57995a89ea44dff6f56af820f0929d",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -244,10 +256,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e",
-      "feature_head_bootstrap_verified_tree": "8e7feb1f9343295c7a7ac9613e652c30f0582eeb",
-      "feature_head_bootstrap_run_id": 35971421034,
-      "feature_head_bootstrap_job_id": 107541782352,
+      "feature_head_bootstrap_verified_head": "106188b29afea27920e8cbdb1e59815923b24618",
+      "feature_head_bootstrap_verified_tree": "534bf66bbc57995a89ea44dff6f56af820f0929d",
+      "feature_head_bootstrap_run_id": 35979582286,
+      "feature_head_bootstrap_job_id": 107568016883,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -256,27 +268,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Source-audit AutomationRun to AutomationDefinition exact id/ACTIVE/scope relationship. Do not infer trigger/retry/dispatch/execution semantics.",
+    "next_action": "Source-audit AutomationDefinition to WorkflowDefinition containment relationship. Do not infer definition status/version/effective dates or Automation execution semantics.",
     "core_services": {
-      "checkpoint": "DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001",
+      "checkpoint": "DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–174 bounded implementation; DD-174 Workflow child parent current-binding floor only",
-      "verified_head": "e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e",
-      "verified_tree": "8e7feb1f9343295c7a7ac9613e652c30f0582eeb",
-      "core_ci_run_id": 35971421034,
-      "core_ci_job_id": 107541782130,
-      "tests": "465/465 PASS",
+      "decision": "DD-040–175 bounded implementation; DD-175 AutomationRun AutomationDefinition current-binding floor only",
+      "verified_head": "106188b29afea27920e8cbdb1e59815923b24618",
+      "verified_tree": "534bf66bbc57995a89ea44dff6f56af820f0929d",
+      "core_ci_run_id": 35979582286,
+      "core_ci_job_id": 107568017227,
+      "tests": "472/472 PASS",
       "core_test_counts": {
-        "tests": 465,
-        "pass": 465,
+        "tests": 472,
+        "pass": 472,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35971421034,
-      "postgres_ci_job_id": 107541782352,
+      "postgres_ci_run_id": 35979582286,
+      "postgres_ci_job_id": 107568016883,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -285,8 +297,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35971421057,
-      "database_regression_job_id": 107541782044,
+      "database_regression_run_id": 35979582367,
+      "database_regression_job_id": 107568016913,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -592,7 +604,8 @@
         "DD-171 NotificationDelivery NotificationTemplate current-binding necessary floor",
         "DD-172 known NotificationDelivery relationship necessary-floor composition",
         "DD-173 WorkflowInstance WorkflowDefinition current-binding necessary floor",
-        "DD-174 Workflow child parent current-binding necessary floor"
+        "DD-174 Workflow child parent current-binding necessary floor",
+        "DD-175 AutomationRun AutomationDefinition current-binding necessary floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -812,7 +825,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_WORKFLOW_CHILD_PARENT_CURRENT_BINDING_VERIFIED",
+  "current_phase": "DEVELOPMENT_AUTOMATION_RUN_DEFINITION_CURRENT_BINDING_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -844,20 +857,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001",
-    "verified_code_head": "e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e",
-    "verified_code_tree": "8e7feb1f9343295c7a7ac9613e652c30f0582eeb",
-    "source_audit": "Development/WORKFLOW_CHILD_PARENT_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD174_VERIFICATION_2026-09-24.md",
-    "next_action": "Source-audit AutomationRun to AutomationDefinition exact id/ACTIVE/scope relationship. Do not infer trigger/retry/dispatch/execution semantics.",
+    "checkpoint": "DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001",
+    "verified_code_head": "106188b29afea27920e8cbdb1e59815923b24618",
+    "verified_code_tree": "534bf66bbc57995a89ea44dff6f56af820f0929d",
+    "source_audit": "Development/AUTOMATION_RUN_DEFINITION_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD175_VERIFICATION_2026-09-24.md",
+    "next_action": "Source-audit AutomationDefinition to WorkflowDefinition containment relationship. Do not infer definition status/version/effective dates or Automation execution semantics.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001",
-    "verified_executable_basis": "e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e",
-    "verified_executable_tree": "8e7feb1f9343295c7a7ac9613e652c30f0582eeb",
-    "current_verification": "Registers/DEVELOPMENT_DD174_VERIFICATION_2026-09-24.md",
-    "scope": "DD-174 WorkflowTask/WorkflowTransition to WorkflowInstance exact parent id/Tenant/Industry binding only"
+    "checkpoint": "DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001",
+    "verified_executable_basis": "106188b29afea27920e8cbdb1e59815923b24618",
+    "verified_executable_tree": "534bf66bbc57995a89ea44dff6f56af820f0929d",
+    "current_verification": "Registers/DEVELOPMENT_DD175_VERIFICATION_2026-09-24.md",
+    "scope": "DD-175 AutomationRun to AutomationDefinition exact id/ACTIVE/scope binding only"
   },
   "current_state_audit": {
     "date": "2026-09-24",
@@ -890,21 +903,21 @@
     "scope": "Recursive current-tree inventory plus authoritative-strata reconciliation, invariant/SQL/CI verification and targeted implemented-boundary inspection; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-174 Workflow Child WorkflowInstance Current-Binding Floor",
-    "checkpoint": "DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001",
-    "verified_head": "e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e",
-    "verified_tree": "8e7feb1f9343295c7a7ac9613e652c30f0582eeb",
+    "decision": "DD-175 AutomationRun AutomationDefinition Current-Binding Floor",
+    "checkpoint": "DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001",
+    "verified_head": "106188b29afea27920e8cbdb1e59815923b24618",
+    "verified_tree": "534bf66bbc57995a89ea44dff6f56af820f0929d",
     "core": {
-      "run_id": 35971421034,
-      "job_id": 107541782130,
-      "tests": 465,
-      "pass": 465,
+      "run_id": 35979582286,
+      "job_id": 107568017227,
+      "tests": 472,
+      "pass": 472,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35971421034,
-      "job_id": 107541782352,
+      "run_id": 35979582286,
+      "job_id": 107568016883,
       "tests": 497,
       "pass": 497,
       "fail": 0,
@@ -912,17 +925,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 35971421057,
-      "job_id": 107541782044,
+      "run_id": 35979582367,
+      "job_id": 107568016913,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35971421038,
-      "job_id": 107541782070,
+      "run_id": 35979582241,
+      "job_id": 107568016696,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD174_VERIFICATION_2026-09-24.md"
+    "evidence": "Registers/DEVELOPMENT_DD175_VERIFICATION_2026-09-24.md"
   },
   "historical_projection_payloads": {
     "continuation": {

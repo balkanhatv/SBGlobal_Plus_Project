@@ -1,11 +1,11 @@
 # PHASE SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`
 
-Verified canonical DD-174 promotion `e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e` / tree `8e7feb1f9343295c7a7ac9613e652c30f0582eeb`: **465/465 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35971421034` (Core job `107541782130`, PostgreSQL job `107541782352`), Database `35971421057` (job `107541782044`), Web `35971421038` (job `107541782070`).
+Verified canonical DD-175 promotion `106188b29afea27920e8cbdb1e59815923b24618` / tree `534bf66bbc57995a89ea44dff6f56af820f0929d`: **472/472 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35979582286` (Core job `107568017227`, PostgreSQL job `107568016883`), Database `35979582367` (job `107568016913`), Web `35979582241` (job `107568016696`).
 
-DD-174 is Workflow child→parent current-binding only.
+DD-175 is AutomationRun→AutomationDefinition current-binding only.
 
-Next governed work: AutomationRun→AutomationDefinition current-binding source audit.
+Next governed work: AutomationDefinition→WorkflowDefinition containment source audit.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

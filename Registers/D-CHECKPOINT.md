@@ -1,8 +1,8 @@
-# D-CHECKPOINT — DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001
+# D-CHECKPOINT — DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001
 **Updated:** 2026-09-24
 
-Verified canonical DD-174 promotion `e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e` / tree `8e7feb1f9343295c7a7ac9613e652c30f0582eeb`: **465/465 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35971421034` (Core job `107541782130`, PostgreSQL job `107541782352`), Database `35971421057` (job `107541782044`), Web `35971421038` (job `107541782070`).
+Verified canonical DD-175 promotion `106188b29afea27920e8cbdb1e59815923b24618` / tree `534bf66bbc57995a89ea44dff6f56af820f0929d`: **472/472 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35979582286` (Core job `107568017227`, PostgreSQL job `107568016883`), Database `35979582367` (job `107568016913`), Web `35979582241` (job `107568016696`).
 
-Gate: **DD-174 IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED FOR WORKFLOW CHILD PARENT CURRENT-BINDING SCOPE**.
+Gate: **DD-175 IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED FOR AUTOMATIONRUN DEFINITION CURRENT-BINDING SCOPE**.
 
-No task/transition or Workflow execution authority was added. RawSource unchanged; `main` unchanged; PR #2 draft/unmerged.
+No Automation execution authority was added. RawSource unchanged; `main` unchanged; PR #2 draft/unmerged.

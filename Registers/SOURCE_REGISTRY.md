@@ -35,9 +35,9 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 - API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
 ## Current audit / continuation evidence — 2026-09-24
-- Current checkpoint: `DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001`.
-- DD-174 source audit: `Development/WORKFLOW_CHILD_PARENT_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- DD-174 verification: `Registers/DEVELOPMENT_DD174_VERIFICATION_2026-09-24.md`.
-- Canonical promotion: `e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e` / `8e7feb1f9343295c7a7ac9613e652c30f0582eeb`; 465 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
-- Next audit: AutomationRun→AutomationDefinition exact id/ACTIVE/scope relationship.
+- Current checkpoint: `DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`.
+- DD-175 source audit: `Development/AUTOMATION_RUN_DEFINITION_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- DD-175 verification: `Registers/DEVELOPMENT_DD175_VERIFICATION_2026-09-24.md`.
+- Canonical promotion: `106188b29afea27920e8cbdb1e59815923b24618` / `534bf66bbc57995a89ea44dff6f56af820f0929d`; 472 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
+- Next audit: AutomationDefinition→WorkflowDefinition containment relationship.
 - RawSource accepted blobs remain unchanged.

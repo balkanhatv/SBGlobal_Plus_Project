@@ -30,14 +30,16 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-174.
+Current checkpoint: `DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-175.
 
-Verified canonical DD-174 promotion `e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e` / tree `8e7feb1f9343295c7a7ac9613e652c30f0582eeb`: **465/465 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35971421034` (Core job `107541782130`, PostgreSQL job `107541782352`), Database `35971421057` (job `107541782044`), Web `35971421038` (job `107541782070`).
+Verified canonical DD-175 promotion `106188b29afea27920e8cbdb1e59815923b24618` / tree `534bf66bbc57995a89ea44dff6f56af820f0929d`: **472/472 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35979582286` (Core job `107568017227`, PostgreSQL job `107568016883`), Database `35979582367` (job `107568016913`), Web `35979582241` (job `107568016696`).
 
-DD-174 re-evaluates only migration-0031's shared WorkflowTask/WorkflowTransition→WorkflowInstance relationship: exact parent id, same Tenant and exact nullable Industry Context.
+DD-175 re-evaluates only migration-0031's AutomationRun→AutomationDefinition relationship: exact definition id, raw ACTIVE status, and canonical PLATFORM/TENANT/INDUSTRY applicability to the run Tenant/optional Industry scope.
 
-A true result is not task assignee/claimant/completer authorization, transition actor authorization, task-action authority, transition authorization or Workflow execution authority.
+AutomationRun does not persist a definition version, so DD-175 does not invent definition-version or effective-date selection.
 
-Evidence: `Registers/DEVELOPMENT_DD174_VERIFICATION_2026-09-24.md`.
+A true result is not trigger interpretation, condition evaluation, run-state transition authority, retry/finality, OperationContract dispatch, WorkflowDefinition execution or Automation execution authority.
 
-Next: source-audit AutomationRun→AutomationDefinition exact current binding as the next independent prerequisite.
+Evidence: `Registers/DEVELOPMENT_DD175_VERIFICATION_2026-09-24.md`.
+
+Next: source-audit AutomationDefinition→WorkflowDefinition containment as the next independent prerequisite.

@@ -37,6 +37,14 @@ AutomationRun stores no definition version, so version/effective-date selection 
 
 DD-175 does not interpret triggers/config/conditions; authorize AutomationRun state transitions; schedule retry/backoff/finality; dispatch OperationContracts or WorkflowDefinitions; mutate runs; emit events; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-175 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-175 decision, acceptance and Detailed Design changelog are committed in `106188b29afea27920e8cbdb1e59815923b24618` / tree `534bf66bbc57995a89ea44dff6f56af820f0929d`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35979582286`, Core job `107568017227`: **SUCCESS — 472/472**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107568016883`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `35979582367`, job `107568016913`: **SUCCESS**.
+- Web Boundary Verify run `35979582241`, job `107568016696`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.
