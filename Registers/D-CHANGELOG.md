@@ -213,3 +213,6 @@ DD-182 promotion `8b36c0f86e5b8930e2c49a64a1d5b82eff0fd8db` / tree `a985d9fab1a3
 
 ## 2026-09-24 — Post-DD-182 DD-183 prerequisite selection
 Fresh AgentStep/AgentApproval reconciliation selected migration 0031's optional exact approval backlink as the next independent source-complete prerequisite: exact approval id, same run and same step only. Approval status/satisfaction, approval scope, approver principal/permission/context and AgentRun/tool execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-183 canonical promotion / checkpoint advance
+DD-183 promotion `0d837e01e60a125cf6de0327acd733460a84c779` / tree `d919b9402bef58c2205cbdfc9538b44d359c2033` passed exact-head **528 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001`. Approval satisfaction, approver authorization and Agent/tool execution remain unclaimed.

@@ -30,14 +30,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-AI-AGENT-STEP-TOOL-BINDING-CURRENT-FLOORS-001`. Decisions are contiguous through DD-182.
+Current checkpoint: `DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001`. Decisions are contiguous through DD-183.
 
-Verified canonical DD-182 promotion `8b36c0f86e5b8930e2c49a64a1d5b82eff0fd8db` / tree `a985d9fab1a30de000387ab6cf7fcfacacf99355`: **521/521 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `36015471829` (Core job `107686746894`, PostgreSQL job `107686747280`), Database `36015471739` (job `107686746199`), Web `36015472048` (job `107686747587`).
+Verified canonical DD-183 promotion `0d837e01e60a125cf6de0327acd733460a84c779` / tree `d919b9402bef58c2205cbdfc9538b44d359c2033`: **528/528 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `36018054813` (Core job `107695568255`, PostgreSQL job `107695568757`), Database `36018054931` (job `107695570767`), Web `36018054920` (job `107695570518`).
 
-DD-182 re-evaluates only migration-0031's persisted AgentStep TOOL/non-TOOL binding relationship: exact Step→Run→AgentDefinition parent chain, enabled ToolSetMember, ACTIVE ToolDefinition and exact allowed-ToolSet equality for TOOL; non-TOOL steps require no binding.
+DD-183 re-evaluates only migration-0031's optional AgentStep→AgentApproval persisted backlink: exact approval id, same AgentRun id and same AgentStep id. An unbound step requires no approval evidence.
 
-A true result is not DD-180 ToolSet currentness, DD-181 AgentDefinition currentness, approval satisfaction, acting-principal/membership authorization, permission/entitlement/resource authorization, OperationContract eligibility, provider/model/tool execution or inference authority.
+A true result is not approval satisfaction, approver authorization, current permission/context, AgentRun resume/cancel, tool execution or provider/model execution authority.
 
-Evidence: `Registers/DEVELOPMENT_DD182_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD183_VERIFICATION_2026-09-24.md`.
 
-Next: source-audit optional AgentStep→AgentApproval backlink currentness as an independent prerequisite; keep approval satisfaction and execution separate.
+Next: source-audit AgentApproval→AgentRun/AgentStep exact parent/scope currentness as the next independent prerequisite.
