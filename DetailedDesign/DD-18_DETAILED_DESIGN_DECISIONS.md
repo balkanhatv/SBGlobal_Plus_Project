@@ -2208,3 +2208,18 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-152 does not choose/discover/mint/trust the selected id; make client selection authoritative; load elevation rows; call IdentityPort; decide MFA/step-up; interpret `permission_profile_id`; decide approval/purpose/ticket; construct final effective permissions or AuthorizationDecision; set `app.operator_elevation_id`; modify RequestContext/RequestScopedSql; grant access; emit mandatory elevation-use audit; mutate elevation state; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `OPELEV-CORE-001` through `OPELEV-CORE-007` in DD-17 and `tests/core/operator-elevation-core-floors.test.mjs`.
+
+
+## DD-153 — Migration 0029 OperatorElevation current-read RLS must be proven on real PostgreSQL without activating request-time elevation
+
+**Context:** DD-148, DD-149 and DD-151 mirror migration 0029's time/status, subject/target and selected-id predicates in pure Core. DD-150 adds the separate verified interactive PLATFORM_OPERATOR identity prerequisite, which PostgreSQL RLS cannot infer from an id. DD-152 composes those necessary Core floors. The ordinary app role currently has forced-RLS SELECT on `core_authz.operator_elevation`, while RequestScopedSql intentionally supplies no elevation id.
+
+**Decision:** add a PostgreSQL acceptance fixture that sets transaction-local test GUCs directly under the fixed `sbg_app_rw` adapter and proves the physical migration-0029 current-read predicate: exact id/principal/Tenant, NULL-or-exact Industry semantics, ACTIVE status and inclusive-start/exclusive-expiry current window. The acceptance also proves empty elevation scope remains closed and app mutation privilege remains absent.
+
+**Integrity discovery:** the first disposable fixture correctly surfaced migration 0031's relationship-integrity trigger: ACTIVE elevations require a distinct ACTIVE PLATFORM_OPERATOR or SERVICE approver. The fixture was corrected to satisfy that already-owned database invariant; no production behavior changed.
+
+**Security / trade-off:** this is acceptance-only parity evidence. Direct `set_config` calls exist only inside the disposable test fixture and do not create a runtime selection/injection path.
+
+**Boundary:** DD-153 does not add elevation fields to RequestContext; allow RequestScopedSql to populate elevation scope; choose/trust an elevation id; make client selection authoritative; prove PLATFORM_OPERATOR type in SQL; interpret permission profiles or approval/purpose/ticket policy; decide step-up; grant business access; emit elevation-use audit; mutate elevation state; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `OPELEV-RLS-PG-001` through `OPELEV-RLS-PG-007` in DD-17 and `tests/postgres/operator-elevation-rls-current-read.test.mjs`.

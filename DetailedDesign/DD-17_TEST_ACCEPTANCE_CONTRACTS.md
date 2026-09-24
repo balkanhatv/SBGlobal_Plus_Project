@@ -2198,3 +2198,27 @@ Malformed or failed inputs across multiple floors remain false; no fallback or p
 
 ### OPELEV-CORE-007 — Policy/session extras remain uninterpreted
 Permission-profile, approval/purpose/ticket, step-up/session extras and unrelated fields do not gain authorization semantics, and inputs are not mutated.
+
+
+## DD-153 OperatorElevation Physical RLS Current-Read Parity Acceptance
+
+### OPELEV-RLS-PG-001 — Exact Tenant-Core current-read predicate is visible
+On a real migrated PostgreSQL database under `sbg_app_rw`, exact selected elevation id, principal, Tenant, ACTIVE status and current bounded time window make the targeted Tenant-Core elevation row visible.
+
+### OPELEV-RLS-PG-002 — Industry-targeted row requires exact Industry
+An Industry-targeted elevation is visible only when the transaction-local Industry Context exactly matches the persisted target.
+
+### OPELEV-RLS-PG-003 — Wrong selected elevation id denies visibility
+A different valid transaction-local `app.operator_elevation_id` yields zero rows for the queried elevation.
+
+### OPELEV-RLS-PG-004 — Wrong principal or Tenant denies visibility
+Principal or Tenant mismatch yields zero rows even when selected id and time/status otherwise match.
+
+### OPELEV-RLS-PG-005 — Industry mismatch semantics match migration 0029
+Missing or wrong Industry denies an Industry-targeted row, while a NULL-Industry Tenant-Core elevation remains compatible with a same-Tenant Industry setting exactly as the physical RLS predicate specifies.
+
+### OPELEV-RLS-PG-006 — Non-current lifecycle rows stay invisible
+PENDING, REVOKED and expired-by-time elevations remain invisible even when selected id, principal and target settings match.
+
+### OPELEV-RLS-PG-007 — Empty elevation scope is closed and app role cannot mutate
+Empty transaction-local elevation scope yields zero ordinary-app visibility and `sbg_app_rw` retains no INSERT/UPDATE/DELETE authority on `core_authz.operator_elevation`.

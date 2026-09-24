@@ -221,3 +221,7 @@ After DD-150 isolated verified interactive PLATFORM_OPERATOR identity, migration
 
 ## 2026-09-24 — DD-152 OperatorElevation core necessary-floor composition
 After DD-151 completed the migration-owned selected-id equality floor, DD-148…151 were reconciled into one pure Core composition. The implementation returns true only when selected-id, verified PLATFORM_OPERATOR identity, subject/target and ACTIVE/time floors all match, while explicitly not trusting the selected-id source, evaluating step-up/profile/approval policy, injecting request SQL scope or granting access. Audit commit `da9e1ebf…`; exact implementation head `0aab1a26…` is green at 346/346 Core and 469/469 PostgreSQL plus Database/Web PASS. No database, migration, RLS, role/grant, RequestContext, transport or product-policy behavior changed.
+
+
+## 2026-09-24 — DD-153 OperatorElevation physical RLS current-read parity
+After DD-152 composed the pure necessary floors, migration 0029's physical current-read RLS was verified directly under `sbg_app_rw` without activating request-time elevation. Initial acceptance head `e2281fad…` surfaced the pre-existing migration-0031 requirement that ACTIVE elevations have an independent active approver; the disposable fixture was corrected forward-only at `91b7db16…`. Exact corrected head is green at 346/346 Core and 476/476 PostgreSQL, including `OPELEV-RLS-PG-001…007`, plus Database/Web PASS. Production runtime source, migrations, RLS, roles/grants, RequestContext and RequestScopedSql were unchanged.
