@@ -269,3 +269,8 @@ Next governed work: **Commercial current-state integration only**.
 
 
 
+
+
+## Post-DD-162 machine-verifier boundary audit
+
+Audit head `a453fc2f2f555972cd0391a3db04bc67a6e7d497`: `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. No DD-163 machine-auth implementation is source-authorized. Next: fresh source-audit another named unfinished runtime seam; do not infer token/verifier/CIDR/profile/use-audit semantics.

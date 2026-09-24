@@ -1,9 +1,9 @@
 {
   "project": "SBGlobal Plus",
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001",
-  "final_verdict": "DD-162 API CREDENTIAL CORE NECESSARY-FLOOR COMPOSITION IMPLEMENTED / EXACT-HEAD TESTED; TOKEN PARSING, VERIFIER, CIDR, PERMISSION PROFILE, USE/AUDIT AND FINAL MACHINE EVIDENCE UNCLAIMED",
+  "final_verdict": "DD-162 API CREDENTIAL CORE NECESSARY-FLOOR COMPOSITION IMPLEMENTED / EXACT-HEAD TESTED; POST-DD-162 MACHINE-VERIFIER BOUNDARY AUDIT COMPLETE; NO DD-163 MACHINE-AUTH IMPLEMENTATION SOURCE-AUTHORIZED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -56,13 +56,14 @@
     "verified_code_head": "a68a89f1a7d65eaeb76dfa8f4847e756393f396b",
     "verified_code_tree": "152771d5d7369153730f1ea89c7e3803364a4fb4",
     "state_projection_basis_head": "369bf76073d14ae625217b6a55e2bd9082ad4d9b",
-    "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
+    "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
+    "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "API Credential current lifecycle + current principal + requested-scope necessary-floor composition verified; final machine authentication remains separate",
+    "current_phase": "API Credential lifecycle + current principal + requested-scope necessary-floor composition verified; post-DD-162 machine-verifier boundary audit confirms final machine authentication is blocked on missing canonical contracts",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -111,14 +112,14 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next runtime prerequisite. Keep presented-token parsing, approved verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence construction outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit another named unfinished runtime seam and open a new DD only for a source-complete prerequisite. Presented-token parsing, verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence remain blocked unless canonically owned.",
     "core_services": {
       "checkpoint": "DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–162 current implementation; DD-162 pure composition of API Credential lifecycle/current-principal/requested-scope necessary floors only",
+      "decision": "DD-040–162 current implementation; DD-162 pure composition of API Credential lifecycle/current-principal/requested-scope necessary floors only; post-DD-162 machine-verifier audit authorizes no DD-163 machine-auth implementation",
       "verified_head": "a68a89f1a7d65eaeb76dfa8f4847e756393f396b",
       "verified_tree": "152771d5d7369153730f1ea89c7e3803364a4fb4",
       "core_ci_run_id": 35955447920,
@@ -566,7 +567,8 @@
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
       "promotion_invariant_gate_web_job_id": 106846672128,
-      "promotion_invariant_gate_unique_dd": 109
+      "promotion_invariant_gate_unique_dd": 109,
+      "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
     "application_api_ui_scope_note": "The DD-107 provider and DD-108 model exact-by-id catalog metadata readers are implemented/tested through the dedicated AI Gateway role; provider/model selection, routing, execution and product UI remain unfinished.",
     "application_services_started": true,

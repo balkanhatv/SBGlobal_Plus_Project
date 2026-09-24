@@ -11,8 +11,10 @@ DD-162 adds only the composed machine-credential necessary floor; no verifier ex
 
 Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–162**.
 
-Next: Fresh source-audit the next machine-verification prerequisite. Verifier, CIDR, permission profile, usage/audit and final machine evidence remain separate.
+Post-DD-162 machine-verifier boundary audit completed at `a453fc2f2f555972cd0391a3db04bc67a6e7d497`: `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. It authorizes no DD-163 machine-auth implementation.
 
-Evidence: `Registers/DEVELOPMENT_DD162_VERIFICATION_2026-09-24.md`.
+Next: Fresh source-audit another named unfinished runtime seam. Verifier, CIDR, permission profile, usage/audit and final machine evidence remain blocked on missing canonical contracts.
+
+Evidence: `Registers/DEVELOPMENT_DD162_VERIFICATION_2026-09-24.md` plus `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.
