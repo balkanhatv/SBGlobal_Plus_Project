@@ -2389,3 +2389,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `INT-SET-CUR-001…007` in DD-17 and `tests/core/tenant-integration-definition-capability-floors.test.mjs`.
 
+## DD-167 — DD-165 and DD-166 may be composed as one TenantIntegration current-integrity necessary floor without authorizing execution
+
+**Context:** migration 0030 owns one TenantIntegration write-time integrity predicate whose credential relationship/currentness half is re-evaluable through DD-165 and whose Definition/config/enabled-capability half is re-evaluable through DD-166. Neither helper makes TenantIntegration executable or owns provider/runtime semantics.
+
+**Decision:** add pure Core helper `matchesCurrentTenantIntegrationIntegrityFloors(integration, credential, evaluatedAt, definition, capabilities)`. It delegates exactly to DD-165 and DD-166 and returns true iff both existing floors return true. No new primitive predicate, fallback or precedence is introduced.
+
+**Security / trade-off:** composition reduces accidental partial integrity checks while preserving the distinction between current persisted integrity and execution authority. TenantIntegration lifecycle, health/profile policy, provider/adapter selection, secret access, OperationContract/event execution, callbacks/sync and network behavior remain separate.
+
+**Boundary:** DD-167 does not make TenantIntegration ACTIVE/executable/healthy; resolve profiles; read or dereference secret locators/material; interpret rotation policy; select provider/adapter/direction; authorize SyncCursor resume/synchronization; execute OperationContracts/events/callbacks/network; apply rate/retry/circuit/residency/data-transfer policy; mutate state/use/audit evidence; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `INT-INTEGRITY-001…007` in DD-17 and `tests/core/tenant-integration-integrity-floors.test.mjs`.
+

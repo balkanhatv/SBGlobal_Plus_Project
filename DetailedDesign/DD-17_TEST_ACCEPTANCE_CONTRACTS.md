@@ -2531,3 +2531,26 @@ For every enabled code, missing evidence, non-ACTIVE evidence, wrong Definition/
 ### INT-SET-CUR-007 — Unowned runtime semantics remain uninterpreted
 TenantIntegration lifecycle/credential/scope/health/profile and capability direction/OperationContract/event/data/rate/idempotency metadata do not create acceptance; extra non-enabled capability evidence is ignored and inputs remain unchanged.
 
+## DD-167 TenantIntegration Current-Integrity Composition Acceptance
+
+### INT-INTEGRITY-001 — Both DD-165 and DD-166 floors true
+Exact credential current-binding plus Definition/config/enabled-capability current-set evidence returns true.
+
+### INT-INTEGRITY-002 — Credential floor failure fails composition
+DD-165 false returns false even when DD-166 matches.
+
+### INT-INTEGRITY-003 — Definition/capability floor failure fails composition
+DD-166 false returns false even when DD-165 matches.
+
+### INT-INTEGRITY-004 — Multiple failed floors have no fallback
+When both underlying floors fail, composition remains false; no partial-success fallback exists.
+
+### INT-INTEGRITY-005 — Tenant-Core and Tenant-Industry success preserve underlying scope rules
+Positive paths preserve the exact DD-165 scope semantics and DD-166 current-set semantics without adding new scope behavior.
+
+### INT-INTEGRITY-006 — Credential expiry cannot be overridden
+Definition/capability evidence cannot convert an expired credential binding into a current integrity match.
+
+### INT-INTEGRITY-007 — Lifecycle/provider/runtime evidence remains uninterpreted
+TenantIntegration lifecycle/health/profile plus provider/secret/OperationContract/event/network evidence does not create acceptance, and inputs remain unchanged.
+
