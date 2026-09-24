@@ -40,6 +40,14 @@ A true result is not Assistant selection or AI execution authorization.
 
 DD-179 does not validate Assistant capability currentness; compare referenced definition versions/effective dates; render prompts; interpret grounding/overrides; resolve effective ToolSet members; authorize permissions/entitlements/approvals; resolve RAG/model/retention; bind conversations/memory/runs; execute OperationContracts/tools/agents/providers/models; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-179 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-179 decision, acceptance and Detailed Design changelog are committed in `58b4a9c17831aac335819190b7e7aad9b394ec85` / tree `2b131a362a805748f780e635e5ef55f6970bb379`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35992161069`, Core job `107608561082`: **SUCCESS — 500/500**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107608561582`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `35992161228`, job `107608561391`: **SUCCESS**.
+- Web Boundary Verify run `35992161106`, job `107608566169`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-AI-ASSISTANT-DEFINITION-RELATIONSHIP-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.

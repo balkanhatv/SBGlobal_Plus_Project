@@ -189,3 +189,6 @@ DD-178 promotion `1ab2ef046706ba2c21b90f873236d68d3e929329` / tree `c80e2f711f38
 
 ## 2026-09-24 — Post-DD-178 DD-179 prerequisite selection
 Fresh AI reconciliation selected migration 0031 + migration 0048's AssistantDefinition required PromptTemplate and optional ToolSet exact-id/ACTIVE/broader-or-equal containment relationships as the next independent source-complete prerequisite. Assistant capability-set currentness, effective ToolSet resolution, prompt rendering and AI execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-179 canonical promotion / checkpoint advance
+DD-179 promotion `58b4a9c17831aac335819190b7e7aad9b394ec85` / tree `2b131a362a805748f780e635e5ef55f6970bb379` passed exact-head **500 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-ASSISTANT-DEFINITION-RELATIONSHIP-CURRENT-BINDING-FLOORS-001`. Assistant capability currentness, rendering, effective ToolSet resolution and AI execution remain unclaimed.

@@ -30,14 +30,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-AI-TOOL-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-178.
+Current checkpoint: `DEV-AI-ASSISTANT-DEFINITION-RELATIONSHIP-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-179.
 
-Verified canonical DD-178 promotion `1ab2ef046706ba2c21b90f873236d68d3e929329` / tree `c80e2f711f3889e0453d7beec2b4dafe14739803`: **493/493 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35989486640` (Core job `107599889710`, PostgreSQL job `107599889838`), Database `35989486725` (job `107599890232`), Web `35989486657` (job `107599890082`).
+Verified canonical DD-179 promotion `58b4a9c17831aac335819190b7e7aad9b394ec85` / tree `2b131a362a805748f780e635e5ef55f6970bb379`: **500/500 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35992161069` (Core job `107608561082`, PostgreSQL job `107608561582`), Database `35992161228` (job `107608561391`), Web `35992161106` (job `107608566169`).
 
-DD-178 re-evaluates only migration-0031's AIToolSetMember→AIToolDefinition relationship: exact referenced ToolDefinition id and raw ACTIVE status.
+DD-179 re-evaluates only migration-0031 + migration-0048's AssistantDefinition referenced-definition relationships: required PromptTemplate exact-id/ACTIVE/broader-or-equal containment and optional ToolSet exact-id/ACTIVE/broader-or-equal containment.
 
-A true result is not effective ToolSet membership, parent ToolSet currentness, member enabled/constraint resolution, permission/entitlement/approval satisfaction, OperationContract execution, Agent runtime, provider/model/tool invocation or AI inference authority.
+A true result is not Assistant capability currentness, Assistant selection, prompt rendering, grounding/override evaluation, effective ToolSet resolution, permission/entitlement/approval, model/RAG/retention policy, Agent/tool/provider/model execution or AI inference authority.
 
-Evidence: `Registers/DEVELOPMENT_DD178_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD179_VERIFICATION_2026-09-24.md`.
 
-Next: fresh source-audit another independent AI relationship prerequisite; do not infer effective-set resolution or AI execution semantics.
+Next: fresh source-audit another independent AI relationship prerequisite; do not infer runtime selection/execution semantics.

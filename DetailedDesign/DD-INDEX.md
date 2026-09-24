@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-TOOL-SET-MEMBER-CURRENT-BINDING-FLOORS-001`
+**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-ASSISTANT-DEFINITION-RELATIONSHIP-CURRENT-BINDING-FLOORS-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,7 +24,7 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-178**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-179**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 DD-162 composes current credential lifecycle, current machine-principal admissibility and requested-scope compatibility into one pure necessary floor. Final presented-credential verification and machine authentication remain absent.
 
@@ -56,7 +56,9 @@ DD-177 is the current bounded Development decision: PromptSetMember→ACTIVE Pro
 
 DD-178 is the current bounded Development decision: AIToolSetMember→AIToolDefinition exact-id/ACTIVE current-binding floor only.
 
-**Current verified executable evidence:** `1ab2ef046706ba2c21b90f873236d68d3e929329` / tree `c80e2f711f3889e0453d7beec2b4dafe14739803` — **493/493 Core**, **497/497 PostgreSQL**, **48/42 database inventory**, Database/Web PASS. See DD-178 verification.
+DD-179 is the current bounded Development decision: AssistantDefinition required PromptTemplate + optional ToolSet exact-id/ACTIVE/broader-or-equal containment floor only.
+
+**Current verified executable evidence:** `58b4a9c17831aac335819190b7e7aad9b394ec85` / tree `2b131a362a805748f780e635e5ef55f6970bb379` — **500/500 Core**, **497/497 PostgreSQL**, **48/42 database inventory**, Database/Web PASS. See DD-179 verification.
 
 ## Historical all-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
