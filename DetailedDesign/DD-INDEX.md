@@ -28,6 +28,8 @@ The historical pre-development authorization gate was subsequently satisfied and
 
 DD-162 composes current credential lifecycle, current machine-principal admissibility and requested-scope compatibility into one pure necessary floor. Final presented-credential verification and machine authentication remain absent.
 
+The post-DD-162 machine-verifier boundary audit at `a453fc2f2f555972cd0391a3db04bc67a6e7d497` (`Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`) confirms that no DD-163 machine-auth implementation is source-authorized from the current contracts.
+
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
 ## Historical all-stages checkpoint evidence

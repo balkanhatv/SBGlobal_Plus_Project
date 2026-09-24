@@ -28,4 +28,6 @@ Promotion invariant gate `369bf76073d14ae625217b6a55e2bd9082ad4d9b` / tree `b3d3
 
 DD-162 composes only current credential lifecycle + current machine-principal + requested-scope compatibility. It does not parse presented credentials, execute a verifier, enforce CIDR or authenticate a machine.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep presented-token parsing, approved verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence construction outside scope unless separately source-owned.
+Post-DD-162 machine-verifier boundary audit completed at `a453fc2f2f555972cd0391a3db04bc67a6e7d497`: `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. No DD-163 machine-auth implementation is authorized from the current source.
+
+Next: Fresh source-audit another named unfinished runtime seam. Keep token parsing, verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence blocked unless canonical source ownership is added.
