@@ -58,7 +58,10 @@ test("OPELEV-SQL-001 application PostgresDatabase clears elevation scope before 
 
   assert.ok(clear);
   assert.ok(clearIndex >= 0 && clearIndex < workIndex);
-  assert.match(clear.text, /set_config\('app\.operator_elevation_id','',true\)/);
+  assert.match(
+    clear.text,
+    /set_config\('app\.operator_elevation_id'\s*,\s*''\s*,\s*true\)/,
+  );
 });
 
 test("OPELEV-SQL-002 application cleanup RESET includes elevation scope before reusable release", async () => {
