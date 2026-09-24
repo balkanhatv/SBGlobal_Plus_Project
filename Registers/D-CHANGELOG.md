@@ -180,3 +180,6 @@ Fresh AI reconciliation selected migration 0031 + migration 0048's PromptSetMemb
 
 ## 2026-09-24 — DD-177 canonical promotion / checkpoint advance
 DD-177 promotion `ffb619a50a7f281649e989a21c3990abc7434419` / tree `ece532fbc88043c37393e8b476c85e5a514b2300` passed exact-head **486 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-PROMPT-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. Effective-set selection/rendering and AI execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-177 DD-178 prerequisite selection
+Fresh AI relationship reconciliation selected migration 0031's AIToolSetMember→AIToolDefinition exact id/ACTIVE relationship as the next independent source-complete prerequisite. Member enabled/constraint semantics, parent ToolSet currentness and tool permission/entitlement/approval/OperationContract execution remain explicitly outside the floor.
