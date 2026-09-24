@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-OPERATOR-ELEVATION-SELECTED-ID-FLOOR-001",
-  "final_verdict": "DD-151 OPERATOR ELEVATION SELECTED-ID NECESSARY FLOOR IMPLEMENTED / EXACT-HEAD TESTED; TRUSTED SELECTION SOURCE, FLOOR COMPOSITION, STEP-UP, PERMISSION/APPROVAL EVALUATION, REQUEST-SCOPE INJECTION AND MANDATORY AUDIT UNCLAIMED",
+  "checkpoint": "DEV-OPERATOR-ELEVATION-CORE-NECESSARY-FLOORS-001",
+  "final_verdict": "DD-152 OPERATOR ELEVATION CORE NECESSARY-FLOOR COMPOSITION IMPLEMENTED / EXACT-HEAD TESTED; TRUSTED SELECTION SOURCE, STEP-UP, PERMISSION/EFFECTIVE-PERMISSION, APPROVAL POLICY, REQUEST-SCOPE INJECTION AND MANDATORY AUDIT UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "fd1e6b32c94e37ba238bf90395f5b190f33a4175",
-    "verified_code_tree": "d41acd51d9327773d7d09d70231453dc39ac4336",
-    "state_projection_basis_head": "66054051a23bff63e4f28b4b38ccac212a3cfeaf",
+    "verified_code_head": "0aab1a264a3f01cc4d6121184f3224ada24cfa6e",
+    "verified_code_tree": "d9ee379129dcee062f625ed2d75ef8b7b3377b5c",
+    "state_projection_basis_head": "94c38c4d5639636bbb86f7e275375f0c71211199",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "OperatorElevation exact selected-id necessary floor verified; selection trust/composition/policy/authorization remains separate",
+    "current_phase": "OperatorElevation DD-148…151 necessary-floor composition verified; trusted selection/policy/request-scope authorization remains separate",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "66054051a23bff63e4f28b4b38ccac212a3cfeaf",
-      "ci_run_id": 35923363141,
-      "ci_job_id": 107392467609,
+      "ci_verified_head": "94c38c4d5639636bbb86f7e275375f0c71211199",
+      "ci_run_id": 35924394619,
+      "ci_job_id": 107395883286,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "10fc7705417894fa2b0a98e8eb6ab4192dd5dca4",
+      "ci_verified_tree": "3222cb8c5192d40b47109f63633dcc1abdfc49a4",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,10 +99,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "66054051a23bff63e4f28b4b38ccac212a3cfeaf",
-      "feature_head_bootstrap_verified_tree": "10fc7705417894fa2b0a98e8eb6ab4192dd5dca4",
-      "feature_head_bootstrap_run_id": 35923363334,
-      "feature_head_bootstrap_job_id": 107392468199,
+      "feature_head_bootstrap_verified_head": "94c38c4d5639636bbb86f7e275375f0c71211199",
+      "feature_head_bootstrap_verified_tree": "3222cb8c5192d40b47109f63633dcc1abdfc49a4",
+      "feature_head_bootstrap_run_id": 35924394665,
+      "feature_head_bootstrap_job_id": 107395882988,
       "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_469_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -111,27 +111,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next runtime prerequisite. Keep trusted elevation-id selection/source, explicit composition of DD-148/DD-149/DD-150/DD-151, step-up/MFA policy, permission-profile evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit the next runtime prerequisite. Keep trusted elevation-id selection/source, step-up/MFA policy, permission-profile/effective-permission evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.",
     "core_services": {
-      "checkpoint": "DEV-OPERATOR-ELEVATION-SELECTED-ID-FLOOR-001",
+      "checkpoint": "DEV-OPERATOR-ELEVATION-CORE-NECESSARY-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–151 current implementation; DD-151 exact OperatorElevation selected-id necessary equality floor only",
-      "verified_head": "fd1e6b32c94e37ba238bf90395f5b190f33a4175",
-      "verified_tree": "d41acd51d9327773d7d09d70231453dc39ac4336",
-      "core_ci_run_id": 35923363334,
-      "core_ci_job_id": 107392468462,
-      "tests": "339/339 PASS",
+      "decision": "DD-040–152 current implementation; DD-152 pure composition of DD-148…151 OperatorElevation necessary floors only",
+      "verified_head": "0aab1a264a3f01cc4d6121184f3224ada24cfa6e",
+      "verified_tree": "d9ee379129dcee062f625ed2d75ef8b7b3377b5c",
+      "core_ci_run_id": 35924394665,
+      "core_ci_job_id": 107395883267,
+      "tests": "346/346 PASS",
       "core_test_counts": {
-        "tests": 339,
-        "pass": 339,
+        "tests": 346,
+        "pass": 346,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35923363334,
-      "postgres_ci_job_id": 107392468199,
+      "postgres_ci_run_id": 35924394665,
+      "postgres_ci_job_id": 107395882988,
       "postgres_tests": "469/469 PASS",
       "postgres_test_counts": {
         "tests": 469,
@@ -140,8 +140,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35923363141,
-      "database_regression_job_id": 107392467609,
+      "database_regression_run_id": 35924394619,
+      "database_regression_job_id": 107395883286,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -424,7 +424,8 @@
         "DD-148 deterministic OperatorElevation ACTIVE/inclusive-start/exclusive-expiry current time-status necessary floor with explicit evaluation instant",
         "DD-149 deterministic OperatorElevation operator-principal/Tenant/optional-Industry subject-target necessary floor with Tenant-wide NULL-Industry semantics",
         "DD-150 deterministic verified PLATFORM_OPERATOR identity floor requiring exact persisted/evidence principal match without inferring MFA/step-up policy",
-        "DD-151 exact OperatorElevation selected-id UUID equality necessary floor with no selection trust or authorization semantics"
+        "DD-151 exact OperatorElevation selected-id UUID equality necessary floor with no selection trust or authorization semantics",
+        "DD-152 pure composition of OperatorElevation selected-id, verified-operator, subject-target and status-time necessary floors"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
