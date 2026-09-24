@@ -2262,3 +2262,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-156 does not implement create/approve/activate/revoke/expire APIs; decide who may transition state; define automatic expiry mutation; trust/select an elevation id; activate request-time elevation; interpret permission profiles; decide step-up/MFA or broader approval/purpose/ticket policy; inject RequestContext/SQL scope; grant access; emit mandatory elevation-use audit; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `OPELEV-LIFE-PG-001` through `OPELEV-LIFE-PG-007` in DD-17 and `tests/postgres/operator-elevation-lifecycle-integrity.test.mjs`.
+
+
+## DD-157 — OperatorElevation Control Plane SQL access must stay behind one fixed, fail-closed internal adapter boundary
+
+**Context:** migration 0029 defines `sbg_control_plane_rw` as a NOLOGIN, non-superuser, non-BYPASSRLS role and grants it explicit CRUD on `core_authz.operator_elevation`, while ordinary `sbg_app_rw` retains SELECT only through forced RLS. The migration verification already proves the grant matrix. Runtime source contains internal-only `PostgresControlPlaneDatabase`, which pins that role, turns RLS on, verifies role safety, clears request/elevation settings before work, closes transaction handles, RESETs scope before pool reuse and destroys connections when cleanup fails.
+
+**Decision:** add server acceptance for the existing fixed Control Plane SQL adapter. No production source change is needed. The acceptance proves role pinning, RLS-on, startup scope clear, unsafe-role fail closed, cleanup RESET, destroy-on-cleanup-failure, closed leaked handles and safe error projection.
+
+**Security / trade-off:** DD-157 proves that a later Control Plane service has a hardened SQL boundary available. It does not grant any service permission to mutate OperatorElevation and does not turn direct SQL capability into lifecycle/activation authorization.
+
+**Boundary:** DD-157 does not implement create/approve/activate/revoke/expire services; decide transition authorization; choose/trust an elevation id; populate RequestContext or RequestScopedSql elevation scope; interpret permission profiles/effective permissions; decide step-up/MFA or broader approval/purpose/ticket policy; grant access; emit mandatory elevation-use audit; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `OPELEV-CP-SQL-001` through `OPELEV-CP-SQL-007` in DD-17 and `tests/server/postgres-control-plane-database.test.mjs`.

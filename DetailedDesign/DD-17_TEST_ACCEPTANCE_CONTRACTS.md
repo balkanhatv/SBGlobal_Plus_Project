@@ -2294,3 +2294,27 @@ An UPDATE attempting to change persisted `tenant_id` is rejected by the canonica
 
 ### OPELEV-LIFE-PG-007 — Industry ownership is immutable
 An UPDATE attempting to change persisted `industry_context_id` is rejected by the canonical immutable ownership/scope trigger.
+
+
+## DD-157 OperatorElevation Fixed Control Plane SQL Boundary Acceptance
+
+### OPELEV-CP-SQL-001 — Fixed Control Plane role and RLS are pinned before work
+A Control Plane transaction sets `sbg_control_plane_rw` and enables row security before delegated SQL executes.
+
+### OPELEV-CP-SQL-002 — Startup scope is cleared before delegated work
+Tenant, Industry, scope class, principal and OperatorElevation settings are cleared transaction-locally before any delegated SQL.
+
+### OPELEV-CP-SQL-003 — Unsafe role verification fails closed
+If the runtime/login role safety check does not prove a non-superuser, non-BYPASSRLS Control Plane context, the adapter stops before delegated work with a safe database error.
+
+### OPELEV-CP-SQL-004 — Cleanup RESET occurs before reusable pool release
+Cleanup explicitly RESETs the OperatorElevation setting and the other scope settings before a reusable connection is released.
+
+### OPELEV-CP-SQL-005 — Elevation cleanup failure destroys the connection
+If RESET of OperatorElevation scope fails after a committed result, the connection is destroyed rather than returned to the pool.
+
+### OPELEV-CP-SQL-006 — Leaked transaction handles are closed
+A delegated transaction handle cannot issue SQL after the transaction completes and the connection is ready for pool release.
+
+### OPELEV-CP-SQL-007 — Database failures expose safe errors only
+Connect, setup and delegated query failures surface only governed database error codes; private SQL/provider/credential diagnostics do not cross the adapter boundary.

@@ -237,3 +237,7 @@ After DD-154 verified persisted operator/approver relationship integrity, the ex
 
 ## 2026-09-24 — DD-156 OperatorElevation persisted lifecycle/time/scope integrity
 After DD-155 locked pooled SQL elevation-off hygiene, migration 0029's existing OperatorElevation lifecycle/time and immutable ownership constraints were given direct PostgreSQL acceptance coverage. The first fixture run surfaced an unrelated active-Tenant primary-Industry requirement for the secondary Tenant; the fixture was corrected without changing production source. Exact head `821ccc7a…` / tree `c28d9a5a…` is green at 353/353 Core and 490/490 PostgreSQL plus Database/Web PASS. The acceptance proves ordered start/expiry, revocation timestamp/state coherence and immutable Tenant/Industry ownership only; no runtime activation or lifecycle authority is introduced.
+
+
+## 2026-09-24 — DD-157 OperatorElevation fixed Control Plane SQL boundary
+After DD-156 verified persisted lifecycle/time/scope integrity, the existing internal `PostgresControlPlaneDatabase` was selected as the next source-complete prerequisite. Seven server acceptance tests prove fixed `sbg_control_plane_rw` role pinning, RLS-on, startup scope/elevation clear, unsafe-role denial, cleanup RESET, destroy-on-cleanup-failure, closed leaked transaction handles and safe database errors. Exact implementation head `7628751f…` / tree `b2364917…` is green at 360/360 Core and 490/490 PostgreSQL plus Database/Web PASS. No production adapter, migration, RLS, role/grant, RequestContext or product-policy behavior changed.
