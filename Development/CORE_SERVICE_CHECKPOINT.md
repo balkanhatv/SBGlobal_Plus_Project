@@ -1,10 +1,10 @@
-# CORE SERVICE CHECKPOINT — DEV-AUTOMATION-DEFINITION-WORKFLOW-CONTAINMENT-FLOORS-001
+# CORE SERVICE CHECKPOINT — DEV-AI-PROMPT-SET-MEMBER-CURRENT-BINDING-FLOORS-001
 **Updated:** 2026-09-24 · **Branch:** `docs/architecture-branch-2`
 
-Verified canonical DD-176 promotion `0e586f7288dd9f6624f0bfa7071d97a0549fb586` / tree `201de95d4d02a1d432b15dd00fe132e3b62c32e4`: **479/479 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35980818953` (Core job `107572005884`, PostgreSQL job `107572005520`), Database `35980818944` (job `107572006645`), Web `35980818959` (job `107572005544`).
+Verified canonical DD-177 promotion `ffb619a50a7f281649e989a21c3990abc7434419` / tree `ece532fbc88043c37393e8b476c85e5a514b2300`: **486/486 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35982061284` (Core job `107576049554`, PostgreSQL job `107576049432`), Database `35982061330` (job `107576049416`), Web `35982061193` (job `107576050070`).
 
-`WFA-DEF-WF-CUR-001…007` prove only optional AutomationDefinition→WorkflowDefinition broader/equal containment.
+`AIPROMPTMEM-CUR-001…007` prove only PromptSetMember exact ids, ACTIVE definitions and broader/equal containment.
 
-A true result is **not WorkflowDefinition currentness or Automation/Workflow execution authorization**.
+A true result is **not effective PromptSet resolution, prompt rendering or AI execution authorization**.
 
-Evidence: `Registers/DEVELOPMENT_DD176_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD177_VERIFICATION_2026-09-24.md`.

@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AUTOMATION-DEFINITION-WORKFLOW-CONTAINMENT-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-PROMPT-SET-MEMBER-CURRENT-BINDING-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,14 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-AUTOMATION-DEFINITION-WORKFLOW-CONTAINMENT-FLOORS-001`. Decisions are contiguous through DD-176.
+Current checkpoint: `DEV-AI-PROMPT-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-177.
 
-Verified canonical DD-176 promotion `0e586f7288dd9f6624f0bfa7071d97a0549fb586` / tree `201de95d4d02a1d432b15dd00fe132e3b62c32e4`: **479/479 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35980818953` (Core job `107572005884`, PostgreSQL job `107572005520`), Database `35980818944` (job `107572006645`), Web `35980818959` (job `107572005544`).
+Verified canonical DD-177 promotion `ffb619a50a7f281649e989a21c3990abc7434419` / tree `ece532fbc88043c37393e8b476c85e5a514b2300`: **486/486 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35982061284` (Core job `107576049554`, PostgreSQL job `107576049432`), Database `35982061330` (job `107576049416`), Web `35982061193` (job `107576050070`).
 
-DD-176 re-evaluates only migration-0031 + migration-0048's optional AutomationDefinition→WorkflowDefinition relationship: exact optional reference id plus canonical broader/equal PLATFORM/TENANT/INDUSTRY containment.
+DD-177 re-evaluates only migration-0031 + migration-0048's PromptSetMember relationship: exact PromptSet/PromptTemplate ids, raw ACTIVE status on both definitions, and PromptTemplate broader/equal containment of PromptSet scope.
 
-A true result is not WorkflowDefinition currentness, version/effective-date selection, state-machine/approval/rule interpretation, trigger/condition evaluation, OperationContract/Workflow dispatch or Automation/Workflow execution authority.
+A true result is not effective-member selection, priority ordering, enabled filtering, current-version selection, prompt rendering, provider/model selection, tool/agent execution or AI inference authority.
 
-Evidence: `Registers/DEVELOPMENT_DD176_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD177_VERIFICATION_2026-09-24.md`.
 
-Next: fresh source-audit another independent prerequisite; do not infer OperationContract execution/validation from raw AutomationDefinition text references.
+Next: fresh source-audit another independent AI relationship prerequisite; do not infer effective-set resolution or AI execution semantics.

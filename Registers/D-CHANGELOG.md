@@ -177,3 +177,6 @@ DD-176 promotion `0e586f7288dd9f6624f0bfa7071d97a0549fb586` / tree `201de95d4d02
 
 ## 2026-09-24 — Post-DD-176 DD-177 prerequisite selection
 Fresh AI reconciliation selected migration 0031 + migration 0048's PromptSetMember→ACTIVE PromptSet + ACTIVE PromptTemplate + broader/equal containment relationship as the next independent source-complete prerequisite. Priority/enabled effective-set resolution, rendering and AI execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-177 canonical promotion / checkpoint advance
+DD-177 promotion `ffb619a50a7f281649e989a21c3990abc7434419` / tree `ece532fbc88043c37393e8b476c85e5a514b2300` passed exact-head **486 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-PROMPT-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. Effective-set selection/rendering and AI execution semantics remain unclaimed.

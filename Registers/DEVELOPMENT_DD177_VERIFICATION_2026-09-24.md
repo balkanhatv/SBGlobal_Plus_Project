@@ -38,6 +38,14 @@ A true result is not effective PromptSet resolution, rendering or AI execution a
 
 DD-177 does not list/order/filter effective members; choose current/latest definitions; render templates; validate variable/override/grounding policy; resolve IndustryAIConfig; compose prompts; choose providers/models/policies; execute tools/agents; mutate persistence; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-177 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-177 decision, acceptance and Detailed Design changelog are committed in `ffb619a50a7f281649e989a21c3990abc7434419` / tree `ece532fbc88043c37393e8b476c85e5a514b2300`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35982061284`, Core job `107576049554`: **SUCCESS — 486/486**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107576049432`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `35982061330`, job `107576049416`: **SUCCESS**.
+- Web Boundary Verify run `35982061193`, job `107576050070`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-AI-PROMPT-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.
