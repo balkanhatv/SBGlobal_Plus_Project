@@ -80,6 +80,7 @@ export * from "./integration/credential-reference-metadata.js";
 export * from "./integration/sync-cursor.js";
 export * from "./integration/sync-cursor-binding-floors.js";
 export * from "./integration/tenant-integration-credential-floors.js";
+export * from "./integration/tenant-integration-definition-capability-floors.js";
 export * from "./notification/delivery.js";
 export * from "./notification/delivery-attempt.js";
 export * from "./notification/template.js";
