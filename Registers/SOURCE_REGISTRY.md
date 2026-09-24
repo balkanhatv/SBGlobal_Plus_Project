@@ -35,9 +35,9 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 - API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
 ## Current audit / continuation evidence — 2026-09-24
-- Current checkpoint: `DEV-AI-AGENT-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`.
-- DD-181 source audit: `Development/AI_AGENT_RUN_DEFINITION_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- DD-181 verification: `Registers/DEVELOPMENT_DD181_VERIFICATION_2026-09-24.md`.
-- Canonical promotion: `f86218e900ac3ed068238e8e4e9881dde5ee8e8e` / `a514b6c24d8c9a5dcd4c19c4dccbee96a764c793`; 514 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
-- Next audit: AgentStep TOOL binding relationship; acting-principal/membership and approval/runtime checks remain separate.
+- Current checkpoint: `DEV-AI-AGENT-STEP-TOOL-BINDING-CURRENT-FLOORS-001`.
+- DD-182 source audit: `Development/AI_AGENT_STEP_TOOL_BINDING_CURRENT_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- DD-182 verification: `Registers/DEVELOPMENT_DD182_VERIFICATION_2026-09-24.md`.
+- Canonical promotion: `8b36c0f86e5b8930e2c49a64a1d5b82eff0fd8db` / `a985d9fab1a30de000387ab6cf7fcfacacf99355`; 521 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
+- Next audit: optional AgentStep→AgentApproval exact backlink currentness.
 - RawSource accepted blobs remain unchanged.
