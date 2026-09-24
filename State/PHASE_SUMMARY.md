@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-OPERATOR-ELEVATION-CORE-NECESSARY-FLOORS-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-OPERATOR-ELEVATION-RLS-PARITY-001`
 
-Verified executable `0aab1a264a3f01cc4d6121184f3224ada24cfa6e` / tree `d9ee379129dcee062f625ed2d75ef8b7b3377b5c`: **346/346 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `91b7db1696701b90e27c3e622c6b39df82fc67c3` / tree `e38ec10d70b4affa29cca55a742c8b9ca2b9cbdf`: **346/346 Core**, **476/476 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `94c38c4d5639636bbb86f7e275375f0c71211199` / tree `3222cb8c5192d40b47109f63633dcc1abdfc49a4`: Core run `35924394665` (Core job `107395883267`, PostgreSQL job `107395882988`), Database run `35924394619` (job `107395883286`), Web run `35924394760` (job `107395882724`) — SUCCESS; **152 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `f4168ea19b693934bf9971608147911d83e2afb6` / tree `65ddf4725ef8ccdad1b44fffa17b957322dcf86f`: Core run `35941965972` (Core job `107451593773`, PostgreSQL job `107451593496`), Database run `35941965967` (job `107451593412`), Web run `35941965946` (job `107451593407`) — SUCCESS; **153 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-152 composes DD-148…151 necessary floors only. Matching all four does not establish trusted selection or final elevation authorization.
+DD-153 proves physical OperatorElevation current-read RLS parity under `sbg_app_rw`. Runtime elevation remains inactive because RequestContext/RequestScopedSql still carry no trusted selected elevation id.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep trusted selected-id source, step-up/MFA policy, permission/effective-permission evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.
+Next: Fresh source-audit trusted selected-id sourcing, step-up/MFA, permission/effective-permission, approval/purpose, RequestContext/SQL injection and mandatory elevation-use audit prerequisites.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
