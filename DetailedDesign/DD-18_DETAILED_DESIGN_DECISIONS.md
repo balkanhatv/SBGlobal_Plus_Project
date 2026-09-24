@@ -2413,3 +2413,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `NOTIF-INT-CUR-001…007` in DD-17 and `tests/core/notification-integration-binding-floors.test.mjs`.
 
+## DD-169 — NotificationDelivery optional source-event binding may be re-evaluated as a pure exact-scope relationship floor without authorizing dispatch
+
+**Context:** DD-098 exposes raw NotificationDelivery evidence and DD-090 exposes raw OutboxEvent evidence. Migration 0031 conditionally validates `source_event_id`: when present, the referenced event must be same-Tenant, exact scope-class equal and exact nullable Industry Context equal to the delivery. When absent, no source-event relationship is required.
+
+**Decision:** add pure Core helper `matchesNotificationDeliverySourceEventBindingFloors(delivery, event?)`. It validates delivery identity/scope shape, treats absent source-event binding as valid only when no event evidence is supplied, and for present bindings requires exact event id, same Tenant, exact scope class and exact nullable Industry Context.
+
+**Security / trade-off:** the helper mirrors only migration-0031 relationship integrity. It deliberately ignores Outbox dispatcher lifecycle, availability, attempts, locks, errors, catalog status and payload/envelope semantics.
+
+**Boundary:** DD-169 does not decide event readiness; claim/lease/lock/increment/retry/DLQ/replay; interpret payload/envelope schemas; validate EventCatalog lifecycle/webhook eligibility; send/retry notifications; select providers/adapters; access secrets; validate template/recipient/integration current integrity; execute callbacks/OperationContracts/events/network; mutate state; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `NOTIF-EVT-CUR-001…007` in DD-17 and `tests/core/notification-source-event-binding-floors.test.mjs`.
+

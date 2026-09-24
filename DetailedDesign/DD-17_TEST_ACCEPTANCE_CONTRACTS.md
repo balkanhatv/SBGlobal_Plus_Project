@@ -2577,3 +2577,26 @@ Malformed delivery/integration identity or delivery scope shape fails; extra int
 ### NOTIF-INT-CUR-007 — Delivery/provider/runtime semantics remain uninterpreted
 Template/recipient/channel/delivery status/timestamps/error and integration Definition/credential/config/capability/health/profile evidence do not create acceptance, and inputs remain unchanged.
 
+## DD-169 NotificationDelivery OutboxEvent Current-Binding Acceptance
+
+### NOTIF-EVT-CUR-001 — Unbound delivery requires no event evidence
+A valid delivery without `sourceEventId` matches only when no OutboxEvent evidence is supplied.
+
+### NOTIF-EVT-CUR-002 — Exact Tenant-Core source event matches
+A same-Tenant TENANT_CORE event with absent Industry Context and exact id satisfies the relationship.
+
+### NOTIF-EVT-CUR-003 — Exact Tenant-Industry source event matches
+A same-Tenant TENANT_INDUSTRY event with exact Industry Context satisfies the relationship; sibling Industry fails.
+
+### NOTIF-EVT-CUR-004 — Event identity, Tenant or scope mismatch fails
+Wrong event id, foreign Tenant or mismatched scope class fails closed.
+
+### NOTIF-EVT-CUR-005 — Platform/cross-context events cannot satisfy notification binding
+PLATFORM_GLOBAL and EXPLICIT_CROSS_CONTEXT event evidence cannot satisfy a TENANT_CORE/TENANT_INDUSTRY NotificationDelivery relationship.
+
+### NOTIF-EVT-CUR-006 — Malformed ownership or unexpected evidence fails closed
+Malformed delivery/event identity/scope shape fails; extra event evidence for an unbound delivery fails.
+
+### NOTIF-EVT-CUR-007 — Dispatcher/payload and delivery semantics remain uninterpreted
+Event type/version/aggregate/envelope/status/attempt/availability/lock/error and delivery channel/template/recipient/status/timestamps do not create acceptance, and inputs remain unchanged.
+
