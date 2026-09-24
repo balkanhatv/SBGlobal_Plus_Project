@@ -234,3 +234,6 @@ Fresh AI-memory reconciliation selected migration 0031's optional AIMemoryRecord
 
 ## 2026-09-24 — DD-186 canonical promotion / checkpoint advance
 DD-186 promotion `c354aa1422c68a5e0ef2a2b96e28f6384da0e102` / tree `0262e2f2c33c2ab0beabdc432b232fb3eead1a39` passed exact-head **549 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001`. Memory principal/supersession/retention/ACL and AI execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-186 DD-187 prerequisite selection
+Fresh AIMemoryRecord reconciliation selected migration 0031's optional direct supersedes relationship as the next independent source-complete prerequisite: non-self reference plus exact parent id, same Tenant, null-safe same Industry, null-safe same principal and same memory class. Parent/child lifecycle status, chronology, chain traversal/current-memory selection, principal authorization, retention/ACL and AI runtime semantics remain explicitly outside the floor.
