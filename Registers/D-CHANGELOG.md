@@ -129,3 +129,6 @@ Promotion `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / tree `c74f9411a25cbbfb27c
 
 ## 2026-09-24 — Post-DD-168 DD-169 prerequisite selection
 Fresh Notification reconciliation selected migration 0031's optional NotificationDelivery→OutboxEvent relationship as the next independent source-complete prerequisite. The bounded floor covers exact source-event id, same Tenant, exact scope class and exact nullable Industry Context only. Outbox readiness/status/attempt/lock/retry/payload and notification send/provider execution remain unclaimed.
+
+## 2026-09-24 — DD-169 canonical promotion / checkpoint advance
+DD-169 promotion `19d4af6b662e6c8de7df0fc54c1a61aab09a5b3f` / tree `264cfb4d5df164ea1e1893013698cb17b811f919` passed exact-head **437 Core / 497 PostgreSQL** plus Database/Web. Projections advanced to `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`. Post-promotion source review flagged `definition_applies_to_scope()` NULL/fail-closed behavior as the next prerequisite before NotificationTemplate relationship continuation.

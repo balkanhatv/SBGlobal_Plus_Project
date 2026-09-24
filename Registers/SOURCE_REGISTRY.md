@@ -35,8 +35,9 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 - API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
 ## Current audit / continuation evidence — 2026-09-24
-- Current checkpoint: `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`.
-- DD-168 source audit: `Development/NOTIFICATION_DELIVERY_INTEGRATION_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- DD-168 verification: `Registers/DEVELOPMENT_DD168_VERIFICATION_2026-09-24.md`.
-- Canonical promotion `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / `c74f9411a25cbbfb27c39ff7a94fc856d03dc707`: 430 Core / 497 PostgreSQL + Database/Web PASS.
+- Current checkpoint: `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`.
+- DD-169 source audit: `Development/NOTIFICATION_DELIVERY_SOURCE_EVENT_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- DD-169 verification: `Registers/DEVELOPMENT_DD169_VERIFICATION_2026-09-24.md`.
+- Canonical promotion: `19d4af6b662e6c8de7df0fc54c1a61aab09a5b3f` / `264cfb4d5df164ea1e1893013698cb17b811f919`; 437 Core / 497 PostgreSQL + Database/Web exact-head CI PASS.
+- Next audit: `core_tenancy.definition_applies_to_scope()` SQL NULL/fail-closed semantics before template relationship continuation.
 - RawSource accepted blobs remain unchanged.

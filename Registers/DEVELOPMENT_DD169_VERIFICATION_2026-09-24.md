@@ -37,6 +37,14 @@ A true result is not Outbox dispatch or notification delivery authorization.
 
 DD-169 does not decide event readiness; claim/lease/lock/increment/retry/DLQ/replay; interpret payload/envelope schemas; validate EventCatalog lifecycle/webhook eligibility; send/retry notifications; select providers/adapters; access secrets; validate template/recipient/integration current integrity; execute callbacks/OperationContracts/events/network; mutate state or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-169 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-169 decision, acceptance and Detailed Design changelog are committed in `19d4af6b662e6c8de7df0fc54c1a61aab09a5b3f` / tree `264cfb4d5df164ea1e1893013698cb17b811f919`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35964991724`, Core job `107521492075`: **SUCCESS — 437/437**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107521492294`: **SUCCESS — 497/497**, 0 failed/skipped.
+- Database Verify run `35964991639`, job `107521492112`: **SUCCESS**.
+- Web Boundary Verify run `35964991529`, job `107521491443`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.

@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,16 +18,16 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-168.
+Current checkpoint: `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-169.
 
-Verified canonical DD-168 promotion `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / tree `c74f9411a25cbbfb27c39ff7a94fc856d03dc707`: **430/430 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35964087999` (Core job `107518729077`, PostgreSQL job `107518728838`), Database `35964088017` (job `107518728942`), Web `35964088007` (job `107518729003`).
+Verified canonical DD-169 promotion `19d4af6b662e6c8de7df0fc54c1a61aab09a5b3f` / tree `264cfb4d5df164ea1e1893013698cb17b811f919`: **437/437 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35964991724` (Core job `107521492075`, PostgreSQL job `107521492294`), Database `35964991639` (job `107521492112`), Web `35964991529` (job `107521491443`).
 
-DD-168 re-evaluates only migration-0031's optional NotificationDelivery→TenantIntegration relationship: absent binding requires no integration evidence; present binding requires exact id, same Tenant, raw ACTIVE integration and Tenant-wide-or-exact-Industry compatibility.
+DD-169 re-evaluates only migration-0031's optional NotificationDelivery→OutboxEvent source relationship: exact source-event id, same Tenant, exact scope class and exact nullable Industry Context. An unbound delivery requires no event evidence.
 
-A true result is not notification send/retry/provider/secret/network authorization and does not compose DD-167 Integration current-integrity automatically.
+A true result is not Outbox readiness/dispatch/retry or notification execution authority.
 
-Locked boundaries include DD-162 machine verification, DD-163 Webhook execution, DD-164 SyncCursor runtime, TenantIntegration lifecycle/provider/secret execution beyond DD-167, and notification provider/retry/template/recipient/source-event execution beyond DD-168.
+A fresh post-DD-169 source review found a separate fail-closed prerequisite before NotificationTemplate relationship composition: `core_tenancy.definition_applies_to_scope()` can return SQL NULL for mismatched nullable scope inputs, while callers commonly use `NOT function(...)` inside integrity triggers. That boundary must be audited/corrected before deriving a template current-binding helper.
 
-Evidence: `Registers/DEVELOPMENT_DD168_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD169_VERIFICATION_2026-09-24.md`.
 
-Next: source-audit another exact migration-0031 relationship prerequisite only if evidence sources are complete.
+Next: source-audit the definition applicability NULL/fail-closed boundary; do not open NotificationTemplate execution semantics until it is resolved.

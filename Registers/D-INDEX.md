@@ -1,12 +1,12 @@
 # D-INDEX — Current Canonical / Development Index
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`
 
-Current bounded Development: DD-168 NotificationDelivery→TenantIntegration relationship currentness. Detailed Design is contiguous DD-001–168.
+Current bounded Development: DD-169 NotificationDelivery→OutboxEvent exact-scope current-binding floor. Detailed Design is contiguous DD-001–169.
 
 Canonical invariants: 9 equal Industries; 41 MS; 181 Industry tables; 2,962 preserved source requirements; exactly two logical Tenant mobile app classes.
 
-Locked: final machine verifier, Webhook execution, SyncCursor runtime, TenantIntegration provider/secret/runtime authority, Notification send/retry/provider/secret/template/recipient/source-event execution.
+Verified canonical DD-169 promotion `19d4af6b662e6c8de7df0fc54c1a61aab09a5b3f` / tree `264cfb4d5df164ea1e1893013698cb17b811f919`: **437/437 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35964991724` (Core job `107521492075`, PostgreSQL job `107521492294`), Database `35964991639` (job `107521492112`), Web `35964991529` (job `107521491443`).
 
-Verified canonical DD-168 promotion `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / tree `c74f9411a25cbbfb27c39ff7a94fc856d03dc707`: **430/430 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35964087999` (Core job `107518729077`, PostgreSQL job `107518728838`), Database `35964088017` (job `107518728942`), Web `35964088007` (job `107518729003`).
+Next governed prerequisite: audit/fix fail-closed definition applicability before NotificationTemplate relationship continuation.
 
-Production readiness is not claimed.
+Production readiness: **NOT CLAIMED**.
