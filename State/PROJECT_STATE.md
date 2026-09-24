@@ -1,16 +1,16 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified canonical DD-166 promotion `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa`: **416/416 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35962194480` (Core job `107512961272`, PostgreSQL job `107512961095`), Database `35962194510` (job `107512961584`), Web `35962194556` (job `107512961646`).
+Verified canonical DD-167 promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94`: **423/423 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35963182069` (Core job `107515946043`, PostgreSQL job `107515945847`), Database `35963181908` (job `107515945257`), Web `35963181936` (job `107515945440`).
 
-DD-166 adds only a pure TenantIntegration Definition/config/enabled-capability current-set necessary floor. A true result is not execution authority.
+DD-167 adds only the pure TenantIntegration current-integrity composition of DD-165 + DD-166. A true result is not execution authority.
 
-Canonical invariants remain **9 equal Current Supported Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, exactly **two logical Tenant mobile app classes** (`TENANT_STAFF_APP` + `TENANT_USER_APP`), and contiguous **ADR-001–020 / DD-001–166**.
+Canonical invariants remain **9 equal Current Supported Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, exactly **two logical Tenant mobile app classes** (`TENANT_STAFF_APP` + `TENANT_USER_APP`), and contiguous **ADR-001–020 / DD-001–167**.
 
-DD-162 machine-auth, DD-163 Webhook execution, DD-164 SyncCursor runtime and DD-165 secret/provider runtime boundaries remain intentionally locked.
+Machine verification, Webhook execution, SyncCursor runtime, TenantIntegration lifecycle/health/profile/provider/secret/network semantics remain locked unless separately source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD167_VERIFICATION_2026-09-24.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.

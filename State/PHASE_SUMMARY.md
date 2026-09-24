@@ -1,13 +1,13 @@
 # PHASE SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`
 
-Verified canonical DD-166 promotion `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa`: **416/416 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35962194480` (Core job `107512961272`, PostgreSQL job `107512961095`), Database `35962194510` (job `107512961584`), Web `35962194556` (job `107512961646`).
+Verified canonical DD-167 promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94`: **423/423 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35963182069` (Core job `107515946043`, PostgreSQL job `107515945847`), Database `35963181908` (job `107515945257`), Web `35963181936` (job `107515945440`).
 
-DD-166 is a bounded TenantIntegration Definition/config/enabled-capability current-set necessary floor only. It is not execution authority.
+DD-167 is a bounded no-new-semantics composition of DD-165 and DD-166 only. It does not authorize TenantIntegration lifecycle/provider/secret/runtime execution.
 
 Canonical invariants remain 9 equal Industries / 41 MS / 181 Industry tables / 2,962 preserved requirements / exactly two logical Tenant mobile app classes.
 
-Next: source-audit a no-new-semantics DD-165 + DD-166 composition before any further implementation.
+Next: fresh source-audit another independent prerequisite; open a new DD only if deterministic semantics are source-complete.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

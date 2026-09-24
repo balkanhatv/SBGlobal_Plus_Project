@@ -117,3 +117,6 @@ DD-166 canonical decision/acceptance/evidence promotion `b16bf902aba7bc0c8324048
 
 ## 2026-09-24 — Post-DD-166 DD-167 composition prerequisite
 Migration 0030 owns DD-165 credential currentness and DD-166 Definition/config/enabled-capability integrity as one write-time predicate. DD-167 is authorized only as their boolean conjunction with no new primitive semantics. TenantIntegration lifecycle/health/profile/provider/secret/network authority remains explicitly unclaimed.
+
+## 2026-09-24 — DD-167 canonical promotion / checkpoint advance
+DD-167 canonical decision/acceptance/evidence promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94` passed exact-head **423 Core / 497 PostgreSQL** plus Database/Web CI. Current DD/Development/State/Register projections advanced to `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`. No lifecycle/provider/secret/network authority was added; RawSource/main unchanged; PR #2 remains draft/unmerged.

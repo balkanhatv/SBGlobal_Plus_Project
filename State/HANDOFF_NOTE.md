@@ -1,16 +1,18 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`
 
 Fresh-fetch remote branch/HEAD/tree/checks before further work.
 
-Verified canonical DD-166 promotion `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa`: **416/416 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35962194480` (Core job `107512961272`, PostgreSQL job `107512961095`), Database `35962194510` (job `107512961584`), Web `35962194556` (job `107512961646`).
+Verified canonical DD-167 promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94`: **423/423 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35963182069` (Core job `107515946043`, PostgreSQL job `107515945847`), Database `35963181908` (job `107515945257`), Web `35963181936` (job `107515945440`).
 
-DD-166 is only the TenantIntegration Definition/config/enabled-capability current-set necessary floor. It is not TenantIntegration ACTIVE/executable authority, provider selection, secret access or network execution.
+DD-167 is only the DD-165 + DD-166 current-integrity composition. It is not lifecycle, provider, secret or network execution authority.
 
-Keep DD-162 machine verification, DD-163 Webhook execution, DD-164 SyncCursor runtime and DD-165 secret/provider runtime boundaries locked unless a fresh source audit proves otherwise.
+Keep locked unless a fresh source audit proves otherwise:
+- DD-162 final machine verifier/token/CIDR/profile/use-audit/final evidence;
+- DD-163 Webhook filter/endpoint/SSRF/signing/catalog-lifecycle/dispatcher/retry/cross-context/network execution;
+- DD-164 cursor freshness/resume/provider/sync execution;
+- TenantIntegration lifecycle/health/profile/provider/secret/OperationContract/event/callback/network execution beyond DD-167.
 
-Next: source-audit a no-new-semantics DD-165 + DD-166 composition before implementing it.
+Canonical invariants: 9 equal Industries, 41 MS, exactly two logical Tenant mobile app classes, Tenant+Industry isolation, RawSource immutability, no merge to `main`.
 
-Canonical invariants: 9 equal Industries, 41 MS, exactly two logical Tenant mobile app classes, Tenant+Industry isolation, RawSource immutability, and no merge to `main`.
-
-Evidence: `Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md`.
+PR #2 remains draft/unmerged.

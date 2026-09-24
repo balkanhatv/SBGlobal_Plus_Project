@@ -35,9 +35,9 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 - API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
 ## Current audit / continuation evidence — 2026-09-24
-- Current checkpoint: `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`.
-- DD-166 source audit: `Development/TENANT_INTEGRATION_DEFINITION_CAPABILITY_CURRENT_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- DD-166 verification: `Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md`.
-- Canonical promotion: `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / `4ee6a211b760b6dce34ff187df1d63473f970dfa`; 416 Core / 497 PostgreSQL + Database/Web exact-head CI PASS.
-- Machine verifier, Webhook execution, SyncCursor runtime, secret/provider runtime and TenantIntegration execution remain blocked outside their bounded floors.
+- Current checkpoint: `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`.
+- DD-167 source audit: `Development/TENANT_INTEGRATION_CURRENT_INTEGRITY_COMPOSITION_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- DD-167 verification: `Registers/DEVELOPMENT_DD167_VERIFICATION_2026-09-24.md`.
+- Canonical promotion: `ecf694f8bf62082b2d59905591a97b237b866b8b` / `dc96af06648f79a606ce5ea24254e52f716c7f94`; 423 Core / 497 PostgreSQL + Database/Web exact-head CI PASS.
+- Machine-verifier, Webhook execution, SyncCursor runtime and TenantIntegration lifecycle/provider/secret/network semantics remain blocked outside bounded floors.
 - RawSource accepted blobs remain unchanged.

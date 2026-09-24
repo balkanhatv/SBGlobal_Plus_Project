@@ -37,6 +37,14 @@ DD-167 does not make TenantIntegration ACTIVE/executable/healthy; resolve permis
 
 DD-162 machine-verifier and DD-163 Webhook-execution boundaries remain independently locked.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-167 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-167 decision, acceptance and Detailed Design changelog are committed in `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35963182069`, Core job `107515946043`: **SUCCESS — 423/423**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107515945847`: **SUCCESS — 497/497**, 0 failed/skipped.
+- Database Verify run `35963181908`, job `107515945257`: **SUCCESS**.
+- Web Boundary Verify run `35963181936`, job `107515945440`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`. State synchronization changes documentation only.

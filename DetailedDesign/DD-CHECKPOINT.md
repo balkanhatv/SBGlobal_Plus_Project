@@ -30,16 +30,16 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`. Decisions are contiguous through DD-166.
+Current checkpoint: `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`. Decisions are contiguous through DD-167.
 
-Verified canonical DD-166 promotion `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa`: **416/416 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35962194480` (Core job `107512961272`, PostgreSQL job `107512961095`), Database `35962194510` (job `107512961584`), Web `35962194556` (job `107512961646`).
+Verified canonical DD-167 promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94`: **423/423 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35963182069` (Core job `107515946043`, PostgreSQL job `107515945847`), Database `35963181908` (job `107515945257`), Web `35963181936` (job `107515945440`).
 
-DD-166 re-evaluates only migration-0030-owned TenantIntegration Definition/config/enabled-capability current-set predicates: exact IntegrationDefinition identity and raw ACTIVE status, JSON-object config, duplicate-free enabled capability codes, Definition membership and one exact ACTIVE IntegrationCapability for every enabled code. Empty enabled sets are valid.
+DD-167 composes only the already-owned DD-165 credential current-binding floor and DD-166 Definition/config/enabled-capability current-set floor for the same TenantIntegration evidence. No new primitive predicate, fallback or precedence is introduced.
 
-A true result is not TenantIntegration execution, capability authorization, provider selection, secret access or network authority.
+A true result is not TenantIntegration lifecycle/execution, provider selection, secret access, permission-profile resolution, callback/sync, OperationContract/event or network authority.
 
-DD-162 machine verification, DD-163 Webhook execution, DD-164 SyncCursor runtime and DD-165 credential secret/provider-runtime boundaries remain locked. DD-166 does not widen them.
+DD-162 machine verification, DD-163 Webhook execution and DD-164 SyncCursor runtime boundaries remain locked. DD-167 also leaves TenantIntegration lifecycle/health/profile/provider/secret/network semantics unclaimed.
 
-Evidence: `Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD167_VERIFICATION_2026-09-24.md`.
 
-Next: source-audit a bounded composition of DD-165 and DD-166 only if it adds no new semantics; otherwise select another source-complete prerequisite.
+Next: source-audit another independent prerequisite only where governing source owns deterministic behavior and executable acceptance.
