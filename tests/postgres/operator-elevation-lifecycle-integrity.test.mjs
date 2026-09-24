@@ -19,6 +19,7 @@ const f = Object.fromEntries([
   "otherTenant",
   "industry",
   "otherIndustry",
+  "otherTenantIndustry",
   "operator",
 ].map((key) => [key, randomUUID()]));
 
@@ -116,8 +117,9 @@ before(async () => {
         (id,tenant_id,industry_code,status,is_primary,created_at,updated_at)
        VALUES
         ($1::uuid,$3::uuid,'RTL','ACTIVE',true,now(),now()),
-        ($2::uuid,$3::uuid,'MFG','ACTIVE',false,now(),now())`,
-      [f.industry, f.otherIndustry, f.tenant],
+        ($2::uuid,$3::uuid,'MFG','ACTIVE',false,now(),now()),
+        ($4::uuid,$5::uuid,'RTL','ACTIVE',true,now(),now())`,
+      [f.industry, f.otherIndustry, f.tenant, f.otherTenantIndustry, f.otherTenant],
     );
 
     await setup.query(
@@ -142,7 +144,7 @@ after(async () => {
       );
       await cleanup.query(
         "DELETE FROM core_tenancy.industry_context WHERE id=ANY($1::uuid[])",
-        [[f.industry, f.otherIndustry]],
+        [[f.industry, f.otherIndustry, f.otherTenantIndustry]],
       );
       await cleanup.query(
         "DELETE FROM core_tenancy.tenant WHERE id=ANY($1::uuid[])",
