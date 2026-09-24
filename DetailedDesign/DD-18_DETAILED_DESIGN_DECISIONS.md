@@ -2352,3 +2352,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-163 does not parse/evaluate `eventFilterJson`; verify endpoint control; perform DNS/IP/redirect SSRF checks; access/generate/decrypt/rotate signing secrets; produce HMAC signatures; decide claim/lease/readiness/ordering/retry/DLQ/replay; authorize EXPLICIT_CROSS_CONTEXT; interpret EventCatalog ACTIVE/RETIRED status; interpret `permissionProfileId`; create WebhookDelivery rows; make network calls; expose a route; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `WH-FLOOR-001` through `WH-FLOOR-007` in DD-17 and `tests/core/webhook-delivery-floors.test.mjs`.
+
+## DD-164 — SyncCursor current parent/capability binding may be re-evaluated as a pure necessary floor without authorizing synchronization
+
+**Context:** DD-093 exposes exact IntegrationCapability registry evidence, DD-095 exposes exact RLS-visible TenantIntegration evidence, and DD-097 exposes the exact raw SyncCursor tuple while deliberately leaving the cursor payload opaque. Migration 0030 already owns the deterministic write-time binding predicate: the parent TenantIntegration is ACTIVE, the exact capability belongs to the same IntegrationDefinition and is ACTIVE, the capability code is present in the integration's enabled set, and the nullable Industry Context exactly matches the parent integration.
+
+**Decision:** add pure Core helper `matchesCurrentSyncCursorBindingFloors(cursor, tenantIntegration, capability)`. It re-evaluates only those already-owned binding predicates over supplied immutable evidence. It requires valid identifier shape, exact cursor→TenantIntegration identity, ACTIVE TenantIntegration, exact IntegrationDefinition/capability identity, ACTIVE capability, exact enabled-capability membership, duplicate-free enabled-capability evidence and exact TENANT_CORE/TENANT_INDUSTRY Industry shape.
+
+**Security / trade-off:** a persisted cursor can outlive changes to its parent integration or capability, so rechecking these predicates narrows accidental use of stale binding evidence. The helper does not make separately loaded snapshots atomic and does not turn a true result into sync/resume/provider authority.
+
+**Boundary:** DD-164 does not decrypt or interpret cursor contents; decide cursor freshness from watermark/source version/update time; interpret Integration health/config/permission profile or capability direction/rate/idempotency/data class; select a ProviderAdapter; read CredentialReference or secret material; execute OperationContracts/events; mutate cursor/integration/capability state; authorize resume/replay/synchronization; perform provider/network calls; or change migrations/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `SYNC-BIND-001` through `SYNC-BIND-007` in DD-17 and `tests/core/sync-cursor-binding-floors.test.mjs`.
+

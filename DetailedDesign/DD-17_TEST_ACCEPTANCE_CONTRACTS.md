@@ -2461,3 +2461,27 @@ EXPLICIT_CROSS_CONTEXT returns false because authoritative source/target endpoin
 
 ### WH-FLOOR-007 — Unowned delivery semantics remain uninterpreted
 Endpoint URL, event filter, permission profile, secret version, Outbox readiness/status/attempt evidence, catalog ACTIVE/RETIRED lifecycle and retry evidence do not affect this helper, and inputs are not mutated.
+
+## DD-164 SyncCursor Current-Binding Necessary-Floor Acceptance
+
+### SYNC-BIND-001 — Exact active Tenant-Industry binding matches
+An exact SyncCursor→TenantIntegration id, exact active capability under the same IntegrationDefinition, enabled capability membership and exact Tenant-Industry Context may satisfy the bounded floor.
+
+### SYNC-BIND-002 — Exact active Tenant-Core null-Industry binding matches
+TENANT_CORE satisfies the bounded floor only when both parent and cursor carry no Industry Context.
+
+### SYNC-BIND-003 — Non-active TenantIntegration fails
+PENDING, PAUSED, ERROR and REVOKED TenantIntegration state fail regardless of other matching evidence.
+
+### SYNC-BIND-004 — Capability/definition/current enablement mismatch fails
+A different IntegrationDefinition, different capability code, capability absent from the enabled set, or non-ACTIVE capability fails closed.
+
+### SYNC-BIND-005 — Industry shape mismatch fails
+Sibling, missing or unexpected Industry Context evidence fails; Tenant-Core and Tenant-Industry shapes cannot substitute for each other.
+
+### SYNC-BIND-006 — Malformed identity or duplicate enabled-capability evidence fails closed
+Malformed required UUIDs, blank capability identity or duplicate enabled-capability evidence cannot satisfy the floor.
+
+### SYNC-BIND-007 — Cursor/provider runtime semantics remain uninterpreted
+Cursor payload, watermark/source version/update time, TenantIntegration health/config/profile and capability direction/event/rate/idempotency/data-class evidence do not create acceptance, and inputs remain unchanged.
+
