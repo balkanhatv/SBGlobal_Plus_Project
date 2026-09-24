@@ -2222,3 +2222,27 @@ PENDING, REVOKED and expired-by-time elevations remain invisible even when selec
 
 ### OPELEV-RLS-PG-007 — Empty elevation scope is closed and app role cannot mutate
 Empty transaction-local elevation scope yields zero ordinary-app visibility and `sbg_app_rw` retains no INSERT/UPDATE/DELETE authority on `core_authz.operator_elevation`.
+
+
+## DD-154 OperatorElevation Persisted Relationship Integrity Acceptance
+
+### OPELEV-REL-PG-001 — ACTIVE operator + distinct active PLATFORM_OPERATOR approver is accepted
+A persisted ACTIVE elevation is accepted when its operator principal is an ACTIVE PLATFORM_OPERATOR and `approved_by` references a different ACTIVE PLATFORM_OPERATOR.
+
+### OPELEV-REL-PG-002 — ACTIVE operator + distinct active SERVICE approver is accepted
+A distinct ACTIVE SERVICE principal satisfying the existing PlatformPrincipal SERVICE contract is accepted as persisted approver evidence.
+
+### OPELEV-REL-PG-003 — ACTIVE elevation without approver is rejected
+An ACTIVE elevation with NULL `approved_by` is rejected by migration 0031's relationship-integrity trigger.
+
+### OPELEV-REL-PG-004 — Self-approval is rejected
+An ACTIVE elevation cannot use its own operator principal as `approved_by`.
+
+### OPELEV-REL-PG-005 — Inactive approver is rejected
+An ACTIVE elevation whose approver principal is not ACTIVE is rejected.
+
+### OPELEV-REL-PG-006 — Operator must be an ACTIVE PLATFORM_OPERATOR
+A HUMAN principal or a non-ACTIVE PLATFORM_OPERATOR cannot be persisted as the elevation operator principal, including while the elevation is PENDING.
+
+### OPELEV-REL-PG-007 — PENDING may be unapproved but ACTIVE promotion revalidates approver integrity
+A PENDING elevation may persist without an approver; updating it to ACTIVE without a valid independent active approver is rejected.

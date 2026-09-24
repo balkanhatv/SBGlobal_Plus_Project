@@ -2223,3 +2223,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-153 does not add elevation fields to RequestContext; allow RequestScopedSql to populate elevation scope; choose/trust an elevation id; make client selection authoritative; prove PLATFORM_OPERATOR type in SQL; interpret permission profiles or approval/purpose/ticket policy; decide step-up; grant business access; emit elevation-use audit; mutate elevation state; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `OPELEV-RLS-PG-001` through `OPELEV-RLS-PG-007` in DD-17 and `tests/postgres/operator-elevation-rls-current-read.test.mjs`.
+
+
+## DD-154 — OperatorElevation persisted operator/approver relationships are enforced by migration 0031 without constituting complete approval authorization
+
+**Context:** migration 0031 owns `core_authz.validate_operator_elevation()` and its BEFORE INSERT/UPDATE trigger. The trigger requires every elevation operator principal to exist as an ACTIVE PLATFORM_OPERATOR. For `status='ACTIVE'`, `approved_by` must exist, differ from the operator principal, and identify an ACTIVE PLATFORM_OPERATOR or SERVICE. DD-153's first physical RLS fixture surfaced this integrity rule. DD-16 separately states that broader approval requirements may depend on sensitivity and Tenant/compliance policy.
+
+**Decision:** add PostgreSQL acceptance `tests/postgres/operator-elevation-relationship-integrity.test.mjs` proving the migration-owned relationship rules across insert and update paths. The test uses disposable source-valid tenancy and principal fixtures and does not add any production mutation API.
+
+**Security / trade-off:** persisted relationship integrity prevents missing, self, inactive or invalid operator/approver principals from becoming ACTIVE elevation state. It is intentionally not interpreted as proof that a particular approver was policy-authorized for a particular request; broader approval, purpose, sensitivity, compliance and step-up rules remain separate.
+
+**Boundary:** DD-154 does not implement elevation create/approve/activate APIs; decide who may approve a request; enforce Tenant/compliance approval policy; interpret purpose/ticket or `permission_profile_id`; require request-time revalidation of approver status; decide MFA/step-up; choose/trust selected elevation ids; inject RequestContext/SQL elevation scope; grant access; emit mandatory use audit; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `OPELEV-REL-PG-001` through `OPELEV-REL-PG-007` in DD-17 and `tests/postgres/operator-elevation-relationship-integrity.test.mjs`.
