@@ -119,6 +119,7 @@ export * from "./ai/agent-run.js";
 export * from "./ai/agent-run-definition-binding-floors.js";
 export * from "./ai/agent-step.js";
 export * from "./ai/agent-step-tool-binding-floors.js";
+export * from "./ai/agent-step-approval-backlink-floors.js";
 export * from "./ai/agent-approval.js";
 export * from "./ai/tenant-config.js";
 export * from "./ai/industry-config.js";
