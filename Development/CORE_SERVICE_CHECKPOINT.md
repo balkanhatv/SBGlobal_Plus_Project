@@ -1,16 +1,16 @@
-# CORE SERVICE CHECKPOINT — DEV-OPERATOR-ELEVATION-SQL-SCOPE-HYGIENE-001
+# CORE SERVICE CHECKPOINT — DEV-OPERATOR-ELEVATION-PERSISTED-LIFECYCLE-INTEGRITY-001
 **Updated:** 2026-09-24 · **Branch:** `docs/architecture-branch-2`
 
-Verified executable `96c839a8cdef384930ccb1132d80b767e1c4377e` / tree `6ae18f231883603df4c875e66ae63a0773c4aa2f`: **353/353 Core**, **483/483 PostgreSQL**, Database/Web PASS. Zero failed/skipped tests.
+Verified executable `821ccc7ae0cd59f4e78bace86c214dc339857f85` / tree `c28d9a5ad07b77052e7050a605f0d64981e49fa1`: **353/353 Core**, **490/490 PostgreSQL**, Database/Web PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `ac63d6fcc60de4c29b6cb496c690f389caef0228` / tree `7bdea938cac1053ae6c0b5f926ae125941c6c1e0`: Core run `35948679186` (Core job `107472259241`, PostgreSQL job `107472259359`), Database run `35948679155` (job `107472259206`), Web run `35948679161` (job `107472259244`) — SUCCESS; **155 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `2f62e58073baf1756629548c33f9837bc6fe5a4b` / tree `5d1c1322565ac2de094102b748b36dea0edb22e5`: Core run `35949826396` (Core job `107475752512`, PostgreSQL job `107475752635`), Database run `35949826400` (job `107475752473`), Web run `35949826409` (job `107475752440`) — SUCCESS; **156 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-`OPELEV-SQL-001…007` prove application/bootstrap startup clear, cleanup RESET before pool reuse, destroy-on-cleanup-failure, and RequestScopedSql refusal-by-omission of a smuggled elevation-id field.
+`OPELEV-LIFE-PG-001…007` prove valid PENDING persistence, invalid/equal/reversed windows rejected, revoked_at chronology enforced, REVOKED requiring revoked_at, valid revoked persistence, and immutable Tenant/Industry ownership.
 
 ## Remaining scope
 
-Trusted selected-elevation-id source and activation; step-up/MFA policy; permission-profile/effective-permission evaluation; broader Tenant/compliance approval and purpose/ticket policy; governed RequestContext integration; transaction-local non-empty `app.operator_elevation_id` injection; mandatory elevation-use audit; elevation mutation APIs; transport/UI remain unimplemented unless separately source-owned.
+Create/approve/activate/revoke/expire APIs; lifecycle transition authorization; trusted elevation-id selection/activation; step-up/MFA; permission-profile/effective-permission evaluation; broader approval/purpose/ticket policy; governed RequestContext integration; transaction-local non-empty `app.operator_elevation_id` injection; mandatory elevation-use audit; transport/UI remain unimplemented unless separately source-owned.
 
-Next: Fresh source-audit the next runtime prerequisite. Do not treat DD-155 hygiene verification as activation authority.
+Next: Fresh source-audit the next runtime prerequisite. Do not treat DD-156 persistence integrity as transition or activation authority.
 
-Evidence: `Registers/DEVELOPMENT_DD155_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD156_VERIFICATION_2026-09-24.md`.
