@@ -225,3 +225,6 @@ DD-184 promotion `6cf9b06340b5a168532c20b46faea681f4e68208` / tree `cdea91c0e536
 
 ## 2026-09-24 — Post-DD-184 DD-185 prerequisite selection
 Fresh AIConversation reconciliation selected migration 0031's optional AIConversation→AssistantDefinition exact id/ACTIVE/scope relationship as the next independent source-complete prerequisite. Owner-principal currentness and DD-179 nested AssistantDefinition relationship currentness are intentionally not auto-composed; AI selection/rendering/provider/tool execution remains unclaimed.
+
+## 2026-09-24 — DD-185 canonical promotion / checkpoint advance
+DD-185 promotion `2e5b10af8e48794e3a1a8a33a75ba9e9a0f6f732` / tree `314f9cac0230c5b129998d0cf9a00bd7b625ba37` passed exact-head **542 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-CONVERSATION-ASSISTANT-CURRENT-BINDING-FLOORS-001`. Conversation owner-principal and AI execution semantics remain unclaimed.

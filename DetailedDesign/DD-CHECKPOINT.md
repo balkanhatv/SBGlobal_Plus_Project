@@ -30,14 +30,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001`. Decisions are contiguous through DD-184.
+Current checkpoint: `DEV-AI-CONVERSATION-ASSISTANT-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-185.
 
-Verified canonical DD-184 promotion `6cf9b06340b5a168532c20b46faea681f4e68208` / tree `cdea91c0e5369fef1ff7106e53909d3b81cd2670`: **535/535 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `36019507513` (Core job `107700503908`, PostgreSQL job `107700504459`), Database `36019507341` (job `107700503937`), Web `36019507461` (job `107700504301`).
+Verified canonical DD-185 promotion `2e5b10af8e48794e3a1a8a33a75ba9e9a0f6f732` / tree `314f9cac0230c5b129998d0cf9a00bd7b625ba37`: **542/542 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `36021005972` (Core job `107705576112`, PostgreSQL job `107705575795`), Database `36021005903` (job `107705575980`), Web `36021005787` (job `107705574902`).
 
-DD-184 re-evaluates only migration-0031's AgentApproval→AgentRun/AgentStep parent chain and scope: exact run id, exact step id, exact step→run backlink, same Tenant and exact nullable Industry Context.
+DD-185 re-evaluates only migration-0031's optional AIConversation→AssistantDefinition relationship: exact assistant id, raw ACTIVE status and DD-170-corrected PLATFORM/TENANT/INDUSTRY scope applicability. An unbound conversation requires no AssistantDefinition evidence.
 
-A true result is not approval satisfaction, approver authorization/current permission, AgentRun resume/cancel, tool execution or provider/model execution authority.
+A true result is not conversation owner-principal authorization, effective assistant/version selection, DD-179 nested prompt/tool currentness, prompt/RAG/model/provider/tool resolution, retention handling, conversation-history loading or AI execution authority.
 
-Evidence: `Registers/DEVELOPMENT_DD184_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD185_VERIFICATION_2026-09-24.md`.
 
-Next: fresh source-audit another independent AI relationship prerequisite; do not infer approval satisfaction or Agent execution semantics.
+Next: fresh source-audit another independent AI relationship prerequisite; do not infer owner-principal or AI runtime semantics.

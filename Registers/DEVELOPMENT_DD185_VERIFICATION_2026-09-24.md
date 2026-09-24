@@ -38,6 +38,14 @@ A true result is not conversation-owner authorization or AI execution authorizat
 
 DD-185 does not validate owner-principal currentness; select effective Assistant versions; compose DD-179 nested PromptTemplate/ToolSet currentness; resolve prompt/RAG/model/provider/tool policy; enforce retention/erasure; load history; execute inference/RAG/tools/agents; mutate state; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-185 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-185 decision, acceptance and Detailed Design changelog are committed in `2e5b10af8e48794e3a1a8a33a75ba9e9a0f6f732` / tree `314f9cac0230c5b129998d0cf9a00bd7b625ba37`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `36021005972`, Core job `107705576112`: **SUCCESS — 542/542**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107705575795`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `36021005903`, job `107705575980`: **SUCCESS**.
+- Web Boundary Verify run `36021005787`, job `107705574902`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-AI-CONVERSATION-ASSISTANT-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.

@@ -1,10 +1,8 @@
 # REVIEW_REQUIRED — Historical Gates / Current Dependency Ownership
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-AI-CONVERSATION-ASSISTANT-CURRENT-BINDING-FLOORS-001`
 
 No general approval request is pending. Missing contracts are dependency blocks, not implied approvals.
 
-DD-184 covers only AgentApproval→AgentRun/AgentStep parent/scope currentness.
+DD-185 covers only AIConversation→optional AssistantDefinition currentness. Conversation owner-principal currentness, effective Assistant selection, nested prompt/tool currentness and AI execution remain separately governed.
 
-Approval satisfaction/current permission/context, approver-principal currentness, AgentRun resume/cancel, ToolSet/ToolDefinition/OperationContract execution and provider/model runtime remain separately governed and unclaimed.
-
-Previously locked machine verifier, Webhook execution, SyncCursor runtime, Integration runtime, Outbox, Notification, Workflow and Automation execution boundaries remain locked.
+Previously locked machine verifier, Webhook execution, SyncCursor runtime, Integration runtime, Outbox dispatch/retry, Notification execution, Workflow/Automation execution and Agent/tool execution boundaries remain locked.
