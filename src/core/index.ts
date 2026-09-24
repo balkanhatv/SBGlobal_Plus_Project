@@ -112,6 +112,7 @@ export * from "./ai/prompt-set-member-binding-floors.js";
 export * from "./ai/prompt-template.js";
 export * from "./ai/policy.js";
 export * from "./ai/assistant-definition.js";
+export * from "./ai/assistant-definition-relationship-floors.js";
 export * from "./ai/agent-definition.js";
 export * from "./ai/agent-run.js";
 export * from "./ai/agent-step.js";
