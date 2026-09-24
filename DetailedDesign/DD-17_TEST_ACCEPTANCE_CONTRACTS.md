@@ -2784,3 +2784,26 @@ Malformed member/reference UUIDs or invalid owner shape fail closed.
 ### AIPROMPTMEM-CUR-007 — effective/rendering evidence remains uninterpreted
 Priority/enabled/createdAt and PromptSet/PromptTemplate content/version/schema/grounding/override/creator/approver evidence do not affect this relationship floor, and inputs remain unchanged.
 
+## DD-178 AIToolSetMember AIToolDefinition Current-Binding Acceptance
+
+### AITOOLMEM-DEF-CUR-001 — Exact referenced ACTIVE ToolDefinition matches
+A valid member and exact referenced ToolDefinition with raw ACTIVE status return true.
+
+### AITOOLMEM-DEF-CUR-002 — Wrong ToolDefinition identity fails
+A different ToolDefinition id fails closed.
+
+### AITOOLMEM-DEF-CUR-003 — Malformed member id fails
+Malformed ToolSetMember identity fails closed.
+
+### AITOOLMEM-DEF-CUR-004 — Malformed member relationship ids fail
+Malformed ToolSet id or ToolDefinition id on the member fails closed.
+
+### AITOOLMEM-DEF-CUR-005 — Malformed ToolDefinition id fails
+Malformed referenced ToolDefinition identity fails closed.
+
+### AITOOLMEM-DEF-CUR-006 — Non-ACTIVE status fails
+Any raw status other than exact ACTIVE fails closed.
+
+### AITOOLMEM-DEF-CUR-007 — Tool execution semantics remain uninterpreted
+Member enabled/constraint/createdAt and ToolDefinition capability/operation/scope/permission/entitlement/schema/side-effect/approval/idempotency/audit/version/timestamps do not affect this relationship floor, and inputs remain unchanged.
+

@@ -307,3 +307,6 @@ After DD-175, migration 0031 + migration 0048's optional AutomationDefinition→
 ## 2026-09-24 — DD-177 AI PromptSetMember current-binding floor
 After DD-176, migration 0031 + migration 0048's PromptSetMember→ACTIVE PromptSet + ACTIVE same/broader PromptTemplate relationship was selected as the next source-complete prerequisite. Exact implementation head `3c4c8ba2157aa368c4e15b8eae6f062205374177` / tree `055daa986f27fd924e4f4a1c3e2562b312aeec19` is green at **486/486 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Effective-set priority/enabled filtering, rendering and AI execution remain unclaimed.
 
+## 2026-09-24 — DD-178 AIToolSetMember ToolDefinition current-binding floor
+After DD-177, migration 0031's AIToolSetMember→AIToolDefinition exact id/ACTIVE relationship was selected as the next source-complete prerequisite. DD-178 adds only a pure Core recheck of exact referenced ToolDefinition id and raw ACTIVE status. Exact implementation head `5714c8dc4b3d4d008914ef58e152339a8c04ff86` / tree `24f41f4733b9a61860a6f321194269c207e3b427` is green at **493/493 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Effective ToolSet membership and tool execution semantics remain unclaimed.
+

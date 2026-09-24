@@ -2523,3 +2523,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIPROMPTMEM-CUR-001…007` in DD-17 and `tests/core/ai-prompt-set-member-binding-floors.test.mjs`.
 
+## DD-178 — AIToolSetMember referenced ToolDefinition currentness may be re-evaluated as a pure exact-id/ACTIVE relationship floor
+
+**Context:** DD-110 exposes raw AIToolDefinition catalog metadata and DD-113 exposes raw AIToolSetMember evidence. Migration 0031 validates an `ai_tool_set_member` by requiring its referenced ToolDefinition to exist and have raw status exactly `ACTIVE`.
+
+**Decision:** add pure Core helper `matchesAIToolSetMemberDefinitionBindingFloors(member, definition)`. It validates member/definition identities, exact `definition.id === member.toolDefinitionId`, and raw `definition.status === 'ACTIVE'`.
+
+**Security / trade-off:** the helper deliberately ignores member `enabled`, `constraint_json`, parent ToolSet status and all ToolDefinition permission/entitlement/approval/side-effect/idempotency/audit/OperationContract semantics because migration 0031's member relationship branch does not make those execution predicates.
+
+**Boundary:** DD-178 does not compute effective ToolSet membership; validate parent ToolSet currentness; interpret constraints; authorize permissions/entitlements/approvals; execute OperationContracts; validate AgentStep/AgentDefinition runtime eligibility; invoke tools/providers/models; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `AITOOLMEM-DEF-CUR-001…007` in DD-17 and `tests/core/ai-tool-set-member-definition-binding-floors.test.mjs`.
+
