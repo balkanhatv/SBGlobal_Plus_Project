@@ -39,6 +39,14 @@ A true result is not approval satisfaction or Agent/tool execution authorization
 
 DD-184 does not decide whether approval is APPROVED/current/satisfied; validate approver principal or permission/context; validate AgentDefinition/AgentRun executable currentness; resume/cancel AgentRun; authorize ToolSetMember/ToolDefinition/OperationContract execution; mutate state; call providers/models/tools; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-184 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-184 decision, acceptance and Detailed Design changelog are committed in `6cf9b06340b5a168532c20b46faea681f4e68208` / tree `cdea91c0e5369fef1ff7106e53909d3b81cd2670`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `36019507513`, Core job `107700503908`: **SUCCESS — 535/535**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107700504459`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `36019507341`, job `107700503937`: **SUCCESS**.
+- Web Boundary Verify run `36019507461`, job `107700504301`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001`. State synchronization changes documentation only.

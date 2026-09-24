@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-24",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001",
-  "final_verdict": "DD-183 AGENTSTEP APPROVAL-BACKLINK CURRENT FLOOR PROMOTED / EXACT-HEAD TESTED; APPROVAL SATISFACTION AND AGENT/TOOL EXECUTION REMAIN BLOCKED",
+  "checkpoint": "DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001",
+  "final_verdict": "DD-184 AGENTAPPROVAL PARENT/SCOPE CURRENT FLOOR PROMOTED / EXACT-HEAD TESTED; APPROVAL SATISFACTION AND AGENT/TOOL EXECUTION REMAIN BLOCKED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD183_CONTIGUOUS",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD184_CONTIGUOUS",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD183_AI_AGENT_STEP_APPROVAL_BACKLINK_VERIFIED",
+    "development": "IN_PROGRESS_DD184_AI_AGENT_APPROVAL_PARENT_SCOPE_VERIFIED",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "CURRENT_IMPLEMENTED_DD040_DD183_BOUNDED_CORE_AI_BOUNDARIES_EXACT_HEAD_TESTED"
+    "core_services": "CURRENT_IMPLEMENTED_DD040_DD184_BOUNDED_CORE_AI_BOUNDARIES_EXACT_HEAD_TESTED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "0d837e01e60a125cf6de0327acd733460a84c779",
-    "verified_code_tree": "d919b9402bef58c2205cbdfc9538b44d359c2033",
-    "state_projection_basis_head": "0d837e01e60a125cf6de0327acd733460a84c779",
+    "verified_code_head": "6cf9b06340b5a168532c20b46faea681f4e68208",
+    "verified_code_tree": "cdea91c0e5369fef1ff7106e53909d3b81cd2670",
+    "state_projection_basis_head": "6cf9b06340b5a168532c20b46faea681f4e68208",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -309,13 +309,25 @@
       "web_run_id": 36018054920,
       "web_job_id": 107695570518,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd184_promotion_head": "6cf9b06340b5a168532c20b46faea681f4e68208",
+    "dd184_promotion_tree": "cdea91c0e5369fef1ff7106e53909d3b81cd2670",
+    "dd184_ci": {
+      "core_run_id": 36019507513,
+      "core_job_id": 107700503908,
+      "postgres_job_id": 107700504459,
+      "database_run_id": 36019507341,
+      "database_job_id": 107700503937,
+      "web_run_id": 36019507461,
+      "web_job_id": 107700504301,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DD-183 AgentStep AgentApproval optional backlink current floor verified",
+    "current_phase": "DD-184 AgentApproval parent/scope current floor verified",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -330,9 +342,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "0d837e01e60a125cf6de0327acd733460a84c779",
-      "ci_run_id": 36018054931,
-      "ci_job_id": 107695570767,
+      "ci_verified_head": "6cf9b06340b5a168532c20b46faea681f4e68208",
+      "ci_run_id": 36019507341,
+      "ci_job_id": 107700503937,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -344,7 +356,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "d919b9402bef58c2205cbdfc9538b44d359c2033",
+      "ci_verified_tree": "cdea91c0e5369fef1ff7106e53909d3b81cd2670",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -352,10 +364,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "0d837e01e60a125cf6de0327acd733460a84c779",
-      "feature_head_bootstrap_verified_tree": "d919b9402bef58c2205cbdfc9538b44d359c2033",
-      "feature_head_bootstrap_run_id": 36018054813,
-      "feature_head_bootstrap_job_id": 107695568757,
+      "feature_head_bootstrap_verified_head": "6cf9b06340b5a168532c20b46faea681f4e68208",
+      "feature_head_bootstrap_verified_tree": "cdea91c0e5369fef1ff7106e53909d3b81cd2670",
+      "feature_head_bootstrap_run_id": 36019507513,
+      "feature_head_bootstrap_job_id": 107700504459,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -364,27 +376,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Source-audit AgentApproval to AgentRun/AgentStep exact parent/scope relationship. Do not infer approval satisfaction, approver-principal currentness or Agent/tool execution.",
+    "next_action": "Fresh source-audit another independent AI relationship prerequisite. Do not infer approval satisfaction, approver-principal currentness or Agent/tool execution.",
     "core_services": {
-      "checkpoint": "DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001",
+      "checkpoint": "DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–183 bounded implementation; DD-183 AgentStep AgentApproval optional backlink floor only",
-      "verified_head": "0d837e01e60a125cf6de0327acd733460a84c779",
-      "verified_tree": "d919b9402bef58c2205cbdfc9538b44d359c2033",
-      "core_ci_run_id": 36018054813,
-      "core_ci_job_id": 107695568255,
-      "tests": "528/528 PASS",
+      "decision": "DD-040–184 bounded implementation; DD-184 AgentApproval parent/scope floor only",
+      "verified_head": "6cf9b06340b5a168532c20b46faea681f4e68208",
+      "verified_tree": "cdea91c0e5369fef1ff7106e53909d3b81cd2670",
+      "core_ci_run_id": 36019507513,
+      "core_ci_job_id": 107700503908,
+      "tests": "535/535 PASS",
       "core_test_counts": {
-        "tests": 528,
-        "pass": 528,
+        "tests": 535,
+        "pass": 535,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36018054813,
-      "postgres_ci_job_id": 107695568757,
+      "postgres_ci_run_id": 36019507513,
+      "postgres_ci_job_id": 107700504459,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -393,8 +405,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36018054931,
-      "database_regression_job_id": 107695570767,
+      "database_regression_run_id": 36019507341,
+      "database_regression_job_id": 107700503937,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -709,7 +721,8 @@
         "DD-180 AgentDefinition ToolSet current-binding necessary floor",
         "DD-181 AgentRun AgentDefinition current-binding necessary floor",
         "DD-182 AgentStep TOOL/non-TOOL binding necessary floor",
-        "DD-183 AgentStep AgentApproval optional backlink necessary floor"
+        "DD-183 AgentStep AgentApproval optional backlink necessary floor",
+        "DD-184 AgentApproval parent/scope necessary floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -929,7 +942,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_AI_AGENT_STEP_APPROVAL_BACKLINK_VERIFIED",
+  "current_phase": "DEVELOPMENT_AI_AGENT_APPROVAL_PARENT_SCOPE_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -961,20 +974,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001",
-    "verified_code_head": "0d837e01e60a125cf6de0327acd733460a84c779",
-    "verified_code_tree": "d919b9402bef58c2205cbdfc9538b44d359c2033",
-    "source_audit": "Development/AI_AGENT_STEP_APPROVAL_BACKLINK_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD183_VERIFICATION_2026-09-24.md",
-    "next_action": "Source-audit AgentApproval to AgentRun/AgentStep exact parent/scope relationship. Do not infer approval satisfaction, approver-principal currentness or Agent/tool execution.",
+    "checkpoint": "DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001",
+    "verified_code_head": "6cf9b06340b5a168532c20b46faea681f4e68208",
+    "verified_code_tree": "cdea91c0e5369fef1ff7106e53909d3b81cd2670",
+    "source_audit": "Development/AI_AGENT_APPROVAL_PARENT_SCOPE_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD184_VERIFICATION_2026-09-24.md",
+    "next_action": "Fresh source-audit another independent AI relationship prerequisite. Do not infer approval satisfaction, approver-principal currentness or Agent/tool execution.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001",
-    "verified_executable_basis": "0d837e01e60a125cf6de0327acd733460a84c779",
-    "verified_executable_tree": "d919b9402bef58c2205cbdfc9538b44d359c2033",
-    "current_verification": "Registers/DEVELOPMENT_DD183_VERIFICATION_2026-09-24.md",
-    "scope": "DD-183 AgentStep optional AgentApproval exact id/run/step backlink only"
+    "checkpoint": "DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001",
+    "verified_executable_basis": "6cf9b06340b5a168532c20b46faea681f4e68208",
+    "verified_executable_tree": "cdea91c0e5369fef1ff7106e53909d3b81cd2670",
+    "current_verification": "Registers/DEVELOPMENT_DD184_VERIFICATION_2026-09-24.md",
+    "scope": "DD-184 AgentApproval exact AgentRun/AgentStep parent chain and Tenant/Industry scope only"
   },
   "current_state_audit": {
     "date": "2026-09-24",
@@ -1007,21 +1020,21 @@
     "scope": "Recursive current-tree inventory plus authoritative-strata reconciliation, invariant/SQL/CI verification and targeted implemented-boundary inspection; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-183 AgentStep AgentApproval Optional Backlink Floor",
-    "checkpoint": "DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001",
-    "verified_head": "0d837e01e60a125cf6de0327acd733460a84c779",
-    "verified_tree": "d919b9402bef58c2205cbdfc9538b44d359c2033",
+    "decision": "DD-184 AgentApproval Parent/Scope Current-Binding Floor",
+    "checkpoint": "DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001",
+    "verified_head": "6cf9b06340b5a168532c20b46faea681f4e68208",
+    "verified_tree": "cdea91c0e5369fef1ff7106e53909d3b81cd2670",
     "core": {
-      "run_id": 36018054813,
-      "job_id": 107695568255,
-      "tests": 528,
-      "pass": 528,
+      "run_id": 36019507513,
+      "job_id": 107700503908,
+      "tests": 535,
+      "pass": 535,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36018054813,
-      "job_id": 107695568757,
+      "run_id": 36019507513,
+      "job_id": 107700504459,
       "tests": 497,
       "pass": 497,
       "fail": 0,
@@ -1029,17 +1042,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36018054931,
-      "job_id": 107695570767,
+      "run_id": 36019507341,
+      "job_id": 107700503937,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36018054920,
-      "job_id": 107695570518,
+      "run_id": 36019507461,
+      "job_id": 107700504301,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD183_VERIFICATION_2026-09-24.md"
+    "evidence": "Registers/DEVELOPMENT_DD184_VERIFICATION_2026-09-24.md"
   },
   "historical_projection_payloads": {
     "continuation": {

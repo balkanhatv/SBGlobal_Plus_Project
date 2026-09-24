@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,14 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001`. Decisions are contiguous through DD-183.
+Current checkpoint: `DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001`. Decisions are contiguous through DD-184.
 
-Verified canonical DD-183 promotion `0d837e01e60a125cf6de0327acd733460a84c779` / tree `d919b9402bef58c2205cbdfc9538b44d359c2033`: **528/528 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `36018054813` (Core job `107695568255`, PostgreSQL job `107695568757`), Database `36018054931` (job `107695570767`), Web `36018054920` (job `107695570518`).
+Verified canonical DD-184 promotion `6cf9b06340b5a168532c20b46faea681f4e68208` / tree `cdea91c0e5369fef1ff7106e53909d3b81cd2670`: **535/535 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `36019507513` (Core job `107700503908`, PostgreSQL job `107700504459`), Database `36019507341` (job `107700503937`), Web `36019507461` (job `107700504301`).
 
-DD-183 re-evaluates only migration-0031's optional AgentStep→AgentApproval persisted backlink: exact approval id, same AgentRun id and same AgentStep id. An unbound step requires no approval evidence.
+DD-184 re-evaluates only migration-0031's AgentApproval→AgentRun/AgentStep parent chain and scope: exact run id, exact step id, exact step→run backlink, same Tenant and exact nullable Industry Context.
 
-A true result is not approval satisfaction, approver authorization, current permission/context, AgentRun resume/cancel, tool execution or provider/model execution authority.
+A true result is not approval satisfaction, approver authorization/current permission, AgentRun resume/cancel, tool execution or provider/model execution authority.
 
-Evidence: `Registers/DEVELOPMENT_DD183_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD184_VERIFICATION_2026-09-24.md`.
 
-Next: source-audit AgentApproval→AgentRun/AgentStep exact parent/scope currentness as the next independent prerequisite.
+Next: fresh source-audit another independent AI relationship prerequisite; do not infer approval satisfaction or Agent execution semantics.
