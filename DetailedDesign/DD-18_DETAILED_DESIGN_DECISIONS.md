@@ -2497,3 +2497,17 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `WFA-RUN-DEF-CUR-001…007` in DD-17 and `tests/core/automation-run-definition-binding-floors.test.mjs`.
 
+## DD-176 — AutomationDefinition optional WorkflowDefinition reference may be re-evaluated as a pure broader/equal containment floor
+
+**Context:** DD-101 exposes raw WorkflowDefinition evidence; DD-105 exposes raw AutomationDefinition evidence. Migration 0031 validates optional `workflow_definition_id` using migration 0048's fail-closed `definition_contains_definition(...)`.
+
+**Decision:** add pure Core helper `matchesAutomationDefinitionWorkflowDefinitionContainmentFloors(automationDefinition, workflowDefinition?)`. Unbound AutomationDefinitions require no WorkflowDefinition evidence. Bound definitions require exact id plus canonical broader/equal scope containment.
+
+**Containment:** PLATFORM AutomationDefinition requires PLATFORM WorkflowDefinition; TENANT AutomationDefinition accepts PLATFORM or same-Tenant TENANT parent; INDUSTRY AutomationDefinition accepts PLATFORM, same-Tenant TENANT or exact same-Tenant INDUSTRY parent.
+
+**Security / trade-off:** migration 0031 does not inspect WorkflowDefinition status, version, effective dates, state-machine, approval policy or rule references for this relation. DD-176 therefore deliberately does not convert containment into WorkflowDefinition currentness or execution authority.
+
+**Boundary:** DD-176 does not select WorkflowDefinition versions, require ACTIVE/PUBLISHED status, interpret state-machine/approval/rules, interpret Automation trigger/config/conditions, dispatch OperationContracts/Workflows, mutate runs/instances, emit events, or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `WFA-DEF-WF-CUR-001…007` in DD-17 and `tests/core/automation-definition-workflow-containment-floors.test.mjs`.
+

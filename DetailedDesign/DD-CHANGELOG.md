@@ -301,3 +301,6 @@ After DD-173, migration 0031's shared WorkflowTask/WorkflowTransition→Workflow
 ## 2026-09-24 — DD-175 AutomationRun definition current-binding floor
 After DD-174, migration 0031's AutomationRun→AutomationDefinition exact id/ACTIVE/scope relationship was selected as the next source-complete prerequisite. DD-175 adds only a pure Core recheck of exact id, raw ACTIVE status and canonical owner-scope applicability. Exact implementation head `6dfd41c146ffe73392037411501d933daf3ff9fc` is green at **472/472 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Definition version/effective dates and Automation execution semantics remain unclaimed.
 
+## 2026-09-24 — DD-176 AutomationDefinition WorkflowDefinition containment floor
+After DD-175, migration 0031 + migration 0048's optional AutomationDefinition→WorkflowDefinition exact-id broader/equal containment relationship was selected as the next source-complete prerequisite. Exact implementation head `f4adec86b830a84ab1b5c26cd8e9b0206ce3152f` / tree `45c308cb3122792e06b1612e31eee2b5efeafc6b` is green at **479/479 Core** and **497/497 PostgreSQL** plus Database/Web PASS. WorkflowDefinition status/version/effective dates and Automation/Workflow execution semantics remain unclaimed.
+

@@ -2738,3 +2738,26 @@ Malformed run/definition UUIDs or invalid definition owner shape fail closed.
 ### WFA-RUN-DEF-CUR-007 — version/effective/trigger/run semantics remain uninterpreted
 Definition version/schemaVersion/effective dates/trigger/config/condition/operation/workflow refs and run trigger/idempotency/status/time/error evidence do not affect this floor, and inputs remain unchanged.
 
+## DD-176 AutomationDefinition WorkflowDefinition Containment Acceptance
+
+### WFA-DEF-WF-CUR-001 — unbound reference requires no Workflow evidence
+An AutomationDefinition without `workflowDefinitionId` matches only when no WorkflowDefinition evidence is supplied.
+
+### WFA-DEF-WF-CUR-002 — PLATFORM child requires PLATFORM parent
+PLATFORM AutomationDefinition accepts an exact PLATFORM WorkflowDefinition only.
+
+### WFA-DEF-WF-CUR-003 — TENANT child accepts broader/equal parent
+TENANT AutomationDefinition accepts PLATFORM or same-Tenant TENANT WorkflowDefinition; foreign Tenant or INDUSTRY parent fails closed.
+
+### WFA-DEF-WF-CUR-004 — INDUSTRY child accepts broader/equal parent
+INDUSTRY AutomationDefinition accepts PLATFORM, same-Tenant TENANT or exact same-Tenant INDUSTRY WorkflowDefinition; sibling/foreign Industry fails closed.
+
+### WFA-DEF-WF-CUR-005 — bound identity mismatch fails
+Missing, wrong or malformed WorkflowDefinition identity evidence fails closed.
+
+### WFA-DEF-WF-CUR-006 — malformed owner shape fails closed
+Invalid AutomationDefinition or WorkflowDefinition owner shape fails closed.
+
+### WFA-DEF-WF-CUR-007 — currentness/execution evidence remains uninterpreted
+Status/version/effective dates/code/schema/stateMachine/approval/rules/trigger/config/condition/operation evidence do not affect this containment floor, and inputs remain unchanged.
+
