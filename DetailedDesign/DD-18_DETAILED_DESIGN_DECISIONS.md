@@ -2401,3 +2401,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `INT-INTEGRITY-001…007` in DD-17 and `tests/core/tenant-integration-integrity-floors.test.mjs`.
 
+## DD-168 — NotificationDelivery optional TenantIntegration binding may be re-evaluated as a pure current relationship floor without authorizing delivery
+
+**Context:** DD-098 exposes raw NotificationDelivery evidence and DD-095 exposes raw TenantIntegration evidence. Migration 0031 conditionally validates `tenant_integration_id`: when present, the referenced integration must be same-Tenant, raw ACTIVE, and either Tenant-wide or exact-Industry compatible with the delivery. When absent, no integration relationship is required.
+
+**Decision:** add pure Core helper `matchesNotificationDeliveryIntegrationBindingFloors(delivery, integration?)`. It validates delivery identity/scope shape, treats absent integration binding as valid only when no integration evidence is supplied, and for present bindings requires exact integration id, same Tenant, ACTIVE status and Tenant-wide-or-exact-Industry compatibility.
+
+**Security / trade-off:** the helper mirrors only migration-0031 relationship integrity. It deliberately does not compose DD-167 current Integration integrity, because migration 0031 does not re-evaluate credential/Definition/capability predicates for NotificationDelivery writes.
+
+**Boundary:** DD-168 does not send/retry notifications; choose channel/provider/adapter; access secrets; interpret delivery lifecycle/finality; validate template/recipient/source-event relationships; resolve profiles/health/fallback; execute callbacks/OperationContracts/events/network; mutate delivery/integration state; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `NOTIF-INT-CUR-001…007` in DD-17 and `tests/core/notification-integration-binding-floors.test.mjs`.
+

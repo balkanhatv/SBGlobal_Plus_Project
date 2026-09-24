@@ -2554,3 +2554,26 @@ Definition/capability evidence cannot convert an expired credential binding into
 ### INT-INTEGRITY-007 — Lifecycle/provider/runtime evidence remains uninterpreted
 TenantIntegration lifecycle/health/profile plus provider/secret/OperationContract/event/network evidence does not create acceptance, and inputs remain unchanged.
 
+## DD-168 NotificationDelivery TenantIntegration Current-Binding Acceptance
+
+### NOTIF-INT-CUR-001 — Unbound delivery requires no integration evidence
+A valid delivery without `tenantIntegrationId` matches only when no integration evidence is supplied.
+
+### NOTIF-INT-CUR-002 — Tenant-wide ACTIVE integration may bind same-Tenant Core or Industry delivery
+A same-Tenant ACTIVE integration without Industry Context may satisfy either valid delivery scope.
+
+### NOTIF-INT-CUR-003 — Industry integration binds only exact Industry delivery
+An Industry-scoped integration may satisfy only a delivery carrying the exact same Industry Context; sibling or Tenant-Core delivery fails.
+
+### NOTIF-INT-CUR-004 — Integration identity or Tenant mismatch fails
+Wrong integration id or foreign Tenant ownership fails closed.
+
+### NOTIF-INT-CUR-005 — Non-ACTIVE integration fails
+PENDING, PAUSED, ERROR and REVOKED integration states fail the binding floor.
+
+### NOTIF-INT-CUR-006 — Malformed ownership or unexpected evidence fails closed
+Malformed delivery/integration identity or delivery scope shape fails; extra integration evidence for an unbound delivery fails.
+
+### NOTIF-INT-CUR-007 — Delivery/provider/runtime semantics remain uninterpreted
+Template/recipient/channel/delivery status/timestamps/error and integration Definition/credential/config/capability/health/profile evidence do not create acceptance, and inputs remain unchanged.
+

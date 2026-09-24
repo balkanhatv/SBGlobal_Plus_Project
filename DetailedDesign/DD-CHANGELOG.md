@@ -277,3 +277,6 @@ After DD-165, migration 0030's Definition/config/enabled-capability half of Tena
 ## 2026-09-24 — DD-167 TenantIntegration current-integrity necessary-floor composition
 After DD-166, the migration-0030 credential-current and Definition/config/enabled-capability halves were composed without adding new semantics. DD-167 delegates exactly to DD-165 and DD-166. Exact implementation head `963d7a42bba6f225ebe7b62208f65d1bf2738229` / tree `b82b2240b5d7fcc364448c2c1a94ad782beaefd8` is green at **423/423 Core** and **497/497 PostgreSQL** plus Database/Web PASS. TenantIntegration lifecycle, provider/secret/profile, SyncCursor runtime and network execution remain unclaimed.
 
+## 2026-09-24 — DD-168 NotificationDelivery TenantIntegration current-binding floor
+After DD-167, migration 0031's optional NotificationDelivery→TenantIntegration relationship was selected as the next source-complete prerequisite. DD-168 adds only a pure Core recheck of exact integration id/Tenant, raw ACTIVE status and Tenant-wide-or-exact-Industry compatibility. Exact implementation head `77f3fc568f9d320ea1ab766696fc77be094e0d1b` / tree `8490da6f5a8a82d8fd747bc893255a7c7d3677a2` is green at **430/430 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Send/retry/provider/secret/template/recipient/source-event execution semantics remain unclaimed.
+
