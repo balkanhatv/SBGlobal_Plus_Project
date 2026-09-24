@@ -2619,3 +2619,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AICONV-AST-CUR-001…007` in DD-17 and `tests/core/ai-conversation-assistant-binding-floors.test.mjs`.
 
+## DD-186 — AIMemoryRecord optional AssistantDefinition binding may be re-evaluated as a pure current relationship floor
+
+**Context:** DD-117 exposes raw AssistantDefinition evidence and DD-129 exposes raw AIMemoryRecord evidence. Migration 0031 conditionally validates `assistant_definition_id`: when present, the referenced AssistantDefinition must be ACTIVE and applicable to the memory Tenant/optional Industry scope. DD-170 makes the shared applicability predicate total/fail-closed.
+
+**Decision:** add pure Core helper `matchesAIMemoryAssistantBindingFloors(memory, assistant?)`. It validates memory identity/optional Industry shape, treats absent assistant binding as valid only when no AssistantDefinition evidence is supplied, and for present bindings requires exact assistant id, raw ACTIVE status and canonical PLATFORM/TENANT/INDUSTRY applicability.
+
+**Security / trade-off:** the helper mirrors only the direct memory→assistant relationship. It deliberately does not validate memory principal currentness, supersession continuity/resolution, expiry/retention/ACL policy or DD-179 nested AssistantDefinition PromptTemplate/ToolSet currentness.
+
+**Boundary:** DD-186 does not select current/latest memory; resolve supersession chains; evaluate expiry; enforce retention/legal hold/erasure; interpret ACL or principal authorization; decrypt/dereference content; carry Tenant-Core memory across Industry experiences; select effective Assistant versions; compose DD-179; resolve prompt/RAG/model/provider/tool policies; execute inference/RAG/tools/agents; mutate memory state; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `AIMEM-AST-CUR-001…007` in DD-17 and `tests/core/ai-memory-assistant-binding-floors.test.mjs`.
+

@@ -2968,3 +2968,26 @@ Malformed conversation identity/scope, malformed Assistant owner shape, or Assis
 ### AICONV-AST-CUR-007 — owner/nested Assistant/runtime semantics remain uninterpreted
 Conversation owner principal, sensitivity/retention/status/timestamps and Assistant capability/RAG/prompt/tool/model/retention/version/timestamps do not create acceptance; DD-179 is not auto-composed and inputs remain unchanged.
 
+## DD-186 AIMemoryRecord AssistantDefinition Current-Binding Acceptance
+
+### AIMEM-AST-CUR-001 — Unbound memory requires no AssistantDefinition evidence
+A valid AIMemoryRecord without `assistantDefinitionId` matches only when no AssistantDefinition evidence is supplied.
+
+### AIMEM-AST-CUR-002 — ACTIVE PLATFORM AssistantDefinition applies to Core and Industry memory
+An exact ACTIVE PLATFORM AssistantDefinition with no Tenant/Industry owner applies to Tenant-Core or Tenant-Industry memory.
+
+### AIMEM-AST-CUR-003 — same-Tenant TENANT AssistantDefinition applies within Tenant
+An exact ACTIVE TENANT AssistantDefinition applies to same-Tenant Core/Industry memory; foreign Tenant fails closed.
+
+### AIMEM-AST-CUR-004 — INDUSTRY AssistantDefinition requires exact Industry
+An exact ACTIVE INDUSTRY AssistantDefinition applies only to the exact same-Tenant Industry memory; sibling Industry or Tenant-Core fails closed.
+
+### AIMEM-AST-CUR-005 — Assistant identity/status mismatch fails
+Wrong AssistantDefinition id or non-ACTIVE status fails closed.
+
+### AIMEM-AST-CUR-006 — Malformed ownership or unexpected evidence fails closed
+Malformed memory/assistant UUID/owner shape or extra AssistantDefinition evidence for an unbound memory fails closed.
+
+### AIMEM-AST-CUR-007 — Memory lifecycle/policy and nested Assistant semantics remain uninterpreted
+Principal, memory class/content/source/sensitivity/retention/ACL/status/timestamps/expiry/supersession and Assistant capability/RAG/prompt/tool/model/retention/version/timestamps do not create acceptance; DD-179 is not auto-composed; inputs remain unchanged.
+
