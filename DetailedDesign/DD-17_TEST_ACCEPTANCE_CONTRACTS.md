@@ -2438,3 +2438,26 @@ When lifecycle and principal are current, PLATFORM_GLOBAL SERVICE and Tenant-Ind
 
 ### APICRED-CORE-007 — Verifier/CIDR/profile/use evidence remains uninterpreted
 Secret hash, CIDR, permission-profile, version and last-use evidence do not gain authentication semantics, and inputs are not mutated.
+
+## DD-163 Webhook Delivery Necessary-Floor Acceptance
+
+### WH-FLOOR-001 — ACTIVE verified same-Tenant Tenant-Core event may satisfy the bounded floor
+An ACTIVE WebhookSubscription with valid verification evidence plus a same-Tenant TENANT_CORE OutboxEvent and exact webhook-eligible EventCatalog tuple returns true.
+
+### WH-FLOOR-002 — Subscription verification/current-state prerequisite fails closed
+PENDING_VERIFICATION, PAUSED or REVOKED subscription state, absent verification evidence or malformed verification time returns false.
+
+### WH-FLOOR-003 — Foreign-Tenant and Platform-Global events fail
+The event Tenant must exactly equal the subscription Tenant. PLATFORM_GLOBAL is not deliverable through a Tenant-owned subscription in this bounded helper.
+
+### WH-FLOOR-004 — Tenant-Industry delivery requires exact allowlisted Industry Context
+TENANT_INDUSTRY succeeds only when the event carries one valid exact Industry Context and that exact id occurs in the subscription's validated allowlist.
+
+### WH-FLOOR-005 — Exact catalog identity and webhook eligibility are mandatory
+Event type, version and scope must exactly match the supplied EventCatalog entry and `webhookEligible` must be true; any mismatch fails closed.
+
+### WH-FLOOR-006 — Explicit cross-context remains outside this helper
+EXPLICIT_CROSS_CONTEXT returns false because authoritative source/target endpoint validation remains owned by DD-081 plus a separately governed composition.
+
+### WH-FLOOR-007 — Unowned delivery semantics remain uninterpreted
+Endpoint URL, event filter, permission profile, secret version, Outbox readiness/status/attempt evidence, catalog ACTIVE/RETIRED lifecycle and retry evidence do not affect this helper, and inputs are not mutated.

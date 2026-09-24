@@ -2340,3 +2340,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-162 does not parse presented credentials or extract prefixes; compare `secretHash`; choose crypto/verifier algorithms or parameters; enforce CIDR; interpret `permissionProfileId`; update `lastUsedAt`, credential version or auth epoch; emit authentication/use audit; construct final `VerifiedMachineEvidence`; implement `IdentityPort.verifyMachineCredential`; mutate credential/principal state; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `APICRED-CORE-001` through `APICRED-CORE-007` in DD-17 and `tests/server/api-credential-core-floors.test.mjs`.
+
+## DD-163 — Webhook delivery may compose existing subscription/event/catalog evidence as one ordinary single-context necessary floor without becoming delivery authorization
+
+**Context:** DD-07 §7 requires ACTIVE WebhookSubscription verification evidence and §10 permits delivery only when the event is cataloged webhook-eligible, belongs to the subscription Tenant and its Industry endpoint is included by the subscription. DD-081 owns authoritative envelope/catalog/scope validation; DD-088 exposes persisted WebhookSubscription evidence; DD-090 exposes persisted OutboxEvent evidence; DD-091 exposes exact EventCatalog metadata including `webhookEligible`. Event-filter grammar, endpoint SSRF/control, secret/signature handling, dispatcher readiness/retry and explicit cross-context endpoint composition remain separately unresolved.
+
+**Decision:** add pure deterministic Core helper `matchesWebhookDeliveryNecessaryFloors(subscription,event,catalog)`. It requires ACTIVE subscription state plus valid verification evidence; exact event Tenant equality with the subscription Tenant; exact event type/version/scope equality with the supplied catalog; `webhookEligible === true`; and, for TENANT_INDUSTRY, the exact event Industry Context in the subscription allowlist. TENANT_CORE requires no Industry selector. PLATFORM_GLOBAL and EXPLICIT_CROSS_CONTEXT fail in this bounded helper.
+
+**Security / trade-off:** the helper reduces accidental omission of already-owned DD-07 delivery prerequisites but does not authorize or execute delivery. A true result means only that the ordinary single-context subscription/event/catalog necessary facts are compatible. It does not interpret event filters, endpoint safety/control, permission profiles, secret versions, signing, Outbox readiness, retry/finality, catalog lifecycle status or network behavior.
+
+**Boundary:** DD-163 does not parse/evaluate `eventFilterJson`; verify endpoint control; perform DNS/IP/redirect SSRF checks; access/generate/decrypt/rotate signing secrets; produce HMAC signatures; decide claim/lease/readiness/ordering/retry/DLQ/replay; authorize EXPLICIT_CROSS_CONTEXT; interpret EventCatalog ACTIVE/RETIRED status; interpret `permissionProfileId`; create WebhookDelivery rows; make network calls; expose a route; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `WH-FLOOR-001` through `WH-FLOOR-007` in DD-17 and `tests/core/webhook-delivery-floors.test.mjs`.
