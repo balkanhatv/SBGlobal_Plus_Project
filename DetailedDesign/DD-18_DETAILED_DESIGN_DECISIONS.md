@@ -2377,3 +2377,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `INT-CRED-CUR-001…007` in DD-17 and `tests/core/tenant-integration-credential-floors.test.mjs`.
 
+## DD-166 — TenantIntegration Definition/config/enabled-capability current set may be re-evaluated as a pure necessary floor without authorizing execution
+
+**Context:** DD-092/DD-093/DD-095 expose exact IntegrationDefinition, IntegrationCapability and TenantIntegration evidence. Migration 0030 already owns the deterministic write-time Definition/config/enabled-capability predicate: the exact Definition is ACTIVE; integration config is a JSON object; enabled codes are duplicate-free; each enabled code belongs to the Definition capability list and has an exact ACTIVE IntegrationCapability row under that Definition.
+
+**Decision:** add pure Core helper `matchesCurrentTenantIntegrationDefinitionCapabilityFloors(integration, definition, capabilities)`. It requires exact integration→definition identity, raw ACTIVE Definition status, JSON-object config, duplicate-free non-empty enabled codes, Definition membership and exactly one supplied exact ACTIVE capability evidence row for each enabled code. Empty enabled sets are valid when Definition/config predicates match. Extra non-enabled capability evidence is ignored.
+
+**Security / trade-off:** rechecking only migration-owned set predicates prevents stale Definition/capability registry changes from silently satisfying current integrity. It deliberately does not make TenantIntegration status executable, compose credential currentness, select a provider/adapter or authorize OperationContract/event/network execution.
+
+**Boundary:** DD-166 does not interpret config beyond object shape; decide TenantIntegration lifecycle/health/profile; re-evaluate DD-165 credential binding; re-evaluate DD-164 SyncCursor binding; choose provider/direction; apply rate/idempotency/retry/circuit/residency policy; access secrets; mutate state; execute callbacks/sync/OperationContracts/events/network; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `INT-SET-CUR-001…007` in DD-17 and `tests/core/tenant-integration-definition-capability-floors.test.mjs`.
+

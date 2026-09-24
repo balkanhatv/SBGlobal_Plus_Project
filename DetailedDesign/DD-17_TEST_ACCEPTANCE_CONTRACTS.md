@@ -2508,3 +2508,26 @@ Future expiry may match; expiry exactly at or before evaluation fails; malformed
 ### INT-CRED-CUR-007 — Unowned integration/credential semantics remain uninterpreted
 TenantIntegration lifecycle/definition/capabilities/config/health/profile and CredentialReference provider/type/key-version/rotation metadata do not create acceptance, and inputs remain unchanged.
 
+## DD-166 TenantIntegration Definition/Capability Current-Set Necessary-Floor Acceptance
+
+### INT-SET-CUR-001 — Exact active Definition/object config/enabled active capability matches
+Exact integration→Definition identity, ACTIVE Definition, object config, enabled Definition membership and one exact ACTIVE capability row satisfy the bounded floor.
+
+### INT-SET-CUR-002 — Empty enabled-capability set may match
+An ACTIVE exact Definition plus object config may satisfy the floor with an empty enabled-capability set and no capability rows.
+
+### INT-SET-CUR-003 — Wrong or non-ACTIVE Definition fails
+Definition identity mismatch or raw status other than exact ACTIVE fails closed.
+
+### INT-SET-CUR-004 — Non-object config fails
+Null, array and primitive config values fail this migration-owned object-shape predicate.
+
+### INT-SET-CUR-005 — Duplicate enabled codes or missing Definition membership fails
+Duplicate enabled codes or an enabled code absent from the Definition capability list fail closed.
+
+### INT-SET-CUR-006 — Missing/inactive/wrong/ambiguous enabled capability evidence fails
+For every enabled code, missing evidence, non-ACTIVE evidence, wrong Definition/code tuple or duplicate matching evidence fails closed.
+
+### INT-SET-CUR-007 — Unowned runtime semantics remain uninterpreted
+TenantIntegration lifecycle/credential/scope/health/profile and capability direction/OperationContract/event/data/rate/idempotency metadata do not create acceptance; extra non-enabled capability evidence is ignored and inputs remain unchanged.
+
