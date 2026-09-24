@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-MACHINE-PRINCIPAL-METADATA-READ-001",
-  "final_verdict": "DD-159 MACHINE PRINCIPAL METADATA READER IMPLEMENTED / EXACT-HEAD TESTED; CURRENT PRINCIPAL DECISION, CREDENTIAL/PRINCIPAL SCOPE COMPOSITION, VERIFIER, CIDR, PROFILE, USAGE/AUDIT AND FINAL MACHINE AUTHENTICATION UNCLAIMED",
+  "checkpoint": "DEV-CURRENT-MACHINE-PRINCIPAL-FLOOR-001",
+  "final_verdict": "DD-160 CURRENT MACHINE-PRINCIPAL NECESSARY FLOOR IMPLEMENTED / EXACT-HEAD TESTED; CREDENTIAL/PRINCIPAL REQUESTED-SCOPE COMPOSITION, VERIFIER, CIDR, PROFILE, USAGE/AUDIT AND FINAL MACHINE AUTHENTICATION UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "3cbed05188f21ed04ad4c1bb6964e50f6447c940",
-    "verified_code_tree": "bbd14cdb2fc39fd43ef7dce8562e486f4cf2b858",
-    "state_projection_basis_head": "3504c9f946b68e4dd49eff070bd35694e36c807f",
+    "verified_code_head": "4aaddec1c42f4004b256401df231319b9ee84850",
+    "verified_code_tree": "4878d9043f4ade7083146ab3cc03b7b400ab8811",
+    "state_projection_basis_head": "94d3767e45b71d9be36e06de0ea7741b4abb193b",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Machine principal raw metadata source verified; current-principal validation and final machine authentication remain separate",
+    "current_phase": "Current machine-principal admissibility verified; requested-scope composition and final machine authentication remain separate",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "3504c9f946b68e4dd49eff070bd35694e36c807f",
-      "ci_run_id": 35952927996,
-      "ci_job_id": 107485122074,
+      "ci_verified_head": "94d3767e45b71d9be36e06de0ea7741b4abb193b",
+      "ci_run_id": 35953669860,
+      "ci_job_id": 107487338128,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "cad82fb83e0b94771325bb7e53eacdd1604597b7",
+      "ci_verified_tree": "37067fbb0f95e6cd86d87d265adeaaa6e5a9c0fd",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,10 +99,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "3504c9f946b68e4dd49eff070bd35694e36c807f",
-      "feature_head_bootstrap_verified_tree": "cad82fb83e0b94771325bb7e53eacdd1604597b7",
-      "feature_head_bootstrap_run_id": 35952927992,
-      "feature_head_bootstrap_job_id": 107485121910,
+      "feature_head_bootstrap_verified_head": "94d3767e45b71d9be36e06de0ea7741b4abb193b",
+      "feature_head_bootstrap_verified_tree": "37067fbb0f95e6cd86d87d265adeaaa6e5a9c0fd",
+      "feature_head_bootstrap_run_id": 35953669851,
+      "feature_head_bootstrap_job_id": 107487338411,
       "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -111,27 +111,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next runtime prerequisite. Keep principal-currentness decision, credential/principal scope composition, presented-token parsing, approved verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence construction outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit the next runtime prerequisite. Keep credential/principal requested-scope composition, presented-token parsing, approved verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence construction outside scope unless separately source-owned.",
     "core_services": {
-      "checkpoint": "DEV-MACHINE-PRINCIPAL-METADATA-READ-001",
+      "checkpoint": "DEV-CURRENT-MACHINE-PRINCIPAL-FLOOR-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–159 current implementation; DD-159 server-internal exact-id machine-principal raw metadata source only",
-      "verified_head": "3cbed05188f21ed04ad4c1bb6964e50f6447c940",
-      "verified_tree": "bbd14cdb2fc39fd43ef7dce8562e486f4cf2b858",
-      "core_ci_run_id": 35952927992,
-      "core_ci_job_id": 107485122128,
-      "tests": "367/367 PASS",
+      "decision": "DD-040–160 current implementation; DD-160 current ACTIVE API_CLIENT/SERVICE machine-principal necessary floor only",
+      "verified_head": "4aaddec1c42f4004b256401df231319b9ee84850",
+      "verified_tree": "4878d9043f4ade7083146ab3cc03b7b400ab8811",
+      "core_ci_run_id": 35953669851,
+      "core_ci_job_id": 107487338208,
+      "tests": "374/374 PASS",
       "core_test_counts": {
-        "tests": 367,
-        "pass": 367,
+        "tests": 374,
+        "pass": 374,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35952927992,
-      "postgres_ci_job_id": 107485121910,
+      "postgres_ci_run_id": 35953669851,
+      "postgres_ci_job_id": 107487338411,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -140,8 +140,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35952927996,
-      "database_regression_job_id": 107485122074,
+      "database_regression_run_id": 35953669860,
+      "database_regression_job_id": 107487338128,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -432,7 +432,8 @@
         "DD-156 persisted OperatorElevation lifecycle/time/scope integrity: ordered windows, revocation chronology, REVOKED timestamp requirement, immutable Tenant/Industry ownership",
         "DD-157 fixed PostgresControlPlaneDatabase role/RLS/scope/pool hygiene acceptance with no elevation mutation or activation authority",
         "DD-158 server-internal API Credential ACTIVE plus optional-expiry current lifecycle necessary floor",
-        "DD-159 server-internal exact-id machine-principal raw metadata reader with PII-minimized projection"
+        "DD-159 server-internal exact-id machine-principal raw metadata reader with PII-minimized projection",
+        "DD-160 current machine-principal ACTIVE API_CLIENT/SERVICE necessary floor with SERVICE structural metadata requirement"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",

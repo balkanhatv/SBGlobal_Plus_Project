@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-MACHINE-PRINCIPAL-METADATA-READ-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-CURRENT-MACHINE-PRINCIPAL-FLOOR-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,14 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-MACHINE-PRINCIPAL-METADATA-READ-001`. Decisions are contiguous through DD-159.
+Current checkpoint: `DEV-CURRENT-MACHINE-PRINCIPAL-FLOOR-001`. Decisions are contiguous through DD-160.
 
-Verified executable `3cbed05188f21ed04ad4c1bb6964e50f6447c940` / tree `bbd14cdb2fc39fd43ef7dce8562e486f4cf2b858`: **367/367 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `4aaddec1c42f4004b256401df231319b9ee84850` / tree `4878d9043f4ade7083146ab3cc03b7b400ab8811`: **374/374 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
 
-Promotion invariant gate `3504c9f946b68e4dd49eff070bd35694e36c807f` / tree `cad82fb83e0b94771325bb7e53eacdd1604597b7`: Core run `35952927992` (Core job `107485122128`, PostgreSQL job `107485121910`), Database run `35952927996` (job `107485122074`), Web run `35952927991` (job `107485122181`) — SUCCESS; **159 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `94d3767e45b71d9be36e06de0ea7741b4abb193b` / tree `37067fbb0f95e6cd86d87d265adeaaa6e5a9c0fd`: Core run `35953669851` (Core job `107487338208`, PostgreSQL job `107487338411`), Database run `35953669860` (job `107487338128`), Web run `35953669843` (job `107487338021`) — SUCCESS; **160 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-159 verifies only the exact machine-principal metadata source. It does not decide current machine-principal validity, scope eligibility, verifier/CIDR/profile behavior or authenticate a machine.
+DD-160 verifies only current machine-principal admissibility. It does not decide requested credential/SERVICE scope, verifier/CIDR/profile behavior or authenticate a machine.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep principal-currentness decision, credential/principal scope composition, presented-token parsing, approved verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence construction outside scope unless separately source-owned.
+Next: Fresh source-audit the next runtime prerequisite. Keep credential/principal requested-scope composition, presented-token parsing, approved verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence construction outside scope unless separately source-owned.

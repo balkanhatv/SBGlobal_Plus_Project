@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-MACHINE-PRINCIPAL-METADATA-READ-001`
+**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-CURRENT-MACHINE-PRINCIPAL-FLOOR-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-159**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-160**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-159 adds a server-internal exact-id machine-principal metadata reader through the fixed Identity-service boundary. Principal type/status/auth epoch and SERVICE scope metadata remain raw evidence; no current-principal or machine-authentication decision is implied.
+DD-160 adds the current machine-principal necessary floor over DD-159 metadata: ACTIVE API_CLIENT matches; ACTIVE SERVICE requires non-blank service code/owning module; HUMAN/PLATFORM_OPERATOR and non-active statuses fail. Requested-scope authorization and final machine authentication remain absent.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,6 +36,6 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `3cbed05188f21ed04ad4c1bb6964e50f6447c940` / tree `bbd14cdb2fc39fd43ef7dce8562e486f4cf2b858` — 367 Core tests, 497 PostgreSQL tests including `MACHPRINC-PG-001…007`, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `3504c9f946b68e4dd49eff070bd35694e36c807f` / tree `cad82fb83e0b94771325bb7e53eacdd1604597b7`: Core run `35952927992` (Core job `107485122128`, PostgreSQL job `107485121910`), Database run `35952927996` (job `107485122074`), Web run `35952927991` (job `107485122181`) — SUCCESS; **159 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD159_VERIFICATION_2026-09-24.md).
+**Current verified executable evidence:** `4aaddec1c42f4004b256401df231319b9ee84850` / tree `4878d9043f4ade7083146ab3cc03b7b400ab8811` — 374 Core tests including `MACHPRINC-CUR-001…007`, 497 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `94d3767e45b71d9be36e06de0ea7741b4abb193b` / tree `37067fbb0f95e6cd86d87d265adeaaa6e5a9c0fd`: Core run `35953669851` (Core job `107487338208`, PostgreSQL job `107487338411`), Database run `35953669860` (job `107487338128`), Web run `35953669843` (job `107487338021`) — SUCCESS; **160 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD160_VERIFICATION_2026-09-24.md).
 
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
