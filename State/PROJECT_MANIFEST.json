@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-24",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001",
-  "final_verdict": "DD-172 KNOWN NOTIFICATIONDELIVERY RELATIONSHIP FLOORS PROMOTED / EXACT-HEAD TESTED; RECIPIENT REPLAY AND DELIVERY EXECUTION REMAIN BLOCKED",
+  "checkpoint": "DEV-WORKFLOW-INSTANCE-DEFINITION-CURRENT-BINDING-FLOORS-001",
+  "final_verdict": "DD-173 WORKFLOWINSTANCE DEFINITION CURRENT-BINDING FLOOR PROMOTED / EXACT-HEAD TESTED; WORKFLOW EXECUTION REMAINS BLOCKED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD172_CONTIGUOUS",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD173_CONTIGUOUS",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD172_NOTIFICATION_KNOWN_RELATIONSHIP_FLOORS_VERIFIED",
+    "development": "IN_PROGRESS_DD173_WORKFLOW_INSTANCE_DEFINITION_CURRENT_BINDING_VERIFIED",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "CURRENT_IMPLEMENTED_DD040_DD172_BOUNDED_CORE_NOTIFICATION_BOUNDARIES_EXACT_HEAD_TESTED"
+    "core_services": "CURRENT_IMPLEMENTED_DD040_DD173_BOUNDED_CORE_WORKFLOW_BOUNDARIES_EXACT_HEAD_TESTED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "607355481617e96a9c7ff29f63047b5c6a5e49b6",
-    "verified_code_tree": "ffee6678093180b9ee8a341b5a7290d0f44bc85f",
-    "state_projection_basis_head": "607355481617e96a9c7ff29f63047b5c6a5e49b6",
+    "verified_code_head": "3e6ea0257fe5eeef63489cbdc760976419124c80",
+    "verified_code_tree": "30b6267d7369066a32009ec7801ec312fc755e87",
+    "state_projection_basis_head": "3e6ea0257fe5eeef63489cbdc760976419124c80",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -177,13 +177,25 @@
       "web_run_id": 35969063483,
       "web_job_id": 107534244180,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd173_promotion_head": "3e6ea0257fe5eeef63489cbdc760976419124c80",
+    "dd173_promotion_tree": "30b6267d7369066a32009ec7801ec312fc755e87",
+    "dd173_ci": {
+      "core_run_id": 35970365760,
+      "core_job_id": 107538393207,
+      "postgres_job_id": 107538392805,
+      "database_run_id": 35970365819,
+      "database_job_id": 107538393160,
+      "web_run_id": 35970365767,
+      "web_job_id": 107538392997,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DD-172 known NotificationDelivery relationship floors verified; recipient replay remains locked",
+    "current_phase": "DD-173 WorkflowInstance WorkflowDefinition current-binding floor verified",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -198,9 +210,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "607355481617e96a9c7ff29f63047b5c6a5e49b6",
-      "ci_run_id": 35969063564,
-      "ci_job_id": 107534244429,
+      "ci_verified_head": "3e6ea0257fe5eeef63489cbdc760976419124c80",
+      "ci_run_id": 35970365819,
+      "ci_job_id": 107538393160,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -212,7 +224,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "ffee6678093180b9ee8a341b5a7290d0f44bc85f",
+      "ci_verified_tree": "30b6267d7369066a32009ec7801ec312fc755e87",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -220,10 +232,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "607355481617e96a9c7ff29f63047b5c6a5e49b6",
-      "feature_head_bootstrap_verified_tree": "ffee6678093180b9ee8a341b5a7290d0f44bc85f",
-      "feature_head_bootstrap_run_id": 35969063472,
-      "feature_head_bootstrap_job_id": 107534244275,
+      "feature_head_bootstrap_verified_head": "3e6ea0257fe5eeef63489cbdc760976419124c80",
+      "feature_head_bootstrap_verified_tree": "30b6267d7369066a32009ec7801ec312fc755e87",
+      "feature_head_bootstrap_run_id": 35970365760,
+      "feature_head_bootstrap_job_id": 107538392805,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -232,27 +244,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit another independent prerequisite. Do not invent recipient-principal replay or notification execution semantics.",
+    "next_action": "Fresh source-audit another independent Workflow relationship prerequisite. Do not infer creator-principal or Workflow execution semantics.",
     "core_services": {
-      "checkpoint": "DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001",
+      "checkpoint": "DEV-WORKFLOW-INSTANCE-DEFINITION-CURRENT-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–172 bounded implementation; DD-172 known NotificationDelivery relationship-floor composition only",
-      "verified_head": "607355481617e96a9c7ff29f63047b5c6a5e49b6",
-      "verified_tree": "ffee6678093180b9ee8a341b5a7290d0f44bc85f",
-      "core_ci_run_id": 35969063472,
-      "core_ci_job_id": 107534244133,
-      "tests": "451/451 PASS",
+      "decision": "DD-040–173 bounded implementation; DD-173 WorkflowInstance WorkflowDefinition current-binding floor only",
+      "verified_head": "3e6ea0257fe5eeef63489cbdc760976419124c80",
+      "verified_tree": "30b6267d7369066a32009ec7801ec312fc755e87",
+      "core_ci_run_id": 35970365760,
+      "core_ci_job_id": 107538393207,
+      "tests": "458/458 PASS",
       "core_test_counts": {
-        "tests": 451,
-        "pass": 451,
+        "tests": 458,
+        "pass": 458,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35969063472,
-      "postgres_ci_job_id": 107534244275,
+      "postgres_ci_run_id": 35970365760,
+      "postgres_ci_job_id": 107538392805,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -261,8 +273,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35969063564,
-      "database_regression_job_id": 107534244429,
+      "database_regression_run_id": 35970365819,
+      "database_regression_job_id": 107538393160,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -566,7 +578,8 @@
         "DD-169 NotificationDelivery OutboxEvent current-binding necessary floor",
         "DD-170 shared definition applicability/containment fail-closed hardening",
         "DD-171 NotificationDelivery NotificationTemplate current-binding necessary floor",
-        "DD-172 known NotificationDelivery relationship necessary-floor composition"
+        "DD-172 known NotificationDelivery relationship necessary-floor composition",
+        "DD-173 WorkflowInstance WorkflowDefinition current-binding necessary floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -786,7 +799,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_NOTIFICATION_KNOWN_RELATIONSHIP_FLOORS_VERIFIED",
+  "current_phase": "DEVELOPMENT_WORKFLOW_INSTANCE_DEFINITION_CURRENT_BINDING_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -818,21 +831,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001",
-    "verified_code_head": "607355481617e96a9c7ff29f63047b5c6a5e49b6",
-    "verified_code_tree": "ffee6678093180b9ee8a341b5a7290d0f44bc85f",
-    "source_audit": "Development/NOTIFICATION_DELIVERY_KNOWN_RELATIONSHIP_COMPOSITION_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "recipient_boundary": "Development/NOTIFICATION_DELIVERY_RECIPIENT_PRINCIPAL_REMAINING_BOUNDARY_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD172_VERIFICATION_2026-09-24.md",
-    "next_action": "Fresh source-audit another independent prerequisite. Do not invent recipient-principal replay or notification execution semantics.",
+    "checkpoint": "DEV-WORKFLOW-INSTANCE-DEFINITION-CURRENT-BINDING-FLOORS-001",
+    "verified_code_head": "3e6ea0257fe5eeef63489cbdc760976419124c80",
+    "verified_code_tree": "30b6267d7369066a32009ec7801ec312fc755e87",
+    "source_audit": "Development/WORKFLOW_INSTANCE_DEFINITION_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD173_VERIFICATION_2026-09-24.md",
+    "next_action": "Fresh source-audit another independent Workflow relationship prerequisite. Do not infer creator-principal or Workflow execution semantics.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001",
-    "verified_executable_basis": "607355481617e96a9c7ff29f63047b5c6a5e49b6",
-    "verified_executable_tree": "ffee6678093180b9ee8a341b5a7290d0f44bc85f",
-    "current_verification": "Registers/DEVELOPMENT_DD172_VERIFICATION_2026-09-24.md",
-    "scope": "DD-172 pure DD-168 + DD-169 + DD-171 known NotificationDelivery relationship composition; recipient replay excluded"
+    "checkpoint": "DEV-WORKFLOW-INSTANCE-DEFINITION-CURRENT-BINDING-FLOORS-001",
+    "verified_executable_basis": "3e6ea0257fe5eeef63489cbdc760976419124c80",
+    "verified_executable_tree": "30b6267d7369066a32009ec7801ec312fc755e87",
+    "current_verification": "Registers/DEVELOPMENT_DD173_VERIFICATION_2026-09-24.md",
+    "scope": "DD-173 WorkflowInstance to WorkflowDefinition exact id/version/ACTIVE/scope binding only"
   },
   "current_state_audit": {
     "date": "2026-09-24",
@@ -865,21 +877,21 @@
     "scope": "Recursive current-tree inventory plus authoritative-strata reconciliation, invariant/SQL/CI verification and targeted implemented-boundary inspection; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-172 Known NotificationDelivery Relationship Floors",
-    "checkpoint": "DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001",
-    "verified_head": "607355481617e96a9c7ff29f63047b5c6a5e49b6",
-    "verified_tree": "ffee6678093180b9ee8a341b5a7290d0f44bc85f",
+    "decision": "DD-173 WorkflowInstance WorkflowDefinition Current-Binding Floor",
+    "checkpoint": "DEV-WORKFLOW-INSTANCE-DEFINITION-CURRENT-BINDING-FLOORS-001",
+    "verified_head": "3e6ea0257fe5eeef63489cbdc760976419124c80",
+    "verified_tree": "30b6267d7369066a32009ec7801ec312fc755e87",
     "core": {
-      "run_id": 35969063472,
-      "job_id": 107534244133,
-      "tests": 451,
-      "pass": 451,
+      "run_id": 35970365760,
+      "job_id": 107538393207,
+      "tests": 458,
+      "pass": 458,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35969063472,
-      "job_id": 107534244275,
+      "run_id": 35970365760,
+      "job_id": 107538392805,
       "tests": 497,
       "pass": 497,
       "fail": 0,
@@ -887,17 +899,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 35969063564,
-      "job_id": 107534244429,
+      "run_id": 35970365819,
+      "job_id": 107538393160,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35969063483,
-      "job_id": 107534244180,
+      "run_id": 35970365767,
+      "job_id": 107538392997,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD172_VERIFICATION_2026-09-24.md"
+    "evidence": "Registers/DEVELOPMENT_DD173_VERIFICATION_2026-09-24.md"
   },
   "historical_projection_payloads": {
     "continuation": {

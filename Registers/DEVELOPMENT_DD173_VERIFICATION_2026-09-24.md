@@ -37,6 +37,14 @@ A true result is not workflow execution authorization.
 
 DD-173 does not validate creator-principal currentness; select definitions by code/date; interpret state-machine JSON, approval/rule policy or current state; authorize/execute transitions; claim/complete tasks; mutate instances; emit events; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-173 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-173 decision, acceptance and Detailed Design changelog are committed in `3e6ea0257fe5eeef63489cbdc760976419124c80` / tree `30b6267d7369066a32009ec7801ec312fc755e87`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35970365760`, Core job `107538393207`: **SUCCESS — 458/458**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107538392805`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `35970365819`, job `107538393160`: **SUCCESS**.
+- Web Boundary Verify run `35970365767`, job `107538392997`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-WORKFLOW-INSTANCE-DEFINITION-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.

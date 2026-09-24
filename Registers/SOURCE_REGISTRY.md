@@ -35,9 +35,8 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 - API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
 ## Current audit / continuation evidence — 2026-09-24
-- Current checkpoint: `DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001`.
-- DD-172 composition audit: `Development/NOTIFICATION_DELIVERY_KNOWN_RELATIONSHIP_COMPOSITION_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- Recipient remaining-boundary audit: `Development/NOTIFICATION_DELIVERY_RECIPIENT_PRINCIPAL_REMAINING_BOUNDARY_AUDIT.md`.
-- DD-172 verification: `Registers/DEVELOPMENT_DD172_VERIFICATION_2026-09-24.md`.
-- Canonical promotion: `607355481617e96a9c7ff29f63047b5c6a5e49b6` / `ffee6678093180b9ee8a341b5a7290d0f44bc85f`; 451 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
+- Current checkpoint: `DEV-WORKFLOW-INSTANCE-DEFINITION-CURRENT-BINDING-FLOORS-001`.
+- DD-173 source audit: `Development/WORKFLOW_INSTANCE_DEFINITION_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- DD-173 verification: `Registers/DEVELOPMENT_DD173_VERIFICATION_2026-09-24.md`.
+- Canonical promotion: `3e6ea0257fe5eeef63489cbdc760976419124c80` / `30b6267d7369066a32009ec7801ec312fc755e87`; 458 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
 - RawSource accepted blobs remain unchanged.
