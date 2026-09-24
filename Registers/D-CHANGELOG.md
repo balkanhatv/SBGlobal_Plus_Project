@@ -138,3 +138,6 @@ Post-DD-169 reconciliation found that migration 0031 labels `definition_applies_
 
 ## 2026-09-24 — DD-170 canonical promotion / checkpoint advance
 DD-170 promotion `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d609ca7a5f9f81a2d913cd14d2dbec1` passed exact-head **437 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`. Shared scope-predicate semantics are now total/fail-closed; owner hierarchy and product/runtime boundaries are unchanged.
+
+## 2026-09-24 — Post-DD-170 DD-171 prerequisite selection
+After DD-170 restored total fail-closed definition applicability, migration 0031's optional NotificationDelivery→NotificationTemplate relationship became safely re-evaluable. DD-171 is limited to exact template id/version, raw ACTIVE status, exact channel and canonical PLATFORM/TENANT/INDUSTRY applicability. Selection/fallback/rendering/approval-to-send/provider/send/retry semantics remain unclaimed.
