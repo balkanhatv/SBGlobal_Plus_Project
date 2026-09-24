@@ -1,16 +1,16 @@
-# CORE SERVICE CHECKPOINT — DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001
+# CORE SERVICE CHECKPOINT — DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001
 **Updated:** 2026-09-24 · **Branch:** `docs/architecture-branch-2`
 
-Verified executable `a68a89f1a7d65eaeb76dfa8f4847e756393f396b` / tree `152771d5d7369153730f1ea89c7e3803364a4fb4`: **388/388 Core**, **497/497 PostgreSQL**, Database/Web PASS. Zero failed/skipped tests.
+Verified DD-163 canonical promotion `a2a888eea87124c75123239d79e528e6d4facfbe` / tree `13ff71a61d9022253fb6e9ade7fd601152f7e3c0`: **395/395 Core**, **497/497 PostgreSQL**, Database/Web PASS. Exact-head runs: Core `35957280923` (Core job `107498170978`, PostgreSQL job `107498170600`), Database `35957280994` (job `107498170889`), Web `35957281031` (job `107498170998`).
 
-Promotion invariant gate `369bf76073d14ae625217b6a55e2bd9082ad4d9b` / tree `b3d376fa7cc0e50a17e032cc0e79017b7c589ac6`: Core run `35955447920` (Core job `107492688508`, PostgreSQL job `107492688659`), Database run `35955447871` (job `107492688241`), Web run `35955447955` (job `107492688562`) — SUCCESS; **162 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+`WH-FLOOR-001…007` prove the bounded ordinary single-context Webhook necessary floor: ACTIVE+verified subscription, exact same-Tenant event, exact catalog type/version/scope, `webhookEligible=true`, TENANT_CORE no-Industry shape, exact TENANT_INDUSTRY allowlist membership, and fail-closed PLATFORM_GLOBAL / EXPLICIT_CROSS_CONTEXT handling.
 
-`APICRED-CORE-001…007` prove all-three-floor success, lifecycle/current-principal/requested-scope independent failure, no fallback on malformed multi-failure input, preservation of Platform/Tenant-Industry scope semantics, and non-interpretation/non-mutation of verifier/CIDR/profile/version/use evidence.
+A true result is **not Webhook delivery authorization** and creates no delivery attempt or network call.
 
-## Remaining scope
+## Locked boundaries
 
-Presented-token parsing/prefix extraction; secret verifier comparison and crypto governance; CIDR/network enforcement; permission-profile mapping; usage mutation/audit; final `VerifiedMachineEvidence`; and `IdentityPort.verifyMachineCredential` remain unimplemented unless separately source-owned.
+Event-filter grammar/evaluation; endpoint ownership/challenge and DNS/IP/redirect SSRF mechanics; signing-secret retrieval/rotation/canonical bytes/crypto parameters; permission-profile semantics; Event Catalog ACTIVE/RETIRED runtime interpretation; Outbox claim/readiness/lease/order; retry timing/exhaustion/DLQ/replay; explicit cross-context endpoint composition; WebhookDelivery mutation; and network execution remain unimplemented unless separately source-owned.
 
-The post-DD-162 audit at `a453fc2f2f555972cd0391a3db04bc67a6e7d497` (`Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`) confirms these seams are not source-complete and therefore no DD-163 machine-auth implementation is authorized.
+The machine-auth verifier seam remains separately blocked by `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`.
 
-Evidence: `Registers/DEVELOPMENT_DD162_VERIFICATION_2026-09-24.md` plus `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`.
+Evidence: `Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md`.
