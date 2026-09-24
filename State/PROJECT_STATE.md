@@ -1,18 +1,18 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-OPERATOR-ELEVATION-CONTROL-PLANE-SQL-BOUNDARY-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-API-CREDENTIAL-CURRENT-LIFECYCLE-FLOOR-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified executable `7628751f40b4a5daeb6c04b41459381addce453f` / tree `b2364917582add955e91d43c8f248a2e64603480`: **360/360 Core**, **490/490 PostgreSQL**, Database/Web PASS.
+Verified executable `a5e1de8dec4b24de90ebebb937ad7dd684761b63` / tree `493fe33ebc29e23f67dd8dca065f97075397481a`: **367/367 Core**, **490/490 PostgreSQL**, Database/Web PASS.
 
-Promotion invariant gate `9b1db7ef899619d9cc3f5bcc8044da3e4f19b6af` / tree `9bc2eb314384faf3580f487ab25bbcc62e8d2a3c`: Core run `35950903109` (Core job `107479023122`, PostgreSQL job `107479023360`), Database run `35950903083` (job `107479023190`), Web run `35950903078` (job `107479023039`) — SUCCESS; **157 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `716e65b5296f974b608a44aac57daa8a9e740743` / tree `cf5cf9f213d8a20c081f2d36f297d818fb4ff0d7`: Core run `35951882595` (Core job `107481975657`, PostgreSQL job `107481975948`), Database run `35951882648` (job `107481975808`), Web run `35951882634` (job `107481975705`) — SUCCESS; **158 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-157 adds explicit fixed Control Plane SQL boundary verification; no OperatorElevation mutation service, request-time activation or access grant is implied.
+DD-158 adds only persisted API Credential status/expiry necessary currentness; no verifier/hash/CIDR/scope/access success is implied.
 
-Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–157**.
+Invariants remain **9 Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, and contiguous **ADR-001–020 / DD-001–158**.
 
-Next: Fresh source-audit the next runtime prerequisite. Mutation authorization, trusted activation, step-up, effective permissions, broader approval/purpose, request scope and mandatory audit remain separate.
+Next: Fresh source-audit the next runtime prerequisite. Token parsing, verifier execution, CIDR, principal/scope/profile mapping, usage/audit and final machine evidence remain separate.
 
-Evidence: `Registers/DEVELOPMENT_DD157_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD158_VERIFICATION_2026-09-24.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.
