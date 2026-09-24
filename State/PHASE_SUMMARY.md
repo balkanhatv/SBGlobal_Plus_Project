@@ -1,13 +1,13 @@
 # PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-OPERATOR-ELEVATION-PERSISTED-LIFECYCLE-INTEGRITY-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-OPERATOR-ELEVATION-CONTROL-PLANE-SQL-BOUNDARY-001`
 
-Verified executable `821ccc7ae0cd59f4e78bace86c214dc339857f85` / tree `c28d9a5ad07b77052e7050a605f0d64981e49fa1`: **353/353 Core**, **490/490 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `7628751f40b4a5daeb6c04b41459381addce453f` / tree `b2364917582add955e91d43c8f248a2e64603480`: **360/360 Core**, **490/490 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `2f62e58073baf1756629548c33f9837bc6fe5a4b` / tree `5d1c1322565ac2de094102b748b36dea0edb22e5`: Core run `35949826396` (Core job `107475752512`, PostgreSQL job `107475752635`), Database run `35949826400` (job `107475752473`), Web run `35949826409` (job `107475752440`) — SUCCESS; **156 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `9b1db7ef899619d9cc3f5bcc8044da3e4f19b6af` / tree `9bc2eb314384faf3580f487ab25bbcc62e8d2a3c`: Core run `35950903109` (Core job `107479023122`, PostgreSQL job `107479023360`), Database run `35950903083` (job `107479023190`), Web run `35950903078` (job `107479023039`) — SUCCESS; **157 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-156 verifies persisted OperatorElevation lifecycle/time/scope integrity only. It does not implement lifecycle transition APIs or request-time activation.
+DD-157 verifies only the fixed internal Control Plane SQL adapter boundary. It does not authorize OperatorElevation mutation or request-time activation.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep trusted selection/activation, lifecycle transition authorization, step-up/MFA policy, permission/effective-permission evaluation, broader approval/purpose policy, governed RequestContext/SQL injection and mandatory audit outside scope unless separately source-owned.
+Next: Fresh source-audit the next runtime prerequisite. Keep lifecycle mutation services/authorization, trusted selection/activation, step-up/MFA policy, permission/effective-permission evaluation, broader approval/purpose policy, governed RequestContext/SQL injection and mandatory audit outside scope unless separately source-owned.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 
