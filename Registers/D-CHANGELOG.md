@@ -168,3 +168,6 @@ Fresh Automation reconciliation selected migration 0031's AutomationRun→Automa
 
 ## 2026-09-24 — DD-175 canonical promotion / checkpoint advance
 DD-175 promotion `106188b29afea27920e8cbdb1e59815923b24618` / tree `534bf66bbc57995a89ea44dff6f56af820f0929d` passed exact-head **472 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`. Definition version/effective-date selection and Automation execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-175 DD-176 prerequisite selection
+Fresh Workflow/Automation reconciliation selected migration 0031 + migration 0048's optional AutomationDefinition→WorkflowDefinition exact-id containment relationship as the next independent source-complete prerequisite. WorkflowDefinition status/version/effective dates and all Automation/Workflow execution semantics remain explicitly outside the floor.
