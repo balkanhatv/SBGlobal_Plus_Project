@@ -2899,3 +2899,26 @@ Malformed identifiers, malformed allowed ToolSet id or unsupported step type fai
 ### AISTEP-TOOL-CUR-007 — Approval/policy/runtime semantics remain uninterpreted
 Step approval/status/timestamps/audit, run principal/membership/snapshot/resource/lifecycle/budgets, definition policy/status/version, member constraint and tool permission/entitlement/approval/OperationContract metadata do not affect this floor, and inputs remain unchanged.
 
+## DD-183 AgentStep AgentApproval Backlink Acceptance
+
+### AISTEP-APP-CUR-001 — Unbound step requires no approval evidence
+A valid AgentStep without `approvalId` matches only when no AgentApproval evidence is supplied.
+
+### AISTEP-APP-CUR-002 — Exact approval id/run/step backlink matches
+An AgentApproval with exact id, same run id and same step id satisfies the persisted backlink floor.
+
+### AISTEP-APP-CUR-003 — Wrong approval id fails
+A mismatched AgentApproval id fails closed.
+
+### AISTEP-APP-CUR-004 — Wrong run or step backlink fails
+Same approval id with a different run or different step fails closed.
+
+### AISTEP-APP-CUR-005 — Unexpected evidence for unbound step fails
+Supplying AgentApproval evidence when the AgentStep has no `approvalId` fails closed.
+
+### AISTEP-APP-CUR-006 — Malformed identifiers fail closed
+Malformed step/run/approval identifiers fail closed.
+
+### AISTEP-APP-CUR-007 — Approval and runtime semantics remain uninterpreted
+Step type/tool/status/timestamps/audit and approval Tenant/Industry/requestedBy/type/permission/approver/status/summary/time/reason/correlation evidence do not create acceptance, and inputs remain unchanged.
+

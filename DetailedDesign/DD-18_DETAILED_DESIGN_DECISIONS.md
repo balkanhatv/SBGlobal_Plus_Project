@@ -2583,3 +2583,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AISTEP-TOOL-CUR-001…007` in DD-17 and `tests/core/ai-agent-step-tool-binding-floors.test.mjs`.
 
+## DD-183 — AgentStep optional AgentApproval backlink may be re-evaluated as a pure persisted relationship floor without claiming approval satisfaction
+
+**Context:** DD-131 exposes raw AgentStep evidence and DD-132 exposes raw AgentApproval evidence. Migration 0031 conditionally validates an AgentStep `approval_id`: when present, the referenced AgentApproval must be the exact approval row for the same AgentRun and same AgentStep. When absent, no approval backlink is required.
+
+**Decision:** add pure Core helper `matchesAIAgentStepApprovalBacklinkFloors(step, approval?)`. It validates step identity, treats an absent approval id as valid only when no approval evidence is supplied, and for present bindings requires exact approval id, same run id and same step id.
+
+**Security / trade-off:** the helper mirrors only the persisted backlink. It deliberately ignores approval status/satisfaction, approver authorization, Tenant/Industry scope, requiredPermission, AgentRun resume/cancel and tool execution authority.
+
+**Boundary:** DD-183 does not decide whether approval is APPROVED/current/satisfied; validate AgentApproval scope or approver principal; validate permission/context; resume/cancel AgentRun; authorize ToolSetMember/ToolDefinition/OperationContract execution; interpret approval summary/reason; mutate AgentStep/AgentApproval; call providers/models/tools; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `AISTEP-APP-CUR-001…007` in DD-17 and `tests/core/ai-agent-step-approval-backlink-floors.test.mjs`.
+
