@@ -210,3 +210,6 @@ Fresh AI reconciliation selected migration 0031's AgentStep TOOL/non-TOOL bindin
 
 ## 2026-09-24 — DD-182 canonical promotion / checkpoint advance
 DD-182 promotion `8b36c0f86e5b8930e2c49a64a1d5b82eff0fd8db` / tree `a985d9fab1a30de000387ab6cf7fcfacacf99355` passed exact-head **521 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-STEP-TOOL-BINDING-CURRENT-FLOORS-001`. Approval satisfaction and Agent/tool execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-182 DD-183 prerequisite selection
+Fresh AgentStep/AgentApproval reconciliation selected migration 0031's optional exact approval backlink as the next independent source-complete prerequisite: exact approval id, same run and same step only. Approval status/satisfaction, approval scope, approver principal/permission/context and AgentRun/tool execution remain explicitly outside the floor.
