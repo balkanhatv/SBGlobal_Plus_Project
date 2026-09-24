@@ -47,6 +47,14 @@ A true result is not synchronization authorization.
 
 DD-164 does not interpret/decrypt cursor payloads, determine freshness, compose atomically refreshed persistence snapshots, choose direction/OperationContract/event/provider, inspect integration health/config/permission profiles, read credentials/secrets, mutate state, authorize resume/replay/sync, call a provider/network or alter persistence/security policy.
 
-## 6. Promotion requirement
+## 6. Canonical promotion result
 
-Canonical DD-164 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI plus contiguous-DD/repository invariant checks before the Development checkpoint advances.
+**PROMOTED.** Canonical decision, acceptance contracts and Detailed Design changelog are committed at `b37242298bff0c2b8e95a9b957896d6a7278e8fd` / tree `749064f6d423f4d685c715e905538a06dbc77613`.
+
+Exact promotion-head evidence:
+- Core Service Verify run `35959616076`, Core job `107505180327`: **SUCCESS — 402/402**, 0 failed/skipped; REPO-004 contiguous/unique DD definitions PASS through DD-164.
+- Same run, PostgreSQL-context job `107505180472`: **SUCCESS — 497/497**, 0 failed/skipped.
+- Database Verify run `35959616057`, job `107505180189`: **SUCCESS**.
+- Web Boundary Verify run `35959616006`, job `107505179992`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001`. This promotion does not widen the explicitly unclaimed synchronization/provider/network boundaries.

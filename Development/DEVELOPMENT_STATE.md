@@ -1,18 +1,20 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified DD-163 canonical promotion `a2a888eea87124c75123239d79e528e6d4facfbe` / tree `13ff71a61d9022253fb6e9ade7fd601152f7e3c0`: **395/395 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js/Web and Database Verify PASS. Exact-head runs: Core `35957280923`, Database `35957280994`, Web `35957281031`.
+Verified DD-164 canonical promotion `b37242298bff0c2b8e95a9b957896d6a7278e8fd` / tree `749064f6d423f4d685c715e905538a06dbc77613`: **402/402 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35959616076`, Database `35959616057`, Web `35959616006`.
 
-DD-163 composes only already-owned WebhookSubscription/OutboxEvent/EventCatalog prerequisites for ordinary single-context delivery candidacy. It does not interpret filters, endpoint safety/control, signing material, permission profiles, catalog lifecycle, Outbox readiness/retry state or network behavior.
+DD-164 re-evaluates only migration-0030-owned SyncCursor binding predicates over supplied DD-093/DD-095/DD-097 evidence: exact parent identity, ACTIVE TenantIntegration, exact ACTIVE capability under the same IntegrationDefinition, enabled-capability membership, and exact TENANT_CORE/TENANT_INDUSTRY Industry shape.
 
-Invariants remain **9 equal Industries / 41 canonical MS / 181 Industry tables**, **2,962 preserved source requirements**, exactly **two Tenant mobile app classes**, and contiguous **ADR-001–020 / DD-001–163**.
+A true result is a necessary floor only. Cursor payload/freshness, atomic multi-reader composition, provider/OperationContract/event selection, Integration health/config/profile semantics, CredentialReference/secret access, state mutation, resume/replay/sync authorization and network behavior remain unclaimed.
 
-The DD-162 machine-auth verifier seam remains blocked exactly as recorded in `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. DD-163 does not widen that boundary.
+Invariants remain **9 equal Industries / 41 canonical MS / 181 Industry tables**, **2,962 preserved source requirements**, exactly **two Tenant mobile app classes**, and contiguous **ADR-001–020 / DD-001–164**.
 
-Next: source-audit the next named unfinished prerequisite and open DD-164 only if deterministic behavior, authority and executable acceptance are canonically owned. Current unresolved Webhook execution seams must remain locked rather than inferred.
+The DD-162 machine-auth verifier seam remains blocked; the post-DD-163 Webhook execution seams remain locked by `Development/WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md`.
 
-Evidence: `Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md` plus `Development/WEBHOOK_DELIVERY_NECESSARY_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+Next: source-audit the next named unfinished prerequisite and open a new DD only if deterministic behavior, authority and executable acceptance are canonically owned.
+
+Evidence: `Registers/DEVELOPMENT_DD164_VERIFICATION_2026-09-24.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.

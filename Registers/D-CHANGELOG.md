@@ -98,3 +98,6 @@ Fresh remote audit reconciled the 796-blob DD-163 promotion baseline with MI/MP,
 
 ## 2026-09-24 — Post-DD-163 boundary selection
 `Development/WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md` locks unsupported Webhook execution semantics rather than inventing them. `Development/SYNC_CURSOR_CURRENT_BINDING_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md` identifies one independent source-complete next prerequisite: the exact migration-0030 SyncCursor parent/capability binding floor, with no sync/provider authorization semantics.
+
+## 2026-09-24 — DD-164 SyncCursor current-binding promotion
+Post-DD-163 Webhook execution seams were locked as source-incomplete. DD-164 then implemented the independent migration-0030-owned SyncCursor parent/capability current-binding necessary floor. Implementation `f38297dc37f269cb29dcaa5e8bbd80f4b57aec25` passed 402 Core / 497 PostgreSQL plus Database/Web; canonical promotion `b37242298bff0c2b8e95a9b957896d6a7278e8fd` / tree `749064f6d423f4d685c715e905538a06dbc77613` passed the same exact-head gates and REPO-004 contiguity. No SQL/schema/RLS/role/grant/RawSource/main change; sync/provider/network authority remains unclaimed.

@@ -1,9 +1,10 @@
 # REVIEW_REQUIRED — Historical Gates / Current Dependency Ownership
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001`
 
 No general approval request is pending. Missing contracts are **dependency blocks, not implied approvals**.
 
 Current locked boundaries:
+- SyncCursor execution beyond DD-164: cursor decode/freshness, atomic refresh composition, provider/OperationContract/event selection, secret access, state mutation, resume/replay/sync authorization and network execution;
 - machine credential final verification: token grammar, verifier/crypto contract, trusted CIDR evidence, permission-profile resolution, successful-use/audit ordering and final machine evidence;
 - Webhook execution beyond DD-163: event-filter grammar/evaluation, endpoint challenge and exact SSRF/DNS/redirect mechanics, signing canonicalization/secret runtime, Event Catalog RETIRED behavior, Outbox claim/readiness, retry/DLQ/replay, explicit cross-context delivery and network dispatch;
 - other previously recorded source-owned dependency blocks remain historical/active only in their named audits.

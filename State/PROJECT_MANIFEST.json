@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-24",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
-  "final_verdict": "DD-163 WEBHOOK DELIVERY NECESSARY FLOORS IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED; MACHINE-AUTH VERIFIER AND UNOWNED WEBHOOK EXECUTION SEMANTICS REMAIN BLOCKED",
+  "checkpoint": "DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001",
+  "final_verdict": "DD-164 SYNC CURSOR CURRENT-BINDING NECESSARY FLOORS IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED; MACHINE-AUTH, WEBHOOK EXECUTION AND SYNC EXECUTION SEMANTICS REMAIN BOUNDED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD163_CONTIGUOUS",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD164_CONTIGUOUS",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD163_WEBHOOK_NECESSARY_FLOORS_VERIFIED_NAMED_DEPENDENCIES_BLOCKED",
+    "development": "IN_PROGRESS_DD164_SYNC_CURSOR_BINDING_FLOORS_VERIFIED_NAMED_DEPENDENCIES_BLOCKED",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "CURRENT_IMPLEMENTED_DD040_DD163_BOUNDED_CORE_INTEGRATION_BOUNDARIES_EXACT_HEAD_TESTED"
+    "core_services": "CURRENT_IMPLEMENTED_DD040_DD164_BOUNDED_CORE_INTEGRATION_BOUNDARIES_EXACT_HEAD_TESTED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
-    "verified_code_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
-    "state_projection_basis_head": "1072767d5d4e563aca1f496e2996334dcd05cc4f",
+    "verified_code_head": "b37242298bff0c2b8e95a9b957896d6a7278e8fd",
+    "verified_code_tree": "749064f6d423f4d685c715e905538a06dbc77613",
+    "state_projection_basis_head": "b37242298bff0c2b8e95a9b957896d6a7278e8fd",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -69,13 +69,25 @@
       "web_run_id": 35957281031,
       "web_job_id": 107498170998,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd164_promotion_head": "b37242298bff0c2b8e95a9b957896d6a7278e8fd",
+    "dd164_promotion_tree": "749064f6d423f4d685c715e905538a06dbc77613",
+    "dd164_ci": {
+      "core_run_id": 35959616076,
+      "core_job_id": 107505180327,
+      "postgres_job_id": 107505180472,
+      "database_run_id": 35959616057,
+      "database_job_id": 107505180189,
+      "web_run_id": 35959616006,
+      "web_job_id": 107505179992,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DD-163 ordinary single-context Webhook delivery necessary-floor composition verified; machine-auth verifier and unowned Webhook execution semantics remain blocked",
+    "current_phase": "DD-164 SyncCursor current parent/capability binding necessary-floor composition verified; sync execution remains unclaimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -90,9 +102,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
-      "ci_run_id": 35957280994,
-      "ci_job_id": 107498170889,
+      "ci_verified_head": "b37242298bff0c2b8e95a9b957896d6a7278e8fd",
+      "ci_run_id": 35959616057,
+      "ci_job_id": 107505180189,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -104,7 +116,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+      "ci_verified_tree": "749064f6d423f4d685c715e905538a06dbc77613",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -112,10 +124,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
-      "feature_head_bootstrap_verified_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
-      "feature_head_bootstrap_run_id": 35957280923,
-      "feature_head_bootstrap_job_id": 107498170600,
+      "feature_head_bootstrap_verified_head": "b37242298bff0c2b8e95a9b957896d6a7278e8fd",
+      "feature_head_bootstrap_verified_tree": "749064f6d423f4d685c715e905538a06dbc77613",
+      "feature_head_bootstrap_run_id": 35959616076,
+      "feature_head_bootstrap_job_id": 107505180472,
       "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -124,27 +136,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Source-audit the next named unfinished prerequisite. Open DD-164 only where deterministic behavior, authority and executable acceptance are canonically owned; do not infer machine verifier, webhook filter/endpoint/signature/catalog-lifecycle/dispatcher/retry/cross-context/network semantics.",
+    "next_action": "Fresh source-audit the next named unfinished prerequisite. Open a new DD only where deterministic behavior, authority and executable acceptance are canonically owned; do not infer machine verifier, Webhook execution, cursor freshness/decryption, provider selection, secret access, sync resume/replay or network semantics.",
     "core_services": {
-      "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
+      "checkpoint": "DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–163 current bounded implementation; DD-163 ordinary single-context Webhook necessary floors only; machine-auth verifier and unowned Webhook execution remain blocked",
-      "verified_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
-      "verified_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
-      "core_ci_run_id": 35957280923,
-      "core_ci_job_id": 107498170978,
-      "tests": "395/395 PASS",
+      "decision": "DD-040–164 current bounded implementation; DD-164 SyncCursor current parent/capability binding necessary floors only; sync/provider execution remains unclaimed",
+      "verified_head": "b37242298bff0c2b8e95a9b957896d6a7278e8fd",
+      "verified_tree": "749064f6d423f4d685c715e905538a06dbc77613",
+      "core_ci_run_id": 35959616076,
+      "core_ci_job_id": 107505180327,
+      "tests": "402/402 PASS",
       "core_test_counts": {
-        "tests": 395,
-        "pass": 395,
+        "tests": 402,
+        "pass": 402,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35957280923,
-      "postgres_ci_job_id": 107498170600,
+      "postgres_ci_run_id": 35959616076,
+      "postgres_ci_job_id": 107505180472,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -153,8 +165,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35957280994,
-      "database_regression_job_id": 107498170889,
+      "database_regression_run_id": 35959616057,
+      "database_regression_job_id": 107505180189,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -449,7 +461,8 @@
         "DD-160 current machine-principal ACTIVE API_CLIENT/SERVICE necessary floor with SERVICE structural metadata requirement",
         "DD-161 API Credential requested-scope compatibility floor for Platform/Tenant/Industry targets with SERVICE allowlist enforcement",
         "DD-162 pure composition of API Credential current lifecycle, current machine-principal and requested-scope necessary floors",
-        "DD-163 ordinary single-context Webhook delivery necessary-floor composition"
+        "DD-163 ordinary single-context Webhook delivery necessary-floor composition",
+        "DD-164 SyncCursor current parent/capability binding necessary-floor composition"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -669,7 +682,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_WEBHOOK_DELIVERY_NECESSARY_FLOORS_VERIFIED",
+  "current_phase": "DEVELOPMENT_SYNC_CURSOR_CURRENT_BINDING_FLOORS_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -701,22 +714,23 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
-    "verified_code_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
-    "verified_code_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
-    "source_audit": "Development/WEBHOOK_DELIVERY_NECESSARY_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md",
+    "checkpoint": "DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001",
+    "verified_code_head": "b37242298bff0c2b8e95a9b957896d6a7278e8fd",
+    "verified_code_tree": "749064f6d423f4d685c715e905538a06dbc77613",
+    "source_audit": "Development/SYNC_CURSOR_CURRENT_BINDING_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD164_VERIFICATION_2026-09-24.md",
     "machine_verifier_boundary": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md",
-    "next_action": "Source-audit the next named unfinished prerequisite. Open DD-164 only where deterministic behavior, authority and executable acceptance are canonically owned; do not infer machine verifier, webhook filter/endpoint/signature/catalog-lifecycle/dispatcher/retry/cross-context/network semantics.",
+    "webhook_remaining_boundary": "Development/WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md",
+    "next_action": "Fresh source-audit the next named unfinished prerequisite. Open a new DD only where deterministic behavior, authority and executable acceptance are canonically owned; do not infer machine verifier, Webhook execution, cursor freshness/decryption, provider selection, secret access, sync resume/replay or network semantics.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
-    "verified_executable_basis": "a2a888eea87124c75123239d79e528e6d4facfbe",
-    "verified_executable_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
-    "source_audit": "Development/WEBHOOK_DELIVERY_NECESSARY_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md",
-    "scope": "DD-163 pure ordinary single-context Webhook necessary floors; not delivery authorization or network execution"
+    "checkpoint": "DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001",
+    "verified_executable_basis": "b37242298bff0c2b8e95a9b957896d6a7278e8fd",
+    "verified_executable_tree": "749064f6d423f4d685c715e905538a06dbc77613",
+    "source_audit": "Development/SYNC_CURSOR_CURRENT_BINDING_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD164_VERIFICATION_2026-09-24.md",
+    "scope": "DD-164 pure SyncCursor current parent/capability binding necessary floors; not sync authorization, cursor validity/freshness or provider execution"
   },
   "current_state_audit": {
     "date": "2026-09-24",
@@ -749,21 +763,21 @@
     "scope": "Recursive current-tree inventory plus authoritative-strata reconciliation, invariant/SQL/CI verification and targeted implemented-boundary inspection; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-163 Webhook Delivery Necessary Floors",
-    "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
-    "verified_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
-    "verified_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+    "decision": "DD-164 SyncCursor Current-Binding Necessary Floors",
+    "checkpoint": "DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001",
+    "verified_head": "b37242298bff0c2b8e95a9b957896d6a7278e8fd",
+    "verified_tree": "749064f6d423f4d685c715e905538a06dbc77613",
     "core": {
-      "run_id": 35957280923,
-      "job_id": 107498170978,
-      "tests": 395,
-      "pass": 395,
+      "run_id": 35959616076,
+      "job_id": 107505180327,
+      "tests": 402,
+      "pass": 402,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35957280923,
-      "job_id": 107498170600,
+      "run_id": 35959616076,
+      "job_id": 107505180472,
       "tests": 497,
       "pass": 497,
       "fail": 0,
@@ -771,17 +785,17 @@
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35957280994,
-      "job_id": 107498170889,
+      "run_id": 35959616057,
+      "job_id": 107505180189,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35957281031,
-      "job_id": 107498170998,
+      "run_id": 35959616006,
+      "job_id": 107505179992,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md"
+    "evidence": "Registers/DEVELOPMENT_DD164_VERIFICATION_2026-09-24.md"
   },
   "historical_projection_payloads": {
     "continuation": {
@@ -1260,6 +1274,59 @@
       ],
       "report": "Registers/VISION_CENTRIC_AUDIT_2026-09-21.md",
       "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
+    },
+    "dd163_continuation_projection": {
+      "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
+      "verified_code_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
+      "verified_code_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+      "source_audit": "Development/WEBHOOK_DELIVERY_NECESSARY_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md",
+      "current_verification": "Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md",
+      "machine_verifier_boundary": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md",
+      "next_action": "Source-audit the next named unfinished prerequisite. Open DD-164 only where deterministic behavior, authority and executable acceptance are canonically owned; do not infer machine verifier, webhook filter/endpoint/signature/catalog-lifecycle/dispatcher/retry/cross-context/network semantics.",
+      "main_merge": false
+    },
+    "dd163_current_audit_overlay_projection": {
+      "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
+      "verified_executable_basis": "a2a888eea87124c75123239d79e528e6d4facfbe",
+      "verified_executable_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+      "source_audit": "Development/WEBHOOK_DELIVERY_NECESSARY_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md",
+      "current_verification": "Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md",
+      "scope": "DD-163 pure ordinary single-context Webhook necessary floors; not delivery authorization or network execution"
+    },
+    "dd163_current_feature_verification_projection": {
+      "decision": "DD-163 Webhook Delivery Necessary Floors",
+      "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
+      "verified_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
+      "verified_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+      "core": {
+        "run_id": 35957280923,
+        "job_id": 107498170978,
+        "tests": 395,
+        "pass": 395,
+        "fail": 0,
+        "skip": 0
+      },
+      "postgres": {
+        "run_id": 35957280923,
+        "job_id": 107498170600,
+        "tests": 497,
+        "pass": 497,
+        "fail": 0,
+        "skip": 0,
+        "full_database_bootstrap": "PASS"
+      },
+      "database": {
+        "run_id": 35957280994,
+        "job_id": 107498170889,
+        "conclusion": "success"
+      },
+      "web": {
+        "run_id": 35957281031,
+        "job_id": 107498170998,
+        "conclusion": "success"
+      },
+      "database_schema_change": false,
+      "evidence": "Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md"
     }
   }
 }

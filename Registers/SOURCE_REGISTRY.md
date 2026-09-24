@@ -37,9 +37,9 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 ## Current audit / continuation evidence — 2026-09-24
 - Audit baseline: `a2a888eea87124c75123239d79e528e6d4facfbe` / tree `13ff71a61d9022253fb6e9ade7fd601152f7e3c0`.
 - Audit report: `Registers/VISION_CENTRIC_AUDIT_2026-09-24.md`.
-- Current checkpoint: `DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001`.
-- Source audit: `Development/WEBHOOK_DELIVERY_NECESSARY_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- Verification: `Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md`.
-- DD-163 promotion basis passed 395 Core / 497 PostgreSQL + Database/Web exact-head CI.
-- Machine-verifier and unowned Webhook execution seams remain blocked rather than inferred.
+- Current checkpoint: `DEV-SYNC-CURSOR-CURRENT-BINDING-FLOORS-001`.
+- Source audit: `Development/SYNC_CURSOR_CURRENT_BINDING_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- Verification: `Registers/DEVELOPMENT_DD164_VERIFICATION_2026-09-24.md`.
+- DD-164 promotion basis passed 402 Core / 497 PostgreSQL + Database/Web exact-head CI.
+- Machine-verifier and unowned Webhook execution seams remain blocked; DD-164 also leaves cursor/provider/sync execution semantics unclaimed rather than inferred.
 - RawSource accepted blobs remain unchanged.
