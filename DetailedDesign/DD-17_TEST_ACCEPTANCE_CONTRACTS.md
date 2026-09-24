@@ -2853,3 +2853,26 @@ Malformed AgentDefinition/ToolSet UUIDs or invalid PLATFORM/TENANT/INDUSTRY owne
 ### AIAGENT-TOOLSET-CUR-007 — Agent policy/runtime evidence remains uninterpreted
 Agent objective/risk/approval/budget/version/status/timestamps and ToolSet code/version/timestamps do not affect this floor, and inputs remain unchanged.
 
+## DD-181 AgentRun AgentDefinition Current-Binding Acceptance
+
+### AIARUN-DEF-CUR-001 — ACTIVE PLATFORM definition applies to Core and Industry runs
+An exact ACTIVE PLATFORM AgentDefinition applies to Tenant-Core and Tenant-Industry AgentRuns.
+
+### AIARUN-DEF-CUR-002 — same-Tenant TENANT definition applies within Tenant
+An exact ACTIVE TENANT AgentDefinition applies to same-Tenant Core/Industry runs; foreign Tenant fails closed.
+
+### AIARUN-DEF-CUR-003 — INDUSTRY definition requires exact Industry
+An exact ACTIVE INDUSTRY AgentDefinition applies only to the exact same-Tenant Industry run; sibling Industry or Tenant-Core fails closed.
+
+### AIARUN-DEF-CUR-004 — definition identity mismatch fails
+Wrong AgentDefinition id fails closed.
+
+### AIARUN-DEF-CUR-005 — non-ACTIVE definition fails
+Any definition status other than exact ACTIVE fails closed.
+
+### AIARUN-DEF-CUR-006 — malformed identities or owner shapes fail closed
+Malformed run/definition UUIDs or invalid PLATFORM/TENANT/INDUSTRY owner shapes fail closed.
+
+### AIARUN-DEF-CUR-007 — principal/snapshot/run policy evidence remains uninterpreted
+Acting-principal/membership, permission/entitlement snapshots, requested resource scope, run status/budgets/timestamps/correlation and AgentDefinition policy/ToolSet/version evidence do not affect this floor, and inputs remain unchanged.
+

@@ -316,3 +316,6 @@ After DD-178, migration 0031 + migration 0048's AssistantDefinition required Pro
 ## 2026-09-24 — DD-180 AgentDefinition ToolSet current-binding floor
 After DD-179, migration 0031 + migration 0048's AgentDefinition→allowed ToolSet exact-id/ACTIVE/broader-or-equal containment relationship was selected as the next source-complete prerequisite. DD-180 adds only a pure Core recheck of that relationship. Exact implementation head `8db94fe5eac9d21996f0cc44ae86bc26526f2610` / tree `11052dbf033b792122c99cb4aad59131842e0071` is green at **507/507 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Agent policy, effective ToolSet resolution and Agent/tool execution semantics remain unclaimed.
 
+## 2026-09-24 — DD-181 AgentRun definition current-binding floor
+After DD-180, migration 0031 + migration 0048's AgentRun→AgentDefinition exact-id/ACTIVE/scope relationship was selected as the next source-complete prerequisite. DD-181 adds only a pure Core recheck of that relationship. Exact implementation head `cde1f664682ad9a4cae3f9460ae3878476a4eed6` / tree `117c19d0abc7ba1e216a73393488a3781cfd5e59` is green at **514/514 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Acting-principal/membership and Agent execution semantics remain unclaimed.
+

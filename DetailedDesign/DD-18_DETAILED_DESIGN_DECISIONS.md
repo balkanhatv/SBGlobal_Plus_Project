@@ -2559,3 +2559,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIAGENT-TOOLSET-CUR-001…007` in DD-17 and `tests/core/ai-agent-definition-tool-set-binding-floors.test.mjs`.
 
+## DD-181 — AgentRun definition currentness may be re-evaluated as a pure exact ACTIVE/scope relationship floor
+
+**Context:** DD-130 exposes raw AgentRun evidence and DD-118 exposes raw AgentDefinition evidence. Migration 0031 validates AgentRun against its referenced AgentDefinition by exact id, raw ACTIVE status and canonical scope applicability. The same trigger separately validates acting-principal currentness and optional membership currentness.
+
+**Decision:** add pure Core helper `matchesAIAgentRunDefinitionBindingFloors(run, definition)`. It validates run/definition identities, exact id equality, raw `ACTIVE` definition status and PLATFORM/TENANT/INDUSTRY applicability to the run Tenant/optional Industry scope.
+
+**Security / trade-off:** AgentRun persists no AgentDefinition version and migration 0031 does not compare version/effective dates for this relationship. DD-181 therefore does not invent version selection. Acting-principal and membership predicates remain separate and are not weakened into this relationship floor.
+
+**Boundary:** DD-181 does not validate acting-principal or membership currentness; evaluate permission/entitlement snapshots; interpret requested resource scope as authorization; select current/latest AgentDefinition; compose DD-180 ToolSet currentness automatically; interpret AgentRun lifecycle/resume/cancel status; enforce budgets; plan/execute AgentSteps; resolve approvals; authorize tools; execute providers/models/tools; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `AIARUN-DEF-CUR-001…007` in DD-17 and `tests/core/ai-agent-run-definition-binding-floors.test.mjs`.
+
