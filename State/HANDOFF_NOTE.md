@@ -1,14 +1,14 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-OPERATOR-ELEVATION-SELECTED-ID-FLOOR-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-OPERATOR-ELEVATION-CORE-NECESSARY-FLOORS-001`
 
 Fresh-fetch remote branch/HEAD/tree/checks before further work.
 
-Verified executable `fd1e6b32c94e37ba238bf90395f5b190f33a4175` / tree `d41acd51d9327773d7d09d70231453dc39ac4336`: **339/339 Core**, **469/469 PostgreSQL**, Database/Web PASS.
+Verified executable `0aab1a264a3f01cc4d6121184f3224ada24cfa6e` / tree `d9ee379129dcee062f625ed2d75ef8b7b3377b5c`: **346/346 Core**, **469/469 PostgreSQL**, Database/Web PASS.
 
-Promotion invariant gate `66054051a23bff63e4f28b4b38ccac212a3cfeaf` / tree `10fc7705417894fa2b0a98e8eb6ab4192dd5dca4`: Core run `35923363334` (Core job `107392468462`, PostgreSQL job `107392468199`), Database run `35923363141` (job `107392467609`), Web run `35923363156` (job `107392467492`) — SUCCESS; **151 unique DD definitions**.
+Promotion invariant gate `94c38c4d5639636bbb86f7e275375f0c71211199` / tree `3222cb8c5192d40b47109f63633dcc1abdfc49a4`: Core run `35924394665` (Core job `107395883267`, PostgreSQL job `107395882988`), Database run `35924394619` (job `107395883286`), Web run `35924394760` (job `107395882724`) — SUCCESS; **152 unique DD definitions**.
 
-DD-151 is only exact selected-elevation-id equality. Read `Development/OPERATOR_ELEVATION_SELECTED_ID_PREREQUISITE_OWNERSHIP_AUDIT.md` and `Registers/DEVELOPMENT_DD151_VERIFICATION_2026-09-24.md` before extending OperatorElevation.
+DD-152 is only the pure composition of DD-148…151 necessary floors. Read `Development/OPERATOR_ELEVATION_CORE_FLOOR_COMPOSITION_PREREQUISITE_OWNERSHIP_AUDIT.md` and `Registers/DEVELOPMENT_DD152_VERIFICATION_2026-09-24.md` before extending OperatorElevation.
 
-Next: Fresh source-audit trusted selection/source, floor composition, step-up/profile/approval policy, request-scope injection and audit prerequisites.
+Next: Fresh source-audit trusted selection/source, step-up, permission/effective-permission, approval/purpose, request-scope injection and audit prerequisites.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.
