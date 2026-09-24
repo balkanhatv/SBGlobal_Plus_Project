@@ -30,14 +30,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-AI-AGENT-DEFINITION-TOOL-SET-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-180.
+Current checkpoint: `DEV-AI-AGENT-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-181.
 
-Verified canonical DD-180 promotion `ad5fd749d4cdde8584858779ca596349821bf604` / tree `37d6013de96e36b352f480fa6f06b0aae6fedb40`: **507/507 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35994604615` (Core job `107616459168`, PostgreSQL job `107616458820`), Database `35994604682` (job `107616459266`), Web `35994604599` (job `107616458789`).
+Verified canonical DD-181 promotion `f86218e900ac3ed068238e8e4e9881dde5ee8e8e` / tree `a514b6c24d8c9a5dcd4c19c4dccbee96a764c793`: **514/514 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35995953581` (Core job `107620794600`, PostgreSQL job `107620794232`), Database `35995953596` (job `107620794316`), Web `35995953568` (job `107620793077`).
 
-DD-180 re-evaluates only migration-0031 + migration-0048's AgentDefinition→allowed ToolSet relationship: exact ToolSet id, raw ACTIVE status and canonical broader-or-equal PLATFORM/TENANT/INDUSTRY containment.
+DD-181 re-evaluates only migration-0031 + migration-0048's AgentRun→AgentDefinition relationship: exact definition id, raw ACTIVE status and canonical PLATFORM/TENANT/INDUSTRY applicability to the run Tenant/optional Industry scope.
 
-A true result is not AgentDefinition selection, objective/risk/approval/budget authorization, effective ToolSet-member resolution, acting-principal/membership authorization, AgentRun/AgentStep authority, tool permission/entitlement/approval, provider/model/tool execution or AI inference authority.
+A true result is not acting-principal/membership authorization, permission/entitlement snapshot validity, requested-resource authorization, AgentRun resume/cancel authority, budget enforcement, AgentStep planning/execution, approval satisfaction, tool/provider/model execution or inference authority.
 
-Evidence: `Registers/DEVELOPMENT_DD180_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD181_VERIFICATION_2026-09-24.md`.
 
-Next: source-audit AgentRun→AgentDefinition exact id/ACTIVE/scope currentness as an independent relationship floor; keep acting-principal/membership predicates separate.
+Next: source-audit the AgentStep TOOL binding relationship as an independent prerequisite; keep approval and runtime authorization separate.

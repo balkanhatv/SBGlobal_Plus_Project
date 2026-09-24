@@ -37,6 +37,14 @@ A true result is not AgentRun or Agent/tool execution authorization.
 
 DD-181 does not validate acting-principal/membership currentness; evaluate permission/entitlement snapshots or resource authorization; select definition versions/effective dates; compose DD-180 automatically; interpret run lifecycle/budgets; execute AgentSteps/tools/providers/models; or perform inference/RAG/media.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-181 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-181 decision, acceptance and Detailed Design changelog are committed in `f86218e900ac3ed068238e8e4e9881dde5ee8e8e` / tree `a514b6c24d8c9a5dcd4c19c4dccbee96a764c793`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35995953581`, Core job `107620794600`: **SUCCESS — 514/514**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107620794232`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `35995953596`, job `107620794316`: **SUCCESS**.
+- Web Boundary Verify run `35995953568`, job `107620793077`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-AI-AGENT-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.

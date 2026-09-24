@@ -201,3 +201,6 @@ DD-180 promotion `ad5fd749d4cdde8584858779ca596349821bf604` / tree `37d6013de96e
 
 ## 2026-09-24 — Post-DD-180 DD-181 prerequisite selection
 Fresh AI reconciliation selected migration 0031 + migration 0048's AgentRun→AgentDefinition exact-id/ACTIVE/scope relationship as the next independent source-complete prerequisite. Acting-principal/membership, startup snapshots, resource authorization, run lifecycle/budgets and AgentStep/tool execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-181 canonical promotion / checkpoint advance
+DD-181 promotion `f86218e900ac3ed068238e8e4e9881dde5ee8e8e` / tree `a514b6c24d8c9a5dcd4c19c4dccbee96a764c793` passed exact-head **514 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`. Acting-principal/membership and Agent execution semantics remain unclaimed.
