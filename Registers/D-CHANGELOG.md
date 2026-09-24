@@ -120,3 +120,6 @@ Migration 0030 owns DD-165 credential currentness and DD-166 Definition/config/e
 
 ## 2026-09-24 — DD-167 canonical promotion / checkpoint advance
 DD-167 canonical decision/acceptance/evidence promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94` passed exact-head **423 Core / 497 PostgreSQL** plus Database/Web CI. Current DD/Development/State/Register projections advanced to `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`. No lifecycle/provider/secret/network authority was added; RawSource/main unchanged; PR #2 remains draft/unmerged.
+
+## 2026-09-24 — Post-DD-167 DD-168 prerequisite selection
+Fresh Notification reconciliation selected migration 0031's optional NotificationDelivery→TenantIntegration relationship as the next independent source-complete prerequisite. The bounded floor covers exact integration id/Tenant, raw ACTIVE status and Tenant-wide-or-exact-Industry compatibility only. Provider routing, secrets, send/retry/finality and DD-167 integration-integrity composition remain unclaimed.
