@@ -298,3 +298,6 @@ After DD-172, migration 0031's WorkflowInstance→WorkflowDefinition relationshi
 ## 2026-09-24 — DD-174 Workflow child parent current-binding floor
 After DD-173, migration 0031's shared WorkflowTask/WorkflowTransition→WorkflowInstance exact parent-scope relationship was selected as the next source-complete prerequisite. DD-174 adds only a pure Core recheck of exact parent id, same Tenant and exact nullable Industry Context. Exact implementation head `d4c81f63fe10d8e363ac1131bfe079e61b959ae7` / tree `ad9bfe371b003fa42548dd494694037a35698d85` is green at **465/465 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Assignee/claimant/completer/actor validity and Workflow execution remain unclaimed.
 
+## 2026-09-24 — DD-175 AutomationRun definition current-binding floor
+After DD-174, migration 0031's AutomationRun→AutomationDefinition exact id/ACTIVE/scope relationship was selected as the next source-complete prerequisite. DD-175 adds only a pure Core recheck of exact id, raw ACTIVE status and canonical owner-scope applicability. Exact implementation head `6dfd41c146ffe73392037411501d933daf3ff9fc` is green at **472/472 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Definition version/effective dates and Automation execution semantics remain unclaimed.
+

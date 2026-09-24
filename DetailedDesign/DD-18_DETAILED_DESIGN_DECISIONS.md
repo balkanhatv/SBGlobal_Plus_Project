@@ -2485,3 +2485,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `WFCH-PARENT-CUR-001…007` in DD-17 and `tests/core/workflow-child-parent-binding-floors.test.mjs`.
 
+## DD-175 — AutomationRun definition currentness may be re-evaluated as a pure exact ACTIVE/scope relationship floor
+
+**Context:** DD-105 exposes raw AutomationDefinition evidence and DD-106 exposes raw AutomationRun evidence. Migration 0031 validates AutomationRun against its referenced AutomationDefinition by exact id, raw ACTIVE status and canonical owner-scope applicability.
+
+**Decision:** add pure Core helper `matchesAutomationRunDefinitionBindingFloors(run, definition)`. It validates run/definition identities, exact id equality, raw `ACTIVE` status and PLATFORM/TENANT/INDUSTRY applicability to the run Tenant/optional Industry scope.
+
+**Security / trade-off:** AutomationRun does not persist a definition version and migration 0031 does not compare version/effective dates for this relationship. DD-175 therefore does not invent version selection, effective-date selection or execution semantics.
+
+**Boundary:** DD-175 does not interpret triggers/config/conditions, authorize AutomationRun status transitions, schedule retry/backoff/finality, dispatch OperationContracts or WorkflowDefinitions, mutate runs, emit events, or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `WFA-RUN-DEF-CUR-001…007` in DD-17 and `tests/core/automation-run-definition-binding-floors.test.mjs`.
+

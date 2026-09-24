@@ -2715,3 +2715,26 @@ Malformed child/parent UUIDs or inconsistent parent scope shape fail closed.
 ### WFCH-PARENT-CUR-007 — Task/transition execution semantics remain uninterpreted
 Task assignment/state/due/claim/completion and transition from/action/to/actor/version/reason/time evidence do not create acceptance, and inputs remain unchanged.
 
+## DD-175 AutomationRun AutomationDefinition Current-Binding Acceptance
+
+### WFA-RUN-DEF-CUR-001 — ACTIVE PLATFORM definition applies to Core and Industry runs
+An exact ACTIVE PLATFORM definition with no Tenant/Industry owner applies to both Tenant-Core and Tenant-Industry runs.
+
+### WFA-RUN-DEF-CUR-002 — same-Tenant TENANT definition applies within Tenant
+An exact ACTIVE TENANT definition applies to same-Tenant Core/Industry runs; foreign Tenant fails closed.
+
+### WFA-RUN-DEF-CUR-003 — INDUSTRY definition requires exact Industry
+An exact ACTIVE INDUSTRY definition applies only to the exact same-Tenant Industry run; sibling Industry or Tenant-Core fails closed.
+
+### WFA-RUN-DEF-CUR-004 — definition identity mismatch fails
+Wrong AutomationDefinition id fails closed.
+
+### WFA-RUN-DEF-CUR-005 — non-ACTIVE definition fails
+DRAFT, REVIEW, PUBLISHED and RETIRED definitions fail closed.
+
+### WFA-RUN-DEF-CUR-006 — malformed ownership fails closed
+Malformed run/definition UUIDs or invalid definition owner shape fail closed.
+
+### WFA-RUN-DEF-CUR-007 — version/effective/trigger/run semantics remain uninterpreted
+Definition version/schemaVersion/effective dates/trigger/config/condition/operation/workflow refs and run trigger/idempotency/status/time/error evidence do not affect this floor, and inputs remain unchanged.
+
