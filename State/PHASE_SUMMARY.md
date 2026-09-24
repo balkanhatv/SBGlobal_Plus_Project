@@ -1,13 +1,9 @@
 # PHASE SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`
 
-Verified canonical DD-167 promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94`: **423/423 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35963182069` (Core job `107515946043`, PostgreSQL job `107515945847`), Database `35963181908` (job `107515945257`), Web `35963181936` (job `107515945440`).
+Verified canonical DD-168 promotion `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / tree `c74f9411a25cbbfb27c39ff7a94fc856d03dc707`: **430/430 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35964087999` (Core job `107518729077`, PostgreSQL job `107518728838`), Database `35964088017` (job `107518728942`), Web `35964088007` (job `107518729003`).
 
-DD-167 is a bounded no-new-semantics composition of DD-165 and DD-166 only. It does not authorize TenantIntegration lifecycle/provider/secret/runtime execution.
-
-Canonical invariants remain 9 equal Industries / 41 MS / 181 Industry tables / 2,962 preserved requirements / exactly two logical Tenant mobile app classes.
-
-Next: fresh source-audit another independent prerequisite; open a new DD only if deterministic semantics are source-complete.
+DD-168 is NotificationDelivery optional integration relationship currentness only. Next source-owned candidate is exact source-event scope binding.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

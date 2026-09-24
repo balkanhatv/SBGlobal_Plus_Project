@@ -1,21 +1,12 @@
 # D-INDEX — Current Canonical / Development Index
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`
 
-| Layer | Current boundary |
-|---|---|
-| Governing sources | Primary Vision → explicit user direction → MI/MP v2.5 → immutable RawSource provenance → canonical owners |
-| Foundation / Architecture | Revalidated; 9 Current Supported Industries remain equal; Core remains industry-neutral |
-| Detailed Design | Decisions contiguous DD-001–167 |
-| Mobile invariant | Exactly two logical Tenant app classes: `TENANT_STAFF_APP` + `TENANT_USER_APP`; Platform Mobile separate |
-| Current Development | DD-167 TenantIntegration current-integrity composition |
-| Machine auth | DD-162 necessary floor retained; final verifier chain blocked |
-| Webhook | DD-163 necessary floor retained; execution semantics blocked |
-| Sync | DD-164 current binding only; cursor/runtime authority unclaimed |
-| Integration integrity | DD-165 + DD-166 composed by DD-167; lifecycle/provider/secret/network authority unclaimed |
-| Verification | REPO-001–006 + exact-head Core/PostgreSQL/Database/Web CI |
-| SQL | 47 migrations / 41 verification files; 9 Industries / 41 MS / 181 tables |
-| Production readiness | NOT CLAIMED |
+Current bounded Development: DD-168 NotificationDelivery→TenantIntegration relationship currentness. Detailed Design is contiguous DD-001–168.
 
-Verified canonical DD-167 promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94`: **423/423 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35963182069` (Core job `107515946043`, PostgreSQL job `107515945847`), Database `35963181908` (job `107515945257`), Web `35963181936` (job `107515945440`).
+Canonical invariants: 9 equal Industries; 41 MS; 181 Industry tables; 2,962 preserved source requirements; exactly two logical Tenant mobile app classes.
 
-Next: fresh source-audit another independent prerequisite; do not infer blocked semantics.
+Locked: final machine verifier, Webhook execution, SyncCursor runtime, TenantIntegration provider/secret/runtime authority, Notification send/retry/provider/secret/template/recipient/source-event execution.
+
+Verified canonical DD-168 promotion `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / tree `c74f9411a25cbbfb27c39ff7a94fc856d03dc707`: **430/430 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35964087999` (Core job `107518729077`, PostgreSQL job `107518728838`), Database `35964088017` (job `107518728942`), Web `35964088007` (job `107518729003`).
+
+Production readiness is not claimed.

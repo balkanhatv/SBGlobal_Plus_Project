@@ -1,12 +1,10 @@
-# CORE SERVICE CHECKPOINT — DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001
+# CORE SERVICE CHECKPOINT — DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001
 **Updated:** 2026-09-24 · **Branch:** `docs/architecture-branch-2`
 
-Verified canonical DD-167 promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94`: **423/423 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35963182069` (Core job `107515946043`, PostgreSQL job `107515945847`), Database `35963181908` (job `107515945257`), Web `35963181936` (job `107515945440`).
+Verified canonical DD-168 promotion `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / tree `c74f9411a25cbbfb27c39ff7a94fc856d03dc707`: **430/430 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35964087999` (Core job `107518729077`, PostgreSQL job `107518728838`), Database `35964088017` (job `107518728942`), Web `35964088007` (job `107518729003`).
 
-`INT-INTEGRITY-001…007` prove only that both DD-165 and DD-166 floors match the supplied evidence. No partial-success fallback exists.
+`NOTIF-INT-CUR-001…007` prove only optional NotificationDelivery→TenantIntegration id/Tenant/ACTIVE/scope relationship currentness.
 
-A true result is **not Integration execution, provider, secret, callback, synchronization, OperationContract, event or network authorization**.
+A true result is **not notification delivery, retry, provider, secret or network authorization**.
 
-Locked boundaries remain DD-162 machine verification, DD-163 Webhook execution, DD-164 SyncCursor runtime and all lifecycle/health/profile/provider/secret/network semantics beyond DD-167.
-
-Evidence: `Registers/DEVELOPMENT_DD167_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD168_VERIFICATION_2026-09-24.md`.

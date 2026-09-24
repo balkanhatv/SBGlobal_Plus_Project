@@ -2,15 +2,15 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-24",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001",
-  "final_verdict": "DD-167 TENANT-INTEGRATION CURRENT-INTEGRITY FLOORS IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED; LIFECYCLE/PROVIDER/SECRET/NETWORK EXECUTION REMAINS BLOCKED",
+  "checkpoint": "DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001",
+  "final_verdict": "DD-168 NOTIFICATION-INTEGRATION CURRENT-BINDING FLOOR PROMOTED / EXACT-HEAD TESTED; DELIVERY EXECUTION REMAINS BLOCKED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD167_CONTIGUOUS",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD168_CONTIGUOUS",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD167_TENANT_INTEGRATION_CURRENT_INTEGRITY_VERIFIED_NAMED_DEPENDENCIES_BLOCKED",
+    "development": "IN_PROGRESS_DD168_NOTIFICATION_INTEGRATION_BINDING_VERIFIED",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "ecf694f8bf62082b2d59905591a97b237b866b8b",
-    "verified_code_tree": "dc96af06648f79a606ce5ea24254e52f716c7f94",
-    "state_projection_basis_head": "ecf694f8bf62082b2d59905591a97b237b866b8b",
+    "verified_code_head": "8efb70a9fc54bc3e0c8adef36afc835d313c1cb7",
+    "verified_code_tree": "c74f9411a25cbbfb27c39ff7a94fc856d03dc707",
+    "state_projection_basis_head": "8efb70a9fc54bc3e0c8adef36afc835d313c1cb7",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -117,13 +117,25 @@
       "web_run_id": 35963181936,
       "web_job_id": 107515945440,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd168_promotion_head": "8efb70a9fc54bc3e0c8adef36afc835d313c1cb7",
+    "dd168_promotion_tree": "c74f9411a25cbbfb27c39ff7a94fc856d03dc707",
+    "dd168_ci": {
+      "core_run_id": 35964087999,
+      "core_job_id": 107518729077,
+      "postgres_job_id": 107518728838,
+      "database_run_id": 35964088017,
+      "database_job_id": 107518728942,
+      "web_run_id": 35964088007,
+      "web_job_id": 107518729003,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DD-167 TenantIntegration current-integrity composition verified; lifecycle/provider/secret/network execution remains blocked",
+    "current_phase": "DD-168 NotificationDelivery TenantIntegration current-binding floor verified; delivery execution unclaimed",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -138,9 +150,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "ecf694f8bf62082b2d59905591a97b237b866b8b",
-      "ci_run_id": 35963181908,
-      "ci_job_id": 107515945257,
+      "ci_verified_head": "8efb70a9fc54bc3e0c8adef36afc835d313c1cb7",
+      "ci_run_id": 35964088017,
+      "ci_job_id": 107518728942,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -152,7 +164,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "dc96af06648f79a606ce5ea24254e52f716c7f94",
+      "ci_verified_tree": "c74f9411a25cbbfb27c39ff7a94fc856d03dc707",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -160,10 +172,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "ecf694f8bf62082b2d59905591a97b237b866b8b",
-      "feature_head_bootstrap_verified_tree": "dc96af06648f79a606ce5ea24254e52f716c7f94",
-      "feature_head_bootstrap_run_id": 35963182069,
-      "feature_head_bootstrap_job_id": 107515945847,
+      "feature_head_bootstrap_verified_head": "8efb70a9fc54bc3e0c8adef36afc835d313c1cb7",
+      "feature_head_bootstrap_verified_tree": "c74f9411a25cbbfb27c39ff7a94fc856d03dc707",
+      "feature_head_bootstrap_run_id": 35964087999,
+      "feature_head_bootstrap_job_id": 107518728838,
       "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -172,27 +184,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit another named unfinished prerequisite. Do not infer TenantIntegration lifecycle/execution, provider/adapter selection, secret runtime, health/profile policy, callback/sync/OperationContract/event/network semantics.",
+    "next_action": "Source-audit migration-0031 NotificationDelivery optional source-event exact-scope relationship; do not infer event readiness, provider routing or delivery execution.",
     "core_services": {
-      "checkpoint": "DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001",
+      "checkpoint": "DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–167 current bounded implementation; DD-167 composes DD-165 + DD-166 current-integrity floors only",
-      "verified_head": "ecf694f8bf62082b2d59905591a97b237b866b8b",
-      "verified_tree": "dc96af06648f79a606ce5ea24254e52f716c7f94",
-      "core_ci_run_id": 35963182069,
-      "core_ci_job_id": 107515946043,
-      "tests": "423/423 PASS",
+      "decision": "DD-040–168 bounded implementation; DD-168 notification integration relationship floor only",
+      "verified_head": "8efb70a9fc54bc3e0c8adef36afc835d313c1cb7",
+      "verified_tree": "c74f9411a25cbbfb27c39ff7a94fc856d03dc707",
+      "core_ci_run_id": 35964087999,
+      "core_ci_job_id": 107518729077,
+      "tests": "430/430 PASS",
       "core_test_counts": {
-        "tests": 423,
-        "pass": 423,
+        "tests": 430,
+        "pass": 430,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35963182069,
-      "postgres_ci_job_id": 107515945847,
+      "postgres_ci_run_id": 35964087999,
+      "postgres_ci_job_id": 107518728838,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -201,8 +213,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35963181908,
-      "database_regression_job_id": 107515945257,
+      "database_regression_run_id": 35964088017,
+      "database_regression_job_id": 107518728942,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -501,7 +513,8 @@
         "DD-164 SyncCursor current parent/capability binding necessary-floor composition",
         "DD-165 TenantIntegration CredentialReference current-binding necessary-floor composition",
         "DD-166 TenantIntegration Definition/config/enabled-capability current-set necessary floor",
-        "DD-167 TenantIntegration current-integrity necessary-floor composition"
+        "DD-167 TenantIntegration current-integrity necessary-floor composition",
+        "DD-168 NotificationDelivery TenantIntegration current-binding floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -721,7 +734,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_TENANT_INTEGRATION_CURRENT_INTEGRITY_FLOORS_VERIFIED",
+  "current_phase": "DEVELOPMENT_NOTIFICATION_INTEGRATION_CURRENT_BINDING_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -753,14 +766,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001",
-    "verified_code_head": "ecf694f8bf62082b2d59905591a97b237b866b8b",
-    "verified_code_tree": "dc96af06648f79a606ce5ea24254e52f716c7f94",
-    "source_audit": "Development/TENANT_INTEGRATION_CURRENT_INTEGRITY_COMPOSITION_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD167_VERIFICATION_2026-09-24.md",
-    "machine_verifier_boundary": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md",
-    "webhook_remaining_boundary": "Development/WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md",
-    "next_action": "Fresh source-audit another named unfinished prerequisite. Do not infer TenantIntegration lifecycle/execution, provider/adapter selection, secret runtime, health/profile policy, callback/sync/OperationContract/event/network semantics.",
+    "checkpoint": "DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001",
+    "verified_code_head": "8efb70a9fc54bc3e0c8adef36afc835d313c1cb7",
+    "verified_code_tree": "c74f9411a25cbbfb27c39ff7a94fc856d03dc707",
+    "source_audit": "Development/NOTIFICATION_DELIVERY_INTEGRATION_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD168_VERIFICATION_2026-09-24.md",
+    "next_action": "Source-audit migration-0031 NotificationDelivery optional source-event exact-scope relationship; do not infer event readiness, provider routing or delivery execution.",
     "main_merge": false
   },
   "current_audit_overlay": {
@@ -802,39 +813,38 @@
     "scope": "Recursive current-tree inventory plus authoritative-strata reconciliation, invariant/SQL/CI verification and targeted implemented-boundary inspection; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-167 TenantIntegration Current-Integrity Necessary Floors",
-    "checkpoint": "DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001",
-    "verified_head": "ecf694f8bf62082b2d59905591a97b237b866b8b",
-    "verified_tree": "dc96af06648f79a606ce5ea24254e52f716c7f94",
+    "decision": "DD-168 NotificationDelivery TenantIntegration Current-Binding Floor",
+    "checkpoint": "DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001",
+    "verified_head": "8efb70a9fc54bc3e0c8adef36afc835d313c1cb7",
+    "verified_tree": "c74f9411a25cbbfb27c39ff7a94fc856d03dc707",
     "core": {
-      "run_id": 35963182069,
-      "job_id": 107515946043,
-      "tests": 423,
-      "pass": 423,
+      "run_id": 35964087999,
+      "job_id": 107518729077,
+      "tests": 430,
+      "pass": 430,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35963182069,
-      "job_id": 107515945847,
+      "run_id": 35964087999,
+      "job_id": 107518728838,
       "tests": 497,
       "pass": 497,
       "fail": 0,
-      "skip": 0,
-      "full_database_bootstrap": "PASS"
+      "skip": 0
     },
     "database": {
-      "run_id": 35963181908,
-      "job_id": 107515945257,
+      "run_id": 35964088017,
+      "job_id": 107518728942,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35963181936,
-      "job_id": 107515945440,
+      "run_id": 35964088007,
+      "job_id": 107518729003,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD167_VERIFICATION_2026-09-24.md"
+    "evidence": "Registers/DEVELOPMENT_DD168_VERIFICATION_2026-09-24.md"
   },
   "historical_projection_payloads": {
     "continuation": {

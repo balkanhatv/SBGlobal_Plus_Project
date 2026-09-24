@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,16 +18,16 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`. Decisions are contiguous through DD-167.
+Current checkpoint: `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-168.
 
-Verified canonical DD-167 promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94`: **423/423 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35963182069` (Core job `107515946043`, PostgreSQL job `107515945847`), Database `35963181908` (job `107515945257`), Web `35963181936` (job `107515945440`).
+Verified canonical DD-168 promotion `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / tree `c74f9411a25cbbfb27c39ff7a94fc856d03dc707`: **430/430 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35964087999` (Core job `107518729077`, PostgreSQL job `107518728838`), Database `35964088017` (job `107518728942`), Web `35964088007` (job `107518729003`).
 
-DD-167 composes only the already-owned DD-165 credential current-binding floor and DD-166 Definition/config/enabled-capability current-set floor for the same TenantIntegration evidence. No new primitive predicate, fallback or precedence is introduced.
+DD-168 re-evaluates only migration-0031's optional NotificationDelivery→TenantIntegration relationship: absent binding requires no integration evidence; present binding requires exact id, same Tenant, raw ACTIVE integration and Tenant-wide-or-exact-Industry compatibility.
 
-A true result is not TenantIntegration lifecycle/execution, provider selection, secret access, permission-profile resolution, callback/sync, OperationContract/event or network authority.
+A true result is not notification send/retry/provider/secret/network authorization and does not compose DD-167 Integration current-integrity automatically.
 
-DD-162 machine verification, DD-163 Webhook execution and DD-164 SyncCursor runtime boundaries remain locked. DD-167 also leaves TenantIntegration lifecycle/health/profile/provider/secret/network semantics unclaimed.
+Locked boundaries include DD-162 machine verification, DD-163 Webhook execution, DD-164 SyncCursor runtime, TenantIntegration lifecycle/provider/secret execution beyond DD-167, and notification provider/retry/template/recipient/source-event execution beyond DD-168.
 
-Evidence: `Registers/DEVELOPMENT_DD167_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD168_VERIFICATION_2026-09-24.md`.
 
-Next: source-audit another independent prerequisite only where governing source owns deterministic behavior and executable acceptance.
+Next: source-audit another exact migration-0031 relationship prerequisite only if evidence sources are complete.

@@ -37,6 +37,10 @@ A true result is not notification delivery authorization.
 
 DD-168 does not send/retry, choose provider/adapter, access secrets, interpret delivery lifecycle/finality, validate template/recipient/source-event, compose DD-167 integration integrity, resolve health/profile/fallback, execute callbacks/OperationContracts/events/network, mutate state or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-168 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-168 decision/acceptance/changelog are committed in `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / tree `c74f9411a25cbbfb27c39ff7a94fc856d03dc707`.
+
+Exact canonical-promotion CI: Core `35964087999` / job `107518729077` **430/430 PASS**; PostgreSQL job `107518728838` **497/497 PASS**; Database `35964088017` / job `107518728942` PASS; Web `35964088007` / job `107518729003` PASS.
+
+Checkpoint may advance to `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`.
