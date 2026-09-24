@@ -23,6 +23,7 @@ const f = Object.fromEntries([
   "tenant",
   "industry",
   "operator",
+  "approver",
   "coreActive",
   "industryActive",
   "pending",
@@ -122,8 +123,10 @@ before(async () => {
     await setup.query(
       `INSERT INTO core_identity.platform_principal
         (id,principal_type,status,display_name,auth_epoch,created_at,updated_at)
-       VALUES ($1::uuid,'PLATFORM_OPERATOR','ACTIVE','RLS operator',1,now(),now())`,
-      [f.operator],
+       VALUES
+        ($1::uuid,'PLATFORM_OPERATOR','ACTIVE','RLS operator',1,now(),now()),
+        ($2::uuid,'PLATFORM_OPERATOR','ACTIVE','RLS approver',1,now(),now())`,
+      [f.operator, f.approver],
     );
 
     await setup.query(
@@ -132,21 +135,21 @@ before(async () => {
          ticket_reference,approved_by,starts_at,expires_at,status,
          permission_profile_id,created_at,revoked_at)
        VALUES
-        ($1::uuid,$6::uuid,$7::uuid,NULL,'SUPPORT',NULL,NULL,
-         now()-interval '1 hour',now()+interval '1 hour','ACTIVE',
-         $9::uuid,now()-interval '2 hours',NULL),
-        ($2::uuid,$6::uuid,$7::uuid,$8::uuid,'SUPPORT',NULL,NULL,
+        ($1::uuid,$6::uuid,$8::uuid,NULL,'SUPPORT',NULL,$7::uuid,
          now()-interval '1 hour',now()+interval '1 hour','ACTIVE',
          $10::uuid,now()-interval '2 hours',NULL),
-        ($3::uuid,$6::uuid,$7::uuid,NULL,'SUPPORT',NULL,NULL,
-         now()+interval '1 hour',now()+interval '2 hours','PENDING',
+        ($2::uuid,$6::uuid,$8::uuid,$9::uuid,'SUPPORT',NULL,$7::uuid,
+         now()-interval '1 hour',now()+interval '1 hour','ACTIVE',
          $11::uuid,now()-interval '2 hours',NULL),
-        ($4::uuid,$6::uuid,$7::uuid,NULL,'SUPPORT',NULL,NULL,
+        ($3::uuid,$6::uuid,$8::uuid,NULL,'SUPPORT',NULL,NULL,
+         now()+interval '1 hour',now()+interval '2 hours','PENDING',
+         $12::uuid,now()-interval '2 hours',NULL),
+        ($4::uuid,$6::uuid,$8::uuid,NULL,'SUPPORT',NULL,$7::uuid,
          now()-interval '1 hour',now()+interval '1 hour','REVOKED',
-         $12::uuid,now()-interval '2 hours',now()-interval '30 minutes'),
-        ($5::uuid,$6::uuid,$7::uuid,NULL,'SUPPORT',NULL,NULL,
+         $13::uuid,now()-interval '2 hours',now()-interval '30 minutes'),
+        ($5::uuid,$6::uuid,$8::uuid,NULL,'SUPPORT',NULL,$7::uuid,
          now()-interval '2 hours',now()-interval '1 hour','ACTIVE',
-         $13::uuid,now()-interval '3 hours',NULL)`,
+         $14::uuid,now()-interval '3 hours',NULL)`,
       [
         f.coreActive,
         f.industryActive,
@@ -154,6 +157,7 @@ before(async () => {
         f.revoked,
         f.expiredByTime,
         f.operator,
+        f.approver,
         f.tenant,
         f.industry,
         f.profileCore,
@@ -185,8 +189,8 @@ after(async () => {
         [[f.coreActive,f.industryActive,f.pending,f.revoked,f.expiredByTime]],
       );
       await cleanup.query(
-        "DELETE FROM core_identity.platform_principal WHERE id=$1::uuid",
-        [f.operator],
+        "DELETE FROM core_identity.platform_principal WHERE id=ANY($1::uuid[])",
+        [[f.operator, f.approver]],
       );
       await cleanup.query(
         "DELETE FROM core_tenancy.industry_context WHERE id=$1::uuid",
