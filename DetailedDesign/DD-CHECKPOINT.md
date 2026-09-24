@@ -30,12 +30,12 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-OPERATOR-ELEVATION-RLS-PARITY-001`. Decisions are contiguous through DD-153.
+Current checkpoint: `DEV-OPERATOR-ELEVATION-RELATIONSHIP-INTEGRITY-001`. Decisions are contiguous through DD-154.
 
-Verified executable `91b7db1696701b90e27c3e622c6b39df82fc67c3` / tree `e38ec10d70b4affa29cca55a742c8b9ca2b9cbdf`: **346/346 Core**, **476/476 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `d2c8d9598401859541b72383d78bd6bb633c1b80` / tree `848b24f36d08710d6a378900ba36456c429e3d6d`: **346/346 Core**, **483/483 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `f4168ea19b693934bf9971608147911d83e2afb6` / tree `65ddf4725ef8ccdad1b44fffa17b957322dcf86f`: Core run `35941965972` (Core job `107451593773`, PostgreSQL job `107451593496`), Database run `35941965967` (job `107451593412`), Web run `35941965946` (job `107451593407`) — SUCCESS; **153 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `aa23b2f9c42aca61dad47483778369e0e1aa8cba` / tree `3afc27e882f4e76238edd88bef7448f133a0cc49`: Core run `35946118505` (Core job `107464316684`, PostgreSQL job `107464316811`), Database run `35946118591` (job `107464317181`), Web run `35946118597` (job `107464317184`) — SUCCESS; **154 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-153 proves migration 0029 physical OperatorElevation current-read RLS under the ordinary app role: exact selected id/principal/Tenant, NULL-or-exact Industry, ACTIVE status and current time window. It is acceptance-only evidence; RequestContext/RequestScopedSql still do not activate elevation scope.
+DD-154 verifies migration 0031's persisted relationship integrity: operator principal must be an ACTIVE PLATFORM_OPERATOR; ACTIVE elevations require a distinct ACTIVE PLATFORM_OPERATOR or SERVICE approver; PENDING may remain unapproved but ACTIVE promotion revalidates approver integrity. This does not establish broader approval policy or request-time authorization.
 
-Next: Fresh source-audit the next runtime prerequisite. Trusted selected-id sourcing, step-up/MFA, permission-profile/effective-permission evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory elevation-use audit remain separate.
+Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation selection/source, step-up/MFA policy, permission-profile/effective-permission evaluation, broader approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.

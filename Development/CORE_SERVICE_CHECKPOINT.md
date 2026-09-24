@@ -1,16 +1,16 @@
-# CORE SERVICE CHECKPOINT — DEV-OPERATOR-ELEVATION-RLS-PARITY-001
+# CORE SERVICE CHECKPOINT — DEV-OPERATOR-ELEVATION-RELATIONSHIP-INTEGRITY-001
 **Updated:** 2026-09-24 · **Branch:** `docs/architecture-branch-2`
 
-Verified executable `91b7db1696701b90e27c3e622c6b39df82fc67c3` / tree `e38ec10d70b4affa29cca55a742c8b9ca2b9cbdf`: **346/346 Core**, **476/476 PostgreSQL**, Database/Web PASS. Zero failed/skipped tests.
+Verified executable `d2c8d9598401859541b72383d78bd6bb633c1b80` / tree `848b24f36d08710d6a378900ba36456c429e3d6d`: **346/346 Core**, **483/483 PostgreSQL**, Database/Web PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `f4168ea19b693934bf9971608147911d83e2afb6` / tree `65ddf4725ef8ccdad1b44fffa17b957322dcf86f`: Core run `35941965972` (Core job `107451593773`, PostgreSQL job `107451593496`), Database run `35941965967` (job `107451593412`), Web run `35941965946` (job `107451593407`) — SUCCESS; **153 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `aa23b2f9c42aca61dad47483778369e0e1aa8cba` / tree `3afc27e882f4e76238edd88bef7448f133a0cc49`: Core run `35946118505` (Core job `107464316684`, PostgreSQL job `107464316811`), Database run `35946118591` (job `107464317181`), Web run `35946118597` (job `107464317184`) — SUCCESS; **154 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-`OPELEV-RLS-PG-001…007` prove the physical migration-0029 current-read predicate and fail-closed empty scope under `sbg_app_rw`. The initial fixture head `e2281fad…` correctly surfaced migration-0031 independent-active-approver integrity; corrected fixture `91b7db1696701b90e27c3e622c6b39df82fc67c3` satisfies that existing invariant.
+`OPELEV-REL-PG-001…007` prove accepted independent active PLATFORM_OPERATOR/SERVICE approvers, denial of missing/self/inactive approvers, denial of invalid/inactive operator principals, and revalidation on PENDING → ACTIVE update.
 
 ## Remaining scope
 
-Trusted selected-id source; step-up/MFA policy; permission-profile/effective-permission evaluation; approval/purpose/ticket policy; RequestContext integration; transaction-local runtime elevation-id injection; mandatory elevation-use audit; mutation workflow; transport/UI remain unimplemented unless separately source-owned.
+Trusted selected-elevation-id source; step-up/MFA policy; permission-profile/effective-permission evaluation; Tenant/compliance approval and purpose/ticket policy; RequestContext integration; transaction-local `app.operator_elevation_id` injection; mandatory elevation-use audit; governed elevation mutation API; transport/UI remain unimplemented unless separately source-owned.
 
-Next: Fresh source-audit the next runtime prerequisite. Do not treat DD-153 RLS parity as runtime elevation activation.
+Next: Fresh source-audit the next runtime prerequisite. Do not treat persisted relationship integrity as complete approval authorization.
 
-Evidence: `Registers/DEVELOPMENT_DD153_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD154_VERIFICATION_2026-09-24.md`.
