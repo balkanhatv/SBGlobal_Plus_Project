@@ -150,3 +150,6 @@ Recipient-principal currentness was audited and locked as source-incomplete for 
 
 ## 2026-09-24 — DD-172 canonical promotion / checkpoint advance
 DD-172 promotion `607355481617e96a9c7ff29f63047b5c6a5e49b6` / tree `ffee6678093180b9ee8a341b5a7290d0f44bc85f` passed exact-head **451 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001`. Recipient-principal replay remains source-incomplete and excluded; no delivery execution authority was added.
+
+## 2026-09-24 — Post-DD-172 DD-173 prerequisite selection
+Fresh Workflow reconciliation selected migration 0031's WorkflowInstance→WorkflowDefinition exact id/version/ACTIVE/scope relationship as the next independent source-complete prerequisite. Creator-principal currentness, state-machine interpretation, transition authorization and workflow execution remain explicitly outside the floor.
