@@ -2365,3 +2365,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `SYNC-BIND-001` through `SYNC-BIND-007` in DD-17 and `tests/core/sync-cursor-binding-floors.test.mjs`.
 
+## DD-165 — TenantIntegration CredentialReference current binding may be re-evaluated as a pure necessary floor without authorizing provider execution
+
+**Context:** DD-095 exposes exact RLS-visible TenantIntegration evidence and DD-096 exposes non-secret CredentialReference metadata. Migration 0030 already owns the deterministic write-time relationship/currentness predicate: the referenced credential id exists, Tenant ownership matches, an Industry-scoped credential may bind only the exact integration Industry Context while a Tenant-wide credential may bind Tenant-Core or Tenant-Industry, credential status is ACTIVE, and optional expiry is strictly later than the evaluation instant.
+
+**Decision:** add pure Core helper `matchesCurrentTenantIntegrationCredentialFloors(integration, credential, evaluatedAt)`. It validates required UUID identity, exact integration ownership shape, exact credential id and Tenant binding, optional exact Industry binding, raw ACTIVE credential status and strict expiry currentness using a supplied server-owned instant.
+
+**Security / trade-off:** rechecking only migration-owned credential linkage/currentness avoids silently treating stale CredentialReference status/expiry as current execution authority. The helper deliberately ignores TenantIntegration lifecycle/health/config/profile, IntegrationDefinition/capabilities, provider/adapter choice, secret-store/provider metadata, key rotation semantics and network execution.
+
+**Boundary:** a true result is only a necessary current-binding floor. DD-165 does not read/dereference `secret_reference`, retrieve secret material, interpret credential type/key version/rotation overlap, select ProviderAdapter/provider, resolve permission profiles, decide integration health/executability, execute callbacks/sync/OperationContracts/events, mutate usage/audit/state or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `INT-CRED-CUR-001…007` in DD-17 and `tests/core/tenant-integration-credential-floors.test.mjs`.
+

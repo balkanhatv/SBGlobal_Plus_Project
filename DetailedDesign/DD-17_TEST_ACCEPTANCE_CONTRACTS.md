@@ -2485,3 +2485,26 @@ Malformed required UUIDs, blank capability identity or duplicate enabled-capabil
 ### SYNC-BIND-007 — Cursor/provider runtime semantics remain uninterpreted
 Cursor payload, watermark/source version/update time, TenantIntegration health/config/profile and capability direction/event/rate/idempotency/data-class evidence do not create acceptance, and inputs remain unchanged.
 
+## DD-165 TenantIntegration CredentialReference Current-Binding Necessary-Floor Acceptance
+
+### INT-CRED-CUR-001 — Exact active non-expiring Tenant-Core credential binding matches
+A TENANT_CORE integration with no Industry Context and an exact same-Tenant ACTIVE non-expiring credential id satisfies the bounded floor.
+
+### INT-CRED-CUR-002 — Tenant-wide active credential may bind exact Tenant-Industry integration
+A same-Tenant credential with no Industry Context may satisfy a TENANT_INDUSTRY integration binding when identity/currentness predicates match.
+
+### INT-CRED-CUR-003 — Industry credential binds only exact Tenant-Industry target
+An Industry-scoped credential may satisfy only the exact same Industry integration; sibling Industry or Industry credential→Tenant-Core fails closed.
+
+### INT-CRED-CUR-004 — Credential identity or Tenant mismatch fails
+Wrong CredentialReference id or foreign Tenant ownership fails regardless of other evidence.
+
+### INT-CRED-CUR-005 — Non-ACTIVE CredentialReference fails
+Any raw credential status other than exact ACTIVE fails this floor.
+
+### INT-CRED-CUR-006 — Strict expiry currentness and malformed time fail closed
+Future expiry may match; expiry exactly at or before evaluation fails; malformed evaluation or expiry timestamps fail closed.
+
+### INT-CRED-CUR-007 — Unowned integration/credential semantics remain uninterpreted
+TenantIntegration lifecycle/definition/capabilities/config/health/profile and CredentialReference provider/type/key-version/rotation metadata do not create acceptance, and inputs remain unchanged.
+
