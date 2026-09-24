@@ -2669,3 +2669,26 @@ A delivery with all three relationship ids absent matches when corresponding evi
 ### NOTIF-REL-CUR-007 — Recipient/lifecycle/render/runtime semantics remain uninterpreted
 Recipient principal/reference, delivery lifecycle, render/provider/retry/runtime evidence does not create acceptance, and inputs remain unchanged.
 
+## DD-173 WorkflowInstance WorkflowDefinition Current-Binding Acceptance
+
+### WFI-DEF-CUR-001 — PLATFORM definition applicability is preserved
+Exact ACTIVE PLATFORM definition/version applies to valid Tenant-Core and Tenant-Industry instances.
+
+### WFI-DEF-CUR-002 — TENANT definition applicability is same-Tenant only
+Exact ACTIVE TENANT definition/version applies to same-Tenant Core/Industry instances and fails for a foreign Tenant.
+
+### WFI-DEF-CUR-003 — INDUSTRY definition applicability is exact
+Exact ACTIVE INDUSTRY definition/version applies only to the exact same-Tenant Industry instance; sibling Industry and Tenant-Core fail.
+
+### WFI-DEF-CUR-004 — Definition identity/version mismatch fails
+Wrong definition id, missing/mismatched/non-positive persisted definition version fails closed.
+
+### WFI-DEF-CUR-005 — Non-ACTIVE definition fails
+DRAFT, REVIEW, PUBLISHED and RETIRED definitions fail the relationship floor.
+
+### WFI-DEF-CUR-006 — Malformed ownership fails closed
+Malformed instance/definition identity or invalid instance/definition owner scope shape fails.
+
+### WFI-DEF-CUR-007 — Workflow execution semantics remain uninterpreted
+Resource/currentState/lifecycle/rowVersion/timestamps/creator and definition code/schema/stateMachine/approval/rules/effective/creator/approver evidence do not create acceptance, and inputs remain unchanged.
+

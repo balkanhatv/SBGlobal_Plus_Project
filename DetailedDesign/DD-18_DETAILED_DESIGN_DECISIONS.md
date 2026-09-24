@@ -2461,3 +2461,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `NOTIF-REL-CUR-001…007` in DD-17 and `tests/core/notification-known-relationship-floors.test.mjs`.
 
+## DD-173 — WorkflowInstance definition binding may be re-evaluated as a pure current relationship floor without authorizing workflow execution
+
+**Context:** DD-101 exposes raw WorkflowDefinition evidence and DD-102 exposes raw WorkflowInstance evidence. Migration 0031 validates one exact WorkflowInstance→WorkflowDefinition relationship: exact definition id, exact persisted version, raw ACTIVE status and canonical scope applicability. DD-170 already makes definition applicability total/fail-closed.
+
+**Decision:** add pure Core helper `matchesWorkflowInstanceDefinitionBindingFloors(instance, definition)`. It validates instance identity/scope shape, definition identity/version/status and PLATFORM/TENANT/INDUSTRY applicability only.
+
+**Security / trade-off:** the helper deliberately excludes WorkflowInstance `created_by` currentness because `principal_is_active_for_tenant(...)` can depend on TenantMembership or request-local PLATFORM_OPERATOR elevation/current-principal/current-Tenant evidence. It also leaves state-machine/current-state/transition semantics uninterpreted.
+
+**Boundary:** DD-173 does not select definitions by code/date; validate creator-principal currentness; interpret state-machine JSON, approval policy or rules; decide current-state validity; authorize/execute transitions; claim/complete tasks; mutate instances; emit events; or change SQL/RLS/roles/grants/routes.
+
+**Acceptance:** `WFI-DEF-CUR-001…007` in DD-17 and `tests/core/workflow-instance-definition-binding-floors.test.mjs`.
+
