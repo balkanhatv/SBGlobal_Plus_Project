@@ -85,6 +85,7 @@ export * from "./integration/tenant-integration-integrity-floors.js";
 export * from "./notification/delivery.js";
 export * from "./notification/integration-binding-floors.js";
 export * from "./notification/source-event-binding-floors.js";
+export * from "./notification/template-binding-floors.js";
 export * from "./notification/delivery-attempt.js";
 export * from "./notification/template.js";
 export * from "./workflow/definition.js";
