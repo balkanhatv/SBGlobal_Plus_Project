@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-OPERATOR-ELEVATION-CONTROL-PLANE-SQL-BOUNDARY-001",
-  "final_verdict": "DD-157 FIXED CONTROL PLANE SQL BOUNDARY IMPLEMENTED / EXACT-HEAD TESTED; OPERATOR ELEVATION MUTATION SERVICES/AUTHORIZATION, TRUSTED ACTIVATION, STEP-UP, PERMISSION/APPROVAL POLICY, REQUEST-SCOPE INJECTION AND MANDATORY AUDIT UNCLAIMED",
+  "checkpoint": "DEV-API-CREDENTIAL-CURRENT-LIFECYCLE-FLOOR-001",
+  "final_verdict": "DD-158 API CREDENTIAL CURRENT LIFECYCLE NECESSARY FLOOR IMPLEMENTED / EXACT-HEAD TESTED; TOKEN PARSING, VERIFIER EXECUTION, CIDR, PRINCIPAL/SCOPE/PROFILE MAPPING, USAGE/AUDIT AND FINAL MACHINE AUTHENTICATION UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "7628751f40b4a5daeb6c04b41459381addce453f",
-    "verified_code_tree": "b2364917582add955e91d43c8f248a2e64603480",
-    "state_projection_basis_head": "9b1db7ef899619d9cc3f5bcc8044da3e4f19b6af",
+    "verified_code_head": "a5e1de8dec4b24de90ebebb937ad7dd684761b63",
+    "verified_code_tree": "493fe33ebc29e23f67dd8dca065f97075397481a",
+    "state_projection_basis_head": "716e65b5296f974b608a44aac57daa8a9e740743",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "Fixed Control Plane SQL adapter boundary verified; OperatorElevation mutation/activation service semantics remain separate",
+    "current_phase": "API Credential status/optional-expiry current lifecycle floor verified; verifier execution and final machine authentication remain separate",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "9b1db7ef899619d9cc3f5bcc8044da3e4f19b6af",
-      "ci_run_id": 35950903083,
-      "ci_job_id": 107479023190,
+      "ci_verified_head": "716e65b5296f974b608a44aac57daa8a9e740743",
+      "ci_run_id": 35951882648,
+      "ci_job_id": 107481975808,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "9bc2eb314384faf3580f487ab25bbcc62e8d2a3c",
+      "ci_verified_tree": "cf5cf9f213d8a20c081f2d36f297d818fb4ff0d7",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,10 +99,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "9b1db7ef899619d9cc3f5bcc8044da3e4f19b6af",
-      "feature_head_bootstrap_verified_tree": "9bc2eb314384faf3580f487ab25bbcc62e8d2a3c",
-      "feature_head_bootstrap_run_id": 35950903109,
-      "feature_head_bootstrap_job_id": 107479023360,
+      "feature_head_bootstrap_verified_head": "716e65b5296f974b608a44aac57daa8a9e740743",
+      "feature_head_bootstrap_verified_tree": "cf5cf9f213d8a20c081f2d36f297d818fb4ff0d7",
+      "feature_head_bootstrap_run_id": 35951882595,
+      "feature_head_bootstrap_job_id": 107481975948,
       "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_490_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -111,27 +111,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next runtime prerequisite. Keep lifecycle mutation services/authorization, trusted elevation-id selection/activation, step-up/MFA policy, permission-profile/effective-permission evaluation, broader approval/purpose policy, governed RequestContext/SQL injection and mandatory elevation-use audit outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit the next runtime prerequisite. Keep presented-token parsing, approved verifier execution, CIDR semantics, principal/scope and permission-profile mapping, usage/audit behavior and final VerifiedMachineEvidence construction outside scope unless separately source-owned.",
     "core_services": {
-      "checkpoint": "DEV-OPERATOR-ELEVATION-CONTROL-PLANE-SQL-BOUNDARY-001",
+      "checkpoint": "DEV-API-CREDENTIAL-CURRENT-LIFECYCLE-FLOOR-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–157 current implementation; DD-157 fixed internal Control Plane SQL adapter hygiene only",
-      "verified_head": "7628751f40b4a5daeb6c04b41459381addce453f",
-      "verified_tree": "b2364917582add955e91d43c8f248a2e64603480",
-      "core_ci_run_id": 35950903109,
-      "core_ci_job_id": 107479023122,
-      "tests": "360/360 PASS",
+      "decision": "DD-040–158 current implementation; DD-158 server-internal API Credential ACTIVE/optional-expiry current lifecycle necessary floor only",
+      "verified_head": "a5e1de8dec4b24de90ebebb937ad7dd684761b63",
+      "verified_tree": "493fe33ebc29e23f67dd8dca065f97075397481a",
+      "core_ci_run_id": 35951882595,
+      "core_ci_job_id": 107481975657,
+      "tests": "367/367 PASS",
       "core_test_counts": {
-        "tests": 360,
-        "pass": 360,
+        "tests": 367,
+        "pass": 367,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35950903109,
-      "postgres_ci_job_id": 107479023360,
+      "postgres_ci_run_id": 35951882595,
+      "postgres_ci_job_id": 107481975948,
       "postgres_tests": "490/490 PASS",
       "postgres_test_counts": {
         "tests": 490,
@@ -140,8 +140,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35950903083,
-      "database_regression_job_id": 107479023190,
+      "database_regression_run_id": 35951882648,
+      "database_regression_job_id": 107481975808,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -430,7 +430,8 @@
         "DD-154 persisted OperatorElevation operator/approver relationship-integrity acceptance for migration 0031",
         "DD-155 fail-closed application/bootstrap pooled SQL OperatorElevation scope hygiene with no runtime activation",
         "DD-156 persisted OperatorElevation lifecycle/time/scope integrity: ordered windows, revocation chronology, REVOKED timestamp requirement, immutable Tenant/Industry ownership",
-        "DD-157 fixed PostgresControlPlaneDatabase role/RLS/scope/pool hygiene acceptance with no elevation mutation or activation authority"
+        "DD-157 fixed PostgresControlPlaneDatabase role/RLS/scope/pool hygiene acceptance with no elevation mutation or activation authority",
+        "DD-158 server-internal API Credential ACTIVE plus optional-expiry current lifecycle necessary floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",

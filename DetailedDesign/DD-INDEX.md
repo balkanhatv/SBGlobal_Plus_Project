@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-OPERATOR-ELEVATION-CONTROL-PLANE-SQL-BOUNDARY-001`
+**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-API-CREDENTIAL-CURRENT-LIFECYCLE-FLOOR-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,9 +24,9 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-157**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-158**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
-DD-157 explicitly verifies the fixed internal Control Plane SQL boundary: role pinning, RLS-on, startup scope/elevation clear, unsafe-role denial, cleanup RESET, destroy-on-cleanup-failure, closed leaked transaction handles and safe errors. OperatorElevation mutation/activation authority remains absent.
+DD-158 adds the server-internal API Credential current lifecycle necessary floor: persisted status must be ACTIVE and optional expiry must be strictly after an explicit evaluation instant. Hash verification, CIDR, permission profiles, scope mapping, usage/audit and final machine authentication remain absent.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
@@ -36,6 +36,6 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence:** `7628751f40b4a5daeb6c04b41459381addce453f` / tree `b2364917582add955e91d43c8f248a2e64603480` — 360 Core tests including `OPELEV-CP-SQL-001…007`, 490 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `9b1db7ef899619d9cc3f5bcc8044da3e4f19b6af` / tree `9bc2eb314384faf3580f487ab25bbcc62e8d2a3c`: Core run `35950903109` (Core job `107479023122`, PostgreSQL job `107479023360`), Database run `35950903083` (job `107479023190`), Web run `35950903078` (job `107479023039`) — SUCCESS; **157 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD157_VERIFICATION_2026-09-24.md).
+**Current verified executable evidence:** `a5e1de8dec4b24de90ebebb937ad7dd684761b63` / tree `493fe33ebc29e23f67dd8dca065f97075397481a` — 367 Core tests including `APICRED-LIFE-001…007`, 490 PostgreSQL tests, full 47/41 bootstrap, Database Verify and Next.js build PASS. Promotion invariant gate `716e65b5296f974b608a44aac57daa8a9e740743` / tree `cf5cf9f213d8a20c081f2d36f297d818fb4ff0d7`: Core run `35951882595` (Core job `107481975657`, PostgreSQL job `107481975948`), Database run `35951882648` (job `107481975808`), Web run `35951882634` (job `107481975705`) — SUCCESS; **158 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements. See [verification evidence](../Registers/DEVELOPMENT_DD158_VERIFICATION_2026-09-24.md).
 
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
