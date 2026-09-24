@@ -1,5 +1,5 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001`
+**Updated:** 2026-09-24 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001`
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -24,11 +24,11 @@
 ## Historical design gate and current Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-162**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-163**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 DD-162 composes current credential lifecycle, current machine-principal admissibility and requested-scope compatibility into one pure necessary floor. Final presented-credential verification and machine authentication remain absent.
 
-The post-DD-162 machine-verifier boundary audit at `a453fc2f2f555972cd0391a3db04bc67a6e7d497` (`Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`) confirms that no DD-163 machine-auth implementation is source-authorized from the current contracts.
+The post-DD-162 machine-verifier boundary audit at `a453fc2f2f555972cd0391a3db04bc67a6e7d497` (`Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`) remains binding for machine auth. DD-163 is independently the Webhook delivery necessary-floor decision; it does not widen machine authentication.
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 

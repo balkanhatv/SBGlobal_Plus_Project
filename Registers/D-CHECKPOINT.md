@@ -1,14 +1,14 @@
-# D-CHECKPOINT — DEV-API-REST-001
-**Updated:** 2026-09-21
+# D-CHECKPOINT — DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001
+**Updated:** 2026-09-24
 
-Verified executable `ce4708eec15f6b0a35ae9a77d13505221fe55d51` / tree `9655553773e2b1f63ba1e36a479ef3d574ec6077`: **290/290 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **409 blobs / 161 Markdown / 83 source / 63 test files**.
+Verified canonical DD-163 promotion `a2a888eea87124c75123239d79e528e6d4facfbe` / tree `13ff71a61d9022253fb6e9ade7fd601152f7e3c0`: **395/395 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS.
 
-DD-080 adds an unmounted reusable external REST Fetch adapter: edge and credential/context checks precede body/input work, routes bind one OperationContract, the shared executor remains the only business/security pipeline, and DD-052 owns every success/error/control projection. No route, API-key syntax, OpenAPI document, webhook endpoint, database object or Commercial rule was invented.
+Gate: **DD-163 IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED FOR ITS BOUNDED WEBHOOK NECESSARY-FLOOR SCOPE**. Full Webhook delivery, Integration runtime, product completion and production readiness are not claimed.
 
-Gate: **DD-080 IMPLEMENTED / TESTED FOR ITS BOUNDED UNMOUNTED REST ADAPTER SCOPE**. Full REST/OpenAPI, product and production readiness are not claimed.
+DD-163 requires ACTIVE+verified subscription evidence, exact same-Tenant OutboxEvent, exact catalog type/version/scope, `webhookEligible=true`, TENANT_CORE no-Industry shape, and exact TENANT_INDUSTRY allowlist membership. PLATFORM_GLOBAL and EXPLICIT_CROSS_CONTEXT fail this bounded helper. True is not delivery authorization.
 
-Next: concrete REST exposure remains blocked on an exact external credential scheme and public route catalog; the DD-076 evaluator remains blocked on its named policy/evidence definitions. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.
+The DD-162 machine-verifier boundary remains blocked. Event-filter, endpoint verification/SSRF mechanics, secret/signature details, catalog lifecycle interpretation, Outbox claim/readiness, retry/DLQ/replay, cross-context composition and network delivery remain separately blocked/unimplemented unless source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD080_VERIFICATION_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md`.
 
-RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 open draft/unmerged. The checkpoint/promotion commit must independently pass exact-head CI; this document names its already-verified executable basis, not a recursive self-hash.
+RawSource accepted blobs unchanged; `main` remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 remains open draft/unmerged. This document names the already-verified promotion basis; its containing metadata commit is verified separately to avoid a recursive self-hash.

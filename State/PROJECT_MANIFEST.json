@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-24",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001",
-  "final_verdict": "DD-162 API CREDENTIAL CORE NECESSARY-FLOOR COMPOSITION IMPLEMENTED / EXACT-HEAD TESTED; POST-DD-162 MACHINE-VERIFIER BOUNDARY AUDIT COMPLETE; NO DD-163 MACHINE-AUTH IMPLEMENTATION SOURCE-AUTHORIZED",
+  "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
+  "final_verdict": "DD-163 WEBHOOK DELIVERY NECESSARY FLOORS IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED; MACHINE-AUTH VERIFIER AND UNOWNED WEBHOOK EXECUTION SEMANTICS REMAIN BLOCKED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD040_DD080_IMPLEMENTATION_OVERLAY_NAMED_DEPENDENCIES",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD163_CONTIGUOUS",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_NAMED_EVALUATOR_POLICY_AND_PRODUCER_DEPENDENCIES",
+    "development": "IN_PROGRESS_DD163_WEBHOOK_NECESSARY_FLOORS_VERIFIED_NAMED_DEPENDENCIES_BLOCKED",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "CURRENT_IMPLEMENTED_DD040_DD080_CORE_API_COMMERCIAL_BOUNDARIES_EXACT_HEAD_TESTED"
+    "core_services": "CURRENT_IMPLEMENTED_DD040_DD163_BOUNDED_CORE_INTEGRATION_BOUNDARIES_EXACT_HEAD_TESTED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,17 +53,29 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "a68a89f1a7d65eaeb76dfa8f4847e756393f396b",
-    "verified_code_tree": "152771d5d7369153730f1ea89c7e3803364a4fb4",
-    "state_projection_basis_head": "369bf76073d14ae625217b6a55e2bd9082ad4d9b",
+    "verified_code_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
+    "verified_code_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+    "state_projection_basis_head": "1072767d5d4e563aca1f496e2996334dcd05cc4f",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
-    "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497"
+    "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
+    "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
+    "dd163_promotion_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+    "dd163_ci": {
+      "core_run_id": 35957280923,
+      "core_job_id": 107498170978,
+      "postgres_job_id": 107498170600,
+      "database_run_id": 35957280994,
+      "database_job_id": 107498170889,
+      "web_run_id": 35957281031,
+      "web_job_id": 107498170998,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
+    }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "API Credential lifecycle + current principal + requested-scope necessary-floor composition verified; post-DD-162 machine-verifier boundary audit confirms final machine authentication is blocked on missing canonical contracts",
+    "current_phase": "DD-163 ordinary single-context Webhook delivery necessary-floor composition verified; machine-auth verifier and unowned Webhook execution semantics remain blocked",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -78,9 +90,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "369bf76073d14ae625217b6a55e2bd9082ad4d9b",
-      "ci_run_id": 35955447871,
-      "ci_job_id": 107492688241,
+      "ci_verified_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
+      "ci_run_id": 35957280994,
+      "ci_job_id": 107498170889,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -92,7 +104,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "b3d376fa7cc0e50a17e032cc0e79017b7c589ac6",
+      "ci_verified_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -100,10 +112,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "369bf76073d14ae625217b6a55e2bd9082ad4d9b",
-      "feature_head_bootstrap_verified_tree": "b3d376fa7cc0e50a17e032cc0e79017b7c589ac6",
-      "feature_head_bootstrap_run_id": 35955447920,
-      "feature_head_bootstrap_job_id": 107492688659,
+      "feature_head_bootstrap_verified_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
+      "feature_head_bootstrap_verified_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+      "feature_head_bootstrap_run_id": 35957280923,
+      "feature_head_bootstrap_job_id": 107498170600,
       "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -112,27 +124,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit another named unfinished runtime seam and open a new DD only for a source-complete prerequisite. Presented-token parsing, verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence remain blocked unless canonically owned.",
+    "next_action": "Source-audit the next named unfinished prerequisite. Open DD-164 only where deterministic behavior, authority and executable acceptance are canonically owned; do not infer machine verifier, webhook filter/endpoint/signature/catalog-lifecycle/dispatcher/retry/cross-context/network semantics.",
     "core_services": {
-      "checkpoint": "DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001",
+      "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–162 current implementation; DD-162 pure composition of API Credential lifecycle/current-principal/requested-scope necessary floors only; post-DD-162 machine-verifier audit authorizes no DD-163 machine-auth implementation",
-      "verified_head": "a68a89f1a7d65eaeb76dfa8f4847e756393f396b",
-      "verified_tree": "152771d5d7369153730f1ea89c7e3803364a4fb4",
-      "core_ci_run_id": 35955447920,
-      "core_ci_job_id": 107492688508,
-      "tests": "388/388 PASS",
+      "decision": "DD-040–163 current bounded implementation; DD-163 ordinary single-context Webhook necessary floors only; machine-auth verifier and unowned Webhook execution remain blocked",
+      "verified_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
+      "verified_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+      "core_ci_run_id": 35957280923,
+      "core_ci_job_id": 107498170978,
+      "tests": "395/395 PASS",
       "core_test_counts": {
-        "tests": 388,
-        "pass": 388,
+        "tests": 395,
+        "pass": 395,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35955447920,
-      "postgres_ci_job_id": 107492688659,
+      "postgres_ci_run_id": 35957280923,
+      "postgres_ci_job_id": 107498170600,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -141,8 +153,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35955447871,
-      "database_regression_job_id": 107492688241,
+      "database_regression_run_id": 35957280994,
+      "database_regression_job_id": 107498170889,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -436,7 +448,8 @@
         "DD-159 server-internal exact-id machine-principal raw metadata reader with PII-minimized projection",
         "DD-160 current machine-principal ACTIVE API_CLIENT/SERVICE necessary floor with SERVICE structural metadata requirement",
         "DD-161 API Credential requested-scope compatibility floor for Platform/Tenant/Industry targets with SERVICE allowlist enforcement",
-        "DD-162 pure composition of API Credential current lifecycle, current machine-principal and requested-scope necessary floors"
+        "DD-162 pure composition of API Credential current lifecycle, current machine-principal and requested-scope necessary floors",
+        "DD-163 ordinary single-context Webhook delivery necessary-floor composition"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -656,7 +669,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_AI_MODEL_CATALOG_READ_VERIFIED",
+  "current_phase": "DEVELOPMENT_WEBHOOK_DELIVERY_NECESSARY_FLOORS_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -688,76 +701,29 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-MODEL-CATALOG-READ-001",
-    "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
-    "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_code_head": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
-    "verified_code_tree": "f057bef288113ff61bd3575239cbabc44c756c9a",
-    "source_audit": "Development/AI_MODEL_CATALOG_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "completed": [
-      "VC-01–04 existing-contract corrections",
-      "DD-076 prerequisite ownership source audit",
-      "REPO-001–006 invariant CI implementation",
-      "DD-080 external REST adapter source audit and unmounted Fetch boundary",
-      "DD-081 event envelope/catalog source audit and reusable validation boundary",
-      "DD-082 document access candidate source audit and pre-sign boundary",
-      "DD-083 PostgreSQL Document metadata reader and dedicated service-role database binding",
-      "DD-084 raw Document ACL reader source audit and PostgreSQL binding",
-      "DD-085 Document ACL subject-match evidence",
-      "DD-086 linked Document StorageObject binding",
-      "DD-087 raw Document upload-session PostgreSQL reader",
-      "DD-088 raw Webhook Subscription PostgreSQL reader",
-      "DD-089 raw Webhook Delivery PostgreSQL reader",
-      "DD-090 raw Outbox Event PostgreSQL reader",
-      "DD-091 exact Event Catalog PostgreSQL reader",
-      "DD-092 IntegrationDefinition PostgreSQL reader",
-      "DD-093 IntegrationCapability PostgreSQL reader",
-      "DD-094 ProviderAdapter exact PostgreSQL registry reader",
-      "DD-095 raw TenantIntegration PostgreSQL reader",
-      "DD-096 CredentialReference metadata-only PostgreSQL reader",
-      "DD-097 raw SyncCursor PostgreSQL reader",
-      "DD-098 raw NotificationDelivery PostgreSQL reader",
-      "DD-099 raw NotificationDeliveryAttempt PostgreSQL reader",
-      "DD-100 raw NotificationTemplate PostgreSQL reader",
-      "DD-101 raw WorkflowDefinition PostgreSQL reader",
-      "DD-102 raw WorkflowInstance PostgreSQL reader",
-      "DD-103 raw WorkflowTask PostgreSQL reader",
-      "DD-104 raw WorkflowTransition PostgreSQL reader",
-      "DD-105 raw AutomationDefinition PostgreSQL reader",
-      "DD-106 raw AutomationRun PostgreSQL reader",
-      "DD-107 AI Provider catalog metadata PostgreSQL reader with credential_ref excluded",
-      "DD-108 AI Model catalog metadata PostgreSQL reader with non-authorizing raw evidence"
-    ],
-    "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility, routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant, agent/tool execution, AIProvisioningSnapshot compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.",
-    "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
-    "schema_or_verification_sql_changed": false,
+    "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
+    "verified_code_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
+    "verified_code_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+    "source_audit": "Development/WEBHOOK_DELIVERY_NECESSARY_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md",
+    "machine_verifier_boundary": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md",
+    "next_action": "Source-audit the next named unfinished prerequisite. Open DD-164 only where deterministic behavior, authority and executable acceptance are canonically owned; do not infer machine verifier, webhook filter/endpoint/signature/catalog-lifecycle/dispatcher/retry/cross-context/network semantics.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-MODEL-CATALOG-READ-001",
-    "verified_executable_basis": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
-    "verified_executable_tree": "f057bef288113ff61bd3575239cbabc44c756c9a",
-    "source_audit": "Development/AI_MODEL_CATALOG_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD108_VERIFICATION_2026-09-22.md",
-    "scope": "DD-108 exact-by-id global AI Model catalog metadata read only; no model selection, routing or execution authority"
+    "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
+    "verified_executable_basis": "a2a888eea87124c75123239d79e528e6d4facfbe",
+    "verified_executable_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+    "source_audit": "Development/WEBHOOK_DELIVERY_NECESSARY_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md",
+    "scope": "DD-163 pure ordinary single-context Webhook necessary floors; not delivery authorization or network execution"
   },
   "current_state_audit": {
-    "date": "2026-09-21",
-    "audited_baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
-    "audited_baseline_tree": "a3bc9ea322a8fa43aaa5e3dc31ee93ffb3e75938",
+    "date": "2026-09-24",
+    "audited_baseline_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
+    "audited_baseline_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
     "baseline_inventory": {
-      "blobs": 399,
-      "markdown": 156,
-      "source_files": 82,
-      "test_files": 59
-    },
-    "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
-    "verified_continuation_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
-    "inventory": {
-      "blobs": 526,
-      "markdown": 213,
-      "source_files": 134,
-      "test_files": 77,
+      "blobs": 796,
       "migrations": 47,
       "verification_files": 41
     },
@@ -765,62 +731,57 @@
     "canonical_management_systems": 41,
     "industry_tables": 181,
     "source_requirement_ids_and_text_preserved": 2962,
+    "tenant_mobile_app_classes": [
+      "TENANT_STAFF_APP",
+      "TENANT_USER_APP"
+    ],
     "found": {
       "p0": 0,
       "p1": 1,
-      "p2": 3
+      "p2": 1
     },
     "corrected": [
-      "VC-01",
-      "VC-02",
-      "VC-03",
-      "VC-04"
+      "CURRENT_STATE_PROJECTION_DRIFT",
+      "DD163_PROMOTION_EVIDENCE_FUTURE_TENSE",
+      "SOURCE_TITLE_PROVENANCE_ALIAS"
     ],
-    "report": "Registers/VISION_CENTRIC_AUDIT_2026-09-21.md",
-    "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
+    "report": "Registers/VISION_CENTRIC_AUDIT_2026-09-24.md",
+    "scope": "Recursive current-tree inventory plus authoritative-strata reconciliation, invariant/SQL/CI verification and targeted implemented-boundary inspection; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-106 raw AutomationRun PostgreSQL reader",
-    "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
-    "verified_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
-    "verified_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
+    "decision": "DD-163 Webhook Delivery Necessary Floors",
+    "checkpoint": "DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001",
+    "verified_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
+    "verified_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
     "core": {
-      "run_id": 35691305850,
-      "job_id": 106628678648,
-      "tests": 311,
-      "pass": 311,
+      "run_id": 35957280923,
+      "job_id": 107498170978,
+      "tests": 395,
+      "pass": 395,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35691305850,
-      "job_id": 106628678789,
-      "tests": 190,
-      "pass": 190,
+      "run_id": 35957280923,
+      "job_id": 107498170600,
+      "tests": 497,
+      "pass": 497,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS"
     },
     "database": {
-      "run_id": 35691305768,
-      "job_id": 106628678181,
+      "run_id": 35957280994,
+      "job_id": 107498170889,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35691305751,
-      "job_id": 106628678101,
+      "run_id": 35957281031,
+      "job_id": 107498170998,
       "conclusion": "success"
     },
-    "inventory": {
-      "blobs": 526,
-      "markdown": 213,
-      "source_files": 134,
-      "test_files": 77,
-      "migrations": 47,
-      "verification_files": 41
-    },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD106_VERIFICATION_2026-09-22.md"
+    "evidence": "Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md"
   },
   "historical_projection_payloads": {
     "continuation": {
@@ -1164,6 +1125,141 @@
       "verified_head": "20f1f5531a75a711bb88e013d38454f8c171e6b1",
       "verified_tree": "00aac681a7a33e8dc92c6dfb767283fcb544cdf9",
       "evidence": "Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md"
+    },
+    "dd108_continuation_projection": {
+      "checkpoint": "DEV-AI-MODEL-CATALOG-READ-001",
+      "baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
+      "correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
+      "verified_code_head": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
+      "verified_code_tree": "f057bef288113ff61bd3575239cbabc44c756c9a",
+      "source_audit": "Development/AI_MODEL_CATALOG_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+      "completed": [
+        "VC-01–04 existing-contract corrections",
+        "DD-076 prerequisite ownership source audit",
+        "REPO-001–006 invariant CI implementation",
+        "DD-080 external REST adapter source audit and unmounted Fetch boundary",
+        "DD-081 event envelope/catalog source audit and reusable validation boundary",
+        "DD-082 document access candidate source audit and pre-sign boundary",
+        "DD-083 PostgreSQL Document metadata reader and dedicated service-role database binding",
+        "DD-084 raw Document ACL reader source audit and PostgreSQL binding",
+        "DD-085 Document ACL subject-match evidence",
+        "DD-086 linked Document StorageObject binding",
+        "DD-087 raw Document upload-session PostgreSQL reader",
+        "DD-088 raw Webhook Subscription PostgreSQL reader",
+        "DD-089 raw Webhook Delivery PostgreSQL reader",
+        "DD-090 raw Outbox Event PostgreSQL reader",
+        "DD-091 exact Event Catalog PostgreSQL reader",
+        "DD-092 IntegrationDefinition PostgreSQL reader",
+        "DD-093 IntegrationCapability PostgreSQL reader",
+        "DD-094 ProviderAdapter exact PostgreSQL registry reader",
+        "DD-095 raw TenantIntegration PostgreSQL reader",
+        "DD-096 CredentialReference metadata-only PostgreSQL reader",
+        "DD-097 raw SyncCursor PostgreSQL reader",
+        "DD-098 raw NotificationDelivery PostgreSQL reader",
+        "DD-099 raw NotificationDeliveryAttempt PostgreSQL reader",
+        "DD-100 raw NotificationTemplate PostgreSQL reader",
+        "DD-101 raw WorkflowDefinition PostgreSQL reader",
+        "DD-102 raw WorkflowInstance PostgreSQL reader",
+        "DD-103 raw WorkflowTask PostgreSQL reader",
+        "DD-104 raw WorkflowTransition PostgreSQL reader",
+        "DD-105 raw AutomationDefinition PostgreSQL reader",
+        "DD-106 raw AutomationRun PostgreSQL reader",
+        "DD-107 AI Provider catalog metadata PostgreSQL reader with credential_ref excluded",
+        "DD-108 AI Model catalog metadata PostgreSQL reader with non-authorizing raw evidence"
+      ],
+      "next_action": "Fresh source-audit the next independent source-complete persistence slice. Do not open provider/model selection, eligibility, routing, secret resolution, fallback/retry, inference/embedding, RAG, assistant, agent/tool execution, AIProvisioningSnapshot compilation/current-selection, prompt/policy evaluation or Workflow/Automation runtime semantics without source-owned authority.",
+      "dependent_evaluator_block": "MISSING_NAMED_GOVERNING_POLICY_AND_EVIDENCE_DEFINITIONS",
+      "schema_or_verification_sql_changed": false,
+      "main_merge": false
+    },
+    "dd108_current_audit_overlay_projection": {
+      "checkpoint": "DEV-AI-MODEL-CATALOG-READ-001",
+      "verified_executable_basis": "e1e53969a3a2869e2c4612e45c65a7a3c66d2d58",
+      "verified_executable_tree": "f057bef288113ff61bd3575239cbabc44c756c9a",
+      "source_audit": "Development/AI_MODEL_CATALOG_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
+      "current_verification": "Registers/DEVELOPMENT_DD108_VERIFICATION_2026-09-22.md",
+      "scope": "DD-108 exact-by-id global AI Model catalog metadata read only; no model selection, routing or execution authority"
+    },
+    "dd106_current_feature_verification_projection": {
+      "decision": "DD-106 raw AutomationRun PostgreSQL reader",
+      "checkpoint": "DEV-AUTOMATION-RUN-READ-001",
+      "verified_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
+      "verified_tree": "e6630c0dc1d01b238e9299c6281cb3ce86ed76e6",
+      "core": {
+        "run_id": 35691305850,
+        "job_id": 106628678648,
+        "tests": 311,
+        "pass": 311,
+        "fail": 0,
+        "skip": 0
+      },
+      "postgres": {
+        "run_id": 35691305850,
+        "job_id": 106628678789,
+        "tests": 190,
+        "pass": 190,
+        "fail": 0,
+        "skip": 0,
+        "full_database_bootstrap": "PASS"
+      },
+      "database": {
+        "run_id": 35691305768,
+        "job_id": 106628678181,
+        "conclusion": "success"
+      },
+      "web": {
+        "run_id": 35691305751,
+        "job_id": 106628678101,
+        "conclusion": "success"
+      },
+      "inventory": {
+        "blobs": 526,
+        "markdown": 213,
+        "source_files": 134,
+        "test_files": 77,
+        "migrations": 47,
+        "verification_files": 41
+      },
+      "database_schema_change": false,
+      "evidence": "Registers/DEVELOPMENT_DD106_VERIFICATION_2026-09-22.md"
+    },
+    "vision_audit_2026_09_21_projection": {
+      "date": "2026-09-21",
+      "audited_baseline_head": "3dabe35c71e07ff0750095669f025fe9a413e48f",
+      "audited_baseline_tree": "a3bc9ea322a8fa43aaa5e3dc31ee93ffb3e75938",
+      "baseline_inventory": {
+        "blobs": 399,
+        "markdown": 156,
+        "source_files": 82,
+        "test_files": 59
+      },
+      "verified_correction_head": "380ae7b984624ae3842e0293b2c075ac250c08a6",
+      "verified_continuation_head": "0bd4cb33d07836f797d434b21d5e24fcee0a3641",
+      "inventory": {
+        "blobs": 526,
+        "markdown": 213,
+        "source_files": 134,
+        "test_files": 77,
+        "migrations": 47,
+        "verification_files": 41
+      },
+      "industries": 9,
+      "canonical_management_systems": 41,
+      "industry_tables": 181,
+      "source_requirement_ids_and_text_preserved": 2962,
+      "found": {
+        "p0": 0,
+        "p1": 1,
+        "p2": 3
+      },
+      "corrected": [
+        "VC-01",
+        "VC-02",
+        "VC-03",
+        "VC-04"
+      ],
+      "report": "Registers/VISION_CENTRIC_AUDIT_2026-09-21.md",
+      "coverage": "Full baseline file inventory mechanically scanned; substantive implemented-boundary review and limits recorded in report; not full product/production certification"
     }
   }
 }

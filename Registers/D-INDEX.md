@@ -1,19 +1,22 @@
 # D-INDEX — Current Canonical / Development Index
-**Updated:** 2026-09-21 · **Checkpoint:** `DEV-API-REST-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001`
 
 | Layer | Current boundary |
 |---|---|
-| Governing sources | MI/MP v2.5; RawSource immutable; current explicit user direction |
-| Foundation / Architecture | Existing owners retained; current work implements A-06/ADR-005 |
-| Detailed Design | Product/implementation decisions DD-001–080 |
-| Core / API | Shared context/auth/authz/Commercial, three first-party tRPC queries and unmounted REST adapter floor |
-| REST | DD-080 ordering/projection implemented; routes, credential syntax and OpenAPI remain unbound |
-| Verification | VC-01–04 corrections + REPO-001–006 invariants remain active |
+| Governing sources | Primary Vision → current explicit user direction → MI/MP v2.5 → immutable RawSource provenance → canonical owners |
+| Primary source provenance | S1 `Disorganized Data 1.md` is titled **Master Enterprise Architecture & Product Requirements Source — Final v1.1**; accepted blob unchanged |
+| Foundation / Architecture | Revalidated owners retained; 9 Current Supported Industries remain equal; Core remains industry-neutral |
+| Detailed Design | Product/implementation decisions contiguous DD-001–163 |
+| Mobile invariant | Exactly two logical Tenant app classes: `TENANT_STAFF_APP` + `TENANT_USER_APP`; Platform Mobile is separate |
+| Current Development | DD-163 ordinary single-context Webhook delivery necessary floors |
+| Machine auth | DD-162 floor retained; final verifier/token/CIDR/profile/use-audit evidence blocked |
+| Webhook execution | Filter, endpoint/SSRF, signing, catalog lifecycle, dispatcher/retry/DLQ/replay, cross-context and network execution remain unclaimed |
+| Verification | REPO-001–006 + exact-head Core/PostgreSQL/Database/Web CI |
 | SQL | 47 migrations / 41 verification files; 9 Industries / 41 MS / 181 tables |
-| Unfinished | Named Commercial dependencies, broad Industry APIs/UI, live AI, clients and production operations |
+| Production readiness | NOT CLAIMED |
 
-Verified executable `ce4708eec15f6b0a35ae9a77d13505221fe55d51` / tree `9655553773e2b1f63ba1e36a479ef3d574ec6077`: **290/290 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **409 blobs / 161 Markdown / 83 source / 63 test files**.
+Verified canonical DD-163 promotion `a2a888eea87124c75123239d79e528e6d4facfbe` / tree `13ff71a61d9022253fb6e9ade7fd601152f7e3c0`: **395/395 Core**, **497/497 PostgreSQL**, Database/Web PASS.
 
-Evidence: `Registers/DEVELOPMENT_DD080_VERIFICATION_2026-09-21.md`; source audit: `Development/REST_ADAPTER_PREREQUISITE_OWNERSHIP_AUDIT.md`; vision audit: `VISION_CENTRIC_AUDIT_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md`; current audit: `Registers/VISION_CENTRIC_AUDIT_2026-09-24.md`.
 
-Next: concrete REST exposure remains blocked on an exact external credential scheme and public route catalog; the DD-076 evaluator remains blocked on its named policy/evidence definitions. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.
+Next: source-audit the next named unfinished prerequisite. Open DD-164 only when deterministic semantics, authority and executable acceptance are source-complete.

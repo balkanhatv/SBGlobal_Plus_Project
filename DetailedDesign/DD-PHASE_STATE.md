@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,9 +18,9 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001`. Decisions are contiguous through DD-162.
+Current checkpoint: `DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001`. Decisions are contiguous through DD-163.
 
-Verified executable `a68a89f1a7d65eaeb76dfa8f4847e756393f396b` / tree `152771d5d7369153730f1ea89c7e3803364a4fb4`: **388/388 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified DD-163 canonical promotion `a2a888eea87124c75123239d79e528e6d4facfbe` / tree `13ff71a61d9022253fb6e9ade7fd601152f7e3c0`: **395/395 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS.
 
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
 
@@ -28,6 +28,6 @@ Promotion invariant gate `369bf76073d14ae625217b6a55e2bd9082ad4d9b` / tree `b3d3
 
 DD-162 composes only current credential lifecycle + current machine-principal + requested-scope compatibility. It does not parse presented credentials, execute a verifier, enforce CIDR or authenticate a machine.
 
-Post-DD-162 machine-verifier boundary audit completed at `a453fc2f2f555972cd0391a3db04bc67a6e7d497`: `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. No DD-163 machine-auth implementation is authorized from the current source.
+Post-DD-162 machine-verifier boundary audit completed at `a453fc2f2f555972cd0391a3db04bc67a6e7d497`: `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. No machine-auth verifier implementation is authorized from the current source; DD-163 is independently the bounded Webhook delivery necessary-floor decision.
 
-Next: Fresh source-audit another named unfinished runtime seam. Keep token parsing, verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence blocked unless canonical source ownership is added.
+DD-163 Webhook evidence: `Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md`. Next: source-audit a named unfinished prerequisite; keep machine-verifier and unowned Webhook execution semantics blocked unless canonical source ownership exists.

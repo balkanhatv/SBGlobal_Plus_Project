@@ -1,13 +1,15 @@
-# PHASE_SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001`
+# PHASE SUMMARY — SBGlobal Plus
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001`
 
-Verified executable `a68a89f1a7d65eaeb76dfa8f4847e756393f396b` / tree `152771d5d7369153730f1ea89c7e3803364a4fb4`: **388/388 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified DD-163 canonical promotion `a2a888eea87124c75123239d79e528e6d4facfbe` / tree `13ff71a61d9022253fb6e9ade7fd601152f7e3c0`: **395/395 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS.
 
-Promotion invariant gate `369bf76073d14ae625217b6a55e2bd9082ad4d9b` / tree `b3d376fa7cc0e50a17e032cc0e79017b7c589ac6`: Core run `35955447920` (Core job `107492688508`, PostgreSQL job `107492688659`), Database run `35955447871` (job `107492688241`), Web run `35955447955` (job `107492688562`) — SUCCESS; **162 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+DD-163 is a bounded ordinary single-context Webhook necessary floor only. It validates ACTIVE+verified subscription evidence, exact same-Tenant event ownership, exact catalog identity/webhook eligibility and exact TENANT_INDUSTRY allowlist membership. It does not authorize or execute delivery.
 
-DD-162 composes DD-158/DD-160/DD-161 necessary floors only. Matching all three does not establish verifier success or final machine authentication.
+The DD-162 machine-auth verifier boundary remains intentionally blocked. Webhook event-filter grammar, endpoint challenge/SSRF mechanics, signing details, catalog lifecycle interpretation, dispatch claiming/readiness, retry/DLQ/replay, explicit cross-context composition and network execution also remain outside DD-163.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep presented-token parsing/verifier execution, CIDR, permission-profile mapping, usage/audit and final machine evidence outside scope unless separately source-owned.
+Canonical invariants remain 9 equal Industries / 41 MS / 181 Industry tables / 2,962 preserved requirements / exactly two logical Tenant mobile app classes.
+
+Next: source-audit the next named unfinished prerequisite; open DD-164 only if its deterministic semantics are source-complete.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

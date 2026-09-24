@@ -1,10 +1,10 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Status:** ACTIVE · **Updated:** 2026-09-17
+**Status:** ACTIVE · **Updated:** 2026-09-24
 
 ## Authority
 1. Primary Vision
 2. Current explicit user direction
-3. MASTER_INSTRUCTION + MASTER_PROMPT v2.5 (including 2026-09-11 targeted reconciliation)
+3. MASTER_INSTRUCTION + MASTER_PROMPT v2.5
 4. RawSourceCorpus as immutable knowledge/provenance under its governed source precedence
 5. Reconciled canonical owners: Foundation WHAT/WHY/WHO → Architecture/ADR HOW → Detailed Design exact contract → Development implementation → Verification/CI evidence
 6. Registers/State/checkpoints are projections and evidence; they cannot override product or canonical owners
@@ -12,12 +12,12 @@
 RawSourceCorpus is knowledge/provenance, not automatic active architecture. A current explicit user decision may supersede a source implementation requirement for active Foundation/Architecture **without changing source bytes**; the supersession must be recorded in D-DECISIONS and traceability.
 
 ## Active immutable source baseline
-| ID | File | Accepted blob | Active status |
-|---|---|---|---|
-| S1 | `RawSourceCorpus/Disorganized Data 1.md` | `a9f63a64448a347edd0f2b0c74094284ee953c1b` | IMMUTABLE active source/history |
-| S2 | `RawSourceCorpus/Disorganized Data 2.md` | `91c461de5e0d171f71d0bb89cd039953a1f1ecfd` | IMMUTABLE active source/history |
+| ID | File | Source title / role | Accepted blob | Active status |
+|---|---|---|---|---|
+| S1 | `RawSourceCorpus/Disorganized Data 1.md` | **Master Enterprise Architecture & Product Requirements Source — Final v1.1** (repository-resident source corresponding to the requested Primary Source of Truth EA/PRD source) | `a9f63a64448a347edd0f2b0c74094284ee953c1b` | IMMUTABLE active source/history |
+| S2 | `RawSourceCorpus/Disorganized Data 2.md` | Master Development Instruction + Product Specification/Business Requirement + specialized standards corpus | `91c461de5e0d171f71d0bb89cd039953a1f1ecfd` | IMMUTABLE active source/history |
 
-Earlier source variants remain historical Git evidence only and are not competing current baselines.
+The literal filename `Primary Source of Truth Enterprise Architecture & Product Requirements Source.md` is not present at the audited branch tree. No duplicate/renamed source is invented; S1's in-file title establishes the repository provenance mapping. Earlier source variants remain historical Git evidence only.
 
 ## Current decisions
 - `UD-TECH-01`: active technology/deployment baseline.
@@ -26,25 +26,20 @@ Earlier source variants remain historical Git evidence only and are not competin
 - `UD-COMM-01`: canonical commercial route/lifecycle model.
 
 ## Evidence rule
-`TRACEABILITY_MATRIX_UNIT.md` is the stable repository-resident **parent/source-heading inventory** (372 units). `TRACEABILITY_MATRIX_REQUIREMENTS.md` preserves 2,962 source child IDs and original disposition evidence. Neither is substantive certification proof by itself. Current dependency ownership is in `F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md`, reconciled in the all-stages audit after unrelated AI-owner mappings were discovered. `MS_COMPLETENESS_MATRIX.md` projects the named Foundation/MS owners; all 41 must be checked at their actual canonical definitions. No current source requirement may depend on an external ZIP as its only evidence.
+`TRACEABILITY_MATRIX_UNIT.md` owns the 372 parent/source-heading inventory. `TRACEABILITY_MATRIX_REQUIREMENTS.md` preserves **2,962** source child IDs and original disposition evidence. `F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md` owns current dependency routing. `MS_COMPLETENESS_MATRIX.md` projects the 41 named MS owners. No current source requirement may depend on an external ZIP as its only evidence.
 
-## Current gate evidence
-Fresh Foundation evidence: requirement-level traceability + MS completeness + `NO_LOSS_AUDIT.md`. Fresh Architecture evidence: `ARCHITECTURE_TRACEABILITY_MATRIX.md`, `ISOLATION_ATTACK_MATRIX.md`, `ARCHITECTURE_NO_LOSS_AUDIT.md`, and `ARCHITECTURE_FINAL_AUDIT.md`.
+## Current canonical invariants
+- 9 equal Current Supported Industry Suites; Future Industry promotion remains separately governed.
+- 41 canonical Management Systems and 181 registered Industry tables with Tenant+Industry ownership/forced-RLS verification.
+- exactly two logical Tenant mobile app classes: `TENANT_STAFF_APP` + `TENANT_USER_APP`; Platform Mobile is not a Tenant app.
+- API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
-Those earlier audit files retain their historical evaluated scope. Current all-stages revalidation, exact database CI and gate truth are recorded in `ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` and `../State/PROJECT_MANIFEST.json`.
-
-Current Core Development evidence is [DEV-CORE-PLATFORM-SCOPE-001](../Development/CORE_SERVICE_CHECKPOINT.md); its bounded no-loss/current-scope overlay is appended to [NO_LOSS_AUDIT](NO_LOSS_AUDIT.md). This continuation preserves both accepted source blobs and all source IDs; current state projections do not alter source authority.
-
-## Current audit / continuation evidence — 2026-09-21
-
-`VISION_CENTRIC_AUDIT_2026-09-21.md` records the fresh 399-blob baseline and
-VC-01–04 corrections. Current verified checkpoint is `DEV-VISION-AUDIT-INVARIANTS-001`; exact execution
-evidence is `DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`. Prior dated
-audits above retain their original scope. All 2,962 source IDs/text and both
-accepted source blobs remain unchanged.
-
-## 2026-09-21 — DD-080 continuation evidence
-- Source audit: `Development/REST_ADAPTER_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- Verified feature: `ce4708eec15f6b0a35ae9a77d13505221fe55d51` / `9655553773e2b1f63ba1e36a479ef3d574ec6077`.
-- Evidence: `Registers/DEVELOPMENT_DD080_VERIFICATION_2026-09-21.md`.
+## Current audit / continuation evidence — 2026-09-24
+- Audit baseline: `a2a888eea87124c75123239d79e528e6d4facfbe` / tree `13ff71a61d9022253fb6e9ade7fd601152f7e3c0`.
+- Audit report: `Registers/VISION_CENTRIC_AUDIT_2026-09-24.md`.
+- Current checkpoint: `DEV-WEBHOOK-DELIVERY-NECESSARY-FLOORS-001`.
+- Source audit: `Development/WEBHOOK_DELIVERY_NECESSARY_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- Verification: `Registers/DEVELOPMENT_DD163_VERIFICATION_2026-09-24.md`.
+- DD-163 promotion basis passed 395 Core / 497 PostgreSQL + Database/Web exact-head CI.
+- Machine-verifier and unowned Webhook execution seams remain blocked rather than inferred.
 - RawSource accepted blobs remain unchanged.
