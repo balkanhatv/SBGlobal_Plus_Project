@@ -111,3 +111,6 @@ DD-165 canonical decision/acceptance/evidence promotion `d6c09a2fde3f173892c311a
 
 ## 2026-09-24 — Post-DD-165 DD-166 prerequisite selection
 Fresh Integration reconciliation selected migration 0030's Definition/config/enabled-capability half of TenantIntegration integrity as the next independent source-complete prerequisite. It is limited to exact ACTIVE IntegrationDefinition, object config, duplicate-free enabled codes, Definition membership and exact ACTIVE capability existence. TenantIntegration lifecycle, DD-165 credential currentness, provider/OperationContract/event/secret/network authority remain explicitly separate.
+
+## 2026-09-24 — DD-166 canonical promotion / checkpoint advance
+DD-166 canonical decision/acceptance/evidence promotion `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa` passed exact-head **416 Core / 497 PostgreSQL** plus Database/Web CI. Current projections advanced to `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`. RawSource/main unchanged; PR #2 remains draft/unmerged.

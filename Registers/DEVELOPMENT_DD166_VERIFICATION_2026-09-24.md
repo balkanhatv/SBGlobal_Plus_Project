@@ -43,6 +43,14 @@ DD-166 does not decide TenantIntegration lifecycle/executability/health; compose
 
 DD-162 machine-verifier, DD-163 Webhook-execution, DD-164 SyncCursor-runtime and DD-165 secret/provider-runtime boundaries remain independently locked.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-166 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-166 decision, acceptance and Detailed Design changelog are committed in `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35962194480`, Core job `107512961272`: **SUCCESS — 416/416**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107512961095`: **SUCCESS — 497/497**, 0 failed/skipped.
+- Database Verify run `35962194510`, job `107512961584`: **SUCCESS**.
+- Web Boundary Verify run `35962194556`, job `107512961646`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`. State synchronization changes documentation only.

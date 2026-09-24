@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,18 +18,16 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001`. Decisions are contiguous through DD-165.
+Current checkpoint: `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`. Decisions are contiguous through DD-166.
 
-Verified canonical DD-165 promotion `d6c09a2fde3f173892c311af36335dc1f6ef8313` / tree `daec42114b4a76fa4f25edf71b410f230d3a37d0`: **409/409 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35961356094` (Core job `107510411453`, PostgreSQL job `107510411660`), Database `35961356136` (job `107510411709`), Web `35961356138` (job `107510411745`).
+Verified canonical DD-166 promotion `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa`: **416/416 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35962194480` (Core job `107512961272`, PostgreSQL job `107512961095`), Database `35962194510` (job `107512961584`), Web `35962194556` (job `107512961646`).
 
-DD-165 re-evaluates only migration-0030-owned TenantIntegration→CredentialReference current binding over already-loaded DD-095/DD-096 evidence: exact credential id and Tenant, exact optional Industry binding, raw ACTIVE credential status and strict expiry currentness. A Tenant-wide credential may bind the same Tenant's Core or Industry integration; an Industry credential may bind only its exact Industry integration.
+DD-166 re-evaluates only migration-0030-owned TenantIntegration Definition/config/enabled-capability current-set predicates: exact IntegrationDefinition identity and raw ACTIVE status, JSON-object config, duplicate-free enabled capability codes, Definition membership and one exact ACTIVE IntegrationCapability for every enabled code. Empty enabled sets are valid.
 
-A true result is not Integration execution, provider selection, secret access or network authority.
+A true result is not TenantIntegration execution, capability authorization, provider selection, secret access or network authority.
 
-The DD-162 machine-auth verifier boundary remains blocked by `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. The post-DD-163 Webhook execution boundary remains locked by `Development/WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md`. DD-164 remains only the SyncCursor parent/capability current-binding floor. DD-165 widens none of those boundaries.
+DD-162 machine verification, DD-163 Webhook execution, DD-164 SyncCursor runtime and DD-165 credential secret/provider-runtime boundaries remain locked. DD-166 does not widen them.
 
-Secret locator/material access, credential rotation-overlap semantics, ProviderAdapter/provider selection, permission-profile semantics, Integration health/config policy, callbacks/sync/OperationContract/event/network execution remain unimplemented unless separately source-owned.
+Evidence: `Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md`.
 
-Evidence: `Registers/DEVELOPMENT_DD165_VERIFICATION_2026-09-24.md`.
-
-Next: fresh source-audit another named unfinished prerequisite and open a new DD only where deterministic behavior, authority and executable acceptance are canonically owned.
+Next: source-audit a bounded composition of DD-165 and DD-166 only if it adds no new semantics; otherwise select another source-complete prerequisite.

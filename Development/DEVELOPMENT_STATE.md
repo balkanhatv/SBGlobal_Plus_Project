@@ -1,18 +1,18 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified canonical DD-165 promotion `d6c09a2fde3f173892c311af36335dc1f6ef8313` / tree `daec42114b4a76fa4f25edf71b410f230d3a37d0`: **409/409 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35961356094` (Core job `107510411453`, PostgreSQL job `107510411660`), Database `35961356136` (job `107510411709`), Web `35961356138` (job `107510411745`).
+Verified canonical DD-166 promotion `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa`: **416/416 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35962194480` (Core job `107512961272`, PostgreSQL job `107512961095`), Database `35962194510` (job `107512961584`), Web `35962194556` (job `107512961646`).
 
-DD-165 implements only the current TenantIntegration→CredentialReference necessary floor: exact credential id/Tenant/optional-Industry binding, exact raw ACTIVE status and strict optional expiry currentness. It neither reads secret locators/material nor decides provider/runtime execution.
+DD-166 implements only the current TenantIntegration Definition/config/enabled-capability necessary floor. It does not make TenantIntegration executable/current, compose credential currentness, select providers/adapters, access secrets or execute OperationContracts/events/network calls.
 
-Invariants remain **9 equal Industries / 41 canonical MS / 181 Industry tables**, **2,962 preserved source requirements**, exactly **two Tenant mobile app classes**, and contiguous **ADR-001–020 / DD-001–165**.
+Canonical invariants remain **9 equal Industries / 41 canonical MS / 181 Industry tables**, **2,962 preserved source requirements**, exactly **two logical Tenant mobile app classes**, and contiguous **ADR-001–020 / DD-001–166**.
 
-The DD-162 machine-auth verifier seam remains blocked. DD-163 remaining Webhook execution seams remain blocked. DD-164 remains a SyncCursor current-binding floor only. DD-165 does not widen those boundaries.
+DD-162 machine-auth verifier, DD-163 Webhook execution, DD-164 SyncCursor runtime and DD-165 secret/provider-runtime boundaries remain blocked outside their bounded floors.
 
-Next: fresh source-audit another named unfinished prerequisite. Open a new DD only when deterministic semantics, authority and executable acceptance are source-complete.
+Next: source-audit only a no-new-semantics composition of DD-165 + DD-166 or another independently source-complete prerequisite.
 
-Evidence: `Registers/DEVELOPMENT_DD165_VERIFICATION_2026-09-24.md` plus `Development/TENANT_INTEGRATION_CREDENTIAL_CURRENT_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+Evidence: `Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.

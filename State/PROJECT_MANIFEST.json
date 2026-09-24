@@ -2,15 +2,15 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-24",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001",
-  "final_verdict": "DD-165 TENANT-INTEGRATION CREDENTIAL CURRENT-BINDING NECESSARY FLOORS IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED; MACHINE VERIFIER, WEBHOOK EXECUTION, SYNC RUNTIME AND SECRET/PROVIDER EXECUTION REMAIN BLOCKED",
+  "checkpoint": "DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001",
+  "final_verdict": "DD-166 TENANT-INTEGRATION DEFINITION/CAPABILITY CURRENT-SET FLOOR IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD TESTED; EXECUTION SEMANTICS REMAIN BLOCKED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD165_CONTIGUOUS",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD166_CONTIGUOUS",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD165_TENANT_INTEGRATION_CREDENTIAL_CURRENT_FLOORS_VERIFIED_NAMED_DEPENDENCIES_BLOCKED",
+    "development": "IN_PROGRESS_DD166_TENANT_INTEGRATION_SET_FLOOR_VERIFIED_NAMED_DEPENDENCIES_BLOCKED",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
@@ -53,8 +53,8 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "d6c09a2fde3f173892c311af36335dc1f6ef8313",
-    "verified_code_tree": "daec42114b4a76fa4f25edf71b410f230d3a37d0",
+    "verified_code_head": "b16bf902aba7bc0c8324048cd1b4506b2363ebc8",
+    "verified_code_tree": "4ee6a211b760b6dce34ff187df1d63473f970dfa",
     "state_projection_basis_head": "d6c09a2fde3f173892c311af36335dc1f6ef8313",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
@@ -93,13 +93,25 @@
       "web_run_id": 35961356138,
       "web_job_id": 107510411745,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd166_promotion_head": "b16bf902aba7bc0c8324048cd1b4506b2363ebc8",
+    "dd166_promotion_tree": "4ee6a211b760b6dce34ff187df1d63473f970dfa",
+    "dd166_ci": {
+      "core_run_id": 35962194480,
+      "core_job_id": 107512961272,
+      "postgres_job_id": 107512961095,
+      "database_run_id": 35962194510,
+      "database_job_id": 107512961584,
+      "web_run_id": 35962194556,
+      "web_job_id": 107512961646,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DD-165 TenantIntegration CredentialReference current-binding necessary floor verified; machine verifier, Webhook execution, SyncCursor runtime and secret/provider execution remain blocked",
+    "current_phase": "DD-166 TenantIntegration Definition/config/enabled-capability current-set floor verified; execution semantics remain blocked",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -148,27 +160,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit another named unfinished prerequisite and open a new DD only where deterministic behavior, authority and executable acceptance are canonically owned. Do not infer machine verifier, Webhook execution, cursor freshness/provider execution, secret access/rotation, health/profile or network semantics.",
+    "next_action": "Source-audit a no-new-semantics composition of DD-165 credential current binding and DD-166 Definition/capability current-set floor; do not add TenantIntegration lifecycle/execution/provider/secret/network semantics.",
     "core_services": {
-      "checkpoint": "DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001",
+      "checkpoint": "DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040–165 current bounded implementation; DD-165 TenantIntegration CredentialReference current-binding necessary floors only; secret/provider execution remains unclaimed",
-      "verified_head": "d6c09a2fde3f173892c311af36335dc1f6ef8313",
-      "verified_tree": "daec42114b4a76fa4f25edf71b410f230d3a37d0",
-      "core_ci_run_id": 35961356094,
-      "core_ci_job_id": 107510411453,
-      "tests": "409/409 PASS",
+      "verified_head": "b16bf902aba7bc0c8324048cd1b4506b2363ebc8",
+      "verified_tree": "4ee6a211b760b6dce34ff187df1d63473f970dfa",
+      "core_ci_run_id": 35962194480,
+      "core_ci_job_id": 107512961272,
+      "tests": "416/416 PASS",
       "core_test_counts": {
-        "tests": 409,
-        "pass": 409,
+        "tests": 416,
+        "pass": 416,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35961356094,
-      "postgres_ci_job_id": 107510411660,
+      "postgres_ci_run_id": 35962194480,
+      "postgres_ci_job_id": 107512961095,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -475,7 +487,8 @@
         "DD-162 pure composition of API Credential current lifecycle, current machine-principal and requested-scope necessary floors",
         "DD-163 ordinary single-context Webhook delivery necessary-floor composition",
         "DD-164 SyncCursor current parent/capability binding necessary-floor composition",
-        "DD-165 TenantIntegration CredentialReference current-binding necessary-floor composition"
+        "DD-165 TenantIntegration CredentialReference current-binding necessary-floor composition",
+        "DD-166 TenantIntegration Definition/config/enabled-capability current-set necessary floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -695,7 +708,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_TENANT_INTEGRATION_CREDENTIAL_CURRENT_FLOORS_VERIFIED",
+  "current_phase": "DEVELOPMENT_TENANT_INTEGRATION_DEFINITION_CAPABILITY_CURRENT_FLOORS_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -727,14 +740,12 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001",
-    "verified_code_head": "d6c09a2fde3f173892c311af36335dc1f6ef8313",
-    "verified_code_tree": "daec42114b4a76fa4f25edf71b410f230d3a37d0",
-    "source_audit": "Development/TENANT_INTEGRATION_CREDENTIAL_CURRENT_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD165_VERIFICATION_2026-09-24.md",
-    "machine_verifier_boundary": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md",
-    "webhook_remaining_boundary": "Development/WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md",
-    "next_action": "Fresh source-audit another named unfinished prerequisite and open a new DD only where deterministic behavior, authority and executable acceptance are canonically owned. Do not infer machine verifier, Webhook execution, cursor freshness/provider execution, secret access/rotation, health/profile or network semantics.",
+    "checkpoint": "DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001",
+    "verified_code_head": "b16bf902aba7bc0c8324048cd1b4506b2363ebc8",
+    "verified_code_tree": "4ee6a211b760b6dce34ff187df1d63473f970dfa",
+    "source_audit": "Development/TENANT_INTEGRATION_DEFINITION_CAPABILITY_CURRENT_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md",
+    "next_action": "Source-audit a no-new-semantics composition of DD-165 credential current binding and DD-166 Definition/capability current-set floor; do not add TenantIntegration lifecycle/execution/provider/secret/network semantics.",
     "main_merge": false
   },
   "current_audit_overlay": {
@@ -776,39 +787,38 @@
     "scope": "Recursive current-tree inventory plus authoritative-strata reconciliation, invariant/SQL/CI verification and targeted implemented-boundary inspection; not full product/production certification"
   },
   "current_feature_verification": {
-    "decision": "DD-165 TenantIntegration CredentialReference Current-Binding Necessary Floors",
-    "checkpoint": "DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001",
-    "verified_head": "d6c09a2fde3f173892c311af36335dc1f6ef8313",
-    "verified_tree": "daec42114b4a76fa4f25edf71b410f230d3a37d0",
+    "decision": "DD-166 TenantIntegration Definition/Capability Current-Set Necessary Floors",
+    "checkpoint": "DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001",
+    "verified_head": "b16bf902aba7bc0c8324048cd1b4506b2363ebc8",
+    "verified_tree": "4ee6a211b760b6dce34ff187df1d63473f970dfa",
     "core": {
-      "run_id": 35961356094,
-      "job_id": 107510411453,
-      "tests": 409,
-      "pass": 409,
+      "run_id": 35962194480,
+      "job_id": 107512961272,
+      "tests": 416,
+      "pass": 416,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 35961356094,
-      "job_id": 107510411660,
+      "run_id": 35962194480,
+      "job_id": 107512961095,
       "tests": 497,
       "pass": 497,
       "fail": 0,
-      "skip": 0,
-      "full_database_bootstrap": "PASS"
+      "skip": 0
     },
     "database": {
-      "run_id": 35961356136,
-      "job_id": 107510411709,
+      "run_id": 35962194510,
+      "job_id": 107512961584,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 35961356138,
-      "job_id": 107510411745,
+      "run_id": 35962194556,
+      "job_id": 107512961646,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD165_VERIFICATION_2026-09-24.md"
+    "evidence": "Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md"
   },
   "historical_projection_payloads": {
     "continuation": {

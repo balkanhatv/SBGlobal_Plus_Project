@@ -1,17 +1,12 @@
-# CORE SERVICE CHECKPOINT — DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001
+# CORE SERVICE CHECKPOINT — DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001
 **Updated:** 2026-09-24 · **Branch:** `docs/architecture-branch-2`
 
-Verified canonical DD-165 promotion `d6c09a2fde3f173892c311af36335dc1f6ef8313` / tree `daec42114b4a76fa4f25edf71b410f230d3a37d0`: **409/409 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35961356094` (Core job `107510411453`, PostgreSQL job `107510411660`), Database `35961356136` (job `107510411709`), Web `35961356138` (job `107510411745`).
+Verified canonical DD-166 promotion `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa`: **416/416 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35962194480` (Core job `107512961272`, PostgreSQL job `107512961095`), Database `35962194510` (job `107512961584`), Web `35962194556` (job `107512961646`).
 
-`INT-CRED-CUR-001…007` prove only the current TenantIntegration→CredentialReference binding necessary floor: exact credential id/Tenant, Tenant-wide-or-exact-Industry scope compatibility, raw ACTIVE status, strict expiry currentness, malformed evidence fail-closed and no mutation.
+`INT-SET-CUR-001…007` prove only the current TenantIntegration Definition/config/enabled-capability set floor.
 
-A true result is **not Integration execution authorization, provider authorization, secret access authority or network authority**.
+A true result is **not TenantIntegration execution authorization, capability authorization, provider authority, secret access or network authority**.
 
-## Locked boundaries
+Locked boundaries remain DD-162 machine verification, DD-163 Webhook execution, DD-164 SyncCursor runtime, DD-165 credential secret/provider runtime, and all provider/OperationContract/event/network execution beyond DD-166.
 
-- final machine credential verification remains blocked by `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`;
-- Webhook filter/endpoint/SSRF/signing/catalog-lifecycle/dispatcher/retry/DLQ/replay/cross-context/network execution remains blocked by `Development/WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md`;
-- DD-164 cursor decode/freshness/provider/sync runtime remains outside its floor;
-- DD-165 secret locator/material, rotation overlap, provider/adapter selection, health/config/profile, callback/sync/OperationContract/event/network execution remain outside this floor.
-
-Evidence: `Registers/DEVELOPMENT_DD165_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md`.
