@@ -1,16 +1,16 @@
 # PROJECT_STATE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified canonical DD-170 promotion `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d609ca7a5f9f81a2d913cd14d2dbec1`: **437/437 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35966874703` (Core job `107527332888`, PostgreSQL job `107527333060`), Database `35966874721` (job `107527332677`), Web `35966874668` (job `107527333377`).
+Verified canonical DD-171 promotion `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af`: **444/444 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35967907330` (Core job `107530583772`, PostgreSQL job `107530583559`), Database `35967907358` (job `107530584175`), Web `35967907245` (job `107530583512`).
 
-DD-170 hardens the shared definition applicability/containment SQL predicates to exact fail-closed booleans and preserves all existing owner-scope semantics.
+DD-171 adds only the pure NotificationDelivery optional NotificationTemplate current-binding floor.
 
-Canonical invariants remain **9 equal Current Supported Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, exactly **two logical Tenant mobile app classes** (`TENANT_STAFF_APP` + `TENANT_USER_APP`), and contiguous **ADR-001–020 / DD-001–170**.
+Canonical invariants remain **9 equal Current Supported Industries / 41 canonical MS / 181 registered Industry tables**, **2,962 unchanged source requirement IDs/text**, exactly **two logical Tenant mobile app classes** (`TENANT_STAFF_APP` + `TENANT_USER_APP`), and contiguous **ADR-001–020 / DD-001–171**.
 
-Next governed work: source-audit NotificationDelivery→NotificationTemplate current binding. Rendering/provider/send semantics remain blocked unless separately source-owned.
+Rendering/fallback/provider/send/retry semantics remain locked unless separately source-owned.
 
-Evidence: `Registers/DEVELOPMENT_DD170_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD171_VERIFICATION_2026-09-24.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.

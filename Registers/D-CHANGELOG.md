@@ -141,3 +141,6 @@ DD-170 promotion `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d60
 
 ## 2026-09-24 — Post-DD-170 DD-171 prerequisite selection
 After DD-170 restored total fail-closed definition applicability, migration 0031's optional NotificationDelivery→NotificationTemplate relationship became safely re-evaluable. DD-171 is limited to exact template id/version, raw ACTIVE status, exact channel and canonical PLATFORM/TENANT/INDUSTRY applicability. Selection/fallback/rendering/approval-to-send/provider/send/retry semantics remain unclaimed.
+
+## 2026-09-24 — DD-171 canonical promotion / checkpoint advance
+DD-171 promotion `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af` passed exact-head **444 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`. Template rendering/fallback/provider/send/retry semantics remain unclaimed.

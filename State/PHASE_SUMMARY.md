@@ -1,11 +1,11 @@
 # PHASE SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`
 
-Verified canonical DD-170 promotion `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d609ca7a5f9f81a2d913cd14d2dbec1`: **437/437 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35966874703` (Core job `107527332888`, PostgreSQL job `107527333060`), Database `35966874721` (job `107527332677`), Web `35966874668` (job `107527333377`).
+Verified canonical DD-171 promotion `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af`: **444/444 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35967907330` (Core job `107530583772`, PostgreSQL job `107530583559`), Database `35967907358` (job `107530584175`), Web `35967907245` (job `107530583512`).
 
-DD-170 restores total fail-closed shared definition-scope predicates without changing hierarchy.
+DD-171 is NotificationDelivery optional template current-binding only.
 
-Next governed work: NotificationDelivery→NotificationTemplate relationship currentness.
+Next governed work: recipient-principal currentness source audit.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

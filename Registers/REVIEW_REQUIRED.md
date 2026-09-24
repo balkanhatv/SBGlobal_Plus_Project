@@ -1,10 +1,8 @@
 # REVIEW_REQUIRED — Historical Gates / Current Dependency Ownership
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`
 
 No general approval request is pending. Missing contracts are dependency blocks, not implied approvals.
 
-DD-170 resolved the shared `definition_applies_to_scope()` / `definition_contains_definition()` NULL fail-open gap through migration 0048 and direct verification.
+DD-171 is promoted and verified only for NotificationDelivery→NotificationTemplate relationship currentness. Template selection/fallback/rendering, notification provider/send/retry, Outbox dispatch/retry, Integration execution, final machine verification, Webhook execution and SyncCursor runtime remain locked unless separately source-owned.
 
-Still locked: final machine credential verification, Webhook execution, SyncCursor runtime, Integration provider/secret/network execution, Outbox dispatch/retry and Notification rendering/provider/send/retry semantics.
-
-Next independently source-complete relationship candidate: NotificationDelivery→NotificationTemplate exact version/status/channel/scope currentness.
+Next source-audit target: migration-0031 recipient-principal currentness.

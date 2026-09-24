@@ -1,16 +1,16 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`
 
 Branch: `docs/architecture-branch-2`. Development remains **IN PROGRESS**.
 
-Verified canonical DD-170 promotion `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d609ca7a5f9f81a2d913cd14d2dbec1`: **437/437 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35966874703` (Core job `107527332888`, PostgreSQL job `107527333060`), Database `35966874721` (job `107527332677`), Web `35966874668` (job `107527333377`).
+Verified canonical DD-171 promotion `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af`: **444/444 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35967907330` (Core job `107530583772`, PostgreSQL job `107530583559`), Database `35967907358` (job `107530584175`), Web `35967907245` (job `107530583512`).
 
-DD-170 fixes a shared SQL three-valued-logic isolation gap without changing the canonical PLATFORM/TENANT/INDUSTRY hierarchy. Definition applicability/containment now fail closed instead of returning UNKNOWN/NULL.
+DD-171 implements only NotificationDelivery→NotificationTemplate exact current relationship matching. It does not implement template selection, fallback, rendering, provider routing or delivery execution.
 
-Canonical invariants remain **9 equal Industries / 41 canonical MS / 181 Industry tables**, **2,962 preserved source requirements**, exactly **two logical Tenant mobile app classes**, and contiguous **ADR-001–020 / DD-001–170**.
+Canonical invariants remain **9 equal Industries / 41 canonical MS / 181 Industry tables**, **2,962 preserved source requirements**, exactly **two logical Tenant mobile app classes**, and contiguous **ADR-001–020 / DD-001–171**.
 
-Next source-complete candidate: NotificationDelivery→NotificationTemplate exact version/status/channel/scope current-binding floor. Template rendering/fallback/provider/send semantics remain unclaimed.
+Next candidate: migration-0031 recipient-principal currentness, subject to a fresh source-completeness audit.
 
-Evidence: `Registers/DEVELOPMENT_DD170_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD171_VERIFICATION_2026-09-24.md`.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.

@@ -35,9 +35,9 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 - API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
 ## Current audit / continuation evidence — 2026-09-24
-- Current checkpoint: `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`.
-- DD-170 source audit: `Development/DEFINITION_SCOPE_APPLICABILITY_FAIL_CLOSED_AUDIT.md`.
-- DD-170 verification: `Registers/DEVELOPMENT_DD170_VERIFICATION_2026-09-24.md`.
-- Canonical promotion: `b21501f8ec0835cc32c504929123cffebcac3b4b` / `82a293509d609ca7a5f9f81a2d913cd14d2dbec1`; 437 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
-- Next audit: migration-0031 NotificationDelivery→NotificationTemplate version/status/channel/scope relationship.
+- Current checkpoint: `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`.
+- DD-171 source audit: `Development/NOTIFICATION_DELIVERY_TEMPLATE_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- DD-171 verification: `Registers/DEVELOPMENT_DD171_VERIFICATION_2026-09-24.md`.
+- Canonical promotion: `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / `5e47ae874cc88cabcbc1de11dfaa803851d601af`; 444 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
+- Next audit: migration-0031 NotificationDelivery recipient-principal currentness.
 - RawSource accepted blobs remain unchanged.

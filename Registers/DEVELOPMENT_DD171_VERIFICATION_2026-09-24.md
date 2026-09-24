@@ -39,6 +39,14 @@ A true result is not template rendering or notification delivery authorization.
 
 DD-171 does not choose latest/active templates by code; define scope/locale fallback; render/substitute/escape/sanitize; treat creator/approver as send authorization; choose integration/provider/credentials; send/retry/finalize; validate other Notification relationships; mutate state; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-171 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-171 decision, acceptance and Detailed Design changelog are committed in `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35967907330`, Core job `107530583772`: **SUCCESS — 444/444**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107530583559`: **SUCCESS — 497/497**, 0 failed/skipped, 48/42 full bootstrap.
+- Database Verify run `35967907358`, job `107530584175`: **SUCCESS**.
+- Web Boundary Verify run `35967907245`, job `107530583512`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`. State synchronization changes documentation only.

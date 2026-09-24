@@ -1,12 +1,12 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`
 
 Fresh-fetch remote branch/HEAD/tree/checks before further work.
 
-Verified canonical DD-170 promotion `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d609ca7a5f9f81a2d913cd14d2dbec1`: **437/437 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35966874703` (Core job `107527332888`, PostgreSQL job `107527333060`), Database `35966874721` (job `107527332677`), Web `35966874668` (job `107527333377`).
+Verified canonical DD-171 promotion `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af`: **444/444 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35967907330` (Core job `107530583772`, PostgreSQL job `107530583559`), Database `35967907358` (job `107530584175`), Web `35967907245` (job `107530583512`).
 
-DD-170 closes the SQL NULL/fail-open gap in shared definition scope applicability/containment. Owner hierarchy is unchanged.
+DD-171 is only NotificationDelivery→NotificationTemplate current binding. Do not infer template selection/fallback/rendering, creator/approver send authority, provider routing, secret access or send/retry/network execution.
 
-Next valid prerequisite is migration-0031 NotificationDelivery→NotificationTemplate version/status/channel/scope relationship currentness. Do not infer locale fallback, rendering, variable substitution, approval-to-send, provider routing, send/retry or secret/runtime behavior.
+Next: audit recipient-principal relationship currentness from migration 0031 and existing identity evidence sources.
 
 PR #2 remains draft/unmerged; do not merge to `main`.

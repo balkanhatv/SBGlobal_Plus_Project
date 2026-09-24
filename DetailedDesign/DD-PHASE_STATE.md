@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,14 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`. Decisions are contiguous through DD-170.
+Current checkpoint: `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-171.
 
-Verified canonical DD-170 promotion `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d609ca7a5f9f81a2d913cd14d2dbec1`: **437/437 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35966874703` (Core job `107527332888`, PostgreSQL job `107527333060`), Database `35966874721` (job `107527332677`), Web `35966874668` (job `107527333377`).
+Verified canonical DD-171 promotion `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af`: **444/444 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35967907330` (Core job `107530583772`, PostgreSQL job `107530583559`), Database `35967907358` (job `107530584175`), Web `35967907245` (job `107530583512`).
 
-DD-170 restores the migration-0031-declared fail-closed semantics of shared definition applicability/containment predicates: SQL UNKNOWN/NULL now resolves to false while the existing PLATFORM/TENANT/INDUSTRY hierarchy remains unchanged.
+DD-171 re-evaluates only migration-0031's optional NotificationDelivery→NotificationTemplate relationship: exact template id/version, raw ACTIVE status, exact channel and DD-170-corrected PLATFORM/TENANT/INDUSTRY applicability.
 
-No NotificationTemplate selection/rendering, delivery/provider/retry, Identity/Authz policy, machine-auth, Webhook, SyncCursor or Integration execution authority was added.
+A true result is not template selection/rendering, locale/scope fallback, creator/approver send authorization, provider selection, secret access, notification send/retry or network authority.
 
-Evidence: `Registers/DEVELOPMENT_DD170_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD171_VERIFICATION_2026-09-24.md`.
 
-Next: source-audit migration-0031's optional NotificationDelivery→NotificationTemplate version/status/channel/scope relationship over the corrected total predicate.
+Next: source-audit migration-0031's optional NotificationDelivery recipient-principal currentness relationship only if its current raw evidence source is complete.
