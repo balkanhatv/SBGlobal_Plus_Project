@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-API-CREDENTIAL-REQUESTED-SCOPE-FLOOR-001",
-  "final_verdict": "DD-161 API CREDENTIAL REQUESTED-SCOPE NECESSARY FLOOR IMPLEMENTED / EXACT-HEAD TESTED; LIFECYCLE/CURRENT-PRINCIPAL COMPOSITION, VERIFIER, CIDR, PERMISSION PROFILE, USE/AUDIT AND FINAL MACHINE EVIDENCE UNCLAIMED",
+  "checkpoint": "DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001",
+  "final_verdict": "DD-162 API CREDENTIAL CORE NECESSARY-FLOOR COMPOSITION IMPLEMENTED / EXACT-HEAD TESTED; TOKEN PARSING, VERIFIER, CIDR, PERMISSION PROFILE, USE/AUDIT AND FINAL MACHINE EVIDENCE UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "3c9fad6e0df4e0f2b1c048ee49fff5767ecbb6c7",
-    "verified_code_tree": "f338bb14bef9e1919bd5aa455013a8d90a289c10",
-    "state_projection_basis_head": "dc1891c8dea75ce257729dd320cb6086716ecda1",
+    "verified_code_head": "a68a89f1a7d65eaeb76dfa8f4847e756393f396b",
+    "verified_code_tree": "152771d5d7369153730f1ea89c7e3803364a4fb4",
+    "state_projection_basis_head": "369bf76073d14ae625217b6a55e2bd9082ad4d9b",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "API Credential requested-scope compatibility verified; final machine authentication remains separate",
+    "current_phase": "API Credential current lifecycle + current principal + requested-scope necessary-floor composition verified; final machine authentication remains separate",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "dc1891c8dea75ce257729dd320cb6086716ecda1",
-      "ci_run_id": 35954596379,
-      "ci_job_id": 107490107463,
+      "ci_verified_head": "369bf76073d14ae625217b6a55e2bd9082ad4d9b",
+      "ci_run_id": 35955447871,
+      "ci_job_id": 107492688241,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "85a6f0794c352a44f1ce282511ce803620c4896b",
+      "ci_verified_tree": "b3d376fa7cc0e50a17e032cc0e79017b7c589ac6",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,10 +99,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "dc1891c8dea75ce257729dd320cb6086716ecda1",
-      "feature_head_bootstrap_verified_tree": "85a6f0794c352a44f1ce282511ce803620c4896b",
-      "feature_head_bootstrap_run_id": 35954596377,
-      "feature_head_bootstrap_job_id": 107490107434,
+      "feature_head_bootstrap_verified_head": "369bf76073d14ae625217b6a55e2bd9082ad4d9b",
+      "feature_head_bootstrap_verified_tree": "b3d376fa7cc0e50a17e032cc0e79017b7c589ac6",
+      "feature_head_bootstrap_run_id": 35955447920,
+      "feature_head_bootstrap_job_id": 107492688659,
       "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -111,27 +111,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next runtime prerequisite. Keep lifecycle/current-principal/requested-scope composition, presented-token parsing, approved verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence construction outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit the next runtime prerequisite. Keep presented-token parsing, approved verifier execution, CIDR, permission-profile mapping, usage/audit and final VerifiedMachineEvidence construction outside scope unless separately source-owned.",
     "core_services": {
-      "checkpoint": "DEV-API-CREDENTIAL-REQUESTED-SCOPE-FLOOR-001",
+      "checkpoint": "DEV-API-CREDENTIAL-CORE-NECESSARY-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–161 current implementation; DD-161 API Credential requested-scope compatibility necessary floor only",
-      "verified_head": "3c9fad6e0df4e0f2b1c048ee49fff5767ecbb6c7",
-      "verified_tree": "f338bb14bef9e1919bd5aa455013a8d90a289c10",
-      "core_ci_run_id": 35954596377,
-      "core_ci_job_id": 107490107603,
-      "tests": "381/381 PASS",
+      "decision": "DD-040–162 current implementation; DD-162 pure composition of API Credential lifecycle/current-principal/requested-scope necessary floors only",
+      "verified_head": "a68a89f1a7d65eaeb76dfa8f4847e756393f396b",
+      "verified_tree": "152771d5d7369153730f1ea89c7e3803364a4fb4",
+      "core_ci_run_id": 35955447920,
+      "core_ci_job_id": 107492688508,
+      "tests": "388/388 PASS",
       "core_test_counts": {
-        "tests": 381,
-        "pass": 381,
+        "tests": 388,
+        "pass": 388,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35954596377,
-      "postgres_ci_job_id": 107490107434,
+      "postgres_ci_run_id": 35955447920,
+      "postgres_ci_job_id": 107492688659,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -140,8 +140,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35954596379,
-      "database_regression_job_id": 107490107463,
+      "database_regression_run_id": 35955447871,
+      "database_regression_job_id": 107492688241,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -434,7 +434,8 @@
         "DD-158 server-internal API Credential ACTIVE plus optional-expiry current lifecycle necessary floor",
         "DD-159 server-internal exact-id machine-principal raw metadata reader with PII-minimized projection",
         "DD-160 current machine-principal ACTIVE API_CLIENT/SERVICE necessary floor with SERVICE structural metadata requirement",
-        "DD-161 API Credential requested-scope compatibility floor for Platform/Tenant/Industry targets with SERVICE allowlist enforcement"
+        "DD-161 API Credential requested-scope compatibility floor for Platform/Tenant/Industry targets with SERVICE allowlist enforcement",
+        "DD-162 pure composition of API Credential current lifecycle, current machine-principal and requested-scope necessary floors"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
