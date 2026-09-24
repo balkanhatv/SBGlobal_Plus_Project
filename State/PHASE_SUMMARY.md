@@ -1,11 +1,11 @@
 # PHASE SUMMARY — SBGlobal Plus
-**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`
+**Updated:** 2026-09-24 · **Current checkpoint:** `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`
 
-Verified canonical DD-169 promotion `19d4af6b662e6c8de7df0fc54c1a61aab09a5b3f` / tree `264cfb4d5df164ea1e1893013698cb17b811f919`: **437/437 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35964991724` (Core job `107521492075`, PostgreSQL job `107521492294`), Database `35964991639` (job `107521492112`), Web `35964991529` (job `107521491443`).
+Verified canonical DD-170 promotion `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d609ca7a5f9f81a2d913cd14d2dbec1`: **437/437 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35966874703` (Core job `107527332888`, PostgreSQL job `107527333060`), Database `35966874721` (job `107527332677`), Web `35966874668` (job `107527333377`).
 
-DD-169 is NotificationDelivery optional source-event exact-scope relationship currentness only.
+DD-170 restores total fail-closed shared definition-scope predicates without changing hierarchy.
 
-Next source-governed work is the fail-closed definition-applicability audit before template relationship continuation.
+Next governed work: NotificationDelivery→NotificationTemplate relationship currentness.
 
 The sections below are chronological history of earlier gates and retain their original scope and evidence. Their former next-action and authorization statements are superseded by the current checkpoint.
 

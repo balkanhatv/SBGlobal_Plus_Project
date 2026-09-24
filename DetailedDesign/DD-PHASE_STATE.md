@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,16 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-169.
+Current checkpoint: `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`. Decisions are contiguous through DD-170.
 
-Verified canonical DD-169 promotion `19d4af6b662e6c8de7df0fc54c1a61aab09a5b3f` / tree `264cfb4d5df164ea1e1893013698cb17b811f919`: **437/437 Core**, **497/497 PostgreSQL**, **47 migrations / 41 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35964991724` (Core job `107521492075`, PostgreSQL job `107521492294`), Database `35964991639` (job `107521492112`), Web `35964991529` (job `107521491443`).
+Verified canonical DD-170 promotion `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d609ca7a5f9f81a2d913cd14d2dbec1`: **437/437 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35966874703` (Core job `107527332888`, PostgreSQL job `107527333060`), Database `35966874721` (job `107527332677`), Web `35966874668` (job `107527333377`).
 
-DD-169 re-evaluates only migration-0031's optional NotificationDelivery→OutboxEvent source relationship: exact source-event id, same Tenant, exact scope class and exact nullable Industry Context. An unbound delivery requires no event evidence.
+DD-170 restores the migration-0031-declared fail-closed semantics of shared definition applicability/containment predicates: SQL UNKNOWN/NULL now resolves to false while the existing PLATFORM/TENANT/INDUSTRY hierarchy remains unchanged.
 
-A true result is not Outbox readiness/dispatch/retry or notification execution authority.
+No NotificationTemplate selection/rendering, delivery/provider/retry, Identity/Authz policy, machine-auth, Webhook, SyncCursor or Integration execution authority was added.
 
-A fresh post-DD-169 source review found a separate fail-closed prerequisite before NotificationTemplate relationship composition: `core_tenancy.definition_applies_to_scope()` can return SQL NULL for mismatched nullable scope inputs, while callers commonly use `NOT function(...)` inside integrity triggers. That boundary must be audited/corrected before deriving a template current-binding helper.
+Evidence: `Registers/DEVELOPMENT_DD170_VERIFICATION_2026-09-24.md`.
 
-Evidence: `Registers/DEVELOPMENT_DD169_VERIFICATION_2026-09-24.md`.
-
-Next: source-audit the definition applicability NULL/fail-closed boundary; do not open NotificationTemplate execution semantics until it is resolved.
+Next: source-audit migration-0031's optional NotificationDelivery→NotificationTemplate version/status/channel/scope relationship over the corrected total predicate.

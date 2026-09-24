@@ -46,6 +46,14 @@ Verification 0048 proves:
 
 DD-170 does not define template selection/rendering, delivery/provider/retry semantics, Identity/Authz changes, data rewrite, new RLS/roles/grants/routes or any machine/Webhook/Sync/Integration execution authority.
 
-## 6. Promotion requirement
+## 6. Promotion result
 
-Canonical DD-170 decision/acceptance/changelog must be committed and that promotion head must pass exact-head Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-170 decision, acceptance and Detailed Design changelog are committed in `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d609ca7a5f9f81a2d913cd14d2dbec1`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35966874703`, Core job `107527332888`: **SUCCESS — 437/437**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107527333060`: **SUCCESS — 497/497**, 0 failed/skipped, 48/42 full bootstrap.
+- Database Verify run `35966874721`, job `107527332677`: **SUCCESS**.
+- Web Boundary Verify run `35966874668`, job `107527333377`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`. State synchronization changes documentation only.
