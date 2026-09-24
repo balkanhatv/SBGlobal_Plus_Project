@@ -1,14 +1,14 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-OPERATOR-ELEVATION-CORE-NECESSARY-FLOORS-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-OPERATOR-ELEVATION-RLS-PARITY-001`
 
 Fresh-fetch remote branch/HEAD/tree/checks before further work.
 
-Verified executable `0aab1a264a3f01cc4d6121184f3224ada24cfa6e` / tree `d9ee379129dcee062f625ed2d75ef8b7b3377b5c`: **346/346 Core**, **469/469 PostgreSQL**, Database/Web PASS.
+Verified executable `91b7db1696701b90e27c3e622c6b39df82fc67c3` / tree `e38ec10d70b4affa29cca55a742c8b9ca2b9cbdf`: **346/346 Core**, **476/476 PostgreSQL**, Database/Web PASS.
 
-Promotion invariant gate `94c38c4d5639636bbb86f7e275375f0c71211199` / tree `3222cb8c5192d40b47109f63633dcc1abdfc49a4`: Core run `35924394665` (Core job `107395883267`, PostgreSQL job `107395882988`), Database run `35924394619` (job `107395883286`), Web run `35924394760` (job `107395882724`) — SUCCESS; **152 unique DD definitions**.
+Promotion invariant gate `f4168ea19b693934bf9971608147911d83e2afb6` / tree `65ddf4725ef8ccdad1b44fffa17b957322dcf86f`: Core run `35941965972` (Core job `107451593773`, PostgreSQL job `107451593496`), Database run `35941965967` (job `107451593412`), Web run `35941965946` (job `107451593407`) — SUCCESS; **153 unique DD definitions**.
 
-DD-152 is only the pure composition of DD-148…151 necessary floors. Read `Development/OPERATOR_ELEVATION_CORE_FLOOR_COMPOSITION_PREREQUISITE_OWNERSHIP_AUDIT.md` and `Registers/DEVELOPMENT_DD152_VERIFICATION_2026-09-24.md` before extending OperatorElevation.
+DD-153 is physical RLS acceptance only. Read `Development/OPERATOR_ELEVATION_RLS_PREDICATE_PARITY_PREREQUISITE_OWNERSHIP_AUDIT.md` and `Registers/DEVELOPMENT_DD153_VERIFICATION_2026-09-24.md` before extending OperatorElevation.
 
-Next: Fresh source-audit trusted selection/source, step-up, permission/effective-permission, approval/purpose, request-scope injection and audit prerequisites.
+Next: Fresh source-audit trusted selection/source, step-up/profile/approval policy, RequestContext/SQL injection and audit prerequisites.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.

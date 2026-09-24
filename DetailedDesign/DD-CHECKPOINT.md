@@ -30,12 +30,12 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-OPERATOR-ELEVATION-CORE-NECESSARY-FLOORS-001`. Decisions are contiguous through DD-152.
+Current checkpoint: `DEV-OPERATOR-ELEVATION-RLS-PARITY-001`. Decisions are contiguous through DD-153.
 
-Verified executable `0aab1a264a3f01cc4d6121184f3224ada24cfa6e` / tree `d9ee379129dcee062f625ed2d75ef8b7b3377b5c`: **346/346 Core**, **469/469 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `91b7db1696701b90e27c3e622c6b39df82fc67c3` / tree `e38ec10d70b4affa29cca55a742c8b9ca2b9cbdf`: **346/346 Core**, **476/476 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
-Promotion invariant gate `94c38c4d5639636bbb86f7e275375f0c71211199` / tree `3222cb8c5192d40b47109f63633dcc1abdfc49a4`: Core run `35924394665` (Core job `107395883267`, PostgreSQL job `107395882988`), Database run `35924394619` (job `107395883286`), Web run `35924394760` (job `107395882724`) — SUCCESS; **152 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `f4168ea19b693934bf9971608147911d83e2afb6` / tree `65ddf4725ef8ccdad1b44fffa17b957322dcf86f`: Core run `35941965972` (Core job `107451593773`, PostgreSQL job `107451593496`), Database run `35941965967` (job `107451593412`), Web run `35941965946` (job `107451593407`) — SUCCESS; **153 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-152 composes DD-148 time/status, DD-149 subject/target, DD-150 verified PLATFORM_OPERATOR identity and DD-151 exact selected-id equality into one pure necessary floor. A true result remains non-authorizing: selected-id trust/source, step-up, permission/profile, approval/purpose, request-scope injection and audit remain separate.
+DD-153 proves migration 0029 physical OperatorElevation current-read RLS under the ordinary app role: exact selected id/principal/Tenant, NULL-or-exact Industry, ACTIVE status and current time window. It is acceptance-only evidence; RequestContext/RequestScopedSql still do not activate elevation scope.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation selection/source, step-up/MFA policy, permission-profile/effective-permission evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory audit outside scope unless separately source-owned.
+Next: Fresh source-audit the next runtime prerequisite. Trusted selected-id sourcing, step-up/MFA, permission-profile/effective-permission evaluation, approval/purpose policy, RequestContext/SQL elevation injection and mandatory elevation-use audit remain separate.
