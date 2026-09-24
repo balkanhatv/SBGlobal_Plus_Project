@@ -92,3 +92,9 @@ Evidence: `Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`. Missi
 
 ## 2026-09-21 — DD-080 external REST adapter floor
 Source-audited and implemented the reusable external REST Fetch ordering/projection boundary over the existing OperationExecutor and DD-052 envelope. Feature `ce4708eec15f6b0a35ae9a77d13505221fe55d51` passed 290 Core / 65 PostgreSQL / 47+41 bootstrap / Database / Web CI. No live route, credential scheme, OpenAPI document, SQL or Commercial semantics were added.
+
+## 2026-09-24 — Vision-centric DD-163 checkpoint reconciliation
+Fresh remote audit reconciled the 796-blob DD-163 promotion baseline with MI/MP, immutable RawSource provenance, Foundation/Architecture/DD owners, Development/State, repository invariants and exact-head CI. Current projections that still named DD-162/DD-108/DD-106/DD-080 were corrected without rewriting historical evidence. DD-163 promotion `a2a888eea87124c75123239d79e528e6d4facfbe` passed 395 Core / 497 PostgreSQL plus Database/Web CI; state/audit reconciliation head `e953646468f77eaa47fdb5a64bb397f23157ee6f` also passed all three workflows. RawSource/main unchanged; PR #2 remains draft/unmerged.
+
+## 2026-09-24 — Post-DD-163 boundary selection
+`Development/WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md` locks unsupported Webhook execution semantics rather than inventing them. `Development/SYNC_CURSOR_CURRENT_BINDING_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md` identifies one independent source-complete next prerequisite: the exact migration-0030 SyncCursor parent/capability binding floor, with no sync/provider authorization semantics.
