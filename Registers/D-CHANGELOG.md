@@ -204,3 +204,6 @@ Fresh AI reconciliation selected migration 0031 + migration 0048's AgentRun→Ag
 
 ## 2026-09-24 — DD-181 canonical promotion / checkpoint advance
 DD-181 promotion `f86218e900ac3ed068238e8e4e9881dde5ee8e8e` / tree `a514b6c24d8c9a5dcd4c19c4dccbee96a764c793` passed exact-head **514 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`. Acting-principal/membership and Agent execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-181 DD-182 prerequisite selection
+Fresh AI reconciliation selected migration 0031's AgentStep TOOL/non-TOOL binding relationship as the next independent source-complete prerequisite: exact Step→Run→AgentDefinition parent chain, enabled ToolSetMember, ACTIVE ToolDefinition and exact allowed ToolSet match. Optional approval backlink, ToolSet currentness, principal/permission/entitlement/approval and tool execution remain explicitly outside the floor.
