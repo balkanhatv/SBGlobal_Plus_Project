@@ -2607,3 +2607,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIAPP-PARENT-CUR-001…007` in DD-17 and `tests/core/ai-agent-approval-parent-scope-floors.test.mjs`.
 
+## DD-185 — AIConversation optional AssistantDefinition binding may be re-evaluated as a pure current relationship floor
+
+**Context:** DD-117 exposes raw AssistantDefinition evidence and DD-121 exposes raw AIConversation evidence. Migration 0031 conditionally validates `assistant_definition_id`: when present, the referenced AssistantDefinition must be ACTIVE and applicable to the conversation Tenant/Industry scope. DD-170 makes the shared applicability predicate total/fail-closed.
+
+**Decision:** add pure Core helper `matchesAIConversationAssistantBindingFloors(conversation, assistant?)`. It validates conversation identity/scope shape, treats absent assistant binding as valid only when no AssistantDefinition evidence is supplied, and for present bindings requires exact assistant id, raw ACTIVE status and canonical PLATFORM/TENANT/INDUSTRY applicability.
+
+**Security / trade-off:** the helper mirrors only the direct conversation→assistant relationship. It deliberately does not validate conversation owner-principal currentness and does not auto-compose DD-179 AssistantDefinition nested PromptTemplate/ToolSet relationship currentness because migration 0031 does not re-evaluate those nested relationships for AIConversation writes.
+
+**Boundary:** DD-185 does not select a current Assistant by code/version/effective time; validate owner principal; compose DD-179; resolve prompt/RAG/model/provider/tool policies; enforce retention/erasure; load messages/history; perform cross-Industry history carry-over; execute inference/RAG/tools/agents; mutate conversation state; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `AICONV-AST-CUR-001…007` in DD-17 and `tests/core/ai-conversation-assistant-binding-floors.test.mjs`.
+

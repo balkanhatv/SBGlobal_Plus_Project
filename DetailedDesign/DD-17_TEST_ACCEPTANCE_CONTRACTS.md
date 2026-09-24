@@ -2945,3 +2945,26 @@ Malformed approval/run/step ids or malformed Industry ids fail closed.
 ### AIAPP-PARENT-CUR-007 — Approval/run/step execution semantics remain uninterpreted
 Approval status/type/permission/approver/time/reason/correlation, run principal/membership/versions/resource/status/budgets and step type/tool/approval/status/timestamps/audit evidence do not create acceptance, and inputs remain unchanged.
 
+## DD-185 AIConversation AssistantDefinition Current-Binding Acceptance
+
+### AICONV-AST-CUR-001 — Unbound conversation requires no assistant evidence
+A valid AIConversation without `assistantDefinitionId` matches only when no AssistantDefinition evidence is supplied.
+
+### AICONV-AST-CUR-002 — ACTIVE PLATFORM Assistant applies to Core and Industry conversations
+An exact ACTIVE PLATFORM AssistantDefinition with no Tenant/Industry owner applies to either valid conversation scope.
+
+### AICONV-AST-CUR-003 — same-Tenant TENANT Assistant applies within Tenant
+An exact ACTIVE TENANT AssistantDefinition applies to same-Tenant Core/Industry conversations; foreign Tenant fails closed.
+
+### AICONV-AST-CUR-004 — INDUSTRY Assistant requires exact Industry
+An exact ACTIVE INDUSTRY AssistantDefinition applies only to the exact same-Tenant Industry conversation; sibling Industry or Tenant-Core fails closed.
+
+### AICONV-AST-CUR-005 — assistant identity/status mismatch fails
+Wrong AssistantDefinition id or any non-ACTIVE status fails closed.
+
+### AICONV-AST-CUR-006 — malformed scope/owner or unexpected evidence fails closed
+Malformed conversation identity/scope, malformed Assistant owner shape, or Assistant evidence for an unbound conversation fails closed.
+
+### AICONV-AST-CUR-007 — owner/nested Assistant/runtime semantics remain uninterpreted
+Conversation owner principal, sensitivity/retention/status/timestamps and Assistant capability/RAG/prompt/tool/model/retention/version/timestamps do not create acceptance; DD-179 is not auto-composed and inputs remain unchanged.
+
