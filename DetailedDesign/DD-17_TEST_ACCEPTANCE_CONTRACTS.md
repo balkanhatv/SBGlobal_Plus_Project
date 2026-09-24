@@ -2390,3 +2390,27 @@ Allowed scope classes and auth epoch remain raw evidence and do not independentl
 
 ### MACHPRINC-CUR-007 — Helper is deterministic and non-mutating
 Repeated evaluation is stable and metadata remains unchanged.
+
+
+## DD-161 API Credential Requested-Scope Floor Acceptance
+
+### APICRED-SCOPE-001 — Platform SERVICE scope
+An allowlisted SERVICE principal plus platform credential matches PLATFORM_GLOBAL only when requested and persisted Tenant/Industry evidence is absent.
+
+### APICRED-SCOPE-002 — Exact Tenant-Core scope
+Tenant-Core API_CLIENT/SERVICE credentials require exact Tenant equality; SERVICE also requires requested-scope allowlist entry TENANT_CORE.
+
+### APICRED-SCOPE-003 — Exact Tenant-Industry credential
+An exact Industry credential matches only its exact Tenant/Industry target; SERVICE also requires TENANT_INDUSTRY in its requested-scope allowlist.
+
+### APICRED-SCOPE-004 — Tenant-Core credential Industry allowlist
+A Tenant-Core credential may reach only an explicitly allowed exact Industry; SERVICE still requires TENANT_INDUSTRY in its requested-scope allowlist.
+
+### APICRED-SCOPE-005 — Principal/Tenant/Industry mismatch fails
+Credential/principal id mismatch, wrong Tenant, sibling/non-allowlisted Industry, or invalid platform shape fails closed.
+
+### APICRED-SCOPE-006 — Cross-context and malformed target fail
+EXPLICIT_CROSS_CONTEXT always fails; malformed UUIDs or missing required target components fail closed.
+
+### APICRED-SCOPE-007 — Other authentication evidence remains separate
+Lifecycle, hash, CIDR, permission profile, version, usage and principal-currentness evidence is not interpreted and inputs remain unchanged.

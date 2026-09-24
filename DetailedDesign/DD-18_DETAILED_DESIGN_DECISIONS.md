@@ -2314,3 +2314,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-160 does not evaluate DD-158 lifecycle on the caller's behalf; decide credential Tenant/Industry/PLATFORM_GLOBAL compatibility; decide SERVICE requested-scope compatibility; validate HUMAN membership administration rules; parse tokens or compare verifier hashes; enforce CIDR; interpret permission profiles; update auth epoch/credential usage; emit authentication audit; construct `VerifiedMachineEvidence`; implement `IdentityPort.verifyMachineCredential`; mutate principal/credential state; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `MACHPRINC-CUR-001` through `MACHPRINC-CUR-007` in DD-17 and `tests/server/machine-principal-currentness.test.mjs`.
+
+
+## DD-161 — Persisted API Credential and principal scope evidence may be checked against a server-owned requested scope without becoming authentication or authorization
+
+**Context:** DD-03 requires final machine evidence to preserve fixed Tenant binding, allowed Industry ids and scope classes, and requires RequestContext to enforce the allowed scope class again. PLATFORM_GLOBAL does not grant Tenant scope, TENANT_CORE does not grant TENANT_INDUSTRY, and generic machine evidence does not grant EXPLICIT_CROSS_CONTEXT. Migration 0034 owns platform/Tenant credential shape and SERVICE persisted-scope allowlists; migration 0030 demonstrates exact Industry consumption semantics. DD-147 supplies credential scope evidence, DD-159 supplies principal type/scope evidence, and DD-160 separately owns principal currentness.
+
+**Decision:** add server-internal pure helper `matchesApiCredentialRequestedScopeFloor(material,principal,target)`. It requires exact credential→principal id binding, validates present UUID evidence, enforces platform/Tenant/Industry target shape, requires exact Tenant binding, permits Tenant-Core credentials to reach only explicitly allowlisted Industries, requires exact Industry for Industry-scoped credentials, enforces SERVICE requested-scope allowlist entries, and always denies EXPLICIT_CROSS_CONTEXT.
+
+**Security / trade-off:** SERVICE scope is checked against the requested scope, not merely the credential's persisted scope. Therefore a SERVICE allowlisted only for TENANT_CORE cannot use a Tenant-Core credential plus Industry allowlist to gain TENANT_INDUSTRY runtime authority. API_CLIENT does not invent SERVICE allowlist semantics.
+
+**Boundary:** DD-161 does not evaluate DD-158 lifecycle or DD-160 currentness on the caller's behalf; verify principal current status; parse credentials or compare verifier hashes; enforce CIDR; interpret permission profiles; update usage/auth epoch; emit authentication audit; construct final `VerifiedMachineEvidence`; implement `IdentityPort.verifyMachineCredential`; mutate principal/credential state; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `APICRED-SCOPE-001` through `APICRED-SCOPE-007` in DD-17 and `tests/server/api-credential-requested-scope.test.mjs`.

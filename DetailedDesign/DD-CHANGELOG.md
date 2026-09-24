@@ -253,3 +253,7 @@ After DD-158 isolated the API Credential current-lifecycle floor, the next sourc
 
 ## 2026-09-24 — DD-160 current machine-principal floor
 After DD-159 added the exact machine-principal metadata source, DD-03 plus migrations 0003/0030 were reconciled into a pure current machine-principal necessary floor. ACTIVE API_CLIENT matches; ACTIVE SERVICE additionally requires service code and owning module; HUMAN/PLATFORM_OPERATOR and non-active statuses fail. Allowed scopes/auth epoch remain raw evidence and are not converted into authorization. Audit commit `1634081a…`; exact implementation head `4aaddec1…` / tree `4878d904…` is green at 374/374 Core and 497/497 PostgreSQL plus Database/Web PASS. No database, public DTO or product-policy behavior changed.
+
+
+## 2026-09-24 — DD-161 API Credential requested-scope floor
+After DD-160 isolated current machine-principal admissibility, DD-03 plus migrations 0030/0034 and RequestContext machine-scope rules were reconciled into a pure requested-scope predicate. It binds credential→principal id, exact Tenant/Industry targets, Tenant-Core allowed-Industry consumption and SERVICE requested-scope allowlists while denying EXPLICIT_CROSS_CONTEXT. Lifecycle/currentness/verifier/CIDR/profile/use-audit remain separate. Audit commit `c53c94f6…`; exact implementation head `3c9fad6e…` / tree `f338bb14…` is green at 381/381 Core and 497/497 PostgreSQL plus Database/Web PASS.
