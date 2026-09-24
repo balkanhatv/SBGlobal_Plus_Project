@@ -37,7 +37,7 @@ function databaseFixture(DatabaseClass, fail = () => false) {
 function findScopeClear(calls) {
   return calls.find((call) =>
     typeof call.text === "string"
-      && call.text.includes("set_config('app.operator_elevation_id','',true)"));
+      && /set_config\('app\.operator_elevation_id'\s*,\s*''\s*,\s*true\)/.test(call.text));
 }
 
 function findScopeReset(calls) {
