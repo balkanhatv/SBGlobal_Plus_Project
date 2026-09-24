@@ -106,14 +106,16 @@ before(async () => {
 
     await setup.query(
       `INSERT INTO core_identity.platform_principal
-        (id,principal_type,status,display_name,auth_epoch,created_at,updated_at)
+        (id,principal_type,status,display_name,auth_epoch,service_code,owning_module,
+         allowed_scope_classes,created_at,updated_at)
        VALUES
-        ($1::uuid,'PLATFORM_OPERATOR','ACTIVE','Operator active',1,now(),now()),
-        ($2::uuid,'PLATFORM_OPERATOR','SUSPENDED','Operator inactive',1,now(),now()),
-        ($3::uuid,'HUMAN','ACTIVE','Human principal',1,now(),now()),
-        ($4::uuid,'PLATFORM_OPERATOR','ACTIVE','Operator approver',1,now(),now()),
-        ($5::uuid,'SERVICE','ACTIVE','Service approver',1,now(),now()),
-        ($6::uuid,'PLATFORM_OPERATOR','SUSPENDED','Inactive approver',1,now(),now())`,
+        ($1::uuid,'PLATFORM_OPERATOR','ACTIVE','Operator active',1,NULL,NULL,NULL,now(),now()),
+        ($2::uuid,'PLATFORM_OPERATOR','SUSPENDED','Operator inactive',1,NULL,NULL,NULL,now(),now()),
+        ($3::uuid,'HUMAN','ACTIVE','Human principal',1,NULL,NULL,NULL,now(),now()),
+        ($4::uuid,'PLATFORM_OPERATOR','ACTIVE','Operator approver',1,NULL,NULL,NULL,now(),now()),
+        ($5::uuid,'SERVICE','ACTIVE','Service approver',1,'DD154_APPROVER','Authorization',
+         ARRAY['PLATFORM_GLOBAL'],now(),now()),
+        ($6::uuid,'PLATFORM_OPERATOR','SUSPENDED','Inactive approver',1,NULL,NULL,NULL,now(),now())`,
       [
         f.operator,
         f.operatorInactive,
