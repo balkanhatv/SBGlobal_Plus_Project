@@ -1,14 +1,14 @@
 # HANDOFF_NOTE — SBGlobal Plus
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-API-CREDENTIAL-CURRENT-LIFECYCLE-FLOOR-001`
+**Updated:** 2026-09-24 · **Checkpoint:** `DEV-MACHINE-PRINCIPAL-METADATA-READ-001`
 
 Fresh-fetch remote branch/HEAD/tree/checks before further work.
 
-Verified executable `a5e1de8dec4b24de90ebebb937ad7dd684761b63` / tree `493fe33ebc29e23f67dd8dca065f97075397481a`: **367/367 Core**, **490/490 PostgreSQL**, Database/Web PASS.
+Verified executable `3cbed05188f21ed04ad4c1bb6964e50f6447c940` / tree `bbd14cdb2fc39fd43ef7dce8562e486f4cf2b858`: **367/367 Core**, **497/497 PostgreSQL**, Database/Web PASS.
 
-Promotion invariant gate `716e65b5296f974b608a44aac57daa8a9e740743` / tree `cf5cf9f213d8a20c081f2d36f297d818fb4ff0d7`: Core run `35951882595` (Core job `107481975657`, PostgreSQL job `107481975948`), Database run `35951882648` (job `107481975808`), Web run `35951882634` (job `107481975705`) — SUCCESS; **158 unique DD definitions**.
+Promotion invariant gate `3504c9f946b68e4dd49eff070bd35694e36c807f` / tree `cad82fb83e0b94771325bb7e53eacdd1604597b7`: Core run `35952927992` (Core job `107485122128`, PostgreSQL job `107485121910`), Database run `35952927996` (job `107485122074`), Web run `35952927991` (job `107485122181`) — SUCCESS; **159 unique DD definitions**.
 
-DD-158 is only the server-internal API Credential current lifecycle floor. Read `Development/API_CREDENTIAL_CURRENT_LIFECYCLE_PREREQUISITE_OWNERSHIP_AUDIT.md` and `Registers/DEVELOPMENT_DD158_VERIFICATION_2026-09-24.md` before extending machine credential verification.
+DD-159 is only a server-internal exact-id machine-principal metadata source. Read `Development/API_CREDENTIAL_PRINCIPAL_METADATA_READER_PREREQUISITE_OWNERSHIP_AUDIT.md` and `Registers/DEVELOPMENT_DD159_VERIFICATION_2026-09-24.md` before extending machine credential verification.
 
-Next: Fresh source-audit token parsing/hash verification/CIDR/principal-scope/profile/use-audit/final machine-evidence prerequisites.
+Next: Fresh source-audit principal-currentness, credential/principal scope composition, verifier/CIDR/profile/use-audit and final machine-evidence prerequisites.
 
 RawSource accepted blobs remain immutable; `main` remains unmerged; PR #2 remains draft/unmerged.
