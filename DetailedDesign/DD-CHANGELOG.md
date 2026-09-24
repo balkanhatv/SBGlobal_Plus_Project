@@ -310,3 +310,6 @@ After DD-176, migration 0031 + migration 0048's PromptSetMember→ACTIVE PromptS
 ## 2026-09-24 — DD-178 AIToolSetMember ToolDefinition current-binding floor
 After DD-177, migration 0031's AIToolSetMember→AIToolDefinition exact id/ACTIVE relationship was selected as the next source-complete prerequisite. DD-178 adds only a pure Core recheck of exact referenced ToolDefinition id and raw ACTIVE status. Exact implementation head `5714c8dc4b3d4d008914ef58e152339a8c04ff86` / tree `24f41f4733b9a61860a6f321194269c207e3b427` is green at **493/493 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Effective ToolSet membership and tool execution semantics remain unclaimed.
 
+## 2026-09-24 — DD-179 AssistantDefinition referenced-definition current-binding floor
+After DD-178, migration 0031 + migration 0048's AssistantDefinition required PromptTemplate and optional ToolSet exact-id/ACTIVE/broader-or-equal containment relationships were selected as the next source-complete prerequisite. DD-179 adds only a pure Core recheck of those relationships. Exact implementation head `f57a67f0cd39dbc4d10d9f73afbe631b7aee1ff2` / tree `6a58e04efdb19d106a2eee0bfc3e145e7cd8bb3a` is green at **500/500 Core** and **497/497 PostgreSQL** plus Database/Web PASS. Capability currentness, prompt rendering, effective ToolSet resolution and AI execution remain unclaimed.
+

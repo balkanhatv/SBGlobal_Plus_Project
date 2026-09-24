@@ -2807,3 +2807,26 @@ Any raw status other than exact ACTIVE fails closed.
 ### AITOOLMEM-DEF-CUR-007 — Tool execution semantics remain uninterpreted
 Member enabled/constraint/createdAt and ToolDefinition capability/operation/scope/permission/entitlement/schema/side-effect/approval/idempotency/audit/version/timestamps do not affect this relationship floor, and inputs remain unchanged.
 
+## DD-179 AIAssistantDefinition Referenced-Definition Current-Binding Acceptance
+
+### AIASSIST-REL-CUR-001 — PLATFORM PromptTemplate contains valid child scopes
+An exact ACTIVE PLATFORM PromptTemplate may contain valid PLATFORM, TENANT or INDUSTRY AssistantDefinitions.
+
+### AIASSIST-REL-CUR-002 — TENANT PromptTemplate contains only same-Tenant narrower/equal definitions
+An exact ACTIVE TENANT PromptTemplate contains same-Tenant TENANT and INDUSTRY AssistantDefinitions; foreign-Tenant and PLATFORM children fail.
+
+### AIASSIST-REL-CUR-003 — INDUSTRY PromptTemplate requires exact Industry child
+An exact ACTIVE INDUSTRY PromptTemplate contains only the exact same-Tenant Industry AssistantDefinition.
+
+### AIASSIST-REL-CUR-004 — Optional ToolSet exact ACTIVE containment
+When `toolSetId` is present, ToolSet id/status/containment must match; when absent, extra ToolSet evidence fails closed.
+
+### AIASSIST-REL-CUR-005 — Prompt/ToolSet identity or lifecycle mismatch fails
+Wrong PromptTemplate id or non-ACTIVE PromptTemplate/ToolSet fails closed.
+
+### AIASSIST-REL-CUR-006 — Malformed owner evidence fails closed
+Malformed AssistantDefinition, PromptTemplate or ToolSet UUID/owner shapes fail closed.
+
+### AIASSIST-REL-CUR-007 — Capability/content/runtime semantics remain uninterpreted
+Assistant capability/RAG/model/retention/version/status/time, prompt content/schema/approval and ToolSet code/version evidence do not affect the relationship result, and inputs remain unchanged.
+

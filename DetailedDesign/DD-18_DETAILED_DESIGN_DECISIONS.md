@@ -2535,3 +2535,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AITOOLMEM-DEF-CUR-001…007` in DD-17 and `tests/core/ai-tool-set-member-definition-binding-floors.test.mjs`.
 
+## DD-179 — AssistantDefinition PromptTemplate/ToolSet references may be re-evaluated as pure ACTIVE containment floors
+
+**Context:** DD-117 exposes raw AssistantDefinition evidence, DD-115 raw PromptTemplate evidence and DD-111 raw ToolSet evidence. Migration 0031 requires the AssistantDefinition's mandatory PromptTemplate and optional ToolSet to exist, be raw ACTIVE and contain the AssistantDefinition owner scope under the DD-170 fail-closed definition-containment hierarchy.
+
+**Decision:** add pure Core helper `matchesAIAssistantDefinitionRelationshipFloors(assistant, promptTemplate, toolSet?)`. It validates AssistantDefinition owner shape; requires exact PromptTemplate id, ACTIVE status and broader-or-equal containment; and, when `toolSetId` is present, requires exact ToolSet id, ACTIVE status and broader-or-equal containment. An AssistantDefinition without `toolSetId` rejects extra ToolSet evidence.
+
+**Security / trade-off:** capability currentness is a separate migration-0031 predicate and is not silently folded into this relationship helper. PromptTemplate/ToolSet versions and effective dates are not persisted on these AssistantDefinition references and therefore are not invented.
+
+**Boundary:** DD-179 does not validate Assistant capability currentness; select current/latest AssistantDefinition; render prompts; interpret grounding/overrides; resolve effective ToolSet members; authorize permission/entitlement/approval; resolve RAG/model/retention policy; bind conversations/memory/runs; execute OperationContracts/tools/agents/providers/models; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `AIASSIST-REL-CUR-001…007` in DD-17 and `tests/core/ai-assistant-definition-relationship-floors.test.mjs`.
+
