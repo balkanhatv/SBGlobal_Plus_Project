@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-ASSISTANT-DEFINITION-RELATIONSHIP-CURRENT-BINDING-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-AGENT-DEFINITION-TOOL-SET-CURRENT-BINDING-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,14 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-AI-ASSISTANT-DEFINITION-RELATIONSHIP-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-179.
+Current checkpoint: `DEV-AI-AGENT-DEFINITION-TOOL-SET-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-180.
 
-Verified canonical DD-179 promotion `58b4a9c17831aac335819190b7e7aad9b394ec85` / tree `2b131a362a805748f780e635e5ef55f6970bb379`: **500/500 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35992161069` (Core job `107608561082`, PostgreSQL job `107608561582`), Database `35992161228` (job `107608561391`), Web `35992161106` (job `107608566169`).
+Verified canonical DD-180 promotion `ad5fd749d4cdde8584858779ca596349821bf604` / tree `37d6013de96e36b352f480fa6f06b0aae6fedb40`: **507/507 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35994604615` (Core job `107616459168`, PostgreSQL job `107616458820`), Database `35994604682` (job `107616459266`), Web `35994604599` (job `107616458789`).
 
-DD-179 re-evaluates only migration-0031 + migration-0048's AssistantDefinition referenced-definition relationships: required PromptTemplate exact-id/ACTIVE/broader-or-equal containment and optional ToolSet exact-id/ACTIVE/broader-or-equal containment.
+DD-180 re-evaluates only migration-0031 + migration-0048's AgentDefinition→allowed ToolSet relationship: exact ToolSet id, raw ACTIVE status and canonical broader-or-equal PLATFORM/TENANT/INDUSTRY containment.
 
-A true result is not Assistant capability currentness, Assistant selection, prompt rendering, grounding/override evaluation, effective ToolSet resolution, permission/entitlement/approval, model/RAG/retention policy, Agent/tool/provider/model execution or AI inference authority.
+A true result is not AgentDefinition selection, objective/risk/approval/budget authorization, effective ToolSet-member resolution, acting-principal/membership authorization, AgentRun/AgentStep authority, tool permission/entitlement/approval, provider/model/tool execution or AI inference authority.
 
-Evidence: `Registers/DEVELOPMENT_DD179_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD180_VERIFICATION_2026-09-24.md`.
 
-Next: fresh source-audit another independent AI relationship prerequisite; do not infer runtime selection/execution semantics.
+Next: source-audit AgentRun→AgentDefinition exact id/ACTIVE/scope currentness as an independent relationship floor; keep acting-principal/membership predicates separate.

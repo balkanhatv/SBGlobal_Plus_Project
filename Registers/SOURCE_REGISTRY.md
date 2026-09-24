@@ -35,8 +35,9 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 - API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
 ## Current audit / continuation evidence — 2026-09-24
-- Current checkpoint: `DEV-AI-ASSISTANT-DEFINITION-RELATIONSHIP-CURRENT-BINDING-FLOORS-001`.
-- DD-179 source audit: `Development/AI_ASSISTANT_DEFINITION_RELATIONSHIP_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- DD-179 verification: `Registers/DEVELOPMENT_DD179_VERIFICATION_2026-09-24.md`.
-- Canonical promotion: `58b4a9c17831aac335819190b7e7aad9b394ec85` / `2b131a362a805748f780e635e5ef55f6970bb379`; 500 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
+- Current checkpoint: `DEV-AI-AGENT-DEFINITION-TOOL-SET-CURRENT-BINDING-FLOORS-001`.
+- DD-180 source audit: `Development/AI_AGENT_DEFINITION_TOOL_SET_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- DD-180 verification: `Registers/DEVELOPMENT_DD180_VERIFICATION_2026-09-24.md`.
+- Canonical promotion: `ad5fd749d4cdde8584858779ca596349821bf604` / `37d6013de96e36b352f480fa6f06b0aae6fedb40`; 507 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
+- Next audit: AgentRun→AgentDefinition exact id/ACTIVE/scope relationship; acting-principal/membership kept separate.
 - RawSource accepted blobs remain unchanged.
