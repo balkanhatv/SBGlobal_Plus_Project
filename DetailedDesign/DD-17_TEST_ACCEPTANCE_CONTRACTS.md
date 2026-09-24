@@ -2830,3 +2830,26 @@ Malformed AssistantDefinition, PromptTemplate or ToolSet UUID/owner shapes fail 
 ### AIASSIST-REL-CUR-007 — Capability/content/runtime semantics remain uninterpreted
 Assistant capability/RAG/model/retention/version/status/time, prompt content/schema/approval and ToolSet code/version evidence do not affect the relationship result, and inputs remain unchanged.
 
+## DD-180 AgentDefinition ToolSet Current-Binding Acceptance
+
+### AIAGENT-TOOLSET-CUR-001 — ACTIVE PLATFORM ToolSet contains valid Agent definitions
+A valid ACTIVE PLATFORM ToolSet contains valid PLATFORM, TENANT and INDUSTRY AgentDefinitions under the canonical hierarchy.
+
+### AIAGENT-TOOLSET-CUR-002 — TENANT ToolSet contains only same-Tenant narrower/equal Agent definitions
+A valid ACTIVE TENANT ToolSet contains same-Tenant TENANT and INDUSTRY AgentDefinitions; foreign-Tenant or PLATFORM AgentDefinitions fail closed.
+
+### AIAGENT-TOOLSET-CUR-003 — INDUSTRY ToolSet requires exact Industry child
+A valid ACTIVE INDUSTRY ToolSet contains only the exact same-Tenant Industry AgentDefinition; sibling Industry, TENANT or PLATFORM AgentDefinitions fail closed.
+
+### AIAGENT-TOOLSET-CUR-004 — ToolSet identity mismatch fails
+Wrong ToolSet id fails closed.
+
+### AIAGENT-TOOLSET-CUR-005 — Non-ACTIVE ToolSet fails
+DRAFT, REVIEW, PUBLISHED and RETIRED ToolSets fail closed.
+
+### AIAGENT-TOOLSET-CUR-006 — Malformed identities or owner shapes fail closed
+Malformed AgentDefinition/ToolSet UUIDs or invalid PLATFORM/TENANT/INDUSTRY owner shapes fail closed.
+
+### AIAGENT-TOOLSET-CUR-007 — Agent policy/runtime evidence remains uninterpreted
+Agent objective/risk/approval/budget/version/status/timestamps and ToolSet code/version/timestamps do not affect this floor, and inputs remain unchanged.
+

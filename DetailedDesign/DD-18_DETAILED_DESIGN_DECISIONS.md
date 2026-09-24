@@ -2547,3 +2547,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIASSIST-REL-CUR-001…007` in DD-17 and `tests/core/ai-assistant-definition-relationship-floors.test.mjs`.
 
+## DD-180 — AgentDefinition allowed ToolSet currentness may be re-evaluated as a pure exact ACTIVE/containment relationship floor
+
+**Context:** DD-118 exposes raw AgentDefinition evidence and DD-111 exposes raw ToolSet evidence. Migration 0031 validates `allowed_tool_set_id` by exact id, raw ACTIVE ToolSet status and broader-or-equal definition containment. Migration 0048 makes the shared containment predicate total/fail-closed.
+
+**Decision:** add pure Core helper `matchesAIAgentDefinitionToolSetBindingFloors(agent, toolSet)`. It validates AgentDefinition/ToolSet identities and owner shapes, requires exact ToolSet id equality, raw `ACTIVE` ToolSet status, and canonical PLATFORM/TENANT/INDUSTRY broader-or-equal containment.
+
+**Security / trade-off:** AgentDefinition persists no ToolSet version/effective-date reference for this binding. DD-180 therefore does not invent version selection or effective ToolSet-member resolution. Agent objective/risk/approval/budget/version/status/timestamp evidence remains uninterpreted by this floor.
+
+**Boundary:** DD-180 does not select current/latest AgentDefinition; resolve effective ToolSet members; interpret objective/risk classes; resolve approval/budget policy; authorize AgentRun/AgentStep; validate acting principal/membership; authorize tool permissions/entitlements/approvals; execute OperationContracts/tools/agents/providers/models; perform inference/RAG/embeddings/media; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `AIAGENT-TOOLSET-CUR-001…007` in DD-17 and `tests/core/ai-agent-definition-tool-set-binding-floors.test.mjs`.
+
