@@ -2595,3 +2595,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AISTEP-APP-CUR-001…007` in DD-17 and `tests/core/ai-agent-step-approval-backlink-floors.test.mjs`.
 
+## DD-184 — AgentApproval parent/scope currentness may be re-evaluated as a pure AgentRun/AgentStep relationship floor
+
+**Context:** DD-130 exposes raw AgentRun evidence, DD-131 exposes raw AgentStep evidence and DD-132 exposes raw AgentApproval evidence. Migration 0031 validates an AgentApproval against its parent run and step by exact ids, same run chain, same Tenant and exact nullable Industry Context.
+
+**Decision:** add pure Core helper `matchesAIAgentApprovalParentScopeFloors(approval, run, step)`. It validates identifiers, requires exact run id, exact step id, exact step→run backlink, same Tenant and exact nullable Industry Context.
+
+**Security / trade-off:** the helper mirrors only the migration-owned parent/scope relationship. It deliberately excludes approver-principal currentness, approval status/satisfaction, requiredPermission, AgentRun resume/cancel and tool execution authority.
+
+**Boundary:** DD-184 does not decide whether approval is APPROVED/current/satisfied; validate approver permission/context; validate AgentDefinition or AgentRun executable currentness; resume/cancel AgentRun; authorize ToolSetMember/ToolDefinition/OperationContract execution; mutate AgentApproval/AgentRun/AgentStep; call providers/models/tools; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `AIAPP-PARENT-CUR-001…007` in DD-17 and `tests/core/ai-agent-approval-parent-scope-floors.test.mjs`.
+

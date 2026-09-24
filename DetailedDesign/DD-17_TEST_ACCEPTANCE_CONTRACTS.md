@@ -2922,3 +2922,26 @@ Malformed step/run/approval identifiers fail closed.
 ### AISTEP-APP-CUR-007 — Approval and runtime semantics remain uninterpreted
 Step type/tool/status/timestamps/audit and approval Tenant/Industry/requestedBy/type/permission/approver/status/summary/time/reason/correlation evidence do not create acceptance, and inputs remain unchanged.
 
+## DD-184 AgentApproval Parent/Scope Current-Binding Acceptance
+
+### AIAPP-PARENT-CUR-001 — Exact Tenant-Core parent chain matches
+A valid Tenant-Core AgentApproval with exact AgentRun and AgentStep parent ids and absent Industry Context matches.
+
+### AIAPP-PARENT-CUR-002 — Exact Tenant-Industry parent chain matches
+A valid Tenant-Industry AgentApproval with exact run/step chain and exact Industry Context matches.
+
+### AIAPP-PARENT-CUR-003 — Wrong run or step identity fails
+A mismatched AgentRun id or AgentStep id fails closed.
+
+### AIAPP-PARENT-CUR-004 — Step-to-run backlink mismatch fails
+An AgentStep that belongs to a different AgentRun fails closed.
+
+### AIAPP-PARENT-CUR-005 — Tenant or Industry mismatch fails
+Foreign Tenant, sibling Industry or Core/Industry mismatch fails closed.
+
+### AIAPP-PARENT-CUR-006 — Malformed identifiers fail closed
+Malformed approval/run/step ids or malformed Industry ids fail closed.
+
+### AIAPP-PARENT-CUR-007 — Approval/run/step execution semantics remain uninterpreted
+Approval status/type/permission/approver/time/reason/correlation, run principal/membership/versions/resource/status/budgets and step type/tool/approval/status/timestamps/audit evidence do not create acceptance, and inputs remain unchanged.
+
