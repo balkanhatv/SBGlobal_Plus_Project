@@ -216,3 +216,6 @@ Fresh AgentStep/AgentApproval reconciliation selected migration 0031's optional 
 
 ## 2026-09-24 — DD-183 canonical promotion / checkpoint advance
 DD-183 promotion `0d837e01e60a125cf6de0327acd733460a84c779` / tree `d919b9402bef58c2205cbdfc9538b44d359c2033` passed exact-head **528 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001`. Approval satisfaction, approver authorization and Agent/tool execution remain unclaimed.
+
+## 2026-09-24 — Post-DD-183 DD-184 prerequisite selection
+Fresh AgentApproval reconciliation selected migration 0031's AgentApproval→AgentRun/AgentStep exact parent-chain plus Tenant/nullable-Industry relationship as the next independent source-complete prerequisite. Approver-principal currentness, approval satisfaction, AgentRun resume/cancel and tool execution remain explicitly outside the floor.
