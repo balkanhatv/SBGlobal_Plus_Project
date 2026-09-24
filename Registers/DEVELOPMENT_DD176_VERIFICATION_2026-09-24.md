@@ -37,6 +37,14 @@ A true result is not WorkflowDefinition currentness or execution authorization.
 
 DD-176 does not require WorkflowDefinition ACTIVE/PUBLISHED status; compare version/effective dates; interpret state-machine/approval/rules or Automation trigger/config/conditions; dispatch OperationContracts/Workflows; mutate runtime state; emit events; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Promotion result
 
-Canonical DD-176 decision, acceptance and Detailed Design changelog must be committed, then that promotion head must pass Core/PostgreSQL, Database and Web CI before the Development checkpoint advances.
+**PROMOTED.** Canonical DD-176 decision, acceptance and Detailed Design changelog are committed in `0e586f7288dd9f6624f0bfa7071d97a0549fb586` / tree `201de95d4d02a1d432b15dd00fe132e3b62c32e4`.
+
+Exact canonical-promotion CI:
+- Core Service Verify run `35980818953`, Core job `107572005884`: **SUCCESS — 479/479**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `107572005520`: **SUCCESS — 497/497**, 0 failed/skipped; 48/42 full database bootstrap.
+- Database Verify run `35980818944`, job `107572006645`: **SUCCESS**.
+- Web Boundary Verify run `35980818959`, job `107572005544`: **SUCCESS**.
+
+The Development checkpoint may therefore advance to `DEV-AUTOMATION-DEFINITION-WORKFLOW-CONTAINMENT-FLOORS-001`. State synchronization changes documentation only.

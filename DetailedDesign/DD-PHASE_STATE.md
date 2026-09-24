@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AUTOMATION-DEFINITION-WORKFLOW-CONTAINMENT-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,16 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-175.
+Current checkpoint: `DEV-AUTOMATION-DEFINITION-WORKFLOW-CONTAINMENT-FLOORS-001`. Decisions are contiguous through DD-176.
 
-Verified canonical DD-175 promotion `106188b29afea27920e8cbdb1e59815923b24618` / tree `534bf66bbc57995a89ea44dff6f56af820f0929d`: **472/472 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35979582286` (Core job `107568017227`, PostgreSQL job `107568016883`), Database `35979582367` (job `107568016913`), Web `35979582241` (job `107568016696`).
+Verified canonical DD-176 promotion `0e586f7288dd9f6624f0bfa7071d97a0549fb586` / tree `201de95d4d02a1d432b15dd00fe132e3b62c32e4`: **479/479 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `35980818953` (Core job `107572005884`, PostgreSQL job `107572005520`), Database `35980818944` (job `107572006645`), Web `35980818959` (job `107572005544`).
 
-DD-175 re-evaluates only migration-0031's AutomationRun→AutomationDefinition relationship: exact definition id, raw ACTIVE status, and canonical PLATFORM/TENANT/INDUSTRY applicability to the run Tenant/optional Industry scope.
+DD-176 re-evaluates only migration-0031 + migration-0048's optional AutomationDefinition→WorkflowDefinition relationship: exact optional reference id plus canonical broader/equal PLATFORM/TENANT/INDUSTRY containment.
 
-AutomationRun does not persist a definition version, so DD-175 does not invent definition-version or effective-date selection.
+A true result is not WorkflowDefinition currentness, version/effective-date selection, state-machine/approval/rule interpretation, trigger/condition evaluation, OperationContract/Workflow dispatch or Automation/Workflow execution authority.
 
-A true result is not trigger interpretation, condition evaluation, run-state transition authority, retry/finality, OperationContract dispatch, WorkflowDefinition execution or Automation execution authority.
+Evidence: `Registers/DEVELOPMENT_DD176_VERIFICATION_2026-09-24.md`.
 
-Evidence: `Registers/DEVELOPMENT_DD175_VERIFICATION_2026-09-24.md`.
-
-Next: source-audit AutomationDefinition→WorkflowDefinition containment as the next independent prerequisite.
+Next: fresh source-audit another independent prerequisite; do not infer OperationContract execution/validation from raw AutomationDefinition text references.

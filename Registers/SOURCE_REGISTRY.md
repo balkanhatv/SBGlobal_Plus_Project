@@ -35,9 +35,9 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 - API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
 ## Current audit / continuation evidence — 2026-09-24
-- Current checkpoint: `DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`.
-- DD-175 source audit: `Development/AUTOMATION_RUN_DEFINITION_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- DD-175 verification: `Registers/DEVELOPMENT_DD175_VERIFICATION_2026-09-24.md`.
-- Canonical promotion: `106188b29afea27920e8cbdb1e59815923b24618` / `534bf66bbc57995a89ea44dff6f56af820f0929d`; 472 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
-- Next audit: AutomationDefinition→WorkflowDefinition containment relationship.
+- Current checkpoint: `DEV-AUTOMATION-DEFINITION-WORKFLOW-CONTAINMENT-FLOORS-001`.
+- DD-176 source audit: `Development/AUTOMATION_DEFINITION_WORKFLOW_CONTAINMENT_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+- DD-176 verification: `Registers/DEVELOPMENT_DD176_VERIFICATION_2026-09-24.md`.
+- Canonical promotion: `0e586f7288dd9f6624f0bfa7071d97a0549fb586` / `201de95d4d02a1d432b15dd00fe132e3b62c32e4`; 479 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
+- Next work: fresh source-audit another independent prerequisite.
 - RawSource accepted blobs remain unchanged.
