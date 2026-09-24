@@ -2270,3 +2270,27 @@ If bootstrap cleanup fails on the elevation reset, the pooled connection is dest
 
 ### OPELEV-SQL-007 — Smuggled RequestContext-like elevation id is ignored
 An extra runtime object property named `operatorElevationId` that is not part of the governed RequestContext contract is ignored by `RequestScopedSql`; the fifth transaction-local setting remains empty.
+
+
+## DD-156 OperatorElevation Persisted Lifecycle/Time/Scope Integrity Acceptance
+
+### OPELEV-LIFE-PG-001 — Valid ordered PENDING elevation persists
+A PENDING elevation with `expires_at > starts_at`, coherent creation time and valid persisted relationships is accepted.
+
+### OPELEV-LIFE-PG-002 — Equal or reversed time window is rejected
+Equal start/expiry and reversed start/expiry violate the migration-owned `expires_at > starts_at` constraint.
+
+### OPELEV-LIFE-PG-003 — Revocation timestamp cannot predate creation
+A non-null `revoked_at` earlier than `created_at` is rejected.
+
+### OPELEV-LIFE-PG-004 — REVOKED requires revocation evidence
+A row with `status='REVOKED'` and NULL `revoked_at` is rejected.
+
+### OPELEV-LIFE-PG-005 — Coherent REVOKED row persists
+A REVOKED row with `revoked_at >= created_at` and otherwise valid relationships is accepted.
+
+### OPELEV-LIFE-PG-006 — Tenant ownership is immutable
+An UPDATE attempting to change persisted `tenant_id` is rejected by the canonical immutable ownership/scope trigger.
+
+### OPELEV-LIFE-PG-007 — Industry ownership is immutable
+An UPDATE attempting to change persisted `industry_context_id` is rejected by the canonical immutable ownership/scope trigger.

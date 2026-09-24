@@ -2249,3 +2249,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-155 does not add `operatorElevationId` to RequestContext; permit RequestScopedSql to populate elevation scope; choose/discover/mint/trust an elevation id; activate an elevation; evaluate DD-148…154 on behalf of a request; interpret permission profile, approval/purpose/ticket or step-up policy; grant access; emit mandatory elevation-use audit; or change migrations/RLS/roles/grants/product policy.
 
 **Acceptance:** `OPELEV-SQL-001` through `OPELEV-SQL-007` in DD-17 and `tests/server/operator-elevation-sql-scope-hygiene.test.mjs`.
+
+
+## DD-156 — OperatorElevation persisted lifecycle/time and Tenant/Industry ownership integrity is database-authoritative
+
+**Context:** migration 0029 defines the OperatorElevation status allowlist, requires `expires_at > starts_at`, requires `revoked_at >= created_at` when present, and requires REVOKED rows to carry revocation evidence. The same migration's generic `immutable_scope_ownership` trigger attaches to scoped Core tables including `core_authz.operator_elevation`, making Tenant and Industry ownership immutable after insert. Migration 0031 separately owns operator/approver relationship integrity verified by DD-154.
+
+**Decision:** add PostgreSQL acceptance `tests/postgres/operator-elevation-lifecycle-integrity.test.mjs` only. The acceptance proves the existing lifecycle/time constraints and immutable Tenant/Industry ownership against a real migrated database.
+
+**Security / trade-off:** these persistence constraints prevent malformed or ownership-reclassified elevation records but do not define a lifecycle command API or transition authority. A persisted valid row is not automatically selected, activated or authorized for request use.
+
+**Boundary:** DD-156 does not implement create/approve/activate/revoke/expire APIs; decide who may transition state; define automatic expiry mutation; trust/select an elevation id; activate request-time elevation; interpret permission profiles; decide step-up/MFA or broader approval/purpose/ticket policy; inject RequestContext/SQL scope; grant access; emit mandatory elevation-use audit; or change migrations/RLS/roles/grants/product policy.
+
+**Acceptance:** `OPELEV-LIFE-PG-001` through `OPELEV-LIFE-PG-007` in DD-17 and `tests/postgres/operator-elevation-lifecycle-integrity.test.mjs`.
