@@ -2646,3 +2646,26 @@ Malformed delivery/template ownership shape fails; extra template evidence for a
 ### NOTIF-TPL-CUR-007 — Rendering/approval/runtime semantics remain uninterpreted
 Template code/locale/content/schema/creator/approver/timestamps and delivery recipient/status/integration/source-event/timestamps do not create acceptance, and inputs remain unchanged.
 
+## DD-172 Known NotificationDelivery Relationship Floors Acceptance
+
+### NOTIF-REL-CUR-001 — All known relationship floors true
+DD-168, DD-169 and DD-171 all true produces true.
+
+### NOTIF-REL-CUR-002 — Integration floor failure fails composition
+A DD-168 failure produces false even when the other two floors match.
+
+### NOTIF-REL-CUR-003 — Source-event floor failure fails composition
+A DD-169 failure produces false even when the other two floors match.
+
+### NOTIF-REL-CUR-004 — Template floor failure fails composition
+A DD-171 failure produces false even when the other two floors match.
+
+### NOTIF-REL-CUR-005 — Multiple failures have no fallback
+Partial success does not produce acceptance.
+
+### NOTIF-REL-CUR-006 — Independently unbound optional relationships remain valid
+A delivery with all three relationship ids absent matches when corresponding evidence is absent, preserving the underlying helpers' optionality rules.
+
+### NOTIF-REL-CUR-007 — Recipient/lifecycle/render/runtime semantics remain uninterpreted
+Recipient principal/reference, delivery lifecycle, render/provider/retry/runtime evidence does not create acceptance, and inputs remain unchanged.
+

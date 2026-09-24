@@ -2449,3 +2449,15 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `NOTIF-TPL-CUR-001…007` in DD-17 and `tests/core/notification-template-binding-floors.test.mjs`.
 
+## DD-172 — Known NotificationDelivery persisted relationship floors may be composed without claiming complete delivery validity
+
+**Context:** DD-168, DD-169 and DD-171 separately re-evaluate migration-0031-owned TenantIntegration, OutboxEvent and NotificationTemplate relationships. The recipient-principal path remains source-incomplete for general later re-evaluation because its authoritative PLATFORM_OPERATOR path depends on request-local elevation/current-principal/current-Tenant state not persisted on NotificationDelivery.
+
+**Decision:** add pure Core helper `matchesKnownNotificationDeliveryRelationshipFloors(delivery, integration?, event?, template?)`. It returns true iff the existing DD-168, DD-169 and DD-171 helpers all return true. It adds no primitive relationship rule and deliberately excludes recipient-principal currentness.
+
+**Security / trade-off:** one conjunction reduces accidental omission of already-governed relationship checks while preserving the explicit gap. A true result means only that the three known re-evaluable persisted relationships are current; it is not complete NotificationDelivery validity and not execution authorization.
+
+**Boundary:** DD-172 does not validate recipient-principal currentness; infer membership/elevation provenance; decide delivery lifecycle/finality; render/select/fallback templates; select providers/secrets; dispatch/retry Outbox events; send/retry notifications; perform network calls; mutate state; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `NOTIF-REL-CUR-001…007` in DD-17 and `tests/core/notification-known-relationship-floors.test.mjs`.
+
