@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-23",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-OPERATOR-ELEVATION-SQL-SCOPE-HYGIENE-001",
-  "final_verdict": "DD-155 OPERATOR ELEVATION SQL SCOPE HYGIENE IMPLEMENTED / EXACT-HEAD TESTED; TRUSTED ACTIVATION, STEP-UP, PERMISSION/EFFECTIVE-PERMISSION, APPROVAL POLICY, GOVERNED REQUEST-SCOPE INJECTION AND MANDATORY AUDIT UNCLAIMED",
+  "checkpoint": "DEV-OPERATOR-ELEVATION-PERSISTED-LIFECYCLE-INTEGRITY-001",
+  "final_verdict": "DD-156 OPERATOR ELEVATION PERSISTED LIFECYCLE/TIME/SCOPE INTEGRITY IMPLEMENTED / EXACT-HEAD TESTED; LIFECYCLE TRANSITION APIS/AUTHORIZATION, TRUSTED ACTIVATION, STEP-UP, PERMISSION/APPROVAL POLICY, REQUEST-SCOPE INJECTION AND MANDATORY AUDIT UNCLAIMED",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,16 +53,16 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "96c839a8cdef384930ccb1132d80b767e1c4377e",
-    "verified_code_tree": "6ae18f231883603df4c875e66ae63a0773c4aa2f",
-    "state_projection_basis_head": "ac63d6fcc60de4c29b6cb496c690f389caef0228",
+    "verified_code_head": "821ccc7ae0cd59f4e78bace86c214dc339857f85",
+    "verified_code_tree": "c28d9a5ad07b77052e7050a605f0d64981e49fa1",
+    "state_projection_basis_head": "2f62e58073baf1756629548c33f9837bc6fe5a4b",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference."
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "OperatorElevation pooled SQL elevation-off hygiene verified; request-time activation/policy/authorization remains separate",
+    "current_phase": "OperatorElevation persisted lifecycle/time/scope integrity verified; lifecycle APIs and request-time activation remain separate",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -77,9 +77,9 @@
       "migration_count": 47,
       "verification_file_count": 41,
       "migration_range": "0001-0047",
-      "ci_verified_head": "ac63d6fcc60de4c29b6cb496c690f389caef0228",
-      "ci_run_id": 35948679155,
-      "ci_job_id": 107472259206,
+      "ci_verified_head": "2f62e58073baf1756629548c33f9837bc6fe5a4b",
+      "ci_run_id": 35949826400,
+      "ci_job_id": 107475752473,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -91,7 +91,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "7bdea938cac1053ae6c0b5f926ae125941c6c1e0",
+      "ci_verified_tree": "5d1c1322565ac2de094102b748b36dea0edb22e5",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -99,11 +99,11 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "ac63d6fcc60de4c29b6cb496c690f389caef0228",
-      "feature_head_bootstrap_verified_tree": "7bdea938cac1053ae6c0b5f926ae125941c6c1e0",
-      "feature_head_bootstrap_run_id": 35948679186,
-      "feature_head_bootstrap_job_id": 107472259359,
-      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_483_POSTGRES_TESTS",
+      "feature_head_bootstrap_verified_head": "2f62e58073baf1756629548c33f9837bc6fe5a4b",
+      "feature_head_bootstrap_verified_tree": "5d1c1322565ac2de094102b748b36dea0edb22e5",
+      "feature_head_bootstrap_run_id": 35949826396,
+      "feature_head_bootstrap_job_id": 107475752635,
+      "feature_head_bootstrap_result": "PASS_47_MIGRATIONS_41_VERIFICATION_FILES_PLUS_490_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
         "ci_verified_tree": "db85be98f256fd856635fc178ab3220b97d01ba3",
@@ -111,18 +111,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Fresh source-audit the next runtime prerequisite. Keep trusted elevation-id selection/activation, step-up/MFA policy, permission-profile/effective-permission evaluation, broader approval/purpose policy, governed RequestContext/SQL injection and mandatory elevation-use audit outside scope unless separately source-owned.",
+    "next_action": "Fresh source-audit the next runtime prerequisite. Keep trusted elevation-id selection/activation, lifecycle transition authorization, step-up/MFA policy, permission-profile/effective-permission evaluation, broader approval/purpose policy, governed RequestContext/SQL injection and mandatory elevation-use audit outside scope unless separately source-owned.",
     "core_services": {
-      "checkpoint": "DEV-OPERATOR-ELEVATION-SQL-SCOPE-HYGIENE-001",
+      "checkpoint": "DEV-OPERATOR-ELEVATION-PERSISTED-LIFECYCLE-INTEGRITY-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–155 current implementation; DD-155 fail-closed pooled SQL OperatorElevation scope hygiene only",
-      "verified_head": "96c839a8cdef384930ccb1132d80b767e1c4377e",
-      "verified_tree": "6ae18f231883603df4c875e66ae63a0773c4aa2f",
-      "core_ci_run_id": 35948679186,
-      "core_ci_job_id": 107472259241,
+      "decision": "DD-040–156 current implementation; DD-156 persisted OperatorElevation lifecycle/time/scope integrity acceptance only",
+      "verified_head": "821ccc7ae0cd59f4e78bace86c214dc339857f85",
+      "verified_tree": "c28d9a5ad07b77052e7050a605f0d64981e49fa1",
+      "core_ci_run_id": 35949826396,
+      "core_ci_job_id": 107475752512,
       "tests": "353/353 PASS",
       "core_test_counts": {
         "tests": 353,
@@ -130,18 +130,18 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 35948679186,
-      "postgres_ci_job_id": 107472259359,
-      "postgres_tests": "483/483 PASS",
+      "postgres_ci_run_id": 35949826396,
+      "postgres_ci_job_id": 107475752635,
+      "postgres_tests": "490/490 PASS",
       "postgres_test_counts": {
-        "tests": 483,
-        "pass": 483,
+        "tests": 490,
+        "pass": 490,
         "fail": 0,
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 35948679155,
-      "database_regression_job_id": 107472259206,
+      "database_regression_run_id": 35949826400,
+      "database_regression_job_id": 107475752473,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -428,7 +428,8 @@
         "DD-152 pure composition of OperatorElevation selected-id, verified-operator, subject-target and status-time necessary floors",
         "DD-153 physical PostgreSQL OperatorElevation current-read RLS parity acceptance under sbg_app_rw",
         "DD-154 persisted OperatorElevation operator/approver relationship-integrity acceptance for migration 0031",
-        "DD-155 fail-closed application/bootstrap pooled SQL OperatorElevation scope hygiene with no runtime activation"
+        "DD-155 fail-closed application/bootstrap pooled SQL OperatorElevation scope hygiene with no runtime activation",
+        "DD-156 persisted OperatorElevation lifecycle/time/scope integrity: ordered windows, revocation chronology, REVOKED timestamp requirement, immutable Tenant/Industry ownership"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",

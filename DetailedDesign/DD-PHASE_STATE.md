@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-OPERATOR-ELEVATION-SQL-SCOPE-HYGIENE-001`
+**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-OPERATOR-ELEVATION-PERSISTED-LIFECYCLE-INTEGRITY-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -18,14 +18,14 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 
 ## Current Development overlay — 2026-09-24
 
-Current checkpoint: `DEV-OPERATOR-ELEVATION-SQL-SCOPE-HYGIENE-001`. Decisions are contiguous through DD-155.
+Current checkpoint: `DEV-OPERATOR-ELEVATION-PERSISTED-LIFECYCLE-INTEGRITY-001`. Decisions are contiguous through DD-156.
 
-Verified executable `96c839a8cdef384930ccb1132d80b767e1c4377e` / tree `6ae18f231883603df4c875e66ae63a0773c4aa2f`: **353/353 Core**, **483/483 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
+Verified executable `821ccc7ae0cd59f4e78bace86c214dc339857f85` / tree `c28d9a5ad07b77052e7050a605f0d64981e49fa1`: **353/353 Core**, **490/490 PostgreSQL**, **47 migrations / 41 SQL verification files**, Next.js build and Database Verify PASS. Zero failed/skipped tests.
 
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
 
-Promotion invariant gate `ac63d6fcc60de4c29b6cb496c690f389caef0228` / tree `7bdea938cac1053ae6c0b5f926ae125941c6c1e0`: Core run `35948679186` (Core job `107472259241`, PostgreSQL job `107472259359`), Database run `35948679155` (job `107472259206`), Web run `35948679161` (job `107472259244`) — SUCCESS; **155 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
+Promotion invariant gate `2f62e58073baf1756629548c33f9837bc6fe5a4b` / tree `5d1c1322565ac2de094102b748b36dea0edb22e5`: Core run `35949826396` (Core job `107475752512`, PostgreSQL job `107475752635`), Database run `35949826400` (job `107475752473`), Web run `35949826409` (job `107475752440`) — SUCCESS; **156 unique DD definitions**, 9 Industries, 41 canonical MS, 181 Industry tables, 2,962 preserved requirements.
 
-DD-155 verifies only fail-closed pooled SQL elevation-off hygiene. It does not activate elevation, trust selected ids, evaluate elevation policy, inject non-empty elevation scope or authorize access.
+DD-156 verifies only persisted OperatorElevation lifecycle/time/scope integrity. It does not implement lifecycle transition APIs, trust/activate elevation ids, evaluate elevation policy, inject non-empty elevation scope or authorize access.
 
-Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation-id selection/activation, step-up/MFA policy, permission-profile/effective-permission evaluation, broader approval/purpose policy, governed RequestContext/SQL injection and mandatory elevation-use audit outside scope unless separately source-owned.
+Next: Fresh source-audit the next runtime prerequisite. Keep trusted elevation-id selection/activation, lifecycle transition authorization, step-up/MFA policy, permission-profile/effective-permission evaluation, broader approval/purpose policy, governed RequestContext/SQL injection and mandatory elevation-use audit outside scope unless separately source-owned.
