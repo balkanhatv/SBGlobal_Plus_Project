@@ -352,7 +352,7 @@
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD188_VERIFIED_DD189_CANDIDATE",
+    "current_phase": "DEVELOPMENT_DD188_VERIFIED_DD189_PROMOTION_PENDING_HEAD_VERIFICATION",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -401,7 +401,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify the DD-189 AIMediaRequest input-document binding candidate at its exact HEAD, then promote its canonical decision/acceptance/traceability only on PASS. Principal-currentness and AI execution boundaries remain locked.",
+    "next_action": "Verify the DD-189 canonical promotion HEAD independently with Core/PostgreSQL/Database/Web; only on PASS advance the active checkpoint/state. Principal-currentness and AI execution boundaries remain locked.",
     "core_services": {
       "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -877,7 +877,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify the DD-189 AIMediaRequest input-document binding candidate at its exact HEAD, then promote its canonical decision/acceptance/traceability only on PASS. Principal-currentness and AI execution boundaries remain locked.",
+      "next_action": "Verify the DD-189 canonical promotion HEAD independently with Core/PostgreSQL/Database/Web; only on PASS advance the active checkpoint/state. Principal-currentness and AI execution boundaries remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1836,10 +1836,24 @@
   "pending_feature": {
     "decision_id": "DD-189",
     "source_audit": "Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "status": "SOURCE_COMPLETE_IMPLEMENTED_CI_PENDING",
+    "status": "CANONICAL_PROMOTION_PENDING_EXACT_HEAD",
     "scope": "AIMediaRequest input-document relationship only",
-    "expected_core_tests": 573,
+    "implementation_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
+    "implementation_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+    "core_tests": 573,
     "postgres_tests": 497,
-    "database_schema_change": false
+    "database_inventory": "48 migrations / 42 verification files",
+    "database_schema_change": false,
+    "implementation_ci": {
+      "core_run_id": 36121841410,
+      "core_job_id": 108028911718,
+      "postgres_job_id": 108028911374,
+      "database_run_id": 36121841393,
+      "database_job_id": 108028911334,
+      "web_run_id": 36121841488,
+      "web_job_id": 108028911865,
+      "result": "PASS_EXACT_HEAD"
+    },
+    "promotion_rule": "Do not advance active checkpoint until the canonical promotion HEAD independently passes Core/PostgreSQL/Database/Web."
   }
 }

@@ -244,3 +244,10 @@ DD-187 promotion `69fd07ab465cf34c80d8f9771fd3ccf74cefe0de` / tree `0e007eb532c7
 ## 2026-09-25 — DD-188 promotion and vision audit state reconciliation
 
 Reconciled latest remote HEAD 35ffce1, promoted the existing source-owned DD-188 decision/acceptance/traceability, synchronized stale DD-080/166/186/187 active projections and repository identity, preserved historical evidence, and added REPO-007/008 regressions for projection agreement and canonical feature ownership. No RawSource/product/SQL/RLS/role changes. Evidence: `Registers/VISION_CENTRIC_AUDIT_2026-09-25.md`.
+
+
+## 2026-09-25 — Post-DD-188 DD-189 prerequisite selection
+Fresh AIMediaRequest/Document reconciliation selected migration 0031's input-document relationship as the next independent source-complete prerequisite: exact evidence coverage, Tenant/null-safe Industry scope, ACTIVE/CLEAN state, source-owned sensitivity ceiling and exact residency. Principal currentness, ACL/storage authorization and AI execution remain explicitly outside the floor.
+
+## 2026-09-25 — DD-189 canonical promotion staged
+Implementation `c3ef90d10c44a892879fcccd9c6673b1faf49ad1` / tree `11646ad5d92378bfdfd81bba2e51e082a920a6a5` passed exact-head **573 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-189 decision/acceptance/traceability are staged canonically in the current metadata change. Active checkpoint remains `DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001` until the promotion HEAD independently passes all required workflows.

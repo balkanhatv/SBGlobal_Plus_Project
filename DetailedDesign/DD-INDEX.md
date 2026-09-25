@@ -41,7 +41,7 @@ Earlier counts and next steps below apply only to their named commits.
 ## Historical design gate and historical Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-187**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-189**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 DD-162 composes current credential lifecycle, current machine-principal admissibility and requested-scope compatibility into one pure necessary floor. Final presented-credential verification and machine authentication remain absent.
 
@@ -91,6 +91,10 @@ DD-186 is the bounded AIMemoryRecord optional AssistantDefinition id/ACTIVE/scop
 
 DD-187 is the historical bounded Development decision: AIMemoryRecord direct optional supersession continuity (non-self exact parent id plus Tenant / null-safe Industry / null-safe principal / memory-class continuity) only.
 
+DD-188 is the bounded AIMediaRequest optional PromptTemplate exact id/version/ACTIVE/owner-scope current-binding floor only.
+
+DD-189 is the bounded AIMediaRequest input-document exact evidence-set/scope/ACTIVE/CLEAN/sensitivity/residency current-binding floor only; principal, ACL/storage and AI execution remain outside this decision.
+
 **Historical verified executable evidence:** `69fd07ab465cf34c80d8f9771fd3ccf74cefe0de` / tree `0e007eb532c7b9871beea3ef46fcaf3513c6ee6b` — **556/556 Core**, **497/497 PostgreSQL**, **48/42 database inventory**, Database/Web PASS. See DD-187 verification.
 
 ## Historical all-stages checkpoint evidence
@@ -105,6 +109,6 @@ Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c
 
 DD-164 is the bounded SyncCursor current parent/capability binding necessary floor. A true result is not synchronization authorization; cursor/provider/runtime semantics remain separately governed.
 
-## Pending source-complete candidate — DD-189
+## DD-189 canonical promotion awaiting promotion-head verification
 
-The separately governed input-document relationship is implemented for exact-head verification; it is not yet a promoted checkpoint. Detailed contract and fixed acceptance: `Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+The source-complete AIMediaRequest input-document relationship passed exact implementation-head verification at `c3ef90d10c44a892879fcccd9c6673b1faf49ad1` / tree `11646ad5d92378bfdfd81bba2e51e082a920a6a5`. Its DD-189 decision/acceptance/traceability are canonically staged in the current metadata change, but the active checkpoint remains DD-188 until this promotion HEAD independently passes Core/PostgreSQL/Database/Web. Source contract: `Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.

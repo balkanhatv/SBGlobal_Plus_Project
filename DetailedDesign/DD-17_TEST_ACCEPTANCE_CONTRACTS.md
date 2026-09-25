@@ -3035,3 +3035,30 @@ Invalid relevant UUIDs/owner/version shape, orphan version and unexpected eviden
 
 ### AIMEDIA-PROMPT-CUR-007 — Bounded semantics
 Principal/document/brand/localization/sensitivity/residency/moderation/status/completion/prompt-content semantics stay uninterpreted; inputs are unchanged.
+
+
+## DD-189 AIMediaRequest Input-Document Binding Acceptance
+
+### AIMEDIA-DOC-CUR-001 — Empty reference/evidence sets
+A valid request with an empty input-document reference set matches only an empty document-evidence set; unexpected evidence fails closed.
+
+### AIMEDIA-DOC-CUR-002 — Complete exact-scope sets
+Complete same-Tenant document sets match for Tenant-Core and Tenant-Industry requests independent of evidence order.
+
+### AIMEDIA-DOC-CUR-003 — Tenant/Industry isolation
+Foreign Tenant, sibling Industry, and null-versus-present Industry Context mismatches fail closed for every referenced document.
+
+### AIMEDIA-DOC-CUR-004 — ACTIVE/CLEAN current state
+Every referenced document must be raw ACTIVE and CLEAN; any other lifecycle or scan state fails closed.
+
+### AIMEDIA-DOC-CUR-005 — Sensitivity ceiling
+All known sensitivity classes obey PUBLIC < INTERNAL < CONFIDENTIAL < SENSITIVE_PERSONAL < REGULATED; each document must be at or below the request ceiling and unknown classes fail closed.
+
+### AIMEDIA-DOC-CUR-006 — Exact residency
+Every document residency value must exactly equal the request residency requirement; no trimming, case-folding, normalization or fallback is authorized.
+
+### AIMEDIA-DOC-CUR-007 — Exact evidence-set hygiene
+Malformed request/document identity or scope, invalid/duplicate references, and missing/extra/duplicate evidence fail closed.
+
+### AIMEDIA-DOC-CUR-008 — Bounded semantics
+Principal, prompt, ACL, StorageObject/signed-URL, brand, moderation, capability, request lifecycle and execution semantics remain uninterpreted; inputs are unchanged.

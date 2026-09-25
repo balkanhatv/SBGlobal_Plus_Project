@@ -10,7 +10,7 @@ The named correction is canonically promoted and exact-head verified. New commit
 
 Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify the DD-189 AIMediaRequest input-document binding candidate at its exact HEAD, then promote its canonical decision/acceptance/traceability only on PASS. Principal-currentness and AI execution boundaries remain locked.
+Next: Verify the DD-189 canonical promotion HEAD independently with Core/PostgreSQL/Database/Web; only on PASS advance the active checkpoint/state. Principal-currentness and AI execution boundaries remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -47,6 +47,6 @@ That historical overall-Development block was later closed by the final pre-deve
 ## All-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
-## Pending source-complete candidate — DD-189
+## DD-189 canonical promotion awaiting promotion-head verification
 
-The separately governed input-document relationship is implemented for exact-head verification; it is not yet a promoted checkpoint. Detailed contract and fixed acceptance: `Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+The source-complete AIMediaRequest input-document relationship passed exact implementation-head verification at `c3ef90d10c44a892879fcccd9c6673b1faf49ad1` / tree `11646ad5d92378bfdfd81bba2e51e082a920a6a5`. Its DD-189 decision/acceptance/traceability are canonically staged in the current metadata change, but the active checkpoint remains DD-188 until this promotion HEAD independently passes Core/PostgreSQL/Database/Web. Source contract: `Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.

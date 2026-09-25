@@ -2651,3 +2651,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no prompt selection/rendering/approval, principal currentness, Document ACL/state/security, brand/moderation policy, entitlement, provider/model/tool execution, mutation, transport or SQL/RLS authority is implied. Inputs remain unchanged.
 
 **Acceptance:** `AIMEDIA-PROMPT-CUR-001…007` in DD-17 and `tests/core/ai-media-request-prompt-template-binding-floors.test.mjs`.
+
+
+## DD-189 — AIMediaRequest input-document binding may be re-evaluated as a pure current relationship floor
+
+**Context:** DD-125 exposes persisted AIMediaRequest evidence and DD-082/DD-083 expose DocumentAccessMetadata. Migration 0031 validates every `input_document_refs` member as an exact same-scope document that is ACTIVE, CLEAN, at or below the request sensitivity ceiling, and at the exact residency requirement. The request persists all evidence needed for this independent relationship predicate.
+
+**Decision:** add pure Core helper `matchesAIMediaRequestInputDocumentBindingFloors(request, documents)`. It validates request/document identity and optional Industry shape, exact UUID-set evidence coverage, exact Tenant/null-safe Industry equality, ACTIVE/CLEAN state, source-owned sensitivity ranking, and exact residency equality. Empty references require empty evidence; evidence order is irrelevant.
+
+**Security / trade-off:** the helper mirrors only the migration-owned persisted input-document relationship. Exact evidence-set hygiene is a helper fail-closed contract; it does not add a new persisted business rule.
+
+**Boundary:** DD-189 does not validate acting-principal currentness or Document ACL authorization; StorageObject/signed-URL access; write-time provenance replay; scan recency; PromptTemplate currentness; provider/model/tool selection; moderation; entitlement/budget; AI inference/media generation; mutation; transport; or new SQL/RLS/role/grant authority. Principal-currentness remains blocked by the recorded missing-provenance boundary.
+
+**Acceptance:** `AIMEDIA-DOC-CUR-001…008` in DD-17 and `tests/core/ai-media-request-input-document-binding-floors.test.mjs`.

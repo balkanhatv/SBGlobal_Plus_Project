@@ -339,3 +339,8 @@ After DD-186, migration 0031's optional AIMemoryRecord→superseded AIMemoryReco
 ## 2026-09-25 — DD-188 promotion and vision audit state reconciliation
 
 Reconciled latest remote HEAD 35ffce1, promoted the existing source-owned DD-188 decision/acceptance/traceability, synchronized stale DD-080/166/186/187 active projections and repository identity, preserved historical evidence, and added REPO-007/008 regressions for projection agreement and canonical feature ownership. No RawSource/product/SQL/RLS/role changes. Evidence: `Registers/VISION_CENTRIC_AUDIT_2026-09-25.md`.
+
+
+## 2026-09-25 — DD-189 AIMediaRequest input-document binding floor
+
+After DD-188, migration 0031's independent AIMediaRequest `input_document_refs` relationship was source-audited and found source-complete. Exact implementation head `c3ef90d10c44a892879fcccd9c6673b1faf49ad1` / tree `11646ad5d92378bfdfd81bba2e51e082a920a6a5` passed **573/573 Core**, **497/497 PostgreSQL** plus database bootstrap, Database Verify and Web build. DD-189 adds only the pure exact evidence-set/scope/ACTIVE/CLEAN/sensitivity/residency floor. Principal currentness, Document ACL/storage and AI execution remain unclaimed. Canonical metadata promotion is staged; active checkpoint advances only after the promotion HEAD independently passes all required workflows.
