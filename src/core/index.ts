@@ -134,4 +134,5 @@ export * from "./ai/media-request.js";
 export * from "./ai/rag-source.js";
 export * from "./ai/rag-chunk-metadata.js";
 export * from "./ai/memory-record.js";
-export * from "./ai/memory-assistant-binding-floors.js";\nexport * from "./ai/memory-supersession-continuity-floors.js";
+export * from "./ai/memory-assistant-binding-floors.js";
+export * from "./ai/memory-supersession-continuity-floors.js";
