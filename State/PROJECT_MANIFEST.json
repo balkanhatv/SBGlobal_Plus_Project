@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-25",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-  "final_verdict": "DD-188 canonically promoted and exact-head verified; DD-189 source-complete input-document candidate awaits exact-head CI/promotion",
+  "checkpoint": "DEV-AI-MEDIA-INPUT-DOCUMENT-BINDING-FLOORS-001",
+  "final_verdict": "DD-189 AIMediaRequest input-document binding is canonically promoted with exact-head verified correction basis; Development remains in progress and no production-readiness claim is made.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
-    "verified_code_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
-    "state_projection_basis_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
+    "verified_code_head": "c3d78f4f8cc36b156d632a857962a8e608976b09",
+    "verified_code_tree": "018929874d38b24b63b867933572df174f63a714",
+    "state_projection_basis_head": "c3d78f4f8cc36b156d632a857962a8e608976b09",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -346,13 +346,25 @@
       "web_job_id": 107717146107,
       "result": "PASS_EXACT_PROMOTION_HEAD"
     },
-    "repository_full_name": "balkanhatv/SBGlobal_Plus_Project"
+    "repository_full_name": "balkanhatv/SBGlobal_Plus_Project",
+    "dd189_canonical_basis_head": "c3d78f4f8cc36b156d632a857962a8e608976b09",
+    "dd189_canonical_basis_tree": "018929874d38b24b63b867933572df174f63a714",
+    "dd189_ci": {
+      "core_run_id": 36124223529,
+      "core_job_id": 108036520253,
+      "postgres_job_id": 108036520010,
+      "database_run_id": 36124223652,
+      "database_job_id": 108036520608,
+      "web_run_id": 36124223527,
+      "web_job_id": 108036520022,
+      "result": "PASS_EXACT_CORRECTION_HEAD"
+    }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD188_VERIFIED_DD189_PROMOTION_PENDING_HEAD_VERIFICATION",
+    "current_phase": "DEVELOPMENT_DD189_VERIFIED",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -367,9 +379,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
-      "ci_run_id": 36121841393,
-      "ci_job_id": 108028911334,
+      "ci_verified_head": "c3d78f4f8cc36b156d632a857962a8e608976b09",
+      "ci_run_id": 36124223652,
+      "ci_job_id": 108036520608,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -381,7 +393,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+      "ci_verified_tree": "018929874d38b24b63b867933572df174f63a714",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -389,10 +401,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
-      "feature_head_bootstrap_verified_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
-      "feature_head_bootstrap_run_id": 36121841410,
-      "feature_head_bootstrap_job_id": 108028911374,
+      "feature_head_bootstrap_verified_head": "c3d78f4f8cc36b156d632a857962a8e608976b09",
+      "feature_head_bootstrap_verified_tree": "018929874d38b24b63b867933572df174f63a714",
+      "feature_head_bootstrap_run_id": 36124223529,
+      "feature_head_bootstrap_job_id": 108036520010,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -401,18 +413,18 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify the DD-189 canonical promotion HEAD independently with Core/PostgreSQL/Database/Web; only on PASS advance the active checkpoint/state. Principal-currentness and AI execution boundaries remain locked.",
+    "next_action": "Verify this DD-189 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent source-owned prerequisite; principal-currentness and AI execution boundaries remain locked.",
     "core_services": {
-      "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
+      "checkpoint": "DEV-AI-MEDIA-INPUT-DOCUMENT-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040–189 bounded implementation",
-      "verified_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
-      "verified_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
-      "core_ci_run_id": 36121841410,
-      "core_ci_job_id": 108028911718,
+      "verified_head": "c3d78f4f8cc36b156d632a857962a8e608976b09",
+      "verified_tree": "018929874d38b24b63b867933572df174f63a714",
+      "core_ci_run_id": 36124223529,
+      "core_ci_job_id": 108036520253,
       "tests": "573/573 PASS",
       "core_test_counts": {
         "tests": 573,
@@ -420,8 +432,8 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36121841410,
-      "postgres_ci_job_id": 108028911374,
+      "postgres_ci_run_id": 36124223529,
+      "postgres_ci_job_id": 108036520010,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -430,8 +442,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36121841393,
-      "database_regression_job_id": 108028911334,
+      "database_regression_run_id": 36124223652,
+      "database_regression_job_id": 108036520608,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -751,7 +763,8 @@
         "DD-185 AIConversation AssistantDefinition current-binding necessary floor",
         "DD-186 AIMemoryRecord AssistantDefinition current-binding necessary floor",
         "DD-187 AIMemoryRecord direct supersession-continuity necessary floor",
-        "DD-188 direct optional AIMediaRequest PromptTemplate id/version/ACTIVE/scope binding floor"
+        "DD-188 direct optional AIMediaRequest PromptTemplate id/version/ACTIVE/scope binding floor",
+        "DD-189 AIMediaRequest input-document exact evidence/scope/state/sensitivity/residency binding floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -877,7 +890,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify the DD-189 canonical promotion HEAD independently with Core/PostgreSQL/Database/Web; only on PASS advance the active checkpoint/state. Principal-currentness and AI execution boundaries remain locked.",
+      "next_action": "Verify this DD-189 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent source-owned prerequisite; principal-currentness and AI execution boundaries remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -971,7 +984,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD188_VERIFIED_DD189_PROMOTION_PENDING_HEAD_VERIFICATION",
+  "current_phase": "DEVELOPMENT_DD189_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1003,18 +1016,18 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-    "verified_code_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
-    "verified_code_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+    "checkpoint": "DEV-AI-MEDIA-INPUT-DOCUMENT-BINDING-FLOORS-001",
+    "verified_code_head": "c3d78f4f8cc36b156d632a857962a8e608976b09",
+    "verified_code_tree": "018929874d38b24b63b867933572df174f63a714",
     "source_audit": "Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DEVELOPMENT_DD189_VERIFICATION_2026-09-25.md",
-    "next_action": "Verify the DD-189 canonical promotion HEAD independently with Core/PostgreSQL/Database/Web; only on PASS advance the active checkpoint/state. Principal-currentness and AI execution boundaries remain locked.",
+    "next_action": "Verify this DD-189 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent source-owned prerequisite; principal-currentness and AI execution boundaries remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-    "verified_executable_basis": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
-    "verified_executable_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+    "checkpoint": "DEV-AI-MEDIA-INPUT-DOCUMENT-BINDING-FLOORS-001",
+    "verified_executable_basis": "c3d78f4f8cc36b156d632a857962a8e608976b09",
+    "verified_executable_tree": "018929874d38b24b63b867933572df174f63a714",
     "current_verification": "Registers/DEVELOPMENT_DD189_VERIFICATION_2026-09-25.md",
     "scope": "DD-189 implements only AIMediaRequest input-document exact evidence-set, same Tenant/null-safe Industry scope, ACTIVE/CLEAN state, source-owned sensitivity ceiling and exact residency binding. Principal currentness, Document ACL/storage and AI execution remain outside this floor."
   },
@@ -1049,9 +1062,9 @@
   "current_feature_verification": {
     "decision_id": "DD-189",
     "decision": "DD-189 AIMediaRequest input-document binding floor",
-    "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-    "verified_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
-    "verified_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+    "checkpoint": "DEV-AI-MEDIA-INPUT-DOCUMENT-BINDING-FLOORS-001",
+    "verified_head": "c3d78f4f8cc36b156d632a857962a8e608976b09",
+    "verified_tree": "018929874d38b24b63b867933572df174f63a714",
     "source_audit": "Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
       "AIMEDIA-DOC-CUR-001",
@@ -1067,16 +1080,16 @@
       "tests/core/ai-media-input-document-binding-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36121841410,
-      "job_id": 108028911718,
+      "run_id": 36124223529,
+      "job_id": 108036520253,
       "tests": 573,
       "pass": 573,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36121841410,
-      "job_id": 108028911374,
+      "run_id": 36124223529,
+      "job_id": 108036520010,
       "tests": 497,
       "pass": 497,
       "fail": 0,
@@ -1084,13 +1097,13 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36121841393,
-      "job_id": 108028911334,
+      "run_id": 36124223652,
+      "job_id": 108036520608,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36121841488,
-      "job_id": 108028911865,
+      "run_id": 36124223527,
+      "job_id": 108036520022,
       "conclusion": "success"
     },
     "database_schema_change": false,
@@ -1833,28 +1846,5 @@
         "main_merge": false
       }
     }
-  },
-  "pending_feature": {
-    "decision_id": "DD-189",
-    "source_audit": "Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "status": "CANONICAL_PROMOTION_PENDING_EXACT_HEAD",
-    "scope": "AIMediaRequest input-document relationship only",
-    "implementation_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
-    "implementation_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
-    "core_tests": 573,
-    "postgres_tests": 497,
-    "database_inventory": "48 migrations / 42 verification files",
-    "database_schema_change": false,
-    "implementation_ci": {
-      "core_run_id": 36121841410,
-      "core_job_id": 108028911718,
-      "postgres_job_id": 108028911374,
-      "database_run_id": 36121841393,
-      "database_job_id": 108028911334,
-      "web_run_id": 36121841488,
-      "web_job_id": 108028911865,
-      "result": "PASS_EXACT_HEAD"
-    },
-    "promotion_rule": "Do not advance active checkpoint until the canonical promotion HEAD independently passes Core/PostgreSQL/Database/Web."
   }
 }

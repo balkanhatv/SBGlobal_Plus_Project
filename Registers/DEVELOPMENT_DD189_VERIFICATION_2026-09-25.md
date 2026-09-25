@@ -23,3 +23,16 @@ The source audit fixed `AIMEDIA-DOC-CUR-001…008` before implementation. This m
 ## Locked boundaries
 
 Principal currentness remains blocked by missing original operator-elevation/request-scope provenance. Document ACL/storage/signed-URL authorization, prompt composition, moderation, entitlement/budget, provider/model/tool selection and inference/media generation remain unclaimed. RawSource is unchanged; `main` remains unmerged; PR #2 remains draft.
+
+
+## Canonical promotion correction gate
+
+Initial canonical promotion `ef1364daa900e9896fcfd15076a34d84b68347be` correctly stopped on Core REPO-007/008 projection failures: the manifest retained conflicting DD-188/DD-189 active projections and DD-19 lacked the DD-189 traceability chain. Forward-only correction `aacee0b3851319fa2b8ececee5b89b856e2d2e3d` repaired those projections/traceability, then correctly stopped on REPO-008 because the canonical test-file path contained an extra `request` segment.
+
+The smallest second forward-only correction `c3d78f4f8cc36b156d632a857962a8e608976b09` / tree `018929874d38b24b63b867933572df174f63a714` corrected only that test-path evidence and is the verified DD-189 canonical basis:
+- Core Service Verify `36124223529`, job `108036520253`: **573/573 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108036520010`: **497/497 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36124223652`, job `108036520608`: PASS.
+- Web Boundary Verify `36124223527`, job `108036520022`: PASS.
+
+All four logs assert exact commit `c3d78f4f8cc36b156d632a857962a8e608976b09` and tree `018929874d38b24b63b867933572df174f63a714`. No test was weakened; no RawSource, schema, RLS, role, grant, route or product-scope change was made. This verified basis authorizes DD-189 state closure only; the closure commit must pass its own exact-head CI before another DD is opened.

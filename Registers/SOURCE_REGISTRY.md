@@ -1,5 +1,5 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001`
+**Current checkpoint:** `DEV-AI-MEDIA-INPUT-DOCUMENT-BINDING-FLOORS-001`
 **Status:** ACTIVE · **Updated:** 2026-09-25
 
 ## Authority
@@ -37,12 +37,10 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 ## Current audit / continuation evidence — 2026-09-25
 
-DD-188 implements only optional AIMediaRequest → PromptTemplate exact id/version/ACTIVE/owner-scope binding. Missing, foreign or malformed binding evidence fails closed. A true result grants no principal/document access, prompt rendering, moderation or AI execution authority.
+DD-189 implements only AIMediaRequest → input Document exact evidence-set, Tenant/null-safe Industry scope, ACTIVE/CLEAN state, source-owned sensitivity ceiling and exact residency binding. Missing, foreign, malformed or duplicate evidence fails closed. A true result grants no principal/ACL/storage/prompt/moderation/provider/model/tool or AI execution authority.
 
-Verified canonical correction `4d9b609756d4c97417214eeadc54aa7531d57fdb` / tree `fa01068c39b18241399c5c28e9c71ea7ae67f57b`: **565/565 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36121218741` (jobs `108026901271`, `108026901423`), Database `36121218700` (job `108026901298`), Web `36121218744` (job `108026901307`).
+Verified canonical DD-189 basis `c3d78f4f8cc36b156d632a857962a8e608976b09` / tree `018929874d38b24b63b867933572df174f63a714`: **573/573 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36124223529` (jobs `108036520253`, `108036520010`), Database `36124223652` (job `108036520608`), Web `36124223527` (job `108036520022`).
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify the DD-189 AIMediaRequest input-document binding candidate at its exact HEAD, then promote its canonical decision/acceptance/traceability only on PASS. Principal-currentness and AI execution boundaries remain locked.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-189 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent source-owned prerequisite; principal-currentness and AI execution boundaries remain locked.
 
-## Pending source-complete candidate — DD-189
 
-The separately governed input-document relationship is implemented for exact-head verification; it is not yet a promoted checkpoint. Detailed contract and fixed acceptance: `Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.

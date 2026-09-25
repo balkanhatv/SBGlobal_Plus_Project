@@ -1,16 +1,16 @@
 # PHASE SUMMARY — SBGlobal Plus
-**Current checkpoint:** `DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001`
+**Current checkpoint:** `DEV-AI-MEDIA-INPUT-DOCUMENT-BINDING-FLOORS-001`
 **Updated:** 2026-09-25 · **Branch:** `docs/architecture-branch-2`
 
-DD-188 implements only optional AIMediaRequest → PromptTemplate exact id/version/ACTIVE/owner-scope binding. Missing, foreign or malformed binding evidence fails closed. A true result grants no principal/document access, prompt rendering, moderation or AI execution authority.
+DD-189 implements only AIMediaRequest → input Document exact evidence-set, Tenant/null-safe Industry scope, ACTIVE/CLEAN state, source-owned sensitivity ceiling and exact residency binding. Missing, foreign, malformed or duplicate evidence fails closed. A true result grants no principal/ACL/storage/prompt/moderation/provider/model/tool or AI execution authority.
 
-Verified canonical correction `4d9b609756d4c97417214eeadc54aa7531d57fdb` / tree `fa01068c39b18241399c5c28e9c71ea7ae67f57b`: **565/565 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36121218741` (jobs `108026901271`, `108026901423`), Database `36121218700` (job `108026901298`), Web `36121218744` (job `108026901307`).
+Verified canonical DD-189 basis `c3d78f4f8cc36b156d632a857962a8e608976b09` / tree `018929874d38b24b63b867933572df174f63a714`: **573/573 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36124223529` (jobs `108036520253`, `108036520010`), Database `36124223652` (job `108036520608`), Web `36124223527` (job `108036520022`).
 
-The named correction is canonically promoted and exact-head verified. New commits carrying metadata or candidates must pass their own exact-head CI; no self-referential commit hash is invented.
+DD-189 decision/acceptance/traceability are canonically promoted. The verified basis above includes the targeted promotion-projection and acceptance-test-path corrections; this state-closure commit must pass its own exact-head CI before another DD is opened.
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+Evidence: `Registers/DEVELOPMENT_DD189_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify the DD-189 canonical promotion HEAD independently with Core/PostgreSQL/Database/Web; only on PASS advance the active checkpoint/state. Principal-currentness and AI execution boundaries remain locked.
+Next: Verify this DD-189 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent source-owned prerequisite; principal-currentness and AI execution boundaries remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -252,34 +252,8 @@ Current checkpoint: **`DEV-AUTHZ-COMPILER-001`**. Publication uses exact SERVICE
 Next governed work: **Commercial current-state integration only**.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Post-DD-162 machine-verifier boundary audit
 
 Audit head `a453fc2f2f555972cd0391a3db04bc67a6e7d497`: `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. No DD-163 machine-auth implementation is source-authorized. Next: fresh source-audit another named unfinished runtime seam; do not infer token/verifier/CIDR/profile/use-audit semantics.
 
-## DD-189 canonical promotion awaiting promotion-head verification
 
-The source-complete AIMediaRequest input-document relationship passed exact implementation-head verification at `c3ef90d10c44a892879fcccd9c6673b1faf49ad1` / tree `11646ad5d92378bfdfd81bba2e51e082a920a6a5`. Its DD-189 decision/acceptance/traceability are canonically staged in the current metadata change, but the active checkpoint remains DD-188 until this promotion HEAD independently passes Core/PostgreSQL/Database/Web. Source contract: `Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.

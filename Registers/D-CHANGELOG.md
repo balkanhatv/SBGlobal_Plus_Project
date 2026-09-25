@@ -251,3 +251,7 @@ Fresh AIMediaRequest/Document reconciliation selected migration 0031's input-doc
 
 ## 2026-09-25 — DD-189 canonical promotion staged
 Implementation `c3ef90d10c44a892879fcccd9c6673b1faf49ad1` / tree `11646ad5d92378bfdfd81bba2e51e082a920a6a5` passed exact-head **573 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-189 decision/acceptance/traceability are staged canonically in the current metadata change. Active checkpoint remains `DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001` until the promotion HEAD independently passes all required workflows.
+
+
+## 2026-09-25 — DD-189 promotion correction / checkpoint advance
+DD-189 promotion exposed two canonical-evidence defects rather than product-code defects: stale DD-188/DD-189 manifest/traceability projections, then one incorrect acceptance-test path. Both were fixed forward-only without weakening tests. Verified correction basis `c3d78f4f8cc36b156d632a857962a8e608976b09` / tree `018929874d38b24b63b867933572df174f63a714` passed exact-head **573 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Active projections advance to `DEV-AI-MEDIA-INPUT-DOCUMENT-BINDING-FLOORS-001`. Principal currentness, Document ACL/storage authorization and AI/provider/model/tool execution remain unclaimed.
