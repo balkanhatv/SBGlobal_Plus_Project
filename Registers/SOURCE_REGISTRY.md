@@ -39,8 +39,8 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 DD-196 implements only TokenUsage → AIModel exact model-id/provider-id composite-pair continuity. Provider/Model currentness, principal currentness, capability eligibility, runtime routing, billing and AI execution remain outside this checkpoint.
 
-Verified DD-196 implementation basis `609508642c21ce3337018f911814826cbe2f73dd` / tree `fc6a8a7206cfea38cb29422f171d6dbcc72bd606`: **619/619 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36157370893` (jobs `108145102572`, `108145102225`), Database `36157370882` (job `108145102103`), Web `36157370802` (job `108145102214`).
+Verified canonical DD-196 promotion `a4366228f1194d751a555be609a282879b4cb2d3` / tree `4a8b456750f8a356ac6ff87c02323798c93a6079`: **619/619 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36157948796` (jobs `108147040398`, `108147040927`), Database `36157948614` (job `108147039962`), Web `36157948344` (job `108147039209`).
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-196 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the independent TokenUsage capability-code relationship or next source-owned AI persistence relation; principal currentness, billing and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-196 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the independent TokenUsage capability-code relationship or next source-owned AI persistence relation; principal currentness, billing and AI execution remain locked.
 
 
