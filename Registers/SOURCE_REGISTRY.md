@@ -41,6 +41,9 @@ DD-196 implements only TokenUsage → AIModel exact model-id/provider-id composi
 
 Verified canonical DD-196 promotion `a4366228f1194d751a555be609a282879b4cb2d3` / tree `4a8b456750f8a356ac6ff87c02323798c93a6079`: **619/619 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36157948796` (jobs `108147040398`, `108147040927`), Database `36157948614` (job `108147039962`), Web `36157948344` (job `108147039209`).
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-196 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the independent TokenUsage capability-code relationship or next source-owned AI persistence relation; principal currentness, billing and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify the DD-197 TokenUsage capability-code binding candidate against the fixed source audit, then implement only exact persisted capability-code continuity. Capability currentness, principal currentness, billing and AI execution remain locked.
 
 
+## Pending source-complete candidate — DD-197
+
+The next governed prerequisite is the TokenUsage → AICapability exact capability-code foreign-key continuity relationship only. Source audit: `Development/AI_TOKEN_USAGE_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Capability currentness, principal currentness, billing and AI execution remain outside the candidate.
