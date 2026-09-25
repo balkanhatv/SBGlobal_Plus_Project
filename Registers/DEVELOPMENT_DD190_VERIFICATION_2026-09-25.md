@@ -24,3 +24,8 @@ All four logs assert the exact implementation commit/tree above. Database invent
 The reader preserves exact persisted id/scope/sensitivity/residency, generated flag, MediaRequest/Provider/Model ids and immutable JSON evidence. It does not perform the later migration-owned generated Document → completed AIMediaRequest recheck and does not make Provider/Model or moderation/licensing/currentness decisions.
 
 Canonical promotion uses the implementation HEAD above as the verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before the next DD/source audit opens.
+
+
+## DD-190 canonical-promotion exact-head gate
+
+Canonical promotion `4ada4f8747a824257ec128695ac6e2cc7c6099de` / tree `43c7803f59da459ffebc8441bb6f18ceb415e41f` independently passed all required workflows: Core `36132278076` / job `108062067291` **573/573**, PostgreSQL job `108062066771` **504/504** plus bootstrap PASS, Database `36132278070` / job `108062066714` PASS, Web `36132278057` / job `108062066512` PASS. REPO-007/008 pass and all logs assert the exact promotion HEAD/tree. This satisfies the recorded gate to open the next source audit.
