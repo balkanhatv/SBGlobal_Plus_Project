@@ -28,3 +28,14 @@ All four implementation logs assert the exact implementation commit/tree above. 
 A true helper result proves only exact persisted capability-code continuity. Capability status/category/entitlement/default policy, principal currentness, model/provider compatibility, routing, quota/budget, cost/billing and AI execution remain unclaimed.
 
 Canonical promotion uses the implementation HEAD above as verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `9dcd28bb1db8bd3aa547fcba89f858b66a417646` / tree `4bd47e39825df89f0e0ef4ed0b09a917af92ebea` independently passed all required workflows:
+- Core Service Verify `36160640520`, Core job `108156046969`: **626/626 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108156046939`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36160640556`, job `108156046913`: PASS.
+- Web Boundary Verify `36160640528`, job `108156046797`: PASS.
+
+All four logs assert the exact promotion commit/tree above. This authorizes DD-197 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.

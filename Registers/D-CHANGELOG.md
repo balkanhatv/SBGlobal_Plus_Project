@@ -331,3 +331,7 @@ Migration 0012's TokenUsage `capability_code` → AICapability `code` direct for
 
 ## 2026-09-25 — DD-197 canonical promotion / checkpoint advance
 Implementation `a4d12bb3a0683ad218d6b1a5c4bedccafae99cdf` / tree `51d94b76c82aff0be0b946d858f887e36ff3ac51` passed exact-head **626 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-197 promotes only exact capability-code continuity.
+
+
+## 2026-09-25 — DD-197 promotion exact-head verified / closure staged
+Canonical DD-197 promotion `9dcd28bb1db8bd3aa547fcba89f858b66a417646` / tree `4bd47e39825df89f0e0ef4ed0b09a917af92ebea` passed exact-head **626 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
