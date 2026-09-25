@@ -10,10 +10,13 @@ DD-193 decision/acceptance/traceability are canonically promoted and the promoti
 
 Evidence: `Registers/DEVELOPMENT_DD193_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-193 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted RAG relationship; Document ACL, RAG retrieval and AI execution remain locked.
+Next: Verify the DD-194 RAGChunk parent-RAGSource binding candidate against the fixed source audit, then implement only that scope/security continuity floor. Embedding-model eligibility, RAG retrieval and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
 Database evidence is clean bootstrap plus bounded real PostgreSQL acceptance, not production upgrade, rollback, load, penetration, recovery or operational certification. No migration, RLS, role or grant changes are introduced.
 
 
+## Pending source-complete candidate — DD-194
+
+The next governed prerequisite is the direct RAGChunk → parent RAGSource exact id/Tenant/null-safe Industry/scope/residency/retention/sensitivity continuity relationship only. Source audit: `Development/RAG_CHUNK_SOURCE_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Embedding-model eligibility, RAG retrieval and AI execution remain outside the candidate.

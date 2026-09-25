@@ -41,6 +41,9 @@ DD-193 implements only the optional RAGSource → DocumentMeta current relations
 
 Verified canonical DD-193 promotion `c5eea99d3c20aea2f0021323bdfb800cb4c96b77` / tree `0493ec6646c60b70794d0c6ad87c5dc95f9cffdf`: **596/596 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36148680032` (jobs `108116145539`, `108116145982`), Database `36148680206` (job `108116146271`), Web `36148680033` (job `108116145832`).
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-193 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted RAG relationship; Document ACL, RAG retrieval and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify the DD-194 RAGChunk parent-RAGSource binding candidate against the fixed source audit, then implement only that scope/security continuity floor. Embedding-model eligibility, RAG retrieval and AI execution remain locked.
 
 
+## Pending source-complete candidate — DD-194
+
+The next governed prerequisite is the direct RAGChunk → parent RAGSource exact id/Tenant/null-safe Industry/scope/residency/retention/sensitivity continuity relationship only. Source audit: `Development/RAG_CHUNK_SOURCE_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Embedding-model eligibility, RAG retrieval and AI execution remain outside the candidate.
