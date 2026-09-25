@@ -10,8 +10,13 @@ DD-191 decision/acceptance/traceability are canonically promoted in the current 
 
 Evidence: `Registers/DEVELOPMENT_DD191_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-191 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent source-owned prerequisite; Provider/Model currentness and complete AI execution remain locked.
+Next: Verify the DD-192 generated Document AIModel/AIProvider exact-pair candidate against the fixed source audit, then implement only that composite-FK relationship floor. Provider/Model currentness and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
 
+
+
+## Pending source-complete candidate — DD-192
+
+The next governed prerequisite is the generated Document → exact AIModel/AIProvider composite pair relationship only. Source audit: `Development/DOCUMENT_AI_MODEL_PROVIDER_PAIR_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Provider/Model currentness, routing and execution remain outside the candidate.

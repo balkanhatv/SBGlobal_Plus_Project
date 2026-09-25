@@ -24,3 +24,8 @@ All four logs assert the exact implementation commit/tree above. Database invent
 A true helper result is only the direct persisted provenance relationship floor. Provider/Model status/capability/residency/sensitivity, moderation/licensing/provenance meaning, request-principal currentness, Document ACL/storage/signed access and AI generation/publication remain separate.
 
 Canonical promotion uses the implementation HEAD above as verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+
+## DD-191 canonical-promotion exact-head gate
+
+Canonical promotion `d7153cd0115da87cbb7ca902e34970aa800ddc92` / tree `8227c3c85f1d4cca1ca1618a7176f1f4493555bf` independently passed all required workflows: Core `36133500087` / job `108065986628` **581/581**, PostgreSQL job `108065986260` **504/504** plus bootstrap PASS, Database `36133500075` / job `108065985934` PASS, Web `36133500054` / job `108065986108` PASS. REPO-007/008 pass and all logs assert the exact promotion HEAD/tree. This satisfies the recorded gate to open the next source audit.
