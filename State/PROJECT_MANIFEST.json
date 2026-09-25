@@ -1064,7 +1064,7 @@
       "AIMEDIA-DOC-CUR-008"
     ],
     "test_files": [
-      "tests/core/ai-media-request-input-document-binding-floors.test.mjs"
+      "tests/core/ai-media-input-document-binding-floors.test.mjs"
     ],
     "core": {
       "run_id": 36121841410,
