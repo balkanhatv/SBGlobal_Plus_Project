@@ -69,6 +69,7 @@ export * from "./document/acl-subject-match.js";
 export * from "./document/upload-session.js";
 export * from "./document/ai-generated-provenance.js";
 export * from "./document/ai-generated-media-request-provenance-floors.js";
+export * from "./document/ai-generated-model-provider-binding-floors.js";
 export * from "./integration/webhook-subscription.js";
 export * from "./integration/webhook-delivery.js";
 export * from "./integration/outbox-event.js";
