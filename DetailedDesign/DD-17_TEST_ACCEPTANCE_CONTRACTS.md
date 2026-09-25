@@ -2990,4 +2990,25 @@ Malformed memory/assistant UUID/owner shape or extra AssistantDefinition evidenc
 
 ### AIMEM-AST-CUR-007 — Memory lifecycle/policy and nested Assistant semantics remain uninterpreted
 Principal, memory class/content/source/sensitivity/retention/ACL/status/timestamps/expiry/supersession and Assistant capability/RAG/prompt/tool/model/retention/version/timestamps do not create acceptance; DD-179 is not auto-composed; inputs remain unchanged.
+## DD-187 AIMemoryRecord Supersession-Continuity Acceptance
 
+### AIMEM-SUP-CUR-001 — Unbound memory requires no superseded-parent evidence
+A valid AIMemoryRecord without `supersedesId` matches only when no superseded-parent evidence is supplied.
+
+### AIMEM-SUP-CUR-002 — Exact direct parent preserves owner/scope/class continuity
+A referenced parent at the exact `supersedesId` matches when child and parent have the same Tenant, null-safe Industry Context, null-safe principal and memory class.
+
+### AIMEM-SUP-CUR-003 — Self-reference, missing parent or wrong parent fails closed
+Direct self-reference, absent required parent evidence or a parent id different from `supersedesId` fails closed.
+
+### AIMEM-SUP-CUR-004 — Tenant or null-safe Industry mismatch fails closed
+Foreign Tenant, sibling Industry, or null-vs-present Industry Context mismatch fails closed.
+
+### AIMEM-SUP-CUR-005 — Principal continuity is null-safe exact
+Different principals or null-vs-present principal mismatch fails closed; both absent principals preserve continuity.
+
+### AIMEM-SUP-CUR-006 — Class mismatch or malformed continuity evidence fails closed
+Memory-class mismatch or malformed relevant child/parent identity, owner, scope, principal or class evidence fails closed.
+
+### AIMEM-SUP-CUR-007 — Lifecycle/policy/deeper-chain semantics remain uninterpreted
+Status, content/source, sensitivity, retention, ACL, AssistantDefinition, timestamps, expiry and deeper supersession-chain evidence do not create or remove acceptance; inputs remain unchanged.
