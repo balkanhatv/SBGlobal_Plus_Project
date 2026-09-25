@@ -223,3 +223,15 @@ DD-192 → `src/core/document/ai-generated-model-provider-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD192_VERIFICATION_2026-09-25.md`.
 
 This chain claims only the persisted Document `aiModelId` / `aiProviderId` → AIModel `id` / `providerId` exact composite-pair relationship. Provider/Model currentness, routing, capability/residency/sensitivity policy, Document authorization and AI execution remain separate.
+
+
+## DD-193 — RAGSource optional Document binding
+
+F-05 + A-07 + DD-09 → migration 0031 RAGSource document-integrity trigger →
+`Development/RAG_SOURCE_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-193 → `src/core/ai/rag-source-document-binding-floors.ts` →
+`RAGSRC-DOC-CUR-001…008` →
+`tests/core/ai-rag-source-document-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD193_VERIFICATION_2026-09-25.md`.
+
+This chain claims only the optional RAGSource → DocumentMeta exact id/version/scope/ACTIVE-CLEAN/sensitivity/residency relationship. Document ACL, retrieval, grounding, embedding and AI execution remain separate.

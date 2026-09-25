@@ -3137,3 +3137,30 @@ Model status/version/capabilities/modalities/residency/sensitivity/cost/latency/
 
 ### DOCAI-MODEL-CUR-007 — Unrelated provenance stays uninterpreted
 Document MediaRequest/provenance/moderation/licensing evidence does not affect the pair predicate; inputs remain unchanged.
+
+
+## DD-193 RAGSource Document Binding Acceptance
+
+### RAGSRC-DOC-CUR-001 — Unbound source stays unbound
+A RAGSource without `documentId` passes only when `documentVersion` and supplied Document evidence are absent.
+
+### RAGSRC-DOC-CUR-002 — Exact Tenant-Core / Tenant-Industry bindings
+Bound sources pass only with exact Document id/version/Tenant/null-safe Industry/scope equality.
+
+### RAGSRC-DOC-CUR-003 — Missing or wrong Document evidence fails closed
+Missing Document evidence, wrong Document id or wrong version fails.
+
+### RAGSRC-DOC-CUR-004 — Ownership/scope mismatch fails closed
+Tenant, null-safe Industry Context or scope-class mismatch fails.
+
+### RAGSRC-DOC-CUR-005 — Referenced Document must remain ACTIVE/CLEAN
+Any raw Document status other than ACTIVE or virus-scan status other than CLEAN fails.
+
+### RAGSRC-DOC-CUR-006 — Residency is exact
+Residency must match byte-for-byte; trimming, case-folding or fallback is not authorized.
+
+### RAGSRC-DOC-CUR-007 — Sensitivity cannot be downgraded
+For all known classes, RAGSource sensitivity rank must be greater than or equal to referenced Document sensitivity rank; unknown classes fail closed.
+
+### RAGSRC-DOC-CUR-008 — Relevant shapes fail closed; unrelated semantics stay raw
+Malformed relevant identity/version/scope evidence fails; unrelated RAGSource/Document fields remain uninterpreted and inputs are not mutated.

@@ -2703,3 +2703,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-192 does not establish Model or Provider ACTIVE/current/eligible/routable state, provider health/credential/capability/residency/sensitivity policy, budget/quota, moderation/licensing approval, Document ACL/storage authority, generated-media publication or AI execution.
 
 **Acceptance:** `DOCAI-MODEL-CUR-001…007` in DD-17 and `tests/core/document-ai-generated-model-provider-binding-floors.test.mjs`.
+
+
+## DD-193 — RAGSource optional Document binding may be re-evaluated as a pure persisted current-relationship floor
+
+**Context:** migration 0031 validates optional `core_ai.rag_source.document_id` against `core_document.document_meta`: document version is required with an id; exact id/version/Tenant/null-safe Industry/scope/residency must match; the Document must be raw ACTIVE/CLEAN; and RAGSource sensitivity must be at least the Document sensitivity. DD-127 exposes all source-side evidence and DD-082/DD-083 expose all Document-side evidence.
+
+**Decision:** add pure helper `matchesAIRAGSourceDocumentBindingFloors(source, document?)`. Unbound sources require no version or Document evidence. Bound sources require exact id/version/Tenant/null-safe Industry/scope/residency, raw ACTIVE/CLEAN Document state, and source sensitivity rank >= Document sensitivity rank.
+
+**Security / trade-off:** this helper mirrors only migration 0031's persisted relationship predicate. It does not interpret ACL policy, authorize the acting principal, select current/latest source versions, dereference source resources, or perform retrieval/grounding/inference.
+
+**Boundary:** DD-193 does not establish Document ACL/storage authorization, source-resource existence/currentness, retention/legal-hold, chunking, RAGChunk currentness, embedding-model eligibility, vector/FTS retrieval, ranking/reranking, grounding/citation, prompt-injection defenses, provider/model routing or AI execution.
+
+**Acceptance:** `RAGSRC-DOC-CUR-001…008` in DD-17 and `tests/core/ai-rag-source-document-binding-floors.test.mjs`.

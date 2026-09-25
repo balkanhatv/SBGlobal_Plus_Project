@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-25",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-DOCUMENT-AI-MODEL-PROVIDER-PAIR-FLOORS-001",
-  "final_verdict": "DD-192 generated Document → exact AIModel/AIProvider composite-pair floor is canonically promoted and exact-head verified; the state-closure HEAD remains the gate before the next source audit.",
+  "checkpoint": "DEV-AI-RAG-SOURCE-DOCUMENT-BINDING-FLOORS-001",
+  "final_verdict": "DD-193 optional RAGSource → DocumentMeta current relationship floor is canonically promoted from a fully verified implementation basis; the promotion HEAD itself remains the gate before the next source audit.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD192_CANONICAL",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD193_CANONICAL",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD192_VERIFIED_STATE_CLOSURE_PENDING_HEAD_VERIFICATION",
+    "development": "IN_PROGRESS_DD193_PROMOTED_PENDING_HEAD_VERIFICATION",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD192_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED"
+    "core_services": "DD040_DD193_CANONICALLY_PROMOTED_PENDING_HEAD_VERIFICATION"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "799fc1802e62d822bff947f1fef6e0632a09a84b",
-    "verified_code_tree": "c392413443e8574d94efdf317ce251066641d0bf",
-    "state_projection_basis_head": "799fc1802e62d822bff947f1fef6e0632a09a84b",
+    "verified_code_head": "7cdcf9304eb540f722dce36407a076d7ea698a64",
+    "verified_code_tree": "cf10ade82baae9079317334b6fb8e891d700aa05",
+    "state_projection_basis_head": "7cdcf9304eb540f722dce36407a076d7ea698a64",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -406,13 +406,25 @@
       "web_run_id": 36146256807,
       "web_job_id": 108108056620,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd193_implementation_head": "7cdcf9304eb540f722dce36407a076d7ea698a64",
+    "dd193_implementation_tree": "cf10ade82baae9079317334b6fb8e891d700aa05",
+    "dd193_implementation_ci": {
+      "core_run_id": 36147698673,
+      "core_job_id": 108112875871,
+      "postgres_job_id": 108112875399,
+      "database_run_id": 36147698760,
+      "database_job_id": 108112875370,
+      "web_run_id": 36147698537,
+      "web_job_id": 108112874459,
+      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD192_VERIFIED_DD193_CANDIDATE",
+    "current_phase": "DEVELOPMENT_DD193_PROMOTED_PENDING_HEAD_VERIFICATION",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -427,9 +439,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "799fc1802e62d822bff947f1fef6e0632a09a84b",
-      "ci_run_id": 36146256978,
-      "ci_job_id": 108108056728,
+      "ci_verified_head": "7cdcf9304eb540f722dce36407a076d7ea698a64",
+      "ci_run_id": 36147698760,
+      "ci_job_id": 108112875370,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -441,7 +453,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "c392413443e8574d94efdf317ce251066641d0bf",
+      "ci_verified_tree": "cf10ade82baae9079317334b6fb8e891d700aa05",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -449,10 +461,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "799fc1802e62d822bff947f1fef6e0632a09a84b",
-      "feature_head_bootstrap_verified_tree": "c392413443e8574d94efdf317ce251066641d0bf",
-      "feature_head_bootstrap_run_id": 36146256839,
-      "feature_head_bootstrap_job_id": 108108057100,
+      "feature_head_bootstrap_verified_head": "7cdcf9304eb540f722dce36407a076d7ea698a64",
+      "feature_head_bootstrap_verified_tree": "cf10ade82baae9079317334b6fb8e891d700aa05",
+      "feature_head_bootstrap_run_id": 36147698673,
+      "feature_head_bootstrap_job_id": 108112875399,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_504_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -461,27 +473,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify the DD-193 RAGSource optional Document binding candidate against the fixed source audit, then implement only that relationship floor. Document ACL, RAG retrieval and AI execution remain locked.",
+    "next_action": "Verify this DD-193 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted RAG relationship; Document ACL, RAG retrieval and AI execution remain locked.",
     "core_services": {
-      "checkpoint": "DEV-DOCUMENT-AI-MODEL-PROVIDER-PAIR-FLOORS-001",
+      "checkpoint": "DEV-AI-RAG-SOURCE-DOCUMENT-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–192 bounded implementation",
-      "verified_head": "799fc1802e62d822bff947f1fef6e0632a09a84b",
-      "verified_tree": "c392413443e8574d94efdf317ce251066641d0bf",
-      "core_ci_run_id": 36146256839,
-      "core_ci_job_id": 108108056709,
-      "tests": "588/588 PASS",
+      "decision": "DD-040–193 bounded implementation",
+      "verified_head": "7cdcf9304eb540f722dce36407a076d7ea698a64",
+      "verified_tree": "cf10ade82baae9079317334b6fb8e891d700aa05",
+      "core_ci_run_id": 36147698673,
+      "core_ci_job_id": 108112875871,
+      "tests": "596/596 PASS",
       "core_test_counts": {
-        "tests": 588,
-        "pass": 588,
+        "tests": 596,
+        "pass": 596,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36146256839,
-      "postgres_ci_job_id": 108108057100,
+      "postgres_ci_run_id": 36147698673,
+      "postgres_ci_job_id": 108112875399,
       "postgres_tests": "504/504 PASS",
       "postgres_test_counts": {
         "tests": 504,
@@ -490,8 +502,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36146256978,
-      "database_regression_job_id": 108108056728,
+      "database_regression_run_id": 36147698760,
+      "database_regression_job_id": 108112875370,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -815,7 +827,8 @@
         "DD-189 AIMediaRequest input-document exact evidence/scope/state/sensitivity/residency binding floor",
         "DD-190 raw Document AI-generated provenance persistence reader under existing FORCE-RLS",
         "DD-191 generated Document → completed AIMediaRequest direct provenance relationship floor",
-        "DD-192 generated Document exact AIModel/AIProvider composite-pair binding floor"
+        "DD-192 generated Document exact AIModel/AIProvider composite-pair binding floor",
+        "DD-193 optional RAGSource exact Document current-binding floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -941,7 +954,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify the DD-193 RAGSource optional Document binding candidate against the fixed source audit, then implement only that relationship floor. Document ACL, RAG retrieval and AI execution remain locked.",
+      "next_action": "Verify this DD-193 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted RAG relationship; Document ACL, RAG retrieval and AI execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -949,7 +962,7 @@
       "promotion_invariant_gate_unique_dd": 109,
       "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
-    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-192. Full product UI, industry services and AI execution remain unfinished.",
+    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-193. Full product UI, industry services, RAG retrieval and AI execution remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -1035,7 +1048,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD192_VERIFIED_DD193_CANDIDATE",
+  "current_phase": "DEVELOPMENT_DD193_PROMOTED_PENDING_HEAD_VERIFICATION",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1067,20 +1080,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-DOCUMENT-AI-MODEL-PROVIDER-PAIR-FLOORS-001",
-    "verified_code_head": "799fc1802e62d822bff947f1fef6e0632a09a84b",
-    "verified_code_tree": "c392413443e8574d94efdf317ce251066641d0bf",
-    "source_audit": "Development/DOCUMENT_AI_MODEL_PROVIDER_PAIR_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD192_VERIFICATION_2026-09-25.md",
-    "next_action": "Verify the DD-193 RAGSource optional Document binding candidate against the fixed source audit, then implement only that relationship floor. Document ACL, RAG retrieval and AI execution remain locked.",
+    "checkpoint": "DEV-AI-RAG-SOURCE-DOCUMENT-BINDING-FLOORS-001",
+    "verified_code_head": "7cdcf9304eb540f722dce36407a076d7ea698a64",
+    "verified_code_tree": "cf10ade82baae9079317334b6fb8e891d700aa05",
+    "source_audit": "Development/RAG_SOURCE_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD193_VERIFICATION_2026-09-25.md",
+    "next_action": "Verify this DD-193 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted RAG relationship; Document ACL, RAG retrieval and AI execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-DOCUMENT-AI-MODEL-PROVIDER-PAIR-FLOORS-001",
-    "verified_executable_basis": "799fc1802e62d822bff947f1fef6e0632a09a84b",
-    "verified_executable_tree": "c392413443e8574d94efdf317ce251066641d0bf",
-    "current_verification": "Registers/DEVELOPMENT_DD192_VERIFICATION_2026-09-25.md",
-    "scope": "DD-192 implements only generated Document → exact AIModel/AIProvider composite-pair continuity. Provider/Model currentness, routing, capability/residency/sensitivity policy, moderation/licensing, Document authorization/storage and AI execution remain outside this checkpoint."
+    "checkpoint": "DEV-AI-RAG-SOURCE-DOCUMENT-BINDING-FLOORS-001",
+    "verified_executable_basis": "7cdcf9304eb540f722dce36407a076d7ea698a64",
+    "verified_executable_tree": "cf10ade82baae9079317334b6fb8e891d700aa05",
+    "current_verification": "Registers/DEVELOPMENT_DD193_VERIFICATION_2026-09-25.md",
+    "scope": "DD-193 implements only optional RAGSource → DocumentMeta exact id/version/Tenant/null-safe Industry/scope/ACTIVE-CLEAN/sensitivity/residency continuity. Document ACL, source-resource currentness, RAG retrieval/grounding and AI execution remain outside this checkpoint."
   },
   "current_state_audit": {
     "date": "2026-09-25",
@@ -1111,35 +1124,36 @@
     "correction_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b"
   },
   "current_feature_verification": {
-    "decision_id": "DD-192",
-    "decision": "DD-192 generated Document AIModel/AIProvider exact composite-pair floor",
-    "checkpoint": "DEV-DOCUMENT-AI-MODEL-PROVIDER-PAIR-FLOORS-001",
-    "verified_head": "799fc1802e62d822bff947f1fef6e0632a09a84b",
-    "verified_tree": "c392413443e8574d94efdf317ce251066641d0bf",
-    "source_audit": "Development/DOCUMENT_AI_MODEL_PROVIDER_PAIR_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-193",
+    "decision": "DD-193 RAGSource optional Document current binding floor",
+    "checkpoint": "DEV-AI-RAG-SOURCE-DOCUMENT-BINDING-FLOORS-001",
+    "verified_head": "7cdcf9304eb540f722dce36407a076d7ea698a64",
+    "verified_tree": "cf10ade82baae9079317334b6fb8e891d700aa05",
+    "source_audit": "Development/RAG_SOURCE_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "DOCAI-MODEL-CUR-001",
-      "DOCAI-MODEL-CUR-002",
-      "DOCAI-MODEL-CUR-003",
-      "DOCAI-MODEL-CUR-004",
-      "DOCAI-MODEL-CUR-005",
-      "DOCAI-MODEL-CUR-006",
-      "DOCAI-MODEL-CUR-007"
+      "RAGSRC-DOC-CUR-001",
+      "RAGSRC-DOC-CUR-002",
+      "RAGSRC-DOC-CUR-003",
+      "RAGSRC-DOC-CUR-004",
+      "RAGSRC-DOC-CUR-005",
+      "RAGSRC-DOC-CUR-006",
+      "RAGSRC-DOC-CUR-007",
+      "RAGSRC-DOC-CUR-008"
     ],
     "test_files": [
-      "tests/core/document-ai-generated-model-provider-binding-floors.test.mjs"
+      "tests/core/ai-rag-source-document-binding-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36146256839,
-      "job_id": 108108056709,
-      "tests": 588,
-      "pass": 588,
+      "run_id": 36147698673,
+      "job_id": 108112875871,
+      "tests": 596,
+      "pass": 596,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36146256839,
-      "job_id": 108108057100,
+      "run_id": 36147698673,
+      "job_id": 108112875399,
       "tests": 504,
       "pass": 504,
       "fail": 0,
@@ -1147,17 +1161,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36146256978,
-      "job_id": 108108056728,
+      "run_id": 36147698760,
+      "job_id": 108112875370,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36146256807,
-      "job_id": 108108056620,
+      "run_id": 36147698537,
+      "job_id": 108112874459,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD192_VERIFICATION_2026-09-25.md"
+    "evidence": "Registers/DEVELOPMENT_DD193_VERIFICATION_2026-09-25.md"
   },
   "historical_projection_payloads": {
     "continuation": {
@@ -1896,14 +1910,5 @@
         "main_merge": false
       }
     }
-  },
-  "pending_feature": {
-    "decision_id": "DD-193",
-    "source_audit": "Development/RAG_SOURCE_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "status": "SOURCE_COMPLETE_NOT_IMPLEMENTED",
-    "scope": "RAGSource → optional DocumentMeta exact id/version/scope/state/sensitivity/residency relationship only",
-    "expected_core_tests": 596,
-    "expected_postgres_tests": 504,
-    "database_schema_change": false
   }
 }

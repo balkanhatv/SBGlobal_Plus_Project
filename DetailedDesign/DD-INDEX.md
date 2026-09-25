@@ -1,16 +1,16 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Current checkpoint:** `DEV-DOCUMENT-AI-MODEL-PROVIDER-PAIR-FLOORS-001`
+**Current checkpoint:** `DEV-AI-RAG-SOURCE-DOCUMENT-BINDING-FLOORS-001`
 **Updated:** 2026-09-25 · **Branch:** `docs/architecture-branch-2`
 
-DD-192 implements only the generated Document → exact AIModel/AIProvider persisted composite-pair floor: exact Model id and exact Model.providerId continuity against Document aiModelId/aiProviderId. Provider/Model currentness, routing, capability/residency/sensitivity policy, Document authorization and AI execution remain outside this checkpoint.
+DD-193 implements only the optional RAGSource → DocumentMeta current relationship floor: exact document id/version/Tenant/null-safe Industry/scope/residency, raw ACTIVE/CLEAN state, and no sensitivity downgrade. Document ACL, source-resource currentness, RAG retrieval/grounding and AI execution remain outside this checkpoint.
 
-Verified canonical DD-192 promotion `799fc1802e62d822bff947f1fef6e0632a09a84b` / tree `c392413443e8574d94efdf317ce251066641d0bf`: **588/588 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36146256839` (jobs `108108056709`, `108108057100`), Database `36146256978` (job `108108056728`), Web `36146256807` (job `108108056620`).
+Verified DD-193 implementation basis `7cdcf9304eb540f722dce36407a076d7ea698a64` / tree `cf10ade82baae9079317334b6fb8e891d700aa05`: **596/596 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36147698673` (jobs `108112875871`, `108112875399`), Database `36147698760` (job `108112875370`), Web `36147698537` (job `108112874459`).
 
-DD-192 decision/acceptance/traceability are canonically promoted and the promotion HEAD is exact-head verified. This state-closure commit must pass its own Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+DD-193 decision/acceptance/traceability are canonically promoted in the current metadata change. The verified executable basis is the implementation HEAD above; this promotion HEAD must independently pass Core/PostgreSQL/Database/Web before another DD/source audit opens.
 
-Evidence: `Registers/DEVELOPMENT_DD192_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+Evidence: `Registers/DEVELOPMENT_DD193_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify the DD-193 RAGSource optional Document binding candidate against the fixed source audit, then implement only that relationship floor. Document ACL, RAG retrieval and AI execution remain locked.
+Next: Verify this DD-193 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted RAG relationship; Document ACL, RAG retrieval and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -41,7 +41,7 @@ Earlier counts and next steps below apply only to their named commits.
 ## Historical design gate and historical Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
-The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-192**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
+The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-193**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
 
 DD-162 composes current credential lifecycle, current machine-principal admissibility and requested-scope compatibility into one pure necessary floor. Final presented-credential verification and machine authentication remain absent.
 
@@ -110,6 +110,3 @@ Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c
 DD-164 is the bounded SyncCursor current parent/capability binding necessary floor. A true result is not synchronization authorization; cursor/provider/runtime semantics remain separately governed.
 
 
-## Pending source-complete candidate — DD-193
-
-The next governed prerequisite is the RAGSource → optional DocumentMeta exact id/version/scope/ACTIVE-CLEAN/sensitivity/residency relationship only. Source audit: `Development/RAG_SOURCE_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Document ACL, RAG retrieval and AI execution remain outside the candidate.

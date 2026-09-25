@@ -359,3 +359,8 @@ After DD-190 exposed the missing raw Document AI-provenance evidence, migration 
 ## 2026-09-25 — DD-192 generated Document Model/Provider pair floor
 
 Post-DD-191 source ownership isolated migration 0031's exact Document `ai_model_id,ai_provider_id` → AIModel `id,provider_id` composite relationship as source-complete. Exact implementation `36e2fa9c91aa73aafc1217da69ed62eee6d84eb7` / tree `8efb4c1dc0e13ff303d907866385fdb03e020b18` passed **588/588 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Provider/Model currentness and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-193 RAGSource Document binding floor
+
+Post-DD-192 source ownership isolated migration 0031's optional RAGSource → DocumentMeta relationship as source-complete. Exact implementation `7cdcf9304eb540f722dce36407a076d7ea698a64` / tree `cf10ade82baae9079317334b6fb8e891d700aa05` passed **596/596 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Document ACL, RAG retrieval and AI execution remain unclaimed.
