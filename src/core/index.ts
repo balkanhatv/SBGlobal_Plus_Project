@@ -138,6 +138,7 @@ export * from "./ai/media-request-prompt-template-binding-floors.js";
 export * from "./ai/rag-source.js";
 export * from "./ai/rag-source-document-binding-floors.js";
 export * from "./ai/rag-chunk-metadata.js";
+export * from "./ai/rag-chunk-source-binding-floors.js";
 export * from "./ai/memory-record.js";
 export * from "./ai/memory-assistant-binding-floors.js";
 export * from "./ai/memory-supersession-continuity-floors.js";
