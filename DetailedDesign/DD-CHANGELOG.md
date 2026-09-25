@@ -369,3 +369,8 @@ Post-DD-192 source ownership isolated migration 0031's optional RAGSource → Do
 ## 2026-09-25 — DD-194 RAGChunk parent RAGSource floor
 
 Post-DD-193 source ownership isolated migration 0031's direct RAGChunk → parent RAGSource continuity relationship as source-complete. Exact implementation `2a93610cc3014824ebb8c63c7c71f533999bdf52` / tree `044ce2585c4dfe85c9434f33c4bae1f3ce6a1ff6` passed **604/604 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Embedding-model eligibility, RAG retrieval and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-195 RAGChunk embedding-model eligibility floor
+
+Post-DD-194 source ownership isolated migration 0031's separate RAGChunk → embedding AIModel exact-id/ACTIVE/sensitivity-ceiling predicate as source-complete. Exact implementation `d3662e751dfeb07c68d4a09247ee42696b67f2ff` / tree `37673bf79975c33c90ac3ff85cd69995218fdff9` passed **612/612 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Provider routing/currentness, RAG retrieval and AI execution remain unclaimed.

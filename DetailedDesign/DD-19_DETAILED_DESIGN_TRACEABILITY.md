@@ -247,3 +247,15 @@ DD-194 → `src/core/ai/rag-chunk-source-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD194_VERIFICATION_2026-09-25.md`.
 
 This chain claims only direct RAGChunk → parent RAGSource id/Tenant/null-safe Industry/scope/residency/retention/sensitivity continuity. Embedding-model eligibility, ACL, retrieval, grounding and AI execution remain separate.
+
+
+## DD-195 — RAGChunk embedding AIModel current eligibility
+
+F-05 + A-07 + DD-09 → migration 0031 RAGChunk embedding-model predicate →
+`Development/RAG_CHUNK_EMBEDDING_MODEL_ELIGIBILITY_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-195 → `src/core/ai/rag-chunk-embedding-model-eligibility-floors.ts` →
+`RAGCHUNK-MODEL-CUR-001…008` →
+`tests/core/ai-rag-chunk-embedding-model-eligibility-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD195_VERIFICATION_2026-09-25.md`.
+
+This chain claims only exact embedding-model id, raw ACTIVE status and sensitivity-ceiling eligibility for an already-loaded RAGChunk/AIModel pair. Provider routing/currentness, source/document/ACL validity, retrieval, grounding and AI execution remain separate.

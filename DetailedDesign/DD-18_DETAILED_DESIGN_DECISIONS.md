@@ -2729,3 +2729,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-194 does not establish RAGSource status/currentness, Document ACL, source-resource currentness, retention execution/legal hold, chunk dedup/reindex/currentness, embedding-model eligibility, vector/FTS retrieval, ranking/reranking, grounding/citation, prompt-injection defense, provider/model routing or AI execution.
 
 **Acceptance:** `RAGCHUNK-SRC-CUR-001…008` in DD-17 and `tests/core/ai-rag-chunk-source-binding-floors.test.mjs`.
+
+
+## DD-195 — RAGChunk embedding AIModel current eligibility may be re-evaluated as a pure persisted relationship floor
+
+**Context:** migration 0031 separately validates each RAGChunk embedding model after parent-source continuity: `model.id = embedding_model_id`, raw `model.status = 'ACTIVE'`, and `sensitivity_rank(model.sensitivity_ceiling) >= sensitivity_rank(chunk.sensitivity_class)`. DD-128 exposes the chunk embedding-model id and sensitivity, while DD-108 exposes AIModel id, status and sensitivity ceiling.
+
+**Decision:** add pure helper `matchesAIRAGChunkEmbeddingModelEligibilityFloors(chunk, model?)`. It requires valid relevant identity/sensitivity shape, exact model id equality, exact raw ACTIVE status, and model sensitivity ceiling rank >= chunk sensitivity rank.
+
+**Security / trade-off:** this helper mirrors only migration 0031's persisted embedding-model eligibility predicate. Provider state, capability/modality/residency compatibility, routing, cost/budget and embedding-version semantics remain outside the predicate.
+
+**Boundary:** DD-195 does not establish Provider currentness/health/credentials, capability/modality/residency compatibility, embedding-version compatibility, model routing/selection, cost/budget policy, source/document/ACL validity, vector/FTS retrieval, ranking/reranking, grounding/citation, prompt-injection defense or AI execution.
+
+**Acceptance:** `RAGCHUNK-MODEL-CUR-001…008` in DD-17 and `tests/core/ai-rag-chunk-embedding-model-eligibility-floors.test.mjs`.

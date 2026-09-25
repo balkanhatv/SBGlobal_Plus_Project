@@ -3191,3 +3191,30 @@ Malformed chunk/source identity, ownership, scope, residency, retention or sensi
 
 ### RAGCHUNK-SRC-CUR-008 — Unrelated semantics stay uninterpreted
 Chunk ordinal/text/hash/token/ACL/embedding/version/metadata and source status/document/resource/ACL/version/chunking evidence do not affect this predicate; inputs remain unchanged.
+
+
+## DD-195 RAGChunk Embedding Model Eligibility Acceptance
+
+### RAGCHUNK-MODEL-CUR-001 — Exact ACTIVE model with sufficient ceiling
+An exact embedding-model id whose raw status is ACTIVE and whose sensitivity ceiling rank is at least the chunk sensitivity rank passes.
+
+### RAGCHUNK-MODEL-CUR-002 — Missing/wrong model fails closed
+Missing model evidence or a mismatched model id fails closed.
+
+### RAGCHUNK-MODEL-CUR-003 — ACTIVE is exact
+Model status must equal `ACTIVE` exactly; inactive, retired, case variants and whitespace variants fail.
+
+### RAGCHUNK-MODEL-CUR-004 — Sensitivity ceiling containment
+For all known classes, model ceiling rank must be greater than or equal to chunk sensitivity rank.
+
+### RAGCHUNK-MODEL-CUR-005 — Unknown sensitivity fails closed
+Unknown chunk sensitivity or model sensitivity ceiling fails closed.
+
+### RAGCHUNK-MODEL-CUR-006 — Relevant shape validation
+Malformed chunk id, embedding-model id, model id or raw model-status shape fails closed.
+
+### RAGCHUNK-MODEL-CUR-007 — Unrelated model semantics stay uninterpreted
+Provider id, capabilities, modalities, residency, cost, latency, version and model metadata are not inputs to this persisted predicate.
+
+### RAGCHUNK-MODEL-CUR-008 — Unrelated chunk semantics stay uninterpreted
+Source/scope/residency/retention/ACL/embedding-version and other unrelated chunk fields do not affect this predicate; inputs remain unchanged.
