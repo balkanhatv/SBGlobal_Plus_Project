@@ -10,10 +10,15 @@ DD-189 decision/acceptance/traceability are canonically promoted. The verified b
 
 Evidence: `Registers/DEVELOPMENT_DD189_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-189 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent source-owned prerequisite; principal-currentness and AI execution boundaries remain locked.
+Next: Verify the DD-190 raw Document AI-provenance reader candidate against the fixed source audit, then implement only that read boundary. Principal-currentness, provenance relationship validation and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
 No new approval request is created. Source-incomplete boundaries remain locked: machine verifier syntax/CIDR/use-audit, external REST catalog, DD-076 evaluator policy/evidence producers, webhook dispatch/signature/SSRF/retry, integration/sync execution, notification/workflow/automation execution, memory-principal provenance, retention/ACL and AI/provider/tool execution. The AIMemory principal audit is completed with a BLOCKED finding; it is not pending discovery.
 
 
+
+
+## Pending source-complete candidate — DD-190
+
+The next governed prerequisite is the raw Document AI-generated provenance reader only. Source audit: `Development/DOCUMENT_AI_GENERATED_PROVENANCE_RAW_READER_PREREQUISITE_OWNERSHIP_AUDIT.md`. The later DocumentMeta → completed AIMediaRequest provenance relationship remains unauthorized until this missing persisted evidence is exposed and verified.
