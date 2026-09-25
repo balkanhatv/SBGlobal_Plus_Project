@@ -269,3 +269,10 @@ Post-DD-190 source audit selected migration 0031's direct generated Document →
 
 ## 2026-09-25 — DD-191 canonical promotion / checkpoint advance
 Exact implementation `8beb7af4aa00d93ed416fa331875c06ea7ec8032` / tree `b6685b9eb34dbfa823f849f3aec2620f70792a48` passed **581 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-191 promotes only the direct persisted MediaRequest provenance floor. Provider/Model currentness, moderation/licensing interpretation, Document authorization/storage and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-192 prerequisite selection
+Migration 0031's generated Document → exact AIModel/AIProvider composite pair is source-complete from DD-190 Document provenance evidence plus DD-108 AIModel metadata. Provider runtime/currentness semantics remain separate.
+
+## 2026-09-25 — DD-192 canonical promotion / checkpoint advance
+Implementation `36e2fa9c91aa73aafc1217da69ed62eee6d84eb7` / tree `8efb4c1dc0e13ff303d907866385fdb03e020b18` passed exact-head **588 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-192 promotes only the exact composite pair floor.

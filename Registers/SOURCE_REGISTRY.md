@@ -1,5 +1,5 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-DOCUMENT-AI-MEDIA-REQUEST-PROVENANCE-FLOORS-001`
+**Current checkpoint:** `DEV-DOCUMENT-AI-MODEL-PROVIDER-PAIR-FLOORS-001`
 **Status:** ACTIVE · **Updated:** 2026-09-25
 
 ## Authority
@@ -37,10 +37,10 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 ## Current audit / continuation evidence — 2026-09-25
 
-DD-191 implements only the direct generated Document → completed AIMediaRequest persisted relationship floor: exact request id/completion, same Tenant/null-safe Industry, exact residency and generated-Document sensitivity at least request sensitivity. Provider/Model currentness, moderation/licensing interpretation, Document authorization/storage and AI execution remain outside this checkpoint.
+DD-192 implements only the generated Document → exact AIModel/AIProvider persisted composite-pair floor: exact Model id and exact Model.providerId continuity against Document aiModelId/aiProviderId. Provider/Model currentness, routing, capability/residency/sensitivity policy, Document authorization and AI execution remain outside this checkpoint.
 
-Verified DD-191 implementation basis `8beb7af4aa00d93ed416fa331875c06ea7ec8032` / tree `b6685b9eb34dbfa823f849f3aec2620f70792a48`: **581/581 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36132887607` (jobs `108064017168`, `108064016736`), Database `36132887608` (job `108064016630`), Web `36132887600` (job `108064016934`).
+Verified DD-192 implementation basis `36e2fa9c91aa73aafc1217da69ed62eee6d84eb7` / tree `8efb4c1dc0e13ff303d907866385fdb03e020b18`: **588/588 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36145550258` (jobs `108105690709`, `108105690850`), Database `36145550308` (job `108105690240`), Web `36145550326` (job `108105690919`).
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-191 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent source-owned prerequisite; Provider/Model currentness and complete AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-192 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted relationship; Provider/Model currentness and AI execution remain locked.
 
 

@@ -3113,3 +3113,27 @@ Malformed Document/request identity, scope, generated flag, request binding or s
 
 ### DOCAI-MEDIA-CUR-008 — Bounded semantics
 Provider/Model ids, provenance/moderation/licensing JSON and unrelated request principal/capability/media/prompt/brand/localization/moderation-policy/status/createdAt evidence remain uninterpreted; inputs remain unchanged.
+
+
+## DD-192 Generated Document AIModel/AIProvider Pair Acceptance
+
+### DOCAI-MODEL-CUR-001 — Non-AI rows stay unbound
+A non-AI Document passes only when AI Model/Provider ids and model evidence are absent.
+
+### DOCAI-MODEL-CUR-002 — Exact composite pair
+An AI-generated Document passes when the supplied AIModel id exactly equals `aiModelId` and the model's `providerId` exactly equals `aiProviderId`.
+
+### DOCAI-MODEL-CUR-003 — Missing/wrong model
+Missing model evidence or a mismatched AIModel id fails closed.
+
+### DOCAI-MODEL-CUR-004 — Provider-pair mismatch
+A model whose `providerId` differs from the Document `aiProviderId` fails closed.
+
+### DOCAI-MODEL-CUR-005 — Relevant shape validation
+Malformed Document id/Tenant/optional Industry/generated/model/provider UUID shape or malformed model id/provider pair fails closed.
+
+### DOCAI-MODEL-CUR-006 — Runtime/catalog semantics stay uninterpreted
+Model status/version/capabilities/modalities/residency/sensitivity/cost/latency/metadata are not evaluated and no separate Provider row is required.
+
+### DOCAI-MODEL-CUR-007 — Unrelated provenance stays uninterpreted
+Document MediaRequest/provenance/moderation/licensing evidence does not affect the pair predicate; inputs remain unchanged.

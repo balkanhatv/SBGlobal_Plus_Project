@@ -2690,3 +2690,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-191 does not select/validate Providers or Models; interpret moderation/licensing/provenance; authorize Document access/storage/signed URLs; validate request principal currentness; execute generation, retry/fallback or publication; mutate state; expose transport; or change schema/RLS/roles/grants/product policy.
 
 **Acceptance:** `DOCAI-MEDIA-CUR-001…008` in DD-17 and `tests/core/document-ai-generated-media-request-provenance-floors.test.mjs`.
+
+
+## DD-192 — Generated Document AIModel/AIProvider exact pair may be re-evaluated as a pure persisted relationship floor
+
+**Context:** migration 0031 creates `ai_model_id_provider_uq UNIQUE (id, provider_id)` on `core_ai.ai_model` and the composite foreign key `document_meta_ai_model_provider_fk (ai_model_id, ai_provider_id) → ai_model(id, provider_id)`. The same migration's Document AI-provenance CHECK requires both ids for AI-generated Documents and neither for non-AI Documents. DD-190 exposes the Document-side ids and DD-108 exposes AIModel `id` plus `providerId`.
+
+**Decision:** add pure helper `matchesDocumentAIGeneratedModelProviderBindingFloors(document, model?)`. It validates only relevant Document id/Tenant/optional Industry/generated/model/provider shape, requires no model evidence for non-AI rows, and for AI-generated rows requires exact `model.id === document.aiModelId` plus exact `model.providerId === document.aiProviderId`.
+
+**Security / trade-off:** this helper mirrors only the persisted composite foreign-key relationship. A separate Provider row is not part of the predicate, and Model catalog/runtime fields remain uninterpreted.
+
+**Boundary:** DD-192 does not establish Model or Provider ACTIVE/current/eligible/routable state, provider health/credential/capability/residency/sensitivity policy, budget/quota, moderation/licensing approval, Document ACL/storage authority, generated-media publication or AI execution.
+
+**Acceptance:** `DOCAI-MODEL-CUR-001…007` in DD-17 and `tests/core/document-ai-generated-model-provider-binding-floors.test.mjs`.

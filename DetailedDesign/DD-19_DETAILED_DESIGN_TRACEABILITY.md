@@ -211,3 +211,15 @@ DD-191 → `src/core/document/ai-generated-media-request-provenance-floors.ts` �
 `Registers/DEVELOPMENT_DD191_VERIFICATION_2026-09-25.md`.
 
 This chain claims only the direct generated Document → completed AIMediaRequest persisted relationship floor. Provider/Model currentness, moderation/licensing interpretation, Document ACL/storage authority, request principal currentness and AI execution remain separate.
+
+
+## DD-192 — Generated Document AIModel/AIProvider exact pair
+
+F-05 + A-07 + DD-09 → migration 0031 composite Model/Provider FK →
+`Development/DOCUMENT_AI_MODEL_PROVIDER_PAIR_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-192 → `src/core/document/ai-generated-model-provider-binding-floors.ts` →
+`DOCAI-MODEL-CUR-001…007` →
+`tests/core/document-ai-generated-model-provider-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD192_VERIFICATION_2026-09-25.md`.
+
+This chain claims only the persisted Document `aiModelId` / `aiProviderId` → AIModel `id` / `providerId` exact composite-pair relationship. Provider/Model currentness, routing, capability/residency/sensitivity policy, Document authorization and AI execution remain separate.

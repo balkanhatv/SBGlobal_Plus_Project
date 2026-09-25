@@ -354,3 +354,8 @@ After DD-189 closure, the generated-media provenance relationship audit found a 
 ## 2026-09-25 — DD-191 Generated Document AIMediaRequest provenance floor
 
 After DD-190 exposed the missing raw Document AI-provenance evidence, migration 0031's direct generated Document → completed AIMediaRequest relationship became source-complete. DD-191 adds only a pure Core recheck of exact request id/completion, same Tenant/null-safe Industry, exact residency and sensitivity containment. Exact implementation `8beb7af4aa00d93ed416fa331875c06ea7ec8032` / tree `b6685b9eb34dbfa823f849f3aec2620f70792a48` passed **581/581 Core**, **504/504 PostgreSQL**, database bootstrap, Database Verify and Web build. Provider/Model currentness and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-192 generated Document Model/Provider pair floor
+
+Post-DD-191 source ownership isolated migration 0031's exact Document `ai_model_id,ai_provider_id` → AIModel `id,provider_id` composite relationship as source-complete. Exact implementation `36e2fa9c91aa73aafc1217da69ed62eee6d84eb7` / tree `8efb4c1dc0e13ff303d907866385fdb03e020b18` passed **588/588 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Provider/Model currentness and AI execution remain unclaimed.
