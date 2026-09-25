@@ -384,3 +384,8 @@ Post-DD-195 source ownership isolated migration 0031's TokenUsage `model_id,prov
 ## 2026-09-25 — DD-197 TokenUsage capability-code floor
 
 Post-DD-196 source ownership isolated migration 0012's direct TokenUsage `capability_code` → AICapability `code` foreign-key relationship as source-complete. Exact implementation `a4d12bb3a0683ad218d6b1a5c4bedccafae99cdf` / tree `51d94b76c82aff0be0b946d858f887e36ff3ac51` passed **626/626 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Capability currentness, principal currentness, billing and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-198 AICost TokenUsage binding floor
+
+Post-DD-197 source ownership isolated migration 0012's AICost `usage_id` primary-key/foreign-key relationship to TokenUsage `id` as source-complete. Exact implementation `af98e316fa8bbc4d2bc91c52535741f0674388bf` / tree `32fccff385f9768df655a934df2f211322e14959` passed **632/632 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Pricing, billing/finalization, principal currentness and AI execution remain unclaimed.

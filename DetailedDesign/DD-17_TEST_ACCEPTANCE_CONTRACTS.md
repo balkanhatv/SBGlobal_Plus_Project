@@ -3266,3 +3266,24 @@ Capability status, category, required entitlement, default policy class and sche
 
 ### AIUSAGE-CAP-CUR-007 — Unrelated usage semantics stay uninterpreted
 Principal/model/provider/usage-unit/time/correlation evidence is not evaluated; inputs remain unchanged and a true result grants no authorization, billing or execution authority.
+
+
+## DD-198 AICost TokenUsage Binding Acceptance
+
+### AICOST-USAGE-CUR-001 — Exact usage parent
+A cost row passes when its `usageId` exactly equals the supplied TokenUsage `id`.
+
+### AICOST-USAGE-CUR-002 — Missing/wrong parent fails closed
+Missing TokenUsage evidence or a mismatched TokenUsage id fails closed.
+
+### AICOST-USAGE-CUR-003 — Relevant ids must be valid
+Malformed AICost `usageId` or TokenUsage `id` fails closed.
+
+### AICOST-USAGE-CUR-004 — Cost semantics stay uninterpreted
+Currency, estimated minor units, provider-rate version, billable class and finalized timestamp do not affect this relationship predicate.
+
+### AICOST-USAGE-CUR-005 — Usage semantics stay uninterpreted
+TokenUsage Tenant/Industry/principal/capability/model/provider/units/time/correlation evidence does not affect this relationship predicate.
+
+### AICOST-USAGE-CUR-006 — Bounded/no mutation
+Inputs remain unchanged; a true result grants no pricing, billing, finalization, authorization or AI execution authority.

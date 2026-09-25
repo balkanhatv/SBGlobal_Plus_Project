@@ -283,3 +283,15 @@ DD-197 → `src/core/ai/token-usage-capability-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD197_VERIFICATION_2026-09-25.md`.
 
 This chain claims only exact persisted TokenUsage capability-code → AICapability code continuity. Capability currentness, entitlement/policy, routing, principal currentness, billing and AI execution remain separate.
+
+
+## DD-198 — AICost exact TokenUsage parent binding
+
+F-05 + A-07 + DD-09 → migration 0012 AICost usage PK/FK →
+`Development/AI_COST_TOKEN_USAGE_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-198 → `src/core/ai/cost-token-usage-binding-floors.ts` →
+`AICOST-USAGE-CUR-001…006` →
+`tests/core/ai-cost-token-usage-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD198_VERIFICATION_2026-09-25.md`.
+
+This chain claims only AICost `usageId` → TokenUsage `id` exact persisted parent continuity. Pricing, billing/finalization, principal/catalog eligibility and AI execution remain separate.

@@ -335,3 +335,10 @@ Implementation `a4d12bb3a0683ad218d6b1a5c4bedccafae99cdf` / tree `51d94b76c82aff
 
 ## 2026-09-25 — DD-197 promotion exact-head verified / closure staged
 Canonical DD-197 promotion `9dcd28bb1db8bd3aa547fcba89f858b66a417646` / tree `4bd47e39825df89f0e0ef4ed0b09a917af92ebea` passed exact-head **626 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-25 — DD-198 prerequisite selection
+Migration 0012's AICost `usage_id` PK/FK → TokenUsage `id` relationship is source-complete from DD-123 plus DD-122.
+
+## 2026-09-25 — DD-198 canonical promotion / checkpoint advance
+Implementation `af98e316fa8bbc4d2bc91c52535741f0674388bf` / tree `32fccff385f9768df655a934df2f211322e14959` passed exact-head **632 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-198 promotes only exact usage-id parent continuity.

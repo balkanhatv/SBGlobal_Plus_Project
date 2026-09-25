@@ -2768,3 +2768,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-197 does not establish capability ACTIVE/current/eligible state, entitlement or policy satisfaction, Tenant/Industry allowlisting, model/provider compatibility, routing/fallback, principal currentness, quota/budget, cost/billing, provider credentials/health or AI execution.
 
 **Acceptance:** `AIUSAGE-CAP-CUR-001…007` in DD-17 and `tests/core/ai-token-usage-capability-binding-floors.test.mjs`.
+
+
+## DD-198 — AICost exact TokenUsage parent binding may be re-evaluated as a pure persisted foreign-key floor
+
+**Context:** migration 0012 defines `core_ai.ai_cost.usage_id uuid PRIMARY KEY REFERENCES core_ai.token_usage(id)`. DD-123 exposes AICost `usageId`; DD-122 exposes TokenUsage `id`. No later migration adds a stronger AICost → TokenUsage business predicate.
+
+**Decision:** add pure helper `matchesAICostTokenUsageBindingFloors(cost, usage?)`. It validates only AICost `usageId` and TokenUsage `id` as UUIDs and requires exact equality.
+
+**Security / trade-off:** this helper mirrors only the persisted primary-key/foreign-key relationship. AICost FORCE-RLS visibility remains persistence-owned and is not reinterpreted as new Core authority.
+
+**Boundary:** DD-198 does not establish pricing correctness, provider-rate applicability/currentness, currency conversion, billability, cost finalization, invoice/tax/payment/ledger authority, TokenUsage principal currentness, capability/model/provider eligibility, quota/budget or AI execution authority.
+
+**Acceptance:** `AICOST-USAGE-CUR-001…006` in DD-17 and `tests/core/ai-cost-token-usage-binding-floors.test.mjs`.
