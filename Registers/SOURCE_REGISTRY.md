@@ -39,8 +39,8 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 DD-195 implements only the RAGChunk → embedding AIModel current eligibility floor: exact model id, raw ACTIVE status and sufficient sensitivity ceiling. Provider currentness/routing, source/document ACL, RAG retrieval/grounding and AI execution remain outside this checkpoint.
 
-Verified DD-195 implementation basis `d3662e751dfeb07c68d4a09247ee42696b67f2ff` / tree `37673bf79975c33c90ac3ff85cd69995218fdff9`: **612/612 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36154663053` (jobs `108136162760`, `108136162517`), Database `36154663061` (job `108136162650`), Web `36154663048` (job `108136162804`).
+Verified canonical DD-195 promotion `86d2ff17963374f2274293c822c9f69428f7bcbb` / tree `ead643a6807f224ffe394624b33e582d8720e0a1`: **612/612 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36155996203` (jobs `108140558057`, `108140558676`), Database `36155996177` (job `108140558352`), Web `36155996311` (job `108140558739`).
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-195 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted RAG/AI relationship; provider routing, RAG retrieval and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-195 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted RAG/AI relationship; provider routing, RAG retrieval and AI execution remain locked.
 
 

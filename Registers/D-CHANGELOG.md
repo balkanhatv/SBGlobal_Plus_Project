@@ -309,3 +309,7 @@ Migration 0031's RAGChunk → embedding AIModel exact-id/ACTIVE/sensitivity-ceil
 
 ## 2026-09-25 — DD-195 canonical promotion / checkpoint advance
 Implementation `d3662e751dfeb07c68d4a09247ee42696b67f2ff` / tree `37673bf79975c33c90ac3ff85cd69995218fdff9` passed exact-head **612 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-195 promotes only this embedding-model eligibility floor.
+
+
+## 2026-09-25 — DD-195 promotion exact-head verified / closure staged
+Canonical DD-195 promotion `86d2ff17963374f2274293c822c9f69428f7bcbb` / tree `ead643a6807f224ffe394624b33e582d8720e0a1` passed exact-head **612 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
