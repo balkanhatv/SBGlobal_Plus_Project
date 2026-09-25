@@ -3164,3 +3164,30 @@ For all known classes, RAGSource sensitivity rank must be greater than or equal 
 
 ### RAGSRC-DOC-CUR-008 — Relevant shapes fail closed; unrelated semantics stay raw
 Malformed relevant identity/version/scope evidence fails; unrelated RAGSource/Document fields remain uninterpreted and inputs are not mutated.
+
+
+## DD-194 RAGChunk Parent RAGSource Binding Acceptance
+
+### RAGCHUNK-SRC-CUR-001 — Exact parent bindings
+Exact Tenant-Industry and Tenant-Core chunk/source parent relationships pass.
+
+### RAGCHUNK-SRC-CUR-002 — Missing/wrong parent fails closed
+Missing source evidence or a mismatched parent source id fails closed.
+
+### RAGCHUNK-SRC-CUR-003 — Ownership/scope mismatch fails closed
+Tenant, null-safe Industry Context or scope-class mismatch fails.
+
+### RAGCHUNK-SRC-CUR-004 — Residency is exact
+Residency equality is byte-for-byte; trimming, case-folding or fallback is not authorized.
+
+### RAGCHUNK-SRC-CUR-005 — Retention is exact
+Retention-class equality is byte-for-byte; normalization/fallback is not authorized.
+
+### RAGCHUNK-SRC-CUR-006 — Sensitivity cannot be downgraded
+For all known classes, RAGChunk sensitivity rank must be greater than or equal to parent RAGSource sensitivity rank; unknown classes fail closed.
+
+### RAGCHUNK-SRC-CUR-007 — Relevant shape validation
+Malformed chunk/source identity, ownership, scope, residency, retention or sensitivity shape fails closed.
+
+### RAGCHUNK-SRC-CUR-008 — Unrelated semantics stay uninterpreted
+Chunk ordinal/text/hash/token/ACL/embedding/version/metadata and source status/document/resource/ACL/version/chunking evidence do not affect this predicate; inputs remain unchanged.

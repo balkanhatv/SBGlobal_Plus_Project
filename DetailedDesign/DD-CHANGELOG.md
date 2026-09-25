@@ -364,3 +364,8 @@ Post-DD-191 source ownership isolated migration 0031's exact Document `ai_model_
 ## 2026-09-25 — DD-193 RAGSource Document binding floor
 
 Post-DD-192 source ownership isolated migration 0031's optional RAGSource → DocumentMeta relationship as source-complete. Exact implementation `7cdcf9304eb540f722dce36407a076d7ea698a64` / tree `cf10ade82baae9079317334b6fb8e891d700aa05` passed **596/596 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Document ACL, RAG retrieval and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-194 RAGChunk parent RAGSource floor
+
+Post-DD-193 source ownership isolated migration 0031's direct RAGChunk → parent RAGSource continuity relationship as source-complete. Exact implementation `2a93610cc3014824ebb8c63c7c71f533999bdf52` / tree `044ce2585c4dfe85c9434f33c4bae1f3ce6a1ff6` passed **604/604 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Embedding-model eligibility, RAG retrieval and AI execution remain unclaimed.

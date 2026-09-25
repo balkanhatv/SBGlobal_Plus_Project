@@ -2716,3 +2716,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-193 does not establish Document ACL/storage authorization, source-resource existence/currentness, retention/legal-hold, chunking, RAGChunk currentness, embedding-model eligibility, vector/FTS retrieval, ranking/reranking, grounding/citation, prompt-injection defenses, provider/model routing or AI execution.
 
 **Acceptance:** `RAGSRC-DOC-CUR-001…008` in DD-17 and `tests/core/ai-rag-source-document-binding-floors.test.mjs`.
+
+
+## DD-194 — RAGChunk parent RAGSource scope/security continuity may be re-evaluated as a pure persisted relationship floor
+
+**Context:** migration 0031 validates every RAGChunk against its parent RAGSource: exact source id, Tenant, null-safe Industry Context, scope class, residency and retention class must match, and chunk sensitivity must be at least the parent source sensitivity. DD-128 exposes all chunk-side evidence and DD-127 exposes all parent-source evidence.
+
+**Decision:** add pure helper `matchesAIRAGChunkSourceBindingFloors(chunk, source?)`. It requires valid relevant identity/scope/security shape, exact source id/Tenant/null-safe Industry/scope/residency/retention equality, and chunk sensitivity rank >= source sensitivity rank.
+
+**Security / trade-off:** this helper mirrors only migration 0031's persisted parent relationship. It does not evaluate source lifecycle/currentness, source→Document validity, ACL, embedding-model eligibility or retrieval policy.
+
+**Boundary:** DD-194 does not establish RAGSource status/currentness, Document ACL, source-resource currentness, retention execution/legal hold, chunk dedup/reindex/currentness, embedding-model eligibility, vector/FTS retrieval, ranking/reranking, grounding/citation, prompt-injection defense, provider/model routing or AI execution.
+
+**Acceptance:** `RAGCHUNK-SRC-CUR-001…008` in DD-17 and `tests/core/ai-rag-chunk-source-binding-floors.test.mjs`.

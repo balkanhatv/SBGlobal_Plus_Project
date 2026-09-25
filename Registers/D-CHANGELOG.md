@@ -291,3 +291,10 @@ Implementation `7cdcf9304eb540f722dce36407a076d7ea698a64` / tree `cf10ade82baae9
 
 ## 2026-09-25 — DD-193 promotion exact-head verified / closure staged
 Canonical DD-193 promotion `c5eea99d3c20aea2f0021323bdfb800cb4c96b77` / tree `0493ec6646c60b70794d0c6ad87c5dc95f9cffdf` passed exact-head **596 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-25 — DD-194 prerequisite selection
+Migration 0031's direct RAGChunk → parent RAGSource id/Tenant/null-safe Industry/scope/residency/retention/sensitivity continuity relationship is source-complete from DD-128 plus DD-127.
+
+## 2026-09-25 — DD-194 canonical promotion / checkpoint advance
+Implementation `2a93610cc3014824ebb8c63c7c71f533999bdf52` / tree `044ce2585c4dfe85c9434f33c4bae1f3ce6a1ff6` passed exact-head **604 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-194 promotes only this parent continuity floor.

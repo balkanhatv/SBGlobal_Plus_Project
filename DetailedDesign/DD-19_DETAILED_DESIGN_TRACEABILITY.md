@@ -235,3 +235,15 @@ DD-193 → `src/core/ai/rag-source-document-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD193_VERIFICATION_2026-09-25.md`.
 
 This chain claims only the optional RAGSource → DocumentMeta exact id/version/scope/ACTIVE-CLEAN/sensitivity/residency relationship. Document ACL, retrieval, grounding, embedding and AI execution remain separate.
+
+
+## DD-194 — RAGChunk parent RAGSource scope/security continuity
+
+F-05 + A-07 + DD-09 → migration 0031 RAGChunk parent-integrity trigger →
+`Development/RAG_CHUNK_SOURCE_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-194 → `src/core/ai/rag-chunk-source-binding-floors.ts` →
+`RAGCHUNK-SRC-CUR-001…008` →
+`tests/core/ai-rag-chunk-source-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD194_VERIFICATION_2026-09-25.md`.
+
+This chain claims only direct RAGChunk → parent RAGSource id/Tenant/null-safe Industry/scope/residency/retention/sensitivity continuity. Embedding-model eligibility, ACL, retrieval, grounding and AI execution remain separate.
