@@ -3086,3 +3086,30 @@ The port exposes no create/update/delete/generate/moderate/publish/execute opera
 
 ### DOCAIPROV-PG-007 — Raw evidence is not runtime authority
 Raw provenance does not prove MediaRequest completion/currentness, Provider/Model currentness, moderation/licensing approval, publication, Document ACL/storage access or AI execution authority.
+
+
+## DD-191 Generated Document AIMediaRequest Provenance Acceptance
+
+### DOCAI-MEDIA-CUR-001 — Non-AI rows stay unbound
+A non-AI Document with no MediaRequest binding/evidence matches; unexpected request binding or evidence fails closed.
+
+### DOCAI-MEDIA-CUR-002 — Exact completed same-scope binding
+An AI-generated Document matches an exact completed MediaRequest in the same Tenant and null-safe Industry scope, including Tenant-Core.
+
+### DOCAI-MEDIA-CUR-003 — Required completed request evidence
+Missing request evidence, wrong request id, or absent/invalid completion evidence fails closed.
+
+### DOCAI-MEDIA-CUR-004 — Tenant/Industry isolation
+Foreign Tenant, sibling Industry, and null-versus-present Industry mismatch fail closed.
+
+### DOCAI-MEDIA-CUR-005 — Exact residency
+Generated Document residency and MediaRequest residency requirement must be exactly equal; no normalization/fallback is authorized.
+
+### DOCAI-MEDIA-CUR-006 — Sensitivity containment
+Known sensitivity classes obey PUBLIC < INTERNAL < CONFIDENTIAL < SENSITIVE_PERSONAL < REGULATED and generated Document rank must be at least the request rank.
+
+### DOCAI-MEDIA-CUR-007 — Malformed relevant shape
+Malformed Document/request identity, scope, generated flag, request binding or sensitivity shape fails closed.
+
+### DOCAI-MEDIA-CUR-008 — Bounded semantics
+Provider/Model ids, provenance/moderation/licensing JSON and unrelated request principal/capability/media/prompt/brand/localization/moderation-policy/status/createdAt evidence remain uninterpreted; inputs remain unchanged.

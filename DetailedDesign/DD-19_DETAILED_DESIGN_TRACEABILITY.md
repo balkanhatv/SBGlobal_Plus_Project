@@ -199,3 +199,15 @@ DD-190 → `src/core/document/ai-generated-provenance.ts` +
 `Registers/DEVELOPMENT_DD190_VERIFICATION_2026-09-25.md`.
 
 This chain claims only exact raw persisted Document AI provenance evidence under the existing Document FORCE-RLS boundary. Generated Document → completed AIMediaRequest validation, Provider/Model currentness, moderation/licensing decisions, Document authorization/storage access and AI execution remain separate.
+
+
+## DD-191 — Generated Document direct AIMediaRequest provenance
+
+F-05 + A-07 + DD-08/DD-09 + DD-125 + DD-190 + migration 0031 →
+`Development/DOCUMENT_AI_GENERATED_MEDIA_REQUEST_PROVENANCE_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-191 → `src/core/document/ai-generated-media-request-provenance-floors.ts` →
+`DOCAI-MEDIA-CUR-001…008` →
+`tests/core/document-ai-generated-media-request-provenance-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD191_VERIFICATION_2026-09-25.md`.
+
+This chain claims only the direct generated Document → completed AIMediaRequest persisted relationship floor. Provider/Model currentness, moderation/licensing interpretation, Document ACL/storage authority, request principal currentness and AI execution remain separate.

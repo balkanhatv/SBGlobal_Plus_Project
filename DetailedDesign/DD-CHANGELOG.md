@@ -349,3 +349,8 @@ After DD-188, migration 0031's independent AIMediaRequest `input_document_refs` 
 ## 2026-09-25 — DD-190 Document AI-generated provenance raw reader
 
 After DD-189 closure, the generated-media provenance relationship audit found a missing evidence prerequisite: DD-082/DD-083 intentionally omit DocumentMeta's migration-0031 `ai_*` columns. DD-190 adds only a raw exact read contract and PostgreSQL adapter through the existing Document FORCE-RLS boundary. Exact implementation `4fa07cab31cfa5b67939c007e95c27842c93ed6b` / tree `807bd258e46c461412749e5ac833dd6a34939daa` passed **573/573 Core**, **504/504 PostgreSQL**, database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Generated Document → completed AIMediaRequest validation and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-191 Generated Document AIMediaRequest provenance floor
+
+After DD-190 exposed the missing raw Document AI-provenance evidence, migration 0031's direct generated Document → completed AIMediaRequest relationship became source-complete. DD-191 adds only a pure Core recheck of exact request id/completion, same Tenant/null-safe Industry, exact residency and sensitivity containment. Exact implementation `8beb7af4aa00d93ed416fa331875c06ea7ec8032` / tree `b6685b9eb34dbfa823f849f3aec2620f70792a48` passed **581/581 Core**, **504/504 PostgreSQL**, database bootstrap, Database Verify and Web build. Provider/Model currentness and AI execution remain unclaimed.

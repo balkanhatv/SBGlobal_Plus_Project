@@ -262,3 +262,10 @@ Post-DD-189 source audit determined that generated Document → AIMediaRequest p
 
 ## 2026-09-25 — DD-190 canonical promotion / checkpoint advance
 Exact implementation `4fa07cab31cfa5b67939c007e95c27842c93ed6b` / tree `807bd258e46c461412749e5ac833dd6a34939daa` passed **573 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-190 promotes only raw persistence evidence under existing Document FORCE-RLS. Generated Document → completed AIMediaRequest validation, Provider/Model currentness and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-191 prerequisite selection
+Post-DD-190 source audit selected migration 0031's direct generated Document → completed AIMediaRequest relationship as source-complete: exact request id/completion, same Tenant/null-safe Industry, exact residency and generated-Document sensitivity at least request sensitivity.
+
+## 2026-09-25 — DD-191 canonical promotion / checkpoint advance
+Exact implementation `8beb7af4aa00d93ed416fa331875c06ea7ec8032` / tree `b6685b9eb34dbfa823f849f3aec2620f70792a48` passed **581 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-191 promotes only the direct persisted MediaRequest provenance floor. Provider/Model currentness, moderation/licensing interpretation, Document authorization/storage and AI execution remain unclaimed.

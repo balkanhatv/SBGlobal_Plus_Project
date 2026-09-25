@@ -2677,3 +2677,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-190 does not validate the referenced MediaRequest's completion/current scope/sensitivity/residency; select/validate current Provider or Model; interpret provenance/moderation/licensing JSON; authorize Document ACL/storage/signed access; generate, moderate or publish media; compose DD-188/DD-189; expose a route; or change schema/RLS/roles/grants/product policy.
 
 **Acceptance:** `DOCAIPROV-PG-001…007` in DD-17 and `tests/postgres/document-ai-generated-provenance-store.test.mjs`.
+
+
+## DD-191 — Generated Document direct AIMediaRequest provenance may be re-evaluated as a pure persisted relationship floor
+
+**Context:** migration 0031 validates an AI-generated Document against its referenced AIMediaRequest: exact request id, non-null completion, same Tenant, null-safe exact Industry Context, exact residency equality and generated-Document sensitivity rank at least the request sensitivity rank. DD-125 exposes the MediaRequest side and DD-190 exposes the missing Document AI-provenance side.
+
+**Decision:** add pure Core helper `matchesDocumentAIGeneratedMediaRequestProvenanceFloors(document, mediaRequest?)`. Non-AI Documents require no request binding/evidence. AI-generated Documents require valid exact request evidence with completion present, same Tenant/null-safe Industry, exact residency and source-owned sensitivity containment.
+
+**Security / trade-off:** the helper mirrors only the migration-owned direct persisted relationship. It deliberately ignores Provider/Model currentness, provenance/moderation/licensing JSON meaning, Document ACL/storage authorization, request principal currentness and media-generation/publication runtime semantics.
+
+**Boundary:** DD-191 does not select/validate Providers or Models; interpret moderation/licensing/provenance; authorize Document access/storage/signed URLs; validate request principal currentness; execute generation, retry/fallback or publication; mutate state; expose transport; or change schema/RLS/roles/grants/product policy.
+
+**Acceptance:** `DOCAI-MEDIA-CUR-001…008` in DD-17 and `tests/core/document-ai-generated-media-request-provenance-floors.test.mjs`.
