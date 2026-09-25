@@ -130,6 +130,7 @@ export * from "./ai/industry-config.js";
 export * from "./ai/conversation.js";
 export * from "./ai/conversation-assistant-binding-floors.js";
 export * from "./ai/message.js";
+export * from "./ai/message-conversation-binding-floors.js";
 export * from "./ai/token-usage.js";
 export * from "./ai/token-usage-model-provider-binding-floors.js";
 export * from "./ai/token-usage-capability-binding-floors.js";
