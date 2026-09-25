@@ -3012,3 +3012,26 @@ Memory-class mismatch or malformed relevant child/parent identity, owner, scope,
 
 ### AIMEM-SUP-CUR-007 — Lifecycle/policy/deeper-chain semantics remain uninterpreted
 Status, content/source, sensitivity, retention, ACL, AssistantDefinition, timestamps, expiry and deeper supersession-chain evidence do not create or remove acceptance; inputs remain unchanged.
+
+## DD-188 AIMediaRequest PromptTemplate Binding Acceptance
+
+### AIMEDIA-PROMPT-CUR-001 — Unbound request
+No prompt id requires no version and no evidence.
+
+### AIMEDIA-PROMPT-CUR-002 — PLATFORM owner
+Exact ACTIVE PLATFORM id/version applies to Tenant Core and Industry requests.
+
+### AIMEDIA-PROMPT-CUR-003 — TENANT owner
+Exact ACTIVE TENANT id/version applies only within its Tenant.
+
+### AIMEDIA-PROMPT-CUR-004 — INDUSTRY owner
+Exact ACTIVE INDUSTRY id/version requires same Tenant and exact present Industry Context.
+
+### AIMEDIA-PROMPT-CUR-005 — Binding mismatch
+Wrong id/version/status or missing bound evidence fails closed.
+
+### AIMEDIA-PROMPT-CUR-006 — Malformed ownership
+Invalid relevant UUIDs/owner/version shape, orphan version and unexpected evidence fail closed.
+
+### AIMEDIA-PROMPT-CUR-007 — Bounded semantics
+Principal/document/brand/localization/sensitivity/residency/moderation/status/completion/prompt-content semantics stay uninterpreted; inputs are unchanged.

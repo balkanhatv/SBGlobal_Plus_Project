@@ -1,16 +1,17 @@
-# DATABASE CHECKPOINT — DEV-API-REST-001
-**Date:** 2026-09-21
+# DATABASE CHECKPOINT
+**Current checkpoint:** `DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001`
+**Updated:** 2026-09-25 · **Branch:** `docs/architecture-branch-2`
 
-Verified executable `ce4708eec15f6b0a35ae9a77d13505221fe55d51` / `9655553773e2b1f63ba1e36a479ef3d574ec6077`.
+DD-188 implements only optional AIMediaRequest → PromptTemplate exact id/version/ACTIVE/owner-scope binding. Missing, foreign or malformed binding evidence fails closed. A true result grants no principal/document access, prompt rendering, moderation or AI execution authority.
 
-- PostgreSQL run **35615703204**, job **106385722171**: **65/65 PASS**, zero fail/skip; clean bootstrap **47 migrations / 41 verification files PASS**.
-- Database Verify run **35615703227**, job **106385722227**: **PASS**, exact PR-head checkout.
-- Both logs assert the exact executable commit/tree and all 88 SQL filenames.
-- DD-080 changes no SQL, migration, RLS, database role or privilege.
-- **9 Industries / 41 MS / 181 registered Industry tables** remain verified.
+Verified implementation basis `35ffce1cd8d079596b79452e1b5a117ebcd541c0` / tree `a494cd6f4ca3cc07c74becff0cb4208091b29f7a`: **563/563 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36118205299` (jobs `108017179259`, `108017179365`), Database `36118205364` (job `108017179491`), Web `36118205303` (job `108017179189`).
 
-Production upgrade/rollback, load/penetration and recovery exercises remain unfinished.
+Canonical promotion and state reconciliation are in this forward-only change. Its own exact-head CI must pass independently; the hashes above name already-observed evidence, never a self-referential commit.
 
-Evidence: `Registers/DEVELOPMENT_DD080_VERIFICATION_2026-09-21.md`.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-RawSource accepted blobs unchanged; main remains `3911590ff2020993ce51b32d7b091efd6f5f466f`; PR #2 open draft/unmerged. The checkpoint/promotion commit must independently pass exact-head CI; this document names its already-verified executable basis, not a recursive self-hash.
+Next: Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.
+
+Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
+
+Database evidence is clean bootstrap plus bounded real PostgreSQL acceptance, not production upgrade, rollback, load, penetration, recovery or operational certification. No migration, RLS, role or grant changes are introduced.

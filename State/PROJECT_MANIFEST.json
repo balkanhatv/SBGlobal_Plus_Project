@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-25",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001",
-  "final_verdict": "DD-186 AIMEMORY ASSISTANT CURRENT-BINDING FLOOR PROMOTED / EXACT-HEAD TESTED; DD-187 SUPERSESSION-CONTINUITY IMPLEMENTED BUT PROMOTION BLOCKED BY GITHUB ACTIONS STARTUP_FAILURE",
+  "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
+  "final_verdict": "DD-188 implementation exact-head PASS; canonical promotion/state reconciliation requires its own exact-head CI",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD186_VERIFIED_DD187_PENDING_PROMOTION",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD188_CANONICAL",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD186_VERIFIED_DD187_IMPLEMENTED_UNVERIFIED",
+    "development": "IN_PROGRESS_DD188_IMPLEMENTATION_VERIFIED_PROMOTION_CI_PENDING",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "CURRENT_VERIFIED_DD040_DD186_BOUNDED_CORE_AI_BOUNDARIES; DD187_IMPLEMENTED_AWAITING_EXACT_HEAD_CI"
+    "core_services": "DD040_DD188_BOUNDED_IMPLEMENTATION_VERIFIED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "c354aa1422c68a5e0ef2a2b96e28f6384da0e102",
-    "verified_code_tree": "0262e2f2c33c2ab0beabdc432b232fb3eead1a39",
-    "state_projection_basis_head": "c354aa1422c68a5e0ef2a2b96e28f6384da0e102",
+    "verified_code_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
+    "verified_code_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
+    "state_projection_basis_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -346,47 +346,13 @@
       "web_job_id": 107717146107,
       "result": "PASS_EXACT_PROMOTION_HEAD"
     },
-    "dd187_candidate": {
-      "status": "IMPLEMENTED_NOT_PROMOTED",
-      "source_audit_head": "9ac0fafee7ad3e07ef812edf5a7265bf0af14fe2",
-      "implementation_head": "b00d4baf05ac41d0733dc03633ef2ceccd50f441",
-      "export_repair_head": "b006b661003d7abcd79ec65eb70b34f0ddf01046",
-      "export_repair_tree": "b759f16ca5e584476a405704a3196137f0f6d14e",
-      "verification_register": "Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md",
-      "ci": {
-        "core_run_id": 36087318787,
-        "core_job_id": 107921994777,
-        "postgres_job_id": 107921995000,
-        "database_run_id": 36087318794,
-        "database_job_id": 107921994740,
-        "web_run_id": 36087318792,
-        "web_job_id": 107921994704,
-        "result": "STARTUP_FAILURE_NO_REPOSITORY_STEPS_EXECUTED"
-      },
-      "promotion_allowed": false,
-      "next_action": "Restore successful GitHub Actions startup, exact-head verify DD-187, then promote only on PASS."
-    },
-    "repository_full_name": "yadavjalsingh192/SBGlobal_Plus_Project",
-    "actions_reverification": {
-      "smoke_head": "09b5f67a5f49120ecd9496d1fa8007c80e872b2e",
-      "smoke_run_id": 36113190896,
-      "smoke_job_id": 108001111316,
-      "smoke_result": "PASS_GITHUB_HOSTED_RUNNER_STARTED_AND_COMPLETED",
-      "smoke_cleanup_head": "022cd58f7faa53d074ba25adfc626882ec642320",
-      "trigger_reason": "Fresh exact-head verification after GitHub Actions startup recovery; no product semantics changed.",
-      "required_workflows": [
-        "Core Service Verify",
-        "Database Verify",
-        "Web Boundary Verify"
-      ],
-      "promotion_rule": "DD-187 remains unpromoted until all required exact-head workflows PASS."
-    }
+    "repository_full_name": "balkanhatv/SBGlobal_Plus_Project"
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DD-187 AIMemoryRecord supersession-continuity canonically promoted and exact-head verified",
+    "current_phase": "DEVELOPMENT_DD188_PROMOTION_EXACT_HEAD_CI_PENDING",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -401,9 +367,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "69fd07ab465cf34c80d8f9771fd3ccf74cefe0de",
-      "ci_run_id": 36116578751,
-      "ci_job_id": 108011985834,
+      "ci_verified_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
+      "ci_run_id": 36118205364,
+      "ci_job_id": 108017179491,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -413,9 +379,9 @@
         "deployment",
         "load/penetration/restore exercise"
       ],
-      "ci_event": "push",
+      "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "0e007eb532c7b9871beea3ef46fcaf3513c6ee6b",
+      "ci_verified_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -423,10 +389,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "69fd07ab465cf34c80d8f9771fd3ccf74cefe0de",
-      "feature_head_bootstrap_verified_tree": "0e007eb532c7b9871beea3ef46fcaf3513c6ee6b",
-      "feature_head_bootstrap_run_id": 36116578764,
-      "feature_head_bootstrap_job_id": 108011985976,
+      "feature_head_bootstrap_verified_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
+      "feature_head_bootstrap_verified_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
+      "feature_head_bootstrap_run_id": 36118205299,
+      "feature_head_bootstrap_job_id": 108017179365,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -435,27 +401,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Source-audit AIMemoryRecord optional principal currentness as the next independent migration-0031 persisted predicate. Do not infer current/latest-memory selection, supersession-chain resolution, retention/ACL or AI runtime execution semantics.",
+    "next_action": "Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.",
     "core_services": {
-      "checkpoint": "DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001",
+      "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–187 bounded implementation; DD-187 AIMemoryRecord direct supersession-continuity floor only",
-      "verified_head": "69fd07ab465cf34c80d8f9771fd3ccf74cefe0de",
-      "verified_tree": "0e007eb532c7b9871beea3ef46fcaf3513c6ee6b",
-      "core_ci_run_id": 36116578764,
-      "core_ci_job_id": 108011986202,
-      "tests": "556/556 PASS",
+      "decision": "DD-040–188 bounded implementation",
+      "verified_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
+      "verified_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
+      "core_ci_run_id": 36118205299,
+      "core_ci_job_id": 108017179259,
+      "tests": "563/563 PASS",
       "core_test_counts": {
-        "tests": 556,
-        "pass": 556,
+        "tests": 563,
+        "pass": 563,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36116578764,
-      "postgres_ci_job_id": 108011985976,
+      "postgres_ci_run_id": 36118205299,
+      "postgres_ci_job_id": 108017179365,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -464,8 +430,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36116578751,
-      "database_regression_job_id": 108011985834,
+      "database_regression_run_id": 36118205364,
+      "database_regression_job_id": 108017179491,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -784,7 +750,8 @@
         "DD-184 AgentApproval parent/scope necessary floor",
         "DD-185 AIConversation AssistantDefinition current-binding necessary floor",
         "DD-186 AIMemoryRecord AssistantDefinition current-binding necessary floor",
-        "DD-187 AIMemoryRecord direct supersession-continuity necessary floor"
+        "DD-187 AIMemoryRecord direct supersession-continuity necessary floor",
+        "DD-188 direct optional AIMediaRequest PromptTemplate id/version/ACTIVE/scope binding floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -910,7 +877,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Source-audit AIMemoryRecord optional principal currentness as the next independent migration-0031 persisted predicate. Do not infer current/latest-memory selection, supersession-chain resolution, retention/ACL or AI runtime execution semantics.",
+      "next_action": "Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -918,7 +885,7 @@
       "promotion_invariant_gate_unique_dd": 109,
       "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
-    "application_api_ui_scope_note": "The DD-107 provider and DD-108 model exact-by-id catalog metadata readers are implemented/tested through the dedicated AI Gateway role; provider/model selection, routing, execution and product UI remain unfinished.",
+    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-188. Full product UI, industry services and AI execution remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -1002,17 +969,9 @@
         "requirements_preserved": 2962,
         "unique_dd_definitions": 108
       }
-    },
-    "dd187_current_feature_verification_projection": {
-      "checkpoint": "DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001",
-      "verified_head": "69fd07ab465cf34c80d8f9771fd3ccf74cefe0de",
-      "verified_tree": "0e007eb532c7b9871beea3ef46fcaf3513c6ee6b",
-      "evidence": "Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md",
-      "status": "IMPLEMENTED_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED",
-      "main_merge": false
     }
   },
-  "current_phase": "DEVELOPMENT_AI_MEMORY_ASSISTANT_CURRENT_BINDING_VERIFIED",
+  "current_phase": "DEVELOPMENT_DD188_PROMOTION_EXACT_HEAD_CI_PENDING",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1044,29 +1003,29 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001",
-    "verified_code_head": "c354aa1422c68a5e0ef2a2b96e28f6384da0e102",
-    "verified_code_tree": "0262e2f2c33c2ab0beabdc432b232fb3eead1a39",
-    "source_audit": "Development/AI_MEMORY_ASSISTANT_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD186_VERIFICATION_2026-09-24.md",
-    "next_action": "Source-audit AIMemoryRecord supersession continuity. Do not infer principal currentness, current-memory selection, retention/ACL or AI runtime execution semantics.",
+    "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
+    "verified_code_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
+    "verified_code_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
+    "source_audit": "Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md",
+    "next_action": "Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001",
-    "verified_executable_basis": "69fd07ab465cf34c80d8f9771fd3ccf74cefe0de",
-    "verified_executable_tree": "0e007eb532c7b9871beea3ef46fcaf3513c6ee6b",
-    "current_verification": "Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md",
-    "scope": "DD-187 AIMemoryRecord direct optional supersession-continuity floor only"
+    "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
+    "verified_executable_basis": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
+    "verified_executable_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
+    "current_verification": "Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md",
+    "scope": "DD-188 implements only optional AIMediaRequest → PromptTemplate exact id/version/ACTIVE/owner-scope binding. Missing, foreign or malformed binding evidence fails closed. A true result grants no principal/document access, prompt rendering, moderation or AI execution authority."
   },
   "current_state_audit": {
-    "date": "2026-09-24",
-    "audited_baseline_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
-    "audited_baseline_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
+    "date": "2026-09-25",
+    "audited_baseline_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
+    "audited_baseline_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
     "baseline_inventory": {
-      "blobs": 796,
-      "migrations": 47,
-      "verification_files": 41
+      "blobs": 899,
+      "migrations": 48,
+      "verification_files": 42
     },
     "industries": 9,
     "canonical_management_systems": 41,
@@ -1076,35 +1035,45 @@
       "TENANT_STAFF_APP",
       "TENANT_USER_APP"
     ],
-    "found": {
-      "p0": 0,
-      "p1": 1,
-      "p2": 1
-    },
-    "corrected": [
-      "CURRENT_STATE_PROJECTION_DRIFT",
-      "DD163_PROMOTION_EVIDENCE_FUTURE_TENSE",
-      "SOURCE_TITLE_PROVENANCE_ALIAS"
+    "report": "Registers/VISION_CENTRIC_AUDIT_2026-09-25.md",
+    "coverage": "Registers/VISION_CENTRIC_FILE_COVERAGE_2026-09-25.json",
+    "scope": "Complete tracked-file content inventory/static triage; authoritative-strata and implemented trust-boundary review; exact-HEAD CI. Not exhaustive manual semantic certification of every line or future product scope.",
+    "findings": [
+      "VC25-01 incomplete DD-188 canonical promotion",
+      "VC25-02 stale contradictory active state and repository identity"
     ],
-    "report": "Registers/VISION_CENTRIC_AUDIT_2026-09-24.md",
-    "scope": "Recursive current-tree inventory plus authoritative-strata reconciliation, invariant/SQL/CI verification and targeted implemented-boundary inspection; not full product/production certification"
+    "status": "TARGETED_RECONCILIATION_PENDING_EXACT_HEAD_CI"
   },
   "current_feature_verification": {
-    "decision": "DD-187 AIMemoryRecord Supersession-Continuity Floor",
-    "checkpoint": "DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001",
-    "verified_head": "69fd07ab465cf34c80d8f9771fd3ccf74cefe0de",
-    "verified_tree": "0e007eb532c7b9871beea3ef46fcaf3513c6ee6b",
+    "decision_id": "DD-188",
+    "decision": "DD-188 AIMediaRequest PromptTemplate binding floor",
+    "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
+    "verified_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
+    "verified_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
+    "source_audit": "Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "acceptance_ids": [
+      "AIMEDIA-PROMPT-CUR-001",
+      "AIMEDIA-PROMPT-CUR-002",
+      "AIMEDIA-PROMPT-CUR-003",
+      "AIMEDIA-PROMPT-CUR-004",
+      "AIMEDIA-PROMPT-CUR-005",
+      "AIMEDIA-PROMPT-CUR-006",
+      "AIMEDIA-PROMPT-CUR-007"
+    ],
+    "test_files": [
+      "tests/core/ai-media-request-prompt-template-binding-floors.test.mjs"
+    ],
     "core": {
-      "run_id": 36116578764,
-      "job_id": 108011986202,
-      "tests": 556,
-      "pass": 556,
+      "run_id": 36118205299,
+      "job_id": 108017179259,
+      "tests": 563,
+      "pass": 563,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36116578764,
-      "job_id": 108011985976,
+      "run_id": 36118205299,
+      "job_id": 108017179365,
       "tests": 497,
       "pass": 497,
       "fail": 0,
@@ -1112,17 +1081,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36116578751,
-      "job_id": 108011985834,
+      "run_id": 36118205364,
+      "job_id": 108017179491,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36116578834,
-      "job_id": 108011986168,
+      "run_id": 36118205303,
+      "job_id": 108017179189,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md"
+    "evidence": "Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md"
   },
   "historical_projection_payloads": {
     "continuation": {
@@ -1751,6 +1720,115 @@
       },
       "database_schema_change": false,
       "evidence": "Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md"
+    },
+    "before_2026_09_25_vision_audit": {
+      "final_verdict": "DD-186 AIMEMORY ASSISTANT CURRENT-BINDING FLOOR PROMOTED / EXACT-HEAD TESTED; DD-187 SUPERSESSION-CONTINUITY IMPLEMENTED BUT PROMOTION BLOCKED BY GITHUB ACTIONS STARTUP_FAILURE",
+      "gates": {
+        "foundation": "REVALIDATED_COMPLETED_SCOPE",
+        "architecture": "REVALIDATED_COMPLETED_SCOPE",
+        "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD188_CANONICAL",
+        "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
+        "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
+        "development": "IN_PROGRESS_DD188_IMPLEMENTATION_VERIFIED_PROMOTION_CI_PENDING",
+        "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
+        "production_readiness": "NOT_CLAIMED",
+        "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
+        "core_services": "DD040_DD188_BOUNDED_IMPLEMENTATION_VERIFIED"
+      },
+      "current_phase": "DEVELOPMENT_AI_MEMORY_ASSISTANT_CURRENT_BINDING_VERIFIED",
+      "continuation": {
+        "checkpoint": "DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001",
+        "verified_code_head": "c354aa1422c68a5e0ef2a2b96e28f6384da0e102",
+        "verified_code_tree": "0262e2f2c33c2ab0beabdc432b232fb3eead1a39",
+        "source_audit": "Development/AI_MEMORY_ASSISTANT_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+        "current_verification": "Registers/DEVELOPMENT_DD186_VERIFICATION_2026-09-24.md",
+        "next_action": "Source-audit AIMemoryRecord supersession continuity. Do not infer principal currentness, current-memory selection, retention/ACL or AI runtime execution semantics.",
+        "main_merge": false
+      },
+      "current_audit_overlay": {
+        "checkpoint": "DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001",
+        "verified_executable_basis": "69fd07ab465cf34c80d8f9771fd3ccf74cefe0de",
+        "verified_executable_tree": "0e007eb532c7b9871beea3ef46fcaf3513c6ee6b",
+        "current_verification": "Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md",
+        "scope": "DD-187 AIMemoryRecord direct optional supersession-continuity floor only"
+      },
+      "current_feature_verification": {
+        "decision": "DD-187 AIMemoryRecord Supersession-Continuity Floor",
+        "checkpoint": "DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001",
+        "verified_head": "69fd07ab465cf34c80d8f9771fd3ccf74cefe0de",
+        "verified_tree": "0e007eb532c7b9871beea3ef46fcaf3513c6ee6b",
+        "core": {
+          "run_id": 36116578764,
+          "job_id": 108011986202,
+          "tests": 556,
+          "pass": 556,
+          "fail": 0,
+          "skip": 0
+        },
+        "postgres": {
+          "run_id": 36116578764,
+          "job_id": 108011985976,
+          "tests": 497,
+          "pass": 497,
+          "fail": 0,
+          "skip": 0,
+          "full_database_bootstrap": "PASS_48_42"
+        },
+        "database": {
+          "run_id": 36116578751,
+          "job_id": 108011985834,
+          "conclusion": "success"
+        },
+        "web": {
+          "run_id": 36116578834,
+          "job_id": 108011986168,
+          "conclusion": "success"
+        },
+        "database_schema_change": false,
+        "evidence": "Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md"
+      },
+      "github_candidate": {
+        "status": "IMPLEMENTED_NOT_PROMOTED",
+        "source_audit_head": "9ac0fafee7ad3e07ef812edf5a7265bf0af14fe2",
+        "implementation_head": "b00d4baf05ac41d0733dc03633ef2ceccd50f441",
+        "export_repair_head": "b006b661003d7abcd79ec65eb70b34f0ddf01046",
+        "export_repair_tree": "b759f16ca5e584476a405704a3196137f0f6d14e",
+        "verification_register": "Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md",
+        "ci": {
+          "core_run_id": 36087318787,
+          "core_job_id": 107921994777,
+          "postgres_job_id": 107921995000,
+          "database_run_id": 36087318794,
+          "database_job_id": 107921994740,
+          "web_run_id": 36087318792,
+          "web_job_id": 107921994704,
+          "result": "STARTUP_FAILURE_NO_REPOSITORY_STEPS_EXECUTED"
+        },
+        "promotion_allowed": false,
+        "next_action": "Restore successful GitHub Actions startup, exact-head verify DD-187, then promote only on PASS."
+      },
+      "github_actions_reverification": {
+        "smoke_head": "09b5f67a5f49120ecd9496d1fa8007c80e872b2e",
+        "smoke_run_id": 36113190896,
+        "smoke_job_id": 108001111316,
+        "smoke_result": "PASS_GITHUB_HOSTED_RUNNER_STARTED_AND_COMPLETED",
+        "smoke_cleanup_head": "022cd58f7faa53d074ba25adfc626882ec642320",
+        "trigger_reason": "Fresh exact-head verification after GitHub Actions startup recovery; no product semantics changed.",
+        "required_workflows": [
+          "Core Service Verify",
+          "Database Verify",
+          "Web Boundary Verify"
+        ],
+        "promotion_rule": "DD-187 remains unpromoted until all required exact-head workflows PASS."
+      },
+      "dd187_projection": {
+        "checkpoint": "DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001",
+        "verified_head": "69fd07ab465cf34c80d8f9771fd3ccf74cefe0de",
+        "verified_tree": "0e007eb532c7b9871beea3ef46fcaf3513c6ee6b",
+        "evidence": "Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md",
+        "status": "IMPLEMENTED_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED",
+        "main_merge": false
+      }
     }
   }
 }

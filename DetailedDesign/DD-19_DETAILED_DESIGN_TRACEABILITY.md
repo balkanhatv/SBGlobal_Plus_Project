@@ -170,3 +170,7 @@ DD-049–052/054/080 → `../Development/REST_ADAPTER_PREREQUISITE_OWNERSHIP_AUD
 `tests/server/rest-fetch-handler.test.mjs`. This binds only the reusable external
 Fetch ordering/projection floor. Concrete routes, machine/API-key syntax, OpenAPI,
 webhooks and deployment remain explicitly unclaimed.
+
+## DD-188 — AI media prompt binding
+
+F-05 + A-07 → DD-09 / migrations 0011, 0031, 0048 → `Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-188 → `src/core/ai/media-request-prompt-template-binding-floors.ts` → `AIMEDIA-PROMPT-CUR-001…007` → `tests/core/ai-media-request-prompt-template-binding-floors.test.mjs` → `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. This chain claims only the direct persisted prompt binding.

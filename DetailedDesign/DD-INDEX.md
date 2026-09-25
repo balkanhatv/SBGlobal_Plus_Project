@@ -1,5 +1,22 @@
 # DD-INDEX — DETAILED DESIGN INDEX
-**Updated:** 2026-09-25 · **Historical design checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development:** `DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001`
+**Current checkpoint:** `DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001`
+**Updated:** 2026-09-25 · **Branch:** `docs/architecture-branch-2`
+
+DD-188 implements only optional AIMediaRequest → PromptTemplate exact id/version/ACTIVE/owner-scope binding. Missing, foreign or malformed binding evidence fails closed. A true result grants no principal/document access, prompt rendering, moderation or AI execution authority.
+
+Verified implementation basis `35ffce1cd8d079596b79452e1b5a117ebcd541c0` / tree `a494cd6f4ca3cc07c74becff0cb4208091b29f7a`: **563/563 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36118205299` (jobs `108017179259`, `108017179365`), Database `36118205364` (job `108017179491`), Web `36118205303` (job `108017179189`).
+
+Canonical promotion and state reconciliation are in this forward-only change. Its own exact-head CI must pass independently; the hashes above name already-observed evidence, never a self-referential commit.
+
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+
+Next: Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.
+
+Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
+
+## Historical design and implementation index
+
+Earlier counts and next steps below apply only to their named commits.
 
 | Range | Historical Phase-3 design status |
 |---|---|
@@ -21,7 +38,7 @@
 | DD-31 | Phase-3 Development/QA determinism PASS |
 | Industries/* | 9/9 Industry DD artifacts fresh read; mobile app mapping normalized |
 
-## Historical design gate and current Development scope
+## Historical design gate and historical Development scope
 **FOUNDATION PASS · ARCHITECTURE PASS · DETAILED DESIGN COMPLETE / PHASE 3 PASS.**
 
 The historical pre-development authorization gate was subsequently satisfied and Development started. Development remains **IN PROGRESS**. Decisions are contiguous through **DD-187**; current evidence is in [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md).
@@ -32,49 +49,49 @@ The post-DD-162 machine-verifier boundary audit at `a453fc2f2f555972cd0391a3db04
 
 Workflow/Automation runtime execution and concrete AI Gateway execution remain unfinished on source-owned prerequisites. Notification runtime, secret retrieval, webhook/event runtime, Document signing, REST exposure and DD-076 evaluator also remain unfinished where documented.
 
-DD-166 is the current bounded Development decision: a pure TenantIntegration Definition/config/enabled-capability current-set necessary floor. It does not authorize TenantIntegration execution, provider selection, credentials/secrets or OperationContract/event/network execution.
+DD-166 is the historical bounded Development decision: a pure TenantIntegration Definition/config/enabled-capability current-set necessary floor. It does not authorize TenantIntegration execution, provider selection, credentials/secrets or OperationContract/event/network execution.
 
-**Current verified canonical evidence:** `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa` — **416/416 Core**, **497/497 PostgreSQL**, full 47/41 database bootstrap, Database Verify and Web build PASS. See [DD-166 verification](../Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md).
+**Historical verified canonical evidence:** `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa` — **416/416 Core**, **497/497 PostgreSQL**, full 47/41 database bootstrap, Database Verify and Web build PASS. See [DD-166 verification](../Registers/DEVELOPMENT_DD166_VERIFICATION_2026-09-24.md).
 
-DD-167 is the current bounded Development decision: pure composition of DD-165 and DD-166 current-integrity floors only. It is not Integration execution authority.
+DD-167 is the historical bounded Development decision: pure composition of DD-165 and DD-166 current-integrity floors only. It is not Integration execution authority.
 
-DD-169 is the current bounded Development decision: NotificationDelivery optional OutboxEvent exact-scope current-binding floor only. It is not event dispatch or notification execution authority.
+DD-169 is the historical bounded Development decision: NotificationDelivery optional OutboxEvent exact-scope current-binding floor only. It is not event dispatch or notification execution authority.
 
-DD-170 is the current bounded Development decision: shared definition applicability/containment predicates are total fail-closed booleans with no owner-hierarchy change.
+DD-170 is the historical bounded Development decision: shared definition applicability/containment predicates are total fail-closed booleans with no owner-hierarchy change.
 
-DD-172 is the current bounded Development decision: pure conjunction of the already-governed DD-168, DD-169 and DD-171 NotificationDelivery relationship floors. Recipient-principal currentness remains outside the composition.
+DD-172 is the historical bounded Development decision: pure conjunction of the already-governed DD-168, DD-169 and DD-171 NotificationDelivery relationship floors. Recipient-principal currentness remains outside the composition.
 
-DD-173 is the current bounded Development decision: WorkflowInstance→WorkflowDefinition exact id/version/ACTIVE/scope current-binding floor only.
+DD-173 is the historical bounded Development decision: WorkflowInstance→WorkflowDefinition exact id/version/ACTIVE/scope current-binding floor only.
 
-DD-174 is the current bounded Development decision: WorkflowTask/WorkflowTransition→WorkflowInstance exact parent id/Tenant/nullable-Industry current-binding floor only.
+DD-174 is the historical bounded Development decision: WorkflowTask/WorkflowTransition→WorkflowInstance exact parent id/Tenant/nullable-Industry current-binding floor only.
 
-DD-175 is the current bounded Development decision: AutomationRun→AutomationDefinition exact id/ACTIVE/scope current-binding floor only.
+DD-175 is the historical bounded Development decision: AutomationRun→AutomationDefinition exact id/ACTIVE/scope current-binding floor only.
 
-DD-176 is the current bounded Development decision: optional AutomationDefinition→WorkflowDefinition exact-id broader/equal containment floor only.
+DD-176 is the historical bounded Development decision: optional AutomationDefinition→WorkflowDefinition exact-id broader/equal containment floor only.
 
-DD-177 is the current bounded Development decision: PromptSetMember→ACTIVE PromptSet + ACTIVE PromptTemplate + broader/equal containment current-binding floor only.
+DD-177 is the historical bounded Development decision: PromptSetMember→ACTIVE PromptSet + ACTIVE PromptTemplate + broader/equal containment current-binding floor only.
 
-DD-178 is the current bounded Development decision: AIToolSetMember→AIToolDefinition exact-id/ACTIVE current-binding floor only.
+DD-178 is the historical bounded Development decision: AIToolSetMember→AIToolDefinition exact-id/ACTIVE current-binding floor only.
 
-DD-179 is the current bounded Development decision: AssistantDefinition required PromptTemplate + optional ToolSet exact-id/ACTIVE/broader-or-equal containment floor only.
+DD-179 is the historical bounded Development decision: AssistantDefinition required PromptTemplate + optional ToolSet exact-id/ACTIVE/broader-or-equal containment floor only.
 
-DD-180 is the current bounded Development decision: AgentDefinition→allowed ToolSet exact-id/ACTIVE/broader-or-equal containment current-binding floor only.
+DD-180 is the historical bounded Development decision: AgentDefinition→allowed ToolSet exact-id/ACTIVE/broader-or-equal containment current-binding floor only.
 
-DD-181 is the current bounded Development decision: AgentRun→AgentDefinition exact-id/ACTIVE/scope current-binding floor only.
+DD-181 is the historical bounded Development decision: AgentRun→AgentDefinition exact-id/ACTIVE/scope current-binding floor only.
 
-DD-182 is the current bounded Development decision: AgentStep persisted TOOL/non-TOOL binding currentness only. It is not approval satisfaction or Agent/tool execution authority.
+DD-182 is the historical bounded Development decision: AgentStep persisted TOOL/non-TOOL binding currentness only. It is not approval satisfaction or Agent/tool execution authority.
 
-DD-183 is the current bounded Development decision: AgentStep optional AgentApproval exact persisted backlink currentness only.
+DD-183 is the historical bounded Development decision: AgentStep optional AgentApproval exact persisted backlink currentness only.
 
-DD-184 is the current bounded Development decision: AgentApproval→AgentRun/AgentStep exact parent-chain and Tenant/nullable-Industry currentness only.
+DD-184 is the historical bounded Development decision: AgentApproval→AgentRun/AgentStep exact parent-chain and Tenant/nullable-Industry currentness only.
 
-DD-185 is the current bounded Development decision: AIConversation optional AssistantDefinition id/ACTIVE/scope current-binding floor only.
+DD-185 is the historical bounded Development decision: AIConversation optional AssistantDefinition id/ACTIVE/scope current-binding floor only.
 
 DD-186 is the bounded AIMemoryRecord optional AssistantDefinition id/ACTIVE/scope current-binding floor only.
 
-DD-187 is the current bounded Development decision: AIMemoryRecord direct optional supersession continuity (non-self exact parent id plus Tenant / null-safe Industry / null-safe principal / memory-class continuity) only.
+DD-187 is the historical bounded Development decision: AIMemoryRecord direct optional supersession continuity (non-self exact parent id plus Tenant / null-safe Industry / null-safe principal / memory-class continuity) only.
 
-**Current verified executable evidence:** `69fd07ab465cf34c80d8f9771fd3ccf74cefe0de` / tree `0e007eb532c7b9871beea3ef46fcaf3513c6ee6b` — **556/556 Core**, **497/497 PostgreSQL**, **48/42 database inventory**, Database/Web PASS. See DD-187 verification.
+**Historical verified executable evidence:** `69fd07ab465cf34c80d8f9771fd3ccf74cefe0de` / tree `0e007eb532c7b9871beea3ef46fcaf3513c6ee6b` — **556/556 Core**, **497/497 PostgreSQL**, **48/42 database inventory**, Database/Web PASS. See DD-187 verification.
 
 ## Historical all-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The workflow log asserts the tested branch commit; the completed all-stages audit and metadata closure are recorded in [ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13](../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
@@ -82,7 +99,7 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 
 **Historical Development evidence:** `3e7b2927…` — 47 Core/server acceptance tests, 11 PostgreSQL tests, and 34 migrations / 28 verification files passed at that checkpoint.
 
-**Current verified executable evidence: `b37242298bff0c2b8e95a9b957896d6a7278e8fd` / tree `749064f6d423f4d685c715e905538a06dbc77613` — 402 Core/server tests including `SYNC-BIND-001…007`, 497 PostgreSQL tests, full 47/41 bootstrap, Database and Web PASS.
+**Historical verified executable evidence: `b37242298bff0c2b8e95a9b957896d6a7278e8fd` / tree `749064f6d423f4d685c715e905538a06dbc77613` — 402 Core/server tests including `SYNC-BIND-001…007`, 497 PostgreSQL tests, full 47/41 bootstrap, Database and Web PASS.
 
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
 

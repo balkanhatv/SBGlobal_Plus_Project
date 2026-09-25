@@ -1,15 +1,15 @@
 # SBGlobal Plus — Canonical Development Branch
-**Current checkpoint:** `DEV-API-REST-001`
-**Branch:** `docs/architecture-branch-2`
+**Current checkpoint:** `DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001`
+**Updated:** 2026-09-25 · **Branch:** `docs/architecture-branch-2`
 
-Verified executable `ce4708eec15f6b0a35ae9a77d13505221fe55d51` / tree `9655553773e2b1f63ba1e36a479ef3d574ec6077`: **290/290 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **409 blobs / 161 Markdown / 83 source / 63 test files**.
+DD-188 implements only optional AIMediaRequest → PromptTemplate exact id/version/ACTIVE/owner-scope binding. Missing, foreign or malformed binding evidence fails closed. A true result grants no principal/document access, prompt rendering, moderation or AI execution authority.
 
-DD-080 adds an unmounted reusable external REST Fetch adapter: edge and credential/context checks precede body/input work, routes bind one OperationContract, the shared executor remains the only business/security pipeline, and DD-052 owns every success/error/control projection. No route, API-key syntax, OpenAPI document, webhook endpoint, database object or Commercial rule was invented.
+Verified implementation basis `35ffce1cd8d079596b79452e1b5a117ebcd541c0` / tree `a494cd6f4ca3cc07c74becff0cb4208091b29f7a`: **563/563 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36118205299` (jobs `108017179259`, `108017179365`), Database `36118205364` (job `108017179491`), Web `36118205303` (job `108017179189`).
 
-**9 Industries / 41 canonical MS / 181 Industry tables** remain preserved. Current decisions extend through DD-080; the REST adapter is not externally mounted and public `changePlan` remains unbound.
+Canonical promotion and state reconciliation are in this forward-only change. Its own exact-head CI must pass independently; the hashes above name already-observed evidence, never a self-referential commit.
 
-See [DD-080 verification](Registers/DEVELOPMENT_DD080_VERIFICATION_2026-09-21.md), [REST source audit](Development/REST_ADAPTER_PREREQUISITE_OWNERSHIP_AUDIT.md), and [vision audit](Registers/VISION_CENTRIC_AUDIT_2026-09-21.md).
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Concrete external credential syntax, public REST route catalog/input mappings, OpenAPI publication, webhook transport, broad Core/Industry APIs, product UI/mobile/desktop and production operations remain unfinished. The concrete DD-076 evaluator and its named Commercial policy/evidence producers remain blocked.
+Next: Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.
 
-Next: concrete REST exposure remains blocked on an exact external credential scheme and public route catalog; the DD-076 evaluator remains blocked on its named policy/evidence definitions. Source-audit another independent source-complete item before implementation and retain exact-head CI/repository invariants.
+Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.

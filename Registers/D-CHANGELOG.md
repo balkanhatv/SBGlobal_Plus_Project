@@ -240,3 +240,7 @@ Fresh AIMemoryRecord reconciliation selected migration 0031's optional direct su
 
 ## 2026-09-25 — DD-187 canonical promotion / checkpoint advance
 DD-187 promotion `69fd07ab465cf34c80d8f9771fd3ccf74cefe0de` / tree `0e007eb532c7b9871beea3ef46fcaf3513c6ee6b` passed exact-head **556 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001`. Principal currentness, lifecycle/chain/current-memory selection, retention/ACL and AI execution semantics remain unclaimed.
+
+## 2026-09-25 — DD-188 promotion and vision audit state reconciliation
+
+Reconciled latest remote HEAD 35ffce1, promoted the existing source-owned DD-188 decision/acceptance/traceability, synchronized stale DD-080/166/186/187 active projections and repository identity, preserved historical evidence, and added REPO-007/008 regressions for projection agreement and canonical feature ownership. No RawSource/product/SQL/RLS/role changes. Evidence: `Registers/VISION_CENTRIC_AUDIT_2026-09-25.md`.

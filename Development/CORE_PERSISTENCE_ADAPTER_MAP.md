@@ -1,4 +1,6 @@
 # CORE PERSISTENCE ADAPTER MAP
+
+**Historical DD-040–043 adapter snapshot.** Current implementation, completed downstream bindings and next action are owned by `Development/CORE_SERVICE_CHECKPOINT.md` and `State/PROJECT_MANIFEST.json`; the old future/next labels below apply only to their recorded scope.
 **ID:** DEV-CORE-MAP-001 · **Version:** 1.3 · **Owner:** Core Development
 **Date:** 2026-09-16 · **Scope:** DD-02/DD-03/DD-04 read-side dependencies and DD-05 SQL boundary
 **Baseline:** `ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5` · **Decision:** DD-040

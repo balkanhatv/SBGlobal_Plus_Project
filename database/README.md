@@ -9,7 +9,7 @@
 PostgreSQL is canonical. No ORM/migration framework is selected by governing truth, so the current implementation is SQL-first and framework-neutral.
 
 ## Migration coverage
-Current migrations: `0001` … `0047`; **47 migrations / 41 SQL verification files**.
+Current migrations: `0001` … `0048`; **48 migrations / 42 SQL verification files**.
 Current exact-commit verification is owned by [DB_CHECKPOINT](../Development/DB_CHECKPOINT.md).
 
 ### Shared Core

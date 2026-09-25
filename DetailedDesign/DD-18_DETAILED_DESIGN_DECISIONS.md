@@ -2641,3 +2641,13 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-187 does not require parent `SUPERSEDED` or child `ACTIVE`; traverse supersession chains; detect indirect cycles; select current/latest/effective memory; compare timestamps; evaluate expiry; enforce retention/legal hold/erasure; interpret ACL; authorize principals; decrypt/dereference content/source; validate/select AssistantDefinition; execute inference/RAG/tools/agents; mutate memory; or change SQL/RLS/roles/grants/routes/product policy.
 
 **Acceptance:** `AIMEM-SUP-CUR-001…007` in DD-17 and `tests/core/ai-memory-supersession-continuity-floors.test.mjs`.
+
+## DD-188 — AIMediaRequest optional PromptTemplate binding is a necessary persisted relationship floor
+
+**Context:** DD-125 exposes the persisted media request and DD-115 exposes PromptTemplate evidence. Migration 0031 owns exact optional prompt id/version, ACTIVE state and PLATFORM/TENANT/INDUSTRY applicability; migration 0048 / DD-170 makes applicability fail closed. The ownership audit predates the implementation; this audit repairs its omitted canonical promotion.
+
+**Decision:** `matchesAIMediaRequestPromptTemplateBindingFloors(request, promptTemplate?)` validates relevant UUID/owner/version shape. An unbound request requires both absent version and absent prompt evidence. A bound request requires exact positive safe-integer version, exact id, ACTIVE status and applicable canonical owner scope.
+
+**Boundary:** no prompt selection/rendering/approval, principal currentness, Document ACL/state/security, brand/moderation policy, entitlement, provider/model/tool execution, mutation, transport or SQL/RLS authority is implied. Inputs remain unchanged.
+
+**Acceptance:** `AIMEDIA-PROMPT-CUR-001…007` in DD-17 and `tests/core/ai-media-request-prompt-template-binding-floors.test.mjs`.

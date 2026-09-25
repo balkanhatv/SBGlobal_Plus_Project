@@ -1,5 +1,6 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Status:** ACTIVE · **Updated:** 2026-09-24
+**Current checkpoint:** `DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001`
+**Status:** ACTIVE · **Updated:** 2026-09-25
 
 ## Authority
 1. Primary Vision
@@ -34,10 +35,10 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 - exactly two logical Tenant mobile app classes: `TENANT_STAFF_APP` + `TENANT_USER_APP`; Platform Mobile is not a Tenant app.
 - API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
 
-## Current audit / continuation evidence — 2026-09-24
-- Current checkpoint: `DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001`.
-- DD-186 source audit: `Development/AI_MEMORY_ASSISTANT_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-- DD-186 verification: `Registers/DEVELOPMENT_DD186_VERIFICATION_2026-09-24.md`.
-- Canonical promotion: `c354aa1422c68a5e0ef2a2b96e28f6384da0e102` / `0262e2f2c33c2ab0beabdc432b232fb3eead1a39`; 549 Core / 497 PostgreSQL / 48 migrations / 42 verification files + Database/Web exact-head CI PASS.
-- Next audit: AIMemoryRecord supersession continuity.
-- RawSource accepted blobs remain unchanged.
+## Current audit / continuation evidence — 2026-09-25
+
+DD-188 implements only optional AIMediaRequest → PromptTemplate exact id/version/ACTIVE/owner-scope binding. Missing, foreign or malformed binding evidence fails closed. A true result grants no principal/document access, prompt rendering, moderation or AI execution authority.
+
+Verified implementation basis `35ffce1cd8d079596b79452e1b5a117ebcd541c0` / tree `a494cd6f4ca3cc07c74becff0cb4208091b29f7a`: **563/563 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36118205299` (jobs `108017179259`, `108017179365`), Database `36118205364` (job `108017179491`), Web `36118205303` (job `108017179189`).
+
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.
