@@ -186,3 +186,16 @@ DD-189 → `src/core/ai/media-request-input-document-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD189_VERIFICATION_2026-09-25.md`.
 
 This chain claims only the direct persisted AIMediaRequest input-document relationship: exact evidence coverage, same Tenant/null-safe Industry Context, ACTIVE/CLEAN state, source-owned sensitivity ceiling and exact residency. Acting-principal currentness, Document ACL/storage/signed-URL authority, prompt composition, moderation, entitlement/budget and AI/provider/model/tool execution remain explicitly outside DD-189.
+
+
+## DD-190 — Document AI-generated provenance raw reader
+
+F-05 + A-07 + DD-08/DD-09 → migrations 0006, 0028 and 0031 →
+`Development/DOCUMENT_AI_GENERATED_PROVENANCE_RAW_READER_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-190 → `src/core/document/ai-generated-provenance.ts` +
+`src/server/document/postgres-document-ai-generated-provenance-store.ts` →
+`DOCAIPROV-PG-001…007` →
+`tests/postgres/document-ai-generated-provenance-store.test.mjs` →
+`Registers/DEVELOPMENT_DD190_VERIFICATION_2026-09-25.md`.
+
+This chain claims only exact raw persisted Document AI provenance evidence under the existing Document FORCE-RLS boundary. Generated Document → completed AIMediaRequest validation, Provider/Model currentness, moderation/licensing decisions, Document authorization/storage access and AI execution remain separate.

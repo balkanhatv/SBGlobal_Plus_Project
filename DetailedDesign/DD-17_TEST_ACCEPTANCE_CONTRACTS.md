@@ -3062,3 +3062,27 @@ Malformed request/document identity or scope, invalid/duplicate references, and 
 
 ### AIMEDIA-DOC-CUR-008 — Bounded semantics
 Principal, prompt, ACL, StorageObject/signed-URL, brand, moderation, capability, request lifecycle and execution semantics remain uninterpreted; inputs are unchanged.
+
+
+## DD-190 Document AI-Generated Provenance Raw-Reader Acceptance
+
+### DOCAIPROV-PG-001 — Exact generated-document evidence
+An exact RLS-visible AI-generated Industry Document preserves Document id/Tenant/Industry, sensitivity/residency, MediaRequest/Provider/Model ids and immutable provenance/moderation/licensing objects.
+
+### DOCAIPROV-PG-002 — Non-AI rows stay unbound
+An exact non-AI Document preserves `aiGenerated=false` and has no optional AI provenance evidence.
+
+### DOCAIPROV-PG-003 — Existing Document RLS remains authoritative
+Sibling Industry and foreign Tenant rows remain hidden while same-Tenant Tenant-Core visibility follows the existing DocumentMeta FORCE-RLS policy.
+
+### DOCAIPROV-PG-004 — Persisted shape and JSON fail closed
+Malformed persisted UUID/ownership/provenance shape fails closed; normalized JSON evidence is immutable and no business meaning is invented.
+
+### DOCAIPROV-PG-005 — Input/context/routing validation
+Malformed RequestContext, invalid Document id and Data Home route mismatch fail before provenance disclosure.
+
+### DOCAIPROV-PG-006 — Exact-read surface only
+The port exposes no create/update/delete/generate/moderate/publish/execute operation.
+
+### DOCAIPROV-PG-007 — Raw evidence is not runtime authority
+Raw provenance does not prove MediaRequest completion/currentness, Provider/Model currentness, moderation/licensing approval, publication, Document ACL/storage access or AI execution authority.

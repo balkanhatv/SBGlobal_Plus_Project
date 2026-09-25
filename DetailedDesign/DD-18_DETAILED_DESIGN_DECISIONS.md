@@ -2664,3 +2664,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-189 does not validate acting-principal currentness or Document ACL authorization; StorageObject/signed-URL access; write-time provenance replay; scan recency; PromptTemplate currentness; provider/model/tool selection; moderation; entitlement/budget; AI inference/media generation; mutation; transport; or new SQL/RLS/role/grant authority. Principal-currentness remains blocked by the recorded missing-provenance boundary.
 
 **Acceptance:** `AIMEDIA-DOC-CUR-001…008` in DD-17 and `tests/core/ai-media-request-input-document-binding-floors.test.mjs`.
+
+
+## DD-190 — Document AI-generated provenance raw persistence is readable without becoming generated-media provenance validation or AI execution authority
+
+**Context:** migration 0031 adds `ai_generated`, optional MediaRequest/Provider/Model ids and provenance/moderation/licensing JSON to `core_document.document_meta`, owns the generated/non-generated persistence shape CHECK, and adds MediaRequest plus exact Model/Provider foreign keys. The same migration separately validates generated Document → completed AIMediaRequest scope/residency/sensitivity at write time. DD-082/DD-083 intentionally omit every `ai_*` field from DocumentAccessMetadata, so that later relationship cannot be re-evaluated from the existing Core evidence boundary.
+
+**Decision:** add immutable `PersistedDocumentAIGeneratedProvenance`, `DocumentAIGeneratedProvenanceReadPort.loadForContext(...)` and `PostgresDocumentAIGeneratedProvenanceStore` through the existing `PostgresDocumentDatabase` + `RequestScopedSql` Document boundary. The reader returns only Document id/Tenant/optional Industry, sensitivity/residency, raw `aiGenerated`, optional exact MediaRequest/Provider/Model ids and normalized immutable object-shaped provenance/moderation/licensing JSON. It mirrors the existing persisted generated/non-generated shape and fails closed on malformed evidence.
+
+**Security / trade-off:** existing DocumentMeta FORCE-RLS remains authoritative; no new SQL object, RLS policy, role or grant is added. The port is exact-read only. JSON is normalized/frozen as data, not interpreted as policy, moderation or licensing approval.
+
+**Boundary:** DD-190 does not validate the referenced MediaRequest's completion/current scope/sensitivity/residency; select/validate current Provider or Model; interpret provenance/moderation/licensing JSON; authorize Document ACL/storage/signed access; generate, moderate or publish media; compose DD-188/DD-189; expose a route; or change schema/RLS/roles/grants/product policy.
+
+**Acceptance:** `DOCAIPROV-PG-001…007` in DD-17 and `tests/postgres/document-ai-generated-provenance-store.test.mjs`.

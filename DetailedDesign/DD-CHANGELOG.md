@@ -344,3 +344,8 @@ Reconciled latest remote HEAD 35ffce1, promoted the existing source-owned DD-188
 ## 2026-09-25 — DD-189 AIMediaRequest input-document binding floor
 
 After DD-188, migration 0031's independent AIMediaRequest `input_document_refs` relationship was source-audited and found source-complete. Exact implementation head `c3ef90d10c44a892879fcccd9c6673b1faf49ad1` / tree `11646ad5d92378bfdfd81bba2e51e082a920a6a5` passed **573/573 Core**, **497/497 PostgreSQL** plus database bootstrap, Database Verify and Web build. DD-189 adds only the pure exact evidence-set/scope/ACTIVE/CLEAN/sensitivity/residency floor. Principal currentness, Document ACL/storage and AI execution remain unclaimed. Canonical metadata promotion is staged; active checkpoint advances only after the promotion HEAD independently passes all required workflows.
+
+
+## 2026-09-25 — DD-190 Document AI-generated provenance raw reader
+
+After DD-189 closure, the generated-media provenance relationship audit found a missing evidence prerequisite: DD-082/DD-083 intentionally omit DocumentMeta's migration-0031 `ai_*` columns. DD-190 adds only a raw exact read contract and PostgreSQL adapter through the existing Document FORCE-RLS boundary. Exact implementation `4fa07cab31cfa5b67939c007e95c27842c93ed6b` / tree `807bd258e46c461412749e5ac833dd6a34939daa` passed **573/573 Core**, **504/504 PostgreSQL**, database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Generated Document → completed AIMediaRequest validation and AI execution remain unclaimed.

@@ -255,3 +255,10 @@ Implementation `c3ef90d10c44a892879fcccd9c6673b1faf49ad1` / tree `11646ad5d92378
 
 ## 2026-09-25 — DD-189 promotion correction / checkpoint advance
 DD-189 promotion exposed two canonical-evidence defects rather than product-code defects: stale DD-188/DD-189 manifest/traceability projections, then one incorrect acceptance-test path. Both were fixed forward-only without weakening tests. Verified correction basis `c3d78f4f8cc36b156d632a857962a8e608976b09` / tree `018929874d38b24b63b867933572df174f63a714` passed exact-head **573 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Active projections advance to `DEV-AI-MEDIA-INPUT-DOCUMENT-BINDING-FLOORS-001`. Principal currentness, Document ACL/storage authorization and AI/provider/model/tool execution remain unclaimed.
+
+
+## 2026-09-25 — DD-190 prerequisite selection
+Post-DD-189 source audit determined that generated Document → AIMediaRequest provenance validation cannot be re-evaluated from DD-082/DD-083 because the Document access projection omits all persisted `ai_*` evidence. The next source-complete prerequisite is therefore the raw Document AI provenance reader only.
+
+## 2026-09-25 — DD-190 canonical promotion / checkpoint advance
+Exact implementation `4fa07cab31cfa5b67939c007e95c27842c93ed6b` / tree `807bd258e46c461412749e5ac833dd6a34939daa` passed **573 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-190 promotes only raw persistence evidence under existing Document FORCE-RLS. Generated Document → completed AIMediaRequest validation, Provider/Model currentness and AI execution remain unclaimed.
