@@ -1,11 +1,11 @@
 # REVIEW_REQUIRED — Historical Gates / Current Dependency Ownership
-**Updated:** 2026-09-25 · **Current checkpoint:** `DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001`
+**Updated:** 2026-09-25 · **Current checkpoint:** `DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001`
 
 No general product/design approval request is pending. Missing contracts are dependency blocks, not implied approvals.
 
-DD-186 covers only AIMemoryRecord→optional AssistantDefinition currentness. DD-187 direct supersession-continuity code is implemented but remains **unpromoted** because exact-head Core/Database/Web retries on `b006b661…` ended in GitHub Actions `startup_failure` before job steps executed. This is an operational verification block, not authority to infer PASS.
+DD-187 direct AIMemoryRecord supersession-continuity floor is **canonically promoted and exact-head verified**. It covers only non-self exact parent id plus Tenant / null-safe Industry Context / null-safe principal / memory-class continuity.
 
-Principal currentness, current/latest-memory selection, supersession-chain resolution, expiry/retention/ACL and AI execution remain separately governed.
+AIMemoryRecord optional principal currentness remains a separate migration-0031 persisted predicate. Current/latest-memory selection, supersession-chain resolution, lifecycle semantics, expiry/retention/ACL and AI execution remain separately governed.
 
 Previously locked machine verifier, Webhook execution, SyncCursor runtime, Integration runtime, Outbox dispatch/retry, Notification execution, Workflow/Automation execution and Agent/tool execution boundaries remain locked.
 

@@ -1,12 +1,12 @@
 # D-INDEX — Current Canonical / Development Index
-**Updated:** 2026-09-24 · **Checkpoint:** `DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001`
+**Updated:** 2026-09-25 · **Checkpoint:** `DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001`
 
-Current bounded Development: DD-186 AIMemoryRecord→optional AssistantDefinition current-binding floor. Detailed Design is contiguous DD-001–186.
+Current bounded Development: DD-187 AIMemoryRecord direct supersession-continuity floor. Detailed Design is contiguous DD-001–187.
 
 Canonical invariants: 9 equal Industries; 41 MS; 181 Industry tables; 2,962 preserved source requirements; exactly two logical Tenant mobile app classes.
 
-Verified canonical DD-186 promotion `c354aa1422c68a5e0ef2a2b96e28f6384da0e102` / tree `0262e2f2c33c2ab0beabdc432b232fb3eead1a39`: **549/549 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `36024407383` (Core job `107717146883`, PostgreSQL job `107717146779`), Database `36024407420` (job `107717146615`), Web `36024407334` (job `107717146107`).
+Verified canonical DD-187 promotion `69fd07ab465cf34c80d8f9771fd3ccf74cefe0de` / tree `0e007eb532c7b9871beea3ef46fcaf3513c6ee6b`: **556/556 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `36116578764` (Core job `108011986202`, PostgreSQL job `108011985976`), Database `36116578751` (job `108011985834`), Web `36116578834` (job `108011986168`).
 
-Memory principal/supersession/retention/ACL and AI runtime semantics remain unclaimed.
+Memory principal currentness, lifecycle/chain/current-memory selection, retention/ACL and AI runtime semantics remain unclaimed.
 
 Production readiness: **NOT CLAIMED**.

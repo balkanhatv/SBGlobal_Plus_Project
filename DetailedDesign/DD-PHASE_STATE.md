@@ -1,5 +1,5 @@
 # DD PHASE STATE
-**Date:** 2026-09-24 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001`
+**Date:** 2026-09-25 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.
@@ -16,16 +16,16 @@
 ## All-stages checkpoint evidence
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
-## Current Development overlay — 2026-09-24
+## Current Development overlay — 2026-09-25
 
-Current checkpoint: `DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001`. Decisions are contiguous through DD-186.
+Current checkpoint: `DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001`. Decisions are contiguous through DD-187.
 
-Verified canonical DD-186 promotion `c354aa1422c68a5e0ef2a2b96e28f6384da0e102` / tree `0262e2f2c33c2ab0beabdc432b232fb3eead1a39`: **549/549 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `36024407383` (Core job `107717146883`, PostgreSQL job `107717146779`), Database `36024407420` (job `107717146615`), Web `36024407334` (job `107717146107`).
+Verified canonical DD-187 promotion `69fd07ab465cf34c80d8f9771fd3ccf74cefe0de` / tree `0e007eb532c7b9871beea3ef46fcaf3513c6ee6b`: **556/556 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS. Exact-head runs: Core `36116578764` (Core job `108011986202`, PostgreSQL job `108011985976`), Database `36116578751` (job `108011985834`), Web `36116578834` (job `108011986168`).
 
-DD-186 re-evaluates only migration-0031's optional AIMemoryRecord→AssistantDefinition relationship: exact assistant id, raw ACTIVE status and DD-170-corrected PLATFORM/TENANT/INDUSTRY scope applicability.
+DD-187 re-evaluates only migration-0031's optional direct AIMemoryRecord supersession relationship: non-self exact parent id plus exact Tenant, null-safe Industry Context, null-safe principal and exact memory class.
 
-A true result is not memory-principal authorization, supersession resolution, current/latest memory selection, expiry/retention/ACL authority, nested Assistant currentness or AI execution authority.
+A true result is not memory-principal authorization, lifecycle-transition validity, indirect-cycle detection, supersession-chain resolution, current/latest-memory selection, expiry/retention/ACL authority or AI execution authority.
 
-Evidence: `Registers/DEVELOPMENT_DD186_VERIFICATION_2026-09-24.md`.
+Evidence: `Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md`.
 
-Next: source-audit AIMemoryRecord supersession continuity as an independent persisted relationship; do not infer current-memory or runtime semantics.
+Next: source-audit AIMemoryRecord optional principal currentness as an independent persisted relationship; do not infer current-memory or runtime semantics.

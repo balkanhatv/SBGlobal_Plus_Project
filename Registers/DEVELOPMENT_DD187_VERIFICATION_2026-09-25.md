@@ -46,8 +46,21 @@ A true result is not memory-principal authorization, lifecycle-transition validi
 
 DD-187 does not require parent `SUPERSEDED` or child `ACTIVE`; validate principal currentness; traverse chains; detect indirect cycles; select current/latest/effective memory; compare chronology; evaluate expiry; enforce retention/legal hold/erasure; interpret ACL; decrypt/dereference content/source; validate/select AssistantDefinition; resolve prompt/RAG/model/provider/tool policy; execute AI; mutate state; or alter persistence/security policy.
 
-## 5. Promotion requirement
+## 5. Canonical promotion and exact-head CI
 
-Implementation verification is PASS. Canonical DD-187 acceptance, decision and Detailed Design changelog must be committed; that promotion HEAD must then pass Core/PostgreSQL, Database and Web exact-head CI before the Development checkpoint advances.
+Canonical promotion: `69fd07ab465cf34c80d8f9771fd3ccf74cefe0de` / tree `0e007eb532c7b9871beea3ef46fcaf3513c6ee6b`.
+
+- Core Service Verify run `36116578764`, Core job `108011986202`: **SUCCESS — 556/556**, 0 failed/skipped.
+- Same run, PostgreSQL-context job `108011985976`: **SUCCESS — 497/497**, 0 failed/skipped; full database bootstrap PASS.
+- Database Verify run `36116578751`, job `108011985834`: **SUCCESS**.
+- Web Boundary Verify run `36116578834`, job `108011986168`: **SUCCESS**.
+
+Every promotion job verified exact commit `69fd07ab465cf34c80d8f9771fd3ccf74cefe0de` and tree `0e007eb532c7b9871beea3ef46fcaf3513c6ee6b` before repository assertions.
+
+**Verdict: DD-187 IMPLEMENTED / CANONICALLY PROMOTED / EXACT-HEAD VERIFIED.**
+
+## 6. Next governed boundary
+
+Source-audit AIMemoryRecord optional principal currentness as the next independent migration-0031 persisted predicate. Do not infer current/latest-memory selection, supersession-chain resolution, retention/ACL or AI runtime execution semantics.
 
 RawSource remains unchanged. `main` remains unchanged. PR #2 remains draft/unmerged.
