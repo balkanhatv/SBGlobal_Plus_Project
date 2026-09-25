@@ -3242,3 +3242,27 @@ TokenUsage principal/capability/unit/time/correlation evidence does not affect t
 
 ### AIUSAGE-MODEL-CUR-007 — Bounded pure predicate
 Inputs remain unchanged; a true result grants no routing, authorization, billing or AI execution authority.
+
+
+## DD-197 TokenUsage Capability Binding Acceptance
+
+### AIUSAGE-CAP-CUR-001 — Exact capability code continuity
+Exact TokenUsage `capabilityCode` and AICapability `code` pass.
+
+### AIUSAGE-CAP-CUR-002 — Missing/wrong capability evidence fails closed
+Missing capability evidence or a mismatched code fails.
+
+### AIUSAGE-CAP-CUR-003 — Code equality is exact
+Capability code comparison is byte-for-byte; case-folding, trimming, aliasing or fallback is not authorized.
+
+### AIUSAGE-CAP-CUR-004 — Relevant TokenUsage shape fails closed
+Malformed TokenUsage id/Tenant/optional Industry identity or non-string capability code fails closed.
+
+### AIUSAGE-CAP-CUR-005 — Capability evidence shape fails closed
+Malformed capability id or non-string code fails closed.
+
+### AIUSAGE-CAP-CUR-006 — Capability runtime/policy semantics stay uninterpreted
+Capability status, category, required entitlement, default policy class and schema version do not affect this foreign-key predicate.
+
+### AIUSAGE-CAP-CUR-007 — Unrelated usage semantics stay uninterpreted
+Principal/model/provider/usage-unit/time/correlation evidence is not evaluated; inputs remain unchanged and a true result grants no authorization, billing or execution authority.

@@ -324,3 +324,10 @@ Implementation `609508642c21ce3337018f911814826cbe2f73dd` / tree `fc6a8a7206cfea
 
 ## 2026-09-25 — DD-196 promotion exact-head verified / closure staged
 Canonical DD-196 promotion `a4366228f1194d751a555be609a282879b4cb2d3` / tree `4a8b456750f8a356ac6ff87c02323798c93a6079` passed exact-head **619 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-25 — DD-197 prerequisite selection
+Migration 0012's TokenUsage `capability_code` → AICapability `code` direct foreign-key continuity is source-complete from DD-122 plus DD-109. Capability ACTIVE/current eligibility is not part of this persisted FK.
+
+## 2026-09-25 — DD-197 canonical promotion / checkpoint advance
+Implementation `a4d12bb3a0683ad218d6b1a5c4bedccafae99cdf` / tree `51d94b76c82aff0be0b946d858f887e36ff3ac51` passed exact-head **626 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-197 promotes only exact capability-code continuity.

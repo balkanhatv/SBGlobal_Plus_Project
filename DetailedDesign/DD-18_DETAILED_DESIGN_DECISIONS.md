@@ -2755,3 +2755,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-196 does not establish Model/Provider ACTIVE/current/health/credential status, capability/modality/residency/sensitivity eligibility, principal currentness, routing/fallback, entitlement/quota/budget, cost/billing or AI execution.
 
 **Acceptance:** `AIUSAGE-MODEL-CUR-001…007` in DD-17 and `tests/core/ai-token-usage-model-provider-binding-floors.test.mjs`.
+
+
+## DD-197 — TokenUsage AICapability exact code may be re-evaluated as a pure persisted foreign-key floor
+
+**Context:** migration 0012 persists non-null `core_ai.token_usage.capability_code` with direct foreign key to `core_ai.ai_capability(code)`. DD-122 exposes TokenUsage `capabilityCode`; DD-109 exposes AICapability raw `code` and other catalog metadata. Migration 0031's TokenUsage trigger re-checks optional principal currentness only and does not require capability `status='ACTIVE'`.
+
+**Decision:** add pure helper `matchesAITokenUsageCapabilityBindingFloors(usage, capability?)`. It validates only relevant usage/catalog identity/code shape and requires exact `capability.code === usage.capabilityCode`.
+
+**Security / trade-off:** this helper mirrors only migration 0012's persisted code foreign key. Capability status/category/entitlement/default-policy/schema-version and TokenUsage principal/model/provider/units/time/correlation remain uninterpreted.
+
+**Boundary:** DD-197 does not establish capability ACTIVE/current/eligible state, entitlement or policy satisfaction, Tenant/Industry allowlisting, model/provider compatibility, routing/fallback, principal currentness, quota/budget, cost/billing, provider credentials/health or AI execution.
+
+**Acceptance:** `AIUSAGE-CAP-CUR-001…007` in DD-17 and `tests/core/ai-token-usage-capability-binding-floors.test.mjs`.

@@ -271,3 +271,15 @@ DD-196 → `src/core/ai/token-usage-model-provider-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD196_VERIFICATION_2026-09-25.md`.
 
 This chain claims only persisted TokenUsage `modelId/providerId` → AIModel `id/providerId` exact composite-pair continuity. Provider/Model currentness, principal currentness, capability, routing, billing and AI execution remain separate.
+
+
+## DD-197 — TokenUsage AICapability exact code
+
+F-05 + A-07 + DD-09 → migration 0012 TokenUsage capability-code FK →
+`Development/AI_TOKEN_USAGE_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-197 → `src/core/ai/token-usage-capability-binding-floors.ts` →
+`AIUSAGE-CAP-CUR-001…007` →
+`tests/core/ai-token-usage-capability-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD197_VERIFICATION_2026-09-25.md`.
+
+This chain claims only exact persisted TokenUsage capability-code → AICapability code continuity. Capability currentness, entitlement/policy, routing, principal currentness, billing and AI execution remain separate.

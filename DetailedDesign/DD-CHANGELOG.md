@@ -379,3 +379,8 @@ Post-DD-194 source ownership isolated migration 0031's separate RAGChunk → emb
 ## 2026-09-25 — DD-196 TokenUsage Model/Provider pair floor
 
 Post-DD-195 source ownership isolated migration 0031's TokenUsage `model_id,provider_id` → AIModel `id,provider_id` composite relationship as source-complete. Exact implementation `609508642c21ce3337018f911814826cbe2f73dd` / tree `fc6a8a7206cfea38cb29422f171d6dbcc72bd606` passed **619/619 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Provider/Model currentness, principal currentness, routing, billing and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-197 TokenUsage capability-code floor
+
+Post-DD-196 source ownership isolated migration 0012's direct TokenUsage `capability_code` → AICapability `code` foreign-key relationship as source-complete. Exact implementation `a4d12bb3a0683ad218d6b1a5c4bedccafae99cdf` / tree `51d94b76c82aff0be0b946d858f887e36ff3ac51` passed **626/626 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Capability currentness, principal currentness, billing and AI execution remain unclaimed.
