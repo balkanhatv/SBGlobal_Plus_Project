@@ -276,3 +276,7 @@ Migration 0031's generated Document → exact AIModel/AIProvider composite pair 
 
 ## 2026-09-25 — DD-192 canonical promotion / checkpoint advance
 Implementation `36e2fa9c91aa73aafc1217da69ed62eee6d84eb7` / tree `8efb4c1dc0e13ff303d907866385fdb03e020b18` passed exact-head **588 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-192 promotes only the exact composite pair floor.
+
+
+## 2026-09-25 — DD-192 promotion exact-head verified / closure staged
+Canonical DD-192 promotion `799fc1802e62d822bff947f1fef6e0632a09a84b` / tree `c392413443e8574d94efdf317ce251066641d0bf` passed exact-head **588 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections now use this verified promotion as their executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
