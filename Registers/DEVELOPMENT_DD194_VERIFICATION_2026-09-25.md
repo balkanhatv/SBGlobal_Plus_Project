@@ -24,3 +24,14 @@ All four logs assert the exact implementation commit/tree above. Database invent
 A true helper result proves only direct parent source continuity. It does not prove RAGSource currentness, RAGSource→Document validity, acting-principal ACL authorization, embedding-model current eligibility, retrieval participation, grounding/citation or inference/execution authority.
 
 Canonical promotion uses the implementation HEAD above as verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `00dbb610b13b3729cb36dd56350a74951417c58b` / tree `e7be433a499789a64853f92f60dccbd6a89ed27f` independently passed all required workflows:
+- Core Service Verify `36153346707`, Core job `108131813056`: **604/604 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108131812687`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36153346693`, job `108131812300`: PASS.
+- Web Boundary Verify `36153346769`, job `108131814405`: PASS.
+
+All four logs assert the exact promotion commit/tree above. This authorizes DD-194 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.

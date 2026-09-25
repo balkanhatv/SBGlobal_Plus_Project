@@ -298,3 +298,7 @@ Migration 0031's direct RAGChunk → parent RAGSource id/Tenant/null-safe Indust
 
 ## 2026-09-25 — DD-194 canonical promotion / checkpoint advance
 Implementation `2a93610cc3014824ebb8c63c7c71f533999bdf52` / tree `044ce2585c4dfe85c9434f33c4bae1f3ce6a1ff6` passed exact-head **604 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-194 promotes only this parent continuity floor.
+
+
+## 2026-09-25 — DD-194 promotion exact-head verified / closure staged
+Canonical DD-194 promotion `00dbb610b13b3729cb36dd56350a74951417c58b` / tree `e7be433a499789a64853f92f60dccbd6a89ed27f` passed exact-head **604 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
