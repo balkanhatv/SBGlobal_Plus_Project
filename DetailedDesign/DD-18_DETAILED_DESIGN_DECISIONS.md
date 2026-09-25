@@ -2630,4 +2630,14 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-186 does not select current/latest memory; resolve supersession chains; evaluate expiry; enforce retention/legal hold/erasure; interpret ACL or principal authorization; decrypt/dereference content; carry Tenant-Core memory across Industry experiences; select effective Assistant versions; compose DD-179; resolve prompt/RAG/model/provider/tool policies; execute inference/RAG/tools/agents; mutate memory state; or change SQL/RLS/roles/grants/routes/product policy.
 
 **Acceptance:** `AIMEM-AST-CUR-001…007` in DD-17 and `tests/core/ai-memory-assistant-binding-floors.test.mjs`.
+## DD-187 — AIMemoryRecord direct supersession continuity may be re-evaluated as a pure current relationship floor
 
+**Context:** DD-129 exposes raw AIMemoryRecord evidence. Migration 0031 validates optional `supersedes_id` as a direct persisted relationship: non-self exact parent id plus exact Tenant, null-safe Industry Context, null-safe principal and exact memory-class continuity. DD-186 explicitly leaves supersession outside the AssistantDefinition binding floor.
+
+**Decision:** add pure Core helper `matchesAIMemorySupersessionContinuityFloors(memory, supersededMemory?)`. It validates relevant child/parent identity and continuity shape; treats absent `supersedesId` as valid only when no parent evidence is supplied; and for present bindings requires non-self exact parent id plus same Tenant, null-safe Industry Context, null-safe principal and exact memory class.
+
+**Security / trade-off:** the helper mirrors only migration-0031's direct persisted continuity predicate. It deliberately does not validate memory-principal currentness, lifecycle state, chronology, indirect cycles, chain resolution, current/latest selection, expiry, retention/ACL or Assistant/runtime authority.
+
+**Boundary:** DD-187 does not require parent `SUPERSEDED` or child `ACTIVE`; traverse supersession chains; detect indirect cycles; select current/latest/effective memory; compare timestamps; evaluate expiry; enforce retention/legal hold/erasure; interpret ACL; authorize principals; decrypt/dereference content/source; validate/select AssistantDefinition; execute inference/RAG/tools/agents; mutate memory; or change SQL/RLS/roles/grants/routes/product policy.
+
+**Acceptance:** `AIMEM-SUP-CUR-001…007` in DD-17 and `tests/core/ai-memory-supersession-continuity-floors.test.mjs`.
