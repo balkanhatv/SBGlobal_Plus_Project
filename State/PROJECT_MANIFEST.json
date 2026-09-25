@@ -368,14 +368,18 @@
     },
     "repository_full_name": "yadavjalsingh192/SBGlobal_Plus_Project",
     "actions_reverification": {
-      "requested_from_head": "8b1968380eff8367cd5c5f32dbfbef4176be787e",
-      "reason": "Existing exact-head DD-187 candidate runs ended in startup_failure and GitHub rejected retry; trigger fresh workflows from a state-only commit without changing product semantics.",
+      "smoke_head": "09b5f67a5f49120ecd9496d1fa8007c80e872b2e",
+      "smoke_run_id": 36113190896,
+      "smoke_job_id": 108001111316,
+      "smoke_result": "PASS_GITHUB_HOSTED_RUNNER_STARTED_AND_COMPLETED",
+      "smoke_cleanup_head": "022cd58f7faa53d074ba25adfc626882ec642320",
+      "trigger_reason": "Fresh exact-head verification after GitHub Actions startup recovery; no product semantics changed.",
       "required_workflows": [
         "Core Service Verify",
         "Database Verify",
         "Web Boundary Verify"
       ],
-      "promotion_rule": "DD-187 remains unpromoted until exact-head fresh runs PASS."
+      "promotion_rule": "DD-187 remains unpromoted until all required exact-head workflows PASS."
     }
   },
   "development": {
