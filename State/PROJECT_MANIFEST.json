@@ -3,18 +3,18 @@
   "updated": "2026-09-25",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-  "final_verdict": "DD-188 implementation exact-head PASS; canonical promotion/state reconciliation requires its own exact-head CI",
+  "final_verdict": "DD-188 canonically promoted and exact-head verified; DD-189 source-complete input-document candidate awaits exact-head CI/promotion",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD188_CANONICAL",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD188_CANONICAL_DD189_SOURCE_CONTRACT_COMPLETE",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD188_IMPLEMENTATION_VERIFIED_PROMOTION_CI_PENDING",
+    "development": "IN_PROGRESS_DD188_VERIFIED_DD189_CANDIDATE",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD188_BOUNDED_IMPLEMENTATION_VERIFIED"
+    "core_services": "DD040_DD188_CANONICALLY_VERIFIED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
-    "verified_code_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
-    "state_projection_basis_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
+    "verified_code_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
+    "verified_code_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
+    "state_projection_basis_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -352,7 +352,7 @@
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD188_PROMOTION_EXACT_HEAD_CI_PENDING",
+    "current_phase": "DEVELOPMENT_DD188_VERIFIED_DD189_CANDIDATE",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -367,9 +367,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
-      "ci_run_id": 36118205364,
-      "ci_job_id": 108017179491,
+      "ci_verified_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
+      "ci_run_id": 36121218700,
+      "ci_job_id": 108026901298,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -381,7 +381,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
+      "ci_verified_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -389,10 +389,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
-      "feature_head_bootstrap_verified_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
-      "feature_head_bootstrap_run_id": 36118205299,
-      "feature_head_bootstrap_job_id": 108017179365,
+      "feature_head_bootstrap_verified_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
+      "feature_head_bootstrap_verified_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
+      "feature_head_bootstrap_run_id": 36121218741,
+      "feature_head_bootstrap_job_id": 108026901423,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -401,7 +401,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.",
+    "next_action": "Verify the DD-189 AIMediaRequest input-document binding candidate at its exact HEAD, then promote its canonical decision/acceptance/traceability only on PASS. Principal-currentness and AI execution boundaries remain locked.",
     "core_services": {
       "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -409,19 +409,19 @@
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040–188 bounded implementation",
-      "verified_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
-      "verified_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
-      "core_ci_run_id": 36118205299,
-      "core_ci_job_id": 108017179259,
-      "tests": "563/563 PASS",
+      "verified_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
+      "verified_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
+      "core_ci_run_id": 36121218741,
+      "core_ci_job_id": 108026901271,
+      "tests": "565/565 PASS",
       "core_test_counts": {
-        "tests": 563,
-        "pass": 563,
+        "tests": 565,
+        "pass": 565,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36118205299,
-      "postgres_ci_job_id": 108017179365,
+      "postgres_ci_run_id": 36121218741,
+      "postgres_ci_job_id": 108026901423,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -430,8 +430,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36118205364,
-      "database_regression_job_id": 108017179491,
+      "database_regression_run_id": 36121218700,
+      "database_regression_job_id": 108026901298,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -877,7 +877,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.",
+      "next_action": "Verify the DD-189 AIMediaRequest input-document binding candidate at its exact HEAD, then promote its canonical decision/acceptance/traceability only on PASS. Principal-currentness and AI execution boundaries remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -971,7 +971,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD188_PROMOTION_EXACT_HEAD_CI_PENDING",
+  "current_phase": "DEVELOPMENT_DD188_VERIFIED_DD189_CANDIDATE",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1004,17 +1004,17 @@
   },
   "continuation": {
     "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-    "verified_code_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
-    "verified_code_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
+    "verified_code_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
+    "verified_code_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
     "source_audit": "Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md",
-    "next_action": "Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.",
+    "next_action": "Verify the DD-189 AIMediaRequest input-document binding candidate at its exact HEAD, then promote its canonical decision/acceptance/traceability only on PASS. Principal-currentness and AI execution boundaries remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
     "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-    "verified_executable_basis": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
-    "verified_executable_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
+    "verified_executable_basis": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
+    "verified_executable_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
     "current_verification": "Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md",
     "scope": "DD-188 implements only optional AIMediaRequest → PromptTemplate exact id/version/ACTIVE/owner-scope binding. Missing, foreign or malformed binding evidence fails closed. A true result grants no principal/document access, prompt rendering, moderation or AI execution authority."
   },
@@ -1042,14 +1042,16 @@
       "VC25-01 incomplete DD-188 canonical promotion",
       "VC25-02 stale contradictory active state and repository identity"
     ],
-    "status": "TARGETED_RECONCILIATION_PENDING_EXACT_HEAD_CI"
+    "status": "PASS_CORRECTION_EXACT_HEAD_VERIFIED",
+    "correction_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
+    "correction_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b"
   },
   "current_feature_verification": {
     "decision_id": "DD-188",
     "decision": "DD-188 AIMediaRequest PromptTemplate binding floor",
     "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-    "verified_head": "35ffce1cd8d079596b79452e1b5a117ebcd541c0",
-    "verified_tree": "a494cd6f4ca3cc07c74becff0cb4208091b29f7a",
+    "verified_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
+    "verified_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
     "source_audit": "Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
       "AIMEDIA-PROMPT-CUR-001",
@@ -1064,16 +1066,16 @@
       "tests/core/ai-media-request-prompt-template-binding-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36118205299,
-      "job_id": 108017179259,
-      "tests": 563,
-      "pass": 563,
+      "run_id": 36121218741,
+      "job_id": 108026901271,
+      "tests": 565,
+      "pass": 565,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36118205299,
-      "job_id": 108017179365,
+      "run_id": 36121218741,
+      "job_id": 108026901423,
       "tests": 497,
       "pass": 497,
       "fail": 0,
@@ -1081,13 +1083,13 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36118205364,
-      "job_id": 108017179491,
+      "run_id": 36121218700,
+      "job_id": 108026901298,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36118205303,
-      "job_id": 108017179189,
+      "run_id": 36121218744,
+      "job_id": 108026901307,
       "conclusion": "success"
     },
     "database_schema_change": false,
@@ -1830,5 +1832,14 @@
         "main_merge": false
       }
     }
+  },
+  "pending_feature": {
+    "decision_id": "DD-189",
+    "source_audit": "Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "status": "SOURCE_COMPLETE_IMPLEMENTED_CI_PENDING",
+    "scope": "AIMediaRequest input-document relationship only",
+    "expected_core_tests": 573,
+    "postgres_tests": 497,
+    "database_schema_change": false
   }
 }

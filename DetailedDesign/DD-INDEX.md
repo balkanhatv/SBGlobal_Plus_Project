@@ -4,13 +4,13 @@
 
 DD-188 implements only optional AIMediaRequest → PromptTemplate exact id/version/ACTIVE/owner-scope binding. Missing, foreign or malformed binding evidence fails closed. A true result grants no principal/document access, prompt rendering, moderation or AI execution authority.
 
-Verified implementation basis `35ffce1cd8d079596b79452e1b5a117ebcd541c0` / tree `a494cd6f4ca3cc07c74becff0cb4208091b29f7a`: **563/563 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36118205299` (jobs `108017179259`, `108017179365`), Database `36118205364` (job `108017179491`), Web `36118205303` (job `108017179189`).
+Verified canonical correction `4d9b609756d4c97417214eeadc54aa7531d57fdb` / tree `fa01068c39b18241399c5c28e9c71ea7ae67f57b`: **565/565 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36121218741` (jobs `108026901271`, `108026901423`), Database `36121218700` (job `108026901298`), Web `36121218744` (job `108026901307`).
 
-Canonical promotion and state reconciliation are in this forward-only change. Its own exact-head CI must pass independently; the hashes above name already-observed evidence, never a self-referential commit.
+The named correction is canonically promoted and exact-head verified. New commits carrying metadata or candidates must pass their own exact-head CI; no self-referential commit hash is invented.
 
 Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.
+Next: Verify the DD-189 AIMediaRequest input-document binding candidate at its exact HEAD, then promote its canonical decision/acceptance/traceability only on PASS. Principal-currentness and AI execution boundaries remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -104,3 +104,7 @@ Earlier Phase-3 labels describe their recorded baseline. Current source-owner re
 Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c02c` / tree `35d7e5dafb39c53384f817cfba3a8d56ffd048ec`: Core run `35909155774` (job `107344302164`) **311/311**, PostgreSQL job `107344301757` **462/462** including corrected `APICRED-META-PG-004`, Database run `35909155819` (job `107344301870`) SUCCESS, Web run `35909155798` (job `107344301871`) SUCCESS. This changes only schema-valid nullable `allowed_cidrs` preservation; DD-146 checkpoint and OperatorElevation semantics are unchanged.
 
 DD-164 is the bounded SyncCursor current parent/capability binding necessary floor. A true result is not synchronization authorization; cursor/provider/runtime semantics remain separately governed.
+
+## Pending source-complete candidate — DD-189
+
+The separately governed input-document relationship is implemented for exact-head verification; it is not yet a promoted checkpoint. Detailed contract and fixed acceptance: `Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`.

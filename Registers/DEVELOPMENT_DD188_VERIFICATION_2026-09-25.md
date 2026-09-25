@@ -20,3 +20,7 @@ REPO-007 and REPO-008 fail on the starting state (two failures) and guard active
 No schema/RLS/roles/grants/routes/provider change. Principal currentness and complete AI execution remain unclaimed. Next: Source-audit the independent migration-0031 AIMediaRequest input-document scope/state/scan/sensitivity/residency relationship. Principal currentness remains blocked by missing provenance; no AI execution is authorized.
 
 Promotion identity is resolved from Git after publication. Its own four exact-head jobs must PASS before continuation; no recursive/self commit hash is invented.
+
+## Observed canonical correction-head gate
+
+Canonical promotion/state correction `4d9b609756d4c97417214eeadc54aa7531d57fdb` / tree `fa01068c39b18241399c5c28e9c71ea7ae67f57b` passed all exact-head jobs: Core run 36121218741/job 108026901271 **565/565**, PostgreSQL job 108026901423 **497/497** plus 48/42 bootstrap, Database run 36121218700/job 108026901298 PASS, Web run 36121218744/job 108026901307 PASS. All logs assert that commit/tree. This closes the pending correction gate above and permits only the next source-owned prerequisite.
