@@ -41,6 +41,9 @@ DD-197 implements only TokenUsage → AICapability exact capability-code foreign
 
 Verified canonical DD-197 promotion `9dcd28bb1db8bd3aa547fcba89f858b66a417646` / tree `4bd47e39825df89f0e0ef4ed0b09a917af92ebea`: **626/626 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36160640520` (jobs `108156046969`, `108156046939`), Database `36160640556` (job `108156046913`), Web `36160640528` (job `108156046797`).
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-197 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent TokenUsage/AI persistence relationship; principal currentness, billing and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify the DD-198 AICost → TokenUsage exact usage-id binding candidate against the fixed source audit, then implement only that parent foreign-key continuity. Pricing/billing/finalization, principal currentness and AI execution remain locked.
 
 
+## Pending source-complete candidate — DD-198
+
+The next governed prerequisite is the AICost → TokenUsage exact usage-id primary-key/foreign-key continuity relationship only. Source audit: `Development/AI_COST_TOKEN_USAGE_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Pricing/billing/finalization, principal currentness and AI execution remain outside the candidate.
