@@ -287,3 +287,7 @@ Migration 0031's optional RAGSource → DocumentMeta id/version/scope/ACTIVE-CLE
 
 ## 2026-09-25 — DD-193 canonical promotion / checkpoint advance
 Implementation `7cdcf9304eb540f722dce36407a076d7ea698a64` / tree `cf10ade82baae9079317334b6fb8e891d700aa05` passed exact-head **596 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-193 promotes only this current relationship floor.
+
+
+## 2026-09-25 — DD-193 promotion exact-head verified / closure staged
+Canonical DD-193 promotion `c5eea99d3c20aea2f0021323bdfb800cb4c96b77` / tree `0493ec6646c60b70794d0c6ad87c5dc95f9cffdf` passed exact-head **596 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
