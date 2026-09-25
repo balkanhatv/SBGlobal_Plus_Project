@@ -41,6 +41,9 @@ DD-192 implements only the generated Document → exact AIModel/AIProvider persi
 
 Verified canonical DD-192 promotion `799fc1802e62d822bff947f1fef6e0632a09a84b` / tree `c392413443e8574d94efdf317ce251066641d0bf`: **588/588 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36146256839` (jobs `108108056709`, `108108057100`), Database `36146256978` (job `108108056728`), Web `36146256807` (job `108108056620`).
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-192 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted relationship; Provider/Model currentness and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify the DD-193 RAGSource optional Document binding candidate against the fixed source audit, then implement only that relationship floor. Document ACL, RAG retrieval and AI execution remain locked.
 
 
+## Pending source-complete candidate — DD-193
+
+The next governed prerequisite is the RAGSource → optional DocumentMeta exact id/version/scope/ACTIVE-CLEAN/sensitivity/residency relationship only. Source audit: `Development/RAG_SOURCE_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Document ACL, RAG retrieval and AI execution remain outside the candidate.

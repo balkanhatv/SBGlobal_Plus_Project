@@ -10,7 +10,7 @@ DD-192 decision/acceptance/traceability are canonically promoted and the promoti
 
 Evidence: `Registers/DEVELOPMENT_DD192_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-192 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted relationship; Provider/Model currentness and AI execution remain locked.
+Next: Verify the DD-193 RAGSource optional Document binding candidate against the fixed source audit, then implement only that relationship floor. Document ACL, RAG retrieval and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -110,3 +110,6 @@ Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c
 DD-164 is the bounded SyncCursor current parent/capability binding necessary floor. A true result is not synchronization authorization; cursor/provider/runtime semantics remain separately governed.
 
 
+## Pending source-complete candidate — DD-193
+
+The next governed prerequisite is the RAGSource → optional DocumentMeta exact id/version/scope/ACTIVE-CLEAN/sensitivity/residency relationship only. Source audit: `Development/RAG_SOURCE_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Document ACL, RAG retrieval and AI execution remain outside the candidate.
