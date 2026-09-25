@@ -365,6 +365,17 @@
       },
       "promotion_allowed": false,
       "next_action": "Restore successful GitHub Actions startup, exact-head verify DD-187, then promote only on PASS."
+    },
+    "repository_full_name": "yadavjalsingh192/SBGlobal_Plus_Project",
+    "actions_reverification": {
+      "requested_from_head": "8b1968380eff8367cd5c5f32dbfbef4176be787e",
+      "reason": "Existing exact-head DD-187 candidate runs ended in startup_failure and GitHub rejected retry; trigger fresh workflows from a state-only commit without changing product semantics.",
+      "required_workflows": [
+        "Core Service Verify",
+        "Database Verify",
+        "Web Boundary Verify"
+      ],
+      "promotion_rule": "DD-187 remains unpromoted until exact-head fresh runs PASS."
     }
   },
   "development": {
