@@ -259,3 +259,15 @@ DD-195 → `src/core/ai/rag-chunk-embedding-model-eligibility-floors.ts` →
 `Registers/DEVELOPMENT_DD195_VERIFICATION_2026-09-25.md`.
 
 This chain claims only exact embedding-model id, raw ACTIVE status and sensitivity-ceiling eligibility for an already-loaded RAGChunk/AIModel pair. Provider routing/currentness, source/document/ACL validity, retrieval, grounding and AI execution remain separate.
+
+
+## DD-196 — TokenUsage AIModel/Provider exact pair
+
+F-05 + A-07 + DD-09 → migrations 0012 and 0031 composite Model/Provider FK →
+`Development/AI_TOKEN_USAGE_MODEL_PROVIDER_PAIR_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-196 → `src/core/ai/token-usage-model-provider-binding-floors.ts` →
+`AIUSAGE-MODEL-CUR-001…007` →
+`tests/core/ai-token-usage-model-provider-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD196_VERIFICATION_2026-09-25.md`.
+
+This chain claims only persisted TokenUsage `modelId/providerId` → AIModel `id/providerId` exact composite-pair continuity. Provider/Model currentness, principal currentness, capability, routing, billing and AI execution remain separate.

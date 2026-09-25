@@ -3218,3 +3218,27 @@ Provider id, capabilities, modalities, residency, cost, latency, version and mod
 
 ### RAGCHUNK-MODEL-CUR-008 — Unrelated chunk semantics stay uninterpreted
 Source/scope/residency/retention/ACL/embedding-version and other unrelated chunk fields do not affect this predicate; inputs remain unchanged.
+
+
+## DD-196 TokenUsage AIModel/Provider Pair Acceptance
+
+### AIUSAGE-MODEL-CUR-001 — Exact composite pair
+An exact TokenUsage model/provider pair matching AIModel `id/providerId` passes.
+
+### AIUSAGE-MODEL-CUR-002 — Missing/wrong model fails closed
+Missing model evidence or a mismatched AIModel id fails closed.
+
+### AIUSAGE-MODEL-CUR-003 — Provider pair must match exactly
+AIModel `providerId` must exactly equal TokenUsage `providerId`.
+
+### AIUSAGE-MODEL-CUR-004 — Relevant shape validation
+Malformed TokenUsage id/Tenant/optional Industry/model/provider UUID shape or malformed model id/provider pair fails closed.
+
+### AIUSAGE-MODEL-CUR-005 — Runtime/catalog semantics stay uninterpreted
+Model status/version/capabilities/modalities/residency/sensitivity/cost/latency/metadata are not evaluated and no separate Provider row is required.
+
+### AIUSAGE-MODEL-CUR-006 — Usage observability evidence stays uninterpreted
+TokenUsage principal/capability/unit/time/correlation evidence does not affect this composite-pair predicate.
+
+### AIUSAGE-MODEL-CUR-007 — Bounded pure predicate
+Inputs remain unchanged; a true result grants no routing, authorization, billing or AI execution authority.

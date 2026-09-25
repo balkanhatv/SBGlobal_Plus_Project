@@ -2742,3 +2742,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-195 does not establish Provider currentness/health/credentials, capability/modality/residency compatibility, embedding-version compatibility, model routing/selection, cost/budget policy, source/document/ACL validity, vector/FTS retrieval, ranking/reranking, grounding/citation, prompt-injection defense or AI execution.
 
 **Acceptance:** `RAGCHUNK-MODEL-CUR-001…008` in DD-17 and `tests/core/ai-rag-chunk-embedding-model-eligibility-floors.test.mjs`.
+
+
+## DD-196 — TokenUsage AIModel/Provider exact pair may be re-evaluated as a pure persisted relationship floor
+
+**Context:** migration 0012 persists non-null TokenUsage `model_id` and `provider_id`. Migration 0031 adds composite foreign key `token_usage_model_provider_fk (model_id,provider_id) → ai_model(id,provider_id)`. DD-122 exposes TokenUsage model/provider ids and DD-108 exposes AIModel id/providerId.
+
+**Decision:** add pure helper `matchesAITokenUsageModelProviderBindingFloors(usage, model?)`. It validates relevant usage/model identity shape and requires exact model id plus exact provider id continuity.
+
+**Security / trade-off:** this helper mirrors only the composite foreign-key relationship. Model/Provider runtime fields, capability, principal attribution, usage units and billing evidence remain uninterpreted.
+
+**Boundary:** DD-196 does not establish Model/Provider ACTIVE/current/health/credential status, capability/modality/residency/sensitivity eligibility, principal currentness, routing/fallback, entitlement/quota/budget, cost/billing or AI execution.
+
+**Acceptance:** `AIUSAGE-MODEL-CUR-001…007` in DD-17 and `tests/core/ai-token-usage-model-provider-binding-floors.test.mjs`.

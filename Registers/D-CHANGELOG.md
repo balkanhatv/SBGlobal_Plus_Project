@@ -313,3 +313,10 @@ Implementation `d3662e751dfeb07c68d4a09247ee42696b67f2ff` / tree `37673bf79975c3
 
 ## 2026-09-25 — DD-195 promotion exact-head verified / closure staged
 Canonical DD-195 promotion `86d2ff17963374f2274293c822c9f69428f7bcbb` / tree `ead643a6807f224ffe394624b33e582d8720e0a1` passed exact-head **612 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-25 — DD-196 prerequisite selection
+Migrations 0012/0031 make TokenUsage → AIModel exact model-id/provider-id composite-pair continuity source-complete from DD-122 plus DD-108.
+
+## 2026-09-25 — DD-196 canonical promotion / checkpoint advance
+Implementation `609508642c21ce3337018f911814826cbe2f73dd` / tree `fc6a8a7206cfea38cb29422f171d6dbcc72bd606` passed exact-head **619 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-196 promotes only this composite-pair floor.

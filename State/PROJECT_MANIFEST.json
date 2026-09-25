@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-25",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-ELIGIBILITY-FLOORS-001",
-  "final_verdict": "DD-195 RAGChunk → embedding AIModel current eligibility floor is canonically promoted and exact-head verified; the state-closure HEAD remains the gate before the next source audit.",
+  "checkpoint": "DEV-AI-TOKEN-USAGE-MODEL-PROVIDER-PAIR-FLOORS-001",
+  "final_verdict": "DD-196 TokenUsage → AIModel exact model/provider composite-pair floor is canonically promoted from a fully verified implementation basis; the promotion HEAD itself remains the gate before the next source audit.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD195_CANONICAL",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD196_CANONICAL",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD195_VERIFIED_STATE_CLOSURE_PENDING_HEAD_VERIFICATION",
+    "development": "IN_PROGRESS_DD196_PROMOTED_PENDING_HEAD_VERIFICATION",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD195_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED"
+    "core_services": "DD040_DD196_CANONICALLY_PROMOTED_PENDING_HEAD_VERIFICATION"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "86d2ff17963374f2274293c822c9f69428f7bcbb",
-    "verified_code_tree": "ead643a6807f224ffe394624b33e582d8720e0a1",
-    "state_projection_basis_head": "86d2ff17963374f2274293c822c9f69428f7bcbb",
+    "verified_code_head": "609508642c21ce3337018f911814826cbe2f73dd",
+    "verified_code_tree": "fc6a8a7206cfea38cb29422f171d6dbcc72bd606",
+    "state_projection_basis_head": "609508642c21ce3337018f911814826cbe2f73dd",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -478,13 +478,25 @@
       "web_run_id": 36155996311,
       "web_job_id": 108140558739,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd196_implementation_head": "609508642c21ce3337018f911814826cbe2f73dd",
+    "dd196_implementation_tree": "fc6a8a7206cfea38cb29422f171d6dbcc72bd606",
+    "dd196_implementation_ci": {
+      "core_run_id": 36157370893,
+      "core_job_id": 108145102572,
+      "postgres_job_id": 108145102225,
+      "database_run_id": 36157370882,
+      "database_job_id": 108145102103,
+      "web_run_id": 36157370802,
+      "web_job_id": 108145102214,
+      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD195_VERIFIED_DD196_CANDIDATE",
+    "current_phase": "DEVELOPMENT_DD196_PROMOTED_PENDING_HEAD_VERIFICATION",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -499,9 +511,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "86d2ff17963374f2274293c822c9f69428f7bcbb",
-      "ci_run_id": 36155996177,
-      "ci_job_id": 108140558352,
+      "ci_verified_head": "609508642c21ce3337018f911814826cbe2f73dd",
+      "ci_run_id": 36157370882,
+      "ci_job_id": 108145102103,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -513,7 +525,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "ead643a6807f224ffe394624b33e582d8720e0a1",
+      "ci_verified_tree": "fc6a8a7206cfea38cb29422f171d6dbcc72bd606",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -521,10 +533,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "86d2ff17963374f2274293c822c9f69428f7bcbb",
-      "feature_head_bootstrap_verified_tree": "ead643a6807f224ffe394624b33e582d8720e0a1",
-      "feature_head_bootstrap_run_id": 36155996203,
-      "feature_head_bootstrap_job_id": 108140558676,
+      "feature_head_bootstrap_verified_head": "609508642c21ce3337018f911814826cbe2f73dd",
+      "feature_head_bootstrap_verified_tree": "fc6a8a7206cfea38cb29422f171d6dbcc72bd606",
+      "feature_head_bootstrap_run_id": 36157370893,
+      "feature_head_bootstrap_job_id": 108145102225,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_504_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -533,27 +545,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify the DD-196 TokenUsage Model/Provider exact-pair candidate against the fixed source audit, then implement only that composite-FK continuity floor. Principal currentness, runtime routing, billing and AI execution remain locked.",
+    "next_action": "Verify this DD-196 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the independent TokenUsage capability-code relationship or next source-owned AI persistence relation; principal currentness, billing and AI execution remain locked.",
     "core_services": {
-      "checkpoint": "DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-ELIGIBILITY-FLOORS-001",
+      "checkpoint": "DEV-AI-TOKEN-USAGE-MODEL-PROVIDER-PAIR-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–195 bounded implementation",
-      "verified_head": "86d2ff17963374f2274293c822c9f69428f7bcbb",
-      "verified_tree": "ead643a6807f224ffe394624b33e582d8720e0a1",
-      "core_ci_run_id": 36155996203,
-      "core_ci_job_id": 108140558057,
-      "tests": "612/612 PASS",
+      "decision": "DD-040–196 bounded implementation",
+      "verified_head": "609508642c21ce3337018f911814826cbe2f73dd",
+      "verified_tree": "fc6a8a7206cfea38cb29422f171d6dbcc72bd606",
+      "core_ci_run_id": 36157370893,
+      "core_ci_job_id": 108145102572,
+      "tests": "619/619 PASS",
       "core_test_counts": {
-        "tests": 612,
-        "pass": 612,
+        "tests": 619,
+        "pass": 619,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36155996203,
-      "postgres_ci_job_id": 108140558676,
+      "postgres_ci_run_id": 36157370893,
+      "postgres_ci_job_id": 108145102225,
       "postgres_tests": "504/504 PASS",
       "postgres_test_counts": {
         "tests": 504,
@@ -562,8 +574,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36155996177,
-      "database_regression_job_id": 108140558352,
+      "database_regression_run_id": 36157370882,
+      "database_regression_job_id": 108145102103,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -890,7 +902,8 @@
         "DD-192 generated Document exact AIModel/AIProvider composite-pair binding floor",
         "DD-193 optional RAGSource exact Document current-binding floor",
         "DD-194 direct RAGChunk parent-RAGSource continuity floor",
-        "DD-195 RAGChunk embedding AIModel current eligibility floor"
+        "DD-195 RAGChunk embedding AIModel current eligibility floor",
+        "DD-196 TokenUsage exact AIModel/Provider composite-pair floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -1016,7 +1029,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify the DD-196 TokenUsage Model/Provider exact-pair candidate against the fixed source audit, then implement only that composite-FK continuity floor. Principal currentness, runtime routing, billing and AI execution remain locked.",
+      "next_action": "Verify this DD-196 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the independent TokenUsage capability-code relationship or next source-owned AI persistence relation; principal currentness, billing and AI execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1024,7 +1037,7 @@
       "promotion_invariant_gate_unique_dd": 109,
       "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
-    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-195. Full product UI, industry services, RAG retrieval and AI execution remain unfinished.",
+    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-196. Full product UI, industry services, billing and AI execution remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -1110,7 +1123,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD195_VERIFIED_DD196_CANDIDATE",
+  "current_phase": "DEVELOPMENT_DD196_PROMOTED_PENDING_HEAD_VERIFICATION",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1142,20 +1155,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-ELIGIBILITY-FLOORS-001",
-    "verified_code_head": "86d2ff17963374f2274293c822c9f69428f7bcbb",
-    "verified_code_tree": "ead643a6807f224ffe394624b33e582d8720e0a1",
-    "source_audit": "Development/RAG_CHUNK_EMBEDDING_MODEL_ELIGIBILITY_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD195_VERIFICATION_2026-09-25.md",
-    "next_action": "Verify the DD-196 TokenUsage Model/Provider exact-pair candidate against the fixed source audit, then implement only that composite-FK continuity floor. Principal currentness, runtime routing, billing and AI execution remain locked.",
+    "checkpoint": "DEV-AI-TOKEN-USAGE-MODEL-PROVIDER-PAIR-FLOORS-001",
+    "verified_code_head": "609508642c21ce3337018f911814826cbe2f73dd",
+    "verified_code_tree": "fc6a8a7206cfea38cb29422f171d6dbcc72bd606",
+    "source_audit": "Development/AI_TOKEN_USAGE_MODEL_PROVIDER_PAIR_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD196_VERIFICATION_2026-09-25.md",
+    "next_action": "Verify this DD-196 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the independent TokenUsage capability-code relationship or next source-owned AI persistence relation; principal currentness, billing and AI execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-ELIGIBILITY-FLOORS-001",
-    "verified_executable_basis": "86d2ff17963374f2274293c822c9f69428f7bcbb",
-    "verified_executable_tree": "ead643a6807f224ffe394624b33e582d8720e0a1",
-    "current_verification": "Registers/DEVELOPMENT_DD195_VERIFICATION_2026-09-25.md",
-    "scope": "DD-195 implements only RAGChunk → embedding AIModel exact id/ACTIVE/sensitivity-ceiling eligibility. Provider currentness/routing, source/document ACL, RAG retrieval/grounding and AI execution remain outside this checkpoint."
+    "checkpoint": "DEV-AI-TOKEN-USAGE-MODEL-PROVIDER-PAIR-FLOORS-001",
+    "verified_executable_basis": "609508642c21ce3337018f911814826cbe2f73dd",
+    "verified_executable_tree": "fc6a8a7206cfea38cb29422f171d6dbcc72bd606",
+    "current_verification": "Registers/DEVELOPMENT_DD196_VERIFICATION_2026-09-25.md",
+    "scope": "DD-196 implements only TokenUsage → AIModel exact model-id/provider-id composite-pair continuity. Provider/Model currentness, principal currentness, capability eligibility, routing, billing and AI execution remain outside this checkpoint."
   },
   "current_state_audit": {
     "date": "2026-09-25",
@@ -1186,36 +1199,35 @@
     "correction_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b"
   },
   "current_feature_verification": {
-    "decision_id": "DD-195",
-    "decision": "DD-195 RAGChunk embedding AIModel current eligibility floor",
-    "checkpoint": "DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-ELIGIBILITY-FLOORS-001",
-    "verified_head": "86d2ff17963374f2274293c822c9f69428f7bcbb",
-    "verified_tree": "ead643a6807f224ffe394624b33e582d8720e0a1",
-    "source_audit": "Development/RAG_CHUNK_EMBEDDING_MODEL_ELIGIBILITY_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-196",
+    "decision": "DD-196 TokenUsage AIModel/Provider exact pair floor",
+    "checkpoint": "DEV-AI-TOKEN-USAGE-MODEL-PROVIDER-PAIR-FLOORS-001",
+    "verified_head": "609508642c21ce3337018f911814826cbe2f73dd",
+    "verified_tree": "fc6a8a7206cfea38cb29422f171d6dbcc72bd606",
+    "source_audit": "Development/AI_TOKEN_USAGE_MODEL_PROVIDER_PAIR_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "RAGCHUNK-MODEL-CUR-001",
-      "RAGCHUNK-MODEL-CUR-002",
-      "RAGCHUNK-MODEL-CUR-003",
-      "RAGCHUNK-MODEL-CUR-004",
-      "RAGCHUNK-MODEL-CUR-005",
-      "RAGCHUNK-MODEL-CUR-006",
-      "RAGCHUNK-MODEL-CUR-007",
-      "RAGCHUNK-MODEL-CUR-008"
+      "AIUSAGE-MODEL-CUR-001",
+      "AIUSAGE-MODEL-CUR-002",
+      "AIUSAGE-MODEL-CUR-003",
+      "AIUSAGE-MODEL-CUR-004",
+      "AIUSAGE-MODEL-CUR-005",
+      "AIUSAGE-MODEL-CUR-006",
+      "AIUSAGE-MODEL-CUR-007"
     ],
     "test_files": [
-      "tests/core/ai-rag-chunk-embedding-model-eligibility-floors.test.mjs"
+      "tests/core/ai-token-usage-model-provider-binding-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36155996203,
-      "job_id": 108140558057,
-      "tests": 612,
-      "pass": 612,
+      "run_id": 36157370893,
+      "job_id": 108145102572,
+      "tests": 619,
+      "pass": 619,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36155996203,
-      "job_id": 108140558676,
+      "run_id": 36157370893,
+      "job_id": 108145102225,
       "tests": 504,
       "pass": 504,
       "fail": 0,
@@ -1223,17 +1235,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36155996177,
-      "job_id": 108140558352,
+      "run_id": 36157370882,
+      "job_id": 108145102103,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36155996311,
-      "job_id": 108140558739,
+      "run_id": 36157370802,
+      "job_id": 108145102214,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD195_VERIFICATION_2026-09-25.md"
+    "evidence": "Registers/DEVELOPMENT_DD196_VERIFICATION_2026-09-25.md"
   },
   "historical_projection_payloads": {
     "continuation": {
@@ -1972,14 +1984,5 @@
         "main_merge": false
       }
     }
-  },
-  "pending_feature": {
-    "decision_id": "DD-196",
-    "source_audit": "Development/AI_TOKEN_USAGE_MODEL_PROVIDER_PAIR_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "status": "SOURCE_COMPLETE_NOT_IMPLEMENTED",
-    "scope": "TokenUsage → AIModel exact model-id/provider-id composite pair continuity only",
-    "expected_core_tests": 619,
-    "expected_postgres_tests": 504,
-    "database_schema_change": false
   }
 }

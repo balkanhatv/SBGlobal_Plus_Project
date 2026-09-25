@@ -374,3 +374,8 @@ Post-DD-193 source ownership isolated migration 0031's direct RAGChunk → paren
 ## 2026-09-25 — DD-195 RAGChunk embedding-model eligibility floor
 
 Post-DD-194 source ownership isolated migration 0031's separate RAGChunk → embedding AIModel exact-id/ACTIVE/sensitivity-ceiling predicate as source-complete. Exact implementation `d3662e751dfeb07c68d4a09247ee42696b67f2ff` / tree `37673bf79975c33c90ac3ff85cd69995218fdff9` passed **612/612 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Provider routing/currentness, RAG retrieval and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-196 TokenUsage Model/Provider pair floor
+
+Post-DD-195 source ownership isolated migration 0031's TokenUsage `model_id,provider_id` → AIModel `id,provider_id` composite relationship as source-complete. Exact implementation `609508642c21ce3337018f911814826cbe2f73dd` / tree `fc6a8a7206cfea38cb29422f171d6dbcc72bd606` passed **619/619 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Provider/Model currentness, principal currentness, routing, billing and AI execution remain unclaimed.
