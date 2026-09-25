@@ -24,3 +24,14 @@ All four logs assert the exact implementation commit/tree above. Database invent
 A true helper result proves only exact AICost usage-id → TokenUsage id continuity. Currency, amount, provider-rate version, billable class, finalization, Tenant/Industry/principal/catalog/units/time evidence are intentionally not reinterpreted.
 
 Canonical promotion uses the implementation HEAD above as verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `4f41379e5d4daedd1a409867e21c78a1734f6e2d` / tree `374dfb860408767d110bd1f32b24c742c1d5f740` independently passed all required workflows:
+- Core Service Verify `36165397163`, Core job `108171789848`: **632/632 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108171789341`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36165397189`, job `108171789166`: PASS.
+- Web Boundary Verify `36165397164`, job `108171789576`: PASS.
+
+All four logs assert the exact promotion commit/tree above. This authorizes DD-198 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.

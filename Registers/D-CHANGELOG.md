@@ -342,3 +342,7 @@ Migration 0012's AICost `usage_id` PK/FK → TokenUsage `id` relationship is sou
 
 ## 2026-09-25 — DD-198 canonical promotion / checkpoint advance
 Implementation `af98e316fa8bbc4d2bc91c52535741f0674388bf` / tree `32fccff385f9768df655a934df2f211322e14959` passed exact-head **632 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-198 promotes only exact usage-id parent continuity.
+
+
+## 2026-09-25 — DD-198 promotion exact-head verified / closure staged
+Canonical DD-198 promotion `4f41379e5d4daedd1a409867e21c78a1734f6e2d` / tree `374dfb860408767d110bd1f32b24c742c1d5f740` passed exact-head **632 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.

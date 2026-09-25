@@ -39,8 +39,8 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 DD-198 implements only AICost → TokenUsage exact usage-id primary-key/foreign-key continuity. Pricing, provider-rate applicability, currency conversion, billability/finalization, principal/catalog eligibility, billing/ledger and AI execution remain outside this checkpoint.
 
-Verified DD-198 implementation basis `af98e316fa8bbc4d2bc91c52535741f0674388bf` / tree `32fccff385f9768df655a934df2f211322e14959`: **632/632 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36162060425` (jobs `108160766933`, `108160767268`), Database `36162060429` (job `108160767138`), Web `36162060426` (job `108160766541`).
+Verified canonical DD-198 promotion `4f41379e5d4daedd1a409867e21c78a1734f6e2d` / tree `374dfb860408767d110bd1f32b24c742c1d5f740`: **632/632 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36165397163` (jobs `108171789848`, `108171789341`), Database `36165397189` (job `108171789166`), Web `36165397164` (job `108171789576`).
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-198 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent AI persistence relationship; pricing/billing/finalization, principal currentness and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-198 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent AI persistence relationship; pricing/billing/finalization, principal currentness and AI execution remain locked.
 
 
