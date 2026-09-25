@@ -41,6 +41,9 @@ DD-198 implements only AICost → TokenUsage exact usage-id primary-key/foreign-
 
 Verified canonical DD-198 promotion `4f41379e5d4daedd1a409867e21c78a1734f6e2d` / tree `374dfb860408767d110bd1f32b24c742c1d5f740`: **632/632 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36165397163` (jobs `108171789848`, `108171789341`), Database `36165397189` (job `108171789166`), Web `36165397164` (job `108171789576`).
 
-Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify this DD-198 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent AI persistence relationship; pricing/billing/finalization, principal currentness and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. Next: Verify the DD-199 AIMessage → AIConversation exact conversation-id binding candidate against the fixed source audit, then implement only that parent foreign-key continuity. Authorization, model routing and AI execution remain locked.
 
 
+## Pending source-complete candidate — DD-199
+
+The next governed prerequisite is the AIMessage → AIConversation exact conversation-id parent foreign-key continuity relationship only. Source audit: `Development/AI_MESSAGE_CONVERSATION_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Conversation authorization/currentness, model routing and AI execution remain outside the candidate.

@@ -556,7 +556,7 @@
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD198_VERIFIED",
+    "current_phase": "DEVELOPMENT_DD198_VERIFIED_DD199_CANDIDATE",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -605,7 +605,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify this DD-198 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent AI persistence relationship; pricing/billing/finalization, principal currentness and AI execution remain locked.",
+    "next_action": "Verify the DD-199 AIMessage → AIConversation exact conversation-id binding candidate against the fixed source audit, then implement only that parent foreign-key continuity. Authorization, model routing and AI execution remain locked.",
     "core_services": {
       "checkpoint": "DEV-AI-COST-TOKEN-USAGE-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -1091,7 +1091,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify this DD-198 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent AI persistence relationship; pricing/billing/finalization, principal currentness and AI execution remain locked.",
+      "next_action": "Verify the DD-199 AIMessage → AIConversation exact conversation-id binding candidate against the fixed source audit, then implement only that parent foreign-key continuity. Authorization, model routing and AI execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1185,7 +1185,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD198_VERIFIED",
+  "current_phase": "DEVELOPMENT_DD198_VERIFIED_DD199_CANDIDATE",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1222,7 +1222,7 @@
     "verified_code_tree": "374dfb860408767d110bd1f32b24c742c1d5f740",
     "source_audit": "Development/AI_COST_TOKEN_USAGE_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DEVELOPMENT_DD198_VERIFICATION_2026-09-25.md",
-    "next_action": "Verify this DD-198 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent AI persistence relationship; pricing/billing/finalization, principal currentness and AI execution remain locked.",
+    "next_action": "Verify the DD-199 AIMessage → AIConversation exact conversation-id binding candidate against the fixed source audit, then implement only that parent foreign-key continuity. Authorization, model routing and AI execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
@@ -2045,5 +2045,14 @@
         "main_merge": false
       }
     }
+  },
+  "pending_feature": {
+    "decision_id": "DD-199",
+    "source_audit": "Development/AI_MESSAGE_CONVERSATION_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "status": "SOURCE_COMPLETE_NOT_IMPLEMENTED",
+    "scope": "AIMessage → AIConversation exact conversation-id parent foreign-key continuity only",
+    "expected_core_tests": 638,
+    "expected_postgres_tests": 504,
+    "database_schema_change": false
   }
 }
