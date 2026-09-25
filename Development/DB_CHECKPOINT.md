@@ -10,10 +10,13 @@ DD-194 decision/acceptance/traceability are canonically promoted and the promoti
 
 Evidence: `Registers/DEVELOPMENT_DD194_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-194 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the separate RAGChunk → embedding-model current eligibility relationship; RAG retrieval and AI execution remain locked.
+Next: Verify the DD-195 RAGChunk embedding-model current eligibility candidate against the fixed source audit, then implement only exact model-id/ACTIVE/sensitivity-ceiling eligibility. Provider routing, RAG retrieval and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
 Database evidence is clean bootstrap plus bounded real PostgreSQL acceptance, not production upgrade, rollback, load, penetration, recovery or operational certification. No migration, RLS, role or grant changes are introduced.
 
 
+## Pending source-complete candidate — DD-195
+
+The next governed prerequisite is the RAGChunk → embedding AIModel exact id/ACTIVE/sensitivity-ceiling eligibility relationship only. Source audit: `Development/RAG_CHUNK_EMBEDDING_MODEL_ELIGIBILITY_PREREQUISITE_OWNERSHIP_AUDIT.md`. Provider routing, RAG retrieval and AI execution remain outside the candidate.

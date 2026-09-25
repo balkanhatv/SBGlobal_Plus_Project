@@ -10,7 +10,7 @@ DD-194 decision/acceptance/traceability are canonically promoted and the promoti
 
 Evidence: `Registers/DEVELOPMENT_DD194_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-194 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the separate RAGChunk → embedding-model current eligibility relationship; RAG retrieval and AI execution remain locked.
+Next: Verify the DD-195 RAGChunk embedding-model current eligibility candidate against the fixed source audit, then implement only exact model-id/ACTIVE/sensitivity-ceiling eligibility. Provider routing, RAG retrieval and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -257,3 +257,6 @@ Next governed work: **Commercial current-state integration only**.
 Audit head `a453fc2f2f555972cd0391a3db04bc67a6e7d497`: `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. No DD-163 machine-auth implementation is source-authorized. Next: fresh source-audit another named unfinished runtime seam; do not infer token/verifier/CIDR/profile/use-audit semantics.
 
 
+## Pending source-complete candidate — DD-195
+
+The next governed prerequisite is the RAGChunk → embedding AIModel exact id/ACTIVE/sensitivity-ceiling eligibility relationship only. Source audit: `Development/RAG_CHUNK_EMBEDDING_MODEL_ELIGIBILITY_PREREQUISITE_OWNERSHIP_AUDIT.md`. Provider routing, RAG retrieval and AI execution remain outside the candidate.
