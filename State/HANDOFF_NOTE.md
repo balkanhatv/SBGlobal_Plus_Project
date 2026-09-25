@@ -10,10 +10,13 @@ DD-195 decision/acceptance/traceability are canonically promoted and the promoti
 
 Evidence: `Registers/DEVELOPMENT_DD195_VERIFICATION_2026-09-25.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-195 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted RAG/AI relationship; provider routing, RAG retrieval and AI execution remain locked.
+Next: Verify the DD-196 TokenUsage Model/Provider exact-pair candidate against the fixed source audit, then implement only that composite-FK continuity floor. Principal currentness, runtime routing, billing and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
 Fetch the branch again before continuation. Verify this state-closure commit against all four CI jobs before opening another DD.
 
 
+## Pending source-complete candidate — DD-196
+
+The next governed prerequisite is TokenUsage → AIModel exact model-id/provider-id composite-pair continuity only. Source audit: `Development/AI_TOKEN_USAGE_MODEL_PROVIDER_PAIR_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Principal currentness, provider/model runtime routing, billing and AI execution remain outside the candidate.
