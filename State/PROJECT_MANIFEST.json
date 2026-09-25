@@ -1,20 +1,20 @@
 {
   "project": "SBGlobal Plus",
-  "updated": "2026-09-24",
+  "updated": "2026-09-25",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001",
-  "final_verdict": "DD-186 AIMEMORY ASSISTANT CURRENT-BINDING FLOOR PROMOTED / EXACT-HEAD TESTED; MEMORY PRINCIPAL/SUPERSESSION/RETENTION/AI EXECUTION REMAIN BLOCKED",
+  "final_verdict": "DD-186 AIMEMORY ASSISTANT CURRENT-BINDING FLOOR PROMOTED / EXACT-HEAD TESTED; DD-187 SUPERSESSION-CONTINUITY IMPLEMENTED BUT PROMOTION BLOCKED BY GITHUB ACTIONS STARTUP_FAILURE",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD186_CONTIGUOUS",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_CURRENT_DEVELOPMENT_DD001_DD186_VERIFIED_DD187_PENDING_PROMOTION",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD186_AI_MEMORY_ASSISTANT_CURRENT_BINDING_VERIFIED",
+    "development": "IN_PROGRESS_DD186_VERIFIED_DD187_IMPLEMENTED_UNVERIFIED",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "CURRENT_IMPLEMENTED_DD040_DD186_BOUNDED_CORE_AI_BOUNDARIES_EXACT_HEAD_TESTED"
+    "core_services": "CURRENT_VERIFIED_DD040_DD186_BOUNDED_CORE_AI_BOUNDARIES; DD187_IMPLEMENTED_AWAITING_EXACT_HEAD_CI"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -345,13 +345,33 @@
       "web_run_id": 36024407334,
       "web_job_id": 107717146107,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd187_candidate": {
+      "status": "IMPLEMENTED_NOT_PROMOTED",
+      "source_audit_head": "9ac0fafee7ad3e07ef812edf5a7265bf0af14fe2",
+      "implementation_head": "b00d4baf05ac41d0733dc03633ef2ceccd50f441",
+      "export_repair_head": "b006b661003d7abcd79ec65eb70b34f0ddf01046",
+      "export_repair_tree": "b759f16ca5e584476a405704a3196137f0f6d14e",
+      "verification_register": "Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md",
+      "ci": {
+        "core_run_id": 36087318787,
+        "core_job_id": 107921994777,
+        "postgres_job_id": 107921995000,
+        "database_run_id": 36087318794,
+        "database_job_id": 107921994740,
+        "web_run_id": 36087318792,
+        "web_job_id": 107921994704,
+        "result": "STARTUP_FAILURE_NO_REPOSITORY_STEPS_EXECUTED"
+      },
+      "promotion_allowed": false,
+      "next_action": "Restore successful GitHub Actions startup, exact-head verify DD-187, then promote only on PASS."
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DD-186 AIMemoryRecord AssistantDefinition current-binding floor verified",
+    "current_phase": "DD-186 verified; DD-187 AIMemoryRecord supersession-continuity implementation awaiting exact-head verification",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -966,6 +986,15 @@
         "requirements_preserved": 2962,
         "unique_dd_definitions": 108
       }
+    },
+    "dd187_pending_verification_projection": {
+      "checkpoint_candidate": "DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001",
+      "verified_checkpoint_remains": "DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001",
+      "source_audit": "Development/AI_MEMORY_SUPERSESSION_CONTINUITY_PREREQUISITE_OWNERSHIP_AUDIT.md",
+      "implementation_head": "b006b661003d7abcd79ec65eb70b34f0ddf01046",
+      "evidence": "Registers/DEVELOPMENT_DD187_VERIFICATION_2026-09-25.md",
+      "status": "IMPLEMENTED_UNVERIFIED_ACTIONS_STARTUP_FAILURE",
+      "main_merge": false
     }
   },
   "current_phase": "DEVELOPMENT_AI_MEMORY_ASSISTANT_CURRENT_BINDING_VERIFIED",
