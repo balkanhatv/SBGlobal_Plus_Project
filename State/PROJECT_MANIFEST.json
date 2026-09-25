@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
-    "verified_code_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
-    "state_projection_basis_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
+    "verified_code_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
+    "verified_code_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+    "state_projection_basis_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -367,9 +367,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
-      "ci_run_id": 36121218700,
-      "ci_job_id": 108026901298,
+      "ci_verified_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
+      "ci_run_id": 36121841393,
+      "ci_job_id": 108028911334,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -381,7 +381,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
+      "ci_verified_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -389,10 +389,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
-      "feature_head_bootstrap_verified_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
-      "feature_head_bootstrap_run_id": 36121218741,
-      "feature_head_bootstrap_job_id": 108026901423,
+      "feature_head_bootstrap_verified_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
+      "feature_head_bootstrap_verified_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+      "feature_head_bootstrap_run_id": 36121841410,
+      "feature_head_bootstrap_job_id": 108028911374,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_497_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -408,20 +408,20 @@
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–188 bounded implementation",
-      "verified_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
-      "verified_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
-      "core_ci_run_id": 36121218741,
-      "core_ci_job_id": 108026901271,
-      "tests": "565/565 PASS",
+      "decision": "DD-040–189 bounded implementation",
+      "verified_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
+      "verified_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+      "core_ci_run_id": 36121841410,
+      "core_ci_job_id": 108028911718,
+      "tests": "573/573 PASS",
       "core_test_counts": {
-        "tests": 565,
-        "pass": 565,
+        "tests": 573,
+        "pass": 573,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36121218741,
-      "postgres_ci_job_id": 108026901423,
+      "postgres_ci_run_id": 36121841410,
+      "postgres_ci_job_id": 108028911374,
       "postgres_tests": "497/497 PASS",
       "postgres_test_counts": {
         "tests": 497,
@@ -430,8 +430,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36121218700,
-      "database_regression_job_id": 108026901298,
+      "database_regression_run_id": 36121841393,
+      "database_regression_job_id": 108028911334,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -885,7 +885,7 @@
       "promotion_invariant_gate_unique_dd": 109,
       "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
-    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-188. Full product UI, industry services and AI execution remain unfinished.",
+    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-189. Full product UI, industry services and AI execution remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -971,7 +971,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD188_VERIFIED_DD189_CANDIDATE",
+  "current_phase": "DEVELOPMENT_DD188_VERIFIED_DD189_PROMOTION_PENDING_HEAD_VERIFICATION",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1004,19 +1004,19 @@
   },
   "continuation": {
     "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-    "verified_code_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
-    "verified_code_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
-    "source_audit": "Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md",
-    "next_action": "Verify the DD-189 AIMediaRequest input-document binding candidate at its exact HEAD, then promote its canonical decision/acceptance/traceability only on PASS. Principal-currentness and AI execution boundaries remain locked.",
+    "verified_code_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
+    "verified_code_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+    "source_audit": "Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD189_VERIFICATION_2026-09-25.md",
+    "next_action": "Verify the DD-189 canonical promotion HEAD independently with Core/PostgreSQL/Database/Web; only on PASS advance the active checkpoint/state. Principal-currentness and AI execution boundaries remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
     "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-    "verified_executable_basis": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
-    "verified_executable_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
-    "current_verification": "Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md",
-    "scope": "DD-188 implements only optional AIMediaRequest → PromptTemplate exact id/version/ACTIVE/owner-scope binding. Missing, foreign or malformed binding evidence fails closed. A true result grants no principal/document access, prompt rendering, moderation or AI execution authority."
+    "verified_executable_basis": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
+    "verified_executable_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+    "current_verification": "Registers/DEVELOPMENT_DD189_VERIFICATION_2026-09-25.md",
+    "scope": "DD-189 implements only AIMediaRequest input-document exact evidence-set, same Tenant/null-safe Industry scope, ACTIVE/CLEAN state, source-owned sensitivity ceiling and exact residency binding. Principal currentness, Document ACL/storage and AI execution remain outside this floor."
   },
   "current_state_audit": {
     "date": "2026-09-25",
@@ -1047,35 +1047,36 @@
     "correction_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b"
   },
   "current_feature_verification": {
-    "decision_id": "DD-188",
-    "decision": "DD-188 AIMediaRequest PromptTemplate binding floor",
+    "decision_id": "DD-189",
+    "decision": "DD-189 AIMediaRequest input-document binding floor",
     "checkpoint": "DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001",
-    "verified_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
-    "verified_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
-    "source_audit": "Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_head": "c3ef90d10c44a892879fcccd9c6673b1faf49ad1",
+    "verified_tree": "11646ad5d92378bfdfd81bba2e51e082a920a6a5",
+    "source_audit": "Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AIMEDIA-PROMPT-CUR-001",
-      "AIMEDIA-PROMPT-CUR-002",
-      "AIMEDIA-PROMPT-CUR-003",
-      "AIMEDIA-PROMPT-CUR-004",
-      "AIMEDIA-PROMPT-CUR-005",
-      "AIMEDIA-PROMPT-CUR-006",
-      "AIMEDIA-PROMPT-CUR-007"
+      "AIMEDIA-DOC-CUR-001",
+      "AIMEDIA-DOC-CUR-002",
+      "AIMEDIA-DOC-CUR-003",
+      "AIMEDIA-DOC-CUR-004",
+      "AIMEDIA-DOC-CUR-005",
+      "AIMEDIA-DOC-CUR-006",
+      "AIMEDIA-DOC-CUR-007",
+      "AIMEDIA-DOC-CUR-008"
     ],
     "test_files": [
-      "tests/core/ai-media-request-prompt-template-binding-floors.test.mjs"
+      "tests/core/ai-media-request-input-document-binding-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36121218741,
-      "job_id": 108026901271,
-      "tests": 565,
-      "pass": 565,
+      "run_id": 36121841410,
+      "job_id": 108028911718,
+      "tests": 573,
+      "pass": 573,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36121218741,
-      "job_id": 108026901423,
+      "run_id": 36121841410,
+      "job_id": 108028911374,
       "tests": 497,
       "pass": 497,
       "fail": 0,
@@ -1083,17 +1084,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36121218700,
-      "job_id": 108026901298,
+      "run_id": 36121841393,
+      "job_id": 108028911334,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36121218744,
-      "job_id": 108026901307,
+      "run_id": 36121841488,
+      "job_id": 108028911865,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md"
+    "evidence": "Registers/DEVELOPMENT_DD189_VERIFICATION_2026-09-25.md"
   },
   "historical_projection_payloads": {
     "continuation": {

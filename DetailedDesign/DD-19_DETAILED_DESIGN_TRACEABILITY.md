@@ -174,3 +174,15 @@ webhooks and deployment remain explicitly unclaimed.
 ## DD-188 — AI media prompt binding
 
 F-05 + A-07 → DD-09 / migrations 0011, 0031, 0048 → `Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-188 → `src/core/ai/media-request-prompt-template-binding-floors.ts` → `AIMEDIA-PROMPT-CUR-001…007` → `tests/core/ai-media-request-prompt-template-binding-floors.test.mjs` → `Registers/DEVELOPMENT_DD188_VERIFICATION_2026-09-25.md`. This chain claims only the direct persisted prompt binding.
+
+
+## DD-189 — AI media input-document binding
+
+F-05 + A-07 → DD-09 / DD-082 / DD-083 / DD-125 + migrations 0011 and 0031 →
+`Development/AI_MEDIA_INPUT_DOCUMENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-189 → `src/core/ai/media-request-input-document-binding-floors.ts` →
+`AIMEDIA-DOC-CUR-001…008` →
+`tests/core/ai-media-request-input-document-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD189_VERIFICATION_2026-09-25.md`.
+
+This chain claims only the direct persisted AIMediaRequest input-document relationship: exact evidence coverage, same Tenant/null-safe Industry Context, ACTIVE/CLEAN state, source-owned sensitivity ceiling and exact residency. Acting-principal currentness, Document ACL/storage/signed-URL authority, prompt composition, moderation, entitlement/budget and AI/provider/model/tool execution remain explicitly outside DD-189.
