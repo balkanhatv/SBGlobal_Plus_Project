@@ -111,6 +111,7 @@ export * from "./ai/tool-definition-capability-binding-floors.js";
 export * from "./ai/tool-set.js";
 export * from "./ai/tool-set-member.js";
 export * from "./ai/tool-set-member-definition-binding-floors.js";
+export * from "./ai/tool-set-member-parent-binding-floors.js";
 export * from "./ai/prompt-set.js";
 export * from "./ai/prompt-set-member.js";
 export * from "./ai/prompt-set-member-binding-floors.js";
