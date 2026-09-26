@@ -434,3 +434,8 @@ Post-DD-205 source ownership isolated migration 0031's TenantAIConfig `allowed_c
 ## 2026-09-26 — DD-207 TenantAIConfig Provider allowlist floor
 
 Post-DD-206 source ownership isolated migration 0031's TenantAIConfig `allowed_provider_ids` duplicate-free exact-id/raw-ACTIVE relationship as source-complete. Source-audit `29771100f5baff76e3afe3e6489c3eddbdb66b79` / tree `996b434cc7625e043ed40a37b536aade2d6be813` passed **685/685 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `eb6aeaa2d83c68195944918ef6a5134c15ab97a8` / tree `ff6ad49950e2f25feb01a71e628c9394c9a6d47b` passed **692/692 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant change. Model allowlist, effective configuration and AI execution remain unclaimed.
+
+
+## 2026-09-26 — DD-208 TenantAIConfig Model allowlist floor
+
+Post-DD-207 source ownership isolated migration 0031's TenantAIConfig Model allowlist predicate as source-complete: duplicate-free exact Model ids, raw ACTIVE Model rows and Model provider-id membership in the same config Provider allowlist. Exact implementation `a56ec19e2cbd1a685b65f6015b6c6087e1f803c2` / tree `dd4da07eb25beb1ace05036104f969cce6d7f120` passed **700/700 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Effective configuration, routing and AI execution remain unclaimed.

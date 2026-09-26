@@ -403,3 +403,15 @@ DD-207 → `src/core/ai/tenant-config-provider-allowlist-floors.ts` →
 `Registers/DEVELOPMENT_DD207_VERIFICATION_2026-09-26.md`.
 
 This chain claims only TenantAIConfig `allowedProviderIds[]` duplicate-free exact-id/raw-ACTIVE Provider binding. Model allowlist/model→provider compatibility, Provider runtime suitability, effective configuration, routing and AI execution remain separate.
+
+
+## DD-208 — TenantAIConfig Model allowlist
+
+F-05 + A-07 + DD-09 → migration 0031 TenantAIConfig integrity trigger →
+`Development/AI_TENANT_CONFIG_MODEL_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-208 → `src/core/ai/tenant-config-model-allowlist-floors.ts` →
+`AITENCFG-MODEL-CUR-001…008` →
+`tests/core/ai-tenant-config-model-allowlist-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md`.
+
+This chain claims only duplicate-free exact Model allowlist/evidence coverage, raw ACTIVE Model state and exact Model provider-id membership in the same config Provider-id allowlist. Provider runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain separate.

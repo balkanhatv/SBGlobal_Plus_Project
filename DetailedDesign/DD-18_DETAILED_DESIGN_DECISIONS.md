@@ -2898,3 +2898,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-207 does not select current/latest TenantAIConfig, establish runtime enablement, validate Model allowlists or model→provider compatibility, establish Provider health/credential/security/capability/residency suitability, merge effective Tenant+Industry configuration, satisfy entitlement/permission/budget/prompt/retention policy, validate provisioning, route/fallback/retry providers, dispatch SDKs or execute AI.
 
 **Acceptance:** `AITENCFG-PROV-CUR-001…007` in DD-17 and `tests/core/ai-tenant-config-provider-allowlist-floors.test.mjs`.
+
+
+## DD-208 — TenantAIConfig Model allowlist may be re-evaluated as a duplicate-free exact-id/raw-ACTIVE/provider-in-config current-binding floor
+
+**Context:** migration 0031 requires `core_ai.tenant_ai_config.allowed_model_ids` to satisfy duplicate-free UUID-set semantics. Every exact allowed Model id must reference a raw `ACTIVE` `core_ai.ai_model` row whose `provider_id` is a member of the same TenantAIConfig `allowed_provider_ids`. DD-119 exposes config id/Tenant id/raw Provider and Model allowlists; DD-108 exposes AIModel id/providerId/status. DD-207 separately governs the Provider allowlist's own Provider-row/raw-ACTIVE relation.
+
+**Decision:** add pure helper `matchesAITenantConfigModelAllowlistFloors(config, models)`. It validates config identity plus duplicate-free UUID Provider/Model allowlists; requires exact one-row-per-allowed-model evidence with no missing/extra/duplicate ids; requires raw Model status exactly `ACTIVE`; and requires each Model `providerId` to be an exact member of config `allowedProviderIds`. Empty Model allowlists require empty evidence.
+
+**Security / trade-off:** no separate Provider row is required because migration 0031's Model predicate only tests Model.provider_id membership in the config Provider-id array. Provider-row validity/currentness remains DD-207/separate runtime evidence.
+
+**Boundary:** DD-208 does not select current/latest TenantAIConfig, establish config enablement, prove Provider-row validity/currentness/health/credentials/suitability, evaluate Model capability/modality/residency/sensitivity suitability, merge effective Tenant+Industry configuration, satisfy entitlement/permission/budget/quota/prompt/retention policy, validate provisioning, route/fallback/retry providers/models, dispatch SDKs or execute AI.
+
+**Acceptance:** `AITENCFG-MODEL-CUR-001…008` in DD-17 and `tests/core/ai-tenant-config-model-allowlist-floors.test.mjs`.
