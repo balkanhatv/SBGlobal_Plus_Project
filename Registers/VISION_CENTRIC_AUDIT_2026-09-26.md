@@ -93,3 +93,22 @@ The earlier PASS records remain historical evidence for their exact commits. Dis
 Correction-HEAD Core/PostgreSQL/Database/Web verification is pending at this report's initial commit. Full semantic file coverage and cross-layer/adversarial reconciliation also remain pending. The requested global clean gate has **not** been established. Do not open DD-209 or another forward implementation slice merely because these corrections pass CI.
 
 Next corrective action: verify the correction HEAD, synchronize concrete evidence, then continue the remaining complete-project semantic audit from this ledger. Only after full coverage and resolution of all real findings may the next independent source-owned prerequisite be selected.
+
+## Verified corrective gate and current handoff
+
+Final substantive correction HEAD: `0da6d173679c31e202d4a0bf59ef3b8889a81404`; tree `b39bb846b35d8a3d1a2b8a1310a4abcae29688b5`. All four downloaded logs independently assert this exact commit/tree.
+
+| Gate | Push run | Job | Result |
+|---|---:|---:|---|
+| Core/server | 36258226516 | 108448956137 | 700/700, zero failed/skipped |
+| PostgreSQL | 36258226516 | 108448956272 | 505/505, zero failed/skipped; CTX-BOOT-007 PASS; full bootstrap PASS |
+| Database | 36258226522 | 108448955972 | 48 migrations + 42 verification files actually executed; PASS |
+| Web | 36258226545 | 108448956179 | Locked dependencies, deterministic lock, TypeScript, Next.js and clean generated state PASS |
+
+VC26-01 and VC26-02 are corrected and exact-HEAD verified. VC26-03 is corrected: PR #2 now names DD-208, the fixes and the incomplete audit gate; it remains draft/open/unmerged. The confirmed finding count is P0 0, P1 1, P2 2; all three confirmed findings are corrected. This is not a zero-defect claim for the unaudited remainder.
+
+Additional static source/test sweep found no focused/skipped/todo tests or eval/new Function. Core's only external import is the existing zod DTO boundary; these pattern checks are not proof of full architectural/security correctness.
+
+The metadata/evidence commit containing this section leaves implementation, tests, SQL and workflows equal to the substantive correction tree and requires its own exact-HEAD gate. Current projections point to the already verified substantive parent to avoid a self-referential commit hash.
+
+**Complete-project verdict: IN PROGRESS / NOT PASSED.** Full semantic per-file coverage remains incomplete; no global clean gate and no next development prerequisite is authorized by this audit. Continue the audit from the frozen coverage ledger, preserving these verified fixes. The earlier pending-CI text above records the initial audit commit and is superseded only by this observed verification section.

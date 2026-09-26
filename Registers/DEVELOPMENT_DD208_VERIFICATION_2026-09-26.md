@@ -41,3 +41,7 @@ Canonical promotion `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba2
 - Web Boundary Verify `36256149585`, job `108443203157`: PASS.
 
 All four logs assert the exact promotion commit/tree above. This authorizes DD-208 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.
+
+## 2026-09-26 corrective audit overlay
+
+DD-208 sparse-array validation was corrected under VC26-02 at `0da6d173679c31e202d4a0bf59ef3b8889a81404` / tree `b39bb846b35d8a3d1a2b8a1310a4abcae29688b5` and verified with 700/700 Core, 505/505 PostgreSQL, Database and Web PASS. Full job evidence and the continuing audit hold are in [the current audit](VISION_CENTRIC_AUDIT_2026-09-26.md). No new forward prerequisite is open until that complete-project audit gate passes.

@@ -2,7 +2,7 @@
 **Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
 **Status:** ACTIVE · **Updated:** 2026-09-26
 
-> **2026-09-26 audit hold:** VC26-01/02 corrections require exact-HEAD CI; full semantic audit coverage is incomplete. Earlier continuation instructions below are on hold. Next: complete correction verification and the remaining audit; do not open forward development. [Audit evidence](../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md).
+> **2026-09-26 audit hold:** VC26-01/02 corrections are exact-HEAD verified at `0da6d173679c31e202d4a0bf59ef3b8889a81404` (700 Core / 505 PostgreSQL / Database and Web PASS). Full semantic audit coverage is incomplete. Earlier continuation instructions below are on hold. Next: verify this evidence/state closure, then finish the remaining audit; do not open forward development. [Audit evidence](../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md).
 
 
 ## Authority
