@@ -1,5 +1,5 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-AI-MODEL-PROVIDER-BINDING-FLOORS-001`
+**Current checkpoint:** `DEV-AI-TOKEN-USAGE-PROVIDER-BINDING-FLOORS-001`
 **Status:** ACTIVE · **Updated:** 2026-09-26
 
 ## Authority
@@ -37,13 +37,10 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 ## Current audit / continuation evidence — 2026-09-26
 
-DD-200 implements only AIModel → AIProvider exact provider-id foreign-key continuity. Provider/model currentness, health, credentials, capability/residency suitability, routing and AI execution remain outside this checkpoint.
+DD-201 implements only TokenUsage → AIProvider exact provider-id foreign-key continuity. Provider currentness/health/credentials, AIModel currentness, capability/residency suitability, billing/routing and AI execution remain outside this checkpoint.
 
-Verified canonical DD-200 promotion `d038f7dc7386772a816065cea782e0a0754d6f6f` / tree `5d491575b4d22926070273db0a6de8e1a15f7ee7`: **644/644 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36229783002` (jobs `108370632811`, `108370632701`), Database `36229783012` (job `108370632672`), Web `36229783020` (job `108370632709`).
+Verified DD-201 implementation basis `99c809ea83f35fb52981bfd5e5f15497ed15d403` / tree `16d7ef2699d315e746c383c33f2de04c9d8abf20`: **650/650 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36230622109` (jobs `108372968132`, `108372968250`), Database `36230622104` (job `108372968139`), Web `36230622019` (job `108372968135`).
 
-Evidence: `Registers/DEVELOPMENT_DD199_VERIFICATION_2026-09-26.md`. Next: Verify the DD-201 TokenUsage provider binding candidate against the fixed source audit, then implement only exact provider-id FK continuity. Provider currentness/health/credentials, billing and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify this DD-201 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and AI execution remain locked.
 
 
-## Pending source-complete candidate — DD-201
-
-The next governed prerequisite is TokenUsage → AIProvider exact provider-id foreign-key continuity only. Source audit: `Development/TOKEN_USAGE_PROVIDER_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Provider currentness/health/credentials, billing and AI execution remain outside the candidate.

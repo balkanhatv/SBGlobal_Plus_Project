@@ -3329,3 +3329,24 @@ Model lifecycle/capability/modality/residency/sensitivity/cost/latency/version/m
 
 ### AIMODEL-PROV-CUR-006 — No authority is created
 Inputs remain unchanged and a true result grants no current/eligible/routable/credential/execution authority.
+
+
+## DD-201 TokenUsage Provider Binding Acceptance
+
+### AIUSAGE-PROV-CUR-001 — Exact Provider binding
+TokenUsage passes only when supplied AIProvider evidence has an id exactly equal to `providerId`.
+
+### AIUSAGE-PROV-CUR-002 — Missing/wrong Provider fails closed
+Missing Provider evidence or a mismatched Provider id fails closed.
+
+### AIUSAGE-PROV-CUR-003 — Relevant identity shape
+Malformed TokenUsage id/Tenant/optional Industry/providerId or malformed Provider id fails closed.
+
+### AIUSAGE-PROV-CUR-004 — Provider runtime semantics stay uninterpreted
+Provider code/status/adapter/regions/capabilities/security/residency/health/version/timestamps do not affect this direct FK predicate.
+
+### AIUSAGE-PROV-CUR-005 — Non-provider TokenUsage evidence stays uninterpreted
+TokenUsage model/capability/principal/units/time/correlation evidence does not affect this direct FK predicate.
+
+### AIUSAGE-PROV-CUR-006 — Pure predicate only
+Inputs remain unchanged and a true result grants no Provider currentness, health, credential, routing, billing or AI execution authority.

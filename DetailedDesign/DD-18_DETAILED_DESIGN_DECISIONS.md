@@ -2807,3 +2807,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-200 does not establish Provider or Model ACTIVE/current/healthy/eligible state, credential disclosure or secret resolution, capability/modality/residency/sensitivity compatibility, Tenant/Industry allowlists, provisioning validity, budget/quota, routing/fallback/retry, provider SDK dispatch or AI execution.
 
 **Acceptance:** `AIMODEL-PROV-CUR-001…006` in DD-17 and `tests/core/ai-model-provider-binding-floors.test.mjs`.
+
+
+## DD-201 — TokenUsage direct AIProvider binding may be re-evaluated as a pure persisted foreign-key continuity floor
+
+**Context:** migration 0012 persists `core_ai.token_usage.provider_id uuid NOT NULL REFERENCES core_ai.ai_provider(id)`. DD-122 exposes TokenUsage `providerId` and DD-107 exposes AIProvider `id`. DD-196 separately mirrors TokenUsage→AIModel composite-pair continuity and DD-200 mirrors AIModel→AIProvider direct FK continuity; neither duplicates this independent TokenUsage→AIProvider foreign key.
+
+**Decision:** add pure helper `matchesAITokenUsageProviderBindingFloors(usage, provider?)`. It validates only relevant TokenUsage id/Tenant/optional Industry/providerId UUID shape, requires valid Provider id evidence, and requires exact `provider.id === usage.providerId`.
+
+**Security / trade-off:** the helper mirrors only the persisted foreign-key relationship. Provider lifecycle/health/security/capability/residency/version and TokenUsage model/capability/principal/units/time/correlation evidence remain uninterpreted.
+
+**Boundary:** DD-201 does not establish Provider ACTIVE/current/healthy state, credentials/secrets, AIModel continuity/currentness, capability or residency suitability, principal currentness, budget/quota, billing validity, routing/fallback/retry, SDK dispatch or AI execution authority.
+
+**Acceptance:** `AIUSAGE-PROV-CUR-001…006` in DD-17 and `tests/core/ai-token-usage-provider-binding-floors.test.mjs`.

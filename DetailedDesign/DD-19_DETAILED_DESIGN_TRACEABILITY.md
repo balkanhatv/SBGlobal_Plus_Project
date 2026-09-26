@@ -319,3 +319,15 @@ DD-200 → `src/core/ai/model-provider-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD200_VERIFICATION_2026-09-26.md`.
 
 This chain claims only direct AIModel `providerId` → AIProvider `id` foreign-key continuity. Provider/model currentness, routing, credentials and AI execution remain separate.
+
+
+## DD-201 — TokenUsage direct AIProvider binding
+
+F-05 + A-07 + DD-09 → migration 0012 TokenUsage Provider FK →
+`Development/TOKEN_USAGE_PROVIDER_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-201 → `src/core/ai/token-usage-provider-binding-floors.ts` →
+`AIUSAGE-PROV-CUR-001…006` →
+`tests/core/ai-token-usage-provider-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`.
+
+This chain claims only exact TokenUsage `providerId` → AIProvider `id` foreign-key continuity. Provider currentness/health/credentials, billing/routing and AI execution remain separate.

@@ -399,3 +399,8 @@ Post-DD-198 source ownership isolated migration 0012's direct AIMessage `convers
 ## 2026-09-26 — DD-200 AIModel provider binding floor
 
 Post-DD-199 source ownership isolated migration 0011's direct AIModel → AIProvider provider-id foreign key as source-complete from DD-108 plus DD-107. Exact implementation `12c69fdb7c0ba7251ddf83714fe8c5afc5fa2ae5` / tree `b81979580cfdd5e133a5392a9a14cf0e07cd7cb8` passed **644/644 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Provider/model currentness, routing, credentials and AI execution remain unclaimed.
+
+
+## 2026-09-26 — DD-201 TokenUsage Provider binding floor
+
+Post-DD-200 source ownership isolated migration 0012's direct TokenUsage `provider_id` → AIProvider `id` foreign key as source-complete and distinct from DD-196/200. Exact implementation `99c809ea83f35fb52981bfd5e5f15497ed15d403` / tree `16d7ef2699d315e746c383c33f2de04c9d8abf20` passed **650/650 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Provider currentness/health/credentials, billing/routing and AI execution remain unclaimed.
