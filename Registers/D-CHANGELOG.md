@@ -386,3 +386,7 @@ Migration 0011's AIMediaRequest `capability_code` → AICapability `code` direct
 
 ## 2026-09-26 — DD-202 canonical promotion / checkpoint advance
 Implementation `6e78feb68ce097f004e611cf748f92447a48c0c3` / tree `10ab2fe7617f34aceec800deb998118e22ac80ff` passed exact-head **657 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-202 promotes only exact capability-code FK continuity.
+
+
+## 2026-09-26 — DD-202 promotion exact-head verified / closure staged
+Canonical DD-202 promotion `43e28ef6853ac106dc921f73c022013ba1e90ce6` / tree `6089a10fb86070cca693cae709f349b7bd958b38` passed exact-head **657 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.

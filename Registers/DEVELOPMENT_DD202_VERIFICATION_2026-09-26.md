@@ -24,3 +24,14 @@ All four logs assert the exact implementation commit/tree above. Database invent
 A true helper result proves only exact capability-code continuity against already-loaded AICapability evidence. Capability status/category/entitlement/default policy/schema version and unrelated AIMediaRequest evidence are intentionally not evaluated.
 
 Canonical promotion uses the implementation HEAD above as verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `43e28ef6853ac106dc921f73c022013ba1e90ce6` / tree `6089a10fb86070cca693cae709f349b7bd958b38` independently passed all required workflows:
+- Core Service Verify `36233799273`, Core job `108381780428`: **657/657 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108381780432`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36233799262`, job `108381780351`: PASS.
+- Web Boundary Verify `36233799270`, job `108381780280`: PASS.
+
+All four logs assert the exact promotion commit/tree above. This authorizes DD-202 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.

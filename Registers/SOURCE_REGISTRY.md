@@ -39,8 +39,8 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 DD-202 implements only AIMediaRequest → AICapability exact capability-code foreign-key continuity. Capability currentness/entitlement, principal currentness, PromptTemplate/input-document authorization, provider/model routing, moderation and AI execution remain outside this checkpoint.
 
-Verified DD-202 implementation basis `6e78feb68ce097f004e611cf748f92447a48c0c3` / tree `10ab2fe7617f34aceec800deb998118e22ac80ff`: **657/657 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36233545027` (jobs `108381077064`, `108381077014`), Database `36233544984` (job `108381076802`), Web `36233545017` (job `108381076835`).
+Verified canonical DD-202 promotion `43e28ef6853ac106dc921f73c022013ba1e90ce6` / tree `6089a10fb86070cca693cae709f349b7bd958b38`: **657/657 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36233799273` (jobs `108381780428`, `108381780432`), Database `36233799262` (job `108381780351`), Web `36233799270` (job `108381780280`).
 
-Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify this DD-202 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness, routing and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify this DD-202 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness, routing and AI execution remain locked.
 
 
