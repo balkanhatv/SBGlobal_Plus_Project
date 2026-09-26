@@ -3308,3 +3308,24 @@ Conversation Tenant/Industry/scope/principal/assistant/sensitivity/retention/sta
 
 ### AIMSG-CONV-CUR-006 — Bounded/no mutation
 Inputs remain unchanged; a true result grants no conversation authorization, model-route authority, content/source access or AI execution authority.
+
+
+## DD-200 AIModel Provider Binding Acceptance
+
+### AIMODEL-PROV-CUR-001 — Exact provider binding
+An AIModel passes when supplied AIProvider id exactly equals the model `providerId`.
+
+### AIMODEL-PROV-CUR-002 — Missing/wrong Provider fails closed
+Missing Provider evidence or a mismatched Provider id fails closed.
+
+### AIMODEL-PROV-CUR-003 — Relevant identity shape fails closed
+Malformed Model id, Model providerId or Provider id fails closed.
+
+### AIMODEL-PROV-CUR-004 — Provider runtime semantics stay uninterpreted
+Provider code/status/adapter/regions/capabilities/security/residency/health/version/timestamps are not evaluated.
+
+### AIMODEL-PROV-CUR-005 — Model runtime semantics stay uninterpreted
+Model lifecycle/capability/modality/residency/sensitivity/cost/latency/version/metadata are not evaluated.
+
+### AIMODEL-PROV-CUR-006 — No authority is created
+Inputs remain unchanged and a true result grants no current/eligible/routable/credential/execution authority.

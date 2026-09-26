@@ -2794,3 +2794,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-199 does not establish acting-principal authorization, Conversation ACTIVE/current validity, AssistantDefinition validity, sensitivity/retention policy, content/source-ref access, model-route validity/currentness, moderation, retrieval/grounding or AI execution authority.
 
 **Acceptance:** `AIMSG-CONV-CUR-001…006` in DD-17 and `tests/core/ai-message-conversation-binding-floors.test.mjs`.
+
+
+## DD-200 — AIModel provider-id foreign-key continuity may be re-evaluated as a pure persisted relationship floor
+
+**Context:** migration 0011 defines `core_ai.ai_model.provider_id uuid NOT NULL REFERENCES core_ai.ai_provider(id)`. DD-108 exposes AIModel `id` and exact `providerId`; DD-107 exposes AIProvider `id`. No stronger provider relationship is part of this foreign key.
+
+**Decision:** add pure helper `matchesAIModelProviderBindingFloors(model, provider?)`. It validates only relevant Model id/providerId and Provider id UUID shape, requires supplied Provider evidence, and requires exact `provider.id === model.providerId`.
+
+**Security / trade-off:** this helper mirrors only migration 0011's direct foreign-key continuity. Provider lifecycle, health, credentials, capabilities, security, residency and version remain raw catalog evidence; Model lifecycle and runtime suitability fields remain uninterpreted.
+
+**Boundary:** DD-200 does not establish Provider or Model ACTIVE/current/healthy/eligible state, credential disclosure or secret resolution, capability/modality/residency/sensitivity compatibility, Tenant/Industry allowlists, provisioning validity, budget/quota, routing/fallback/retry, provider SDK dispatch or AI execution.
+
+**Acceptance:** `AIMODEL-PROV-CUR-001…006` in DD-17 and `tests/core/ai-model-provider-binding-floors.test.mjs`.

@@ -357,3 +357,10 @@ Implementation `0fecb3a123caf56b4239fed7636f6c65ce624a13` / tree `06968170ab6fda
 
 ## 2026-09-26 — DD-199 promotion exact-head verified / closure staged
 Canonical DD-199 promotion `9e896908b814044f78d3f3f9e66137c5a405a8fa` / tree `da7d79e5b01c962c62eb0c65d4417c9da5b082a0` passed exact-head **638 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-200 prerequisite selection
+Migration 0011's direct AIModel `provider_id` → AIProvider `id` foreign-key continuity is source-complete from DD-108 plus DD-107. Provider lifecycle/health/credentials/routing semantics remain separate.
+
+## 2026-09-26 — DD-200 canonical promotion / checkpoint advance
+Implementation `12c69fdb7c0ba7251ddf83714fe8c5afc5fa2ae5` / tree `b81979580cfdd5e133a5392a9a14cf0e07cd7cb8` passed exact-head **644 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-200 promotes only exact provider-id FK continuity.

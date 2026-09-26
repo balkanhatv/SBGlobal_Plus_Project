@@ -394,3 +394,8 @@ Post-DD-197 source ownership isolated migration 0012's AICost `usage_id` primary
 ## 2026-09-26 — DD-199 AIMessage Conversation parent floor
 
 Post-DD-198 source ownership isolated migration 0012's direct AIMessage `conversation_id` → AIConversation `id` foreign-key continuity as source-complete. Exact implementation `0fecb3a123caf56b4239fed7636f6c65ce624a13` / tree `06968170ab6fda5a8ed13fcc870ea02ac87c46ca` passed **638/638 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Conversation authorization/currentness, model routing and AI execution remain unclaimed.
+
+
+## 2026-09-26 — DD-200 AIModel provider binding floor
+
+Post-DD-199 source ownership isolated migration 0011's direct AIModel → AIProvider provider-id foreign key as source-complete from DD-108 plus DD-107. Exact implementation `12c69fdb7c0ba7251ddf83714fe8c5afc5fa2ae5` / tree `b81979580cfdd5e133a5392a9a14cf0e07cd7cb8` passed **644/644 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Provider/model currentness, routing, credentials and AI execution remain unclaimed.
