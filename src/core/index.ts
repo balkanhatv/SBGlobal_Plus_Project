@@ -134,6 +134,7 @@ export * from "./ai/message.js";
 export * from "./ai/message-conversation-binding-floors.js";
 export * from "./ai/token-usage.js";
 export * from "./ai/token-usage-model-provider-binding-floors.js";
+export * from "./ai/token-usage-provider-binding-floors.js";
 export * from "./ai/token-usage-capability-binding-floors.js";
 export * from "./ai/cost.js";
 export * from "./ai/cost-token-usage-binding-floors.js";
