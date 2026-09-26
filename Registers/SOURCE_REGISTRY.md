@@ -41,6 +41,9 @@ DD-202 implements only AIMediaRequest → AICapability exact capability-code for
 
 Verified canonical DD-202 promotion `43e28ef6853ac106dc921f73c022013ba1e90ce6` / tree `6089a10fb86070cca693cae709f349b7bd958b38`: **657/657 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36233799273` (jobs `108381780428`, `108381780432`), Database `36233799262` (job `108381780351`), Web `36233799270` (job `108381780280`).
 
-Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify this DD-202 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness, routing and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify the DD-203 AIToolDefinition capability binding candidate against the fixed source audit, then implement only exact capability-code FK continuity. Capability currentness, tool authorization and AI/tool execution remain locked.
 
 
+## Pending source-complete candidate — DD-203
+
+The next governed prerequisite is the AIToolDefinition → AICapability exact capability-code foreign-key continuity relationship only. Source audit: `Development/AI_TOOL_DEFINITION_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Capability currentness, tool authorization and AI/tool execution remain outside the candidate.
