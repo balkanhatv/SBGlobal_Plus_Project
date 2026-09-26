@@ -1,10 +1,20 @@
-# D-CHECKPOINT — CP-F1-005 (revision C, 04-09-2026; supersedes revision B; prior checkpoints preserved in their recovery ZIPs)
-- Checkpoint ID: CP-F1-005 (revision C)
-- Created: 2026-09-02 (UTC) · Revision B: 2026-09-04 (UTC) · Revision C: 2026-09-04 (UTC)
-- Phase: Project Foundation — **FOUNDATION CERTIFIED** (granted 02-09-2026 on dual-audit evidence — Registers/FINAL_AUDIT_CP-F1-005.md; Foundation only, per the certification boundary)
-- Completed at 02-09-2026: F-14 Commercial Foundation (AC-18); F-00 §11 amendment; FF-01/FF-02 dispositions re-verified against actual F-13/F-07 content; traceability extension (totals unchanged 372/2,965/0); registers/state/README/manifest synchronized; Final Audit Pass 1 (corrected → PASS) and independent Pass 2 (PASS) recorded.
-- 04-09-2026 corrective action (revision B): commit b83bea9 (F-06 §6.1 brand/color canonicalization, AC-19; RR-03) REVERTED via history-preserving revert commit efd16eb6 — the additional canonicalization/closure changes were unnecessary. F-06 restored to v0.1; D-CHANGELOG/D-DECISIONS/REVIEW_REQUIRED restored; RR-03 withdrawn. The owner-directed corpus edit a811a1ab (`RawSourceCorpus/Disorganized Data 2.md`) is ACTIVE owner intent — preserved intact, not reverted, not a defect. No reset, force-push, or history rewrite; main not merged. Do NOT recreate the b83bea9 changes in another form.
-- 04-09-2026 delivery closure (revision C): **SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip built from the final post-revert HEAD tree and open-and-compare VERIFIED (36/36 files, no size mismatches, corpus byte-identical — see BACKUP_METADATA.json). No open delivery items remain.**
-- Carried verified: unit traceability 372/2,965/0 · No-Loss PASS · governance Masters unchanged · RawSourceCorpus per the owner-directed a811a1ab state (full history preserved).
-- Gates: Architecture start requires explicit user approval; merge to main requires explicit approval.
-- GitHub: this commit on docs/foundation-build-2; PR #1 carries it (open, unmerged).
+# D-CHECKPOINT
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
+**Updated:** 2026-09-26 · **Branch:** `docs/architecture-branch-2`
+
+> **2026-09-26 audit hold:** VC26-01/02 corrections are exact-HEAD verified at `0da6d173679c31e202d4a0bf59ef3b8889a81404` (700 Core / 505 PostgreSQL / Database and Web PASS). Full semantic audit coverage is incomplete. Earlier continuation instructions below are on hold. Next: verify this evidence/state closure, then finish the remaining audit; do not open forward development. [Audit evidence](../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md).
+
+
+DD-208 implements only TenantAIConfig allowedModelIds[] duplicate-free exact-id/raw-ACTIVE AIModel binding plus exact Model providerId membership in the same config allowedProviderIds[]. Provider-row runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain outside this checkpoint.
+
+Verified canonical DD-208 promotion `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba28541da36bd4c94d9559f91121a0aae2`: **700/700 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36256149589` (jobs `108443203216`, `108443203364`), Database `36256149596` (job `108443203187`), Web `36256149585` (job `108443203157`).
+
+DD-208 decision/acceptance/traceability are canonically promoted and the promotion HEAD is exact-head verified. This state-closure commit must pass its own Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+Evidence: `Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+
+Next: Verify this DD-208 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent Tenant/Industry AI configuration relationship; effective configuration and AI execution remain locked.
+
+Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
+
+

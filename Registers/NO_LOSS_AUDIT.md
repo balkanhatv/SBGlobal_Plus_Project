@@ -1,20 +1,50 @@
-# NO-LOSS AUDIT — UNIT LEVEL (Pass 1: 31-08-2026)
-## Method
-Programmatic unit-level accounting: every heading unit in both Raw Source Corpus files parsed (372 units, 2965 enumerated items) and mapped to a canonical destination via the unit-level Traceability Matrix. Any unit without a destination is UNACCOUNTED and blocks certification.
+# NO-LOSS / DEPTH AUDIT — FRESH POST-REMEDIATION PASS
+**Status:** PASS · **Date:** 2026-09-11 · **Evaluated HEAD:** `df1f72412044751ac30c184315d05e4d72e0099a`
 
-## Result
-- S1: 37 units — accounted: 37, unaccounted: 0
-- S2: 335 units — accounted: 335, unaccounted: 0
-- **UNACCOUNTED TOTAL: 0**
-- Historical/legacy items (taglines, 31-file standard, flagship posture, 4-tier list, phase numbering) remain PRESERVED-ONLY with CR references — not lost, not active.
-- **Overall status: PASS (unit level)**
+## 1. Source integrity
+- Accepted immutable S1 blob: `a9f63a64448a347edd0f2b0c74094284ee953c1b`.
+- Accepted immutable S2 blob: `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`.
+- RawSourceCorpus was not modified by remediation.
+- Historical source technology remains history where superseded by explicit UD decisions.
 
-## Legacy Register absence check (LG-01..LG-14)
-Re-verified against F-00..F-12 ACTIVE statements including the new F-10/F-11/F-12: one identity system; one Core; no per-tenant/per-region backends (F-11 §1 explicitly rejects regional platform forks); no forced counts; surface separations intact; no label-as-evidence certification (status granted only with document evidence). RESULT: PASS.
+## 2. Parent + child traceability
+- Stable source-heading parents: **372** (S1=37, S2=335).
+- Requirement-level child evidence rows: **2962**.
+- VERIFIED: **2555**.
+- GAP: **0**.
+- DEFERRED: **396** — explicit later-phase disposition, not silently claimed Foundation evidence.
+- SUPERSEDED: **11** — explicit current user/decision override with source preserved.
+- Parent counts are inventory only and are not used as certification proof.
 
-## Depth-check findings (automated)
-- Pass 1 findings: 5 structural units unmapped (S1 title, ToC, gap-analysis subsections, MS Policy heading) + 1 forbidden-wording finding in F-06 — all corrected.
-- Pass 2 (re-run after corrections): none. All 13 Foundation documents present, non-trivial, marker-free; all 9 suites carry all required F-12 dimensions.
+## 3. Demonstrated source-loss repair
+S2.2 §9 SaaS Website requirements are now explicitly preserved in F-06 §2, including public page/capability families, trust/legal/status, Team/Careers/Case Studies/Help Center/media/events/CMS and production-content/SEO/OpenGraph/structured-data/visual-asset intent. Exact wireframes/copy remain later work.
 
-## Corpus integrity
-Disorganized Data 1.md and Disorganized Data 2.md: untouched originals; verbatim copies packaged in the recovery ZIP (byte-identical, verified). Never archived, modified, or deleted.
+## 4. Management-System depth
+- Independently recalculated MS codes: **41**.
+- All 41 have a specific substantive owner in F-07/F-13 and/or F-08/F-09 + F-13 §4.
+- `MS_COMPLETENESS_MATRIX.md` records every MS against the common evidence discipline.
+- Shared Core capability references are accepted only where the MS states domain usage.
+- No Healthcare business semantics were copied as sibling-industry proof.
+
+## 5. Phase boundary
+Foundation owns WHAT/WHY/WHO and required business interactions. Architecture owns HOW-level boundaries/flows. Exact schemas, endpoint methods/paths, payload fields, policy expressions, screen inventories and implementation test contracts remain Detailed Design.
+
+## 6. Adversarial second pass
+Attempted to disprove Foundation readiness by checking:
+- heading counts masquerading as atomic proof — corrected by separate child evidence;
+- broad `whole/§1–§6/Parts I–IV/MS sections` destinations — materially remapped to exact owners;
+- SaaS website source-loss — corrected;
+- generic F-12 inheritance as MS proof — rejected; 41-MS owner matrix added;
+- stale partial/revalidation headers — reconciled where substantive remediation completed;
+- technology supersession hiding non-technology requirements — source requirements retained and dispositions explicit;
+- unresolved requirement gaps — **none**.
+
+**Result: PASS at Foundation evidence depth.**
+
+## Bounded Core Development continuation — 2026-09-14
+
+The Foundation audit above retains its original evaluated HEAD and evidence depth. This continuation compares baseline `ea24fa631835c6b65d5ee2b4d8dcc656a2f0cee5` to executable `0ada4283959ea4abe39a0980574e2dfdcb62e508`; it does not reissue a whole-product audit.
+
+The remote comparison contains no removed or renamed files, no RawSource/Governing/Foundation/Architecture changes and no migration/verification SQL changes. Both accepted source blobs in SOURCE_REGISTRY remain identical. Existing source/MS IDs and domain semantics are preserved; DD-040 adds the driver boundary and explicit unbound read contracts without inventing new Industry or business authorization models.
+
+[DEV-CORE-MAP-001](../Development/CORE_PERSISTENCE_ADAPTER_MAP.md) records the authority/field/dependency check. [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md) now records the DD-041/042 read bindings plus DD-043 protected PLATFORM_GLOBAL scope floor. Exact executable `3e7b2927839d289240eb389902563f5ab3d68074` has passing Core Service Verify and Database Verify; current inventory is 47 Core/server tests, 11 PostgreSQL tests, 34 migrations and 28 SQL verification files. The current nine Industries, 41 MS, 181 canonical Industry tables, exactly two Tenant mobile app classes and RBAC-primary policy are unchanged. Remaining provider/session-security, PDP/ABAC, Commercial and transport work is explicitly unfinished.

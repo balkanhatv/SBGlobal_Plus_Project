@@ -1,5 +1,5 @@
 # SBGlobal Plus — PROJECT FOUNDATION
-**Document ID:** F-00 · **Version:** 1.2 (Certification Amendment) · **Status:** FOUNDATION CERTIFIED at CP-F1-005 (see §11; §9–§10 retained as historical record) · **Date:** 02-09-2026
+**Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 
 ---
@@ -31,7 +31,7 @@ No raw source statement automatically becomes ACTIVE architecture; pipeline is *
 | F-08 | F-08_INDUSTRIES_4-6.md | Hospitality · Manufacturing · Professional Services |
 | F-09 | F-09_INDUSTRIES_7-9.md | Government & Public Sector · NGO/Temple/Trust · Security & Facility Management |
 
-*(Build 2 additions: F-10 Desktop Foundation · F-11 Data Residency · F-12 Industry & MS Deepening. CP-F1-004: F-13 MS Depth Completion. CP-F1-005: F-14 Commercial Foundation. Canonical index: Registers/D-INDEX.md.)*
+*(Build 2 additions: F-10 Desktop Foundation · F-11 Data Residency · F-12 Industry & MS Deepening. CP-F1-004: F-13 MS Depth Completion. CP-F1-005: F-14 Commercial Foundation. Canonical index: Registers/D-INDEX.md. Truth-revalidation addition: F-15, see §12.)*
 
 Registers (../Registers/): SOURCE_REGISTRY · D-INDEX · D-DECISIONS · D-CHANGELOG · D-CHECKPOINT · TRACEABILITY_MATRIX · NO_LOSS_AUDIT · REVIEW_REQUIRED. State (../State/): PROJECT_STATE.md · PHASE_SUMMARY.md · HANDOFF_NOTE.md · PROJECT_MANIFEST.json. Backup metadata: BACKUP_METADATA.json.
 
@@ -175,3 +175,90 @@ Supersedes §10's status ledger and blocker list; §9–§10 preserved unmodifie
 **Boundary declaration:** FOUNDATION CERTIFIED only — not Architecture, Detailed Design, Implementation, Testing, or Production Readiness; every deferred item remains named in F-01…F-14 and belongs to Architecture onward (§26A gates).
 
 **Open delivery item (recorded honestly):** the CP-F1-005 recovery ZIP (v1.2) is not yet produced/verified; v1.1 @ CP-F1-003 remains the latest verified backup (BACKUP_METADATA.json intentionally unchanged). Phase closure and Architecture start are gated on v1.2 verification plus explicit user approval; merge to `main` requires explicit approval.
+
+---
+
+## 12. Truth Revalidation Amendment — CURRENT ACTIVE STATUS (10-09-2026)
+
+This section supersedes only the **current-status effect** of §11. Sections §9–§11 remain preserved above as historical checkpoint records.
+
+**Project Foundation (whole): IN PROGRESS — SUBSTANTIVE TRUTH REVALIDATION.**
+
+The 2026-09-10 Project Truth Audit found new evidence that prevents continued reliance on CP-F1-005 as current substantive certification:
+
+1. `RawSourceCorpus` on this branch had diverged from the accepted source baseline while multiple records asserted it was untouched/immutable. Both files were restored to the accepted `main` source blobs in commit `548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c`; prior divergent variants remain preserved in Git history.
+2. `TRACEABILITY_MATRIX_UNIT.md` contains explicit S1 unit rows but represents much of S2 as grouped ranges and points to a recovery ZIP for the full per-unit rows. Repository-external atomic rows cannot serve as the sole current repository-resident certification evidence.
+3. Existing F-01…F-14 contain substantial useful Foundation content, but the whole-Foundation claim must be revalidated item-by-item to ensure the canonical owning documents contain actual **WHAT / WHY / WHO**, not only summaries, generic inheritance, registries or references.
+4. All nine industries remain first-class/equal and must independently satisfy the same evidence discipline; Healthcare remains prohibited as a template.
+5. Foundation/Architecture/Detailed-Design boundaries remain unchanged: Foundation = WHAT/WHY/WHO; Architecture = high-level HOW; Detailed Design = exact implementation design.
+
+**Current authority:** `F-15_FOUNDATION_TRUTH_REVALIDATION.md` + `../Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md` + current D-CHECKPOINT/State files.
+
+**Technology qualification:** current explicit user direction / `UD-TECH-01` governs active architecture technology. Old Laravel/PHP/Filament/MySQL-primary/Flutter/PM2/cPanel assumptions are historical only unless contained in immutable source history. Current stack is Next.js 15, TypeScript 5.x/Node.js 22+, React 19, Tailwind/Shadcn, PostgreSQL, Payload CMS 3, Refine where suitable, NestJS where a dedicated backend/service boundary is justified, tRPC first-party where appropriate, REST/OpenAPI external interoperability, Clerk preferred/Auth.js fallback, React Native+Expo, Tauri 2.0 Windows/macOS/Linux, Expo Push/OneSignal, Vercel and Coolify + Dockerized VPS.
+
+**Evidence required before a new Foundation-wide certification claim:** repository-resident atomic source→canonical traceability; substantive Foundation depth verification/correction; explicit decision/legacy/deferral classification; equal-depth nine-industry review; fresh No-Loss/depth audit; independent adversarial second pass; RawSourceCorpus integrity verification; synchronized registers/index/state.
+
+Until that evidence exists, CP-F1-005 is **historical gate evidence only**, not the current substantive Foundation status and not proof for an Architecture gate.
+
+
+## 13. Truth Revalidation Closure — CURRENT ACTIVE STATUS (11-09-2026)
+
+**Project Foundation (whole): FOUNDATION CERTIFIED — CURRENT EVIDENCE-BACKED REVALIDATION.**
+
+This section supersedes only the current-status effect of §12. Closure evidence:
+1. `TRACEABILITY_MATRIX_UNIT.md` contains all 372 repository-resident atomic S1/S2 rows with no external-ZIP dependency.
+2. Governance §9A is phase-aware: Foundation WHAT/WHY/WHO; Architecture HOW; exact schemas/endpoints/payloads Detailed Design.
+3. Commercial routing/lifecycle is reconciled across F-01/F-02/F-04/F-14.
+4. Identity/security is one provider-isolated Core boundary: Clerk preferred, Auth.js fallback; RBAC primary + ABAC complementary.
+5. Experience technology aligns to React Native+Expo, Expo Push/OneSignal and Tauri 2.0 cross-platform.
+6. F-11 controls residency and cross-region backup/replication/failover permission.
+7. F-07…F-09 + F-12 + F-13 were re-read under equal evidence discipline; F-12 inheritance is not treated as MS-specific proof.
+8. Fresh No-Loss/depth + adversarial second pass is recorded in `Registers/NO_LOSS_AUDIT.md`.
+
+**Boundary:** Foundation certification only; Architecture, Detailed Design, code and deployment remain separate phases.
+
+
+---
+
+## 14. Independent Remediation Recertification Closure — CURRENT ACTIVE STATUS (11-09-2026)
+
+This section supersedes only earlier **current-status** statements; historical ledgers/amendments remain preserved.
+
+**Project Foundation (whole): FOUNDATION CERTIFIED — POST-REMEDIATION EVIDENCE-BACKED.**
+
+Evidence earned after the independent forensic audit reopened the gate:
+1. Source-heading inventory remains stable at **372 parent units** (S1=37, S2=335), but is no longer treated as atomic requirement proof.
+2. `Registers/TRACEABILITY_MATRIX_REQUIREMENTS.md` adds **2,962 requirement-level child rows**: 2,555 VERIFIED, 0 GAP, 396 correctly DEFERRED, 11 SUPERSEDED with source preserved.
+3. S2.2 §9 SaaS Website demonstrated source-loss was repaired in F-06 §2.
+4. All **41 independently recalculated Management Systems** have specific substantive Foundation owners; evidence is recorded in F-13 + `Registers/MS_COMPLETENESS_MATRIX.md`.
+5. All nine industries were re-evaluated under equal evidence discipline; Healthcare remains prohibited as a sibling template.
+6. Fresh Foundation No-Loss/depth adversarial audit is PASS.
+7. RawSourceCorpus remains exactly at accepted immutable blobs S1 `a9f63a...` and S2 `91c461...`.
+
+**Architecture gate:** independently remediated and re-audited after Foundation stabilization. A-00…A-12 now carry fail-closed Tenant + Industry Context architecture, one effective-access chain, one four-surface model, contextual events/storage/offline sync and complete ADR evidence. Fresh Architecture traceability/No-Loss/adversarial audits PASS.
+
+**Current gate:** FOUNDATION CERTIFIED · ARCHITECTURE CERTIFIED · READY FOR DETAILED DESIGN. This does not imply Detailed Design Complete, implementation, testing, security validation or production readiness.
+
+
+---
+
+## 15. Phase 1 RawSource → Foundation Fresh Reconciliation — HISTORICAL PHASE-1 SNAPSHOT (12-09-2026)
+
+This section supersedes only the **current-status effect** of prior certification amendments; historical records above remain preserved.
+
+**PHASE 1 — RAWSOURCE → FOUNDATION FRESH RECONCILIATION: PASS.**
+
+Fresh Phase-1 evidence is `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`.
+
+The complete immutable RawSourceCorpus and complete Foundation set were re-read. Material source/governing requirements that had been compressed, implicit or missing at their proper Foundation owners were recovered and corrected in F-01/F-02/F-04/F-05/F-06/F-14. RawSourceCorpus itself remained unchanged.
+
+**Current dependency truth:**
+- Foundation: **FRESH RECONCILED — ACCEPTED INPUT TO PHASE 2**.
+- Architecture: **REVALIDATION REQUIRED** because Foundation changed after the prior Architecture audit baseline.
+- Detailed Design: **REVALIDATION REQUIRED / prior COMPLETE status historical until re-earned**.
+- Development: **NOT AUTHORIZED** until the downstream Architecture → DD → final adversarial chain is revalidated.
+
+This Phase-1 PASS is a Foundation no-loss/depth result only. It does not certify Architecture, Detailed Design, implementation, testing, security validation or production readiness.
+
+## 16. Current-State Audit Projection — 13-09-2026
+Section 15 records the dependency invalidation at its original Phase-1 checkpoint. Architecture and DD subsequently advanced and Database Development began; its old `NOT AUTHORIZED` line is not the current project gate. The present all-stages audit revalidates the unchanged Foundation WHAT/WHY/WHO against the complete immutable source and then checks Architecture, DD, SQL and verification independently. The current evidence and exact next action are owned by `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` and `State/PROJECT_MANIFEST.json`; Foundation certification does not establish executable or production readiness.

@@ -1,5 +1,5 @@
 # F-05 — AI FOUNDATION
-**Document ID:** F-05 · **Version:** 0.1 · **Status:** SPECIFIED · Cross-refs: F-01 (entitlements), F-03 (security), F-04 §8 (knowledge data), F-07…F-09 (industry AI).
+**Document ID:** F-05 · **Version:** 0.2 · **Status:** SPECIFIED · Cross-refs: F-01 (entitlements), F-03 (security), F-04 §8 (knowledge data), F-07…F-09 (industry AI).
 
 ---
 
@@ -28,7 +28,9 @@ Tenant isolation · role-based access · prompt validation · encryption · PII 
 ## 7. Governance & Observability `[SD: S2.6; S2.2 §33]`
 Provider abstraction, prompt templates & centralized Prompt Management (library, categories, versioning, variables, tenant/industry-specific prompts, approval workflow, testing, rollback, audit), model registry, version control, cost tracking, fallback/retry, monitoring, evaluation, human approval, AI policy management, usage quotas, budget management, model lifecycle, provider health. Observability: request/response metrics, token usage, cost analytics, latency, errors, success/failure rates, AI performance dashboard. AI Development Center reviews (code/security/performance/…) never modify production automatically; every recommendation requires Super Admin approval; every AI operation logged.
 
-## 8. Commercial Packaging (cross-ref)
+## 8. Enterprise AI Platform Expansion + Commercial Packaging `[SD: S2.6 Expansion]`
+Required platform capability families include: secure AI API Platform (internal, Tenant, public/partner/developer categories where authorized); provider/resource provisioning; centralized prompt management; governed AI memory; Document Intelligence; AI Marketplace; AI media generation (images, illustrations, SVG/icons/logos, infographics, marketing graphics, presentations, video/animation/voice/audio); and AI observability. Provisioning is driven by Subscription Plan, Industry Suite, feature/MS packs, country/localization packs, Tenant configuration and user role/permission — unauthorized AI capability is not provisioned.
+
 AI billing, credits, usage metering, token consumption, media-generation credits, monthly limits, pay-as-you-go, overage — owned by Subscription & Billing (F-01 §5); AI packs/marketplace licensing owned by the entitlement chain; Marketplace items: assistants, agents, prompt packs, skills, templates, workflows, automations, connectors, plugins, extensions.
 
-**Deferred:** provider-by-capability instantiation table; per-industry assistant knowledge scopes; evaluation benchmarks — Architecture phase.
+**Deferred:** provider-by-capability instantiation table; exact AI API schemas/streaming contracts; provisioning data model; per-industry assistant knowledge scopes; media-generation provider routing; evaluation benchmarks — Architecture/Detailed Design.

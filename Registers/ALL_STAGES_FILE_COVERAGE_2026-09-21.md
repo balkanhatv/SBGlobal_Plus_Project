@@ -1,0 +1,396 @@
+# ALL-STAGES FILE COVERAGE — 2026-09-21
+
+**Branch:** `docs/architecture-branch-2`  
+**Audited HEAD:** `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e`  
+**Audited tree:** `db85be98f256fd856635fc178ab3220b97d01ba3`  
+**Inventory:** 359 Git blobs
+
+This register records the exact-tree file-by-file coverage used by the 2026-09-21 current-state audit. Every blob below was fetched from the audited tree and included in the mechanical/reference/hygiene sweep; authoritative Foundation/Architecture/DD/Development/State, executable TypeScript, migrations, verification SQL and test files additionally received semantic/domain review appropriate to their layer.
+
+False-positive vocabulary was classified rather than treated as a defect: historical audit redirect files, explicit deprecated-stack rejection text, Professional Services `TODO` workflow state, and audit prompts that list terms such as TODO/FIXME are not executable debt.
+
+
+## .github — 3
+- `.github/workflows/core-service-verify.yml`
+- `.github/workflows/database-verify.yml`
+- `.github/workflows/web-dependency-lock.yml`
+
+## (root) — 9
+- `.gitignore`
+- `BACKUP_METADATA.json`
+- `next-env.d.ts`
+- `next.config.mjs`
+- `package-lock.json`
+- `package.json`
+- `README_FOUNDATION.md`
+- `tsconfig.json`
+- `tsconfig.web.json`
+
+## Architecture — 14
+- `Architecture/A-00_ARCHITECTURE_OVERVIEW.md`
+- `Architecture/A-01_CORE_PLATFORM_ARCHITECTURE.md`
+- `Architecture/A-02_MULTITENANT_CONTEXT_ARCHITECTURE.md`
+- `Architecture/A-03_IDENTITY_SECURITY_ACCESS_ARCHITECTURE.md`
+- `Architecture/A-04_COMMERCIAL_ENTITLEMENT_ARCHITECTURE.md`
+- `Architecture/A-05_DATA_ARCHITECTURE.md`
+- `Architecture/A-06_API_EVENTS_INTEGRATION_ARCHITECTURE.md`
+- `Architecture/A-07_AI_PLATFORM_ARCHITECTURE.md`
+- `Architecture/A-08_EXPERIENCE_ARCHITECTURE.md`
+- `Architecture/A-09_INDUSTRY_SUITE_ARCHITECTURE.md`
+- `Architecture/A-10_INFRASTRUCTURE_DEPLOYMENT_SCALABILITY_RESILIENCE_ARCHITECTURE.md`
+- `Architecture/A-11_OBSERVABILITY_RELIABILITY_OPERATIONS_ARCHITECTURE.md`
+- `Architecture/A-12_ARCHITECTURE_DECISIONS_CONSTRAINTS_DEPENDENCIES_TRADEOFFS.md`
+- `Architecture/ARCHITECTURE_REVALIDATION_NOTICE.md`
+
+## database — 88
+- `database/migrations/0001_core_bootstrap.sql`
+- `database/migrations/0002_form_field_parent_rls.sql`
+- `database/migrations/0003_identity_authorization.sql`
+- `database/migrations/0004_commercial_entitlement.sql`
+- `database/migrations/0005_security_rls_hardening.sql`
+- `database/migrations/0006_document_storage.sql`
+- `database/migrations/0007_database_governance.sql`
+- `database/migrations/0008_audit_event_outbox_webhook.sql`
+- `database/migrations/0009_database_roles.sql`
+- `database/migrations/0010_storage_privilege_hardening.sql`
+- `database/migrations/0011_ai_catalog_config.sql`
+- `database/migrations/0012_ai_rag_memory_usage.sql`
+- `database/migrations/0013_ai_agents_tools.sql`
+- `database/migrations/0014_ai_gateway_role.sql`
+- `database/migrations/0015_industry_education.sql`
+- `database/migrations/0016_education_uniqueness_hardening.sql`
+- `database/migrations/0017_industry_government.sql`
+- `database/migrations/0018_industry_hospitality.sql`
+- `database/migrations/0019_industry_manufacturing.sql`
+- `database/migrations/0020_industry_retail.sql`
+- `database/migrations/0021_industry_professional_services.sql`
+- `database/migrations/0022_industry_ngo_trust.sql`
+- `database/migrations/0023_industry_security_facility.sql`
+- `database/migrations/0024_industry_healthcare.sql`
+- `database/migrations/0025_integration_registry.sql`
+- `database/migrations/0026_workflow_notification.sql`
+- `database/migrations/0027_workflow_notification_roles.sql`
+- `database/migrations/0028_document_integration_roles.sql`
+- `database/migrations/0029_scope_privilege_identity_hardening.sql`
+- `database/migrations/0030_cross_scope_reference_integrity.sql`
+- `database/migrations/0031_document_workflow_ai_integrity.sql`
+- `database/migrations/0032_platform_definition_write_boundary.sql`
+- `database/migrations/0033_core_context_read_contracts.sql`
+- `database/migrations/0034_platform_global_identity_scope.sql`
+- `database/migrations/0035_platform_global_authorization_persistence.sql`
+- `database/migrations/0036_platform_global_abac_write_boundary.sql`
+- `database/migrations/0037_authorization_compiler_write_boundary.sql`
+- `database/migrations/0038_authorization_compiler_source_read_boundary.sql`
+- `database/migrations/0039_api_idempotency_runtime_boundary.sql`
+- `database/migrations/0040_api_rate_limit_runtime.sql`
+- `database/migrations/0041_context_bootstrap_read_boundary.sql`
+- `database/migrations/0042_commercial_event_catalog.sql`
+- `database/migrations/0043_commercial_transition_compiler_boundary.sql`
+- `database/migrations/0044_commercial_publication_support.sql`
+- `database/migrations/0045_commercial_plan_change_evidence.sql`
+- `database/migrations/0046_published_plan_version_immutability.sql`
+- `database/README.md`
+- `database/scripts/apply-and-verify.sh`
+- `database/verification/0001_core_bootstrap.verify.sql`
+- `database/verification/0002_form_field_parent_rls.verify.sql`
+- `database/verification/0003_0005_identity_commercial.verify.sql`
+- `database/verification/0006_document_storage.verify.sql`
+- `database/verification/0007_database_governance.verify.sql`
+- `database/verification/0008_audit_event_outbox_webhook.verify.sql`
+- `database/verification/0009_database_roles.verify.sql`
+- `database/verification/0010_storage_privilege_hardening.verify.sql`
+- `database/verification/0011_0014_ai.verify.sql`
+- `database/verification/0015_0016_education.verify.sql`
+- `database/verification/0017_government.verify.sql`
+- `database/verification/0018_hospitality.verify.sql`
+- `database/verification/0019_manufacturing.verify.sql`
+- `database/verification/0020_retail.verify.sql`
+- `database/verification/0021_professional_services.verify.sql`
+- `database/verification/0022_ngo_trust.verify.sql`
+- `database/verification/0023_security_facility.verify.sql`
+- `database/verification/0024_healthcare.verify.sql`
+- `database/verification/0025_integration_registry.verify.sql`
+- `database/verification/0026_0027_workflow_notification.verify.sql`
+- `database/verification/0028_document_integration_roles.verify.sql`
+- `database/verification/0029_scope_privilege_identity_hardening.verify.sql`
+- `database/verification/0030_cross_scope_reference_integrity.verify.sql`
+- `database/verification/0031_document_workflow_ai_integrity.verify.sql`
+- `database/verification/0032_platform_definition_write_boundary.verify.sql`
+- `database/verification/0033_core_context_read_contracts.verify.sql`
+- `database/verification/0034_platform_global_identity_scope.verify.sql`
+- `database/verification/0035_platform_global_authorization_persistence.verify.sql`
+- `database/verification/0036_platform_global_abac_write_boundary.verify.sql`
+- `database/verification/0037_authorization_compiler_write_boundary.verify.sql`
+- `database/verification/0038_authorization_compiler_source_read_boundary.verify.sql`
+- `database/verification/0039_api_idempotency_runtime_boundary.verify.sql`
+- `database/verification/0040_api_rate_limit_runtime.verify.sql`
+- `database/verification/0041_context_bootstrap_read_boundary.verify.sql`
+- `database/verification/0042_commercial_event_catalog.verify.sql`
+- `database/verification/0043_commercial_transition_compiler_boundary.verify.sql`
+- `database/verification/0044_commercial_publication_support.verify.sql`
+- `database/verification/0045_commercial_plan_change_evidence.verify.sql`
+- `database/verification/0046_published_plan_version_immutability.verify.sql`
+- `database/verification/0099_all_industries.verify.sql`
+
+## DetailedDesign — 55
+- `DetailedDesign/DD-00_DETAILED_DESIGN_OVERVIEW.md`
+- `DetailedDesign/DD-01_DOMAIN_MODULE_BOUNDARIES.md`
+- `DetailedDesign/DD-02_TENANT_INDUSTRY_CONTEXT_DESIGN.md`
+- `DetailedDesign/DD-03_IDENTITY_AUTHORIZATION_DESIGN.md`
+- `DetailedDesign/DD-04_COMMERCIAL_ENTITLEMENT_DESIGN.md`
+- `DetailedDesign/DD-05_DATA_MODEL_AND_DATABASE_DESIGN.md`
+- `DetailedDesign/DD-06_API_TRPC_REST_DESIGN.md`
+- `DetailedDesign/DD-07_EVENT_OUTBOX_WEBHOOK_DESIGN.md`
+- `DetailedDesign/DD-08_DOCUMENT_STORAGE_DESIGN.md`
+- `DetailedDesign/DD-09_AI_RAG_AGENT_DESIGN.md`
+- `DetailedDesign/DD-10_EXPERIENCE_APPLICATION_DESIGN.md`
+- `DetailedDesign/DD-11_MOBILE_OFFLINE_SYNC_DESIGN.md`
+- `DetailedDesign/DD-12_DESKTOP_DESIGN.md`
+- `DetailedDesign/DD-13_INDUSTRY_SUITE_DESIGN.md`
+- `DetailedDesign/DD-14_INFRASTRUCTURE_DEPLOYMENT_DESIGN.md`
+- `DetailedDesign/DD-15_OBSERVABILITY_OPERATIONS_DESIGN.md`
+- `DetailedDesign/DD-16_SECURITY_COMPLIANCE_DESIGN.md`
+- `DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md`
+- `DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md`
+- `DetailedDesign/DD-19_DETAILED_DESIGN_TRACEABILITY.md`
+- `DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md`
+- `DetailedDesign/DD-20A_WAVE1_AUDIT.md`
+- `DetailedDesign/DD-20B_WAVE2_AUDIT.md`
+- `DetailedDesign/DD-20C_WAVE3_ADVERSARIAL_AUDIT.md`
+- `DetailedDesign/DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md`
+- `DetailedDesign/DD-20H_LEGACY_COMBINED_AUDIT_HISTORY.md`
+- `DetailedDesign/DD-21_MS_ACCEPTANCE_TEST_CONTRACTS.md`
+- `DetailedDesign/DD-22_MS_WORKFLOW_TRANSITION_MATRICES.md`
+- `DetailedDesign/DD-22H_STATE_ENUM_DERIVATION_HISTORY.md`
+- `DetailedDesign/DD-23_BEHAVIORAL_CATALOGS_INDEX_CONTRACTS.md`
+- `DetailedDesign/DD-23A_BEHAVIOR_FIELD_REGISTRY.md`
+- `DetailedDesign/DD-24_INDUSTRY_DOMAIN_RULE_DECISIONS.md`
+- `DetailedDesign/DD-25_KPI_CALCULATION_CATALOG.md`
+- `DetailedDesign/DD-26_CANONICAL_SURFACES_MS_IDENTIFIERS.md`
+- `DetailedDesign/DD-27_41_MS_DETERMINISM_AUDIT.md`
+- `DetailedDesign/DD-28_FINAL_NAMED_KPI_COVERAGE.md`
+- `DetailedDesign/DD-29_FINAL_REVIEW_REQUIRED_SWEEP.md`
+- `DetailedDesign/DD-30_FINAL_REQUIREMENT_TRACEABILITY_AUDIT.md`
+- `DetailedDesign/DD-31_FINAL_DEVELOPMENT_QA_DETERMINISM.md`
+- `DetailedDesign/DD-CHANGELOG.md`
+- `DetailedDesign/DD-CHECKPOINT.md`
+- `DetailedDesign/DD-INDEX.md`
+- `DetailedDesign/DD-PHASE_STATE.md`
+- `DetailedDesign/DD-REVIEW_REQUIRED.md`
+- `DetailedDesign/Industries/Education/EDU-00_DETAILED_DESIGN.md`
+- `DetailedDesign/Industries/Government/GOV-00_DETAILED_DESIGN.md`
+- `DetailedDesign/Industries/Healthcare/HLT-00_DETAILED_DESIGN.md`
+- `DetailedDesign/Industries/Hospitality/HSP-00_DETAILED_DESIGN.md`
+- `DetailedDesign/Industries/Manufacturing/MFG-00_DETAILED_DESIGN.md`
+- `DetailedDesign/Industries/NGO-Temple-Trust/NGO-00_DETAILED_DESIGN.md`
+- `DetailedDesign/Industries/ProfessionalServices/PSV-00_DETAILED_DESIGN.md`
+- `DetailedDesign/Industries/Retail/RTL-00_DETAILED_DESIGN.md`
+- `DetailedDesign/Industries/Security-Facility/SFM-00_DETAILED_DESIGN.md`
+- `DetailedDesign/WAVE3_CROSS_INDUSTRY_AUDIT.md`
+- `DetailedDesign/WAVE3_MS_COMPLETENESS_MATRIX.md`
+
+## Development — 8
+- `Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md`
+- `Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md`
+- `Development/COMMERCIAL_CHANGE_PLAN_PREREQUISITE_AUDIT.md`
+- `Development/CORE_PERSISTENCE_ADAPTER_MAP.md`
+- `Development/CORE_SERVICE_CHECKPOINT.md`
+- `Development/DB_CHECKPOINT.md`
+- `Development/DB_IMPLEMENTATION_MATRIX.md`
+- `Development/DEVELOPMENT_STATE.md`
+
+## Foundation — 16
+- `Foundation/F-00_FOUNDATION_OVERVIEW.md`
+- `Foundation/F-01_PLATFORM_FOUNDATION.md`
+- `Foundation/F-02_END_TO_END_WORKFLOW.md`
+- `Foundation/F-03_IDENTITY_SECURITY.md`
+- `Foundation/F-04_DATA_FOUNDATION.md`
+- `Foundation/F-05_AI_FOUNDATION.md`
+- `Foundation/F-06_EXPERIENCE_LAYER.md`
+- `Foundation/F-07_INDUSTRIES_1-3.md`
+- `Foundation/F-08_INDUSTRIES_4-6.md`
+- `Foundation/F-09_INDUSTRIES_7-9.md`
+- `Foundation/F-10_DESKTOP_FOUNDATION.md`
+- `Foundation/F-11_DATA_RESIDENCY.md`
+- `Foundation/F-12_INDUSTRY_MS_DEEPENING.md`
+- `Foundation/F-13_MS_DEPTH_COMPLETION.md`
+- `Foundation/F-14_COMMERCIAL_FOUNDATION.md`
+- `Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md`
+
+## Governing — 5
+- `Governing/MASTER_INSTRUCTION_v2_5.md`
+- `Governing/MASTER_PROMPT_v2_5.md`
+- `Governing/ULTRA_DEEP_VISION_CENTRIC_ALL_STAGES_CURRENT_STATE_AUDIT_MASTER_PROMPT.md`
+- `Governing/ULTRA_DEEP_VISION_CENTRIC_PRE_DEVELOPMENT_AUDIT_MASTER_PROMPT_CLEAN.md`
+- `Governing/ULTRA_DEEP_VISION_CENTRIC_PRE_DEVELOPMENT_AUDIT_MASTER_PROMPT.md`
+
+## RawSourceCorpus — 2
+- `RawSourceCorpus/Disorganized Data 1.md`
+- `RawSourceCorpus/Disorganized Data 2.md`
+
+## Registers — 32
+- `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`
+- `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-17.md`
+- `Registers/ALL_STAGES_FILE_COVERAGE_2026-09-13.md`
+- `Registers/ARCHITECTURE_FINAL_AUDIT.md`
+- `Registers/ARCHITECTURE_NO_LOSS_AUDIT.md`
+- `Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md`
+- `Registers/D-CHANGELOG.md`
+- `Registers/D-CHECKPOINT.md`
+- `Registers/D-DECISIONS.md`
+- `Registers/D-INDEX.md`
+- `Registers/DD_REQUIREMENT_TRACEABILITY_F5.md`
+- `Registers/F5_DEFERRED_REQUIREMENT_DISPOSITION.md`
+- `Registers/F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md`
+- `Registers/F5_PARTIAL_REQUIREMENT_CLOSURE.md`
+- `Registers/F5_USER_DIRECTED_REQUIREMENTS.md`
+- `Registers/FINAL_AUDIT_CP-F1-005.md`
+- `Registers/FINAL_PRE_DEVELOPMENT_ADVERSARIAL_AUDIT_2026-09-13.md`
+- `Registers/ISOLATION_ATTACK_MATRIX.md`
+- `Registers/MS_COMPLETENESS_MATRIX.md`
+- `Registers/NO_LOSS_AUDIT.md`
+- `Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md`
+- `Registers/PHASE2_ARCHITECTURE_REVALIDATION_2026-09-12.md`
+- `Registers/PHASE3_DETAILED_DESIGN_REVALIDATION_2026-09-13.md`
+- `Registers/PHASE4_CROSS_LAYER_TRACEABILITY_ISOLATION_2026-09-13.md`
+- `Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md`
+- `Registers/REVIEW_REQUIRED.md`
+- `Registers/SOURCE_REGISTRY.md`
+- `Registers/TRACEABILITY_EXT_CP-F1-005.md`
+- `Registers/TRACEABILITY_MATRIX_REQUIREMENTS.md`
+- `Registers/TRACEABILITY_MATRIX_UNIT.md`
+- `Registers/TRACEABILITY_MATRIX.md`
+- `Registers/TRACEABILITY_REQUIREMENTS_REVALIDATION_F5.md`
+
+## src — 73
+- `src/app/api/trpc/[trpc]/route.ts`
+- `src/core/api/core-operation-contracts.ts`
+- `src/core/api/domain-operation-registry.ts`
+- `src/core/api/idempotency.ts`
+- `src/core/api/operation-contract.ts`
+- `src/core/api/operation-executor.ts`
+- `src/core/api/operation-registry.ts`
+- `src/core/api/rate-limit.ts`
+- `src/core/api/schema-registry.ts`
+- `src/core/api/transport-projection.ts`
+- `src/core/api/zod-operation-dto.ts`
+- `src/core/authorization/audit.ts`
+- `src/core/authorization/compiler-write.ts`
+- `src/core/authorization/contracts.ts`
+- `src/core/authorization/decision-service.ts`
+- `src/core/authorization/guard-pipeline.ts`
+- `src/core/authorization/guard-ports.ts`
+- `src/core/authorization/policy-grammar.ts`
+- `src/core/authorization/read-store.ts`
+- `src/core/authorization/source-compiler.ts`
+- `src/core/commercial/adjustment-schema.ts`
+- `src/core/commercial/adjustment-source.ts`
+- `src/core/commercial/current-state.ts`
+- `src/core/commercial/plan-change-evidence.ts`
+- `src/core/commercial/plan-version-baseline.ts`
+- `src/core/commercial/plan-version-schema.ts`
+- `src/core/commercial/publication.ts`
+- `src/core/context/client-workspace.ts`
+- `src/core/context/contracts.ts`
+- `src/core/context/errors.ts`
+- `src/core/context/ports.ts`
+- `src/core/context/request-context-service.ts`
+- `src/core/context/worker-context.ts`
+- `src/core/identity/contracts.ts`
+- `src/core/identity/roles-query-service.ts`
+- `src/core/identity/session-security-contracts.ts`
+- `src/core/index.ts`
+- `src/core/tenancy/workspace-service.ts`
+- `src/server/api/postgres-idempotency-store.ts`
+- `src/server/api/postgres-rate-limit-store.ts`
+- `src/server/api/sha256-idempotency-digest.ts`
+- `src/server/api/sha256-rate-limit-digest.ts`
+- `src/server/api/trpc/clerk-bearer-authorization.ts`
+- `src/server/api/trpc/core-identity-router.ts`
+- `src/server/api/trpc/fetch-handler.ts`
+- `src/server/api/trpc/first-party-trpc.ts`
+- `src/server/api/trpc/first-party-web-boundary.ts`
+- `src/server/app/first-party-web-composition.ts`
+- `src/server/authorization/postgres-authorization-audit-store.ts`
+- `src/server/authorization/postgres-authorization-compiler-source-store.ts`
+- `src/server/authorization/postgres-authorization-compiler-store.ts`
+- `src/server/authorization/postgres-authorization-context.ts`
+- `src/server/authorization/postgres-authorization-read-store.ts`
+- `src/server/authorization/sha256-authorization-compiler-fingerprint.ts`
+- `src/server/commercial/postgres-commercial-adjustment-source-store.ts`
+- `src/server/commercial/postgres-commercial-current-state.ts`
+- `src/server/commercial/postgres-commercial-publication-store.ts`
+- `src/server/commercial/postgres-plan-change-evidence-store.ts`
+- `src/server/database/contracts.ts`
+- `src/server/database/postgres-authorization-compiler-database.ts`
+- `src/server/database/postgres-commercial-transition-compiler-database.ts`
+- `src/server/database/postgres-context-bootstrap-database.ts`
+- `src/server/database/postgres-database.ts`
+- `src/server/database/postgres-identity-database.ts`
+- `src/server/database/postgres-plan-change-evidence-database.ts`
+- `src/server/database/postgres-rate-limiter-database.ts`
+- `src/server/database/request-scoped-sql.ts`
+- `src/server/identity/clerk-backend-sdk.ts`
+- `src/server/identity/clerk-identity-adapter.ts`
+- `src/server/identity/postgres-identity-security-store.ts`
+- `src/server/identity/session-security-service.ts`
+- `src/server/tenancy/postgres-industry-presentation.ts`
+- `src/server/tenancy/postgres-tenant-context.ts`
+
+## State — 5
+- `State/HANDOFF_NOTE.md`
+- `State/PHASE_SUMMARY.md`
+- `State/PRE_DEVELOPMENT_RECOVERY_MANIFEST.json`
+- `State/PROJECT_MANIFEST.json`
+- `State/PROJECT_STATE.md`
+
+## tests — 49
+- `tests/core/authorization-compiler-service.test.mjs`
+- `tests/core/authorization-decision-service.test.mjs`
+- `tests/core/authorization-policy-grammar.test.mjs`
+- `tests/core/authorization-source-compiler.test.mjs`
+- `tests/core/commercial-adjustment-schema.test.mjs`
+- `tests/core/commercial-adjustment-source.test.mjs`
+- `tests/core/commercial-current-state.test.mjs`
+- `tests/core/commercial-plan-change-evidence.test.mjs`
+- `tests/core/commercial-plan-version-baseline.test.mjs`
+- `tests/core/commercial-plan-version-schema.test.mjs`
+- `tests/core/commercial-publication.test.mjs`
+- `tests/core/core-query-services.test.mjs`
+- `tests/core/guard-pipeline.test.mjs`
+- `tests/core/idempotency.test.mjs`
+- `tests/core/operation-executor.test.mjs`
+- `tests/core/rate-limit.test.mjs`
+- `tests/core/request-context.test.mjs`
+- `tests/core/schema-registry.test.mjs`
+- `tests/core/transport-projection.test.mjs`
+- `tests/core/workspace-service.test.mjs`
+- `tests/core/zod-operation-dto.test.mjs`
+- `tests/postgres/authorization-audit-store.test.mjs`
+- `tests/postgres/authorization-compiler-store.test.mjs`
+- `tests/postgres/authorization-read-store.test.mjs`
+- `tests/postgres/authorization-source-compiler.test.mjs`
+- `tests/postgres/commercial-adjustment-source.test.mjs`
+- `tests/postgres/commercial-current-state.test.mjs`
+- `tests/postgres/commercial-plan-change-evidence.test.mjs`
+- `tests/postgres/commercial-publication.test.mjs`
+- `tests/postgres/context-isolation.test.mjs`
+- `tests/postgres/core-read-adapters.test.mjs`
+- `tests/postgres/idempotency.test.mjs`
+- `tests/postgres/identity-security.test.mjs`
+- `tests/postgres/rate-limit.test.mjs`
+- `tests/postgres/tenant-context-bootstrap.test.mjs`
+- `tests/server/clerk-backend-sdk.test.mjs`
+- `tests/server/clerk-bearer-authorization.test.mjs`
+- `tests/server/clerk-identity-adapter.test.mjs`
+- `tests/server/first-party-trpc-fetch.test.mjs`
+- `tests/server/first-party-trpc.test.mjs`
+- `tests/server/first-party-web-boundary.test.mjs`
+- `tests/server/first-party-web-composition.test.mjs`
+- `tests/server/postgres-authorization-compiler-database.test.mjs`
+- `tests/server/postgres-authorization-read-store.test.mjs`
+- `tests/server/postgres-database.test.mjs`
+- `tests/server/postgres-identity-database.test.mjs`
+- `tests/server/postgres-identity-security-store.test.mjs`
+- `tests/server/request-scoped-sql.test.mjs`
+- `tests/server/session-security-service.test.mjs`

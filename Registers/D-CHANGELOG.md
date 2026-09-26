@@ -1,4 +1,7 @@
-# D-CHANGELOG — Foundation Builds 1–2 + Forensic Correction + Certification
+# D-CHANGELOG — Foundation Builds 1–2 + Architecture + Truth Revalidation
+
+**Current-state rule:** Rows are dated history. The current Core checkpoint and its exact Git/CI evidence govern active Development. The all-stages report retains its historical audit scope; prior labels alone are not substantive proof.
+
 | Date | Change | Scope | By |
 |---|---|---|---|
 | 30-08-2026 | Zero-Start Project Foundation Build 1 created: F-00..F-09, 8 registers, 4 state files, backup metadata. No prior Foundation status carried forward (Zero-Start Rule, MI §33A). | Whole Foundation | AI (governed by MI/MP v2.5, USER-DIRECTED task U1) |
@@ -13,5 +16,447 @@
 | 01-09-2026 | Checkpoint CP-F1-003 written; recovery ZIP rebuilt as v1.1; README_FOUNDATION corrected; PR #1 updated to reflect revoked certification | Governance/Delivery | AI |
 | 02-09-2026 | F-13 MS Depth Completion created (AC-17): FF-01 resolved (HLT-HMS/RIS/PMS/CMS → SPECIFIED at Foundation depth); FF-02 resolved (EDU-CTM, RTL-RSM, MFG-IWM, PSV-SDM to sibling depth; NGO-DMS review closed). F-07 §1.3 statuses updated; D-INDEX/D-DECISIONS/state synchronized; checkpoint CP-F1-004. Certification NOT reinstated at that checkpoint. | F-13, F-07, registers, state | AI |
 | 02-09-2026 | CP-F1-005: Full Foundation audit. Pass 1 findings corrected — F-14 Commercial Foundation created (AC-18: plans/subscription/license/entitlements/effective access/lifecycles/routes; Pro/Premium governed dual-route [UD]); F-00 §11 amendment; traceability extension (totals unchanged); stale statuses swept. Pass 2 independent audit clean. **FOUNDATION CERTIFIED granted at CP-F1-005.** Open delivery item: recovery ZIP v1.2 (v1.1 remains latest verified). No merge to main. | Whole Foundation | AI |
-| 04-09-2026 | Owner-directed manual edit (commit a811a1ab) to `RawSourceCorpus/Disorganized Data 2.md` recorded as ACTIVE owner intent — preserved, NOT reverted. Commit b83bea9 ("CP-F1-005+" brand/color canonicalization: F-06 v0.2 §6.1 palette, AC-19, RR-03) REVERTED via history-preserving revert commit efd16eb6 — the additional canonicalization/closure changes were unnecessary. F-06 restored to v0.1; D-DECISIONS/REVIEW_REQUIRED restored (AC-19 removed, RR-03 withdrawn); no reset, force-push, or history rewrite; main not merged. Registers/state/checkpoint re-synchronized. Recovery ZIP v1.2 remains the sole open delivery item (v1.1 remains latest verified backup). | F-06, Registers, State | AI |
-| 04-09-2026 | CP-F1-005 revision C: recovery ZIP v1.2 (SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip) built from the final post-revert HEAD tree and open-and-compare verified (36/36 files, no size mismatches, corpus byte-identical to the owner-directed a811a1ab state). BACKUP_METADATA.json, README_FOUNDATION, D-CHECKPOINT and state files synchronized. No open delivery items; main not merged. | Delivery/Governance | AI |
+| 04-09-2026 | Owner-directed manual edit (commit a811a1ab) to `RawSourceCorpus/Disorganized Data 2.md` recorded as ACTIVE owner intent — preserved, NOT reverted. Commit b83bea9 ("CP-F1-005+" brand/color canonicalization: F-06 v0.2 §6.1 palette, AC-19, RR-03) REVERTED via history-preserving revert commit efd16eb6 — the additional canonicalization/closure changes were unnecessary. F-06 restored to v0.1; D-DECISIONS/REVIEW_REQUIRED restored (AC-19 removed, RR-03 withdrawn); no reset, force-push, or history rewrite; main not merged. Registers/state/checkpoint re-synchronized. | F-06, Registers, State | AI |
+| 04-09-2026 | CP-F1-005 revision C: recovery ZIP v1.2 (SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip) built from the final post-revert HEAD and open-and-compare verified (36/36 files, no size mismatches, corpus byte-identical to the owner-directed a811a1ab state). BACKUP_METADATA.json, README_FOUNDATION, D-CHECKPOINT and state files synchronized. No open delivery items; main not merged. | Delivery/Governance | AI |
+| 09-09-2026 | Architecture bootstrap CP-A1-001 created on `docs/architecture-branch-2`: A-00…A-03 established. Repository-state correction explicitly records A-04…A-12 as planned/not present until actually created. | Architecture/State | AI |
+| 09-09-2026 | Targeted technology alignment: F-01 API catalog clarified as tRPC-primary internal + REST/OpenAPI external interoperability; F-03 aligned to Clerk session/access-token boundary; F-06 aligned to React Native + Expo; F-10 aligned to Tauri 2.0 + Clerk + tRPC. | F-01, F-03, F-06, F-10 | AI under USER-DIRECTED UD-TECH-01 |
+| 09-09-2026 | `UD-TECH-01` registered as ACTIVE user-directed technology baseline. RawSourceCorpus remains immutable; current canonical architecture documents must align to the approved stack. | Governance | AI |
+| 09-09-2026 | README_FOUNDATION, PROJECT_STATE, PROJECT_MANIFEST and HANDOFF_NOTE synchronized from "Architecture NOT started" to **Architecture STARTED / CP-A1-001**, without claiming Architecture completion. | State | AI |
+| 09-09-2026 | Architecture CP-A1-002 package added A-04…A-09. Architecture remained incomplete because A-10…A-12, consolidated ADR evidence, Architecture traceability/No-Loss and final gate evidence were still absent. | Architecture | AI |
+| 10-09-2026 | Targeted Architecture/state corrections aligned A-00/A-01, D-DECISIONS, PROJECT_STATE and PHASE_SUMMARY to the actual A-00…A-09 inventory and current Vercel/Coolify + Dockerized VPS technology direction. | Architecture/State/Registers | AI under user direction |
+| 10-09-2026 | **Project Truth Audit opened.** Existing gate/certification labels were explicitly rejected as standalone substantive evidence. P0 findings: branch RawSourceCorpus divergence from the accepted source baseline; S2 traceability represented mainly as grouped ranges while the claimed full atomic rows lived in a recovery ZIP; Foundation-wide status therefore exceeded currently repository-resident substantive evidence. | Whole repository | AI under explicit user truth-audit direction |
+| 10-09-2026 | Both `RawSourceCorpus` files restored to the accepted immutable `main` source blobs in commit `548e643ffba1c4c7a0e4fbcbaa5b15c58b0a708c`. Earlier divergent edits remain preserved in Git history; active RawSourceCorpus is again the immutable source/history boundary. | RawSourceCorpus | AI |
+| 10-09-2026 | Created `Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md` and `Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md`. CP-F1-005 preserved as historical gate evidence; current whole-Foundation status reopened to **IN PROGRESS — SUBSTANTIVE TRUTH REVALIDATION** pending atomic traceability + substantive WHAT/WHY/WHO verification + fresh No-Loss/adversarial audit. | Foundation/Registers | AI |
+| 10-09-2026 | PROJECT_STATE, PHASE_SUMMARY, HANDOFF_NOTE, PROJECT_MANIFEST, README_FOUNDATION, D-CHECKPOINT and D-INDEX synchronized to truth-audit status, actual A-00…A-09 inventory, current `UD-TECH-01`, and remaining evidence gaps. | State/Registers/README | AI |
+| 11-09-2026 | Governance targeted reconciliation: §9A made phase-aware; commercial route policy and UD-TECH-01 deployment/technology wording synchronized in MASTER_INSTRUCTION/MASTER_PROMPT; F-01/F-02/F-03/F-04/F-06 corrected without rewriting RawSourceCorpus. | Governance/Foundation | AI under explicit user direction |
+| 11-09-2026 | Repository-resident atomic source traceability rebuilt: S1 37 + S2 335 = 372 units, 0 unmapped, no external ZIP dependency. | Traceability | AI |
+| 11-09-2026 | Foundation truth revalidation closed: AC/DR evidence expanded, F-15/F-00 current status advanced only after fresh No-Loss + adversarial PASS. **FOUNDATION CERTIFIED.** | Foundation/Registers | AI |
+| 11-09-2026 | A-00…A-09 targeted reconciliation corrected commercial lifecycle, identity abstraction, erasure/retention, residency backup/failover, AI/RAG Industry Context isolation, surface separation and technology boundaries. | Architecture | AI |
+| 11-09-2026 | Created A-10 Infrastructure/Deployment/Scalability/Resilience, A-11 Observability/Reliability/Operations, A-12 authoritative ADR-001…ADR-018, plus Architecture traceability, No-Loss/depth and final adversarial audit. **ARCHITECTURE CERTIFIED.** | Architecture/Registers | AI |
+| 11-09-2026 | CP-A1-003 state synchronization: D-INDEX, REVIEW_REQUIRED, PROJECT_STATE/MANIFEST, PHASE_SUMMARY, HANDOFF, README and checkpoint aligned. Next phase Detailed Design. main unchanged/unmerged; no backup ZIP. | State/Delivery | AI |
+| 11-09-2026 | Independent targeted remediation & recertification: reopened unsupported gates; created requirement-level child evidence; repaired F-06 source loss; deepened/re-owned all 41 MS; enforced Tenant+Industry Context across general Architecture; reconciled effective access, A-08 surfaces, IdentityPort and ADRs; rebuilt Architecture traceability; fresh Foundation/Architecture adversarial audits PASS; certification re-earned. | Foundation + Architecture + Registers/State | AI under user remediation mandate |
+| 12-09-2026 | Phase 1 fresh RawSource→Foundation reconciliation: complete S1/S2 + F-00…F-15 pass; recovered/corrected Future Industry governance, Form/Rules ownership, country/localization packs, Clerk/effective-access flow, Enterprise AI expansion, two-Tenant-mobile-app policy, concrete brand defaults, data access/portability and F-14 access-chain ordering. RawSource unchanged. Downstream Architecture/DD certifications reopened for revalidation; Development blocked. | Foundation + Governance Evidence/State | GPT-5.6 Sol under explicit user Phase-1 instruction |
+| 12-09-2026 | Phase 2 fresh Foundation→Architecture/ADR revalidation: A-00…A-12 full-read; corrected current Foundation baseline, shared Config/Metadata/Rules/Form/Workflow ownership, country/localization packs, AI API/provisioning/memory/document/prompt/media architecture, exact two-Tenant-mobile-app model, brand/theme hierarchy, Future Industry promotion gate and data access/portability. Added ADR-019/020; fresh Architecture traceability/no-loss/adversarial PASS; P0/P1=0. DD remains revalidation-required; Development blocked. | Architecture + ADR + Registers/State | GPT-5.6 Sol under explicit user continuation |
+| 13-09-2026 | Phase 3 fresh Detailed Design revalidation: 55/55 DD files full-read, upstream Phase-1/2 deltas propagated into exact shared/AI/mobile/brand/localization/Future-Industry contracts and tests, all 9 Industry DD mobile mappings normalized, DD traceability/determinism/adversarial evidence refreshed. P0/P1=0/0; REAL_DD_GAP=0; Dev/QA 9/9 YES. | Detailed Design + Registers/State | GPT-5.6 Sol under explicit user continuation |
+| 13-09-2026 | Phase 4 cross-layer revalidation: current Source/Foundation/Architecture/DD/Test chains overlaid on prior Fable traceability; fresh isolation matrix added export, AI API/memory/media, country-pack, rules safety, two-app, branding and Future-Industry attacks. PASS; isolation P0/P1=0/0. | Cross-layer Traceability/Isolation | GPT-5.6 Sol under explicit user continuation |
+| 13-09-2026 | Phase 5/final closure: synchronized repository truth, created full 125-file Git recovery manifest for exact snapshot, recorded immutable archive URL, created draft review PR #2 (DO NOT MERGE), and ran final independent adversarial audit. Substantive P0/P1=0/0, REAL_DD_GAP=0, isolation PASS, Dev/QA 9/9 YES. Physical checkpoint ZIP could not be materialized/SHA-256 verified due current environment network/archive limitation; Development remains blocked only by CLOSURE-BACKUP-01. | Final Pre-Development Closure | GPT-5.6 Sol under explicit user continuation |
+| 13-09-2026 | Owner waived physical pre-development ZIP as a Development gate and will handle any manual clone/archive independently. Recorded UD-BACKUP-01; CLOSURE-BACKUP-01 closed without claiming ZIP creation. Final status advanced to READY FOR DEVELOPMENT on current branch; main remains unchanged. | Governance/Pre-Development Gate | GPT-5.6 Sol under explicit user direction |
+| 13-09-2026 | Development began on current branch. Implemented PostgreSQL shared-Core database spine migrations 0001–0014: Tenant/Industry ownership, Config/Metadata/Rules/Forms, Identity/Authz, Commercial/Entitlement, Documents, partitioned Audit/Outbox/Webhook, RLS registry/migration ledger, least-privilege runtime roles, AI/RAG/Agents and dedicated AI Gateway role. Added SQL verification harnesses. Live PostgreSQL execution remains pending. | Development / Database | GPT-5.6 Sol under explicit Continue |
+| 14-09-2026 | Zero-trust all-stages current-state audit corrected 26 root-cause groups (P0 15/P1 9/P2 1/P3 1): identity/ownership/RLS/role boundaries, commercial/event/document/AI relationships, platform-definition writes, exact-commit CI and fail-closed harness, source-owner routes and current state. Preserved RawSource IDs/text/blobs and all domain semantics; independently derived 9 Industries/41 MS/181 tables. Clean PostgreSQL+pgvector CI passed all 32 migrations/26 verification files. Final Git/CI/coverage and bounded gate are in ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md. | All existing stages/current Database checkpoint | AI under explicit all-stages audit mandate |
+| 20-09-2026 | Zero-trust current-state audit revalidated 353-file branch inventory, 9 Industries / 41 MS / 181 Industry tables, 45 migrations / 39 verification files, 71 TypeScript/TSX sources and 47 executable test files. Corrected Commercial lifecycle/publication truth, stale current-state overlays and CI path coverage so checkpoint/state promotion commits receive exact-head Core/Web/Database verification. DD-069 remains last feature slice; no RawSource/main change. | Current Development audit / governance-state synchronization | GPT-5.6 Sol under explicit deep-audit continuation |
+
+
+| 14-09-2026 | Development advanced from verified Database persistence into Core Services. Added strict TypeScript Core kernel for DD-02/DD-03 RequestContext/Identity, DD-04 commercial/access guards, DD-06 OperationContract/resource guard flow, membership-derived workspace query and effective-role query. Core Service Verify run 34803687579: 22/22 PASS; Database regression run 34803691382: PASS at executable HEAD 3f9105f73cf14b5c65a3530411b1ec59b930ddc2. | Development / Core Services | GPT-5.6 Sol under explicit Continue |
+
+| 14-09-2026 | Core Services checkpoint advanced: added transaction-local PostgreSQL RequestContext boundary and INF-015-style pooled-context tests. Executable HEAD d078f6937a1de8580a8fac39ffb03881aeea4bc4; Core Service Verify 34804065830: 29/29 PASS; Database Verify 34804068346: PASS. | Development / Core Services | GPT-5.6 Sol under explicit Continue |
+
+| 14-09-2026 | DEV-CORE-POSTGRES-001: re-fetched baseline ea24fa6 and corrected lifecycle/membership/org/restriction/route and stale-state inconsistencies under DD-040 / DEV-CORE-MAP-001. Added locked pg transaction adapter and real RLS/pool tests; fixed 42P08 UUID fixture typing and deferred primary-Industry fixture integrity without changing SQL constraints. Executable 0ada4283959ea4abe39a0980574e2dfdcb62e508: Core run 34823407649 passed 40 Core + 7 PostgreSQL tests; Database run 34823407538 passed 32 migrations / 26 verification files. Reconciled current checkpoint/state/index while retaining historical evidence and the two unbound physical read contracts. | Development / Core PostgreSQL + governed checkpoint | AI under explicit Continue and fresh-consistency instruction |
+| 21-09-2026 | Fresh exact-remote 359-blob Vision-centric audit at `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` revalidated active Foundation/Architecture/DD, 9 Industries / 41 MS / 181 tables, auth/authz, RLS/least privilege, migrations/tests/CI and current Commercial corrections. No new P0/P1 semantic/code/database defect was established. Targeted correction synchronized stale DD/Development/State/Checkpoint projections to 199 Core / 56 PostgreSQL / 46 migrations / 40 verification files; DD-070 remains latest feature slice and deterministic adjustment precedence is next. RawSource/main unchanged. | Whole current repository / Development governance-state synchronization | GPT-5.6 Sol under explicit deep-audit continuation |
+| 21-09-2026 | DD-071 deterministic Commercial adjustment precedence implemented after the exact-tree audit: baseline → override → resolver-eligible additive add-on, deny-wins, unique-meter fail-closed limit mapping. First attempt f52f0d1 failed TypeScript narrowing and was not promoted; corrected `1c8844ec982ef91cacc3545576d102fbac3fcaf9` passed 207 Core / 56 PostgreSQL + full DB bootstrap / Web build. No DB migration, eligibility/pricing/compliance/usage/public-changePlan rule added. | Detailed Design + Development Commercial target-preview prerequisite | GPT-5.6 Sol under governed continuation |
+
+## 2026-09-21 — DD-072 compliance/security restriction input boundary
+After source-auditing F-03/F-14/A-03/A-04/DD-03/DD-04/DD-16, verified that the current repository has narrowing-only security/compliance semantics but no authoritative Commercial restriction persistence/reducer. Added a server-owned exact-target DENY-only normalized resolver seam; unsupported expansion/ALLOW/numeric/opaque semantics fail closed. Feature `b0ff514b4063b648f8869a7e12008a68ebd8fe5a` passed 216 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No DB migration, compliance business rule, final restriction application or public changePlan binding was added.
+
+## 2026-09-21 — DD-073 bounded usage-meter target-impact
+Source audit confirmed BR-SUB-04 plus persisted `usage_meter` and DD-064 least-privilege read ownership, while finding no governed current-period selector or `reserved_value` downgrade formula. Added a server-owned measurement-source seam and deterministic exact-target evaluator. Feature `d982eb59098e4dc51586a2cf5e92771909566ea4` passed 225 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No migration, period convention, reservation arithmetic, remediation producer or public changePlan binding was added.
+
+## 2026-09-21 — DD-074 subscription lifecycle target overlay
+Source audit confirmed exact F-14/A-04/DD-04 lifecycle posture: GRACE retains full access; SUSPENDED is restricted; EXPIRED/CANCELLED preserve data; PENDING is activation-pending; Renewed is an event and PAST_DUE is invalid. Added a pure deterministic posture overlay without mutating entitlement facts or inventing restricted operation IDs/future lifecycle prediction. Feature `d89b3c9b5ae68ef45b4a2e8a7e9979f2b4655269` passed 233 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No migration or public changePlan binding was added.
+
+## 2026-09-21 — DD-075 final Commercial target preview
+Combined DD-071…074 into one deterministic target-PlanVersion-bound preview. Prepared compliance/security DENY now applies through the already-governed Tenant deny-set / exact Industry disabled-fact representation; DD-073 usage and DD-074 lifecycle evidence are revalidated. Feature `380999d41b2bc67903c7eabea714f06b459f754d` passed 243 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No migration, snapshot fingerprint/fact mapping, remediation producer, Billing/Workflow evidence or public changePlan binding was added.
+
+## 2026-09-21 — DD-076 initial plan-change assessment preparation
+Source audit found no governed blocking-impact code vocabulary, immutable entitlement-diff evidence format, complete Commercial fingerprint algorithm or deterministic dual-route chooser. Added a SERVICE/TENANT_CORE server-owned evaluator/preparation seam bound to DD-075, with deterministic blockers and DD-073 usage-blocker preservation. Feature `bdc4f65c7d1f84e5b29e15c7b5dbfb8550c1ca11` passed 254 Core / 56 PostgreSQL + full DB bootstrap / Web / Database CI. No migration, concrete evaluator policy, DD-066 write, Billing/Workflow evidence or DD-065 apply orchestration was added.
+
+## 2026-09-21 — DD-077 persisted Commercial apply-evidence gate
+Implemented read-only same-Tenant consumption of current DD-066 assessment/remediation/route-resolution evidence through the existing Commercial compiler role. The gate requires latest assessment, exact current Subscription/source/route/fingerprint binding, correct producer-owned latest route evidence, remediation provenance and reached NEXT_RENEWAL effectiveAt. Three compile/fixture attempts were not promoted; corrected feature `1704259d61c77937eaf866162ca67689dee3b714` passed 265 Core / 61 PostgreSQL + full DB bootstrap / Web / Database CI. No migration or privilege change was required. Evidence validation is not yet atomic with DD-065 publication, so public changePlan remains unbound.
+
+## 2026-09-21 — DD-078 atomic persisted-evidence publication binding
+Bound exact DD-066 assessment evidence into the DD-065 mutation transaction and added migration 0047 transaction-lock serialization across same Tenant+assessment evidence appends/publication. Feature `8fa3963f691ccc8d4d913c880556bea5512cc0a3` passed 265 Core / 63 PostgreSQL + full 47/41 DB bootstrap / Web / Database CI. Compiler evidence DML remains denied. Production assessment/Billing/Workflow producers and public changePlan remain unfinished.
+
+## 2026-09-21 — DD-079 prepared initial-assessment persistence
+Connected DD-076 prepared version-1 assessment evidence to DD-066 append-only persistence with exact field forwarding and server-owned assessment identity/time/Tenant/correlation. Feature `e85ed5ddd8e95a7d96c261117b914f95dc41f955` passed 271 Core / 65 PostgreSQL + full 47/41 DB bootstrap / Web / Database CI. No migration, privilege, evaluator business semantics, Billing/Workflow producer or public changePlan binding was added.
+
+## 2026-09-21 — DEV-VISION-AUDIT-INVARIANTS-001
+
+Fresh baseline 3dabe35 was materialized from all 399 hash-verified remote blobs.
+Correction `380ae7b984624ae3842e0293b2c075ac250c08a6` closed VC-01–04 and passed 277 Core / 65 PostgreSQL
+plus exact-head DB/Web CI. Continuation `20f1f5531a75a711bb88e013d38454f8c171e6b1` completed the DD-076
+prerequisite ownership audit and implemented six repository invariant tests;
+283 Core / 65 PostgreSQL / full 47/41 bootstrap / DB / Web PASS.
+Current projections were reconciled, including stale manifest current overlays
+and already-implemented entries in pending lists; original projection payloads
+remain explicitly historical. RawSource/main unchanged; PR #2 draft/unmerged.
+Evidence: `Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md`. Missing evaluator/business definitions remain dependent blocks.
+
+## 2026-09-21 — DD-080 external REST adapter floor
+Source-audited and implemented the reusable external REST Fetch ordering/projection boundary over the existing OperationExecutor and DD-052 envelope. Feature `ce4708eec15f6b0a35ae9a77d13505221fe55d51` passed 290 Core / 65 PostgreSQL / 47+41 bootstrap / Database / Web CI. No live route, credential scheme, OpenAPI document, SQL or Commercial semantics were added.
+
+## 2026-09-24 — Vision-centric DD-163 checkpoint reconciliation
+Fresh remote audit reconciled the 796-blob DD-163 promotion baseline with MI/MP, immutable RawSource provenance, Foundation/Architecture/DD owners, Development/State, repository invariants and exact-head CI. Current projections that still named DD-162/DD-108/DD-106/DD-080 were corrected without rewriting historical evidence. DD-163 promotion `a2a888eea87124c75123239d79e528e6d4facfbe` passed 395 Core / 497 PostgreSQL plus Database/Web CI; state/audit reconciliation head `e953646468f77eaa47fdb5a64bb397f23157ee6f` also passed all three workflows. RawSource/main unchanged; PR #2 remains draft/unmerged.
+
+## 2026-09-24 — Post-DD-163 boundary selection
+`Development/WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md` locks unsupported Webhook execution semantics rather than inventing them. `Development/SYNC_CURSOR_CURRENT_BINDING_FLOORS_PREREQUISITE_OWNERSHIP_AUDIT.md` identifies one independent source-complete next prerequisite: the exact migration-0030 SyncCursor parent/capability binding floor, with no sync/provider authorization semantics.
+
+## 2026-09-24 — DD-164 SyncCursor current-binding promotion
+Post-DD-163 Webhook execution seams were locked as source-incomplete. DD-164 then implemented the independent migration-0030-owned SyncCursor parent/capability current-binding necessary floor. Implementation `f38297dc37f269cb29dcaa5e8bbd80f4b57aec25` passed 402 Core / 497 PostgreSQL plus Database/Web; canonical promotion `b37242298bff0c2b8e95a9b957896d6a7278e8fd` / tree `749064f6d423f4d685c715e905538a06dbc77613` passed the same exact-head gates and REPO-004 contiguity. No SQL/schema/RLS/role/grant/RawSource/main change; sync/provider/network authority remains unclaimed.
+
+
+## 2026-09-24 — Post-DD-164 DD-165 prerequisite selection
+Fresh Integration reconciliation selected migration 0030's exact TenantIntegration→CredentialReference current binding as the next source-complete prerequisite. It is limited to exact credential id/Tenant/optional-Industry relationship, raw ACTIVE status and strict expiry currentness using DD-095/DD-096 evidence. Secret locator/material, rotation semantics, provider selection, health/profile policy and network execution remain explicitly unclaimed.
+
+## 2026-09-24 — DD-165 canonical promotion / checkpoint advance
+DD-165 canonical decision/acceptance/evidence promotion `d6c09a2fde3f173892c311af36335dc1f6ef8313` / tree `daec42114b4a76fa4f25edf71b410f230d3a37d0` passed exact-head **409 Core / 497 PostgreSQL** plus Database/Web CI. Current DD/Development/State/Register projections advanced to `DEV-TENANT-INTEGRATION-CREDENTIAL-CURRENT-FLOORS-001` only after that gate. Machine verification, Webhook execution, SyncCursor runtime and secret/provider runtime boundaries remain locked. RawSource/main unchanged; PR #2 remains draft/unmerged.
+
+## 2026-09-24 — Post-DD-165 DD-166 prerequisite selection
+Fresh Integration reconciliation selected migration 0030's Definition/config/enabled-capability half of TenantIntegration integrity as the next independent source-complete prerequisite. It is limited to exact ACTIVE IntegrationDefinition, object config, duplicate-free enabled codes, Definition membership and exact ACTIVE capability existence. TenantIntegration lifecycle, DD-165 credential currentness, provider/OperationContract/event/secret/network authority remain explicitly separate.
+
+## 2026-09-24 — DD-166 canonical promotion / checkpoint advance
+DD-166 canonical decision/acceptance/evidence promotion `b16bf902aba7bc0c8324048cd1b4506b2363ebc8` / tree `4ee6a211b760b6dce34ff187df1d63473f970dfa` passed exact-head **416 Core / 497 PostgreSQL** plus Database/Web CI. Current projections advanced to `DEV-TENANT-INTEGRATION-DEFINITION-CAPABILITY-CURRENT-FLOORS-001`. RawSource/main unchanged; PR #2 remains draft/unmerged.
+
+## 2026-09-24 — Post-DD-166 DD-167 composition prerequisite
+Migration 0030 owns DD-165 credential currentness and DD-166 Definition/config/enabled-capability integrity as one write-time predicate. DD-167 is authorized only as their boolean conjunction with no new primitive semantics. TenantIntegration lifecycle/health/profile/provider/secret/network authority remains explicitly unclaimed.
+
+## 2026-09-24 — DD-167 canonical promotion / checkpoint advance
+DD-167 canonical decision/acceptance/evidence promotion `ecf694f8bf62082b2d59905591a97b237b866b8b` / tree `dc96af06648f79a606ce5ea24254e52f716c7f94` passed exact-head **423 Core / 497 PostgreSQL** plus Database/Web CI. Current DD/Development/State/Register projections advanced to `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-FLOORS-001`. No lifecycle/provider/secret/network authority was added; RawSource/main unchanged; PR #2 remains draft/unmerged.
+
+## 2026-09-24 — Post-DD-167 DD-168 prerequisite selection
+Fresh Notification reconciliation selected migration 0031's optional NotificationDelivery→TenantIntegration relationship as the next independent source-complete prerequisite. The bounded floor covers exact integration id/Tenant, raw ACTIVE status and Tenant-wide-or-exact-Industry compatibility only. Provider routing, secrets, send/retry/finality and DD-167 integration-integrity composition remain unclaimed.
+
+## 2026-09-24 — DD-168 canonical promotion / checkpoint advance
+Promotion `8efb70a9fc54bc3e0c8adef36afc835d313c1cb7` / tree `c74f9411a25cbbfb27c39ff7a94fc856d03dc707` passed 430 Core / 497 PostgreSQL + Database/Web. Current projections advanced to `DEV-NOTIFICATION-INTEGRATION-CURRENT-BINDING-FLOORS-001`; delivery execution remains unclaimed.
+
+## 2026-09-24 — Post-DD-168 DD-169 prerequisite selection
+Fresh Notification reconciliation selected migration 0031's optional NotificationDelivery→OutboxEvent relationship as the next independent source-complete prerequisite. The bounded floor covers exact source-event id, same Tenant, exact scope class and exact nullable Industry Context only. Outbox readiness/status/attempt/lock/retry/payload and notification send/provider execution remain unclaimed.
+
+## 2026-09-24 — DD-169 canonical promotion / checkpoint advance
+DD-169 promotion `19d4af6b662e6c8de7df0fc54c1a61aab09a5b3f` / tree `264cfb4d5df164ea1e1893013698cb17b811f919` passed exact-head **437 Core / 497 PostgreSQL** plus Database/Web. Projections advanced to `DEV-NOTIFICATION-SOURCE-EVENT-CURRENT-BINDING-FLOORS-001`. Post-promotion source review flagged `definition_applies_to_scope()` NULL/fail-closed behavior as the next prerequisite before NotificationTemplate relationship continuation.
+
+## 2026-09-24 — Post-DD-169 DD-170 fail-closed scope-predicate correction selected
+Post-DD-169 reconciliation found that migration 0031 labels `definition_applies_to_scope()` fail-closed but ordinary nullable equality can return SQL NULL for INDUSTRY→Tenant-Core comparison. Integrity callers commonly use `NOT predicate`, allowing NULL to bypass the intended rejection. DD-170 is limited to making definition applicability/containment total booleans via a forward-only migration plus direct verification; owner hierarchy is unchanged.
+
+## 2026-09-24 — DD-170 canonical promotion / checkpoint advance
+DD-170 promotion `b21501f8ec0835cc32c504929123cffebcac3b4b` / tree `82a293509d609ca7a5f9f81a2d913cd14d2dbec1` passed exact-head **437 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-DEFINITION-SCOPE-FAIL-CLOSED-001`. Shared scope-predicate semantics are now total/fail-closed; owner hierarchy and product/runtime boundaries are unchanged.
+
+## 2026-09-24 — Post-DD-170 DD-171 prerequisite selection
+After DD-170 restored total fail-closed definition applicability, migration 0031's optional NotificationDelivery→NotificationTemplate relationship became safely re-evaluable. DD-171 is limited to exact template id/version, raw ACTIVE status, exact channel and canonical PLATFORM/TENANT/INDUSTRY applicability. Selection/fallback/rendering/approval-to-send/provider/send/retry semantics remain unclaimed.
+
+## 2026-09-24 — DD-171 canonical promotion / checkpoint advance
+DD-171 promotion `0bc47ea75d5405dd29bf35562b1245f0b7d3842a` / tree `5e47ae874cc88cabcbc1de11dfaa803851d601af` passed exact-head **444 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-NOTIFICATION-TEMPLATE-CURRENT-BINDING-FLOORS-001`. Template rendering/fallback/provider/send/retry semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-171 recipient boundary lock / DD-172 composition selection
+Recipient-principal currentness was audited and locked as source-incomplete for general later re-evaluation because migration 0031's PLATFORM_OPERATOR path depends on request-local elevation/current-principal/current-Tenant state that NotificationDelivery does not persist. No weakened surrogate was invented. The next source-complete prerequisite is a no-new-semantics conjunction of DD-168, DD-169 and DD-171 as the known NotificationDelivery persisted-relationship necessary floor; recipient validity remains explicitly outside it.
+
+## 2026-09-24 — DD-172 canonical promotion / checkpoint advance
+DD-172 promotion `607355481617e96a9c7ff29f63047b5c6a5e49b6` / tree `ffee6678093180b9ee8a341b5a7290d0f44bc85f` passed exact-head **451 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-NOTIFICATION-KNOWN-RELATIONSHIP-FLOORS-001`. Recipient-principal replay remains source-incomplete and excluded; no delivery execution authority was added.
+
+## 2026-09-24 — Post-DD-172 DD-173 prerequisite selection
+Fresh Workflow reconciliation selected migration 0031's WorkflowInstance→WorkflowDefinition exact id/version/ACTIVE/scope relationship as the next independent source-complete prerequisite. Creator-principal currentness, state-machine interpretation, transition authorization and workflow execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-173 canonical promotion / checkpoint advance
+DD-173 promotion `3e6ea0257fe5eeef63489cbdc760976419124c80` / tree `30b6267d7369066a32009ec7801ec312fc755e87` passed exact-head **458 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-WORKFLOW-INSTANCE-DEFINITION-CURRENT-BINDING-FLOORS-001`. Creator-principal and Workflow execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-173 DD-174 prerequisite selection
+Fresh Workflow reconciliation selected migration 0031's shared WorkflowTask/WorkflowTransition→WorkflowInstance exact parent id/Tenant/nullable-Industry relationship as the next independent source-complete prerequisite. Assignee/claimant/completer/actor validity and Workflow execution semantics remain explicitly outside the floor.
+
+## 2026-09-24 — DD-174 canonical promotion / checkpoint advance
+DD-174 promotion `e390d2f21b4f4e3cabb99fb168e2246cbfe98d6e` / tree `8e7feb1f9343295c7a7ac9613e652c30f0582eeb` passed exact-head **465 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-WORKFLOW-CHILD-PARENT-CURRENT-BINDING-FLOORS-001`. Assignee/actor and Workflow execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-174 DD-175 prerequisite selection
+Fresh Automation reconciliation selected migration 0031's AutomationRun→AutomationDefinition exact id/ACTIVE/scope relationship as the next independent source-complete prerequisite. AutomationRun stores no definition version, so version/effective-date selection is intentionally not invented. Trigger/retry/state-mutation/OperationContract/Workflow dispatch semantics remain unclaimed.
+
+## 2026-09-24 — DD-175 canonical promotion / checkpoint advance
+DD-175 promotion `106188b29afea27920e8cbdb1e59815923b24618` / tree `534bf66bbc57995a89ea44dff6f56af820f0929d` passed exact-head **472 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AUTOMATION-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`. Definition version/effective-date selection and Automation execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-175 DD-176 prerequisite selection
+Fresh Workflow/Automation reconciliation selected migration 0031 + migration 0048's optional AutomationDefinition→WorkflowDefinition exact-id containment relationship as the next independent source-complete prerequisite. WorkflowDefinition status/version/effective dates and all Automation/Workflow execution semantics remain explicitly outside the floor.
+
+## 2026-09-24 — DD-176 canonical promotion / checkpoint advance
+DD-176 promotion `0e586f7288dd9f6624f0bfa7071d97a0549fb586` / tree `201de95d4d02a1d432b15dd00fe132e3b62c32e4` passed exact-head **479 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AUTOMATION-DEFINITION-WORKFLOW-CONTAINMENT-FLOORS-001`. WorkflowDefinition currentness and Automation/Workflow execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-176 DD-177 prerequisite selection
+Fresh AI reconciliation selected migration 0031 + migration 0048's PromptSetMember→ACTIVE PromptSet + ACTIVE PromptTemplate + broader/equal containment relationship as the next independent source-complete prerequisite. Priority/enabled effective-set resolution, rendering and AI execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-177 canonical promotion / checkpoint advance
+DD-177 promotion `ffb619a50a7f281649e989a21c3990abc7434419` / tree `ece532fbc88043c37393e8b476c85e5a514b2300` passed exact-head **486 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-PROMPT-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. Effective-set selection/rendering and AI execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-177 DD-178 prerequisite selection
+Fresh AI relationship reconciliation selected migration 0031's AIToolSetMember→AIToolDefinition exact id/ACTIVE relationship as the next independent source-complete prerequisite. Member enabled/constraint semantics, parent ToolSet currentness and tool permission/entitlement/approval/OperationContract execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-178 canonical promotion / checkpoint advance
+DD-178 promotion `1ab2ef046706ba2c21b90f873236d68d3e929329` / tree `c80e2f711f3889e0453d7beec2b4dafe14739803` passed exact-head **493 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-TOOL-SET-MEMBER-CURRENT-BINDING-FLOORS-001`. Effective ToolSet membership and AI execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-178 DD-179 prerequisite selection
+Fresh AI reconciliation selected migration 0031 + migration 0048's AssistantDefinition required PromptTemplate and optional ToolSet exact-id/ACTIVE/broader-or-equal containment relationships as the next independent source-complete prerequisite. Assistant capability-set currentness, effective ToolSet resolution, prompt rendering and AI execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-179 canonical promotion / checkpoint advance
+DD-179 promotion `58b4a9c17831aac335819190b7e7aad9b394ec85` / tree `2b131a362a805748f780e635e5ef55f6970bb379` passed exact-head **500 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-ASSISTANT-DEFINITION-RELATIONSHIP-CURRENT-BINDING-FLOORS-001`. Assistant capability currentness, rendering, effective ToolSet resolution and AI execution remain unclaimed.
+
+## 2026-09-24 — Post-DD-179 DD-180 prerequisite selection
+Fresh AI reconciliation selected migration 0031 + migration 0048's AgentDefinition→allowed ToolSet exact-id/ACTIVE/broader-or-equal containment relationship as the next independent source-complete prerequisite. Objective/risk/approval/budget semantics, effective ToolSet resolution and Agent/tool execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-180 canonical promotion / checkpoint advance
+DD-180 promotion `ad5fd749d4cdde8584858779ca596349821bf604` / tree `37d6013de96e36b352f480fa6f06b0aae6fedb40` passed exact-head **507 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-DEFINITION-TOOL-SET-CURRENT-BINDING-FLOORS-001`. Agent policy/effective ToolSet/runtime execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-180 DD-181 prerequisite selection
+Fresh AI reconciliation selected migration 0031 + migration 0048's AgentRun→AgentDefinition exact-id/ACTIVE/scope relationship as the next independent source-complete prerequisite. Acting-principal/membership, startup snapshots, resource authorization, run lifecycle/budgets and AgentStep/tool execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-181 canonical promotion / checkpoint advance
+DD-181 promotion `f86218e900ac3ed068238e8e4e9881dde5ee8e8e` / tree `a514b6c24d8c9a5dcd4c19c4dccbee96a764c793` passed exact-head **514 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-RUN-DEFINITION-CURRENT-BINDING-FLOORS-001`. Acting-principal/membership and Agent execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-181 DD-182 prerequisite selection
+Fresh AI reconciliation selected migration 0031's AgentStep TOOL/non-TOOL binding relationship as the next independent source-complete prerequisite: exact Step→Run→AgentDefinition parent chain, enabled ToolSetMember, ACTIVE ToolDefinition and exact allowed ToolSet match. Optional approval backlink, ToolSet currentness, principal/permission/entitlement/approval and tool execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-182 canonical promotion / checkpoint advance
+DD-182 promotion `8b36c0f86e5b8930e2c49a64a1d5b82eff0fd8db` / tree `a985d9fab1a30de000387ab6cf7fcfacacf99355` passed exact-head **521 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-STEP-TOOL-BINDING-CURRENT-FLOORS-001`. Approval satisfaction and Agent/tool execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-182 DD-183 prerequisite selection
+Fresh AgentStep/AgentApproval reconciliation selected migration 0031's optional exact approval backlink as the next independent source-complete prerequisite: exact approval id, same run and same step only. Approval status/satisfaction, approval scope, approver principal/permission/context and AgentRun/tool execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-183 canonical promotion / checkpoint advance
+DD-183 promotion `0d837e01e60a125cf6de0327acd733460a84c779` / tree `d919b9402bef58c2205cbdfc9538b44d359c2033` passed exact-head **528 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-STEP-APPROVAL-BACKLINK-CURRENT-FLOORS-001`. Approval satisfaction, approver authorization and Agent/tool execution remain unclaimed.
+
+## 2026-09-24 — Post-DD-183 DD-184 prerequisite selection
+Fresh AgentApproval reconciliation selected migration 0031's AgentApproval→AgentRun/AgentStep exact parent-chain plus Tenant/nullable-Industry relationship as the next independent source-complete prerequisite. Approver-principal currentness, approval satisfaction, AgentRun resume/cancel and tool execution remain explicitly outside the floor.
+
+## 2026-09-24 — DD-184 canonical promotion / checkpoint advance
+DD-184 promotion `6cf9b06340b5a168532c20b46faea681f4e68208` / tree `cdea91c0e5369fef1ff7106e53909d3b81cd2670` passed exact-head **535 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-AGENT-APPROVAL-PARENT-SCOPE-CURRENT-FLOORS-001`. Approval satisfaction, approver authorization and Agent/tool execution remain unclaimed.
+
+## 2026-09-24 — Post-DD-184 DD-185 prerequisite selection
+Fresh AIConversation reconciliation selected migration 0031's optional AIConversation→AssistantDefinition exact id/ACTIVE/scope relationship as the next independent source-complete prerequisite. Owner-principal currentness and DD-179 nested AssistantDefinition relationship currentness are intentionally not auto-composed; AI selection/rendering/provider/tool execution remains unclaimed.
+
+## 2026-09-24 — DD-185 canonical promotion / checkpoint advance
+DD-185 promotion `2e5b10af8e48794e3a1a8a33a75ba9e9a0f6f732` / tree `314f9cac0230c5b129998d0cf9a00bd7b625ba37` passed exact-head **542 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-CONVERSATION-ASSISTANT-CURRENT-BINDING-FLOORS-001`. Conversation owner-principal and AI execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-185 DD-186 prerequisite selection
+Fresh AI-memory reconciliation selected migration 0031's optional AIMemoryRecord→AssistantDefinition exact id/ACTIVE/scope relationship as the next independent source-complete prerequisite. Principal currentness, supersession resolution, expiry/retention/ACL and AI runtime semantics remain explicitly outside the floor.
+
+## 2026-09-24 — DD-186 canonical promotion / checkpoint advance
+DD-186 promotion `c354aa1422c68a5e0ef2a2b96e28f6384da0e102` / tree `0262e2f2c33c2ab0beabdc432b232fb3eead1a39` passed exact-head **549 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-MEMORY-ASSISTANT-CURRENT-BINDING-FLOORS-001`. Memory principal/supersession/retention/ACL and AI execution semantics remain unclaimed.
+
+## 2026-09-24 — Post-DD-186 DD-187 prerequisite selection
+Fresh AIMemoryRecord reconciliation selected migration 0031's optional direct supersedes relationship as the next independent source-complete prerequisite: non-self reference plus exact parent id, same Tenant, null-safe same Industry, null-safe same principal and same memory class. Parent/child lifecycle status, chronology, chain traversal/current-memory selection, principal authorization, retention/ACL and AI runtime semantics remain explicitly outside the floor.
+
+## 2026-09-25 — DD-187 canonical promotion / checkpoint advance
+DD-187 promotion `69fd07ab465cf34c80d8f9771fd3ccf74cefe0de` / tree `0e007eb532c7b9871beea3ef46fcaf3513c6ee6b` passed exact-head **556 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Projections advanced to `DEV-AI-MEMORY-SUPERSESSION-CONTINUITY-FLOORS-001`. Principal currentness, lifecycle/chain/current-memory selection, retention/ACL and AI execution semantics remain unclaimed.
+
+## 2026-09-25 — DD-188 promotion and vision audit state reconciliation
+
+Reconciled latest remote HEAD 35ffce1, promoted the existing source-owned DD-188 decision/acceptance/traceability, synchronized stale DD-080/166/186/187 active projections and repository identity, preserved historical evidence, and added REPO-007/008 regressions for projection agreement and canonical feature ownership. No RawSource/product/SQL/RLS/role changes. Evidence: `Registers/VISION_CENTRIC_AUDIT_2026-09-25.md`.
+
+
+## 2026-09-25 — Post-DD-188 DD-189 prerequisite selection
+Fresh AIMediaRequest/Document reconciliation selected migration 0031's input-document relationship as the next independent source-complete prerequisite: exact evidence coverage, Tenant/null-safe Industry scope, ACTIVE/CLEAN state, source-owned sensitivity ceiling and exact residency. Principal currentness, ACL/storage authorization and AI execution remain explicitly outside the floor.
+
+## 2026-09-25 — DD-189 canonical promotion staged
+Implementation `c3ef90d10c44a892879fcccd9c6673b1faf49ad1` / tree `11646ad5d92378bfdfd81bba2e51e082a920a6a5` passed exact-head **573 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-189 decision/acceptance/traceability are staged canonically in the current metadata change. Active checkpoint remains `DEV-AI-MEDIA-PROMPT-BINDING-FLOORS-001` until the promotion HEAD independently passes all required workflows.
+
+
+## 2026-09-25 — DD-189 promotion correction / checkpoint advance
+DD-189 promotion exposed two canonical-evidence defects rather than product-code defects: stale DD-188/DD-189 manifest/traceability projections, then one incorrect acceptance-test path. Both were fixed forward-only without weakening tests. Verified correction basis `c3d78f4f8cc36b156d632a857962a8e608976b09` / tree `018929874d38b24b63b867933572df174f63a714` passed exact-head **573 Core / 497 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. Active projections advance to `DEV-AI-MEDIA-INPUT-DOCUMENT-BINDING-FLOORS-001`. Principal currentness, Document ACL/storage authorization and AI/provider/model/tool execution remain unclaimed.
+
+
+## 2026-09-25 — DD-190 prerequisite selection
+Post-DD-189 source audit determined that generated Document → AIMediaRequest provenance validation cannot be re-evaluated from DD-082/DD-083 because the Document access projection omits all persisted `ai_*` evidence. The next source-complete prerequisite is therefore the raw Document AI provenance reader only.
+
+## 2026-09-25 — DD-190 canonical promotion / checkpoint advance
+Exact implementation `4fa07cab31cfa5b67939c007e95c27842c93ed6b` / tree `807bd258e46c461412749e5ac833dd6a34939daa` passed **573 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-190 promotes only raw persistence evidence under existing Document FORCE-RLS. Generated Document → completed AIMediaRequest validation, Provider/Model currentness and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-191 prerequisite selection
+Post-DD-190 source audit selected migration 0031's direct generated Document → completed AIMediaRequest relationship as source-complete: exact request id/completion, same Tenant/null-safe Industry, exact residency and generated-Document sensitivity at least request sensitivity.
+
+## 2026-09-25 — DD-191 canonical promotion / checkpoint advance
+Exact implementation `8beb7af4aa00d93ed416fa331875c06ea7ec8032` / tree `b6685b9eb34dbfa823f849f3aec2620f70792a48` passed **581 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-191 promotes only the direct persisted MediaRequest provenance floor. Provider/Model currentness, moderation/licensing interpretation, Document authorization/storage and AI execution remain unclaimed.
+
+
+## 2026-09-25 — DD-192 prerequisite selection
+Migration 0031's generated Document → exact AIModel/AIProvider composite pair is source-complete from DD-190 Document provenance evidence plus DD-108 AIModel metadata. Provider runtime/currentness semantics remain separate.
+
+## 2026-09-25 — DD-192 canonical promotion / checkpoint advance
+Implementation `36e2fa9c91aa73aafc1217da69ed62eee6d84eb7` / tree `8efb4c1dc0e13ff303d907866385fdb03e020b18` passed exact-head **588 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-192 promotes only the exact composite pair floor.
+
+
+## 2026-09-25 — DD-192 promotion exact-head verified / closure staged
+Canonical DD-192 promotion `799fc1802e62d822bff947f1fef6e0632a09a84b` / tree `c392413443e8574d94efdf317ce251066641d0bf` passed exact-head **588 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections now use this verified promotion as their executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-25 — DD-193 prerequisite selection
+Migration 0031's optional RAGSource → DocumentMeta id/version/scope/ACTIVE-CLEAN/sensitivity/residency relationship is source-complete from DD-127 plus DD-082/DD-083.
+
+## 2026-09-25 — DD-193 canonical promotion / checkpoint advance
+Implementation `7cdcf9304eb540f722dce36407a076d7ea698a64` / tree `cf10ade82baae9079317334b6fb8e891d700aa05` passed exact-head **596 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-193 promotes only this current relationship floor.
+
+
+## 2026-09-25 — DD-193 promotion exact-head verified / closure staged
+Canonical DD-193 promotion `c5eea99d3c20aea2f0021323bdfb800cb4c96b77` / tree `0493ec6646c60b70794d0c6ad87c5dc95f9cffdf` passed exact-head **596 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-25 — DD-194 prerequisite selection
+Migration 0031's direct RAGChunk → parent RAGSource id/Tenant/null-safe Industry/scope/residency/retention/sensitivity continuity relationship is source-complete from DD-128 plus DD-127.
+
+## 2026-09-25 — DD-194 canonical promotion / checkpoint advance
+Implementation `2a93610cc3014824ebb8c63c7c71f533999bdf52` / tree `044ce2585c4dfe85c9434f33c4bae1f3ce6a1ff6` passed exact-head **604 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-194 promotes only this parent continuity floor.
+
+
+## 2026-09-25 — DD-194 promotion exact-head verified / closure staged
+Canonical DD-194 promotion `00dbb610b13b3729cb36dd56350a74951417c58b` / tree `e7be433a499789a64853f92f60dccbd6a89ed27f` passed exact-head **604 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-25 — DD-195 prerequisite selection
+Migration 0031's RAGChunk → embedding AIModel exact-id/ACTIVE/sensitivity-ceiling predicate is source-complete from DD-128 plus DD-108. Provider routing/currentness semantics remain separate.
+
+## 2026-09-25 — DD-195 canonical promotion / checkpoint advance
+Implementation `d3662e751dfeb07c68d4a09247ee42696b67f2ff` / tree `37673bf79975c33c90ac3ff85cd69995218fdff9` passed exact-head **612 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-195 promotes only this embedding-model eligibility floor.
+
+
+## 2026-09-25 — DD-195 promotion exact-head verified / closure staged
+Canonical DD-195 promotion `86d2ff17963374f2274293c822c9f69428f7bcbb` / tree `ead643a6807f224ffe394624b33e582d8720e0a1` passed exact-head **612 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-25 — DD-196 prerequisite selection
+Migrations 0012/0031 make TokenUsage → AIModel exact model-id/provider-id composite-pair continuity source-complete from DD-122 plus DD-108.
+
+## 2026-09-25 — DD-196 canonical promotion / checkpoint advance
+Implementation `609508642c21ce3337018f911814826cbe2f73dd` / tree `fc6a8a7206cfea38cb29422f171d6dbcc72bd606` passed exact-head **619 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-196 promotes only this composite-pair floor.
+
+
+## 2026-09-25 — DD-196 promotion exact-head verified / closure staged
+Canonical DD-196 promotion `a4366228f1194d751a555be609a282879b4cb2d3` / tree `4a8b456750f8a356ac6ff87c02323798c93a6079` passed exact-head **619 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-25 — DD-197 prerequisite selection
+Migration 0012's TokenUsage `capability_code` → AICapability `code` direct foreign-key continuity is source-complete from DD-122 plus DD-109. Capability ACTIVE/current eligibility is not part of this persisted FK.
+
+## 2026-09-25 — DD-197 canonical promotion / checkpoint advance
+Implementation `a4d12bb3a0683ad218d6b1a5c4bedccafae99cdf` / tree `51d94b76c82aff0be0b946d858f887e36ff3ac51` passed exact-head **626 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-197 promotes only exact capability-code continuity.
+
+
+## 2026-09-25 — DD-197 promotion exact-head verified / closure staged
+Canonical DD-197 promotion `9dcd28bb1db8bd3aa547fcba89f858b66a417646` / tree `4bd47e39825df89f0e0ef4ed0b09a917af92ebea` passed exact-head **626 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-25 — DD-198 prerequisite selection
+Migration 0012's AICost `usage_id` PK/FK → TokenUsage `id` relationship is source-complete from DD-123 plus DD-122.
+
+## 2026-09-25 — DD-198 canonical promotion / checkpoint advance
+Implementation `af98e316fa8bbc4d2bc91c52535741f0674388bf` / tree `32fccff385f9768df655a934df2f211322e14959` passed exact-head **632 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-198 promotes only exact usage-id parent continuity.
+
+
+## 2026-09-25 — DD-198 promotion exact-head verified / closure staged
+Canonical DD-198 promotion `4f41379e5d4daedd1a409867e21c78a1734f6e2d` / tree `374dfb860408767d110bd1f32b24c742c1d5f740` passed exact-head **632 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-199 prerequisite selection
+Migration 0012's AIMessage `conversation_id` → AIConversation `id` direct foreign-key continuity is source-complete from the raw AIMessage and AIConversation persistence contracts.
+
+## 2026-09-26 — DD-199 canonical promotion / checkpoint advance
+Implementation `0fecb3a123caf56b4239fed7636f6c65ce624a13` / tree `06968170ab6fda5a8ed13fcc870ea02ac87c46ca` passed exact-head **638 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-199 promotes only exact conversation-id parent continuity.
+
+
+## 2026-09-26 — DD-199 promotion exact-head verified / closure staged
+Canonical DD-199 promotion `9e896908b814044f78d3f3f9e66137c5a405a8fa` / tree `da7d79e5b01c962c62eb0c65d4417c9da5b082a0` passed exact-head **638 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-200 prerequisite selection
+Migration 0011's direct AIModel `provider_id` → AIProvider `id` foreign-key continuity is source-complete from DD-108 plus DD-107. Provider lifecycle/health/credentials/routing semantics remain separate.
+
+## 2026-09-26 — DD-200 canonical promotion / checkpoint advance
+Implementation `12c69fdb7c0ba7251ddf83714fe8c5afc5fa2ae5` / tree `b81979580cfdd5e133a5392a9a14cf0e07cd7cb8` passed exact-head **644 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-200 promotes only exact provider-id FK continuity.
+
+
+## 2026-09-26 — DD-200 promotion exact-head verified / closure staged
+Canonical DD-200 promotion `d038f7dc7386772a816065cea782e0a0754d6f6f` / tree `5d491575b4d22926070273db0a6de8e1a15f7ee7` passed exact-head **644 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-201 prerequisite selection
+Migration 0012's direct TokenUsage `provider_id` → AIProvider `id` foreign key is source-complete from DD-122 plus DD-107 and is independent from DD-196's TokenUsage→AIModel composite pair and DD-200's AIModel→AIProvider FK.
+
+## 2026-09-26 — DD-201 canonical promotion / checkpoint advance
+Implementation `99c809ea83f35fb52981bfd5e5f15497ed15d403` / tree `16d7ef2699d315e746c383c33f2de04c9d8abf20` passed exact-head **650 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-201 promotes only direct Provider-id FK continuity.
+
+
+## 2026-09-26 — DD-201 promotion exact-head verified / closure staged
+Canonical DD-201 promotion `c237f3162df7e98fa683a81569b6e69a369c5574` / tree `740b71350ee880f3f02accad2c6e87b90e5b137d` passed exact-head **650 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-202 prerequisite selection
+Migration 0011's AIMediaRequest `capability_code` → AICapability `code` direct foreign-key continuity is source-complete from DD-125 plus DD-109 and distinct from DD-197's TokenUsage capability foreign key.
+
+## 2026-09-26 — DD-202 canonical promotion / checkpoint advance
+Implementation `6e78feb68ce097f004e611cf748f92447a48c0c3` / tree `10ab2fe7617f34aceec800deb998118e22ac80ff` passed exact-head **657 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-202 promotes only exact capability-code FK continuity.
+
+
+## 2026-09-26 — DD-202 promotion exact-head verified / closure staged
+Canonical DD-202 promotion `43e28ef6853ac106dc921f73c022013ba1e90ce6` / tree `6089a10fb86070cca693cae709f349b7bd958b38` passed exact-head **657 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-203 prerequisite selection
+Migration 0013's AIToolDefinition → AICapability exact capability-code foreign-key continuity is source-complete from DD-110 plus DD-109. Capability runtime/policy state and tool authorization remain separate.
+
+## 2026-09-26 — DD-203 canonical promotion / checkpoint advance
+Implementation `76491ca63a0101e1334f1800709e447a996d2523` / tree `b80b7794fe54c660c26f8694e1aa91df3f267d1b` passed exact-head **664 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-203 promotes only the exact capability-code FK floor.
+
+
+## 2026-09-26 — DD-203 promotion exact-head verified / closure staged
+Canonical DD-203 promotion `479e4aa420e6773c8b0af5c37cd121a440ccf04d` / tree `bbcf8c8c19e4a919e1cb4701646a5814f98a4234` passed exact-head **664 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-204 prerequisite selection
+Migration 0031's direct AIToolSetMember → parent AIToolSet id foreign key is source-complete from DD-114 plus DD-113. The member → ACTIVE ToolDefinition predicate remains independently governed by DD-176.
+
+## 2026-09-26 — DD-204 canonical promotion / checkpoint advance
+Implementation `f1fef7e6dc7ce74b15620f0e7f5446fac4852e55` / tree `4c148d0fe44353f55bff7c73a129721c373a2dac` passed exact-head **671 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-204 promotes only this parent foreign-key continuity floor.
+
+
+## 2026-09-26 — DD-204 promotion exact-head verified / closure staged
+Canonical DD-204 promotion `71be4ddd8c4addc7b5b7277bd17a60caeb7f4450` / tree `dd763e8dd94a2a7a85d67baa3870d8842b234d2c` passed exact-head **671 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-205 prerequisite selection
+Migration 0031's optional IndustryAIConfig `domain_prompt_set_id` → PromptSet exact id/raw ACTIVE/scope-applicability relationship is source-complete from DD-120 plus DD-112.
+
+## 2026-09-26 — DD-205 canonical promotion / checkpoint advance
+Implementation `83ea907781e47d23f36d227fcdad18a9b52afac2` / tree `25e6c3ac2cf258137218b7b4eeb5dcf106e35a93` passed exact-head **678 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-205 promotes only this optional domain PromptSet current-binding floor.
+
+
+## 2026-09-26 — DD-205 promotion exact-head verified / closure staged
+Canonical DD-205 promotion `92fcc0b4e3a4c52a46fe1c7c35caab44de3c3145` / tree `1bd37acd2e9c89dbd54d330a5b6e3586e096323d` passed exact-head **678 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-206 prerequisite selection
+Migration 0031's TenantAIConfig `allowed_capabilities[]` duplicate-free exact-code/raw-ACTIVE relationship is source-complete from DD-119 plus DD-109. Provider and Model allowlists remain independent predicates.
+
+## 2026-09-26 — DD-206 canonical promotion / checkpoint advance
+Implementation `0ddbee338318dcde70122ed3813f4384dc501f00` / tree `cc1e04d579f4377acde18a73f6000db4c7963cb7` passed exact-head **685 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-206 promotes only duplicate-free exact-code/raw-ACTIVE capability binding.
+
+
+## 2026-09-26 — DD-206 promotion exact-head verified / closure staged
+Canonical DD-206 promotion `ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde` / tree `bd9cafe4a81bbbaf473593bbc242c3f823d93617` passed exact-head **685 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-207 prerequisite selection
+Migration 0031's TenantAIConfig `allowed_provider_ids[]` duplicate-free exact-id/raw-ACTIVE relationship is source-complete from DD-119 plus DD-107. The dependent Model allowlist remains a separate predicate.
+
+## 2026-09-26 — DD-207 canonical promotion / checkpoint advance
+Implementation `eb6aeaa2d83c68195944918ef6a5134c15ab97a8` / tree `ff6ad49950e2f25feb01a71e628c9394c9a6d47b` passed exact-head **692 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-207 promotes only duplicate-free exact-id/raw-ACTIVE Provider binding.
+
+
+## 2026-09-26 — DD-207 promotion exact-head verified / closure staged
+Canonical DD-207 promotion `a86b90005400d252b06c9ba34fbc46c43a7561f8` / tree `dc5d4dced5a7e24be081d2dc51446f2abee1a84f` passed exact-head **692 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before the dependent TenantAIConfig Model allowlist source audit opens.
+
+
+## 2026-09-26 — DD-208 prerequisite selection
+Migration 0031's TenantAIConfig `allowed_model_ids[]` duplicate-free exact-id/raw-ACTIVE Model relation plus exact Model `provider_id` membership in the same config `allowed_provider_ids[]` is source-complete from DD-119 plus DD-108. Separate Provider-row currentness remains outside this predicate.
+
+## 2026-09-26 — DD-208 canonical promotion / checkpoint advance
+Implementation `a56ec19e2cbd1a685b65f6015b6c6087e1f803c2` / tree `dd4da07eb25beb1ace05036104f969cce6d7f120` passed exact-head **700 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-208 promotes only the Tenant Model allowlist current-binding floor.
+
+
+## 2026-09-26 — DD-208 promotion exact-head verified / closure staged
+Canonical DD-208 promotion `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba28541da36bd4c94d9559f91121a0aae2` passed exact-head **700 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+## 2026-09-26 — vision audit corrective work; forward development held
+
+VC26-01 corrects unbounded cyclic OrgUnit ancestry under existing DD-057; CTX-BOOT-007 adds real PostgreSQL regression coverage. VC26-02 corrects DD-208 sparse UUID-array acceptance; existing AITENCFG-MODEL-CUR-006 now reproduces the gap. No RawSource/schema/RLS/role/grant/requirements change. Complete audit remains IN PROGRESS, not PASS; see `Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`.

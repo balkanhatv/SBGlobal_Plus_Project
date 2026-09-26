@@ -1,0 +1,82 @@
+name: Database Verify
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - "database/**"
+      - ".github/workflows/database-verify.yml"
+      - "Development/CORE_SERVICE_CHECKPOINT.md"
+      - "Development/DEVELOPMENT_STATE.md"
+      - "State/**"
+      - "Registers/D-INDEX.md"
+      - "Registers/D-CHECKPOINT.md"
+      - "Registers/REVIEW_REQUIRED.md"
+      - "Registers/D-CHANGELOG.md"
+      - "DetailedDesign/DD-CHANGELOG.md"
+      - "README_FOUNDATION.md"
+  pull_request:
+    paths:
+      - "database/**"
+      - ".github/workflows/database-verify.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  postgres-verify:
+    if: (github.event_name == 'push' && github.ref_name == 'docs/architecture-branch-2') || github.head_ref == 'docs/architecture-branch-2' || (github.event_name == 'workflow_dispatch' && github.ref_name == 'docs/architecture-branch-2')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: sbglobal_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d sbglobal_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/sbglobal_test
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - name: Verify tested commit
+        env:
+          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          git show -s --format='Tested commit: %H%nTree: %T%nParents: %P' HEAD
+
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+      - name: Apply migrations and verification
+        run: |
+          chmod +x database/scripts/apply-and-verify.sh
+          database/scripts/apply-and-verify.sh
+
+      - name: Report migration inventory
+        if: always()
+        run: |
+          echo "Migrations:"
+          find database/migrations -maxdepth 1 -type f -name '*.sql' | sort
+          echo "Verification:"
+          find database/verification -maxdepth 1 -type f -name '*.sql' | sort

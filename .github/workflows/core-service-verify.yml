@@ -1,0 +1,129 @@
+name: Core Service Verify
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - "src/core/**"
+      - "src/server/**"
+      - "src/app/**"
+      - "tests/core/**"
+      - "tests/server/**"
+      - "tests/postgres/**"
+      - "database/**"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - ".github/workflows/core-service-verify.yml"
+      - "Development/CORE_SERVICE_CHECKPOINT.md"
+      - "Development/DEVELOPMENT_STATE.md"
+      - "State/**"
+      - "Registers/D-INDEX.md"
+      - "Registers/D-CHECKPOINT.md"
+      - "Registers/REVIEW_REQUIRED.md"
+      - "Registers/D-CHANGELOG.md"
+      - "DetailedDesign/DD-CHANGELOG.md"
+      - "README_FOUNDATION.md"
+  pull_request:
+    paths:
+      - "src/core/**"
+      - "src/server/**"
+      - "src/app/**"
+      - "tests/core/**"
+      - "tests/server/**"
+      - "tests/postgres/**"
+      - "database/**"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - ".github/workflows/core-service-verify.yml"
+      - "Development/CORE_SERVICE_CHECKPOINT.md"
+      - "Development/DEVELOPMENT_STATE.md"
+      - "State/**"
+      - "Registers/D-INDEX.md"
+      - "Registers/D-CHECKPOINT.md"
+      - "Registers/REVIEW_REQUIRED.md"
+      - "Registers/D-CHANGELOG.md"
+      - "DetailedDesign/DD-CHANGELOG.md"
+      - "README_FOUNDATION.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core-service-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - name: Verify tested commit
+        env:
+          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          git show -s --format='Tested commit: %H%nTree: %T%nParents: %P' HEAD
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Build and run Core service acceptance suite
+        run: npm run test:core
+
+  postgres-context-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: sbglobal_adapter_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d sbglobal_adapter_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/sbglobal_adapter_test
+      SBG_POSTGRES_TEST_URL: postgresql://postgres:postgres@localhost:5432/sbglobal_adapter_test
+    steps:
+      - name: Checkout exact branch commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - name: Verify tested commit
+        env:
+          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          git show -s --format='Tested commit: %H%nTree: %T%nParents: %P' HEAD
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+      - name: Verify full database baseline
+        run: bash database/scripts/apply-and-verify.sh
+      - name: Verify concrete PostgreSQL adapter and pooled RLS isolation
+        run: npm run test:postgres

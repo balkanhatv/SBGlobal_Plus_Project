@@ -1,10 +1,20 @@
 # PROJECT_STATE — SBGlobal Plus
-- Updated: 2026-09-04 (UTC)
-- Phase: Project Foundation — **FOUNDATION CERTIFIED at CP-F1-005** (dual audit: Pass 1 corrected→PASS, Pass 2 PASS — Registers/FINAL_AUDIT_CP-F1-005.md)
-- 04-09-2026: commit b83bea9 (unnecessary brand/color canonicalization, AC-19/RR-03) reverted via history-preserving revert efd16eb6; F-06 restored to v0.1; registers restored (RR-03 withdrawn); owner-directed corpus edit a811a1ab preserved as ACTIVE owner intent; no history rewrite; main not merged
-- 04-09-2026 (revision C): recovery ZIP v1.2 built from the final post-revert HEAD and open-and-compare verified (36/36 files, corpus byte-identical); BACKUP_METADATA.json synchronized — **no open delivery items**
-- Completed at CP-F1-005: F-14 Commercial Foundation (AC-18); F-00 §11; FF-01/FF-02 re-verified resolved (F-13/F-07 v0.2 content-checked); traceability extension (totals unchanged 372/2,965/0); No-Loss position unchanged (PASS); registers/state/README/manifest synchronized
-- Governance: MASTER_INSTRUCTION/MASTER_PROMPT v2.5 UNCHANGED (verified correct; no defect found)
-- Latest verified backup: SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip
-- GitHub: docs/foundation-build-2 + PR #1 (open, unmerged; merge requires explicit approval)
-- Architecture: NOT started — gated on explicit user approval
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
+**Updated:** 2026-09-26 · **Branch:** `docs/architecture-branch-2`
+
+> **2026-09-26 audit hold:** VC26-01/02 corrections are exact-HEAD verified at `0da6d173679c31e202d4a0bf59ef3b8889a81404` (700 Core / 505 PostgreSQL / Database and Web PASS). Full semantic audit coverage is incomplete. Earlier continuation instructions below are on hold. Next: verify this evidence/state closure, then finish the remaining audit; do not open forward development. [Audit evidence](../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md).
+
+
+DD-208 implements only TenantAIConfig allowedModelIds[] duplicate-free exact-id/raw-ACTIVE AIModel binding plus exact Model providerId membership in the same config allowedProviderIds[]. Provider-row runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain outside this checkpoint.
+
+Verified canonical DD-208 promotion `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba28541da36bd4c94d9559f91121a0aae2`: **700/700 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36256149589` (jobs `108443203216`, `108443203364`), Database `36256149596` (job `108443203187`), Web `36256149585` (job `108443203157`).
+
+DD-208 decision/acceptance/traceability are canonically promoted and the promotion HEAD is exact-head verified. This state-closure commit must pass its own Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+Evidence: `Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+
+Next: Verify this DD-208 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent Tenant/Industry AI configuration relationship; effective configuration and AI execution remain locked.
+
+Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
+
+
