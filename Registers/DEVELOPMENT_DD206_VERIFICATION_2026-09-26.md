@@ -30,3 +30,14 @@ All four logs assert the exact implementation commit/tree above. Database invent
 A true result proves only duplicate-free exact allowlist/evidence coverage, exact capability code equality and raw ACTIVE state. It does not prove config currentness/enablement, Provider/Model allowlist validity, entitlement or policy satisfaction, effective Tenant+Industry configuration, routing or AI execution authority.
 
 Canonical promotion uses the implementation HEAD above as verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde` / tree `bd9cafe4a81bbbaf473593bbc242c3f823d93617` independently passed all required workflows:
+- Core Service Verify `36253450315`, Core job `108435675376`: **685/685 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108435675294`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36253450307`, job `108435675128`: PASS.
+- Web Boundary Verify `36253450318`, job `108435675240`: PASS.
+
+All four logs assert the exact promotion commit/tree above. This authorizes DD-206 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.

@@ -430,3 +430,7 @@ Migration 0031's TenantAIConfig `allowed_capabilities[]` duplicate-free exact-co
 
 ## 2026-09-26 — DD-206 canonical promotion / checkpoint advance
 Implementation `0ddbee338318dcde70122ed3813f4384dc501f00` / tree `cc1e04d579f4377acde18a73f6000db4c7963cb7` passed exact-head **685 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-206 promotes only duplicate-free exact-code/raw-ACTIVE capability binding.
+
+
+## 2026-09-26 — DD-206 promotion exact-head verified / closure staged
+Canonical DD-206 promotion `ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde` / tree `bd9cafe4a81bbbaf473593bbc242c3f823d93617` passed exact-head **685 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
