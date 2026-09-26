@@ -39,8 +39,11 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 DD-205 implements only IndustryAIConfig → optional domain PromptSet exact-id/raw-ACTIVE/scope-applicability. Effective Tenant+Industry configuration, catalog/country-pack validation, PromptSet membership/rendering and AI execution remain outside this checkpoint.
 
-Verified canonical DD-205 promotion `92fcc0b4e3a4c52a46fe1c7c35caab44de3c3145` / tree `1bd37acd2e9c89dbd54d330a5b6e3586e096323d`: **678/678 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36248631605` (jobs `108422378283`, `108422378420`), Database `36248631588` (job `108422378249`), Web `36248631650` (job `108422378484`).
+Verified DD-205 state closure `c646a2e8cccdf3274c05fb325ecf60dc3a77fcfc` / tree `5f83eb01494c1fe397c980568909c0bd0bfd8479`: **678/678 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36251609669` (jobs `108430565249`, `108430565119`), Database `36251609768` (job `108430565638`), Web `36251609786` (job `108430565733`).
 
-Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify this DD-205 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; effective AI configuration and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify the DD-206 TenantAIConfig capability-allowlist candidate against the fixed source audit, then implement only duplicate-free exact-code/raw-ACTIVE capability binding. Provider/Model allowlists, effective configuration and AI execution remain locked.
 
 
+## Pending source-complete candidate — DD-206
+
+The next governed prerequisite is TenantAIConfig `allowedCapabilities[]` → exact raw-ACTIVE AICapability code binding only, including duplicate-free set semantics. Source audit: `Development/AI_TENANT_CONFIG_CAPABILITY_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md`. Provider/Model allowlists, effective configuration and AI execution remain outside the candidate.
