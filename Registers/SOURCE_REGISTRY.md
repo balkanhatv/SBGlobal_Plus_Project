@@ -41,6 +41,9 @@ DD-199 implements only AIMessage → AIConversation exact conversation-id parent
 
 Verified canonical DD-199 promotion `9e896908b814044f78d3f3f9e66137c5a405a8fa` / tree `da7d79e5b01c962c62eb0c65d4417c9da5b082a0`: **638/638 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36228554432` (jobs `108367146787`, `108367146941`), Database `36228554434` (job `108367146755`), Web `36228554438` (job `108367147299`).
 
-Evidence: `Registers/DEVELOPMENT_DD199_VERIFICATION_2026-09-26.md`. Next: Verify this DD-199 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Principal currentness remains blocked unless governing provenance changes.
+Evidence: `Registers/DEVELOPMENT_DD199_VERIFICATION_2026-09-26.md`. Next: Verify the DD-200 AIModel → AIProvider exact provider-id binding candidate against the fixed source audit, then implement only that direct FK continuity floor. Provider/model currentness, routing, credentials and AI execution remain locked.
 
 
+## Pending source-complete candidate — DD-200
+
+The next governed prerequisite is the direct AIModel → AIProvider exact provider-id foreign-key continuity only. Source audit: `Development/AI_MODEL_PROVIDER_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Provider/model currentness, routing, credentials and AI execution remain outside the candidate.
