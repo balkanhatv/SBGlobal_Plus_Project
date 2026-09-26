@@ -24,3 +24,14 @@ All four logs assert exact implementation commit `0fecb3a123caf56b4239fed7636f6c
 A true result proves only exact AIMessage → AIConversation parent-id continuity. Message role/content/source/model-route/time evidence and Conversation scope/principal/assistant/security/lifecycle/time evidence remain uninterpreted.
 
 Canonical promotion uses the implementation HEAD above as verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `9e896908b814044f78d3f3f9e66137c5a405a8fa` / tree `da7d79e5b01c962c62eb0c65d4417c9da5b082a0` independently passed all required workflows:
+- Core Service Verify `36228554432`, Core job `108367146787`: **638/638 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108367146941`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36228554434`, job `108367146755`: PASS.
+- Web Boundary Verify `36228554438`, job `108367147299`: PASS.
+
+All four logs assert the exact promotion commit/tree above. This authorizes DD-199 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.

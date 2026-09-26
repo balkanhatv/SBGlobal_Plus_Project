@@ -353,3 +353,7 @@ Migration 0012's AIMessage `conversation_id` → AIConversation `id` direct fore
 
 ## 2026-09-26 — DD-199 canonical promotion / checkpoint advance
 Implementation `0fecb3a123caf56b4239fed7636f6c65ce624a13` / tree `06968170ab6fda5a8ed13fcc870ea02ac87c46ca` passed exact-head **638 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-199 promotes only exact conversation-id parent continuity.
+
+
+## 2026-09-26 — DD-199 promotion exact-head verified / closure staged
+Canonical DD-199 promotion `9e896908b814044f78d3f3f9e66137c5a405a8fa` / tree `da7d79e5b01c962c62eb0c65d4417c9da5b082a0` passed exact-head **638 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.

@@ -3,18 +3,18 @@
   "updated": "2026-09-26",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-MESSAGE-CONVERSATION-BINDING-FLOORS-001",
-  "final_verdict": "DD-199 AIMessage → AIConversation exact conversation-id parent continuity floor is canonically promoted from a fully verified implementation basis; the promotion HEAD itself remains the gate before the next source audit.",
+  "final_verdict": "DD-199 AIMessage → AIConversation exact conversation-id parent continuity floor is canonically promoted and exact-head verified; the state-closure HEAD remains the gate before the next source audit.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
     "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD199_CANONICAL",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD199_PROMOTED_PENDING_HEAD_VERIFICATION",
+    "development": "IN_PROGRESS_DD199_VERIFIED_STATE_CLOSURE_PENDING_HEAD_VERIFICATION",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD199_CANONICALLY_PROMOTED_PENDING_HEAD_VERIFICATION"
+    "core_services": "DD040_DD199_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "0fecb3a123caf56b4239fed7636f6c65ce624a13",
-    "verified_code_tree": "06968170ab6fda5a8ed13fcc870ea02ac87c46ca",
-    "state_projection_basis_head": "0fecb3a123caf56b4239fed7636f6c65ce624a13",
+    "verified_code_head": "9e896908b814044f78d3f3f9e66137c5a405a8fa",
+    "verified_code_tree": "da7d79e5b01c962c62eb0c65d4417c9da5b082a0",
+    "state_projection_basis_head": "9e896908b814044f78d3f3f9e66137c5a405a8fa",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -562,13 +562,25 @@
       "web_run_id": 36166637161,
       "web_job_id": 108175887627,
       "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
+    },
+    "dd199_promotion_head": "9e896908b814044f78d3f3f9e66137c5a405a8fa",
+    "dd199_promotion_tree": "da7d79e5b01c962c62eb0c65d4417c9da5b082a0",
+    "dd199_promotion_ci": {
+      "core_run_id": 36228554432,
+      "core_job_id": 108367146787,
+      "postgres_job_id": 108367146941,
+      "database_run_id": 36228554434,
+      "database_job_id": 108367146755,
+      "web_run_id": 36228554438,
+      "web_job_id": 108367147299,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD199_PROMOTED_PENDING_HEAD_VERIFICATION",
+    "current_phase": "DEVELOPMENT_DD199_VERIFIED",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -583,9 +595,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "0fecb3a123caf56b4239fed7636f6c65ce624a13",
-      "ci_run_id": 36166637151,
-      "ci_job_id": 108175887696,
+      "ci_verified_head": "9e896908b814044f78d3f3f9e66137c5a405a8fa",
+      "ci_run_id": 36228554434,
+      "ci_job_id": 108367146755,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -597,7 +609,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "06968170ab6fda5a8ed13fcc870ea02ac87c46ca",
+      "ci_verified_tree": "da7d79e5b01c962c62eb0c65d4417c9da5b082a0",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -605,10 +617,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "0fecb3a123caf56b4239fed7636f6c65ce624a13",
-      "feature_head_bootstrap_verified_tree": "06968170ab6fda5a8ed13fcc870ea02ac87c46ca",
-      "feature_head_bootstrap_run_id": 36166637126,
-      "feature_head_bootstrap_job_id": 108175887768,
+      "feature_head_bootstrap_verified_head": "9e896908b814044f78d3f3f9e66137c5a405a8fa",
+      "feature_head_bootstrap_verified_tree": "da7d79e5b01c962c62eb0c65d4417c9da5b082a0",
+      "feature_head_bootstrap_run_id": 36228554432,
+      "feature_head_bootstrap_job_id": 108367146941,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_504_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -617,7 +629,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify this DD-199 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Principal currentness remains blocked unless governing provenance changes.",
+    "next_action": "Verify this DD-199 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Principal currentness remains blocked unless governing provenance changes.",
     "core_services": {
       "checkpoint": "DEV-AI-MESSAGE-CONVERSATION-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -625,10 +637,10 @@
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040–199 bounded implementation",
-      "verified_head": "0fecb3a123caf56b4239fed7636f6c65ce624a13",
-      "verified_tree": "06968170ab6fda5a8ed13fcc870ea02ac87c46ca",
-      "core_ci_run_id": 36166637126,
-      "core_ci_job_id": 108175887608,
+      "verified_head": "9e896908b814044f78d3f3f9e66137c5a405a8fa",
+      "verified_tree": "da7d79e5b01c962c62eb0c65d4417c9da5b082a0",
+      "core_ci_run_id": 36228554432,
+      "core_ci_job_id": 108367146787,
       "tests": "638/638 PASS",
       "core_test_counts": {
         "tests": 638,
@@ -636,8 +648,8 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36166637126,
-      "postgres_ci_job_id": 108175887768,
+      "postgres_ci_run_id": 36228554432,
+      "postgres_ci_job_id": 108367146941,
       "postgres_tests": "504/504 PASS",
       "postgres_test_counts": {
         "tests": 504,
@@ -646,8 +658,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36166637151,
-      "database_regression_job_id": 108175887696,
+      "database_regression_run_id": 36228554434,
+      "database_regression_job_id": 108367146755,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -1104,7 +1116,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify this DD-199 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Principal currentness remains blocked unless governing provenance changes.",
+      "next_action": "Verify this DD-199 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Principal currentness remains blocked unless governing provenance changes.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1198,7 +1210,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD199_PROMOTED_PENDING_HEAD_VERIFICATION",
+  "current_phase": "DEVELOPMENT_DD199_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1231,17 +1243,17 @@
   },
   "continuation": {
     "checkpoint": "DEV-AI-MESSAGE-CONVERSATION-BINDING-FLOORS-001",
-    "verified_code_head": "0fecb3a123caf56b4239fed7636f6c65ce624a13",
-    "verified_code_tree": "06968170ab6fda5a8ed13fcc870ea02ac87c46ca",
+    "verified_code_head": "9e896908b814044f78d3f3f9e66137c5a405a8fa",
+    "verified_code_tree": "da7d79e5b01c962c62eb0c65d4417c9da5b082a0",
     "source_audit": "Development/AI_MESSAGE_CONVERSATION_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DEVELOPMENT_DD199_VERIFICATION_2026-09-26.md",
-    "next_action": "Verify this DD-199 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Principal currentness remains blocked unless governing provenance changes.",
+    "next_action": "Verify this DD-199 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Principal currentness remains blocked unless governing provenance changes.",
     "main_merge": false
   },
   "current_audit_overlay": {
     "checkpoint": "DEV-AI-MESSAGE-CONVERSATION-BINDING-FLOORS-001",
-    "verified_executable_basis": "0fecb3a123caf56b4239fed7636f6c65ce624a13",
-    "verified_executable_tree": "06968170ab6fda5a8ed13fcc870ea02ac87c46ca",
+    "verified_executable_basis": "9e896908b814044f78d3f3f9e66137c5a405a8fa",
+    "verified_executable_tree": "da7d79e5b01c962c62eb0c65d4417c9da5b082a0",
     "current_verification": "Registers/DEVELOPMENT_DD199_VERIFICATION_2026-09-26.md",
     "scope": "DD-199 implements only AIMessage → AIConversation exact conversation-id parent foreign-key continuity. Conversation authorization/currentness, assistant validity, content/source access, model-route authority and AI execution remain outside this checkpoint."
   },
@@ -1277,8 +1289,8 @@
     "decision_id": "DD-199",
     "decision": "DD-199 AIMessage exact AIConversation parent binding floor",
     "checkpoint": "DEV-AI-MESSAGE-CONVERSATION-BINDING-FLOORS-001",
-    "verified_head": "0fecb3a123caf56b4239fed7636f6c65ce624a13",
-    "verified_tree": "06968170ab6fda5a8ed13fcc870ea02ac87c46ca",
+    "verified_head": "9e896908b814044f78d3f3f9e66137c5a405a8fa",
+    "verified_tree": "da7d79e5b01c962c62eb0c65d4417c9da5b082a0",
     "source_audit": "Development/AI_MESSAGE_CONVERSATION_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
       "AIMSG-CONV-CUR-001",
@@ -1292,16 +1304,16 @@
       "tests/core/ai-message-conversation-binding-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36166637126,
-      "job_id": 108175887608,
+      "run_id": 36228554432,
+      "job_id": 108367146787,
       "tests": 638,
       "pass": 638,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36166637126,
-      "job_id": 108175887768,
+      "run_id": 36228554432,
+      "job_id": 108367146941,
       "tests": 504,
       "pass": 504,
       "fail": 0,
@@ -1309,13 +1321,13 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36166637151,
-      "job_id": 108175887696,
+      "run_id": 36228554434,
+      "job_id": 108367146755,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36166637161,
-      "job_id": 108175887627,
+      "run_id": 36228554438,
+      "job_id": 108367147299,
       "conclusion": "success"
     },
     "database_schema_change": false,
