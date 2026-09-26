@@ -408,3 +408,7 @@ Migration 0031's direct AIToolSetMember → parent AIToolSet id foreign key is s
 
 ## 2026-09-26 — DD-204 canonical promotion / checkpoint advance
 Implementation `f1fef7e6dc7ce74b15620f0e7f5446fac4852e55` / tree `4c148d0fe44353f55bff7c73a129721c373a2dac` passed exact-head **671 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-204 promotes only this parent foreign-key continuity floor.
+
+
+## 2026-09-26 — DD-204 promotion exact-head verified / closure staged
+Canonical DD-204 promotion `71be4ddd8c4addc7b5b7277bd17a60caeb7f4450` / tree `dd763e8dd94a2a7a85d67baa3870d8842b234d2c` passed exact-head **671 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.

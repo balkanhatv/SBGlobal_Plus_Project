@@ -24,3 +24,14 @@ All four logs assert the exact implementation commit/tree above. Database invent
 A true helper result proves only exact parent ToolSet id continuity. It does not prove ToolSet ACTIVE/current/applicable state, database-context authorization, effective membership, ToolDefinition validity, permission/approval satisfaction or execution authority.
 
 Canonical promotion uses the implementation HEAD above as verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `71be4ddd8c4addc7b5b7277bd17a60caeb7f4450` / tree `dd763e8dd94a2a7a85d67baa3870d8842b234d2c` independently passed all required workflows:
+- Core Service Verify `36236575804`, Core job `108389330244`: **671/671 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108389330281`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36236575796`, job `108389330164`: PASS.
+- Web Boundary Verify `36236575800`, job `108389330111`: PASS.
+
+All four logs assert the exact promotion commit/tree above. This authorizes DD-204 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.
