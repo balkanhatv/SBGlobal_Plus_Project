@@ -10,7 +10,7 @@ DD-200 decision/acceptance/traceability are canonically promoted and the promoti
 
 Evidence: `Registers/DEVELOPMENT_DD200_VERIFICATION_2026-09-26.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-200 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Provider/model currentness, routing, credentials and AI execution remain locked.
+Next: Verify the DD-201 TokenUsage provider binding candidate against the fixed source audit, then implement only exact provider-id FK continuity. Provider currentness/health/credentials, billing and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -36,3 +36,6 @@ The following evidence retains its original baseline and does not override the c
 PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Database Verify run `34800144921`, job `103841023234`. All 32 migrations and 26 verification files executed, including 0099. The completed all-stages audit and metadata closure are recorded in `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
 
 
+## Pending source-complete candidate — DD-201
+
+The next governed prerequisite is TokenUsage → AIProvider exact provider-id foreign-key continuity only. Source audit: `Development/TOKEN_USAGE_PROVIDER_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Provider currentness/health/credentials, billing and AI execution remain outside the candidate.

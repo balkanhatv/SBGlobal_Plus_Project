@@ -604,7 +604,7 @@
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD200_VERIFIED",
+    "current_phase": "DEVELOPMENT_DD200_VERIFIED_DD201_CANDIDATE",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -653,7 +653,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify this DD-200 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Provider/model currentness, routing, credentials and AI execution remain locked.",
+    "next_action": "Verify the DD-201 TokenUsage provider binding candidate against the fixed source audit, then implement only exact provider-id FK continuity. Provider currentness/health/credentials, billing and AI execution remain locked.",
     "core_services": {
       "checkpoint": "DEV-AI-MODEL-PROVIDER-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -1141,7 +1141,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify this DD-200 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Provider/model currentness, routing, credentials and AI execution remain locked.",
+      "next_action": "Verify the DD-201 TokenUsage provider binding candidate against the fixed source audit, then implement only exact provider-id FK continuity. Provider currentness/health/credentials, billing and AI execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1235,7 +1235,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD200_VERIFIED",
+  "current_phase": "DEVELOPMENT_DD200_VERIFIED_DD201_CANDIDATE",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1272,7 +1272,7 @@
     "verified_code_tree": "5d491575b4d22926070273db0a6de8e1a15f7ee7",
     "source_audit": "Development/AI_MODEL_PROVIDER_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DEVELOPMENT_DD200_VERIFICATION_2026-09-26.md",
-    "next_action": "Verify this DD-200 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship. Provider/model currentness, routing, credentials and AI execution remain locked.",
+    "next_action": "Verify the DD-201 TokenUsage provider binding candidate against the fixed source audit, then implement only exact provider-id FK continuity. Provider currentness/health/credentials, billing and AI execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
@@ -2095,5 +2095,14 @@
         "main_merge": false
       }
     }
+  },
+  "pending_feature": {
+    "decision_id": "DD-201",
+    "source_audit": "Development/TOKEN_USAGE_PROVIDER_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "status": "SOURCE_COMPLETE_NOT_IMPLEMENTED",
+    "scope": "TokenUsage → AIProvider exact provider-id foreign-key continuity only",
+    "expected_core_tests": 650,
+    "expected_postgres_tests": 504,
+    "database_schema_change": false
   }
 }
