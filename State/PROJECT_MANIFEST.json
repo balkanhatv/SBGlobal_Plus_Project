@@ -676,7 +676,7 @@
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD203_VERIFIED",
+    "current_phase": "DEVELOPMENT_DD203_VERIFIED_DD204_CANDIDATE",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -725,7 +725,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify this DD-203 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.",
+    "next_action": "Verify the DD-204 AIToolSetMember parent ToolSet exact-id candidate against the fixed source audit, then implement only that foreign-key continuity floor. ToolSet currentness, authorization and tool execution remain locked.",
     "core_services": {
       "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -1216,7 +1216,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify this DD-203 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.",
+      "next_action": "Verify the DD-204 AIToolSetMember parent ToolSet exact-id candidate against the fixed source audit, then implement only that foreign-key continuity floor. ToolSet currentness, authorization and tool execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1310,7 +1310,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD203_VERIFIED",
+  "current_phase": "DEVELOPMENT_DD203_VERIFIED_DD204_CANDIDATE",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1347,7 +1347,7 @@
     "verified_code_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
     "source_audit": "Development/AI_TOOL_DEFINITION_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DEVELOPMENT_DD203_VERIFICATION_2026-09-26.md",
-    "next_action": "Verify this DD-203 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.",
+    "next_action": "Verify the DD-204 AIToolSetMember parent ToolSet exact-id candidate against the fixed source audit, then implement only that foreign-key continuity floor. ToolSet currentness, authorization and tool execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
@@ -2171,5 +2171,14 @@
         "main_merge": false
       }
     }
+  },
+  "pending_feature": {
+    "decision_id": "DD-204",
+    "source_audit": "Development/AI_TOOL_SET_MEMBER_PARENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "status": "SOURCE_COMPLETE_NOT_IMPLEMENTED",
+    "scope": "AIToolSetMember → parent AIToolSet exact id foreign-key continuity only",
+    "expected_core_tests": 671,
+    "expected_postgres_tests": 504,
+    "database_schema_change": false
   }
 }

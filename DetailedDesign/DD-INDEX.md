@@ -10,7 +10,7 @@ DD-203 decision/acceptance/traceability are canonically promoted and the promoti
 
 Evidence: `Registers/DEVELOPMENT_DD203_VERIFICATION_2026-09-26.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-203 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.
+Next: Verify the DD-204 AIToolSetMember parent ToolSet exact-id candidate against the fixed source audit, then implement only that foreign-key continuity floor. ToolSet currentness, authorization and tool execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -110,3 +110,6 @@ Post-promotion DD-145 fidelity correction `14b69ad4c66d78340c0bd020d65ff1f444b7c
 DD-164 is the bounded SyncCursor current parent/capability binding necessary floor. A true result is not synchronization authorization; cursor/provider/runtime semantics remain separately governed.
 
 
+## Pending source-complete candidate — DD-204
+
+The next governed prerequisite is AIToolSetMember → parent AIToolSet exact id foreign-key continuity only. Source audit: `Development/AI_TOOL_SET_MEMBER_PARENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. ToolSet currentness/applicability, authorization and tool execution remain outside the candidate.
