@@ -2885,3 +2885,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-206 does not select current/latest TenantAIConfig, establish runtime enablement, validate Provider/Model allowlists or model→provider compatibility, merge effective Tenant+Industry configuration, satisfy entitlement/permission/budget/residency/sensitivity/retention/prompt policy, validate provisioning, route providers/models, authorize assistants/agents/tools or execute AI.
 
 **Acceptance:** `AITENCFG-CAP-CUR-001…007` in DD-17 and `tests/core/ai-tenant-config-capability-allowlist-floors.test.mjs`.
+
+
+## DD-207 — TenantAIConfig Provider allowlist may be re-evaluated as a duplicate-free exact-id/raw-ACTIVE current-binding floor
+
+**Context:** migration 0031 requires `core_ai.tenant_ai_config.allowed_provider_ids` to satisfy `core_tenancy.uuid_array_is_set(...)` and requires every exact Provider id to reference a raw `ACTIVE` `core_ai.ai_provider` row. DD-119 exposes TenantAIConfig id/Tenant id/raw `allowedProviderIds`; DD-107 exposes AIProvider id/status.
+
+**Decision:** add pure helper `matchesAITenantConfigProviderAllowlistFloors(config, providers)`. It validates config identity and a duplicate-free UUID allowlist; requires exact one-row-per-id evidence with no missing/extra/duplicate ids; validates Provider id/status shape; requires exact id membership and raw status exactly `ACTIVE`. Empty allowlists require empty evidence.
+
+**Security / trade-off:** exact evidence-set hygiene is a helper fail-closed contract; it does not add a new persisted business rule. No aliasing/fallback is authorized.
+
+**Boundary:** DD-207 does not select current/latest TenantAIConfig, establish runtime enablement, validate Model allowlists or model→provider compatibility, establish Provider health/credential/security/capability/residency suitability, merge effective Tenant+Industry configuration, satisfy entitlement/permission/budget/prompt/retention policy, validate provisioning, route/fallback/retry providers, dispatch SDKs or execute AI.
+
+**Acceptance:** `AITENCFG-PROV-CUR-001…007` in DD-17 and `tests/core/ai-tenant-config-provider-allowlist-floors.test.mjs`.

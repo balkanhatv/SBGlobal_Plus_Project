@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-26",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-TENANT-CONFIG-CAPABILITY-ALLOWLIST-FLOORS-001",
-  "final_verdict": "DD-206 TenantAIConfig capability allowlist duplicate-free exact-code/raw-ACTIVE binding is canonically promoted and exact-head verified; the state-closure HEAD remains the gate before the next source audit.",
+  "checkpoint": "DEV-AI-TENANT-CONFIG-PROVIDER-ALLOWLIST-FLOORS-001",
+  "final_verdict": "DD-207 TenantAIConfig Provider allowlist duplicate-free exact-id/raw-ACTIVE binding is canonically promoted from a fully verified implementation basis; the promotion HEAD itself remains the gate before the next source audit.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD206_CANONICAL",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD207_CANONICAL",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD206_VERIFIED_STATE_CLOSURE_PENDING_HEAD_VERIFICATION",
+    "development": "IN_PROGRESS_DD207_PROMOTED_PENDING_HEAD_VERIFICATION",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD206_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED"
+    "core_services": "DD040_DD207_CANONICALLY_PROMOTED_PENDING_HEAD_VERIFICATION"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde",
-    "verified_code_tree": "bd9cafe4a81bbbaf473593bbc242c3f823d93617",
-    "state_projection_basis_head": "ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde",
+    "verified_code_head": "eb6aeaa2d83c68195944918ef6a5134c15ab97a8",
+    "verified_code_tree": "ff6ad49950e2f25feb01a71e628c9394c9a6d47b",
+    "state_projection_basis_head": "eb6aeaa2d83c68195944918ef6a5134c15ab97a8",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -742,13 +742,25 @@
       "web_run_id": 36253450318,
       "web_job_id": 108435675240,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd207_implementation_head": "eb6aeaa2d83c68195944918ef6a5134c15ab97a8",
+    "dd207_implementation_tree": "ff6ad49950e2f25feb01a71e628c9394c9a6d47b",
+    "dd207_implementation_ci": {
+      "core_run_id": 36254124554,
+      "core_job_id": 108437552481,
+      "postgres_job_id": 108437552456,
+      "database_run_id": 36254124547,
+      "database_job_id": 108437552040,
+      "web_run_id": 36254124565,
+      "web_job_id": 108437552001,
+      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD206_VERIFIED_DD207_CANDIDATE",
+    "current_phase": "DEVELOPMENT_DD207_PROMOTED_PENDING_HEAD_VERIFICATION",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -763,9 +775,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde",
-      "ci_run_id": 36253450307,
-      "ci_job_id": 108435675128,
+      "ci_verified_head": "eb6aeaa2d83c68195944918ef6a5134c15ab97a8",
+      "ci_run_id": 36254124547,
+      "ci_job_id": 108437552040,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -777,7 +789,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "bd9cafe4a81bbbaf473593bbc242c3f823d93617",
+      "ci_verified_tree": "ff6ad49950e2f25feb01a71e628c9394c9a6d47b",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -785,10 +797,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde",
-      "feature_head_bootstrap_verified_tree": "bd9cafe4a81bbbaf473593bbc242c3f823d93617",
-      "feature_head_bootstrap_run_id": 36253450315,
-      "feature_head_bootstrap_job_id": 108435675294,
+      "feature_head_bootstrap_verified_head": "eb6aeaa2d83c68195944918ef6a5134c15ab97a8",
+      "feature_head_bootstrap_verified_tree": "ff6ad49950e2f25feb01a71e628c9394c9a6d47b",
+      "feature_head_bootstrap_run_id": 36254124554,
+      "feature_head_bootstrap_job_id": 108437552456,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_504_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -797,27 +809,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify the DD-207 TenantAIConfig Provider-allowlist candidate against the fixed source audit, then implement only duplicate-free exact-id/raw-ACTIVE Provider binding. Model allowlist, effective configuration and AI execution remain locked.",
+    "next_action": "Verify this DD-207 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the dependent TenantAIConfig Model allowlist predicate; effective configuration and AI execution remain locked.",
     "core_services": {
-      "checkpoint": "DEV-AI-TENANT-CONFIG-CAPABILITY-ALLOWLIST-FLOORS-001",
+      "checkpoint": "DEV-AI-TENANT-CONFIG-PROVIDER-ALLOWLIST-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–206 bounded implementation",
-      "verified_head": "ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde",
-      "verified_tree": "bd9cafe4a81bbbaf473593bbc242c3f823d93617",
-      "core_ci_run_id": 36253450315,
-      "core_ci_job_id": 108435675376,
-      "tests": "685/685 PASS",
+      "decision": "DD-040–207 bounded implementation",
+      "verified_head": "eb6aeaa2d83c68195944918ef6a5134c15ab97a8",
+      "verified_tree": "ff6ad49950e2f25feb01a71e628c9394c9a6d47b",
+      "core_ci_run_id": 36254124554,
+      "core_ci_job_id": 108437552481,
+      "tests": "692/692 PASS",
       "core_test_counts": {
-        "tests": 685,
-        "pass": 685,
+        "tests": 692,
+        "pass": 692,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36253450315,
-      "postgres_ci_job_id": 108435675294,
+      "postgres_ci_run_id": 36254124554,
+      "postgres_ci_job_id": 108437552456,
       "postgres_tests": "504/504 PASS",
       "postgres_test_counts": {
         "tests": 504,
@@ -826,8 +838,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36253450307,
-      "database_regression_job_id": 108435675128,
+      "database_regression_run_id": 36254124547,
+      "database_regression_job_id": 108437552040,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -1165,7 +1177,8 @@
         "DD-203 AIToolDefinition exact AICapability capability-code binding floor",
         "DD-204 AIToolSetMember parent AIToolSet exact-id foreign-key floor",
         "DD-205 IndustryAIConfig optional domain PromptSet current-binding floor",
-        "DD-206 TenantAIConfig duplicate-free exact-code/raw-ACTIVE capability allowlist binding floor"
+        "DD-206 TenantAIConfig duplicate-free exact-code/raw-ACTIVE capability allowlist binding floor",
+        "DD-207 TenantAIConfig duplicate-free exact-id/raw-ACTIVE Provider allowlist binding floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -1291,7 +1304,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify the DD-207 TenantAIConfig Provider-allowlist candidate against the fixed source audit, then implement only duplicate-free exact-id/raw-ACTIVE Provider binding. Model allowlist, effective configuration and AI execution remain locked.",
+      "next_action": "Verify this DD-207 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the dependent TenantAIConfig Model allowlist predicate; effective configuration and AI execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1299,7 +1312,7 @@
       "promotion_invariant_gate_unique_dd": 109,
       "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
-    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-206. Full product UI, industry services, effective AI configuration and AI execution remain unfinished.",
+    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-207. Full product UI, industry services, effective AI configuration and AI execution remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -1385,7 +1398,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD206_VERIFIED_DD207_CANDIDATE",
+  "current_phase": "DEVELOPMENT_DD207_PROMOTED_PENDING_HEAD_VERIFICATION",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1417,20 +1430,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-TENANT-CONFIG-CAPABILITY-ALLOWLIST-FLOORS-001",
-    "verified_code_head": "ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde",
-    "verified_code_tree": "bd9cafe4a81bbbaf473593bbc242c3f823d93617",
-    "source_audit": "Development/AI_TENANT_CONFIG_CAPABILITY_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD206_VERIFICATION_2026-09-26.md",
-    "next_action": "Verify the DD-207 TenantAIConfig Provider-allowlist candidate against the fixed source audit, then implement only duplicate-free exact-id/raw-ACTIVE Provider binding. Model allowlist, effective configuration and AI execution remain locked.",
+    "checkpoint": "DEV-AI-TENANT-CONFIG-PROVIDER-ALLOWLIST-FLOORS-001",
+    "verified_code_head": "eb6aeaa2d83c68195944918ef6a5134c15ab97a8",
+    "verified_code_tree": "ff6ad49950e2f25feb01a71e628c9394c9a6d47b",
+    "source_audit": "Development/AI_TENANT_CONFIG_PROVIDER_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD207_VERIFICATION_2026-09-26.md",
+    "next_action": "Verify this DD-207 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the dependent TenantAIConfig Model allowlist predicate; effective configuration and AI execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-TENANT-CONFIG-CAPABILITY-ALLOWLIST-FLOORS-001",
-    "verified_executable_basis": "ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde",
-    "verified_executable_tree": "bd9cafe4a81bbbaf473593bbc242c3f823d93617",
-    "current_verification": "Registers/DEVELOPMENT_DD206_VERIFICATION_2026-09-26.md",
-    "scope": "DD-206 implements only TenantAIConfig allowedCapabilities[] duplicate-free exact-code/raw-ACTIVE AICapability binding. Provider/Model allowlists, effective Tenant+Industry configuration, entitlement/policy satisfaction, routing and AI execution remain outside this checkpoint."
+    "checkpoint": "DEV-AI-TENANT-CONFIG-PROVIDER-ALLOWLIST-FLOORS-001",
+    "verified_executable_basis": "eb6aeaa2d83c68195944918ef6a5134c15ab97a8",
+    "verified_executable_tree": "ff6ad49950e2f25feb01a71e628c9394c9a6d47b",
+    "current_verification": "Registers/DEVELOPMENT_DD207_VERIFICATION_2026-09-26.md",
+    "scope": "DD-207 implements only TenantAIConfig allowedProviderIds[] duplicate-free exact-id/raw-ACTIVE AIProvider binding. Model allowlist/model→provider compatibility, Provider runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain outside this checkpoint."
   },
   "current_state_audit": {
     "date": "2026-09-25",
@@ -1461,35 +1474,35 @@
     "correction_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b"
   },
   "current_feature_verification": {
-    "decision_id": "DD-206",
-    "decision": "DD-206 TenantAIConfig capability allowlist current-binding floor",
-    "checkpoint": "DEV-AI-TENANT-CONFIG-CAPABILITY-ALLOWLIST-FLOORS-001",
-    "verified_head": "ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde",
-    "verified_tree": "bd9cafe4a81bbbaf473593bbc242c3f823d93617",
-    "source_audit": "Development/AI_TENANT_CONFIG_CAPABILITY_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-207",
+    "decision": "DD-207 TenantAIConfig Provider allowlist current-binding floor",
+    "checkpoint": "DEV-AI-TENANT-CONFIG-PROVIDER-ALLOWLIST-FLOORS-001",
+    "verified_head": "eb6aeaa2d83c68195944918ef6a5134c15ab97a8",
+    "verified_tree": "ff6ad49950e2f25feb01a71e628c9394c9a6d47b",
+    "source_audit": "Development/AI_TENANT_CONFIG_PROVIDER_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AITENCFG-CAP-CUR-001",
-      "AITENCFG-CAP-CUR-002",
-      "AITENCFG-CAP-CUR-003",
-      "AITENCFG-CAP-CUR-004",
-      "AITENCFG-CAP-CUR-005",
-      "AITENCFG-CAP-CUR-006",
-      "AITENCFG-CAP-CUR-007"
+      "AITENCFG-PROV-CUR-001",
+      "AITENCFG-PROV-CUR-002",
+      "AITENCFG-PROV-CUR-003",
+      "AITENCFG-PROV-CUR-004",
+      "AITENCFG-PROV-CUR-005",
+      "AITENCFG-PROV-CUR-006",
+      "AITENCFG-PROV-CUR-007"
     ],
     "test_files": [
-      "tests/core/ai-tenant-config-capability-allowlist-floors.test.mjs"
+      "tests/core/ai-tenant-config-provider-allowlist-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36253450315,
-      "job_id": 108435675376,
-      "tests": 685,
-      "pass": 685,
+      "run_id": 36254124554,
+      "job_id": 108437552481,
+      "tests": 692,
+      "pass": 692,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36253450315,
-      "job_id": 108435675294,
+      "run_id": 36254124554,
+      "job_id": 108437552456,
       "tests": 504,
       "pass": 504,
       "fail": 0,
@@ -1497,17 +1510,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36253450307,
-      "job_id": 108435675128,
+      "run_id": 36254124547,
+      "job_id": 108437552040,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36253450318,
-      "job_id": 108435675240,
+      "run_id": 36254124565,
+      "job_id": 108437552001,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD206_VERIFICATION_2026-09-26.md"
+    "evidence": "Registers/DEVELOPMENT_DD207_VERIFICATION_2026-09-26.md"
   },
   "historical_projection_payloads": {
     "continuation": {
@@ -2246,15 +2259,5 @@
         "main_merge": false
       }
     }
-  },
-  "pending_feature": {
-    "decision_id": "DD-207",
-    "source_audit": "Development/AI_TENANT_CONFIG_PROVIDER_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "status": "SOURCE_COMPLETE_NOT_IMPLEMENTED",
-    "scope": "TenantAIConfig allowedProviderIds → exact duplicate-free raw-ACTIVE AIProvider id binding only",
-    "expected_core_tests": 692,
-    "expected_postgres_tests": 504,
-    "database_schema_change": false,
-    "excluded_next_relation": "TenantAIConfig allowedModelIds → ACTIVE AIModel whose provider is allowed"
   }
 }

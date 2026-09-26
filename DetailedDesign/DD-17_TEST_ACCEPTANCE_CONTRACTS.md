@@ -3470,3 +3470,27 @@ Malformed config id/Tenant id or malformed capability id/code evidence fails clo
 
 ### AITENCFG-CAP-CUR-007 — Unrelated semantics stay uninterpreted
 Provider/Model allowlists, enablement, policy refs, sensitivity/version/timestamps and Capability category/entitlement/policy/schema semantics do not affect this predicate; inputs remain unchanged.
+
+
+## DD-207 TenantAIConfig Provider Allowlist Binding Acceptance
+
+### AITENCFG-PROV-CUR-001 — Empty allowlist
+An empty Provider allowlist passes only with empty Provider evidence.
+
+### AITENCFG-PROV-CUR-002 — Complete exact ACTIVE set
+A duplicate-free Provider allowlist passes with exactly one raw-ACTIVE Provider row per exact id, independent of evidence order.
+
+### AITENCFG-PROV-CUR-003 — Exact evidence-set hygiene
+Missing, extra, duplicate or wrong-id Provider evidence fails closed.
+
+### AITENCFG-PROV-CUR-004 — Raw ACTIVE state
+Every referenced Provider status must equal `ACTIVE` exactly; case/whitespace variants and non-ACTIVE states fail.
+
+### AITENCFG-PROV-CUR-005 — Allowlist set shape
+Duplicate, malformed or non-array TenantAIConfig Provider-id evidence fails closed; empty remains valid.
+
+### AITENCFG-PROV-CUR-006 — Relevant identity/status shape
+Malformed config id/Tenant id or malformed Provider id/status evidence fails closed.
+
+### AITENCFG-PROV-CUR-007 — Unrelated semantics stay uninterpreted
+Capability/Model allowlists, enablement, policies/sensitivity/version/timestamps and Provider code/adapter/regions/capabilities/security/residency/health/version/timestamps do not affect this predicate; inputs remain unchanged.

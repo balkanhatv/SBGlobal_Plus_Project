@@ -429,3 +429,8 @@ Post-DD-204 source ownership isolated migration 0031's optional IndustryAIConfig
 ## 2026-09-26 — DD-206 TenantAIConfig capability allowlist floor
 
 Post-DD-205 source ownership isolated migration 0031's TenantAIConfig `allowed_capabilities` duplicate-free exact-code/raw-ACTIVE relationship as source-complete. Corrected source-audit basis `2cfb05d73d8458447d3af2526b6dc20f41a3284c` / tree `94f07d53a8402caade42894333072b245783f19c` passed **678/678 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `0ddbee338318dcde70122ed3813f4384dc501f00` / tree `cc1e04d579f4377acde18a73f6000db4c7963cb7` passed **685/685 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant change. Provider/Model allowlists, effective configuration and AI execution remain unclaimed.
+
+
+## 2026-09-26 — DD-207 TenantAIConfig Provider allowlist floor
+
+Post-DD-206 source ownership isolated migration 0031's TenantAIConfig `allowed_provider_ids` duplicate-free exact-id/raw-ACTIVE relationship as source-complete. Source-audit `29771100f5baff76e3afe3e6489c3eddbdb66b79` / tree `996b434cc7625e043ed40a37b536aade2d6be813` passed **685/685 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `eb6aeaa2d83c68195944918ef6a5134c15ab97a8` / tree `ff6ad49950e2f25feb01a71e628c9394c9a6d47b` passed **692/692 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant change. Model allowlist, effective configuration and AI execution remain unclaimed.

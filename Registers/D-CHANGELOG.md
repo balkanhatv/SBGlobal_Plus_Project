@@ -434,3 +434,10 @@ Implementation `0ddbee338318dcde70122ed3813f4384dc501f00` / tree `cc1e04d579f437
 
 ## 2026-09-26 — DD-206 promotion exact-head verified / closure staged
 Canonical DD-206 promotion `ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde` / tree `bd9cafe4a81bbbaf473593bbc242c3f823d93617` passed exact-head **685 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-207 prerequisite selection
+Migration 0031's TenantAIConfig `allowed_provider_ids[]` duplicate-free exact-id/raw-ACTIVE relationship is source-complete from DD-119 plus DD-107. The dependent Model allowlist remains a separate predicate.
+
+## 2026-09-26 — DD-207 canonical promotion / checkpoint advance
+Implementation `eb6aeaa2d83c68195944918ef6a5134c15ab97a8` / tree `ff6ad49950e2f25feb01a71e628c9394c9a6d47b` passed exact-head **692 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-207 promotes only duplicate-free exact-id/raw-ACTIVE Provider binding.

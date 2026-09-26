@@ -1,5 +1,5 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-AI-TENANT-CONFIG-CAPABILITY-ALLOWLIST-FLOORS-001`
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-PROVIDER-ALLOWLIST-FLOORS-001`
 **Status:** ACTIVE · **Updated:** 2026-09-26
 
 ## Authority
@@ -37,13 +37,10 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 ## Current audit / continuation evidence — 2026-09-26
 
-DD-206 implements only TenantAIConfig allowedCapabilities[] duplicate-free exact-code/raw-ACTIVE capability binding. Provider/Model allowlists, effective Tenant+Industry configuration, entitlement/policy satisfaction, routing and AI execution remain outside this checkpoint.
+DD-207 implements only TenantAIConfig allowedProviderIds[] duplicate-free exact-id/raw-ACTIVE AIProvider binding. Model allowlist/model→provider compatibility, Provider runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain outside this checkpoint.
 
-Verified canonical DD-206 promotion `ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde` / tree `bd9cafe4a81bbbaf473593bbc242c3f823d93617`: **685/685 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36253450315` (jobs `108435675376`, `108435675294`), Database `36253450307` (job `108435675128`), Web `36253450318` (job `108435675240`).
+Verified DD-207 implementation basis `eb6aeaa2d83c68195944918ef6a5134c15ab97a8` / tree `ff6ad49950e2f25feb01a71e628c9394c9a6d47b`: **692/692 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36254124554` (jobs `108437552481`, `108437552456`), Database `36254124547` (job `108437552040`), Web `36254124565` (job `108437552001`).
 
-Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify the DD-207 TenantAIConfig Provider-allowlist candidate against the fixed source audit, then implement only duplicate-free exact-id/raw-ACTIVE Provider binding. Model allowlist, effective configuration and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify this DD-207 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the dependent TenantAIConfig Model allowlist predicate; effective configuration and AI execution remain locked.
 
 
-## Pending source-complete candidate — DD-207
-
-The next governed prerequisite is TenantAIConfig `allowedProviderIds[]` → exact duplicate-free raw-ACTIVE AIProvider id binding only. Source audit: `Development/AI_TENANT_CONFIG_PROVIDER_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md`. Model allowlist, effective configuration and AI execution remain outside the candidate.
