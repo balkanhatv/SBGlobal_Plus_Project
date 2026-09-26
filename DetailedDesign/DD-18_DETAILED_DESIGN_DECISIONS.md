@@ -2846,3 +2846,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-203 does not establish capability ACTIVE/current/eligible state, entitlement/policy satisfaction, Tenant/Industry allowlisting, ToolDefinition permission/approval/OperationContract eligibility, ToolSet membership, AgentStep authorization, idempotency/audit satisfaction, provider/model routing, tool invocation or AI/tool execution authority.
 
 **Acceptance:** `AITOOL-CAP-CUR-001…007` in DD-17 and `tests/core/ai-tool-definition-capability-binding-floors.test.mjs`.
+
+
+## DD-204 — AIToolSetMember parent AIToolSet exact id may be re-evaluated as a pure persisted foreign-key floor
+
+**Context:** migration 0031 defines `core_ai.ai_tool_set_member.tool_set_id uuid NOT NULL REFERENCES core_ai.ai_tool_set(id)`. DD-114 exposes member `id` and `toolSetId`; DD-113 exposes ToolSet `id`. The migration's member integrity trigger separately validates the referenced ToolDefinition as ACTIVE but does not strengthen the parent ToolSet foreign key with ACTIVE/current/applicability semantics.
+
+**Decision:** add pure helper `matchesAIToolSetMemberParentBindingFloors(member, toolSet?)`. It validates only member id/toolSetId and ToolSet id UUID shape, requires supplied parent evidence, and requires exact `toolSet.id === member.toolSetId`.
+
+**Security / trade-off:** this helper mirrors only the persisted direct foreign key. Database parent-derived RLS visibility remains persistence-owned and is not reinterpreted as Core authorization.
+
+**Boundary:** DD-204 does not establish ToolSet ACTIVE/current/applicable state, Tenant/Industry authorization, ToolDefinition validity (DD-176 owns that independently), effective membership, permission/entitlement/approval satisfaction, AgentDefinition/AgentStep authorization, OperationContract eligibility, provider/model routing, tool invocation or AI/tool execution.
+
+**Acceptance:** `AITOOLMEM-SET-CUR-001…007` in DD-17 and `tests/core/ai-tool-set-member-parent-binding-floors.test.mjs`.

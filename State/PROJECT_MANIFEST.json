@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-26",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
-  "final_verdict": "DD-203 AIToolDefinition → AICapability exact capability-code foreign-key floor is canonically promoted and exact-head verified; the state-closure HEAD remains the gate before the next source audit.",
+  "checkpoint": "DEV-AI-TOOL-SET-MEMBER-PARENT-BINDING-FLOORS-001",
+  "final_verdict": "DD-204 AIToolSetMember → parent AIToolSet exact-id foreign-key floor is canonically promoted from a fully verified implementation basis; the promotion HEAD itself remains the gate before the next source audit.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD203_CANONICAL",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD204_CANONICAL",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD203_VERIFIED_STATE_CLOSURE_PENDING_HEAD_VERIFICATION",
+    "development": "IN_PROGRESS_DD204_PROMOTED_PENDING_HEAD_VERIFICATION",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD203_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED"
+    "core_services": "DD040_DD204_CANONICALLY_PROMOTED_PENDING_HEAD_VERIFICATION"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
-    "verified_code_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
-    "state_projection_basis_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
+    "verified_code_head": "f1fef7e6dc7ce74b15620f0e7f5446fac4852e55",
+    "verified_code_tree": "4c148d0fe44353f55bff7c73a129721c373a2dac",
+    "state_projection_basis_head": "f1fef7e6dc7ce74b15620f0e7f5446fac4852e55",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -670,13 +670,25 @@
       "web_run_id": 36235313173,
       "web_job_id": 108385893675,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd204_implementation_head": "f1fef7e6dc7ce74b15620f0e7f5446fac4852e55",
+    "dd204_implementation_tree": "4c148d0fe44353f55bff7c73a129721c373a2dac",
+    "dd204_implementation_ci": {
+      "core_run_id": 36236254121,
+      "core_job_id": 108388439282,
+      "postgres_job_id": 108388439464,
+      "database_run_id": 36236254124,
+      "database_job_id": 108388439302,
+      "web_run_id": 36236254132,
+      "web_job_id": 108388439451,
+      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD203_VERIFIED_DD204_CANDIDATE",
+    "current_phase": "DEVELOPMENT_DD204_PROMOTED_PENDING_HEAD_VERIFICATION",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -691,9 +703,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
-      "ci_run_id": 36235313136,
-      "ci_job_id": 108385893576,
+      "ci_verified_head": "f1fef7e6dc7ce74b15620f0e7f5446fac4852e55",
+      "ci_run_id": 36236254124,
+      "ci_job_id": 108388439302,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -705,7 +717,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
+      "ci_verified_tree": "4c148d0fe44353f55bff7c73a129721c373a2dac",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -713,10 +725,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
-      "feature_head_bootstrap_verified_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
-      "feature_head_bootstrap_run_id": 36235313135,
-      "feature_head_bootstrap_job_id": 108385893773,
+      "feature_head_bootstrap_verified_head": "f1fef7e6dc7ce74b15620f0e7f5446fac4852e55",
+      "feature_head_bootstrap_verified_tree": "4c148d0fe44353f55bff7c73a129721c373a2dac",
+      "feature_head_bootstrap_run_id": 36236254121,
+      "feature_head_bootstrap_job_id": 108388439464,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_504_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -725,27 +737,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify the DD-204 AIToolSetMember parent ToolSet exact-id candidate against the fixed source audit, then implement only that foreign-key continuity floor. ToolSet currentness, authorization and tool execution remain locked.",
+    "next_action": "Verify this DD-204 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; ToolSet currentness, authorization and complete AI/tool execution remain locked.",
     "core_services": {
-      "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
+      "checkpoint": "DEV-AI-TOOL-SET-MEMBER-PARENT-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–203 bounded implementation",
-      "verified_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
-      "verified_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
-      "core_ci_run_id": 36235313135,
-      "core_ci_job_id": 108385893610,
-      "tests": "664/664 PASS",
+      "decision": "DD-040–204 bounded implementation",
+      "verified_head": "f1fef7e6dc7ce74b15620f0e7f5446fac4852e55",
+      "verified_tree": "4c148d0fe44353f55bff7c73a129721c373a2dac",
+      "core_ci_run_id": 36236254121,
+      "core_ci_job_id": 108388439282,
+      "tests": "671/671 PASS",
       "core_test_counts": {
-        "tests": 664,
-        "pass": 664,
+        "tests": 671,
+        "pass": 671,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36235313135,
-      "postgres_ci_job_id": 108385893773,
+      "postgres_ci_run_id": 36236254121,
+      "postgres_ci_job_id": 108388439464,
       "postgres_tests": "504/504 PASS",
       "postgres_test_counts": {
         "tests": 504,
@@ -754,8 +766,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36235313136,
-      "database_regression_job_id": 108385893576,
+      "database_regression_run_id": 36236254124,
+      "database_regression_job_id": 108388439302,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -1090,7 +1102,8 @@
         "DD-200 direct AIModel AIProvider provider-id foreign-key continuity floor",
         "DD-201 direct TokenUsage AIProvider foreign-key continuity floor",
         "DD-202 AIMediaRequest exact AICapability code foreign-key continuity floor",
-        "DD-203 AIToolDefinition exact AICapability capability-code binding floor"
+        "DD-203 AIToolDefinition exact AICapability capability-code binding floor",
+        "DD-204 AIToolSetMember parent AIToolSet exact-id foreign-key floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -1216,7 +1229,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify the DD-204 AIToolSetMember parent ToolSet exact-id candidate against the fixed source audit, then implement only that foreign-key continuity floor. ToolSet currentness, authorization and tool execution remain locked.",
+      "next_action": "Verify this DD-204 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; ToolSet currentness, authorization and complete AI/tool execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1224,7 +1237,7 @@
       "promotion_invariant_gate_unique_dd": 109,
       "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
-    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-203. Full product UI, industry services and complete AI/tool execution remain unfinished.",
+    "application_api_ui_scope_note": "Three first-party queries and unmounted external REST adapter; bounded Core/service/persistence work through DD-204. Full product UI, industry services and complete AI/tool execution remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -1310,7 +1323,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD203_VERIFIED_DD204_CANDIDATE",
+  "current_phase": "DEVELOPMENT_DD204_PROMOTED_PENDING_HEAD_VERIFICATION",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1342,20 +1355,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
-    "verified_code_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
-    "verified_code_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
-    "source_audit": "Development/AI_TOOL_DEFINITION_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD203_VERIFICATION_2026-09-26.md",
-    "next_action": "Verify the DD-204 AIToolSetMember parent ToolSet exact-id candidate against the fixed source audit, then implement only that foreign-key continuity floor. ToolSet currentness, authorization and tool execution remain locked.",
+    "checkpoint": "DEV-AI-TOOL-SET-MEMBER-PARENT-BINDING-FLOORS-001",
+    "verified_code_head": "f1fef7e6dc7ce74b15620f0e7f5446fac4852e55",
+    "verified_code_tree": "4c148d0fe44353f55bff7c73a129721c373a2dac",
+    "source_audit": "Development/AI_TOOL_SET_MEMBER_PARENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD204_VERIFICATION_2026-09-26.md",
+    "next_action": "Verify this DD-204 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; ToolSet currentness, authorization and complete AI/tool execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
-    "verified_executable_basis": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
-    "verified_executable_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
-    "current_verification": "Registers/DEVELOPMENT_DD203_VERIFICATION_2026-09-26.md",
-    "scope": "DD-203 implements only AIToolDefinition → AICapability exact capability-code foreign-key continuity. Capability currentness/policy, ToolDefinition authorization, ToolSet/AgentStep authorization and AI/tool execution remain outside this checkpoint."
+    "checkpoint": "DEV-AI-TOOL-SET-MEMBER-PARENT-BINDING-FLOORS-001",
+    "verified_executable_basis": "f1fef7e6dc7ce74b15620f0e7f5446fac4852e55",
+    "verified_executable_tree": "4c148d0fe44353f55bff7c73a129721c373a2dac",
+    "current_verification": "Registers/DEVELOPMENT_DD204_VERIFICATION_2026-09-26.md",
+    "scope": "DD-204 implements only AIToolSetMember → parent AIToolSet exact-id foreign-key continuity. ToolSet currentness/applicability, authorization, ToolDefinition validity and tool execution remain outside this checkpoint."
   },
   "current_state_audit": {
     "date": "2026-09-25",
@@ -1386,35 +1399,35 @@
     "correction_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b"
   },
   "current_feature_verification": {
-    "decision_id": "DD-203",
-    "decision": "DD-203 AIToolDefinition AICapability exact capability-code foreign-key floor",
-    "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
-    "verified_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
-    "verified_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
-    "source_audit": "Development/AI_TOOL_DEFINITION_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-204",
+    "decision": "DD-204 AIToolSetMember parent AIToolSet exact-id foreign-key floor",
+    "checkpoint": "DEV-AI-TOOL-SET-MEMBER-PARENT-BINDING-FLOORS-001",
+    "verified_head": "f1fef7e6dc7ce74b15620f0e7f5446fac4852e55",
+    "verified_tree": "4c148d0fe44353f55bff7c73a129721c373a2dac",
+    "source_audit": "Development/AI_TOOL_SET_MEMBER_PARENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AITOOL-CAP-CUR-001",
-      "AITOOL-CAP-CUR-002",
-      "AITOOL-CAP-CUR-003",
-      "AITOOL-CAP-CUR-004",
-      "AITOOL-CAP-CUR-005",
-      "AITOOL-CAP-CUR-006",
-      "AITOOL-CAP-CUR-007"
+      "AITOOLMEM-SET-CUR-001",
+      "AITOOLMEM-SET-CUR-002",
+      "AITOOLMEM-SET-CUR-003",
+      "AITOOLMEM-SET-CUR-004",
+      "AITOOLMEM-SET-CUR-005",
+      "AITOOLMEM-SET-CUR-006",
+      "AITOOLMEM-SET-CUR-007"
     ],
     "test_files": [
-      "tests/core/ai-tool-definition-capability-binding-floors.test.mjs"
+      "tests/core/ai-tool-set-member-parent-binding-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36235313135,
-      "job_id": 108385893610,
-      "tests": 664,
-      "pass": 664,
+      "run_id": 36236254121,
+      "job_id": 108388439282,
+      "tests": 671,
+      "pass": 671,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36235313135,
-      "job_id": 108385893773,
+      "run_id": 36236254121,
+      "job_id": 108388439464,
       "tests": 504,
       "pass": 504,
       "fail": 0,
@@ -1422,17 +1435,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36235313136,
-      "job_id": 108385893576,
+      "run_id": 36236254124,
+      "job_id": 108388439302,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36235313173,
-      "job_id": 108385893675,
+      "run_id": 36236254132,
+      "job_id": 108388439451,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD203_VERIFICATION_2026-09-26.md"
+    "evidence": "Registers/DEVELOPMENT_DD204_VERIFICATION_2026-09-26.md"
   },
   "historical_projection_payloads": {
     "continuation": {
@@ -2171,14 +2184,5 @@
         "main_merge": false
       }
     }
-  },
-  "pending_feature": {
-    "decision_id": "DD-204",
-    "source_audit": "Development/AI_TOOL_SET_MEMBER_PARENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "status": "SOURCE_COMPLETE_NOT_IMPLEMENTED",
-    "scope": "AIToolSetMember → parent AIToolSet exact id foreign-key continuity only",
-    "expected_core_tests": 671,
-    "expected_postgres_tests": 504,
-    "database_schema_change": false
   }
 }

@@ -1,20 +1,17 @@
 # D-INDEX — Current Canonical / Development Index
-**Current checkpoint:** `DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001`
+**Current checkpoint:** `DEV-AI-TOOL-SET-MEMBER-PARENT-BINDING-FLOORS-001`
 **Updated:** 2026-09-26 · **Branch:** `docs/architecture-branch-2`
 
-DD-203 implements only AIToolDefinition → AICapability exact capability-code foreign-key continuity. Capability currentness/entitlement/policy, ToolDefinition permission/approval/OperationContract eligibility, ToolSet/AgentStep authorization, provider/model routing and AI/tool execution remain outside this checkpoint.
+DD-204 implements only AIToolSetMember → parent AIToolSet exact-id foreign-key continuity. ToolSet currentness/applicability, Tenant/Industry authorization, ToolDefinition validity, effective membership, AgentStep authorization and AI/tool execution remain outside this checkpoint.
 
-Verified canonical DD-203 promotion `479e4aa420e6773c8b0af5c37cd121a440ccf04d` / tree `bbcf8c8c19e4a919e1cb4701646a5814f98a4234`: **664/664 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36235313135` (jobs `108385893610`, `108385893773`), Database `36235313136` (job `108385893576`), Web `36235313173` (job `108385893675`).
+Verified DD-204 implementation basis `f1fef7e6dc7ce74b15620f0e7f5446fac4852e55` / tree `4c148d0fe44353f55bff7c73a129721c373a2dac`: **671/671 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36236254121` (jobs `108388439282`, `108388439464`), Database `36236254124` (job `108388439302`), Web `36236254132` (job `108388439451`).
 
-DD-203 decision/acceptance/traceability are canonically promoted and the promotion HEAD is exact-head verified. This state-closure commit must pass its own Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+DD-204 decision/acceptance/traceability are canonically promoted in the current metadata change. The verified executable basis is the implementation HEAD above; this promotion HEAD must independently pass Core/PostgreSQL/Database/Web before another DD/source audit opens.
 
-Evidence: `Registers/DEVELOPMENT_DD203_VERIFICATION_2026-09-26.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+Evidence: `Registers/DEVELOPMENT_DD204_VERIFICATION_2026-09-26.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify the DD-204 AIToolSetMember parent ToolSet exact-id candidate against the fixed source audit, then implement only that foreign-key continuity floor. ToolSet currentness, authorization and tool execution remain locked.
+Next: Verify this DD-204 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; ToolSet currentness, authorization and complete AI/tool execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
 
-## Pending source-complete candidate — DD-204
-
-The next governed prerequisite is AIToolSetMember → parent AIToolSet exact id foreign-key continuity only. Source audit: `Development/AI_TOOL_SET_MEMBER_PARENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. ToolSet currentness/applicability, authorization and tool execution remain outside the candidate.

@@ -3398,3 +3398,27 @@ Capability lifecycle/category/entitlement/default-policy/schema-version evidence
 
 ### AITOOL-CAP-CUR-007 — Unrelated ToolDefinition semantics stay uninterpreted
 Tool id, OperationContract, scope, permission, entitlement, schemas, side effects, approval, idempotency, audit, lifecycle/version/timestamps do not affect this direct FK predicate; inputs remain unchanged.
+
+
+## DD-204 AIToolSetMember Parent ToolSet Binding Acceptance
+
+### AITOOLMEM-SET-CUR-001 — Exact parent ToolSet
+Exact parent ToolSet id continuity passes.
+
+### AITOOLMEM-SET-CUR-002 — Missing parent evidence
+Missing ToolSet evidence fails closed.
+
+### AITOOLMEM-SET-CUR-003 — Wrong parent identity
+A ToolSet whose id differs from `member.toolSetId` fails closed.
+
+### AITOOLMEM-SET-CUR-004 — Member identity shape
+Malformed member id or ToolSet id fails closed.
+
+### AITOOLMEM-SET-CUR-005 — Parent identity shape
+Malformed ToolSet id evidence fails closed.
+
+### AITOOLMEM-SET-CUR-006 — Parent catalog semantics stay uninterpreted
+ToolSet owner/scope/code/version/status/timestamp evidence does not affect the direct foreign-key predicate.
+
+### AITOOLMEM-SET-CUR-007 — Unrelated member semantics stay uninterpreted
+Member ToolDefinition/enabled/constraint/timestamp evidence does not affect the predicate; inputs remain unchanged.

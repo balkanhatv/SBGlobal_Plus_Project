@@ -355,3 +355,15 @@ DD-203 → `src/core/ai/tool-definition-capability-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD203_VERIFICATION_2026-09-26.md`.
 
 This chain claims only AIToolDefinition → AICapability exact capability-code foreign-key continuity. Capability currentness, ToolDefinition authorization, ToolSet/AgentStep authorization and AI/tool execution remain separate.
+
+
+## DD-204 — AIToolSetMember parent AIToolSet exact id
+
+F-05 + A-07 + DD-09 → migration 0031 AIToolSetMember parent FK →
+`Development/AI_TOOL_SET_MEMBER_PARENT_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-204 → `src/core/ai/tool-set-member-parent-binding-floors.ts` →
+`AITOOLMEM-SET-CUR-001…007` →
+`tests/core/ai-tool-set-member-parent-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD204_VERIFICATION_2026-09-26.md`.
+
+This chain claims only direct member → parent ToolSet id continuity. ToolSet currentness/applicability, ToolDefinition validity, authorization and tool execution remain separate.

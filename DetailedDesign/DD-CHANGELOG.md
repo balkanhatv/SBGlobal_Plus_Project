@@ -414,3 +414,8 @@ Post-DD-201 source ownership isolated migration 0011's direct AIMediaRequest `ca
 ## 2026-09-26 — DD-203 AIToolDefinition capability binding floor
 
 Post-DD-202 source ownership isolated migration 0013's direct AIToolDefinition → AICapability capability-code foreign key as source-complete. Exact implementation `76491ca63a0101e1334f1800709e447a996d2523` / tree `b80b7794fe54c660c26f8694e1aa91df3f267d1b` passed **664/664 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Capability currentness, ToolDefinition authorization and AI/tool execution remain unclaimed.
+
+
+## 2026-09-26 — DD-204 AIToolSetMember parent ToolSet floor
+
+Post-DD-203 source ownership isolated migration 0031's direct AIToolSetMember → AIToolSet parent foreign key as source-complete. Exact implementation `f1fef7e6dc7ce74b15620f0e7f5446fac4852e55` / tree `4c148d0fe44353f55bff7c73a129721c373a2dac` passed **671/671 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. ToolSet currentness/applicability, authorization and tool execution remain unclaimed.
