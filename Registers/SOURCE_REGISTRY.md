@@ -2,6 +2,9 @@
 **Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
 **Status:** ACTIVE · **Updated:** 2026-09-26
 
+> **2026-09-26 audit hold:** VC26-01/02 corrections require exact-HEAD CI; full semantic audit coverage is incomplete. Earlier continuation instructions below are on hold. Next: complete correction verification and the remaining audit; do not open forward development. [Audit evidence](../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md).
+
+
 ## Authority
 1. Primary Vision
 2. Current explicit user direction

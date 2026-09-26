@@ -501,6 +501,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | CTX-BOOT-004 | membership default/explicit OrgUnit | exact Tenant unit resolves with server-derived root→leaf UUID path |
 | CTX-BOOT-005 | Tenant DataHome | ACTIVE directory route returns exact id/region/routingVersion |
 | CTX-BOOT-006 | bootstrap DB role attempts write or sensitive identity read | permission denied; role remains NOLOGIN/NOBYPASSRLS |
+| CTX-BOOT-007 | self-parent or multi-node cycle reached through explicit/default OrgUnit selection | traversal terminates; no OrgUnit/path resolves; foreign Tenant remains hidden; repaired hierarchy and subsequent pool use remain valid |
 
 
 ### Concrete Next.js first-party composition — DD-058 / DEV-WEB-COMPOSITION-001

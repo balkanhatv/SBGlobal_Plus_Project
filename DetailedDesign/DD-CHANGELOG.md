@@ -439,3 +439,7 @@ Post-DD-206 source ownership isolated migration 0031's TenantAIConfig `allowed_p
 ## 2026-09-26 — DD-208 TenantAIConfig Model allowlist floor
 
 Post-DD-207 source ownership isolated migration 0031's TenantAIConfig Model allowlist predicate as source-complete: duplicate-free exact Model ids, raw ACTIVE Model rows and Model provider-id membership in the same config Provider allowlist. Exact implementation `a56ec19e2cbd1a685b65f6015b6c6087e1f803c2` / tree `dd4da07eb25beb1ace05036104f969cce6d7f120` passed **700/700 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Effective configuration, routing and AI execution remain unclaimed.
+
+## 2026-09-26 — vision audit corrective work; forward development held
+
+VC26-01 corrects unbounded cyclic OrgUnit ancestry under existing DD-057; CTX-BOOT-007 adds real PostgreSQL regression coverage. VC26-02 corrects DD-208 sparse UUID-array acceptance; existing AITENCFG-MODEL-CUR-006 now reproduces the gap. No RawSource/schema/RLS/role/grant/requirements change. Complete audit remains IN PROGRESS, not PASS; see `Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`.

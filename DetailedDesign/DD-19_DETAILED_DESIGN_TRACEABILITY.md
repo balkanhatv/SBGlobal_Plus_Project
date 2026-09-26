@@ -415,3 +415,10 @@ DD-208 → `src/core/ai/tenant-config-model-allowlist-floors.ts` →
 `Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md`.
 
 This chain claims only duplicate-free exact Model allowlist/evidence coverage, raw ACTIVE Model state and exact Model provider-id membership in the same config Provider-id allowlist. Provider runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain separate.
+
+## 2026-09-26 corrective audit traceability
+
+| Finding | Existing authority | Correction / acceptance | Evidence |
+|---|---|---|---|
+| VC26-01 | A-02; DD-02 §10; DD-057 | Cycle-safe OrgUnit ancestry; CTX-BOOT-007; PostgreSQL bootstrap regression | `Registers/VISION_CENTRIC_AUDIT_2026-09-26.md` |
+| VC26-02 | migration 0031; DD-208 item 1 | Dense UUID validation; strengthened AITENCFG-MODEL-CUR-006 | `Registers/VISION_CENTRIC_AUDIT_2026-09-26.md` |

@@ -238,18 +238,22 @@ export class PostgresTenantContextAdapter implements TenantContextPort {
             ORDER BY id
             LIMIT 2
          ), chain AS (
-           SELECT id,tenant_id,parent_id,1 AS depth
+           SELECT id,tenant_id,parent_id,1 AS depth,
+                  ARRAY[id] AS visited,false AS cycle
              FROM target
            UNION ALL
-           SELECT parent.id,parent.tenant_id,parent.parent_id,chain.depth+1
+           SELECT parent.id,parent.tenant_id,parent.parent_id,chain.depth+1,
+                  chain.visited || parent.id,parent.id=ANY(chain.visited)
              FROM core_tenancy.org_unit parent
              JOIN chain ON parent.id=chain.parent_id
                        AND parent.tenant_id=chain.tenant_id
+            WHERE NOT chain.cycle
          )
          SELECT target.id::text,target.tenant_id::text,target.status::text,
                 array_agg(chain.id::text ORDER BY chain.depth DESC)::text[] AS path
            FROM target
            JOIN chain ON true
+          WHERE NOT EXISTS (SELECT 1 FROM chain WHERE cycle)
           GROUP BY target.id,target.tenant_id,target.status`,
         [input.tenantId,selector??null,defaultId??null],
       );

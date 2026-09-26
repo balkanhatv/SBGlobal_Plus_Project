@@ -59,3 +59,7 @@ Expected executable delta: Core **692 → 700**. PostgreSQL remains **504**. Dat
 A true result is not current/latest TenantAIConfig selection, config enablement, Provider-row validity/currentness, Provider health/credentials/security/capability/residency suitability, Model capability/modality/residency/sensitivity suitability, effective Tenant+Industry configuration, budget/quota/entitlement/permission/prompt/retention policy, provisioning, routing/fallback/retry, provider SDK dispatch or AI execution. It changes no schema/RLS/role/grant/route/product policy.
 
 After DD-208 is implemented and exact-head verified, source-audit the next independent Tenant/Industry AI configuration relationship. Effective configuration and AI execution remain separately governed.
+
+## 2026-09-26 corrective validation note — VC26-02
+
+Contract item 1 includes every array position: a sparse JavaScript array is malformed UUID evidence. Array iteration must inspect missing slots rather than skip them. AITENCFG-MODEL-CUR-006 now tests empty and populated model-evidence cases with sparse Provider arrays. This strengthens evidence for the existing requirement and introduces no new eligibility semantics.

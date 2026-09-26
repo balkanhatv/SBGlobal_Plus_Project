@@ -61,7 +61,8 @@ before(async()=>{
 
  const url=new URL(process.env.SBG_POSTGRES_TEST_URL);
  url.username=loginRole;url.password=password;
- pool=new pg.Pool({connectionString:url.toString(),max:4,connectionTimeoutMillis:5000});
+ pool=new pg.Pool({connectionString:url.toString(),max:4,connectionTimeoutMillis:5000,
+   statement_timeout:5000});
  adapter=new PostgresTenantContextAdapter(new PostgresContextBootstrapDatabase(pool));
 });
 
@@ -127,6 +128,30 @@ test("default and explicit OrgUnit resolution returns server-derived root-to-lea
 test("DataHome is read from server directory with routing version",async()=>{
  const home=await adapter.resolveDataHome(f.tenantA);
  assert.deepEqual(home,{id:f.home,regionCode:"IN-CTX",routingVersion:7});
+});
+
+test("CTX-BOOT-007 cyclic OrgUnit ancestry fails closed and the pool remains usable",async()=>{
+ const membership=await adapter.findMembership({tenantId:f.tenantA,principalId:f.principal});
+ try{
+   // The schema's same-Tenant foreign key permits both forms of corrupt ancestry.
+   // A statement timeout bounds a regression; a timeout rejection still FAILS
+   // this test because the governed result must be null, not a hung query.
+   await admin.query("UPDATE core_tenancy.org_unit SET parent_id=id WHERE id=$1",[f.orgChild]);
+   assert.equal(await adapter.resolveOrgUnit({tenantId:f.tenantA,selector:"CHILD"}),null);
+   assert.equal(await adapter.resolveOrgUnit({tenantId:f.tenantA,membership}),null);
+
+   await admin.query("UPDATE core_tenancy.org_unit SET parent_id=$2 WHERE id=$1",[f.orgChild,f.orgRoot]);
+   await admin.query("UPDATE core_tenancy.org_unit SET parent_id=$2 WHERE id=$1",[f.orgRoot,f.orgChild]);
+   assert.equal(await adapter.resolveOrgUnit({tenantId:f.tenantA,selector:f.orgChild}),null);
+   assert.equal(await adapter.resolveOrgUnit({tenantId:f.tenantA,membership}),null);
+   assert.equal(await adapter.resolveOrgUnit({tenantId:f.tenantB,selector:f.orgChild}),null);
+ }finally{
+   await admin.query("UPDATE core_tenancy.org_unit SET parent_id=NULL WHERE id=$1",[f.orgRoot]);
+   await admin.query("UPDATE core_tenancy.org_unit SET parent_id=$2 WHERE id=$1",[f.orgChild,f.orgRoot]);
+ }
+ const restored=await adapter.resolveOrgUnit({tenantId:f.tenantA,membership});
+ assert.deepEqual(restored.path,[f.orgRoot,f.orgChild]);
+ assert.equal((await adapter.resolveDataHome(f.tenantB)).id,f.home);
 });
 
 test("bootstrap role is read-only and cannot access API credentials",async()=>{

@@ -15,10 +15,10 @@ function hasValidConfigShape(config: PersistedAITenantConfig): boolean {
     && isUuid(config.id)
     && isUuid(config.tenantId)
     && Array.isArray(config.allowedProviderIds)
-    && config.allowedProviderIds.every((providerId) => isUuid(providerId))
+    && Array.from(config.allowedProviderIds).every((providerId) => isUuid(providerId))
     && new Set(config.allowedProviderIds).size === config.allowedProviderIds.length
     && Array.isArray(config.allowedModelIds)
-    && config.allowedModelIds.every((modelId) => isUuid(modelId))
+    && Array.from(config.allowedModelIds).every((modelId) => isUuid(modelId))
     && new Set(config.allowedModelIds).size === config.allowedModelIds.length,
   );
 }

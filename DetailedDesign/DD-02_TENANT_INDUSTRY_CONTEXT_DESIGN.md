@@ -93,3 +93,5 @@ The concrete TenantContextPort uses a dedicated SELECT-only pre-context PostgreS
 Human Tenant resolution without a selector is valid only when one effective ACTIVE membership exists. Multiple memberships require explicit deterministic selection. Machine identity remains pinned to its verified bound Tenant. Industry/OrgUnit selectors are always re-resolved inside the selected Tenant; null Industry never means all.
 
 This bootstrap boundary ends once RequestContext has a verified DataHome. Business data access then uses the normal transaction-local RLS application role.
+
+**DD-057 corrective clarification — 2026-09-26:** a root-to-leaf ancestry cannot contain a repeated OrgUnit. The reader must terminate traversal on a repeated UUID and return no OrgUnit for that selection, including a membership default, rather than return a partial path or depend on a database timeout. This is fail-closed validation of the existing ancestry contract; no new hierarchy depth limit, write policy or Industry semantics are introduced. Acceptance: CTX-BOOT-007.

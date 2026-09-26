@@ -155,6 +155,25 @@ test("AITENCFG-MODEL-CUR-005 every Model provider must be an exact allowedProvid
 });
 
 test("AITENCFG-MODEL-CUR-006 duplicate or malformed Model/Provider allowlist entries fail closed", () => {
+  // Array.prototype.every skips holes. A missing provider entry must not become
+  // valid merely because no Model evidence consumes it.
+  for (const allowedProviderIds of [new Array(1), [ids.providerA, , ids.providerB]]) {
+    assert.equal(
+      matchesAITenantConfigModelAllowlistFloors(
+        config({allowedProviderIds, allowedModelIds: []}),
+        [],
+      ),
+      false,
+    );
+    assert.equal(
+      matchesAITenantConfigModelAllowlistFloors(
+        config({allowedProviderIds}),
+        [modelA(), modelB()],
+      ),
+      false,
+    );
+  }
+
   for (const allowedModelIds of [
     [ids.modelA, ids.modelA],
     [ids.modelA, "bad"],

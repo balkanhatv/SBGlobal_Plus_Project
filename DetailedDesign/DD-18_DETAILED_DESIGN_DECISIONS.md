@@ -618,6 +618,8 @@ Because this is a pre-context read boundary, narrow SELECT RLS policies admit on
 
 **Acceptance:** CTX-BOOT-001…006 plus migration 0041 verification: multi-membership ambiguity; membership-bound selector; exact sibling-Industry isolation; server-derived OrgUnit path; DataHome route; least-privilege/no-sensitive-read proof.
 
+**Corrective clarification (2026-09-26; VC26-01):** CTX-BOOT-007 extends the existing ancestry validation to cyclic persisted parents. A visited-UUID path terminates recursion and rejects the entire selection on a repeated UUID. Returning a truncated path would misrepresent ancestry; relying on timeout leaves normal context resolution unavailable. No arbitrary maximum depth or schema/write semantics are added. Dependencies revalidated: DD-02, TenantContextPort, RequestContextService, the DD-058 web composition and the real PostgreSQL bootstrap tests.
+
 
 ## DD-058 — Concrete first-party Next.js composition
 

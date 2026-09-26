@@ -456,3 +456,7 @@ Implementation `a56ec19e2cbd1a685b65f6015b6c6087e1f803c2` / tree `dd4da07eb25beb
 
 ## 2026-09-26 — DD-208 promotion exact-head verified / closure staged
 Canonical DD-208 promotion `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba28541da36bd4c94d9559f91121a0aae2` passed exact-head **700 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+## 2026-09-26 — vision audit corrective work; forward development held
+
+VC26-01 corrects unbounded cyclic OrgUnit ancestry under existing DD-057; CTX-BOOT-007 adds real PostgreSQL regression coverage. VC26-02 corrects DD-208 sparse UUID-array acceptance; existing AITENCFG-MODEL-CUR-006 now reproduces the gap. No RawSource/schema/RLS/role/grant/requirements change. Complete audit remains IN PROGRESS, not PASS; see `Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`.
