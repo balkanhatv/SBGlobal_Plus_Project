@@ -3,18 +3,18 @@
   "updated": "2026-09-26",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
-  "final_verdict": "DD-203 AIToolDefinition → AICapability exact capability-code foreign-key floor is canonically promoted from a fully verified implementation basis; the promotion HEAD itself remains the gate before the next source audit.",
+  "final_verdict": "DD-203 AIToolDefinition → AICapability exact capability-code foreign-key floor is canonically promoted and exact-head verified; the state-closure HEAD remains the gate before the next source audit.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
     "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD203_CANONICAL",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
-    "development": "IN_PROGRESS_DD203_PROMOTED_PENDING_HEAD_VERIFICATION",
+    "development": "IN_PROGRESS_DD203_VERIFIED_STATE_CLOSURE_PENDING_HEAD_VERIFICATION",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD203_CANONICALLY_PROMOTED_PENDING_HEAD_VERIFICATION"
+    "core_services": "DD040_DD203_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED"
   },
   "defects": {
     "counting_unit": "root-cause defect groups; individual edits may cover many objects",
@@ -53,9 +53,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "76491ca63a0101e1334f1800709e447a996d2523",
-    "verified_code_tree": "b80b7794fe54c660c26f8694e1aa91df3f267d1b",
-    "state_projection_basis_head": "76491ca63a0101e1334f1800709e447a996d2523",
+    "verified_code_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
+    "verified_code_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
+    "state_projection_basis_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -658,13 +658,25 @@
       "web_run_id": 36235041093,
       "web_job_id": 108385157930,
       "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
+    },
+    "dd203_promotion_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
+    "dd203_promotion_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
+    "dd203_promotion_ci": {
+      "core_run_id": 36235313135,
+      "core_job_id": 108385893610,
+      "postgres_job_id": 108385893773,
+      "database_run_id": 36235313136,
+      "database_job_id": 108385893576,
+      "web_run_id": 36235313173,
+      "web_job_id": 108385893675,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD203_PROMOTED_PENDING_HEAD_VERIFICATION",
+    "current_phase": "DEVELOPMENT_DD203_VERIFIED",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -679,9 +691,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "76491ca63a0101e1334f1800709e447a996d2523",
-      "ci_run_id": 36235041064,
-      "ci_job_id": 108385157943,
+      "ci_verified_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
+      "ci_run_id": 36235313136,
+      "ci_job_id": 108385893576,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -693,7 +705,7 @@
       ],
       "ci_event": "pull_request",
       "ci_conclusion": "success",
-      "ci_verified_tree": "b80b7794fe54c660c26f8694e1aa91df3f267d1b",
+      "ci_verified_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -701,10 +713,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "76491ca63a0101e1334f1800709e447a996d2523",
-      "feature_head_bootstrap_verified_tree": "b80b7794fe54c660c26f8694e1aa91df3f267d1b",
-      "feature_head_bootstrap_run_id": 36235041108,
-      "feature_head_bootstrap_job_id": 108385157885,
+      "feature_head_bootstrap_verified_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
+      "feature_head_bootstrap_verified_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
+      "feature_head_bootstrap_run_id": 36235313135,
+      "feature_head_bootstrap_job_id": 108385893773,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_504_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -713,7 +725,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify this DD-203 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.",
+    "next_action": "Verify this DD-203 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.",
     "core_services": {
       "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -721,10 +733,10 @@
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040–203 bounded implementation",
-      "verified_head": "76491ca63a0101e1334f1800709e447a996d2523",
-      "verified_tree": "b80b7794fe54c660c26f8694e1aa91df3f267d1b",
-      "core_ci_run_id": 36235041108,
-      "core_ci_job_id": 108385158037,
+      "verified_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
+      "verified_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
+      "core_ci_run_id": 36235313135,
+      "core_ci_job_id": 108385893610,
       "tests": "664/664 PASS",
       "core_test_counts": {
         "tests": 664,
@@ -732,8 +744,8 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36235041108,
-      "postgres_ci_job_id": 108385157885,
+      "postgres_ci_run_id": 36235313135,
+      "postgres_ci_job_id": 108385893773,
       "postgres_tests": "504/504 PASS",
       "postgres_test_counts": {
         "tests": 504,
@@ -742,8 +754,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36235041064,
-      "database_regression_job_id": 108385157943,
+      "database_regression_run_id": 36235313136,
+      "database_regression_job_id": 108385893576,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -1204,7 +1216,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify this DD-203 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.",
+      "next_action": "Verify this DD-203 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1298,7 +1310,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD203_PROMOTED_PENDING_HEAD_VERIFICATION",
+  "current_phase": "DEVELOPMENT_DD203_VERIFIED",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1331,17 +1343,17 @@
   },
   "continuation": {
     "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
-    "verified_code_head": "76491ca63a0101e1334f1800709e447a996d2523",
-    "verified_code_tree": "b80b7794fe54c660c26f8694e1aa91df3f267d1b",
+    "verified_code_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
+    "verified_code_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
     "source_audit": "Development/AI_TOOL_DEFINITION_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DEVELOPMENT_DD203_VERIFICATION_2026-09-26.md",
-    "next_action": "Verify this DD-203 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.",
+    "next_action": "Verify this DD-203 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
     "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
-    "verified_executable_basis": "76491ca63a0101e1334f1800709e447a996d2523",
-    "verified_executable_tree": "b80b7794fe54c660c26f8694e1aa91df3f267d1b",
+    "verified_executable_basis": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
+    "verified_executable_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
     "current_verification": "Registers/DEVELOPMENT_DD203_VERIFICATION_2026-09-26.md",
     "scope": "DD-203 implements only AIToolDefinition → AICapability exact capability-code foreign-key continuity. Capability currentness/policy, ToolDefinition authorization, ToolSet/AgentStep authorization and AI/tool execution remain outside this checkpoint."
   },
@@ -1377,8 +1389,8 @@
     "decision_id": "DD-203",
     "decision": "DD-203 AIToolDefinition AICapability exact capability-code foreign-key floor",
     "checkpoint": "DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001",
-    "verified_head": "76491ca63a0101e1334f1800709e447a996d2523",
-    "verified_tree": "b80b7794fe54c660c26f8694e1aa91df3f267d1b",
+    "verified_head": "479e4aa420e6773c8b0af5c37cd121a440ccf04d",
+    "verified_tree": "bbcf8c8c19e4a919e1cb4701646a5814f98a4234",
     "source_audit": "Development/AI_TOOL_DEFINITION_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
       "AITOOL-CAP-CUR-001",
@@ -1393,16 +1405,16 @@
       "tests/core/ai-tool-definition-capability-binding-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36235041108,
-      "job_id": 108385158037,
+      "run_id": 36235313135,
+      "job_id": 108385893610,
       "tests": 664,
       "pass": 664,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36235041108,
-      "job_id": 108385157885,
+      "run_id": 36235313135,
+      "job_id": 108385893773,
       "tests": 504,
       "pass": 504,
       "fail": 0,
@@ -1410,13 +1422,13 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36235041064,
-      "job_id": 108385157943,
+      "run_id": 36235313136,
+      "job_id": 108385893576,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36235041093,
-      "job_id": 108385157930,
+      "run_id": 36235313173,
+      "job_id": 108385893675,
       "conclusion": "success"
     },
     "database_schema_change": false,

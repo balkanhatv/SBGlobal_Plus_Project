@@ -397,3 +397,7 @@ Migration 0013's AIToolDefinition → AICapability exact capability-code foreign
 
 ## 2026-09-26 — DD-203 canonical promotion / checkpoint advance
 Implementation `76491ca63a0101e1334f1800709e447a996d2523` / tree `b80b7794fe54c660c26f8694e1aa91df3f267d1b` passed exact-head **664 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-203 promotes only the exact capability-code FK floor.
+
+
+## 2026-09-26 — DD-203 promotion exact-head verified / closure staged
+Canonical DD-203 promotion `479e4aa420e6773c8b0af5c37cd121a440ccf04d` / tree `bbcf8c8c19e4a919e1cb4701646a5814f98a4234` passed exact-head **664 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.

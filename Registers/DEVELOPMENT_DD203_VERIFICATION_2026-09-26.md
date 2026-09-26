@@ -28,3 +28,14 @@ All four implementation logs assert the exact commit/tree above. Database invent
 A true helper result proves only exact capability-code foreign-key continuity. Capability status/category/entitlement/default-policy/schema-version and ToolDefinition permission/approval/OperationContract/side-effect/idempotency/audit/lifecycle semantics remain uninterpreted.
 
 Canonical promotion uses the implementation HEAD above as verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `479e4aa420e6773c8b0af5c37cd121a440ccf04d` / tree `bbcf8c8c19e4a919e1cb4701646a5814f98a4234` independently passed all required workflows:
+- Core Service Verify `36235313135`, Core job `108385893610`: **664/664 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108385893773`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36235313136`, job `108385893576`: PASS.
+- Web Boundary Verify `36235313173`, job `108385893675`: PASS.
+
+All four logs assert the exact promotion commit/tree above. This authorizes DD-203 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.
