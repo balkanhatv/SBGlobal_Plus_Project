@@ -2872,3 +2872,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-205 does not select current/latest IndustryAIConfig; revalidate TenantAIConfig non-widening; validate country-pack activation or capability/provider/model allowlists; list/resolve PromptSet members; select/render PromptTemplates; evaluate permissions/entitlements/budget/residency/retention; route providers/models; authorize assistants/agents/tools; or execute AI.
 
 **Acceptance:** `AIINDCFG-PROMPT-CUR-001…007` in DD-17 and `tests/core/ai-industry-config-prompt-set-binding-floors.test.mjs`.
+
+
+## DD-206 — TenantAIConfig capability allowlist may be re-evaluated as a duplicate-free exact-code/raw-ACTIVE current-binding floor
+
+**Context:** migration 0031 requires `core_ai.tenant_ai_config.allowed_capabilities` to be non-null, contain no nulls, satisfy duplicate-free set semantics through `core_tenancy.text_array_is_set(...)`, and have a matching raw `ACTIVE` `core_ai.ai_capability` row for every exact code. DD-119 exposes TenantAIConfig id/Tenant id/raw `allowedCapabilities`; DD-109 exposes AICapability id/code/status.
+
+**Decision:** add pure helper `matchesAITenantConfigCapabilityAllowlistFloors(config, capabilities)`. It validates config identity and a duplicate-free exact-string allowlist; requires exact one-row-per-code evidence with no missing/extra/duplicate codes; validates capability id/code shape; requires exact code equality and raw status exactly `ACTIVE`. Empty allowlists require empty evidence.
+
+**Security / trade-off:** exact evidence-set hygiene is a helper fail-closed contract; it does not add a new persisted business rule. No code trimming, case-folding or fallback is authorized.
+
+**Boundary:** DD-206 does not select current/latest TenantAIConfig, establish runtime enablement, validate Provider/Model allowlists or model→provider compatibility, merge effective Tenant+Industry configuration, satisfy entitlement/permission/budget/residency/sensitivity/retention/prompt policy, validate provisioning, route providers/models, authorize assistants/agents/tools or execute AI.
+
+**Acceptance:** `AITENCFG-CAP-CUR-001…007` in DD-17 and `tests/core/ai-tenant-config-capability-allowlist-floors.test.mjs`.

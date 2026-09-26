@@ -3446,3 +3446,27 @@ Malformed config id/Tenant/Industry/domain PromptSet id or malformed PromptSet i
 
 ### AIINDCFG-PROMPT-CUR-007 — Unrelated configuration stays uninterpreted
 Industry allowlists/country packs/localization/version/update fields and PromptSet code/version/timestamps do not affect this predicate; inputs remain unchanged.
+
+
+## DD-206 TenantAIConfig Capability Allowlist Binding Acceptance
+
+### AITENCFG-CAP-CUR-001 — Empty allowlist
+An empty capability allowlist passes only with empty capability evidence.
+
+### AITENCFG-CAP-CUR-002 — Complete exact ACTIVE set
+A duplicate-free allowlist passes with exactly one raw-ACTIVE capability row per exact code, independent of evidence order.
+
+### AITENCFG-CAP-CUR-003 — Exact evidence-set hygiene
+Missing, extra, duplicate or wrong-code capability evidence fails closed.
+
+### AITENCFG-CAP-CUR-004 — Raw ACTIVE state
+Every referenced capability status must equal `ACTIVE` exactly; case/whitespace variants and non-ACTIVE states fail.
+
+### AITENCFG-CAP-CUR-005 — Allowlist set shape
+Duplicate or non-string TenantAIConfig capability entries fail closed; empty remains valid.
+
+### AITENCFG-CAP-CUR-006 — Relevant identity/code shape
+Malformed config id/Tenant id or malformed capability id/code evidence fails closed.
+
+### AITENCFG-CAP-CUR-007 — Unrelated semantics stay uninterpreted
+Provider/Model allowlists, enablement, policy refs, sensitivity/version/timestamps and Capability category/entitlement/policy/schema semantics do not affect this predicate; inputs remain unchanged.

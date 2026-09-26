@@ -424,3 +424,8 @@ Post-DD-203 source ownership isolated migration 0031's direct AIToolSetMember �
 ## 2026-09-26 — DD-205 IndustryAIConfig domain PromptSet floor
 
 Post-DD-204 source ownership isolated migration 0031's optional IndustryAIConfig → domain PromptSet current binding as source-complete. Exact implementation `83ea907781e47d23f36d227fcdad18a9b52afac2` / tree `25e6c3ac2cf258137218b7b4eeb5dcf106e35a93` passed **678/678 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Effective configuration, PromptSet membership/rendering and AI execution remain unclaimed.
+
+
+## 2026-09-26 — DD-206 TenantAIConfig capability allowlist floor
+
+Post-DD-205 source ownership isolated migration 0031's TenantAIConfig `allowed_capabilities` duplicate-free exact-code/raw-ACTIVE relationship as source-complete. Corrected source-audit basis `2cfb05d73d8458447d3af2526b6dc20f41a3284c` / tree `94f07d53a8402caade42894333072b245783f19c` passed **678/678 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `0ddbee338318dcde70122ed3813f4384dc501f00` / tree `cc1e04d579f4377acde18a73f6000db4c7963cb7` passed **685/685 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant change. Provider/Model allowlists, effective configuration and AI execution remain unclaimed.

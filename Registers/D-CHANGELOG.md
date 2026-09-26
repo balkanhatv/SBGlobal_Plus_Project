@@ -423,3 +423,10 @@ Implementation `83ea907781e47d23f36d227fcdad18a9b52afac2` / tree `25e6c3ac2cf258
 
 ## 2026-09-26 — DD-205 promotion exact-head verified / closure staged
 Canonical DD-205 promotion `92fcc0b4e3a4c52a46fe1c7c35caab44de3c3145` / tree `1bd37acd2e9c89dbd54d330a5b6e3586e096323d` passed exact-head **678 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-206 prerequisite selection
+Migration 0031's TenantAIConfig `allowed_capabilities[]` duplicate-free exact-code/raw-ACTIVE relationship is source-complete from DD-119 plus DD-109. Provider and Model allowlists remain independent predicates.
+
+## 2026-09-26 — DD-206 canonical promotion / checkpoint advance
+Implementation `0ddbee338318dcde70122ed3813f4384dc501f00` / tree `cc1e04d579f4377acde18a73f6000db4c7963cb7` passed exact-head **685 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-206 promotes only duplicate-free exact-code/raw-ACTIVE capability binding.

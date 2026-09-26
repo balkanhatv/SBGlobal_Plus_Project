@@ -379,3 +379,15 @@ DD-205 → `src/core/ai/industry-config-prompt-set-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD205_VERIFICATION_2026-09-26.md`.
 
 This chain claims only optional domain PromptSet exact id/raw ACTIVE/scope applicability for IndustryAIConfig. Effective configuration, PromptSet membership/rendering and AI execution remain separate.
+
+
+## DD-206 — TenantAIConfig capability allowlist
+
+F-05 + A-07 + DD-09 → migration 0031 TenantAIConfig allowlist integrity →
+`Development/AI_TENANT_CONFIG_CAPABILITY_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-206 → `src/core/ai/tenant-config-capability-allowlist-floors.ts` →
+`AITENCFG-CAP-CUR-001…007` →
+`tests/core/ai-tenant-config-capability-allowlist-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD206_VERIFICATION_2026-09-26.md`.
+
+This chain claims only TenantAIConfig `allowedCapabilities[]` duplicate-free exact-code/raw-ACTIVE capability binding. Provider/Model allowlists, effective configuration, entitlement/policy satisfaction, routing and AI execution remain separate.
