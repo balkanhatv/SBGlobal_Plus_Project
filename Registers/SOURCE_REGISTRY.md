@@ -1,5 +1,5 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-AI-MEDIA-REQUEST-CAPABILITY-BINDING-FLOORS-001`
+**Current checkpoint:** `DEV-AI-TOOL-DEFINITION-CAPABILITY-BINDING-FLOORS-001`
 **Status:** ACTIVE · **Updated:** 2026-09-26
 
 ## Authority
@@ -37,13 +37,10 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 ## Current audit / continuation evidence — 2026-09-26
 
-DD-202 implements only AIMediaRequest → AICapability exact capability-code foreign-key continuity. Capability currentness/entitlement, principal currentness, PromptTemplate/input-document authorization, provider/model routing, moderation and AI execution remain outside this checkpoint.
+DD-203 implements only AIToolDefinition → AICapability exact capability-code foreign-key continuity. Capability currentness/entitlement/policy, ToolDefinition permission/approval/OperationContract eligibility, ToolSet/AgentStep authorization, provider/model routing and AI/tool execution remain outside this checkpoint.
 
-Verified canonical DD-202 promotion `43e28ef6853ac106dc921f73c022013ba1e90ce6` / tree `6089a10fb86070cca693cae709f349b7bd958b38`: **657/657 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36233799273` (jobs `108381780428`, `108381780432`), Database `36233799262` (job `108381780351`), Web `36233799270` (job `108381780280`).
+Verified DD-203 implementation basis `76491ca63a0101e1334f1800709e447a996d2523` / tree `b80b7794fe54c660c26f8694e1aa91df3f267d1b`: **664/664 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36235041108` (jobs `108385158037`, `108385157885`), Database `36235041064` (job `108385157943`), Web `36235041093` (job `108385157930`).
 
-Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify the DD-203 AIToolDefinition capability binding candidate against the fixed source audit, then implement only exact capability-code FK continuity. Capability currentness, tool authorization and AI/tool execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify this DD-203 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; principal currentness and complete AI/tool execution remain locked.
 
 
-## Pending source-complete candidate — DD-203
-
-The next governed prerequisite is the AIToolDefinition → AICapability exact capability-code foreign-key continuity relationship only. Source audit: `Development/AI_TOOL_DEFINITION_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Capability currentness, tool authorization and AI/tool execution remain outside the candidate.

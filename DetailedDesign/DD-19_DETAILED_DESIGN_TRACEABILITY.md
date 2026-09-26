@@ -343,3 +343,15 @@ DD-202 → `src/core/ai/media-request-capability-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD202_VERIFICATION_2026-09-26.md`.
 
 This chain claims only exact AIMediaRequest `capabilityCode` → AICapability `code` foreign-key continuity. Capability currentness/entitlement, principal currentness, provider/model routing, moderation and AI execution remain separate.
+
+
+## DD-203 — AIToolDefinition AICapability exact code
+
+F-05 + A-07 + DD-09 → migration 0013 AIToolDefinition capability foreign key →
+`Development/AI_TOOL_DEFINITION_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-203 → `src/core/ai/tool-definition-capability-binding-floors.ts` →
+`AITOOL-CAP-CUR-001…007` →
+`tests/core/ai-tool-definition-capability-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD203_VERIFICATION_2026-09-26.md`.
+
+This chain claims only AIToolDefinition → AICapability exact capability-code foreign-key continuity. Capability currentness, ToolDefinition authorization, ToolSet/AgentStep authorization and AI/tool execution remain separate.

@@ -3374,3 +3374,27 @@ Capability lifecycle/category/entitlement/default-policy/schema-version evidence
 
 ### AIMEDIA-CAP-CUR-007 — Unrelated request semantics stay uninterpreted
 Principal/media/prompt/brand/localization/document/sensitivity/residency/moderation/status/time evidence does not affect this direct FK predicate; inputs remain unchanged.
+
+
+## DD-203 AIToolDefinition Capability Binding Acceptance
+
+### AITOOL-CAP-CUR-001 — Exact capability binding
+An AIToolDefinition passes when supplied AICapability evidence has a code exactly equal to `capabilityCode`.
+
+### AITOOL-CAP-CUR-002 — Missing/wrong capability fails closed
+Missing capability evidence or a mismatched capability code fails closed.
+
+### AITOOL-CAP-CUR-003 — Code equality is exact
+Capability-code equality is byte-for-byte with no trimming/case normalization/fallback; equal empty raw strings remain valid persisted evidence.
+
+### AITOOL-CAP-CUR-004 — Relevant ToolDefinition shape fails closed
+Malformed AIToolDefinition id or non-string capability code fails closed.
+
+### AITOOL-CAP-CUR-005 — Relevant capability shape fails closed
+Malformed AICapability id or non-string code evidence fails closed.
+
+### AITOOL-CAP-CUR-006 — Capability catalog semantics stay uninterpreted
+Capability lifecycle/category/entitlement/default-policy/schema-version evidence does not affect this direct FK predicate.
+
+### AITOOL-CAP-CUR-007 — Unrelated ToolDefinition semantics stay uninterpreted
+Tool id, OperationContract, scope, permission, entitlement, schemas, side effects, approval, idempotency, audit, lifecycle/version/timestamps do not affect this direct FK predicate; inputs remain unchanged.

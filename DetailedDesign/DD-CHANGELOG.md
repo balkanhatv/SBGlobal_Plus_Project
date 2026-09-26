@@ -409,3 +409,8 @@ Post-DD-200 source ownership isolated migration 0012's direct TokenUsage `provid
 ## 2026-09-26 — DD-202 AIMediaRequest capability-code floor
 
 Post-DD-201 source ownership isolated migration 0011's direct AIMediaRequest `capability_code` → AICapability `code` foreign-key continuity as source-complete from DD-125 plus DD-109. Exact implementation `6e78feb68ce097f004e611cf748f92447a48c0c3` / tree `10ab2fe7617f34aceec800deb998118e22ac80ff` passed **657/657 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Capability currentness/entitlement, principal currentness, routing and AI execution remain unclaimed.
+
+
+## 2026-09-26 — DD-203 AIToolDefinition capability binding floor
+
+Post-DD-202 source ownership isolated migration 0013's direct AIToolDefinition → AICapability capability-code foreign key as source-complete. Exact implementation `76491ca63a0101e1334f1800709e447a996d2523` / tree `b80b7794fe54c660c26f8694e1aa91df3f267d1b` passed **664/664 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Capability currentness, ToolDefinition authorization and AI/tool execution remain unclaimed.

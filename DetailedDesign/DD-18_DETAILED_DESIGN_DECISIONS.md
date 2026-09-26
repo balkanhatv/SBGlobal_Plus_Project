@@ -2833,3 +2833,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-202 does not establish capability ACTIVE/current/eligible state, entitlement or policy satisfaction, Tenant/Industry allowlisting, principal currentness, PromptTemplate currentness, input-document authorization, provider/model compatibility, quota/budget, moderation, routing/fallback/retry, SDK dispatch or media/AI execution authority.
 
 **Acceptance:** `AIMEDIA-CAP-CUR-001…007` in DD-17 and `tests/core/ai-media-request-capability-binding-floors.test.mjs`.
+
+
+## DD-203 — AIToolDefinition AICapability exact code may be re-evaluated as a pure persisted foreign-key continuity floor
+
+**Context:** migration 0013 persists `core_ai.ai_tool_definition.capability_code text NOT NULL REFERENCES core_ai.ai_capability(code)`. DD-110 exposes AIToolDefinition raw `id` and `capabilityCode`; DD-109 exposes AICapability raw `id`, `code` and catalog metadata. Existing ToolSetMember/ToolDefinition and AgentStep tool-binding helpers own different relationships.
+
+**Decision:** add pure helper `matchesAIToolDefinitionCapabilityBindingFloors(toolDefinition, capability?)`. It validates only relevant ToolDefinition id/capability-code and Capability id/code shape, requires supplied capability evidence, and requires exact `capability.code === toolDefinition.capabilityCode`.
+
+**Security / trade-off:** this helper mirrors only migration 0013's persisted capability-code foreign key. Empty raw string equality remains valid if such persisted evidence exists; no stronger business rule is invented.
+
+**Boundary:** DD-203 does not establish capability ACTIVE/current/eligible state, entitlement/policy satisfaction, Tenant/Industry allowlisting, ToolDefinition permission/approval/OperationContract eligibility, ToolSet membership, AgentStep authorization, idempotency/audit satisfaction, provider/model routing, tool invocation or AI/tool execution authority.
+
+**Acceptance:** `AITOOL-CAP-CUR-001…007` in DD-17 and `tests/core/ai-tool-definition-capability-binding-floors.test.mjs`.
