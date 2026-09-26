@@ -10,7 +10,7 @@ DD-204 decision/acceptance/traceability are canonically promoted and the promoti
 
 Evidence: `Registers/DEVELOPMENT_DD204_VERIFICATION_2026-09-26.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-204 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; ToolSet currentness, authorization and complete AI/tool execution remain locked.
+Next: Verify the DD-205 IndustryAIConfig optional domain PromptSet current-binding candidate against the fixed source audit, then implement only exact id/ACTIVE/applicability. Effective AI configuration, prompt execution and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -257,3 +257,6 @@ Next governed work: **Commercial current-state integration only**.
 Audit head `a453fc2f2f555972cd0391a3db04bc67a6e7d497`: `Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md`. No DD-163 machine-auth implementation is source-authorized. Next: fresh source-audit another named unfinished runtime seam; do not infer token/verifier/CIDR/profile/use-audit semantics.
 
 
+## Pending source-complete candidate — DD-205
+
+The next governed prerequisite is IndustryAIConfig → optional domain PromptSet exact id/ACTIVE/scope-applicability only. Source audit: `Development/AI_INDUSTRY_CONFIG_PROMPT_SET_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Effective Tenant+Industry configuration, PromptSet membership/rendering and AI execution remain outside the candidate.
