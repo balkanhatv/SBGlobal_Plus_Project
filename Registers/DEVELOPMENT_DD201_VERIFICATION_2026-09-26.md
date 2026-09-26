@@ -24,3 +24,14 @@ All four logs assert the exact implementation commit/tree above. Database invent
 A true helper result proves only exact TokenUsage Provider-id foreign-key continuity. Provider ACTIVE/current/healthy state, credentials/secrets, AIModel currentness, capability/residency suitability, principal currentness, budget/quota, billing validity, routing/fallback/retry and AI execution remain outside DD-201.
 
 Canonical promotion uses the implementation HEAD above as verified executable basis. The promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `c237f3162df7e98fa683a81569b6e69a369c5574` / tree `740b71350ee880f3f02accad2c6e87b90e5b137d` independently passed all required workflows:
+- Core Service Verify `36232813845`, Core job `108379048572`: **650/650 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108379048438`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36232813838`, job `108379048620`: PASS.
+- Web Boundary Verify `36232813840`, job `108379048373`: PASS.
+
+All four logs assert the exact promotion commit/tree above. This authorizes DD-201 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.
