@@ -2781,3 +2781,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-198 does not establish pricing correctness, provider-rate applicability/currentness, currency conversion, billability, cost finalization, invoice/tax/payment/ledger authority, TokenUsage principal currentness, capability/model/provider eligibility, quota/budget or AI execution authority.
 
 **Acceptance:** `AICOST-USAGE-CUR-001…006` in DD-17 and `tests/core/ai-cost-token-usage-binding-floors.test.mjs`.
+
+
+## DD-199 — AIMessage exact AIConversation parent may be re-evaluated as a pure persisted foreign-key floor
+
+**Context:** migration 0012 defines `core_ai.ai_message.conversation_id uuid NOT NULL REFERENCES core_ai.ai_conversation(id)`. The raw AIMessage contract exposes `id` and `conversationId`; the raw AIConversation contract exposes `id` plus independent scope/principal/assistant/security/lifecycle evidence. Migration 0031 adds no stronger AIMessage → AIConversation relationship predicate.
+
+**Decision:** add pure helper `matchesAIMessageConversationBindingFloors(message, conversation?)`. It validates only AIMessage `id` / `conversationId` and AIConversation `id` UUID shape, requires supplied conversation evidence, and requires exact `conversation.id === message.conversationId`.
+
+**Security / trade-off:** this helper mirrors only migration 0012's direct foreign-key continuity. Conversation-derived RLS visibility remains persistence-owned and is not reinterpreted as Core authorization.
+
+**Boundary:** DD-199 does not establish acting-principal authorization, Conversation ACTIVE/current validity, AssistantDefinition validity, sensitivity/retention policy, content/source-ref access, model-route validity/currentness, moderation, retrieval/grounding or AI execution authority.
+
+**Acceptance:** `AIMSG-CONV-CUR-001…006` in DD-17 and `tests/core/ai-message-conversation-binding-floors.test.mjs`.

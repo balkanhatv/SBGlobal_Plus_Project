@@ -389,3 +389,8 @@ Post-DD-196 source ownership isolated migration 0012's direct TokenUsage `capabi
 ## 2026-09-25 — DD-198 AICost TokenUsage binding floor
 
 Post-DD-197 source ownership isolated migration 0012's AICost `usage_id` primary-key/foreign-key relationship to TokenUsage `id` as source-complete. Exact implementation `af98e316fa8bbc4d2bc91c52535741f0674388bf` / tree `32fccff385f9768df655a934df2f211322e14959` passed **632/632 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Pricing, billing/finalization, principal currentness and AI execution remain unclaimed.
+
+
+## 2026-09-26 — DD-199 AIMessage Conversation parent floor
+
+Post-DD-198 source ownership isolated migration 0012's direct AIMessage `conversation_id` → AIConversation `id` foreign-key continuity as source-complete. Exact implementation `0fecb3a123caf56b4239fed7636f6c65ce624a13` / tree `06968170ab6fda5a8ed13fcc870ea02ac87c46ca` passed **638/638 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Conversation authorization/currentness, model routing and AI execution remain unclaimed.

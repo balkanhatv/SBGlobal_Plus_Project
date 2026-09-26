@@ -3287,3 +3287,24 @@ TokenUsage Tenant/Industry/principal/capability/model/provider/units/time/correl
 
 ### AICOST-USAGE-CUR-006 — Bounded/no mutation
 Inputs remain unchanged; a true result grants no pricing, billing, finalization, authorization or AI execution authority.
+
+
+## DD-199 AIMessage Conversation Binding Acceptance
+
+### AIMSG-CONV-CUR-001 — Exact parent continuity
+An AIMessage passes when its `conversationId` exactly equals the supplied AIConversation `id`.
+
+### AIMSG-CONV-CUR-002 — Missing/wrong parent fails closed
+Missing AIConversation evidence or a mismatched parent id fails closed.
+
+### AIMSG-CONV-CUR-003 — Relevant ids must be valid
+Malformed AIMessage id/conversation id or AIConversation id fails closed.
+
+### AIMSG-CONV-CUR-004 — Message semantics stay uninterpreted
+Message role/content/source refs/model route/timestamps do not affect this foreign-key predicate.
+
+### AIMSG-CONV-CUR-005 — Conversation semantics stay uninterpreted
+Conversation Tenant/Industry/scope/principal/assistant/sensitivity/retention/status/timestamps do not affect this foreign-key predicate.
+
+### AIMSG-CONV-CUR-006 — Bounded/no mutation
+Inputs remain unchanged; a true result grants no conversation authorization, model-route authority, content/source access or AI execution authority.

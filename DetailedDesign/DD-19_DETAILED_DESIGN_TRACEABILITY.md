@@ -295,3 +295,15 @@ DD-198 → `src/core/ai/cost-token-usage-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD198_VERIFICATION_2026-09-25.md`.
 
 This chain claims only AICost `usageId` → TokenUsage `id` exact persisted parent continuity. Pricing, billing/finalization, principal/catalog eligibility and AI execution remain separate.
+
+
+## DD-199 — AIMessage exact AIConversation parent
+
+F-05 + A-07 + DD-09 → migration 0012 AIMessage conversation foreign key →
+`Development/AI_MESSAGE_CONVERSATION_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-199 → `src/core/ai/message-conversation-binding-floors.ts` →
+`AIMSG-CONV-CUR-001…006` →
+`tests/core/ai-message-conversation-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD199_VERIFICATION_2026-09-26.md`.
+
+This chain claims only AIMessage `conversationId` → AIConversation `id` exact persisted parent continuity. Conversation authorization/currentness, assistant validity, content/source access, model routing and AI execution remain separate.
