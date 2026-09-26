@@ -412,3 +412,10 @@ Implementation `f1fef7e6dc7ce74b15620f0e7f5446fac4852e55` / tree `4c148d0fe44353
 
 ## 2026-09-26 — DD-204 promotion exact-head verified / closure staged
 Canonical DD-204 promotion `71be4ddd8c4addc7b5b7277bd17a60caeb7f4450` / tree `dd763e8dd94a2a7a85d67baa3870d8842b234d2c` passed exact-head **671 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-205 prerequisite selection
+Migration 0031's optional IndustryAIConfig `domain_prompt_set_id` → PromptSet exact id/raw ACTIVE/scope-applicability relationship is source-complete from DD-120 plus DD-112.
+
+## 2026-09-26 — DD-205 canonical promotion / checkpoint advance
+Implementation `83ea907781e47d23f36d227fcdad18a9b52afac2` / tree `25e6c3ac2cf258137218b7b4eeb5dcf106e35a93` passed exact-head **678 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-205 promotes only this optional domain PromptSet current-binding floor.

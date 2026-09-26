@@ -1,5 +1,5 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-AI-TOOL-SET-MEMBER-PARENT-BINDING-FLOORS-001`
+**Current checkpoint:** `DEV-AI-INDUSTRY-CONFIG-PROMPT-SET-BINDING-FLOORS-001`
 **Status:** ACTIVE · **Updated:** 2026-09-26
 
 ## Authority
@@ -37,13 +37,10 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 ## Current audit / continuation evidence — 2026-09-26
 
-DD-204 implements only AIToolSetMember → parent AIToolSet exact-id foreign-key continuity. ToolSet currentness/applicability, Tenant/Industry authorization, ToolDefinition validity, effective membership, AgentStep authorization and AI/tool execution remain outside this checkpoint.
+DD-205 implements only IndustryAIConfig → optional domain PromptSet exact-id/raw-ACTIVE/scope-applicability. Effective Tenant+Industry configuration, catalog/country-pack validation, PromptSet membership/rendering and AI execution remain outside this checkpoint.
 
-Verified canonical DD-204 promotion `71be4ddd8c4addc7b5b7277bd17a60caeb7f4450` / tree `dd763e8dd94a2a7a85d67baa3870d8842b234d2c`: **671/671 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36236575804` (jobs `108389330244`, `108389330281`), Database `36236575796` (job `108389330164`), Web `36236575800` (job `108389330111`).
+Verified DD-205 implementation basis `83ea907781e47d23f36d227fcdad18a9b52afac2` / tree `25e6c3ac2cf258137218b7b4eeb5dcf106e35a93`: **678/678 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36248324221` (jobs `108421550711`, `108421550558`), Database `36248324201` (job `108421550492`), Web `36248324197` (job `108421550788`).
 
-Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify the DD-205 IndustryAIConfig optional domain PromptSet current-binding candidate against the fixed source audit, then implement only exact id/ACTIVE/applicability. Effective AI configuration, prompt execution and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify this DD-205 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent persisted AI relationship; effective AI configuration and AI execution remain locked.
 
 
-## Pending source-complete candidate — DD-205
-
-The next governed prerequisite is IndustryAIConfig → optional domain PromptSet exact id/ACTIVE/scope-applicability only. Source audit: `Development/AI_INDUSTRY_CONFIG_PROMPT_SET_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md`. Effective Tenant+Industry configuration, PromptSet membership/rendering and AI execution remain outside the candidate.

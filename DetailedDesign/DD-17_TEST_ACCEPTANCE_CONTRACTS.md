@@ -3422,3 +3422,27 @@ ToolSet owner/scope/code/version/status/timestamp evidence does not affect the d
 
 ### AITOOLMEM-SET-CUR-007 — Unrelated member semantics stay uninterpreted
 Member ToolDefinition/enabled/constraint/timestamp evidence does not affect the predicate; inputs remain unchanged.
+
+
+## DD-205 IndustryAIConfig Domain PromptSet Binding Acceptance
+
+### AIINDCFG-PROMPT-CUR-001 — Unbound config stays unbound
+A config without `domainPromptSetId` passes only when no PromptSet evidence is supplied.
+
+### AIINDCFG-PROMPT-CUR-002 — PLATFORM PromptSet applicability
+An exact referenced raw ACTIVE PLATFORM PromptSet applies to the Industry config.
+
+### AIINDCFG-PROMPT-CUR-003 — TENANT PromptSet applicability
+An exact referenced raw ACTIVE TENANT PromptSet applies only for the same Tenant.
+
+### AIINDCFG-PROMPT-CUR-004 — INDUSTRY PromptSet applicability
+An exact referenced raw ACTIVE INDUSTRY PromptSet applies only for the same Tenant and exact Industry Context.
+
+### AIINDCFG-PROMPT-CUR-005 — Exact id and raw ACTIVE state
+Missing evidence, wrong PromptSet id or any non-ACTIVE/raw status variant fails closed.
+
+### AIINDCFG-PROMPT-CUR-006 — Relevant shape validation
+Malformed config id/Tenant/Industry/domain PromptSet id or malformed PromptSet id/owner shape fails closed.
+
+### AIINDCFG-PROMPT-CUR-007 — Unrelated configuration stays uninterpreted
+Industry allowlists/country packs/localization/version/update fields and PromptSet code/version/timestamps do not affect this predicate; inputs remain unchanged.

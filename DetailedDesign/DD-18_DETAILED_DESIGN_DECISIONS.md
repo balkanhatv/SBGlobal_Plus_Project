@@ -2859,3 +2859,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-204 does not establish ToolSet ACTIVE/current/applicable state, Tenant/Industry authorization, ToolDefinition validity (DD-176 owns that independently), effective membership, permission/entitlement/approval satisfaction, AgentDefinition/AgentStep authorization, OperationContract eligibility, provider/model routing, tool invocation or AI/tool execution.
 
 **Acceptance:** `AITOOLMEM-SET-CUR-001…007` in DD-17 and `tests/core/ai-tool-set-member-parent-binding-floors.test.mjs`.
+
+
+## DD-205 — IndustryAIConfig optional domain PromptSet current binding may be re-evaluated as a pure exact-id/ACTIVE/applicability floor
+
+**Context:** migration 0031 adds `industry_ai_config_prompt_set_fk` and, when `domain_prompt_set_id` is present, validates that the referenced PromptSet exists, has raw status exactly `ACTIVE`, and applies to the config's Tenant+Industry scope through `definition_applies_to_scope(...)`. DD-120 exposes all IndustryAIConfig-side evidence and DD-112 exposes all PromptSet-side evidence.
+
+**Decision:** add pure helper `matchesAIIndustryConfigDomainPromptSetBindingFloors(config, promptSet?)`. Unbound configs require no PromptSet evidence. Bound configs require exact referenced id, canonical PromptSet owner shape, raw ACTIVE status, and applicability: PLATFORM; same-Tenant TENANT; or same-Tenant/exact-Industry INDUSTRY.
+
+**Security / trade-off:** this helper mirrors only the persisted optional domain-PromptSet relationship. It does not merge Tenant+Industry configuration, validate catalog/country-pack allowlists or resolve effective PromptSet membership.
+
+**Boundary:** DD-205 does not select current/latest IndustryAIConfig; revalidate TenantAIConfig non-widening; validate country-pack activation or capability/provider/model allowlists; list/resolve PromptSet members; select/render PromptTemplates; evaluate permissions/entitlements/budget/residency/retention; route providers/models; authorize assistants/agents/tools; or execute AI.
+
+**Acceptance:** `AIINDCFG-PROMPT-CUR-001…007` in DD-17 and `tests/core/ai-industry-config-prompt-set-binding-floors.test.mjs`.

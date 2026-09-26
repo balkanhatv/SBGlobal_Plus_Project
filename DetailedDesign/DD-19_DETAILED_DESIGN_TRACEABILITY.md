@@ -367,3 +367,15 @@ DD-204 → `src/core/ai/tool-set-member-parent-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD204_VERIFICATION_2026-09-26.md`.
 
 This chain claims only direct member → parent ToolSet id continuity. ToolSet currentness/applicability, ToolDefinition validity, authorization and tool execution remain separate.
+
+
+## DD-205 — IndustryAIConfig optional domain PromptSet current binding
+
+F-05 + A-07 + DD-09 → migration 0031 IndustryAIConfig PromptSet FK/currentness trigger →
+`Development/AI_INDUSTRY_CONFIG_PROMPT_SET_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-205 → `src/core/ai/industry-config-prompt-set-binding-floors.ts` →
+`AIINDCFG-PROMPT-CUR-001…007` →
+`tests/core/ai-industry-config-prompt-set-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD205_VERIFICATION_2026-09-26.md`.
+
+This chain claims only optional domain PromptSet exact id/raw ACTIVE/scope applicability for IndustryAIConfig. Effective configuration, PromptSet membership/rendering and AI execution remain separate.

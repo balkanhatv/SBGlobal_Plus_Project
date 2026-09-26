@@ -419,3 +419,8 @@ Post-DD-202 source ownership isolated migration 0013's direct AIToolDefinition �
 ## 2026-09-26 — DD-204 AIToolSetMember parent ToolSet floor
 
 Post-DD-203 source ownership isolated migration 0031's direct AIToolSetMember → AIToolSet parent foreign key as source-complete. Exact implementation `f1fef7e6dc7ce74b15620f0e7f5446fac4852e55` / tree `4c148d0fe44353f55bff7c73a129721c373a2dac` passed **671/671 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. ToolSet currentness/applicability, authorization and tool execution remain unclaimed.
+
+
+## 2026-09-26 — DD-205 IndustryAIConfig domain PromptSet floor
+
+Post-DD-204 source ownership isolated migration 0031's optional IndustryAIConfig → domain PromptSet current binding as source-complete. Exact implementation `83ea907781e47d23f36d227fcdad18a9b52afac2` / tree `25e6c3ac2cf258137218b7b4eeb5dcf106e35a93` passed **678/678 Core**, **504/504 PostgreSQL** plus database bootstrap, Database Verify and Web build. No schema/RLS/role/grant change. Effective configuration, PromptSet membership/rendering and AI execution remain unclaimed.
