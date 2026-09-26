@@ -131,6 +131,7 @@ export * from "./ai/agent-approval-parent-scope-floors.js";
 export * from "./ai/tenant-config.js";
 export * from "./ai/tenant-config-capability-allowlist-floors.js";
 export * from "./ai/tenant-config-provider-allowlist-floors.js";
+export * from "./ai/tenant-config-model-allowlist-floors.js";
 export * from "./ai/industry-config.js";
 export * from "./ai/industry-config-prompt-set-binding-floors.js";
 export * from "./ai/conversation.js";
