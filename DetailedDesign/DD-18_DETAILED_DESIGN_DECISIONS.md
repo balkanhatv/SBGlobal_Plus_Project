@@ -2820,3 +2820,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-201 does not establish Provider ACTIVE/current/healthy state, credentials/secrets, AIModel continuity/currentness, capability or residency suitability, principal currentness, budget/quota, billing validity, routing/fallback/retry, SDK dispatch or AI execution authority.
 
 **Acceptance:** `AIUSAGE-PROV-CUR-001…006` in DD-17 and `tests/core/ai-token-usage-provider-binding-floors.test.mjs`.
+
+
+## DD-202 — AIMediaRequest AICapability exact code may be re-evaluated as a pure persisted foreign-key continuity floor
+
+**Context:** migration 0011 persists `core_ai.ai_media_request.capability_code text NOT NULL REFERENCES core_ai.ai_capability(code)`. DD-125 exposes AIMediaRequest `capabilityCode`; DD-109 exposes AICapability raw `id` and `code`. Migration 0031 adds principal/prompt/input-document integrity but does not strengthen this capability foreign key with ACTIVE/current/entitlement/routing semantics.
+
+**Decision:** add pure helper `matchesAIMediaRequestCapabilityBindingFloors(request, capability?)`. It validates only relevant request id/Tenant/optional Industry/capability-code shape and capability id/code shape, requires supplied capability evidence, and requires exact `capability.code === request.capabilityCode`.
+
+**Security / trade-off:** this helper mirrors only the persisted capability-code foreign key. Capability lifecycle/category/entitlement/default-policy/schema-version and MediaRequest principal/media/prompt/document/security/lifecycle evidence remain uninterpreted.
+
+**Boundary:** DD-202 does not establish capability ACTIVE/current/eligible state, entitlement or policy satisfaction, Tenant/Industry allowlisting, principal currentness, PromptTemplate currentness, input-document authorization, provider/model compatibility, quota/budget, moderation, routing/fallback/retry, SDK dispatch or media/AI execution authority.
+
+**Acceptance:** `AIMEDIA-CAP-CUR-001…007` in DD-17 and `tests/core/ai-media-request-capability-binding-floors.test.mjs`.

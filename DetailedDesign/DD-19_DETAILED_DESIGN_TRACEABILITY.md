@@ -331,3 +331,15 @@ DD-201 → `src/core/ai/token-usage-provider-binding-floors.ts` →
 `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`.
 
 This chain claims only exact TokenUsage `providerId` → AIProvider `id` foreign-key continuity. Provider currentness/health/credentials, billing/routing and AI execution remain separate.
+
+
+## DD-202 — AIMediaRequest AICapability exact code
+
+F-05 + A-07 + DD-09 → migration 0011 AIMediaRequest capability-code FK →
+`Development/AI_MEDIA_REQUEST_CAPABILITY_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-202 → `src/core/ai/media-request-capability-binding-floors.ts` →
+`AIMEDIA-CAP-CUR-001…007` →
+`tests/core/ai-media-request-capability-binding-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD202_VERIFICATION_2026-09-26.md`.
+
+This chain claims only exact AIMediaRequest `capabilityCode` → AICapability `code` foreign-key continuity. Capability currentness/entitlement, principal currentness, provider/model routing, moderation and AI execution remain separate.

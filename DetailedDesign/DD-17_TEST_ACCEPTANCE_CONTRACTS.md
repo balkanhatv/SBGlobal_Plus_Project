@@ -3350,3 +3350,27 @@ TokenUsage model/capability/principal/units/time/correlation evidence does not a
 
 ### AIUSAGE-PROV-CUR-006 — Pure predicate only
 Inputs remain unchanged and a true result grants no Provider currentness, health, credential, routing, billing or AI execution authority.
+
+
+## DD-202 AIMediaRequest Capability Binding Acceptance
+
+### AIMEDIA-CAP-CUR-001 — Exact capability binding
+An AIMediaRequest passes when supplied AICapability evidence has a code exactly equal to `capabilityCode`.
+
+### AIMEDIA-CAP-CUR-002 — Missing/wrong capability fails closed
+Missing capability evidence or a mismatched capability code fails closed.
+
+### AIMEDIA-CAP-CUR-003 — Code equality is exact
+Capability-code equality is byte-for-byte with no trimming/case normalization/fallback; empty-to-empty raw equality is preserved.
+
+### AIMEDIA-CAP-CUR-004 — Relevant request shape fails closed
+Malformed AIMediaRequest id, Tenant, optional Industry Context or capability-code shape fails closed.
+
+### AIMEDIA-CAP-CUR-005 — Relevant capability shape fails closed
+Malformed AICapability id or code evidence fails closed.
+
+### AIMEDIA-CAP-CUR-006 — Capability catalog semantics stay uninterpreted
+Capability lifecycle/category/entitlement/default-policy/schema-version evidence does not affect this direct FK predicate.
+
+### AIMEDIA-CAP-CUR-007 — Unrelated request semantics stay uninterpreted
+Principal/media/prompt/brand/localization/document/sensitivity/residency/moderation/status/time evidence does not affect this direct FK predicate; inputs remain unchanged.

@@ -379,3 +379,10 @@ Implementation `99c809ea83f35fb52981bfd5e5f15497ed15d403` / tree `16d7ef2699d315
 
 ## 2026-09-26 — DD-201 promotion exact-head verified / closure staged
 Canonical DD-201 promotion `c237f3162df7e98fa683a81569b6e69a369c5574` / tree `740b71350ee880f3f02accad2c6e87b90e5b137d` passed exact-head **650 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
+
+
+## 2026-09-26 — DD-202 prerequisite selection
+Migration 0011's AIMediaRequest `capability_code` → AICapability `code` direct foreign-key continuity is source-complete from DD-125 plus DD-109 and distinct from DD-197's TokenUsage capability foreign key.
+
+## 2026-09-26 — DD-202 canonical promotion / checkpoint advance
+Implementation `6e78feb68ce097f004e611cf748f92447a48c0c3` / tree `10ab2fe7617f34aceec800deb998118e22ac80ff` passed exact-head **657 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-202 promotes only exact capability-code FK continuity.
