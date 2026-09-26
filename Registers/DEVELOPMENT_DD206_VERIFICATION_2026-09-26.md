@@ -41,3 +41,14 @@ Canonical promotion `ce981fd6eaeaed2c5d413b8764c2bb433e9bbcde` / tree `bd9cafe4a
 - Web Boundary Verify `36253450318`, job `108435675240`: PASS.
 
 All four logs assert the exact promotion commit/tree above. This authorizes DD-206 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.
+
+
+## State-closure exact-head gate
+
+State closure `a2f5194c92e05724059defb93506264c14e1b071` / tree `cd05f0889e4040a7d1ff341133d749de1abfe240` independently passed all required workflows:
+- Core Service Verify `36253680096`, Core job `108436326880`: **685/685 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108436327058`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36253680100`, job `108436326800`: PASS.
+- Web Boundary Verify `36253680090`, job `108436326917`: PASS.
+
+All four logs assert the exact closure commit/tree above. This satisfies the recorded gate to open the next source-owned prerequisite audit.
