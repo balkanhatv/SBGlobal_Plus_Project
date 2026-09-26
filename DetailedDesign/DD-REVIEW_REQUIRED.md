@@ -10,7 +10,7 @@ DD-207 decision/acceptance/traceability are canonically promoted and the promoti
 
 Evidence: `Registers/DEVELOPMENT_DD207_VERIFICATION_2026-09-26.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this DD-207 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the dependent TenantAIConfig Model allowlist predicate; effective configuration and AI execution remain locked.
+Next: Verify the DD-208 TenantAIConfig Model allowlist candidate against the fixed source audit, then implement only duplicate-free exact-id/raw-ACTIVE/model-provider-in-config binding. Effective configuration, routing and AI execution remain locked.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -48,3 +48,6 @@ PostgreSQL+pgvector PASS: commit `2c36b43a7d55c6600b71f9714389e025a06df580`, Dat
 Earlier Phase-3 labels describe their recorded baseline. Current source-owner reconciliation and the full-file audit supersede inherited traceability/count assumptions without changing the preserved source IDs.
 
 
+## Pending source-complete candidate — DD-208
+
+The next governed prerequisite is the TenantAIConfig `allowedModelIds[]` duplicate-free exact-id/raw-ACTIVE Model relationship with exact Model `providerId` membership in the same config `allowedProviderIds[]`. Source audit: `Development/AI_TENANT_CONFIG_MODEL_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md`. Effective configuration, routing and AI execution remain outside the candidate.

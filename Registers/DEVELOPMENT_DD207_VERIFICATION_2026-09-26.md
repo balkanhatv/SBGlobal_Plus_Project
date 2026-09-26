@@ -41,3 +41,14 @@ Canonical promotion `a86b90005400d252b06c9ba34fbc46c43a7561f8` / tree `dc5d4dced
 - Web Boundary Verify `36254451394`, job `108438463412`: PASS.
 
 All four logs assert the exact promotion commit/tree above. This authorizes DD-207 state closure only; the closure commit must independently pass the same required workflows before another DD/source audit opens.
+
+
+## State-closure exact-head gate
+
+State closure `86238e0471a28460277c7bf3ce5435a7029ffdac` / tree `f8fa90bb6c1b43260727e4d0e11ab816b79b5bea` independently passed all required workflows:
+- Core Service Verify `36255432310`, Core job `108441207688`: **692/692 PASS**, zero failed/skipped; REPO-007 and REPO-008 PASS.
+- PostgreSQL job `108441207556`: **504/504 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36255432296`, job `108441207432`: PASS.
+- Web Boundary Verify `36255432308`, job `108441207518`: PASS.
+
+All four logs assert the exact closure commit/tree above. This satisfies the recorded gate to open the dependent TenantAIConfig Model allowlist source audit.
