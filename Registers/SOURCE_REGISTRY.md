@@ -39,8 +39,8 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 DD-208 implements only TenantAIConfig allowedModelIds[] duplicate-free exact-id/raw-ACTIVE AIModel binding plus exact Model providerId membership in the same config allowedProviderIds[]. Provider-row runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain outside this checkpoint.
 
-Verified DD-208 implementation basis `a56ec19e2cbd1a685b65f6015b6c6087e1f803c2` / tree `dd4da07eb25beb1ace05036104f969cce6d7f120`: **700/700 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36255856408` (jobs `108442389085`, `108442389102`), Database `36255856407` (job `108442389025`), Web `36255856391` (job `108442388890`).
+Verified canonical DD-208 promotion `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba28541da36bd4c94d9559f91121a0aae2`: **700/700 Core**, **504/504 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36256149589` (jobs `108443203216`, `108443203364`), Database `36256149596` (job `108443203187`), Web `36256149585` (job `108443203157`).
 
-Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify this DD-208 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent Tenant/Industry AI configuration relationship; effective configuration and AI execution remain locked.
+Evidence: `Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md`. Next: Verify this DD-208 state-closure HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent Tenant/Industry AI configuration relationship; effective configuration and AI execution remain locked.
 
 

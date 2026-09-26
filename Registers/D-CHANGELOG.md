@@ -452,3 +452,7 @@ Migration 0031's TenantAIConfig `allowed_model_ids[]` duplicate-free exact-id/ra
 
 ## 2026-09-26 — DD-208 canonical promotion / checkpoint advance
 Implementation `a56ec19e2cbd1a685b65f6015b6c6087e1f803c2` / tree `dd4da07eb25beb1ace05036104f969cce6d7f120` passed exact-head **700 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web. DD-208 promotes only the Tenant Model allowlist current-binding floor.
+
+
+## 2026-09-26 — DD-208 promotion exact-head verified / closure staged
+Canonical DD-208 promotion `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba28541da36bd4c94d9559f91121a0aae2` passed exact-head **700 Core / 504 PostgreSQL / 48 migrations / 42 verification files** plus Database/Web; REPO-007/008 also pass. Active projections use this verified promotion as the executable/state basis while the state-closure commit itself remains the final gate before another DD/source audit.
