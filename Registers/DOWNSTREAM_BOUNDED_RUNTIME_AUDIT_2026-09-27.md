@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-64:** `772e373edf2259da4b78b837ad777b5346449a68` / tree `92881eadd52184d01d4fdd081418de67e634c254`
+**Prior tree-qualified verified basis through VC27-65:** `334d2c800c71696f459c8849f7431ed59ff0ca77` / tree `ba6fb90e5c984016b132d3ca8f87ec2434802b82`
 
-**Current exact-head correction basis:** `334d2c800c71696f459c8849f7431ed59ff0ca77` / tree `ba6fb90e5c984016b132d3ca8f87ec2434802b82`
+**Current exact-head correction basis:** `ea68e4e3d50f1457ec80a9214d6095c8807aadd6` / tree `91e09e8b385f007aaaa2a00106c06fcefa6e11ec`
 
-**Exact-head gate:** Core 735/735; PostgreSQL 512/512 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 736/736; PostgreSQL 512/512 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -75,6 +75,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-63 — Integration reader exact Tenant-Core scope:** five tenant-scoped Integration PostgreSQL readers now reject any present Industry Context on TENANT_CORE before scoped SQL, including empty-string evidence, while preserving raw reader semantics.
 - **VC27-64 — idempotency safe replay metadata:** persisted REPLAY/FINAL_FAILURE response status/reference now revalidate the existing bounded safe-metadata contract, and direct malformed completion is rejected before scoped SQL; no response body or lifecycle semantics are added.
 - **VC27-65 — first-party web Origin canonicalization:** incoming Origin evidence must itself be a canonical HTTPS origin with no credentials/path/query/fragment, and an explicitly supplied empty Origin is malformed; URL normalization can no longer erase disallowed syntax before allowlist comparison.
+- **VC27-66 — exact session-device binding:** SessionSecurityService now revalidates the returned device id, principal and Tenant against the selected session evidence, accepts only exact TRUSTED status, and preserves exact RISK_HOLD → STEP_UP_REQUIRED; alternate/malformed device-port evidence cannot become trusted ABAC environment state.
 
 ### Current bounded verdict
 
