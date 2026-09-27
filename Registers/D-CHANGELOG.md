@@ -523,3 +523,8 @@ S2.2 slice-2 commit `be26d71626eaa35c58c53a9b9bb78722e6d8fc12` / tree `6b3c2a165
 ## 2026-09-27 — parent-source closure residual canonical correction staged
 
 S2.2 slice-3 `e1be03f490e153ca3def028e7085dbb6fafe7095` closes the source-parent ledger at **372/372 owner-reconciled, 0 remaining**. A direct owner comparison then found stale F-01 authority for the Healthcare-heavy user list and Branch/Department identifiers plus missing F-04 jurisdiction/scope boundaries for India-default master/tax/reference values. These are corrected and VC27 audit IDs are de-duplicated. No RawSource/runtime/test/workflow/SQL/RLS change. Exact-head verification is required before adversarial/state closure; DD-208 remains current and DD-209 remains held.
+
+
+## 2026-09-27 — parent-source gate verified; current-state projection synchronized
+
+Parent-source closure `e1be03f490e153ca3def028e7085dbb6fafe7095` / tree `4eb24c5ddab00fcc17b251df27f9dd2586e19ed0` passed exact-head **700/700 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web with **372/372 source parents owner-reconciled, 0 NOT_CERTIFIED**. Residual canonical correction `59db060476157d86df9fd0ed71b5ba46927617be` / tree `3be8e6d229afaa6cb34de0d39ed6d7e17f11e842` passed the same gate. VC27-23 synchronizes README/State/D-INDEX/D-CHECKPOINT/REVIEW_REQUIRED/PROJECT_MANIFEST from the stale partial-source posture to the bounded current truth: source-parent gate complete, downstream canonical/state/Development/Database/CI/adversarial audit still IN PROGRESS, DD-208 current, DD-209 blocked, production readiness not claimed. No runtime/test/workflow/SQL/RLS/RawSource change.

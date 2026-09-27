@@ -440,3 +440,24 @@ The S1+S2 parent ledger at `e1be03f490e153ca3def028e7085dbb6fafe7095` reaches 37
 The audit finding sequence is also normalized to unique IDs: S1 residual VC27-18; S2.2 slices VC27-19, VC27-20 and VC27-21; this residual correction VC27-22.
 
 No RawSource, runtime, migration/RLS, role/grant, executable test, workflow definition, requirement ID/count or product-surface change. Exact-HEAD verification remains required before the adversarial closure sweep. DD-208 remains current and DD-209 remains held.
+
+
+## 2026-09-27 verified parent-source closure → current-state synchronization
+
+Parent-source reconciliation `e1be03f490e153ca3def028e7085dbb6fafe7095` / tree `4eb24c5ddab00fcc17b251df27f9dd2586e19ed0` passed exact-HEAD **700/700 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web, with **372/372 source parent units owner-reconciled and 0 NOT_CERTIFIED**. Residual canonical-owner correction `59db060476157d86df9fd0ed71b5ba46927617be` / tree `3be8e6d229afaa6cb34de0d39ed6d7e17f11e842` passed the same gate.
+
+### VC27-23 — P2: current State/Registers projection remained stale after verified parent-source closure
+
+The source-parent/canonical closure was verified, but README/state/index/checkpoint/review projections still described the audit as being at the earlier S2.1/S2.2 partial stage and still instructed the next run to verify an already-verified DD-208 state-closure. That stale projection could cause either duplicate work or premature selection of the next AI-development seam without acknowledging the new downstream-audit gate.
+
+The correction synchronizes README_FOUNDATION, PROJECT_STATE, PHASE_SUMMARY, HANDOFF_NOTE, D-CHECKPOINT, D-INDEX, REVIEW_REQUIRED and PROJECT_MANIFEST to the bounded current truth:
+
+- DD-208 remains the latest governed development checkpoint.
+- Parent-source semantic reconciliation is complete at 372/372 parents, 0 NOT_CERTIFIED.
+- The parent closure and VC27-22 residual canonical correction are exact-HEAD CI verified.
+- This is **not** a complete-project clean verdict. Downstream canonical/state/Development/Database/CI consistency and adversarial review remains IN PROGRESS.
+- DD-209, effective Tenant+Industry AI configuration and AI execution remain locked until that downstream gate is clean.
+- Production readiness remains NOT CLAIMED.
+- RawSource remains immutable; `main` remains unmerged; PR #2 remains draft/review-only.
+
+No RawSource, runtime, test, workflow, SQL/RLS, role/grant, requirement ID/count or governed development checkpoint changes.
