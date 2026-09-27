@@ -630,3 +630,17 @@ Smallest forward-only correction:
 - add REST-009 proving context-returned substitute metadata is ignored.
 
 No route catalog, machine/API-key syntax, OpenAPI publication, provider/network execution, SQL/RLS/role/grant or product operation is added. The REST adapter remains unmounted. DD-208 remains current and DD-209 remains held.
+
+
+## 2026-09-27 downstream REST route-contract continuation
+
+### VC27-31 — P2: DD-080 accepted malformed REST success status until after domain execution
+
+`RestRouteResolution.successStatus` is statically typed as `200 | 201`, but DD-080 is an injected server-owned runtime boundary and `normalizeRoute()` did not validate that field. A malformed resolver could return another truthy status such as 204. The handler would authenticate, parse input and execute the canonical domain operation before attempting to construct the response with that malformed route status. For a future command route this creates unnecessary post-side-effect response failure/retry ambiguity.
+
+Smallest forward-only correction:
+- validate optional route success status in `normalizeRoute()` and accept only 200 or 201;
+- fail as `TRANSPORT_CONTEXT_INVALID` before authorization/body/input/executor;
+- add REST-010 acceptance/regression.
+
+No concrete REST route, API-key scheme, OpenAPI publication, operation, SQL/RLS/role/grant or product behavior is added. The external REST plane remains unmounted; DD-208 remains current and DD-209 remains held.

@@ -163,7 +163,10 @@ function normalizeRoute(route:RestRouteResolution):RestRouteResolution{
   if(typeof route.operationId!=="string"
     || route.operationId.length<1
     || route.operationId.length>256
-    || route.operationId!==route.operationId.trim()){
+    || route.operationId!==route.operationId.trim()
+    || (route.successStatus!==undefined
+      && route.successStatus!==200
+      && route.successStatus!==201)){
     throw new RestTransportError({
       code:"TRANSPORT_CONTEXT_INVALID",
       messageSafe:"The REST route contract is invalid.",

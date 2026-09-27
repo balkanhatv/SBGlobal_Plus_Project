@@ -204,6 +204,21 @@ test("REST-009 authenticated context cannot replace transport idempotency or tru
   assert.deepEqual(seen.verifiedRateSubject,trustedSubject);
 });
 
+test("REST-010 malformed route success status fails before authentication or execution",async()=>{
+  const {handler,calls}=harness({
+    routes:{async resolve(){calls.push("route");return {
+      operationId:"core.identity.roles.listEffective",
+      tenantSelector:"tenant-path",
+      successStatus:204,
+    }}},
+  });
+  const response=await handler(request());
+  assert.equal(response.status,503);
+  const body=await response.json();
+  assert.equal(body.error.code,"TRANSPORT_CONTEXT_INVALID");
+  assert.deepEqual(calls,["edge","route"]);
+});
+
 test("REST context cannot replace normalized request or correlation identity",async()=>{
   const {handler,calls}=harness({
     contexts:{async authenticate(input){calls.push("context");return {
