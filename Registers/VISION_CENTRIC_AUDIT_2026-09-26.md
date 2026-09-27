@@ -663,3 +663,21 @@ Smallest forward-only correction:
 - add REST-011 regression/acceptance and synchronize DD-080 acceptance range.
 
 No live REST endpoint, route catalog, API-key syntax, OpenAPI publication, SQL/RLS/role/grant, provider/network execution or product operation is added. REST remains unmounted; DD-208 remains current and DD-209 remains held.
+
+
+## 2026-09-27 downstream Webhook scope-enum continuation
+
+Exact-head verification of VC27-32 at `faad03ed6206a27f3244da9046460d2dc26caa87` / tree `a0f4dd963d8a4f1c657c922c5999c01f9127fa47` passed **709/709 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, and Web.
+
+### VC27-33 — P2: DD-163 malformed webhook scope could fall through as Tenant-Industry
+
+DD-163 is intentionally limited to ordinary single-context webhook evidence and therefore owns only `TENANT_CORE` and `TENANT_INDUSTRY`. The runtime helper explicitly rejected `PLATFORM_GLOBAL` and `EXPLICIT_CROSS_CONTEXT`, special-cased `TENANT_CORE`, then treated every remaining value as the Industry branch. In JavaScript runtime evidence, a malformed event/catalog pair such as `scopeClass="UNKNOWN_SCOPE"` plus a valid allowlisted Industry id could therefore return true even though the scope is not part of the canonical EventScopeClass vocabulary.
+
+This does not expose a live dispatcher or network path, but it violates the helper's stated fail-closed ordinary-scope contract and could incorrectly bless malformed persisted/injected evidence as satisfying a delivery necessary floor.
+
+Smallest forward-only correction:
+- admit only exact `TENANT_CORE` or `TENANT_INDUSTRY` before catalog/Industry evaluation;
+- unknown, empty, undefined/null and case-variant scope values fail closed;
+- add `WH-FLOOR-009` regression/acceptance.
+
+Endpoint/filter interpretation, permission profile, secret/signing, SSRF/DNS/redirect control, dispatcher claim/lease/readiness, retry/DLQ/replay, EXPLICIT_CROSS_CONTEXT composition and network delivery remain **BLOCKED**. No route, network call, SQL/RLS/role/grant, product feature or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required; DD-208 remains current.

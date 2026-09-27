@@ -2494,6 +2494,9 @@ Endpoint URL, event filter, permission profile, secret version, Outbox readiness
 ### WH-FLOOR-008 — Malformed Industry allowlist fails closed
 A sparse allowlist, a hole/undefined entry, malformed Industry Context UUID or duplicate Industry Context id returns false even for a TENANT_CORE event where the allowlist is otherwise not consumed. Structural evidence validation is total and fail-closed.
 
+### WH-FLOOR-009 — Unknown/malformed event scope cannot fall through as Tenant-Industry
+Only exact `TENANT_CORE` and `TENANT_INDUSTRY` event scope values are admissible to this ordinary single-context helper. Any unknown, empty, undefined/null, case-variant or other malformed scope fails closed even when the supplied EventCatalog repeats the same malformed value and the Industry id is allowlisted.
+
 ## DD-164 SyncCursor Current-Binding Necessary-Floor Acceptance
 
 ### SYNC-BIND-001 — Exact active Tenant-Industry binding matches

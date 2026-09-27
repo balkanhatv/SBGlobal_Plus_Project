@@ -270,3 +270,20 @@ test("WH-FLOOR-008 malformed or sparse Industry allowlists fail closed even for 
     );
   }
 });
+
+
+test("WH-FLOOR-009 unknown or malformed scope values cannot fall through as Tenant-Industry", () => {
+  for (const scopeClass of ["UNKNOWN_SCOPE", "tenant_industry", "", undefined, null]) {
+    assert.equal(
+      matchesWebhookDeliveryNecessaryFloors(
+        subscription(),
+        event({
+          scopeClass,
+          industryContextId: ids.industryA,
+        }),
+        catalog({scopeClass}),
+      ),
+      false,
+    );
+  }
+});

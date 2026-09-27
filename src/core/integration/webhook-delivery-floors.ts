@@ -40,8 +40,8 @@ export function matchesWebhookDeliveryNecessaryFloors(
     return false;
   }
 
-  if (event.scopeClass === "PLATFORM_GLOBAL"
-    || event.scopeClass === "EXPLICIT_CROSS_CONTEXT"
+  if ((event.scopeClass !== "TENANT_CORE"
+      && event.scopeClass !== "TENANT_INDUSTRY")
     || !isUuid(event.tenantId)
     || event.tenantId !== subscription.tenantId) {
     return false;
