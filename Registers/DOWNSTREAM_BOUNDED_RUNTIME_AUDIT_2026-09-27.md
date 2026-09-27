@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-46:** `6beed80f10571d9a0520dca2aa63fc32930b927e` / tree `175e099b4f3e2a1f7e2e68d93a10701a87db02ee`
+**Prior tree-qualified verified basis through VC27-47:** `b36241a6988d712cbbe55b0110f47cdd37b1e467` / tree `81bd071b0783056b4979874b3fb5e86017ba8417`
 
-**Current exact-head correction basis:** `b36241a6988d712cbbe55b0110f47cdd37b1e467` / tree `81bd071b0783056b4979874b3fb5e86017ba8417`
+**Current exact-head correction basis:** `02b53677a06887f165db3a61964a2626e601c265` / tree `69f087e960da219b42ecc9c6ae03bd9c55b417cb`
 
-**Exact-head gate:** Core 719/719; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 722/722; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -57,6 +57,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-45 — WorkerContext runtime scope enum:** persisted/untyped worker evidence must use the generic worker's closed protected scope set; PUBLIC, PLATFORM_GLOBAL and unknown scope strings now fail closed before context emission, while EXPLICIT_CROSS_CONTEXT remains separately denied.
 - **VC27-46 — ABAC timestamp grammar:** Permission/ABAC grammar now rejects impossible UTC calendar dates before PDP evaluation by reusing the strict instant parser; malformed ACTIVE policy state cannot normalize into a boolean DENY/RESTRICT condition.
 - **VC27-47 — Workspace Tenant-Core exact shape:** WorkspaceService now rejects TENANT_CORE RequestContext carrying an Industry Context before membership/Tenant/Industry dependency use; malformed server scope evidence cannot be silently dropped by ClientWorkspaceContext projection.
+- **VC27-48 — exact-null DB/idempotency scope shape:** shared RequestScopedSql and IdempotencyService now reject present Tenant/Industry fields where DD-02 requires exact absence, including empty-string values that truthiness checks previously normalized. No new DB or cross-context authority is added.
 
 ### Current bounded verdict
 
