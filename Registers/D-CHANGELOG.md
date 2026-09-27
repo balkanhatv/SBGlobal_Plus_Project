@@ -508,3 +508,8 @@ S1 parent-ledger reconciliation `3a00ff84b53fd5e7ebfb8cd1b2b8150a990c0260` close
 ## 2026-09-27 — S1 residual verified; S2.2 slice-1 staged
 
 S1 canonical-owner correction `20ed1ab5f170ac53b03a224c2492aba80951c5ad` / tree `bea731da2a71c93e2de812298e938b129678d0f0` passed exact-head **700/700 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. S2.2 Product Specification slice-1 now reconciles U040–U081: equal-nine vision/catalog, non-status Production Ready wording, Platform/Tenant/Healthcare surface separation, all-nine demo scope, mixed master/media ownership and public claim evidence integrity. F-06/DD-10/DD-17 add governed evidence rules for endorsements/certifications/uptime/SLA/measured claims. 46 S2.2 parent units remain open. DD-208 remains current; DD-209 remains held.
+
+
+## 2026-09-27 — S2.2 slice-1 staged; slice-2 prepared
+
+S2.2 slice-1 commit `02e118847c20cdd0424605d50f3c1c3815693f2d` / tree `b0f8f5c543257511b29981f5e151ddd3e5d81188` carries U040–U081 reconciliation plus public-claim evidence contracts. Slice-2 direct review covers U082–U111 and adds the explicit Healthcare clinical-AI boundary for report summaries/risk/health scores and diet/lifestyle suggestions, commercial lifecycle normalization, Core-vs-Healthcare ownership for Communication/Integration/Finance/Inventory, tRPC/REST API normalization, exactly-two Tenant mobile apps and deployment/status normalization. Final 17 S2.2 parents remain open; DD-208 remains current and DD-209 remains held.

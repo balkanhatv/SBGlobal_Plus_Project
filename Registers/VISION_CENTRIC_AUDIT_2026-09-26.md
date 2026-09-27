@@ -383,3 +383,22 @@ Fresh direct-source review of the first unreconciled Product Specification block
 **Residual S1 owner correction revalidated.** F-03 now defers physical SQL naming to AC-19/A-05/DD-05 singular schema-qualified table naming and uses canonical typed OrgUnit ownership rather than stale plural-table/independent Branch-Department wording.
 
 No RawSource, runtime implementation, executable test, SQL migration/RLS, role/grant or stable requirement ID/count is modified. This slice changes Foundation/DD contracts and traceability only. Exact-HEAD Core/PostgreSQL/Database/Web verification is required. After this slice, 46 S2.2 parent units remain semantically unreconciled; DD-208 remains current and DD-209 remains held.
+
+
+## 2026-09-27 S2.2 Product Specification continuation — slice 2 (U082–U111)
+
+Direct review of the operational/commercial/API/mobile/AI/operations block found no requirement to change RawSource, but several current-owner and safety boundaries were too coarse in the parent ledger.
+
+### VC27-19 — P1/P2: S2.2 Healthcare/Core ownership, clinical-AI authority and legacy platform-stack wording required normalization
+
+**Healthcare operations vs Core primitives.** Branch, Department and Staff sections combine reusable OrgUnit/HR capabilities with laboratory-specific equipment/worklists/KPIs and Healthcare role types. Patient, Doctor, Appointment, LIS and Test Catalogue are Healthcare domain requirements. Healthcare Billing and Inventory consume shared Finance/Commercial/Inventory primitives but retain suite-specific workflows, while GST/TDS remain jurisdiction-governed rather than global semantics. Communication is a Core engine; provider names in the source are configurable integration options, not automatically enabled commercial/provider relationships.
+
+**Clinical AI authority.** S2.2 Reports permits AI Summary, Risk Score, Health Score, Diet Suggestions and Lifestyle Suggestions. F-07 now states explicitly that these are assistive only: they cannot mutate verified laboratory values/reference ranges/flags, cannot satisfy pathologist/clinician approval, and cannot autonomously publish diagnosis, prescription or treatment decisions. DD-17 HLT-AI-001/002 makes those boundaries deterministic.
+
+**Commercial lifecycle.** S2.2's tier set remains Free/Starter/Pro/Premium/Enterprise. Current F-14 owns operational lifecycle: Renewed is an Active re-entry event, not a resting state; Free/Starter are self-serve, Enterprise sales-assisted, Pro/Premium governed dual-route; expiry/suspension never delete tenant data.
+
+**Integration/API/Mobile.** Healthcare organization integrations and HL7/FHIR/HIS/EMR/EHR/LIS/RIS/PACS details remain Healthcare interoperability. Core Integration owns credentials, mappings, retries, queues, webhooks and policy. Current API authority is tRPC first-party plus REST/OpenAPI external; source JWT wording does not reintroduce a competing human-session/token core. Mobile remains exactly two logical Tenant app classes plus a separate Platform Application channel; API endpoints are governed environment/profile references, not arbitrary tenant-controlled bypass URLs.
+
+**AI/Analytics/Security/Operations/Deployment.** Health/report/risk AI and Patient/Test/Doctor analytics are Healthcare-scoped; platform AI/analytics frameworks remain reusable. AI Development Center is governed review assistance and cannot autonomously modify production code. Security framework mentions are readiness/alignment obligations, not certifications. Monitoring, backup, provider/environment configuration and typography remain shared platform capabilities. S2.2 Deployment Requirements are target-state wording: source cPanel/Docker-optional assumptions and Production Ready labels do not override UD-TECH-01 or current evidence-gated status.
+
+No runtime implementation, executable tests, SQL/RLS, role/grant, workflow engine or stable requirement ID/count changes. This slice changes Foundation/DD acceptance language and traceability only. Exact-HEAD verification is required before the final 17 S2.2 parent units are closed. DD-208 remains current; DD-209 remains held.

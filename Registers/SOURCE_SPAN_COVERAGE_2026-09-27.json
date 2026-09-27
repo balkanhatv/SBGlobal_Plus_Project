@@ -1418,7 +1418,7 @@
       "end_line": 1491,
       "located_inventory_rows": 17,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; laboratory branch section is MIXED: canonical OrgUnit organization data plus Healthcare collection/equipment/inventory/report/billing/dashboard semantics; not runtime/project certification"
     },
     {
       "unit": "S2.2-U083",
@@ -1428,7 +1428,7 @@
       "end_line": 1517,
       "located_inventory_rows": 16,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; department section is MIXED: reusable OrgUnit structure plus Healthcare laboratory department/worklist/equipment/KPI semantics; not runtime/project certification"
     },
     {
       "unit": "S2.2-U084",
@@ -1438,7 +1438,7 @@
       "end_line": 1553,
       "located_inventory_rows": 26,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; staff section is MIXED: reusable Core HR lifecycle plus Healthcare staff personas; IAM owns roles/permissions; not runtime/project certification"
     },
     {
       "unit": "S2.2-U085",
@@ -1448,7 +1448,7 @@
       "end_line": 1583,
       "located_inventory_rows": 23,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U086",
@@ -1458,7 +1458,7 @@
       "end_line": 1615,
       "located_inventory_rows": 21,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U087",
@@ -1468,7 +1468,7 @@
       "end_line": 1638,
       "located_inventory_rows": 16,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U088",
@@ -1478,7 +1478,7 @@
       "end_line": 1675,
       "located_inventory_rows": 28,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U089",
@@ -1488,7 +1488,7 @@
       "end_line": 1706,
       "located_inventory_rows": 23,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U090",
@@ -1508,7 +1508,7 @@
       "end_line": 1781,
       "located_inventory_rows": 30,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare report AI summary/risk/health/diet/lifestyle capabilities are assistive only and cannot alter verified results, bypass clinician/pathologist approval or autonomously diagnose/prescribe/treat; not runtime/project certification"
     },
     {
       "unit": "S2.2-U092",
@@ -1518,7 +1518,7 @@
       "end_line": 1813,
       "located_inventory_rows": 22,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare billing uses reusable finance/commercial primitives; GST/TDS are jurisdiction-pack governed rather than global defaults; not runtime/project certification"
     },
     {
       "unit": "S2.2-U093",
@@ -1528,7 +1528,7 @@
       "end_line": 1842,
       "located_inventory_rows": 21,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare reagents/chemicals/kits/machines/expiry/consumption semantics consume reusable Inventory primitives; not runtime/project certification"
     },
     {
       "unit": "S2.2-U094",
@@ -1538,7 +1538,7 @@
       "end_line": 1906,
       "located_inventory_rows": 41,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Communication Center provider/channel engine is Core; named providers are configurable integrations and source presence does not mean enabled/contracted; not runtime/project certification"
     },
     {
       "unit": "S2.2-U095",
@@ -1548,7 +1548,7 @@
       "end_line": 1957,
       "located_inventory_rows": 35,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; subscription tiers preserved; Renewed normalized to event, Pro/Premium dual-route per current F-14, and expiry/suspension never delete tenant data; not runtime/project certification"
     },
     {
       "unit": "S2.2-U096",
@@ -1558,7 +1558,7 @@
       "end_line": 1978,
       "located_inventory_rows": 11,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U097",
@@ -1568,7 +1568,7 @@
       "end_line": 2005,
       "located_inventory_rows": 18,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Integration organization list is Healthcare-specific while integration transport/security/retry/webhook mechanics remain Core; not runtime/project certification"
     },
     {
       "unit": "S2.2-U098",
@@ -1578,7 +1578,7 @@
       "end_line": 2042,
       "located_inventory_rows": 27,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; API section is MIXED Core API + Healthcare interoperability; current tRPC first-party/REST OpenAPI external and no separate app-owned JWT authority; not runtime/project certification"
     },
     {
       "unit": "S2.2-U099",
@@ -1588,7 +1588,7 @@
       "end_line": 2072,
       "located_inventory_rows": 22,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U100",
@@ -1598,7 +1598,7 @@
       "end_line": 2092,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile application set normalizes to exactly two Tenant apps plus separate Platform Application channel; roles are not separate binaries; not runtime/project certification"
     },
     {
       "unit": "S2.2-U101",
@@ -1608,7 +1608,7 @@
       "end_line": 2128,
       "located_inventory_rows": 26,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; dynamic mobile API endpoint is governed environment/profile configuration, not arbitrary tenant URL authority; not runtime/project certification"
     },
     {
       "unit": "S2.2-U102",
@@ -1618,7 +1618,7 @@
       "end_line": 2153,
       "located_inventory_rows": 14,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI capabilities are mixed Core/domain; health/report/risk semantics remain Healthcare-scoped; not runtime/project certification"
     },
     {
       "unit": "S2.2-U103",
@@ -1628,7 +1628,7 @@
       "end_line": 2184,
       "located_inventory_rows": 20,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI Development Center remains human-governed review assistance and cannot autonomously modify production code or self-approve; not runtime/project certification"
     },
     {
       "unit": "S2.2-U104",
@@ -1638,7 +1638,7 @@
       "end_line": 2208,
       "located_inventory_rows": 17,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U105",
@@ -1648,7 +1648,7 @@
       "end_line": 2263,
       "located_inventory_rows": 36,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; security/compliance capabilities preserved; HIPAA is Healthcare readiness and GDPR/DPDP/SOC2/ISO wording is alignment/readiness rather than certification; not runtime/project certification"
     },
     {
       "unit": "S2.2-U106",
@@ -1658,7 +1658,7 @@
       "end_line": 2292,
       "located_inventory_rows": 21,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U107",
@@ -1668,7 +1668,7 @@
       "end_line": 2315,
       "located_inventory_rows": 14,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U108",
@@ -1678,7 +1678,7 @@
       "end_line": 2338,
       "located_inventory_rows": 16,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U109",
@@ -1688,7 +1688,7 @@
       "end_line": 2387,
       "located_inventory_rows": 43,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U110",
@@ -1698,7 +1698,7 @@
       "end_line": 2416,
       "located_inventory_rows": 19,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U111",
@@ -1708,7 +1708,7 @@
       "end_line": 2439,
       "located_inventory_rows": 19,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; deployment list is target-state language; cPanel/Docker-optional assumptions are historical under UD-TECH-01 and no Production Ready status is inferred; not runtime/project certification"
     },
     {
       "unit": "S2.2-U112",
