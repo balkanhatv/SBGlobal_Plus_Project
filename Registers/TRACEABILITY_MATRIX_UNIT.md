@@ -290,39 +290,39 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.6-U236 | AI Media Generation Framework | 12 | Platform/Tenant/Industry media | SD | F-04 §10/F-05 §8/A-07 §5/DD-08/DD-09 | AI media generation + branding/localization/provenance/moderation | ADR-010 | Generated assets remain governed Document/Media artifacts | SOURCE RECONCILED |
 | S2.6-U237 | AI Observability | 11 | Platform-wide AI observability | SD | F-05 §7/A-07/A-11/DD-09/DD-15 | request/response/usage/cost/latency/error/provider/success/failure telemetry | ADR-010/017 | Observability preserved without raw sensitive prompt labels | SOURCE RECONCILED |
 | S2.6-U238 | Change Policy | 0 | Platform-wide AI | SD | Governing MI/F-05/A-07/DD-09 | backward-compatible governed AI change policy | — | ACTIVE change policy; stack/product changes remain authority-governed | SOURCE RECONCILED |
-| S2.7-U239 | SBGlobal Plus Enterprise Default Standards | 0 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U240 | Product Name | 0 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U241 | Tagline | 0 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U242 | 🆕 Organization Information | 4 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U243 | Default Brand Colors | 8 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U244 | Background | 4 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U245 | Text | 4 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U246 | Typography | 5 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U247 | Font Weight | 4 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U248 | Font Size | 12 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U249 | Border Radius | 3 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U250 | Spacing | 0 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U251 | Shadow | 2 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U252 | Default Layout | 7 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U253 | Animation | 0 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U254 | Default Website | 6 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U255 | 🆕 Vertical Suite Note | 0 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U256 | 🆕 Tenant Web Portal | 2 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U257 | 🆕 Dashboard & Analytics | 8 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U258 | 🆕 Patient-Facing Modules | 8 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U259 | 🆕 Doctor-Facing Modules | 6 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U260 | LIS Module | 15 | Industry (Healthcare) | SD | F-07 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U261 | Invoice Default | 12 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U262 | Report Default | 14 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U263 | Table Settings | 10 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U264 | Form Settings | 8 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U265 | Master Dropdowns | 37 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U266 | Session Format | 5 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U267 | Master Data Table (Standard Columns) | 13 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U268 | Setting Modules | 37 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U269 | Default Status | 9 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U270 | Default User Role Seeds | 13 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
-| S2.7-U271 | System Defaults | 18 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
+| S2.7-U239 | SBGlobal Plus Enterprise Default Standards | 0 | Platform + Industry defaults | SD + canonical reconciliation | F-04/F-06/DD-10/DD-05 | brand/default/reference/config owners | CR-02 + Country Pack rules | Specialized defaults preserved with suite/config scope | SOURCE RECONCILED; no runtime certification |
+| S2.7-U240 | Product Name | 0 | Platform-wide | SD | F-06 §6.1 | Platform product identity | CR-02 | SBGlobal Plus remains active product name | SOURCE RECONCILED |
+| S2.7-U241 | Tagline | 0 | Platform-wide | SD + user-directed override | F-06 §6.1 | canonical primary tagline | CR-02 | S2.7 tagline preserved as historical/alternative; active primary is user-directed tagline | SOURCE RECONCILED |
+| S2.7-U242 | 🆕 Organization Information | 4 | Platform brand/company profile | SD + configuration normalization | F-06 §6.1 | company identity default + CMS/config-managed metadata | — | Source organization/contact values are defaults, not immutable code constants | SOURCE RECONCILED |
+| S2.7-U243 | Default Brand Colors | 8 | Platform brand default | SD | F-06 §6.1/DD-10 §5A | brand token defaults | — | Default palette preserved; tenant overrides remain governed | SOURCE RECONCILED |
+| S2.7-U244 | Background | 4 | Platform brand default | SD | F-06 §6.1/DD-10 §5A | background tokens | — | Defaults preserved | SOURCE RECONCILED |
+| S2.7-U245 | Text | 4 | Platform brand default | SD | F-06 §6.1/DD-10 §5A | text/border tokens | — | Defaults preserved | SOURCE RECONCILED |
+| S2.7-U246 | Typography | 5 | Platform brand default | SD | F-06 §6.1/DD-10 §5A | typography defaults | — | Inter/Poppins/Roboto roles preserved | SOURCE RECONCILED |
+| S2.7-U247 | Font Weight | 4 | Platform design defaults | SD | F-06/S2.8/DD-10 | font-weight defaults | — | Defaults preserved under design-system scale | SOURCE RECONCILED |
+| S2.7-U248 | Font Size | 12 | Platform design defaults | SD | F-06/S2.8/DD-10 | font-size defaults | — | Defaults preserved under responsive/accessibility rules | SOURCE RECONCILED |
+| S2.7-U249 | Border Radius | 3 | Platform design defaults | SD | F-06/S2.8/DD-10 | semantic radius defaults | — | Product radii preserved; base scale remains S2.8-owned | SOURCE RECONCILED |
+| S2.7-U250 | Spacing | 0 | Platform design system | SD + owner cross-reference | S2.8/F-06/DD-10 | spacing scale | — | S2.8 remains authoritative scale owner | SOURCE RECONCILED |
+| S2.7-U251 | Shadow | 2 | Platform design defaults | SD | F-06/S2.8/DD-10 | shadow defaults | — | Defaults preserved | SOURCE RECONCILED |
+| S2.7-U252 | Default Layout | 7 | Platform experience default | SD | F-06/A-08/DD-10 | layout defaults | — | Layout defaults preserved; responsive surface design may adapt | SOURCE RECONCILED |
+| S2.7-U253 | Animation | 0 | Platform design system | SD + owner cross-reference | S2.8/F-06/DD-10 | animation tokens | — | S2.8 remains timing/animation owner | SOURCE RECONCILED |
+| S2.7-U254 | Default Website | 6 | Public SaaS Website | SD + CTA normalization | F-06/DD-10 | public layout/CTA defaults | CR-02/commercial route policy | Dimensions remain defaults; CTA intent maps to Start Free/Demo/Login/Quote routes, not hard-coded wording authority | SOURCE RECONCILED |
+| S2.7-U255 | 🆕 Vertical Suite Note | 0 | Healthcare-specific defaults note | SD | F-06/F-07/DD-10 | scope boundary for following Healthcare defaults | LG-03 | Explicit source scope preserved: Tenant Portal/LIS/Invoice/Report defaults below are Healthcare-specific | SOURCE RECONCILED |
+| S2.7-U256 | 🆕 Tenant Web Portal | 2 | Industry (Healthcare) web experience | SD + surface normalization | F-06/F-07/A-08/DD-10 | Healthcare operational web experience reports/notifications | LG-10…LG-12 | Source Tenant Web Portal is not the canonical Tenant Management Application and cannot host cross-industry operational semantics | SOURCE RECONCILED |
+| S2.7-U257 | 🆕 Dashboard & Analytics | 8 | Industry (Healthcare) analytics | SD + scope correction | F-07 + Core Reporting/Analytics | Healthcare KPI/dashboard defaults | LG-03 | Patients/doctors/tests/samples are Healthcare-scoped; reusable dashboard engine remains Core | SOURCE RECONCILED |
+| S2.7-U258 | 🆕 Patient-Facing Modules | 8 | Industry (Healthcare) patient experience | SD + scope correction | F-07/A-08/DD-10 | Healthcare patient-facing modules | LG-03 | Patient modules are Healthcare experience content, not platform-wide defaults | SOURCE RECONCILED |
+| S2.7-U259 | 🆕 Doctor-Facing Modules | 6 | Industry (Healthcare) doctor experience | SD + scope correction | F-07/A-08/DD-10 | Healthcare doctor-facing modules | LG-03 | Doctor modules are Healthcare experience content, not platform-wide defaults | SOURCE RECONCILED |
+| S2.7-U260 | LIS Module | 15 | Industry (Healthcare) | SD | F-07 + Healthcare DD | LIS module defaults | — | Healthcare-only LIS scope preserved | SOURCE RECONCILED |
+| S2.7-U261 | Invoice Default | 12 | Industry (Healthcare) document default | SD + scope correction | F-07/F-04/DD-08/DD-10 | Healthcare invoice presentation template | LG-03 | Patient/doctor/test/GST template is Healthcare default, not universal invoice schema | SOURCE RECONCILED |
+| S2.7-U262 | Report Default | 14 | Industry (Healthcare) document default | SD + scope correction | F-07/F-04/DD-08/DD-10 | Healthcare laboratory report template | LG-03 | Patient/pathologist/reference-range template is Healthcare default, not universal report schema | SOURCE RECONCILED |
+| S2.7-U263 | Table Settings | 10 | Platform UI default | SD | F-06/S2.8/DD-10 | table interaction defaults | — | Reusable table defaults preserved | SOURCE RECONCILED |
+| S2.7-U264 | Form Settings | 8 | Platform UI/config default | SD | F-01/F-06/DD-10 | form interaction/audit defaults | — | Reusable form defaults preserved; server validation remains authoritative | SOURCE RECONCILED |
+| S2.7-U265 | Master Dropdowns | 37 | Platform + Healthcare master/reference | SD + scope correction | F-04 + F-07 | installation seed/dropdown families | BR-DATA-03; LG-03 | General dropdowns are Core/reference; doctor/patient/sample/test/specimen/machine and similar entries are Healthcare-scoped and installed only where applicable | SOURCE RECONCILED |
+| S2.7-U266 | Session Format | 5 | Platform/reference + applicable Industries | SD | F-04 + relevant suite owners | session reference/default generation | — | Session examples/default generation preserved; current session is data/config, not source-code clock truth | SOURCE RECONCILED |
+| S2.7-U267 | Master Data Table (Standard Columns) | 13 | Platform + Industry data | SD + schema normalization | F-04/A-05/DD-05 | standard master columns + scope ownership | ADR-002/018 | Source columns are baseline; Industry-owned masters additionally require industry_context_id/equivalent immutable relation | SOURCE RECONCILED |
+| S2.7-U268 | Setting Modules | 37 | Platform + Healthcare settings | SD + scope correction | F-01/F-06/F-07 | configuration domains | LG-03 | Core setting modules remain shared; LIS and Healthcare document/portal settings remain suite-scoped | SOURCE RECONCILED |
+| S2.7-U269 | Default Status | 9 | Platform reference vocabulary | SD | F-04/S2.8 | canonical statuses + UI mapping | — | Status vocabulary preserved; colors remain S2.8-owned | SOURCE RECONCILED |
+| S2.7-U270 | Default User Role Seeds | 13 | Platform + Industry role seeds | SD + equality normalization | F-03/F-04/F-07…F-09 | baseline platform roles + applicable suite role packs | CR-05; BR-DATA-03 | Super Admin/Tenant Owner/API User etc. are shared; Healthcare roles are suite-scoped; 'other suites as built out' is legacy because all nine current suites are first-class | SOURCE RECONCILED |
+| S2.7-U271 | System Defaults | 18 | Platform default + tenant/country override | SD + localization/security normalization | F-04/F-03/F-05/F-06 | system defaults and Country Pack resolution | BR-DATA-03 | India baseline preserved; tenant/country packs may override allowed locale/currency/time defaults; AI/API/soft-delete defaults never bypass entitlement/security/data-class rules | SOURCE RECONCILED |
 | S2.8-U272 | SBGlobal Plus Enterprise UI Design System | 0 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
 | S2.8-U273 | Grid System | 3 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
 | S2.8-U274 | Container Width | 6 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |

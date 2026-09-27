@@ -269,3 +269,22 @@ Fresh reading of S2.6 (U207–U238) confirmed the 13-provider abstraction, capab
 DD-17 AI-018 requires nine independent Current Supported Industry assistant families (HLT/EDU/RTL/HSP/MFG/PSV/GOV/NGO/SFM); a combined GOV+NGO definition cannot satisfy both entries.
 
 No RawSource, provider dependency, AI execution code, SQL/RLS, role/grant, workflow definition, executable test or stable requirement ID/count is changed by this correction. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains the latest governed development checkpoint; effective AI execution remains locked and DD-209 is not authorized.
+
+
+## 2026-09-27 S2.7 Enterprise Default Standards continuation
+
+Fresh reading of S2.7 (U239–U271) found no new runtime/design defect because the canonical brand, Country Pack and Industry Experience models already contain the necessary safeguards. The source-unit ledger, however, flattened many domain-specific defaults into Platform-wide ownership even though the source's own Vertical Suite Note explicitly scopes Tenant Web Portal, LIS, Invoice and Report defaults to Healthcare.
+
+### VC27-14 — P2: S2.7 Healthcare-specific defaults were over-classified as platform-wide
+
+The evidence correction makes the following boundaries explicit:
+- S2.7's tagline is preserved as a historical/alternative source tagline; F-06 §6.1 + CR-02 own the active primary tagline “One Intelligent Platform. Every Industry. Infinite Possibilities.”
+- source company/address/contact values are Platform company-profile defaults managed through governed CMS/configuration, not immutable code constants.
+- brand colors/typography/layout remain Platform defaults with tenant branding overrides subject to accessibility/security floors.
+- source Tenant Web Portal, Healthcare dashboard/KPIs, Patient/Doctor modules, LIS, Invoice and Report defaults are Healthcare experience/presentation defaults. They do not define the canonical Tenant Management Application and do not leak Healthcare semantics into other Industries.
+- Master Dropdowns and Setting Modules are MIXED: general reference/config entries are Core; doctor/patient/sample/test/specimen/machine/LIS and similar entries are Healthcare-scoped. BR-DATA-03 materializes only the applicable baseline for an enabled scope.
+- the source Master Data standard-column list is a baseline; Industry-owned rows additionally require Industry Context ownership/equivalent immutable relation under A-05/DD-05.
+- Default User Role Seeds are MIXED: shared Platform/Tenant roles plus Healthcare-specific roles. The source “other suites … as they are built out” wording is legacy under CR-05/LG-03/LG-04 because all nine current Industries are first-class and receive applicable role/config seed packs.
+- India defaults (Asia/Kolkata, dd-MM-yyyy, INR, English/Hindi) remain the default baseline, but Country Packs/Tenant configuration may override allowed locale/currency/time settings. “AI enabled”, “API first” and “soft delete enabled” defaults do not bypass entitlement/security/data-class exceptions.
+
+No RawSource, runtime code, configuration data, schema, RLS, role/grant, executable test or stable requirement ID/count changes. This correction is traceability/ownership only. The containing commit must pass exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains the latest governed development checkpoint; DD-209 remains held.
