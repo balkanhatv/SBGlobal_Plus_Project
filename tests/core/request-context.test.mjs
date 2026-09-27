@@ -306,6 +306,22 @@ test("TCTX-007: industry worker without persisted industry context is rejected",
   );
 });
 
+test("TCTX-007: generic worker cannot substitute one Industry id for the governed cross-context transfer contract", () => {
+  assert.throws(
+    () => createWorkerContext({
+      tenantId: "tenant-a",
+      industryContextId: "industry-a",
+      servicePrincipalId: "worker-1",
+      correlationId: "correlation-1",
+      causationId: "causation-1",
+      dataHomeId: "data-home-in",
+      scopeClass: "EXPLICIT_CROSS_CONTEXT",
+    }),
+    (error) => error instanceof ContextResolutionError
+      && error.code === "RESOURCE_SCOPE_DENY",
+  );
+});
+
 test("ClientWorkspaceContext excludes server-only risk, roles and credential fields", async () => {
   const { ports } = makePorts();
   const service = new RequestContextService(ports);

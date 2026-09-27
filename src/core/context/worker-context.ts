@@ -11,9 +11,14 @@ export function createWorkerContext(input: WorkerContextInput): WorkerContext {
     );
   }
 
-  if ((input.scopeClass === "TENANT_INDUSTRY"
-      || input.scopeClass === "EXPLICIT_CROSS_CONTEXT")
-      && !input.industryContextId) {
+  if (input.scopeClass === "EXPLICIT_CROSS_CONTEXT") {
+    throw new ContextResolutionError(
+      "RESOURCE_SCOPE_DENY",
+      "Cross-context worker execution requires a dedicated governed transfer context.",
+    );
+  }
+
+  if (input.scopeClass === "TENANT_INDUSTRY" && !input.industryContextId) {
     throw new ContextResolutionError(
       "INDUSTRY_CONTEXT_REQUIRED",
       "Industry-scoped worker execution requires persisted Industry Context.",

@@ -876,3 +876,26 @@ This does not implement a cross-context workflow, permission, projection, SQL by
 RLS change, audit writer, product behavior or DD-209 authority. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream generic WorkerContext cross-context continuation
+
+### VC27-42 — P1: generic WorkerContext could label one Industry id as EXPLICIT_CROSS_CONTEXT without the DD-02 transfer contract
+
+DD-02 §6 requires every legitimate cross-industry/core transfer to declare source context,
+target context (or TENANT_CORE target), transfer purpose, resource identity, allowed field
+projection, explicit permission, legal/consent basis where sensitive, audit correlation and
+idempotency key. DD-02 §7 separately requires background workers to build WorkerContext
+from persisted job/event scope rather than ambient process state.
+
+The generic `WorkerContextInput` contains only one optional `industryContextId` and none
+of the DD-02 source/target transfer evidence. Nevertheless `createWorkerContext()`
+previously accepted `EXPLICIT_CROSS_CONTEXT` whenever that single Industry id was present.
+
+Smallest forward-only correction:
+- generic WorkerContext now rejects EXPLICIT_CROSS_CONTEXT with RESOURCE_SCOPE_DENY;
+- TENANT_INDUSTRY retains its existing persisted Industry Context requirement;
+- TCTX-007 now proves one Industry id cannot substitute for the dedicated transfer contract.
+
+This does not implement a cross-context worker/transfer DTO, projection, permission, legal
+basis, idempotency/audit writer, SQL bypass, RLS change, queue behavior, product behavior or
+DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+
