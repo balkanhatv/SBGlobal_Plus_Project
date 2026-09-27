@@ -65,6 +65,8 @@ test("invalid/inactive/mismatched provider sessions fail closed as SESSION_INVAL
     { clerk: { async verifySessionToken() { throw new ClerkProviderError("TOKEN_INVALID"); } } },
     { clerk: { async getSession() { return { id: "sess-1", userId: "user-1", status: "revoked", createdAtMs: 1000 }; } } },
     { clerk: { async getSession() { return { id: "sess-1", userId: "other-user", status: "active", createdAtMs: 1000 }; } } },
+    { clerk: { async getSession() { return { id: "sess-1", userId: "user-1", status: "active", createdAtMs: Number.MAX_SAFE_INTEGER + 1 }; } } },
+    { clerk: { async getSession() { return { id: "sess-1", userId: "user-1", status: "active", createdAtMs: 1000.5 }; } } },
   ]) {
     const { adapter } = makeAdapter(overrides);
     await assert.rejects(adapter.verifyHumanSession("bad"),

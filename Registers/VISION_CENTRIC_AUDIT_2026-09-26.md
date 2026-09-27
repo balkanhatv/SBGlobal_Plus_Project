@@ -1577,3 +1577,27 @@ This does not add cookie authentication/CSRF tokens, routes, body schemas, Tenan
 authority, authorization/business semantics, schema/RLS/role/grant changes, product behavior
 or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-28 downstream Clerk session-time exactness continuation
+
+### VC27-69 — P1: precision-unsafe provider session creation time could weaken stale-session comparison
+
+DD-03 / ID-012 require the live provider session creation instant to be compared against the
+exact current Core SessionVersion.changed_at. VC27-67 hardened the internal SessionVersion
+side, but ClerkIdentityAdapter still accepted any finite providerSession.createdAtMs.
+
+A malformed/alternate provider port could therefore return a fractional or JavaScript-
+precision-unsafe creation timestamp and have it promoted into VerifiedIdentityEvidence.
+That evidence is later used by SessionSecurityService for stale-session invalidation, so both
+sides of the comparison must remain exact rather than merely finite.
+
+Smallest forward-only correction:
+- require providerSession.createdAtMs to be a JavaScript safe integer before identity evidence
+  is returned;
+- preserve exact session id/user/status binding and existing provider failure normalization;
+- extend ID-020 regression with fractional and precision-unsafe provider session timestamps.
+
+This does not add clock-skew/future-time policy, change Clerk token verification, SessionVersion
+persistence/increment semantics, device/risk policy, authorization grants, schema/RLS/role/
+grant state, product behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web
+verification is required.
+

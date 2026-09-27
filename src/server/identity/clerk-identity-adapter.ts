@@ -102,7 +102,7 @@ export class ClerkIdentityAdapter implements IdentityPort {
     if (providerSession.id !== token.sessionId
       || providerSession.userId !== token.subject
       || providerSession.status !== "active"
-      || !Number.isFinite(providerSession.createdAtMs)) {
+      || !Number.isSafeInteger(providerSession.createdAtMs)) {
       throw new ContextResolutionError("SESSION_INVALID", "The session is not active.");
     }
 

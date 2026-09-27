@@ -53,6 +53,7 @@ without substituting counts or references for substantive runtime acceptance.
 | ID-017 | verified machine evidence omits the requested Tenant scope from allowedScopeClasses | CREDENTIAL_INVALID before Tenant/Industry/directory lookup; no generic cross-context widening |
 | ID-018 | validated Core SessionVersion differs from provider evidence metadata | Tenant RequestContext carries validated Core sessionVersion, consistent with PLATFORM_GLOBAL |
 | ID-019 | current SessionVersion record carries malformed or precision-unsafe version/changed-at evidence | DEPENDENCY_UNAVAILABLE; malformed Core security state cannot bypass stale-session invalidation or enter RequestContext |
+| ID-020 | live provider session carries a non-integral or precision-unsafe creation timestamp | SESSION_INVALID; malformed provider time evidence cannot bypass exact SessionVersion.changed_at invalidation |
 
 ## 3. Authorization
 | ID | Scenario | Expected |
