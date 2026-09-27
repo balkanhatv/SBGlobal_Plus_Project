@@ -39,6 +39,14 @@ test("APICRED-LIFE-001 ACTIVE credential with no expiry matches", () => {
 test("APICRED-LIFE-002 ACTIVE credential before future expiry matches", () => {
   assert.equal(
     matchesApiCredentialCurrentLifecycleFloor(
+      material({expiresAt: "2026-09-24T09:30:00+05:30"}),
+      "2026-09-24T03:30:00.000Z",
+    ),
+    true,
+  );
+
+  assert.equal(
+    matchesApiCredentialCurrentLifecycleFloor(
       material({expiresAt: "2026-09-24T04:00:00.000Z"}),
       "2026-09-24T03:30:00.000Z",
     ),
@@ -82,6 +90,27 @@ test("APICRED-LIFE-005 SUSPENDED, REVOKED and EXPIRED statuses fail regardless o
 });
 
 test("APICRED-LIFE-006 malformed evaluation or persisted expiry fails closed", () => {
+  assert.equal(
+    matchesApiCredentialCurrentLifecycleFloor(
+      material(),
+      "2026-02-30T00:00:00.000Z",
+    ),
+    false,
+  );
+  assert.equal(
+    matchesApiCredentialCurrentLifecycleFloor(
+      material({expiresAt: "2026-02-30T00:00:00.000Z"}),
+      "2026-02-28T00:00:00.000Z",
+    ),
+    false,
+  );
+  assert.equal(
+    matchesApiCredentialCurrentLifecycleFloor(
+      material(),
+      "2026-09-24T03:30:00",
+    ),
+    false,
+  );
   assert.equal(
     matchesApiCredentialCurrentLifecycleFloor(
       material(),

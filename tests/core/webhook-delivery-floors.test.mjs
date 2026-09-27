@@ -86,6 +86,22 @@ test("WH-FLOOR-001 ACTIVE verified same-Tenant Tenant-Core event with exact webh
 });
 
 test("WH-FLOOR-002 non-ACTIVE or missing/malformed verification evidence fails closed", () => {
+  assert.equal(
+    matchesWebhookDeliveryNecessaryFloors(
+      subscription({verifiedAt: "2026-02-30T00:00:00.000Z"}),
+      event(),
+      catalog(),
+    ),
+    false,
+  );
+  assert.equal(
+    matchesWebhookDeliveryNecessaryFloors(
+      subscription({verifiedAt: "2026-09-24T05:00:00"}),
+      event(),
+      catalog(),
+    ),
+    false,
+  );
   for (const status of ["PENDING_VERIFICATION", "PAUSED", "REVOKED"]) {
     assert.equal(
       matchesWebhookDeliveryNecessaryFloors(

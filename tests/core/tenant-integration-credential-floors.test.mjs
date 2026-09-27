@@ -141,6 +141,30 @@ test("INT-CRED-CUR-006 strict expiry currentness and malformed time evidence fai
   assert.equal(
     matchesCurrentTenantIntegrationCredentialFloors(
       integration(),
+      credential(),
+      "2026-02-30T00:00:00.000Z",
+    ),
+    false,
+  );
+  assert.equal(
+    matchesCurrentTenantIntegrationCredentialFloors(
+      integration(),
+      credential({expiresAt: "2026-02-30T00:00:00.000Z"}),
+      "2026-02-28T00:00:00.000Z",
+    ),
+    false,
+  );
+  assert.equal(
+    matchesCurrentTenantIntegrationCredentialFloors(
+      integration(),
+      credential(),
+      "2026-09-24T05:30:00",
+    ),
+    false,
+  );
+  assert.equal(
+    matchesCurrentTenantIntegrationCredentialFloors(
+      integration(),
       credential({expiresAt: "2026-09-24T06:00:00.000Z"}),
       "2026-09-24T05:30:00.000Z",
     ),

@@ -1,10 +1,5 @@
+import { parseStrictInstant } from "../time/strict-instant.js";
 import type { OperatorElevationMetadata } from "./operator-elevation-metadata.js";
-
-function timestampMillis(value: unknown): number | null {
-  if (typeof value !== "string") return null;
-  const parsed = Date.parse(value);
-  return Number.isFinite(parsed) ? parsed : null;
-}
 
 /**
  * Mirrors only migration 0029's status/time portion of the ordinary
@@ -18,9 +13,9 @@ export function matchesOperatorElevationCurrentTimeStatusFloor(
 ): boolean {
   if (metadata.status !== "ACTIVE") return false;
 
-  const startsAt = timestampMillis(metadata.startsAt);
-  const expiresAt = timestampMillis(metadata.expiresAt);
-  const at = timestampMillis(evaluatedAt);
+  const startsAt = parseStrictInstant(metadata.startsAt);
+  const expiresAt = parseStrictInstant(metadata.expiresAt);
+  const at = parseStrictInstant(evaluatedAt);
 
   if (startsAt === null || expiresAt === null || at === null) return false;
   if (expiresAt <= startsAt) return false;

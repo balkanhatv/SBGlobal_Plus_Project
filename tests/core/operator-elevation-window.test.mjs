@@ -38,6 +38,14 @@ test("OPELEV-WIN-002 exact startsAt boundary is inclusive", () => {
   assert.equal(
     matchesOperatorElevationCurrentTimeStatusFloor(
       elevation(),
+      "2026-09-24T05:30:00+05:30",
+    ),
+    true,
+  );
+
+  assert.equal(
+    matchesOperatorElevationCurrentTimeStatusFloor(
+      elevation(),
       "2026-09-24T00:00:00.000Z",
     ),
     true,
@@ -84,6 +92,16 @@ test("OPELEV-WIN-005 before-start and after-expiry instants do not match", () =>
 });
 
 test("OPELEV-WIN-006 malformed evaluation or persisted timestamps fail closed", () => {
+  assert.equal(
+    matchesOperatorElevationCurrentTimeStatusFloor(
+      elevation({
+        startsAt: "2026-02-28T00:00:00.000Z",
+        expiresAt: "2026-03-03T00:00:00.000Z",
+      }),
+      "2026-02-30T00:00:00.000Z",
+    ),
+    false,
+  );
   assert.equal(
     matchesOperatorElevationCurrentTimeStatusFloor(elevation(), "not-a-time"),
     false,

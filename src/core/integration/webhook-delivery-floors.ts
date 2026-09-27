@@ -1,3 +1,4 @@
+import { parseStrictInstant } from "../time/strict-instant.js";
 import type { PersistedEventCatalogEntry } from "./event-catalog.js";
 import type { OutboxEventEvidence } from "./outbox-event.js";
 import type { WebhookSubscription } from "./webhook-subscription.js";
@@ -10,7 +11,7 @@ function isUuid(value: unknown): value is string {
 }
 
 function isValidTimestamp(value: unknown): value is string {
-  return typeof value === "string" && Number.isFinite(Date.parse(value));
+  return parseStrictInstant(value) !== null;
 }
 
 function hasValidIndustryAllowlist(values: readonly string[]): boolean {

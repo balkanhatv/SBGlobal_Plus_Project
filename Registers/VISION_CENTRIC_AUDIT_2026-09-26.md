@@ -769,3 +769,31 @@ grammar/hash verification, CIDR enforcement, permission-profile mapping, success
 mutation/audit, final `VerifiedMachineEvidence`, routes, SQL/RLS/role/grant changes, product
 behavior or DD-209. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream strict-instant fail-closed continuation
+
+### VC27-38 — P2: permissive JavaScript timestamp parsing could normalize malformed currentness evidence
+
+DD-148, DD-158, DD-163 and DD-165 explicitly require malformed persisted/server-owned
+time evidence to fail closed. Their runtime helpers used `Date.parse()`, which accepts and
+normalizes some impossible or ambiguous inputs (for example February 30, `24:00`, or
+zone-less date-time strings) instead of rejecting them. Depending on the surrounding window
+or expiry values, malformed injected evidence could therefore satisfy a necessary currentness
+or verification floor.
+
+Smallest forward-only correction:
+- add one internal strict instant parser requiring explicit date, time and UTC designator or
+  numeric offset;
+- validate calendar/time components before applying the offset so normalized impossible
+  values fail closed;
+- preserve valid explicit-offset instants;
+- use the parser only in DD-148 OperatorElevation window, DD-158 API Credential lifecycle,
+  DD-163 Webhook verification evidence and DD-165 TenantIntegration CredentialReference
+  expiry/currentness floors;
+- extend the existing OPELEV-WIN-006, APICRED-LIFE-006, WH-FLOOR-002 and
+  INT-CRED-CUR-006 acceptance coverage.
+
+This is timestamp-validation hardening only. It does not add authentication, permission-profile,
+CIDR, provider, webhook execution, Integration execution, Workflow/Notification execution,
+network, SQL/RLS/role/grant, product behavior or DD-209 authority. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

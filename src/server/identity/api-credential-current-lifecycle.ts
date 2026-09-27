@@ -1,11 +1,7 @@
+import { parseStrictInstant } from "../../core/time/strict-instant.js";
 import type {
   ApiCredentialVerificationMaterial,
 } from "./api-credential-verification-material.js";
-
-function parseInstant(value: string): number | null {
-  const parsed = Date.parse(value);
-  return Number.isFinite(parsed) ? parsed : null;
-}
 
 /**
  * Mirrors only the persisted API Credential current lifecycle prerequisite:
@@ -18,12 +14,12 @@ export function matchesApiCredentialCurrentLifecycleFloor(
   material: ApiCredentialVerificationMaterial,
   evaluatedAt: string,
 ): boolean {
-  const evaluatedAtMs = parseInstant(evaluatedAt);
+  const evaluatedAtMs = parseStrictInstant(evaluatedAt);
   if (evaluatedAtMs === null) return false;
   if (material.status !== "ACTIVE") return false;
   if (material.expiresAt === undefined) return true;
 
-  const expiresAtMs = parseInstant(material.expiresAt);
+  const expiresAtMs = parseStrictInstant(material.expiresAt);
   if (expiresAtMs === null) return false;
   return expiresAtMs > evaluatedAtMs;
 }

@@ -2121,7 +2121,7 @@ An `ACTIVE` elevation evaluated exactly at `expiresAt` does not satisfy the floo
 An evaluation instant before `startsAt` or after `expiresAt` does not satisfy the floor.
 
 ### OPELEV-WIN-006 — Malformed or internally invalid time evidence fails closed
-Malformed evaluation/start/expiry timestamps and an invalid persisted interval with `expiresAt <= startsAt` do not satisfy the floor.
+Malformed, calendar-invalid or timezone-ambiguous evaluation/start/expiry timestamps—including values a permissive runtime parser would normalize—plus an invalid persisted interval with `expiresAt <= startsAt` do not satisfy the floor.
 
 ### OPELEV-WIN-007 — Unrelated elevation metadata remains uninterpreted and immutable
 The helper does not use operator principal, Tenant, Industry, purpose, ticket, approver or permission-profile fields and does not mutate input metadata; therefore a positive result is not an authorization decision.
@@ -2361,7 +2361,7 @@ An ACTIVE credential whose persisted expiry is before the evaluation instant fai
 SUSPENDED, REVOKED and EXPIRED credentials fail regardless of a future or absent expiry.
 
 ### APICRED-LIFE-006 — Malformed time evidence fails closed
-Malformed evaluation or persisted expiry timestamps return false.
+Malformed, calendar-invalid or timezone-ambiguous evaluation or persisted expiry timestamps—including values a permissive runtime parser would normalize—return false.
 
 ### APICRED-LIFE-007 — Non-lifecycle verification material is not interpreted
 Verifier hash, CIDR, permission-profile, scope, version and usage metadata do not affect this helper, and the material is not mutated.
@@ -2480,7 +2480,7 @@ Secret hash, CIDR, permission-profile, version and last-use evidence do not gain
 An ACTIVE WebhookSubscription with valid verification evidence plus a same-Tenant TENANT_CORE OutboxEvent and exact webhook-eligible EventCatalog tuple returns true.
 
 ### WH-FLOOR-002 — Subscription verification/current-state prerequisite fails closed
-PENDING_VERIFICATION, PAUSED or REVOKED subscription state, absent verification evidence or malformed verification time returns false.
+PENDING_VERIFICATION, PAUSED or REVOKED subscription state, absent verification evidence, or malformed/calendar-invalid/timezone-ambiguous verification time—including values a permissive runtime parser would normalize—returns false.
 
 ### WH-FLOOR-003 — Foreign-Tenant and Platform-Global events fail
 The event Tenant must exactly equal the subscription Tenant. PLATFORM_GLOBAL is not deliverable through a Tenant-owned subscription in this bounded helper.
@@ -2547,7 +2547,7 @@ Wrong CredentialReference id or foreign Tenant ownership fails regardless of oth
 Any raw credential status other than exact ACTIVE fails this floor.
 
 ### INT-CRED-CUR-006 — Strict expiry currentness and malformed time fail closed
-Future expiry may match; expiry exactly at or before evaluation fails; malformed evaluation or expiry timestamps fail closed.
+Future expiry may match; expiry exactly at or before evaluation fails; malformed, calendar-invalid or timezone-ambiguous evaluation/expiry timestamps—including values a permissive runtime parser would normalize—fail closed.
 
 ### INT-CRED-CUR-007 — Unowned integration/credential semantics remain uninterpreted
 TenantIntegration lifecycle/definition/capabilities/config/health/profile and CredentialReference provider/type/key-version/rotation metadata do not create acceptance, and inputs remain unchanged.

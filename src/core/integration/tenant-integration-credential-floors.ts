@@ -1,3 +1,4 @@
+import { parseStrictInstant } from "../time/strict-instant.js";
 import type { CredentialReferenceMetadata } from "./credential-reference-metadata.js";
 import type { PersistedTenantIntegration } from "./tenant-integration.js";
 
@@ -6,11 +7,6 @@ const UUID_PATTERN =
 
 function isUuid(value: unknown): value is string {
   return typeof value === "string" && UUID_PATTERN.test(value);
-}
-
-function parseInstant(value: string): number | null {
-  const parsed = Date.parse(value);
-  return Number.isFinite(parsed) ? parsed : null;
 }
 
 /**
@@ -25,7 +21,7 @@ export function matchesCurrentTenantIntegrationCredentialFloors(
   credential: CredentialReferenceMetadata,
   evaluatedAt: string,
 ): boolean {
-  const evaluatedAtMs = parseInstant(evaluatedAt);
+  const evaluatedAtMs = parseStrictInstant(evaluatedAt);
   if (evaluatedAtMs === null) return false;
 
   if (
@@ -65,6 +61,6 @@ export function matchesCurrentTenantIntegrationCredentialFloors(
   if (credential.status !== "ACTIVE") return false;
   if (credential.expiresAt === undefined) return true;
 
-  const expiresAtMs = parseInstant(credential.expiresAt);
+  const expiresAtMs = parseStrictInstant(credential.expiresAt);
   return expiresAtMs !== null && expiresAtMs > evaluatedAtMs;
 }
