@@ -1,8 +1,8 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-57:** `2da0ff3aeced27517671a9d19aaa3931766037a1` / tree `b97bfe52dcd8edf48a1d1df3920bd05048e7b2ab`
+**Prior tree-qualified verified basis through VC27-58:** `48935486018a36f90ba002ae7084822c6aaecde4` / tree `916184d99e0a1b31a0f7fd819e50cf32eee49b58`
 
-**Current exact-head correction basis:** `48935486018a36f90ba002ae7084822c6aaecde4` / tree `916184d99e0a1b31a0f7fd819e50cf32eee49b58`
+**Current exact-head correction basis:** `96b1f7ca6d1bc6964e60cc55ec564115357c33fc` / tree `f98980f65c7b60a0075e6a7b56f7f53452f921e8`
 
 **Exact-head gate:** Core 733/733; PostgreSQL 508/508 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
@@ -68,6 +68,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-56 — GuardPipeline generic exact scope:** authorization guard entry now rejects private Tenant/Industry evidence on PUBLIC/PLATFORM_GLOBAL, hidden Industry on TENANT_CORE, and missing Tenant/Industry on tenant scopes before Commercial/PDP/resource dependencies. Dedicated cross-context transfer semantics remain separately governed.
 - **VC27-57 — Commercial apply/publication exact Tenant-Core scope:** privileged Commercial apply-evidence and publication boundaries now reject any present Industry Context on TENANT_CORE before evidence-store/publication-store use; direct PostgreSQL-store coverage proves the lower scoped-SQL guard is no longer the only fail-closed layer.
 - **VC27-58 — OperationContract runtime enums:** OperationExecutor now rejects unsupported runtime scopeClass/kind/idempotencyPolicy values before RequestContext, rate, guard, idempotency or domain execution; an untyped mutation-like kind cannot bypass COMMAND idempotency semantics.
+- **VC27-59 — Commercial supporting exact Tenant-Core scope:** six remaining server-only Commercial plan-change evidence/compiler services now reject any present Industry Context on TENANT_CORE before resolver/source/recorder use, including present-empty evidence; lower persistence/RLS is no longer the sole fail-closed layer.
 
 ### Current bounded verdict
 
