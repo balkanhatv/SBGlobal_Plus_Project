@@ -899,7 +899,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-PRE-002 | Tenant Core DocumentMeta loaded while operating in a Tenant Industry workspace | remains Tenant-scoped candidate; later authorization still required |
 | DOC-PRE-003 | sibling Industry or foreign Tenant metadata | non-disclosing RESOURCE_NOT_FOUND |
 | DOC-PRE-004 | QUARANTINED/DELETED/non-CLEAN metadata | RESOURCE_STATE_INVALID; cannot progress toward signing |
-| DOC-PRE-005 | missing metadata or unresolved Tenant/Industry/principal context | RESOURCE_NOT_FOUND before any signer surface |
+| DOC-PRE-005 | missing metadata or unresolved/malformed Tenant/Industry/principal context, including TENANT_CORE carrying an Industry Context | RESOURCE_NOT_FOUND before metadata dependency/signing; no existence disclosure |
 | DOC-PRE-006 | metadata reader failure or malformed authoritative row | safe DEPENDENCY_UNAVAILABLE; no provider/storage detail leakage |
 
 

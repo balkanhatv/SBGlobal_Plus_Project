@@ -55,7 +55,9 @@ Therefore this slice must not invent:
 
 Implement a reusable Core `DocumentAccessCandidateService` with an injected
 metadata reader. It validates resolved Tenant/Industry ownership and ACTIVE/CLEAN
-state, then returns an immutable internal candidate carrying document id,
+state before dependency use; TENANT_CORE carries no Industry Context and
+TENANT_INDUSTRY carries one resolved Industry Context. It then returns an immutable
+internal candidate carrying document id,
 storage-object id, source resource identity, owner, sensitivity, residency, media
 type and safe display filename for later governed authorization/signing.
 

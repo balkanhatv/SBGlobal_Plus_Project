@@ -822,3 +822,29 @@ principal currentness, generation/publication, AI routing/execution, SQL/RLS/rol
 product behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification
 is required.
 
+## 2026-09-27 downstream Document access context-shape continuation
+
+### VC27-40 — P2: DD-082 Core candidate boundary did not reject TENANT_CORE carrying Industry Context before dependency use
+
+DD-082 requires the pre-sign Document access candidate service itself to accept only a
+resolved Tenant RequestContext and to validate Tenant/Industry ownership before loading
+DocumentMeta. The concrete PostgreSQL metadata reader already rejects
+`TENANT_CORE` contexts that carry an `industryContextId`, but the Core
+`validateResolvedTenantContext()` check omitted that inverse scope-shape predicate.
+
+A malformed/injected `TENANT_CORE + industryContextId` context could therefore reach an
+alternate/injected metadata port instead of failing at the Core trust boundary. With the
+current PostgreSQL port this normalized to a dependency failure, so no demonstrated physical
+cross-Industry read occurred; however the Core prerequisite contract was weaker than its
+source-owned resolved-context requirement and incorrectly relied on a lower-layer adapter.
+
+Smallest forward-only correction:
+- reject `TENANT_CORE` whenever `industryContextId` is present;
+- preserve `TENANT_INDUSTRY` requirement for a valid Industry Context;
+- extend DOC-PRE-005 to prove malformed scope shape returns non-disclosing
+  `RESOURCE_NOT_FOUND` before metadata dependency use.
+
+This does not add ACL evaluation, signer/TTL/provider behavior, storage authority, new
+permission mapping, SQL/RLS/role/grant changes, product behavior or DD-209 authority.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+

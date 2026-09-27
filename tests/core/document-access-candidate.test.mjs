@@ -131,11 +131,13 @@ test("DOC-PRE-005 missing metadata and unresolved or malformed context fail with
       && error.code==="RESOURCE_NOT_FOUND",
   );
 
-  const service=new DocumentAccessCandidateService(port([]));
+  const trace=[];
+  const service=new DocumentAccessCandidateService(port(trace));
   for(const requestContext of [
     context({tenantId:undefined}),
     context({industryContextId:undefined}),
     context({principalId:undefined}),
+    context({scopeClass:"TENANT_CORE"}),
     context({scopeClass:"PLATFORM_GLOBAL",tenantId:undefined,industryContextId:undefined}),
   ]){
     await assert.rejects(
@@ -144,6 +146,7 @@ test("DOC-PRE-005 missing metadata and unresolved or malformed context fail with
         && error.code==="RESOURCE_NOT_FOUND",
     );
   }
+  assert.deepEqual(trace,[]);
 });
 
 test("DOC-PRE-006 metadata dependency failures and malformed authoritative rows fail closed",async()=>{

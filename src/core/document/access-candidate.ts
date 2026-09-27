@@ -147,6 +147,7 @@ function validateResolvedTenantContext(context: RequestContext): void {
     || !validUuid(context.tenantId)
     || !validUuid(context.principalId)
     || !validUuid(context.correlationId)
+    || (context.scopeClass === "TENANT_CORE" && context.industryContextId !== undefined)
     || (context.scopeClass === "TENANT_INDUSTRY" && !validUuid(context.industryContextId))) {
     notFound();
   }
