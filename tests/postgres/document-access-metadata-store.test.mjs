@@ -530,6 +530,44 @@ test("DOC-STO-PG-006 Data Home route mismatch fails closed before physical locat
   );
 });
 
+test("DOC-STO-PG-007 current physical size/checksum drift cannot resolve a binding", async () => {
+  try {
+    await admin.query(
+      "UPDATE core_document.storage_object SET size_bytes=65 WHERE id=$1::uuid",
+      [f.industryObject],
+    );
+    assert.equal(await storageStore.load({
+      requestContext: context(),
+      documentId: f.industryDocument,
+      storageObjectId: f.industryObject,
+    }), null);
+
+    await admin.query(
+      "UPDATE core_document.storage_object SET size_bytes=64, checksum_sha256='checksum-drift' WHERE id=$1::uuid",
+      [f.industryObject],
+    );
+    assert.equal(await storageStore.load({
+      requestContext: context(),
+      documentId: f.industryDocument,
+      storageObjectId: f.industryObject,
+    }), null);
+  } finally {
+    await admin.query(
+      "UPDATE core_document.storage_object SET size_bytes=64, checksum_sha256='checksum-industry' WHERE id=$1::uuid",
+      [f.industryObject],
+    );
+  }
+
+  const restored = await storageStore.load({
+    requestContext: context(),
+    documentId: f.industryDocument,
+    storageObjectId: f.industryObject,
+  });
+  assert.ok(restored);
+  assert.equal(restored.sizeBytes, "64");
+  assert.equal(restored.checksumSha256, "checksum-industry");
+});
+
 
 test("DOC-UP-PG-001 exact Industry upload session preserves persisted raw facts", async () => {
   const session = await uploadStore.loadForContext({

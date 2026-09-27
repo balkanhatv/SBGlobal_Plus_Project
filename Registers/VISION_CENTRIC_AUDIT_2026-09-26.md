@@ -716,3 +716,32 @@ Smallest forward-only correction:
 - add `DOC-ACL-MATCH-008` regression/acceptance.
 
 This remains subject-match evidence only. ACL effect/expiry interpretation, operation→permission mapping, source-resource inheritance/fallback, final ALLOW/DENY authorization, signer/storage access and routes remain **BLOCKED**. No SQL/RLS/role/grant, product behavior or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required.
+
+
+## 2026-09-27 downstream Document physical-binding continuation
+
+Exact-head verification of VC27-35 plus its corrected no-match fixture at `bc1e26c7421a47dea15033cb79dfad9b199bb14c` / tree `659dc13c431c012d0000d49ccaf08feb32740399` passed **712/712 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, and Web.
+
+### VC27-36 — P2: DD-086 did not re-evaluate current StorageObject size/checksum parity
+
+DD-08 and migration 0031 require an ACTIVE DocumentMeta row's `size_bytes` and
+`checksum_sha256` to exactly match its linked StorageObject. Migration 0031 checks
+that relationship on DocumentMeta INSERT/UPDATE, but the dedicated Document service
+role is allowed to UPDATE `storage_object` rows independently. DD-086's current
+binding query rechecked exact linkage, Data Home, Document ACTIVE/CLEAN and
+StorageObject ACTIVE but did not compare current size/checksum values. A later
+StorageObject mutation could therefore leave an ACTIVE DocumentMeta row pointing at
+physical metadata whose current integrity facts no longer match while the binding
+reader still returned the private locator.
+
+Smallest forward-only correction:
+- require `object.size_bytes=document.size_bytes`;
+- require `object.checksum_sha256=document.checksum_sha256`;
+- add `DOC-STO-PG-007` proving either drift yields no binding and restored exact
+  parity becomes readable again.
+
+This does not authorize storage access. Provider decryption/selection, signed URL or
+token generation, TTL, ACL/permission/entitlement/step-up policy, retention,
+residency exceptions and routes remain **BLOCKED**. No migration, role, grant, RLS
+policy, product behavior or DD-209 slice is added. Exact-head
+Core/PostgreSQL/Database/Web verification is required.

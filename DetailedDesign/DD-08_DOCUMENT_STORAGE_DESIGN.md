@@ -199,6 +199,7 @@ DD-083 dedicated Document PostgreSQL role.
 The lookup requires:
 - exact DocumentMeta → StorageObject linkage;
 - current RequestContext Data Home equals StorageObject data_home_id;
+- current StorageObject size and checksum exactly equal DocumentMeta size and checksum;
 - DocumentMeta ACTIVE + CLEAN;
 - StorageObject ACTIVE.
 

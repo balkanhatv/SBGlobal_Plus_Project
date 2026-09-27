@@ -132,6 +132,8 @@ async function loadBinding(
       WHERE document.id=$1::uuid
         AND document.storage_object_id=$2::uuid
         AND object.data_home_id=$3::uuid
+        AND object.size_bytes=document.size_bytes
+        AND object.checksum_sha256=document.checksum_sha256
         AND document.status='ACTIVE'
         AND document.virus_scan_status='CLEAN'
         AND object.status='ACTIVE'`,

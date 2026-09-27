@@ -948,6 +948,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-STO-PG-004 | Tenant Core document/object requested from same-Tenant Industry and Tenant Core contexts | same linked physical binding visible in both |
 | DOC-STO-PG-005 | Document or StorageObject is unsafe/non-active | no physical binding; cannot progress toward signing |
 | DOC-STO-PG-006 | resolved RequestContext Data Home mismatches database route/object | fail closed before locator disclosure |
+| DOC-STO-PG-007 | linked ACTIVE StorageObject current `size_bytes` or `checksum_sha256` drifts from ACTIVE DocumentMeta | no physical binding; current physical locator evidence fails closed until exact parity is restored |
 
 
 ### Raw PostgreSQL Document upload-session reader — DD-087
