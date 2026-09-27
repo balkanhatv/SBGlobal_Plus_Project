@@ -1,8 +1,8 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-36:** `a2de1b9a46831b4ca816ce1be94b66c6726f132b` / tree `50945bd3900cdf9a32ceb4d5b413e7dc1d3cffe0`
+**Prior tree-qualified verified basis through VC27-37:** `576cd7d7963956aac83801cbc259841374225b26` / tree `72ff4fd62f701a8016e18e883c10831e9d031efc`
 
-**Current exact-head correction basis:** `576cd7d7963956aac83801cbc259841374225b26` / tree `72ff4fd62f701a8016e18e883c10831e9d031efc`
+**Current exact-head correction basis:** `59ebdc4fee61ec97f70eb2d45b0bb4c2f120f8d7` / tree `5d32cb9e33116d8603190e5dfce2a2816adfbb3e`
 
 **Exact-head gate:** Core 713/713; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
@@ -47,6 +47,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-34/35 — Document ACL subject evidence:** sparse role/OrgUnit arrays fail closed; selected OrgUnit ancestry must be duplicate-free, end at the selected valid OrgUnit and be empty when no OrgUnit is selected. ACL effect/expiry, operation mapping, inheritance/fallback and final ALLOW/DENY remain unresolved.
 - **VC27-36 — Document physical binding:** current linked StorageObject size/checksum must still match ACTIVE/CLEAN DocumentMeta before private locator metadata is returned. Signing/provider/TTL/authorization/retention remain outside this floor.
 - **VC27-37 — API Credential exact-Industry allowlist parity:** an exact Industry-scoped credential now fails closed when raw `allowedIndustryContextIds` carries any sibling/different Industry, mirroring migration 0030's no-widening invariant. Presented-token parsing/hash verification, CIDR, permission-profile mapping, successful-use mutation/audit and final `VerifiedMachineEvidence` remain blocked.
+- **VC27-38 — strict instant validation:** OperatorElevation current-window, API Credential lifecycle, Webhook verification and TenantIntegration CredentialReference expiry/currentness floors now reject calendar-invalid or timezone-ambiguous timestamps that permissive `Date.parse()` could normalize. Valid explicit UTC/offset instants remain accepted; no execution authority is added.
 
 ### Current bounded verdict
 
