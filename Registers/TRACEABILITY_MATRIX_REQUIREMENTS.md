@@ -1,6 +1,8 @@
 # TRACEABILITY MATRIX — REQUIREMENT-LEVEL CHILD EVIDENCE
 **Status:** SOURCE CHILD INVENTORY / HISTORICAL DISPOSITIONS · **Built:** 2026-09-11 · **Current ownership overlay:** 2026-09-13
 
+> **2026-09-27 source-fidelity correction:** 2,962 stable inventory IDs are retained. Repeated-heading extraction errors and placeholder text are corrected against immutable source lines; 21 surplus legacy IDs are explicit provenance aliases with corrected parent locators. Historical disposition totals below are not a current no-loss verdict. See [SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md](SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md).
+
 The child text/IDs and original status counts below are preserved provenance. They do not establish current DD, implementation or runtime completion. The all-stages audit corrected the downstream owner routes in `F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md`, including unrelated AI mappings, source-only headings and future test obligations. Read that current overlay with the substantive owner; do not promote this inventory's old `VERIFIED` label into a current gate.
 
 This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remain stable **parent/source-heading inventory**. Child rows below are the requirement-level evidence layer for multi-requirement units. A child is never marked VERIFIED merely because its parent is VERIFIED.
@@ -1857,15 +1859,15 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.4-U166-R006 | S2.4-U166 | Created At | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
 | S2.4-U166-R007 | S2.4-U166 | Updated At | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
 | S2.4-U166-R008 | S2.4-U166 | Deleted At | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
-| S2.4-U167-R001 | S2.4-U167 | Fast page loading | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
-| S2.4-U167-R002 | S2.4-U167 | Optimized database queries | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
-| S2.4-U167-R003 | S2.4-U167 | Efficient API responses | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
-| S2.4-U167-R004 | S2.4-U167 | Background queue processing | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
-| S2.4-U167-R005 | S2.4-U167 | Lazy loading where appropriate | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
-| S2.4-U167-R006 | S2.4-U167 | Caching for frequently accessed data | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
-| S2.4-U167-R007 | S2.4-U167 | Source item 7 under "Performance" requires exact material extraction/verification. | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
-| S2.4-U167-R008 | S2.4-U167 | Source item 8 under "Performance" requires exact material extraction/verification. | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
-| S2.4-U167-R009 | S2.4-U167 | Source item 9 under "Performance" requires exact material extraction/verification. | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
+| S2.4-U167-R001 | S2.4-U167 | Indexes | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
+| S2.4-U167-R002 | S2.4-U167 | Composite Indexes | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
+| S2.4-U167-R003 | S2.4-U167 | Query Optimization | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
+| S2.4-U167-R004 | S2.4-U167 | Pagination | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
+| S2.4-U167-R005 | S2.4-U167 | Caching | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
+| S2.4-U167-R006 | S2.4-U167 | Lazy Loading | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
+| S2.4-U167-R007 | S2.4-U167 | Eager Loading | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
+| S2.4-U167-R008 | S2.4-U167 | Table Partitioning Ready | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
+| S2.4-U167-R009 | S2.4-U167 | Read Replica Ready | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
 | S2.4-U168-R001 | S2.4-U168 | Tenant Isolation | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
 | S2.4-U168-R002 | S2.4-U168 | Encrypted Fields | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
 | S2.4-U168-R003 | S2.4-U168 | Password Hashing | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
@@ -1897,27 +1899,27 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.4-U172-R006 | S2.4-U172 | Export | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
 | S2.4-U172-R007 | S2.4-U172 | Queue | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
 | S2.4-U172-R008 | S2.4-U172 | Scheduler | SD | Platform-wide | F-04/F-11/A-05 | data/residency | Foundation + Architecture; exact schema in Detailed Design | — | DEFERRED |
-| S2.5-U176-R001 | S2.5-U176 | Website | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U176-R002 | S2.5-U176 | Super Admin | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U176-R003 | S2.5-U176 | 🆕 Tenant Web Portal | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U176-R004 | S2.5-U176 | LIS | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U176-R005 | S2.5-U176 | Billing | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U176-R006 | S2.5-U176 | Inventory | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U176-R007 | S2.5-U176 | APIs | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U176-R008 | S2.5-U176 | Mobile Apps | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U176-R009 | S2.5-U176 | Analytics | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U176-R001 | S2.5-U176 | 🆕 Tenant Staff App | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U176-R002 | S2.5-U176 | 🆕 Tenant User/Customer App | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U176-R003 | S2.5-U176 | 🆕 Super Admin App | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U176-R004 | S2.5-U176 | Future Enterprise Apps | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U176-R005 | S2.4-U160 | Billing | SD + UD supersession | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.4-U160 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.5-U176-R006 | S2.4-U160 | Inventory | SD + UD supersession | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.4-U160 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.5-U176-R007 | S2.4-U160 | APIs | SD + UD supersession | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.4-U160 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.5-U176-R008 | S2.4-U160 | Mobile Apps | SD + UD supersession | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.4-U160 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.5-U176-R009 | S2.4-U160 | Analytics | SD + UD supersession | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.4-U160 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
 | S2.5-U177-R001 | S2.5-U177 | Android | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U177-R002 | S2.5-U177 | iOS | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U177-R003 | S2.5-U177 | Future: Web App (PWA) | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R001 | S2.5-U180 | Multi-Tenant | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R002 | S2.5-U180 | Configuration Driven | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R003 | S2.5-U180 | Database Driven | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R004 | S2.5-U180 | Modular | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R005 | S2.5-U180 | Scalable | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R006 | S2.5-U180 | Normalized | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R007 | S2.5-U180 | API First | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R008 | S2.5-U180 | Source item 8 under "Architecture" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U180-R009 | S2.5-U180 | Source item 9 under "Architecture" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R001 | S2.5-U180 | Clean Architecture | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R002 | S2.5-U180 | Feature Based Architecture | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R003 | S2.5-U180 | Repository Pattern | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R004 | S2.5-U180 | Service Layer | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R005 | S2.5-U180 | Dependency Injection | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R006 | S2.5-U180 | MVVM Compatible | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R007 | S2.5-U180 | Offline First | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R008 | S2.5-U180 | API First | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U180-R009 | S2.5-U180 | Multi Tenant | SD + UD supersession | Platform-wide | F-06/A-08 | F-06 §4 Mobile Architecture; A-08 §8 Mobile Architecture | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U181-R001 | S2.5-U181 | Riverpod (Default) | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U181-R002 | S2.5-U181 | Future Support: Bloc, Cubit | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U182-R001 | S2.5-U182 | SQLite | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
@@ -1949,24 +1951,24 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.5-U187-R004 | S2.5-U187 | SMS Trigger | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U187-R005 | S2.5-U187 | WhatsApp Trigger | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U187-R006 | S2.5-U187 | Email Trigger | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R001 | S2.5-U188 | • JWT Authentication (API Only) | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R002 | S2.5-U188 | Source item 2 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R003 | S2.5-U188 | Source item 3 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R004 | S2.5-U188 | Source item 4 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R005 | S2.5-U188 | Source item 5 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R006 | S2.5-U188 | Source item 6 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R007 | S2.5-U188 | Source item 7 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R008 | S2.5-U188 | Source item 8 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R009 | S2.5-U188 | Source item 9 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U188-R010 | S2.5-U188 | Source item 10 under "Authentication" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R001 | S2.5-U188 | OTP Login | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R002 | S2.5-U188 | JWT | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R003 | S2.5-U188 | Refresh Token | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R004 | S2.5-U188 | Biometric Login | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R005 | S2.5-U188 | Fingerprint | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R006 | S2.5-U188 | Face ID | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R007 | S2.5-U188 | Device Binding | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R008 | S2.5-U188 | Session Management | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R009 | S2.5-U188 | Multi-Factor Authentication (MFA) Support | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U188-R010 | S2.5-U188 | 🆕 Enterprise SSO / OAuth 2.0 / OIDC (Tenant Staff App) | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §1–§3 identity/session boundary; F-06 §4 mobile; A-03 §1–§2; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U189-R001 | S2.5-U189 | Tenant Isolation | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R002 | S2.5-U189 | Encrypted Fields | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R003 | S2.5-U189 | Password Hashing | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R004 | S2.5-U189 | API Token Security | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R005 | S2.5-U189 | Database Backup | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R006 | S2.5-U189 | Access Logging | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R007 | S2.5-U189 | Source item 7 under "Security" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U189-R008 | S2.5-U189 | Source item 8 under "Security" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R002 | S2.5-U189 | Encrypted Storage | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R003 | S2.5-U189 | SSL Pinning | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R004 | S2.5-U189 | Certificate Validation | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R005 | S2.5-U189 | API Encryption | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R006 | S2.5-U189 | Token Expiry | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R007 | S2.5-U189 | Logout All Devices | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U189-R008 | S2.5-U189 | Root/Jailbreak Detection | SD + UD supersession | Platform-wide | F-03/F-06/A-03/A-08 | F-03 §5 security controls; F-06 §4 mobile security; A-03 §5; A-08 §8 | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U190-R001 | S2.5-U190 | QR Scanner | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U190-R002 | S2.5-U190 | Barcode Scanner | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U190-R003 | S2.5-U190 | Patient QR | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
@@ -2029,15 +2031,15 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.5-U197-R006 | S2.5-U197 | AI Recommendations | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U197-R007 | S2.5-U197 | Voice Assistant | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U197-R008 | S2.5-U197 | AI Notification Generator | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U198-R001 | S2.5-U198 | Fast page loading | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U198-R002 | S2.5-U198 | Optimized database queries | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U198-R003 | S2.5-U198 | Efficient API responses | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U198-R004 | S2.5-U198 | Background queue processing | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U198-R005 | S2.5-U198 | Lazy loading where appropriate | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U198-R006 | S2.5-U198 | Caching for frequently accessed data | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
-| S2.5-U199-R001 | S2.5-U199 | Distributed Tracing Ready | SD + UD supersession | Platform-wide | A-11 | §1–§14 Observability/Reliability/Operations; mobile telemetry uses common platform observability | source mobile requirements; active stack override | UD-TECH-01 | DEFERRED |
-| S2.5-U199-R002 | S2.5-U199 | Metrics Collection | SD + UD supersession | Platform-wide | A-11 | §1–§14 Observability/Reliability/Operations; mobile telemetry uses common platform observability | source mobile requirements; active stack override | UD-TECH-01 | DEFERRED |
-| S2.5-U199-R003 | S2.5-U199 | Source item 3 under "Observability" requires exact material extraction/verification. | SD + UD supersession | Platform-wide | A-11 | §1–§14 Observability/Reliability/Operations; mobile telemetry uses common platform observability | source mobile requirements; active stack override | UD-TECH-01 | DEFERRED |
+| S2.5-U198-R001 | S2.5-U198 | Lazy Loading | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U198-R002 | S2.5-U198 | Image Compression | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U198-R003 | S2.5-U198 | Background Processing | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U198-R004 | S2.5-U198 | Pagination | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U198-R005 | S2.5-U198 | Infinite Scroll | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U198-R006 | S2.5-U198 | Code Splitting | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
+| S2.5-U199-R001 | S2.5-U199 | Crash Reporting | SD + UD supersession | Platform-wide | A-11 | §1–§14 Observability/Reliability/Operations; mobile telemetry uses common platform observability | source mobile requirements; active stack override | UD-TECH-01 | DEFERRED |
+| S2.5-U199-R002 | S2.5-U199 | Performance Monitoring | SD + UD supersession | Platform-wide | A-11 | §1–§14 Observability/Reliability/Operations; mobile telemetry uses common platform observability | source mobile requirements; active stack override | UD-TECH-01 | DEFERRED |
+| S2.5-U199-R003 | S2.5-U199 | Analytics Events | SD + UD supersession | Platform-wide | A-11 | §1–§14 Observability/Reliability/Operations; mobile telemetry uses common platform observability | source mobile requirements; active stack override | UD-TECH-01 | DEFERRED |
 | S2.5-U200-R001 | S2.5-U200 | Dark Mode | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U200-R002 | S2.5-U200 | Light Mode | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U200-R003 | S2.5-U200 | Large Fonts | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
@@ -2068,28 +2070,28 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.5-U206-R001 | S2.5-U206 | Semantic Versioning | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.5-U206-R002 | S2.5-U206 | Backward Compatibility Policy | SD + UD supersession | Platform-wide | F-06/A-08 | mobile | source mobile requirements; active stack override | UD-TECH-01 | VERIFIED |
 | S2.6-U209-R001 | S2.6-U209 | Website | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R002 | S2.6-U209 | Super Admin | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R002 | S2.6-U209 | Super Admin Portal | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
 | S2.6-U209-R003 | S2.6-U209 | 🆕 Tenant Web Portal | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
 | S2.6-U209-R004 | S2.6-U209 | LIS | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
 | S2.6-U209-R005 | S2.6-U209 | Billing | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
 | S2.6-U209-R006 | S2.6-U209 | Inventory | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R007 | S2.6-U209 | APIs | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R008 | S2.6-U209 | Mobile Apps | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R009 | S2.6-U209 | Analytics | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
-| S2.6-U209-R010 | S2.6-U209 | Source item 10 under "Scope" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R001 | S2.6-U210 | Source item 1 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R002 | S2.6-U210 | Source item 2 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R003 | S2.6-U210 | Source item 3 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R004 | S2.6-U210 | Source item 4 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R005 | S2.6-U210 | Source item 5 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R006 | S2.6-U210 | Source item 6 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R007 | S2.6-U210 | Source item 7 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R008 | S2.6-U210 | Source item 8 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R009 | S2.6-U210 | Source item 9 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R010 | S2.6-U210 | Source item 10 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R011 | S2.6-U210 | Source item 11 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R012 | S2.6-U210 | Source item 12 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
-| S2.6-U210-R013 | S2.6-U210 | Source item 13 under "Supported AI Providers" requires exact material extraction/verification. | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R007 | S2.6-U209 | Mobile Apps | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R008 | S2.6-U209 | APIs | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R009 | S2.6-U209 | Reports | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U209-R010 | S2.6-U209 | Analytics | SD | Platform-wide | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R001 | S2.6-U210 | OpenAI | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R002 | S2.6-U210 | Anthropic Claude | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R003 | S2.6-U210 | Google Gemini | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R004 | S2.6-U210 | Amazon Bedrock | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R005 | S2.6-U210 | Microsoft Azure OpenAI | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R006 | S2.6-U210 | OpenRouter | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R007 | S2.6-U210 | Ollama (Self Hosted) | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R008 | S2.6-U210 | LM Studio | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R009 | S2.6-U210 | Hugging Face Inference | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R010 | S2.6-U210 | AWS SageMaker | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R011 | S2.6-U210 | Grok | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R012 | S2.6-U210 | DeepSeek | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
+| S2.6-U210-R013 | S2.6-U210 | Custom Enterprise LLM | SD | Platform-wide | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | Foundation + Architecture | — | VERIFIED |
 | S2.6-U212-R001 | S2.6-U212 | General Reasoning | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
 | S2.6-U212-R002 | S2.6-U212 | Enterprise Documentation | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
 | S2.6-U212-R003 | S2.6-U212 | Code Generation | SD | Platform-wide | F-05/A-07 | AI | Foundation + Architecture | — | VERIFIED |
@@ -2443,23 +2445,23 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.7-U254-R004 | S2.7-U254 | Button Radius: 10px | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
 | S2.7-U254-R005 | S2.7-U254 | Icon Size: 22px | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
 | S2.7-U254-R006 | S2.7-U254 | Hero CTA: Start Free Trial, Login, Get Demo | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R001 | S2.7-U256 | Patients | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R002 | S2.7-U256 | Doctors | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R003 | S2.7-U256 | Staff | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R004 | S2.7-U256 | Branches | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R005 | S2.7-U256 | Inventory | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R006 | S2.7-U256 | Reports | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R007 | S2.7-U256 | Billing | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R008 | S2.7-U256 | Dashboards | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R009 | S2.7-U256 | Analytics | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R010 | S2.7-U256 | Profiles | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R011 | S2.7-U256 | Medical History | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R012 | S2.7-U256 | Appointments | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R013 | S2.7-U256 | Payments | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R014 | S2.7-U256 | Notifications | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R015 | S2.7-U256 | Follow-ups | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R016 | S2.7-U256 | Notes | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
-| S2.7-U256-R017 | S2.7-U256 | AI Insights | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
+| S2.7-U256-R001 | S2.7-U256 | Reports | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
+| S2.7-U256-R002 | S2.7-U256 | Notifications | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
+| S2.7-U256-R003 | S2.2-U056 | Staff | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R004 | S2.2-U056 | Branches | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R005 | S2.2-U056 | Inventory | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R006 | S2.2-U056 | Reports | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R007 | S2.2-U056 | Billing | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R008 | S2.2-U056 | Dashboards | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R009 | S2.2-U056 | Analytics | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R010 | S2.2-U056 | Profiles | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R011 | S2.2-U056 | Medical History | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R012 | S2.2-U056 | Appointments | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R013 | S2.2-U056 | Payments | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R014 | S2.2-U056 | Notifications | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R015 | S2.2-U056 | Follow-ups | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R016 | S2.2-U056 | Notes | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
+| S2.7-U256-R017 | S2.2-U056 | AI Insights | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.2-U056 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
 | S2.7-U257-R001 | S2.7-U257 | KPI Cards: Revenue, Patients, Doctors, Reports, Pending Samples, Collections | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
 | S2.7-U257-R002 | S2.7-U257 | Revenue Graph | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
 | S2.7-U257-R003 | S2.7-U257 | Quick Actions | SD | Platform-wide | F-04/F-06 | defaults/branding/reference | Foundation | — | VERIFIED |
@@ -2683,11 +2685,11 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.8-U274-R004 | S2.8-U274 | LG: 960px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U274-R005 | S2.8-U274 | XL: 1140px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U274-R006 | S2.8-U274 | 2XL: 1320px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U276-R001 | S2.8-U276 | Card: 12px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U276-R002 | S2.8-U276 | Button: 10px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U276-R003 | S2.8-U276 | Input: 8px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U276-R004 | S2.8-U276 | Source item 4 under "Border Radius" requires exact material extraction/verification. | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U276-R005 | S2.8-U276 | Source item 5 under "Border Radius" requires exact material extraction/verification. | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U276-R001 | S2.8-U276 | Small: 6px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U276-R002 | S2.8-U276 | Medium: 8px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U276-R003 | S2.8-U276 | Large: 12px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U276-R004 | S2.8-U276 | XL: 16px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U276-R005 | S2.8-U276 | Round: 999px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U278-R001 | S2.8-U278 | Primary | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U278-R002 | S2.8-U278 | Secondary | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U278-R003 | S2.8-U278 | Success | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
@@ -2868,13 +2870,13 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.8-U309-R003 | S2.8-U309 | Sample Timeline | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U309-R004 | S2.8-U309 | Activity Timeline | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U309-R005 | S2.8-U309 | Workflow Timeline | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U310-R001 | S2.8-U310 | Firebase Cloud Messaging (FCM) | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U310-R002 | S2.8-U310 | Push Notification | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U310-R003 | S2.8-U310 | Local Notification | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U310-R004 | S2.8-U310 | SMS Trigger | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U310-R005 | S2.8-U310 | WhatsApp Trigger | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U310-R006 | S2.8-U310 | Email Trigger | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U310-R007 | S2.8-U310 | Source item 7 under "Notifications" requires exact material extraction/verification. | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U310-R001 | S2.8-U310 | Bell | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U310-R002 | S2.8-U310 | Popup | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U310-R003 | S2.8-U310 | Toast | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U310-R004 | S2.8-U310 | Email | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U310-R005 | S2.8-U310 | SMS | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U310-R006 | S2.8-U310 | WhatsApp | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U310-R007 | S2.8-U310 | Push | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U312-R001 | S2.8-U312 | Normal → Green | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U312-R002 | S2.8-U312 | High → Red | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U312-R003 | S2.8-U312 | Low → Orange | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
@@ -2910,12 +2912,12 @@ This file complements `TRACEABILITY_MATRIX_UNIT.md`. The 372 existing rows remai
 | S2.8-U317-R001 | S2.8-U317 | Light | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U317-R002 | S2.8-U317 | Dark | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U317-R003 | S2.8-U317 | Auto | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U318-R001 | S2.8-U318 | Dark Mode | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U318-R002 | S2.8-U318 | Light Mode | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U318-R003 | S2.8-U318 | Large Fonts | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U318-R004 | S2.8-U318 | Screen Reader | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U318-R005 | S2.8-U318 | High Contrast | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
-| S2.8-U318-R006 | S2.8-U318 | Offline Support | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U318-R001 | S2.8-U318 | Keyboard Navigation | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U318-R002 | S2.8-U318 | High Contrast | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U318-R003 | S2.8-U318 | ARIA Labels | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U318-R004 | S2.8-U318 | Focus Ring | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U318-R005 | S2.8-U318 | Screen Reader Support | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
+| S2.8-U318-R006 | S2.5-U200 | Offline Support | SD | Platform-wide | Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md | Provenance aliases; actual source parent S2.5-U200 | DUPLICATE PROVENANCE — no additional product obligation | VC27-01 | SOURCE_LOCATED_ALIAS |
 | S2.8-U319-R001 | S2.8-U319 | Mobile: 0–575px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U319-R002 | S2.8-U319 | Tablet: 576–991px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |
 | S2.8-U319-R003 | S2.8-U319 | Laptop: 992–1199px | SD | Platform-wide | F-06/A-08 | design system | Foundation UX + Detailed Design | — | DEFERRED |

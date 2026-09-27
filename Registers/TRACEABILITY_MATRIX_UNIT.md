@@ -1,6 +1,8 @@
 # TRACEABILITY MATRIX — SOURCE PARENT INVENTORY
 **Status:** ACTIVE VERIFIED PARENT INVENTORY · **Rebuilt:** 2026-09-11
 
+> **2026-09-27 qualification:** parent/child counts are inventory, not complete atomic coverage. Repeated-heading extraction defects are corrected in the child ledgers; 21 stable legacy IDs now point to their actual source parent as provenance aliases. Complete source-span/owner semantic reconciliation remains open. See [SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md](SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md).
+
 One repository-resident row per meaningful source heading/unit. `Items` is informational syntax counting only; it is never certification evidence. Requirement-level child provenance and current dependency ownership are separate. The 2026-09-13 overlay in `F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md` supersedes inherited routing/status assumptions; actual canonical content and executable evidence establish the gate.
 
 **Accepted baseline:** S1 `a9f63a64448a347edd0f2b0c74094284ee953c1b`; S2 `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`.
@@ -81,7 +83,7 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.1-U029 | Deployment Constraints | 0 | Platform-wide | SD + UD supersession | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | UD-TECH-01 | SOURCE TECH HISTORY → active override | VERIFIED — supersession traced |
 | S2.1-U030 | Mobile Application Stack | 0 | Platform-wide | SD + UD supersession | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | UD-TECH-01 | SOURCE TECH HISTORY → active override | VERIFIED — supersession traced |
 | S2.1-U031 | 🆕 Desktop Application Stack | 0 | Platform-wide | SD + UD supersession | F-01 / UD-TECH-01 / Architecture | §8 / A-00…A-10 | UD-TECH-01 | SOURCE TECH HISTORY → active override | VERIFIED — supersession traced |
-| S2.1-U032 | 19. Reference Architecture | 8 | Platform-wide | SD + UD supersession | F-01/A-00/A-01/A-10 | F-01 §8 active stack qualification; A-00 §3 layered model; A-01 Core; A-10 deployment | UD-TECH-01 | SOURCE TECH HISTORY → active override | VERIFIED — supersession traced |
+| S2.1-U032 | 19. Reference Architecture | 8 | Platform-wide | SD | Governing/MASTER_INSTRUCTION_v2_5.md | §22 inspiration-only/no-copy/no-license-conflict rule | VC27-02; UD-TECH-01 supersedes stack only | ACTIVE GOVERNANCE / reference provenance | SOURCE RECONCILED; no runtime certification |
 | S2.1-U033 | 20. Development Phase Roadmap | 21 | Platform-wide | SD | Governing/MASTER_INSTRUCTION_v2_5.md | §26 lifecycle + §26A Phase Gate Model + §26B Detailed Design Gate | — | Governance / later phase as applicable | VERIFIED |
 | S2.1-U034 | 21. Recovery File Specifications | 0 | Platform-wide | SD | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | — | Governance / later phase as applicable | VERIFIED |
 | S2.1-U035 | PROJECT_STATE.md shall include: | 0 | Platform-wide | SD | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | — | Governance / later phase as applicable | VERIFIED |

@@ -1,7 +1,7 @@
 # CURRENT SOURCE REQUIREMENT OWNERSHIP — ALL-STAGES AUDIT
-**Updated:** 2026-09-13 · **Status:** CURRENT DEPENDENCY ROUTING / NOT RUNTIME CERTIFICATION
+**Updated:** 2026-09-27 · **Status:** CURRENT DEPENDENCY ROUTING / NOT RUNTIME CERTIFICATION
 
-All 2,962 source child IDs and their source-faithful text are preserved. The prior Fable routing contained unrelated AI-owner matches and overbroad CLOSED_IN_DD labels. This correction resolves owners from the source parent section and each mixed-catalog row, then synchronizes the deferred/partial projections. The named acceptance contracts are entry points, not a claim that every source requirement has an executable test. Current executable coverage is limited to the Database checkpoint in `ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`; application/API/UI, provider operations, load/penetration/recovery exercises and deployment remain future work.
+All 2,962 stable source inventory IDs are retained. The 2026-09-27 reconciliation restores mis-extracted source text and explicitly marks 21 surplus legacy IDs as provenance aliases; see `SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md`. The prior Fable routing contained unrelated AI-owner matches and overbroad CLOSED_IN_DD labels. This correction resolves owners from the source parent section and each mixed-catalog row, then synchronizes the deferred/partial projections. The named acceptance contracts are entry points, not a claim that every source requirement has an executable test. Execution status is owned by `State/PROJECT_MANIFEST.json` and its exact-HEAD evidence, currently through DD-208 plus audited corrections. Database, bounded Core/server/PostgreSQL behavior and the three-query first-party Web boundary have executable evidence; completed UI, provider operations, load/penetration/recovery exercises and deployment are not thereby certified. These rows route requirements and do not assert that each complete requirement has executed.
 
 Valid source product semantics remain active; legacy technology and Healthcare-primacy clauses are superseded by Primary Vision/UD-TECH-01 without changing source text. Structural/ToC aliases are provenance. External legal/provider/customer values remain governed inputs. Counts never prove semantic completeness.
 
@@ -144,17 +144,17 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.1-U017-R011 | Project Website Live | F-01/F-04 | A-10/A-11 | ADR-017/018 | DD-14/DD-15 | INF-001/002/005/006/007/008/009/010; OBS-002/004/006 | ACTIVE_CANONICAL |
 | S2.1-U017-R012 | shall remain OPTIONAL and shall never become mandatory for standard deployment. | F-01/F-04 | A-10/A-11 | ADR-017/018 | DD-14/DD-15 | INF-001/002/005/006/007/008/009/010; OBS-002/004/006 | ACTIVE_CANONICAL |
 | S2.1-U017-R013 | The platform shall remain fully functional without implementing these optional enterprise features. | F-01/F-04 | A-10/A-11 | ADR-017/018 | DD-14/DD-15 | INF-001/002/005/006/007/008/009/010; OBS-002/004/006 | ACTIVE_CANONICAL |
-| S2.1-U032-R001 | The following repositories are approved as architecture, workflow and best-practice references only. | F-01/F-02 | A-01 + A-01/A-06 | ADR-001/019 + ADR-001/006/019 | DD-01/DD-05 §§1–3B + DD-05 §3B/DD-22; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 + CFG-001/003/004; DBA-006; DD-21 per-MS T003/T004 | SUPERSEDED_WITH_AUTHORITY |
-| S2.1-U032-R002 | AI shall NEVER: | F-01/F-02 + F-05 | A-01 + A-07 | ADR-001/019 + ADR-008/010 | DD-01/DD-05 §§1–3B + DD-09/DD-08; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 + AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | SUPERSEDED_WITH_AUTHORITY |
-| S2.1-U032-R003 | AI shall use these references only for inspiration on architecture, workflow, feature ideas and best practices. All project code shall remain freshly written and original. | F-01/F-02 + F-05 | A-01 + A-07 + A-01/A-06 | ADR-001/019 + ADR-008/010 + ADR-001/006/019 | DD-01/DD-05 §§1–3B + DD-09/DD-08 + DD-05 §3B/DD-22; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 + AI-001/002/003/004/005/007/010/013/016/017; DBA-009 + CFG-001/003/004; DBA-006; DD-21 per-MS T003/T004 | SUPERSEDED_WITH_AUTHORITY |
-| S2.1-U032-R004 | Purpose — Repository — Use For | F-01/F-02 | A-01 | ADR-001/019 | DD-01/DD-05 §§1–3B; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 | SUPERSEDED_WITH_AUTHORITY |
-| S2.1-U032-R005 | Laboratory Information System — OpenELIS Global — https://github.com/DIGI-UW/OpenELIS-Global-2 — Patient workflow, sample lifecycle, laboratory workflow, result management, reporting concepts | F-01/F-02 + F-01/F-04 | A-01 + A-01/A-06 + A-01/A-05/A-11 | ADR-001/019 + ADR-001/006/019 + ADR-002/008 | DD-01/DD-05 §§1–3B + DD-05 §3B/DD-22 + DD-05/DD-15/DD-25/DD-28; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 + CFG-001/003/004; DBA-006; DD-21 per-MS T003/T004 + DD-25 named KPI T01/T02; DATA-ACCESS-001/002 | SUPERSEDED_WITH_AUTHORITY |
-| S2.1-U032-R006 | Multi-Tenant Architecture — https://github.com/michaelnabil230/laravel-multi-tenancy — Tenant isolation, multiple labs, secure data separation | F-01/F-02 | A-01 | ADR-001/019 | DD-01/DD-05 §§1–3B; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 | SUPERSEDED_WITH_AUTHORITY |
-| S2.1-U032-R007 | Admin Dashboard — Filament — https://github.com/filamentphp/filament — Super Admin, Lab Admin, CRUD, analytics, settings | F-01/F-02 + F-01/F-04 | A-01 + A-01/A-05/A-11 + A-01/A-05 | ADR-001/019 + ADR-002/008 + ADR-019 | DD-01/DD-05 §§1–3B + DD-05/DD-15/DD-25/DD-28 + DD-05 §§3–3B/DD-18 DD-030; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 + DD-25 named KPI T01/T02; DATA-ACCESS-001/002 + CFG-001/002/003/004; DBA-001 | SUPERSEDED_WITH_AUTHORITY |
-| S2.1-U032-R008 | SaaS Foundation — https://github.com/mohammedelkarsh/laravel-tenant-kit — SaaS foundation patterns | F-01/F-02 | A-01 | ADR-001/019 | DD-01/DD-05 §§1–3B; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 | SUPERSEDED_WITH_AUTHORITY |
-| S2.1-U032-R009 | PDF Generation — https://github.com/barryvdh/laravel-dompdf — PDF report generation | F-01/F-02 + F-01/F-04 | A-01 + A-01/A-05/A-11 | ADR-001/019 + ADR-002/008 | DD-01/DD-05 §§1–3B + DD-05/DD-15/DD-25/DD-28; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 + DD-25 named KPI T01/T02; DATA-ACCESS-001/002 | SUPERSEDED_WITH_AUTHORITY |
-| S2.1-U032-R010 | QR Codes — https://github.com/SimpleSoftwareIO/simple-qrcode — QR generation and verification | F-01/F-02 | A-01 | ADR-001/019 | DD-01/DD-05 §§1–3B; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 | SUPERSEDED_WITH_AUTHORITY |
-| S2.1-U032-R011 | Inventory — https://github.com/akaunting/akaunting — Inventory and accounting concepts | F-01/F-02 | A-01 | ADR-001/019 | DD-01/DD-05 §§1–3B; Primary Vision / UD-TECH-01 / MI legacy register govern active interpretation; valid business capability is retained at the named owner; obsolete implementation/industry primacy is not reactivated. | CFG-001/002; DBA-001/006 | SUPERSEDED_WITH_AUTHORITY |
+| S2.1-U032-R001 | The following repositories are approved as architecture, workflow and best-practice references only. | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | ACTIVE_CANONICAL |
+| S2.1-U032-R002 | AI shall NEVER: | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | ACTIVE_CANONICAL |
+| S2.1-U032-R003 | AI shall use these references only for inspiration on architecture, workflow, feature ideas and best practices. All project code shall remain freshly written and original. | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | ACTIVE_CANONICAL |
+| S2.1-U032-R004 | Purpose — Repository — Use For | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | DUPLICATE_PROVENANCE |
+| S2.1-U032-R005 | Laboratory Information System — OpenELIS Global — https://github.com/DIGI-UW/OpenELIS-Global-2 — Patient workflow, sample lifecycle, laboratory workflow, result management, reporting concepts | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | ACTIVE_CANONICAL |
+| S2.1-U032-R006 | Multi-Tenant Architecture — https://github.com/michaelnabil230/laravel-multi-tenancy — Tenant isolation, multiple labs, secure data separation | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | ACTIVE_CANONICAL |
+| S2.1-U032-R007 | Admin Dashboard — Filament — https://github.com/filamentphp/filament — Super Admin, Lab Admin, CRUD, analytics, settings | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | ACTIVE_CANONICAL |
+| S2.1-U032-R008 | SaaS Foundation — https://github.com/mohammedelkarsh/laravel-tenant-kit — SaaS foundation patterns | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | ACTIVE_CANONICAL |
+| S2.1-U032-R009 | PDF Generation — https://github.com/barryvdh/laravel-dompdf — PDF report generation | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | ACTIVE_CANONICAL |
+| S2.1-U032-R010 | QR Codes — https://github.com/SimpleSoftwareIO/simple-qrcode — QR generation and verification | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | ACTIVE_CANONICAL |
+| S2.1-U032-R011 | Inventory — https://github.com/akaunting/akaunting — Inventory and accounting concepts | Governing/MASTER_INSTRUCTION_v2_5.md §22 | N/A — development governance; F-01 §8 only for stack supersession | UD-TECH-01 changes stack, not reference-use restrictions | Governing MI §22: references are inspiration only; no source copying, external-code merge or license conflict; no runtime feature implied | Source/provenance review; REPO-002 text retention | ACTIVE_CANONICAL |
 | S2.1-U033-R001 | Development shall proceed through the following phases in order. Each phase shall follow the Completion Policy (Section 16) before the next phase begins, unless the user has explicitly instructed continuous/autonomous progress through multiple phases. | F-00 / Governing MI §§25–26B,33A | A-00/A-12 | ADR-001 | DD-00/DD-18 | DD-17 §25; audit execution gate | ACTIVE_CANONICAL |
 | S2.1-U033-R002 | Project Foundation | F-00 / Governing MI §§25–26B,33A | A-00/A-12 | ADR-001 | DD-00/DD-18 | DD-17 §25; audit execution gate | ACTIVE_CANONICAL |
 | S2.1-U033-R003 | Database Architecture | F-00 / Governing MI §§25–26B,33A | A-00/A-12 | ADR-001 | DD-00/DD-18 | DD-17 §25; audit execution gate | ACTIVE_CANONICAL |
@@ -1853,15 +1853,15 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.4-U166-R006 | Created At | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
 | S2.4-U166-R007 | Updated At | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
 | S2.4-U166-R008 | Deleted At | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
-| S2.4-U167-R001 | Fast page loading | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
-| S2.4-U167-R002 | Optimized database queries | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
-| S2.4-U167-R003 | Efficient API responses | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
-| S2.4-U167-R004 | Background queue processing | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
-| S2.4-U167-R005 | Lazy loading where appropriate | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
-| S2.4-U167-R006 | Caching for frequently accessed data | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
-| S2.4-U167-R007 | Source item 7 under "Performance" requires exact material extraction/verification. | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
-| S2.4-U167-R008 | Source item 8 under "Performance" requires exact material extraction/verification. | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
-| S2.4-U167-R009 | Source item 9 under "Performance" requires exact material extraction/verification. | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
+| S2.4-U167-R001 | Indexes | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
+| S2.4-U167-R002 | Composite Indexes | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
+| S2.4-U167-R003 | Query Optimization | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
+| S2.4-U167-R004 | Pagination | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
+| S2.4-U167-R005 | Caching | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
+| S2.4-U167-R006 | Lazy Loading | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
+| S2.4-U167-R007 | Eager Loading | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
+| S2.4-U167-R008 | Table Partitioning Ready | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
+| S2.4-U167-R009 | Read Replica Ready | F-04 | A-05 | ADR-002/008/018 | DD-05/DD-23 | DB-001/002/003/008/009; DBA-001/006/012 | ACTIVE_CANONICAL |
 | S2.4-U168-R001 | Tenant Isolation | F-03 | A-03/A-11 | ADR-003/004 | DD-03/DD-15/DD-16 | SEC-001/003/005/006/007/008; OBS-003 | ACTIVE_CANONICAL |
 | S2.4-U168-R002 | Encrypted Fields | F-03 | A-03/A-11 | ADR-003/004 | DD-03/DD-15/DD-16 | SEC-001/003/005/006/007/008; OBS-003 | ACTIVE_CANONICAL |
 | S2.4-U168-R003 | Password Hashing | F-03 | A-03/A-11 | ADR-003/004 | DD-03/DD-15/DD-16 | SEC-001/003/005/006/007/008; OBS-003 | ACTIVE_CANONICAL |
@@ -1893,27 +1893,27 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.4-U172-R006 | Export | F-01/F-03 | A-06 | ADR-005/006/009 | DD-06/DD-07/DD-16 | API-001/002; INT-001/002/003/006/007; DBA-004/005/006 | ACTIVE_CANONICAL |
 | S2.4-U172-R007 | Queue | F-01/F-03 | A-06 | ADR-005/006/009 | DD-06/DD-07/DD-16 | API-001/002; INT-001/002/003/006/007; DBA-004/005/006 | ACTIVE_CANONICAL |
 | S2.4-U172-R008 | Scheduler | F-01/F-03 | A-06 | ADR-005/006/009 | DD-06/DD-07/DD-16 | API-001/002; INT-001/002/003/006/007; DBA-004/005/006 | ACTIVE_CANONICAL |
-| S2.5-U176-R001 | Website | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U176-R002 | Super Admin | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U176-R003 | 🆕 Tenant Web Portal | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U176-R004 | LIS | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U176-R005 | Billing | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U176-R006 | Inventory | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U176-R007 | APIs | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U176-R008 | Mobile Apps | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U176-R009 | Analytics | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U176-R001 | 🆕 Tenant Staff App | F-06 §4 | A-08 §8 | UD-TECH-01; DD-26 | DD-26: exactly two logical Tenant apps; platform app separate; Future Enterprise Apps is extension provenance, not a third Tenant app | APP-011/012; source/owner reconciliation | ACTIVE_CANONICAL |
+| S2.5-U176-R002 | 🆕 Tenant User/Customer App | F-06 §4 | A-08 §8 | UD-TECH-01; DD-26 | DD-26: exactly two logical Tenant apps; platform app separate; Future Enterprise Apps is extension provenance, not a third Tenant app | APP-011/012; source/owner reconciliation | ACTIVE_CANONICAL |
+| S2.5-U176-R003 | 🆕 Super Admin App | F-06 §4 | A-08 §8 | UD-TECH-01; DD-26 | DD-26: exactly two logical Tenant apps; platform app separate; Future Enterprise Apps is extension provenance, not a third Tenant app | APP-011/012; source/owner reconciliation | ACTIVE_CANONICAL |
+| S2.5-U176-R004 | Future Enterprise Apps | F-06 §4 | A-08 §8 | UD-TECH-01; DD-26 | DD-26: exactly two logical Tenant apps; platform app separate; Future Enterprise Apps is extension provenance, not a third Tenant app | APP-011/012; source/owner reconciliation | ACTIVE_CANONICAL |
+| S2.5-U176-R005 | Billing | Source provenance alias to S2.4-U160 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.4-U160 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.5-U176-R006 | Inventory | Source provenance alias to S2.4-U160 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.4-U160 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.5-U176-R007 | APIs | Source provenance alias to S2.4-U160 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.4-U160 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.5-U176-R008 | Mobile Apps | Source provenance alias to S2.4-U160 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.4-U160 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.5-U176-R009 | Analytics | Source provenance alias to S2.4-U160 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.4-U160 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
 | S2.5-U177-R001 | Android | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U177-R002 | iOS | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U177-R003 | Future: Web App (PWA) | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U180-R001 | Multi-Tenant | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U180-R002 | Configuration Driven | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U180-R003 | Database Driven | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U180-R004 | Modular | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U180-R005 | Scalable | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U180-R006 | Normalized | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U180-R007 | API First | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U180-R008 | Source item 8 under "Architecture" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U180-R009 | Source item 9 under "Architecture" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U180-R001 | Clean Architecture | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U180-R002 | Feature Based Architecture | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U180-R003 | Repository Pattern | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U180-R004 | Service Layer | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U180-R005 | Dependency Injection | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U180-R006 | MVVM Compatible | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U180-R007 | Offline First | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U180-R008 | API First | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U180-R009 | Multi Tenant | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U181-R001 | Riverpod (Default) | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U181-R002 | Future Support: Bloc, Cubit | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U182-R001 | SQLite | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
@@ -1945,24 +1945,24 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.5-U187-R004 | SMS Trigger | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U187-R005 | WhatsApp Trigger | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U187-R006 | Email Trigger | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U188-R001 | • JWT Authentication (API Only) | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U188-R002 | Source item 2 under "Authentication" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U188-R003 | Source item 3 under "Authentication" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U188-R004 | Source item 4 under "Authentication" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U188-R005 | Source item 5 under "Authentication" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U188-R006 | Source item 6 under "Authentication" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U188-R007 | Source item 7 under "Authentication" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U188-R008 | Source item 8 under "Authentication" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U188-R009 | Source item 9 under "Authentication" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U188-R010 | Source item 10 under "Authentication" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U188-R001 | OTP Login | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U188-R002 | JWT | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U188-R003 | Refresh Token | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U188-R004 | Biometric Login | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U188-R005 | Fingerprint | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U188-R006 | Face ID | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U188-R007 | Device Binding | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U188-R008 | Session Management | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U188-R009 | Multi-Factor Authentication (MFA) Support | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U188-R010 | 🆕 Enterprise SSO / OAuth 2.0 / OIDC (Tenant Staff App) | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U189-R001 | Tenant Isolation | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U189-R002 | Encrypted Fields | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U189-R003 | Password Hashing | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U189-R004 | API Token Security | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U189-R005 | Database Backup | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U189-R006 | Access Logging | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U189-R007 | Source item 7 under "Security" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U189-R008 | Source item 8 under "Security" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U189-R002 | Encrypted Storage | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U189-R003 | SSL Pinning | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U189-R004 | Certificate Validation | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U189-R005 | API Encryption | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U189-R006 | Token Expiry | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U189-R007 | Logout All Devices | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U189-R008 | Root/Jailbreak Detection | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U190-R001 | QR Scanner | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U190-R002 | Barcode Scanner | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U190-R003 | Patient QR | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
@@ -2025,15 +2025,15 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.5-U197-R006 | AI Recommendations | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
 | S2.5-U197-R007 | Voice Assistant | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
 | S2.5-U197-R008 | AI Notification Generator | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
-| S2.5-U198-R001 | Fast page loading | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U198-R002 | Optimized database queries | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U198-R003 | Efficient API responses | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U198-R004 | Background queue processing | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U198-R005 | Lazy loading where appropriate | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U198-R006 | Caching for frequently accessed data | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U199-R001 | Distributed Tracing Ready | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U199-R002 | Metrics Collection | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
-| S2.5-U199-R003 | Source item 3 under "Observability" requires exact material extraction/verification. | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U198-R001 | Lazy Loading | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U198-R002 | Image Compression | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U198-R003 | Background Processing | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U198-R004 | Pagination | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U198-R005 | Infinite Scroll | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U198-R006 | Code Splitting | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U199-R001 | Crash Reporting | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U199-R002 | Performance Monitoring | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
+| S2.5-U199-R003 | Analytics Events | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U200-R001 | Dark Mode | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U200-R002 | Light Mode | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U200-R003 | Large Fonts | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
@@ -2064,28 +2064,28 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.5-U206-R001 | Semantic Versioning | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.5-U206-R002 | Backward Compatibility Policy | F-06 | A-08 | ADR-014/016 | DD-11/DD-26 | MOB-001/002/003/004/005/006/008; APP-009/013 | ACTIVE_CANONICAL |
 | S2.6-U209-R001 | Website | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
-| S2.6-U209-R002 | Super Admin | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U209-R002 | Super Admin Portal | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
 | S2.6-U209-R003 | 🆕 Tenant Web Portal | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
 | S2.6-U209-R004 | LIS | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
 | S2.6-U209-R005 | Billing | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
 | S2.6-U209-R006 | Inventory | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
-| S2.6-U209-R007 | APIs | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
-| S2.6-U209-R008 | Mobile Apps | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
-| S2.6-U209-R009 | Analytics | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
-| S2.6-U209-R010 | Source item 10 under "Scope" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
-| S2.6-U210-R001 | Source item 1 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R002 | Source item 2 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R003 | Source item 3 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R004 | Source item 4 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R005 | Source item 5 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R006 | Source item 6 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R007 | Source item 7 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R008 | Source item 8 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R009 | Source item 9 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R010 | Source item 10 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R011 | Source item 11 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R012 | Source item 12 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
-| S2.6-U210-R013 | Source item 13 under "Supported AI Providers" requires exact material extraction/verification. | F-05 | A-07 | ADR-008/010 | DD-09/DD-08; external values remain unasserted | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | EXTERNAL_CONFIGURATION_INPUT |
+| S2.6-U209-R007 | Mobile Apps | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U209-R008 | APIs | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U209-R009 | Reports | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U209-R010 | Analytics | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R001 | OpenAI | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R002 | Anthropic Claude | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R003 | Google Gemini | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R004 | Amazon Bedrock | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R005 | Microsoft Azure OpenAI | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R006 | OpenRouter | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R007 | Ollama (Self Hosted) | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R008 | LM Studio | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R009 | Hugging Face Inference | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R010 | AWS SageMaker | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R011 | Grok | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R012 | DeepSeek | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
+| S2.6-U210-R013 | Custom Enterprise LLM | F-05 §2 | A-07 §3 | ADR-008/010 | DD-09/DD-08; source-named provider support remains active; credentials, endpoints, model capabilities and operational enablement remain governed external inputs | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
 | S2.6-U212-R001 | General Reasoning | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
 | S2.6-U212-R002 | Enterprise Documentation | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
 | S2.6-U212-R003 | Code Generation | F-05 | A-07 | ADR-008/010 | DD-09/DD-08 | AI-001/002/003/004/005/007/010/013/016/017; DBA-009 | ACTIVE_CANONICAL |
@@ -2439,23 +2439,23 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.7-U254-R004 | Button Radius: 10px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.7-U254-R005 | Icon Size: 22px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.7-U254-R006 | Hero CTA: Start Free Trial, Login, Get Demo | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R001 | Patients | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R002 | Doctors | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R003 | Staff | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R004 | Branches | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R005 | Inventory | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R006 | Reports | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R007 | Billing | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R008 | Dashboards | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R009 | Analytics | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R010 | Profiles | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R011 | Medical History | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R012 | Appointments | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R013 | Payments | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R014 | Notifications | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R015 | Follow-ups | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R016 | Notes | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.7-U256-R017 | AI Insights | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
+| S2.7-U256-R001 | Reports | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
+| S2.7-U256-R002 | Notifications | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
+| S2.7-U256-R003 | Staff | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R004 | Branches | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R005 | Inventory | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R006 | Reports | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R007 | Billing | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R008 | Dashboards | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R009 | Analytics | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R010 | Profiles | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R011 | Medical History | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R012 | Appointments | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R013 | Payments | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R014 | Notifications | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R015 | Follow-ups | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R016 | Notes | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
+| S2.7-U256-R017 | AI Insights | Source provenance alias to S2.2-U056 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.2-U056 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
 | S2.7-U257-R001 | KPI Cards: Revenue, Patients, Doctors, Reports, Pending Samples, Collections | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.7-U257-R002 | Revenue Graph | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.7-U257-R003 | Quick Actions | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
@@ -2679,11 +2679,11 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.8-U274-R004 | LG: 960px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U274-R005 | XL: 1140px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U274-R006 | 2XL: 1320px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U276-R001 | Card: 12px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U276-R002 | Button: 10px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U276-R003 | Input: 8px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U276-R004 | Source item 4 under "Border Radius" requires exact material extraction/verification. | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U276-R005 | Source item 5 under "Border Radius" requires exact material extraction/verification. | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
+| S2.8-U276-R001 | Small: 6px | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U276-R002 | Medium: 8px | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U276-R003 | Large: 12px | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U276-R004 | XL: 16px | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U276-R005 | Round: 999px | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
 | S2.8-U278-R001 | Primary | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U278-R002 | Secondary | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U278-R003 | Success | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
@@ -2864,13 +2864,13 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.8-U309-R003 | Sample Timeline | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U309-R004 | Activity Timeline | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U309-R005 | Workflow Timeline | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U310-R001 | Firebase Cloud Messaging (FCM) | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U310-R002 | Push Notification | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U310-R003 | Local Notification | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U310-R004 | SMS Trigger | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U310-R005 | WhatsApp Trigger | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U310-R006 | Email Trigger | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U310-R007 | Source item 7 under "Notifications" requires exact material extraction/verification. | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
+| S2.8-U310-R001 | Bell | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U310-R002 | Popup | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U310-R003 | Toast | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U310-R004 | Email | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U310-R005 | SMS | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U310-R006 | WhatsApp | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U310-R007 | Push | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
 | S2.8-U312-R001 | Normal → Green | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U312-R002 | High → Red | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U312-R003 | Low → Orange | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
@@ -2906,12 +2906,12 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.8-U317-R001 | Light | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U317-R002 | Dark | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U317-R003 | Auto | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U318-R001 | Dark Mode | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U318-R002 | Light Mode | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U318-R003 | Large Fonts | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U318-R004 | Screen Reader | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U318-R005 | High Contrast | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
-| S2.8-U318-R006 | Offline Support | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
+| S2.8-U318-R001 | Keyboard Navigation | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U318-R002 | High Contrast | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U318-R003 | ARIA Labels | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U318-R004 | Focus Ring | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U318-R005 | Screen Reader Support | F-06 §6; S2.8 design-system detail | A-08 | ADR-011 | DD-10/DD-14; UI scale/components/accessibility; not mobile provider execution | UI/experience acceptance at named owner; source retention REPO-002 | ACTIVE_CANONICAL |
+| S2.8-U318-R006 | Offline Support | Source provenance alias to S2.5-U200 | N/A — provenance | N/A — no architecture change | SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md; retain legacy ID only; actual source parent S2.5-U200 | REPO-002 source-parent/text validation | DUPLICATE_PROVENANCE |
 | S2.8-U319-R001 | Mobile: 0–575px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U319-R002 | Tablet: 576–991px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
 | S2.8-U319-R003 | Laptop: 992–1199px | F-06 | A-08 | ADR-011 | DD-10/DD-26 | APP-001/002/006/007/008; BRAND-001/002 | ACTIVE_CANONICAL |
@@ -2971,10 +2971,10 @@ Valid source product semantics remain active; legacy technology and Healthcare-p
 | S2.9-U335-R022 | ✔ Future Ready | F-00 / Governing MI §§25–26B,33A | A-00/A-12 | ADR-001 | DD-00/DD-18 | DD-17 §25; audit execution gate | OUTSIDE_CURRENT_CLAIMED_SCOPE |
 
 ## Independently recounted dispositions
-- ACTIVE_CANONICAL: 2761
-- DUPLICATE_PROVENANCE: 43
-- EXTERNAL_CONFIGURATION_INPUT: 14
+- ACTIVE_CANONICAL: 2763
+- DUPLICATE_PROVENANCE: 65
+- EXTERNAL_CONFIGURATION_INPUT: 1
 - OUTSIDE_CURRENT_CLAIMED_SCOPE: 125
-- SUPERSEDED_WITH_AUTHORITY: 19
+- SUPERSEDED_WITH_AUTHORITY: 8
 - Total source child IDs: 2962; no added/deleted source IDs.
 - Explicit-user 41-MS requirements remain in `F5_USER_DIRECTED_REQUIREMENTS.md` and `DD_REQUIREMENT_TRACEABILITY_F5.md`.

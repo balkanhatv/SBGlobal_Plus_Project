@@ -40,6 +40,43 @@ test("REPO-002: all 2962 source child IDs and requirement text survive owner rou
   assert.equal(source.size,2962);
   assert.equal(routed.size,source.size);
   for(const [id,text] of source) assert.equal(routed.get(id),text,id);
+
+  // Compare with the immutable corpus, not just two copies of the same ledger.
+  // Heading names repeat across the nine embedded source documents; resolve
+  // them in source order so e.g. mobile Security cannot borrow database text.
+  const parents = new Map();
+  const unitRows = read("Registers/TRACEABILITY_MATRIX_UNIT.md").split("\n")
+    .filter(line => /^\| S[12](?:\.\d+)?-U\d+ \|/.test(line))
+    .map(line => line.split(/(?<!\\)\|/).slice(1,3).map(cell => cell.trim()));
+  const normalize = line => {
+    const value = line.trim().replace(/^\uFEFF/, "");
+    if(value.startsWith("|")) return value.replace(/^\||\|$/g, "")
+      .split(/(?<!\\)\|/).map(cell => cell.trim()).join(" — ");
+    return value.replace(/^(?:- |\d+[.)]\s+)/, "")
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+  };
+  for(const number of [1,2]) {
+    const lines = read(`RawSourceCorpus/Disorganized Data ${number}.md`).split(/\r?\n/);
+    let cursor = 0;
+    const sections = unitRows.filter(([id]) => id.startsWith(`S${number}`)).map(([id,title]) => {
+      const start = lines.findIndex((line,index) => index >= cursor && /^\uFEFF?#{1,6}\s/.test(line) &&
+        line.replace(/^\uFEFF/, "").replace(/^#+\s*/, "").trim() === title);
+      assert.ok(start >= cursor, `Missing source parent ${id}: ${title}`);
+      cursor = start + 1;
+      return {id,start};
+    });
+    for(const [index,section] of sections.entries()) {
+      const end = sections[index+1]?.start ?? lines.length;
+      parents.set(section.id, new Set(lines.slice(section.start+1,end).map(normalize)));
+    }
+  }
+  assert.equal(parents.size,372);
+  for(const line of read("Registers/TRACEABILITY_MATRIX_REQUIREMENTS.md").split("\n")) {
+    if(!/^\| S[12](?:\.\d+)?-U\d+-R\d+ \|/.test(line)) continue;
+    const cells = line.split(/(?<!\\)\|/).map(cell => cell.trim());
+    const [id,parent,text] = cells.slice(1,4);
+    assert.ok(parents.get(parent)?.has(text), `${id}: text absent from immutable source parent ${parent}`);
+  }
 });
 
 test("REPO-003: nine equal Industry owners preserve all 41 MS traceability namespaces",()=>{

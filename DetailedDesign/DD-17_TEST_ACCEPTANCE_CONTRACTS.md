@@ -8,7 +8,10 @@ These are implementation acceptance contracts, not executable test code.
 
 The existing Core CI suite executes `tests/core/repository-invariants.test.mjs`.
 REPO-001 preserves accepted RawSource hashes; REPO-002 preserves all 2,962 source
-IDs/text; REPO-003 checks nine/41 canonical MS owner and acceptance references;
+IDs and source-corrected text, compares every row to its immutable source parent,
+and rejects repeated-heading contamination/extraction placeholders (VC27-01).
+The 21 preserved provenance aliases are not additional product obligations.
+REPO-003 checks nine/41 canonical MS owner and acceptance references;
 REPO-004 requires contiguous unique ADR/DD definitions; REPO-005 compares actual
 migration/verification inventories with current manifest counts; REPO-006 resolves
 local Markdown file links. These checks implement MI §25/§26B/§33A and DD-26

@@ -460,3 +460,7 @@ Canonical DD-208 promotion `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b
 ## 2026-09-26 — vision audit corrective work; forward development held
 
 VC26-01 corrects unbounded cyclic OrgUnit ancestry under existing DD-057; CTX-BOOT-007 adds real PostgreSQL regression coverage. VC26-02 corrects DD-208 sparse UUID-array acceptance; existing AITENCFG-MODEL-CUR-006 now reproduces the gap. No RawSource/schema/RLS/role/grant/requirements change. Complete audit remains IN PROGRESS, not PASS; see `Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`.
+
+## 2026-09-27 — source fidelity correction during vision audit
+
+Repeated-heading collisions replaced source text with unrelated sections and 34 extraction placeholders. Restore 85 texts from immutable source, preserve all 2,962 IDs with 21 explicit provenance aliases, repair governance/provider routing and stale execution projections, and strengthen REPO-002 against RawSource. F-14 License validation citation corrected without changing runtime order. No new DD or product behavior. Exact-HEAD verification pending; full audit remains held. Evidence: `Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md`.

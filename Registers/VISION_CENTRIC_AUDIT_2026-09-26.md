@@ -112,3 +112,7 @@ Additional static source/test sweep found no focused/skipped/todo tests or eval/
 The metadata/evidence commit containing this section leaves implementation, tests, SQL and workflows equal to the substantive correction tree and requires its own exact-HEAD gate. Current projections point to the already verified substantive parent to avoid a self-referential commit hash.
 
 **Complete-project verdict: IN PROGRESS / NOT PASSED.** Full semantic per-file coverage remains incomplete; no global clean gate and no next development prerequisite is authorized by this audit. Continue the audit from the frozen coverage ledger, preserving these verified fixes. The earlier pending-CI text above records the initial audit commit and is superseded only by this observed verification section.
+
+## 2026-09-27 source-fidelity continuation
+
+Fresh branch/PR verification reconfirmed `0258d787c17ccdfb5c3c7782702907400b96a57d` with successful exact-HEAD workflows and PR #2 draft/unmerged. Complete source reading identified repeated-heading extraction contamination and overbroad supersession. [Current reconciliation](SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md) records the targeted corrections, exact source locators and remaining gate. The earlier 2,962 cross-ledger equality result was true but did not prove source fidelity; strengthened REPO-002 now checks the immutable source parent itself. No global clean verdict or forward-development authorization is issued.

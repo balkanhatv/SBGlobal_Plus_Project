@@ -1,6 +1,8 @@
 # NO-LOSS / DEPTH AUDIT — FRESH POST-REMEDIATION PASS
 **Status:** PASS · **Date:** 2026-09-11 · **Evaluated HEAD:** `df1f72412044751ac30c184315d05e4d72e0099a`
 
+> **Current qualification (2026-09-27):** the dated PASS below is historical. New source-fidelity defects invalidate reliance on its child-row totals as a current semantic no-loss verdict. Corrective evidence is [SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md](SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md); full audit remains incomplete.
+
 ## 1. Source integrity
 - Accepted immutable S1 blob: `a9f63a64448a347edd0f2b0c74094284ee953c1b`.
 - Accepted immutable S2 blob: `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`.
