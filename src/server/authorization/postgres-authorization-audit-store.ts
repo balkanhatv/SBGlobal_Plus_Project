@@ -76,7 +76,7 @@ export class PostgresAuthorizationAuditStore implements AuthorizationAuditPort {
     if (!(occurredAt instanceof Date) || Number.isNaN(occurredAt.getTime())) fail();
     requireUuid(auditId);
     requireUuid(context.correlationId);
-    if (context.principalId) requireUuid(context.principalId);
+    requireUuid(context.principalId);
     if (input.accessDecision?.decisionId) requireUuid(input.accessDecision.decisionId);
 
     try {

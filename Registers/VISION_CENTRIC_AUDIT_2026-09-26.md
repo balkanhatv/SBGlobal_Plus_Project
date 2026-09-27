@@ -1378,3 +1378,29 @@ This does not create PUBLIC/cross-context audit entry paths, add authorization g
 change PDP/Guard semantics, schema/RLS/roles/grants, product behavior or DD-209 authority.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream Authorization durable-audit principal continuation
+
+### VC27-61 — P1: protected Authorization audit writer could persist nullable actor evidence from malformed RequestContext principal identity
+
+DD-03 §11 requires every high-risk allow and every deny audit fact to contain the principal,
+and DD-03 §17 makes the final protected GuardPipeline decision audit mandatory before success
+returns. Generic protected RequestContext resolution is principal-bound.
+
+PostgresAuthorizationAuditStore validated actor principal UUID only when the optional runtime
+field was truthy. A malformed/untyped otherwise-valid protected RequestContext carrying an
+absent or empty principalId could therefore reach scoped SQL and be inserted with
+actor_principal_id NULL (and fallback actor_type UNKNOWN). Migration 0031 validates an actor
+when present but deliberately allows historical/general AuditEvent actor nullability, so the
+database does not restore the stronger Authorization-producer invariant.
+
+Smallest forward-only correction:
+- require a valid principal UUID for every accepted PLATFORM_GLOBAL/TENANT_CORE/
+  TENANT_INDUSTRY Authorization audit write;
+- extend the direct pre-scoped-SQL regression with absent, empty and malformed principal ids;
+- add AUTH-021 while preserving existing audit payload/outcome/policy/version semantics.
+
+This does not revalidate current principal status/membership beyond existing owned database
+integrity, change generic AuditEvent nullability, create PUBLIC/cross-context audit paths,
+add authorization grants, change PDP/Guard semantics, schema/RLS/roles/grants, product
+behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

@@ -395,6 +395,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | AUTH-018 | resource/workflow rule denies after resource PDP allowed | final audit outcome DENIED; preceding PDP decision may be referenced only for correlation |
 | AUTH-019 | mandatory Authorization audit append fails | no success returned; denial path remains fail closed as dependency unavailable; private DB/audit diagnostics are not exposed |
 | AUTH-020 | durable Authorization audit writer receives malformed/untyped RequestContext ownership shape | AUTHORIZATION_AUDIT_UNAVAILABLE before scoped SQL/insert; only exact PLATFORM_GLOBAL, TENANT_CORE and TENANT_INDUSTRY single-context shapes are accepted |
+| AUTH-021 | protected durable Authorization audit writer receives missing/empty/malformed principal identity | AUTHORIZATION_AUDIT_UNAVAILABLE before scoped SQL/insert; every accepted protected decision audit carries a valid principal UUID |
 
 
 ### Authorization source compiler continuation — DD-048 / DEV-AUTHZ-SOURCE-COMPILER-001

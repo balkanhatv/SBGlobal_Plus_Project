@@ -218,6 +218,9 @@ test("Authorization audit writer rejects malformed exact scope before scoped SQL
     {...context(), scopeClass: "PLATFORM_GLOBAL", tenantId: undefined, industryContextId: ""},
     {...context(), scopeClass: "EXPLICIT_CROSS_CONTEXT"},
     {...context(), scopeClass: "UNKNOWN_SCOPE"},
+    {...context(), principalId: undefined},
+    {...context(), principalId: ""},
+    {...context(), principalId: "not-a-uuid"},
   ]) {
     await assert.rejects(
       boundaryStore.append({
