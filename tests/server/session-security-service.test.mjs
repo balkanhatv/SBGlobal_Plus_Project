@@ -86,6 +86,38 @@ test("revoked/pending/missing device fails closed and risk hold requires step-up
   }), (error) => error instanceof ContextResolutionError && error.code === "STEP_UP_REQUIRED");
 });
 
+test("foreign, mismatched, or unsupported device evidence never becomes trusted", async () => {
+  const tenantId = "33333333-3333-3333-3333-333333333333";
+  const cases = [
+    {
+      ...await store().getDeviceRegistration(),
+      id: "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+    },
+    {
+      ...await store().getDeviceRegistration(),
+      tenantId: "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+    },
+    {
+      ...await store().getDeviceRegistration(),
+      principalId: "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
+    },
+    {
+      ...await store().getDeviceRegistration(),
+      status: "UNKNOWN",
+    },
+  ];
+  for (const returned of cases) {
+    const service = new SessionSecurityService(store({
+      async getDeviceRegistration() { return returned; },
+    }));
+    await assert.rejects(service.validateAndResolve({
+      authentication: human,
+      tenantId,
+    }), (error) => error instanceof ContextResolutionError
+      && error.code === "DEVICE_UNTRUSTED");
+  }
+});
+
 test("absence of a device selector is not silently promoted to trusted device", async () => {
   const service = new SessionSecurityService(store());
   const result = await service.validateAndResolve({

@@ -1507,3 +1507,29 @@ This does not add cookie authentication, CSRF tokens, routes, Tenant selector au
 business semantics, schema/RLS/role/grant changes, product behavior or DD-209 authority.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-28 downstream session-device binding continuation
+
+### VC27-66 — P1: SessionSecurityService trusted returned device identity/status without independent revalidation
+
+DD-03 / ID-013 require a selected device registration to be the exact current device for the
+resolved principal and Tenant; missing/foreign/untrusted device evidence must fail closed and
+RISK_HOLD requires step-up.
+
+The concrete PostgreSQL reader queries by exact `(deviceId, principalId, tenantId)`, but
+SessionSecurityService accepted whichever non-null record its port returned. It then blocked
+only PENDING/REVOKED/RISK_HOLD. An alternate/injected/malformed port could therefore return
+a TRUSTED device belonging to another id/principal/Tenant, or an unsupported runtime status,
+and the service would project `deviceTrust='TRUSTED'`; device trust/risk feed ABAC
+environment facts.
+
+Smallest forward-only correction:
+- revalidate returned device id, principal id and Tenant id against the selected evidence;
+- preserve exact RISK_HOLD → STEP_UP_REQUIRED behavior;
+- accept only runtime status TRUSTED as trusted; every other/unknown status fails as
+  DEVICE_UNTRUSTED;
+- add Core regression for foreign/mismatched/unsupported returned device evidence.
+
+This does not add device enrollment, fingerprint/public-key verification, new risk policy,
+session-version semantics, authorization grants, schema/RLS/role/grant changes, product
+behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

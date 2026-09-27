@@ -85,7 +85,10 @@ export class SessionSecurityService implements SessionSecurityPort {
         );
       }
 
-      if (!device || device.status === "PENDING" || device.status === "REVOKED") {
+      if (!device
+        || device.id !== evidence.deviceId
+        || device.principalId !== evidence.principalId
+        || device.tenantId !== input.tenantId) {
         throw new ContextResolutionError(
           "DEVICE_UNTRUSTED",
           "The registered device is not trusted.",
@@ -95,6 +98,12 @@ export class SessionSecurityService implements SessionSecurityPort {
         throw new ContextResolutionError(
           "STEP_UP_REQUIRED",
           "Additional authentication is required.",
+        );
+      }
+      if (device.status !== "TRUSTED") {
+        throw new ContextResolutionError(
+          "DEVICE_UNTRUSTED",
+          "The registered device is not trusted.",
         );
       }
     }

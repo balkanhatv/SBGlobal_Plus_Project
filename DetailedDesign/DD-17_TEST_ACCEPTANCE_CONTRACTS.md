@@ -46,7 +46,7 @@ without substituting counts or references for substantive runtime acceptance.
 | ID-010 | interactive PLATFORM_OPERATOR or unbound allowlisted SERVICE requests PLATFORM_GLOBAL | identity/scope floor passes; downstream platform PDP still required |
 | ID-011 | Clerk token verifies but live provider session is revoked/inactive or session user != signed subject | SESSION_INVALID; no internal principal authority returned |
 | ID-012 | live provider session was created before exact internal SessionVersion.changed_at | SESSION_INVALID on next protected request |
-| ID-013 | selected device registration is missing/foreign/PENDING/REVOKED or RISK_HOLD | DEVICE_UNTRUSTED for missing/untrusted; STEP_UP_REQUIRED for RISK_HOLD |
+| ID-013 | selected device registration is missing/foreign/mismatched, has an unsupported runtime status, is PENDING/REVOKED, or is RISK_HOLD | exact device id + principal + Tenant binding is required; DEVICE_UNTRUSTED for missing/mismatched/untrusted/unsupported, STEP_UP_REQUIRED for exact RISK_HOLD |
 | ID-014 | Clerk Backend API or internal identity/session-security store is unavailable | DEPENDENCY_UNAVAILABLE; no weaker provider/claim fallback |
 | ID-015 | Clerk fva shows second-factor verification vs first-factor-only | MFA when second-factor age >=0; otherwise baseline PASSWORD; never infer SSO/PHISHING_RESISTANT from fva alone |
 | ID-016 | Clerk custom claim attempts to supply SBGlobal role/permission/entitlement/sessionVersion truth | ignored as authority; current server-owned Core records govern |
