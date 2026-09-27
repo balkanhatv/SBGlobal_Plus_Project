@@ -20,6 +20,29 @@ test("Tenant Core resource resolution cannot expose Industry-owned records", asy
   }), (error) => error.code === "RESOURCE_NOT_FOUND");
 });
 
+test("Tenant Core resource resolution rejects a present empty Industry Context", async () => {
+  const { ports } = makePorts({
+    resources:{
+      async resolve(){
+        return {
+          resourceType:"rtl.pos.sale",
+          resourceId:"sale-1",
+          tenantId:"tenant-a",
+          industryContextId:"",
+          state:"PAID",
+        };
+      },
+    },
+  });
+  await assert.rejects(new GuardPipeline(ports).authorize({
+    requestContext: { ...requestContext, scopeClass: "TENANT_CORE", industryContextId: undefined },
+    operation: { ...operation, scopeClass: "TENANT_CORE" },
+    resourceReference: { saleId: "sale-1" },
+  }), (error) => error instanceof GuardPipelineError
+    && error.code === "RESOURCE_NOT_FOUND"
+    && error.revealResourceExistence === false);
+});
+
 import {
   GuardPipeline,
   GuardPipelineError,

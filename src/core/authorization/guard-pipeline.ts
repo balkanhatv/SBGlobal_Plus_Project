@@ -483,7 +483,8 @@ export class GuardPipeline {
       });
     }
 
-    if (context.scopeClass === "TENANT_CORE" && resource.industryContextId) {
+    if (context.scopeClass === "TENANT_CORE"
+      && resource.industryContextId !== undefined) {
       throw new GuardPipelineError({ code: "RESOURCE_NOT_FOUND", messageSafe: "Resource not found." });
     }
 

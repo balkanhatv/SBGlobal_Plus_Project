@@ -24,7 +24,7 @@ without substituting counts or references for substantive runtime acceptance.
 | TCTX-002 | missing industry on TENANT_INDUSTRY operation | INDUSTRY_CONTEXT_REQUIRED |
 | TCTX-003 | Healthcare context requests Retail resource | `INDUSTRY_CONTEXT_MISMATCH`; no resource existence detail/mutation/event |
 | TCTX-004 | tenant A credential requests tenant B resource | `RESOURCE_NOT_FOUND`; no foreign existence detail/mutation/event |
-| TCTX-005 | resource ID belongs to sibling industry | no auto-switch; deny |
+| TCTX-005 | resource ID belongs to sibling Industry, or TENANT_CORE resource evidence carries any present Industry Context value including an empty string | no auto-switch; non-disclosing deny |
 | TCTX-006 | disabled industry activation with stale client cache | deny after server re-resolution |
 | TCTX-007 | worker job missing persisted required context, runtime scope is outside the generic worker's closed TENANT_CORE/TENANT_INDUSTRY contract, TENANT_CORE carries an Industry Context, or generic WorkerContext attempts EXPLICIT_CROSS_CONTEXT without the DD-02 governed source+target transfer contract | reject/dead-letter or RESOURCE_SCOPE_DENY; exact protected scope shape only, no default tenant/context and no generic cross-context widening |
 | TCTX-008 | generic RequestContext resolution requests EXPLICIT_CROSS_CONTEXT without the dedicated source+target transfer contract and permission/policy | RESOURCE_SCOPE_DENY; no generic Tenant/Industry lookup or cross-context widening |

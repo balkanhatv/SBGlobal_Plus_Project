@@ -1079,3 +1079,28 @@ This does not add Commercial grants, billing exceptions, recovery behavior, sche
 role/grant changes, product behavior or DD-209 authority. Exact-head Core/PostgreSQL/
 Database/Web verification is required.
 
+## 2026-09-27 downstream GuardPipeline resource-scope exact-null continuation
+
+### VC27-50 — P1: Tenant-Core resource scope guard used truthiness for Industry ownership evidence
+
+DD-03 makes resolved resource Tenant/Industry ownership a server-owned authorization fact and
+places Tenant/Industry resource-scope validation inside GuardPipeline before resource PDP and
+business-rule execution. DD-02 defines TENANT_CORE with no Industry Context.
+
+The Tenant-Core resource predicate used `resource.industryContextId` truthiness. A malformed
+server/injected ResourceDescriptor carrying `industryContextId=""` could therefore be treated
+as Tenant-Core-owned instead of being rejected as Industry-scoped/malformed evidence. That
+could allow later resource PDP/business-rule evaluation on a descriptor whose exact scope
+shape did not satisfy the canonical Tenant-Core contract.
+
+Smallest forward-only correction:
+- treat any present ResourceDescriptor Industry Context as invalid for TENANT_CORE, including
+  an empty string;
+- preserve the existing non-disclosing RESOURCE_NOT_FOUND normalization;
+- strengthen TCTX-005 and GuardPipeline regression coverage;
+- leave resolver, PDP, resource rules, RLS and domain execution semantics unchanged.
+
+This does not add resource grants, client-owned scope, cross-context behavior, schema/RLS/
+role/grant changes, product behavior or DD-209 authority. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
