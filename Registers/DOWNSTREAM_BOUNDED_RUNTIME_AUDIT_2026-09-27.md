@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-55:** `02c803313a73917702858c0bd167cf2b88060aef` / tree `7910a42b041d9a624a5792ff83065509cb7e5f12`
+**Prior tree-qualified verified basis through VC27-56:** `6253c6206dc3289cc6a3bbba54397338c0062fb5` / tree `c27923507721085d8250b9356b5354b3891f65e0`
 
-**Current exact-head correction basis:** `6253c6206dc3289cc6a3bbba54397338c0062fb5` / tree `c27923507721085d8250b9356b5354b3891f65e0`
+**Current exact-head correction basis:** `2da0ff3aeced27517671a9d19aaa3931766037a1` / tree `b97bfe52dcd8edf48a1d1df3920bd05048e7b2ab`
 
-**Exact-head gate:** Core 732/732; PostgreSQL 507/507 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 732/732; PostgreSQL 508/508 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -66,6 +66,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-54 — AuthorizationContext exact scope:** PostgresAuthorizationContextAdapter now accepts only generic TENANT_CORE/TENANT_INDUSTRY scope, requires non-empty Tenant, exact Industry absence/presence by scope, and rejects malformed/untyped scope before RequestScopedSql or CURRENT role-snapshot reads.
 - **VC27-55 — Authorization compiler exact scope:** privileged Core compiler publication/invalidation now accepts only TENANT_CORE/TENANT_INDUSTRY tenant targets, rejects any present Industry evidence for TENANT_CORE and any present Tenant/Industry evidence for PLATFORM_GLOBAL, and fails malformed/untyped scope before compiler store use.
 - **VC27-56 — GuardPipeline generic exact scope:** authorization guard entry now rejects private Tenant/Industry evidence on PUBLIC/PLATFORM_GLOBAL, hidden Industry on TENANT_CORE, and missing Tenant/Industry on tenant scopes before Commercial/PDP/resource dependencies. Dedicated cross-context transfer semantics remain separately governed.
+- **VC27-57 — Commercial apply/publication exact Tenant-Core scope:** privileged Commercial apply-evidence and publication boundaries now reject any present Industry Context on TENANT_CORE before evidence-store/publication-store use; direct PostgreSQL-store coverage proves the lower scoped-SQL guard is no longer the only fail-closed layer.
 
 ### Current bounded verdict
 
