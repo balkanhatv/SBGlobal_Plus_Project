@@ -201,7 +201,7 @@ export class PostgresCommercialCurrentStateStore implements CommercialCurrentSta
         "Commercial PostgreSQL reads require a resolved single-tenant context.",
       );
     }
-    if (context.scopeClass === "TENANT_CORE" && context.industryContextId) {
+    if (context.scopeClass === "TENANT_CORE" && context.industryContextId !== undefined) {
       throw new CommercialStateError(
         "COMMERCIAL_SCOPE_UNSUPPORTED",
         "Tenant Core Commercial scope cannot carry an Industry Context.",

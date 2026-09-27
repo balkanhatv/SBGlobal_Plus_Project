@@ -558,6 +558,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-UI-005 | client projection serialized | snapshotId, subscriptionId, license IDs/tokens, principal bindings and deny-set/source metadata are absent |
 | COMM-UI-006 | procedure executes | fixed OperationContract + exact Zod DTO + shared OperationExecutor/GuardPipeline; no router-local Commercial rule |
 | COMM-UI-007 | PENDING/SUSPENDED/EXPIRED/CANCELLED under generic guard | access remains restricted; this query does not invent a recovery/billing exception |
+| COMM-UI-008 | TENANT_CORE current-state context carries a present Industry Context value, including an empty string | COMMERCIAL_SCOPE_UNSUPPORTED before store use; exact Tenant-Core null-Industry shape only |
 
 
 ### Commercial plan-change request / resolution contract — DD-062

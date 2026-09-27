@@ -1052,3 +1052,30 @@ This does not add database authority, RLS bypass, idempotency semantics, cross-c
 execution, product behavior, new scope classes or DD-209 authority. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream Commercial current-state exact-scope continuation
+
+### VC27-49 — P2: Commercial current-state Tenant-Core guards used truthiness instead of exact Industry absence
+
+DD-02 defines TENANT_CORE with industryContextId null by design. DD-060 exposes the
+client-safe current Commercial query, while CommercialCurrentStateService also supplies
+the GuardPipeline and Authorization supplemental-facts path. These boundaries must not
+silently normalize malformed server-owned scope evidence.
+
+The Commercial context-construction helper and PostgreSQL store checked Tenant-Core
+Industry presence by truthiness, and the service's shared loadCurrent() path checked only
+the scope class. A malformed/injected TENANT_CORE RequestContext carrying
+industryContextId="" could therefore reach an alternate/injected Commercial store; the
+concrete PostgreSQL path is now protected by VC27-48 RequestScopedSql, but the Core
+Commercial decision boundary must not rely on that lower adapter.
+
+Smallest forward-only correction:
+- require exact Industry absence for TENANT_CORE in context construction and the PostgreSQL reader;
+- enforce exact TENANT_CORE/TENANT_INDUSTRY scope shape in shared Core loadCurrent()
+  before store use;
+- extend Core/PostgreSQL regressions and COMM-UI acceptance evidence;
+- preserve subscription, license, entitlement, snapshot and client-projection semantics.
+
+This does not add Commercial grants, billing exceptions, recovery behavior, schema/RLS/
+role/grant changes, product behavior or DD-209 authority. Exact-head Core/PostgreSQL/
+Database/Web verification is required.
+

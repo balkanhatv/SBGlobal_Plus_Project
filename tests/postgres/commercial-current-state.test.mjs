@@ -184,6 +184,20 @@ after(async () => {
   }
 });
 
+test("PostgreSQL Commercial reader rejects malformed Tenant Core hidden-Industry context before SQL", async () => {
+  await assert.rejects(
+    store.loadCurrent({
+      requestContext:{
+        ...requestContext(),
+        scopeClass:"TENANT_CORE",
+        industryContextId:"",
+      },
+    }),
+    error=>error instanceof CommercialStateError
+      && error.code==="COMMERCIAL_SCOPE_UNSUPPORTED",
+  );
+});
+
 test("PostgreSQL Commercial reader returns exact current snapshot and only active Industry scope", async () => {
   const state = await store.loadCurrent({ requestContext: requestContext() });
   assert.ok(state);

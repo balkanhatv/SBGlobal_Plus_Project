@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import {
   CommercialCurrentStateService,
   CommercialStateError,
+  ContextResolutionError,
 } from "../../dist/core/index.js";
 
 const context = Object.freeze({
@@ -95,6 +96,63 @@ test("Commercial context resolution stamps the exact current snapshot", async ()
     entitlementSnapshotId: "snapshot-7",
     entitlementSnapshotVersion: 7,
   });
+});
+
+test("Commercial current-state rejects malformed Tenant Core hidden-Industry context before store use", async () => {
+  let calls=0;
+  const current=new CommercialCurrentStateService({
+    async loadCurrent(){
+      calls+=1;
+      return state();
+    },
+  });
+  const malformed=Object.freeze({
+    ...context,
+    scopeClass:"TENANT_CORE",
+    industryContextId:"",
+  });
+
+  for (const read of [
+    ()=>current.getClientCurrentProjection({requestContext:malformed}),
+    ()=>current.validateCurrent({
+      requestContext:malformed,
+      operation:{...operation,scopeClass:"TENANT_CORE"},
+    }),
+  ]) {
+    await assert.rejects(
+      read,
+      error=>error instanceof CommercialStateError
+        && error.code==="COMMERCIAL_SCOPE_UNSUPPORTED",
+    );
+  }
+  assert.equal(calls,0);
+});
+
+test("Commercial context resolution rejects malformed Tenant Core hidden-Industry input before store use", async () => {
+  let calls=0;
+  const current=new CommercialCurrentStateService({
+    async loadCurrent(){
+      calls+=1;
+      return state();
+    },
+  });
+
+  await assert.rejects(
+    current.validateAndLoad({
+      requestId:"request-commercial-malformed",
+      correlationId:"correlation-commercial-malformed",
+      tenantId:"tenant-a",
+      industryContextId:"",
+      dataHomeId:"home-a",
+      regionCode:"IN-CENTRAL",
+      principalId:"principal-a",
+      principalType:"HUMAN",
+      scopeClass:"TENANT_CORE",
+    }),
+    error=>error instanceof ContextResolutionError
+      && error.code==="DEPENDENCY_UNAVAILABLE",
+  );
+  assert.equal(calls,0);
 });
 
 test("Commercial guard accepts ACTIVE/GRACE exact current state and required entitlement", async () => {

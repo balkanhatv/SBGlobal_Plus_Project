@@ -234,7 +234,7 @@ function commercialPersistenceContext(
       "Commercial persistence context is incomplete.",
     );
   }
-  if (input.scopeClass === "TENANT_CORE" && input.industryContextId) {
+  if (input.scopeClass === "TENANT_CORE" && input.industryContextId !== undefined) {
     throw new CommercialStateError(
       "COMMERCIAL_SCOPE_UNSUPPORTED",
       "Tenant Core Commercial context cannot carry an Industry Context.",
@@ -395,6 +395,15 @@ implements CommercialContextPort, CommercialGuardPort, AuthorizationSupplemental
       throw new CommercialStateError(
         "COMMERCIAL_SCOPE_UNSUPPORTED",
         "Commercial current-state reads require a single tenant scope.",
+      );
+    }
+    if ((requestContext.scopeClass === "TENANT_CORE"
+        && requestContext.industryContextId !== undefined)
+      || (requestContext.scopeClass === "TENANT_INDUSTRY"
+        && !requestContext.industryContextId)) {
+      throw new CommercialStateError(
+        "COMMERCIAL_SCOPE_UNSUPPORTED",
+        "Commercial current-state scope shape is invalid.",
       );
     }
 
