@@ -54,6 +54,7 @@ without substituting counts or references for substantive runtime acceptance.
 | ID-018 | validated Core SessionVersion differs from provider evidence metadata | Tenant RequestContext carries validated Core sessionVersion, consistent with PLATFORM_GLOBAL |
 | ID-019 | current SessionVersion record carries malformed or precision-unsafe version/changed-at evidence | DEPENDENCY_UNAVAILABLE; malformed Core security state cannot bypass stale-session invalidation or enter RequestContext |
 | ID-020 | live provider session carries a non-integral or precision-unsafe creation timestamp | SESSION_INVALID; malformed provider time evidence cannot bypass exact SessionVersion.changed_at invalidation |
+| ID-021 | provider/identity evidence carries sessionVersion while no validated current Core SessionVersion exists | RequestContext omits sessionVersion; provider metadata never fills or replaces current Core truth |
 
 ## 3. Authorization
 | ID | Scenario | Expected |

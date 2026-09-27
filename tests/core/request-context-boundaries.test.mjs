@@ -3,7 +3,12 @@ import assert from "node:assert/strict";
 import { RequestContextService } from "../../dist/core/context/request-context-service.js";
 import { ContextResolutionError } from "../../dist/core/context/errors.js";
 
-function fixture({scopes=["TENANT_CORE"],principalType="API_CLIENT",sessionVersion=9}={}){
+function fixture({
+  scopes=["TENANT_CORE"],
+  principalType="API_CLIENT",
+  sessionVersion=9,
+  omitCoreSessionVersion=false,
+}={}){
   const calls=[];
   const service=new RequestContextService({
     identity:{
@@ -25,7 +30,11 @@ function fixture({scopes=["TENANT_CORE"],principalType="API_CLIENT",sessionVersi
     },
     authorization:{async loadRoleContext(){return {roleIds:[],permissionVersion:1};}},
     commercial:{async validateAndLoad(){return {entitlementSnapshotId:"snapshot",entitlementSnapshotVersion:1};}},
-    security:{async validateAndResolve(){return {riskLevel:"LOW",sessionVersion,attributes:{}};}},
+    security:{async validateAndResolve(){return {
+      riskLevel:"LOW",
+      ...(omitCoreSessionVersion?{}:{sessionVersion}),
+      attributes:{},
+    };}},
     ids:{nextId:()=>"generated"},
   });
   return {service,calls};
@@ -95,4 +104,14 @@ test("Tenant human RequestContext carries the validated server session version",
   const result=await service.resolve({...input("TENANT_CORE"),authentication:{kind:"HUMAN",credential:"session"}});
   assert.equal(result.securityContext.sessionVersion,9);
   assert.equal(result.sessionVersion,9,"Provider evidence must not replace current Core session truth");
+});
+
+test("provider sessionVersion never fills a missing validated Core sessionVersion",async()=>{
+  const {service}=fixture({omitCoreSessionVersion:true});
+  const result=await service.resolve({
+    ...input("TENANT_CORE"),
+    authentication:{kind:"HUMAN",credential:"session"},
+  });
+  assert.equal(result.securityContext.sessionVersion,undefined);
+  assert.equal(result.sessionVersion,undefined);
 });

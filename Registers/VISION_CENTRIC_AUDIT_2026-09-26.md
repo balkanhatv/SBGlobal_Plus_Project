@@ -1601,3 +1601,29 @@ persistence/increment semantics, device/risk policy, authorization grants, schem
 grant state, product behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web
 verification is required.
 
+## 2026-09-28 downstream RequestContext SessionVersion authority continuation
+
+### VC27-70 — P1: provider identity sessionVersion could fill a missing current Core SessionVersion
+
+DD-03 explicitly requires the validated Core sessionVersion to be projected into human Tenant
+RequestContext and says provider metadata does not replace current Core truth. ID-016 likewise
+forbids Clerk/custom sessionVersion claims from becoming SBGlobal authorization truth, while
+ID-018 requires the validated Core SessionVersion when it differs from provider metadata.
+
+RequestContextService nevertheless used
+`securityContext.sessionVersion ?? authentication.evidence.sessionVersion` in both Tenant and
+PLATFORM_GLOBAL human paths. If current Core SessionVersion evidence was absent, an alternate
+identity/provider adapter carrying a sessionVersion could therefore populate RequestContext
+without current Core validation.
+
+Smallest forward-only correction:
+- human RequestContext projects only `securityContext.sessionVersion`;
+- absence of a current validated Core SessionVersion remains absence and does not fall back to
+  provider/identity evidence;
+- preserve the existing behavior where a present validated Core SessionVersion is projected;
+- add ID-021 regression proving provider sessionVersion cannot fill missing Core truth.
+
+This does not change Clerk verification, SessionVersion persistence/increment or stale-time
+policy, device/risk semantics, authorization grants, schema/RLS/role/grant state, product
+behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

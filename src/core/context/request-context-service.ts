@@ -90,7 +90,7 @@ export class RequestContextService {
           ? authentication.evidence.credentialId
           : undefined,
         sessionVersion: authentication.kind === "HUMAN"
-          ? securityContext.sessionVersion ?? authentication.evidence.sessionVersion
+          ? securityContext.sessionVersion
           : undefined,
         authStrength: authentication.kind === "HUMAN"
           ? authentication.evidence.authStrength
@@ -259,7 +259,7 @@ export class RequestContextService {
         ? authentication.evidence.credentialId
         : undefined,
       sessionVersion: authentication.kind === "HUMAN"
-        ? securityContext.sessionVersion ?? authentication.evidence.sessionVersion
+        ? securityContext.sessionVersion
         : undefined,
       authStrength: authentication.kind === "HUMAN"
         ? authentication.evidence.authStrength
