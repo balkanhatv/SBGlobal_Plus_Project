@@ -11,6 +11,7 @@
 | F-04 | A-05 | 002/008/018 | DD-05 | schema ownership, table conventions, RLS catalog |
 | S2.4 Database Standards | A-05/A-10 | 008/013/017/018 + AC-19 | DD-05/DD-14/DD-17 | PostgreSQL engine authority; singular snake_case physical naming; daily/weekly/monthly backup classes + RCV-007; source integration placement normalized to owning API/Industry layers |
 | F-04 BR-DATA-03 / S2.2 §10A | A-05 §2A + A-09 §4 | 008/012 | DD-05/DD-17 | versioned install/activation baseline materialization; DATA-BOOT-001…005 acceptance; demo remains separate from production truth |
+| S2.2 Product Specification slice 1 | F-00/F-01/F-03/F-04/F-06/F-07…F-09/F-14 + current owners | applicable ADRs + CR-03/05 + LG-03/10…12 | DD-02/DD-05/DD-08/DD-10/DD-11/DD-16/DD-17 | U040–U081 reconciled: equal-nine vision/catalog, source Production Ready non-status, Core+Healthcare scope split, Platform vs Tenant Management vs Industry Experience surfaces, all-nine demo policy, scoped masters/media, evidence-gated public claims |
 | F-01 API; F-03 chain | A-06 | 005 | DD-06 | OperationContract, tRPC/REST envelopes |
 | F-04 audit/data | A-06/A-05 | 006 | DD-07 | event/outbox envelope and consumer rules |
 | F-01 integration | A-06 | 009 | DD-07 | webhook subscription/signature/delivery |

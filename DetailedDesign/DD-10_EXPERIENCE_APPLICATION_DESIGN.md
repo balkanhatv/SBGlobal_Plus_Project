@@ -20,6 +20,8 @@ Public pages use equivalent content fields: Page ID · route · content owner ·
 ## 3. Public SaaS Website inventory
 All public content is Payload CMS 3-managed unless marked application-generated. Final copy/assets are not part of DD.
 
+**Claim/evidence contract:** any content item that presents a real customer/person endorsement, customer logo or case-study outcome, certification/accreditation/compliance badge, uptime/SLA value or measured quantitative claim carries a governed evidence/attribution reference plus validity/status metadata. Publication resolves that evidence at publish/serve-policy time; missing, expired, revoked or non-approved evidence makes the real-world claim non-publishable/hidden. Synthetic/demo content may appear only when it cannot reasonably be read as a real endorsement, accreditation/certification or measured production outcome. AI-assisted generic copy and original illustrative assets remain allowed.
+
 | ID | Route | Capability / content owner | CMS | CTA / auth transition | Localization / SEO / metadata | A11y / responsive | Analytics |
 |---|---|---|---|---|---|---|---|
 | PUB-001 | `/` | Home · Marketing | Yes | Start Free, Demo, Quote → signup/forms | locale canonical/hreflang, OG, structured organization/software | WCAG AA, mobile-first | view_home, cta_click |

@@ -364,3 +364,22 @@ The S1 parent-ledger reconciliation at `3a00ff84b53fd5e7ebfb8cd1b2b8150a990c0260
 - **F-06 §2** lists Trust Center / Compliance Badges as required public capabilities. S1's recommendation text names SOC 2/ISO/GDPR badges, while MI §9A/§33A prohibits status/certification by label. F-06 now requires exact current governed evidence for every public certification, security status, uptime or SLA claim and requires readiness/alignment wording to remain explicit.
 
 These are smallest forward-only documentation corrections. No RawSource, runtime, SQL migration, RLS, role/grant, executable test, provider, application surface, Industry/MS catalog or stable requirement ID/count changes. S2.2 owner reconciliation remains the blocking source-audit work; DD-208 remains current and DD-209 remains held.
+
+
+## 2026-09-27 S2.2 Product Specification continuation — slice 1 (U040–U081)
+
+Fresh direct-source review of the first unreconciled Product Specification block found mostly ownership/scope drift plus two canonical-document defects already surfaced by the S1 residual audit.
+
+### VC27-18 — P1/P2: S2.2 vision/content/surface scope drift plus public-claim evidence gap
+
+**Vision/catalog/status.** S2.2 Product Vision still calls Healthcare the flagship and calls the platform Production Ready. Those are source-era statements only: Healthcare is one of nine equal Current Supported Industries and current project status is evidence-gated. Business Scope also omits Security & Facility Management from the current list and uses shorter Government/NGO labels; CR-03/CR-05 and the current catalog govern. The source “complete platform-wide User Types” list is Healthcare-heavy and cannot be the complete role/persona catalog for nine equal suites.
+
+**Surface ownership.** Source Super Admin Portal maps to the Platform Application/Control Plane. Source Tenant Web Portal sections containing Patients/Doctors/LIS/medical history/appointments/payments are a Healthcare Industry Experience Web surface, not the canonical Tenant Management Application. Tenant Management remains administration/configuration/commercial/security only. Mobile source content maps into exactly two Tenant app classes (Staff/User) plus a separate Platform Application channel.
+
+**Data/content scope.** Healthcare/Laboratory/Medical demo data and Laboratory masters remain Healthcare-owned; demo policy itself applies to every current Industry. General reference masters remain Core/Country-Pack governed. Identity reference values such as religion/category are not universal required identity or authorization facts. Organization masters normalize Branch/Department to typed OrgUnit ownership. Inventory/Billing/Workflow source lists are mixed and are split between reusable Core capabilities, Healthcare defaults and Country-Pack jurisdiction data such as GST.
+
+**Public claim integrity.** S2.2 requires realistic AI-generated production content, testimonials, customer profiles, compliance badges and laboratory certifications. A production-content requirement cannot be read as permission to fabricate a real endorsement, accreditation, uptime/SLA record or measured outcome. F-06 now expands its claim rule; DD-10 adds a governed claim/evidence contract; DD-17 adds PUBLIC-CLAIM-001…003 so missing/expired/revoked evidence makes real-world claims non-publishable while clearly illustrative synthetic/demo content remains allowed.
+
+**Residual S1 owner correction revalidated.** F-03 now defers physical SQL naming to AC-19/A-05/DD-05 singular schema-qualified table naming and uses canonical typed OrgUnit ownership rather than stale plural-table/independent Branch-Department wording.
+
+No RawSource, runtime implementation, executable test, SQL migration/RLS, role/grant or stable requirement ID/count is modified. This slice changes Foundation/DD contracts and traceability only. Exact-HEAD Core/PostgreSQL/Database/Web verification is required. After this slice, 46 S2.2 parent units remain semantically unreconciled; DD-208 remains current and DD-209 remains held.

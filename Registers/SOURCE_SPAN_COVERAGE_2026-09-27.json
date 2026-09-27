@@ -998,7 +998,7 @@
       "end_line": 644,
       "located_inventory_rows": 16,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Product Vision target preserved while Healthcare flagship and source Production Ready wording are legacy/status-target language under equal-nine-industry and evidence-gated status rules; not runtime/project certification"
     },
     {
       "unit": "S2.2-U041",
@@ -1008,7 +1008,7 @@
       "end_line": 669,
       "located_inventory_rows": 17,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U042",
@@ -1018,7 +1018,7 @@
       "end_line": 687,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U043",
@@ -1028,7 +1028,7 @@
       "end_line": 724,
       "located_inventory_rows": 27,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Business Scope is incomplete for current catalog; Security & Facility Management restored and Government/NGO names normalized while Future Industries remain promotion-gated; not runtime/project certification"
     },
     {
       "unit": "S2.2-U044",
@@ -1048,7 +1048,7 @@
       "end_line": 760,
       "located_inventory_rows": 23,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source complete platform-wide User Types claim is Healthcare-heavy legacy wording; current actor classes plus suite-owned roles/personas across all nine are canonical; not runtime/project certification"
     },
     {
       "unit": "S2.2-U046",
@@ -1058,7 +1058,7 @@
       "end_line": 786,
       "located_inventory_rows": 19,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; tenant isolation preserved; Patient/Doctor examples are Healthcare-specific and current fail-closed isolation includes applicable Industry Context/Data Home; not runtime/project certification"
     },
     {
       "unit": "S2.2-U047",
@@ -1068,7 +1068,7 @@
       "end_line": 804,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U048",
@@ -1078,7 +1078,7 @@
       "end_line": 850,
       "located_inventory_rows": 39,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U049",
@@ -1088,7 +1088,7 @@
       "end_line": 936,
       "located_inventory_rows": 75,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; public production-content requirement preserved with evidence gate for real testimonials, customer logos, certification/accreditation/compliance badges, uptime/SLA and measured outcome claims; not runtime/project certification"
     },
     {
       "unit": "S2.2-U050",
@@ -1098,7 +1098,7 @@
       "end_line": 1005,
       "located_inventory_rows": 59,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Laboratory Website is Healthcare-only; NABL/certification/testimonial claims require governed evidence and cannot be fabricated by AI; not runtime/project certification"
     },
     {
       "unit": "S2.2-U051",
@@ -1128,7 +1128,7 @@
       "end_line": 1040,
       "located_inventory_rows": 18,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U054",
@@ -1138,7 +1138,7 @@
       "end_line": 1060,
       "located_inventory_rows": 17,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U055",
@@ -1148,7 +1148,7 @@
       "end_line": 1070,
       "located_inventory_rows": 7,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Super Admin Portal maps to Platform Application/Control Plane rather than unrestricted tenant operational data; not runtime/project certification"
     },
     {
       "unit": "S2.2-U056",
@@ -1158,7 +1158,7 @@
       "end_line": 1092,
       "located_inventory_rows": 32,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Tenant Web Portal production-content list is Healthcare operational Industry Experience content, not canonical Tenant Management Application; not runtime/project certification"
     },
     {
       "unit": "S2.2-U057",
@@ -1168,7 +1168,7 @@
       "end_line": 1102,
       "located_inventory_rows": 7,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile content maps into exactly two Tenant app classes plus separate Platform Application channel; no role-specific binaries; not runtime/project certification"
     },
     {
       "unit": "S2.2-U058",
@@ -1188,7 +1188,7 @@
       "end_line": 1124,
       "located_inventory_rows": 15,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U060",
@@ -1198,7 +1198,7 @@
       "end_line": 1138,
       "located_inventory_rows": 11,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U061",
@@ -1208,7 +1208,7 @@
       "end_line": 1155,
       "located_inventory_rows": 14,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U062",
@@ -1228,7 +1228,7 @@
       "end_line": 1171,
       "located_inventory_rows": 9,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U064",
@@ -1238,7 +1238,7 @@
       "end_line": 1182,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; identity reference masters are jurisdiction/tenant-applicable reference data only; sensitive classifications are not universal mandatory identity/authorization facts; not runtime/project certification"
     },
     {
       "unit": "S2.2-U065",
@@ -1248,7 +1248,7 @@
       "end_line": 1192,
       "located_inventory_rows": 7,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; organization masters normalize Branch/Department to typed OrgUnit and keep role/permission authorization under Identity/RBAC ownership; not runtime/project certification"
     },
     {
       "unit": "S2.2-U066",
@@ -1258,7 +1258,7 @@
       "end_line": 1217,
       "located_inventory_rows": 22,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U067",
@@ -1268,7 +1268,7 @@
       "end_line": 1227,
       "located_inventory_rows": 7,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; inventory master list is MIXED reusable inventory + Healthcare LIS consumable defaults; not runtime/project certification"
     },
     {
       "unit": "S2.2-U068",
@@ -1278,7 +1278,7 @@
       "end_line": 1236,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; billing masters are MIXED reusable commercial/reference + India GST Country-Pack + Healthcare usage; not runtime/project certification"
     },
     {
       "unit": "S2.2-U069",
@@ -1288,7 +1288,7 @@
       "end_line": 1245,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; workflow master list is Healthcare-heavy and does not create a global status vocabulary; not runtime/project certification"
     },
     {
       "unit": "S2.2-U070",
@@ -1298,7 +1298,7 @@
       "end_line": 1254,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U071",
@@ -1308,7 +1308,7 @@
       "end_line": 1265,
       "located_inventory_rows": 7,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; media assets are reusable platform/industry governed artifacts rather than Healthcare-owned content; not runtime/project certification"
     },
     {
       "unit": "S2.2-U072",
@@ -1328,7 +1328,7 @@
       "end_line": 1297,
       "located_inventory_rows": 22,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U074",
@@ -1338,7 +1338,7 @@
       "end_line": 1311,
       "located_inventory_rows": 9,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; named fallback libraries are source allowlist examples subject to current item-level commercial license/provenance verification; not runtime/project certification"
     },
     {
       "unit": "S2.2-U075",
@@ -1348,7 +1348,7 @@
       "end_line": 1320,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U076",
@@ -1358,7 +1358,7 @@
       "end_line": 1336,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U077",
@@ -1368,7 +1368,7 @@
       "end_line": 1349,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U078",
@@ -1378,7 +1378,7 @@
       "end_line": 1365,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; production content must be truthful: synthetic realism cannot impersonate real endorsement/accreditation/status/result without evidence; not runtime/project certification"
     },
     {
       "unit": "S2.2-U079",
@@ -1388,7 +1388,7 @@
       "end_line": 1374,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U080",
@@ -1398,7 +1398,7 @@
       "end_line": 1420,
       "located_inventory_rows": 38,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Super Admin Platform is Control Plane; Lab/branch items are governed catalog/health projections and tenant operational access requires elevation/justification; not runtime/project certification"
     },
     {
       "unit": "S2.2-U081",
@@ -1408,7 +1408,7 @@
       "end_line": 1464,
       "located_inventory_rows": 34,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source unified Tenant Web Portal is preserved as Healthcare Industry Experience Web; canonical Tenant Management remains administration-only; not runtime/project certification"
     },
     {
       "unit": "S2.2-U082",

@@ -503,3 +503,8 @@ S2.9 Roadmap reconciliation `8b18ddca6cc0267a54dc78cef52f9945c8077014` / tree `d
 ## 2026-09-27 — S1 canonical-owner residual correction staged
 
 S1 parent-ledger reconciliation `3a00ff84b53fd5e7ebfb8cd1b2b8150a990c0260` closed 37/37 S1 parents but direct owner reread found two residual canonical-document defects: F-03 still repeated plural-table + independent Branch/Department wording despite AC-19/typed OrgUnit, and F-06 did not explicitly bind public compliance/status badges to current evidence. Both are corrected without RawSource/runtime/test/workflow/SQL/RLS changes. Exact-head verification is required before proceeding to the remaining 82 S2.2 parents. DD-208 remains current; DD-209 remains held.
+
+
+## 2026-09-27 — S1 residual verified; S2.2 slice-1 staged
+
+S1 canonical-owner correction `20ed1ab5f170ac53b03a224c2492aba80951c5ad` / tree `bea731da2a71c93e2de812298e938b129678d0f0` passed exact-head **700/700 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. S2.2 Product Specification slice-1 now reconciles U040–U081: equal-nine vision/catalog, non-status Production Ready wording, Platform/Tenant/Healthcare surface separation, all-nine demo scope, mixed master/media ownership and public claim evidence integrity. F-06/DD-10/DD-17 add governed evidence rules for endorsements/certifications/uptime/SLA/measured claims. 46 S2.2 parent units remain open. DD-208 remains current; DD-209 remains held.

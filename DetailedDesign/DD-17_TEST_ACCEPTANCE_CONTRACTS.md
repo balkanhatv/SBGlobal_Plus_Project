@@ -321,6 +321,9 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DATA-BOOT-003 | required baseline entry fails during installation/activation | activation remains non-ready/non-published; partial state is auditable/resumable; no success claim or experience mount that depends on the missing baseline |
 | DATA-BOOT-004 | production activation has demo package available but demo mode is not enabled | no synthetic transactional demo records are inserted into production truth; normal empty operational state is allowed where no real transactions exist |
 | DATA-BOOT-005 | governed demo mode/import is enabled for a Tenant/Industry | realistic synthetic demo rows are tenant/industry-scoped, `is_demo=true`, resettable/rebuildable, contain no real PII, and are excluded from production KPIs by default |
+| PUBLIC-CLAIM-001 | public certification/accreditation/compliance badge, uptime/SLA value, named customer endorsement/logo/case-study outcome or measured quantitative claim lacks approved current evidence | claim is not publishable/rendered as verified truth; no fabricated proof or stale badge remains visible |
+| PUBLIC-CLAIM-002 | AI-generated testimonial/customer profile/result is synthetic | it may appear only as explicitly illustrative/demo content that cannot be represented as a real customer endorsement or measured production result |
+| PUBLIC-CLAIM-003 | previously valid public claim evidence expires or is revoked | subsequent publish/serve policy suppresses or marks the claim non-current; cached presentation cannot continue asserting current verified status |
 | AI-013 | AI API class absent from AIProvisioningSnapshot | deny before provider call |
 | AI-014 | Country Pack changes AI language/reference behavior | allowed only within already-entitled capability set; no permission widening |
 | AI-015 | retired PromptTemplate version invoked | deny; current ACTIVE version required |
