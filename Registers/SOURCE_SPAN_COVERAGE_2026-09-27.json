@@ -3318,7 +3318,7 @@
       "end_line": 4465,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U273",
@@ -3328,7 +3328,7 @@
       "end_line": 4471,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U274",
@@ -3338,7 +3338,7 @@
       "end_line": 4480,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U275",
@@ -3348,7 +3348,7 @@
       "end_line": 4486,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U276",
@@ -3358,7 +3358,7 @@
       "end_line": 4496,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U277",
@@ -3368,7 +3368,7 @@
       "end_line": 4498,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U278",
@@ -3378,7 +3378,7 @@
       "end_line": 4512,
       "located_inventory_rows": 11,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U279",
@@ -3388,7 +3388,7 @@
       "end_line": 4518,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U280",
@@ -3398,7 +3398,7 @@
       "end_line": 4523,
       "located_inventory_rows": 2,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U281",
@@ -3408,7 +3408,7 @@
       "end_line": 4530,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U282",
@@ -3418,7 +3418,7 @@
       "end_line": 4532,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U283",
@@ -3428,7 +3428,7 @@
       "end_line": 4551,
       "located_inventory_rows": 16,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U284",
@@ -3438,7 +3438,7 @@
       "end_line": 4563,
       "located_inventory_rows": 9,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U285",
@@ -3448,7 +3448,7 @@
       "end_line": 4571,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U286",
@@ -3458,7 +3458,7 @@
       "end_line": 4576,
       "located_inventory_rows": 2,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U287",
@@ -3468,7 +3468,7 @@
       "end_line": 4581,
       "located_inventory_rows": 2,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U288",
@@ -3478,7 +3478,7 @@
       "end_line": 4585,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U289",
@@ -3488,7 +3488,7 @@
       "end_line": 4594,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; file UI capability preserved but upload/camera paths remain subject to DD-08/DD-16 secure upload, ACL and residency controls; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U290",
@@ -3498,7 +3498,7 @@
       "end_line": 4605,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U291",
@@ -3508,7 +3508,7 @@
       "end_line": 4607,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U292",
@@ -3518,7 +3518,7 @@
       "end_line": 4621,
       "located_inventory_rows": 11,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U293",
@@ -3528,7 +3528,7 @@
       "end_line": 4635,
       "located_inventory_rows": 9,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; table action names are presentation capabilities only; server OperationContract/permission/state/data-lifecycle rules authorize actual View/Edit/Delete/etc.; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U294",
@@ -3538,7 +3538,7 @@
       "end_line": 4644,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U295",
@@ -3548,7 +3548,7 @@
       "end_line": 4660,
       "located_inventory_rows": 11,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; status color mapping preserved as presentation; accessibility requires text/semantic state and prohibits color-only meaning; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U296",
@@ -3558,7 +3558,7 @@
       "end_line": 4668,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U297",
@@ -3568,7 +3568,7 @@
       "end_line": 4674,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U298",
@@ -3578,7 +3578,7 @@
       "end_line": 4683,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U299",
@@ -3588,7 +3588,7 @@
       "end_line": 4689,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U300",
@@ -3598,7 +3598,7 @@
       "end_line": 4700,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Filters is MIXED: generic filters shared; Doctor/Report are Healthcare examples and Payment/domain filters apply only where owned; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U301",
@@ -3608,7 +3608,7 @@
       "end_line": 4707,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U302",
@@ -3618,7 +3618,7 @@
       "end_line": 4714,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U303",
@@ -3628,7 +3628,7 @@
       "end_line": 4721,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U304",
@@ -3638,7 +3638,7 @@
       "end_line": 4734,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U305",
@@ -3648,7 +3648,7 @@
       "end_line": 4739,
       "located_inventory_rows": 2,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U306",
@@ -3658,7 +3658,7 @@
       "end_line": 4748,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U307",
@@ -3668,7 +3668,7 @@
       "end_line": 4762,
       "located_inventory_rows": 11,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Validation is MIXED: generic validators shared; GST/PAN/Aadhaar are India/jurisdiction/identity-provider scoped and not global hard-coded validators; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U308",
@@ -3678,7 +3678,7 @@
       "end_line": 4769,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U309",
@@ -3688,7 +3688,7 @@
       "end_line": 4779,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Timeline is MIXED: Audit/Activity/Workflow shared; Patient/Sample remain Healthcare-specific; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U310",
@@ -3698,7 +3698,7 @@
       "end_line": 4789,
       "located_inventory_rows": 7,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U311",
@@ -3708,7 +3708,7 @@
       "end_line": 4793,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source explicitly scopes Report Colors and Report Flags to Healthcare & Diagnostics; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U312",
@@ -3718,7 +3718,7 @@
       "end_line": 4800,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; laboratory Report Colors are Healthcare-specific presentation defaults, not global status colors; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U313",
@@ -3728,7 +3728,7 @@
       "end_line": 4808,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; H/L/HH/LL/Critical report flags are Healthcare laboratory semantics; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U314",
@@ -3738,7 +3738,7 @@
       "end_line": 4816,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U315",
@@ -3748,7 +3748,7 @@
       "end_line": 4836,
       "located_inventory_rows": 16,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Dashboard Widgets is MIXED: reusable shell widgets plus Healthcare-specific Patients/Doctors/Collection/Reports/Sample/Tests defaults; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U316",
@@ -3758,7 +3758,7 @@
       "end_line": 4843,
       "located_inventory_rows": 2,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U317",
@@ -3768,7 +3768,7 @@
       "end_line": 4849,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U318",
@@ -3778,7 +3778,7 @@
       "end_line": 4857,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source accessibility baseline preserved and strengthened by canonical WCAG AA/reduced-motion/responsive accessibility requirements; not UI runtime/project certification"
     },
     {
       "unit": "S2.8-U319",
@@ -3788,7 +3788,7 @@
       "end_line": 4875,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
     },
     {
       "unit": "S2.9-U320",

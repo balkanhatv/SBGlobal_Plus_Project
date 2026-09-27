@@ -483,3 +483,8 @@ S2.3 Engineering Standards reconciliation `53db6e78407afbdfdeda6201cdc7504c3ad0c
 ## 2026-09-27 — S2.6 verified; S2.7 source-scope gate staged
 
 S2.6 AI Standards reconciliation `536a47a6f7b7a47cd3228ccc1aded2a9b05cc460` / tree `8b8f8a7a3668c6da56642eded42f9c4c5f902c06` passed exact-head **700/700 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. S2.7 Enterprise Default Standards review found source-scope/ownership drift only: Healthcare portal/dashboard/patient/doctor/LIS/invoice/report defaults had been over-classified as platform-wide; master/config/role seed lists are mixed Core + Healthcare; active tagline and India baseline/Country Pack boundaries are already canonical. This changelog update intentionally stages the S2.7 evidence correction on an exact-HEAD CI-triggering path. No runtime/test/workflow/schema/RLS change. DD-208 remains current; DD-209 remains held.
+
+
+## 2026-09-27 — S2.7 verified; S2.8 source-scope gate staged
+
+S2.7 Enterprise Default Standards reconciliation `171b2579f3cbfb42532999107d17a2df76527a6f` / tree `624d140c4916a3481f0d7f32c5b2c935e777c87f` passed exact-head **700/700 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. S2.8 UI Design System review found ownership/scope drift only: Healthcare report/timeline/widget examples and India-specific validators were over-classified as universal, while secure-upload/authorization/accessibility boundaries needed explicit routing. This changelog path stages exact-HEAD verification for the evidence-only S2.8 correction. No runtime/test/workflow/schema/RLS change. DD-208 remains current; DD-209 remains held.

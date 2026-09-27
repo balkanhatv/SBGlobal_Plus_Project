@@ -288,3 +288,23 @@ The evidence correction makes the following boundaries explicit:
 - India defaults (Asia/Kolkata, dd-MM-yyyy, INR, English/Hindi) remain the default baseline, but Country Packs/Tenant configuration may override allowed locale/currency/time settings. “AI enabled”, “API first” and “soft delete enabled” defaults do not bypass entitlement/security/data-class exceptions.
 
 No RawSource, runtime code, configuration data, schema, RLS, role/grant, executable test or stable requirement ID/count changes. This correction is traceability/ownership only. The containing commit must pass exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains the latest governed development checkpoint; DD-209 remains held.
+
+
+## 2026-09-27 S2.8 Enterprise UI Design System continuation
+
+Fresh reading of S2.8 (U272–U319) confirms that the grid, spacing, radius, controls, tables, statuses, modals/drawers, navigation, search, charts, forms, themes, accessibility and breakpoints are legitimate shared design-system primitives. The source ledger nonetheless treated every child as Platform-wide even where the source itself or current security/localization rules make the example domain- or jurisdiction-specific.
+
+### VC27-15 — P2: S2.8 domain/jurisdiction examples were over-classified as universal UI semantics
+
+The correction records:
+- File Components remain reusable UI, but upload/camera paths execute through DD-08/DD-16 secure upload, MIME/signature/malware, ACL and residency controls.
+- Table Actions (View/Edit/Delete/Duplicate/Archive/Restore…) are presentation affordances only; the actual operation is server-authorized by the owning OperationContract, resource state and data-lifecycle policy.
+- Default Status Colors remain visual tokens; status text/semantics remain exposed and canonical accessibility prohibits color-only meaning.
+- Filters are MIXED: generic date/branch/department/status/custom filters are reusable, while Doctor/Report are Healthcare examples and Payment/domain filters exist only where the owning domain exposes them.
+- Validation is MIXED: required/unique/email/phone/UUID/slug/age/password-strength are reusable; GST/PAN/Aadhaar are India/jurisdiction/identity-provider-specific and must be activated through Country Pack/trust-service policy rather than global hard-coding.
+- Timeline is MIXED: Audit/Activity/Workflow are reusable; Patient/Sample timelines remain Healthcare-specific.
+- The source Vertical Suite Note is honored: Report Colors and H/L/HH/LL/Critical Report Flags are Healthcare laboratory semantics, not global UI status semantics.
+- Dashboard Widgets are MIXED: Revenue/Notifications/Calendar/Tasks/Quick Links are reusable building blocks; Patients/Doctors/Today's Collection/Pending Reports/Sample Status/Top Tests are Healthcare defaults owned by that suite.
+- Source accessibility requirements are preserved and may be strengthened by the canonical WCAG 2.1 AA/reduced-motion/responsive accessibility floor.
+
+No RawSource, component implementation, design-token payload, runtime code, schema, RLS, role/grant, executable test or stable requirement ID/count changes. This is ownership/traceability correction only. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains current and DD-209 remains held.

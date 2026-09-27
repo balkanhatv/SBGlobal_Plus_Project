@@ -27,6 +27,7 @@
 | S2.5 Mobile Architecture Standards | F-06/A-08 | 014/016 + UD-TECH-01 | DD-10/DD-11/DD-16/DD-17 | React Native+Expo; exactly two Tenant app classes; Platform Mobile separate/conditional; offline conflict safety; secure storage/push/version/testing source obligations |
 | Phase-1 recovered: Platform brand defaults/theme hierarchy | A-08 / ADR-011 | 011 | DD-05/DD-10 | versioned brand config + protected semantic floor |
 | S2.7 Enterprise Default Standards | F-04/F-06 + suite owners | 011/019 + CR-02 | DD-05/DD-10/DD-17 | active brand/tagline hierarchy; India baseline via Country Packs; Healthcare-only portal/dashboard/role/master/document defaults correctly scoped; standard master ownership extended by Industry Context where applicable |
+| S2.8 Enterprise UI Design System | F-06/A-08 + suite/Country-Pack owners | 011/019 | DD-08/DD-10/DD-16 | Core component/token system; Healthcare-only report/timeline/widget examples scoped; India-specific GST/PAN/Aadhaar validation localized; UI actions never authorize server operations |
 | Phase-1 recovered: data access/export/portability | A-05 / ADR-008 | 008 | DD-05/DD-16 | export request + context/residency/retention enforcement |
 | Phase-1 recovered: Future Industry Framework | A-09 / ADR-020 | 020 | DD-13 | promotion state machine + explicit approval + live activation gate |
 

@@ -323,54 +323,54 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.7-U269 | Default Status | 9 | Platform reference vocabulary | SD | F-04/S2.8 | canonical statuses + UI mapping | — | Status vocabulary preserved; colors remain S2.8-owned | SOURCE RECONCILED |
 | S2.7-U270 | Default User Role Seeds | 13 | Platform + Industry role seeds | SD + equality normalization | F-03/F-04/F-07…F-09 | baseline platform roles + applicable suite role packs | CR-05; BR-DATA-03 | Super Admin/Tenant Owner/API User etc. are shared; Healthcare roles are suite-scoped; 'other suites as built out' is legacy because all nine current suites are first-class | SOURCE RECONCILED |
 | S2.7-U271 | System Defaults | 18 | Platform default + tenant/country override | SD + localization/security normalization | F-04/F-03/F-05/F-06 | system defaults and Country Pack resolution | BR-DATA-03 | India baseline preserved; tenant/country packs may override allowed locale/currency/time defaults; AI/API/soft-delete defaults never bypass entitlement/security/data-class rules | SOURCE RECONCILED |
-| S2.8-U272 | SBGlobal Plus Enterprise UI Design System | 0 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U273 | Grid System | 3 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U274 | Container Width | 6 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U275 | Spacing Scale | 0 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U276 | Border Radius | 5 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U277 | Buttons | 0 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U278 | Variants | 11 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U279 | Button Heights | 3 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U280 | Button Width | 2 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U281 | Button Icons | 4 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U282 | Inputs | 0 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U283 | Standard Inputs | 16 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U284 | Advanced Inputs | 9 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U285 | Select Components | 5 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U286 | Checkbox | 2 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U287 | Radio | 2 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U288 | Switch | 1 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U289 | File Components | 6 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U290 | Cards | 8 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U291 | Tables | 0 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U292 | Capabilities | 11 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U293 | Table Actions | 9 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U294 | Status Badges | 6 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U295 | Default Status Colors | 9 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U296 | Modals | 5 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U297 | Drawers | 3 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U298 | Navigation | 6 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U299 | Search | 3 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U300 | Filters | 8 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U301 | Alerts | 4 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U302 | Toast | 4 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U303 | Loader | 4 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U304 | Charts | 10 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U305 | Icons | 2 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U306 | Forms | 6 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U307 | Validation | 11 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U308 | Profile Components | 4 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U309 | Timeline | 5 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U310 | Notifications | 7 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U311 | 🆕 Vertical Suite Note | 0 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U312 | Report Colors | 4 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U313 | Report Flags | 5 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U314 | Print Settings | 5 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U315 | Dashboard Widgets | 15 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U316 | Default Animation | 2 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U317 | Themes | 3 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U318 | Accessibility | 5 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
-| S2.8-U319 | Responsive Breakpoints | 5 | Platform-wide | SD | F-06/A-08 | design system | — | Foundation UX + Detailed Design | VERIFIED |
+| S2.8-U272 | SBGlobal Plus Enterprise UI Design System | 0 | Platform + Industry presentation | SD + canonical reconciliation | F-06/A-08/DD-10 | design-system + scoped Industry presentation | ADR-011; LG-03 | Base component system is Core; domain-specific examples remain suite-scoped | SOURCE RECONCILED; no UI runtime certification |
+| S2.8-U273 | Grid System | 3 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U274 | Container Width | 6 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U275 | Spacing Scale | 0 | Platform-wide | SD + owner cross-reference | F-06/A-08/DD-10 | authoritative spacing scale | ADR-011 | Base spacing scale preserved | SOURCE RECONCILED |
+| S2.8-U276 | Border Radius | 5 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U277 | Buttons | 0 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U278 | Variants | 11 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U279 | Button Heights | 3 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U280 | Button Width | 2 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U281 | Button Icons | 4 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U282 | Inputs | 0 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U283 | Standard Inputs | 16 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U284 | Advanced Inputs | 9 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U285 | Select Components | 5 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U286 | Checkbox | 2 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U287 | Radio | 2 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U288 | Switch | 1 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U289 | File Components | 6 | Platform UI + Document security | SD + security ownership | F-06/A-08/DD-08/DD-16 | upload/camera/preview UI through secure Document pipeline | ADR-011 | UI file component never bypasses MIME/signature/malware/ACL/residency checks | SOURCE RECONCILED |
+| S2.8-U290 | Cards | 8 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U291 | Tables | 0 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U292 | Capabilities | 11 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U293 | Table Actions | 9 | Platform UI + domain operations | SD + authorization normalization | F-06/A-08/DD-10 + owning OperationContracts | table action presentation | ADR-011 | View/Edit/Delete/etc. are UI capabilities only; actual action requires server permission/state/data-lifecycle authorization | SOURCE RECONCILED |
+| S2.8-U294 | Status Badges | 6 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U295 | Default Status Colors | 9 | Platform-wide | SD + accessibility normalization | F-06/A-08/DD-10 | status token mapping | ADR-011 | Colors are presentation only; status text/semantic meaning remains visible and no color-only state is allowed | SOURCE RECONCILED |
+| S2.8-U296 | Modals | 5 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U297 | Drawers | 3 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U298 | Navigation | 6 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U299 | Search | 3 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U300 | Filters | 8 | Platform + Healthcare where named | SD + scope correction | F-06/A-08/DD-10 + F-07 | generic filters + Healthcare filter examples | LG-03 | Date/Branch/Department/Status/Custom are reusable; Doctor/Report and domain-specific filters stay suite-owned; Payment scope is operation/domain dependent | SOURCE RECONCILED |
+| S2.8-U301 | Alerts | 4 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U302 | Toast | 4 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U303 | Loader | 4 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U304 | Charts | 10 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U305 | Icons | 2 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U306 | Forms | 6 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U307 | Validation | 11 | Platform + India Country Pack | SD + localization/identity normalization | F-06/F-04/DD-05/DD-10/DD-16 | generic validators + country/identity-specific validators | ADR-011/019 | Required/unique/email/phone/UUID/slug/age/password are reusable; GST/PAN/Aadhaar validators are India/jurisdiction/provider scoped, not global hard-coded rules | SOURCE RECONCILED |
+| S2.8-U308 | Profile Components | 4 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U309 | Timeline | 5 | Platform + Healthcare | SD + scope correction | F-06/A-08/DD-10 + F-07 | generic audit/activity/workflow timeline + Healthcare timelines | LG-03 | Patient/Sample timelines remain Healthcare-specific | SOURCE RECONCILED |
+| S2.8-U310 | Notifications | 7 | Platform UI + Communication | SD + owner normalization | F-06/A-08/DD-10 + Core Communication | notification presentation/channels | — | Bell/popup/toast are UI; Email/SMS/WhatsApp/Push delivery belongs Communication Engine | SOURCE RECONCILED |
+| S2.8-U311 | 🆕 Vertical Suite Note | 0 | Healthcare scope note | SD | F-06/F-07/DD-10 | source scope boundary | LG-03 | Source explicitly makes Report Colors/Flags Healthcare-specific | SOURCE RECONCILED |
+| S2.8-U312 | Report Colors | 4 | Industry (Healthcare) | SD + scope correction | F-07/DD-10 | laboratory report flag color presentation | LG-03 | Normal/High/Low/Critical report colors are Healthcare lab-result defaults, not global status colors | SOURCE RECONCILED |
+| S2.8-U313 | Report Flags | 5 | Industry (Healthcare) | SD + scope correction | F-07/DD-10 | laboratory report flags | LG-03 | H/L/HH/LL/Critical are Healthcare lab-result flags | SOURCE RECONCILED |
+| S2.8-U314 | Print Settings | 5 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U315 | Dashboard Widgets | 15 | Platform + Healthcare | SD + scope correction | F-06/A-08/DD-10 + suite analytics owners | reusable dashboard widgets + Healthcare defaults | LG-03 | Revenue/notifications/calendar/tasks/links are reusable; Patients/Doctors/collection/reports/sample/tests are Healthcare-specific | SOURCE RECONCILED |
+| S2.8-U316 | Default Animation | 2 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U317 | Themes | 3 | Platform-wide | SD | F-06/A-08/DD-10 | design-system component/token owner | ADR-011 | Reusable Core UI design-system capability | SOURCE RECONCILED |
+| S2.8-U318 | Accessibility | 5 | Platform-wide | SD + canonical extension | F-06/A-08/DD-10 | accessibility baseline | ADR-011 | Keyboard/high-contrast/ARIA/focus/screen-reader preserved; canonical WCAG AA/reduced-motion rules may strengthen source baseline | SOURCE RECONCILED |
+| S2.8-U319 | Responsive Breakpoints | 5 | Platform-wide | SD | F-06/A-08/DD-10 | responsive breakpoint defaults | ADR-011 | Source breakpoints preserved as design defaults, not business capability gates | SOURCE RECONCILED |
 | S2.9-U320 | SBGlobal Plus Enterprise Development Roadmap | 0 | Platform-wide | SD | F-00/Governing MI | §6/§26 | CR-04 | SOURCE ROADMAP/VOLUME AUTHORITY ONLY | VERIFIED |
 | S2.9-U321 | Phase 01 — Enterprise Foundation | 10 | Platform-wide | SD | F-00/Governing MI | §6/§26 | CR-04 | SOURCE ROADMAP/VOLUME AUTHORITY ONLY | VERIFIED |
 | S2.9-U322 | Phase 02 — Enterprise Database Standards | 20 | Platform-wide | SD | F-00/Governing MI | §6/§26 | CR-04 | SOURCE ROADMAP/VOLUME AUTHORITY ONLY | VERIFIED |
