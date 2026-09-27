@@ -2337,7 +2337,7 @@
     ],
     "remaining_gate": "Full semantic file coverage and cross-layer/adversarial reconciliation remain incomplete; no global clean verdict.",
     "continuation_report": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
-    "continuation_status": "SOURCE_FIDELITY_CORRECTION_HEAD_VERIFIED_FULL_AUDIT_IN_PROGRESS",
+    "continuation_status": "DD_ACCEPTANCE_CORRECTION_VERIFIED_FULL_AUDIT_IN_PROGRESS",
     "source_reading": "S1_AND_S2_COMPLETE_TEXT_READ; COMPLETE_SOURCE_TO_OWNER_SEMANTIC_CERTIFICATION_PENDING",
     "source_span_coverage": "Registers/SOURCE_SPAN_COVERAGE_2026-09-27.json",
     "additional_findings": {
@@ -2345,7 +2345,8 @@
       "VC27-02": "P2 overbroad governance supersession",
       "VC27-03": "P2 stale execution coverage and provider-name routing",
       "VC27-04": "P2 stale/ambiguous guard-stage references and snapshot placement; canonical chain aligned",
-      "VC27-05": "P2 stale suspension UI projection; aligned to existing restricted-operation contracts"
+      "VC27-05": "P2 stale suspension UI projection; aligned to existing restricted-operation contracts",
+      "VC27-06": "P2 overbroad DD-17 suspended-mode read acceptance wording; aligned to explicit dedicated restricted-operation contracts"
     },
     "source_fidelity_correction_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
     "source_fidelity_correction_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
@@ -2376,13 +2377,44 @@
       "SUPERSEDED_WITH_AUTHORITY": 8
     },
     "source_fidelity_remaining_gate": "Complete source-span/owner and cross-layer semantic reconciliation remains open; text provenance is not atomic completeness or runtime certification.",
-    "final_sync_gate": "Containing commit also corrects remaining Architecture guard citations/snapshot-order wording and suspension-shell projection; its exact-HEAD result is recorded in PR #2. Parent executable/test tree is verified; no self-referential SHA is stored here.",
+    "final_sync_gate": "Architecture/state synchronization 5e27fa41cb1fc2099d6033157589a3cf5ebeaeee and DD acceptance correction f709f0227ae416f88ccb7c7fdf8e3e5293209409 are exact-head verified; complete semantic source-to-owner and downstream cross-layer audit remains open.",
     "additional_findings_corrections_applied": [
       "VC27-01",
       "VC27-02",
       "VC27-03",
       "VC27-04",
-      "VC27-05"
-    ]
+      "VC27-05",
+      "VC27-06"
+    ],
+    "architecture_state_sync": {
+      "head": "5e27fa41cb1fc2099d6033157589a3cf5ebeaeee",
+      "tree": "1be4c73ebdc31f2c29615186cd7fa17618a42338",
+      "ci": {
+        "core_run": 36289733145,
+        "core_job": 108537388148,
+        "postgres_job": 108537388279,
+        "database_run": 36289733180,
+        "database_job": 108537388382,
+        "web_run": 36289733187,
+        "web_job": 108537388436,
+        "result": "PASS_EXACT_SYNC_HEAD"
+      }
+    },
+    "dd_acceptance_correction": {
+      "finding": "VC27-06",
+      "head": "f709f0227ae416f88ccb7c7fdf8e3e5293209409",
+      "tree": "4aada69ebe504e01092f143173559366bd69fcc0",
+      "ci": {
+        "core_run": 36290340375,
+        "core_job": 108539080145,
+        "postgres_job": 108539079982,
+        "database_run": 36290331102,
+        "database_job": 108539053967,
+        "web_run": 36290340382,
+        "web_job": 108539079807,
+        "result": "PASS_EXACT_CORRECTION_HEAD"
+      },
+      "boundary": "Acceptance wording only; no runtime, SQL, RLS, role, grant, route, operation-id, RawSource or product-requirement change."
+    }
   }
 }
