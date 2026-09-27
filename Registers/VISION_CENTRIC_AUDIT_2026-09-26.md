@@ -461,3 +461,24 @@ The correction synchronizes README_FOUNDATION, PROJECT_STATE, PHASE_SUMMARY, HAN
 - RawSource remains immutable; `main` remains unmerged; PR #2 remains draft/review-only.
 
 No RawSource, runtime, test, workflow, SQL/RLS, role/grant, requirement ID/count or governed development checkpoint changes.
+
+
+## 2026-09-27 downstream Development/Database state consistency
+
+Current state synchronization `0075a7c81de8b76de7c48c7bc4a79b8f9975196b` / tree `7f3b9ff390a8bd23cb843b48b645d713c85aab67` passed exact-HEAD **700/700 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web.
+
+### VC27-24 — P2: current Development checkpoint and database matrix still projected stale pre-closure evidence
+
+Direct comparison of the current Development truth files against the verified state found:
+- `Development/CORE_SERVICE_CHECKPOINT.md`, `DEVELOPMENT_STATE.md` and `DB_CHECKPOINT.md` still instructed the next run to verify an already-verified DD-208 state closure and still described semantic coverage as being at the old partial source-audit stage.
+- `Development/DB_IMPLEMENTATION_MATRIX.md` labelled the persistence checkpoint current but presented only the historical all-stages PostgreSQL evidence from 32 migrations / 26 verification files. That evidence remains valid for its historical checkpoint, but it is not the current 48/42 repository inventory.
+
+The correction updates only current projection/evidence wording:
+- DD-208 remains the latest governed development checkpoint.
+- current repository exact-HEAD evidence is 700/700 Core, 505/505 PostgreSQL, 48 migrations / 42 verification files and Web PASS.
+- the 32/26 evidence remains explicitly historical.
+- downstream canonical/Development/Database/CI/adversarial audit remains IN PROGRESS; DD-209/effective AI execution remain locked.
+
+Historical DD-208 verification records retain their original 504/504 PostgreSQL counts because those are correct for the original DD-208 promotion commit and must not be rewritten to later counts.
+
+No runtime, test, workflow, SQL/RLS, role/grant, RawSource, stable requirement ID/count or governed checkpoint change.
