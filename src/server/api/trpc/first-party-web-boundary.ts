@@ -182,7 +182,7 @@ export class ConfiguredFirstPartyWebEdgePolicy implements FirstPartyTrpcEdgePoli
     }
 
     const origin=request.headers.get("origin");
-    if(origin){
+    if(origin!==null){
       let parsedOrigin:URL;
       try{
         parsedOrigin=new URL(origin);
