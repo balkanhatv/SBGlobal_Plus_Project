@@ -1182,3 +1182,29 @@ This does not add authorization grants, policy operators, compiler publication, 
 authority, schema/RLS/role/grant changes, product behavior or DD-209 authority. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream AuthorizationContext exact-scope continuation
+
+### VC27-54 — P1: AuthorizationContext adapter relied on lower SQL scope validation
+
+DD-02 defines exact TENANT_CORE/TENANT_INDUSTRY ownership shapes, and DD-03 requires
+RequestContext role/permission evidence to come from the exact CURRENT compiled snapshot.
+PostgresAuthorizationContextAdapter is the persistence bridge used while RequestContext is
+being assembled.
+
+The adapter rejected EXPLICIT_CROSS_CONTEXT but otherwise trusted its TypeScript input shape.
+Malformed/untyped runtime evidence could carry TENANT_CORE with a present Industry Context,
+TENANT_INDUSTRY without an Industry Context, an empty Tenant id, or an unsupported scope
+string and reach RequestScopedSql. VC27-48's lower shared SQL guard currently fails closed,
+but this Authorization context boundary must not depend on that lower adapter for exact scope.
+
+Smallest forward-only correction:
+- accept only TENANT_CORE or TENANT_INDUSTRY at this generic adapter boundary;
+- require non-empty Tenant id;
+- require exact Industry absence for TENANT_CORE and non-empty Industry for TENANT_INDUSTRY;
+- reject malformed scope before RequestScopedSql or CURRENT snapshot query;
+- preserve compiled snapshot lookup, permissionVersion and role-set semantics.
+
+This does not implement cross-context authorization, add grants, change compiler/PDP/ABAC
+semantics, alter schema/RLS/roles/grants, product behavior or DD-209 authority. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

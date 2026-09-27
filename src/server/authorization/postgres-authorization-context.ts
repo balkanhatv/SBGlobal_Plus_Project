@@ -67,10 +67,20 @@ export class PostgresAuthorizationContextAdapter implements AuthorizationContext
     input: Parameters<AuthorizationContextPort["loadRoleContext"]>[0],
   ): Promise<RoleContext> {
     const scopeClass = input.scopeClass;
-    if (scopeClass === "EXPLICIT_CROSS_CONTEXT") {
+    if (scopeClass !== "TENANT_CORE" && scopeClass !== "TENANT_INDUSTRY") {
       throw new ContextResolutionError(
         "DEPENDENCY_UNAVAILABLE",
-        "Cross-context authorization requires a dedicated governed path.",
+        "Authorization context scope is unavailable.",
+      );
+    }
+    if (!input.tenantId
+      || (scopeClass === "TENANT_CORE" && input.industryContextId !== undefined)
+      || (scopeClass === "TENANT_INDUSTRY"
+        && (typeof input.industryContextId !== "string"
+          || input.industryContextId.length === 0))) {
+      throw new ContextResolutionError(
+        "DEPENDENCY_UNAVAILABLE",
+        "Authorization context scope is unavailable.",
       );
     }
 
