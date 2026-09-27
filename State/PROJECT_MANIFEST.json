@@ -2357,7 +2357,7 @@
     ],
     "remaining_gate": "Full semantic file coverage and cross-layer/adversarial reconciliation remain incomplete; no global clean verdict.",
     "continuation_report": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
-    "continuation_status": "S2_2_INSTALLATION_READINESS_VERIFIED_FULL_SEMANTIC_AUDIT_IN_PROGRESS",
+    "continuation_status": "DOWNSTREAM_INTEGRATION_NECESSARY_FLOORS_VERIFIED_AUDIT_IN_PROGRESS",
     "source_reading": "S1_AND_S2_COMPLETE_TEXT_READ; 372/372 SOURCE PARENTS OWNER_RECONCILED; DOWNSTREAM CANONICAL/STATE/RUNTIME SEMANTIC CERTIFICATION PENDING",
     "source_span_coverage": "Registers/SOURCE_SPAN_COVERAGE_2026-09-27.json",
     "additional_findings": {
@@ -2383,7 +2383,10 @@
       "VC27-20": "P1/P2 S2.2 Healthcare/Core + clinical-AI + stack reconciliation",
       "VC27-21": "P2 S2.2 final QA/NFR/lifecycle/product-goal reconciliation",
       "VC27-22": "P1 post-parent closure F-01/F-04 canonical-owner residual correction",
-      "VC27-23": "P2 stale current State/Registers projection after source-parent closure"
+      "VC27-23": "P2 stale current State/Registers projection after source-parent closure",
+      "VC27-24": "P2 stale Development/Database current-state projection after parent-source closure; synchronized to current 48/42 evidence",
+      "VC27-25": "P2 sparse Webhook Industry allowlist bypassed total structural validation on bounded TENANT_CORE necessary-floor path",
+      "VC27-26": "P2 sparse SyncCursor/TenantIntegration capability arrays bypassed total structural validation in DD-164/DD-166 necessary floors"
     },
     "source_fidelity_correction_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
     "source_fidelity_correction_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
@@ -2414,7 +2417,7 @@
       "SUPERSEDED_WITH_AUTHORITY": 8
     },
     "source_fidelity_remaining_gate": "Source-parent semantic reconciliation is complete at 372/372 owner-reconciled parents with 0 NOT_CERTIFIED. Remaining gate is downstream canonical/state/Development/Database/CI consistency plus adversarial reconciliation; parent counts/provenance do not certify runtime or complete-project correctness.",
-    "final_sync_gate": "Source-parent reconciliation e1be03f490e153ca3def028e7085dbb6fafe7095 and residual canonical correction 59db060476157d86df9fd0ed71b5ba46927617be are exact-head verified: Core 700/700, PostgreSQL 505/505, Database 48 migrations / 42 verification files, Web PASS. DD-208 remains latest governed development checkpoint; complete-project downstream audit remains open.",
+    "final_sync_gate": "Current bounded downstream correction head 0142ee5cbe9cf86451fb2e98768990dc8407170f / tree 4d22214b1b446c4e833f5651afbc35ddc33a4dfb is exact-head verified: Core 703/703, PostgreSQL 505/505, Database 48 migrations / 42 verification files, Web PASS. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
     "additional_findings_corrections_applied": [
       "VC27-01",
       "VC27-02",
@@ -2424,7 +2427,10 @@
       "VC27-06",
       "VC27-07",
       "VC27-08",
-      "VC27-09"
+      "VC27-09",
+      "VC27-24",
+      "VC27-25",
+      "VC27-26"
     ],
     "architecture_state_sync": {
       "head": "5e27fa41cb1fc2099d6033157589a3cf5ebeaeee",
@@ -2537,6 +2543,47 @@
         "result": "PASS_EXACT_CORRECTION_HEAD"
       },
       "boundary": "Foundation/traceability canonical-owner correction only; no RawSource/runtime/SQL/RLS/test/workflow change."
+    },
+    "downstream_bounded_runtime_audit": {
+      "status": "BOUNDED_CLEAN_WITH_VERIFIED_FAIL_CLOSED_CORRECTIONS_AUDIT_IN_PROGRESS",
+      "base_head": "d32f6f824fd5bade4dd247deec5881e73e4d8396",
+      "base_tree": "7c7332fd5b69dbdd0f98694fe44e142bb2a0a2ab",
+      "report": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
+      "webhook_sparse_correction": {
+        "finding": "VC27-25",
+        "head": "c0597607b06c27a76dabce7ae5fb3e43773bbd37",
+        "tree": "5e800eaf549225dd8f144e7d9fc043fe7f898929",
+        "ci": {
+          "core_run": 36300552206,
+          "core_job": 108567273899,
+          "core_pass": 701,
+          "postgres_job": 108567274029,
+          "postgres_pass": 505,
+          "database_run": 36300552220,
+          "database_job": 108567274011,
+          "web_run": 36300552241,
+          "web_job": 108567274005,
+          "result": "PASS_EXACT_CORRECTION_HEAD"
+        }
+      },
+      "integration_sparse_correction": {
+        "finding": "VC27-26",
+        "head": "0142ee5cbe9cf86451fb2e98768990dc8407170f",
+        "tree": "4d22214b1b446c4e833f5651afbc35ddc33a4dfb",
+        "ci": {
+          "core_run": 36302509841,
+          "core_job": 108572694025,
+          "core_pass": 703,
+          "postgres_job": 108572694115,
+          "postgres_pass": 505,
+          "database_run": 36302509884,
+          "database_job": 108572694147,
+          "web_run": 36302509847,
+          "web_job": 108572694009,
+          "result": "PASS_EXACT_CORRECTION_HEAD"
+        }
+      },
+      "boundary": "No Integration/Webhook/provider/network execution authority added. Remaining source-incomplete seams stay locked."
     }
   }
 }
