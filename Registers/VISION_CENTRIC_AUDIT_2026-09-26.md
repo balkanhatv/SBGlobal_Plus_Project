@@ -745,3 +745,27 @@ token generation, TTL, ACL/permission/entitlement/step-up policy, retention,
 residency exceptions and routes remain **BLOCKED**. No migration, role, grant, RLS
 policy, product behavior or DD-209 slice is added. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
+
+## 2026-09-27 downstream exact-Industry API-Credential allowlist continuation
+
+### VC27-37 — P2: exact Industry credential could accept sibling allowed-Industry evidence at runtime
+
+Migration 0030 requires an Industry-scoped API credential's `allowed_industry_context_ids`,
+when non-empty, to contain only its exact persisted `industry_context_id`. DD-161 already
+treats migration-owned scope evidence as a fail-closed necessary floor. The runtime helper
+validated the allowed list as dense, UUID-shaped and duplicate-free, but for an exact
+Tenant-Industry credential it accepted solely on `material.industryContextId === target.industryContextId`.
+Malformed/injected raw evidence could therefore preserve the exact Industry id while also
+carrying a sibling/different allowed Industry and still satisfy the requested-scope floor.
+
+Smallest forward-only correction:
+- when `material.industryContextId` is present, require every allowed-Industry entry to
+  equal that exact persisted Industry Context;
+- preserve migration behavior that the list may be empty or contain only the exact Industry;
+- add `APICRED-SCOPE-011` regression/acceptance for sibling and mixed exact+sibling evidence.
+
+This mirrors an existing migration-owned invariant only. It does not implement presented-token
+grammar/hash verification, CIDR enforcement, permission-profile mapping, successful-use
+mutation/audit, final `VerifiedMachineEvidence`, routes, SQL/RLS/role/grant changes, product
+behavior or DD-209. Exact-head Core/PostgreSQL/Database/Web verification is required.
+
