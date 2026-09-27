@@ -1429,3 +1429,33 @@ This does not change SecurityRatePolicy numeric defaults, override ceilings, buc
 concurrency limits, schema/roles/grants, transport projection, product behavior or DD-209
 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream Integration reader exact-null scope continuation
+
+### VC27-63 — P1: five tenant-scoped Integration reader gates used truthiness for forbidden Tenant-Core Industry evidence
+
+DD-02 defines TENANT_CORE with Industry Context absent. DD-087/DD-088/DD-095/DD-096/DD-097
+reader ownership slices use fixed Integration-service roles plus RequestScopedSql and require
+malformed input/context to fail closed before raw server-side metadata/evidence disclosure.
+
+The CredentialReference metadata, SyncCursor, TenantIntegration, WebhookDelivery and
+WebhookSubscription PostgreSQL readers each implemented an independent resolved-Tenant
+context gate, but rejected forbidden Tenant-Core Industry evidence by truthiness. A malformed/
+untyped RequestContext carrying `industryContextId=""` could therefore pass each reader's
+own gate and reach RequestScopedSql. VC27-48's shared SQL boundary still rejects that shape,
+so no demonstrated cross-Industry row disclosure occurred; however these source-owned reader
+boundaries must preserve exact Tenant-Core shape themselves rather than rely on the lower
+adapter.
+
+Smallest forward-only correction:
+- require exact Industry absence (`industryContextId === undefined`) for TENANT_CORE in all
+  five existing reader context gates;
+- preserve TENANT_INDUSTRY UUID requirements and all raw-reader semantics;
+- add one shared server regression proving present-empty Industry evidence reaches none of
+  the five scoped-SQL dependencies;
+- strengthen the five existing malformed-input acceptance rows in place.
+
+This does not add Integration/provider/sync/webhook execution, secret material access,
+endpoint/filter/signing/retry semantics, schema/RLS/role/grant changes, public routes,
+product behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification
+is required.
+

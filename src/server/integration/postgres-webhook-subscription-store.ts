@@ -139,7 +139,7 @@ function assertTenantContext(context: RequestContext): void {
     || !context.principalId
     || !UUID_PATTERN.test(context.tenantId)
     || !UUID_PATTERN.test(context.principalId)
-    || (context.scopeClass === "TENANT_CORE" && context.industryContextId)
+    || (context.scopeClass === "TENANT_CORE" && context.industryContextId !== undefined)
     || (context.scopeClass === "TENANT_INDUSTRY"
       && (!context.industryContextId || !UUID_PATTERN.test(context.industryContextId)))) {
     invalid("Webhook Subscription reads require a resolved single-Tenant context.");

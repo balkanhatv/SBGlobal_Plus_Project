@@ -982,7 +982,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WH-SUB-PG-002 | foreign-Tenant subscription id queried | FORCE-RLS returns no row; exact owning Tenant context may read it |
 | WH-SUB-PG-003 | Tenant subscription read from same-Tenant Industry and Tenant Core contexts | same Tenant Core subscription visible in both |
 | WH-SUB-PG-004 | PENDING_VERIFICATION subscription without verifiedAt | raw non-executable evidence; no verified/deliverable decision |
-| WH-SUB-PG-005 | malformed id or database route/context mismatch | fail closed before subscription disclosure |
+| WH-SUB-PG-005 | malformed id, malformed exact Tenant scope shape (including TENANT_CORE with any present Industry Context), or database route/context mismatch | fail closed before subscription disclosure / scoped SQL use |
 
 
 ### Raw PostgreSQL Webhook Delivery reader — DD-089
@@ -993,7 +993,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WH-DEL-PG-002 | sibling Industry queries delivery whose parent event is Industry-scoped | parent RLS returns no row; exact Industry context may read it |
 | WH-DEL-PG-003 | Tenant-Core event delivery read from same-Tenant Tenant Core and Industry contexts | same delivery evidence visible in both |
 | WH-DEL-PG-004 | foreign-Tenant delivery id queried | parent subscription/event RLS returns no row; owning Tenant/context may read it |
-| WH-DEL-PG-005 | malformed id or database route/context mismatch | fail closed before delivery evidence disclosure |
+| WH-DEL-PG-005 | malformed id, malformed exact Tenant scope shape (including TENANT_CORE with any present Industry Context), or database route/context mismatch | fail closed before delivery evidence disclosure / scoped SQL use |
 
 
 ### Raw PostgreSQL Outbox Event reader — DD-090
@@ -1055,7 +1055,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | INT-TENANT-PG-002 | sibling Industry TenantIntegration requested from current Industry | FORCE-RLS returns no row; exact sibling context may read its own |
 | INT-TENANT-PG-003 | Tenant Core integration requested from same-Tenant Industry and Tenant Core contexts | same Tenant Core row visible in both; raw PAUSED/health evidence preserved |
 | INT-TENANT-PG-004 | foreign-Tenant integration id queried | FORCE-RLS returns no row; owning Tenant may read raw ACTIVE/health evidence without execution authority |
-| INT-TENANT-PG-005 | malformed id or database route/context mismatch | fail closed before TenantIntegration disclosure |
+| INT-TENANT-PG-005 | malformed id, malformed exact Tenant scope shape (including TENANT_CORE with any present Industry Context), or database route/context mismatch | fail closed before TenantIntegration disclosure / scoped SQL use |
 
 
 ### Tenant-scoped CredentialReference metadata reader — DD-096
@@ -1066,7 +1066,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | INT-CRED-META-PG-002 | sibling Industry credential id requested from current Industry | FORCE-RLS returns no row; exact sibling context may read its metadata |
 | INT-CRED-META-PG-003 | Tenant Core credential requested from same-Tenant Industry and Tenant Core contexts | same metadata visible; rotation/expiry evidence preserved without usability decision |
 | INT-CRED-META-PG-004 | foreign-Tenant credential id queried | FORCE-RLS returns no row; owning Tenant sees metadata only |
-| INT-CRED-META-PG-005 | malformed id or database route/context mismatch | fail closed before credential metadata disclosure |
+| INT-CRED-META-PG-005 | malformed id, malformed exact Tenant scope shape (including TENANT_CORE with any present Industry Context), or database route/context mismatch | fail closed before credential metadata disclosure / scoped SQL use |
 
 
 ### Raw PostgreSQL SyncCursor reader — DD-097
@@ -1077,7 +1077,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | INT-CURSOR-PG-002 | sibling Industry cursor tuple requested from current Industry | parent FORCE-RLS returns no row; exact sibling context may read its raw cursor |
 | INT-CURSOR-PG-003 | Tenant Core cursor read from same-Tenant Industry and Tenant Core contexts after parent later PAUSED | same raw cursor visible; parent status is not converted into resume authority |
 | INT-CURSOR-PG-004 | foreign Tenant or mismatched capability/context tuple | null; no fallback to another cursor |
-| INT-CURSOR-PG-005 | malformed tuple or database route/context mismatch | fail closed before cursor disclosure |
+| INT-CURSOR-PG-005 | malformed tuple, malformed exact Tenant scope shape (including TENANT_CORE with any present Industry Context), or database route/context mismatch | fail closed before cursor disclosure / scoped SQL use |
 
 
 ### Raw PostgreSQL NotificationDelivery reader — DD-098
