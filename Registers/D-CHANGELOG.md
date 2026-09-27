@@ -610,3 +610,11 @@ DD-02 requires TENANT_CORE Industry Context to be absent and PLATFORM_GLOBAL Ten
 ## 2026-09-27 — VC27-49 Commercial Tenant-Core exact-scope hardening
 
 DD-02 defines TENANT_CORE with Industry Context absent, and DD-060 owns the current Commercial client/service boundary. Commercial context construction, shared current-state loading and the PostgreSQL reader used truthiness for Tenant-Core Industry presence; malformed empty-string Industry evidence could therefore reach an alternate/injected store even though the concrete DB path is now protected by VC27-48. The smallest correction enforces exact Tenant-Core/Tenant-Industry scope shape before store use and adds Core/PostgreSQL regressions plus COMM-UI-008. Exact correction head `599cde0d323f8bdb7f2cfb4c37f09a5674cb5878` / tree `93f79b880492daf9aba967ebc08dd66d1effc8a0` passed **724/724 Core**, **507/507 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No RawSource, migration, RLS, role/grant, Commercial grant/billing semantics, snapshot semantics, product requirement or DD-209 change. Complete-project audit remains open; DD-208 remains current.
+
+## 2026-09-27 — VC27-50 GuardPipeline exact-null resource scope
+
+Tenant-Core resource scope used truthiness for Industry ownership evidence. Empty-string Industry evidence could pass as Tenant-Core. The smallest correction uses exact presence checking and strengthens TCTX-005. Exact correction `725ccb6ec417dc9df535eb7f7a3eb66849e79091` / tree `9a416ff923c962e525abe06866745aac0cd042a8` passed **725/725 Core**, **507/507 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web.
+
+## 2026-09-27 — VC27-51 effective-role Tenant-Core exact scope
+
+IdentityRoleQueryService and PostgresEffectiveRoleReadAdapter accepted malformed TENANT_CORE context carrying Industry evidence and relied on lower RequestScopedSql to fail closed. The smallest correction rejects exact-scope mismatch before store/SQL use and adds Core/server regressions. Exact correction `d77c39645d535efc7c57dd928bc530e106b2e109` / tree `f66480dc21048128e581948be6a8ef8b55a11c5e` passed **727/727 Core**, **507/507 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. DD-208 remains current; complete-project audit remains open.
