@@ -137,6 +137,7 @@ test("unsafe caller scope fails before recorder",async()=>{
   for(const c of [
     context({principalType:"HUMAN"}),
     context({scopeClass:"TENANT_INDUSTRY",industryContextId:id()}),
+    context({industryContextId:""}),
     context({tenantId:undefined}),
   ]){
     let calls=0;

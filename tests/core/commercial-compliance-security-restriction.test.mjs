@@ -50,15 +50,20 @@ test("restriction input requires SERVICE + TENANT_CORE before resolver execution
   const service=new CommercialComplianceSecurityRestrictionInputService({
     async evaluate(){ calls+=1; return decision(randomUUID()); },
   });
-  await assert.rejects(
-    ()=>service.prepare({
-      requestContext:context({principalType:"HUMAN"}),
-      targetPlanVersionId:randomUUID(),
-      preview:preview(),
-    }),
-    error=>error instanceof CommercialRestrictionInputError
-      && error.code==="COMMERCIAL_RESTRICTION_SCOPE_INVALID",
-  );
+  for(const requestContext of [
+    context({principalType:"HUMAN"}),
+    context({industryContextId:""}),
+  ]){
+    await assert.rejects(
+      ()=>service.prepare({
+        requestContext,
+        targetPlanVersionId:randomUUID(),
+        preview:preview(),
+      }),
+      error=>error instanceof CommercialRestrictionInputError
+        && error.code==="COMMERCIAL_RESTRICTION_SCOPE_INVALID",
+    );
+  }
   assert.equal(calls,0);
 });
 

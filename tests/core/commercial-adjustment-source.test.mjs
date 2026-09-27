@@ -107,6 +107,12 @@ test("adjustment source service fails closed on unsafe context, stale store bind
     e=>e instanceof CommercialAdjustmentSourceError
       && e.code==="COMMERCIAL_ADJUSTMENT_SOURCE_SCOPE_INVALID",
   );
+  await assert.rejects(
+    makeService(async()=>{throw new Error("unreachable");},async()=>({status:"ELIGIBLE"}))
+      .prepare({...base,requestContext:{...c,industryContextId:""}}),
+    e=>e instanceof CommercialAdjustmentSourceError
+      && e.code==="COMMERCIAL_ADJUSTMENT_SOURCE_SCOPE_INVALID",
+  );
 
   await assert.rejects(
     makeService(async()=>({

@@ -178,7 +178,7 @@ function resolutionState(value:unknown):PlanChangeResolutionState{
 }
 
 function assertContext(context:RequestContext):string{
-  if(context.scopeClass!=="TENANT_CORE" || context.industryContextId
+  if(context.scopeClass!=="TENANT_CORE" || context.industryContextId !== undefined
     || !context.tenantId || !context.principalId || context.principalType!=="SERVICE"
     || !context.dataHomeId || !context.regionCode){
     fail(

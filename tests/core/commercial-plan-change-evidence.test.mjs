@@ -84,6 +84,10 @@ test("plan-change evidence service rejects unsafe scope and inconsistent authori
     e=>e instanceof PlanChangeEvidenceError && e.code==="PLAN_CHANGE_EVIDENCE_SCOPE_INVALID",
   );
   await assert.rejects(
+    service.recordAssessment({requestContext:{...c,industryContextId:""},...base}),
+    e=>e instanceof PlanChangeEvidenceError && e.code==="PLAN_CHANGE_EVIDENCE_SCOPE_INVALID",
+  );
+  await assert.rejects(
     service.recordAssessment({
       requestContext:c,...base,blockingImpactCodes:["SEAT_LIMIT"],remediationState:"NOT_REQUIRED",
     }),

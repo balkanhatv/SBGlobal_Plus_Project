@@ -632,7 +632,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 
 | ID | Scenario | Expected |
 |---|---|---|
-| COMM-PCE-001 | HUMAN, Industry-scoped or unresolved caller records evidence | rejected before persistence |
+| COMM-PCE-001 | HUMAN, Industry-scoped, unresolved caller, or TENANT_CORE carrying any present Industry Context records evidence | rejected before persistence; SERVICE + exact TENANT_CORE (Industry absent) required |
 | COMM-PCE-002 | assessment source Subscription version/PlanVersion is stale | DB guard rejects; no evidence inserted |
 | COMM-PCE-003 | target PlanVersion/Plan/route invalid or route policy version changed | assessment insert rejects |
 | COMM-PCE-004 | assessment version skips/rebinds subscription/source/target/timing/version | rejects; versions are contiguous and core binding immutable |
@@ -695,7 +695,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 
 | ID | Scenario | Expected |
 |---|---|---|
-| COMM-ADJ-SRC-001 | HUMAN / Industry-scoped caller | rejected; SERVICE + TENANT_CORE required |
+| COMM-ADJ-SRC-001 | HUMAN / Industry-scoped caller or TENANT_CORE carrying any present Industry Context | rejected; SERVICE + exact TENANT_CORE (Industry absent) required |
 | COMM-ADJ-SRC-002 | supplied Subscription version/source PlanVersion stale | source load fails closed |
 | COMM-ADJ-SRC-003 | Tenant current_subscription_id no longer points to supplied Subscription | source load fails closed |
 | COMM-ADJ-SRC-004 | target PlanVersion/Plan/route inactive or outside effective window | source load fails closed |
@@ -743,7 +743,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 
 | ID | Scenario | Expected |
 |---|---|---|
-| COMM-CSR-001 | HUMAN / Industry-scoped / unresolved caller | rejected before resolver; SERVICE + TENANT_CORE required |
+| COMM-CSR-001 | HUMAN / Industry-scoped / unresolved caller or TENANT_CORE carrying any present Industry Context | rejected before resolver; SERVICE + exact TENANT_CORE (Industry absent) required |
 | COMM-CSR-002 | resolver invocation | receives exact target PlanVersion id and exact DD-071 preview; client cannot supply restriction authority |
 | COMM-CSR-003 | authoritative evaluation returns no restrictions | empty set remains versioned/evidenced; dependency absence is not treated as empty allow-like output |
 | COMM-CSR-004 | exact Tenant or Industry entitlement DENY | accepted only when the exact entitlement key already exists in DD-071 preview |
@@ -758,7 +758,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 
 | ID | Scenario | Expected |
 |---|---|---|
-| COMM-USAGE-001 | HUMAN / Industry-scoped caller | rejected before usage source; SERVICE + TENANT_CORE required |
+| COMM-USAGE-001 | HUMAN / Industry-scoped caller or TENANT_CORE carrying any present Industry Context | rejected before usage source; SERVICE + exact TENANT_CORE (Industry absent) required |
 | COMM-USAGE-002 | usage source invocation | exact target PlanVersion/effectiveAt + deterministic DD-071 target limits; caller cannot provide authoritative usage |
 | COMM-USAGE-003 | FINITE used_value equals/below target | WITHIN_TARGET |
 | COMM-USAGE-004 | FINITE used_value above target | EXCEEDS_TARGET; aggregate blocking usage=true |
@@ -813,7 +813,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-ASSESS-006 | DD-075/evaluator target differs from requested target | fail closed |
 | COMM-ASSESS-007 | duplicate/malformed/oversized blocking codes | fail closed |
 | COMM-ASSESS-008 | malformed route/evidence/fingerprint | fail closed |
-| COMM-ASSESS-009 | HUMAN / TENANT_INDUSTRY / unresolved Tenant context | fail closed before evaluator |
+| COMM-ASSESS-009 | HUMAN / TENANT_INDUSTRY / unresolved Tenant context, or TENANT_CORE carrying any present Industry Context | fail closed before evaluator; exact Tenant-Core Industry absence required |
 | COMM-ASSESS-010 | source PlanVersion equals target | fail before evaluator |
 | COMM-ASSESS-011 | same evidence prepared repeatedly | deterministic immutable output |
 | COMM-ASSESS-012 | concrete blocker vocabulary/diff format/fingerprint/dual-route chooser | NOT CLAIMED; production evaluator remains required |
@@ -863,7 +863,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-ASSESS-PERSIST-002 | prepared PENDING blockers | blockers/remediation forwarded unchanged |
 | COMM-ASSESS-PERSIST-003 | assessmentVersion != 1 / malformed UUID, route, timing or evidence | fail before recorder |
 | COMM-ASSESS-PERSIST-004 | unsorted/duplicate blockers or blocker/remediation contradiction | fail before recorder |
-| COMM-ASSESS-PERSIST-005 | HUMAN / Industry-scoped / unresolved Tenant caller | fail before recorder |
+| COMM-ASSESS-PERSIST-005 | HUMAN / Industry-scoped / unresolved Tenant caller or TENANT_CORE carrying any present Industry Context | fail before recorder; exact Tenant-Core Industry absence required |
 | COMM-ASSESS-PERSIST-006 | DD-066 returns different Tenant/correlation/source/target/evidence | fail closed as persisted mismatch |
 | COMM-ASSESS-PERSIST-007 | live Subscription version/source/current pointer stale | existing DD-066 PostgreSQL guard rejects; no assessment row |
 | COMM-ASSESS-PERSIST-008 | current target PlanVersion/route policy invalid | existing DD-066 PostgreSQL guard rejects |

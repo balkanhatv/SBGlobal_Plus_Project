@@ -196,6 +196,7 @@ test("HUMAN, Industry-scoped and unresolved Tenant contexts cannot prepare asses
   for(const requestContext of [
     context({principalType:"HUMAN"}),
     context({scopeClass:"TENANT_INDUSTRY",industryContextId:id()}),
+    context({industryContextId:""}),
     context({tenantId:undefined}),
   ]){
     const service=new CommercialInitialAssessmentPreparationService({

@@ -49,16 +49,21 @@ test("usage impact requires SERVICE + TENANT_CORE before source execution",async
   const service=new CommercialUsageImpactService({
     async load(){ calls+=1; return bundle(randomUUID(),[]); },
   });
-  await assert.rejects(
-    ()=>service.evaluate({
-      requestContext:context({principalType:"HUMAN"}),
-      targetPlanVersionId:randomUUID(),
-      effectiveAt:new Date(),
-      preview:preview(),
-    }),
-    error=>error instanceof CommercialUsageImpactError
-      && error.code==="COMMERCIAL_USAGE_IMPACT_SCOPE_INVALID",
-  );
+  for(const requestContext of [
+    context({principalType:"HUMAN"}),
+    context({industryContextId:""}),
+  ]){
+    await assert.rejects(
+      ()=>service.evaluate({
+        requestContext,
+        targetPlanVersionId:randomUUID(),
+        effectiveAt:new Date(),
+        preview:preview(),
+      }),
+      error=>error instanceof CommercialUsageImpactError
+        && error.code==="COMMERCIAL_USAGE_IMPACT_SCOPE_INVALID",
+    );
+  }
   assert.equal(calls,0);
 });
 

@@ -1323,3 +1323,30 @@ This does not add operations, routes, mutation authority, idempotency policy, ra
 Authorization/Commercial semantics, schema/RLS/role/grant changes, product behavior or
 DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream Commercial supporting-service exact-null continuation
+
+### VC27-59 — P1: six remaining SERVICE/TENANT_CORE Commercial Core gates used truthiness for forbidden Industry evidence
+
+DD-066, DD-070, DD-072, DD-073, DD-076 and DD-079 each own a server-only
+SERVICE/TENANT_CORE boundary in the governed plan-change evidence/compiler chain. DD-02
+defines TENANT_CORE with Industry Context absent.
+
+The adjustment-source, compliance/security-restriction, usage-impact, initial-assessment
+preparation, initial-assessment persistence and plan-change-evidence services all rejected
+Industry scope by truthiness. A malformed/untyped RequestContext carrying
+`industryContextId=""` could therefore pass their own gate and reach a resolver, source or
+evidence recorder. Lower persistence/RLS/RequestScopedSql boundaries remain fail closed, so
+no demonstrated cross-Industry Commercial mutation occurred; however these source-owned
+Core boundaries must preserve exact Tenant-Core shape themselves.
+
+Smallest forward-only correction:
+- require exact Industry absence at all six SERVICE/TENANT_CORE gates;
+- extend each existing unsafe-scope regression in place to cover present-empty Industry
+  evidence before resolver/source/recorder use;
+- strengthen the existing DD-17 acceptance rows without changing business semantics.
+
+This does not add eligibility rules, compliance policy, usage-period/reservation semantics,
+assessment logic, Billing/Workflow producer behavior, public `changePlan`, Commercial
+publication semantics, schema/RLS/role/grant changes, product behavior or DD-209 authority.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+
