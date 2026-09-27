@@ -106,6 +106,37 @@ test("store throttle becomes deterministic RATE_LIMITED with retry metadata",asy
   );
 });
 
+test("tenant-scoped rate limiting rejects malformed scope before tenant-aggregate bypass",async()=>{
+  const scenarios=[
+    {
+      requestContext:{...context,scopeClass:"TENANT_CORE",industryContextId:""},
+      operation:{...operation,scopeClass:"TENANT_CORE"},
+    },
+    {
+      requestContext:{...context,scopeClass:"TENANT_CORE",tenantId:"",industryContextId:undefined},
+      operation:{...operation,scopeClass:"TENANT_CORE"},
+    },
+    {
+      requestContext:{...context,scopeClass:"TENANT_INDUSTRY",industryContextId:undefined},
+      operation,
+    },
+    {
+      requestContext:{...context,scopeClass:"TENANT_CORE",industryContextId:undefined},
+      operation,
+    },
+  ];
+
+  for(const scenario of scenarios){
+    const {service,calls}=fixture();
+    await assert.rejects(
+      service.acquire(scenario),
+      error=>error instanceof RateLimitRuntimeError
+        && error.code==="RATE_CONTEXT_INVALID",
+    );
+    assert.equal(calls.some(([name])=>name==="acquire"),false);
+  }
+});
+
 test("PUBLIC requires server-owned IP identity and webhook requires verified endpoint identity",async()=>{
   const {service}=fixture();
   const publicOp={...operation,scopeClass:"PUBLIC",rateClass:"PUBLIC_LOW"};

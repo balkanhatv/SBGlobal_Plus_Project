@@ -1129,3 +1129,31 @@ This does not add role grants, permission compilation, ABAC behavior, cross-cont
 schema/RLS/role/grant changes, product behavior or DD-209 authority. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream rate-limit tenant-scope continuation
+
+### VC27-52 — P1: malformed tenant RequestContext could bypass the Tenant aggregate rate bucket
+
+DD-06 §18/§21 and API-RATE-002 require tenant-authenticated operations to participate in
+the applicable principal/IP/credential buckets plus the Tenant aggregate bucket, with the
+tightest limit winning. RateLimitService built tenant buckets only when context.tenantId was
+truthy and did not independently require the RequestContext scope to match the tenant-scoped
+OperationContract.
+
+A malformed/injected tenant-scoped context could therefore retain a principal/credential/IP
+identity while carrying an empty Tenant id, a hidden Industry on TENANT_CORE, a missing
+Industry on TENANT_INDUSTRY, or a Tenant Core/Industry scope mismatch. The limiter could
+then admit the request through non-Tenant buckets instead of failing the malformed context,
+allowing the mandatory Tenant aggregate safeguard to be skipped by an alternate/direct caller.
+
+Smallest forward-only correction:
+- validate exact TENANT_CORE/TENANT_INDUSTRY RequestContext shape against the tenant-scoped
+  OperationContract before any bucket construction;
+- reject empty Tenant, hidden/missing Industry and tenant-scope mismatch as RATE_CONTEXT_INVALID;
+- prove malformed tenant scope stops before limiter-store acquisition;
+- preserve SecurityRatePolicy v1 numbers, override rules, hashing, concurrency and valid
+  Public/Platform behavior.
+
+This does not change rate ceilings, create new rate classes, add transport authority,
+cross-context behavior, schema/RLS/role/grant changes, product behavior or DD-209 authority.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+

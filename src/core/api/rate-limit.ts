@@ -248,11 +248,42 @@ function dedupe(rules: readonly RateLimitRule[]): RateLimitRule[] {
   return [...map.values()];
 }
 
+function validateTenantRateScope(
+  context: RequestContext,
+  operation: OperationContract,
+): void {
+  if (operation.scopeClass === "TENANT_CORE") {
+    if (context.scopeClass !== "TENANT_CORE"
+      || typeof context.tenantId !== "string"
+      || context.tenantId.length === 0
+      || context.industryContextId !== undefined) {
+      throw new RateLimitRuntimeError({
+        code:"RATE_CONTEXT_INVALID",
+        message:"Tenant Core rate-limit context is invalid.",
+      });
+    }
+  }
+
+  if (operation.scopeClass === "TENANT_INDUSTRY") {
+    if (context.scopeClass !== "TENANT_INDUSTRY"
+      || typeof context.tenantId !== "string"
+      || context.tenantId.length === 0
+      || typeof context.industryContextId !== "string"
+      || context.industryContextId.length === 0) {
+      throw new RateLimitRuntimeError({
+        code:"RATE_CONTEXT_INVALID",
+        message:"Tenant Industry rate-limit context is invalid.",
+      });
+    }
+  }
+}
+
 function buildBaseRules(
   context: RequestContext,
   operation: OperationContract,
   subject: RateLimitSubject,
 ): RateLimitRule[] {
+  validateTenantRateScope(context,operation);
   const rateClass=alias(operation.rateClass);
   const rules:RateLimitRule[]=[];
 

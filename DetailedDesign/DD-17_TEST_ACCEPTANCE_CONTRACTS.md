@@ -431,6 +431,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | API-RATE-004 | two concurrent requests compete for the last token | atomic backend admits exactly one; no partial multi-bucket token consumption |
 | API-RATE-005 | AI tenant already has 8 live leases | RATE_LIMITED with retry metadata; releasing/expiry reopens capacity |
 | API-RATE-006 | limiter database inspected by ordinary app/integration role | permission denied; persisted bucket identity is SHA-256 only |
+| API-RATE-007 | tenant-scoped rate-limit call has scope mismatch, missing/empty Tenant, hidden Industry on TENANT_CORE, or missing Industry on TENANT_INDUSTRY | RATE_CONTEXT_INVALID before limiter store use; Tenant aggregate cannot be bypassed by malformed context |
 
 
 ### Canonical API execution kernel — DD-051 / DEV-API-EXECUTOR-001
