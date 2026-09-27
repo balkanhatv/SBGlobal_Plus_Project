@@ -284,6 +284,33 @@ test("APICRED-SCOPE-008 sparse or non-array allowed Industry evidence fails clos
   );
 });
 
+test("APICRED-SCOPE-010 duplicate allowed-Industry evidence fails closed", () => {
+  assert.equal(
+    matchesApiCredentialRequestedScopeFloor(
+      material({
+        allowedIndustryContextIds: Object.freeze([ids.industry, ids.industry]),
+      }),
+      apiClient,
+      target(),
+    ),
+    false,
+  );
+
+  assert.equal(
+    matchesApiCredentialRequestedScopeFloor(
+      material({
+        allowedIndustryContextIds: Object.freeze([ids.industry, ids.industry]),
+      }),
+      apiClient,
+      target({
+        scopeClass: "TENANT_INDUSTRY",
+        industryContextId: ids.industry,
+      }),
+    ),
+    false,
+  );
+});
+
 test("APICRED-SCOPE-009 malformed SERVICE allowed-scope evidence fails closed even when target scope is present", () => {
   const sparseScopes = [];
   sparseScopes[0] = "TENANT_CORE";

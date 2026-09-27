@@ -593,3 +593,16 @@ Smallest forward-only correction:
 - do **not** invent a duplicate-free invariant because migration 0029 does not own one.
 
 No route, verifier/hash comparison, CIDR enforcement, permission-profile evaluation, usage mutation/audit, SQL/RLS/role/grant, product feature or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required. DD-208 remains current.
+
+
+## 2026-09-27 downstream API-Credential allowed-Industry uniqueness continuation
+
+### VC27-29 — P2: duplicate allowed-Industry evidence could satisfy DD-161 despite migration 0030 uniqueness
+
+Migration 0030 explicitly compares the count of `allowed_industry_context_ids` with the count of distinct ids and rejects duplicates; DD-03 likewise states that every allowed Industry Context is unique. DD-161's runtime helper materialized and UUID-validated the array but did not re-evaluate this uniqueness predicate. Consequently `[industryA, industryA]` could satisfy the requested-scope necessary floor, including the TENANT_CORE path where the list is structurally validated but otherwise not consumed.
+
+Smallest forward-only correction:
+- after dense UUID validation, require `new Set(dense).size === dense.length`;
+- add APICRED-SCOPE-010 regression/acceptance for duplicate valid Industry ids on Tenant-Core and Tenant-Industry targets.
+
+This mirrors migration-owned evidence only. It does not implement verifier/hash comparison, CIDR, permission-profile mapping, successful-use mutation/audit, final VerifiedMachineEvidence, routes, SQL/RLS/role/grant changes, product behavior or DD-209. Exact-head Core/PostgreSQL/Database/Web verification is required; DD-208 remains current.

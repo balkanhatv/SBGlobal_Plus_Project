@@ -30,7 +30,7 @@ function allValidUuids(values: readonly string[]): boolean {
   const dense = Array.from(values);
   return dense.every(
     (value) => typeof value === "string" && UUID_PATTERN.test(value),
-  );
+  ) && new Set(dense).size === dense.length;
 }
 
 const MACHINE_SCOPE_CLASSES = new Set<MachinePrincipalPersistedScopeClass>([

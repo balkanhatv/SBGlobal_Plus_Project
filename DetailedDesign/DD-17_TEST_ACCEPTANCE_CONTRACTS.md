@@ -2432,6 +2432,9 @@ EXPLICIT_CROSS_CONTEXT always fails; malformed UUIDs or missing required target 
 ### APICRED-SCOPE-008 — Malformed allowed-Industry evidence fails closed
 The persisted allowed-Industry list must be an array whose materialized entries are valid UUIDs. Sparse holes, explicit undefined/non-string entries or a non-array value fail closed even on TENANT_CORE where the list is otherwise not consumed.
 
+### APICRED-SCOPE-010 — Duplicate allowed-Industry evidence fails closed
+Migration 0030 requires `allowed_industry_context_ids` to be unique. A raw allowed-Industry array containing the same valid Industry Context id more than once therefore fails the requested-scope necessary floor, including on TENANT_CORE where the list is otherwise not consumed.
+
 ### APICRED-SCOPE-009 — Malformed SERVICE allowed-scope evidence fails closed
 When a SERVICE principal is evaluated for PLATFORM_GLOBAL, TENANT_CORE or TENANT_INDUSTRY, `allowedScopeClasses` must be an actual array whose materialized entries are all members of the migration-owned scope allowlist. Sparse holes, explicit undefined/non-string values or unknown scope codes fail closed even when the requested scope is also present. Duplicate valid scope codes remain raw persisted evidence and are not given a new duplicate-free invariant here.
 
