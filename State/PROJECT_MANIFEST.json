@@ -2617,7 +2617,7 @@
       "boundary": "Foundation/traceability canonical-owner correction only; no RawSource/runtime/SQL/RLS/test/workflow change."
     },
     "downstream_bounded_runtime_audit": {
-      "status": "BOUNDED_CLEAN_WITH_VERIFIED_FAIL_CLOSED_CORRECTIONS_THROUGH_VC27_38_AUDIT_IN_PROGRESS",
+      "status": "BOUNDED_CLEAN_WITH_VERIFIED_FAIL_CLOSED_CORRECTIONS_THROUGH_VC27_54_AUDIT_IN_PROGRESS",
       "base_head": "d32f6f824fd5bade4dd247deec5881e73e4d8396",
       "base_tree": "7c7332fd5b69dbdd0f98694fe44e142bb2a0a2ab",
       "report": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
