@@ -116,3 +116,25 @@ The metadata/evidence commit containing this section leaves implementation, test
 ## 2026-09-27 source-fidelity continuation
 
 Fresh branch/PR verification reconfirmed `0258d787c17ccdfb5c3c7782702907400b96a57d` with successful exact-HEAD workflows and PR #2 draft/unmerged. Complete source reading identified repeated-heading extraction contamination and overbroad supersession. [Current reconciliation](SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md) records the targeted corrections, exact source locators and remaining gate. The earlier 2,962 cross-ledger equality result was true but did not prove source fidelity; strengthened REPO-002 now checks the immutable source parent itself. No global clean verdict or forward-development authorization is issued.
+
+
+## 2026-09-27 DD acceptance-contract continuation
+
+Architecture/state synchronization HEAD `5e27fa41cb1fc2099d6033157589a3cf5ebeaeee`, tree `1be4c73ebdc31f2c29615186cd7fa17618a42338`, passed exact-HEAD Core 700/700, PostgreSQL 505/505, Database 48 migrations / 42 verification files, and Web. The remaining Detailed Design semantic sweep then found one downstream acceptance-contract drift.
+
+### VC27-06 — P2: suspended-mode acceptance wording was broader than the governed operation boundary
+
+`DD-17 AUTH-007` said “suspended restricted mode read permitted/write denied”. That wording could be read as a generic suspended-read allowance, while F-14 §2/§5, A-08 §6 and DD-04 §11 require generic protected operations to remain fail-closed and permit suspended read-only/billing/renewal/export behavior only through explicit dedicated restricted-operation contracts. No runtime widening was found; the inconsistency was in the acceptance contract itself.
+
+Smallest forward-only correction: AUTH-007 now permits only an explicit dedicated restricted-operation read and explicitly denies generic reads and writes. No product requirement, operation ID, schema, SQL, RLS, role, grant, runtime path or RawSource content changed.
+
+Correction HEAD `f709f0227ae416f88ccb7c7fdf8e3e5293209409`, tree `4aada69ebe504e01092f143173559366bd69fcc0`, passed the required exact-HEAD gate:
+
+| Gate | Run | Job | Result |
+|---|---:|---:|---|
+| Core/server | 36290340375 | 108539080145 | 700/700; zero failed/skipped |
+| PostgreSQL | 36290340375 | 108539079982 | 505/505; zero failed/skipped; bootstrap PASS |
+| Database | 36290331102 | 108539053967 | 48 migrations / 42 verification files; PASS |
+| Web | 36290340382 | 108539079807 | PASS |
+
+The complete-project audit remains **IN PROGRESS / NOT PASSED**. DD-208 remains the latest governed development checkpoint; DD-209 is not authorized. Continue semantic source-to-owner and downstream cross-layer review before any forward feature slice.
