@@ -511,7 +511,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 |---|---|---|
 | WEB-EDGE-001 | request host matches exact configured Tenant host | only configured Tenant selector is produced; RequestContext remains authoritative |
 | WEB-EDGE-002 | request supplies `X-Tenant-Id` / `X-Industry-Context-Id` | headers are ignored as selector authority |
-| WEB-EDGE-003 | host/origin is unknown or browser Sec-Fetch-Site is cross-site | canonical transport policy denial before domain execution |
+| WEB-EDGE-003 | host/origin is unknown, Origin is non-canonical/malformed (including credentials/path/query/fragment/non-HTTPS), or browser Sec-Fetch-Site is cross-site | canonical transport context/policy denial before domain execution; Origin normalization cannot erase disallowed syntax |
 | WEB-EDGE-004 | Content-Length exceeds configured ceiling | 413 before Authorization resolver/body parsing |
 | WEB-EDGE-005 | Content-Length absent but streamed body exceeds ceiling | authentication succeeds first, then 413 before tRPC/schema parsing |
 | WEB-EDGE-006 | same-origin bounded GET/POST | request proceeds through existing tRPC Fetch handler and canonical executor |

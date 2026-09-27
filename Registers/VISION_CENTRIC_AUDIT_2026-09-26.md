@@ -1482,3 +1482,27 @@ This does not store response bodies, change idempotency lifecycle/expiry/key/fin
 alter RLS/schema/roles/grants or transport mapping, add operations or authorize DD-209.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-28 downstream first-party web Origin canonicalization continuation
+
+### VC27-65 — P1: incoming Origin normalization could erase disallowed syntax before allowlist comparison
+
+DD-06 §27 / WEB-EDGE-003 require the first-party web edge to enforce an allowlisted
+Origin before authentication/domain execution. Configured allowed origins are intentionally
+canonical HTTPS origins: credentials, path, query and fragment are rejected at startup.
+
+Incoming request verification, however, used `new URL(origin).origin` directly. That
+operation discards userinfo/path/query/fragment before comparison. A non-browser/direct
+client could therefore send a malformed/non-canonical Origin such as
+`https://allowed.example/path` or `https://user:pass@allowed.example` and have it reduced
+to the configured origin before the allowlist check.
+
+Smallest forward-only correction:
+- require incoming Origin itself to use HTTPS and contain no credentials, path beyond `/`,
+  query or fragment before allowlist comparison;
+- preserve exact configured-origin matching and existing cross-site browser denial;
+- prove malformed/non-canonical Origin variants stop before executor/domain execution.
+
+This does not add cookie authentication, CSRF tokens, routes, Tenant selector authority,
+business semantics, schema/RLS/role/grant changes, product behavior or DD-209 authority.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+

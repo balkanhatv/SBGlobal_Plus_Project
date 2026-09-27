@@ -125,6 +125,26 @@ test("unknown host and cross-site browser request fail before executor",async()=
   assert.equal(calls,0);
 });
 
+test("non-canonical Origin syntax is rejected before executor even when its normalized origin is allowlisted",async()=>{
+  let calls=0;
+  const {handler}=build({async execute(){calls++;throw new Error("must not execute")}});
+  for(const origin of [
+    "https://tenant-a.example.com/path",
+    "https://tenant-a.example.com/?query=1",
+    "https://tenant-a.example.com/#fragment",
+    "https://user:pass@tenant-a.example.com",
+    "http://tenant-a.example.com",
+  ]){
+    const response=await handler(getRequest("tenant-a.example.com",{
+      authorization:"Bearer valid",
+      origin,
+      "sec-fetch-site":"same-origin",
+    }));
+    assert.equal(response.status,400);
+  }
+  assert.equal(calls,0);
+});
+
 test("declared oversized request is denied by metadata edge policy before authentication",async()=>{
   let authCalls=0;
   const operations=new OperationRegistry();

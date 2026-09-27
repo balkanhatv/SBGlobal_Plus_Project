@@ -183,12 +183,21 @@ export class ConfiguredFirstPartyWebEdgePolicy implements FirstPartyTrpcEdgePoli
 
     const origin=request.headers.get("origin");
     if(origin){
-      let normalized:string;
+      let parsedOrigin:URL;
       try{
-        normalized=new URL(origin).origin.toLowerCase();
+        parsedOrigin=new URL(origin);
       }catch{
         contextInvalid("The request origin is invalid.");
       }
+      if(parsedOrigin.protocol!=="https:"
+        || parsedOrigin.username
+        || parsedOrigin.password
+        || parsedOrigin.pathname!=="/"
+        || parsedOrigin.search
+        || parsedOrigin.hash){
+        contextInvalid("The request origin is invalid.");
+      }
+      const normalized=parsedOrigin.origin.toLowerCase();
       if(!this.allowedOrigins.has(normalized)){
         policyDenied("The request origin is not allowed.");
       }
