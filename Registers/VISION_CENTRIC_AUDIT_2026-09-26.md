@@ -699,3 +699,20 @@ Smallest forward-only correction:
 - add `DOC-ACL-MATCH-007` regression/acceptance for a valid matching subject plus a sparse hole.
 
 ACL `effect`, `validUntil`, operation→ACL permission mapping, source-resource inheritance/fallback and final ALLOW/DENY authorization remain deliberately **UNINTERPRETED/BLOCKED**. No route, signer, storage access, SQL/RLS/role/grant, product behavior or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required; DD-208 remains current.
+
+
+## 2026-09-27 downstream Document ACL selected-OrgUnit continuation
+
+Exact-head verification of VC27-34 at `091accfe60b88c2f65cae1d4968c935a179e3e4d` / tree `b9b1860fb5e94260671971ee22105615bed11535` passed **711/711 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, and Web.
+
+### VC27-35 — P2: DD-085 accepted inconsistent selected-OrgUnit ancestry evidence
+
+DD-02 owns `orgUnitId` as the validated selected organization unit and `orgUnitPath` as its server-resolved root→leaf tenancy-tree ancestry. DD-057 further requires the ancestry to contain no repeated OrgUnit. DD-085 uses that path as ORG_UNIT ACL subject evidence, but its runtime matcher only UUID-validated the path entries. A malformed injected RequestContext could therefore carry a valid-looking path whose leaf did not equal `orgUnitId`, a non-empty path with no selected `orgUnitId`, or repeated ancestry UUIDs and still return matching ACL subject evidence.
+
+Smallest forward-only correction:
+- require a present `orgUnitId` to be a UUID and equal the final `orgUnitPath` entry;
+- require a non-empty path to have a selected OrgUnit;
+- require ancestry UUIDs to be duplicate-free, mirroring DD-057;
+- add `DOC-ACL-MATCH-008` regression/acceptance.
+
+This remains subject-match evidence only. ACL effect/expiry interpretation, operation→permission mapping, source-resource inheritance/fallback, final ALLOW/DENY authorization, signer/storage access and routes remain **BLOCKED**. No SQL/RLS/role/grant, product behavior or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required.

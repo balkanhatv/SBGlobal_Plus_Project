@@ -935,6 +935,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-ACL-MATCH-005 | no subject matches | empty evidence; no access decision is invented |
 | DOC-ACL-MATCH-006 | unresolved context or cross-document evidence | fail closed |
 | DOC-ACL-MATCH-007 | sparse `roleIds` or `orgUnitPath` contains an otherwise matching valid UUID plus a hole | fail closed as malformed RequestContext; no ACL subject evidence is returned |
+| DOC-ACL-MATCH-008 | `orgUnitId` is malformed/absent while path is non-empty, path leaf differs from selected `orgUnitId`, or ancestry repeats an OrgUnit UUID | fail closed as malformed RequestContext; no ORG_UNIT ACL subject evidence is returned |
 
 
 ### Linked physical Document StorageObject binding — DD-086

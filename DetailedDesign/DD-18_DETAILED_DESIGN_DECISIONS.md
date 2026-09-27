@@ -1064,8 +1064,10 @@ explicit ACL permission, it validates resolved single-Tenant context and
 single-document evidence, then matches PRINCIPAL to principalId, ROLE to roleIds and
 ORG_UNIT to orgUnitPath. RequestContext role/org-unit identity arrays are treated as
 total evidence: they are materialized before UUID validation so sparse holes or
-undefined entries cannot be skipped by JavaScript array iteration. It returns
-immutable matching ACL rows in input order.
+undefined entries cannot be skipped by JavaScript array iteration. The OrgUnit path
+must also preserve DD-02/DD-057 resolved ancestry semantics: it is duplicate-free,
+ends at the selected valid orgUnitId, and is empty when no OrgUnit is selected. It
+returns immutable matching ACL rows in input order.
 
 **Security / trade-off:** caller/client selectors never participate in matching; only
 resolved server-owned RequestContext identities do. Effect and validUntil are
@@ -1076,7 +1078,7 @@ access.
 source-resource inheritance/fallback, final authorization decision, signer, route or
 schema/privilege change is introduced.
 
-**Acceptance:** DOC-ACL-MATCH-001…007 in DD-17 and
+**Acceptance:** DOC-ACL-MATCH-001…008 in DD-17 and
 `tests/core/document-acl-subject-match.test.mjs`.
 
 

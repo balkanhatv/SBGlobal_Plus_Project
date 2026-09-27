@@ -68,6 +68,18 @@ function assertResolvedTenantContext(context: RequestContext): void {
     || !orgUnitPath.every((id) => typeof id === "string" && UUID_PATTERN.test(id))) {
     contextInvalid("Document ACL subject context is malformed.");
   }
+
+  if (context.orgUnitId !== undefined) {
+    if (typeof context.orgUnitId !== "string"
+      || !UUID_PATTERN.test(context.orgUnitId)
+      || orgUnitPath.length === 0
+      || orgUnitPath[orgUnitPath.length - 1] !== context.orgUnitId
+      || new Set(orgUnitPath).size !== orgUnitPath.length) {
+      contextInvalid("Document ACL OrgUnit context is inconsistent.");
+    }
+  } else if (orgUnitPath.length !== 0) {
+    contextInvalid("Document ACL OrgUnit path requires a selected OrgUnit.");
+  }
 }
 
 function assertEntry(entry: DocumentAclEntry, documentId: string): void {

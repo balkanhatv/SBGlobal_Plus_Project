@@ -240,3 +240,36 @@ test("DOC-ACL-MATCH-007 sparse role or OrgUnit identity evidence fails closed ev
       && error.code === "ACL_MATCH_CONTEXT_INVALID",
   );
 });
+
+
+test("DOC-ACL-MATCH-008 OrgUnit path must be duplicate-free and terminate at the selected OrgUnit", () => {
+  const matcher = new DocumentAclSubjectMatcher();
+  const args = {
+    documentId: ids.document,
+    permission: "SHARE",
+    entries: [entry({
+      subjectType: "ORG_UNIT",
+      subjectId: ids.orgRoot,
+      permission: "SHARE",
+    })],
+  };
+
+  for (const badContext of [
+    context({orgUnitId: ids.orgRoot}),
+    context({orgUnitId: undefined}),
+    context({orgUnitId: "not-a-uuid"}),
+    context({
+      orgUnitId: ids.orgLeaf,
+      orgUnitPath: Object.freeze([ids.orgRoot, ids.orgRoot, ids.orgLeaf]),
+    }),
+  ]) {
+    assert.throws(
+      () => matcher.match({
+        requestContext: badContext,
+        ...args,
+      }),
+      (error) => error instanceof DocumentAclSubjectMatchError
+        && error.code === "ACL_MATCH_CONTEXT_INVALID",
+    );
+  }
+});

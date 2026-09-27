@@ -174,7 +174,9 @@ For one explicit ACL permission and one document id:
 - PRINCIPAL matches only `RequestContext.principalId`;
 - ROLE matches only ids in resolved `RequestContext.roleIds`;
 - ORG_UNIT matches only ids in resolved `RequestContext.orgUnitPath`, whose
-  PostgreSQL resolver supplies the selected OrgUnit plus its ancestor UUIDs.
+  PostgreSQL resolver supplies the selected OrgUnit plus its ancestor UUIDs. The
+  path is root→leaf, duplicate-free, and when `orgUnitId` is present its final UUID
+  must equal that selected OrgUnit; when no OrgUnit is selected, the path is empty.
 
 The matcher requires every supplied row to belong to the same document and preserves
 input order, persisted ALLOW/DENY effect and optional validUntil evidence. It does not
