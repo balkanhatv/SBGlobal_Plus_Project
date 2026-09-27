@@ -1,8 +1,8 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-44:** `e78b610b586a6b41920700026b0d5cdb6a39b740` / tree `00e4bbfbe768bba1f39461713fc9a8a7c28c18df`
+**Prior tree-qualified verified basis through VC27-45:** `4a926027b0c7116f2ff73d21f76e5469ea07c1fa` / tree `e619c2d53c0768841aa9aef21276fe92328a51ce`
 
-**Current exact-head correction basis:** `4a926027b0c7116f2ff73d21f76e5469ea07c1fa` / tree `e619c2d53c0768841aa9aef21276fe92328a51ce`
+**Current exact-head correction basis:** `6beed80f10571d9a0520dca2aa63fc32930b927e` / tree `175e099b4f3e2a1f7e2e68d93a10701a87db02ee`
 
 **Exact-head gate:** Core 718/718; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
@@ -55,6 +55,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-43 — DD-081 event occurrence-time parity:** the reusable event-envelope validator now rejects impossible ISO-like calendar dates before the existing Date.parse check, matching migration 0030's timestamptz overflow rejection without inventing a new serialization vocabulary. Payload interpretation still runs only after metadata/catalog/scope validation.
 - **VC27-44 — Tenant-Core WorkerContext exact shape:** generic WorkerContext now rejects TENANT_CORE carrying an Industry Context, preserving DD-02's exact Tenant-Core null-Industry contract while retaining VC27-42 generic cross-context denial.
 - **VC27-45 — WorkerContext runtime scope enum:** persisted/untyped worker evidence must use the generic worker's closed protected scope set; PUBLIC, PLATFORM_GLOBAL and unknown scope strings now fail closed before context emission, while EXPLICIT_CROSS_CONTEXT remains separately denied.
+- **VC27-46 — ABAC timestamp grammar:** Permission/ABAC grammar now rejects impossible UTC calendar dates before PDP evaluation by reusing the strict instant parser; malformed ACTIVE policy state cannot normalize into a boolean DENY/RESTRICT condition.
 
 ### Current bounded verdict
 
