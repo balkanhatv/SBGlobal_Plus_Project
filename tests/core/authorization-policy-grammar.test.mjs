@@ -80,6 +80,7 @@ test("ABAC expression v1 rejects arbitrary execution, unknown attributes and ope
     { op: "eq", attribute: "subject.roles", value: "TENANT_ADMIN" },
     { op: "before", attribute: "resource.state", value: "2026-09-17T00:00:00Z" },
     { op: "after", attribute: "environment.time", value: "not-a-time" },
+    { op: "after", attribute: "environment.time", value: "2026-02-30T00:00:00Z" },
     { op: "all", args: [] },
     { op: "exists", attribute: "subject.principalId", sql: "select true" },
   ]) {

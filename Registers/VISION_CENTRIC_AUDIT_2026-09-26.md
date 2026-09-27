@@ -973,3 +973,28 @@ This does not authorize platform/public workers, add queue/dead-letter mechanics
 a cross-context worker DTO, change SQL/RLS/roles/grants, alter product behavior or authorize
 DD-209. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream Authorization ABAC timestamp grammar continuation
+
+### VC27-46 — P1: ABAC v1 timestamp literal grammar could normalize an impossible calendar date
+
+DEV-AUTHZ-POLICY-GRAMMAR-001 requires before/after literals to be valid UTC ISO-8601
+timestamps ending in Z. The v1 parser enforced the shape regex and then used Date.parse().
+JavaScript can normalize an impossible calendar date such as 2026-02-30T00:00:00Z into a
+different valid instant.
+
+Because persisted ACTIVE ABAC policy state is parsed through this grammar before the PDP
+evaluates DENY/RESTRICT conditions, accepting a normalized invalid literal can turn malformed
+authorization state into a boolean policy result instead of the required fail-closed invalid-
+policy/dependency path. Depending on time/operator, that can skip a narrowing policy that
+should never have been considered valid.
+
+Smallest forward-only correction:
+- keep the existing exact UTC-Z grammar and millisecond precision vocabulary;
+- replace permissive Date.parse validity with the already-verified strict instant parser;
+- add an impossible-calendar literal to the existing grammar rejection acceptance;
+- leave PDP comparison, policy effect, attribute registry, persistence and compiler behavior unchanged.
+
+This does not add policy operators, ABAC grants, restriction-reducer semantics, compiler
+publication, SQL/RLS/role/grant changes, transport behavior or DD-209 authority. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

@@ -119,7 +119,7 @@ These operators are valid only on STRING_SET attributes.
 { "op": "after", "attribute": "environment.time", "value": "2026-01-01T00:00:00Z" }
 ```
 
-`before`/`after` are valid only for `environment.time`. The literal must be a valid UTC ISO-8601 timestamp ending in `Z`.
+`before`/`after` are valid only for `environment.time`. The literal must be a calendar-valid UTC ISO-8601 timestamp ending in `Z`; an impossible date that a permissive runtime parser would normalize is invalid.
 
 ## 6. Expression safety bounds
 
@@ -173,7 +173,7 @@ The future store/evaluator must convert unsupported schema/expression versions, 
 
 1. canonical sorted Permission Set v1 parses and serializes deterministically;
 2. malformed codes, duplicates, out-of-order entries, invalid effects and executable-shaped extra fields reject;
-3. allowed logical/scalar/set/time/presence ABAC nodes parse;
+3. allowed logical/scalar/set/time/presence ABAC nodes parse, while calendar-invalid UTC time literals fail closed;
 4. `eval`, unknown attributes, extra SQL-like fields and type/operator mismatches reject;
 5. excessive AST depth rejects;
 6. exact permission patterns and terminal prefix wildcards accept while regex/mid-wildcards reject.

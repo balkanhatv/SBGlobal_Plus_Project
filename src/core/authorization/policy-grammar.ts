@@ -1,4 +1,6 @@
 export const PERMISSION_SET_SCHEMA_VERSION_V1 = 1 as const;
+import { parseStrictInstant } from "../time/strict-instant.js";
+
 export const ABAC_EXPRESSION_SCHEMA_VERSION_V1 = 1 as const;
 
 export const MAX_PERMISSION_ENTRIES_V1 = 4096;
@@ -146,7 +148,7 @@ function parseLiteralForAttribute(
 ): string {
   const value = asBoundedString(input, path, 256);
   if (attributeKind(attribute) === "TIMESTAMP") {
-    if (!ISO_UTC_TIMESTAMP_PATTERN.test(value) || Number.isNaN(Date.parse(value))) {
+    if (!ISO_UTC_TIMESTAMP_PATTERN.test(value) || parseStrictInstant(value) === null) {
       fail(path, "timestamp literal must be a valid UTC ISO-8601 value ending in Z");
     }
   }
