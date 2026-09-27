@@ -15,7 +15,7 @@
       "end_line": 5,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source document title/version/status is provenance only; no current project-status authority; not runtime/project certification"
     },
     {
       "unit": "S1-U002",
@@ -25,7 +25,7 @@
       "end_line": 27,
       "located_inventory_rows": 16,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U003",
@@ -35,7 +35,7 @@
       "end_line": 35,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; historical consolidation/deduplication note preserved; active RawSourceCorpus is immutable and this prose is not permission to rewrite source; not runtime/project certification"
     },
     {
       "unit": "S1-U004",
@@ -45,7 +45,7 @@
       "end_line": 39,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U005",
@@ -55,7 +55,7 @@
       "end_line": 49,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; security recommendations preserved as control/readiness inputs; regulatory/certification status requires independent evidence; not runtime/project certification"
     },
     {
       "unit": "S1-U006",
@@ -65,7 +65,7 @@
       "end_line": 62,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; website recommendations preserved; trust/compliance badges only when backed by real evidence and Free/Starter self-serve route remains canonical; not runtime/project certification"
     },
     {
       "unit": "S1-U007",
@@ -75,7 +75,7 @@
       "end_line": 81,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; target vision preserved while Windows-only desktop wording is historical under UD-TECH-01/AC-15; not runtime/project certification"
     },
     {
       "unit": "S1-U008",
@@ -85,7 +85,7 @@
       "end_line": 87,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U009",
@@ -95,7 +95,7 @@
       "end_line": 115,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Website/Mobile/Windows + REST/JWT access flow normalized to current Application Surface Model, Core Identity, tRPC-first-party and REST/OpenAPI external boundaries; not runtime/project certification"
     },
     {
       "unit": "S1-U010",
@@ -105,7 +105,7 @@
       "end_line": 129,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; authentication method/provider capability list preserved behind one provider-isolated Core Identity; no separate app-owned token engine; not runtime/project certification"
     },
     {
       "unit": "S1-U011",
@@ -115,7 +115,7 @@
       "end_line": 131,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U012",
@@ -125,7 +125,7 @@
       "end_line": 134,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U013",
@@ -135,7 +135,7 @@
       "end_line": 137,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U014",
@@ -145,7 +145,7 @@
       "end_line": 143,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U015",
@@ -155,7 +155,7 @@
       "end_line": 149,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; GDPR/DPDP/HIPAA/SOC2/ISO source references are alignment/readiness requirements, not automatic certification claims; not runtime/project certification"
     },
     {
       "unit": "S1-U016",
@@ -165,7 +165,7 @@
       "end_line": 155,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U017",
@@ -175,7 +175,7 @@
       "end_line": 161,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U018",
@@ -185,7 +185,7 @@
       "end_line": 165,
       "located_inventory_rows": 2,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U019",
@@ -195,7 +195,7 @@
       "end_line": 170,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U020",
@@ -205,7 +205,7 @@
       "end_line": 174,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source nine-industry catalog preserved as nine equal Current Supported Industries; not runtime/project certification"
     },
     {
       "unit": "S1-U021",
@@ -215,7 +215,7 @@
       "end_line": 219,
       "located_inventory_rows": 27,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 2–8 foundational MS policy preserved; exceptions now require explicit user approval under current MI governance rather than an undefined Enterprise Architecture Governance body; not runtime/project certification"
     },
     {
       "unit": "S1-U022",
@@ -225,7 +225,7 @@
       "end_line": 225,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U023",
@@ -235,7 +235,7 @@
       "end_line": 233,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; tenant configuration preserved only within entitlement/security/residency boundaries; database/deployment settings do not grant independent backend/DataHome authority; not runtime/project certification"
     },
     {
       "unit": "S1-U024",
@@ -245,7 +245,7 @@
       "end_line": 247,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U025",
@@ -255,7 +255,7 @@
       "end_line": 251,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U026",
@@ -265,7 +265,7 @@
       "end_line": 260,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U027",
@@ -275,7 +275,7 @@
       "end_line": 277,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source sitemap's six named industries are illustrative/non-exhaustive; current public Industries catalog shows all nine equally; Windows-only desktop label historical; not runtime/project certification"
     },
     {
       "unit": "S1-U028",
@@ -285,7 +285,7 @@
       "end_line": 289,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source homepage six-industry showcase is illustrative/non-exhaustive; nine current industries are equal and Trust/uptime/compliance claims are evidence-gated; not runtime/project certification"
     },
     {
       "unit": "S1-U029",
@@ -295,7 +295,7 @@
       "end_line": 292,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U030",
@@ -305,7 +305,7 @@
       "end_line": 301,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; announcement-bar core capability preserved; AI personalization/geo/A-B/CRM entries remain future enhancement ideas until separately governed; not runtime/project certification"
     },
     {
       "unit": "S1-U031",
@@ -315,7 +315,7 @@
       "end_line": 306,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
     },
     {
       "unit": "S1-U032",
@@ -325,7 +325,7 @@
       "end_line": 322,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; visual styling is directional; canonical accessible design system governs; native-Windows desktop styling is historical; not runtime/project certification"
     },
     {
       "unit": "S1-U033",
@@ -335,7 +335,7 @@
       "end_line": 330,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; brand story preserved; source primary tagline is historical/alternative under CR-02, not active primary; not runtime/project certification"
     },
     {
       "unit": "S1-U034",
@@ -345,7 +345,7 @@
       "end_line": 339,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source company/contact values preserved as governed company-profile configuration rather than immutable code; not runtime/project certification"
     },
     {
       "unit": "S1-U035",
@@ -355,7 +355,7 @@
       "end_line": 349,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; three-phase roadmap is website/content scope only and non-competing under CR-08; current project phases are dependency-driven; not runtime/project certification"
     },
     {
       "unit": "S1-U036",
@@ -365,7 +365,7 @@
       "end_line": 359,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; expected outcome is aspirational; Windows-only wording historical and no completion/production status inferred; not runtime/project certification"
     },
     {
       "unit": "S1-U037",
@@ -375,7 +375,7 @@
       "end_line": 392,
       "located_inventory_rows": 25,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; glossary/source footer preserved as history; outdated JWT/technology terms do not override canonical architecture and Final/QA/31-file wording is historical under CR-07; not runtime/project certification"
     },
     {
       "unit": "S2.1-U001",

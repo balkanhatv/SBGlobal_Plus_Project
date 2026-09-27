@@ -329,3 +329,26 @@ The correction records:
 - The source roadmap preface itself references an older 01–21A authority wording; current MI v2.5 preserves corpus sequence knowledge but governs by dependency-driven §26 and records S2.1 as 01–21B history. RawSource remains unchanged.
 
 No RawSource, runtime code, schema, RLS, role/grant, workflow, executable test or stable requirement ID/count changes. This is roadmap ownership/status reconciliation only. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains current and DD-209 remains held.
+
+
+## 2026-09-27 S1 Consolidated Architecture/PRD source continuation
+
+Fresh reading of all S1 units (U001–U037) confirms that the consolidated source remains valuable for the target vision, nine-industry catalog, 2–8 foundational-MS governance, identity/security capabilities, public website and brand direction. Its unit ledger was nevertheless too coarse: historical Windows/JWT/REST implementation language, incomplete marketing industry lists, source-status/certification wording and website-only roadmap labels were all simply marked VERIFIED.
+
+### VC27-17 — P2: S1 legacy technology/surface/status and marketing-evidence wording remained coarsely VERIFIED
+
+The correction is source-owner/status normalization:
+- Target Vision and Expected Outcome preserve cross-platform/offline/security/configuration intent, while source Windows-only `.exe/.msi` emphasis is historical under UD-TECH-01/AC-15; current desktop target is Tauri across Windows/macOS/Linux.
+- Platform Scope & Access Flow preserves server-authoritative authentication/tenant/subscription/license/device/permission enforcement but normalizes source REST/JWT/refresh-token implementation wording to the single Core Identity boundary, tRPC first-party interface and REST/OpenAPI external interoperability.
+- Identity/authentication method lists remain supported capability classes behind the provider-isolated Core Identity; they do not create separate auth engines.
+- Security/compliance recommendations preserve GDPR/DPDP/HIPAA-readiness/SOC 2/ISO 27001 alignment objectives, but neither source prose nor marketing badges grant certification. Trust/status/compliance badges must be backed by current evidence.
+- the nine Supported Core Industries are preserved as equal. Website sitemap/homepage excerpts naming only Healthcare/Education/Retail/Manufacturing/Hospitality/Government are non-exhaustive marketing examples; the canonical public Industries experience exposes all nine without priority.
+- the 2–8 foundational Management Systems policy remains active. Exceptional count changes require explicit user approval under current MI §32 rather than an undefined Enterprise Architecture Governance body.
+- Tenant Philosophy configuration of database connections/deployment policies remains bounded by Data Home, entitlement, security and deployment architecture; it does not authorize per-tenant backends or isolation bypass.
+- website loader/visual effects are presentation direction subject to performance, accessibility and reduced-motion requirements. Future announcement personalization/geo/A-B/CRM items remain future ideas until separately governed.
+- S1's “Guided by Trust. Built for Tomorrow.” primary-tagline statement is historical/alternative under CR-02; the active primary tagline remains “One Intelligent Platform. Every Industry. Infinite Possibilities.”
+- Company Information remains governed company-profile configuration rather than immutable application constants.
+- S1 Website Roadmap phases 1–3 are a website/content roadmap only (CR-08), not project phase-order authority.
+- the source footer “Final v1.0 / Enterprise QA review complete / 31-file breakdown” is historical source metadata under CR-07 and does not certify the current repository or impose a fixed file count.
+
+No RawSource, runtime, schema/RLS, role/grant, workflow, executable test or stable requirement ID/count changes. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. During reconciliation, the source-span ledger also exposed **82 S2.2 units still carrying NOT_CERTIFIED semantic status**; therefore parent-source reconciliation remains open after S1 and forward development remains held at DD-208.
