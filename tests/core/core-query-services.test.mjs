@@ -175,6 +175,28 @@ test("core.identity.roles.listEffective reads only within active tenant context"
   assert.equal(Object.isFrozen(result.roleIds), true);
 });
 
+test("roles.listEffective rejects malformed Tenant-Core Industry evidence before role-store use", async () => {
+  const calls = [];
+  const service = new IdentityRoleQueryService({
+    async listEffective(input) {
+      calls.push(input);
+      return null;
+    },
+  });
+
+  await assert.rejects(
+    service.listEffective({
+      requestContext: {
+        ...tenantCoreContext,
+        industryContextId: "",
+      },
+    }),
+    (error) => error instanceof ContextResolutionError
+      && error.code === "TENANT_INVALID",
+  );
+  assert.deepEqual(calls, []);
+});
+
 test("roles.listEffective canonical OperationContract preserves exact DD-06 permission", () => {
   assert.equal(
     CORE_IDENTITY_ROLES_LIST_EFFECTIVE.operationId,

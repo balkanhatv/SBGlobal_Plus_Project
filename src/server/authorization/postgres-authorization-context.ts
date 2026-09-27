@@ -116,7 +116,9 @@ export class PostgresEffectiveRoleReadAdapter implements EffectiveRoleReadPort {
     readonly membershipId?: string;
   }): Promise<EffectiveRoleSummary | null> {
     const context = input.requestContext;
-    if (context.scopeClass !== "TENANT_CORE" || !context.tenantId) return null;
+    if (context.scopeClass !== "TENANT_CORE"
+      || context.industryContextId !== undefined
+      || !context.tenantId) return null;
 
     const roleContext = await this.scopedSql.withContext(
       context,

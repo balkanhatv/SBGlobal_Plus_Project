@@ -27,6 +27,7 @@ export class IdentityRoleQueryService {
     const { requestContext } = input;
 
     if (requestContext.scopeClass !== "TENANT_CORE"
+      || requestContext.industryContextId !== undefined
       || !requestContext.tenantId
       || !requestContext.principalId) {
       throw new ContextResolutionError(

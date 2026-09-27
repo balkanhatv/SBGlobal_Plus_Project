@@ -1104,3 +1104,28 @@ This does not add resource grants, client-owned scope, cross-context behavior, s
 role/grant changes, product behavior or DD-209 authority. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream effective-role Tenant-Core exact-scope continuation
+
+### VC27-51 — P1: effective-role query boundaries accepted TENANT_CORE carrying hidden Industry Context
+
+DD-02 defines TENANT_CORE with industryContextId absent by design. DD-03 requires
+roles.listEffective and authorization context to consume the exact CURRENT compiled snapshot
+for the subject's exact scope; Tenant-Core null-Industry assignments must not be mixed with
+Tenant-Industry ownership.
+
+IdentityRoleQueryService checked only scopeClass TENANT_CORE plus Tenant/principal presence,
+and PostgresEffectiveRoleReadAdapter likewise checked only TENANT_CORE plus Tenant presence.
+A malformed/injected TENANT_CORE RequestContext carrying industryContextId (including an
+empty string) could therefore reach an alternate/injected role store, while the concrete
+PostgreSQL path relied on the lower VC27-48 RequestScopedSql guard to reject it.
+
+Smallest forward-only correction:
+- require exact Industry absence at the Core effective-role query boundary before store use;
+- independently require exact Industry absence in PostgresEffectiveRoleReadAdapter;
+- extend TCTX acceptance and Core regression coverage;
+- preserve compiled snapshot selection, permissionVersion, role-set and operation semantics.
+
+This does not add role grants, permission compilation, ABAC behavior, cross-context authority,
+schema/RLS/role/grant changes, product behavior or DD-209 authority. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
