@@ -152,6 +152,36 @@ test("applicable malformed or unsupported persisted Authorization state fails cl
   );
 });
 
+test("authorization read store rejects present-but-empty scope evidence before scoped SQL use", async () => {
+  for (const requestContext of [
+    {
+      requestId: randomUUID(),
+      correlationId: randomUUID(),
+      principalId: randomUUID(),
+      principalType: "PLATFORM_OPERATOR",
+      tenantId: "",
+      industryContextId: "",
+      orgUnitPath: [],
+      roleIds: [],
+      scopeClass: "PLATFORM_GLOBAL",
+    },
+    {
+      ...tenantContext({
+        scopeClass: "TENANT_CORE",
+        industryContextId: "",
+      }),
+    },
+  ]) {
+    const seen = [];
+    const store = new PostgresAuthorizationReadStore(fakeScopedSql(validSnapshot, [], seen));
+    await assert.rejects(
+      store.load({ requestContext, permissionCode: "rtl.pos.sale.view" }),
+      (error) => error.code === "AUTHORIZATION_SCOPE_UNSUPPORTED",
+    );
+    assert.deepEqual(seen, []);
+  }
+});
+
 test("missing current snapshot and unsupported scopes fail closed", async () => {
   const context = tenantContext();
   const missing = new PostgresAuthorizationReadStore(fakeScopedSql(null, []));

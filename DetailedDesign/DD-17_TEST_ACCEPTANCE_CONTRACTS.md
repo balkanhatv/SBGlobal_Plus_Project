@@ -378,7 +378,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | AUTH-009 | RBAC allow + matching persisted ABAC `RESTRICT` while no governed restriction payload/reducer exists | fail closed as `DENY / ABAC_DENY`; never allow-like RESTRICT |
 | AUTH-010 | base-stage applicable policy references `resource.*` before resource resolution | defer that policy to resource evaluation; do not treat missing resource attribute as false/allow |
 | AUTH-011 | non-`exists` ABAC operator requires a server fact that is unavailable | dependency unavailable; no access decision that widens |
-| AUTH-012 | tenant RequestContext permissionVersion/role set differs from exact CURRENT compiled snapshot | stale authorization context; dependency unavailable/deny |
+| AUTH-012 | tenant RequestContext permissionVersion/role set differs from exact CURRENT compiled snapshot, or PLATFORM_GLOBAL/TENANT_CORE Authorization read scope carries a present Tenant/Industry field where exact absence is required | stale/unsupported authorization context; fail closed before scoped SQL/PDP use |
 | AUTH-013 | PLATFORM_GLOBAL PDP decision | uses dedicated platform CURRENT snapshot; no tenant entitlementSnapshotVersion sentinel is invented |
 | AUTH-014 | resource-stage evaluation after a successful base allow | re-reads current Authorization state and re-evaluates full applicable policy set so a newly active deny cannot be skipped |
 

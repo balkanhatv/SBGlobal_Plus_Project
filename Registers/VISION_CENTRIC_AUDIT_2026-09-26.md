@@ -1157,3 +1157,28 @@ This does not change rate ceilings, create new rate classes, add transport autho
 cross-context behavior, schema/RLS/role/grant changes, product behavior or DD-209 authority.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream Authorization read exact-null scope continuation
+
+### VC27-53 — P1: Authorization read scope used truthiness for required Tenant/Industry absence
+
+DD-02 defines PLATFORM_GLOBAL with Tenant/Industry absent and TENANT_CORE with Industry absent.
+DD-03 requires the PDP to consume the exact CURRENT compiled snapshot for the exact subject
+scope before evaluating RBAC/ABAC policy.
+
+PostgresAuthorizationReadStore.assertReadableScope() used truthiness for those absence checks.
+A malformed/injected PLATFORM_GLOBAL context carrying tenantId="" / industryContextId="", or
+TENANT_CORE carrying industryContextId="", could pass the store's own scope validation and
+reach RequestScopedSql. VC27-48's shared SQL guard currently rejects the malformed context,
+but the Authorization state boundary must not rely on a lower adapter to preserve exact scope.
+
+Smallest forward-only correction:
+- treat any present Tenant/Industry property as invalid where PLATFORM_GLOBAL/TENANT_CORE
+  require exact absence;
+- reject malformed scope before scoped SQL or snapshot/policy reads;
+- strengthen AUTH-012 and server regression coverage;
+- preserve compiled snapshot selection, ABAC grammar/evaluation and PDP semantics.
+
+This does not add authorization grants, policy operators, compiler publication, cross-context
+authority, schema/RLS/role/grant changes, product behavior or DD-209 authority. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

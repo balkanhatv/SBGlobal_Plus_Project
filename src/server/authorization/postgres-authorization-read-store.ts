@@ -156,7 +156,9 @@ function parseApplicablePolicies(
 
 function assertReadableScope(context: RequestContext): AuthorizationReadScopeClass {
   if (context.scopeClass === "PLATFORM_GLOBAL") {
-    if (!context.principalId || context.tenantId || context.industryContextId) {
+    if (!context.principalId
+      || context.tenantId !== undefined
+      || context.industryContextId !== undefined) {
       throw new AuthorizationReadError(
         "AUTHORIZATION_SCOPE_UNSUPPORTED",
         "Platform Authorization read scope is invalid.",
@@ -166,7 +168,9 @@ function assertReadableScope(context: RequestContext): AuthorizationReadScopeCla
   }
 
   if (context.scopeClass === "TENANT_CORE") {
-    if (!context.tenantId || !context.principalId || context.industryContextId) {
+    if (!context.tenantId
+      || !context.principalId
+      || context.industryContextId !== undefined) {
       throw new AuthorizationReadError(
         "AUTHORIZATION_SCOPE_UNSUPPORTED",
         "Tenant Core Authorization read scope is invalid.",
