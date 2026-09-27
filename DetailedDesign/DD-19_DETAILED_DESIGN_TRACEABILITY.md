@@ -23,6 +23,7 @@
 | Phase-1 recovered: Country/Localization Packs | A-01/A-05 / ADR-008/019 | 008/019 | DD-05 | country-pack schema + tenant activation + no permission widening |
 | Phase-1 recovered: AI API/provisioning/memory/document/prompt/media | A-07 / ADR-010 | 010 | DD-09 | provisioning snapshot, API classes, memory, prompt and media contracts |
 | Phase-1 recovered: exactly two Tenant mobile apps | A-08 / ADR-014 | 014 | DD-10/DD-11 | Staff/User appClass manifest; no role-specific binaries |
+| S2.5 Mobile Architecture Standards | F-06/A-08 | 014/016 + UD-TECH-01 | DD-10/DD-11/DD-16/DD-17 | React Native+Expo; exactly two Tenant app classes; Platform Mobile separate/conditional; offline conflict safety; secure storage/push/version/testing source obligations |
 | Phase-1 recovered: Platform brand defaults/theme hierarchy | A-08 / ADR-011 | 011 | DD-05/DD-10 | versioned brand config + protected semantic floor |
 | Phase-1 recovered: data access/export/portability | A-05 / ADR-008 | 008 | DD-05/DD-16 | export request + context/residency/retention enforcement |
 | Phase-1 recovered: Future Industry Framework | A-09 / ADR-020 | 020 | DD-13 | promotion state machine + explicit approval + live activation gate |

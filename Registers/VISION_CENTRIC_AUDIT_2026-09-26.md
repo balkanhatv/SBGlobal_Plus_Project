@@ -233,3 +233,22 @@ Fresh reading of S2.4 (Database Architecture Standards, U158–U173) found two c
 The same S2.4 reconciliation records: MySQL/MariaDB source-engine wording is historical under UD-TECH-01; Branch/Department identifiers are canonically represented by typed OrgUnits; FHIR/HL7 belong to Healthcare interoperability rather than the physical database layer; and all remaining performance/security/residency/governance/change-policy obligations retain their existing owners.
 
 No RawSource, runtime code, SQL migration, existing table, RLS policy, role/grant, executable test or stable requirement ID/count is changed. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains the latest governed development checkpoint and DD-209 remains held.
+
+
+## 2026-09-27 S2.5 Mobile Architecture Standards continuation
+
+Fresh reading of S2.5 (U174–U206) found that the canonical mobile architecture itself is already aligned to the Vision, but the source-unit ledger used one blanket technology-override disposition for nearly every unit. That obscured the distinction between framework replacement, preserved mobile capabilities, Healthcare-only source modules, the separate Platform Mobile channel and security-sensitive offline behavior.
+
+### VC27-12 — P2: S2.5 mobile parent routing over-applied technology supersession and obscured app/domain scope
+
+The correction is source-owner/traceability only:
+- exactly two logical Tenant mobile app classes remain `TENANT_STAFF_APP` + `TENANT_USER_APP`; source “Super Admin App” maps to the separate Platform Application/conditional Platform Mobile channel and never becomes a third Tenant app;
+- Flutter/Dart and Riverpod/Bloc/Cubit are source-era framework choices superseded by UD-TECH-01; no unsupported React Native state library is invented;
+- local storage/cache/network/background/device capabilities survive, but source Hive/SharedPreferences/direct-JWT/direct-FCM implementation assumptions do not override DD-11/Core Identity/PushPort;
+- source “Automatic Conflict Resolution” is preserved only through DD-11's declared conflict classes; controlled and financial/stock/regulated data never use naive last-write-wins;
+- the Tenant User/Staff module inventories and Patient/Report/Sample QR examples are Healthcare source content inside the two reusable app classes, not platform-wide semantics and not templates for other industries;
+- source Healthcare “flagship” wording is legacy under CR-05/LG-03/LG-04;
+- source Super Admin mobile module inventory is Platform Application capability input subject to DD-10 PlatformChannelEligibilityPolicy and does not itself authorize tenant-data access;
+- AI, accessibility, distribution, versioning, testing and CI/CD obligations are routed to their actual canonical owners; Codemagic/Fastlane are not silently installed as current dependencies.
+
+No RawSource, application code, mobile binary, dependency, workflow, SQL/RLS, role/grant, executable test or stable requirement ID/count changes. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains the latest governed development checkpoint; DD-209 remains held.

@@ -2338,7 +2338,7 @@
       "end_line": 3249,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U175",
@@ -2348,7 +2348,7 @@
       "end_line": 3253,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U176",
@@ -2358,7 +2358,7 @@
       "end_line": 3262,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; exactly two Tenant apps preserved; source Super Admin App normalized to separate conditional Platform Mobile; no third Tenant app; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U177",
@@ -2368,7 +2368,7 @@
       "end_line": 3268,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U178",
@@ -2378,7 +2378,7 @@
       "end_line": 3272,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Flutter superseded by React Native + Expo under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U179",
@@ -2388,7 +2388,7 @@
       "end_line": 3276,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Dart belongs to superseded Flutter baseline; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U180",
@@ -2398,7 +2398,7 @@
       "end_line": 3288,
       "located_inventory_rows": 9,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U181",
@@ -2408,7 +2408,7 @@
       "end_line": 3293,
       "located_inventory_rows": 2,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Riverpod/Bloc/Cubit are Flutter-era choices; state-management responsibility preserved without inventing a React Native library; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U182",
@@ -2418,7 +2418,7 @@
       "end_line": 3300,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U183",
@@ -2428,7 +2428,7 @@
       "end_line": 3307,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U184",
@@ -2438,7 +2438,7 @@
       "end_line": 3316,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; network obligations preserved with tRPC first-party/REST interoperability and Core Identity token boundary; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U185",
@@ -2448,7 +2448,7 @@
       "end_line": 3323,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U186",
@@ -2458,7 +2458,7 @@
       "end_line": 3331,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; offline-first/queue/sync/retry preserved; conflict resolution constrained by DD-11 risk classes; no naive LWW for controlled/high-integrity data; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U187",
@@ -2468,7 +2468,7 @@
       "end_line": 3340,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; push preserved through Expo Push/OneSignal; SMS/WhatsApp/Email remain Core Communication; direct FCM baseline historical; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U188",
@@ -2478,7 +2478,7 @@
       "end_line": 3353,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; OTP/biometric/device/session/MFA/SSO/OAuth/OIDC preserved through Core Identity; source JWT/refresh wording does not create separate mobile auth; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U189",
@@ -2488,7 +2488,7 @@
       "end_line": 3364,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U190",
@@ -2498,7 +2498,7 @@
       "end_line": 3373,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; generic QR/barcode shared; Patient/Report/Invoice/Sample examples remain Healthcare-scoped; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U191",
@@ -2508,7 +2508,7 @@
       "end_line": 3386,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U192",
@@ -2518,7 +2518,7 @@
       "end_line": 3390,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare mobile depth preserved; flagship/template/shallow-parity posture legacy under CR-05/LG-03/LG-04; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U193",
@@ -2528,7 +2528,7 @@
       "end_line": 3404,
       "located_inventory_rows": 11,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare Tenant User modules live inside TENANT_USER_APP; not platform-wide or separate role app; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U194",
@@ -2538,7 +2538,7 @@
       "end_line": 3426,
       "located_inventory_rows": 17,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare Tenant Staff modules live inside TENANT_STAFF_APP; internal roles are RBAC personas; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U195",
@@ -2548,7 +2548,7 @@
       "end_line": 3439,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Super Admin App maps to Platform Application/conditional Platform Mobile; no third Tenant app or implicit tenant-data access; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U196",
@@ -2558,7 +2558,7 @@
       "end_line": 3443,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U197",
@@ -2568,7 +2568,7 @@
       "end_line": 3456,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U198",
@@ -2578,7 +2578,7 @@
       "end_line": 3465,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U199",
@@ -2588,7 +2588,7 @@
       "end_line": 3471,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U200",
@@ -2598,7 +2598,7 @@
       "end_line": 3480,
       "located_inventory_rows": 7,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U201",
@@ -2608,7 +2608,7 @@
       "end_line": 3488,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U202",
@@ -2618,7 +2618,7 @@
       "end_line": 3497,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile test taxonomy preserved; Flutter Widget Test terminology normalized without inventing tooling; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U203",
@@ -2628,7 +2628,7 @@
       "end_line": 3504,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U204",
@@ -2638,7 +2638,7 @@
       "end_line": 3510,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U205",
@@ -2648,7 +2648,7 @@
       "end_line": 3516,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; CI/CD preserved; GitHub Actions current while Codemagic/Fastlane remain source candidates until explicitly selected; not mobile runtime/project certification"
     },
     {
       "unit": "S2.5-U206",
@@ -2658,7 +2658,7 @@
       "end_line": 3530,
       "located_inventory_rows": 2,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
     },
     {
       "unit": "S2.6-U207",
