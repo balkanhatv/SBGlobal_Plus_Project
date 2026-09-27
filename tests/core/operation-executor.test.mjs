@@ -76,6 +76,27 @@ function fixture(options={}){
   return {executor:new OperationExecutor(ports),calls,ports};
 }
 
+test("API-009 malformed OperationContract enums fail before context or domain execution",async()=>{
+  for(const badOperation of [
+    {...operation,kind:"MUTATION"},
+    {...operation,scopeClass:"TENANT_ANY"},
+    {...operation,idempotencyPolicy:"BEST_EFFORT"},
+  ]){
+    const {executor,calls}=fixture({operation:badOperation});
+    await assert.rejects(
+      executor.execute({
+        operationId:badOperation.operationId,
+        rawInput:{resourceId:"sale-1",amount:10},
+        context:{requestId:"r",tenantSelector:"t",industrySelector:"i"},
+        idempotencyKey:"key-1",
+      }),
+      error=>error instanceof OperationExecutionError
+        && error.code==="OPERATION_CONTRACT_INVALID",
+    );
+    assert.deepEqual(calls,[]);
+  }
+});
+
 test("executor enforces context->schema->rate->guard->idempotency->domain->output->completion and route-bound scope",async()=>{
   const {executor,calls}=fixture();
   const result=await executor.execute({

@@ -1296,3 +1296,30 @@ Billing/Workflow producer semantics, new plan-change authority, schema/RLS/role/
 changes, product behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web
 verification is required.
 
+## 2026-09-27 downstream OperationContract runtime-enum continuation
+
+### VC27-58 — P1: OperationExecutor did not fail closed on unsupported runtime OperationContract enums
+
+DD-06 defines the canonical OperationContract with closed scopeClass, kind(COMMAND|QUERY)
+and idempotencyPolicy vocabularies. DD-051 requires the shared execution kernel to consume
+that canonical contract before context, rate, guard, idempotency and domain execution.
+
+OperationExecutor.validateOperation() checked ids/schema versions and QUERY→NONE
+idempotency consistency, but did not independently validate the runtime enum values. An
+untyped/misregistered contract with kind="MUTATION" could therefore pass contract validation;
+because the executor claims idempotency only when kind==="COMMAND", that malformed
+mutation-like contract could proceed through context/rate/guard and dispatch the declared
+domain handler without the command idempotency claim.
+
+Smallest forward-only correction:
+- validate scopeClass against the canonical RequestContext scope vocabulary;
+- validate kind strictly as COMMAND|QUERY;
+- validate idempotencyPolicy strictly as NONE|OPTIONAL|REQUIRED;
+- reject malformed contracts as OPERATION_CONTRACT_INVALID before RequestContext or any
+  downstream execution dependency;
+- preserve existing valid command/query ordering and idempotency semantics.
+
+This does not add operations, routes, mutation authority, idempotency policy, rate behavior,
+Authorization/Commercial semantics, schema/RLS/role/grant changes, product behavior or
+DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

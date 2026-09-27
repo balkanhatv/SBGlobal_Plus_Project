@@ -157,8 +157,23 @@ export type OperationExecutionResult =
     };
 
 function validateOperation(operation: OperationContract): void {
+  const scopeValid =
+    operation.scopeClass === "PUBLIC"
+    || operation.scopeClass === "PLATFORM_GLOBAL"
+    || operation.scopeClass === "TENANT_CORE"
+    || operation.scopeClass === "TENANT_INDUSTRY"
+    || operation.scopeClass === "EXPLICIT_CROSS_CONTEXT";
+  const kindValid = operation.kind === "COMMAND" || operation.kind === "QUERY";
+  const idempotencyValid =
+    operation.idempotencyPolicy === "NONE"
+    || operation.idempotencyPolicy === "OPTIONAL"
+    || operation.idempotencyPolicy === "REQUIRED";
+
   if (!operation.operationId
     || !operation.domainService
+    || !scopeValid
+    || !kindValid
+    || !idempotencyValid
     || !Number.isSafeInteger(operation.inputSchemaVersion)
     || operation.inputSchemaVersion <= 0
     || !Number.isSafeInteger(operation.outputSchemaVersion)

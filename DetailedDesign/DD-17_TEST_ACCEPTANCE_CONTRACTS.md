@@ -106,6 +106,7 @@ without substituting counts or references for substantive runtime acceptance.
 | API-006 | internal exception | safe error envelope, no secrets/stack |
 | API-007 | stale expectedVersion | CONFLICT |
 | API-008 | cursor tamper | reject cursor |
+| API-009 | runtime OperationContract carries unsupported scopeClass/kind/idempotencyPolicy, including a mutation-like kind outside COMMAND/QUERY | OPERATION_CONTRACT_INVALID before RequestContext/rate/guard/idempotency/domain use; unknown kind cannot bypass command idempotency |
 
 ## 7. Events/webhooks
 | ID | Scenario | Expected |
