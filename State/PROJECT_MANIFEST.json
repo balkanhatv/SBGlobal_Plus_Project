@@ -3,7 +3,7 @@
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-  "final_verdict": "VC26 corrections verified; VC27 source-fidelity corrections prepared and awaiting exact-HEAD verification. Complete vision audit remains IN PROGRESS; forward development held.",
+  "final_verdict": "Source-fidelity correction HEAD verified (700 Core / 505 PostgreSQL / 48 migrations / 42 verification files / Web PASS). Architecture/state synchronization requires its own exact-HEAD gate, observed in PR #2. Full vision audit remains IN PROGRESS; forward development held.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -54,9 +54,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "0da6d173679c31e202d4a0bf59ef3b8889a81404",
-    "verified_code_tree": "b39bb846b35d8a3d1a2b8a1310a4abcae29688b5",
-    "state_projection_basis_head": "0da6d173679c31e202d4a0bf59ef3b8889a81404",
+    "verified_code_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
+    "verified_code_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
+    "state_projection_basis_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -812,9 +812,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "0da6d173679c31e202d4a0bf59ef3b8889a81404",
-      "ci_run_id": 36258226522,
-      "ci_job_id": 108448955972,
+      "ci_verified_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
+      "ci_run_id": 36289471770,
+      "ci_job_id": 108536649880,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -826,7 +826,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "b39bb846b35d8a3d1a2b8a1310a4abcae29688b5",
+      "ci_verified_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -834,10 +834,10 @@
         "ci_verified_tree": "e0743f67c45a942d8832f8b1e342b6c106b56a9f",
         "scope": "Historical all-stages SQL persistence audit"
       },
-      "feature_head_bootstrap_verified_head": "0da6d173679c31e202d4a0bf59ef3b8889a81404",
-      "feature_head_bootstrap_verified_tree": "b39bb846b35d8a3d1a2b8a1310a4abcae29688b5",
-      "feature_head_bootstrap_run_id": 36258226516,
-      "feature_head_bootstrap_job_id": 108448956272,
+      "feature_head_bootstrap_verified_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
+      "feature_head_bootstrap_verified_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
+      "feature_head_bootstrap_run_id": 36289471768,
+      "feature_head_bootstrap_job_id": 108536649884,
       "feature_head_bootstrap_result": "PASS_48_MIGRATIONS_42_VERIFICATION_FILES_PLUS_505_POSTGRES_TESTS",
       "previous_current_ci": {
         "ci_verified_head": "ffe74ed8c3169c77b3a1135e615ae5d07a711e1e",
@@ -846,7 +846,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify the evidence/state closure HEAD, then complete full semantic file coverage and cross-layer/adversarial reconciliation recorded in Registers/VISION_CENTRIC_AUDIT_2026-09-26.md. No forward DD/prerequisite opens until the complete-project gate passes.",
+    "next_action": "Verify the containing Architecture/state synchronization commit on its exact HEAD (record observed CI in PR #2), then continue complete source-span/owner and cross-layer semantic/adversarial reconciliation from Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md. No forward DD/prerequisite opens until the complete-project audit gate passes.",
     "core_services": {
       "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -854,10 +854,10 @@
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040–208 bounded implementation",
-      "verified_head": "0da6d173679c31e202d4a0bf59ef3b8889a81404",
-      "verified_tree": "b39bb846b35d8a3d1a2b8a1310a4abcae29688b5",
-      "core_ci_run_id": 36258226516,
-      "core_ci_job_id": 108448956137,
+      "verified_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
+      "verified_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
+      "core_ci_run_id": 36289471768,
+      "core_ci_job_id": 108536650020,
       "tests": "700/700 PASS",
       "core_test_counts": {
         "tests": 700,
@@ -865,8 +865,8 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36258226516,
-      "postgres_ci_job_id": 108448956272,
+      "postgres_ci_run_id": 36289471768,
+      "postgres_ci_job_id": 108536649884,
       "postgres_tests": "505/505 PASS",
       "postgres_test_counts": {
         "tests": 505,
@@ -875,8 +875,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36258226522,
-      "database_regression_job_id": 108448955972,
+      "database_regression_run_id": 36289471770,
+      "database_regression_job_id": 108536649880,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -1342,7 +1342,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify the evidence/state closure HEAD, then complete full semantic file coverage and cross-layer/adversarial reconciliation recorded in Registers/VISION_CENTRIC_AUDIT_2026-09-26.md. No forward DD/prerequisite opens until the complete-project gate passes.",
+      "next_action": "Verify the containing Architecture/state synchronization commit on its exact HEAD (record observed CI in PR #2), then continue complete source-span/owner and cross-layer semantic/adversarial reconciliation from Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md. No forward DD/prerequisite opens until the complete-project audit gate passes.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1469,18 +1469,18 @@
   },
   "continuation": {
     "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-    "verified_code_head": "0da6d173679c31e202d4a0bf59ef3b8889a81404",
-    "verified_code_tree": "b39bb846b35d8a3d1a2b8a1310a4abcae29688b5",
+    "verified_code_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
+    "verified_code_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
     "source_audit": "Development/AI_TENANT_CONFIG_MODEL_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/VISION_CENTRIC_AUDIT_2026-09-26.md",
-    "next_action": "Verify the evidence/state closure HEAD, then complete full semantic file coverage and cross-layer/adversarial reconciliation recorded in Registers/VISION_CENTRIC_AUDIT_2026-09-26.md. No forward DD/prerequisite opens until the complete-project gate passes.",
+    "current_verification": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
+    "next_action": "Verify the containing Architecture/state synchronization commit on its exact HEAD (record observed CI in PR #2), then continue complete source-span/owner and cross-layer semantic/adversarial reconciliation from Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md. No forward DD/prerequisite opens until the complete-project audit gate passes.",
     "main_merge": false
   },
   "current_audit_overlay": {
     "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-    "verified_executable_basis": "0da6d173679c31e202d4a0bf59ef3b8889a81404",
-    "verified_executable_tree": "b39bb846b35d8a3d1a2b8a1310a4abcae29688b5",
-    "current_verification": "Registers/VISION_CENTRIC_AUDIT_2026-09-26.md",
+    "verified_executable_basis": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
+    "verified_executable_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
+    "current_verification": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
     "scope": "DD-208 implements only TenantAIConfig allowedModelIds[] duplicate-free exact-id/raw-ACTIVE AIModel binding plus exact Model providerId membership in the same config allowedProviderIds[]. Provider-row runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain outside this checkpoint."
   },
   "current_state_audit": {
@@ -1509,14 +1509,15 @@
     ],
     "status": "PASS_CORRECTION_EXACT_HEAD_VERIFIED",
     "correction_head": "4d9b609756d4c97417214eeadc54aa7531d57fdb",
-    "correction_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b"
+    "correction_tree": "fa01068c39b18241399c5c28e9c71ea7ae67f57b",
+    "source_requirement_text_reconciliation": "2,962 stable IDs retained; 85 mis-extracted texts restored and 21 provenance aliases explicitly located by VC27-01. Complete atomic no-loss certification remains open."
   },
   "current_feature_verification": {
     "decision_id": "DD-208",
     "decision": "DD-208 TenantAIConfig Model allowlist current-binding floor",
     "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-    "verified_head": "0da6d173679c31e202d4a0bf59ef3b8889a81404",
-    "verified_tree": "b39bb846b35d8a3d1a2b8a1310a4abcae29688b5",
+    "verified_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
+    "verified_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
     "source_audit": "Development/AI_TENANT_CONFIG_MODEL_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
       "AITENCFG-MODEL-CUR-001",
@@ -1532,16 +1533,16 @@
       "tests/core/ai-tenant-config-model-allowlist-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36258226516,
-      "job_id": 108448956137,
+      "run_id": 36289471768,
+      "job_id": 108536650020,
       "tests": 700,
       "pass": 700,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36258226516,
-      "job_id": 108448956272,
+      "run_id": 36289471768,
+      "job_id": 108536649884,
       "tests": 505,
       "pass": 505,
       "fail": 0,
@@ -1549,17 +1550,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36258226522,
-      "job_id": 108448955972,
+      "run_id": 36289471770,
+      "job_id": 108536649880,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36258226545,
-      "job_id": 108448956179,
+      "run_id": 36289471801,
+      "job_id": 108536650155,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/VISION_CENTRIC_AUDIT_2026-09-26.md"
+    "evidence": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md"
   },
   "historical_projection_payloads": {
     "continuation": {
@@ -2336,14 +2337,52 @@
     ],
     "remaining_gate": "Full semantic file coverage and cross-layer/adversarial reconciliation remain incomplete; no global clean verdict.",
     "continuation_report": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
-    "continuation_status": "SOURCE_FIDELITY_CORRECTIONS_PREPARED_EXACT_HEAD_VERIFICATION_PENDING",
+    "continuation_status": "SOURCE_FIDELITY_CORRECTION_HEAD_VERIFIED_FULL_AUDIT_IN_PROGRESS",
     "source_reading": "S1_AND_S2_COMPLETE_TEXT_READ; COMPLETE_SOURCE_TO_OWNER_SEMANTIC_CERTIFICATION_PENDING",
     "source_span_coverage": "Registers/SOURCE_SPAN_COVERAGE_2026-09-27.json",
     "additional_findings": {
       "VC27-01": "P2 source heading collision / 85 restored texts / 21 explicit aliases",
       "VC27-02": "P2 overbroad governance supersession",
       "VC27-03": "P2 stale execution coverage and provider-name routing",
-      "VC27-04": "P3 stale License validation ordinal"
-    }
+      "VC27-04": "P2 stale/ambiguous guard-stage references and snapshot placement; canonical chain aligned",
+      "VC27-05": "P2 stale suspension UI projection; aligned to existing restricted-operation contracts"
+    },
+    "source_fidelity_correction_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
+    "source_fidelity_correction_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
+    "source_fidelity_ci": {
+      "core_run": 36289471768,
+      "core_job": 108536650020,
+      "postgres_job": 108536649884,
+      "database_run": 36289471770,
+      "database_job": 108536649880,
+      "web_run": 36289471801,
+      "web_job": 108536650155,
+      "result": "PASS_EXACT_CORRECTION_HEAD"
+    },
+    "source_fidelity_counts": {
+      "stable_ids": 2962,
+      "restored_texts": 85,
+      "extraction_placeholders_removed": 34,
+      "wrong_section_or_ordinal_texts_restored": 51,
+      "explicit_provenance_aliases": 21,
+      "source_heading_parents": 372,
+      "glyph_bullet_lines_exposed": 193
+    },
+    "source_fidelity_dispositions": {
+      "ACTIVE_CANONICAL": 2763,
+      "DUPLICATE_PROVENANCE": 65,
+      "EXTERNAL_CONFIGURATION_INPUT": 1,
+      "OUTSIDE_CURRENT_CLAIMED_SCOPE": 125,
+      "SUPERSEDED_WITH_AUTHORITY": 8
+    },
+    "source_fidelity_remaining_gate": "Complete source-span/owner and cross-layer semantic reconciliation remains open; text provenance is not atomic completeness or runtime certification.",
+    "final_sync_gate": "Containing commit also corrects remaining Architecture guard citations/snapshot-order wording and suspension-shell projection; its exact-HEAD result is recorded in PR #2. Parent executable/test tree is verified; no self-referential SHA is stored here.",
+    "additional_findings_corrections_applied": [
+      "VC27-01",
+      "VC27-02",
+      "VC27-03",
+      "VC27-04",
+      "VC27-05"
+    ]
   }
 }

@@ -2,7 +2,7 @@
 **Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
 **Status:** ACTIVE · **Updated:** 2026-09-26
 
-> **2026-09-27 audit hold:** DD-208 remains the latest checkpoint. VC26 corrections are verified; VC27 source-fidelity/state corrections are prepared, exact-HEAD verification pending. Full semantic coverage remains incomplete. Earlier forward-continuation instructions below remain on hold. Next: verify these corrections, synchronize evidence, and finish the audit. [Current reconciliation](../Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md).
+> **2026-09-27 audit hold:** DD-208 remains the latest checkpoint. Source-fidelity correction `ea371dd1cf11666293b669acc80ab29d3e91ae9f` passed 700 Core / 505 PostgreSQL / Database and Web. This Architecture/state synchronization commit requires its own exact-HEAD gate, recorded in PR #2. Full semantic coverage is incomplete; earlier forward-continuation instructions remain held. Next: finish the audit. [Current reconciliation](../Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md).
 
 
 ## Authority

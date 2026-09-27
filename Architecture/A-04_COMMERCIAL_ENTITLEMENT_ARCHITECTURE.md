@@ -36,7 +36,7 @@ Store:    snapshot persisted per tenant (current + history for audit);
 Canonical access sequence is owned with A-01/A-03: Authenticate → Tenant → active Industry Context → Subscription → License → credential/device/session context → current EntitlementSnapshot → RBAC → ABAC/context → security/compliance/residency → resource/workflow rules → Effective Access.
 | Point | Enforces | Behavior on denial |
 |---|---|---|
-| Kernel guard step 3 (A-01 §3) | Module/feature enabled for tenant | `ENTITLEMENT_DENIED` error class, audited |
+| Kernel commercial/entitlement guards (A-01 §3; canonical sequence above) | Module/feature enabled for tenant | `ENTITLEMENT_DENIED` error class, audited |
 | Limit counters | Numeric limits (users, branches, storage, transactions) | Soft-warn at threshold, hard-deny at limit; counters maintained transactionally with the guarded write |
 | AI Gateway (→ A-07 §7) | AI quotas/model classes per plan | Deny + quota-exhausted signal to UI |
 | Experience shells (→ A-08 §6) | Navigation/feature visibility | UI hides what the snapshot denies; UI state is advisory only — server remains authoritative |

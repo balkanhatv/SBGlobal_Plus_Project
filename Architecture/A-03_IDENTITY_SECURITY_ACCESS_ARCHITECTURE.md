@@ -30,7 +30,7 @@ Mobile/desktop use the same Clerk authentication boundary with refresh/session h
 3. **Canonical effective-access order:** authenticate principal → validate Tenant → resolve Tenant + active Industry Context → validate subscription + applicable licenses → validate session/device/API credential context where required → resolve current EntitlementSnapshot → RBAC permission → ABAC/context policies → security/compliance/residency constraints → resource/workflow business rules → effective access decision. Any deny is final and audit-attributed. The EntitlementSnapshot compiles commercial inputs; it does not replace the underlying subscription/license validation semantics.
 
 ## 4. Validation Chain (F-03) — architectural placement
-`Schema validation (L5 DTO) → business rules (module service) → tenant configuration rules (Config module) → authorization (PDP) → workflow state guard (Workflow module)`. Each stage has a distinct error class and audit signature, so a rejection is attributable to the exact stage (F-02 audit-per-step requirement).
+`Schema validation (L5 DTO) → business rules (module service) → tenant configuration rules (Config module) → authorization (PDP) → workflow state guard (Workflow module)`. Each stage has a distinct error class and audit signature, so a rejection is attributable to the exact stage (F-02 audit-per-step requirement). These validation responsibilities do not reorder the canonical effective-access sequence in §3: protected resource/business/workflow validation executes only after its applicable access guards. This is not an alternative authorization pipeline.
 
 ## 5. Security Zones & Boundaries
 | Zone | Contents | Boundary controls |

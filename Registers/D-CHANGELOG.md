@@ -464,3 +464,7 @@ VC26-01 corrects unbounded cyclic OrgUnit ancestry under existing DD-057; CTX-BO
 ## 2026-09-27 — source fidelity correction during vision audit
 
 Repeated-heading collisions replaced source text with unrelated sections and 34 extraction placeholders. Restore 85 texts from immutable source, preserve all 2,962 IDs with 21 explicit provenance aliases, repair governance/provider routing and stale execution projections, and strengthen REPO-002 against RawSource. F-14 License validation citation corrected without changing runtime order. No new DD or product behavior. Exact-HEAD verification pending; full audit remains held. Evidence: `Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md`.
+
+## 2026-09-27 — correction gate verified / Architecture-state synchronization
+
+Source-fidelity correction `ea371dd1cf11666293b669acc80ab29d3e91ae9f` / tree `327e3aa93088d3eec09a0150b89b29325953ee98` passed 700 Core, 505 PostgreSQL, 48 migrations / 42 SQL verification files and Web on that exact HEAD. Final synchronization also removes stale guard-stage references, aligns snapshot placement with the canonical A-03/A-04 order and updates A-08 suspension UI to F-14/A-04 without granting new recovery access. Runtime, tests, SQL and workflows remain identical to the verified correction parent. The containing commit must pass its own exact-HEAD gate; PR #2 records the observed closure result. Full audit remains IN PROGRESS.

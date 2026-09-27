@@ -43,11 +43,11 @@ Client (L6) → L5 API (tRPC/REST)
   2 Validate Tenant and resolve immutable Tenant Context
   3 Resolve active Industry Context for every industry-scoped operation
      (absent only for explicitly Core/shared/global resources)
-  4 Validate subscription + applicable licenses; resolve current compiled
-     EntitlementSnapshot (snapshot does not erase subscription/license semantics)
+  4 Validate subscription + applicable licenses
   5 Validate session/device/API-credential context where applicable
-  6 Authorization: RBAC permission → ABAC/context policy →
-     security/compliance/residency constraints
+  6 Resolve current compiled EntitlementSnapshot, then authorization:
+     RBAC permission → ABAC/context policy → security/compliance/residency
+     constraints (snapshot does not erase subscription/license semantics)
   7 Resource/workflow/business-rule guard
   8 Module service executes domain logic
   9 Transaction: domain writes + context-scoped outbox event + audit append

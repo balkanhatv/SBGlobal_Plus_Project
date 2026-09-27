@@ -1,6 +1,6 @@
 # Source fidelity reconciliation — 2026-09-27
 
-**Status: targeted corrections prepared; exact-HEAD verification pending. Full vision audit IN PROGRESS; forward development remains held.**
+**Status: source-fidelity correction HEAD exact-HEAD verified; final Architecture citation/state synchronization awaiting its own exact-HEAD gate. Full vision audit IN PROGRESS; forward development remains held.**
 
 Continuation baseline: `0258d787c17ccdfb5c3c7782702907400b96a57d`, tree `522d8e152e060ab7181b25eaccbcf94498482d7d`. Branch `docs/architecture-branch-2`; PR #2 remains draft/unmerged. DD-208 remains the latest governed checkpoint; no DD-209 is opened.
 
@@ -11,7 +11,8 @@ Continuation baseline: `0258d787c17ccdfb5c3c7782702907400b96a57d`, tree `522d8e1
 | VC27-01 | P2 | Same-named headings in different embedded source documents contaminated child extraction. The two ledgers agreed with each other, including 34 extraction placeholders, so REPO-002 passed despite false source attribution. | Restore 85 texts directly from their own immutable source lists (34 placeholders + 51 wrong-section/ordinal texts); preserve all 2,962 IDs; explicitly locate 21 surplus legacy IDs as provenance aliases. Strengthen existing REPO-002 to compare all rows against their actual source parent. |
 | VC27-02 | P2 | Blanket UD-TECH-01 supersession marked the reference-use/no-copy governance section obsolete and routed AI-development instructions into product AI owners. | Route S2.1-U032 to Governing MI §22. Ten substantive/reference-use rows remain active; its table header is provenance. Stack replacement does not repeal code-origin restrictions. |
 | VC27-03 | P2 | September 13 dependency projections called current execution Database-only and services/tests not started, although DD-208 Core, PostgreSQL and bounded Web evidence exists. Provider placeholders also conflated required provider names with external credentials. | Route execution truth to the live manifest/evidence; retain per-requirement completion as unasserted. Restore 13 source provider names as active capability requirements; credentials/endpoints/models remain external configuration inputs. |
-| VC27-04 | P3 | F-14 §3 retained a stale ordinal for License validation, inconsistent with its own §5 canonical chain after Industry Context insertion. | Replace the ordinal with the owned relative order: Subscription → License → Session/Device/API Credential. No guard order or runtime change. |
+| VC27-04 | P2 | F-14 and A-04/A-07 retained obsolete guard-stage ordinals; A-01 grouped snapshot resolution before credential validation despite the canonical A-03/A-04 sequence. A-03 validation responsibilities could be misread as an alternative pipeline. | Remove brittle ordinals; align A-01 snapshot placement with A-03 §3/A-04 §5 and clarify that validation responsibilities do not bypass access guards. No runtime change. |
+| VC27-05 | P2 | A-08 retained billing-only/blanket-block suspension UI language after F-14/A-04 had restored governed read-only business-data and recovery paths. | Align the shell with the current server-authorized restricted operation contracts; preserve DD-04 §11 generic-deny boundary and paused writes/integrations/API. No new endpoint or permission. |
 
 RawSource is unchanged. No Industry, MS, table, API, provider implementation or product requirement is added. Existing tests are retained and strengthened. The new source locator inventory is evidence plumbing, not runtime functionality or full no-loss certification.
 
@@ -136,6 +137,17 @@ Every row below is a correction to an existing ID, with an exact immutable S2 so
 
 The strengthened REPO-002 first failed on the unchanged ledger at S2.4-U167-R001: Database Performance incorrectly said Fast page loading instead of Indexes. The original cross-ledger equality assertion remains; an independent source-parent assertion now covers all 2,962 rows. It proves text provenance, not owner sufficiency, atomic completeness or implementation.
 
-Required before closure: exact correction-HEAD Core/PostgreSQL/Database/Web CI; canonical evidence update; exact closure-HEAD CI. The source inventory/alias and subset-projection checks must also pass. No local PostgreSQL runtime result is claimed in this environment.
+Correction HEAD `ea371dd1cf11666293b669acc80ab29d3e91ae9f`, tree `327e3aa93088d3eec09a0150b89b29325953ee98`, passed all four hosted jobs. Each downloaded log asserts that exact HEAD/tree:
 
-Full semantic review of the remaining Architecture/ADR, DD, implementation, SQL/RLS, tests and historical state/register chain remains unfinished. Do not continue feature development merely because these targeted corrections pass.
+| Gate | Run | Job | Result |
+|---|---:|---:|---|
+| Core/server | 36289471768 | 108536650020 | 700/700; zero failed/skipped |
+| PostgreSQL + full database bootstrap | 36289471768 | 108536649884 | 505/505; zero failed/skipped |
+| Database | 36289471770 | 108536649880 | all 48 migrations / 42 verification files PASS |
+| Web | 36289471801 | 108536650155 | PASS |
+
+Local build + Core/server also passed 700/700. REPO-001–008 pass. All four requirement/projection ID sets are unchanged, every subset text/disposition/owner matches its master route, and zero extraction placeholders remain. The immutable-source comparison covers all 2,962 inventory rows, including explicitly located aliases. No local PostgreSQL result is claimed.
+
+The final synchronization additionally completes VC27-04 Architecture citation/order alignment and VC27-05 suspension-shell consistency. Its own exact-HEAD four-job gate is required; the above parent gate does not by itself certify those final document edits. The final closure SHA and its observed CI are recorded in PR #2 to avoid a self-referential commit hash in its own manifest.
+
+A-00/A-01/A-03/A-04/A-06/A-08/A-09 were additionally reviewed against the canonical context/commercial/surface owners; A-07 guard references were reconciled. Full semantic review of the remaining Architecture/ADR, DD, implementation, SQL/RLS, tests and historical state/register chain remains unfinished. Do not continue feature development merely because these targeted corrections pass.
