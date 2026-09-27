@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-42:** `1c6200bb309780aa53ddeefc82b0d994c695ca26` / tree `9b7697cd020ddbeb41faa94d7b6f135972bf8511`
+**Prior tree-qualified verified basis through VC27-43:** `556850b1b4d992b4d0daf9239c16ff45365ab9d3` / tree `69d2f4b0c2b99fc952851c132cf05d6367ba84ae`
 
-**Current exact-head correction basis:** `556850b1b4d992b4d0daf9239c16ff45365ab9d3` / tree `69d2f4b0c2b99fc952851c132cf05d6367ba84ae`
+**Current exact-head correction basis:** `e78b610b586a6b41920700026b0d5cdb6a39b740` / tree `00e4bbfbe768bba1f39461713fc9a8a7c28c18df`
 
-**Exact-head gate:** Core 716/716; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 717/717; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -53,6 +53,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-41 — generic cross-context RequestContext denial:** the generic resolver now denies EXPLICIT_CROSS_CONTEXT after authentication/scope allowlist checks and before Tenant lookup because DD-02 requires a dedicated source+target transfer contract plus permission/policy that the generic ContextResolutionInput does not carry. No cross-context workflow is invented.
 - **VC27-42 — generic cross-context WorkerContext denial:** createWorkerContext now rejects EXPLICIT_CROSS_CONTEXT because its generic input lacks DD-02 source+target transfer evidence, projection, permission/policy, legal/audit and idempotency fields. TENANT_INDUSTRY keeps its persisted Industry Context requirement; no transfer worker is invented.
 - **VC27-43 — DD-081 event occurrence-time parity:** the reusable event-envelope validator now rejects impossible ISO-like calendar dates before the existing Date.parse check, matching migration 0030's timestamptz overflow rejection without inventing a new serialization vocabulary. Payload interpretation still runs only after metadata/catalog/scope validation.
+- **VC27-44 — Tenant-Core WorkerContext exact shape:** generic WorkerContext now rejects TENANT_CORE carrying an Industry Context, preserving DD-02's exact Tenant-Core null-Industry contract while retaining VC27-42 generic cross-context denial.
 
 ### Current bounded verdict
 
