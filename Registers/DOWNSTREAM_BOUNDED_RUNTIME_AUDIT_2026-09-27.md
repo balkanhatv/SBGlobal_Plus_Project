@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-39:** `b17e9dc4b66617c57449ee3ac180ac1a6d48e0ac` / tree `23c394870febb194ee3f86a3b5ce463d394d01cb`
+**Prior tree-qualified verified basis through VC27-40:** `402a17439b26864b50e8f8d781047d8f37b793a2` / tree `b67ef01589afc3c58ebac8a39919032dbb223918`
 
-**Current exact-head correction basis:** `402a17439b26864b50e8f8d781047d8f37b793a2` / tree `b67ef01589afc3c58ebac8a39919032dbb223918`
+**Current exact-head correction basis:** `d70f45c050dd7d33f0e1fad7140199a453884c80` / tree `586c93e68fc56d9d6ad51e12a684aef746447c1f`
 
-**Exact-head gate:** Core 713/713; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 714/714; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -50,6 +50,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-38 — strict instant validation:** OperatorElevation current-window, API Credential lifecycle, Webhook verification and TenantIntegration CredentialReference expiry/currentness floors now reject calendar-invalid or timezone-ambiguous timestamps that permissive `Date.parse()` could normalize. Valid explicit UTC/offset instants remain accepted; no execution authority is added.
 - **VC27-39 — DD-191 MediaRequest completion evidence:** generated Document provenance now reuses the strict instant validator for `completedAt`, so calendar-invalid or timezone-ambiguous completion strings cannot satisfy the migration-0031 direct provenance floor. Model/Provider, moderation/licensing, ACL/storage and AI execution remain outside this floor.
 - **VC27-40 — DD-082 resolved Document context shape:** the Core pre-sign candidate boundary now rejects TENANT_CORE contexts carrying an Industry Context before metadata dependency use, rather than relying on the concrete PostgreSQL adapter to reject the malformed shape. ACL evaluation/signing/storage authority remain outside this floor.
+- **VC27-41 — generic cross-context RequestContext denial:** the generic resolver now denies EXPLICIT_CROSS_CONTEXT after authentication/scope allowlist checks and before Tenant lookup because DD-02 requires a dedicated source+target transfer contract plus permission/policy that the generic ContextResolutionInput does not carry. No cross-context workflow is invented.
 
 ### Current bounded verdict
 
