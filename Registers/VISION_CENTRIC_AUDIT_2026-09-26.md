@@ -138,3 +138,22 @@ Correction HEAD `f709f0227ae416f88ccb7c7fdf8e3e5293209409`, tree `4aada69ebe504e
 | Web | 36290340382 | 108539079807 | PASS |
 
 The complete-project audit remains **IN PROGRESS / NOT PASSED**. DD-208 remains the latest governed development checkpoint; DD-209 is not authorized. Continue semantic source-to-owner and downstream cross-layer review before any forward feature slice.
+
+
+## 2026-09-27 S2.1 governance source-owner continuation
+
+Fresh reading of immutable S2.1 (Master Development Instruction v3.0, source lines 16–606) was reconciled against current MASTER_INSTRUCTION v2.5, D-DECISIONS, Foundation and Architecture owners. The 2,962 stable product-requirement IDs do not by themselves certify these governance units; unit-level semantic ownership is therefore recorded separately in SOURCE_SPAN_COVERAGE.
+
+### VC27-07 — P2: S2.1 mixed governance/technology units were overbroadly marked VERIFIED
+
+The existing unit traceability correctly recognized UD-TECH-01 for several source stack sections, but its disposition text was still too coarse, and four mixed units were materially under-classified: S2.1-U027 Admin Panel, U028 Authentication, U033 Development Phase Roadmap and U038 Final Delivery Package. In addition, U017/U023–U031 used blanket “source tech history → active override” wording that could be read as repealing non-stack obligations that the current canonical model explicitly preserves.
+
+Correction is evidence-only and forward-only:
+- U017 distinguishes surviving deployment simplicity/portability concerns from historical cPanel/shared-hosting/no-Docker/no-Vercel defaults.
+- U024–U027 identify the exact backend/frontend/database/admin implementation assumptions superseded by UD-TECH-01.
+- U028 preserves OTP/RBAC/SSO/OAuth/OIDC/SAML/LDAP/Passkeys/MFA/biometric/PKI/eSign/DigiLocker/federation capabilities while marking Laravel/direct-JWT implementation assumptions historical under the provider-isolated Core Identity boundary.
+- U030/U031 preserve mobile/desktop capability obligations while applying React Native + Expo, Tauri and Core Identity as the active implementation authority.
+- U033 now cites CR-04/LG-13 and preserves 01–21B only as source sequence/reference; active phase governance is dependency-driven.
+- U038 preserves final-delivery obligations while normalizing Flutter/Super-Admin-app/Windows-only labels to the active Platform Application, exactly two Tenant mobile apps, optional Tauri desktop and UD-TECH-01.
+
+No RawSource byte, stable requirement ID/count, product behavior, runtime code, SQL, RLS, role, grant or test is changed. This closes **S2.1 unit-level source-owner reconciliation only**; it is not runtime, production-readiness, full source-corpus or complete-project certification. The containing commit requires the normal exact-HEAD Core/PostgreSQL/Database/Web gate before this finding is recorded as verified.
