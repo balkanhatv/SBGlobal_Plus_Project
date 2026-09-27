@@ -308,3 +308,24 @@ The correction records:
 - Source accessibility requirements are preserved and may be strengthened by the canonical WCAG 2.1 AA/reduced-motion/responsive accessibility floor.
 
 No RawSource, component implementation, design-token payload, runtime code, schema, RLS, role/grant, executable test or stable requirement ID/count changes. This is ownership/traceability correction only. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains current and DD-209 remains held.
+
+
+## 2026-09-27 S2.9 Enterprise Development Roadmap continuation
+
+Fresh reading of S2.9 (U320–U335) confirms that the document is Tier 5: thematic construction milestones plus volume targets, never current phase-order or completion authority. CR-04 already resolves the Phase 01–14 versus corpus phase-numbering conflict; current MI v2.5 further makes phase count dependency-driven. The unit ledger still needed scope/status normalization because the roadmap checklists contain many Healthcare-centric and historical technology/surface labels.
+
+### VC27-16 — P2: S2.9 Roadmap checklist/targets were too coarsely treated as platform-wide verified state
+
+The correction records:
+- 500+ tables, 250+ masters, 1000+ dropdown values, 100+ settings pages, 200+ LIS settings and 1000+ permissions are **roadmap volume targets**, not current counts and not evidence that those scopes are complete.
+- Phase 03/04/05 lists are MIXED: generic master/dropdown/settings families are shared while Patient/Doctor/Laboratory/LIS/Machine/Healthcare Standards and similar items are Healthcare-owned.
+- Phase 06 Complete LIS Configuration is Healthcare-only. Its 200+ settings target cannot be treated as a Platform-wide phase requirement.
+- Phase 07's role list is an example subset; the authoritative user/role catalogs remain elsewhere. Only the 1000+ permissions figure is a roadmap volume target.
+- Phase 08/10/12/13 workflow/template/audit/analytics lists mix reusable platform capabilities with domain examples; Healthcare examples remain suite-owned.
+- Phase 09 Browser/Slack/Teams/Telegram mentions remain roadmap checklist history and do not silently create active provider/channel integrations absent separate source-complete ownership.
+- Phase 11 API checklist is normalized to UD-TECH-01/A-06: tRPC first-party plus REST/OpenAPI external. Source JWT/Swagger wording is not active stack authority.
+- Phase 14 Quality Standards remains a future acceptance-gate checklist. It cannot grant TESTED, SECURITY VALIDATED or PRODUCTION READY status.
+- Final Target is aspirational. Super Admin Portal/Tenant Web Portal are normalized to the current Application Surface Model; Windows Desktop is historical under cross-platform Tauri; LIS/Billing/Inventory remain suite/domain capabilities; the checklist's “Production Ready” item is a target, not the current project status.
+- The source roadmap preface itself references an older 01–21A authority wording; current MI v2.5 preserves corpus sequence knowledge but governs by dependency-driven §26 and records S2.1 as 01–21B history. RawSource remains unchanged.
+
+No RawSource, runtime code, schema, RLS, role/grant, workflow, executable test or stable requirement ID/count changes. This is roadmap ownership/status reconciliation only. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains current and DD-209 remains held.

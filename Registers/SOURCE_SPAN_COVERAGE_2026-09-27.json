@@ -3798,7 +3798,7 @@
       "end_line": 4885,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Tier-5 roadmap reconciled as thematic/volume authority only; current phase governance is dependency-driven under MI §26/CR-04; not runtime/project certification"
     },
     {
       "unit": "S2.9-U321",
@@ -3808,7 +3808,7 @@
       "end_line": 4900,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap thematic checklist/volume target mapped to current canonical owners without granting phase order or completion status; not runtime/project certification"
     },
     {
       "unit": "S2.9-U322",
@@ -3818,7 +3818,7 @@
       "end_line": 4927,
       "located_inventory_rows": 20,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 500+ tables preserved as roadmap volume target only, not current table count or completion evidence; not runtime/project certification"
     },
     {
       "unit": "S2.9-U323",
@@ -3828,7 +3828,7 @@
       "end_line": 4937,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 250+ masters target is MIXED platform+Healthcare scope; Healthcare master categories remain suite-owned; not runtime/project certification"
     },
     {
       "unit": "S2.9-U324",
@@ -3838,7 +3838,7 @@
       "end_line": 4947,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 1000+ dropdown target is MIXED; generic reference values shared and healthcare-specific status/test/machine items suite-owned; not runtime/project certification"
     },
     {
       "unit": "S2.9-U325",
@@ -3848,7 +3848,7 @@
       "end_line": 4955,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 100+ settings-page target is MIXED; patient/doctor/lab/LIS/machine settings are domain-owned; not runtime/project certification"
     },
     {
       "unit": "S2.9-U326",
@@ -3858,7 +3858,7 @@
       "end_line": 4963,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 200+ LIS settings target is Healthcare-only, not Platform-wide; not runtime/project certification"
     },
     {
       "unit": "S2.9-U327",
@@ -3868,7 +3868,7 @@
       "end_line": 4975,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 1000+ permissions target preserved; source role list is an example subset and does not replace authoritative user/role catalogs; not runtime/project certification"
     },
     {
       "unit": "S2.9-U328",
@@ -3878,7 +3878,7 @@
       "end_line": 4981,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap thematic checklist/volume target mapped to current canonical owners without granting phase order or completion status; not runtime/project certification"
     },
     {
       "unit": "S2.9-U329",
@@ -3888,7 +3888,7 @@
       "end_line": 4987,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap Browser/Slack/Teams/Telegram mentions do not silently create active provider/channel requirements; canonical Communication ownership applies; not runtime/project certification"
     },
     {
       "unit": "S2.9-U330",
@@ -3898,7 +3898,7 @@
       "end_line": 4993,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap thematic checklist/volume target mapped to current canonical owners without granting phase order or completion status; not runtime/project certification"
     },
     {
       "unit": "S2.9-U331",
@@ -3908,7 +3908,7 @@
       "end_line": 4999,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; API roadmap checklist preserved, but JWT/Swagger source wording is not active stack authority under UD-TECH-01 tRPC + REST/OpenAPI boundaries; not runtime/project certification"
     },
     {
       "unit": "S2.9-U332",
@@ -3918,7 +3918,7 @@
       "end_line": 5005,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap thematic checklist/volume target mapped to current canonical owners without granting phase order or completion status; not runtime/project certification"
     },
     {
       "unit": "S2.9-U333",
@@ -3928,7 +3928,7 @@
       "end_line": 5011,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap thematic checklist/volume target mapped to current canonical owners without granting phase order or completion status; not runtime/project certification"
     },
     {
       "unit": "S2.9-U334",
@@ -3938,7 +3938,7 @@
       "end_line": 5017,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; quality checklist is a future acceptance gate set; roadmap heading does not grant TESTED/SECURITY VALIDATED/PRODUCTION READY status; not runtime/project certification"
     },
     {
       "unit": "S2.9-U335",
@@ -3948,7 +3948,7 @@
       "end_line": 5047,
       "located_inventory_rows": 22,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Final Target is aspirational target only; current surface/desktop/Industry/status normalization applies and Production Ready is not claimed; not runtime/project certification"
     }
   ]
 }
