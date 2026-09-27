@@ -3,7 +3,7 @@
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable correction basis 599cde0d323f8bdb7f2cfb4c37f09a5674cb5878 / tree 93f79b880492daf9aba967ebc08dd66d1effc8a0 is exact-HEAD verified at 724 Core / 507 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-49 Commercial Tenant-Core exact-scope fail-closed hardening. Complete-project downstream canonical/state/Development/Database/CI/adversarial audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
+  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable correction basis d77c39645d535efc7c57dd928bc530e106b2e109 / tree f66480dc21048128e581948be6a8ef8b55a11c5e is exact-HEAD verified at 727 Core / 507 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-50 GuardPipeline exact-null resource scope and VC27-51 effective-role Tenant-Core exact-scope hardening. Complete-project downstream canonical/state/Development/Database/CI/adversarial audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -796,20 +796,20 @@
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
     "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
-    "current_downstream_verified_head": "599cde0d323f8bdb7f2cfb4c37f09a5674cb5878",
-    "current_downstream_verified_tree": "93f79b880492daf9aba967ebc08dd66d1effc8a0",
+    "current_downstream_verified_head": "d77c39645d535efc7c57dd928bc530e106b2e109",
+    "current_downstream_verified_tree": "f66480dc21048128e581948be6a8ef8b55a11c5e",
     "current_downstream_verified_ci": {
-      "core_run_id": 36333458179,
-      "core_job_id": 108659713016,
-      "core_pass": 724,
-      "postgres_job_id": 108659713218,
+      "core_run_id": 36334469550,
+      "core_job_id": 108662560601,
+      "core_pass": 727,
+      "postgres_job_id": 108662560493,
       "postgres_pass": 507,
-      "database_run_id": 36333458207,
-      "database_job_id": 108659713065,
+      "database_run_id": 36334469619,
+      "database_job_id": 108662561029,
       "database_migrations": 48,
       "database_verification_files": 42,
-      "web_run_id": 36333458220,
-      "web_job_id": 108659713046,
+      "web_run_id": 36334469611,
+      "web_job_id": 108662560856,
       "result": "PASS_EXACT_CORRECTION_HEAD"
     }
   },
@@ -2373,7 +2373,7 @@
     ],
     "remaining_gate": "Full semantic file coverage and cross-layer/adversarial reconciliation remain incomplete; no global clean verdict.",
     "continuation_report": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
-    "continuation_status": "DOWNSTREAM_COMMERCIAL_TENANT_CORE_SCOPE_SHAPE_VERIFIED_AUDIT_IN_PROGRESS",
+    "continuation_status": "DOWNSTREAM_EFFECTIVE_ROLE_TENANT_CORE_SCOPE_VERIFIED_AUDIT_IN_PROGRESS",
     "source_reading": "S1_AND_S2_COMPLETE_TEXT_READ; 372/372 SOURCE PARENTS OWNER_RECONCILED; DOWNSTREAM CANONICAL/STATE/RUNTIME SEMANTIC CERTIFICATION PENDING",
     "source_span_coverage": "Registers/SOURCE_SPAN_COVERAGE_2026-09-27.json",
     "additional_findings": {
@@ -2425,7 +2425,9 @@
       "VC27-46": "P1 ABAC v1 before/after timestamp literal validation could normalize impossible UTC calendar dates through permissive Date.parse",
       "VC27-47": "P2 WorkspaceService accepted TENANT_CORE carrying hidden Industry Context and silently dropped it from ClientWorkspaceContext",
       "VC27-48": "P2 RequestScopedSql/IdempotencyService truthiness checks could normalize present empty Tenant/Industry scope fields where DD-02 requires exact absence",
-      "VC27-49": "P2 Commercial current-state Tenant-Core guards used truthiness instead of exact Industry absence before Core/store use"
+      "VC27-49": "P2 Commercial current-state Tenant-Core guards used truthiness instead of exact Industry absence before Core/store use",
+      "VC27-50": "P1 GuardPipeline Tenant-Core resource scope used truthiness for Industry ownership evidence",
+      "VC27-51": "P1 effective-role Core/PostgreSQL boundaries accepted TENANT_CORE carrying hidden Industry Context"
     },
     "source_fidelity_correction_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
     "source_fidelity_correction_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
@@ -2456,7 +2458,7 @@
       "SUPERSEDED_WITH_AUTHORITY": 8
     },
     "source_fidelity_remaining_gate": "Source-parent semantic reconciliation is complete at 372/372 owner-reconciled parents with 0 NOT_CERTIFIED. Remaining gate is downstream canonical/state/Development/Database/CI consistency plus adversarial reconciliation; parent counts/provenance do not certify runtime or complete-project correctness.",
-    "final_sync_gate": "Current bounded downstream executable correction basis 599cde0d323f8bdb7f2cfb4c37f09a5674cb5878 / tree 93f79b880492daf9aba967ebc08dd66d1effc8a0 is exact-head verified: Core 724/724, PostgreSQL 507/507, Database 48 migrations / 42 verification files, Web PASS. VC27-49 Commercial Tenant-Core exact-scope correction is included; prior VC27-30…48 corrections remain preserved. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
+    "final_sync_gate": "Current bounded downstream executable correction basis d77c39645d535efc7c57dd928bc530e106b2e109 / tree f66480dc21048128e581948be6a8ef8b55a11c5e is exact-head verified: Core 727/727, PostgreSQL 507/507, Database 48 migrations / 42 verification files, Web PASS. VC27-50 and VC27-51 are included; prior VC27-30…49 corrections remain preserved. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
     "additional_findings_corrections_applied": [
       "VC27-01",
       "VC27-02",
@@ -2492,7 +2494,9 @@
       "VC27-46",
       "VC27-47",
       "VC27-48",
-      "VC27-49"
+      "VC27-49",
+      "VC27-50",
+      "VC27-51"
     ],
     "architecture_state_sync": {
       "head": "5e27fa41cb1fc2099d6033157589a3cf5ebeaeee",
@@ -2689,22 +2693,24 @@
           "VC27-46",
           "VC27-47",
           "VC27-48",
-          "VC27-49"
+          "VC27-49",
+          "VC27-50",
+          "VC27-51"
         ],
-        "head": "599cde0d323f8bdb7f2cfb4c37f09a5674cb5878",
-        "tree": "93f79b880492daf9aba967ebc08dd66d1effc8a0",
+        "head": "d77c39645d535efc7c57dd928bc530e106b2e109",
+        "tree": "f66480dc21048128e581948be6a8ef8b55a11c5e",
         "ci": {
-          "core_run": 36333458179,
-          "core_job": 108659713016,
-          "core_pass": 724,
-          "postgres_job": 108659713218,
+          "core_run": 36334469550,
+          "core_job": 108662560601,
+          "core_pass": 727,
+          "postgres_job": 108662560493,
           "postgres_pass": 507,
-          "database_run": 36333458207,
-          "database_job": 108659713065,
+          "database_run": 36334469619,
+          "database_job": 108662561029,
           "database_migrations": 48,
           "database_verification_files": 42,
-          "web_run": 36333458220,
-          "web_job": 108659713046,
+          "web_run": 36334469611,
+          "web_job": 108662560856,
           "result": "PASS_EXACT_CURRENT_BOUNDED_HEAD"
         },
         "boundary": "Fail-closed REST/Webhook/Document trust floors, exact-Industry API-Credential allowlist parity, strict malformed-instant rejection, DD-191 completion-time parity, exact Document/Workspace/WorkerContext/Commercial scope-shape enforcement, generic EXPLICIT_CROSS_CONTEXT denial, DD-081 event occurrence-time calendar parity, strict ABAC UTC timestamp grammar and exact-null shared DB/idempotency scope semantics only. Dedicated cross-context transfer execution, presented-token/hash/CIDR/profile/use-audit/final machine evidence, final external REST publication, webhook delivery, Integration/provider/sync execution, Workflow/Automation/Notification execution, final Document ACL authorization/signing/retention, AI provider/tool execution and other source-incomplete surfaces remain blocked."
