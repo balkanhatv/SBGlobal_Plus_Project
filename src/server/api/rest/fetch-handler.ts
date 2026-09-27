@@ -202,6 +202,66 @@ function idempotencyKey(request:Request):string|undefined{
   return value;
 }
 
+function sameAuthentication(
+  actual:AuthenticationInput|undefined,
+  expected:AuthenticationInput,
+):boolean{
+  if(!actual || actual.kind!==expected.kind) return false;
+  if(actual.credential!==expected.credential) return false;
+  if(actual.kind==="HUMAN" && expected.kind==="HUMAN"){
+    return actual.deviceRegistrationId===expected.deviceRegistrationId;
+  }
+  return true;
+}
+
+function authoritativeExecutionContext(input:{
+  readonly context:ProtectedRestContext;
+  readonly authentication:AuthenticationInput;
+  readonly ids:{readonly requestId:string;readonly correlationId:string};
+  readonly route:RestRouteResolution;
+  readonly network:RestNetworkFacts;
+}):Omit<ContextResolutionInput,"scopeClass">{
+  const actual=input.context?.executionContext;
+  if(!actual
+    || typeof actual!=="object"
+    || actual.requestId!==input.ids.requestId
+    || actual.correlationId!==input.ids.correlationId
+    || !sameAuthentication(actual.authentication,input.authentication)
+    || actual.tenantSelector!==input.route.tenantSelector
+    || actual.industrySelector!==input.route.industrySelector
+    || actual.orgUnitSelector!==input.route.orgUnitSelector
+    || actual.actorIpHash!==input.network.actorIpHash
+    || actual.networkContext!==input.network.networkContext){
+    throw new RestTransportError({
+      code:"TRANSPORT_CONTEXT_INVALID",
+      messageSafe:"The REST protected context is invalid.",
+      status:503,
+      retryable:true,
+    });
+  }
+
+  return Object.freeze({
+    requestId:input.ids.requestId,
+    correlationId:input.ids.correlationId,
+    authentication:input.authentication,
+    ...(input.route.tenantSelector!==undefined
+      ? {tenantSelector:input.route.tenantSelector}
+      : {}),
+    ...(input.route.industrySelector!==undefined
+      ? {industrySelector:input.route.industrySelector}
+      : {}),
+    ...(input.route.orgUnitSelector!==undefined
+      ? {orgUnitSelector:input.route.orgUnitSelector}
+      : {}),
+    ...(input.network.actorIpHash!==undefined
+      ? {actorIpHash:input.network.actorIpHash}
+      : {}),
+    ...(input.network.networkContext!==undefined
+      ? {networkContext:input.network.networkContext}
+      : {}),
+  });
+}
+
 function headers(correlationId:string,retryAfterSeconds?:number):Headers{
   const result=new Headers({
     "content-type":"application/json; charset=utf-8",
@@ -286,7 +346,7 @@ export function createRestFetchHandler(
 
     const requestMetadata=metadata(request);
     let route:RestRouteResolution;
-    let context:ProtectedRestContext;
+    let executionContext:Omit<ContextResolutionInput,"scopeClass">;
     let network:RestNetworkFacts=Object.freeze({});
     let transportIdempotencyKey:string|undefined;
     try{
@@ -319,7 +379,7 @@ export function createRestFetchHandler(
         ? await ports.network.resolve(requestMetadata)
         : Object.freeze({});
       transportIdempotencyKey=idempotencyKey(request);
-      context=await ports.contexts.authenticate({
+      const context=await ports.contexts.authenticate({
         authentication,
         ...ids,
         route,
@@ -327,15 +387,13 @@ export function createRestFetchHandler(
         idempotencyKey:transportIdempotencyKey,
         network,
       });
-      if(context.executionContext.requestId!==ids.requestId
-        || context.executionContext.correlationId!==ids.correlationId){
-        throw new RestTransportError({
-          code:"TRANSPORT_CONTEXT_INVALID",
-          messageSafe:"The REST protected context is invalid.",
-          status:503,
-          retryable:true,
-        });
-      }
+      executionContext=authoritativeExecutionContext({
+        context,
+        authentication,
+        ids,
+        route,
+        network,
+      });
     }catch(error){
       const failure=normalizedFailure(error);
       return errorResponse({
@@ -358,7 +416,7 @@ export function createRestFetchHandler(
       const result:OperationExecutionResult=await ports.executor.execute({
         operationId:route.operationId,
         rawInput,
-        context:context.executionContext,
+        context:executionContext,
         ...(transportIdempotencyKey?{idempotencyKey:transportIdempotencyKey}:{}),
         ...(network.verifiedRateSubject
           ? {verifiedRateSubject:network.verifiedRateSubject}

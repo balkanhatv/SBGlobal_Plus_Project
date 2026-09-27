@@ -876,6 +876,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | REST-008 | live route/API-key/OpenAPI/webhook/deployment inspection | NOT CLAIMED; adapter floor is not externally mounted |
 | REST-009 | authenticated-context implementation returns substitute idempotency/rate metadata | ignored; executor receives exact transport Idempotency-Key and only the trusted network-port verified rate subject |
 | REST-010 | route resolver returns unsupported/malformed success status | fail closed as transport-contract invalid before authorization/body/input/executor; only 200 or 201 are accepted success statuses |
+| REST-011 | authenticated-context implementation rewrites Authorization-derived authentication, route selectors or trusted network identity/context | fail closed before body/input/executor; executor context is reconstructed only from the original authoritative transport/route/network facts |
 
 
 ### Event envelope / catalog validation — DD-081

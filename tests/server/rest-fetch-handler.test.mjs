@@ -219,6 +219,55 @@ test("REST-010 malformed route success status fails before authentication or exe
   assert.deepEqual(calls,["edge","route"]);
 });
 
+test("REST-011 authenticated context cannot rewrite auth, selector or network authority",async()=>{
+  const trustedNetwork=Object.freeze({
+    actorIpHash:"trusted-ip-hash",
+    networkContext:"trusted-network",
+  });
+  const variants=[
+    {
+      authentication:{kind:"MACHINE",credential:"substituted"},
+      tenantSelector:"tenant-path",
+      actorIpHash:"trusted-ip-hash",
+      networkContext:"trusted-network",
+    },
+    {
+      authentication:{kind:"MACHINE",credential:"opaque"},
+      tenantSelector:"other-tenant",
+      actorIpHash:"trusted-ip-hash",
+      networkContext:"trusted-network",
+    },
+    {
+      authentication:{kind:"MACHINE",credential:"opaque"},
+      tenantSelector:"tenant-path",
+      actorIpHash:"substituted-ip",
+      networkContext:"trusted-network",
+    },
+  ];
+
+  for(const variant of variants){
+    let executed=false;
+    const {handler,calls}=harness({
+      network:{async resolve(){return trustedNetwork}},
+      contexts:{async authenticate(input){calls.push("context");return {
+        executionContext:{
+          requestId:input.requestId,
+          correlationId:input.correlationId,
+          ...variant,
+        },
+      }}},
+      executor:{async execute(){executed=true;throw new Error("must not execute")}},
+    });
+
+    const response=await handler(request());
+    assert.equal(response.status,503);
+    const body=await response.json();
+    assert.equal(body.error.code,"TRANSPORT_CONTEXT_INVALID");
+    assert.equal(executed,false);
+    assert.deepEqual(calls,["edge","route","authorization","context"]);
+  }
+});
+
 test("REST context cannot replace normalized request or correlation identity",async()=>{
   const {handler,calls}=harness({
     contexts:{async authenticate(input){calls.push("context");return {

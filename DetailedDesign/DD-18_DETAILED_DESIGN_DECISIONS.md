@@ -913,8 +913,12 @@ route metadata fails before authorization/body/domain execution. OperationExecut
 supplies scope and every business/security check. The transport-owned Idempotency-Key
 remains the exact executor idempotency
 input, and any already-verified rate subject remains authoritative only when it
-originates from the trusted network port; authenticated-context implementations
-cannot replace either fact. Responses use only DD-052 success/error/control
+originates from the trusted network port. The authenticated-context port may
+verify/build the protected context but cannot replace Authorization-derived
+authentication, route-derived Tenant/Industry/OrgUnit selectors, normalized
+transport ids or trusted network identity/context; the handler exact-matches those
+fields and reconstructs executor context from their original authoritative sources.
+Responses use only DD-052 success/error/control
 projections plus governed HTTP status, correlation, no-store, Retry-After and
 replay headers.
 
@@ -927,7 +931,7 @@ avoids guessed API-key parsing, header authority and parallel REST business logi
 generator, webhook route, deployment policy, database change or Commercial rule is
 introduced. The DD-076 dependent evaluator remains blocked independently.
 
-**Acceptance:** REST-001…008 in DD-17 and
+**Acceptance:** REST-001…011 in DD-17 and
 `tests/server/rest-fetch-handler.test.mjs`.
 
 

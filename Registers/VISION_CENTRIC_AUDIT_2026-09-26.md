@@ -644,3 +644,22 @@ Smallest forward-only correction:
 - add REST-010 acceptance/regression.
 
 No concrete REST route, API-key scheme, OpenAPI publication, operation, SQL/RLS/role/grant or product behavior is added. The external REST plane remains unmounted; DD-208 remains current and DD-209 remains held.
+
+
+## 2026-09-27 downstream REST protected-context authority continuation
+
+Exact-head verification of VC27-31 at `292ba8012ea489dc7fe1b2342478fc033e1e27e1` / tree `5120303f4d1beedb7ea90292f47f7afb98095a8c` passed **708/708 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, and Web.
+
+### VC27-32 — P2: DD-080 authenticated-context port could rewrite auth/selector/network authority
+
+DD-080 gives distinct server-owned sources to Authorization-derived authentication, route-derived Tenant/Industry/OrgUnit selector facts and trusted network/IP identity. The REST handler nevertheless accepted an entire `executionContext` from `contexts.authenticate()` and previously checked only request/correlation ids. A buggy context implementation could therefore substitute the credential/authentication input, Tenant/Industry/OrgUnit selector or network identity/context before `OperationExecutor` performed authoritative DD-02 resolution.
+
+The first-party tRPC implementation does not have this authority inversion: its protected context is constructed from the original authentication/selector/network facts after verification.
+
+Smallest forward-only correction:
+- exact-match returned protected-context authentication, route selectors, request/correlation ids and network facts against their authoritative inputs;
+- fail `TRANSPORT_CONTEXT_INVALID` before body/input/executor on any drift;
+- reconstruct/freeze the executor context from the original authoritative values rather than forwarding the context-port object;
+- add REST-011 regression/acceptance and synchronize DD-080 acceptance range.
+
+No live REST endpoint, route catalog, API-key syntax, OpenAPI publication, SQL/RLS/role/grant, provider/network execution or product operation is added. REST remains unmounted; DD-208 remains current and DD-209 remains held.
