@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-60:** `f1cd4bcf0e663c24d3141be7ee3b2430f9ec9d2c` / tree `42bf719e1ed761640eaca778ecd54558f193c345`
+**Prior tree-qualified verified basis through VC27-61:** `8a2d60bf3a47a49afa028445ca75b168cb171b00` / tree `9a2b6cdd4bc12ea6b12a41e88a6c8e73cc75aaff`
 
-**Current exact-head correction basis:** `8a2d60bf3a47a49afa028445ca75b168cb171b00` / tree `9a2b6cdd4bc12ea6b12a41e88a6c8e73cc75aaff`
+**Current exact-head correction basis:** `84aecd3c1388350a2a535b1d25a49c1b2056f70e` / tree `3c69a725d51c671d4892e2e17a0f666d5ca99076`
 
-**Exact-head gate:** Core 733/733; PostgreSQL 509/509 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 733/733; PostgreSQL 510/510 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -71,6 +71,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-59 — Commercial supporting exact Tenant-Core scope:** six remaining server-only Commercial plan-change evidence/compiler services now reject any present Industry Context on TENANT_CORE before resolver/source/recorder use, including present-empty evidence; lower persistence/RLS is no longer the sole fail-closed layer.
 - **VC27-60 — Authorization durable-audit exact scope:** the privileged final Authorization audit writer now accepts only exact PLATFORM_GLOBAL/TENANT_CORE/TENANT_INDUSTRY single-context shapes and rejects malformed/untyped ownership evidence before RequestScopedSql/INSERT. PUBLIC and EXPLICIT_CROSS_CONTEXT remain separate governed audit paths.
 - **VC27-61 — Authorization durable-audit principal evidence:** every accepted protected single-context Authorization audit write now requires a valid principal UUID before scoped SQL; malformed missing/empty actor identity cannot degrade into nullable generic AuditEvent evidence.
+- **VC27-62 — current governed rate-refill policy:** PostgreSQL rate-limit admission now preserves persisted token/last-refill continuity but applies the current RateLimitStoreRule refill rate and capacity; stale faster persisted operational metadata cannot widen a stricter current rule.
 
 ### Current bounded verdict
 
