@@ -9,6 +9,7 @@
 | F-03 §4; F-14 §5 | A-03/A-04 | 004/007 | DD-03/DD-04 | exact effective-access inputs/results |
 | F-14 §1–§7 | A-04 | 007 | DD-04 | plan/version/subscription/license/snapshot |
 | F-04 | A-05 | 002/008/018 | DD-05 | schema ownership, table conventions, RLS catalog |
+| S2.4 Database Standards | A-05/A-10 | 008/013/017/018 + AC-19 | DD-05/DD-14/DD-17 | PostgreSQL engine authority; singular snake_case physical naming; daily/weekly/monthly backup classes + RCV-007; source integration placement normalized to owning API/Industry layers |
 | F-04 BR-DATA-03 / S2.2 §10A | A-05 §2A + A-09 §4 | 008/012 | DD-05/DD-17 | versioned install/activation baseline materialization; DATA-BOOT-001…005 acceptance; demo remains separate from production truth |
 | F-01 API; F-03 chain | A-06 | 005 | DD-06 | OperationContract, tRPC/REST envelopes |
 | F-04 audit/data | A-06/A-05 | 006 | DD-07 | event/outbox envelope and consumer rules |

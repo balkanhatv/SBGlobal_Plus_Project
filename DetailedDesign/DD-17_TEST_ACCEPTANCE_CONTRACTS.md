@@ -268,6 +268,7 @@ Wave 2 passes only if DD-09/DD-10/DD-11/DD-12/DD-14/DD-16 and the Wave-2 extensi
 | RCV-004 | Rebuildable search/vector projection lost | source truth preserved; rebuild target RTO ≤8h |
 | RCV-005 | Enterprise contract requires tighter objective | versioned contract policy wins |
 | RCV-006 | operator attempts weaker objective without approval | policy validation rejects/records exception workflow |
+| RCV-007 | baseline BackupPolicy for a production Data Home is validated | continuous WAL/PITR is accompanied by scheduled daily, weekly and monthly base/snapshot recovery-point classes; retention/timing may be tightened by policy but none of the three source-required classes is silently omitted |
 
 
 ## 20. Cross-industry Wave-3 isolation tests

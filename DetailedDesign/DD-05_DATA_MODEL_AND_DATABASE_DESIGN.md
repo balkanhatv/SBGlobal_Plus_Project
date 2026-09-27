@@ -25,6 +25,9 @@
 
 Schema ownership is organizational, not an authorization boundary by itself.
 
+### 1A. Physical SQL naming contract (AC-19)
+All PostgreSQL schemas/tables/columns/constraints/indexes use `snake_case`. Physical **table names are singular** and schema-qualified; the existing migration vocabulary (`tenant`, `industry_context`, `org_unit`, `metadata_definition`, etc.) is canonical. No compatibility plural table/view alias is created. New migrations must retain this convention and use explicit deterministic FK/index names. This resolves S2.4's historical “Plural Table Names” line without changing any existing object.
+
 ## 2. Standard column profiles
 ### TenantCoreMutable
 `id uuid PK, tenant_id uuid NOT NULL, row_version bigint NOT NULL DEFAULT 1, created_at timestamptz NOT NULL, created_by uuid?, updated_at timestamptz NOT NULL, updated_by uuid?, deleted_at timestamptz?, deleted_by uuid?`

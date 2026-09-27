@@ -2178,7 +2178,7 @@
       "end_line": 3085,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; specialized database-domain source preserved; engine/naming conflicts explicitly reconciled by UD-TECH-01/AC-19; not database/project certification"
     },
     {
       "unit": "S2.4-U159",
@@ -2188,7 +2188,7 @@
       "end_line": 3089,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; database purpose preserved at F-04/F-11/A-05"
     },
     {
       "unit": "S2.4-U160",
@@ -2198,7 +2198,7 @@
       "end_line": 3103,
       "located_inventory_rows": 14,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Super Admin/Tenant Portal/LIS labels normalized to current Platform/Tenant Management/Industry Experience surfaces without adding apps"
     },
     {
       "unit": "S2.4-U161",
@@ -2208,7 +2208,7 @@
       "end_line": 3109,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MySQL-default/MariaDB/PostgreSQL-future source engine wording superseded by UD-TECH-01; PostgreSQL ACTIVE"
     },
     {
       "unit": "S2.4-U162",
@@ -2218,7 +2218,7 @@
       "end_line": 3119,
       "located_inventory_rows": 7,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; multi-tenant/config/database-driven/modular/scalable/normalized/API-first architecture preserved"
     },
     {
       "unit": "S2.4-U163",
@@ -2228,7 +2228,7 @@
       "end_line": 3137,
       "located_inventory_rows": 15,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source database table-class categories preserved through A-05/DD-05 module/schema ownership; not exact schema certification"
     },
     {
       "unit": "S2.4-U164",
@@ -2238,7 +2238,7 @@
       "end_line": 3145,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; UUID/Tenant/Industry identifiers preserved; Branch/Department identity normalized to typed OrgUnit id/path rather than duplicated identifier systems"
     },
     {
       "unit": "S2.4-U165",
@@ -2248,7 +2248,7 @@
       "end_line": 3153,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; snake_case/FK/index intent preserved; source plural-table convention superseded by recorded AC-19 singular physical table convention; no rename"
     },
     {
       "unit": "S2.4-U166",
@@ -2258,7 +2258,7 @@
       "end_line": 3166,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; soft-delete/audit attribution/timestamps preserved subject to canonical append-only/retention rules"
     },
     {
       "unit": "S2.4-U167",
@@ -2268,7 +2268,7 @@
       "end_line": 3178,
       "located_inventory_rows": 9,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; database performance obligations preserved at A-05/A-10/DD-05; partition/replica decisions evidence-driven; not performance certification"
     },
     {
       "unit": "S2.4-U168",
@@ -2278,7 +2278,7 @@
       "end_line": 3187,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; isolation/encryption/backup/access-log controls preserved; password/API credential ownership remains Core Identity/security"
     },
     {
       "unit": "S2.4-U169",
@@ -2288,7 +2288,7 @@
       "end_line": 3193,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; tenant-configurable residency/regional database/sovereignty mapping preserved through Regional Data Home model"
     },
     {
       "unit": "S2.4-U170",
@@ -2298,7 +2298,7 @@
       "end_line": 3201,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source daily/weekly/monthly backup classes restored explicitly in DD-14 alongside WAL/PITR and RCV-007; recoverability still requires restore evidence"
     },
     {
       "unit": "S2.4-U171",
@@ -2308,7 +2308,7 @@
       "end_line": 3213,
       "located_inventory_rows": 9,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; validation/integrity/migration/seeder/version/rollback/archive/retention governance preserved"
     },
     {
       "unit": "S2.4-U172",
@@ -2318,7 +2318,7 @@
       "end_line": 3224,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; REST/webhook/import/export/queue/scheduler routed to platform integration owners; FHIR/HL7 routed to Healthcare interoperability; no capability dropped"
     },
     {
       "unit": "S2.4-U173",
@@ -2328,7 +2328,7 @@
       "end_line": 3237,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; backward-compatible/integrity-preserving database change policy preserved through A-05/DD-05"
     },
     {
       "unit": "S2.5-U174",

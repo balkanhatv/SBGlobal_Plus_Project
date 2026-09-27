@@ -146,12 +146,12 @@ Health states: HEALTHY, DEGRADED, NOT_READY, DRAINING, FAILED.
 
 ## 14. Backup classes
 - PostgreSQL continuous WAL/PITR.
-- scheduled base/snapshot backup.
+- scheduled base/snapshot backup with explicit **daily, weekly and monthly recovery-point classes** preserved from S2.4; exact clock times, retention counts and storage tier are versioned BackupPolicy concerns and may be tightened by plan/contract/jurisdiction without removing those baseline classes.
 - object storage versioning/snapshots.
 - configuration/secret-reference metadata backup (not plaintext secrets).
 - audit evidence backup according to retention/residency.
 
-Encryption at rest/in transit. Backup location defaults in-region. Cross-region copy only by explicit approved policy.
+Encryption at rest/in transit. Backup location defaults in-region. Cross-region copy only by explicit approved policy. Daily/weekly/monthly snapshot classes complement, rather than weaken or replace, the tighter WAL/PITR and RPO/RTO objectives in §16.
 
 ## 15. Recovery
 Recovery modes:

@@ -218,3 +218,18 @@ Correction is source-evidence only:
 - All other S2.3 NFR/security/testing parent units are mapped to their existing Foundation/Architecture/DD owners without changing behavior.
 
 No RawSource, runtime code, workflow file, dependency, schema, SQL, RLS, role/grant, test or stable requirement ID/count changes in this correction. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains the latest governed development checkpoint; forward development stays held.
+
+
+## 2026-09-27 S2.4 Database Architecture Standards continuation
+
+Fresh reading of S2.4 (Database Architecture Standards, U158–U173) found two concrete source-to-canonical gaps. The database engine conflict was already safely resolved by UD-TECH-01/A-05 (PostgreSQL), but the source naming standard and backup cadence needed explicit reconciliation rather than a generic VERIFIED parent row.
+
+### VC27-11 — P1: S2.4 database naming conflict was unrecorded and source backup cadence was not explicit in Detailed Design
+
+1. **Physical naming conflict.** S2.4 requires `snake_case` and **Plural Table Names**. The current PostgreSQL Detailed Design and all verified migrations consistently use schema-qualified **singular** tables such as `core_tenancy.tenant`, `industry_context`, `org_unit` and `metadata_definition`. No prior D-DECISIONS/ADR/REVIEW_REQUIRED entry recorded that divergence. AC-19 now records the choice to preserve snake_case but retain singular physical table names. Renaming the established 48-migration schema would create high-risk migration/query/test churn with no business, isolation or security gain; plural compatibility aliases would create permanent dual naming. No physical object is renamed by this correction.
+
+2. **Backup cadence omission.** S2.4 explicitly requires Daily, Weekly and Monthly backups plus restore validation/DR. A-10/DD-14 already define stronger continuous WAL/PITR, snapshots, RPO/RTO and restore exercises, but DD-14 did not explicitly preserve the three source cadence classes. DD-14 §14 now requires daily/weekly/monthly scheduled base/snapshot recovery-point classes in addition to WAL/PITR; DD-17 RCV-007 makes their presence an acceptance condition. Exact clock times/retention counts remain versioned policy concerns and may be tightened without deleting those baseline classes.
+
+The same S2.4 reconciliation records: MySQL/MariaDB source-engine wording is historical under UD-TECH-01; Branch/Department identifiers are canonically represented by typed OrgUnits; FHIR/HL7 belong to Healthcare interoperability rather than the physical database layer; and all remaining performance/security/residency/governance/change-policy obligations retain their existing owners.
+
+No RawSource, runtime code, SQL migration, existing table, RLS policy, role/grant, executable test or stable requirement ID/count is changed. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains the latest governed development checkpoint and DD-209 remains held.
