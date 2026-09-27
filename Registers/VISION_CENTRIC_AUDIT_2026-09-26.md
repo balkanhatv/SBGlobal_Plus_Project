@@ -534,3 +534,23 @@ Smallest forward-only correction:
 - add the matching DD-17 acceptance contract.
 
 No route, dispatcher, provider call, secret/signing behavior, SQL/RLS, role/grant, product behavior or DD-209 feature slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required. DD-208 remains the latest governed development checkpoint.
+
+
+## 2026-09-27 downstream Integration necessary-floor adversarial continuation
+
+Exact-head verification of the prior Webhook correction at `c0597607b06c27a76dabce7ae5fb3e43773bbd37` / tree `5e800eaf549225dd8f144e7d9fc043fe7f898929` passed **701/701 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, and Web. The next direct read covered the adjacent DD-164 SyncCursor and DD-166 TenantIntegration Definition/Capability necessary floors.
+
+### VC27-26 — P2: sparse Integration capability arrays bypassed total structural validation
+
+Both helpers intended to reject malformed enabled-capability evidence, but used JavaScript `Array.prototype.every` directly on the input arrays. `every` skips sparse holes. Therefore:
+- a SyncCursor parent Integration with `["orders.sync", <hole>]` could pass the enabled-capability structural predicate because the real code is present and the hole is skipped;
+- a TenantIntegration enabled-capability array and the IntegrationDefinition `capabilityCodes[]` structural check could likewise treat sparse arrays as all-non-empty even though the evidence shape is malformed.
+
+This is the same JavaScript sparse-array fail-open class corrected for DD-163 Webhook allowlists, but it occurs in independently governed DD-164/DD-166 floors. It does not create Integration execution, provider, secret, network, sync or webhook authority; however, it violates the existing necessary-floor requirement that capability entries be real non-empty strings and structural evidence fail closed.
+
+Smallest forward-only correction:
+- materialize capability arrays with `Array.from()` before non-empty-string validation so holes become `undefined` and fail;
+- apply the dense check to Definition `capabilityCodes[]` without inventing a new duplicate policy;
+- add `SYNC-BIND-008` and `INT-SET-CUR-008` regression/acceptance coverage.
+
+No SQL/RLS/role/grant, route, provider selection, credential use, network execution, product feature or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required. DD-208 remains current.

@@ -17,8 +17,9 @@ function hasValidEnabledCapabilities(
   values: readonly string[],
 ): boolean {
   if (!Array.isArray(values)) return false;
-  if (!values.every(isNonEmptyText)) return false;
-  return new Set(values).size === values.length;
+  const materialized = Array.from(values);
+  if (!materialized.every(isNonEmptyText)) return false;
+  return new Set(materialized).size === materialized.length;
 }
 
 /**

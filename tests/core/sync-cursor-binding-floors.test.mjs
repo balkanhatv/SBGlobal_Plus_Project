@@ -202,6 +202,21 @@ test("SYNC-BIND-006 malformed identity and duplicate enabled-capability evidence
   );
 });
 
+test("SYNC-BIND-008 sparse enabled-capability evidence fails closed", () => {
+  const sparseEnabled = [];
+  sparseEnabled[0] = "orders.sync";
+  sparseEnabled.length = 2;
+
+  assert.equal(
+    matchesCurrentSyncCursorBindingFloors(
+      cursor(),
+      integration({enabledCapabilities: Object.freeze(sparseEnabled)}),
+      capability(),
+    ),
+    false,
+  );
+});
+
 test("SYNC-BIND-007 cursor contents, freshness, health/config and direction remain uninterpreted without mutation", () => {
   const candidateCursor = cursor({
     cursorEncryptedOrOpaque: "not-interpreted",

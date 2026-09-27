@@ -2502,6 +2502,9 @@ Sibling, missing or unexpected Industry Context evidence fails; Tenant-Core and 
 ### SYNC-BIND-006 — Malformed identity or duplicate enabled-capability evidence fails closed
 Malformed required UUIDs, blank capability identity or duplicate enabled-capability evidence cannot satisfy the floor.
 
+### SYNC-BIND-008 — Sparse enabled-capability evidence fails closed
+A sparse enabled-capability array, including a hole after an otherwise valid enabled capability, is malformed structural evidence and cannot satisfy the floor.
+
 ### SYNC-BIND-007 — Cursor/provider runtime semantics remain uninterpreted
 Cursor payload, watermark/source version/update time, TenantIntegration health/config/profile and capability direction/event/rate/idempotency/data-class evidence do not create acceptance, and inputs remain unchanged.
 
@@ -2547,6 +2550,9 @@ Duplicate enabled codes or an enabled code absent from the Definition capability
 
 ### INT-SET-CUR-006 — Missing/inactive/wrong/ambiguous enabled capability evidence fails
 For every enabled code, missing evidence, non-ACTIVE evidence, wrong Definition/code tuple or duplicate matching evidence fails closed.
+
+### INT-SET-CUR-008 — Sparse capability arrays fail closed
+A sparse TenantIntegration enabled-capability array or sparse IntegrationDefinition capability-code array is malformed structural evidence and cannot satisfy the floor even when all materialized non-hole values otherwise match.
 
 ### INT-SET-CUR-007 — Unowned runtime semantics remain uninterpreted
 TenantIntegration lifecycle/credential/scope/health/profile and capability direction/OperationContract/event/data/rate/idempotency metadata do not create acceptance; extra non-enabled capability evidence is ignored and inputs remain unchanged.

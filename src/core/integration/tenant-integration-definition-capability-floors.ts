@@ -21,9 +21,16 @@ function isJsonObject(value: unknown): boolean {
   return prototype === Object.prototype || prototype === null;
 }
 
+function hasDenseNonEmptyTextArray(values: readonly string[]): boolean {
+  if (!Array.isArray(values)) return false;
+  const materialized = Array.from(values);
+  return materialized.every(isNonEmptyText);
+}
+
 function hasValidEnabledCapabilities(values: readonly string[]): boolean {
-  if (!Array.isArray(values) || !values.every(isNonEmptyText)) return false;
-  return new Set(values).size === values.length;
+  if (!hasDenseNonEmptyTextArray(values)) return false;
+  const materialized = Array.from(values);
+  return new Set(materialized).size === materialized.length;
 }
 
 /**
@@ -53,8 +60,7 @@ export function matchesCurrentTenantIntegrationDefinitionCapabilityFloors(
 
   if (
     !hasValidEnabledCapabilities(integration.enabledCapabilities)
-    || !Array.isArray(definition.capabilityCodes)
-    || !definition.capabilityCodes.every(isNonEmptyText)
+    || !hasDenseNonEmptyTextArray(definition.capabilityCodes)
     || !Array.isArray(capabilities)
   ) {
     return false;

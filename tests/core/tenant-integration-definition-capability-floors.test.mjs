@@ -196,6 +196,34 @@ test("INT-SET-CUR-006 missing, inactive, wrong-tuple or ambiguous matching capab
   );
 });
 
+test("INT-SET-CUR-008 sparse capability arrays fail closed", () => {
+  const sparseEnabled = [];
+  sparseEnabled[0] = "orders.sync";
+  sparseEnabled.length = 2;
+
+  assert.equal(
+    matchesCurrentTenantIntegrationDefinitionCapabilityFloors(
+      integration({enabledCapabilities: Object.freeze(sparseEnabled)}),
+      definition(),
+      Object.freeze([capability()]),
+    ),
+    false,
+  );
+
+  const sparseDefinitionCodes = [];
+  sparseDefinitionCodes[0] = "orders.sync";
+  sparseDefinitionCodes.length = 2;
+
+  assert.equal(
+    matchesCurrentTenantIntegrationDefinitionCapabilityFloors(
+      integration(),
+      definition({capabilityCodes: Object.freeze(sparseDefinitionCodes)}),
+      Object.freeze([capability()]),
+    ),
+    false,
+  );
+});
+
 test("INT-SET-CUR-007 unrelated integration/capability semantics and extra non-enabled evidence remain uninterpreted without mutation", () => {
   const candidateIntegration = integration({
     status: "REVOKED",
