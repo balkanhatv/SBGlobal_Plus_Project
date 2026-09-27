@@ -82,6 +82,22 @@ test("workspace optional Industry selector is resolved only inside the current T
   assert.deepEqual(result.selectedIndustry,{displayKey:"retail",displayName:"Retail"});
 });
 
+test("WS-BOOT-002 rejects malformed Tenant Core context carrying hidden Industry Context",async()=>{
+  const base=context();
+  const malformed=Object.freeze({...base,industryContextId:randomUUID()});
+  let calls=0;
+  const tenancy={
+    async findMembership(){ calls+=1; throw new Error("must not be called"); },
+    async getTenantById(){ calls+=1; throw new Error("must not be called"); },
+    async resolveIndustryContext(){ calls+=1; throw new Error("must not be called"); },
+  };
+  await assert.rejects(
+    new WorkspaceService(tenancy).resolve({requestContext:malformed}),
+    error=>error instanceof ContextResolutionError && error.code==="MEMBERSHIP_INVALID",
+  );
+  assert.equal(calls,0);
+});
+
 test("workspace fails closed when membership is no longer active",async()=>{
   const ctx=context();
   await assert.rejects(

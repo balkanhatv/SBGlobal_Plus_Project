@@ -538,7 +538,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | ID | Scenario | Expected |
 |---|---|---|
 | WS-BOOT-001 | procedure input attempts tenantId or parallel Tenant authority | exact v1 Zod DTO rejects it; Tenant selector remains transport/server-owned |
-| WS-BOOT-002 | active Tenant Core context resolves workspace with no Industry selector | sanitized Tenant display projection only; internal Tenant/principal/membership IDs are absent |
+| WS-BOOT-002 | exact active Tenant Core context resolves workspace with no Industry selector; malformed Tenant Core carrying Industry Context is rejected before workspace dependency use | sanitized Tenant display projection only for exact Tenant Core; hidden Industry Context cannot be silently dropped or widened |
 | WS-BOOT-003 | optional Industry selector names ACTIVE current-Tenant Industry | sanitized selected Industry projection returned |
 | WS-BOOT-004 | optional Industry selector resolves to sibling Tenant | INDUSTRY_CONTEXT_MISMATCH fail closed |
 | WS-BOOT-005 | membership becomes inactive after RequestContext creation | WorkspaceService revalidation fails closed; stale membership is not trusted |

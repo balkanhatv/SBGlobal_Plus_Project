@@ -998,3 +998,27 @@ This does not add policy operators, ABAC grants, restriction-reducer semantics, 
 publication, SQL/RLS/role/grant changes, transport behavior or DD-209 authority. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream Workspace Tenant-Core scope-shape continuation
+
+### VC27-47 — P2: WorkspaceService accepted TENANT_CORE carrying hidden Industry Context
+
+DD-02 defines TENANT_CORE with tenantId required and industryContextId null by design.
+WS-BOOT-002 owns the Tenant-Core workspace bootstrap service boundary. WorkspaceService
+revalidates membership and Tenant state itself before producing ClientWorkspaceContext, but
+its initial context check required only scopeClass TENANT_CORE plus Tenant/principal/
+membership identifiers.
+
+A malformed/injected RequestContext with scopeClass TENANT_CORE and a present
+industryContextId could therefore reach workspace dependencies. The final client projection
+does not include industryContextId, so the malformed server-owned scope evidence would be
+silently dropped rather than rejected.
+
+Smallest forward-only correction:
+- reject TENANT_CORE when industryContextId is present before any tenancy dependency call;
+- preserve the existing membership/Tenant/current-Tenant Industry selector revalidation;
+- strengthen WS-BOOT-002 with a no-dependency-use regression.
+
+This does not add Industry selection authority, cross-context workflow, new client fields,
+SQL/RLS/role/grant changes, product behavior or DD-209 authority. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
