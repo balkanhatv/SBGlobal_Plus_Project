@@ -337,6 +337,22 @@ test("TCTX-007: Tenant-Core worker cannot carry hidden Industry Context", () => 
   );
 });
 
+test("TCTX-007: runtime WorkerContext scope is a closed protected enum", () => {
+  for (const scopeClass of ["PUBLIC", "PLATFORM_GLOBAL", "UNKNOWN_SCOPE"]) {
+    assert.throws(
+      () => createWorkerContext({
+        tenantId: "tenant-a",
+        servicePrincipalId: "worker-1",
+        correlationId: "correlation-1",
+        dataHomeId: "data-home-in",
+        scopeClass,
+      }),
+      (error) => error instanceof ContextResolutionError
+        && error.code === "RESOURCE_SCOPE_DENY",
+    );
+  }
+});
+
 test("ClientWorkspaceContext excludes server-only risk, roles and credential fields", async () => {
   const { ports } = makePorts();
   const service = new RequestContextService(ports);

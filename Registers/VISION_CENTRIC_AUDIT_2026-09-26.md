@@ -947,3 +947,29 @@ This does not add queue/dead-letter mechanics, worker dispatch, Industry selecti
 cross-context transfer authority, SQL/RLS/role/grant changes, product behavior or DD-209
 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream WorkerContext runtime scope-enum continuation
+
+### VC27-45 — P2: generic WorkerContext trusted the TypeScript scope union without runtime rejection of unsupported/unknown values
+
+DD-02 defines the protected scope classes and the current `WorkerContextInput` deliberately
+excludes PUBLIC and PLATFORM_GLOBAL. VC27-42 separately blocks generic
+EXPLICIT_CROSS_CONTEXT. The constructor is also the runtime boundary that validates persisted
+worker/job scope before freezing it.
+
+Despite that, runtime JavaScript or untyped persistence evidence could supply PUBLIC,
+PLATFORM_GLOBAL or an unknown string. Because `createWorkerContext()` only handled the
+TENANT_INDUSTRY and EXPLICIT_CROSS_CONTEXT special cases, those unsupported values fell
+through and produced a frozen WorkerContext.
+
+Smallest forward-only correction:
+- require runtime scope to be one of TENANT_CORE, TENANT_INDUSTRY or
+  EXPLICIT_CROSS_CONTEXT before any context is emitted;
+- preserve VC27-42's unconditional generic EXPLICIT_CROSS_CONTEXT denial, leaving only
+  TENANT_CORE/TENANT_INDUSTRY usable by this generic constructor;
+- preserve VC27-44's exact Tenant-Core no-Industry shape;
+- extend TCTX-007 for PUBLIC, PLATFORM_GLOBAL and unknown runtime scope evidence.
+
+This does not authorize platform/public workers, add queue/dead-letter mechanics, introduce
+a cross-context worker DTO, change SQL/RLS/roles/grants, alter product behavior or authorize
+DD-209. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

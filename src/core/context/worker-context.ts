@@ -4,6 +4,15 @@ import { ContextResolutionError } from "./errors.js";
 export type WorkerContext = Readonly<WorkerContextInput>;
 
 export function createWorkerContext(input: WorkerContextInput): WorkerContext {
+  if (input.scopeClass !== "TENANT_CORE"
+    && input.scopeClass !== "TENANT_INDUSTRY"
+    && input.scopeClass !== "EXPLICIT_CROSS_CONTEXT") {
+    throw new ContextResolutionError(
+      "RESOURCE_SCOPE_DENY",
+      "Worker execution scope is invalid.",
+    );
+  }
+
   if (!input.tenantId || !input.servicePrincipalId || !input.dataHomeId) {
     throw new ContextResolutionError(
       "TENANT_INVALID",
