@@ -14,7 +14,11 @@ function isValidTimestamp(value: unknown): value is string {
 }
 
 function hasValidIndustryAllowlist(values: readonly string[]): boolean {
-  return values.every(isUuid) && new Set(values).size === values.length;
+  if (!Array.isArray(values)) return false;
+  // Array.prototype.every skips sparse holes. Materialize first so every
+  // position is validated and a hole becomes undefined -> invalid UUID.
+  const dense = Array.from(values);
+  return dense.every(isUuid) && new Set(dense).size === dense.length;
 }
 
 /**

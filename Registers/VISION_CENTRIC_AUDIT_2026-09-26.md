@@ -518,3 +518,19 @@ Current Development/Database state projection `d32f6f824fd5bade4dd247deec5881e73
 - migration 0048 makes definition scope/containment predicates total and fail-closed on null/malformed scope input, with no PUBLIC EXECUTE and executable verification.
 
 **Boundary of this CLEAN result.** This is not a repository-wide PASS and does not imply production readiness. It verifies only the current checkpoint's AI allowlist relationship floors, currently mounted first-party web query surface, associated context/guard/database execution chain, and latest definition-scope hardening. Unmounted external REST route catalogs, machine credential policy, Commercial mutation path, integration/provider execution, webhook runtime, workflow/automation/notification execution, AI provider/tool execution, retention/ACL and other REVIEW_REQUIRED/source-owned seams remain locked and require their own downstream review. DD-208 remains current; DD-209 and effective AI execution remain unauthorized.
+
+
+## 2026-09-27 downstream locked Integration/Webhook seam
+
+### VC27-25 — P2: DD-163 Webhook allowlist validation accepted sparse arrays on the Tenant-Core necessary-floor path
+
+Direct adversarial review of the intentionally unmounted DD-163 Webhook necessary-floor found a deterministic fail-closed defect in `hasValidIndustryAllowlist()`. JavaScript `Array.prototype.every` skips sparse holes; `new Set(sparseArray)` materializes a hole as `undefined` and can still have the same size as the sparse array length. Therefore a one-hole `allowedIndustryContextIds` array could be treated as structurally valid. On the TENANT_CORE branch the allowlist is not otherwise consumed, so an ACTIVE/verified same-Tenant event with a matching webhook-eligible catalog could incorrectly return `true` from the necessary-floor helper despite malformed allowlist evidence.
+
+This does **not** expose a live webhook network path: DD-163 remains only a pure necessary floor and the Webhook dispatcher/filter/endpoint-SSRF/signing/retry/DLQ/network boundary is still BLOCKED by `WEBHOOK_DELIVERY_REMAINING_BOUNDARY_AUDIT.md`. The defect nevertheless violates the helper's fail-closed evidence contract.
+
+Smallest forward-only correction:
+- materialize the allowlist with `Array.from()` before UUID/duplicate validation so sparse holes become `undefined` and fail;
+- add WH-FLOOR-008 regression coverage for sparse, explicit `undefined`, malformed UUID and duplicate allowlists on the TENANT_CORE path;
+- add the matching DD-17 acceptance contract.
+
+No route, dispatcher, provider call, secret/signing behavior, SQL/RLS, role/grant, product behavior or DD-209 feature slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required. DD-208 remains the latest governed development checkpoint.

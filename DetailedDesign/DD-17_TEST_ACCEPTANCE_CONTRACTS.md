@@ -2479,6 +2479,9 @@ EXPLICIT_CROSS_CONTEXT returns false because authoritative source/target endpoin
 ### WH-FLOOR-007 — Unowned delivery semantics remain uninterpreted
 Endpoint URL, event filter, permission profile, secret version, Outbox readiness/status/attempt evidence, catalog ACTIVE/RETIRED lifecycle and retry evidence do not affect this helper, and inputs are not mutated.
 
+### WH-FLOOR-008 — Malformed Industry allowlist fails closed
+A sparse allowlist, a hole/undefined entry, malformed Industry Context UUID or duplicate Industry Context id returns false even for a TENANT_CORE event where the allowlist is otherwise not consumed. Structural evidence validation is total and fail-closed.
+
 ## DD-164 SyncCursor Current-Binding Necessary-Floor Acceptance
 
 ### SYNC-BIND-001 — Exact active Tenant-Industry binding matches

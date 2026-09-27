@@ -247,3 +247,26 @@ test("WH-FLOOR-007 filters, endpoint, profile, secret version, dispatch state an
   assert.equal(Object.isFrozen(candidateEvent), true);
   assert.equal(Object.isFrozen(candidateCatalog), true);
 });
+
+
+test("WH-FLOOR-008 malformed or sparse Industry allowlists fail closed even for Tenant-Core events", () => {
+  const sparse = [];
+  sparse.length = 1;
+  Object.freeze(sparse);
+
+  for (const allowedIndustryContextIds of [
+    sparse,
+    Object.freeze([undefined]),
+    Object.freeze(["not-a-uuid"]),
+    Object.freeze([ids.industryA, ids.industryA]),
+  ]) {
+    assert.equal(
+      matchesWebhookDeliveryNecessaryFloors(
+        subscription({allowedIndustryContextIds}),
+        event(),
+        catalog(),
+      ),
+      false,
+    );
+  }
+});
