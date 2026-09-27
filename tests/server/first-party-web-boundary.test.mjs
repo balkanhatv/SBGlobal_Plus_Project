@@ -191,6 +191,42 @@ test("declared oversized request is denied by metadata edge policy before authen
   assert.equal(authCalls,0);
 });
 
+test("non-JSON media types cannot pass by prefixing application/json",async()=>{
+  let authCalls=0;
+  let executed=false;
+  const {handler}=build({
+    async execute(){executed=true;throw new Error("must not execute")},
+  });
+  const request=new Request(
+    "https://tenant-a.example.com/api/trpc/core.identity.roles.listEffective",
+    {
+      method:"POST",
+      headers:{
+        authorization:"Bearer valid",
+        "content-type":"application/json-evil",
+      },
+      body:"{}",
+    },
+  );
+  const response=await handler(request);
+  assert.equal(response.status,415);
+  assert.equal(executed,false);
+
+  const parameterized=new Request(
+    "https://tenant-a.example.com/api/trpc/core.identity.roles.listEffective",
+    {
+      method:"POST",
+      headers:{
+        authorization:"Bearer valid",
+        "content-type":"application/json; charset=utf-8",
+      },
+      body:"{}",
+    },
+  );
+  const pass=await handler(parameterized);
+  assert.notEqual(pass.status,415);
+});
+
 test("streamed body ceiling denies oversized unknown-length payload after auth but before tRPC parsing",async()=>{
   let executed=false;
   const {handler}=build({async execute(){executed=true;throw new Error("must not execute")}},{maxBodyBytes:1024});

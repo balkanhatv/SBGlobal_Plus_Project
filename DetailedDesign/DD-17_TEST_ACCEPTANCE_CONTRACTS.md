@@ -516,6 +516,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | WEB-EDGE-004 | Content-Length exceeds configured ceiling | 413 before Authorization resolver/body parsing |
 | WEB-EDGE-005 | Content-Length absent but streamed body exceeds ceiling | authentication succeeds first, then 413 before tRPC/schema parsing |
 | WEB-EDGE-006 | same-origin bounded GET/POST | request proceeds through existing tRPC Fetch handler and canonical executor |
+| WEB-EDGE-007 | POST supplies a non-JSON media type that merely begins with `application/json` | 415 before tRPC/schema/domain execution; exact `application/json` media type with optional parameters remains accepted |
 
 
 ### Context bootstrap — DD-057 / DEV-CONTEXT-BOOTSTRAP-001

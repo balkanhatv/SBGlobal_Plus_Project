@@ -1558,3 +1558,22 @@ This does not change Clerk token/session verification, session-version persisten
 policy, device trust/risk behavior, authorization grants, schema/RLS/role/grant state, product
 behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-28 downstream first-party JSON media-type continuation
+
+### VC27-68 — P2: first-party POST content-type prefix check accepted non-JSON media types
+
+DD-06 §27 requires bounded JSON POST metadata at the first-party web edge. The edge policy
+used `contentType.toLowerCase().startsWith("application/json")`, so a direct client could
+supply a non-JSON media type such as `application/json-evil` and pass the pre-execution
+content-type policy solely because its token shared the JSON prefix.
+
+Smallest forward-only correction:
+- parse only the media-type token before optional parameters;
+- require that token to equal `application/json` case-insensitively;
+- preserve normal parameterized JSON such as `application/json; charset=utf-8`;
+- add WEB-EDGE-007 regression proving prefix-smuggling is denied before domain execution.
+
+This does not add cookie authentication/CSRF tokens, routes, body schemas, Tenant selector
+authority, authorization/business semantics, schema/RLS/role/grant changes, product behavior
+or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

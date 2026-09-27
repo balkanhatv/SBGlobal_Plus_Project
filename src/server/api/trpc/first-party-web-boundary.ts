@@ -105,6 +105,11 @@ export interface FirstPartyWebEdgePolicyConfig {
   readonly maxBodyBytes:number;
 }
 
+function isJsonContentType(value:string):boolean{
+  const [mediaType]=value.split(";",1);
+  return mediaType?.trim().toLowerCase()==="application/json";
+}
+
 function normalizeOrigin(value:string):string{
   let url:URL;
   try{
@@ -219,7 +224,7 @@ export class ConfiguredFirstPartyWebEdgePolicy implements FirstPartyTrpcEdgePoli
 
     if(request.method==="POST"){
       const contentType=request.headers.get("content-type");
-      if(contentType && !contentType.toLowerCase().startsWith("application/json")){
+      if(contentType!==null && !isJsonContentType(contentType)){
         policyDenied("The request content type is not allowed.",415);
       }
     }
