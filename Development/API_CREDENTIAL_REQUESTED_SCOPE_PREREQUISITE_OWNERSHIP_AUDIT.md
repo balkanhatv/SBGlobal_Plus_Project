@@ -92,6 +92,7 @@ It must:
 - **APICRED-SCOPE-004** — Tenant-Core credential may reach only an explicitly allowed exact Industry; SERVICE still requires TENANT_INDUSTRY requested-scope allowlist.
 - **APICRED-SCOPE-005** — principal-id mismatch, Tenant mismatch, sibling/non-allowlisted Industry and invalid platform shape fail closed.
 - **APICRED-SCOPE-006** — EXPLICIT_CROSS_CONTEXT and malformed UUID/target shapes fail closed.
+- **APICRED-SCOPE-011** — exact Industry-scoped credential evidence carrying a sibling/different allowed Industry fails closed, mirroring migration 0030's no-widening invariant.
 - **APICRED-SCOPE-007** — lifecycle/hash/CIDR/profile/version/use/currentness evidence is not interpreted and inputs are not mutated.
 
 Expected Core/server suite delta: +7, from 374 to 381. PostgreSQL remains 497.
