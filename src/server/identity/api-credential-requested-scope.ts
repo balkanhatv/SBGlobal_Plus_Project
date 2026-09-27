@@ -3,6 +3,7 @@ import type {
 } from "./api-credential-verification-material.js";
 import type {
   MachinePrincipalMetadata,
+  MachinePrincipalPersistedScopeClass,
 } from "./machine-principal-metadata.js";
 
 export type ApiCredentialRequestedScopeClass =
@@ -32,13 +33,34 @@ function allValidUuids(values: readonly string[]): boolean {
   );
 }
 
+const MACHINE_SCOPE_CLASSES = new Set<MachinePrincipalPersistedScopeClass>([
+  "PLATFORM_GLOBAL",
+  "TENANT_CORE",
+  "TENANT_INDUSTRY",
+  "EXPLICIT_CROSS_CONTEXT",
+]);
+
+function validServiceScopeEvidence(
+  values: readonly MachinePrincipalPersistedScopeClass[] | undefined,
+): readonly MachinePrincipalPersistedScopeClass[] | null {
+  if (!Array.isArray(values)) return null;
+  const dense = Array.from(values);
+  if (!dense.every(
+    (value) => typeof value === "string"
+      && MACHINE_SCOPE_CLASSES.has(value as MachinePrincipalPersistedScopeClass),
+  )) {
+    return null;
+  }
+  return dense;
+}
+
 function serviceAllows(
   principal: MachinePrincipalMetadata,
   scopeClass: Exclude<ApiCredentialRequestedScopeClass, "EXPLICIT_CROSS_CONTEXT">,
 ): boolean {
   if (principal.principalType !== "SERVICE") return principal.principalType === "API_CLIENT";
-  return Array.isArray(principal.allowedScopeClasses)
-    && principal.allowedScopeClasses.includes(scopeClass);
+  const allowed = validServiceScopeEvidence(principal.allowedScopeClasses);
+  return allowed !== null && allowed.includes(scopeClass);
 }
 
 /**

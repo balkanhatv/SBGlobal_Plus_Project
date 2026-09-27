@@ -284,6 +284,32 @@ test("APICRED-SCOPE-008 sparse or non-array allowed Industry evidence fails clos
   );
 });
 
+test("APICRED-SCOPE-009 malformed SERVICE allowed-scope evidence fails closed even when target scope is present", () => {
+  const sparseScopes = [];
+  sparseScopes[0] = "TENANT_CORE";
+  sparseScopes.length = 2;
+
+  for (const allowedScopeClasses of [
+    Object.freeze(sparseScopes),
+    Object.freeze(["TENANT_CORE", "BOGUS"]),
+    Object.freeze(["TENANT_CORE", undefined]),
+  ]) {
+    assert.equal(
+      matchesApiCredentialRequestedScopeFloor(
+        material(),
+        principal({
+          principalType: "SERVICE",
+          serviceCode: "TENANT_SERVICE",
+          owningModule: "Core",
+          allowedScopeClasses,
+        }),
+        target(),
+      ),
+      false,
+    );
+  }
+});
+
 test("APICRED-SCOPE-007 lifecycle, hash, CIDR, profile, version, use and principal-currentness evidence is ignored and inputs stay unchanged", () => {
   const rawMaterial = material({
     status: "REVOKED",

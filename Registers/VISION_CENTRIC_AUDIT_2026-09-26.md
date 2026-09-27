@@ -574,3 +574,22 @@ Smallest forward-only correction:
 - add `APICRED-SCOPE-008` regression/acceptance for sparse and non-array evidence.
 
 Presented-token grammar, verifier/hash execution, CIDR enforcement, permission-profile mapping, successful-use mutation/audit and final `VerifiedMachineEvidence` remain source-incomplete and **BLOCKED** exactly as before. No route, IdentityPort verifier, SQL/RLS, role/grant, product behavior or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required.
+
+
+## 2026-09-27 downstream machine SERVICE scope-evidence continuation
+
+Exact-head verification of the prior API-Credential allowed-Industry correction at `45e1d5643d686a4dfdc62d852e241f77e886ba6f` / tree `38868a91e64e5d7e8c71cfb201b4752cce83ddb9` passed **704/704 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, and Web.
+
+### VC27-28 — P2: malformed SERVICE allowed-scope evidence could satisfy DD-161 requested-scope floor
+
+DD-161 requires SERVICE machine principals to carry the requested scope in persisted `allowedScopeClasses`. Migration 0029 also constrains that array so NULL entries are forbidden and every entry is one of `PLATFORM_GLOBAL`, `TENANT_CORE`, `TENANT_INDUSTRY`, or `EXPLICIT_CROSS_CONTEXT`. The runtime helper, however, only checked `Array.isArray(...)` plus `.includes(requestedScope)`. Therefore malformed raw evidence such as `["TENANT_CORE","BOGUS"]` or a sparse array containing `TENANT_CORE` plus a hole could satisfy the necessary requested-scope floor.
+
+This does not create a live machine-auth route: token grammar/hash verification, CIDR policy, permission-profile mapping, successful-use mutation/audit and final VerifiedMachineEvidence remain locked. It nevertheless violates parity with the migration-owned SERVICE scope evidence contract.
+
+Smallest forward-only correction:
+- materialize SERVICE `allowedScopeClasses` with `Array.from()`;
+- require every materialized entry to be a known migration-owned scope code before testing requested-scope membership;
+- add APICRED-SCOPE-009 regression/acceptance for sparse, explicit undefined and unknown scope entries;
+- do **not** invent a duplicate-free invariant because migration 0029 does not own one.
+
+No route, verifier/hash comparison, CIDR enforcement, permission-profile evaluation, usage mutation/audit, SQL/RLS/role/grant, product feature or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required. DD-208 remains current.
