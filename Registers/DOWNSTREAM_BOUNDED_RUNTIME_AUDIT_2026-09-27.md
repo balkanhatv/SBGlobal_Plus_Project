@@ -1,8 +1,8 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-37:** `576cd7d7963956aac83801cbc259841374225b26` / tree `72ff4fd62f701a8016e18e883c10831e9d031efc`
+**Prior tree-qualified verified basis through VC27-38:** `59ebdc4fee61ec97f70eb2d45b0bb4c2f120f8d7` / tree `5d32cb9e33116d8603190e5dfce2a2816adfbb3e`
 
-**Current exact-head correction basis:** `59ebdc4fee61ec97f70eb2d45b0bb4c2f120f8d7` / tree `5d32cb9e33116d8603190e5dfce2a2816adfbb3e`
+**Current exact-head correction basis:** `b17e9dc4b66617c57449ee3ac180ac1a6d48e0ac` / tree `23c394870febb194ee3f86a3b5ce463d394d01cb`
 
 **Exact-head gate:** Core 713/713; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
@@ -48,6 +48,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-36 — Document physical binding:** current linked StorageObject size/checksum must still match ACTIVE/CLEAN DocumentMeta before private locator metadata is returned. Signing/provider/TTL/authorization/retention remain outside this floor.
 - **VC27-37 — API Credential exact-Industry allowlist parity:** an exact Industry-scoped credential now fails closed when raw `allowedIndustryContextIds` carries any sibling/different Industry, mirroring migration 0030's no-widening invariant. Presented-token parsing/hash verification, CIDR, permission-profile mapping, successful-use mutation/audit and final `VerifiedMachineEvidence` remain blocked.
 - **VC27-38 — strict instant validation:** OperatorElevation current-window, API Credential lifecycle, Webhook verification and TenantIntegration CredentialReference expiry/currentness floors now reject calendar-invalid or timezone-ambiguous timestamps that permissive `Date.parse()` could normalize. Valid explicit UTC/offset instants remain accepted; no execution authority is added.
+- **VC27-39 — DD-191 MediaRequest completion evidence:** generated Document provenance now reuses the strict instant validator for `completedAt`, so calendar-invalid or timezone-ambiguous completion strings cannot satisfy the migration-0031 direct provenance floor. Model/Provider, moderation/licensing, ACL/storage and AI execution remain outside this floor.
 
 ### Current bounded verdict
 
