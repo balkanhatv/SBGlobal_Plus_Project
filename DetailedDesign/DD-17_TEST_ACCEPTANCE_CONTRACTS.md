@@ -52,6 +52,7 @@ without substituting counts or references for substantive runtime acceptance.
 | ID-016 | Clerk custom claim attempts to supply SBGlobal role/permission/entitlement/sessionVersion truth | ignored as authority; current server-owned Core records govern |
 | ID-017 | verified machine evidence omits the requested Tenant scope from allowedScopeClasses | CREDENTIAL_INVALID before Tenant/Industry/directory lookup; no generic cross-context widening |
 | ID-018 | validated Core SessionVersion differs from provider evidence metadata | Tenant RequestContext carries validated Core sessionVersion, consistent with PLATFORM_GLOBAL |
+| ID-019 | current SessionVersion record carries malformed or precision-unsafe version/changed-at evidence | DEPENDENCY_UNAVAILABLE; malformed Core security state cannot bypass stale-session invalidation or enter RequestContext |
 
 ## 3. Authorization
 | ID | Scenario | Expected |

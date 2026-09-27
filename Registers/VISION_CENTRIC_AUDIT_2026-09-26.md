@@ -1533,3 +1533,28 @@ This does not add device enrollment, fingerprint/public-key verification, new ri
 session-version semantics, authorization grants, schema/RLS/role/grant changes, product
 behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-28 downstream SessionVersion exact-evidence continuation
+
+### VC27-67 — P1: malformed/precision-unsafe current SessionVersion evidence could bypass stale-session invalidation
+
+DD-03 / ID-012 require the live provider session creation time to be checked against the exact
+current Core SessionVersion.changed_at, and ID-018 requires the validated Core sessionVersion
+to be projected into RequestContext rather than trusting provider metadata.
+
+SessionSecurityService trusted whichever SessionVersionRecord its port returned. A malformed
+or alternate/injected port could return changedAtMs=NaN, causing the stale-session comparison
+to evaluate false, or return a version/changedAtMs outside JavaScript's exact safe-integer
+range and project precision-lost security evidence. The concrete PostgreSQL reader also maps
+signed bigint values through Number, so fail-closed revalidation at the service boundary is
+required before the evidence can affect session acceptance or RequestContext.
+
+Smallest forward-only correction:
+- require current SessionVersion.version and changedAtMs to be exact JavaScript safe integers;
+- fail malformed/precision-unsafe current security state as DEPENDENCY_UNAVAILABLE;
+- preserve the existing exact provider-session-created-at < changedAtMs stale-session denial;
+- add ID-019/Core regression for NaN and unsafe-integer current SessionVersion evidence.
+
+This does not change Clerk token/session verification, session-version persistence or increment
+policy, device trust/risk behavior, authorization grants, schema/RLS/role/grant state, product
+behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

@@ -56,6 +56,15 @@ export class SessionSecurityService implements SessionSecurityPort {
     }
 
     if (sessionVersion
+      && (!Number.isSafeInteger(sessionVersion.version)
+        || !Number.isSafeInteger(sessionVersion.changedAtMs))) {
+      throw new ContextResolutionError(
+        "DEPENDENCY_UNAVAILABLE",
+        "Session security state is temporarily unavailable.",
+      );
+    }
+
+    if (sessionVersion
       && evidence.providerSessionCreatedAtMs < sessionVersion.changedAtMs) {
       throw new ContextResolutionError(
         "SESSION_INVALID",

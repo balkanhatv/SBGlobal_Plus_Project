@@ -41,6 +41,24 @@ test("session security rejects a provider session created before the internal sc
   }), (error) => error instanceof ContextResolutionError && error.code === "SESSION_INVALID");
 });
 
+test("malformed or precision-unsafe current session-version evidence fails closed", async () => {
+  for (const returned of [
+    { version: Number.NaN, changedAtMs: 1000 },
+    { version: Number.MAX_SAFE_INTEGER + 1, changedAtMs: 1000 },
+    { version: 4, changedAtMs: Number.NaN },
+    { version: 4, changedAtMs: Number.MAX_SAFE_INTEGER + 1 },
+  ]) {
+    const service = new SessionSecurityService(store({
+      async getSessionVersion() { return returned; },
+    }));
+    await assert.rejects(service.validateAndResolve({
+      authentication: human,
+      tenantId: "33333333-3333-3333-3333-333333333333",
+    }), (error) => error instanceof ContextResolutionError
+      && error.code === "DEPENDENCY_UNAVAILABLE");
+  }
+});
+
 test("trusted exact-tenant device and current session epoch produce server-owned security context", async () => {
   const service = new SessionSecurityService(store());
   const result = await service.validateAndResolve({
