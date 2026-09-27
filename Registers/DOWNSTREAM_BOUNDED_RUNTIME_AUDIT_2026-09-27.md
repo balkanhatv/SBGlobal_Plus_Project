@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-43:** `556850b1b4d992b4d0daf9239c16ff45365ab9d3` / tree `69d2f4b0c2b99fc952851c132cf05d6367ba84ae`
+**Prior tree-qualified verified basis through VC27-44:** `e78b610b586a6b41920700026b0d5cdb6a39b740` / tree `00e4bbfbe768bba1f39461713fc9a8a7c28c18df`
 
-**Current exact-head correction basis:** `e78b610b586a6b41920700026b0d5cdb6a39b740` / tree `00e4bbfbe768bba1f39461713fc9a8a7c28c18df`
+**Current exact-head correction basis:** `4a926027b0c7116f2ff73d21f76e5469ea07c1fa` / tree `e619c2d53c0768841aa9aef21276fe92328a51ce`
 
-**Exact-head gate:** Core 717/717; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 718/718; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -54,6 +54,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-42 — generic cross-context WorkerContext denial:** createWorkerContext now rejects EXPLICIT_CROSS_CONTEXT because its generic input lacks DD-02 source+target transfer evidence, projection, permission/policy, legal/audit and idempotency fields. TENANT_INDUSTRY keeps its persisted Industry Context requirement; no transfer worker is invented.
 - **VC27-43 — DD-081 event occurrence-time parity:** the reusable event-envelope validator now rejects impossible ISO-like calendar dates before the existing Date.parse check, matching migration 0030's timestamptz overflow rejection without inventing a new serialization vocabulary. Payload interpretation still runs only after metadata/catalog/scope validation.
 - **VC27-44 — Tenant-Core WorkerContext exact shape:** generic WorkerContext now rejects TENANT_CORE carrying an Industry Context, preserving DD-02's exact Tenant-Core null-Industry contract while retaining VC27-42 generic cross-context denial.
+- **VC27-45 — WorkerContext runtime scope enum:** persisted/untyped worker evidence must use the generic worker's closed protected scope set; PUBLIC, PLATFORM_GLOBAL and unknown scope strings now fail closed before context emission, while EXPLICIT_CROSS_CONTEXT remains separately denied.
 
 ### Current bounded verdict
 
