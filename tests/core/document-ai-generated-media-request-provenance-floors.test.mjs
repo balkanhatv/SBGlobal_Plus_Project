@@ -113,6 +113,27 @@ test("DOCAI-MEDIA-CUR-003 missing, wrong or incomplete MediaRequest evidence fai
     ),
     false,
   );
+  assert.equal(
+    matchesDocumentAIGeneratedMediaRequestProvenanceFloors(
+      document(),
+      mediaRequest({completedAt: "2026-02-30T00:00:00.000Z"}),
+    ),
+    false,
+  );
+  assert.equal(
+    matchesDocumentAIGeneratedMediaRequestProvenanceFloors(
+      document(),
+      mediaRequest({completedAt: "2026-09-25T00:00:01"}),
+    ),
+    false,
+  );
+  assert.equal(
+    matchesDocumentAIGeneratedMediaRequestProvenanceFloors(
+      document(),
+      mediaRequest({completedAt: "2026-09-25T05:30:01+05:30"}),
+    ),
+    true,
+  );
 });
 
 test("DOCAI-MEDIA-CUR-004 Tenant and null-safe Industry mismatches fail closed", () => {

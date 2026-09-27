@@ -3144,7 +3144,7 @@ A non-AI Document with no MediaRequest binding/evidence matches; unexpected requ
 An AI-generated Document matches an exact completed MediaRequest in the same Tenant and null-safe Industry scope, including Tenant-Core.
 
 ### DOCAI-MEDIA-CUR-003 — Required completed request evidence
-Missing request evidence, wrong request id, or absent/invalid completion evidence fails closed.
+Missing request evidence, wrong request id, or absent/invalid completion evidence fails closed. Calendar-invalid or timezone-ambiguous completion timestamps—including values a permissive runtime parser would normalize—are invalid; valid explicit UTC/numeric-offset instants remain acceptable.
 
 ### DOCAI-MEDIA-CUR-004 — Tenant/Industry isolation
 Foreign Tenant, sibling Industry, and null-versus-present Industry mismatch fail closed.

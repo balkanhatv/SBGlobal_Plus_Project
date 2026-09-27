@@ -1,4 +1,5 @@
 import type { PersistedAIMediaRequest } from "../ai/media-request.js";
+import { parseStrictInstant } from "../time/strict-instant.js";
 import type {
   PersistedDocumentAIGeneratedProvenance,
 } from "./ai-generated-provenance.js";
@@ -27,7 +28,7 @@ function sameOptionalString(left: string | undefined, right: string | undefined)
 }
 
 function validCompletedAt(value: unknown): value is string {
-  return typeof value === "string" && Number.isFinite(Date.parse(value));
+  return typeof value === "string" && parseStrictInstant(value) !== null;
 }
 
 function validDocumentShape(document: PersistedDocumentAIGeneratedProvenance): boolean {

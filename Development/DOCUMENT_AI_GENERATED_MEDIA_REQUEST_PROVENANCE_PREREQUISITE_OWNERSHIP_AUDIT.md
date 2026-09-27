@@ -37,7 +37,7 @@ It takes already-loaded DD-190 Document provenance evidence plus optional alread
 
 1. Validate relevant Document identity/Tenant/optional Industry/sensitivity/residency/generated/request-id shape.
 2. For `aiGenerated=false`, require absent `aiMediaRequestId` and no supplied MediaRequest evidence.
-3. For `aiGenerated=true`, require a valid `aiMediaRequestId`, exact referenced request evidence and non-null valid persisted `completedAt`.
+3. For `aiGenerated=true`, require a valid `aiMediaRequestId`, exact referenced request evidence and non-null valid persisted `completedAt`; malformed, calendar-invalid or timezone-ambiguous completion evidence fails closed rather than relying on permissive runtime normalization.
 4. Require exact request id, same Tenant and null-safe exact Industry Context.
 5. Require exact residency string equality; do not trim, case-fold or invent fallback.
 6. Require both sensitivity classes to be known and generated Document rank >= request rank.
@@ -47,7 +47,7 @@ It takes already-loaded DD-190 Document provenance evidence plus optional alread
 
 - **DOCAI-MEDIA-CUR-001**: non-AI Document with no request binding/evidence passes; unexpected request evidence fails.
 - **DOCAI-MEDIA-CUR-002**: exact completed same-scope generated Document/MediaRequest binding passes for Tenant-Industry and Tenant-Core evidence.
-- **DOCAI-MEDIA-CUR-003**: missing request, wrong request id or absent/invalid completion timestamp fails closed.
+- **DOCAI-MEDIA-CUR-003**: missing request, wrong request id or absent/invalid completion timestamp fails closed, including calendar-invalid/timezone-ambiguous strings that a permissive runtime parser might otherwise normalize.
 - **DOCAI-MEDIA-CUR-004**: foreign Tenant, sibling Industry and null-versus-present Industry mismatch fail closed.
 - **DOCAI-MEDIA-CUR-005**: residency mismatch fails; exact equality is required.
 - **DOCAI-MEDIA-CUR-006**: all known sensitivity pairs follow generated-document-rank >= request-rank; unknown classes fail closed.

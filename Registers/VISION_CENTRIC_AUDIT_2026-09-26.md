@@ -797,3 +797,28 @@ CIDR, provider, webhook execution, Integration execution, Workflow/Notification 
 network, SQL/RLS/role/grant, product behavior or DD-209 authority. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream generated-Document MediaRequest timestamp continuation
+
+### VC27-39 — P2: DD-191 completed MediaRequest evidence still used permissive timestamp normalization
+
+The VC27-38 strict-instant sweep corrected four currentness/verification helpers, but the
+DD-191 generated Document → AIMediaRequest provenance helper independently used
+`Date.parse()` for the migration-0031 requirement that the referenced MediaRequest carry
+non-null valid persisted `completedAt`. DD-191's fixed acceptance already requires absent
+or invalid completion evidence to fail closed.
+
+A calendar-invalid or timezone-ambiguous completion string that JavaScript normalizes could
+therefore be treated as valid relationship evidence in direct/injected runtime use.
+
+Smallest forward-only correction:
+- reuse the already-introduced strict instant parser for DD-191 `completedAt`;
+- reject calendar-invalid and zone-less completion strings;
+- preserve valid explicit UTC/numeric-offset completion instants;
+- extend `DOCAI-MEDIA-CUR-003` without changing any other provenance predicate.
+
+This is relationship-evidence validation only. It does not add Model/Provider currentness,
+moderation/licensing semantics, Document ACL/storage/signed-URL authority, MediaRequest
+principal currentness, generation/publication, AI routing/execution, SQL/RLS/role/grant,
+product behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification
+is required.
+
