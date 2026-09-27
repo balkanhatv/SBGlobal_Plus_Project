@@ -1497,6 +1497,7 @@ client could therefore send a malformed/non-canonical Origin such as
 to the configured origin before the allowlist check.
 
 Smallest forward-only correction:
+- treat an explicitly supplied empty Origin as malformed rather than absent;
 - require incoming Origin itself to use HTTPS and contain no credentials, path beyond `/`,
   query or fragment before allowlist comparison;
 - preserve exact configured-origin matching and existing cross-site browser denial;
