@@ -18,6 +18,13 @@ export function createWorkerContext(input: WorkerContextInput): WorkerContext {
     );
   }
 
+  if (input.scopeClass === "TENANT_CORE" && input.industryContextId !== undefined) {
+    throw new ContextResolutionError(
+      "RESOURCE_SCOPE_DENY",
+      "Tenant-Core worker execution cannot carry Industry Context.",
+    );
+  }
+
   if (input.scopeClass === "TENANT_INDUSTRY" && !input.industryContextId) {
     throw new ContextResolutionError(
       "INDUSTRY_CONTEXT_REQUIRED",

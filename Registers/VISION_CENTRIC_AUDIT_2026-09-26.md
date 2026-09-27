@@ -923,3 +923,27 @@ retry/DLQ policy, webhook transport, event catalog entry, SQL/RLS/role/grant, pr
 behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is
 required.
 
+## 2026-09-27 downstream WorkerContext Tenant-Core scope-shape continuation
+
+### VC27-44 — P2: generic WorkerContext accepted TENANT_CORE with hidden Industry Context
+
+DD-02 §2 fixes the single-context ownership shapes: TENANT_CORE requires Tenant ownership
+with `industryContextId` null by design, while TENANT_INDUSTRY requires both Tenant and
+Industry Context. DD-02 §7 requires worker execution to construct WorkerContext from
+persisted job/event scope rather than ambient process state.
+
+After VC27-42 blocked generic EXPLICIT_CROSS_CONTEXT, `createWorkerContext()` still
+accepted a `TENANT_CORE` input carrying an `industryContextId`. That malformed scope
+shape could therefore propagate into downstream worker code even though the canonical
+Tenant-Core contract forbids hidden Industry ownership.
+
+Smallest forward-only correction:
+- reject TENANT_CORE whenever `industryContextId` is present;
+- preserve the existing TENANT_INDUSTRY persisted-Industry requirement;
+- preserve VC27-42 generic EXPLICIT_CROSS_CONTEXT denial;
+- extend TCTX-007 to prove the inverse Tenant-Core shape fails closed.
+
+This does not add queue/dead-letter mechanics, worker dispatch, Industry selection,
+cross-context transfer authority, SQL/RLS/role/grant changes, product behavior or DD-209
+authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+
