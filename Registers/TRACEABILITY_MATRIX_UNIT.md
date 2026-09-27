@@ -102,18 +102,18 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.2-U048 | 8. Dynamic Configuration | 37 | Platform-wide | SD | F-01 | §6 Dynamic/Configuration Model | — | Foundation | VERIFIED |
 | S2.2-U049 | 9. SaaS Website | 70 | Platform-wide | SD | F-06 | §2 | — | Foundation | VERIFIED |
 | S2.2-U050 | 10. Laboratory Website | 55 | Platform + Healthcare | SD | F-07/F-04 | HLT website/data | — | Foundation | VERIFIED |
-| S2.2-U051 | 10A. Production Content, Demo Data & Master Data Policy | 0 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
-| S2.2-U052 | Production Content | 0 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
+| S2.2-U051 | 10A. Production Content, Demo Data & Master Data Policy | 0 | Platform + Industry | SD + canonical normalization | F-04/A-05/A-09/DD-17 | F-04 BR-DATA-03; A-05 §2A; A-09 §4; DATA-BOOT-001…005 | — | MIXED — production baseline auto-materializes for enabled scope; transactional demo data remains separate/governed and never becomes production truth | SOURCE RECONCILED; exact cross-layer acceptance owner recorded |
+| S2.2-U052 | Production Content | 0 | Platform + Industry | SD | F-04/F-06/F-07…F-09/A-08 | production content/assets + enabled surface experience ownership | — | Production-content umbrella; source child lists remain separately traced | SOURCE RECONCILED; no deployment/runtime certification |
 | S2.2-U053 | SaaS Website | 18 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U054 | Laboratory Websites | 17 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U055 | Super Admin Portal | 7 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U056 | 🆕 Tenant Web Portal | 17 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U057 | Mobile Applications | 7 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
-| S2.2-U058 | Realistic Demo Data | 0 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
+| S2.2-U058 | Realistic Demo Data | 0 | Platform + Industry | SD | F-04 §9 + Industry Suite owners | BR-DATA-02/03; demo package class | — | Realistic synthetic demo data preserved and generalized across all current industries without mixing into production truth | SOURCE RECONCILED; demo runtime completeness not certified |
 | S2.2-U059 | Healthcare Data | 15 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U060 | Laboratory Data | 11 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U061 | Medical Data | 14 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
-| S2.2-U062 | Enterprise Master Data | 0 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
+| S2.2-U062 | Enterprise Master Data | 0 | Platform + Industry | SD | F-04 §1–§2/A-05 §2A + Industry Suite owners | master/reference baseline and industry-owned master families | — | Preloaded baseline master/reference intent preserved; tenant/industry-specific master ownership remains scoped | SOURCE RECONCILED; data-volume/runtime completeness not certified |
 | S2.2-U063 | General Masters | 9 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U064 | Identity Masters | 8 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U065 | Organization Masters | 7 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
@@ -123,7 +123,7 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.2-U069 | Workflow Masters | 6 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U070 | Healthcare Standards | 6 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U071 | Media Assets | 6 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
-| S2.2-U072 | Media Asset Generation & Licensing Policy | 0 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
+| S2.2-U072 | Media Asset Generation & Licensing Policy | 0 | Platform + Industry | SD | F-04 §10/A-05 §5 + experience owners | governed media provenance/licensing/production asset pipeline | — | Original/commercially usable/copyright-compliant asset obligation preserved across platform and suites | SOURCE RECONCILED; asset inventory completeness not certified |
 | S2.2-U073 | AI Generation Policy | 20 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U074 | Copyright-Free Fallback Policy | 7 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |
 | S2.2-U075 | Approved Icon Libraries | 4 | Platform + Healthcare | SD | F-04/F-07 | HLT website/data | — | Foundation | VERIFIED |

@@ -9,6 +9,7 @@
 | F-03 §4; F-14 §5 | A-03/A-04 | 004/007 | DD-03/DD-04 | exact effective-access inputs/results |
 | F-14 §1–§7 | A-04 | 007 | DD-04 | plan/version/subscription/license/snapshot |
 | F-04 | A-05 | 002/008/018 | DD-05 | schema ownership, table conventions, RLS catalog |
+| F-04 BR-DATA-03 / S2.2 §10A | A-05 §2A + A-09 §4 | 008/012 | DD-05/DD-17 | versioned install/activation baseline materialization; DATA-BOOT-001…005 acceptance; demo remains separate from production truth |
 | F-01 API; F-03 chain | A-06 | 005 | DD-06 | OperationContract, tRPC/REST envelopes |
 | F-04 audit/data | A-06/A-05 | 006 | DD-07 | event/outbox envelope and consumer rules |
 | F-01 integration | A-06 | 009 | DD-07 | webhook subscription/signature/delivery |

@@ -1108,7 +1108,7 @@
       "end_line": 1015,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source §10A installation-readiness umbrella is now explicit as F-04 BR-DATA-03 → A-05 §2A/A-09 §4 → DD-17 DATA-BOOT-001…005; required production baseline auto-materializes while demo transactions remain separate/governed; not runtime/project certification"
     },
     {
       "unit": "S2.2-U052",
@@ -1118,7 +1118,7 @@
       "end_line": 1019,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; production-content umbrella routes to F-04/F-06/industry experience owners; child content lists remain separately traced; not deployment/runtime certification"
     },
     {
       "unit": "S2.2-U053",
@@ -1178,7 +1178,7 @@
       "end_line": 1106,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; realistic demo-data umbrella preserved by F-04 §9 BR-DATA-02/03 and all-industry demo policy; demo is synthetic/DEMO-flagged/resettable and separate from production truth; not runtime completeness certification"
     },
     {
       "unit": "S2.2-U059",
@@ -1218,7 +1218,7 @@
       "end_line": 1159,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; enterprise master-data umbrella routes to F-04 §1–§2/A-05 §2A plus suite-owned master families; preloaded baseline intent preserved; not volume/runtime certification"
     },
     {
       "unit": "S2.2-U063",
@@ -1318,7 +1318,7 @@
       "end_line": 1269,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; media generation/licensing umbrella preserved by F-04 §10/A-05 §5 and experience owners; not asset-inventory completeness certification"
     },
     {
       "unit": "S2.2-U073",

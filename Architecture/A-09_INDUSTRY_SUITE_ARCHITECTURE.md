@@ -47,11 +47,13 @@ Dependency rules: MS → platform modules: allowed. MS → MS within a suite: vi
 ```
 Current Supported Industry catalog (global directory) → tenant primary industry (+ optional
 enabled industries, F-00 §5) → plan/entitlement grants suite + MS set
-(A-04 §4) → tenant activation workflow: register activation → run seed
-pack → mount routers (A-06 §2) + experience packages (A-08 §4) → assign
-role templates → activation audit record
+(A-04 §4) → tenant activation workflow: register activation → materialize required
+versioned baseline package (seed/reference + applicable master defaults + configuration/templates +
+production content/assets, A-05 §2A) → optionally materialize the separately governed DEMO package
+when demo mode is explicitly enabled (F-04 §9) → mount routers (A-06 §2) + experience packages
+(A-08 §4) → assign role templates → activation audit record → READY/PUBLISHED
 ```
-Deactivation reverses visibility without destroying data (retention per A-05 §7). Activation is idempotent and per-OrgUnit-scopeable where a suite defines branch-level MS enablement (F-12 dimension).
+Deactivation reverses visibility without destroying data (retention per A-05 §7). Activation is idempotent and per-OrgUnit-scopeable where a suite defines branch-level MS enablement (F-12 dimension). Required baseline materialization is part of activation success: if a required package entry fails, the activation remains non-ready/non-published and is resumable; it never exposes a partially populated experience as successfully activated.
 
 ## 5. Cross-Industry Shared Capabilities
 Recurring operational patterns — scheduling/appointments, inventory movements, billing counters, queue/token management, asset registers — exist once as **platform capability primitives** (Core modules or shared libraries with their own schemas). Suites *compose and configure* primitives under their own domain semantics; a primitive never embeds industry vocabulary or industry rules (those live in the MS layer). This is how equal depth avoids nine re-implementations without making any suite the template (LG-03/LG-04 preserved architecturally).

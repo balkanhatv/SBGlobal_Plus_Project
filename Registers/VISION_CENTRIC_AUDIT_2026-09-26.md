@@ -170,3 +170,21 @@ S2.2-U044 states that Healthcare is the flagship, fully built-out vertical and t
 The same corrective slice sharpens U090 Sample Lifecycle to its exact F-07 §1.4 owner, U112 deployment-simplicity mixed disposition to UD-TECH-01/A-10, U124 database/isolation cross-reference ownership, and U129 performance/scalability ownership. No source bytes, requirement IDs/counts, product behavior, runtime code, database object, RLS rule or tests change.
 
 The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. Full S2.2 semantic reconciliation remains **IN PROGRESS**, especially U051/U052/U058/U062/U072 production-content/demo/master/media parent semantics. Forward development remains held at DD-208.
+
+
+## 2026-09-27 S2.2 production-content/data-bootstrap continuation
+
+Fresh reconciliation of S2.2-U051/U052/U058/U062/U072 found one real cross-layer omission: the child lists for content, demo data, masters and media were traced, but §10A's zero-row umbrella requirement — successful installation/activation should deliver a populated production baseline without requiring manual creation of essential baseline records — was not explicit in the canonical data/activation contracts.
+
+### VC27-09 — P1: S2.2 §10A installation-readiness umbrella was not explicit in canonical data/activation contracts
+
+The omission matters because a requirement-count PASS could otherwise coexist with an activation path that reports success before required seed/reference/master/config/content materialization is complete. The source also mentions realistic demo data, but current canonical safety requires demo records to remain synthetic, DEMO-flagged, resettable and separate from production truth; therefore the correction preserves both obligations rather than auto-inserting fake transactional data into production tenants.
+
+Smallest forward-only correction:
+- F-04 adds source-derived BR-DATA-03: successful install/activation materializes required seed/reference data, applicable master defaults, configuration/templates and production content/assets for the enabled scope; failure remains non-ready rather than partially successful.
+- A-05 defines a versioned, idempotent baseline-package manifest and separate optional demo package class.
+- A-09 makes baseline materialization part of Industry activation before READY/PUBLISHED.
+- DD-17 adds DATA-BOOT-001…005 acceptance covering first-run readiness, idempotency, fail-closed partial activation and demo/production separation.
+- DD-19 and the source registers record the exact Source → Foundation → Architecture → DD/Acceptance chain.
+
+No RawSource byte, stable 2,962 requirement ID/count, runtime code, database schema/object, RLS policy, role/grant or existing executable test was changed. The correction commit must pass the normal exact-HEAD Core/PostgreSQL/Database/Web gate before VC27-09 is considered verified. DD-208 remains the latest governed development checkpoint; DD-209 remains held while the complete semantic audit continues.

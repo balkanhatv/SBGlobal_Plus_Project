@@ -315,6 +315,11 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | LOC-002 | Tenant activates valid Country Pack | allowed locale/reference/default configuration only |
 | DATA-ACCESS-001 | portability/export request targets sibling Industry Context | deny; zero foreign rows/documents |
 | DATA-ACCESS-002 | access/export under legal hold/retention restriction | policy-constrained behavior; audit recorded |
+| DATA-BOOT-001 | fresh platform installation or Tenant/Industry activation reaches success/READY | all required versioned baseline-package entries for the enabled scope are materialized before success: required seed/reference data, applicable master defaults, configuration/templates and required production content/assets; no manual creation of essential baseline records is needed |
+| DATA-BOOT-002 | same baseline package/version is re-run after retry/recovery | idempotent success; no duplicate baseline rows and no tenant-customized value is overwritten |
+| DATA-BOOT-003 | required baseline entry fails during installation/activation | activation remains non-ready/non-published; partial state is auditable/resumable; no success claim or experience mount that depends on the missing baseline |
+| DATA-BOOT-004 | production activation has demo package available but demo mode is not enabled | no synthetic transactional demo records are inserted into production truth; normal empty operational state is allowed where no real transactions exist |
+| DATA-BOOT-005 | governed demo mode/import is enabled for a Tenant/Industry | realistic synthetic demo rows are tenant/industry-scoped, `is_demo=true`, resettable/rebuildable, contain no real PII, and are excluded from production KPIs by default |
 | AI-013 | AI API class absent from AIProvisioningSnapshot | deny before provider call |
 | AI-014 | Country Pack changes AI language/reference behavior | allowed only within already-entitled capability set; no permission widening |
 | AI-015 | retired PromptTemplate version invoked | deny; current ACTIVE version required |
