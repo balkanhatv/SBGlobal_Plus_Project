@@ -60,7 +60,7 @@ without substituting counts or references for substantive runtime acceptance.
 | AUTH-004 | valid permission but wrong resource org unit | RESOURCE_SCOPE_DENY |
 | AUTH-005 | valid permission but workflow state invalid | WORKFLOW_STATE_DENY |
 | AUTH-006 | commercial capability absent but upgradeable | UPGRADE_CTA |
-| AUTH-007 | suspended restricted mode read permitted/write denied | RESTRICT/deny write |
+| AUTH-007 | suspended restricted mode: explicit dedicated restricted-operation read is permitted; generic reads/writes remain denied | RESTRICT; allow only the dedicated restricted contract, deny generic read/write |
 | AUTH-008 | high-risk deny | audit record with reason/policy versions |
 
 ## 4. Commercial/entitlement
