@@ -97,6 +97,8 @@ It must:
 
 Expected Core/server suite delta: +7, from 374 to 381. PostgreSQL remains 497.
 
+The +7 count is the original DD-161 baseline target. Later adversarial regressions APICRED-SCOPE-008/009/010/011 are supplemental fail-closed parity coverage and do not rewrite that historical baseline.
+
 ## Explicitly unclaimed
 
 DD-161 does **not**:
