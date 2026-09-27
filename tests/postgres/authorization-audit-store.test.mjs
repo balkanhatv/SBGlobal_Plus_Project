@@ -196,6 +196,43 @@ test("Authorization audit row is invisible from sibling Industry Context under t
   assert.equal(count, 0);
 });
 
+test("Authorization audit writer rejects malformed exact scope before scoped SQL use", async () => {
+  let scopedCalls = 0;
+  const boundaryStore = new PostgresAuthorizationAuditStore({
+    async withContext() {
+      scopedCalls += 1;
+      throw new Error("scoped SQL must not be reached");
+    },
+  }, {
+    now: () => new Date("2026-09-18T06:00:00.000Z"),
+    nextAuditId: () => randomUUID(),
+  });
+
+  for (const requestContext of [
+    {...context(), scopeClass: "TENANT_CORE", industryContextId: ""},
+    {...context(), scopeClass: "TENANT_CORE"},
+    {...context(), tenantId: "", scopeClass: "TENANT_CORE", industryContextId: undefined},
+    {...context(), scopeClass: "TENANT_INDUSTRY", industryContextId: undefined},
+    {...context(), tenantId: "", scopeClass: "TENANT_INDUSTRY"},
+    {...context(), scopeClass: "PLATFORM_GLOBAL", tenantId: "", industryContextId: undefined},
+    {...context(), scopeClass: "PLATFORM_GLOBAL", tenantId: undefined, industryContextId: ""},
+    {...context(), scopeClass: "EXPLICIT_CROSS_CONTEXT"},
+    {...context(), scopeClass: "UNKNOWN_SCOPE"},
+  ]) {
+    await assert.rejects(
+      boundaryStore.append({
+        requestContext,
+        operation,
+        outcome: "DENIED",
+        reasonCode: "RESOURCE_SCOPE_DENY",
+      }),
+      (error) => error?.code === "AUTHORIZATION_AUDIT_UNAVAILABLE",
+    );
+  }
+
+  assert.equal(scopedCalls, 0);
+});
+
 test("runtime application role cannot mutate append-only Authorization audit evidence", async () => {
   await assert.rejects(
     scoped.withContext(context(), (tx) =>

@@ -1350,3 +1350,31 @@ assessment logic, Billing/Workflow producer behavior, public `changePlan`, Comme
 publication semantics, schema/RLS/role/grant changes, product behavior or DD-209 authority.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream Authorization durable-audit exact-scope continuation
+
+### VC27-60 — P1: privileged Authorization audit writer relied on lower scoped-SQL validation for exact RequestContext ownership shape
+
+DD-02 defines exact PLATFORM_GLOBAL/TENANT_CORE/TENANT_INDUSTRY ownership shapes.
+DD-03 §17 / AUTH-015…019 place final durable Authorization decision audit on the existing
+append-only core_audit model under exact RequestContext RLS, while PUBLIC and
+EXPLICIT_CROSS_CONTEXT require separate governed audit entry paths.
+
+PostgresAuthorizationAuditStore rejected PUBLIC and EXPLICIT_CROSS_CONTEXT but did not
+independently validate the remaining runtime ownership shape. Malformed/untyped evidence
+such as TENANT_CORE with a present Industry value, TENANT_INDUSTRY with a missing Industry,
+PLATFORM_GLOBAL with a present Tenant/Industry value, empty Tenant ids or an unsupported
+scope string could reach RequestScopedSql. VC27-48's lower shared scoped-SQL boundary already
+fails closed, so no demonstrated malformed audit row was persisted; however this privileged
+audit append boundary must preserve exact scope itself rather than depend on the lower adapter.
+
+Smallest forward-only correction:
+- accept only exact PLATFORM_GLOBAL, TENANT_CORE and TENANT_INDUSTRY single-context shapes;
+- reject PUBLIC, EXPLICIT_CROSS_CONTEXT, unsupported scope strings, empty required Tenant/
+  Industry ids and any forbidden present ownership field before scoped SQL;
+- add AUTH-020/direct PostgreSQL-store regression proving the lower adapter is not reached;
+- preserve audit payload, outcome/reason, policy/version evidence and append-only SQL behavior.
+
+This does not create PUBLIC/cross-context audit entry paths, add authorization grants,
+change PDP/Guard semantics, schema/RLS/roles/grants, product behavior or DD-209 authority.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+

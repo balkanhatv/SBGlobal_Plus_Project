@@ -55,7 +55,21 @@ export class PostgresAuthorizationAuditStore implements AuthorizationAuditPort {
 
   async append(input: AuthorizationAuditInput): Promise<void> {
     const context = input.requestContext;
-    if (context.scopeClass === "PUBLIC" || context.scopeClass === "EXPLICIT_CROSS_CONTEXT") fail();
+    const scopeValid =
+      (context.scopeClass === "PLATFORM_GLOBAL"
+        && context.tenantId === undefined
+        && context.industryContextId === undefined)
+      || (context.scopeClass === "TENANT_CORE"
+        && typeof context.tenantId === "string"
+        && context.tenantId.length > 0
+        && context.industryContextId === undefined)
+      || (context.scopeClass === "TENANT_INDUSTRY"
+        && typeof context.tenantId === "string"
+        && context.tenantId.length > 0
+        && typeof context.industryContextId === "string"
+        && context.industryContextId.length > 0);
+
+    if (!scopeValid) fail();
 
     const occurredAt = this.runtime.now();
     const auditId = this.runtime.nextAuditId();
