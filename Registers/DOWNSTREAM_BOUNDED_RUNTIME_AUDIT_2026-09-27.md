@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-51:** `d77c39645d535efc7c57dd928bc530e106b2e109` / tree `f66480dc21048128e581948be6a8ef8b55a11c5e`
+**Prior tree-qualified verified basis through VC27-52:** `c0524986435bb00fafa226a9135b8dd838fb52d2` / tree `8c162cf54801468508b7f939b92a16f37224f101`
 
-**Current exact-head correction basis:** `c0524986435bb00fafa226a9135b8dd838fb52d2` / tree `8c162cf54801468508b7f939b92a16f37224f101`
+**Current exact-head correction basis:** `457dbf9faa3cbfd0e7d7032dae89058f69cd7701` / tree `2d7e1cbd7b6d34666af7363d9bdbaf5d98c60a1a`
 
-**Exact-head gate:** Core 728/728; PostgreSQL 507/507 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 729/729; PostgreSQL 507/507 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -62,6 +62,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-50 — GuardPipeline exact-null resource scope:** Tenant-Core resource validation now rejects any present Industry Context value, including empty string, before resource PDP/business rules; non-disclosing RESOURCE_NOT_FOUND semantics remain unchanged.
 - **VC27-51 — effective-role exact Tenant-Core scope:** IdentityRoleQueryService and PostgresEffectiveRoleReadAdapter now independently reject TENANT_CORE carrying Industry Context before role-store/scoped-SQL use; exact CURRENT compiled snapshot semantics remain unchanged.
 - **VC27-52 — tenant rate-limit exact scope:** RateLimitService now validates TENANT_CORE/TENANT_INDUSTRY RequestContext shape against the tenant-scoped OperationContract before bucket construction; malformed empty Tenant, hidden/missing Industry or tenant-scope mismatch cannot skip the mandatory Tenant aggregate bucket.
+- **VC27-53 — Authorization read exact-null scope:** PostgresAuthorizationReadStore now treats any present Tenant/Industry field as invalid where PLATFORM_GLOBAL/TENANT_CORE require exact absence, failing before scoped SQL or CURRENT snapshot/ABAC reads instead of relying on the shared lower SQL guard.
 
 ### Current bounded verdict
 
