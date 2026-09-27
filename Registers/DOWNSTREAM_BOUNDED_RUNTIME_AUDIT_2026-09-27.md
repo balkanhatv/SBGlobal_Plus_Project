@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-53:** `457dbf9faa3cbfd0e7d7032dae89058f69cd7701` / tree `2d7e1cbd7b6d34666af7363d9bdbaf5d98c60a1a`
+**Prior tree-qualified verified basis through VC27-54:** `83695b94525a88123eb8c6986016475b2ed95061` / tree `444c21e95963dbecf30899e641aaf3b74a26e53e`
 
-**Current exact-head correction basis:** `83695b94525a88123eb8c6986016475b2ed95061` / tree `444c21e95963dbecf30899e641aaf3b74a26e53e`
+**Current exact-head correction basis:** `02c803313a73917702858c0bd167cf2b88060aef` / tree `7910a42b041d9a624a5792ff83065509cb7e5f12`
 
-**Exact-head gate:** Core 730/730; PostgreSQL 507/507 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 731/731; PostgreSQL 507/507 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -64,6 +64,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-52 — tenant rate-limit exact scope:** RateLimitService now validates TENANT_CORE/TENANT_INDUSTRY RequestContext shape against the tenant-scoped OperationContract before bucket construction; malformed empty Tenant, hidden/missing Industry or tenant-scope mismatch cannot skip the mandatory Tenant aggregate bucket.
 - **VC27-53 — Authorization read exact-null scope:** PostgresAuthorizationReadStore now treats any present Tenant/Industry field as invalid where PLATFORM_GLOBAL/TENANT_CORE require exact absence, failing before scoped SQL or CURRENT snapshot/ABAC reads instead of relying on the shared lower SQL guard.
 - **VC27-54 — AuthorizationContext exact scope:** PostgresAuthorizationContextAdapter now accepts only generic TENANT_CORE/TENANT_INDUSTRY scope, requires non-empty Tenant, exact Industry absence/presence by scope, and rejects malformed/untyped scope before RequestScopedSql or CURRENT role-snapshot reads.
+- **VC27-55 — Authorization compiler exact scope:** privileged Core compiler publication/invalidation now accepts only TENANT_CORE/TENANT_INDUSTRY tenant targets, rejects any present Industry evidence for TENANT_CORE and any present Tenant/Industry evidence for PLATFORM_GLOBAL, and fails malformed/untyped scope before compiler store use.
 
 ### Current bounded verdict
 
