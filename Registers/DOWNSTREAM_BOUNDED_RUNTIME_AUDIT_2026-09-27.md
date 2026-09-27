@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-66:** `ea68e4e3d50f1457ec80a9214d6095c8807aadd6` / tree `91e09e8b385f007aaaa2a00106c06fcefa6e11ec`
+**Prior tree-qualified verified basis through VC27-67:** `940f5081a7adaa68b75f0c8f1cfe5058f3131036` / tree `ba92e2b74aae407dd932d9cd51916def47e2b953`
 
-**Current exact-head correction basis:** `940f5081a7adaa68b75f0c8f1cfe5058f3131036` / tree `ba92e2b74aae407dd932d9cd51916def47e2b953`
+**Current exact-head correction basis:** `d81dc49e76e5e911d87931fd1bd12aae2decec74` / tree `0993afd410099c6ad86a035fd88aba2fe1599984`
 
-**Exact-head gate:** Core 737/737; PostgreSQL 512/512 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 738/738; PostgreSQL 512/512 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -77,6 +77,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-65 — first-party web Origin canonicalization:** incoming Origin evidence must itself be a canonical HTTPS origin with no credentials/path/query/fragment, and an explicitly supplied empty Origin is malformed; URL normalization can no longer erase disallowed syntax before allowlist comparison.
 - **VC27-66 — exact session-device binding:** SessionSecurityService now revalidates the returned device id, principal and Tenant against the selected session evidence, accepts only exact TRUSTED status, and preserves exact RISK_HOLD → STEP_UP_REQUIRED; alternate/malformed device-port evidence cannot become trusted ABAC environment state.
 - **VC27-67 — exact SessionVersion evidence:** SessionSecurityService now rejects malformed or precision-unsafe current SessionVersion version/changed-at evidence before stale-session comparison or RequestContext projection; alternate/injected invalid session-security state cannot fail open.
+- **VC27-68 — exact first-party JSON media type:** POST content-type validation now compares the parsed media-type token exactly to application/json while retaining optional parameters; prefix-smuggled non-JSON types fail 415 before tRPC/schema/domain execution.
 
 ### Current bounded verdict
 
