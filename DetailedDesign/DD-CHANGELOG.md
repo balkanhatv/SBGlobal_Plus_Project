@@ -451,3 +451,8 @@ Repeated-heading collisions replaced source text with unrelated sections and 34 
 ## 2026-09-27 — correction gate verified / Architecture-state synchronization
 
 Source-fidelity correction `ea371dd1cf11666293b669acc80ab29d3e91ae9f` / tree `327e3aa93088d3eec09a0150b89b29325953ee98` passed 700 Core, 505 PostgreSQL, 48 migrations / 42 SQL verification files and Web on that exact HEAD. Final synchronization also removes stale guard-stage references, aligns snapshot placement with the canonical A-03/A-04 order and updates A-08 suspension UI to F-14/A-04 without granting new recovery access. Runtime, tests, SQL and workflows remain identical to the verified correction parent. The containing commit must pass its own exact-HEAD gate; PR #2 records the observed closure result. Full audit remains IN PROGRESS.
+
+
+## 2026-09-27 — DD acceptance restricted-mode wording correction
+
+Vision-audit continuation found stale overbroad wording in DD-17 AUTH-007. F-14/A-08/DD-04 allow suspended read-only/billing/renewal/export only through explicit dedicated restricted-operation contracts; generic protected reads and writes remain fail-closed. AUTH-007 was tightened accordingly without adding a route, operation ID or product behavior. Exact correction `f709f0227ae416f88ccb7c7fdf8e3e5293209409` / tree `4aada69ebe504e01092f143173559366bd69fcc0` passed **700/700 Core**, **505/505 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database and Web. DD-208 remains the latest governed development checkpoint; full audit remains IN PROGRESS and DD-209 is not authorized.
