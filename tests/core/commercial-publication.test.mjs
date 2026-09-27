@@ -115,6 +115,11 @@ test("Commercial publication service rejects human scope, future apply and dupli
       && error.code==="COMMERCIAL_PUBLICATION_SCOPE_INVALID",
   );
   await assert.rejects(
+    service.publish({requestContext:{...base,industryContextId:""},...common}),
+    error=>error instanceof CommercialPublicationError
+      && error.code==="COMMERCIAL_PUBLICATION_SCOPE_INVALID",
+  );
+  await assert.rejects(
     service.publish({...common,requestContext:base,effectiveAt:new Date("2026-09-20T12:00:00.000Z")}),
     error=>error instanceof CommercialPublicationError
       && error.code==="COMMERCIAL_PUBLICATION_STATE_CONFLICT",

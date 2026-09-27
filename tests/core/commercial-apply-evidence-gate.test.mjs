@@ -190,6 +190,7 @@ test("HUMAN and Industry-scoped contexts cannot reach the store",async()=>{
   for(const requestContext of [
     context({principalType:"HUMAN"}),
     context({scopeClass:"TENANT_INDUSTRY",industryContextId:id()}),
+    context({industryContextId:""}),
   ]){
     let calls=0;
     const b=binding({requestContext});

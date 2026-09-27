@@ -1268,3 +1268,31 @@ This does not add authorization grants, policy operators, Commercial behavior, r
 semantics, cross-context execution, schema/RLS/role/grant changes, product behavior or
 DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream Commercial apply/publication exact-null scope continuation
+
+### VC27-57 — P1: Commercial apply/publication Tenant-Core boundaries used truthiness for forbidden Industry evidence
+
+DD-02 defines TENANT_CORE with Industry Context absent. DD-065 owns an internal
+SERVICE/TENANT_CORE Commercial publication primitive and dedicated PostgreSQL publication
+store. DD-077 independently owns a SERVICE/TENANT_CORE persisted apply-evidence gate.
+
+All three owned boundaries checked forbidden Industry evidence by truthiness. A malformed or
+untyped RequestContext carrying `industryContextId=""` could therefore pass the Core apply
+gate, the Core publication service and the publication store's own pre-SQL scope check.
+VC27-48's shared RequestScopedSql boundary still rejects the malformed context, so no
+demonstrated Subscription/snapshot/outbox/audit mutation occurred; however these privileged
+Commercial boundaries must preserve exact Tenant-Core shape themselves rather than rely on a
+lower database adapter.
+
+Smallest forward-only correction:
+- require `industryContextId === undefined` at the apply-evidence gate;
+- require exact Industry absence at the publication service and publication store;
+- extend Core tests to prove malformed Tenant-Core evidence never reaches the gate/publication
+  store;
+- add a direct PostgreSQL-store regression proving rejection before scoped SQL use.
+
+This does not implement public `changePlan`, Billing/proration, assessment calculation,
+Billing/Workflow producer semantics, new plan-change authority, schema/RLS/role/grant
+changes, product behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web
+verification is required.
+

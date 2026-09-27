@@ -216,7 +216,7 @@ function normalizeFacts(input:readonly CommercialCompiledSnapshotFact[]):readonl
 
 function assertContext(context:RequestContext):void{
   if(context.scopeClass!=="TENANT_CORE"
-    || context.industryContextId
+    || context.industryContextId !== undefined
     || !context.tenantId
     || !context.principalId
     || context.principalType!=="SERVICE"

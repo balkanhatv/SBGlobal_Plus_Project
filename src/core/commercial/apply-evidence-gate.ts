@@ -108,7 +108,7 @@ function fingerprint(value:unknown,label="sourceFingerprint"):string{
   return value;
 }
 function assertContext(context:RequestContext):void{
-  if(context.scopeClass!=="TENANT_CORE" || context.industryContextId
+  if(context.scopeClass!=="TENANT_CORE" || context.industryContextId !== undefined
     || !context.tenantId || !context.principalId || context.principalType!=="SERVICE"
     || !context.dataHomeId || !context.regionCode){
     fail(

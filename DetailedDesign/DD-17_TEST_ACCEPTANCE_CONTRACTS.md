@@ -612,7 +612,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 
 | ID | Scenario | Expected |
 |---|---|---|
-| COMM-PUB-001 | HUMAN / Industry-scoped / missing-current-snapshot caller | rejected before store; SERVICE + TENANT_CORE + current snapshot required |
+| COMM-PUB-001 | HUMAN / Industry-scoped / missing-current-snapshot caller, or TENANT_CORE carries any present Industry Context | rejected before store; SERVICE + exact TENANT_CORE (Industry absent) + current snapshot required |
 | COMM-PUB-002 | duplicate facts/deny entries, invalid type/window, future effectiveAt | payload/state rejected before persistence |
 | COMM-PUB-003 | stale Subscription expectedVersion/source PlanVersion | transaction fails closed; no transition/snapshot/event/audit side effect |
 | COMM-PUB-004 | RequestContext snapshot id/version differs from locked CURRENT snapshot | transaction fails closed as stale |
@@ -835,6 +835,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | COMM-APPLY-GATE-012 | SELF_SERVE producer is not Billing / SALES_ASSISTED producer is not Workflow | fail closed |
 | COMM-APPLY-GATE-013 | compiler role reads evidence | same-Tenant FORCE-RLS only; no evidence mutation |
 | COMM-APPLY-GATE-014 | separate gate then later DD-065 publication | atomic evidence-to-mutation guarantee NOT CLAIMED; same-transaction binding remains later work |
+| COMM-APPLY-GATE-015 | SERVICE TENANT_CORE context carries any present Industry Context, including empty string | COMMERCIAL_APPLY_EVIDENCE_SCOPE_INVALID before evidence-store use |
 
 ### Atomic Commercial evidence→publication — DD-078
 

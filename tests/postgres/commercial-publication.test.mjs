@@ -32,6 +32,22 @@ function context(){
   });
 }
 
+test("publication store rejects Tenant-Core hidden Industry before scoped SQL",async()=>{
+  let scopedCalls=0;
+  const store=new PostgresCommercialPublicationStore({
+    async withContext(){
+      scopedCalls+=1;
+      throw new Error("scoped SQL must not run");
+    },
+  });
+  await assert.rejects(
+    store.publish({requestContext:{...context(),industryContextId:""}}),
+    error=>error instanceof CommercialPublicationError
+      && error.code==="COMMERCIAL_PUBLICATION_SCOPE_INVALID",
+  );
+  assert.equal(scopedCalls,0);
+});
+
 async function prepareApplyEvidence({
   sourcePlanVersionId,
   targetPlanVersionId,
