@@ -38,7 +38,7 @@ This slice does not need a new database schema, route, retry duration, broker, w
 
 Implement one reusable Core validator and contracts that:
 
-1. reject malformed/non-JSON envelopes and invalid required metadata;
+1. reject malformed/non-JSON envelopes and invalid required metadata, including calendar-invalid occurrence-time evidence that a permissive runtime date parser might otherwise normalize;
 2. bind event id/type/version/scope to the authoritative persistence binding;
 3. bind source module and sensitivity to the catalog entry;
 4. enforce PLATFORM_GLOBAL / TENANT_CORE / TENANT_INDUSTRY / EXPLICIT_CROSS_CONTEXT ownership rules and tenant residency;

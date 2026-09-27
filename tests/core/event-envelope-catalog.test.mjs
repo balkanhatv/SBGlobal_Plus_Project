@@ -114,6 +114,21 @@ test("EVT-CAT-002 identity/catalog mismatch fails before payload interpretation"
   assert.deepEqual(trace,[]);
 });
 
+test("EVT-CAT-002 calendar-invalid occurredAt cannot pass by Date.parse normalization",async()=>{
+  const trace=[];
+  const validator=new EventEnvelopeCatalogValidator(payloadValidator(trace));
+  await assert.rejects(
+    validator.validate({
+      envelope:envelope({occurredAt:"2026-02-30T15:00:00.000Z"}),
+      catalog:catalog(),
+      binding:binding(),
+    }),
+    error=>error instanceof EventEnvelopeValidationError
+      && error.message==="The event envelope occurredAt is invalid.",
+  );
+  assert.deepEqual(trace,[]);
+});
+
 test("EVT-CAT-003 Tenant Industry scope requires the exact Industry Context",async()=>{
   const trace=[];
   const validator=new EventEnvelopeCatalogValidator(payloadValidator(trace));

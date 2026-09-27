@@ -884,7 +884,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | ID | Scenario | Expected |
 |---|---|---|
 | EVT-CAT-001 | valid catalog-bound Tenant Core envelope | metadata/catalog/scope validates, then payload-schema port executes |
-| EVT-CAT-002 | event id/type/version/scope or catalog producer/sensitivity mismatch | fail before payload interpretation |
+| EVT-CAT-002 | event id/type/version/scope, catalog producer/sensitivity, or mandatory metadata is malformed/inconsistent; calendar-invalid occurredAt must not pass through permissive runtime normalization | fail before payload interpretation |
 | EVT-CAT-003 | TENANT_INDUSTRY envelope omits or changes authoritative Industry Context | fail before payload interpretation |
 | EVT-CAT-004 | tenant event residency differs from authoritative Tenant residency | fail before payload interpretation |
 | EVT-CAT-005 | EXPLICIT_CROSS_CONTEXT source/target are missing, equal, foreign, or ownership verifier unavailable | fail before payload interpretation |

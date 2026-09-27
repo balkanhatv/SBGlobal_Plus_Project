@@ -899,3 +899,27 @@ This does not implement a cross-context worker/transfer DTO, projection, permiss
 basis, idempotency/audit writer, SQL bypass, RLS change, queue behavior, product behavior or
 DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream event occurrence-time parity continuation
+
+### VC27-43 — P2: DD-081 event occurredAt validation could normalize a calendar-invalid timestamp that migration 0030 rejects
+
+DD-07 defines `occurredAt` as required `timestamptz` event-envelope metadata and DD-081
+owns mandatory time-metadata validation before payload interpretation. Migration 0030 casts
+the persisted envelope value to PostgreSQL `timestamptz` and fails on datetime overflow.
+
+The Core validator used only `Date.parse()`. JavaScript can normalize an impossible
+ISO-like calendar date such as `2026-02-30T15:00:00.000Z` into a different valid instant,
+allowing malformed envelope evidence to pass the reusable pre-payload validator even though
+the database integrity trigger rejects the same date.
+
+Smallest forward-only correction:
+- preserve the existing accepted date-time vocabulary;
+- when an ISO-like YYYY-MM-DD prefix is present, validate the calendar date components before
+  the existing `Date.parse()` check;
+- extend EVT-CAT-002 to prove impossible date normalization fails before payload validation.
+
+This does not choose a new timestamp serialization standard, schema engine, dispatcher,
+retry/DLQ policy, webhook transport, event catalog entry, SQL/RLS/role/grant, product
+behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is
+required.
+
