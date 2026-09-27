@@ -129,6 +129,7 @@ test("non-canonical Origin syntax is rejected before executor even when its norm
   let calls=0;
   const {handler}=build({async execute(){calls++;throw new Error("must not execute")}});
   for(const origin of [
+    "",
     "https://tenant-a.example.com/path",
     "https://tenant-a.example.com/?query=1",
     "https://tenant-a.example.com/#fragment",
