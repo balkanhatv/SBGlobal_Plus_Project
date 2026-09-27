@@ -117,6 +117,13 @@ export class RequestContextService {
       );
     }
 
+    if (input.scopeClass === "EXPLICIT_CROSS_CONTEXT") {
+      throw new ContextResolutionError(
+        "RESOURCE_SCOPE_DENY",
+        "Cross-context access requires a dedicated governed transfer path.",
+      );
+    }
+
     const machineBoundTenantId = authentication.kind === "MACHINE"
       ? authentication.evidence.boundTenantId
       : undefined;

@@ -27,7 +27,7 @@ without substituting counts or references for substantive runtime acceptance.
 | TCTX-005 | resource ID belongs to sibling industry | no auto-switch; deny |
 | TCTX-006 | disabled industry activation with stale client cache | deny after server re-resolution |
 | TCTX-007 | worker job missing persisted required context | reject/dead-letter; no default tenant/context |
-| TCTX-008 | explicit cross-context workflow without dedicated permission | deny |
+| TCTX-008 | generic RequestContext resolution requests EXPLICIT_CROSS_CONTEXT without the dedicated source+target transfer contract and permission/policy | RESOURCE_SCOPE_DENY; no generic Tenant/Industry lookup or cross-context widening |
 
 ## 2. Identity/session/device/API credential
 | ID | Scenario | Expected |

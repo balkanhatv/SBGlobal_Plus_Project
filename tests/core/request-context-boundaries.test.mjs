@@ -50,6 +50,34 @@ test("machine credentials cannot enter an unlisted Tenant Core or Industry scope
   }
 });
 
+test("TCTX-008 generic resolver denies explicit cross-context without the dedicated transfer contract",async()=>{
+  {
+    const {service,calls}=fixture();
+    await assert.rejects(
+      service.resolve({
+        ...input("EXPLICIT_CROSS_CONTEXT"),
+        authentication:{kind:"HUMAN",credential:"session"},
+      }),
+      error=>error instanceof ContextResolutionError
+        && error.code==="RESOURCE_SCOPE_DENY",
+    );
+    assert.equal(calls.includes("tenant"),false);
+  }
+
+  {
+    const {service,calls}=fixture({
+      scopes:["EXPLICIT_CROSS_CONTEXT"],
+      principalType:"SERVICE",
+    });
+    await assert.rejects(
+      service.resolve(input("EXPLICIT_CROSS_CONTEXT")),
+      error=>error instanceof ContextResolutionError
+        && error.code==="RESOURCE_SCOPE_DENY",
+    );
+    assert.deepEqual(calls,["identity"]);
+  }
+});
+
 test("explicitly allowed machine scopes retain existing Tenant and Industry bindings",async()=>{
   for(const principalType of ["API_CLIENT","SERVICE"]){
     for(const scope of ["TENANT_CORE","TENANT_INDUSTRY"]){

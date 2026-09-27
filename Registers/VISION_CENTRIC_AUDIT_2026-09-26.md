@@ -848,3 +848,31 @@ This does not add ACL evaluation, signer/TTL/provider behavior, storage authorit
 permission mapping, SQL/RLS/role/grant changes, product behavior or DD-209 authority.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream generic cross-context resolution continuation
+
+### VC27-41 — P1: generic RequestContextService could construct EXPLICIT_CROSS_CONTEXT without the dedicated transfer contract
+
+DD-02 defines `EXPLICIT_CROSS_CONTEXT` as a governed transfer path requiring an active
+source context, explicit target context, transfer contract and dedicated permission/policy.
+The generic `ContextResolutionInput` exposes only one `industrySelector` and contains no
+source/target pair, transfer purpose/resource/projection evidence or dedicated policy result.
+
+Despite that, the generic RequestContextService treated EXPLICIT_CROSS_CONTEXT as a
+Tenant+Industry scope. A HUMAN session could therefore resolve one Industry and receive a
+frozen RequestContext labeled EXPLICIT_CROSS_CONTEXT without the DD-02 transfer contract.
+Valid `VerifiedMachineEvidence` already excludes EXPLICIT_CROSS_CONTEXT at the type
+boundary, but forged/out-of-contract evidence carrying that string could also pass the
+generic allowlist check.
+
+Smallest forward-only correction:
+- preserve the existing machine requested-scope allowlist check first;
+- then unconditionally deny EXPLICIT_CROSS_CONTEXT in the generic resolver with
+  non-disclosing `RESOURCE_SCOPE_DENY`;
+- prove HUMAN and forged machine requests stop before Tenant lookup;
+- leave future dedicated cross-context source/target resolution to its separately governed
+  contract rather than inventing it here.
+
+This does not implement a cross-context workflow, permission, projection, SQL bypass,
+RLS change, audit writer, product behavior or DD-209 authority. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
