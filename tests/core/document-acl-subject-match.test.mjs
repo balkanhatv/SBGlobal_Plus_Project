@@ -199,3 +199,44 @@ test("DOC-ACL-MATCH-006 malformed context or cross-document evidence fails close
       && error.code === "ACL_MATCH_INPUT_INVALID",
   );
 });
+
+
+test("DOC-ACL-MATCH-007 sparse role or OrgUnit identity evidence fails closed even when a valid matching subject is present", () => {
+  const matcher = new DocumentAclSubjectMatcher();
+
+  const sparseRoles = [ids.roleA];
+  sparseRoles.length = 2;
+  Object.freeze(sparseRoles);
+  assert.throws(
+    () => matcher.match({
+      requestContext: context({roleIds: sparseRoles}),
+      documentId: ids.document,
+      permission: "DOWNLOAD",
+      entries: [entry({
+        subjectType: "ROLE",
+        subjectId: ids.roleA,
+        permission: "DOWNLOAD",
+      })],
+    }),
+    (error) => error instanceof DocumentAclSubjectMatchError
+      && error.code === "ACL_MATCH_CONTEXT_INVALID",
+  );
+
+  const sparseOrgPath = [ids.orgRoot, ids.orgLeaf];
+  sparseOrgPath.length = 3;
+  Object.freeze(sparseOrgPath);
+  assert.throws(
+    () => matcher.match({
+      requestContext: context({orgUnitPath: sparseOrgPath}),
+      documentId: ids.document,
+      permission: "SHARE",
+      entries: [entry({
+        subjectType: "ORG_UNIT",
+        subjectId: ids.orgRoot,
+        permission: "SHARE",
+      })],
+    }),
+    (error) => error instanceof DocumentAclSubjectMatchError
+      && error.code === "ACL_MATCH_CONTEXT_INVALID",
+  );
+});

@@ -55,10 +55,17 @@ function assertResolvedTenantContext(context: RequestContext): void {
     contextInvalid("Document ACL subject matching requires a resolved single-Tenant context.");
   }
 
-  if (!Array.isArray(context.roleIds)
-    || !context.roleIds.every((id) => typeof id === "string" && UUID_PATTERN.test(id))
-    || !Array.isArray(context.orgUnitPath)
-    || !context.orgUnitPath.every((id) => typeof id === "string" && UUID_PATTERN.test(id))) {
+  const roleIds = Array.isArray(context.roleIds)
+    ? Array.from(context.roleIds)
+    : undefined;
+  const orgUnitPath = Array.isArray(context.orgUnitPath)
+    ? Array.from(context.orgUnitPath)
+    : undefined;
+
+  if (!roleIds
+    || !roleIds.every((id) => typeof id === "string" && UUID_PATTERN.test(id))
+    || !orgUnitPath
+    || !orgUnitPath.every((id) => typeof id === "string" && UUID_PATTERN.test(id))) {
     contextInvalid("Document ACL subject context is malformed.");
   }
 }

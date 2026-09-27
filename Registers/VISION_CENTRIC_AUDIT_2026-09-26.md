@@ -681,3 +681,21 @@ Smallest forward-only correction:
 - add `WH-FLOOR-009` regression/acceptance.
 
 Endpoint/filter interpretation, permission profile, secret/signing, SSRF/DNS/redirect control, dispatcher claim/lease/readiness, retry/DLQ/replay, EXPLICIT_CROSS_CONTEXT composition and network delivery remain **BLOCKED**. No route, network call, SQL/RLS/role/grant, product feature or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required; DD-208 remains current.
+
+
+## 2026-09-27 downstream Document ACL subject-context continuation
+
+Exact-head verification of VC27-33 at `8138637f101e7966d34da93ff6b41f46ba998da2` / tree `c7c3dbc130b271dbe4d0483f9094b52d3c080c57` passed **710/710 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, and Web.
+
+### VC27-34 — P2: DD-085 sparse role/OrgUnit identity arrays bypassed total RequestContext validation
+
+DD-085 deliberately matches ACL ROLE and ORG_UNIT subjects only against server-resolved `RequestContext.roleIds` and `orgUnitPath`, and its acceptance requires malformed context to fail closed. The matcher validated both arrays with JavaScript `Array.prototype.every` directly. Because `every` skips sparse holes, malformed evidence such as `[authorizedRoleId, <hole>]` or `[ancestorOrgUnitId, <hole>]` could pass the structural check; the later `.includes(...)` subject match could then return matching ACL evidence from the valid element.
+
+The matcher still does not make the final authorization decision, but returning matching subject evidence from a malformed server identity context violates DD-085's trust boundary and can become unsafe when later ACL reduction is introduced.
+
+Smallest forward-only correction:
+- require real arrays and materialize `roleIds` / `orgUnitPath` with `Array.from()` before validating every position as a UUID;
+- sparse holes become `undefined` and fail as `ACL_MATCH_CONTEXT_INVALID`;
+- add `DOC-ACL-MATCH-007` regression/acceptance for a valid matching subject plus a sparse hole.
+
+ACL `effect`, `validUntil`, operation→ACL permission mapping, source-resource inheritance/fallback and final ALLOW/DENY authorization remain deliberately **UNINTERPRETED/BLOCKED**. No route, signer, storage access, SQL/RLS/role/grant, product behavior or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required; DD-208 remains current.

@@ -934,6 +934,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | DOC-ACL-MATCH-004 | matched rows contain expired/future validUntil and ALLOW/DENY | values are preserved; no expiry/effect interpretation |
 | DOC-ACL-MATCH-005 | no subject matches | empty evidence; no access decision is invented |
 | DOC-ACL-MATCH-006 | unresolved context or cross-document evidence | fail closed |
+| DOC-ACL-MATCH-007 | sparse `roleIds` or `orgUnitPath` contains an otherwise matching valid UUID plus a hole | fail closed as malformed RequestContext; no ACL subject evidence is returned |
 
 
 ### Linked physical Document StorageObject binding — DD-086
