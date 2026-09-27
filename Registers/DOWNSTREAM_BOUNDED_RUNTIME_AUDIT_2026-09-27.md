@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-41:** `d70f45c050dd7d33f0e1fad7140199a453884c80` / tree `586c93e68fc56d9d6ad51e12a684aef746447c1f`
+**Prior tree-qualified verified basis through VC27-42:** `1c6200bb309780aa53ddeefc82b0d994c695ca26` / tree `9b7697cd020ddbeb41faa94d7b6f135972bf8511`
 
-**Current exact-head correction basis:** `1c6200bb309780aa53ddeefc82b0d994c695ca26` / tree `9b7697cd020ddbeb41faa94d7b6f135972bf8511`
+**Current exact-head correction basis:** `556850b1b4d992b4d0daf9239c16ff45365ab9d3` / tree `69d2f4b0c2b99fc952851c132cf05d6367ba84ae`
 
-**Exact-head gate:** Core 715/715; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 716/716; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -52,6 +52,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-40 — DD-082 resolved Document context shape:** the Core pre-sign candidate boundary now rejects TENANT_CORE contexts carrying an Industry Context before metadata dependency use, rather than relying on the concrete PostgreSQL adapter to reject the malformed shape. ACL evaluation/signing/storage authority remain outside this floor.
 - **VC27-41 — generic cross-context RequestContext denial:** the generic resolver now denies EXPLICIT_CROSS_CONTEXT after authentication/scope allowlist checks and before Tenant lookup because DD-02 requires a dedicated source+target transfer contract plus permission/policy that the generic ContextResolutionInput does not carry. No cross-context workflow is invented.
 - **VC27-42 — generic cross-context WorkerContext denial:** createWorkerContext now rejects EXPLICIT_CROSS_CONTEXT because its generic input lacks DD-02 source+target transfer evidence, projection, permission/policy, legal/audit and idempotency fields. TENANT_INDUSTRY keeps its persisted Industry Context requirement; no transfer worker is invented.
+- **VC27-43 — DD-081 event occurrence-time parity:** the reusable event-envelope validator now rejects impossible ISO-like calendar dates before the existing Date.parse check, matching migration 0030's timestamptz overflow rejection without inventing a new serialization vocabulary. Payload interpretation still runs only after metadata/catalog/scope validation.
 
 ### Current bounded verdict
 
