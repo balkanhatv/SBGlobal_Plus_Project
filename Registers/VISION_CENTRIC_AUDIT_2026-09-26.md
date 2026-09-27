@@ -1208,3 +1208,36 @@ This does not implement cross-context authorization, add grants, change compiler
 semantics, alter schema/RLS/roles/grants, product behavior or DD-209 authority. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream Authorization compiler exact-scope continuation
+
+### VC27-55 — P1: privileged Authorization compiler service used truthiness for forbidden scope fields and trusted its TypeScript tenant-scope union
+
+DD-02 defines exact PLATFORM_GLOBAL/TENANT_CORE/TENANT_INDUSTRY ownership shapes.
+DD-041/DEV-AUTHZ-COMPILER-001 own monotonic compiled-snapshot publication, and DD-048
+requires exact physical Tenant/Industry source scope before publication.
+
+The Core AuthorizationCompilerService validated target Tenant/principal ids and matched the
+context scope to the target, but:
+- TENANT_CORE rejected Industry evidence by truthiness, so a present empty-string Industry
+  value could be treated as absent;
+- PLATFORM_GLOBAL likewise rejected Tenant/Industry evidence by truthiness, so present empty
+  values could be treated as absent;
+- an untyped/JavaScript caller could supply the same unsupported scope string on both
+  RequestContext and Tenant target, allowing it to fall through the compile-target branch
+  until the lower SQL boundary rejected it.
+
+The concrete RequestScopedSql boundary currently fails closed, so no demonstrated cross-
+Tenant/Industry snapshot publication occurred. However the privileged Core compiler
+publication/invalidation boundary must preserve exact scope itself rather than depend on a
+lower adapter.
+
+Smallest forward-only correction:
+- accept only TENANT_CORE or TENANT_INDUSTRY for Tenant compiler targets at runtime;
+- require exact Industry absence for TENANT_CORE, including present empty/null-like evidence;
+- require exact Tenant/Industry absence for PLATFORM_GLOBAL;
+- extend Core acceptance to prove malformed scope fails before compiler store use.
+
+This does not add grants, compiler source rules, permission operators, snapshot semantics,
+RLS/role/grant changes, cross-context authority, product behavior or DD-209 authority.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+

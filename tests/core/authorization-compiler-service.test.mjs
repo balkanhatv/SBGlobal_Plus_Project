@@ -125,6 +125,74 @@ test("compiler rejects non-service actors, sibling scope, malformed policy data 
   }
 });
 
+test("compiler fails closed on malformed runtime scope shape before store use", async () => {
+  {
+    const { service, calls } = fixture();
+    await assert.rejects(
+      service.publishTenant({
+        requestContext: {
+          ...tenantContext,
+          scopeClass: "TENANT_CORE",
+          industryContextId: "",
+        },
+        target: {
+          tenantId: tenantContext.tenantId,
+          principalId: target.principalId,
+          scopeClass: "TENANT_CORE",
+        },
+        roleIds: [],
+        permissionSet: { permissions: [] },
+        sourceFingerprint: "tenant-core-malformed-scope",
+      }),
+      (error) => error instanceof AuthorizationCompilerWriteError
+        && error.code === "AUTHORIZATION_COMPILER_SCOPE_INVALID",
+    );
+    assert.deepEqual(calls, []);
+  }
+
+  {
+    const { service, calls } = fixture();
+    await assert.rejects(
+      service.publishTenant({
+        requestContext: { ...tenantContext, scopeClass: "UNKNOWN_SCOPE" },
+        target: { ...target, scopeClass: "UNKNOWN_SCOPE" },
+        roleIds: [],
+        permissionSet: { permissions: [] },
+        sourceFingerprint: "unknown-tenant-scope",
+      }),
+      (error) => error instanceof AuthorizationCompilerWriteError
+        && error.code === "AUTHORIZATION_COMPILER_SCOPE_INVALID",
+    );
+    assert.deepEqual(calls, []);
+  }
+
+  {
+    const { service, calls } = fixture();
+    await assert.rejects(
+      service.publishPlatform({
+        requestContext: {
+          requestId: "request-platform-malformed",
+          correlationId: "correlation-platform-malformed",
+          tenantId: "",
+          industryContextId: "",
+          principalId: "41000000-0000-0000-0000-000000000040",
+          principalType: "SERVICE",
+          orgUnitPath: Object.freeze([]),
+          roleIds: Object.freeze([]),
+          scopeClass: "PLATFORM_GLOBAL",
+        },
+        target: { principalId: "41000000-0000-0000-0000-000000000041" },
+        roleIds: [],
+        permissionSet: { permissions: [] },
+        sourceFingerprint: "platform-malformed-scope",
+      }),
+      (error) => error instanceof AuthorizationCompilerWriteError
+        && error.code === "AUTHORIZATION_COMPILER_SCOPE_INVALID",
+    );
+    assert.deepEqual(calls, []);
+  }
+});
+
 test("platform compiler requires service PLATFORM_GLOBAL context and keeps target separate from actor", async () => {
   const { service, calls } = fixture();
   const requestContext = Object.freeze({

@@ -404,6 +404,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | AUTH-023 | RolePermission version differs from active RoleTemplate version or permission scope differs from target | compilation fails closed and current compiled snapshot is invalidated where possible |
 | AUTH-024 | identical canonical source is compiled repeatedly | deterministic sorted role/permission payload and deterministic SHA-256 source fingerprint |
 | AUTH-025 | compiler runtime attempts source mutation | database privilege denial; compiler may SELECT source and mutate only governed compiled publication tables |
+| AUTH-026 | compiler publication/invalidation receives malformed or untyped scope evidence: TENANT_CORE carries any Industry field, PLATFORM_GLOBAL carries any Tenant/Industry field, or Tenant target scope is unsupported | AUTHORIZATION_COMPILER_SCOPE_INVALID before compiler store/SQL use; exact snapshot publication authority is not widened |
 
 
 ### API idempotency runtime — DD-049 / DEV-API-IDEMPOTENCY-001

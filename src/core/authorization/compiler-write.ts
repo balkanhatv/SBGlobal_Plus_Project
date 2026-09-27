@@ -161,6 +161,10 @@ function assertTenantTarget(
   const membershipId = optionalUuid(target.membershipId, "target membershipId");
   const orgUnitId = optionalUuid(target.orgUnitId, "target orgUnitId");
 
+  if (target.scopeClass !== "TENANT_CORE" && target.scopeClass !== "TENANT_INDUSTRY") {
+    compilerError("AUTHORIZATION_COMPILER_SCOPE_INVALID", "Compiler Tenant target scope is invalid.");
+  }
+
   if (context.scopeClass !== target.scopeClass
     || context.tenantId !== tenantId
     || !context.dataHomeId
@@ -169,7 +173,7 @@ function assertTenantTarget(
   }
 
   if (target.scopeClass === "TENANT_CORE") {
-    if (context.industryContextId || industryContextId) {
+    if (context.industryContextId !== undefined || industryContextId !== undefined) {
       compilerError("AUTHORIZATION_COMPILER_SCOPE_INVALID", "Tenant Core compiler target cannot carry Industry Context.");
     }
   } else if (!industryContextId || context.industryContextId !== industryContextId) {
@@ -192,8 +196,8 @@ function assertPlatformTarget(
 ): PlatformAuthorizationCompilerTarget {
   assertCompilerActor(context);
   if (context.scopeClass !== "PLATFORM_GLOBAL"
-    || context.tenantId
-    || context.industryContextId) {
+    || context.tenantId !== undefined
+    || context.industryContextId !== undefined) {
     compilerError("AUTHORIZATION_COMPILER_SCOPE_INVALID", "Compiler platform scope is invalid.");
   }
   return Object.freeze({ principalId: uuid(target.principalId, "target principalId") });
