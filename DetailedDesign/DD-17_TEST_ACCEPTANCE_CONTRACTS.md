@@ -2441,6 +2441,9 @@ The persisted allowed-Industry list must be an array whose materialized entries 
 ### APICRED-SCOPE-010 — Duplicate allowed-Industry evidence fails closed
 Migration 0030 requires `allowed_industry_context_ids` to be unique. A raw allowed-Industry array containing the same valid Industry Context id more than once therefore fails the requested-scope necessary floor, including on TENANT_CORE where the list is otherwise not consumed.
 
+### APICRED-SCOPE-011 — Exact Industry credential cannot carry sibling allowlist evidence
+Migration 0030 requires an Industry-scoped credential's allowed-Industry list, when non-empty, to contain only its exact persisted Industry Context. Raw evidence that keeps the exact credential Industry but also carries a sibling/different Industry id fails closed before requested-scope acceptance.
+
 ### APICRED-SCOPE-009 — Malformed SERVICE allowed-scope evidence fails closed
 When a SERVICE principal is evaluated for PLATFORM_GLOBAL, TENANT_CORE or TENANT_INDUSTRY, `allowedScopeClasses` must be an actual array whose materialized entries are all members of the migration-owned scope allowlist. Sparse holes, explicit undefined/non-string values or unknown scope codes fail closed even when the requested scope is also present. Duplicate valid scope codes remain raw persisted evidence and are not given a new duplicate-free invariant here.
 
