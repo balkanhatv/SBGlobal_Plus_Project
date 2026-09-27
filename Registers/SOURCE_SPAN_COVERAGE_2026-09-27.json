@@ -1918,7 +1918,7 @@
       "end_line": 2816,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Engineering Standards source-domain obligations preserved while canonical architecture and UD-TECH-01 normalize implementation; not runtime/production certification"
     },
     {
       "unit": "S2.3-U133",
@@ -1928,7 +1928,7 @@
       "end_line": 2820,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; NFR umbrella routes to F-01/A-10/A-11; not production certification"
     },
     {
       "unit": "S2.3-U134",
@@ -1938,7 +1938,7 @@
       "end_line": 2829,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; performance NFR preserved at F-01/A-10/A-11; full performance gate not claimed"
     },
     {
       "unit": "S2.3-U135",
@@ -1948,7 +1948,7 @@
       "end_line": 2838,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; scalability NFR preserved at F-01/A-10/A-11; no full scale certification"
     },
     {
       "unit": "S2.3-U136",
@@ -1958,7 +1958,7 @@
       "end_line": 2845,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; availability/resilience semantics preserved and normalized through A-10/A-11; no SLA certification"
     },
     {
       "unit": "S2.3-U137",
@@ -1968,7 +1968,7 @@
       "end_line": 2854,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; backup/restore/DR semantics preserved at A-10/A-11/DD-14/DD-17; recoverability requires restore evidence"
     },
     {
       "unit": "S2.3-U138",
@@ -1978,7 +1978,7 @@
       "end_line": 2866,
       "located_inventory_rows": 9,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; logging/monitoring semantics preserved at A-11/DD-15/DD-16"
     },
     {
       "unit": "S2.3-U139",
@@ -1988,7 +1988,7 @@
       "end_line": 2871,
       "located_inventory_rows": 2,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; tracing/metrics observability preserved at A-11/DD-15"
     },
     {
       "unit": "S2.3-U140",
@@ -1998,7 +1998,7 @@
       "end_line": 2883,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; caching obligation preserved; Redis-ready does not force premature Redis adoption"
     },
     {
       "unit": "S2.3-U141",
@@ -2008,7 +2008,7 @@
       "end_line": 2902,
       "located_inventory_rows": 13,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; S2.4 remains source database-domain owner; current canonical owner F-04/A-05/DD-05; not database certification"
     },
     {
       "unit": "S2.3-U142",
@@ -2018,7 +2018,7 @@
       "end_line": 2923,
       "located_inventory_rows": 17,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED: generic coding principles survive; Laravel/PSR-12 source tooling superseded by UD-TECH-01; no replacement lint tool invented"
     },
     {
       "unit": "S2.3-U143",
@@ -2028,7 +2028,7 @@
       "end_line": 2932,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED: static/dead/duplicate/technical-debt quality obligations survive; PHPStan/Pint historical under UD-TECH-01; current build does not prove full production code-quality gate"
     },
     {
       "unit": "S2.3-U144",
@@ -2038,7 +2038,7 @@
       "end_line": 2942,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED: package approval/license/vulnerability/update/lock obligations survive; Composer-specific wording historical; npm lock verified, dependency security scan remains unclaimed later gate"
     },
     {
       "unit": "S2.3-U145",
@@ -2048,7 +2048,7 @@
       "end_line": 2946,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; security umbrella routes to F-03/A-03/DD-16; not Security Validated certification"
     },
     {
       "unit": "S2.3-U146",
@@ -2058,7 +2058,7 @@
       "end_line": 2971,
       "located_inventory_rows": 22,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; application security controls preserved; JWT wording normalized behind Core Identity/Clerk/Auth.js boundary and does not create separate app-owned token authority"
     },
     {
       "unit": "S2.3-U147",
@@ -2068,7 +2068,7 @@
       "end_line": 2977,
       "located_inventory_rows": 3,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; secrets/vault/rotation/HSM semantics preserved at F-03/A-03/A-10/DD-16"
     },
     {
       "unit": "S2.3-U148",
@@ -2078,7 +2078,7 @@
       "end_line": 2986,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; API gateway/rate/WAF/DDoS/bot protections preserved at A-03/A-10/DD-16"
     },
     {
       "unit": "S2.3-U149",
@@ -2088,7 +2088,7 @@
       "end_line": 2997,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; penetration/disclosure/incident/breach-response obligations preserved; execution evidence remains later security gate"
     },
     {
       "unit": "S2.3-U150",
@@ -2098,7 +2098,7 @@
       "end_line": 3001,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; testing taxonomy routes to DD-17/applicable executable suites; not all test types inferred complete"
     },
     {
       "unit": "S2.3-U151",
@@ -2108,7 +2108,7 @@
       "end_line": 3008,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; unit-testing obligation preserved; current coverage applies only to implemented scope"
     },
     {
       "unit": "S2.3-U152",
@@ -2118,7 +2118,7 @@
       "end_line": 3019,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; feature-testing obligation preserved; full product coverage not inferred"
     },
     {
       "unit": "S2.3-U153",
@@ -2128,7 +2128,7 @@
       "end_line": 3027,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; integration-testing obligation preserved; provider-specific coverage remains scoped"
     },
     {
       "unit": "S2.3-U154",
@@ -2138,7 +2138,7 @@
       "end_line": 3034,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; dedicated tenant/cross-industry isolation testing preserved; current PostgreSQL evidence covers implemented scope only"
     },
     {
       "unit": "S2.3-U155",
@@ -2148,7 +2148,7 @@
       "end_line": 3043,
       "located_inventory_rows": 6,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; API testing taxonomy preserved at DD-06/DD-17"
     },
     {
       "unit": "S2.3-U156",
@@ -2158,7 +2158,7 @@
       "end_line": 3051,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; performance testing remains active later gate; no performance certification claimed"
     },
     {
       "unit": "S2.3-U157",
@@ -2168,7 +2168,7 @@
       "end_line": 3073,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Production Readiness checklist preserved under MI §27/§33A/LG-14; static analysis/dependency scan/code style/release-tag remain required before Production Ready and are not currently claimed"
     },
     {
       "unit": "S2.4-U158",

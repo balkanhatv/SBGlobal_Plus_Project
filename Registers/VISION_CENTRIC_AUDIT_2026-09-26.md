@@ -201,3 +201,20 @@ The earlier “requires exact-HEAD gate” sentences in VC27-07/08/09 record the
 | VC27-09 | `4802a722aa350df33dd7f927a8fcd1fbe8ab254c` / `e98f216573e1bc4edd7ad38767c808049bba40c1` | 700/700, 0 fail/skip | 505/505, 0 fail/skip | 48 / 42 PASS | PASS |
 
 S2.1 parent-unit owner reconciliation is complete, and every S2.2 zero-row parent unit now has an explicit semantic reconciliation. This is **not** a complete-project PASS: remaining source families (S1, S2.3–S2.9), downstream canonical layers, implementation/SQL semantics and historical state/register evidence still require fresh review. Forward development remains stopped at DD-208; DD-209 is not authorized.
+
+
+## 2026-09-27 S2.3 Engineering Standards source-owner continuation
+
+Fresh reading of S2.3 (Engineering Standards, source lines 2809–3073) confirms that its generic NFR, security and testing obligations remain part of the active knowledge base, but several implementation/tooling statements are stack-specific to the historical Laravel/PHP baseline. The existing unit matrix marked all S2.3 units simply VERIFIED, which did not make that distinction and could also be read as granting Production Readiness from a source checklist.
+
+### VC27-10 — P2: S2.3 Engineering Standards mixed active obligations with historical Laravel/PHP tooling and unearned Production Readiness wording
+
+Correction is source-evidence only:
+- U142 preserves SOLID, clean architecture, service/repository/action patterns where appropriate, dependency injection, interface-based design, reuse/modularity, DRY/KISS, naming, exception handling and documentation; Laravel Best Practices / PSR-12 are historical stack-specific requirements under UD-TECH-01.
+- U143 preserves static analysis, dead/duplicate-code detection and technical-debt monitoring; PHPStan and Laravel Pint are historical tools. Current TypeScript compilation is real evidence for the checks it performs, not a substitute for the complete future code-quality gate.
+- U144 preserves approved-package, license-compatibility, vulnerability-scanning, update and lock-determinism obligations; Composer-lock wording is historical. Current Web CI verifies deterministic npm lock state, while dependency vulnerability scanning is **not** claimed complete because current workflows intentionally install with `--no-audit`.
+- U146 preserves all application-security controls but normalizes source JWT wording to any signed-token security behind the single Core Identity boundary; it does not reintroduce an app-owned JWT/refresh-session authority.
+- U157 remains a future Production Readiness gate under MI §27/§33A/LG-14. Its static-analysis, dependency-scan, code-style and release-tag items remain required before Production Ready; their absence from the current bounded Development gate is not treated as a current Production Ready failure because no such status is claimed.
+- All other S2.3 NFR/security/testing parent units are mapped to their existing Foundation/Architecture/DD owners without changing behavior.
+
+No RawSource, runtime code, workflow file, dependency, schema, SQL, RLS, role/grant, test or stable requirement ID/count changes in this correction. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains the latest governed development checkpoint; forward development stays held.
