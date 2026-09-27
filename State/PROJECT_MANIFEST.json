@@ -2337,7 +2337,7 @@
     ],
     "remaining_gate": "Full semantic file coverage and cross-layer/adversarial reconciliation remain incomplete; no global clean verdict.",
     "continuation_report": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
-    "continuation_status": "DD_ACCEPTANCE_CORRECTION_VERIFIED_FULL_AUDIT_IN_PROGRESS",
+    "continuation_status": "S2_2_INSTALLATION_READINESS_VERIFIED_FULL_SEMANTIC_AUDIT_IN_PROGRESS",
     "source_reading": "S1_AND_S2_COMPLETE_TEXT_READ; COMPLETE_SOURCE_TO_OWNER_SEMANTIC_CERTIFICATION_PENDING",
     "source_span_coverage": "Registers/SOURCE_SPAN_COVERAGE_2026-09-27.json",
     "additional_findings": {
@@ -2346,7 +2346,10 @@
       "VC27-03": "P2 stale execution coverage and provider-name routing",
       "VC27-04": "P2 stale/ambiguous guard-stage references and snapshot placement; canonical chain aligned",
       "VC27-05": "P2 stale suspension UI projection; aligned to existing restricted-operation contracts",
-      "VC27-06": "P2 overbroad DD-17 suspended-mode read acceptance wording; aligned to explicit dedicated restricted-operation contracts"
+      "VC27-06": "P2 overbroad DD-17 suspended-mode read acceptance wording; aligned to explicit dedicated restricted-operation contracts",
+      "VC27-07": "P2 S2.1 mixed governance/technology units were overbroadly marked VERIFIED; unit-level source ownership and stack supersession boundaries reconciled",
+      "VC27-08": "P2 S2.2 zero-row legacy/status units lacked explicit canonical conflict ownership; source status/flagship/deployment/database/performance owners reconciled",
+      "VC27-09": "P1 S2.2 §10A installation-readiness umbrella was absent from canonical install/activation contracts; BR-DATA-03 and DATA-BOOT-001…005 restore the chain"
     },
     "source_fidelity_correction_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
     "source_fidelity_correction_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
@@ -2376,15 +2379,18 @@
       "OUTSIDE_CURRENT_CLAIMED_SCOPE": 125,
       "SUPERSEDED_WITH_AUTHORITY": 8
     },
-    "source_fidelity_remaining_gate": "Complete source-span/owner and cross-layer semantic reconciliation remains open; text provenance is not atomic completeness or runtime certification.",
-    "final_sync_gate": "Architecture/state synchronization 5e27fa41cb1fc2099d6033157589a3cf5ebeaeee and DD acceptance correction f709f0227ae416f88ccb7c7fdf8e3e5293209409 are exact-head verified; complete semantic source-to-owner and downstream cross-layer audit remains open.",
+    "source_fidelity_remaining_gate": "S2.1 parent-unit reconciliation and S2.2 zero-row parent reconciliation are complete; remaining source families and downstream cross-layer semantics still require fresh owner review. Counts/provenance do not certify runtime or complete-project correctness.",
+    "final_sync_gate": "Corrections through 4802a722aa350df33dd7f927a8fcd1fbe8ab254c are exact-head verified: Core 700/700, PostgreSQL 505/505, Database 48 migrations / 42 verification files, Web PASS. DD-208 remains the latest governed development checkpoint; complete semantic audit remains open.",
     "additional_findings_corrections_applied": [
       "VC27-01",
       "VC27-02",
       "VC27-03",
       "VC27-04",
       "VC27-05",
-      "VC27-06"
+      "VC27-06",
+      "VC27-07",
+      "VC27-08",
+      "VC27-09"
     ],
     "architecture_state_sync": {
       "head": "5e27fa41cb1fc2099d6033157589a3cf5ebeaeee",
@@ -2415,6 +2421,55 @@
         "result": "PASS_EXACT_CORRECTION_HEAD"
       },
       "boundary": "Acceptance wording only; no runtime, SQL, RLS, role, grant, route, operation-id, RawSource or product-requirement change."
+    },
+    "s2_1_governance_reconciliation": {
+      "finding": "VC27-07",
+      "head": "64ab9654dd027052b3c24d21ada11ef54cc4a9c8",
+      "tree": "73fa928b20ed8c1ec1da6f7c538c13ba28f493ce",
+      "source_parent_units_reconciled": 38,
+      "ci": {
+        "core_run": 36290882112,
+        "core_job": 108540598546,
+        "postgres_job": 108540598566,
+        "database_run": 36290882093,
+        "database_job": 108540598339,
+        "web_run": 36290882096,
+        "web_job": 108540598330,
+        "result": "PASS_EXACT_CORRECTION_HEAD"
+      },
+      "boundary": "Source-owner/technology-supersession evidence only; no RawSource, runtime, SQL, RLS, role/grant or stable requirement-count change."
+    },
+    "s2_2_zero_row_reconciliation": {
+      "finding": "VC27-08",
+      "head": "d43793cd5664a5e87e889add881e75c1fd97b7b1",
+      "tree": "77cc0ff2b5990958331c4822f2249b60327adf37",
+      "ci": {
+        "core_run": 36291114307,
+        "core_job": 108541260572,
+        "postgres_job": 108541260320,
+        "database_run": 36291114402,
+        "database_job": 108541260602,
+        "web_run": 36291114294,
+        "web_job": 108541260379,
+        "result": "PASS_EXACT_CORRECTION_HEAD"
+      },
+      "boundary": "Selected S2.2 zero-row owner/status reconciliation only; no runtime/product behavior change."
+    },
+    "s2_2_installation_readiness_correction": {
+      "finding": "VC27-09",
+      "head": "4802a722aa350df33dd7f927a8fcd1fbe8ab254c",
+      "tree": "e98f216573e1bc4edd7ad38767c808049bba40c1",
+      "ci": {
+        "core_run": 36292595103,
+        "core_job": 108545410854,
+        "postgres_job": 108545410738,
+        "database_run": 36292595099,
+        "database_job": 108545410781,
+        "web_run": 36292595152,
+        "web_job": 108545410884,
+        "result": "PASS_EXACT_CORRECTION_HEAD"
+      },
+      "boundary": "Documentation/design/acceptance correction only; 2,962 stable source IDs unchanged; no runtime, schema, SQL, RLS, role/grant or executable-test change."
     }
   }
 }

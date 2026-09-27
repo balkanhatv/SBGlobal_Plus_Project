@@ -188,3 +188,16 @@ Smallest forward-only correction:
 - DD-19 and the source registers record the exact Source → Foundation → Architecture → DD/Acceptance chain.
 
 No RawSource byte, stable 2,962 requirement ID/count, runtime code, database schema/object, RLS policy, role/grant or existing executable test was changed. The correction commit must pass the normal exact-HEAD Core/PostgreSQL/Database/Web gate before VC27-09 is considered verified. DD-208 remains the latest governed development checkpoint; DD-209 remains held while the complete semantic audit continues.
+
+
+## 2026-09-27 verification closure — VC27-07 through VC27-09
+
+The earlier “requires exact-HEAD gate” sentences in VC27-07/08/09 record their pre-verification state. Those gates are now closed:
+
+| Finding | Exact HEAD / tree | Core | PostgreSQL | Database | Web |
+|---|---|---:|---:|---|---|
+| VC27-07 | `64ab9654dd027052b3c24d21ada11ef54cc4a9c8` / `73fa928b20ed8c1ec1da6f7c538c13ba28f493ce` | 700/700, 0 fail/skip | 505/505, 0 fail/skip | 48 migrations / 42 verification files PASS | PASS |
+| VC27-08 | `d43793cd5664a5e87e889add881e75c1fd97b7b1` / `77cc0ff2b5990958331c4822f2249b60327adf37` | 700/700, 0 fail/skip | 505/505, 0 fail/skip | 48 / 42 PASS | PASS |
+| VC27-09 | `4802a722aa350df33dd7f927a8fcd1fbe8ab254c` / `e98f216573e1bc4edd7ad38767c808049bba40c1` | 700/700, 0 fail/skip | 505/505, 0 fail/skip | 48 / 42 PASS | PASS |
+
+S2.1 parent-unit owner reconciliation is complete, and every S2.2 zero-row parent unit now has an explicit semantic reconciliation. This is **not** a complete-project PASS: remaining source families (S1, S2.3–S2.9), downstream canonical layers, implementation/SQL semantics and historical state/register evidence still require fresh review. Forward development remains stopped at DD-208; DD-209 is not authorized.

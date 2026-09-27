@@ -1,8 +1,8 @@
 # DD CHECKPOINT — PHASE3-DD-REVALIDATED
 **Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
-**Updated:** 2026-09-26 · **Branch:** `docs/architecture-branch-2`
+**Updated:** 2026-09-27 · **Branch:** `docs/architecture-branch-2`
 
-> **2026-09-27 audit hold:** DD-208 remains the latest checkpoint. Source-fidelity correction `ea371dd1cf11666293b669acc80ab29d3e91ae9f`, Architecture/state synchronization `5e27fa41cb1fc2099d6033157589a3cf5ebeaeee`, and DD-17 restricted-mode acceptance correction `f709f0227ae416f88ccb7c7fdf8e3e5293209409` all passed their exact-HEAD Core/PostgreSQL/Database/Web gates. Full semantic coverage is still incomplete; forward development remains held and DD-209 is not authorized. Next: finish the audit. [Current audit](../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md).
+> **2026-09-27 audit hold:** DD-208 remains the latest governed development checkpoint. Source-fidelity/semantic corrections through S2.1 governance reconciliation `64ab9654dd027052b3c24d21ada11ef54cc4a9c8`, S2.2 zero-row owner reconciliation `d43793cd5664a5e87e889add881e75c1fd97b7b1`, and S2.2 §10A installation-readiness correction `4802a722aa350df33dd7f927a8fcd1fbe8ab254c` all passed exact-HEAD Core/PostgreSQL/Database/Web gates. Full semantic coverage is still incomplete; forward development remains held and DD-209 is not authorized. Next: continue the source-owner/cross-layer audit. [Current audit](../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md).
 
 
 DD-208 implements only TenantAIConfig allowedModelIds[] duplicate-free exact-id/raw-ACTIVE AIModel binding plus exact Model providerId membership in the same config allowedProviderIds[]. Provider-row runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain outside this checkpoint.

@@ -151,3 +151,18 @@ Local build + Core/server also passed 700/700. REPO-001–008 pass. All four req
 The final synchronization additionally completes VC27-04 Architecture citation/order alignment and VC27-05 suspension-shell consistency. Its own exact-HEAD four-job gate is required; the above parent gate does not by itself certify those final document edits. The final closure SHA and its observed CI are recorded in PR #2 to avoid a self-referential commit hash in its own manifest.
 
 A-00/A-01/A-03/A-04/A-06/A-08/A-09 were additionally reviewed against the canonical context/commercial/surface owners; A-07 guard references were reconciled. Full semantic review of the remaining Architecture/ADR, DD, implementation, SQL/RLS, tests and historical state/register chain remains unfinished. Do not continue feature development merely because these targeted corrections pass.
+
+
+## S2.1 / S2.2 semantic continuation closure
+
+The initial 2,962-row provenance repair was followed by parent-semantic reconciliation because row-count/text equality is not atomic completeness. S2.1 U001–U038 are now owner-reconciled, including mixed active-governance versus historical-stack sections (VC27-07). S2.2 zero-row parents were then read directly: source metadata/legacy conflicts and cross-reference owners were reconciled (VC27-08), and §10A's missing installation-readiness umbrella was restored as BR-DATA-03 with A-05/A-09/DD-17 acceptance ownership (VC27-09).
+
+Exact verification:
+
+| Slice | HEAD / tree | Core | PostgreSQL | Database | Web |
+|---|---|---:|---:|---|---|
+| VC27-07 S2.1 | `64ab9654dd027052b3c24d21ada11ef54cc4a9c8` / `73fa928b20ed8c1ec1da6f7c538c13ba28f493ce` | 700/700 | 505/505 | 48 migrations / 42 verification files | PASS |
+| VC27-08 S2.2 zero-row | `d43793cd5664a5e87e889add881e75c1fd97b7b1` / `77cc0ff2b5990958331c4822f2249b60327adf37` | 700/700 | 505/505 | 48 / 42 | PASS |
+| VC27-09 §10A | `4802a722aa350df33dd7f927a8fcd1fbe8ab254c` / `e98f216573e1bc4edd7ad38767c808049bba40c1` | 700/700 | 505/505 | 48 / 42 | PASS |
+
+All S2.2 zero-row parent units now have explicit owner reconciliation in `SOURCE_SPAN_COVERAGE_2026-09-27.json`. This does **not** certify every child semantic, remaining source families, runtime implementation, security validation or project completion. The complete vision-centric audit remains open and DD-208 remains the latest governed development checkpoint.
