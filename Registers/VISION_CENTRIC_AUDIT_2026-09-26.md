@@ -1459,3 +1459,26 @@ endpoint/filter/signing/retry semantics, schema/RLS/role/grant changes, public r
 product behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification
 is required.
 
+## 2026-09-27 downstream idempotency safe-replay metadata continuation
+
+### VC27-64 — P2: PostgreSQL idempotency replay trusted unbounded persisted response metadata
+
+DD-049/DD-051 bind completion and replay to bounded safe status/reference metadata.
+IdempotencyService already validates responseStatus to 1..64 characters and responseReference
+to 1..512 before normal completion, but the physical columns are unconstrained text and the
+PostgreSQL store returned persisted SUCCEEDED/FAILED_FINAL metadata without read-time
+revalidation.
+
+Malformed persisted evidence or a direct untyped store caller could therefore bypass the
+service-side contract and surface empty/oversized metadata through replay/control projection.
+
+Smallest forward-only correction:
+- apply the existing metadata bounds to persisted REPLAY/FINAL_FAILURE evidence;
+- fail closed as IDEMPOTENCY_DEPENDENCY_UNAVAILABLE on malformed stored evidence;
+- enforce the same bounds before direct persistence completion reaches scoped SQL;
+- add API-IDEM-010 regressions for both paths.
+
+This does not store response bodies, change idempotency lifecycle/expiry/key/fingerprint,
+alter RLS/schema/roles/grants or transport mapping, add operations or authorize DD-209.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+

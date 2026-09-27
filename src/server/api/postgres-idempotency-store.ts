@@ -22,18 +22,32 @@ function dependency(): never {
   );
 }
 
+function boundedMetadata(value:string|null,max:number):string|undefined{
+  if(value===null) return undefined;
+  if(value.length<1 || value.length>max) dependency();
+  return value;
+}
+
 function resultFromRow(row: RecordRow): IdempotencyStoreClaimResult {
   if (row.state==="IN_PROGRESS") return Object.freeze({kind:"IN_PROGRESS",recordId:row.id});
-  if (row.state==="SUCCEEDED") return Object.freeze({
-    kind:"REPLAY",recordId:row.id,
-    ...(row.response_status ? {responseStatus:row.response_status}:{}),
-    ...(row.response_reference ? {responseReference:row.response_reference}:{}),
-  });
-  if (row.state==="FAILED_FINAL") return Object.freeze({
-    kind:"FINAL_FAILURE",recordId:row.id,
-    ...(row.response_status ? {responseStatus:row.response_status}:{}),
-    ...(row.response_reference ? {responseReference:row.response_reference}:{}),
-  });
+  if (row.state==="SUCCEEDED") {
+    const responseStatus=boundedMetadata(row.response_status,64);
+    const responseReference=boundedMetadata(row.response_reference,512);
+    return Object.freeze({
+      kind:"REPLAY",recordId:row.id,
+      ...(responseStatus!==undefined ? {responseStatus} : {}),
+      ...(responseReference!==undefined ? {responseReference} : {}),
+    });
+  }
+  if (row.state==="FAILED_FINAL") {
+    const responseStatus=boundedMetadata(row.response_status,64);
+    const responseReference=boundedMetadata(row.response_reference,512);
+    return Object.freeze({
+      kind:"FINAL_FAILURE",recordId:row.id,
+      ...(responseStatus!==undefined ? {responseStatus} : {}),
+      ...(responseReference!==undefined ? {responseReference} : {}),
+    });
+  }
   dependency();
 }
 
@@ -167,6 +181,8 @@ export class PostgresIdempotencyStore implements IdempotencyStorePort {
     },
     state: "SUCCEEDED"|"FAILED_RETRYABLE"|"FAILED_FINAL",
   ): Promise<void> {
+    boundedMetadata(input.responseStatus ?? null,64);
+    boundedMetadata(input.responseReference ?? null,512);
     try {
       await this.scopedSql.withContext(input.requestContext,async(sql)=>{
         const updated=await sql.query<{id:string}>(

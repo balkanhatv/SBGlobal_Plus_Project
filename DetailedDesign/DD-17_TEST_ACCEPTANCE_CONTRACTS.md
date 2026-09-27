@@ -424,6 +424,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | API-IDEM-007 | Tenant Industry session queries same-Tenant null-Industry or sibling-Industry idempotency row | zero visibility; null never means all Industries |
 | API-IDEM-008 | concurrent identical first claims | exactly one STARTED; contender becomes IN_PROGRESS; runtime role cannot DELETE records |
 | API-IDEM-009 | TENANT_CORE idempotency context carries a present Industry Context value, including an empty string | IDEMPOTENCY_SCOPE_UNSUPPORTED before store use; exact Tenant-Core null-Industry shape only |
+| API-IDEM-010 | persisted replay/final-failure response status/reference is empty or exceeds the bounded safe metadata contract, or direct completion supplies oversized metadata | IDEMPOTENCY_DEPENDENCY_UNAVAILABLE; unsafe metadata never reaches transport replay and direct malformed completion does not reach scoped SQL |
 
 
 ### API rate-limit runtime — DD-050 / DEV-API-RATE-LIMIT-001

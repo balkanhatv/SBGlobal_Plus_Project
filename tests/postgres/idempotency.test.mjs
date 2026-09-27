@@ -132,6 +132,42 @@ test("Tenant Industry RLS cannot see Tenant Core null-Industry idempotency rows"
  assert.equal(count,0);
 });
 
+test("malformed persisted replay metadata fails closed instead of reaching transport replay",async()=>{
+ const keyHash="a".repeat(64),fingerprint="b".repeat(64),recordId=randomUUID();
+ await scoped.withContext(context(),tx=>tx.query(
+   `INSERT INTO core_integration.idempotency_record(
+      id,tenant_id,industry_context_id,credential_or_principal_id,operation_id,
+      idempotency_key_hash,request_fingerprint,response_status,response_reference,
+      state,expires_at,created_at,updated_at
+    ) VALUES ($1,$2,$3,$4,'rtl.pos.sale.create',$5,$6,$7,NULL,
+      'SUCCEEDED','2026-09-19T08:00:00Z','2026-09-18T08:00:00Z','2026-09-18T08:00:00Z')`,
+   [recordId,f.tenant,f.industry,f.principal,keyHash,fingerprint,"X".repeat(65)],
+ ));
+ const directStore=new PostgresIdempotencyStore(scoped);
+ await assert.rejects(directStore.claim({
+   requestContext:context(),recordId:randomUUID(),actorId:f.principal,
+   operationId:"rtl.pos.sale.create",idempotencyKeyHash:keyHash,requestFingerprint:fingerprint,
+   now:new Date("2026-09-18T08:00:00Z"),expiresAt:new Date("2026-09-19T08:00:00Z"),
+ }),error=>error instanceof IdempotencyRuntimeError
+   && error.code==="IDEMPOTENCY_DEPENDENCY_UNAVAILABLE");
+});
+
+test("direct completion rejects unsafe response metadata before scoped SQL",async()=>{
+ const trace=[];
+ const directStore=new PostgresIdempotencyStore({
+   async withContext(){
+     trace.push("sql");
+     assert.fail("unsafe response metadata must not reach scoped SQL");
+   },
+ });
+ await assert.rejects(directStore.completeSuccess({
+   requestContext:context(),recordId:randomUUID(),requestFingerprint:"c".repeat(64),
+   now:new Date("2026-09-18T08:00:00Z"),responseReference:"R".repeat(513),
+ }),error=>error instanceof IdempotencyRuntimeError
+   && error.code==="IDEMPOTENCY_DEPENDENCY_UNAVAILABLE");
+ assert.deepEqual(trace,[]);
+});
+
 test("concurrent identical claims produce one STARTED and one IN_PROGRESS",async()=>{
  const [a,b]=await Promise.all([
    service.begin({requestContext:context(),operation,idempotencyKey:"concurrent",canonicalValidatedInput:'{"x":1}'}),
