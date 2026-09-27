@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-47:** `b36241a6988d712cbbe55b0110f47cdd37b1e467` / tree `81bd071b0783056b4979874b3fb5e86017ba8417`
+**Prior tree-qualified verified basis through VC27-48:** `02b53677a06887f165db3a61964a2626e601c265` / tree `69f087e960da219b42ecc9c6ae03bd9c55b417cb`
 
-**Current exact-head correction basis:** `02b53677a06887f165db3a61964a2626e601c265` / tree `69f087e960da219b42ecc9c6ae03bd9c55b417cb`
+**Current exact-head correction basis:** `599cde0d323f8bdb7f2cfb4c37f09a5674cb5878` / tree `93f79b880492daf9aba967ebc08dd66d1effc8a0`
 
-**Exact-head gate:** Core 722/722; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 724/724; PostgreSQL 507/507 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -58,6 +58,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-46 — ABAC timestamp grammar:** Permission/ABAC grammar now rejects impossible UTC calendar dates before PDP evaluation by reusing the strict instant parser; malformed ACTIVE policy state cannot normalize into a boolean DENY/RESTRICT condition.
 - **VC27-47 — Workspace Tenant-Core exact shape:** WorkspaceService now rejects TENANT_CORE RequestContext carrying an Industry Context before membership/Tenant/Industry dependency use; malformed server scope evidence cannot be silently dropped by ClientWorkspaceContext projection.
 - **VC27-48 — exact-null DB/idempotency scope shape:** shared RequestScopedSql and IdempotencyService now reject present Tenant/Industry fields where DD-02 requires exact absence, including empty-string values that truthiness checks previously normalized. No new DB or cross-context authority is added.
+- **VC27-49 — Commercial current-state exact scope:** CommercialCurrentStateService and its PostgreSQL reader now reject TENANT_CORE carrying any present Industry Context before current-state store/query use, including empty-string evidence; Tenant-Industry still requires an Industry Context. Commercial semantics remain unchanged.
 
 ### Current bounded verdict
 
