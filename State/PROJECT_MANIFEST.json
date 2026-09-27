@@ -3,7 +3,7 @@
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable basis 285c0d2a34334a6aad58ae20c4e8e42f042e5017 / tree 0f056e8c28aa3cc2f2c186afa63764e960522013 is exact-HEAD verified at 706 Core / 505 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-27/28/29 machine-scope evidence hardening. Complete-project downstream canonical/state/Development/Database/CI/adversarial audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
+  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable basis a2de1b9a46831b4ca816ce1be94b66c6726f132b / tree 50945bd3900cdf9a32ceb4d5b413e7dc1d3cffe0 is exact-HEAD verified at 712 Core / 506 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-30…36 REST/Webhook/Document trust-boundary hardening. Complete-project downstream canonical/state/Development/Database/CI/adversarial audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -795,7 +795,23 @@
     "source_parent_reconciliation_head": "e1be03f490e153ca3def028e7085dbb6fafe7095",
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
-    "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842"
+    "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
+    "current_downstream_verified_head": "a2de1b9a46831b4ca816ce1be94b66c6726f132b",
+    "current_downstream_verified_tree": "50945bd3900cdf9a32ceb4d5b413e7dc1d3cffe0",
+    "current_downstream_verified_ci": {
+      "core_run_id": 36307123366,
+      "core_job_id": 108585843312,
+      "core_pass": 712,
+      "postgres_job_id": 108585843430,
+      "postgres_pass": 506,
+      "database_run_id": 36307123375,
+      "database_job_id": 108585843445,
+      "database_migrations": 48,
+      "database_verification_files": 42,
+      "web_run_id": 36307123344,
+      "web_job_id": 108585843329,
+      "result": "PASS_EXACT_CORRECTION_HEAD"
+    }
   },
   "development": {
     "authorized": true,
@@ -2357,7 +2373,7 @@
     ],
     "remaining_gate": "Full semantic file coverage and cross-layer/adversarial reconciliation remain incomplete; no global clean verdict.",
     "continuation_report": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
-    "continuation_status": "DOWNSTREAM_INTEGRATION_NECESSARY_FLOORS_VERIFIED_AUDIT_IN_PROGRESS",
+    "continuation_status": "DOWNSTREAM_REST_WEBHOOK_DOCUMENT_TRUST_FLOORS_VERIFIED_AUDIT_IN_PROGRESS",
     "source_reading": "S1_AND_S2_COMPLETE_TEXT_READ; 372/372 SOURCE PARENTS OWNER_RECONCILED; DOWNSTREAM CANONICAL/STATE/RUNTIME SEMANTIC CERTIFICATION PENDING",
     "source_span_coverage": "Registers/SOURCE_SPAN_COVERAGE_2026-09-27.json",
     "additional_findings": {
@@ -2389,7 +2405,14 @@
       "VC27-26": "P2 sparse SyncCursor/TenantIntegration capability arrays bypassed total structural validation in DD-164/DD-166 necessary floors",
       "VC27_27": "P2 sparse API Credential allowed-Industry evidence bypassed DD-161 structural validation",
       "VC27_28": "P2 malformed SERVICE allowed-scope evidence could satisfy DD-161 requested-scope floor",
-      "VC27_29": "P2 duplicate API Credential allowed-Industry evidence could satisfy DD-161 despite migration-0030 uniqueness"
+      "VC27_29": "P2 duplicate API Credential allowed-Industry evidence could satisfy DD-161 despite migration-0030 uniqueness",
+      "VC27-30": "P2 REST authenticated-context boundary could substitute transport/network authority",
+      "VC27-31": "P2 malformed REST success-status metadata could progress before domain execution",
+      "VC27-32": "P2 REST authenticated-context port could rewrite authentication/selector/network authority",
+      "VC27-33": "P2 malformed webhook scope evidence could fall through as TENANT_INDUSTRY",
+      "VC27-34": "P2 sparse Document ACL role/OrgUnit identity arrays bypassed total RequestContext validation",
+      "VC27-35": "P2 Document ACL subject matcher accepted selected-OrgUnit/path inconsistency",
+      "VC27-36": "P2 Document physical binding did not re-evaluate current StorageObject size/checksum parity"
     },
     "source_fidelity_correction_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
     "source_fidelity_correction_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
@@ -2420,7 +2443,7 @@
       "SUPERSEDED_WITH_AUTHORITY": 8
     },
     "source_fidelity_remaining_gate": "Source-parent semantic reconciliation is complete at 372/372 owner-reconciled parents with 0 NOT_CERTIFIED. Remaining gate is downstream canonical/state/Development/Database/CI consistency plus adversarial reconciliation; parent counts/provenance do not certify runtime or complete-project correctness.",
-    "final_sync_gate": "Current bounded downstream executable basis 285c0d2a34334a6aad58ae20c4e8e42f042e5017 / tree 0f056e8c28aa3cc2f2c186afa63764e960522013 is exact-head verified: Core 706/706, PostgreSQL 505/505, Database 48 migrations / 42 verification files, Web PASS. VC27-27/28/29 machine-scope evidence corrections are included. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
+    "final_sync_gate": "Current bounded downstream executable basis a2de1b9a46831b4ca816ce1be94b66c6726f132b / tree 50945bd3900cdf9a32ceb4d5b413e7dc1d3cffe0 is exact-head verified: Core 712/712, PostgreSQL 506/506, Database 48 migrations / 42 verification files, Web PASS. VC27-30…36 REST/Webhook/Document trust-boundary corrections are included. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
     "additional_findings_corrections_applied": [
       "VC27-01",
       "VC27-02",
@@ -2436,7 +2459,14 @@
       "VC27-26",
       "VC27-27",
       "VC27-28",
-      "VC27-29"
+      "VC27-29",
+      "VC27-30",
+      "VC27-31",
+      "VC27-32",
+      "VC27-33",
+      "VC27-34",
+      "VC27-35",
+      "VC27-36"
     ],
     "architecture_state_sync": {
       "head": "5e27fa41cb1fc2099d6033157589a3cf5ebeaeee",
@@ -2611,6 +2641,34 @@
           "result": "PASS_EXACT_CORRECTION_HEAD"
         },
         "boundary": "Only persisted requested-scope evidence floors were hardened. Presented-token grammar/hash verification, CIDR enforcement, permission-profile mapping, successful-use mutation/audit and final VerifiedMachineEvidence remain BLOCKED."
+      },
+      "current_verified_basis": {
+        "finding_ids": [
+          "VC27-30",
+          "VC27-31",
+          "VC27-32",
+          "VC27-33",
+          "VC27-34",
+          "VC27-35",
+          "VC27-36"
+        ],
+        "head": "a2de1b9a46831b4ca816ce1be94b66c6726f132b",
+        "tree": "50945bd3900cdf9a32ceb4d5b413e7dc1d3cffe0",
+        "ci": {
+          "core_run": 36307123366,
+          "core_job": 108585843312,
+          "core_pass": 712,
+          "postgres_job": 108585843430,
+          "postgres_pass": 506,
+          "database_run": 36307123375,
+          "database_job": 108585843445,
+          "database_migrations": 48,
+          "database_verification_files": 42,
+          "web_run": 36307123344,
+          "web_job": 108585843329,
+          "result": "PASS_EXACT_CURRENT_BOUNDED_HEAD"
+        },
+        "boundary": "Fail-closed REST/Webhook/Document trust floors only. Final external REST publication, webhook delivery, Document ACL authorization/signing/retention and other source-incomplete execution remain blocked."
       }
     }
   }

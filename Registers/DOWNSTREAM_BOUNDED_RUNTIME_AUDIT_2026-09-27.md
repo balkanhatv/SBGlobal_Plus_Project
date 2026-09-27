@@ -1,8 +1,8 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Verified executable basis:** `d32f6f824fd5bade4dd247deec5881e73e4d8396` / tree `7c7332fd5b69dbdd0f98694fe44e142bb2a0a2ab`
+**Verified executable basis:** `a2de1b9a46831b4ca816ce1be94b66c6726f132b` / tree `50945bd3900cdf9a32ceb4d5b413e7dc1d3cffe0`
 
-**Exact-head gate:** Core 700/700; PostgreSQL 505/505 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 712/712; PostgreSQL 506/506 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -34,3 +34,19 @@ The general application role remains an RLS-enforced application role rather tha
 This report does **not** clear the complete-project audit. The following remain outside this slice and locked where not source-complete: external REST route catalog/machine credentials, webhook runtime, Integration/provider execution, Workflow/Automation/Notification execution, Commercial write/apply path, retention/ACL, AI provider/tool execution, mobile/desktop executable surfaces, and remaining historical/canonical downstream semantics.
 
 DD-208 remains the latest governed development checkpoint. DD-209 is not authorized.
+
+
+## Verified continuation through VC27-36
+
+The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC basis and the resulting corrections are included in the verified executable basis above:
+
+- **VC27-30/31/32 — REST necessary-floor hardening:** transport/network/authentication/selectors remain outer trusted inputs and cannot be rewritten by an authenticated-context port; malformed success-status metadata fails closed before domain execution. No external REST route catalog is published.
+- **VC27-33 — Webhook scope evidence:** malformed scope values fail closed instead of falling through to TENANT_INDUSTRY. Endpoint/filter interpretation, signing, SSRF/DNS/redirect control, dispatcher/retry/DLQ/replay and network delivery remain locked.
+- **VC27-34/35 — Document ACL subject evidence:** sparse role/OrgUnit arrays fail closed; selected OrgUnit ancestry must be duplicate-free, end at the selected valid OrgUnit and be empty when no OrgUnit is selected. ACL effect/expiry, operation mapping, inheritance/fallback and final ALLOW/DENY remain unresolved.
+- **VC27-36 — Document physical binding:** current linked StorageObject size/checksum must still match ACTIVE/CLEAN DocumentMeta before private locator metadata is returned. Signing/provider/TTL/authorization/retention remain outside this floor.
+
+### Current bounded verdict
+
+**CLEAN AFTER VERIFIED TARGETED CORRECTIONS / COMPLETE-PROJECT AUDIT STILL OPEN.**
+
+This report does not authorize DD-209 and does not elevate the project to Production Ready, Deployed or Operational.
