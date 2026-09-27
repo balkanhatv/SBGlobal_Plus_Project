@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-61:** `8a2d60bf3a47a49afa028445ca75b168cb171b00` / tree `9a2b6cdd4bc12ea6b12a41e88a6c8e73cc75aaff`
+**Prior tree-qualified verified basis through VC27-62:** `84aecd3c1388350a2a535b1d25a49c1b2056f70e` / tree `3c69a725d51c671d4892e2e17a0f666d5ca99076`
 
-**Current exact-head correction basis:** `84aecd3c1388350a2a535b1d25a49c1b2056f70e` / tree `3c69a725d51c671d4892e2e17a0f666d5ca99076`
+**Current exact-head correction basis:** `65f4356bc42351bcce46546112713127205defb5` / tree `18d12855eeee92c7ff1c222fb17a85f7b8d5c843`
 
-**Exact-head gate:** Core 733/733; PostgreSQL 510/510 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 734/734; PostgreSQL 510/510 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -72,6 +72,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-60 — Authorization durable-audit exact scope:** the privileged final Authorization audit writer now accepts only exact PLATFORM_GLOBAL/TENANT_CORE/TENANT_INDUSTRY single-context shapes and rejects malformed/untyped ownership evidence before RequestScopedSql/INSERT. PUBLIC and EXPLICIT_CROSS_CONTEXT remain separate governed audit paths.
 - **VC27-61 — Authorization durable-audit principal evidence:** every accepted protected single-context Authorization audit write now requires a valid principal UUID before scoped SQL; malformed missing/empty actor identity cannot degrade into nullable generic AuditEvent evidence.
 - **VC27-62 — current governed rate-refill policy:** PostgreSQL rate-limit admission now preserves persisted token/last-refill continuity but applies the current RateLimitStoreRule refill rate and capacity; stale faster persisted operational metadata cannot widen a stricter current rule.
+- **VC27-63 — Integration reader exact Tenant-Core scope:** five tenant-scoped Integration PostgreSQL readers now reject any present Industry Context on TENANT_CORE before scoped SQL, including empty-string evidence, while preserving raw reader semantics.
 
 ### Current bounded verdict
 
