@@ -1241,3 +1241,30 @@ This does not add grants, compiler source rules, permission operators, snapshot 
 RLS/role/grant changes, cross-context authority, product behavior or DD-209 authority.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream GuardPipeline generic exact-scope continuation
+
+### VC27-56 — P1: GuardPipeline matched scopeClass but did not independently validate exact RequestContext ownership shape
+
+DD-02 defines PLATFORM_GLOBAL with Tenant/Industry absent, TENANT_CORE with Tenant present
+and Industry absent, and TENANT_INDUSTRY with both present. DD-03 places scope enforcement
+inside GuardPipeline before Commercial/PDP/resource evaluation.
+
+GuardPipeline.assertScope() compared request and operation scopeClass and required Industry
+presence for TENANT_INDUSTRY/EXPLICIT_CROSS_CONTEXT, but it did not reject hidden Tenant/
+Industry ownership on PUBLIC/PLATFORM_GLOBAL, hidden Industry on TENANT_CORE, or a missing/
+empty Tenant id on Tenant scopes. Lower services/adapters hardened in VC27-48…55 fail closed
+on several concrete paths, but the generic authorization boundary must not depend on those
+downstream implementations—especially for non-resource operations or alternate/injected ports.
+
+Smallest forward-only correction:
+- validate exact PUBLIC/PLATFORM_GLOBAL/TENANT_CORE/TENANT_INDUSTRY RequestContext ownership
+  shape immediately after scopeClass match;
+- preserve INDUSTRY_CONTEXT_REQUIRED for missing Tenant-Industry Industry Context;
+- stop malformed scope before Commercial, base PDP or resource dependencies;
+- leave the dedicated EXPLICIT_CROSS_CONTEXT transfer contract separately governed and do
+  not invent target/projection/permission semantics here.
+
+This does not add authorization grants, policy operators, Commercial behavior, resource
+semantics, cross-context execution, schema/RLS/role/grant changes, product behavior or
+DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

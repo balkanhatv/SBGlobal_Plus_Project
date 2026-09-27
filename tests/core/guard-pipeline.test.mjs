@@ -370,6 +370,50 @@ test("operation scope mismatch fails before commercial checks", async () => {
   assert.deepEqual(calls, []);
 });
 
+test("TCTX-010 GuardPipeline rejects malformed operation-aligned scope shape before dependencies", async () => {
+  const scenarios = [
+    {
+      requestContext: { ...requestContext, scopeClass: "TENANT_CORE", industryContextId: "" },
+      operation: { ...operation, scopeClass: "TENANT_CORE", resourceResolver: undefined },
+      code: "POLICY_DENIED",
+    },
+    {
+      requestContext: { ...requestContext, scopeClass: "TENANT_CORE", industryContextId: "industry-retail" },
+      operation: { ...operation, scopeClass: "TENANT_CORE", resourceResolver: undefined },
+      code: "POLICY_DENIED",
+    },
+    {
+      requestContext: { ...requestContext, scopeClass: "TENANT_INDUSTRY", industryContextId: undefined },
+      operation: { ...operation, resourceResolver: undefined },
+      code: "INDUSTRY_CONTEXT_REQUIRED",
+    },
+    {
+      requestContext: { ...requestContext, scopeClass: "PLATFORM_GLOBAL", industryContextId: undefined },
+      operation: { ...operation, scopeClass: "PLATFORM_GLOBAL", resourceResolver: undefined },
+      code: "POLICY_DENIED",
+    },
+    {
+      requestContext: { ...requestContext, scopeClass: "PUBLIC", industryContextId: undefined },
+      operation: { ...operation, scopeClass: "PUBLIC", resourceResolver: undefined },
+      code: "POLICY_DENIED",
+    },
+  ];
+
+  for (const scenario of scenarios) {
+    const { ports, calls } = makePorts();
+    const guard = new GuardPipeline(ports);
+    await assert.rejects(
+      guard.authorize({
+        requestContext: scenario.requestContext,
+        operation: scenario.operation,
+      }),
+      (error) => error instanceof GuardPipelineError
+        && error.code === scenario.code,
+    );
+    assert.deepEqual(calls, []);
+  }
+});
+
 test("OperationRegistry rejects duplicate business operation IDs", () => {
   const registry = new OperationRegistry();
   registry.register(operation);

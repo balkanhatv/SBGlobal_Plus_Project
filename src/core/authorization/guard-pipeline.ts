@@ -462,12 +462,53 @@ export class GuardPipeline {
       });
     }
 
-    if ((operation.scopeClass === "TENANT_INDUSTRY"
-        || operation.scopeClass === "EXPLICIT_CROSS_CONTEXT")
-      && !context.industryContextId) {
+    if (operation.scopeClass === "PUBLIC"
+      || operation.scopeClass === "PLATFORM_GLOBAL") {
+      if (context.tenantId !== undefined || context.industryContextId !== undefined) {
+        throw new GuardPipelineError({
+          code: "POLICY_DENIED",
+          messageSafe: "Operation scope is not permitted in the active context.",
+        });
+      }
+      return;
+    }
+
+    if (operation.scopeClass === "TENANT_CORE") {
+      if (typeof context.tenantId !== "string"
+        || context.tenantId.length === 0
+        || context.industryContextId !== undefined) {
+        throw new GuardPipelineError({
+          code: "POLICY_DENIED",
+          messageSafe: "Operation scope is not permitted in the active context.",
+        });
+      }
+      return;
+    }
+
+    if (operation.scopeClass === "TENANT_INDUSTRY") {
+      if (typeof context.tenantId !== "string" || context.tenantId.length === 0) {
+        throw new GuardPipelineError({
+          code: "POLICY_DENIED",
+          messageSafe: "Operation scope is not permitted in the active context.",
+        });
+      }
+      if (typeof context.industryContextId !== "string"
+        || context.industryContextId.length === 0) {
+        throw new GuardPipelineError({
+          code: "INDUSTRY_CONTEXT_REQUIRED",
+          messageSafe: "An Industry Context is required.",
+        });
+      }
+      return;
+    }
+
+    if (operation.scopeClass === "EXPLICIT_CROSS_CONTEXT"
+      && (!context.tenantId || !context.industryContextId)) {
       throw new GuardPipelineError({
-        code: "INDUSTRY_CONTEXT_REQUIRED",
-        messageSafe: "An Industry Context is required.",
+        code: !context.tenantId ? "POLICY_DENIED" : "INDUSTRY_CONTEXT_REQUIRED",
+        messageSafe: !context.tenantId
+          ? "Operation scope is not permitted in the active context."
+          : "An Industry Context is required.",
       });
     }
   }

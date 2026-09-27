@@ -29,6 +29,7 @@ without substituting counts or references for substantive runtime acceptance.
 | TCTX-007 | worker job missing persisted required context, runtime scope is outside the generic worker's closed TENANT_CORE/TENANT_INDUSTRY contract, TENANT_CORE carries an Industry Context, or generic WorkerContext attempts EXPLICIT_CROSS_CONTEXT without the DD-02 governed source+target transfer contract | reject/dead-letter or RESOURCE_SCOPE_DENY; exact protected scope shape only, no default tenant/context and no generic cross-context widening |
 | TCTX-008 | generic RequestContext resolution requests EXPLICIT_CROSS_CONTEXT without the dedicated source+target transfer contract and permission/policy | RESOURCE_SCOPE_DENY; no generic Tenant/Industry lookup or cross-context widening |
 | TCTX-009 | Tenant-Core effective-role query carries any present Industry Context value, including empty string | TENANT_INVALID / no role-store use; PostgreSQL effective-role adapter also refuses the malformed exact-scope shape |
+| TCTX-010 | GuardPipeline receives an operation-aligned but malformed generic RequestContext shape (private Tenant/Industry evidence on PUBLIC/PLATFORM_GLOBAL, hidden Industry on TENANT_CORE, or missing Industry on TENANT_INDUSTRY) | fail closed before Commercial/PDP/resource dependencies; no malformed scope normalization |
 
 ## 2. Identity/session/device/API credential
 | ID | Scenario | Expected |
