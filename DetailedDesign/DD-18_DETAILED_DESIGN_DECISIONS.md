@@ -909,8 +909,12 @@ ports resolve edge policy, route, Authorization, authenticated context and input
 Metadata ports cannot consume the body. Body preparation/input projection occur
 only after authenticated context creation. The route supplies a fixed operationId
 and selector facts; OperationExecutor supplies scope and every business/security
-check. Responses use only DD-052 success/error/control projections plus governed
-HTTP status, correlation, no-store, Retry-After and replay headers.
+check. The transport-owned Idempotency-Key remains the exact executor idempotency
+input, and any already-verified rate subject remains authoritative only when it
+originates from the trusted network port; authenticated-context implementations
+cannot replace either fact. Responses use only DD-052 success/error/control
+projections plus governed HTTP status, correlation, no-store, Retry-After and
+replay headers.
 
 **Security / trade-off:** a generic injected boundary leaves credential syntax and
 routes unexposed until their own governed registrations exist, while still making

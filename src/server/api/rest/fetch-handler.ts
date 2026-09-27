@@ -57,8 +57,6 @@ export interface RestNetworkPort {
 
 export interface ProtectedRestContext {
   readonly executionContext:Omit<ContextResolutionInput,"scopeClass">;
-  readonly idempotencyKey?:string;
-  readonly verifiedRateSubject?:RateLimitSubject;
 }
 
 export interface ProtectedRestContextPort {
@@ -286,6 +284,8 @@ export function createRestFetchHandler(
     const requestMetadata=metadata(request);
     let route:RestRouteResolution;
     let context:ProtectedRestContext;
+    let network:RestNetworkFacts=Object.freeze({});
+    let transportIdempotencyKey:string|undefined;
     try{
       await ports.edgePolicy.verify(requestMetadata);
       const resolved=await ports.routes.resolve(requestMetadata);
@@ -312,15 +312,16 @@ export function createRestFetchHandler(
         authorizationHeader,
         request:requestMetadata,
       });
-      const network=ports.network
+      network=ports.network
         ? await ports.network.resolve(requestMetadata)
         : Object.freeze({});
+      transportIdempotencyKey=idempotencyKey(request);
       context=await ports.contexts.authenticate({
         authentication,
         ...ids,
         route,
         request:requestMetadata,
-        idempotencyKey:idempotencyKey(request),
+        idempotencyKey:transportIdempotencyKey,
         network,
       });
       if(context.executionContext.requestId!==ids.requestId
@@ -355,9 +356,9 @@ export function createRestFetchHandler(
         operationId:route.operationId,
         rawInput,
         context:context.executionContext,
-        ...(context.idempotencyKey?{idempotencyKey:context.idempotencyKey}:{}),
-        ...(context.verifiedRateSubject
-          ? {verifiedRateSubject:context.verifiedRateSubject}
+        ...(transportIdempotencyKey?{idempotencyKey:transportIdempotencyKey}:{}),
+        ...(network.verifiedRateSubject
+          ? {verifiedRateSubject:network.verifiedRateSubject}
           : {}),
       });
       return resultResponse({

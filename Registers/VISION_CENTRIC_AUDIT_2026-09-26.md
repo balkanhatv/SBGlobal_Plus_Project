@@ -613,3 +613,20 @@ This mirrors migration-owned evidence only. It does not implement verifier/hash 
 The combined downstream machine-scope correction head `285c0d2a34334a6aad58ae20c4e8e42f042e5017` / tree `0f056e8c28aa3cc2f2c186afa63764e960522013` passed exact-head **706/706 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. This verifies VC27-27 sparse allowed-Industry evidence, VC27-28 malformed SERVICE allowed-scope evidence and VC27-29 duplicate allowed-Industry evidence together on one exact executable tree.
 
 The result remains bounded. No presented-token grammar/hash comparison, CIDR enforcement, permission-profile evaluation, successful-use mutation/audit, final `VerifiedMachineEvidence`, external REST catalog, webhook execution, Integration/provider/sync execution, Workflow/Automation/Notification execution, retention/ACL or AI provider/tool execution is authorized by these floors. DD-208 remains the latest governed development checkpoint; DD-209 remains held. Current State/Development projections are synchronized to this verified executable basis, while the containing documentation-only state-sync commit still requires its own exact-head CI.
+
+
+## 2026-09-27 downstream external REST adapter continuation
+
+### VC27-30 — P2: DD-080 REST authenticated-context port could substitute transport/network authority
+
+DD-080 states that the adapter supplies the transport `Idempotency-Key` and any already-verified rate subject, while network/IP or webhook endpoint identity must originate only through the trusted network port. The REST Fetch handler passed those facts into `contexts.authenticate()`, then discarded the originals and used optional `idempotencyKey` / `verifiedRateSubject` fields returned by that context implementation when calling `OperationExecutor`. A buggy context port could therefore substitute transport retry identity or a network-derived endpoint rate subject.
+
+The first-party tRPC path already preserves the intended trust direction by passing transport idempotency and trusted network subject directly into protected context/execution.
+
+Smallest forward-only correction:
+- `ProtectedRestContext` returns only the protected execution context;
+- retain the validated transport idempotency key and trusted network facts in the Fetch handler;
+- pass those original facts directly to `OperationExecutor`;
+- add REST-009 proving context-returned substitute metadata is ignored.
+
+No route catalog, machine/API-key syntax, OpenAPI publication, provider/network execution, SQL/RLS/role/grant or product operation is added. The REST adapter remains unmounted. DD-208 remains current and DD-209 remains held.

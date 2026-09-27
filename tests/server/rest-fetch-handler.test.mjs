@@ -41,7 +41,6 @@ function harness(overrides={}){
         authentication:input.authentication,
         tenantSelector:input.route.tenantSelector,
       },
-      ...(input.idempotencyKey?{idempotencyKey:input.idempotencyKey}:{}),
     }}},
     bodyPolicy:{async prepare(request){calls.push("body");return request}},
     input:{async read(){calls.push("input");return {membershipId:"m-1"}}},
@@ -171,6 +170,38 @@ test("REST-006 missing auth and edge denials stop before body/input execution",a
   const deniedResponse=await denied.handler(request());
   assert.equal(deniedResponse.status,403);
   assert.deepEqual(denied.calls,[]);
+});
+
+test("REST-009 authenticated context cannot replace transport idempotency or trusted network rate subject",async()=>{
+  let seen;
+  let contextInput;
+  const trustedSubject=Object.freeze({endpointKey:"trusted-endpoint"});
+  const {handler}=harness({
+    network:{async resolve(){return Object.freeze({verifiedRateSubject:trustedSubject})}},
+    contexts:{async authenticate(input){
+      contextInput=input;
+      return {
+        executionContext:{
+          requestId:input.requestId,
+          correlationId:input.correlationId,
+          authentication:input.authentication,
+          tenantSelector:input.route.tenantSelector,
+        },
+        idempotencyKey:"context-substitution",
+        verifiedRateSubject:Object.freeze({endpointKey:"context-substitution"}),
+      };
+    }},
+    executor:{async execute(input){seen=input;return {
+      kind:"EXECUTED",data:{permissionVersion:9},meta:executionMeta(input),
+    }}},
+  });
+
+  const response=await handler(request({"idempotency-key":"transport-key"}));
+  assert.equal(response.status,200);
+  assert.equal(contextInput.idempotencyKey,"transport-key");
+  assert.deepEqual(contextInput.network.verifiedRateSubject,trustedSubject);
+  assert.equal(seen.idempotencyKey,"transport-key");
+  assert.deepEqual(seen.verifiedRateSubject,trustedSubject);
 });
 
 test("REST context cannot replace normalized request or correlation identity",async()=>{
