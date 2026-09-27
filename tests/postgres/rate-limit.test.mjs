@@ -110,6 +110,51 @@ test("concurrent one-token override admits exactly one claimant",async()=>{
    && x.reason.code==="RATE_LIMITED").length,1);
 });
 
+test("stale faster persisted refill cannot widen the current stricter rule",async()=>{
+ const bucketKeyHash="f".repeat(64);
+ const now=new Date("2026-09-18T10:00:00Z");
+ const lastRefill=new Date("2026-09-18T09:59:59Z");
+ await admin.query(
+   `INSERT INTO core_integration.rate_limit_bucket(
+      bucket_key_hash,policy_version,rate_class,dimension,capacity,
+      refill_per_second,tokens,last_refill_at,created_at,updated_at
+    ) VALUES ($1,1,'AUTH_STANDARD','PRINCIPAL',100,100,0,$2,$2,$2)
+    ON CONFLICT (bucket_key_hash) DO UPDATE
+      SET policy_version=EXCLUDED.policy_version,
+          rate_class=EXCLUDED.rate_class,
+          dimension=EXCLUDED.dimension,
+          capacity=EXCLUDED.capacity,
+          refill_per_second=EXCLUDED.refill_per_second,
+          tokens=EXCLUDED.tokens,
+          last_refill_at=EXCLUDED.last_refill_at,
+          updated_at=EXCLUDED.updated_at`,
+   [bucketKeyHash,lastRefill.toISOString()],
+ );
+ try{
+   const result=await store.acquire({
+     now,
+     leaseExpiresAt:new Date("2026-09-18T10:05:00Z"),
+     rules:[Object.freeze({
+       bucketKeyHash,
+       policyVersion:1,
+       rateClass:"AUTH_STANDARD",
+       dimension:"PRINCIPAL",
+       capacity:10,
+       refillPerSecond:0.1,
+     })],
+   });
+   assert.equal(result.allowed,false);
+   assert.equal(result.rateClass,"AUTH_STANDARD");
+   assert.equal(result.dimension,"PRINCIPAL");
+   assert.ok(result.retryAfterSeconds>=9);
+ }finally{
+   await admin.query(
+     "DELETE FROM core_integration.rate_limit_bucket WHERE bucket_key_hash=$1",
+     [bucketKeyHash],
+   );
+ }
+});
+
 test("AI tenant concurrency lease caps at 8, release reopens one slot",async()=>{
  const acquisitions=[];
  const aiOp=op("AI_COSTED");

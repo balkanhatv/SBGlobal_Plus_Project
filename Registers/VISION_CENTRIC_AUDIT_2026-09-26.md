@@ -1404,3 +1404,28 @@ integrity, change generic AuditEvent nullability, create PUBLIC/cross-context au
 add authorization grants, change PDP/Guard semantics, schema/RLS/roles/grants, product
 behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream rate-limit current-policy continuation
+
+### VC27-62 — P1: stale persisted refill metadata could widen a current stricter rate rule
+
+DD-050 requires SecurityRatePolicy v1 plus tighter governed overrides to be enforced by the
+shared distributed limiter, with the tightest applicable limit winning. The PostgreSQL bucket
+stores capacity/refill as operational metadata so state survives across requests.
+
+PostgresRateLimitStore capped replenished tokens to the current rule's capacity, but computed
+elapsed refill using the persisted row's old refill_per_second and old capacity. If a bucket
+was created under a faster/default rule and a later request resolved a stricter current
+override on the same bucket identity, stale persisted refill could replenish enough tokens
+to admit a request that the current governed rule would still throttle.
+
+Smallest forward-only correction:
+- preserve existing persisted token/last-refill continuity;
+- validate persisted numeric metadata but calculate elapsed replenishment with the current
+  RateLimitStoreRule.refillPerSecond and cap with its current capacity;
+- add API-RATE-008 PostgreSQL regression proving stale faster metadata cannot widen the
+  current rule.
+
+This does not change SecurityRatePolicy numeric defaults, override ceilings, bucket identity,
+concurrency limits, schema/roles/grants, transport projection, product behavior or DD-209
+authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

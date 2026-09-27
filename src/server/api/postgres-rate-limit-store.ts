@@ -32,9 +32,11 @@ function refill(row:BucketRow,rule:RateLimitStoreRule,now:Date):number{
   if(Number.isNaN(last.getTime())) unavailable();
   const elapsed=Math.max(0,(now.getTime()-last.getTime())/1000);
   const oldTokens=numeric(row.tokens);
-  const oldRate=numeric(row.refill_per_second);
-  const oldCapacity=numeric(row.capacity);
-  const replenished=Math.min(oldCapacity,oldTokens+(elapsed*oldRate));
+  // Persisted capacity/refill are historical operational metadata, not authority.
+  // Validate their shape, but apply the current governed rule for this admission.
+  numeric(row.refill_per_second);
+  numeric(row.capacity);
+  const replenished=oldTokens+(elapsed*rule.refillPerSecond);
   return Math.min(rule.capacity,replenished);
 }
 

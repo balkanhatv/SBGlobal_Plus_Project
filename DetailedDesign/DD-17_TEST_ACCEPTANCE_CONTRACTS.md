@@ -437,6 +437,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | API-RATE-005 | AI tenant already has 8 live leases | RATE_LIMITED with retry metadata; releasing/expiry reopens capacity |
 | API-RATE-006 | limiter database inspected by ordinary app/integration role | permission denied; persisted bucket identity is SHA-256 only |
 | API-RATE-007 | tenant-scoped rate-limit call has scope mismatch, missing/empty Tenant, hidden Industry on TENANT_CORE, or missing Industry on TENANT_INDUSTRY | RATE_CONTEXT_INVALID before limiter store use; Tenant aggregate cannot be bypassed by malformed context |
+| API-RATE-008 | persisted bucket carries a stale faster refill/capacity than the current governed rule | admission/refill uses the current rule; stale operational metadata cannot widen the current limit |
 
 
 ### Canonical API execution kernel — DD-051 / DEV-API-EXECUTOR-001
