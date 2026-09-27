@@ -84,6 +84,14 @@ export function matchesApiCredentialRequestedScopeFloor(
     return false;
   }
 
+  if (material.industryContextId !== undefined
+    && Array.from(material.allowedIndustryContextIds).some(
+      (allowedIndustryContextId) =>
+        allowedIndustryContextId !== material.industryContextId,
+    )) {
+    return false;
+  }
+
   if (target.scopeClass === "EXPLICIT_CROSS_CONTEXT") return false;
 
   if (target.scopeClass === "PLATFORM_GLOBAL") {
