@@ -370,7 +370,7 @@ These are smallest forward-only documentation corrections. No RawSource, runtime
 
 Fresh direct-source review of the first unreconciled Product Specification block found mostly ownership/scope drift plus two canonical-document defects already surfaced by the S1 residual audit.
 
-### VC27-18 — P1/P2: S2.2 vision/content/surface scope drift plus public-claim evidence gap
+### VC27-19 — P1/P2: S2.2 vision/content/surface scope drift plus public-claim evidence gap
 
 **Vision/catalog/status.** S2.2 Product Vision still calls Healthcare the flagship and calls the platform Production Ready. Those are source-era statements only: Healthcare is one of nine equal Current Supported Industries and current project status is evidence-gated. Business Scope also omits Security & Facility Management from the current list and uses shorter Government/NGO labels; CR-03/CR-05 and the current catalog govern. The source “complete platform-wide User Types” list is Healthcare-heavy and cannot be the complete role/persona catalog for nine equal suites.
 
@@ -389,7 +389,7 @@ No RawSource, runtime implementation, executable test, SQL migration/RLS, role/g
 
 Direct review of the operational/commercial/API/mobile/AI/operations block found no requirement to change RawSource, but several current-owner and safety boundaries were too coarse in the parent ledger.
 
-### VC27-19 — P1/P2: S2.2 Healthcare/Core ownership, clinical-AI authority and legacy platform-stack wording required normalization
+### VC27-20 — P1/P2: S2.2 Healthcare/Core ownership, clinical-AI authority and legacy platform-stack wording required normalization
 
 **Healthcare operations vs Core primitives.** Branch, Department and Staff sections combine reusable OrgUnit/HR capabilities with laboratory-specific equipment/worklists/KPIs and Healthcare role types. Patient, Doctor, Appointment, LIS and Test Catalogue are Healthcare domain requirements. Healthcare Billing and Inventory consume shared Finance/Commercial/Inventory primitives but retain suite-specific workflows, while GST/TDS remain jurisdiction-governed rather than global semantics. Communication is a Core engine; provider names in the source are configurable integration options, not automatically enabled commercial/provider relationships.
 
@@ -408,7 +408,7 @@ No runtime implementation, executable tests, SQL/RLS, role/grant, workflow engin
 
 The final unreconciled Product Specification block is now directly reconciled.
 
-### VC27-20 — P2: S2.2 final QA/NFR/lifecycle/product-goal block needed evidence/status and scope normalization
+### VC27-21 — P2: S2.2 final QA/NFR/lifecycle/product-goal block needed evidence/status and scope normalization
 
 - **Machine Integration Roadmap** is Healthcare analyzer interoperability (ASTM/HL7, driver/mapping/result import/QC/connectivity) over Core Integration/device boundaries. “Roadmap” is target capability, not proof that every analyzer/driver is operational.
 - **Reporting & BI** is a reusable Core composition capability; domain data/KPI meaning remains with the owning Industry.
@@ -424,3 +424,19 @@ The final unreconciled Product Specification block is now directly reconciled.
 After this slice the source-span ledger has **0 parent units with NOT_CERTIFIED semantic reconciliation** across S1 + S2.1…S2.9. This closes the parent-source semantic-reconciliation gate only; it does not by itself certify the full repository or authorize DD-209. Exact-HEAD Core/PostgreSQL/Database/Web verification and downstream canonical/state consistency checks are still required.
 
 No RawSource, runtime implementation, executable test, SQL/RLS, role/grant or stable requirement ID/count changes.
+
+
+## 2026-09-27 post-parent-source canonical closure correction
+
+### VC27-22 — P1: parent-source closure still left stale F-01 actor/organization authority and F-04 jurisdiction/scope semantics
+
+The S1+S2 parent ledger at `e1be03f490e153ca3def028e7085dbb6fafe7095` reaches 372/372 owner-reconciled units, but direct canonical-owner comparison still found two stale Foundation statements that would have made the ledger point at incorrect active semantics:
+
+- F-01 §2 still called S2.2 §5's Healthcare-heavy list the full authoritative platform user-type list. The current nine-Industry platform instead uses Core actor classes plus each suite's own personas/roles; the source list remains provenance only.
+- F-01 §4 still repeated separate Branch/Department identifiers rather than the typed OrgUnit + active Industry Context model already governed by A-02/DD-02 and the S2.4 reconciliation.
+- F-04 §1 lacked an explicit jurisdiction boundary for India-default source values such as social/category classifications, GST/TDS and national identity/reference schemes. Those now resolve through Country/Localization Packs and lawful/configured purpose.
+- F-04's source-derived standard-column list is now explicitly a baseline whose ownership columns follow actual PLATFORM/TENANT/INDUSTRY/OrgUnit scope, preventing fake Tenant/Industry ownership on global reference rows.
+
+The audit finding sequence is also normalized to unique IDs: S1 residual VC27-18; S2.2 slices VC27-19, VC27-20 and VC27-21; this residual correction VC27-22.
+
+No RawSource, runtime, migration/RLS, role/grant, executable test, workflow definition, requirement ID/count or product-surface change. Exact-HEAD verification remains required before the adversarial closure sweep. DD-208 remains current and DD-209 remains held.

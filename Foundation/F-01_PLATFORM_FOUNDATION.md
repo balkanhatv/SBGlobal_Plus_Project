@@ -21,7 +21,7 @@ The nine Current Supported Industries are the active certified catalog and remai
 | **Platform Developer** | Platform-wide (role-scoped) | Technical operations, integration support, AI Development Center review workflows (recommendations always require Super Admin approval `[SD: S2.2 §33]`) |
 | **Tenant Owner** | Tenant-wide | Signs subscription; owns tenant data; delegates to Tenant Admins; controls industry enablement requests |
 | **Tenant Admin** | Tenant-wide | Configures branding, domains, users, roles, modules, workflows, notifications, integrations, sync policy, affiliate/payout settings within plan entitlements `[SD: S1 §9]` |
-| **Tenant business users** | Industry/Module/Role | Defined per Industry Suite (F-07…F-09); full authoritative platform user-type list preserved from S2.2 §5 |
+| **Tenant business users** | Industry/Module/Role | Defined per Industry Suite (F-07…F-09). S2.2 §5's Healthcare-heavy user/role list is preserved as source provenance, but it is **not exhaustive for the current nine-Industry catalog**; current suite personas/roles and Core actor classes together govern applicable users. |
 | **End customers** (Patient/Student/Customer/Citizen/Donor/Guest…) | User-scoped | Consume Published Tenant Experiences (F-06) |
 | **API Client / Service Account** | Tenant- or Platform-scoped | Machine access via scoped API credentials under the same Core identity boundary (F-03); not a human session |
 
@@ -39,7 +39,7 @@ Hard separations (LG-10…LG-12): Login Entry Point ≠ Application Surface ≠ 
 ## 4. Tenancy Model
 
 - **Isolation `[SD: S2.2 §6]`:** each tenant receives complete data isolation and independent users, branches, staff, domain/website, mobile configuration, branding, API access, AI usage, storage, configuration, plus configurable data residency/region. Cross-tenant access is never permitted; verified by dedicated tenant-isolation tests (inter-tenant AND intra-tenant cross-Industry-Context — F-03 §7).
-- **Structure:** Tenant → Branches → Departments → Users/Roles `[SD: S2.2 §13–§15]`; identifiers UUID + Tenant ID + Branch ID + Department ID + Industry Vertical Suite reference `[SD: S2.4]`.
+- **Structure:** Tenant → typed Organization Units (Branch/Department and other governed OrgUnit types) → Users/Roles `[SD: S2.2 §13–§15; canonicalized by A-02/DD-02]`; identity uses UUID + Tenant + active Industry Context where applicable + canonical OrgUnit identity/path. Source-era separate Branch/Department identifier wording is preserved in traceability rather than creating parallel organization identity systems.
 - **Context binding rule `[SD: MI §7/§14]`:** where a user belongs to multiple tenants or a tenant has multiple enabled industries, Tenant Context and Industry Context resolve only through explicit user selection or deterministic surface binding — never implicit inference.
 
 ## 5. Subscription, Billing, Licensing & Entitlements

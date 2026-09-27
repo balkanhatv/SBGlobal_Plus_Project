@@ -518,3 +518,8 @@ S2.2 slice-1 commit `02e118847c20cdd0424605d50f3c1c3815693f2d` / tree `b0f8f5c54
 ## 2026-09-27 — S2.2 slice-2 staged; final source-parent slice prepared
 
 S2.2 slice-2 commit `be26d71626eaa35c58c53a9b9bb78722e6d8fc12` / tree `6b3c2a16576ba477c3bb34825e2f5bed63db04ca` carries U082–U111 reconciliation plus explicit Healthcare clinical-AI safety boundaries. Final slice U113–U131 reconciles analyzer-roadmap scope, BI/DR/QA/extensions, guarded bulk/document/data lifecycle, localization/NFR/observability/queue/release/support and acceptance/product-goal status. The prepared source-span result reaches **0 NOT_CERTIFIED parent units** across S1 + S2.1…S2.9. This closes only the parent-source semantic gate; DD-208 remains current and DD-209 remains held pending exact-head CI and downstream canonical/state consistency audit.
+
+
+## 2026-09-27 — parent-source closure residual canonical correction staged
+
+S2.2 slice-3 `e1be03f490e153ca3def028e7085dbb6fafe7095` closes the source-parent ledger at **372/372 owner-reconciled, 0 remaining**. A direct owner comparison then found stale F-01 authority for the Healthcare-heavy user list and Branch/Department identifiers plus missing F-04 jurisdiction/scope boundaries for India-default master/tax/reference values. These are corrected and VC27 audit IDs are de-duplicated. No RawSource/runtime/test/workflow/SQL/RLS change. Exact-head verification is required before adversarial/state closure; DD-208 remains current and DD-209 remains held.
