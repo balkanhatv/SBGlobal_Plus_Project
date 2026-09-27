@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-62:** `84aecd3c1388350a2a535b1d25a49c1b2056f70e` / tree `3c69a725d51c671d4892e2e17a0f666d5ca99076`
+**Prior tree-qualified verified basis through VC27-63:** `65f4356bc42351bcce46546112713127205defb5` / tree `18d12855eeee92c7ff1c222fb17a85f7b8d5c843`
 
-**Current exact-head correction basis:** `65f4356bc42351bcce46546112713127205defb5` / tree `18d12855eeee92c7ff1c222fb17a85f7b8d5c843`
+**Current exact-head correction basis:** `772e373edf2259da4b78b837ad777b5346449a68` / tree `92881eadd52184d01d4fdd081418de67e634c254`
 
-**Exact-head gate:** Core 734/734; PostgreSQL 510/510 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 734/734; PostgreSQL 512/512 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -73,6 +73,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-61 — Authorization durable-audit principal evidence:** every accepted protected single-context Authorization audit write now requires a valid principal UUID before scoped SQL; malformed missing/empty actor identity cannot degrade into nullable generic AuditEvent evidence.
 - **VC27-62 — current governed rate-refill policy:** PostgreSQL rate-limit admission now preserves persisted token/last-refill continuity but applies the current RateLimitStoreRule refill rate and capacity; stale faster persisted operational metadata cannot widen a stricter current rule.
 - **VC27-63 — Integration reader exact Tenant-Core scope:** five tenant-scoped Integration PostgreSQL readers now reject any present Industry Context on TENANT_CORE before scoped SQL, including empty-string evidence, while preserving raw reader semantics.
+- **VC27-64 — idempotency safe replay metadata:** persisted REPLAY/FINAL_FAILURE response status/reference now revalidate the existing bounded safe-metadata contract, and direct malformed completion is rejected before scoped SQL; no response body or lifecycle semantics are added.
 
 ### Current bounded verdict
 
