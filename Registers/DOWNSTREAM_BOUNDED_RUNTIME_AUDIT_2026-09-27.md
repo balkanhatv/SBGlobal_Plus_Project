@@ -1,8 +1,8 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-59:** `96b1f7ca6d1bc6964e60cc55ec564115357c33fc` / tree `f98980f65c7b60a0075e6a7b56f7f53452f921e8`
+**Prior tree-qualified verified basis through VC27-60:** `f1cd4bcf0e663c24d3141be7ee3b2430f9ec9d2c` / tree `42bf719e1ed761640eaca778ecd54558f193c345`
 
-**Current exact-head correction basis:** `f1cd4bcf0e663c24d3141be7ee3b2430f9ec9d2c` / tree `42bf719e1ed761640eaca778ecd54558f193c345`
+**Current exact-head correction basis:** `8a2d60bf3a47a49afa028445ca75b168cb171b00` / tree `9a2b6cdd4bc12ea6b12a41e88a6c8e73cc75aaff`
 
 **Exact-head gate:** Core 733/733; PostgreSQL 509/509 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
@@ -70,6 +70,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-58 — OperationContract runtime enums:** OperationExecutor now rejects unsupported runtime scopeClass/kind/idempotencyPolicy values before RequestContext, rate, guard, idempotency or domain execution; an untyped mutation-like kind cannot bypass COMMAND idempotency semantics.
 - **VC27-59 — Commercial supporting exact Tenant-Core scope:** six remaining server-only Commercial plan-change evidence/compiler services now reject any present Industry Context on TENANT_CORE before resolver/source/recorder use, including present-empty evidence; lower persistence/RLS is no longer the sole fail-closed layer.
 - **VC27-60 — Authorization durable-audit exact scope:** the privileged final Authorization audit writer now accepts only exact PLATFORM_GLOBAL/TENANT_CORE/TENANT_INDUSTRY single-context shapes and rejects malformed/untyped ownership evidence before RequestScopedSql/INSERT. PUBLIC and EXPLICIT_CROSS_CONTEXT remain separate governed audit paths.
+- **VC27-61 — Authorization durable-audit principal evidence:** every accepted protected single-context Authorization audit write now requires a valid principal UUID before scoped SQL; malformed missing/empty actor identity cannot degrade into nullable generic AuditEvent evidence.
 
 ### Current bounded verdict
 
