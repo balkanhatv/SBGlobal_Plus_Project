@@ -482,3 +482,39 @@ The correction updates only current projection/evidence wording:
 Historical DD-208 verification records retain their original 504/504 PostgreSQL counts because those are correct for the original DD-208 promotion commit and must not be rewritten to later counts.
 
 No runtime, test, workflow, SQL/RLS, role/grant, RawSource, stable requirement ID/count or governed checkpoint change.
+
+
+## 2026-09-27 downstream bounded runtime / current-checkpoint adversarial verification
+
+Current Development/Database state projection `d32f6f824fd5bade4dd247deec5881e73e4d8396` / tree `7c7332fd5b69dbdd0f98694fe44e142bb2a0a2ab` passed exact-head **700/700 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, and Web. A direct downstream adversarial read then covered the latest governed DD-206/DD-207/DD-208 AI TenantAIConfig floors, the BLOCKED AIMemory principal-currentness seam, the physically mounted first-party Next.js/tRPC web plane, RequestContext/Commercial/Guard/identity/Tenant bootstrap, database role/scope adapters, and migration 0048 definition-scope hardening.
+
+### Result — bounded CLEAN through the current checkpoint; no DD-209 authorization
+
+**DD-206/207/208 TenantAIConfig floors.**
+- capability evidence proves only duplicate-free exact capability ids + raw ACTIVE capability rows;
+- provider evidence proves only exact provider ids + raw ACTIVE provider rows;
+- model evidence proves only exact ACTIVE model ids whose provider id is also present in the same config allowedProviderIds;
+- malformed/sparse/duplicate evidence remains fail-closed;
+- none of these helpers proves latest/effective Tenant+Industry configuration, provider health/credentials/suitability, routing, entitlement, or AI execution.
+
+**AIMemory blocked provenance seam.** The existing principal-currentness audit remains correctly BLOCKED because later pure re-evaluation lacks all historical request-local provenance. No current DD-208 runtime path converts that missing provenance into authority. The MemoryRecord reader remains exact/raw/read-only; assistant-binding and supersession-continuity helpers remain narrow relationship floors; cross-Tenant/cross-Industry/principal PostgreSQL tests remain fail-closed. No invented currentness rule is authorized.
+
+**Mounted first-party web runtime.** The only physical App Router boundary is `/api/trpc`; the external REST Fetch adapter remains an unmounted floor. The web composition registers only three TENANT_CORE queries: `core.identity.roles.listEffective`, `core.tenancy.workspace.resolve`, and `core.commercial.entitlements.getCurrent`.
+- exact server host binding supplies only a Tenant selector; generic Tenant/Industry authority headers are ignored;
+- HTTPS/host/origin/method/body-size/content-type controls run before procedure execution; streamed body length is bounded even without Content-Length;
+- Clerk Bearer authentication is verified and Core Identity/session truth is revalidated again during RequestContext resolution;
+- Tenant lookup requires active current membership, multi-membership ambiguity requires an explicit trusted selector, Industry selection is same-Tenant/ACTIVE, OrgUnit path is server-derived and cyclic ancestry fails closed;
+- OperationContract fixes scopeClass; transport/client input cannot widen it;
+- Commercial snapshot/version is re-read and exact; generic protected operations remain denied for PENDING/SUSPENDED/EXPIRED/CANCELLED. No implicit suspended-mode bypass exists;
+- Authorization guard remains server-side after rate admission and before any domain call; successful/denied access is mandatory-audited;
+- `roles.listEffective` optional principal/membership reference is explicitly part of DD-06 and protected by `core.identity.role.view`; it is not a self-view-only contract and does not grant the target principal authority;
+- workspace and Commercial projections omit internal Tenant/principal/membership/DataHome/license/snapshot identifiers beyond their explicitly safe projection fields.
+
+**Database execution boundary.**
+- application/request transactions force `SET LOCAL ROLE sbg_app_rw`, `row_security=on`, reject superuser/BYPASSRLS login/runtime roles, set exact scoped GUCs and destroy/reject dirty connections on failed cleanup;
+- pre-context Tenant bootstrap, Identity, rate limiter, control-plane/authorization compiler and other privileged responsibilities use separate explicit roles where implemented;
+- migration 0029 removed blanket future default DML grants and later migrations add explicit role boundaries/revokes;
+- table-level application DML capability on some Tenant/application definition tables is not equivalent to Platform-definition mutation authority: migration 0032 restrictive RLS denies PLATFORM definition/child mutation by `sbg_app_rw` and verification executes the denial; current definition stores are raw read-only ports;
+- migration 0048 makes definition scope/containment predicates total and fail-closed on null/malformed scope input, with no PUBLIC EXECUTE and executable verification.
+
+**Boundary of this CLEAN result.** This is not a repository-wide PASS and does not imply production readiness. It verifies only the current checkpoint's AI allowlist relationship floors, currently mounted first-party web query surface, associated context/guard/database execution chain, and latest definition-scope hardening. Unmounted external REST route catalogs, machine credential policy, Commercial mutation path, integration/provider execution, webhook runtime, workflow/automation/notification execution, AI provider/tool execution, retention/ACL and other REVIEW_REQUIRED/source-owned seams remain locked and require their own downstream review. DD-208 remains current; DD-209 and effective AI execution remain unauthorized.
