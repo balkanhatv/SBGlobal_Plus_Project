@@ -18,6 +18,8 @@ Applies to: Industry Website · Industry Web Application · Industry Staff Mobil
 
 **Production-content requirement:** relevant pages/sections/components must be populated with production-ready headings, subheadings, paragraphs, marketing copy, CTA buttons, icons, hero content, statistics, feature cards, pricing/comparison content, FAQ content, testimonials, customer/company information, SEO metadata, OpenGraph metadata, structured data and commercially usable original/licensed visual assets (images, illustrations, icons, background graphics and banners). No Lorem Ipsum, placeholder text, empty required section or dummy public content is allowed. `[SD: S2.2 §9]`
 
+**Trust/compliance claim rule:** Trust Center status, uptime/SLA claims, security/compliance badges and certification language may be published only when backed by current governed evidence for the exact claim. Alignment/readiness statements must remain labelled as such; source/roadmap mentions of SOC 2, ISO 27001, GDPR or similar frameworks never constitute certification. `[SD: S1 §11; MI §9A/§33A]`
+
 **Experience components:** loader animation ("Enterprise Core Initialization" sequence), hero with dual CTA, announcement bar, pricing/comparison surfaces, AI chatbot/live chat, cookie consent, dark/light mode, language toggle, newsletter and app-download entry points. Exact page composition, wireframes, copy and asset placement are later design/content work; this Foundation section owns the required public capabilities and production-content intent.
 
 ## 3. Platform & Tenant Management Applications

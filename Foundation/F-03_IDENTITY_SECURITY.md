@@ -66,6 +66,6 @@ Test families (Engineering Standards S2.3 §5): cross-tenant access prevention, 
 
 ## 8. Identity & Data Standards `[SD: S2.4]`
 
-UUID primary keys · Tenant ID / Branch ID / Department ID / Industry Vertical Suite reference on scoped entities · snake_case, plural tables · audit fields (Created/Updated/Deleted By + At) · soft delete · encrypted fields for sensitive data · access logging.
+UUID primary keys · Tenant ownership + active Industry Context on industry-scoped entities · organization scope through the canonical typed OrgUnit model (Branch/Department are OrgUnit types, not competing identity systems) · audit fields (Created/Updated/Deleted By + At) · soft delete where the owning data class permits it · encrypted fields for sensitive data · access logging. **Physical SQL naming is not owned by Identity/Security:** AC-19 / A-05 / DD-05 govern the current PostgreSQL convention as `snake_case` with schema-qualified **singular** physical table names.
 
 **Deferred to Architecture/Detailed Design:** full permission matrix per module; ABAC policy language & evaluation order; key-rotation schedules; per-plan session policies; SIEM integration; final Clerk/web/mobile/desktop SDK wiring details and token-lifecycle implementation contracts.

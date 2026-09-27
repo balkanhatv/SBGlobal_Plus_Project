@@ -352,3 +352,15 @@ The correction is source-owner/status normalization:
 - the source footer “Final v1.0 / Enterprise QA review complete / 31-file breakdown” is historical source metadata under CR-07 and does not certify the current repository or impose a fixed file count.
 
 No RawSource, runtime, schema/RLS, role/grant, workflow, executable test or stable requirement ID/count changes. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. During reconciliation, the source-span ledger also exposed **82 S2.2 units still carrying NOT_CERTIFIED semantic status**; therefore parent-source reconciliation remains open after S1 and forward development remains held at DD-208.
+
+
+## 2026-09-27 post-S1 canonical consistency correction
+
+### VC27-18 — P1: post-S1 closure found stale F-03 SQL/organization wording and public compliance-claim ambiguity
+
+The S1 parent-ledger reconciliation at `3a00ff84b53fd5e7ebfb8cd1b2b8150a990c0260` correctly classifies all 37 source units, but a direct canonical-owner reread exposed two residual implementation-facing inconsistencies:
+
+- **F-03 §8** still repeated source-era S2.4 wording: separate Branch/Department identifiers and `snake_case, plural tables`. This conflicts with the already-recorded current architecture: Branch/Department are typed OrgUnits, and AC-19/A-05/DD-05 define schema-qualified singular snake_case PostgreSQL physical table names. F-03 now stops owning SQL naming and points to those owners. This changes no physical object.
+- **F-06 §2** lists Trust Center / Compliance Badges as required public capabilities. S1's recommendation text names SOC 2/ISO/GDPR badges, while MI §9A/§33A prohibits status/certification by label. F-06 now requires exact current governed evidence for every public certification, security status, uptime or SLA claim and requires readiness/alignment wording to remain explicit.
+
+These are smallest forward-only documentation corrections. No RawSource, runtime, SQL migration, RLS, role/grant, executable test, provider, application surface, Industry/MS catalog or stable requirement ID/count changes. S2.2 owner reconciliation remains the blocking source-audit work; DD-208 remains current and DD-209 remains held.

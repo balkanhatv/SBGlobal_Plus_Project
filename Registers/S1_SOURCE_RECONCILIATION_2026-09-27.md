@@ -25,3 +25,13 @@ S1 remains a primary consolidated source for the Enterprise SaaS target vision, 
 All 37 S1 parent units receive explicit semantic reconciliation in this slice. The same ledger check found 82 S2.2 units still marked `NOT_CERTIFIED`; source-parent semantic reconciliation therefore remains incomplete. DD-208 remains the latest governed development checkpoint and DD-209 is not authorized.
 
 No RawSource/runtime/schema/RLS/role/grant/executable-test/stable-requirement change.
+
+
+## Post-reconciliation canonical correction
+
+A direct owner reread after the 37/37 ledger reconciliation found two residual canonical-document inconsistencies and corrected them forward-only:
+
+1. F-03 §8 no longer repeats source-era plural-table or separate Branch/Department identifier wording. Typed OrgUnit owns Branch/Department organization scope; AC-19/A-05/DD-05 own singular snake_case PostgreSQL physical naming.
+2. F-06 §2 now requires current governed evidence for any public compliance/security certification badge, status, uptime or SLA claim. Alignment/readiness is not certification.
+
+No source or executable behavior changed.
