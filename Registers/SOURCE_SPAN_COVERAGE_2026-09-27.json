@@ -1728,7 +1728,7 @@
       "end_line": 2470,
       "located_inventory_rows": 13,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; laboratory analyzer roadmap is Healthcare interoperability over Core integration/device boundaries; roadmap text is target capability, not operational certification; not runtime/project certification"
     },
     {
       "unit": "S2.2-U114",
@@ -1738,7 +1738,7 @@
       "end_line": 2492,
       "located_inventory_rows": 14,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U115",
@@ -1748,7 +1748,7 @@
       "end_line": 2509,
       "located_inventory_rows": 9,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U116",
@@ -1758,7 +1758,7 @@
       "end_line": 2532,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U117",
@@ -1768,7 +1768,7 @@
       "end_line": 2548,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U118",
@@ -1778,7 +1778,7 @@
       "end_line": 2566,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; audit/versioning preserved while soft-delete/restore applies only where owning data class permits; immutable/financial history uses governed correction/reversal; not runtime/project certification"
     },
     {
       "unit": "S2.2-U119",
@@ -1788,7 +1788,7 @@
       "end_line": 2586,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; bulk search/productivity operations remain server-authorized and cannot bypass Tenant/Industry scope, workflow state, retention/legal hold or data-class policy; not runtime/project certification"
     },
     {
       "unit": "S2.2-U120",
@@ -1798,7 +1798,7 @@
       "end_line": 2605,
       "located_inventory_rows": 11,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Document Management is Core; Patient documents are Healthcare-specific and all document classes retain ACL/sensitivity/residency/secure-upload controls; not runtime/project certification"
     },
     {
       "unit": "S2.2-U121",
@@ -1808,7 +1808,7 @@
       "end_line": 2621,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U122",
@@ -1818,7 +1818,7 @@
       "end_line": 2644,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 99.9% is a target baseline, not achieved-availability or customer-SLA proof absent governed contract/evidence; not runtime/project certification"
     },
     {
       "unit": "S2.2-U123",
@@ -1828,7 +1828,7 @@
       "end_line": 2667,
       "located_inventory_rows": 13,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; data lifecycle has no blanket hard/soft delete; legal hold/retention/data class/immutable audit-financial rules govern and subscription expiry never deletes tenant data; not runtime/project certification"
     },
     {
       "unit": "S2.2-U124",
@@ -1848,7 +1848,7 @@
       "end_line": 2699,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U126",
@@ -1858,7 +1858,7 @@
       "end_line": 2719,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U127",
@@ -1868,7 +1868,7 @@
       "end_line": 2739,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; zero-downtime/blue-green remain topology capability targets where applicable, not proof every release uses them or is production-ready; not runtime/project certification"
     },
     {
       "unit": "S2.2-U128",
@@ -1878,7 +1878,7 @@
       "end_line": 2759,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
     },
     {
       "unit": "S2.2-U129",
@@ -1898,7 +1898,7 @@
       "end_line": 2790,
       "located_inventory_rows": 17,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source acceptance checklist is necessary but not sufficient; current MI §27/§33A evidence gate governs and not every AI registry provider must be simultaneously operational; not runtime/project certification"
     },
     {
       "unit": "S2.2-U131",
@@ -1908,7 +1908,7 @@
       "end_line": 2808,
       "located_inventory_rows": 9,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Product Goal remains target state; Healthcare personas/medical workflows stay Healthcare-scoped, current Core API contracts replace REST-only assumption, and Production Ready is not current status; not runtime/project certification"
     },
     {
       "unit": "S2.3-U132",
