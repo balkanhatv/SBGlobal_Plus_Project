@@ -75,8 +75,10 @@ It must:
    requested-scope allowlist entry `TENANT_CORE`;
 5. TENANT_INDUSTRY requires exact requested/persisted Tenant and a requested
    Industry, then either exact persisted Industry equality or Tenant-Core
-   credential allowlist membership; SERVICE additionally requires requested
-   scope allowlist entry `TENANT_INDUSTRY`;
+   credential allowlist membership; an exact Industry-scoped credential's
+   allowed-Industry evidence, when non-empty, may contain only that same exact
+   persisted Industry; SERVICE additionally requires requested scope allowlist
+   entry `TENANT_INDUSTRY`;
 6. API_CLIENT does not invent SERVICE allowlist requirements;
 7. EXPLICIT_CROSS_CONTEXT always fails;
 8. malformed target shapes fail closed;
