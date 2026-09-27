@@ -417,6 +417,7 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | API-IDEM-006 | FAILED_RETRYABLE / FAILED_FINAL | retryable atomically reclaims; final remains FINAL_FAILURE |
 | API-IDEM-007 | Tenant Industry session queries same-Tenant null-Industry or sibling-Industry idempotency row | zero visibility; null never means all Industries |
 | API-IDEM-008 | concurrent identical first claims | exactly one STARTED; contender becomes IN_PROGRESS; runtime role cannot DELETE records |
+| API-IDEM-009 | TENANT_CORE idempotency context carries a present Industry Context value, including an empty string | IDEMPOTENCY_SCOPE_UNSUPPORTED before store use; exact Tenant-Core null-Industry shape only |
 
 
 ### API rate-limit runtime — DD-050 / DEV-API-RATE-LIMIT-001

@@ -125,6 +125,23 @@ test("TENANT_CORE explicitly resets Industry Context to empty transaction-local 
   ]);
 });
 
+test("TENANT_CORE rejects a present empty Industry Context before pooled connection use", async () => {
+  const { database, events } = makeDatabase();
+  const scoped = new RequestScopedSql(database, { dataHomeId: "home-in", regionCode: "IN" });
+
+  await assert.rejects(
+    scoped.withContext({
+      ...industryContext,
+      scopeClass: "TENANT_CORE",
+      industryContextId: "",
+    }, async () => undefined),
+    (error) => error instanceof DatabaseScopeError
+      && error.code === "DB_ROUTE_CONTEXT_MISMATCH",
+  );
+
+  assert.deepEqual(events, []);
+});
+
 test("PLATFORM_GLOBAL requires authenticated principal and carries no Tenant/Industry Context", async () => {
   const { database, events } = makeDatabase();
   const scoped = new RequestScopedSql(database, { dataHomeId: "home-in", regionCode: "IN" });
@@ -146,6 +163,30 @@ test("PLATFORM_GLOBAL requires authenticated principal and carries no Tenant/Ind
     "operator-1",
     "",
   ]);
+});
+
+test("PLATFORM_GLOBAL rejects present empty Tenant/Industry fields before pooled connection use", async () => {
+  for (const hiddenScope of [{tenantId:""},{industryContextId:""}]) {
+    const { database, events } = makeDatabase();
+    const scoped = new RequestScopedSql(database, { dataHomeId: "home-in", regionCode: "IN" });
+
+    await assert.rejects(
+      scoped.withContext({
+        requestId: "request-platform-malformed",
+        correlationId: "correlation-platform-malformed",
+        principalId: "operator-1",
+        principalType: "PLATFORM_OPERATOR",
+        orgUnitPath: Object.freeze([]),
+        roleIds: Object.freeze([]),
+        scopeClass: "PLATFORM_GLOBAL",
+        ...hiddenScope,
+      }, async () => undefined),
+      (error) => error instanceof DatabaseScopeError
+        && error.code === "DB_ROUTE_CONTEXT_MISMATCH",
+    );
+
+    assert.deepEqual(events, []);
+  }
 });
 
 test("PUBLIC scope is rejected before opening a private DB transaction", async () => {

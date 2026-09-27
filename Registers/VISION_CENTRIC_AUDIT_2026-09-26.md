@@ -1022,3 +1022,33 @@ This does not add Industry selection authority, cross-context workflow, new clie
 SQL/RLS/role/grant changes, product behavior or DD-209 authority. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-27 downstream exact-null scope-shape continuation
+
+### VC27-48 — P2: shared DB/idempotency Tenant-Core scope guards used truthiness instead of exact absence
+
+DD-02 defines TENANT_CORE with tenantId required and industryContextId null by design, and
+PLATFORM_GLOBAL with both Tenant and Industry Context absent. DD-049 plus RequestScopedSql
+own exact scope separation before idempotency persistence and pooled database context setup.
+
+Two runtime guards used truthiness rather than exact property absence:
+- RequestScopedSql accepted TENANT_CORE with industryContextId="" and PLATFORM_GLOBAL with
+  tenantId="" or industryContextId="", then normalized those malformed present values into
+  the same empty transaction-local settings used for an actually absent scope field.
+- IdempotencyService accepted TENANT_CORE with industryContextId="" and could reach an
+  injected/alternate store instead of rejecting the malformed scope at the Core boundary.
+
+This did not demonstrate sibling-Industry or cross-Tenant access, but it weakened the exact
+server-owned scope contract and could silently collapse malformed scope evidence into a
+Tenant-Core/Platform context.
+
+Smallest forward-only correction:
+- treat any present Tenant/Industry field as invalid where DD-02 requires absence, even when
+  the value is an empty string;
+- reject malformed Tenant-Core idempotency context before store use;
+- extend shared DB boundary and API-IDEM acceptance regressions;
+- preserve valid undefined/absent Tenant-Core and Platform-global behavior.
+
+This does not add database authority, RLS bypass, idempotency semantics, cross-context
+execution, product behavior, new scope classes or DD-209 authority. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

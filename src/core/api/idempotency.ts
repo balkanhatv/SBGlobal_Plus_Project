@@ -148,7 +148,7 @@ export class IdempotencyService {
     if (requestContext.scopeClass!==operation.scopeClass
       || (requestContext.scopeClass!=="TENANT_CORE" && requestContext.scopeClass!=="TENANT_INDUSTRY")
       || !requestContext.tenantId
-      || (requestContext.scopeClass==="TENANT_CORE" && requestContext.industryContextId)
+      || (requestContext.scopeClass==="TENANT_CORE" && requestContext.industryContextId!==undefined)
       || (requestContext.scopeClass==="TENANT_INDUSTRY" && !requestContext.industryContextId)) {
       throw new IdempotencyRuntimeError(
         "IDEMPOTENCY_SCOPE_UNSUPPORTED",

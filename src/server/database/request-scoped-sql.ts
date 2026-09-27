@@ -90,7 +90,9 @@ export class RequestScopedSql {
           "Platform-global database scope requires a trusted platform operator or service principal.",
         );
       }
-      if (!context.principalId || context.tenantId || context.industryContextId) {
+      if (!context.principalId
+        || context.tenantId !== undefined
+        || context.industryContextId !== undefined) {
         throw new DatabaseScopeError(
           "DB_ROUTE_CONTEXT_MISMATCH",
           "Platform-global scope cannot carry Tenant or Industry Context.",
@@ -116,7 +118,7 @@ export class RequestScopedSql {
       );
     }
 
-    if (context.scopeClass === "TENANT_CORE" && context.industryContextId) {
+    if (context.scopeClass === "TENANT_CORE" && context.industryContextId !== undefined) {
       throw new DatabaseScopeError(
         "DB_ROUTE_CONTEXT_MISMATCH",
         "Tenant Core scope cannot carry Industry Context.",

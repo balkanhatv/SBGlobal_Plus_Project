@@ -50,6 +50,20 @@ test("required idempotency rejects missing key and NONE bypasses persistence",as
   assert.equal(calls.length,0);
 });
 
+test("Tenant Core idempotency rejects a present empty Industry Context before store use",async()=>{
+  const {service,calls}=fixture();
+  await assert.rejects(
+    service.begin({
+      requestContext:Object.freeze({...context,scopeClass:"TENANT_CORE",industryContextId:""}),
+      operation:Object.freeze({...operation,scopeClass:"TENANT_CORE"}),
+      idempotencyKey:"tenant-core-malformed",
+      canonicalValidatedInput:'{}',
+    }),
+    e=>e instanceof IdempotencyRuntimeError && e.code==="IDEMPOTENCY_SCOPE_UNSUPPORTED",
+  );
+  assert.deepEqual(calls,[]);
+});
+
 test("idempotency uses credential when present and hashes key/request before store",async()=>{
   const {service,calls}=fixture();
   const result=await service.begin({
