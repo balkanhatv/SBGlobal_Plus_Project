@@ -311,6 +311,30 @@ test("APICRED-SCOPE-010 duplicate allowed-Industry evidence fails closed", () =>
   );
 });
 
+test("APICRED-SCOPE-011 exact Industry credential sibling allowlist evidence fails closed", () => {
+  const requested = target({
+    scopeClass: "TENANT_INDUSTRY",
+    industryContextId: ids.industry,
+  });
+
+  for (const allowedIndustryContextIds of [
+    Object.freeze([ids.siblingIndustry]),
+    Object.freeze([ids.industry, ids.siblingIndustry]),
+  ]) {
+    assert.equal(
+      matchesApiCredentialRequestedScopeFloor(
+        material({
+          industryContextId: ids.industry,
+          allowedIndustryContextIds,
+        }),
+        apiClient,
+        requested,
+      ),
+      false,
+    );
+  }
+});
+
 test("APICRED-SCOPE-009 malformed SERVICE allowed-scope evidence fails closed even when target scope is present", () => {
   const sparseScopes = [];
   sparseScopes[0] = "TENANT_CORE";
