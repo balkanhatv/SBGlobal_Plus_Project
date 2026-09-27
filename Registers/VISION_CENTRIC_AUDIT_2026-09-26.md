@@ -157,3 +157,16 @@ Correction is evidence-only and forward-only:
 - U038 preserves final-delivery obligations while normalizing Flutter/Super-Admin-app/Windows-only labels to the active Platform Application, exactly two Tenant mobile apps, optional Tauri desktop and UD-TECH-01.
 
 No RawSource byte, stable requirement ID/count, product behavior, runtime code, SQL, RLS, role, grant or test is changed. This closes **S2.1 unit-level source-owner reconciliation only**; it is not runtime, production-readiness, full source-corpus or complete-project certification. The containing commit requires the normal exact-HEAD Core/PostgreSQL/Database/Web gate before this finding is recorded as verified.
+
+
+## 2026-09-27 S2.2 zero-row source-owner continuation
+
+Fresh source reading targeted the S2.2 parent units that carry meaningful prose but zero located stable requirement rows. Six units can be reconciled directly from existing canonical evidence; the production-content/demo/master/media parent cluster remains open for deeper semantic review and is not marked reconciled by this slice.
+
+### VC27-08 — P2: S2.2 zero-row legacy/status units lacked explicit canonical conflict ownership
+
+S2.2-U044 states that Healthcare is the flagship, fully built-out vertical and that the other named suites do not yet have equal operational depth. The unit traceability row previously marked the unit generically VERIFIED without linking the already-governing CR-05/LG-03/LG-04 resolution. That is unsafe source-fidelity wording because the source detail must be preserved while its flagship/template/permanent-shallow posture remains legacy. S2.2-U039 similarly carries a source-document `Status: Production Ready` label that cannot certify current project status under §9A/§27/§33A/LG-14.
+
+The same corrective slice sharpens U090 Sample Lifecycle to its exact F-07 §1.4 owner, U112 deployment-simplicity mixed disposition to UD-TECH-01/A-10, U124 database/isolation cross-reference ownership, and U129 performance/scalability ownership. No source bytes, requirement IDs/counts, product behavior, runtime code, database object, RLS rule or tests change.
+
+The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. Full S2.2 semantic reconciliation remains **IN PROGRESS**, especially U051/U052/U058/U062/U072 production-content/demo/master/media parent semantics. Forward development remains held at DD-208.

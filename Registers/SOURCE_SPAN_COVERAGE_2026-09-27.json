@@ -988,7 +988,7 @@
       "end_line": 618,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source document `Status: Production Ready` is historical/source metadata only under MI §27/§33A/LG-14; child requirements traced separately; not project certification"
     },
     {
       "unit": "S2.2-U040",
@@ -1038,7 +1038,7 @@
       "end_line": 730,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare detail preserved but flagship/template and permanently shallower-suite posture are legacy under CR-05/LG-03/LG-04; all 9 current industries equal/full-spec; not industry certification"
     },
     {
       "unit": "S2.2-U045",
@@ -1498,7 +1498,7 @@
       "end_line": 1744,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; exact LIS Sample Lifecycle and per-action audit-log obligation preserved at F-07 §1.4; not runtime certification"
     },
     {
       "unit": "S2.2-U091",
@@ -1718,7 +1718,7 @@
       "end_line": 2449,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED deployment policy: simplicity/portability survives while cPanel/no-Docker defaults do not override UD-TECH-01/A-10; not deployment certification"
     },
     {
       "unit": "S2.2-U113",
@@ -1838,7 +1838,7 @@
       "end_line": 2675,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; database technical detail routes to F-04/A-05 and tenant-isolation testing obligation to F-03/DD-17; not runtime/database certification"
     },
     {
       "unit": "S2.2-U125",
@@ -1888,7 +1888,7 @@
       "end_line": 2765,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; performance/scalability cross-reference routes to F-01 §9/A-10/A-11; not performance certification"
     },
     {
       "unit": "S2.2-U130",

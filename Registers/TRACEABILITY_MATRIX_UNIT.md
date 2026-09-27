@@ -90,12 +90,12 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.1-U036 | PROJECT_MANIFEST.json (machine-readable) shall maintain: | 0 | Platform-wide | SD | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | — | Governance / later phase as applicable | VERIFIED |
 | S2.1-U037 | PHASE_SUMMARY.md shall include: | 0 | Platform-wide | SD | Governing/MASTER_INSTRUCTION_v2_5.md | Parts I–IV | — | Governance / later phase as applicable | VERIFIED |
 | S2.1-U038 | 22. Final Delivery Package | 0 | Platform-wide | SD + canonical/UD reconciliation | Governing MI/F-06/A-08/F-05/A-07 | MI §24/§27/§33; F-06/A-08 application surfaces; F-05/A-07 AI | UD-TECH-01; LG-02/Application Surface Model | MIXED — final-delivery obligations are preserved; Flutter/Super-Admin-app/Windows-only stack labels normalize to Platform Application + exactly two Tenant mobile apps + optional Tauri desktop under the active stack | SOURCE RECONCILED; no production-readiness certification |
-| S2.2-U039 | SBGlobal Plus — Production Product Specification / Business Requirement | 0 | Platform-wide | SD | F-01/F-02 | §1–§6 / workflows | — | Foundation | VERIFIED |
+| S2.2-U039 | SBGlobal Plus — Production Product Specification / Business Requirement | 0 | Platform-wide | SD + status-label reconciliation | Governing MI/F-01/F-02 | MI §27/§33A; F-01 §1–§6; F-02 workflows | LG-14 | SOURCE DOCUMENT METADATA — source `Status: Production Ready` is historical/source metadata only and never certifies the current project | SOURCE OWNER RECONCILED; child requirements remain separately traced |
 | S2.2-U040 | 1. Product Vision | 13 | Platform-wide | SD | F-00/F-01 | F-00 §1; F-01 §1 | — | Foundation | VERIFIED |
 | S2.2-U041 | 2. Product Objectives | 15 | Platform-wide | SD | F-00/F-01 | F-00 §1 purpose/vision; F-01 §1 Core Platform Model | — | Foundation | VERIFIED |
 | S2.2-U042 | 3. Core Principles | 11 | Platform-wide | SD | F-01 | §6 Core Principles / dynamic configuration philosophy | — | Foundation | VERIFIED |
 | S2.2-U043 | 4. Business Scope | 25 | Platform-wide | SD | F-01/F-02 | F-01 §1 Platform Model + §3–§7 capability/surface/API ownership; F-02 end-to-end workflow | — | Foundation | VERIFIED |
-| S2.2-U044 | 4A. 🆕 Industry Vertical Suite Scope Note | 0 | Platform-wide | SD | F-01/F-02 | §1–§6 / workflows | — | Foundation | VERIFIED |
+| S2.2-U044 | 4A. 🆕 Industry Vertical Suite Scope Note | 0 | Industry catalog | SD + canonical conflict reconciliation | Governing MI/F-07…F-09/F-12/F-13 | MI §8–§10; equal-suite Foundation owners | CR-05; LG-03; LG-04 | MIXED — Healthcare detail is preserved, but flagship/template status and permanent shallow-depth posture for other current suites are legacy; all 9 are equal and require full specification | SOURCE RECONCILED; no industry certification inferred |
 | S2.2-U045 | 5. User Types | 21 | Platform-wide | SD | F-01 | §2 Actor & Role Categories | — | Foundation | VERIFIED |
 | S2.2-U046 | 6. Multi-Tenant Architecture | 17 | Platform-wide | SD | F-01/F-03/F-11 | F-01 §4 Tenancy Model; F-03 §7 Tenant Isolation; F-11 Regional Data Home | — | Foundation | VERIFIED |
 | S2.2-U047 | 7. Global Configuration Policy | 7 | Platform-wide | SD | F-01 | §6 Dynamic/Configuration Model | — | Foundation | VERIFIED |
@@ -141,7 +141,7 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.2-U087 | 18. Appointment Management | 14 | Industry (Healthcare) | SD | F-07/F-12/F-13 | Healthcare suite/MS | — | Foundation | VERIFIED |
 | S2.2-U088 | 19. Laboratory Information System (LIS) | 26 | Industry (Healthcare) | SD | F-07/F-12/F-13 | Healthcare suite/MS | — | Foundation | VERIFIED |
 | S2.2-U089 | 20. Test Catalogue | 21 | Industry (Healthcare) | SD | F-07/F-12/F-13 | Healthcare suite/MS | — | Foundation | VERIFIED |
-| S2.2-U090 | 21. Sample Lifecycle | 0 | Industry (Healthcare) | SD | F-07/F-12/F-13 | Healthcare suite/MS | — | Foundation | VERIFIED |
+| S2.2-U090 | 21. Sample Lifecycle | 0 | Industry (Healthcare) | SD | F-07 | F-07 §1.4 canonical LIS sample lifecycle | — | Healthcare workflow | SOURCE RECONCILED — exact Patient Registration→…→Archive sequence and per-action audit-log obligation preserved; no runtime certification |
 | S2.2-U091 | 22. Reports | 28 | Industry (Healthcare) | SD | F-07/F-12/F-13 | Healthcare suite/MS | — | Foundation | VERIFIED |
 | S2.2-U092 | 23. Billing & Finance | 21 | Industry (Healthcare) | SD | F-07/F-12/F-13 | Healthcare suite/MS | — | Foundation | VERIFIED |
 | S2.2-U093 | 24. Inventory Management | 20 | Industry (Healthcare) | SD | F-07/F-12/F-13 | Healthcare suite/MS | — | Foundation | VERIFIED |
@@ -163,7 +163,7 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.2-U109 | 39. Dynamic Configuration Platform | 40 | Platform-wide | SD | F-01 | §6 | — | Foundation | VERIFIED |
 | S2.2-U110 | Typography Management | 15 | Platform-wide | SD | F-01 | §6 | — | Foundation | VERIFIED |
 | S2.2-U111 | 40. Deployment Requirements | 18 | Platform-wide | SD + UD supersession | F-01/A-10 | §8/deployment | UD-TECH-01 | Architecture/Deployment | VERIFIED |
-| S2.2-U112 | 40A. Deployment Simplicity Policy | 0 | Platform-wide | SD + UD supersession | F-01/A-10 | §8/deployment | UD-TECH-01 | Architecture/Deployment | VERIFIED |
+| S2.2-U112 | 40A. Deployment Simplicity Policy | 0 | Platform-wide | SD + UD supersession | Governing MI/F-01/A-10 | MI §22/§27; F-01 §8; A-10 | UD-TECH-01 | MIXED — simple/portable deployment concern survives; cPanel/no-Docker/no-enterprise-infrastructure-as-default claims do not override active Vercel/Coolify + Dockerized VPS topology | SOURCE RECONCILED; no deployment certification |
 | S2.2-U113 | 41. Machine Integration Roadmap | 12 | Platform-wide | SD | F-07/F-02/F-01 | HLT / W-14 / §9 | — | Foundation | VERIFIED |
 | S2.2-U114 | 42. Reporting & Business Intelligence | 13 | Platform-wide | SD | F-07/F-02/F-01 | HLT / W-14 / §9 | — | Foundation | VERIFIED |
 | S2.2-U115 | 43. Disaster Recovery Policy | 8 | Platform-wide | SD | F-07/F-02/F-01 | HLT / W-14 / §9 | — | Foundation | VERIFIED |
@@ -175,12 +175,12 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.2-U121 | 49. Localization & Internationalization | 7 | Platform-wide | SD | F-01 | §7 | — | Foundation | VERIFIED |
 | S2.2-U122 | 50. Non-Functional Requirements (NFR) | 12 | Platform-wide | SD | F-01/F-04/F-02 | §9 / §7/§11 / W-09,W-13–15 | — | Foundation | VERIFIED |
 | S2.2-U123 | 51. Data Lifecycle & Retention Policy | 12 | Platform-wide | SD | F-01/F-04/F-02 | §9 / §7/§11 / W-09,W-13–15 | — | Foundation | VERIFIED |
-| S2.2-U124 | 52. Database Standards | 0 | Platform-wide | SD | F-01/F-04/F-02 | §9 / §7/§11 / W-09,W-13–15 | — | Foundation | VERIFIED |
+| S2.2-U124 | 52. Database Standards | 0 | Platform-wide | SD | F-04/A-05/F-03/DD-17 | F-04 data ownership; A-05 data architecture; F-03 isolation; DD-17 isolation acceptance | ADR-002 where applicable | SOURCE CROSS-REFERENCE — database detail remains owned by data architecture; explicit tenant-isolation testing obligation preserved | SOURCE RECONCILED; runtime/database gate remains separate |
 | S2.2-U125 | 53. Logging & Observability Policy | 10 | Platform-wide | SD | F-01/F-04/F-02 | §9 / §7/§11 / W-09,W-13–15 | — | Foundation | VERIFIED |
 | S2.2-U126 | 54. Notification & Queue Policy | 11 | Platform-wide | SD | F-01/F-04/F-02 | §9 / §7/§11 / W-09,W-13–15 | — | Foundation | VERIFIED |
 | S2.2-U127 | 55. CI/CD & Release Management | 11 | Platform-wide | SD | F-01/F-04/F-02 | §9 / §7/§11 / W-09,W-13–15 | — | Foundation | VERIFIED |
 | S2.2-U128 | 56. Support & Maintenance Policy | 11 | Platform-wide | SD | F-01/F-04/F-02 | §9 / §7/§11 / W-09,W-13–15 | — | Foundation | VERIFIED |
-| S2.2-U129 | 57. Performance & Scalability Standards | 0 | Platform-wide | SD | F-01/F-04/F-02 | §9 / §7/§11 / W-09,W-13–15 | — | Foundation | VERIFIED |
+| S2.2-U129 | 57. Performance & Scalability Standards | 0 | Platform-wide | SD | F-01/A-10/A-11 | F-01 §9; A-10 scalability/resilience; A-11 SLI/SLO/operations | — | SOURCE CROSS-REFERENCE — queue/cache/CDN/database/horizontal-scale/monitoring/HA/response-time obligations preserved in NFR/architecture owners | SOURCE RECONCILED; no performance certification |
 | S2.2-U130 | 58. Acceptance Criteria | 16 | Platform-wide | SD | F-00 | §6–§8 | — | Foundation | VERIFIED |
 | S2.2-U131 | 59. Product Goal | 8 | Platform-wide | SD | F-00 | §6–§8 | — | Foundation | VERIFIED |
 | S2.3-U132 | Engineering Standards (Global) | 0 | Platform-wide | SD | Governing MI/Detailed Design | engineering standard | — | Foundation + Architecture | VERIFIED |
