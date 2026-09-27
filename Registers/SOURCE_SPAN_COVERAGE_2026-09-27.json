@@ -2668,7 +2668,7 @@
       "end_line": 3542,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U208",
@@ -2678,7 +2678,7 @@
       "end_line": 3546,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U209",
@@ -2688,7 +2688,7 @@
       "end_line": 3561,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U210",
@@ -2698,7 +2698,7 @@
       "end_line": 3579,
       "located_inventory_rows": 13,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U211",
@@ -2708,7 +2708,7 @@
       "end_line": 3583,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U212",
@@ -2718,7 +2718,7 @@
       "end_line": 3609,
       "located_inventory_rows": 20,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U213",
@@ -2728,7 +2728,7 @@
       "end_line": 3638,
       "located_inventory_rows": 24,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U214",
@@ -2738,7 +2738,7 @@
       "end_line": 3653,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI agent source list preserved; Healthcare-specific personas remain Healthcare-scoped; source 'other suites as built out' posture is legacy because all nine Current Supported Industries are first-class; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U215",
@@ -2748,7 +2748,7 @@
       "end_line": 3663,
       "located_inventory_rows": 7,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U216",
@@ -2758,7 +2758,7 @@
       "end_line": 3671,
       "located_inventory_rows": 5,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U217",
@@ -2768,7 +2768,7 @@
       "end_line": 3687,
       "located_inventory_rows": 13,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U218",
@@ -2778,7 +2778,7 @@
       "end_line": 3697,
       "located_inventory_rows": 7,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U219",
@@ -2788,7 +2788,7 @@
       "end_line": 3729,
       "located_inventory_rows": 22,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U220",
@@ -2798,7 +2798,7 @@
       "end_line": 3748,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI workflow capabilities preserved; AI-generated approval/recommendation cannot substitute for required human/authorized-principal approval; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U221",
@@ -2808,7 +2808,7 @@
       "end_line": 3772,
       "located_inventory_rows": 16,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U222",
@@ -2818,7 +2818,7 @@
       "end_line": 3784,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Pack semantics routed to F-14/A-04 commercial entitlement ownership; AI architecture consumes, not owns, licensing truth; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U223",
@@ -2828,7 +2828,7 @@
       "end_line": 3802,
       "located_inventory_rows": 13,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI billing/credits/metering/overage/cost-allocation routed to F-14/A-04/DD-04; AI usage ledger is evidence, not invoice/commercial truth; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U224",
@@ -2838,7 +2838,7 @@
       "end_line": 3806,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U225",
@@ -2848,7 +2848,7 @@
       "end_line": 3810,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U226",
@@ -2858,7 +2858,7 @@
       "end_line": 3817,
       "located_inventory_rows": 4,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U227",
@@ -2868,7 +2868,7 @@
       "end_line": 3832,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source combined Government & NGO AI Assistant label normalized into separate Government & Public Sector and NGO / Temple / Trust suite-owned assistants; nine Current Supported Industries remain independent; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U228",
@@ -2878,7 +2878,7 @@
       "end_line": 3836,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U229",
@@ -2888,7 +2888,7 @@
       "end_line": 3847,
       "located_inventory_rows": 8,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U230",
@@ -2898,7 +2898,7 @@
       "end_line": 3886,
       "located_inventory_rows": 19,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U231",
@@ -2908,7 +2908,7 @@
       "end_line": 3919,
       "located_inventory_rows": 24,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U232",
@@ -2918,7 +2918,7 @@
       "end_line": 3942,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI API categories preserved; source GraphQL interface is historical under UD-TECH-01 active tRPC-first-party + REST/OpenAPI external baseline; MCP/SDK/webhook/streaming remain governed integrations; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U233",
@@ -2928,7 +2928,7 @@
       "end_line": 3963,
       "located_inventory_rows": 12,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI Marketplace items preserved but entitlement/licensing/provisioning truth routed to F-14/A-04 and platform Marketplace ownership; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U234",
@@ -2938,7 +2938,7 @@
       "end_line": 3978,
       "located_inventory_rows": 10,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI provisioning preserved through AIProvisioningSnapshot and live entitlement/context/policy revalidation; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U235",
@@ -2948,7 +2948,7 @@
       "end_line": 3998,
       "located_inventory_rows": 13,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U236",
@@ -2958,7 +2958,7 @@
       "end_line": 4019,
       "located_inventory_rows": 14,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U237",
@@ -2968,7 +2968,7 @@
       "end_line": 4039,
       "located_inventory_rows": 13,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.6-U238",
@@ -2978,7 +2978,7 @@
       "end_line": 4052,
       "located_inventory_rows": 0,
       "glyph_bullet_lines": [],
-      "semantic_reconciliation": "NOT_CERTIFIED; review cases in companion report; remaining prose/list semantics require owner reconciliation"
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
     },
     {
       "unit": "S2.7-U239",

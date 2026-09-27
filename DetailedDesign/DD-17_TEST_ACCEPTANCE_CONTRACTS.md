@@ -326,6 +326,8 @@ No acceptance row may use "design review fails", "developer decides", "manual re
 | AI-015 | retired PromptTemplate version invoked | deny; current ACTIVE version required |
 | AI-016 | generated media lacks DD-08 provenance/DocumentMeta registration | result not publishable as governed product asset |
 | AI-017 | sibling-Industry AIMemoryRecord requested | excluded/deny by context + ACL |
+| AI-018 | Current Supported Industry assistant catalog is validated | nine independent suite-owned assistant families exist for HLT/EDU/RTL/HSP/MFG/PSV/GOV/NGO/SFM; a combined GOV+NGO definition cannot satisfy both suite-owned entries |
+| AI-019 | AI-generated approval/recommendation attempts to satisfy an approval checkpoint that requires an authorized principal | does not approve/execute; governed human/authorized-principal approval remains required and is revalidated in current context |
 | APP-009 | Tenant mobile manifest declares DOCTOR_APP/STUDENT_APP/GUARD_APP or another role-specific appClass | validation failure; map to TENANT_STAFF_APP or TENANT_USER_APP |
 | APP-010 | Tenant brand override weakens protected danger/warning/focus/security token | publish/activation denied |
 | APP-011 | Future Industry licensed/enabled before promotion gate | deny; no Industry Context created |

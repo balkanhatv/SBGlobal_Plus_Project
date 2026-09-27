@@ -16,6 +16,7 @@
 | F-01 integration | A-06 | 009 | DD-07 | webhook subscription/signature/delivery |
 | F-01 documents; F-04 | A-05 | 002/008 | DD-08 | DocumentMeta/storage/ACL/signed URL |
 | F-03/F-04 | A-11 | 017 | DD-15 | audit/log/trace/metric foundations |
+| S2.6 AI Architecture Standards | F-05/A-07 + A-06/A-04 for API/commercial boundaries | 010 + applicable API/commercial ADRs | DD-09/DD-06/DD-04/DD-17 | 13-provider abstraction; nine independent Industry assistant families; RAG/memory/agents/prompts/media/provisioning; AI approval cannot replace principal approval; AI API/commercial ownership normalized |
 | MI §26B | all above | applicable | DD-17 | implementation acceptance contracts |
 | Governance evidence | A-12 + registers | applicable | DD-18/DD-19/DD-20 | decisions/trace/audit |
 

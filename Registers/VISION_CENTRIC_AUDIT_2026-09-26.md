@@ -252,3 +252,20 @@ The correction is source-owner/traceability only:
 - AI, accessibility, distribution, versioning, testing and CI/CD obligations are routed to their actual canonical owners; Codemagic/Fastlane are not silently installed as current dependencies.
 
 No RawSource, application code, mobile binary, dependency, workflow, SQL/RLS, role/grant, executable test or stable requirement ID/count changes. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains the latest governed development checkpoint; DD-209 remains held.
+
+
+## 2026-09-27 S2.6 AI Architecture Standards continuation
+
+Fresh reading of S2.6 (U207–U238) confirmed the 13-provider abstraction, capability matrix, RAG/memory/security/routing/governance, Enterprise AI Platform expansion, provisioning, prompt, media and observability requirements. It also exposed a real current-model conflict plus two ownership/safety ambiguities hidden by generic VERIFIED routing.
+
+### VC27-13 — P1: S2.6 combined Industry assistant identity and AI-approval semantics conflicted with current isolation/equality rules
+
+**Industry assistant identity.** The source expansion names eight assistant labels because it combines “Government & NGO AI Assistant.” F-05 had copied that combined label even though SBGlobal Plus has nine equal Current Supported Industries and F-09 owns Government & Public Sector and NGO / Temple / Trust as independent suites with independent Industry Contexts. The correction makes the current assistant catalog nine independent suite-owned families and records the source combined label as historical provenance. A separately governed Platform/Tenant shared assistant may span authorized contexts, but it cannot replace either suite-owned assistant or collapse their context ownership.
+
+**AI approval semantics.** S2.6 lists both Human Approval and AI Approval in the AI Workflow Engine. Existing A-07/DD-09 already require human confirmation for governed high-risk tool actions, so “AI Approval” cannot safely mean that a model grants itself authorization. F-05/A-07/DD-09 now state that AI-generated approval/recommendation is advisory or a policy-defined low-risk automation signal only; it cannot satisfy a principal-required approval, permission, entitlement or high-risk tool gate. DD-17 AI-019 makes that boundary deterministic.
+
+**Owner normalization.** U222 Enterprise Pack and U223 Subscription/Billing are commercial concerns consumed by AI, so their canonical owners are F-14/A-04/DD-04 plus AI usage evidence, not F-05/A-07 alone. U232 AI API Platform routes through A-06/DD-06 and the AI Gateway; source GraphQL is preserved as source history but is not active interface authority under UD-TECH-01's tRPC-first-party + REST/OpenAPI-external baseline. U233 Marketplace licensing likewise routes through platform Marketplace + F-14/A-04 entitlements.
+
+DD-17 AI-018 requires nine independent Current Supported Industry assistant families (HLT/EDU/RTL/HSP/MFG/PSV/GOV/NGO/SFM); a combined GOV+NGO definition cannot satisfy both entries.
+
+No RawSource, provider dependency, AI execution code, SQL/RLS, role/grant, workflow definition, executable test or stable requirement ID/count is changed by this correction. The containing commit requires exact-HEAD Core/PostgreSQL/Database/Web verification. DD-208 remains the latest governed development checkpoint; effective AI execution remains locked and DD-209 is not authorized.

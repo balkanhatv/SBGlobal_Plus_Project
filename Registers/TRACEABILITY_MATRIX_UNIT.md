@@ -258,38 +258,38 @@ One repository-resident row per meaningful source heading/unit. `Items` is infor
 | S2.5-U204 | Update Strategy | 3 | Mobile | SD | F-06/A-08/DD-11 | minimum/in-app/OTA/force-update policy | — | Update strategy preserved | SOURCE RECONCILED |
 | S2.5-U205 | CI/CD | 3 | Mobile engineering | SD + tooling normalization | Governing MI/release governance | CI/CD automation | UD-TECH-01 | GitHub Actions current; Codemagic/Fastlane not silently selected | SOURCE RECONCILED |
 | S2.5-U206 | Versioning | 2 | Mobile | SD | DD-11 §14 + release governance | semantic/version + backward compatibility | — | Versioning requirement preserved | SOURCE RECONCILED |
-| S2.6-U207 | SBGlobal Plus AI Architecture Standards | 0 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U208 | Purpose | 0 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U209 | Scope | 10 | Platform-wide | SD | F-05/A-07 | F-05 §1 Layered AI Context Model; A-07 §1–§2 AI Gateway position/responsibilities | — | Foundation + Architecture | VERIFIED |
-| S2.6-U210 | Supported AI Providers | 13 | Platform-wide | SD | F-05/A-07 | F-05 §2 Provider Abstraction; A-07 §3 Provider Abstraction | — | Foundation + Architecture | VERIFIED |
-| S2.6-U211 | AI Provider Capability Matrix | 0 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U212 | Supported Capability Categories | 19 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U213 | AI Capabilities | 24 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U214 | AI Agents | 10 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U215 | AI Knowledge | 7 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U216 | AI Memory | 5 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U217 | AI Security | 13 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U218 | AI Integration | 7 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U219 | AI Model Routing | 20 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U220 | AI Workflow Engine | 10 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U221 | AI Governance | 15 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U222 | Enterprise Pack Architecture | 7 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U223 | Subscription & Billing Architecture | 11 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U224 | NEW SECTION — Enterprise AI Platform Expansion | 0 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U225 | Enterprise AI Assistant Framework | 0 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U226 | Core AI Assistants | 4 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U227 | Industry AI Assistants | 8 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U228 | Enterprise AI Agent Framework | 0 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U229 | Platform Agents | 8 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U230 | Industry Agents | 17 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U231 | AI Document Intelligence | 21 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U232 | Enterprise AI API Platform | 11 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U233 | Enterprise AI Marketplace | 10 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U234 | AI Provisioning | 8 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U235 | AI Prompt Management | 11 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U236 | AI Media Generation Framework | 12 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U237 | AI Observability | 11 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
-| S2.6-U238 | Change Policy | 0 | Platform-wide | SD | F-05/A-07 | AI | — | Foundation + Architecture | VERIFIED |
+| S2.6-U207 | SBGlobal Plus AI Architecture Standards | 0 | Platform-wide | SD + canonical reconciliation | F-05/A-07/DD-09 | Core AI platform/domain authority | ADR-010 | AI specialized source preserved; downstream API/commercial owners separated | SOURCE RECONCILED; no AI runtime certification |
+| S2.6-U208 | Purpose | 0 | Platform-wide | SD | F-05/A-07/DD-09 | AI architecture/governance purpose | ADR-010 | ACTIVE purpose | SOURCE RECONCILED |
+| S2.6-U209 | Scope | 10 | Platform + Tenant + Industry experiences | SD + surface normalization | F-05/A-07 + Application Surface Model | AI consumed through authorized public/platform/tenant/industry/mobile/API/report/analytics surfaces | LG-10…LG-12 | Source surface labels normalized; no AI bypass or extra app | SOURCE RECONCILED |
+| S2.6-U210 | Supported AI Providers | 13 | Platform-wide | SD | F-05 §2/A-07 §3/DD-09 | 13-provider registry + provider/model abstraction | ADR-010 | Exact canonical provider list preserved | SOURCE RECONCILED; provider deployment/health not inferred |
+| S2.6-U211 | AI Provider Capability Matrix | 0 | Platform-wide | SD | F-05 §2/A-07 §3/DD-09 | dynamic provider/model capability registry | ADR-010 | Capability-based provider abstraction preserved | SOURCE RECONCILED |
+| S2.6-U212 | Supported Capability Categories | 19 | Platform-wide | SD | F-05 §2/A-07 §3/DD-09 | provider capability categories | ADR-010 | Reasoning/docs/code/agents/vision/OCR/speech/translation/embedding/RAG/media/moderation/safety preserved | SOURCE RECONCILED |
+| S2.6-U213 | AI Capabilities | 24 | Platform + Industry | SD + scope normalization | F-05/F-07…F-09/A-07/DD-09 | shared AI capabilities + Industry-owned domain AI | ADR-010; LG-03 | Healthcare Medical Insights remains Healthcare-scoped; generic capability set stays Core AI | SOURCE RECONCILED |
+| S2.6-U214 | AI Agents | 10 | Platform + Industry | SD + equality normalization | F-05 §3/F-07…F-09/A-07/DD-09 | platform/shared agents + suite-owned agents | CR-05; LG-03/LG-04 | Healthcare personas remain Healthcare-specific; 'other suites as built out' is legacy—nine current Industries are first-class | SOURCE RECONCILED |
+| S2.6-U215 | AI Knowledge | 7 | Platform/Tenant/Industry | SD | F-05 §4/A-07 §4/DD-09 | RAG/knowledge/document-index sources | ADR-008/010 | Knowledge capabilities preserved under scope/ACL/residency | SOURCE RECONCILED |
+| S2.6-U216 | AI Memory | 5 | Platform/Tenant/Industry/User | SD | F-05 §4/A-07 §5/DD-09 §17 | conversation/tenant/user/session/knowledge memory | ADR-010 | Memory preserved with Tenant/Industry/principal/retention/ACL boundaries | SOURCE RECONCILED |
+| S2.6-U217 | AI Security | 13 | Platform-wide AI security | SD | F-05 §6/A-07 §6/DD-09/DD-16 | isolation/guardrail/moderation/injection/safety controls | ADR-010 | ACTIVE AI security obligations | SOURCE RECONCILED; Security Validated not inferred |
+| S2.6-U218 | AI Integration | 7 | AI/API integration | SD + interface normalization | F-05 §3/A-06/A-07/DD-06/DD-09 | REST/SDK/Webhook/MCP/function calling/streaming/JSON mode | UD-TECH-01; ADR-005/010 | Integration capabilities preserved through canonical API/Gateway boundaries | SOURCE RECONCILED |
+| S2.6-U219 | AI Model Routing | 20 | Platform/Tenant/Industry | SD | F-05 §5/A-07 §2–§3/DD-09 §4 | policy/context/cost/latency/health/fallback model routing | ADR-010 | Provider-independent live routing preserved | SOURCE RECONCILED; execution remains gated |
+| S2.6-U220 | AI Workflow Engine | 10 | Platform/Tenant/Industry | SD + approval-safety refinement | F-05 §5/A-07 §5/DD-09 §§11–14/DD-17 | AI workflow + Core Workflow integration | ADR-010 | Multi-step/schedule/event/retry/parallel preserved; AI approval cannot replace required principal approval | SOURCE RECONCILED |
+| S2.6-U221 | AI Governance | 15 | Platform-wide | SD | F-05 §7/A-07/DD-09 | prompt/model/cost/fallback/evaluation/quota/budget/lifecycle/provider-health governance | ADR-010 | ACTIVE AI governance obligations | SOURCE RECONCILED |
+| S2.6-U222 | Enterprise Pack Architecture | 7 | Commercial packaging + AI | SD + owner correction | F-14/A-04 + F-05 §8 | AI pack/add-on/marketplace licensing and enablement | ADR-007/010 | Commercial ownership is Entitlement/Commercial, not AI-only | SOURCE RECONCILED |
+| S2.6-U223 | Subscription & Billing Architecture | 11 | Commercial/Billing + AI usage | SD + owner correction | F-14/A-04/DD-04 + A-07/DD-09 | AI billing/credits/metering/tokens/media limits/PAYG/overage/cost allocation | ADR-007/010 | Money/commercial truth stays Billing/Entitlement; AI produces governed usage evidence | SOURCE RECONCILED |
+| S2.6-U224 | NEW SECTION — Enterprise AI Platform Expansion | 0 | Platform-wide | SD | F-05 §8/A-07/DD-09 | Enterprise AI expansion umbrella | ADR-010 | Expansion families preserved | SOURCE RECONCILED |
+| S2.6-U225 | Enterprise AI Assistant Framework | 0 | Platform/Tenant/Industry | SD | F-05 §3/A-07 §5/DD-09 §10 | dynamic assistant framework | ADR-010 | Assistants provision by authorized context/config/entitlement | SOURCE RECONCILED |
+| S2.6-U226 | Core AI Assistants | 4 | Platform/Tenant/User | SD | F-05 §3/A-07 §5/DD-09 §10 | Enterprise/Organization/Tenant/Personal assistants | ADR-010 | Core assistant families preserved | SOURCE RECONCILED |
+| S2.6-U227 | Industry AI Assistants | 8 | Industry | SD + canonical equality correction | F-05 §3/F-07…F-09/A-07 §5/DD-09 §10/DD-17 AI-018 | nine independent current-suite assistant families | CR-05; LG-03/LG-04; ADR-010 | Source combined Government & NGO label split into GOV and NGO suite-owned assistants; no industry merge | SOURCE RECONCILED |
+| S2.6-U228 | Enterprise AI Agent Framework | 0 | Platform + Industry | SD | F-05 §3/A-07 §5/DD-09 §§11–14 | reusable agent framework | ADR-010 | Agent framework preserved under tool/approval/context controls | SOURCE RECONCILED |
+| S2.6-U229 | Platform Agents | 8 | Platform-wide | SD | F-05 §3/A-07 §5/DD-09 | platform agents | ADR-010 | Knowledge/Workflow/Automation/Analytics/Notification/Integration/Support/Security preserved | SOURCE RECONCILED |
+| S2.6-U230 | Industry Agents | 17 | Industry | SD + equality normalization | F-05 §3/F-07…F-09/F-12/F-13/A-07/DD-09 | suite-owned specialized agents | CR-05; LG-03/LG-04 | Source examples are examples, not a Healthcare template or exhaustive current-suite catalog | SOURCE RECONCILED |
+| S2.6-U231 | AI Document Intelligence | 21 | Platform/Tenant/Industry documents | SD | F-05 §4/A-07 §5/DD-08/DD-09 | secure upload/OCR/parse/classify/extract/validate/summarize/translate/compare/sign/audit | ADR-010 | Document Intelligence preserves Document ACL/security/residency | SOURCE RECONCILED |
+| S2.6-U232 | Enterprise AI API Platform | 11 | AI API platform | SD + technology/owner normalization | F-05 §8/A-07 §3/A-06/DD-06/DD-09 | internal first-party + authorized Tenant/public/partner/developer AI API projections | UD-TECH-01; ADR-005/010 | REST/MCP/SDK/webhook/streaming preserved; source GraphQL is not active API authority under tRPC-first-party + REST/OpenAPI external baseline | SOURCE RECONCILED; no public exposure inferred |
+| S2.6-U233 | Enterprise AI Marketplace | 10 | Platform Marketplace + Commercial | SD + owner correction | F-01 §7/F-05 §8/F-14/A-04 | AI marketplace catalog items + entitlement/licensing provisioning | ADR-007/010 | Marketplace resource existence never bypasses plan/license/RBAC | SOURCE RECONCILED |
+| S2.6-U234 | AI Provisioning | 8 | Tenant/Industry AI | SD | F-05 §8/A-07 §3/DD-09 + F-14/A-04 | AIProvisioningSnapshot from commercial/context/config packs | ADR-007/010 | Only authorized AI capability provisioned; execution rechecks live policy | SOURCE RECONCILED |
+| S2.6-U235 | AI Prompt Management | 11 | Platform/Tenant/Industry prompts | SD | F-05 §7/A-07 §5/DD-09 §15 | central prompt lifecycle/library/variables/approval/test/rollback/audit | ADR-010 | Provider-reusable prompts cannot override higher security policy | SOURCE RECONCILED |
+| S2.6-U236 | AI Media Generation Framework | 12 | Platform/Tenant/Industry media | SD | F-04 §10/F-05 §8/A-07 §5/DD-08/DD-09 | AI media generation + branding/localization/provenance/moderation | ADR-010 | Generated assets remain governed Document/Media artifacts | SOURCE RECONCILED |
+| S2.6-U237 | AI Observability | 11 | Platform-wide AI observability | SD | F-05 §7/A-07/A-11/DD-09/DD-15 | request/response/usage/cost/latency/error/provider/success/failure telemetry | ADR-010/017 | Observability preserved without raw sensitive prompt labels | SOURCE RECONCILED |
+| S2.6-U238 | Change Policy | 0 | Platform-wide AI | SD | Governing MI/F-05/A-07/DD-09 | backward-compatible governed AI change policy | — | ACTIVE change policy; stack/product changes remain authority-governed | SOURCE RECONCILED |
 | S2.7-U239 | SBGlobal Plus Enterprise Default Standards | 0 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
 | S2.7-U240 | Product Name | 0 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |
 | S2.7-U241 | Tagline | 0 | Platform-wide | SD | F-04/F-06 | defaults/branding/reference | — | Foundation | VERIFIED |

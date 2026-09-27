@@ -37,6 +37,7 @@ Request → AI Gateway:
 
 ## 5. Assistants, Agents, Skills, Tools, Memory & Media
 - **Assistant:** a configured conversational surface (platform-level or per-tenant, per F-05) = system context + allowed skill set + model class + RAG scopes.
+- **Current Industry assistant catalog:** the nine Current Supported Industries expose nine independent suite-owned assistant families. Government & Public Sector and NGO / Temple / Trust are separate Industry assistants even though S2.6 source history used one combined “Government & NGO” label. A separately governed cross-industry/shared assistant may exist at Platform/Tenant scope, but it cannot replace either suite-owned assistant or collapse their Industry Contexts.
 - **Skill:** a declared capability composed of prompts + tool bindings.
 - **Tool:** a typed binding onto a Core module service contract (A-01 §4) — *tools are the only way agents act*. A tool invocation executes as the acting user through the full kernel guard pipeline (all pre-execution access guards in A-01 §3): an agent can do nothing its user could not do; every action is entitlement-checked, authorized and audited identically to a human action.
 - **Memory:** conversation/user/tenant/session/knowledge memory is a governed data class with Tenant + Industry Context, ACL, sensitivity, retention and provenance; retrieval follows the same authorization-before-ranking rule as RAG.
@@ -44,7 +45,7 @@ Request → AI Gateway:
 - **Media generation:** image/illustration/SVG/icon/logo/infographic/presentation/video/animation/voice/audio generation is a capability family behind the same Gateway/provider registry. Generated media enters Document/Media governance with provenance, licensing/usage metadata, Tenant/Industry scope, branding/localization inputs and moderation/safety checks.
 - **Prompt Management:** prompts/templates are versioned configuration with scope, variables, approval/testing/rollback and audit; prompt text is never hidden executable authority.
 - **Agent runs** (multi-step) execute in worker processes with per-run budgets (steps, tokens, wall-clock) from plan dimensions; runs are resumable and their step trail is audit data.
-- Write actions above a configurable risk class require human confirmation (tenant-configurable per F-05 governance) — realized as Workflow-module approval tasks, not bespoke UI.
+- Write actions above a configurable risk class require human confirmation (tenant-configurable per F-05 governance) — realized as Workflow-module approval tasks, not bespoke UI. Any AI-generated “approval” is evidence/recommendation or a policy-defined low-risk automation signal only; it cannot satisfy an approval checkpoint that requires an authorized principal.
 
 ## 6. Guardrails
 Input side: prompt-injection screening for content sourced from documents/web; sensitivity redaction (§2 step 4). Output side: schema validation for structured outputs; content policy filters; grounding checks for RAG answers (citations reference retrieved chunks; low-grounding responses are flagged). Tenant-visible AI policy controls: enable/disable per capability, data-class ceilings, provider/region pinning, retention of AI interaction logs. All guardrail decisions carry reason codes into the audit trail.

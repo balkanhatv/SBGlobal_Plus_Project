@@ -128,6 +128,8 @@ Citation material exposed to client must itself be authorized. Low-grounding res
 ## 10. Assistant definition
 `AssistantDefinition{id, owner_scope, tenant_id?, industry_context_id?, code, allowed_capabilities[], rag_scope_rules, prompt_template_id, tool_set_id?, model_policy_id, retention_policy_id, version, status}`.
 
+For the Current Supported Industry catalog, suite-owned assistant families are independently defined for HLT, EDU, RTL, HSP, MFG, PSV, GOV, NGO and SFM. In particular, GOV and NGO are separate assistant families with separate Industry Context ownership; the historical S2.6 combined “Government & NGO AI Assistant” label is not a canonical scoped definition. Platform/Tenant shared assistants may span authorized contexts only through their separately governed shared scope and never stand in for the nine suite-owned families.
+
 ## 11. Agent model
 ### AgentDefinition
 `id, owner_scope, tenant_id?, industry_context_id?, code, objective_class, allowed_tool_set_id, max_risk_class, approval_policy_id, budget_policy_id, version, status`.
@@ -163,7 +165,7 @@ Hallucinated resource IDs are treated exactly as untrusted user input and resolv
 
 ## 14. Approval checkpoint
 `AgentApproval{id, run_id, step_id, tenant_id, industry_context_id?, requested_by_agent, approval_type, required_permission, approver_principal_id?, status(PENDING,APPROVED,REJECTED,EXPIRED), request_summary_safe, approved_at?, reason?, correlation_id}`.
-Tool cannot execute while approval required and status != APPROVED. Approval itself is revalidated for approver permission/context.
+Tool cannot execute while approval required and status != APPROVED. Approval itself is revalidated for approver permission/context. A model/agent-generated recommendation or `AI_APPROVAL` workflow signal cannot populate or satisfy `approver_principal_id` and cannot transition a principal-required approval to APPROVED; it may only feed a separately authorized low-risk policy branch or create an approval request.
 
 ## 15. Prompt governance
 Order:
