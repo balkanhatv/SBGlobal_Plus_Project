@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-63:** `65f4356bc42351bcce46546112713127205defb5` / tree `18d12855eeee92c7ff1c222fb17a85f7b8d5c843`
+**Prior tree-qualified verified basis through VC27-64:** `772e373edf2259da4b78b837ad777b5346449a68` / tree `92881eadd52184d01d4fdd081418de67e634c254`
 
-**Current exact-head correction basis:** `772e373edf2259da4b78b837ad777b5346449a68` / tree `92881eadd52184d01d4fdd081418de67e634c254`
+**Current exact-head correction basis:** `334d2c800c71696f459c8849f7431ed59ff0ca77` / tree `ba6fb90e5c984016b132d3ca8f87ec2434802b82`
 
-**Exact-head gate:** Core 734/734; PostgreSQL 512/512 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 735/735; PostgreSQL 512/512 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -74,6 +74,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-62 — current governed rate-refill policy:** PostgreSQL rate-limit admission now preserves persisted token/last-refill continuity but applies the current RateLimitStoreRule refill rate and capacity; stale faster persisted operational metadata cannot widen a stricter current rule.
 - **VC27-63 — Integration reader exact Tenant-Core scope:** five tenant-scoped Integration PostgreSQL readers now reject any present Industry Context on TENANT_CORE before scoped SQL, including empty-string evidence, while preserving raw reader semantics.
 - **VC27-64 — idempotency safe replay metadata:** persisted REPLAY/FINAL_FAILURE response status/reference now revalidate the existing bounded safe-metadata contract, and direct malformed completion is rejected before scoped SQL; no response body or lifecycle semantics are added.
+- **VC27-65 — first-party web Origin canonicalization:** incoming Origin evidence must itself be a canonical HTTPS origin with no credentials/path/query/fragment, and an explicitly supplied empty Origin is malformed; URL normalization can no longer erase disallowed syntax before allowlist comparison.
 
 ### Current bounded verdict
 

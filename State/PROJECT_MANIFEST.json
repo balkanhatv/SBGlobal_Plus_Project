@@ -3,7 +3,7 @@
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable correction basis 772e373edf2259da4b78b837ad777b5346449a68 / tree 92881eadd52184d01d4fdd081418de67e634c254 is exact-HEAD verified at 734 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-64 idempotency safe-replay metadata hardening. Complete-project downstream canonical/state/Development/Database/CI/adversarial audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
+  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable correction basis 334d2c800c71696f459c8849f7431ed59ff0ca77 / tree ba6fb90e5c984016b132d3ca8f87ec2434802b82 is exact-HEAD verified at 735 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-65 first-party web Origin canonicalization hardening. Complete-project downstream canonical/state/Development/Database/CI/adversarial audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -796,20 +796,20 @@
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
     "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
-    "current_downstream_verified_head": "772e373edf2259da4b78b837ad777b5346449a68",
-    "current_downstream_verified_tree": "92881eadd52184d01d4fdd081418de67e634c254",
+    "current_downstream_verified_head": "334d2c800c71696f459c8849f7431ed59ff0ca77",
+    "current_downstream_verified_tree": "ba6fb90e5c984016b132d3ca8f87ec2434802b82",
     "current_downstream_verified_ci": {
-      "core_run_id": 36341889116,
-      "core_job_id": 108683462361,
-      "core_pass": 734,
-      "postgres_job_id": 108683462261,
+      "core_run_id": 36343142509,
+      "core_job_id": 108687013554,
+      "core_pass": 735,
+      "postgres_job_id": 108687013234,
       "postgres_pass": 512,
-      "database_run_id": 36341888996,
-      "database_job_id": 108683461651,
+      "database_run_id": 36343142503,
+      "database_job_id": 108687013285,
       "database_migrations": 48,
       "database_verification_files": 42,
-      "web_run_id": 36341889259,
-      "web_job_id": 108683462866,
+      "web_run_id": 36343142502,
+      "web_job_id": 108687013125,
       "result": "PASS_EXACT_CORRECTION_HEAD"
     }
   },
@@ -2373,7 +2373,7 @@
     ],
     "remaining_gate": "Full semantic file coverage and cross-layer/adversarial reconciliation remain incomplete; no global clean verdict.",
     "continuation_report": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
-    "continuation_status": "DOWNSTREAM_IDEMPOTENCY_SAFE_REPLAY_VERIFIED_AUDIT_IN_PROGRESS",
+    "continuation_status": "DOWNSTREAM_FIRST_PARTY_ORIGIN_CANONICALIZATION_VERIFIED_AUDIT_IN_PROGRESS",
     "source_reading": "S1_AND_S2_COMPLETE_TEXT_READ; 372/372 SOURCE PARENTS OWNER_RECONCILED; DOWNSTREAM CANONICAL/STATE/RUNTIME SEMANTIC CERTIFICATION PENDING",
     "source_span_coverage": "Registers/SOURCE_SPAN_COVERAGE_2026-09-27.json",
     "additional_findings": {
@@ -2440,7 +2440,8 @@
       "VC27-61": "P1 protected Authorization durable-audit writer could degrade missing/empty malformed RequestContext principal identity into nullable generic AuditEvent actor evidence",
       "VC27-62": "P1 stale persisted rate-limit refill metadata could widen a current stricter governed rule",
       "VC27-63": "P1 five tenant-scoped Integration reader gates allowed present-empty Tenant-Core Industry evidence to reach lower scoped SQL",
-      "VC27-64": "P2 PostgreSQL idempotency replay trusted unbounded persisted response metadata despite DD-049/DD-051 bounded safe-metadata contract"
+      "VC27-64": "P2 PostgreSQL idempotency replay trusted unbounded persisted response metadata despite DD-049/DD-051 bounded safe-metadata contract",
+      "VC27-65": "P1 first-party web Origin normalization could erase credentials/path/query/fragment or treat an empty supplied Origin as absent before allowlist comparison"
     },
     "source_fidelity_correction_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
     "source_fidelity_correction_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
@@ -2471,7 +2472,7 @@
       "SUPERSEDED_WITH_AUTHORITY": 8
     },
     "source_fidelity_remaining_gate": "Source-parent semantic reconciliation is complete at 372/372 owner-reconciled parents with 0 NOT_CERTIFIED. Remaining gate is downstream canonical/state/Development/Database/CI consistency plus adversarial reconciliation; parent counts/provenance do not certify runtime or complete-project correctness.",
-    "final_sync_gate": "Current bounded downstream executable correction basis 772e373edf2259da4b78b837ad777b5346449a68 / tree 92881eadd52184d01d4fdd081418de67e634c254 is exact-head verified: Core 734/734, PostgreSQL 512/512, Database 48 migrations / 42 verification files, Web PASS. VC27-64 idempotency safe-replay metadata correction is included; prior VC27-30…63 corrections remain preserved. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
+    "final_sync_gate": "Current bounded downstream executable correction basis 334d2c800c71696f459c8849f7431ed59ff0ca77 / tree ba6fb90e5c984016b132d3ca8f87ec2434802b82 is exact-head verified: Core 735/735, PostgreSQL 512/512, Database 48 migrations / 42 verification files, Web PASS. VC27-65 first-party web Origin canonicalization correction is included; prior VC27-30…64 corrections remain preserved. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
     "additional_findings_corrections_applied": [
       "VC27-01",
       "VC27-02",
@@ -2522,7 +2523,8 @@
       "VC27-61",
       "VC27-62",
       "VC27-63",
-      "VC27-64"
+      "VC27-64",
+      "VC27-65"
     ],
     "architecture_state_sync": {
       "head": "5e27fa41cb1fc2099d6033157589a3cf5ebeaeee",
@@ -2637,7 +2639,7 @@
       "boundary": "Foundation/traceability canonical-owner correction only; no RawSource/runtime/SQL/RLS/test/workflow change."
     },
     "downstream_bounded_runtime_audit": {
-      "status": "BOUNDED_CLEAN_WITH_VERIFIED_FAIL_CLOSED_CORRECTIONS_THROUGH_VC27_64_AUDIT_IN_PROGRESS",
+      "status": "BOUNDED_CLEAN_WITH_VERIFIED_FAIL_CLOSED_CORRECTIONS_THROUGH_VC27_65_AUDIT_IN_PROGRESS",
       "base_head": "d32f6f824fd5bade4dd247deec5881e73e4d8396",
       "base_tree": "7c7332fd5b69dbdd0f98694fe44e142bb2a0a2ab",
       "report": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
@@ -2734,25 +2736,26 @@
           "VC27-61",
           "VC27-62",
           "VC27-63",
-          "VC27-64"
+          "VC27-64",
+          "VC27-65"
         ],
-        "head": "772e373edf2259da4b78b837ad777b5346449a68",
-        "tree": "92881eadd52184d01d4fdd081418de67e634c254",
+        "head": "334d2c800c71696f459c8849f7431ed59ff0ca77",
+        "tree": "ba6fb90e5c984016b132d3ca8f87ec2434802b82",
         "ci": {
-          "core_run": 36341889116,
-          "core_job": 108683462361,
-          "core_pass": 734,
-          "postgres_job": 108683462261,
+          "core_run": 36343142509,
+          "core_job": 108687013554,
+          "core_pass": 735,
+          "postgres_job": 108687013234,
           "postgres_pass": 512,
-          "database_run": 36341888996,
-          "database_job": 108683461651,
+          "database_run": 36343142503,
+          "database_job": 108687013285,
           "database_migrations": 48,
           "database_verification_files": 42,
-          "web_run": 36341889259,
-          "web_job": 108683462866,
+          "web_run": 36343142502,
+          "web_job": 108687013125,
           "result": "PASS_EXACT_CURRENT_BOUNDED_HEAD"
         },
-        "boundary": "Verified bounded trust-floor corrections through VC27-64, including exact scope/identity validation, strict timestamp grammar, current governed rate-refill semantics, exact Integration reader scope and bounded idempotency replay metadata. Source-incomplete execution surfaces remain blocked."
+        "boundary": "Verified bounded trust-floor corrections through VC27-65, including exact scope/identity validation, strict timestamp grammar, current governed rate-refill semantics, exact Integration reader scope, bounded idempotency replay metadata and canonical first-party Origin validation. Source-incomplete execution surfaces remain blocked."
       }
     }
   }
