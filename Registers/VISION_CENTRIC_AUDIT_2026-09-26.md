@@ -606,3 +606,10 @@ Smallest forward-only correction:
 - add APICRED-SCOPE-010 regression/acceptance for duplicate valid Industry ids on Tenant-Core and Tenant-Industry targets.
 
 This mirrors migration-owned evidence only. It does not implement verifier/hash comparison, CIDR, permission-profile mapping, successful-use mutation/audit, final VerifiedMachineEvidence, routes, SQL/RLS/role/grant changes, product behavior or DD-209. Exact-head Core/PostgreSQL/Database/Web verification is required; DD-208 remains current.
+
+
+## 2026-09-27 machine-scope bounded verification / state projection
+
+The combined downstream machine-scope correction head `285c0d2a34334a6aad58ae20c4e8e42f042e5017` / tree `0f056e8c28aa3cc2f2c186afa63764e960522013` passed exact-head **706/706 Core**, **505/505 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. This verifies VC27-27 sparse allowed-Industry evidence, VC27-28 malformed SERVICE allowed-scope evidence and VC27-29 duplicate allowed-Industry evidence together on one exact executable tree.
+
+The result remains bounded. No presented-token grammar/hash comparison, CIDR enforcement, permission-profile evaluation, successful-use mutation/audit, final `VerifiedMachineEvidence`, external REST catalog, webhook execution, Integration/provider/sync execution, Workflow/Automation/Notification execution, retention/ACL or AI provider/tool execution is authorized by these floors. DD-208 remains the latest governed development checkpoint; DD-209 remains held. Current State/Development projections are synchronized to this verified executable basis, while the containing documentation-only state-sync commit still requires its own exact-head CI.
