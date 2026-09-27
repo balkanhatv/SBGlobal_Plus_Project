@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-48:** `02b53677a06887f165db3a61964a2626e601c265` / tree `69f087e960da219b42ecc9c6ae03bd9c55b417cb`
+**Prior tree-qualified verified basis through VC27-49:** `599cde0d323f8bdb7f2cfb4c37f09a5674cb5878` / tree `93f79b880492daf9aba967ebc08dd66d1effc8a0`
 
-**Current exact-head correction basis:** `599cde0d323f8bdb7f2cfb4c37f09a5674cb5878` / tree `93f79b880492daf9aba967ebc08dd66d1effc8a0`
+**Current exact-head correction basis:** `d77c39645d535efc7c57dd928bc530e106b2e109` / tree `f66480dc21048128e581948be6a8ef8b55a11c5e`
 
-**Exact-head gate:** Core 724/724; PostgreSQL 507/507 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 727/727; PostgreSQL 507/507 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -59,6 +59,8 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-47 — Workspace Tenant-Core exact shape:** WorkspaceService now rejects TENANT_CORE RequestContext carrying an Industry Context before membership/Tenant/Industry dependency use; malformed server scope evidence cannot be silently dropped by ClientWorkspaceContext projection.
 - **VC27-48 — exact-null DB/idempotency scope shape:** shared RequestScopedSql and IdempotencyService now reject present Tenant/Industry fields where DD-02 requires exact absence, including empty-string values that truthiness checks previously normalized. No new DB or cross-context authority is added.
 - **VC27-49 — Commercial current-state exact scope:** CommercialCurrentStateService and its PostgreSQL reader now reject TENANT_CORE carrying any present Industry Context before current-state store/query use, including empty-string evidence; Tenant-Industry still requires an Industry Context. Commercial semantics remain unchanged.
+- **VC27-50 — GuardPipeline exact-null resource scope:** Tenant-Core resource validation now rejects any present Industry Context value, including empty string, before resource PDP/business rules; non-disclosing RESOURCE_NOT_FOUND semantics remain unchanged.
+- **VC27-51 — effective-role exact Tenant-Core scope:** IdentityRoleQueryService and PostgresEffectiveRoleReadAdapter now independently reject TENANT_CORE carrying Industry Context before role-store/scoped-SQL use; exact CURRENT compiled snapshot semantics remain unchanged.
 
 ### Current bounded verdict
 
