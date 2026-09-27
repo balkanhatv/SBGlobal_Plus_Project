@@ -554,3 +554,23 @@ Smallest forward-only correction:
 - add `SYNC-BIND-008` and `INT-SET-CUR-008` regression/acceptance coverage.
 
 No SQL/RLS/role/grant, route, provider selection, credential use, network execution, product feature or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required. DD-208 remains current.
+
+
+## 2026-09-27 downstream machine-credential necessary-floor continuation
+
+The synchronized downstream state at `1735f76339750b10289595b9c5f7c27f0ad32acf` retains DD-208 and all machine-auth execution locks. Adversarial review of the DD-161 requested-scope helper then found another instance of JavaScript sparse-array hole skipping.
+
+### VC27-27 — P2: sparse API Credential allowed-Industry evidence bypassed DD-161 structural validation
+
+`allValidUuids(material.allowedIndustryContextIds)` called `Array.prototype.every` directly. Because `every` skips sparse holes:
+- a TENANT_CORE credential with a sparse allowed-Industry array could satisfy the scope floor even though the malformed list is not otherwise consumed on that path;
+- a Tenant-Core credential targeting TENANT_INDUSTRY could contain the requested valid Industry id plus a sparse hole and still satisfy exact membership.
+
+DD-161 already owns validation of present credential scope ids and requires malformed requested-scope evidence to fail closed. This correction therefore adds no new authorization semantics.
+
+Smallest forward-only correction:
+- require `allowedIndustryContextIds` to be an actual array;
+- materialize it with `Array.from()` before validating every entry as a UUID so holes become `undefined` and fail;
+- add `APICRED-SCOPE-008` regression/acceptance for sparse and non-array evidence.
+
+Presented-token grammar, verifier/hash execution, CIDR enforcement, permission-profile mapping, successful-use mutation/audit and final `VerifiedMachineEvidence` remain source-incomplete and **BLOCKED** exactly as before. No route, IdentityPort verifier, SQL/RLS, role/grant, product behavior or DD-209 slice is added. Exact-head Core/PostgreSQL/Database/Web verification is required.

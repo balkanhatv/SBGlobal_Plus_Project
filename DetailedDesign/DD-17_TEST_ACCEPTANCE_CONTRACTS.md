@@ -2429,6 +2429,9 @@ Credential/principal id mismatch, wrong Tenant, sibling/non-allowlisted Industry
 ### APICRED-SCOPE-006 — Cross-context and malformed target fail
 EXPLICIT_CROSS_CONTEXT always fails; malformed UUIDs or missing required target components fail closed.
 
+### APICRED-SCOPE-008 — Malformed allowed-Industry evidence fails closed
+The persisted allowed-Industry list must be an array whose materialized entries are valid UUIDs. Sparse holes, explicit undefined/non-string entries or a non-array value fail closed even on TENANT_CORE where the list is otherwise not consumed.
+
 ### APICRED-SCOPE-007 — Other authentication evidence remains separate
 Lifecycle, hash, CIDR, permission profile, version, usage and principal-currentness evidence is not interpreted and inputs remain unchanged.
 

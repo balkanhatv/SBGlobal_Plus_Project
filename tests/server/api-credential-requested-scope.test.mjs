@@ -248,6 +248,42 @@ test("APICRED-SCOPE-006 EXPLICIT_CROSS_CONTEXT and malformed UUID/target shapes 
   );
 });
 
+test("APICRED-SCOPE-008 sparse or non-array allowed Industry evidence fails closed", () => {
+  const sparse = [];
+  sparse[0] = ids.industry;
+  sparse.length = 2;
+
+  assert.equal(
+    matchesApiCredentialRequestedScopeFloor(
+      material({allowedIndustryContextIds: Object.freeze(sparse)}),
+      apiClient,
+      target(),
+    ),
+    false,
+  );
+
+  assert.equal(
+    matchesApiCredentialRequestedScopeFloor(
+      material({allowedIndustryContextIds: Object.freeze(sparse)}),
+      apiClient,
+      target({
+        scopeClass: "TENANT_INDUSTRY",
+        industryContextId: ids.industry,
+      }),
+    ),
+    false,
+  );
+
+  assert.equal(
+    matchesApiCredentialRequestedScopeFloor(
+      material({allowedIndustryContextIds: undefined}),
+      apiClient,
+      target(),
+    ),
+    false,
+  );
+});
+
 test("APICRED-SCOPE-007 lifecycle, hash, CIDR, profile, version, use and principal-currentness evidence is ignored and inputs stay unchanged", () => {
   const rawMaterial = material({
     status: "REVOKED",

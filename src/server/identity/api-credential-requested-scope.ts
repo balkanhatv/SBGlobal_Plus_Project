@@ -25,7 +25,11 @@ function validUuid(value: string | undefined): boolean {
 }
 
 function allValidUuids(values: readonly string[]): boolean {
-  return values.every((value) => UUID_PATTERN.test(value));
+  if (!Array.isArray(values)) return false;
+  const dense = Array.from(values);
+  return dense.every(
+    (value) => typeof value === "string" && UUID_PATTERN.test(value),
+  );
 }
 
 function serviceAllows(
