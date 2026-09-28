@@ -1627,3 +1627,27 @@ This does not change Clerk verification, SessionVersion persistence/increment or
 policy, device/risk semantics, authorization grants, schema/RLS/role/grant state, product
 behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+## 2026-09-28 active current-register projection continuation
+
+### VC27-71 — P2: D-INDEX and REVIEW_REQUIRED still projected the obsolete VC27-29 executable basis
+
+After VC27-70 was exact-head verified and synchronized across the primary checkpoint/state
+projection set, the active `Registers/D-INDEX.md` (“Current Canonical / Development Index”)
+and `Registers/REVIEW_REQUIRED.md` (“Current Dependency Ownership”) still described
+`285c0d2a…` / VC27-27…29 at 706 Core / 505 PostgreSQL as the **current bounded downstream
+executable basis**.
+
+Those files are active current-state/navigation registers, not dated historical verification
+records. Leaving their current banner stale could route a subsequent continuation back to an
+already superseded audit basis, obscure VC27-30…70 corrections, and produce duplicate or
+contradictory work even though the authoritative checkpoint/manifest had advanced.
+
+Smallest forward-only correction:
+- copy the already-current D-CHECKPOINT audit-hold projection into D-INDEX and REVIEW_REQUIRED;
+- preserve DD-208 as the latest governed Development checkpoint;
+- preserve all historical verification rows and source evidence unchanged;
+- do not alter runtime, tests, migrations, RLS, roles/grants or locked future execution scope.
+
+This is canonical-state projection synchronization only. Exact-head Core/PostgreSQL/Database/Web
+verification is required before treating the corrected register state as current.
+
