@@ -884,3 +884,17 @@ and adds all five records to REPO-007. Correction HEAD
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Foundation/Architecture/DD semantic contract, runtime, RawSource, migration, RLS, role/grant,
 product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-89 dated Vision-audit projection correction
+
+The semantic file-coverage sweep found the 2026-09-21, 2026-09-24 and 2026-09-25 Vision
+audit reports outside REPO-007 while they still exposed DD-079/DD-163/DD-188-era checkpoints
+and continuation gates as current project direction. The correction preserves every dated
+finding/correction/exact-head record, adds the current DD-208/project-audit overlay, labels
+evaluated-era verdict/continuation/correction-gate headings historical, and adds all three
+reports to REPO-007. Correction HEAD
+`a108b63d4b9ae0a3edd6f2fb1df52909da05ed43` / tree
+`fefe77045e4669faf28fd10a1e305afe83614bed` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Foundation/Architecture/DD semantic contract, runtime, RawSource, migration, RLS, role/grant,
+product requirement or DD-209 authority changed.
