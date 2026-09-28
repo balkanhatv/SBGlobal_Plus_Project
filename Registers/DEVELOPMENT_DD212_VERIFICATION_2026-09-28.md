@@ -33,3 +33,14 @@ Canonical promotion `6aa205ae3e3d6b1efaa2b3210b5b835cf1e64ea3` / tree `7adfb37fd
 - Web `36403073392` / `108865272838`: PASS.
 
 This authorizes DD-212 canonical promotion only. The state-closure commit must independently pass the same exact-head gate before another source audit opens.
+
+
+## State-closure exact-head gate
+
+State closure `a012406f3fd0825878d5ea1764c337281d7ef048` / tree `e020c629904db39ded1c439b318c6f7c7b06aa94` independently passed:
+- Core Service Verify `36404085105`, Core job `108868511981`: **773/773 PASS**, zero failed/skipped.
+- PostgreSQL job `108868512216`: **512/512 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36404085152`, job `108868511538`: PASS.
+- Web Boundary Verify `36404085028`, job `108868513539`: PASS.
+
+This closes DD-212 canonical state and authorizes source-auditing the next independent ProvisioningSnapshot integrity predicate. It does not authorize effective provisioning, routing or AI execution.
