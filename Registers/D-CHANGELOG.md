@@ -1054,3 +1054,17 @@ tree `d61c2d69c7423230a5b936c2dfcbd88dcfc4a4fc` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Development/QA determinism conclusion, business rule, runtime, RawSource, migration, RLS,
 role/grant, product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-101 DD-20C historical next-gate projection correction
+
+The semantic file-coverage sweep found `DetailedDesign/DD-20C_WAVE3_ADVERSARIAL_AUDIT.md`
+still exposing the evaluated Wave-3 DD-20D dependency as its current next gate without the
+active DD-208/project-audit overlay. The correction preserves the complete 41-MS Wave-3
+matrix, adversarial findings and substantive verdict, classifies DD-20D as the historical next
+gate at that evaluated boundary, adds the current project overlay and adds DD-20C to REPO-007.
+
+Correction HEAD `fa65aaf98e71a8c41ecccab1910ef7b64154007a` /
+tree `7e6b84b1112a7993ff9e4b7599239fc0ad64b512` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No Wave-3 DD
+evidence, isolation result, runtime, RawSource, migration, RLS, role/grant, product requirement
+or DD-209 authority changed.
