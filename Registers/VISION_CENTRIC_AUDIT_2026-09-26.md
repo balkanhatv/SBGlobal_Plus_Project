@@ -2998,3 +2998,18 @@ No Foundation requirement, source count, 41-MS result, phase-boundary conclusion
 RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changes.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-106 exact-head closure
+
+Correction HEAD `85446bbbdd8d37784a6f81ae52fccfcd107323a3` /
+tree `7305282f1ccd8b96305578d393f793fbad9e29ba` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-106 changes only the
+evaluated-era/current-status projection of the Foundation no-loss audit and REPO-007
+coverage; all source-integrity, 2,962-child and 41-MS evidence remains preserved. DD-208
+remains current and DD-209 stays locked until complete-project audit closure.
+

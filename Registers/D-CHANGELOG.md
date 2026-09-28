@@ -1128,3 +1128,20 @@ tree `13f419709009e9fc43d7a09638209d8179e006f7` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Architecture HOW/ADR conclusion, Foundation requirement, DD deferral, runtime, RawSource,
 migration, RLS, role/grant, product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-106 Foundation no-loss historical projection correction
+
+The semantic file-coverage sweep found `Registers/NO_LOSS_AUDIT.md` outside REPO-007.
+Although a 2026-09-27 qualification already said its dated PASS was historical, the file
+still opened with `Status: PASS`, had no active DD-208/executable-audit basis and its
+2026-09-14 bounded continuation described a 47-Core/11-PostgreSQL/34-migration/
+28-verification inventory as “current.” The correction preserves all source-integrity,
+2,962-child, 41-MS, phase-boundary and bounded Development evidence, adds the current
+project overlay, makes the old inventory explicitly snapshot-scoped and adds the file to
+REPO-007.
+
+Correction HEAD `85446bbbdd8d37784a6f81ae52fccfcd107323a3` /
+tree `7305282f1ccd8b96305578d393f793fbad9e29ba` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Foundation requirement, source count, 41-MS result, phase-boundary conclusion, runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changed.
