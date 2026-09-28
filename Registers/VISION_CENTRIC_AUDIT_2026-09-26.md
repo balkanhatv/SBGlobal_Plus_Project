@@ -1709,3 +1709,36 @@ This is manifest projection synchronization only. No runtime, test, migration, R
 product requirement or DD-209 authority changes. Exact-head Core/PostgreSQL/Database/Web
 verification is required before promoting VC27-73 as current.
 
+## 2026-09-28 current checkpoint invariant continuation
+
+### VC27-74 — P1: REPO-007 conflated DD-208 feature evidence with the later current audit executable basis
+
+VC27-73 correctly advanced active manifest continuation/current-audit fields to the verified
+VC27-70 downstream executable basis. Exact-head Core then failed REPO-007 because that
+repository invariant still required every active current verified SHA/tree to equal
+`current_feature_verification`, whose purpose is specifically to preserve the latest governed
+feature decision DD-208 and its original feature verification evidence.
+
+The same closure check also exposed remaining active projections:
+- `github.verified_code_head/tree` and `github.state_projection_basis_head`;
+- current Development database/core-services verified heads/counts/runs; and
+- `Registers/SOURCE_REGISTRY.md` current audit-hold banner
+still carried the DD-208/source-fidelity basis.
+
+Smallest forward-only correction:
+- preserve `current_feature_verification` and explicit feature-head bootstrap fields as DD-208
+  historical/governed feature evidence;
+- bind active GitHub/Development current verified evidence to the already-verified VC27-70
+  executable basis and exact CI counts;
+- align SOURCE_REGISTRY's active banner to the authoritative current audit hold;
+- strengthen REPO-007 so it independently verifies the governed feature evidence and the
+  current downstream audit basis, and requires every active checkpoint projection to carry the
+  current audit SHA rather than merely the checkpoint id.
+
+The initial VC27-73 correction HEAD `e69b51f1…` failed Core solely on the stale REPO-007
+feature-vs-audit conflation and was not promoted. Web, Database and PostgreSQL gates were
+otherwise green. This correction does not weaken tests; it adds stronger active-projection
+basis assertions. No runtime domain behavior, RawSource, migration, RLS, role/grant, product
+requirement or DD-209 authority changes. Exact-head Core/PostgreSQL/Database/Web
+verification is required.
+

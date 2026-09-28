@@ -1,8 +1,8 @@
 # SOURCE REGISTRY — SBGlobal Plus
 **Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
-**Status:** ACTIVE · **Updated:** 2026-09-26
+**Status:** ACTIVE · **Updated:** 2026-09-28
 
-> **2026-09-27 audit hold:** DD-208 remains the latest checkpoint. Source-fidelity correction `ea371dd1cf11666293b669acc80ab29d3e91ae9f` passed 700 Core / 505 PostgreSQL / Database and Web. This Architecture/state synchronization commit requires its own exact-HEAD gate, recorded in PR #2. Full semantic coverage is incomplete; earlier forward-continuation instructions remain held. Next: finish the audit. [Current reconciliation](../Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md).
+> **2026-09-27 audit hold:** DD-208 remains the latest governed development checkpoint. Source-parent semantic reconciliation is complete at **372/372 owner-reconciled source parents, 0 NOT_CERTIFIED**. Current bounded downstream executable correction head `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70` passed exact-HEAD **739/739 Core**, **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web after VC27-70 Core-authoritative SessionVersion projection hardening; VC27-69 and the prior cross-context/REST/Webhook/Document/API-Credential corrections remain preserved. This is still a **bounded downstream result, not a complete-project PASS**. Presented-token grammar/hash verification, CIDR enforcement, permission-profile mapping, successful-use mutation/audit and final `VerifiedMachineEvidence`; external REST route catalog/OpenAPI publication; webhook endpoint/filter interpretation, signing, SSRF/DNS/redirect control, retry/DLQ/replay and network delivery; Integration/provider/sync execution; Workflow/Automation/Notification execution; final Document ACL effect/expiry/operation mapping/fallback plus signer/retention; AI provider/tool execution; and unfinished mobile/desktop executable surfaces remain locked. Forward development remains held and DD-209 is not authorized. [Current audit](../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md)
 
 
 ## Authority

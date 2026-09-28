@@ -14,32 +14,43 @@ const projections = [
   "DetailedDesign/DD-REVIEW_REQUIRED.md",
 ];
 
-test("REPO-007: all active checkpoint projections share one verified basis and continuation", () => {
+test("REPO-007: active checkpoint projections distinguish governed feature evidence from current audit basis", () => {
   const m = JSON.parse(read("State/PROJECT_MANIFEST.json"));
-  const current = m.current_feature_verification;
-  for (const value of [current, m.current_audit_overlay, m.continuation, m.development.core_services]) {
+  const feature = m.current_feature_verification;
+  const auditHead = m.github.current_downstream_verified_head;
+  const auditTree = m.github.current_downstream_verified_tree;
+
+  for (const value of [feature, m.current_audit_overlay, m.continuation, m.development.core_services]) {
     assert.equal(value.checkpoint, m.checkpoint, "Conflicting active checkpoint");
   }
+
+  assert.equal(feature.verified_head, m.current_feature_verification.verified_head);
+  assert.equal(feature.verified_tree, m.current_feature_verification.verified_tree);
+  assert.ok(read(feature.evidence).includes(feature.verified_head));
+
   for (const head of [m.github.verified_code_head, m.github.state_projection_basis_head,
     m.current_audit_overlay.verified_executable_basis, m.continuation.verified_code_head,
     m.development.core_services.verified_head, m.development.database.ci_verified_head]) {
-    assert.equal(head, current.verified_head, "Conflicting verified HEAD");
+    assert.equal(head, auditHead, "Conflicting current audit verified HEAD");
   }
   for (const tree of [m.github.verified_code_tree, m.current_audit_overlay.verified_executable_tree,
     m.continuation.verified_code_tree, m.development.core_services.verified_tree,
     m.development.database.ci_verified_tree]) {
-    assert.equal(tree, current.verified_tree, "Conflicting verified tree");
+    assert.equal(tree, auditTree, "Conflicting current audit verified tree");
   }
+
   assert.equal(m.current_phase, m.development.current_phase);
   assert.equal(m.continuation.next_action, m.development.next_action);
   assert.equal(m.development.core_services.next_action, m.development.next_action);
-  assert.equal(m.current_audit_overlay.current_verification, current.evidence);
-  assert.equal(m.continuation.current_verification, current.evidence);
-  assert.ok(read(current.evidence).includes(current.verified_head));
+  assert.equal(m.current_audit_overlay.current_verification, m.vision_audit_2026_09_26.report);
+  assert.equal(m.continuation.current_verification, m.vision_audit_2026_09_26.report);
+  assert.ok(read(m.vision_audit_2026_09_26.report).includes(auditHead));
+
   for (const path of projections) {
-    const firstLines = read(path).split("\n").slice(0, 5).join("\n");
+    const firstLines = read(path).split("\n").slice(0, 8).join("\n");
     const match = firstLines.match(/\*\*Current checkpoint:\*\* `([^`]+)`/);
     assert.equal(match?.[1], m.checkpoint, `${path}: stale or absent active checkpoint`);
+    assert.ok(firstLines.includes(auditHead), `${path}: stale active audit basis`);
   }
 });
 
