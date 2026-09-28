@@ -3013,3 +3013,25 @@ evaluated-era/current-status projection of the Foundation no-loss audit and REPO
 coverage; all source-integrity, 2,962-child and 41-MS evidence remains preserved. DD-208
 remains current and DD-209 stays locked until complete-project audit closure.
 
+## 2026-09-28 historical 41-MS completeness projection continuation
+
+### VC27-107 — P2: substantive MS completeness matrix remained outside active checkpoint projection coverage
+
+The semantic file-coverage sweep found `Registers/MS_COMPLETENESS_MATRIX.md` outside
+REPO-007. Its 2026-09-11 41-MS owner-by-owner substantive revalidation remains useful
+evaluated-era Foundation evidence, but the file still opened with
+`Status: SUBSTANTIVE REVALIDATION EVIDENCE` and no active DD-208/executable-audit overlay.
+That wording could be read as current project certification even though it predates the
+current governed Development checkpoint and does not certify runtime execution.
+
+Smallest forward-only correction:
+- preserve all 41 Management System rows, owner evidence and dimension-discipline conclusions;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- classify the dated substantive revalidation as historical/evaluated-era evidence;
+- explicitly state that the matrix does not certify current runtime completion;
+- add the file to REPO-007 so future active-projection drift fails CI.
+
+No MS count/result, Foundation owner, Industry neutrality rule, requirement, runtime, RawSource,
+migration, RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
