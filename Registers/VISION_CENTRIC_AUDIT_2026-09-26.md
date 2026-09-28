@@ -1754,3 +1754,19 @@ The refinement points only those executable-verification fields to
 audit as the overall audit owner. REPO-007 remains stronger than before and now checks the
 actual executable evidence report.
 
+#### VC27-74 exact-head closure
+
+The refined VC27-74 correction HEAD `1adcf6737f97e63865643d33e31c3d1f4a3562bf` /
+tree `30f693dba0b36f446167afeedd00a8111a72fc1d` passed exact-head:
+- Core **739/739**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The current executable audit basis remains the independently verified VC27-70 head
+`4dd7138e5a546f608fe5e28e0912d17523e33693` / tree
+`33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-74 changes only active
+projection semantics/invariants: governed DD-208 feature evidence stays historical while
+current audit/executable projections use the current downstream basis. Forward Development
+remains held at DD-208; DD-209 is not authorized.
+
