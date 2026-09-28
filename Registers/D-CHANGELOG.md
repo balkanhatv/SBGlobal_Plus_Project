@@ -832,3 +832,16 @@ historical, adds a DD-208/current-audit overlay, and adds DD-20D to REPO-007. Co
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No Detailed
 Design contract, acceptance, Foundation/Architecture semantics, runtime, RawSource, migration,
 RLS, role/grant, product requirement or DD-209 change.
+
+## 2026-09-28 — VC27-85 2026-09-10 Project Truth active-projection correction
+
+The semantic file-coverage sweep found `Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md`
+still identifying itself as an ACTIVE current-state audit and saying no application code or
+Detailed Design was authorized, despite later governed progress through DD-208. The correction
+preserves every historical finding/disposition, marks its evaluated status and Architecture
+consequence historical, adds a DD-208/current-audit overlay, and adds the file to REPO-007.
+Correction HEAD `c6f27047bc445b45a3ca8e2ecdde5d9640fb090b` / tree
+`c255778c5265d2cff526aa01cb6d67b6010ea80d` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No historical
+finding, Foundation/Architecture/DD contract, runtime, RawSource, migration, RLS, role/grant,
+product requirement or DD-209 authority changed.
