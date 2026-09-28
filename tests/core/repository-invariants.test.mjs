@@ -146,3 +146,32 @@ test("REPO-006: repository Markdown file links resolve",()=>{
     }
   }
 });
+
+test("REPO-009: active source traceability projections separate inventory history from current parent reconciliation",()=>{
+  const m=manifest();
+  const parent=m.current_audit_overlay.parent_source_semantic_gate;
+  assert.equal(parent.status,"PASS_EXACT_HEAD_VERIFIED");
+  assert.equal(parent.parents_total,372);
+  assert.equal(parent.owner_reconciled,372);
+  assert.equal(parent.not_certified,0);
+
+  const summary=read("Registers/TRACEABILITY_MATRIX.md");
+  const units=read("Registers/TRACEABILITY_MATRIX_UNIT.md");
+  const registry=read("Registers/SOURCE_REGISTRY.md");
+
+  for(const text of [summary,units]){
+    assert.ok(text.includes("372/372"),"Current parent reconciliation count must be projected");
+    assert.ok(text.includes("0 NOT_CERTIFIED"),"Current NOT_CERTIFIED count must be projected");
+  }
+  assert.ok(summary.includes("Preserved historical VERIFIED dispositions"));
+  assert.ok(summary.includes("Complete-project downstream semantic/file audit"));
+  assert.ok(!summary.includes("| VERIFIED children | 2,555 | substantive/current owner verified |"));
+  assert.ok(!units.includes("Complete source-span/owner semantic reconciliation remains open"));
+
+  assert.ok(registry.includes("Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md"));
+  assert.ok(registry.includes(m.github.current_downstream_verified_head));
+  assert.ok(registry.includes("complete-project downstream semantic/file-coverage audit remains in progress"));
+  assert.ok(!registry.includes("Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md"));
+  assert.ok(!registry.includes("Next: Verify this DD-208 state-closure HEAD"));
+});
+

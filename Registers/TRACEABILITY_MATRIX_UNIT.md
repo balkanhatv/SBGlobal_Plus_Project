@@ -1,12 +1,12 @@
 # TRACEABILITY MATRIX — SOURCE PARENT INVENTORY
 **Status:** ACTIVE VERIFIED PARENT INVENTORY · **Rebuilt:** 2026-09-11
 
-> **2026-09-27 qualification:** parent/child counts are inventory, not complete atomic coverage. Repeated-heading extraction defects are corrected in the child ledgers; 21 stable legacy IDs now point to their actual source parent as provenance aliases. Complete source-span/owner semantic reconciliation remains open. See [SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md](SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md).
+> **2026-09-28 qualification:** parent/child counts are inventory, not complete atomic coverage. Repeated-heading extraction defects are corrected in the child ledgers; 21 stable legacy IDs point to their actual source parent as provenance aliases. **Source-parent semantic ownership/status reconciliation is complete at 372/372 owner-reconciled and 0 NOT_CERTIFIED.** This parent gate does not certify every child requirement's implementation/runtime state; the complete-project downstream semantic/file-coverage audit remains open. See [SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md](SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md) for correction history and [VISION_CENTRIC_AUDIT_2026-09-26.md](VISION_CENTRIC_AUDIT_2026-09-26.md) for the active audit.
 
 One repository-resident row per meaningful source heading/unit. `Items` is informational syntax counting only; it is never certification evidence. Requirement-level child provenance and current dependency ownership are separate. The 2026-09-13 overlay in `F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md` supersedes inherited routing/status assumptions; actual canonical content and executable evidence establish the gate.
 
 **Accepted baseline:** S1 `a9f63a64448a347edd0f2b0c74094284ee953c1b`; S2 `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`.
-**Units:** S1=37 · S2=335 · total=**372** parent/source-heading units. These 372 rows are inventory, not atomic requirement certification evidence. Requirement-level child evidence is owned by `TRACEABILITY_MATRIX_REQUIREMENTS.md` and currently has 0 GAP after remediation.
+**Units:** S1=37 · S2=335 · total=**372** parent/source-heading units. These 372 rows are inventory, not atomic requirement certification evidence. Requirement-level child evidence is owned by `TRACEABILITY_MATRIX_REQUIREMENTS.md`; its preserved historical disposition column has 0 GAP, while current child dependency/implementation truth is resolved through the active routing/canonical/Development evidence rather than inferred from that historical label.
 
 ## S1 — Disorganized Data 1.md
 | Source ID | Source heading/unit | Items | Scope | Provenance | Canonical owner | Canonical section | Decision/reference | Phase disposition | Current verification |

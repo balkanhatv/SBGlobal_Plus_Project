@@ -1812,3 +1812,36 @@ current-projection semantics and REPO-007 coverage; the 2026-09-14 Isolation Att
 records remain intact below the new current block. DD-208 remains current and DD-209 stays
 locked until complete-project audit closure.
 
+## 2026-09-28 active source-traceability projection continuation
+
+### VC27-76 — P2: active source-traceability projections mixed historical child dispositions with current reconciliation state
+
+The current-file semantic coverage sweep found three mutually inconsistent active source
+projections:
+- `TRACEABILITY_MATRIX.md` called itself a CURRENT SUMMARY and described the original
+  2,555 VERIFIED child dispositions as substantive/current-owner verification;
+- `TRACEABILITY_MATRIX_UNIT.md` still said complete parent source-span/owner semantic
+  reconciliation remained open;
+- `SOURCE_REGISTRY.md`'s explicitly Current audit/continuation section linked DD-201
+  verification as DD-208 evidence and instructed a DD-208 closure verification that had already
+  completed.
+
+Current authoritative state is narrower and clearer: the parent/source-heading semantic
+ownership/status gate is complete at **372/372 owner-reconciled, 0 NOT_CERTIFIED**; the
+2,962 child IDs and their 2,555/0/396/11 original disposition totals are preserved historical
+inventory; and the complete-project downstream semantic/file-coverage audit remains open.
+
+Smallest forward-only correction:
+- rewrite only the current traceability summary so historical child disposition counts are
+  explicitly historical rather than current implementation/runtime certification;
+- update the active parent-inventory qualification to the completed 372/372 parent gate while
+  preserving the downstream-audit boundary;
+- correct SOURCE_REGISTRY's DD-208 evidence link and continuation text, preserving governed
+  DD-208 promotion evidence separately from the current downstream executable basis;
+- add REPO-009 so CI enforces the parent gate, historical-count labeling and source-registry
+  continuation semantics.
+
+No RawSource, requirement ID/text, owner routing row, Foundation/Architecture/DD contract,
+runtime behavior, migration, RLS, role/grant, product requirement or DD-209 authority changes.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+
