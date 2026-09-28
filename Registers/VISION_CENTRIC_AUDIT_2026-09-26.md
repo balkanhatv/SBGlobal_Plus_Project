@@ -2576,3 +2576,25 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-94 changes only the
 legacy DD-20H evaluated-era/current-project projection and REPO-007 coverage; all Wave-1…3
 audit evidence remains preserved. DD-208 remains current and DD-209 stays locked until
 complete-project audit closure.
+
+## 2026-09-28 historical DD-22H state-derivation projection continuation
+
+### VC27-95 — P2: DD-22H history still labeled Fable-5 remediation evidence ACTIVE
+
+The semantic file-coverage sweep found
+`DetailedDesign/DD-22H_STATE_ENUM_DERIVATION_HISTORY.md` outside REPO-007 while its
+header still declared `Status: ACTIVE REMEDIATION EVIDENCE` and the Fable-5 remediation
+mandate as current authority. DD-29 already classifies DD-22H as non-authoritative
+state-derivation history, while current canonical workflow authority is DD-22 plus the
+current DD/acceptance owners. Governed Development subsequently advanced through DD-208.
+
+Smallest forward-only correction:
+- preserve every historical transition/state-derivation row and evaluated-era evidence;
+- relabel DD-22H explicitly historical and identify its historical authority;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- add DD-22H to REPO-007 so future active-projection drift fails CI.
+
+No workflow matrix semantics, DD-22 authority, Foundation/Architecture contract, runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changes.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+
