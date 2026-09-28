@@ -1260,3 +1260,8 @@ DD-211 implements only ProvisioningSnapshot → exact supplied same-Tenant Tenan
 ## 2026-09-28 — DD-211 canonical promotion verified
 
 Canonical DD-211 promotion `6b931ad919d024b27ea5e576ffcceb7afca5fc58` / tree `d7a1699ee139067818e25dcc435d195d06e8f83c` passed **765/765 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. State closure remains subject to its own exact-head gate. Snapshot capability binding and broader provisioning/runtime authority remain separate.
+
+
+## 2026-09-28 — DD-212 canonical promotion staged
+
+DD-212 implements only ProvisioningSnapshot allowedCapabilityIds → exact supplied ACTIVE AICapability ids whose exact codes are allowed by the exact referenced TenantAIConfig. Source-audit and implementation exact-head gates passed at `26bedb78ebff417ddf007f5315cecd8ea05c9c20` and `1079451c43aac7aa4a1b320ec10be8360dc21983`. Canonical promotion remains subject to its own exact-head gate.

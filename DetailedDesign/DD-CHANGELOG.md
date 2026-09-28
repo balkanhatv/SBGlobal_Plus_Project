@@ -476,3 +476,8 @@ Post-DD-209 source ownership isolated migration 0031's IndustryAIConfig CountryP
 ## 2026-09-28 — DD-211 AIProvisioningSnapshot TenantAIConfig binding floor
 
 Post-DD-210 source ownership isolated migration 0031's ProvisioningSnapshot → exact TenantAIConfig version/enabled/Provider-subset predicate as source-complete. Source-audit `ca04ee51110d1fe6f682366ff2cc5b3ebdb3fda0` passed **757/757 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `e15881e2052c51951c1ed103a769d9b7c14ded72` / tree `1381d28796629727ff5d573c82f001323225d6f6` passed **765/765 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change. Capability binding, commercial/Industry currentness, effective provisioning, routing and execution remain unclaimed.
+
+
+## 2026-09-28 — DD-212 AIProvisioningSnapshot capability binding floor
+
+Source audit `26bedb78ebff417ddf007f5315cecd8ea05c9c20` / tree `b1c2ea947365ae296f9312ec4987e9e365319740` passed **765/765 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `1079451c43aac7aa4a1b320ec10be8360dc21983` / tree `80fd6ba13c4456a41d756b7446a27910ba7672a6` passed **773/773 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change.

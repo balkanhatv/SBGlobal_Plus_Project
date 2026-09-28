@@ -3665,3 +3665,30 @@ Provider order does not matter and extra Tenant Provider ids do not fail the sub
 
 ### AIPROVSNAP-TENCFG-CUR-008 — Unrelated semantics
 Snapshot capability/API/model/commercial/Industry/packs/budget/status/validity and Tenant capability/model/policy/sensitivity fields remain uninterpreted; inputs remain unchanged.
+
+
+## DD-212 AIProvisioningSnapshot Capability Binding Acceptance
+
+### AIPROVSNAP-CAP-CUR-001 — Exact capability evidence
+Exact same-Tenant/version Tenant config plus complete ACTIVE capability-id evidence whose exact codes are allowed passes.
+
+### AIPROVSNAP-CAP-CUR-002 — Referenced config binding
+Foreign Tenant, version mismatch, malformed/non-canonical snapshot version or invalid Tenant config version fails closed.
+
+### AIPROVSNAP-CAP-CUR-003 — Exact evidence set
+Missing, extra, duplicate-id or wrong-id capability evidence fails closed.
+
+### AIPROVSNAP-CAP-CUR-004 — Raw ACTIVE status
+Every supplied capability must have raw status exactly `ACTIVE`; other or normalized variants fail.
+
+### AIPROVSNAP-CAP-CUR-005 — Exact code membership
+Capability code must be an exact raw-string member of the referenced Tenant config `allowedCapabilities`; no trim/case normalization.
+
+### AIPROVSNAP-CAP-CUR-006 — Relevant shape validation
+Malformed/sparse/duplicate snapshot capability ids, malformed Tenant capability allowlist, malformed capability id/code/status evidence or non-array evidence fail closed.
+
+### AIPROVSNAP-CAP-CUR-007 — Empty/order semantics
+Empty snapshot capability set passes only with empty evidence; evidence order is irrelevant.
+
+### AIPROVSNAP-CAP-CUR-008 — Unrelated semantics
+Unrelated snapshot/Tenant/capability fields remain uninterpreted and inputs remain unchanged.

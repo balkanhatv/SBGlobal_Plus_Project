@@ -2968,3 +2968,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-211 does not validate snapshot capability ids, current Subscription/Entitlement/Industry activation, snapshot status/validity, effective Tenant+Industry configuration, budget/policy/permission, Provider runtime suitability, routing or AI execution.
 
 **Acceptance:** `AIPROVSNAP-TENCFG-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-tenant-config-floors.test.mjs`.
+
+
+## DD-212 — AIProvisioningSnapshot capability binding
+
+**Context:** migration 0031 rejects a ProvisioningSnapshot when any persisted `allowed_capability_id` lacks an exact AICapability id with raw status `ACTIVE` and an exact raw code present in the exact referenced TenantAIConfig `allowed_capabilities`. DD-211 separately owns referenced config enabled/Provider-subset semantics.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotCapabilityFloors(snapshot, tenantConfig, capabilities)`. It validates the relevant snapshot/Tenant reference and set shapes, requires same Tenant/exact config version, and requires an exact complete capability evidence set with raw ACTIVE status and exact code membership.
+
+**Security / trade-off:** DD-212 proves only persisted capability binding. It deliberately does not interpret `requiredEntitlement`, default policy, category, snapshot currentness or execution eligibility.
+
+**Boundary:** commercial/Industry currentness, effective provisioning, permission/policy/budget/sensitivity/residency, Provider/model/API suitability, routing and AI execution remain separate.
+
+**Acceptance:** `AIPROVSNAP-CAP-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-capability-floors.test.mjs`.
