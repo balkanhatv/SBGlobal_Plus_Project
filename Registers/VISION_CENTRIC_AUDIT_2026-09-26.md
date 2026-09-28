@@ -1970,3 +1970,17 @@ No Foundation requirement semantics, source row/count, Architecture/DD contract,
 migration, RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-79 exact-head closure
+
+Correction HEAD `7eb13c12202f1f45e10cd374f508b1609ed91480` /
+tree `da1139c57654a7d1e2e3a3288e9c21d13dcc5c5e` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-79 changes only
+F-15's current project overlay and REPO-007 coverage; Foundation certification/remediation
+history and source semantics are preserved. DD-208 remains current and DD-209 stays locked
+until complete-project audit closure.

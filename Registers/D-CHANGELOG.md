@@ -758,3 +758,16 @@ tree `f6ea6a007f28be5358ec49070420fd4f90ad4dec` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Foundation/Architecture/DD contract, runtime, RawSource, migration, RLS, role/grant, product
 requirement or DD-209 change.
+
+## 2026-09-28 — VC27-79 F-15 active current-project projection correction
+
+The semantic file-coverage sweep found `Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md`
+still routing its explicit Current-State Projection to the dated 2026-09-13 all-stages audit.
+The correction preserves all Foundation certification/remediation/source evidence, relabels
+the 2026-09-13 projection as historical, adds a 2026-09-28 current project overlay with DD-208,
+the verified executable audit basis and active vision/runtime/manifest owners, and adds F-15
+to REPO-007. Correction HEAD `7eb13c12202f1f45e10cd374f508b1609ed91480` /
+tree `da1139c57654a7d1e2e3a3288e9c21d13dcc5c5e` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No Foundation
+requirement semantics, source inventory, runtime, migration, RLS, role/grant, product requirement
+or DD-209 change.
