@@ -706,3 +706,14 @@ Current-file coverage audit found DetailedDesign/DD-INDEX.md, DD-PHASE_STATE.md 
 ## 2026-09-28 — VC27-74 active feature-vs-audit projection reconciliation
 
 REPO-007 exposed that active current-audit evidence had been advanced to the verified VC27-70 executable basis while the invariant still conflated it with historical/governed DD-208 feature verification. The correction separates these concerns without weakening the invariant: DD-208 feature evidence remains preserved, all explicitly-current audit/runtime projections bind to `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`, SOURCE_REGISTRY is aligned, and REPO-007 now checks both categories plus every active projection's audit head. Initial VC27-73/74 attempts failed Core on precisely these stale evidence mismatches and were not promoted. Refined correction head `1adcf6737f97e63865643d33e31c3d1f4a3562bf` / tree `30f693dba0b36f446167afeedd00a8111a72fc1d` passed **739/739 Core**, **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No runtime domain, RawSource, migration, RLS, role/grant, product requirement or DD-209 change.
+
+## 2026-09-28 — VC27-75 active Isolation Attack Matrix projection correction
+
+The current-file semantic sweep found `Registers/ISOLATION_ATTACK_MATRIX.md` still presenting
+2026-09-14 executable evidence and a 34-migration/28-verification inventory as current. The
+correction adds the DD-208 current checkpoint plus verified VC27-70 audit basis, reclassifies the
+older executable matrix as historical without deleting it, and adds the file to REPO-007 active
+projection coverage. Correction head `728657faa202646fb8d335ffb1e3fb463e2365de` /
+tree `8d25108b6950bbd01d4a53178f2b003a4ee14554` passed **739/739 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 change.

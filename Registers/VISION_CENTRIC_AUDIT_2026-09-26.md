@@ -1797,3 +1797,18 @@ change runtime/domain behavior, tests other than the stronger projection invaria
 RLS, roles/grants, product requirements or DD-209 authority. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-75 exact-head closure
+
+Correction HEAD `728657faa202646fb8d335ffb1e3fb463e2365de` /
+tree `8d25108b6950bbd01d4a53178f2b003a4ee14554` passed exact-head:
+- Core **739/739**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-75 changes only
+current-projection semantics and REPO-007 coverage; the 2026-09-14 Isolation Attack Matrix
+records remain intact below the new current block. DD-208 remains current and DD-209 stays
+locked until complete-project audit closure.
+
