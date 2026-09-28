@@ -1113,3 +1113,18 @@ tree `0c07e6f7e8089645b36ef312a589864e3c85ec74` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Architecture HOW/ADR conclusion, runtime, RawSource, migration, RLS, role/grant, product
 requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-105 Architecture traceability historical PASS projection correction
+
+The semantic file-coverage sweep found `Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md`
+still opening with its evaluated 2026-09-12 `Status: PASS`, explicitly describing itself as
+superseding the prior matrix's current-status effect, but without the active DD-208/project-
+audit overlay. The correction preserves every Foundation→Architecture owner/evidence/ADR/
+DD-deferral row and result, historicalizes the PASS/current-status statement to its evaluated
+Phase-2 snapshot, adds the current project overlay and adds the file to REPO-007.
+
+Correction HEAD `ac19574cb3743eb3d1d5cbc7cb780ddecbb1aed4` /
+tree `13f419709009e9fc43d7a09638209d8179e006f7` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Architecture HOW/ADR conclusion, Foundation requirement, DD deferral, runtime, RawSource,
+migration, RLS, role/grant, product requirement or DD-209 authority changed.

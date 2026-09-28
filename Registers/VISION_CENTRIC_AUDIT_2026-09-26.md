@@ -2960,3 +2960,18 @@ No Architecture HOW/ADR conclusion, Foundation requirement, DD deferral, runtime
 migration, RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-105 exact-head closure
+
+Correction HEAD `ac19574cb3743eb3d1d5cbc7cb780ddecbb1aed4` /
+tree `13f419709009e9fc43d7a09638209d8179e006f7` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-105 changes only the
+evaluated-era/current-status projection of the Architecture traceability matrix and REPO-007
+coverage; all Foundation→Architecture ownership, ADR and DD-deferral evidence remains
+preserved. DD-208 remains current and DD-209 stays locked until complete-project audit closure.
+
