@@ -1492,7 +1492,7 @@
     "verified_code_head": "4dd7138e5a546f608fe5e28e0912d17523e33693",
     "verified_code_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
     "source_audit": "Development/AI_TENANT_CONFIG_MODEL_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/VISION_CENTRIC_AUDIT_2026-09-26.md",
+    "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
     "next_action": "Continue downstream canonical/state/Development/Database/CI consistency and adversarial audit. Do not open DD-209 or effective AI execution until the complete-project audit is clean.",
     "main_merge": false
   },
@@ -1500,7 +1500,7 @@
     "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
     "verified_executable_basis": "4dd7138e5a546f608fe5e28e0912d17523e33693",
     "verified_executable_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
-    "current_verification": "Registers/VISION_CENTRIC_AUDIT_2026-09-26.md",
+    "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
     "scope": "DD-208 implements only TenantAIConfig allowedModelIds[] duplicate-free exact-id/raw-ACTIVE AIModel binding plus exact Model providerId membership in the same config allowedProviderIds[]. Provider-row runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain outside this checkpoint.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",

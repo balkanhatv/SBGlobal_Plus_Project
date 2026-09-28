@@ -1743,3 +1743,14 @@ basis assertions. No runtime domain behavior, RawSource, migration, RLS, role/gr
 requirement or DD-209 authority changes. Exact-head Core/PostgreSQL/Database/Web
 verification is required.
 
+#### VC27-74 verification refinement
+
+The first VC27-74 correction HEAD `b85661ec…` passed Web, Database and PostgreSQL but Core
+REPO-007 correctly exposed one remaining evidence-pointer mismatch: the active executable
+`current_verification` fields pointed at the high-level vision audit report, while the exact
+VC27-70 SHA/tree and CI evidence live in the dedicated downstream bounded-runtime audit.
+The refinement points only those executable-verification fields to
+`Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and keeps the high-level vision
+audit as the overall audit owner. REPO-007 remains stronger than before and now checks the
+actual executable evidence report.
+

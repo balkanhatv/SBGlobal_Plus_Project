@@ -42,9 +42,10 @@ test("REPO-007: active checkpoint projections distinguish governed feature evide
   assert.equal(m.current_phase, m.development.current_phase);
   assert.equal(m.continuation.next_action, m.development.next_action);
   assert.equal(m.development.core_services.next_action, m.development.next_action);
-  assert.equal(m.current_audit_overlay.current_verification, m.vision_audit_2026_09_26.report);
-  assert.equal(m.continuation.current_verification, m.vision_audit_2026_09_26.report);
-  assert.ok(read(m.vision_audit_2026_09_26.report).includes(auditHead));
+  const runtimeAudit = m.vision_audit_2026_09_26.downstream_bounded_runtime_audit.report;
+  assert.equal(m.current_audit_overlay.current_verification, runtimeAudit);
+  assert.equal(m.continuation.current_verification, runtimeAudit);
+  assert.ok(read(runtimeAudit).includes(auditHead));
 
   for (const path of projections) {
     const firstLines = read(path).split("\n").slice(0, 8).join("\n");
