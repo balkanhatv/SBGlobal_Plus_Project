@@ -3167,3 +3167,24 @@ coverage; every KPI row, contract id, formula/fixture/isolation reference and 16
 remains preserved. DD-208 remains current and DD-209 stays locked until complete-project
 audit closure.
 
+## 2026-09-28 bounded-runtime status projection consistency continuation
+
+### VC27-111 — P2: manifest bounded-runtime status remained pinned to VC27-66 while its verified basis reached VC27-70
+
+The semantic/state sweep found an internal contradiction inside
+`State/PROJECT_MANIFEST.json`. The bounded-runtime object's `status` still said
+`...THROUGH_VC27_66...`, while the same object's `current_verified_basis.finding_ids`
+ended at VC27-70, its head/tree pointed to the exact VC27-70 product audit basis, the runtime
+audit report listed VC27-67…70, and the active checkpoint/state projections all described the
+verified product basis as through VC27-70.
+
+Smallest forward-only correction:
+- update only the bounded-runtime status projection from VC27-66 to VC27-70;
+- preserve the existing VC27-70 executable head/tree/CI evidence and every finding;
+- extend REPO-007 so bounded-runtime status must equal the last id in the verified runtime
+  finding basis, preventing future silent drift.
+
+No runtime code, requirement, RawSource, migration, RLS, role/grant, product behavior,
+verified executable basis or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

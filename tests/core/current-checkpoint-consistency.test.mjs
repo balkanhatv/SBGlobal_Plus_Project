@@ -83,7 +83,15 @@ test("REPO-007: active checkpoint projections distinguish governed feature evide
   assert.equal(m.current_phase, m.development.current_phase);
   assert.equal(m.continuation.next_action, m.development.next_action);
   assert.equal(m.development.core_services.next_action, m.development.next_action);
-  const runtimeAudit = m.vision_audit_2026_09_26.downstream_bounded_runtime_audit.report;
+  const boundedRuntime = m.vision_audit_2026_09_26.downstream_bounded_runtime_audit;
+  const runtimeAudit = boundedRuntime.report;
+  const latestRuntimeFinding = boundedRuntime.current_verified_basis.finding_ids.at(-1);
+  assert.ok(/^VC27-\d+$/.test(latestRuntimeFinding), "Missing bounded runtime finding id");
+  assert.equal(
+    boundedRuntime.status,
+    `BOUNDED_CLEAN_WITH_VERIFIED_FAIL_CLOSED_CORRECTIONS_THROUGH_${latestRuntimeFinding.replace("-", "_")}_AUDIT_IN_PROGRESS`,
+    "Bounded runtime status is stale against the verified finding basis",
+  );
   assert.equal(m.current_audit_overlay.current_verification, runtimeAudit);
   assert.equal(m.continuation.current_verification, runtimeAudit);
   assert.ok(read(runtimeAudit).includes(auditHead));
