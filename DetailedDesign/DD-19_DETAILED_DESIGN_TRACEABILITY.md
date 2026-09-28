@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-INDUSTRY-ACTIVATION-FLOORS-001`  
+**Current checkpoint:** `DEV-COMMERCIAL-PROVISIONING-VERSION-RAW-READ-001`  
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-215 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-216 is implemented and exact-head verified; canonical promotion is pending its own exact-head gate. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > The traceability chains and requirement-owner evidence below are preserved. Governed Development subsequently advanced through DD-208. Dated Core/session-security continuation sections describe their evaluated-era boundaries, not current unfinished work. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this file does not define the active project gate.
@@ -522,3 +522,12 @@ DD-215 → `src/core/ai/provisioning-snapshot-industry-activation-floors.ts` →
 `Registers/DEVELOPMENT_DD215_VERIFICATION_2026-09-28.md`.
 
 This chain claims only exact supplied same-Tenant/same-Industry/raw-ACTIVE/exact activation-version equality. Broader commercial/provisioning/runtime authority remains separate.
+
+
+## DD-216 — Commercial provisioning-version raw evidence reader
+
+F-03 + A-06 + A-07 + DD-07 + DD-09 → migrations 0001/0004/0009/0043 Commercial read ownership + migration 0031 commercial-version predicate →
+`Development/AI_PROVISIONING_SNAPSHOT_COMMERCIAL_VERSION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-216 →
+`src/core/commercial/provisioning-version-evidence.ts` + `src/server/commercial/postgres-commercial-provisioning-version-store.ts` →
+`COMPROVVER-PG-001…007` → `tests/postgres/commercial-provisioning-version-store.test.mjs` →
+`Registers/DEVELOPMENT_DD216_VERIFICATION_2026-09-28.md`.

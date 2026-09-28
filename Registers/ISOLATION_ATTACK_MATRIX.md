@@ -1,6 +1,6 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-INDUSTRY-ACTIVATION-FLOORS-001`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-215 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-COMMERCIAL-PROVISIONING-VERSION-RAW-READ-001`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-216 is implemented and exact-head verified; canonical promotion is pending its own exact-head gate. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-09-28 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts
 
 > **Current bounded audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70` — **739/739 Core**, **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. DD-208 remains the latest governed Development checkpoint; complete-project audit is still in progress and DD-209 source audit is authorized. Current executable-isolation status is owned by [D-CHECKPOINT](D-CHECKPOINT.md) and the [bounded runtime audit](DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md).

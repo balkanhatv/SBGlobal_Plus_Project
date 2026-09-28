@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-INDUSTRY-ACTIVATION-FLOORS-001",
-  "final_verdict": "Complete-project downstream audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-215 state closure 60c80fbec81a0258582fbc592cc7f460603b66ad / tree 78f04672001b9732b4a753280a6ff83fdc64facc is exact-head verified at 789 Core / 518 PostgreSQL / 48 migrations / 42 verification files / Web PASS. DD-216 raw Commercial provisioning-version evidence reader source audit is the only authorized forward step. Production readiness is NOT CLAIMED.",
+  "checkpoint": "DEV-COMMERCIAL-PROVISIONING-VERSION-RAW-READ-001",
+  "final_verdict": "Complete-project downstream audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-216 raw Commercial provisioning-version evidence reader is implemented and exact-head verified at 0797d75511355719b2ba7a59e68f68b8cdb296dd / tree 858c63f8048a9576ef01b2e2dceea16a1f329f98: 789 Core / 525 PostgreSQL / 48 migrations / 42 verification files / Web PASS. Canonical promotion is pending its own exact-head gate. Production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -1146,13 +1146,37 @@
       "web_run_id": 36437900275,
       "web_job_id": 108980479717,
       "result": "PASS_EXACT_STATE_CLOSURE_HEAD"
+    },
+    "dd216_source_audit_head": "90c24e140352c20c0f9ef23af04f0a17982b97cb",
+    "dd216_source_audit_tree": "b613db1cf3a4fd88cac36b7f6b73f787158081a2",
+    "dd216_source_audit_ci": {
+      "core_run_id": 36439145678,
+      "core_job_id": 108984770354,
+      "postgres_job_id": 108984769288,
+      "database_run_id": 36439145569,
+      "database_job_id": 108984769516,
+      "web_run_id": 36439145673,
+      "web_job_id": 108984769777,
+      "result": "PASS_EXACT_SOURCE_AUDIT_HEAD"
+    },
+    "dd216_implementation_head": "0797d75511355719b2ba7a59e68f68b8cdb296dd",
+    "dd216_implementation_tree": "858c63f8048a9576ef01b2e2dceea16a1f329f98",
+    "dd216_implementation_ci": {
+      "core_run_id": 36439793839,
+      "core_job_id": 108986997313,
+      "postgres_job_id": 108986997572,
+      "database_run_id": 36439793851,
+      "database_job_id": 108986997412,
+      "web_run_id": 36439793840,
+      "web_job_id": 108986997758,
+      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD215_VERIFIED_DD216_SOURCE_AUDIT",
+    "current_phase": "DEVELOPMENT_DD216_PROMOTION_PENDING",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -1201,14 +1225,14 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify DD-216 source audit for the minimal same-Tenant raw Commercial provisioning-version evidence reader. Do not compare AIProvisioningSnapshot commercial versions until this reader and its exact-head gate pass.",
+    "next_action": "Verify the DD-216 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-216 state and source-audit ProvisioningSnapshot commercial-version equality; effective provisioning, routing and AI execution remain locked.",
     "core_services": {
-      "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-INDUSTRY-ACTIVATION-FLOORS-001",
+      "checkpoint": "DEV-COMMERCIAL-PROVISIONING-VERSION-RAW-READ-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–215 bounded implementation",
+      "decision": "DD-040–216 bounded implementation",
       "verified_head": "4dd7138e5a546f608fe5e28e0912d17523e33693",
       "verified_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
       "core_ci_run_id": 36345589360,
@@ -1578,7 +1602,8 @@
         "DD-212 AIProvisioningSnapshot exact ACTIVE capability-id/code binding to referenced TenantAIConfig capability allowlist",
         "DD-213 ProvisioningSnapshot Tenant-Core null-Industry/null-activation-version floor",
         "DD-214 exact Tenant+Industry raw IndustryContext status/activationVersion evidence reader via existing context-bootstrap boundary",
-        "DD-215 ProvisioningSnapshot exact same-Tenant/same-Industry raw-ACTIVE activation-version floor"
+        "DD-215 ProvisioningSnapshot exact same-Tenant/same-Industry raw-ACTIVE activation-version floor",
+        "DD-216 same-Tenant raw Commercial provisioning-version evidence reader"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -1704,7 +1729,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify DD-216 source audit for the minimal same-Tenant raw Commercial provisioning-version evidence reader. Do not compare AIProvisioningSnapshot commercial versions until this reader and its exact-head gate pass.",
+      "next_action": "Verify the DD-216 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-216 state and source-audit ProvisioningSnapshot commercial-version equality; effective provisioning, routing and AI execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1798,7 +1823,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD215_VERIFIED_DD216_SOURCE_AUDIT",
+  "current_phase": "DEVELOPMENT_DD216_PROMOTION_PENDING",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1830,20 +1855,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-INDUSTRY-ACTIVATION-FLOORS-001",
+    "checkpoint": "DEV-COMMERCIAL-PROVISIONING-VERSION-RAW-READ-001",
     "verified_code_head": "4dd7138e5a546f608fe5e28e0912d17523e33693",
     "verified_code_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
-    "source_audit": "Development/AI_PROVISIONING_SNAPSHOT_INDUSTRY_ACTIVATION_VERSION_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "source_audit": "Development/AI_PROVISIONING_SNAPSHOT_COMMERCIAL_VERSION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "Verify DD-216 source audit for the minimal same-Tenant raw Commercial provisioning-version evidence reader. Do not compare AIProvisioningSnapshot commercial versions until this reader and its exact-head gate pass.",
+    "next_action": "Verify the DD-216 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-216 state and source-audit ProvisioningSnapshot commercial-version equality; effective provisioning, routing and AI execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-INDUSTRY-ACTIVATION-FLOORS-001",
+    "checkpoint": "DEV-COMMERCIAL-PROVISIONING-VERSION-RAW-READ-001",
     "verified_executable_basis": "4dd7138e5a546f608fe5e28e0912d17523e33693",
     "verified_executable_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "scope": "DD-215 re-evaluates only ProvisioningSnapshot exact supplied same-Tenant/same-Industry/raw-ACTIVE/exact IndustryContext activation-version equality. Commercial currentness and broader provisioning/runtime authority remain separate.",
+    "scope": "DD-216 adds only same-Tenant raw current-Subscription and raw-CURRENT EntitlementSnapshot version evidence. ProvisioningSnapshot commercial-version equality, commercial authorization and effective provisioning/runtime authority remain separate.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",
       "parents_total": 372,
@@ -1894,54 +1919,53 @@
     "source_requirement_text_reconciliation": "2,962 stable IDs retained; 85 mis-extracted texts restored and 21 provenance aliases explicitly located by VC27-01. Complete atomic no-loss certification remains open."
   },
   "current_feature_verification": {
-    "decision_id": "DD-215",
-    "decision": "DD-215 AIProvisioningSnapshot Industry activation-version floor",
-    "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-INDUSTRY-ACTIVATION-FLOORS-001",
-    "verified_head": "baecbd4956e5c6d97635f4359da608dc67a9ed61",
-    "verified_tree": "1d5a9f48ccba105d1d8f21c3bf67d799adfca2a3",
-    "source_audit": "Development/AI_PROVISIONING_SNAPSHOT_INDUSTRY_ACTIVATION_VERSION_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-216",
+    "decision": "DD-216 Commercial provisioning-version raw evidence reader",
+    "checkpoint": "DEV-COMMERCIAL-PROVISIONING-VERSION-RAW-READ-001",
+    "verified_head": "0797d75511355719b2ba7a59e68f68b8cdb296dd",
+    "verified_tree": "858c63f8048a9576ef01b2e2dceea16a1f329f98",
+    "source_audit": "Development/AI_PROVISIONING_SNAPSHOT_COMMERCIAL_VERSION_READER_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AIPROVSNAP-INDVER-CUR-001",
-      "AIPROVSNAP-INDVER-CUR-002",
-      "AIPROVSNAP-INDVER-CUR-003",
-      "AIPROVSNAP-INDVER-CUR-004",
-      "AIPROVSNAP-INDVER-CUR-005",
-      "AIPROVSNAP-INDVER-CUR-006",
-      "AIPROVSNAP-INDVER-CUR-007",
-      "AIPROVSNAP-INDVER-CUR-008"
+      "COMPROVVER-PG-001",
+      "COMPROVVER-PG-002",
+      "COMPROVVER-PG-003",
+      "COMPROVVER-PG-004",
+      "COMPROVVER-PG-005",
+      "COMPROVVER-PG-006",
+      "COMPROVVER-PG-007"
     ],
     "test_files": [
-      "tests/core/ai-provisioning-snapshot-industry-activation-floors.test.mjs"
+      "tests/postgres/commercial-provisioning-version-store.test.mjs"
     ],
     "core": {
-      "run_id": 36432488262,
-      "job_id": 108961978749,
+      "run_id": 36439793839,
+      "job_id": 108986997313,
       "tests": 789,
       "pass": 789,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36432488262,
-      "job_id": 108961978939,
-      "tests": 518,
-      "pass": 518,
+      "run_id": 36439793839,
+      "job_id": 108986997572,
+      "tests": 525,
+      "pass": 525,
       "fail": 0,
       "skip": 0,
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36432487932,
-      "job_id": 108961930906,
+      "run_id": 36439793851,
+      "job_id": 108986997412,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36432487889,
-      "job_id": 108961929565,
+      "run_id": 36439793840,
+      "job_id": 108986997758,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD215_VERIFICATION_2026-09-28.md"
+    "evidence": "Registers/DEVELOPMENT_DD216_VERIFICATION_2026-09-28.md"
   },
   "historical_projection_payloads": {
     "continuation": {

@@ -1,7 +1,7 @@
 # F-15 — FOUNDATION TRUTH REVALIDATION
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-INDUSTRY-ACTIVATION-FLOORS-001`  
+**Current checkpoint:** `DEV-COMMERCIAL-PROVISIONING-VERSION-RAW-READ-001`  
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-215 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-216 is implemented and exact-head verified; canonical promotion is pending its own exact-head gate. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-15 · **Version:** 2.0 · **Status:** CLOSED — FOUNDATION REVALIDATED · **Date:** 11-09-2026
 
 ## 1. Purpose

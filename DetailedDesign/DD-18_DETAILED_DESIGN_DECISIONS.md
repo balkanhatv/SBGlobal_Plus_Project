@@ -3018,3 +3018,14 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** operation authorization, snapshot currentness, commercial version currentness, effective provisioning, permission/policy/budget/sensitivity/residency, Provider/model/API suitability, routing and AI execution remain separate.
 
 **Acceptance:** `AIPROVSNAP-INDVER-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-industry-activation-floors.test.mjs`.
+
+
+## DD-216 — Commercial provisioning-version raw evidence reader
+
+**Context:** migration 0031 needs raw same-Tenant current Subscription version and raw-CURRENT EntitlementSnapshot version evidence. Existing CommercialCurrentStateRead adds valid-time/source-linkage semantics not owned by migration 0031.
+
+**Decision:** add `CommercialProvisioningVersionReadPort.loadForContext({requestContext})` with `PostgresCommercialProvisioningVersionStore`, using RequestScopedSql, same-Tenant pointer joins, exact bigint text, preserved absence and frozen output.
+
+**Boundary:** DD-216 does not compare an AIProvisioningSnapshot's commercial versions, authorize commercial operations, prove entitlement sufficiency, compile effective provisioning, route or execute AI.
+
+**Acceptance:** `COMPROVVER-PG-001…007` in DD-17 and `tests/postgres/commercial-provisioning-version-store.test.mjs`.

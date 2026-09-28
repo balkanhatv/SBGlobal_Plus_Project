@@ -3767,3 +3767,27 @@ Zero, negative and bigint-boundary canonical strings compare exactly without Jav
 
 ### AIPROVSNAP-INDVER-CUR-008 — Unrelated semantics
 Unrelated snapshot/evidence fields remain uninterpreted and inputs remain unchanged.
+
+
+## DD-216 Commercial Provisioning Version Evidence Reader Acceptance
+
+### COMPROVVER-PG-001 — Tenant-Core exact evidence
+A resolved Tenant-Core context returns frozen Tenant-owned current Subscription id/version and raw-CURRENT EntitlementSnapshot id/version evidence.
+
+### COMPROVVER-PG-002 — Tenant-Industry same-Tenant evidence
+A resolved same-Tenant Industry context returns the same Tenant-owned commercial version evidence without adding Industry semantics.
+
+### COMPROVVER-PG-003 — Raw CURRENT snapshot only
+Non-CURRENT EntitlementSnapshots are ignored; absence of a raw CURRENT snapshot is preserved as absent evidence.
+
+### COMPROVVER-PG-004 — Current Subscription pointer absence
+A missing or unmatched Tenant current-Subscription pointer is preserved without inventing Subscription version evidence.
+
+### COMPROVVER-PG-005 — Exact bigint text
+PostgreSQL Subscription and EntitlementSnapshot bigint versions are preserved as canonical decimal text, including max bigint.
+
+### COMPROVVER-PG-006 — Context/Tenant isolation
+Malformed or unsupported contexts fail closed and RequestScopedSql/RLS prevents cross-Tenant evidence leakage.
+
+### COMPROVVER-PG-007 — Read-only bounded authority
+The port exposes no list/latest/mutation/compile/authorize authority and returned evidence is immutable.

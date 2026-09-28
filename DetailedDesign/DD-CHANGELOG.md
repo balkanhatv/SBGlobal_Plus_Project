@@ -501,3 +501,8 @@ Source audit `04a239095dda9536ad79189cd0709e899aee4458` / tree `76a0ab23e605257b
 ## 2026-09-28 — DD-215 ProvisioningSnapshot Industry activation-version floor
 
 Source audit `77ebaaf992767a1713cc296a983bb6933ead9bdd` / tree `e7302dd64365e5773800acef15c3a72369506239` passed **781/781 Core**, **518/518 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `baecbd4956e5c6d97635f4359da608dc67a9ed61` / tree `1d5a9f48ccba105d1d8f21c3bf67d799adfca2a3` passed **789/789 Core**, **518/518 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change. Commercial-version integrity and broader provisioning/runtime authority remain unclaimed.
+
+
+## 2026-09-28 — DD-216 Commercial provisioning-version raw evidence reader
+
+Source audit `90c24e140352c20c0f9ef23af04f0a17982b97cb` / tree `b613db1cf3a4fd88cac36b7f6b73f787158081a2` passed **789/789 Core**, **518/518 PostgreSQL** plus bootstrap, Database/Web PASS. Implementation `0797d75511355719b2ba7a59e68f68b8cdb296dd` / tree `858c63f8048a9576ef01b2e2dceea16a1f329f98` passed **789/789 Core**, **525/525 PostgreSQL** plus bootstrap, Database/Web PASS. No schema/RLS/role/grant/route change.

@@ -1300,3 +1300,8 @@ DD-215 implements only the ProvisioningSnapshot exact same-Tenant/same-Industry/
 ## 2026-09-28 — DD-215 canonical promotion verified
 
 Canonical DD-215 promotion `555bd515152712828ca7378eba31c6de9b88484e` / tree `291d6d28e64ce0a185acbfe99a44eab731d27dca` passed **789/789 Core**, **518/518 PostgreSQL** plus database bootstrap, Database Verify and Web. The state-closure commit must now pass the same exact-head gate before another source audit opens. No RawSource, schema, RLS, role/grant, route or product-policy change.
+
+
+## 2026-09-28 — DD-216 canonical promotion staged
+
+DD-216 adds only the same-Tenant raw Commercial provisioning-version evidence reader. Canonical promotion remains subject to its own exact-head gate; snapshot commercial-version equality remains separate.
