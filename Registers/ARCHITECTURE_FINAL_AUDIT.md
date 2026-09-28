@@ -1,5 +1,7 @@
 # ARCHITECTURE FINAL / ADVERSARIAL AUDIT — PHASE 2
-**Status:** ARCHITECTURE REVALIDATION EARNED · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Status:** HISTORICAL PHASE-2 ARCHITECTURE REVALIDATION EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 
 ## Pass 1 — evidence reconciliation
 The fresh Phase-1 Foundation is the upstream authority. A-00…A-12 were read in full and targeted corrections were applied only to real blast-radius owners. Phase-1 recovered requirements now have explicit Architecture HOW and ADR evidence.
@@ -38,7 +40,12 @@ Architecture behavior is fail-closed or explicitly governance-gated for each cla
 - Open P1: 0
 - Material Architecture gap: 0
 
-## Certification boundary
-**ARCHITECTURE REVALIDATED — PASS.** This means system-level HOW is coherent input to Detailed Design revalidation. It does not certify the current Detailed Design after the upstream changes and does not authorize Development.
+## Historical certification boundary
+**ARCHITECTURE REVALIDATED — PASS.** At the 2026-09-12 Phase-2 boundary, this meant system-level HOW was coherent input to Detailed Design revalidation. At that historical point it did not certify the then-future Detailed Design and did not authorize Development.
 
-**Next gate:** Phase 3 — Detailed Design fresh revalidation/correction.
+**Historical next gate:** Phase 3 — Detailed Design fresh revalidation/correction.
+
+## Current project projection — 2026-09-28
+The Phase-2 Architecture PASS above remains valid historical HOW evidence. Detailed Design and the pre-development gates subsequently completed, and governed Development advanced through **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**.
+
+The independently verified current executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`; active current-state projection corrections through VC27-82 are independently exact-HEAD verified. The complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. Current project truth and exact continuation are owned by `VISION_CENTRIC_AUDIT_2026-09-26.md`, `DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`. Architecture certification alone does not establish production readiness, and **DD-209 is not authorized** until that complete-project gate closes.

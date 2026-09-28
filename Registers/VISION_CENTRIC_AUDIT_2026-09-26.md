@@ -2104,3 +2104,29 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-82 changes only
 A-00's active current project projection and REPO-007 coverage; Architecture HOW/ADR semantics
 and historical Phase-2 evidence are preserved. DD-208 remains current and DD-209 stays locked
 until complete-project audit closure.
+
+## 2026-09-28 active Architecture final-audit projection continuation
+
+### VC27-83 — P2: ARCHITECTURE_FINAL_AUDIT still exposed the Phase-2 next gate as current project state
+
+The semantic file-coverage sweep found `Registers/ARCHITECTURE_FINAL_AUDIT.md` outside
+REPO-007 while its certification boundary still said the Architecture PASS did not authorize
+Development and named Phase 3 Detailed Design revalidation as the next gate.
+
+Those statements were correct for the evaluated 2026-09-12 Phase-2 Architecture checkpoint.
+The Architecture adversarial findings and PASS remain valid historical evidence. The defect is
+only the active project-state projection: Detailed Design and pre-development closure later
+completed, governed Development advanced through DD-208, and the current complete-project
+downstream semantic/file-coverage audit is the later gate.
+
+Smallest forward-only correction:
+- preserve all Phase-2 Architecture attack/result/severity evidence;
+- mark the certification/next-gate wording explicitly historical;
+- add a current DD-208/project-audit overlay with the verified executable basis and current
+  vision/runtime/manifest owners, with DD-209 still locked;
+- add ARCHITECTURE_FINAL_AUDIT.md to REPO-007 so future checkpoint/audit-basis drift fails CI.
+
+No Architecture HOW/ADR semantics, Foundation/DD requirements, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

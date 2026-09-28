@@ -8,6 +8,7 @@ const projections = [
   "README_FOUNDATION.md", "Foundation/F-00_FOUNDATION_OVERVIEW.md",
   "Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md",
   "Architecture/A-00_ARCHITECTURE_OVERVIEW.md",
+  "Registers/ARCHITECTURE_FINAL_AUDIT.md",
   "State/PROJECT_STATE.md", "State/HANDOFF_NOTE.md",
   "State/PHASE_SUMMARY.md", "Development/CORE_SERVICE_CHECKPOINT.md",
   "Development/DEVELOPMENT_STATE.md", "Development/DB_CHECKPOINT.md",
