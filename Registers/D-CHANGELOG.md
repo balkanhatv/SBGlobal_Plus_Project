@@ -1145,3 +1145,18 @@ tree `7305282f1ccd8b96305578d393f793fbad9e29ba` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Foundation requirement, source count, 41-MS result, phase-boundary conclusion, runtime,
 RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-107 41-MS completeness historical projection correction
+
+The semantic file-coverage sweep found `Registers/MS_COMPLETENESS_MATRIX.md` outside
+REPO-007. Its 2026-09-11 41-MS substantive owner review remained valid evaluated-era
+Foundation evidence, but the file had no active DD-208/executable-audit overlay and could be
+read as current project certification. The correction preserves every MS row, owner and
+dimension result, classifies the matrix as historical/evaluated-era evidence, adds the current
+project overlay and adds the file to REPO-007.
+
+Correction HEAD `c557a7fe466ce6af38707c880b06da77d93b7f80` /
+tree `128fd7e5c6cff0b8f5ec919f08844e97fc118824` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No MS
+count/result, Foundation owner, Industry-neutrality rule, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changed.
