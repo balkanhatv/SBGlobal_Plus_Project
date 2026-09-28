@@ -1,6 +1,10 @@
-# DD-22 — MANAGEMENT-SYSTEM WORKFLOW TRANSITION MATRICES
-**Status:** ACTIVE REMEDIATION EVIDENCE · **Date:** 2026-09-11
-**Authority:** Fable 5 remediation mandate · industry DD state contracts · DD-03/06/07/15 · DD-21
+# DD-22H — STATE ENUM DERIVATION HISTORY
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Historical status:** FABLE 5 REMEDIATION / STATE-DERIVATION EVIDENCE · **Date:** 2026-09-11
+**Historical authority:** Fable 5 remediation mandate · industry DD state contracts · DD-03/06/07/15 · DD-21
+
+> The transition rows below are preserved as evaluated-era derivation evidence. DD-29 explicitly classifies DD-22H as non-authoritative state-derivation history; current canonical workflow authority is DD-22 plus the current DD/acceptance owners. Governed Development subsequently advanced through DD-208. The complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**, DD-209 is not authorized, and this file does not define the current project gate.
 
 ## Governing transition rules
 1. Only transitions explicitly listed in this artifact or a more-specific MS rule are allowed. Unlisted transitions return `<MS>_STATE_INVALID`.
