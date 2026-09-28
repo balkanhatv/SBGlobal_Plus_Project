@@ -2064,3 +2064,29 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-81 changes only
 DD-00's active current project projection and REPO-007 coverage; the complete Wave-1/Phase-3
 Detailed Design evidence is preserved. DD-208 remains current and DD-209 stays locked until
 complete-project audit closure.
+
+## 2026-09-28 active Architecture overview projection continuation
+
+### VC27-82 — P2: A-00 still presented Detailed Design/Development/Testing/Deployment as future phases
+
+The semantic file-coverage sweep found `Architecture/A-00_ARCHITECTURE_OVERVIEW.md`
+outside REPO-007 while its active phase-boundary section still said Detailed Design,
+Development, Testing and Deployment implementation remained future phases.
+
+That statement was correct at the historical Phase-2 Architecture boundary, and the
+Architecture HOW/ADR content remains valid. The drift is only the active project-state
+projection: Detailed Design and pre-development closure subsequently completed, governed
+Development advanced through DD-208, and the current complete-project downstream
+semantic/file-coverage audit is a later gate.
+
+Smallest forward-only correction:
+- preserve all Architecture layers, principles, document-map and ADR semantics;
+- mark the future-phase sentence as the historical Phase-2 boundary;
+- append a current DD-208/project-audit overlay pointing at the current vision/runtime/manifest
+  owners with DD-209 still locked;
+- add A-00 to REPO-007 so future checkpoint/audit-basis drift fails CI.
+
+No Architecture contract/ADR semantics, Foundation/DD requirements, runtime, RawSource,
+migration, RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

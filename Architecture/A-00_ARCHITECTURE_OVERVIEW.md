@@ -1,4 +1,6 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
 **Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 
@@ -83,12 +85,17 @@ Every request descends through L6→L5→L4 with the Tenant Context established 
 | A-11 | Observability, operations, reliability | PRESENT · REVALIDATED |
 | A-12 | Decisions, dependencies, constraints, trade-offs | PRESENT · AUTHORITATIVE ADR REGISTER |
 
-Architecture registers/audit documents exist from prior certification but are **not current evidence merely because they exist**. Phase 2 revalidates/rebuilds their claims against the corrected Phase-1 Foundation before Architecture certification is re-earned.
+Architecture registers/audit documents exist from prior certification but are **not current evidence merely because they exist**. Phase 2 revalidated/rebuilt their claims against the corrected Phase-1 Foundation before Architecture certification was re-earned; that phase result is preserved as historical Architecture evidence.
 
 ## 6. System Context (external actors & systems)
 Actors: Platform Operator staff · Tenant admins/staff/end-customers per industry (F-02 actors) · Visitors. External systems: identity provider (Clerk), payment gateways, AI providers, email/SMS/push providers (Expo Push/OneSignal), government/industry integrations per suite (→ A-06 §5), object storage, DNS/CDN.
 
 ## 7. Traceability & Phase Boundary
-Every A-document carries a "Traces to" header and is covered by the current Architecture traceability register (`Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md`). Architecture introduces no new business scope: where an architectural completion is required, it must be labelled as a decision in A-12 (provenance `[AC]`-equivalent for the Architecture phase). Detailed Design, Development, Testing and Deployment implementation remain future phases (§26A).
+Every A-document carries a "Traces to" header and is covered by the current Architecture traceability register (`Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md`). Architecture introduces no new business scope: where an architectural completion is required, it must be labelled as a decision in A-12 (provenance `[AC]`-equivalent for the Architecture phase).
+
+At the historical Phase-2 boundary, Detailed Design, Development, Testing and Deployment implementation were future phases (§26A). Detailed Design and the pre-development gates were subsequently completed, and governed Development advanced through **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**.
+
+## 8. Current Project Projection — 2026-09-28
+Architecture remains revalidated HOW input. The independently verified current executable audit basis is `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`; active current-state projection corrections through VC27-81 are independently exact-HEAD verified; and the complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. Current project truth and exact continuation are owned by `../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`, `../Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`. Architecture certification does not establish production readiness, and **DD-209 is not authorized** until that complete-project gate closes.
 
 **Current technology governance:** `UD-TECH-01` plus the later user-directed refinement recorded in `D-DECISIONS.md` govern the current approved stack. RawSourceCorpus remains immutable historical/source corpus and is not rewritten to match it.
