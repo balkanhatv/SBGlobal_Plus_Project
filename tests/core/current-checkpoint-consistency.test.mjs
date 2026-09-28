@@ -10,6 +10,7 @@ const projections = [
   "Architecture/A-00_ARCHITECTURE_OVERVIEW.md",
   "Architecture/ARCHITECTURE_REVALIDATION_NOTICE.md",
   "Registers/ARCHITECTURE_FINAL_AUDIT.md",
+  "Registers/ARCHITECTURE_NO_LOSS_AUDIT.md",
   "Registers/DD_REQUIREMENT_TRACEABILITY_F5.md",
   "State/PROJECT_STATE.md", "State/HANDOFF_NOTE.md",
   "State/PHASE_SUMMARY.md", "Development/CORE_SERVICE_CHECKPOINT.md",

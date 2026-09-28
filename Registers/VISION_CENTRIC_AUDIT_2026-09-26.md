@@ -2902,3 +2902,24 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-103 changes only
 the Wave-3 cross-industry evaluated-era/current-status projection and REPO-007 coverage; all
 9-industry / 41-MS design, isolation and cross-context evidence remains preserved. DD-208
 remains current and DD-209 stays locked until complete-project audit closure.
+
+## 2026-09-28 historical Phase-2 Architecture no-loss PASS projection continuation
+
+### VC27-104 — P2: Architecture no-loss audit still exposed its 2026-09-12 PASS as an unqualified current status
+
+The semantic file-coverage sweep found
+`Registers/ARCHITECTURE_NO_LOSS_AUDIT.md` outside REPO-007. Its full Architecture coverage,
+Phase-1 delta propagation, Architecture invariants and contradiction/staleness sweep remain
+useful evaluated-era Phase-2 evidence, but the file still opened with unqualified
+`Status: PASS` and no active DD-208/project-audit overlay.
+
+Smallest forward-only correction:
+- preserve every Architecture coverage item, invariant and contradiction result;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- classify the 2026-09-12 PASS as historical Phase-2 Architecture evidence;
+- add the file to REPO-007 so future active-projection drift fails CI.
+
+No Architecture HOW/ADR conclusion, Foundation propagation, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
