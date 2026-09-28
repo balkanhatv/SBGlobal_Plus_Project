@@ -983,3 +983,18 @@ tree `1142d154e318d1c53f39045d167c33981509afbb` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No workflow
 semantics, DD-22 authority, runtime, RawSource, migration, RLS, role/grant, product
 requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-96 historical Development-verification next-action correction
+
+The file-coverage sweep found
+`Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md` still ending with the
+DD-079-era `Next: Concrete DD-076 evaluator remains blocked...` routing without a current
+project overlay. Governed Development later advanced through DD-208. The correction preserves
+all original 2026-09-21 run/job/evidence data, adds the current DD-208/project-audit overlay,
+labels the DD-076 continuation historical and adds the file to REPO-007.
+
+Correction HEAD `7bd99397ff0ca6c1d6286c12630ce5727e69e145` /
+tree `60252c9de6fd3ad3f2352e10a9b24fc1242f4f7f` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Development feature semantics, Commercial policy, runtime, RawSource, migration, RLS,
+role/grant, product requirement or DD-209 authority changed.
