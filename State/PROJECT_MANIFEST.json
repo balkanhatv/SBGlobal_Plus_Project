@@ -3,7 +3,7 @@
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable correction basis 4dd7138e5a546f608fe5e28e0912d17523e33693 / tree 33ea828f05b2b8014b4c75401822cde89aa3ee70 remains exact-HEAD verified at 739 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-70. Active current-state projection corrections through VC27-88 are independently exact-HEAD verified; VC27-88 correction 52012a2b04941895c25bc6b93670e69847d9141c / tree 8681996a614d641a427858902cdded27dfa6d548 passed 740 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS and historicalizes five phase/pre-development gate projections without altering their evaluated-era evidence. Complete-project downstream semantic/file-coverage audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
+  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable correction basis 4dd7138e5a546f608fe5e28e0912d17523e33693 / tree 33ea828f05b2b8014b4c75401822cde89aa3ee70 remains exact-HEAD verified at 739 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-70. Active current-state projection corrections through VC27-89 are independently exact-HEAD verified; VC27-89 correction a108b63d4b9ae0a3edd6f2fb1df52909da05ed43 / tree fefe77045e4669faf28fd10a1e305afe83614bed passed 740 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS and historicalizes three dated Vision-audit continuation projections without altering their evaluated-era evidence. Complete-project downstream semantic/file-coverage audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -1518,8 +1518,8 @@
       "scope": "Source-parent semantic ownership/status reconciliation only; does not certify downstream repository/runtime completeness."
     },
     "downstream_gate": "IN_PROGRESS_CURRENT_FILE_SEMANTIC_COVERAGE",
-    "current_projection_correction_head": "52012a2b04941895c25bc6b93670e69847d9141c",
-    "current_projection_correction_tree": "8681996a614d641a427858902cdded27dfa6d548",
+    "current_projection_correction_head": "a108b63d4b9ae0a3edd6f2fb1df52909da05ed43",
+    "current_projection_correction_tree": "fefe77045e4669faf28fd10a1e305afe83614bed",
     "current_projection_correction_ci": "740 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS"
   },
   "current_state_audit": {
@@ -2376,7 +2376,7 @@
     ],
     "remaining_gate": "Full semantic file coverage and cross-layer/adversarial reconciliation remain incomplete; no global clean verdict.",
     "continuation_report": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
-    "continuation_status": "PHASE_AND_PREDEVELOPMENT_HISTORICAL_OVERLAY_SYNC_VERIFIED_FILE_COVERAGE_AUDIT_IN_PROGRESS",
+    "continuation_status": "DATED_VISION_AUDITS_HISTORICAL_OVERLAY_SYNC_VERIFIED_FILE_COVERAGE_AUDIT_IN_PROGRESS",
     "source_reading": "S1_AND_S2_COMPLETE_TEXT_READ; 372/372 SOURCE PARENTS OWNER_RECONCILED; DOWNSTREAM CANONICAL/STATE/RUNTIME SEMANTIC CERTIFICATION PENDING",
     "source_span_coverage": "Registers/SOURCE_SPAN_COVERAGE_2026-09-27.json",
     "additional_findings": {
@@ -2495,7 +2495,7 @@
       "SUPERSEDED_WITH_AUTHORITY": 8
     },
     "source_fidelity_remaining_gate": "Source-parent semantic reconciliation is complete at 372/372 owner-reconciled parents with 0 NOT_CERTIFIED. Remaining gate is downstream canonical/state/Development/Database/CI consistency plus adversarial reconciliation; parent counts/provenance do not certify runtime or complete-project correctness.",
-    "final_sync_gate": "Current executable audit basis remains 4dd7138e5a546f608fe5e28e0912d17523e33693 / tree 33ea828f05b2b8014b4c75401822cde89aa3ee70, exact-head verified at Core 739/739, PostgreSQL 512/512, Database 48 migrations / 42 verification files, Web PASS. VC27-88 historical phase/pre-development overlay correction 52012a2b04941895c25bc6b93670e69847d9141c / tree 8681996a614d641a427858902cdded27dfa6d548 is independently exact-head verified at Core 740/740, PostgreSQL 512/512, Database 48/42, Web PASS. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
+    "final_sync_gate": "Current executable audit basis remains 4dd7138e5a546f608fe5e28e0912d17523e33693 / tree 33ea828f05b2b8014b4c75401822cde89aa3ee70, exact-head verified at Core 739/739, PostgreSQL 512/512, Database 48 migrations / 42 verification files, Web PASS. VC27-89 dated Vision-audit historical/current-overlay correction a108b63d4b9ae0a3edd6f2fb1df52909da05ed43 / tree fefe77045e4669faf28fd10a1e305afe83614bed is independently exact-head verified at Core 740/740, PostgreSQL 512/512, Database 48/42, Web PASS. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
     "additional_findings_corrections_applied": [
       "VC27-01",
       "VC27-02",
@@ -2569,7 +2569,8 @@
       "VC27-85",
       "VC27-86",
       "VC27-87",
-      "VC27-88"
+      "VC27-88",
+      "VC27-89"
     ],
     "architecture_state_sync": {
       "head": "5e27fa41cb1fc2099d6033157589a3cf5ebeaeee",
