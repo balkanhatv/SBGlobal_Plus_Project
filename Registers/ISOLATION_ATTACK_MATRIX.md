@@ -1,9 +1,9 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-GOVERNED-SHAPE-FLOORS-001`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-218 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-09-28 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts
 
-> **Current bounded audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70` — **739/739 Core**, **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. DD-208 remains the latest governed Development checkpoint; complete-project audit is still in progress and DD-209 source audit is authorized. Current executable-isolation status is owned by [D-CHECKPOINT](D-CHECKPOINT.md) and the [bounded runtime audit](DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md).
+> **Current bounded audit basis:** `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4` — **831/831 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. DD-219…DD-224 is the latest implemented governed batch; current executable-isolation status remains owned by [D-CHECKPOINT](D-CHECKPOINT.md) and the [bounded runtime audit](DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md).
 
 ## Historical 2026-09-14 executable persistence overlay
 

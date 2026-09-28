@@ -1,7 +1,7 @@
 # NO-LOSS / DEPTH AUDIT — FRESH POST-REMEDIATION PASS
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-GOVERNED-SHAPE-FLOORS-001`  
-**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-218 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
+**Current executable audit basis:** `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4`  
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Historical status:** FOUNDATION NO-LOSS PASS · **Date:** 2026-09-11 · **Evaluated HEAD:** `df1f72412044751ac30c184315d05e4d72e0099a`
 
 > **Current qualification (2026-09-28):** the Foundation-depth PASS below and its later bounded Development continuation are preserved as evaluated-era evidence. Source-parent semantic reconciliation is now 372/372 owner-reconciled with 0 NOT_CERTIFIED, but the complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this historical no-loss audit does not define the active project gate. Current corrective evidence is [SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md](SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md).

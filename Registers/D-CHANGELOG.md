@@ -1325,3 +1325,8 @@ Canonical DD-217 promotion `63766ca35b7090d5ceb2506994ba88e8bde8c915` / tree `c9
 ## 2026-09-28 — DD-218 canonical promotion staged
 
 DD-218 implements only the remaining intrinsic ProvisioningSnapshot governed-shape floor. Corrected implementation exact-head basis is `3ec3ecf7b22128459b806a39a22e80f9fa2e7eff`. Canonical promotion remains subject to its own exact-head Core/PostgreSQL/Database/Web gate.
+
+## 2026-09-28 — DD-219…DD-224 ProvisioningSnapshot lifecycle/admission governed batch
+
+Under the substantial-batch cadence, DD-219 intrinsic lifecycle/validity integrity and DD-220…DD-224 current-lifecycle/API-class/Capability/Provider/model-class admission prerequisites are synchronized as one related subsystem milestone. Latest implementation/correction basis `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4` passed **831/831 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. DD-221 received the smallest forward-only type-safety correction to narrow the governed API-class type before set membership. No RawSource, schema, migration, RLS, role/grant, public route or product-policy change. These helpers remain necessary fail-closed prerequisites and do not authorize AI execution.
+

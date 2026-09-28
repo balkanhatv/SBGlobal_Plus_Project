@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-GOVERNED-SHAPE-FLOORS-001`  
-**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-218 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
+**Current executable audit basis:** `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4`  
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > The traceability chains and requirement-owner evidence below are preserved. Governed Development subsequently advanced through DD-208. Dated Core/session-security continuation sections describe their evaluated-era boundaries, not current unfinished work. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this file does not define the active project gate.
@@ -556,3 +556,67 @@ DD-218 → `src/core/ai/provisioning-snapshot-governed-shape-floors.ts` →
 `Registers/DEVELOPMENT_DD218_VERIFICATION_2026-09-28.md`.
 
 Provider-id and Capability-id binding remain separately governed by DD-211/DD-212. Effective provisioning/runtime authority is not claimed.
+
+## DD-219 — ProvisioningSnapshot lifecycle/validity integrity
+
+F-05 + A-07 + DD-09 → migration 0011 lifecycle/version/validity constraints →
+`Development/AI_PROVISIONING_SNAPSHOT_LIFECYCLE_VALIDITY_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-219 → `src/core/ai/provisioning-snapshot-lifecycle-validity-floors.ts` →
+`AIPROVSNAP-LIFE-CUR-001…008` →
+`tests/core/ai-provisioning-snapshot-lifecycle-validity-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD219_DD224_VERIFICATION_2026-09-28.md`.
+
+This chain claims only intrinsic persisted version/status/timestamp ordering integrity. Current/latest selection and AI authorization remain separate.
+
+
+## DD-220 — ProvisioningSnapshot current-lifecycle admission prerequisite
+
+F-05 + A-07 + DD-09 → DD-219 persisted lifecycle integrity →
+`Development/AI_PROVISIONING_SNAPSHOT_ADMISSION_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-220 → `src/core/ai/provisioning-snapshot-admission-floors.ts` →
+`AIPROVSNAP-ADM-CUR-001…005` →
+`tests/core/ai-provisioning-snapshot-admission-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD219_DD224_VERIFICATION_2026-09-28.md`.
+
+
+## DD-221 — ProvisioningSnapshot API-class admission prerequisite
+
+F-05 + A-07 + DD-09 → migration 0031 governed API-class vocabulary →
+`Development/AI_PROVISIONING_SNAPSHOT_ADMISSION_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-221 → `src/core/ai/provisioning-snapshot-admission-floors.ts` →
+`AIPROVSNAP-ADM-API-001…003` →
+`tests/core/ai-provisioning-snapshot-admission-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD219_DD224_VERIFICATION_2026-09-28.md`.
+
+
+## DD-222 — ProvisioningSnapshot capability admission prerequisite
+
+F-05 + A-07 + DD-09 → ProvisioningSnapshot allowed capability ids + AICapability lifecycle →
+`Development/AI_PROVISIONING_SNAPSHOT_ADMISSION_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-222 → `src/core/ai/provisioning-snapshot-admission-floors.ts` →
+`AIPROVSNAP-ADM-CAP-001…003` →
+`tests/core/ai-provisioning-snapshot-admission-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD219_DD224_VERIFICATION_2026-09-28.md`.
+
+
+## DD-223 — ProvisioningSnapshot provider admission prerequisite
+
+F-05 + A-07 + DD-09 → ProvisioningSnapshot allowed Provider ids + AIProvider lifecycle →
+`Development/AI_PROVISIONING_SNAPSHOT_ADMISSION_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-223 → `src/core/ai/provisioning-snapshot-admission-floors.ts` →
+`AIPROVSNAP-ADM-PROV-001…003` →
+`tests/core/ai-provisioning-snapshot-admission-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD219_DD224_VERIFICATION_2026-09-28.md`.
+
+
+## DD-224 — ProvisioningSnapshot model-class admission prerequisite
+
+F-05 + A-07 + DD-09 → ProvisioningSnapshot raw allowed model classes →
+`Development/AI_PROVISIONING_SNAPSHOT_ADMISSION_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-224 → `src/core/ai/provisioning-snapshot-admission-floors.ts` →
+`AIPROVSNAP-ADM-MODEL-001…003` + `AIPROVSNAP-ADM-IMM-001` →
+`tests/core/ai-provisioning-snapshot-admission-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD219_DD224_VERIFICATION_2026-09-28.md`.
+
+DD-220…DD-224 are necessary admission prerequisites only. Entitlement/quota, RBAC/ABAC, policy, sensitivity/residency, provider health/credentials, concrete model selection, routing, execution, metering and output guardrails remain separately governed.
+

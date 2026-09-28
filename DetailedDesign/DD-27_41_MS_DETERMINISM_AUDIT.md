@@ -1,7 +1,7 @@
 # DD-27 — 41-MS DEVELOPMENT & QA DETERMINISM AUDIT
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-GOVERNED-SHAPE-FLOORS-001`  
-**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-218 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
+**Current executable audit basis:** `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Historical evaluated status:** 2026-09-11 · FABLE 5 REMEDIATION EVIDENCE
 
 > The determinism matrices below remain valid Phase-3 evidence. Their evaluated-era certification blocker was subsequently resolved by the fresh isolation, ambiguity and adversarial Phase-3 audits. Governed Development later advanced through DD-208; the complete-project downstream semantic/file-coverage/adversarial audit is CLEAN / CLOSED and DD-209 source audit is authorized until that gate closes.

@@ -3845,3 +3845,99 @@ Capability-id/Provider-id arrays and unrelated snapshot fields remain uninterpre
 
 ### AIPROVSNAP-SHAPE-CUR-008 — Immutability/no normalization
 Inputs remain unchanged and no trimming, case-folding or default insertion occurs.
+
+## DD-219 AIProvisioningSnapshot Lifecycle/Validity Acceptance
+
+### AIPROVSNAP-LIFE-CUR-001 — Valid persisted lifecycle and ordering
+Positive canonical version, exact allowed status, valid compiledAt and absent/strictly-later validUntil pass.
+
+### AIPROVSNAP-LIFE-CUR-002 — Canonical positive version
+Zero, negative, signed, decimal, leading-zero, whitespace and non-string version evidence fails closed.
+
+### AIPROVSNAP-LIFE-CUR-003 — Exact status vocabulary
+Only exact ACTIVE, SUPERSEDED and REVOKED values pass; normalized, unknown or non-string values fail.
+
+### AIPROVSNAP-LIFE-CUR-004 — Compiled instant
+Malformed or non-string compiledAt evidence fails closed.
+
+### AIPROVSNAP-LIFE-CUR-005 — Valid-until ordering
+Present validUntil must be a finite instant strictly later than compiledAt; malformed, equal or earlier evidence fails.
+
+### AIPROVSNAP-LIFE-CUR-006 — No wall-clock currentness invention
+Historically expired evidence may satisfy persisted ordering; this predicate does not decide present validity.
+
+### AIPROVSNAP-LIFE-CUR-007 — Identity and unrelated fields
+Malformed snapshot/Tenant identities fail closed while unrelated fields remain uninterpreted.
+
+### AIPROVSNAP-LIFE-CUR-008 — Immutability and bounded semantics
+Input remains unchanged and a true result grants no current/effective/authorized semantics.
+
+
+## DD-220 AIProvisioningSnapshot Current-Lifecycle Admission Acceptance
+
+### AIPROVSNAP-ADM-CUR-001 — Active inside window
+An ACTIVE snapshot evaluated at or after compile and before expiry passes.
+
+### AIPROVSNAP-ADM-CUR-002 — Open-ended validity
+Absent validUntil remains lifecycle-admissible after compile.
+
+### AIPROVSNAP-ADM-CUR-003 — Inactive/future compile
+SUPERSEDED, REVOKED or future-compiled evidence fails closed.
+
+### AIPROVSNAP-ADM-CUR-004 — Expiry is exclusive
+Evaluation at or after validUntil fails.
+
+### AIPROVSNAP-ADM-CUR-005 — Malformed time/lifecycle evidence
+Malformed evaluation or invalid lifecycle evidence fails closed.
+
+
+## DD-221 AIProvisioningSnapshot API-Class Admission Acceptance
+
+### AIPROVSNAP-ADM-API-001 — Exact governed membership
+An exact governed API class present in the snapshot passes.
+
+### AIPROVSNAP-ADM-API-002 — No normalization or invention
+Absent, case/whitespace-normalized, unknown or non-string candidate classes fail.
+
+### AIPROVSNAP-ADM-API-003 — Persisted set integrity
+Malformed, duplicate or out-of-vocabulary persisted API-class sets fail closed.
+
+
+## DD-222 AIProvisioningSnapshot Capability Admission Acceptance
+
+### AIPROVSNAP-ADM-CAP-001 — Exact ACTIVE capability membership
+Exact allowed capability id with non-empty code and raw ACTIVE status passes.
+
+### AIPROVSNAP-ADM-CAP-002 — Absent/foreign/inactive capability
+Absent, foreign or inactive capability evidence fails.
+
+### AIPROVSNAP-ADM-CAP-003 — Capability evidence integrity
+Malformed/duplicate allowed ids, malformed capability id or empty capability code fails closed.
+
+
+## DD-223 AIProvisioningSnapshot Provider Admission Acceptance
+
+### AIPROVSNAP-ADM-PROV-001 — Exact ACTIVE provider membership
+Exact allowed Provider id with raw ACTIVE status passes.
+
+### AIPROVSNAP-ADM-PROV-002 — Absent/foreign/inactive provider
+Absent, foreign or inactive Provider evidence fails.
+
+### AIPROVSNAP-ADM-PROV-003 — Provider evidence integrity
+Malformed/duplicate allowed ids or malformed Provider id fails closed.
+
+
+## DD-224 AIProvisioningSnapshot Model-Class Admission Acceptance
+
+### AIPROVSNAP-ADM-MODEL-001 — Exact model-class membership
+An exact non-empty persisted model-class member passes.
+
+### AIPROVSNAP-ADM-MODEL-002 — No normalization or type coercion
+Absent, case/whitespace-normalized, empty or non-string candidates fail.
+
+### AIPROVSNAP-ADM-MODEL-003 — Persisted set integrity
+Malformed or duplicate persisted model-class sets fail closed.
+
+### AIPROVSNAP-ADM-IMM-001 — Batch immutability
+DD-220…DD-224 helpers do not mutate supplied snapshot, capability or Provider evidence.
+

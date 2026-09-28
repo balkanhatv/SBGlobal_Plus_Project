@@ -3055,3 +3055,69 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** pack key/value semantics/currentness, API entitlement, Model-class compatibility, snapshot currentness, effective provisioning, routing and AI execution remain separate.
 
 **Acceptance:** `AIPROVSNAP-SHAPE-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-governed-shape-floors.test.mjs`.
+
+## DD-219 — ProvisioningSnapshot lifecycle/validity integrity floor
+
+**Context:** migration 0011 owns positive snapshot version, exact lifecycle status vocabulary, compiled timestamp and optional strictly-later validity timestamp. DD-124 already preserves these fields as raw immutable evidence.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotLifecycleValidityFloors(snapshot)` requiring UUID snapshot/Tenant identity, canonical positive integer version text, exact `ACTIVE | SUPERSEDED | REVOKED` status, finite compiledAt and, when present, validUntil strictly later than compiledAt.
+
+**Boundary:** this re-evaluates persisted intrinsic integrity only. It does not select a current/latest snapshot, apply wall-clock expiry, authorize use or interpret commercial/config/Industry/pack/capability/provider/model/routing semantics.
+
+**Acceptance:** `AIPROVSNAP-LIFE-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-lifecycle-validity-floors.test.mjs`.
+
+
+## DD-220 — ProvisioningSnapshot current-lifecycle admission prerequisite
+
+**Context:** A-07 requires live Gateway authorization and DD-219 intentionally has no present-time semantics.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotCurrentLifecycleAdmissionFloor(snapshot, evaluatedAt)`. Reuse DD-219 integrity; require exact ACTIVE status, compiledAt not after the explicit evaluation instant and exclusive validUntil expiry when present.
+
+**Boundary:** this is current-lifecycle evidence only, not current/latest row selection or AI authorization.
+
+**Acceptance:** `AIPROVSNAP-ADM-CUR-001…005` in DD-17 and `tests/core/ai-provisioning-snapshot-admission-floors.test.mjs`.
+
+
+## DD-221 — ProvisioningSnapshot API-class admission prerequisite
+
+**Context:** migration 0031 owns the exact API-access-class vocabulary and duplicate-free persisted set.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotApiClassAdmissionFloor(snapshot, apiClass)` requiring UUID snapshot/Tenant identity, dense duplicate-free persisted strings, exact governed vocabulary and exact candidate membership. The implementation uses the source-owned `AIProvisioningApiAccessClass` type before membership checks.
+
+**Boundary:** no normalization, entitlement/permission inference or route authorization.
+
+**Acceptance:** `AIPROVSNAP-ADM-API-001…003` in DD-17 and `tests/core/ai-provisioning-snapshot-admission-floors.test.mjs`.
+
+
+## DD-222 — ProvisioningSnapshot capability admission prerequisite
+
+**Context:** ProvisioningSnapshot persists allowed capability ids while AICapability owns identity/code/status.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotCapabilityAdmissionFloor(snapshot, capability)` requiring a duplicate-free UUID allowlist plus exact member id, non-empty code and raw ACTIVE capability status.
+
+**Boundary:** this does not prove entitlement, RBAC/ABAC, policy, quota or capability-to-model suitability.
+
+**Acceptance:** `AIPROVSNAP-ADM-CAP-001…003` in DD-17 and `tests/core/ai-provisioning-snapshot-admission-floors.test.mjs`.
+
+
+## DD-223 — ProvisioningSnapshot provider admission prerequisite
+
+**Context:** ProvisioningSnapshot persists allowed Provider ids while AIProvider owns identity and lifecycle status.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotProviderAdmissionFloor(snapshot, provider)` requiring a duplicate-free UUID allowlist and exact ACTIVE Provider membership.
+
+**Boundary:** health, residency, capability support, cost, credentials, model compatibility, fallback and provider execution remain routing/runtime concerns.
+
+**Acceptance:** `AIPROVSNAP-ADM-PROV-001…003` in DD-17 and `tests/core/ai-provisioning-snapshot-admission-floors.test.mjs`.
+
+
+## DD-224 — ProvisioningSnapshot model-class admission prerequisite
+
+**Context:** source evidence persists an open raw model-class string set; it does not define a closed universal model-class vocabulary.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotModelClassAdmissionFloor(snapshot, modelClass)` requiring a dense duplicate-free persisted string set and exact non-empty candidate membership.
+
+**Boundary:** do not invent a closed vocabulary or infer plan ceiling, sensitivity/residency suitability, concrete model choice, routing or execution.
+
+**Acceptance:** `AIPROVSNAP-ADM-MODEL-001…003` plus shared immutability acceptance in DD-17 and `tests/core/ai-provisioning-snapshot-admission-floors.test.mjs`.
+
