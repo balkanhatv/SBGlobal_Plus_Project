@@ -2186,3 +2186,28 @@ DD-20D's active project projection and REPO-007 coverage; Phase-3 Detailed Desig
 evidence is preserved. DD-208 remains current and DD-209 stays locked until complete-project
 audit closure.
 
+## 2026-09-28 historical Project Truth audit projection continuation
+
+### VC27-85 — P2: 2026-09-10 PROJECT_TRUTH_AUDIT still identified itself as ACTIVE and prohibited later-authorized DD/Development
+
+The semantic file-coverage sweep found `Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md`
+outside REPO-007 while its header still described its evaluated repository state as current and
+its status as ACTIVE. Its Architecture consequence also said no application code or Detailed
+Design was authorized and treated A-10…A-12 as later work.
+
+Those statements are valid evidence of the 2026-09-10 truth-revalidation point. They are not
+valid active project-state claims after subsequent Foundation/Architecture/DD reconciliation,
+pre-development closure and governed Development through DD-208. The finding/disposition
+ledger itself must remain preserved.
+
+Smallest forward-only correction:
+- preserve every 2026-09-10 finding, disposition, governing rule and source-fidelity record;
+- mark the audit header, Architecture consequence and change discipline explicitly historical;
+- add a current DD-208/project-audit overlay with the verified executable basis and current
+  vision/runtime/manifest owners, with DD-209 still locked;
+- add PROJECT_TRUTH_AUDIT_2026-09-10.md to REPO-007 so it cannot again claim stale active state.
+
+No historical finding is rewritten as though it never occurred. No Foundation/Architecture/DD
+contract, runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209
+authority changes. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

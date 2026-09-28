@@ -1,6 +1,10 @@
 # SBGlobal Plus — PROJECT TRUTH AUDIT (2026-09-10)
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
 
-**Scope:** current repository state on `docs/architecture-branch-2` · **Purpose:** Vision-centric evidence audit and targeted correction · **Status:** ACTIVE audit record.
+**Scope:** repository state evaluated on 2026-09-10 on `docs/architecture-branch-2` · **Purpose:** historical Vision-centric evidence audit and targeted correction · **Status:** HISTORICAL AUDIT RECORD.
+
+> The findings/dispositions below are preserved at their evaluated 2026-09-10 state. They are not the active project checkpoint or continuation authority; the current project overlay is recorded at the end of this file.
 
 ## 1. Governing rule
 A gate label, prior certification, checklist, summary, registry row, document count, or source reference is never substantive evidence by itself. Current project truth is determined from repository-resident content and traceable evidence. Historical checkpoints remain history; they do not override later contradictory evidence.
@@ -36,8 +40,13 @@ Foundation may regain a substantive Foundation status only when all of the follo
 7. A fresh no-loss/depth audit verifies substantive destinations, not only counts.
 8. State, registers, indexes and handoff files match actual repository evidence.
 
-## 5. Architecture consequence
-A-00…A-09 are retained as useful Architecture work, but are **provisional while Foundation truth revalidation is open**. No application code or Detailed Design is authorized by this audit. A-10…A-12 and Architecture-specific evidence remain later Architecture work.
+## 5. Historical Architecture consequence
+At the evaluated 2026-09-10 state, A-00…A-09 were retained as useful Architecture work but were **provisional while Foundation truth revalidation was open**. That audit did not authorize application code or Detailed Design, and A-10…A-12 plus Architecture-specific evidence were then-later Architecture work.
 
-## 6. Change discipline
-Preserve valid content and history. Correct only contradictions, stale active assumptions, false status claims, and missing evidence controls. Do not rewrite immutable RawSourceCorpus to match the active technology stack. Do not merge to `main`. No backup ZIP is required by this user-directed audit.
+## 6. Historical change discipline
+For that audit continuation: preserve valid content and history; correct only contradictions, stale active assumptions, false status claims, and missing evidence controls; do not rewrite immutable RawSourceCorpus to match the active technology stack; do not merge to `main`; no backup ZIP was required by that user-directed audit.
+
+## 7. Current project projection — 2026-09-28
+The 2026-09-10 truth-audit findings above remain historical evidence of the repository state they evaluated. Foundation/Architecture/Detailed Design reconciliation and pre-development closure subsequently advanced, and governed Development reached **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**.
+
+The independently verified current executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`; active current-state projection corrections through VC27-84 are independently exact-HEAD verified. The complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. Current project truth and exact continuation are owned by `VISION_CENTRIC_AUDIT_2026-09-26.md`, `DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`. This historical audit does not override those later owners, does not establish production readiness, and **DD-209 is not authorized** until the current complete-project gate closes.
