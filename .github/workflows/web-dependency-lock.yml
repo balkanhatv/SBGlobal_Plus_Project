@@ -1,0 +1,94 @@
+name: Web Boundary Verify
+
+on:
+  push:
+    branches:
+      - docs/architecture-branch-2
+    paths:
+      - "src/app/**"
+      - "src/core/**"
+      - "src/server/**"
+      - "package.json"
+      - "package-lock.json"
+      - "next.config.mjs"
+      - "next-env.d.ts"
+      - "tsconfig.json"
+      - "tsconfig.web.json"
+      - ".github/workflows/web-dependency-lock.yml"
+      - "Development/CORE_SERVICE_CHECKPOINT.md"
+      - "Development/DEVELOPMENT_STATE.md"
+      - "State/**"
+      - "Registers/D-INDEX.md"
+      - "Registers/D-CHECKPOINT.md"
+      - "Registers/REVIEW_REQUIRED.md"
+      - "Registers/D-CHANGELOG.md"
+      - "DetailedDesign/DD-CHANGELOG.md"
+      - "README_FOUNDATION.md"
+  pull_request:
+    paths:
+      - "src/app/**"
+      - "src/core/**"
+      - "src/server/**"
+      - "package.json"
+      - "package-lock.json"
+      - "next.config.mjs"
+      - "next-env.d.ts"
+      - "tsconfig.json"
+      - "tsconfig.web.json"
+      - ".github/workflows/web-dependency-lock.yml"
+      - "Development/CORE_SERVICE_CHECKPOINT.md"
+      - "Development/DEVELOPMENT_STATE.md"
+      - "State/**"
+      - "Registers/D-INDEX.md"
+      - "Registers/D-CHECKPOINT.md"
+      - "Registers/REVIEW_REQUIRED.md"
+      - "Registers/D-CHANGELOG.md"
+      - "DetailedDesign/DD-CHANGELOG.md"
+      - "README_FOUNDATION.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  web-boundary-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - name: Verify tested commit
+        env:
+          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          git show -s --format='Tested commit: %H%nTree: %T%nParents: %P' HEAD
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Verify deterministic npm lock
+        run: |
+          npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+          git diff --exit-code -- package.json package-lock.json
+
+      - name: Verify TypeScript composition
+        run: npm run build:core
+
+      - name: Verify Next.js 15 App Router boundary
+        run: npm run build:web
+
+      - name: Require clean generated state
+        run: git diff --exit-code -- package.json package-lock.json tsconfig.json tsconfig.web.json next.config.mjs next-env.d.ts
