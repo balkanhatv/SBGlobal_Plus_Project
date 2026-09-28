@@ -2867,3 +2867,24 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-102 changes only
 DD-19's active/historical traceability projection and REPO-007 coverage; all requirement
 chains, owner mappings, acceptance links and later DD continuation evidence remain preserved.
 DD-208 remains current and DD-209 stays locked until complete-project audit closure.
+
+## 2026-09-28 historical Wave-3 cross-industry PASS projection continuation
+
+### VC27-103 — P2: Wave-3 cross-industry audit still exposed its 2026-09-11 PASS as an unqualified current status
+
+The semantic file-coverage sweep found
+`DetailedDesign/WAVE3_CROSS_INDUSTRY_AUDIT.md` outside REPO-007. Its 9-industry / 41-MS
+equal-discipline matrix, shared-boundary checks, adversarial isolation attacks and cross-context
+rule remain useful evaluated-era design evidence, but the file still opened with an unqualified
+`Status: PASS` and no active DD-208/project-audit overlay.
+
+Smallest forward-only correction:
+- preserve every industry/MS row, PASS result, isolation attack and cross-context rule;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- classify the 2026-09-11 PASS as historical Wave-3 design evidence;
+- add the file to REPO-007 so future active-projection drift fails CI.
+
+No Wave-3 design conclusion, Industry/MS count, isolation rule, cross-context contract,
+runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209 authority
+changes. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

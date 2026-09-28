@@ -44,6 +44,7 @@ const projections = [
   "DetailedDesign/DD-29_FINAL_REVIEW_REQUIRED_SWEEP.md",
   "DetailedDesign/DD-30_FINAL_REQUIREMENT_TRACEABILITY_AUDIT.md",
   "DetailedDesign/DD-31_FINAL_DEVELOPMENT_QA_DETERMINISM.md",
+  "DetailedDesign/WAVE3_CROSS_INDUSTRY_AUDIT.md",
   "DetailedDesign/DD-CHECKPOINT.md", "DetailedDesign/DD-PHASE_STATE.md",
   "DetailedDesign/DD-REVIEW_REQUIRED.md",
 ];
