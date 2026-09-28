@@ -1,7 +1,7 @@
 # DD-28 — FINAL NAMED-KPI COVERAGE MATRIX
 **Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
-**Current executable audit basis:** `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-12 · **Historical status:** FINAL FABLE KPI REVALIDATION
 **Method:** independently extracted KPI/report metric names from all nine canonical industry/MS DD files and mapped each to stable DD-25 contract IDs. Composite labels map to each required underlying KPI rather than being accepted by fuzzy name alone.
 

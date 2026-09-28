@@ -1330,3 +1330,7 @@ DD-218 implements only the remaining intrinsic ProvisioningSnapshot governed-sha
 
 Under the substantial-batch cadence, DD-219 intrinsic lifecycle/validity integrity and DD-220…DD-224 current-lifecycle/API-class/Capability/Provider/model-class admission prerequisites are synchronized as one related subsystem milestone. Latest implementation/correction basis `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4` passed **831/831 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. DD-221 received the smallest forward-only type-safety correction to narrow the governed API-class type before set membership. No RawSource, schema, migration, RLS, role/grant, public route or product-policy change. These helpers remain necessary fail-closed prerequisites and do not authorize AI execution.
 
+## 2026-09-28 — DD-219…DD-224 canonical promotion verified; state closure staged
+
+Canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185` passed **831/831 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis and must independently pass before the next governed batch opens. No RawSource, schema, migration, RLS, role/grant, route or product-policy change.
+

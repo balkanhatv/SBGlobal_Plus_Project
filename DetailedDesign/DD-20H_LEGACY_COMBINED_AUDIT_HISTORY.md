@@ -1,7 +1,7 @@
 # DD-20H — LEGACY COMBINED DETAILED-DESIGN AUDIT HISTORY
 **Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
-**Current executable audit basis:** `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
 **Historical evidence span:** Wave 1 → Wave 3 completion / pre-development authorization
 
 > The combined audit narrative below is preserved as evaluated-era Detailed Design history. Its “current gate”, “READY FOR DEVELOPMENT” and “authorizes Development to begin” wording records the pre-development decision at that time; it is **not** the active project gate now. Governed Development subsequently advanced through DD-208. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and production readiness is not claimed.

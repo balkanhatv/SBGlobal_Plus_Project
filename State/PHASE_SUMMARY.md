@@ -3,7 +3,7 @@
 **Current executable audit basis:** `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4`
 **Updated:** 2026-09-28 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above. Canonical promotion is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
 
 DD-219…DD-224 is one governed ProvisioningSnapshot integrity/admission batch: persisted lifecycle/version ordering plus current-lifecycle, API-class, ACTIVE capability, ACTIVE provider and exact model-class membership prerequisites. These are necessary fail-closed prerequisites only; they do not select a current snapshot or authorize AI execution.
 
@@ -13,7 +13,7 @@ DD-219 supplies the persisted lifecycle/validity integrity floor. DD-220…DD-22
 
 Evidence: `Registers/DEVELOPMENT_DD219_DD224_VERIFICATION_2026-09-28.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: after this canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the DD-219…DD-224 batch state before opening the next governed batch.
+Next: this state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web; only then may the next independently source-complete governed development batch open.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 

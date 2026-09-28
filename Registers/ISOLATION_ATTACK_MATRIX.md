@@ -1,9 +1,9 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
 **Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-09-28 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts
 
-> **Current bounded audit basis:** `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4` — **831/831 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. DD-219…DD-224 is the latest implemented governed batch; current executable-isolation status remains owned by [D-CHECKPOINT](D-CHECKPOINT.md) and the [bounded runtime audit](DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md).
+> **Current bounded audit basis:** `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185` — **831/831 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS.
 
 ## Historical 2026-09-14 executable persistence overlay
 

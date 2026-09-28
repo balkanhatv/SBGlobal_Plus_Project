@@ -1,7 +1,7 @@
 # DD-22H — STATE ENUM DERIVATION HISTORY
 **Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
-**Current executable audit basis:** `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
 **Historical status:** FABLE 5 REMEDIATION / STATE-DERIVATION EVIDENCE · **Date:** 2026-09-11
 **Historical authority:** Fable 5 remediation mandate · industry DD state contracts · DD-03/06/07/15 · DD-21
 

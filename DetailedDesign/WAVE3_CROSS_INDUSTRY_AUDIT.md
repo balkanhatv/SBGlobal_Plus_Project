@@ -1,7 +1,7 @@
 # WAVE-3 CROSS-INDUSTRY CONSISTENCY & ISOLATION AUDIT
 **Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
-**Current executable audit basis:** `687eb99f739af0009d79f5b2941bfdef928a7ae6` / tree `a9da39a8206a4d6139de7dcab45f6446465a53a4`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 ProvisioningSnapshot lifecycle/admission batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE-3 CROSS-INDUSTRY AUDIT PASS · **Date:** 2026-09-11 · **Scope:** all 9 industries / 41 Management Systems
 
 > The equal-discipline, isolation-attack and cross-context findings below are preserved as evaluated-era Wave-3 design evidence. Governed Development subsequently advanced through DD-208. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this historical PASS does not define the active project gate.
