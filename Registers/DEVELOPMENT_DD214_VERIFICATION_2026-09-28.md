@@ -20,3 +20,14 @@
 Database inventory remains **48 migrations / 42 verification files**. No schema, RLS, role, grant, route or product-policy change.
 
 The reader proves only raw exact-tuple IndustryContext activation evidence. It does not prove snapshot equality, authorization/currentness, effective provisioning, routing or AI execution.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `8afc9d34117d777628360ce7e88d531da51e3443` / tree `4715efc674357346aa6bd3c8713f12fe63d7aa9e` independently passed:
+- Core `36409410730` / `108885800562`: **781/781 PASS**, zero failed/skipped.
+- PostgreSQL `108885800269`: **518/518 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database `36409410779` / `108885800353`: PASS.
+- Web `36409410947` / `108885800865`: PASS.
+
+This authorizes DD-214 canonical promotion only. The state-closure commit must independently pass the same exact-head gate before DD-215 source audit opens.
