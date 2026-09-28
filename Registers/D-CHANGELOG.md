@@ -998,3 +998,17 @@ tree `60252c9de6fd3ad3f2352e10a9b24fc1242f4f7f` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Development feature semantics, Commercial policy, runtime, RawSource, migration, RLS,
 role/grant, product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-97 DD-20B historical remediation-routing projection correction
+
+The file-coverage sweep found `DetailedDesign/DD-20B_WAVE2_AUDIT.md` already labeled
+historical but still saying “Current Fable 5 remediation...” without the active
+DD-208/project-audit overlay. The correction preserves its Wave-2 classification and DD-20H
+evidence link, relabels that sentence as evaluated-era routing, adds the current project
+overlay and adds DD-20B to REPO-007.
+
+Correction HEAD `afdc4e077c413f99ee94e3d2e75aa8524dc7b1e5` /
+tree `03386fb290cd602de47d375ba14578840da4546d` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No Wave-2
+DD semantics, runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209
+authority changed.

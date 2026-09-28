@@ -3,7 +3,7 @@
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable correction basis 4dd7138e5a546f608fe5e28e0912d17523e33693 / tree 33ea828f05b2b8014b4c75401822cde89aa3ee70 remains exact-HEAD verified at 739 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-70. Active current-state projection corrections through VC27-96 are independently exact-HEAD verified; VC27-96 correction 7bd99397ff0ca6c1d6286c12630ce5727e69e145 / tree 60252c9de6fd3ad3f2352e10a9b24fc1242f4f7f passed 740 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS and historicalizes the DD-079-era Development verification file's stale DD-076 next-action routing without altering its original run/job evidence. Complete-project downstream semantic/file-coverage audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
+  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable correction basis 4dd7138e5a546f608fe5e28e0912d17523e33693 / tree 33ea828f05b2b8014b4c75401822cde89aa3ee70 remains exact-HEAD verified at 739 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-70. Active current-state projection corrections through VC27-97 are independently exact-HEAD verified; VC27-97 correction afdc4e077c413f99ee94e3d2e75aa8524dc7b1e5 / tree 03386fb290cd602de47d375ba14578840da4546d passed 740 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS and historicalizes DD-20B's stale “Current Fable 5 remediation” routing without changing Wave-2 evidence. Complete-project downstream semantic/file-coverage audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -2376,7 +2376,7 @@
     ],
     "remaining_gate": "Full semantic file coverage and cross-layer/adversarial reconciliation remain incomplete; no global clean verdict.",
     "continuation_report": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
-    "continuation_status": "HISTORICAL_DEVELOPMENT_VERIFICATION_NEXT_ACTION_SYNC_VERIFIED_FILE_COVERAGE_AUDIT_IN_PROGRESS",
+    "continuation_status": "HISTORICAL_DD20B_REMEDIATION_ROUTING_SYNC_VERIFIED_FILE_COVERAGE_AUDIT_IN_PROGRESS",
     "source_reading": "S1_AND_S2_COMPLETE_TEXT_READ; 372/372 SOURCE PARENTS OWNER_RECONCILED; DOWNSTREAM CANONICAL/STATE/RUNTIME SEMANTIC CERTIFICATION PENDING",
     "source_span_coverage": "Registers/SOURCE_SPAN_COVERAGE_2026-09-27.json",
     "additional_findings": {
@@ -2471,7 +2471,8 @@
       "VC27-93": "P2 Fable-5 DD requirement traceability still labeled its evaluated Phase-3 remediation evidence ACTIVE despite later gate closure and Development through DD-208",
       "VC27-94": "P2 legacy DD-20H combined audit history exposed evaluated pre-development current-gate/READY-FOR-DEVELOPMENT authorization language without the active DD-208/project-audit overlay",
       "VC27-95": "P2 DD-22H state-derivation history still labeled Fable-5 remediation evidence ACTIVE despite DD-29 classifying it non-authoritative history and Development advancing through DD-208",
-      "VC27-96": "P2 2026-09-21 Development verification still exposed the DD-079-era DD-076 evaluator as the current next action despite governed Development advancing through DD-208"
+      "VC27-96": "P2 2026-09-21 Development verification still exposed the DD-079-era DD-076 evaluator as the current next action despite governed Development advancing through DD-208",
+      "VC27-97": "P2 DD-20B remained historical by title but still exposed evaluated-era Fable-5 remediation as current project routing without the active DD-208/project-audit overlay"
     },
     "source_fidelity_correction_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
     "source_fidelity_correction_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
@@ -2502,7 +2503,7 @@
       "SUPERSEDED_WITH_AUTHORITY": 8
     },
     "source_fidelity_remaining_gate": "Source-parent semantic reconciliation is complete at 372/372 owner-reconciled parents with 0 NOT_CERTIFIED. Remaining gate is downstream canonical/state/Development/Database/CI consistency plus adversarial reconciliation; parent counts/provenance do not certify runtime or complete-project correctness.",
-    "final_sync_gate": "Current executable audit basis remains 4dd7138e5a546f608fe5e28e0912d17523e33693 / tree 33ea828f05b2b8014b4c75401822cde89aa3ee70, exact-head verified at Core 739/739, PostgreSQL 512/512, Database 48 migrations / 42 verification files, Web PASS. VC27-96 historical Development-verification current-overlay correction 7bd99397ff0ca6c1d6286c12630ce5727e69e145 / tree 60252c9de6fd3ad3f2352e10a9b24fc1242f4f7f is independently exact-head verified at Core 740/740, PostgreSQL 512/512, Database 48/42, Web PASS. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
+    "final_sync_gate": "Current executable audit basis remains 4dd7138e5a546f608fe5e28e0912d17523e33693 / tree 33ea828f05b2b8014b4c75401822cde89aa3ee70, exact-head verified at Core 739/739, PostgreSQL 512/512, Database 48 migrations / 42 verification files, Web PASS. VC27-97 DD-20B historical/current-routing correction afdc4e077c413f99ee94e3d2e75aa8524dc7b1e5 / tree 03386fb290cd602de47d375ba14578840da4546d is independently exact-head verified at Core 740/740, PostgreSQL 512/512, Database 48/42, Web PASS. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
     "additional_findings_corrections_applied": [
       "VC27-01",
       "VC27-02",
@@ -2584,7 +2585,8 @@
       "VC27-93",
       "VC27-94",
       "VC27-95",
-      "VC27-96"
+      "VC27-96",
+      "VC27-97"
     ],
     "architecture_state_sync": {
       "head": "5e27fa41cb1fc2099d6033157589a3cf5ebeaeee",
