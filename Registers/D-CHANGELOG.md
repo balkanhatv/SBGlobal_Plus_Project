@@ -938,3 +938,15 @@ the notice to REPO-007. Correction HEAD
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Architecture/ADR semantics, Foundation/DD contract, runtime, RawSource, migration, RLS,
 role/grant, product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-93 Fable-5 DD traceability status correction
+
+The file-coverage sweep found `Registers/DD_REQUIREMENT_TRACEABILITY_F5.md` still labeled
+`ACTIVE REMEDIATION EVIDENCE` even though Fable-5 remediation and later Phase-3 gates had
+completed. The correction preserves all 328 exact requirement-to-DD/acceptance rows, relabels
+the status historical, adds the current DD-208/project-audit overlay and adds the file to
+REPO-007. Correction HEAD `f4eeeaa0ec068c7cf7e5cd000e432b5526c72abf` /
+tree `9cd260b71a0dd151b0de8b913751df5858b2bd4f` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No source
+ID/text, traceability row, DD semantics, runtime, RawSource, migration, RLS, role/grant,
+product requirement or DD-209 authority changed.
