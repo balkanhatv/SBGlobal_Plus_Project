@@ -870,3 +870,17 @@ gate/next-action wording explicitly, and adds all three files to REPO-007. Corre
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Foundation/Architecture/DD contract, runtime, RawSource, migration, RLS, role/grant, product
 requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-88 historical phase/pre-development gate projection correction
+
+The semantic file-coverage sweep found Phase-1/2/3 revalidation, the final pre-development
+adversarial audit and CP-F1-005 Foundation final audit outside REPO-007 while they still exposed
+their evaluated-era Development authorization, certification, backup or next-gate state without
+a current overlay. The correction preserves all historical findings/results, adds the current
+DD-208/project-audit overlay, labels evaluated-era gates/certification/next actions historical,
+and adds all five records to REPO-007. Correction HEAD
+`52012a2b04941895c25bc6b93670e69847d9141c` / tree
+`8681996a614d641a427858902cdded27dfa6d548` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Foundation/Architecture/DD semantic contract, runtime, RawSource, migration, RLS, role/grant,
+product requirement or DD-209 authority changed.
