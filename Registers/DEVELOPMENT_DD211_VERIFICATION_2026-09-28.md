@@ -39,3 +39,14 @@ Canonical promotion `6b931ad919d024b27ea5e576ffcceb7afca5fc58` / tree `d7a1699ee
 - Web Boundary Verify `36399538215`, job `108853860031`: PASS.
 
 This authorizes DD-211 canonical promotion only; this state-closure commit must independently pass the same exact-head gate before DD-212 opens.
+
+
+## State-closure exact-head gate
+
+State closure `982ecf2b4311d3524cac276ffc3d673915d97090` / tree `708d7b16b83de15741af87d7e6a5be5ec6e83eba` independently passed:
+- Core Service Verify `36400477719`, Core job `108856866756`: **765/765 PASS**, zero failed/skipped.
+- PostgreSQL job `108856866468`: **512/512 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36400477817`, job `108856867146`: PASS.
+- Web Boundary Verify `36400477769`, job `108856866658`: PASS.
+
+This closes DD-211 canonical state and authorizes DD-212 capability-binding source audit only. It does not authorize broader provisioning or AI execution.

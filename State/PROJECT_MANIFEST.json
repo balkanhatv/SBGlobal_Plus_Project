@@ -3,7 +3,7 @@
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CONFIG-FLOORS-001",
-  "final_verdict": "Complete-project downstream semantic/file-coverage/adversarial audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-211 canonical promotion 6b931ad919d024b27ea5e576ffcceb7afca5fc58 / tree d7a1699ee139067818e25dcc435d195d06e8f83c is exact-head verified at 765 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS. State closure is pending its own exact-head gate. Capability binding, commercial/Industry currentness, effective provisioning, routing and AI execution remain unclaimed. Production readiness is NOT CLAIMED.",
+  "final_verdict": "Complete-project downstream semantic/file-coverage/adversarial audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-211 state closure 982ecf2b4311d3524cac276ffc3d673915d97090 / tree 708d7b16b83de15741af87d7e6a5be5ec6e83eba is exact-head verified at 765 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS. DD-212 capability-binding source audit is now the only authorized forward step. Production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -942,13 +942,25 @@
       "web_run_id": 36399538215,
       "web_job_id": 108853860031,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd211_state_closure_head": "982ecf2b4311d3524cac276ffc3d673915d97090",
+    "dd211_state_closure_tree": "708d7b16b83de15741af87d7e6a5be5ec6e83eba",
+    "dd211_state_closure_ci": {
+      "core_run_id": 36400477719,
+      "core_job_id": 108856866756,
+      "postgres_job_id": 108856866468,
+      "database_run_id": 36400477817,
+      "database_job_id": 108856867146,
+      "web_run_id": 36400477769,
+      "web_job_id": 108856866658,
+      "result": "PASS_EXACT_STATE_CLOSURE_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD211_STATE_CLOSURE_PENDING",
+    "current_phase": "DEVELOPMENT_DD211_VERIFIED_DD212_SOURCE_AUDIT",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -997,7 +1009,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "After this DD-211 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit DD-212: ProvisioningSnapshot allowedCapabilityIds → exact ACTIVE AICapability ids whose codes are allowed by the referenced TenantAIConfig. Keep commercial/Industry currentness, effective provisioning, routing and AI execution separately governed.",
+    "next_action": "Verify DD-212 source audit for AIProvisioningSnapshot allowedCapabilityIds → exact ACTIVE AICapability ids whose exact codes are allowed by the exact referenced TenantAIConfig. Keep commercial/Industry currentness, effective provisioning, routing and AI execution separately governed.",
     "core_services": {
       "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CONFIG-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -1496,7 +1508,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "After this DD-211 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit DD-212: ProvisioningSnapshot allowedCapabilityIds → exact ACTIVE AICapability ids whose codes are allowed by the referenced TenantAIConfig. Keep commercial/Industry currentness, effective provisioning, routing and AI execution separately governed.",
+      "next_action": "Verify DD-212 source audit for AIProvisioningSnapshot allowedCapabilityIds → exact ACTIVE AICapability ids whose exact codes are allowed by the exact referenced TenantAIConfig. Keep commercial/Industry currentness, effective provisioning, routing and AI execution separately governed.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1590,7 +1602,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD211_STATE_CLOSURE_PENDING",
+  "current_phase": "DEVELOPMENT_DD211_VERIFIED_DD212_SOURCE_AUDIT",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1627,7 +1639,7 @@
     "verified_code_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
     "source_audit": "Development/AI_PROVISIONING_SNAPSHOT_TENANT_CONFIG_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "After this DD-211 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit DD-212: ProvisioningSnapshot allowedCapabilityIds → exact ACTIVE AICapability ids whose codes are allowed by the referenced TenantAIConfig. Keep commercial/Industry currentness, effective provisioning, routing and AI execution separately governed.",
+    "next_action": "Verify DD-212 source audit for AIProvisioningSnapshot allowedCapabilityIds → exact ACTIVE AICapability ids whose exact codes are allowed by the exact referenced TenantAIConfig. Keep commercial/Industry currentness, effective provisioning, routing and AI execution separately governed.",
     "main_merge": false
   },
   "current_audit_overlay": {
