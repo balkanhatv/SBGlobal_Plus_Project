@@ -1,4 +1,6 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 
@@ -90,12 +92,16 @@ Wave 1 may be marked complete only after DD-17/19/20 pass and DD Review Required
 
 ---
 
-## Phase 3 Fresh Revalidation — CURRENT STATUS (2026-09-13)
+## Phase 3 Fresh Revalidation — HISTORICAL STATUS (2026-09-13)
 
 All 55 DetailedDesign files were freshly read against Phase-1 Foundation + Phase-2 Architecture. Material upstream deltas were propagated into deterministic shared contracts, acceptance IDs, DD decisions, traceability and Industry mobile mappings.
 
-**Current DD result:** COMPLETE — PHASE 3 PASS.  
+**Historical DD result:** COMPLETE — PHASE 3 PASS.  
 **Final substantive DD HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`.  
 **Evidence:** `../Registers/PHASE3_DETAILED_DESIGN_REVALIDATION_2026-09-13.md`.
 
-This DD PASS does not by itself authorize Development. Final project-wide cross-layer isolation, repository/state/backup closure and adversarial pre-development gate remain required.
+At that historical checkpoint, this DD PASS did not by itself authorize Development and the final project-wide pre-development gate still remained.
+
+## Current Project Projection — 2026-09-28
+
+Detailed Design remains completed/revalidated input. Development subsequently advanced under governance through **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**. The independently verified current executable audit basis is `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`, while the complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. Current project truth is owned by `../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`, `../Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`. **DD-209 is not authorized** until that gate closes.

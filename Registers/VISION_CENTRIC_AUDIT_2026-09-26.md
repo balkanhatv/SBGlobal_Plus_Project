@@ -2025,3 +2025,28 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-80 changes only
 F-00's active current project projection and REPO-007 coverage; Foundation requirement
 semantics and historical status ledgers are preserved. DD-208 remains current and DD-209 stays
 locked until complete-project audit closure.
+
+## 2026-09-28 active DetailedDesign overview projection continuation
+
+### VC27-81 — P2: DD-00 still presented the 2026-09-13 pre-development boundary as CURRENT STATUS
+
+The semantic file-coverage sweep found `DetailedDesign/DD-00_DETAILED_DESIGN_OVERVIEW.md`
+outside REPO-007 while its final section remained explicitly titled
+`Phase 3 Fresh Revalidation — CURRENT STATUS (2026-09-13)`.
+
+That Phase-3 PASS is valid historical Detailed Design evidence, but its active wording still
+said Development was not yet authorized and that the final pre-development gate remained
+required. Development subsequently advanced under governance through DD-208; the current
+complete-project downstream semantic/file-coverage audit is a later gate.
+
+Smallest forward-only correction:
+- preserve the complete Wave-1/Phase-3 design content, substantive DD HEAD and evidence;
+- relabel the 2026-09-13 status as historical;
+- append a current DD-208/project-audit overlay with the verified executable basis and
+  current vision/runtime/manifest owners, with DD-209 still locked;
+- add DD-00 to REPO-007 so future checkpoint/audit-basis drift fails CI.
+
+No Detailed Design contract, Foundation/Architecture semantics, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
