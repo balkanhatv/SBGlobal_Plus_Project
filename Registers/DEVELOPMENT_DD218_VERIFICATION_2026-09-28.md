@@ -32,3 +32,14 @@ Database inventory remains **48 migrations / 42 verification files**. No schema,
 A true DD-218 result proves only pack-map JSON-object shape, exact API-class set/vocabulary and raw Model-class set shape. Capability/Provider binding, pack currentness, API entitlement, Model compatibility, snapshot currentness, effective provisioning, routing and AI execution remain unclaimed.
 
 Canonical promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-218 state closure or another source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `252526bbc93c22bd81fec7c68b7be881af41309d` / tree `1cfab680e9f29eae2fd0f2282c23467908e1caa7` independently passed:
+- Core `36455170999` / `109039556911`: **805/805 PASS**, zero failed/skipped.
+- PostgreSQL `109039557381`: **525/525 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database `36455170912` / `109039556482`: PASS.
+- Web `36455170983` / `109039556349`: PASS.
+
+This authorizes DD-218 canonical promotion only. The state-closure commit must independently pass the same exact-head gate before another source audit opens.
