@@ -1,4 +1,6 @@
 # F-15 — FOUNDATION TRUTH REVALIDATION
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
 **Document ID:** F-15 · **Version:** 2.0 · **Status:** CLOSED — FOUNDATION REVALIDATED · **Date:** 11-09-2026
 
 ## 1. Purpose
@@ -90,5 +92,8 @@ Because these are substantive Foundation changes made after the prior Architectu
 
 Next phase is a fresh Architecture/ADR revalidation against this corrected Foundation.
 
-## 17. Current-State Projection — 13-09-2026
-The blocked downstream statuses in §16 describe the original Phase-1 transition. Subsequent Architecture/DD reconciliation and the authorized Database phase are present. Current all-stages evidence supersedes those statuses without rewriting their history: see `../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` and `../State/PROJECT_MANIFEST.json`. This Foundation file remains the WHAT/WHY/WHO owner and does not grant an implementation, runtime-security or production certification.
+## 17. Historical Current-State Projection — 13-09-2026
+The blocked downstream statuses in §16 describe the original Phase-1 transition. Subsequent Architecture/DD reconciliation and the authorized Database phase were present by 13-09-2026. The dated `../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` remains historical evidence for that transition and does not represent the current project checkpoint.
+
+## 18. Current Project Projection — 28-09-2026
+Foundation remains the certified WHAT/WHY/WHO owner. The latest governed Development checkpoint is **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**; the independently verified current executable audit basis is `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`; and the complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. Current audit/project truth is owned by `../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`, `../Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`. This Foundation file does not grant implementation, runtime-security or production certification, and **DD-209 is not authorized** until the complete-project gate closes.

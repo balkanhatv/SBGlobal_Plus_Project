@@ -5,7 +5,8 @@ import { readFileSync } from "node:fs";
 const root = new URL("../../", import.meta.url);
 const read = (path) => readFileSync(new URL(path, root), "utf8");
 const projections = [
-  "README_FOUNDATION.md", "State/PROJECT_STATE.md", "State/HANDOFF_NOTE.md",
+  "README_FOUNDATION.md", "Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md",
+  "State/PROJECT_STATE.md", "State/HANDOFF_NOTE.md",
   "State/PHASE_SUMMARY.md", "Development/CORE_SERVICE_CHECKPOINT.md",
   "Development/DEVELOPMENT_STATE.md", "Development/DB_CHECKPOINT.md",
   "Development/DB_IMPLEMENTATION_MATRIX.md",

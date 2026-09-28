@@ -1944,3 +1944,29 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-78 changes only
 DD-20's active current-project overlay and REPO-007 coverage; historical Phase-3 audit
 evidence is preserved. DD-208 remains current and DD-209 stays locked until complete-project
 audit closure.
+
+## 2026-09-28 active Foundation current-projection continuation
+
+### VC27-79 — P2: F-15 current-state projection still routed current project truth to the 2026-09-13 audit
+
+The semantic file-coverage sweep found `Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md`
+outside REPO-007 even though §17 was explicitly titled `Current-State Projection`.
+That section correctly superseded the original Phase-1 downstream block, but it still routed
+`Current all-stages evidence` to the dated 2026-09-13 all-stages audit.
+
+Foundation certification and its historical remediation records remain valid. The defect is
+only the active project-state overlay: Development has since advanced through governed DD-208,
+the current executable audit basis is VC27-70, and the complete-project downstream
+semantic/file-coverage audit is still open.
+
+Smallest forward-only correction:
+- preserve all Foundation certification/remediation/source evidence;
+- relabel the 2026-09-13 §17 projection as historical;
+- append a current project overlay with DD-208, the verified current executable audit basis,
+  current vision/runtime/manifest owners and DD-209 still locked;
+- add F-15 to REPO-007 so future checkpoint/audit-basis drift fails CI.
+
+No Foundation requirement semantics, source row/count, Architecture/DD contract, runtime,
+migration, RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
