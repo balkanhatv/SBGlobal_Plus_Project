@@ -925,3 +925,16 @@ gate as historical, and adds DD-27 to REPO-007. Correction HEAD
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No DD
 semantics, runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209
 authority changed.
+
+## 2026-09-28 — VC27-92 Architecture revalidation-notice historical projection correction
+
+The file-coverage sweep found `Architecture/ARCHITECTURE_REVALIDATION_NOTICE.md`
+still labeling its evaluated Phase-2 PASS as “Current Architecture status” without the active
+DD-208/project-audit overlay. The correction preserves all Phase-2 Architecture HOW evidence,
+relabels that status historical, adds the current DD-208/executable-audit projection and adds
+the notice to REPO-007. Correction HEAD
+`21e0274d58fc15805b86ffa8349f5e3294351cbd` / tree
+`4cff5301aef380d7401328fbb643b0631c95c0b2` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Architecture/ADR semantics, Foundation/DD contract, runtime, RawSource, migration, RLS,
+role/grant, product requirement or DD-209 authority changed.
