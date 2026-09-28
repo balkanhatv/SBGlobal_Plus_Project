@@ -2330,3 +2330,17 @@ audit date. No Foundation/Architecture/DD semantic contract, runtime, RawSource,
 RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-88 exact-head closure
+
+Correction HEAD `52012a2b04941895c25bc6b93670e69847d9141c` /
+tree `8681996a614d641a427858902cdded27dfa6d548` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-88 changes only historical
+phase/final-gate active projection wording and REPO-007 coverage; all original phase findings,
+certification decisions and evaluated-era evidence remain preserved. DD-208 remains current
+and DD-209 stays locked until complete-project audit closure.
