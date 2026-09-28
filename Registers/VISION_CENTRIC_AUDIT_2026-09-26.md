@@ -2304,3 +2304,29 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-87 changes only the
 three dated all-stages audits' active/current projection wording and REPO-007 coverage; their
 historical findings and exact-era evidence remain preserved. DD-208 remains current and DD-209
 stays locked until complete-project audit closure.
+
+## 2026-09-28 historical phase/pre-development gate projection continuation
+
+### VC27-88 — P2: five historical phase/final-gate records still exposed evaluated-era authorization and next-gate state
+
+The semantic file-coverage sweep found the Phase-1, Phase-2 and Phase-3 revalidation records,
+the final pre-development adversarial audit, and CP-F1-005 Foundation final audit outside
+REPO-007 while each retained evaluated-era Development authorization, phase dependency,
+backup/certification or next-gate statements without a current-project overlay.
+
+Those statements remain valid historical evidence of their respective evaluated boundaries.
+They are not the active project gate after later Foundation/Architecture/DD closure,
+pre-development authorization and governed Development through DD-208.
+
+Smallest forward-only correction:
+- preserve every phase finding, evidence count, PASS/certification decision, backup disposition
+  and historical next action;
+- add a current DD-208/project-audit overlay to all five records;
+- label phase gate/certification/next-action headings explicitly historical;
+- add all five files to REPO-007 so future active-projection drift fails CI.
+
+No historical evidence is erased or rewritten as though later progress existed at the original
+audit date. No Foundation/Architecture/DD semantic contract, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

@@ -1,4 +1,9 @@
 # PHASE 2 — Foundation → Architecture/ADR Fresh Revalidation
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Current project status:** complete-project downstream semantic/file-coverage audit **IN PROGRESS**; DD-208 remains the latest governed Development checkpoint; DD-209 is not authorized.
+
+> This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.
 
 **Date:** 2026-09-12  
 **Execution Start HEAD:** `2b6a64b49ac6c3eb92daeab398c62e63dc9d2e8a`  
@@ -51,7 +56,7 @@ Architecture was attacked for cross-Tenant, same-Tenant sibling-Industry, wrong-
 
 **Result:** no open P0/P1 Architecture defect found.
 
-## 5. Phase-2 gate
+## 5. Historical Phase-2 evaluated gate
 
 **PHASE 2 — FOUNDATION → ARCHITECTURE/ADR REVALIDATION: PASS.**
 
@@ -60,4 +65,4 @@ Architecture was attacked for cross-Tenant, same-Tenant sibling-Industry, wrong-
 - Detailed Design: REVALIDATION REQUIRED.
 - Development: NOT AUTHORIZED.
 
-Next dependency phase: **Phase 3 — Detailed Design fresh revalidation/correction against the corrected Foundation + Architecture.**
+Historical next dependency phase at this evaluated boundary: **Phase 3 — Detailed Design fresh revalidation/correction against the corrected Foundation + Architecture.**

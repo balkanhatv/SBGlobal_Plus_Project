@@ -1,4 +1,9 @@
 # PHASE 1 — RawSource → Foundation Fresh No-Loss Reconciliation
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Current project status:** complete-project downstream semantic/file-coverage audit **IN PROGRESS**; DD-208 remains the latest governed Development checkpoint; DD-209 is not authorized.
+
+> This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.
 
 **Date:** 2026-09-12  
 **Scope:** RawSourceCorpus + Foundation only  
@@ -87,7 +92,7 @@ After corrections, a second Foundation-focused pass attempted to find:
 
 **Result:** no remaining P0/P1 Foundation defect identified in the Phase-1 scope.
 
-## 7. Phase-1 gate
+## 7. Historical Phase-1 evaluated gate
 
 **PHASE 1 — RAWSOURCE → FOUNDATION FRESH RECONCILIATION: PASS**
 
@@ -99,6 +104,6 @@ However, because Foundation changed after the previous Architecture/DD audit bas
 - Detailed Design COMPLETE/READY labels become **REVALIDATION REQUIRED / HISTORICAL UNTIL RE-EARNED**;
 - Development remains **NOT AUTHORIZED**.
 
-Next dependency phase:
+Historical next dependency phase at this evaluated boundary:
 
 **Phase 2 — Fresh Foundation → Architecture/ADR revalidation and targeted correction.**

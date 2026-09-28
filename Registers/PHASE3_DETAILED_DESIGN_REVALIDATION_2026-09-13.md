@@ -1,4 +1,9 @@
 # PHASE 3 — Detailed Design Fresh Revalidation
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Current project status:** complete-project downstream semantic/file-coverage audit **IN PROGRESS**; DD-208 remains the latest governed Development checkpoint; DD-209 is not authorized.
+
+> This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.
 
 **Date:** 2026-09-13  
 **Execution Start HEAD:** `ce47a884afd7924cded3b2c8b809a58bfcc1e5be`  
@@ -90,7 +95,7 @@ All **55 DetailedDesign files** were freshly retrieved/inspected, including nine
 - DD-31 Development/QA determinism: 9/9 YES + 9/9 YES.
 - DD-20D overall DD adversarial audit: PASS, P0=0, P1=0.
 
-## Phase-3 gate
+## Historical Phase-3 evaluated gate
 **PHASE 3 — DETAILED DESIGN FRESH REVALIDATION: PASS.**
 
 - Foundation: PASS.
