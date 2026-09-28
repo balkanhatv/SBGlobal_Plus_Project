@@ -2929,3 +2929,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-208 does not select current/latest TenantAIConfig, establish config enablement, prove Provider-row validity/currentness/health/credentials/suitability, evaluate Model capability/modality/residency/sensitivity suitability, merge effective Tenant+Industry configuration, satisfy entitlement/permission/budget/quota/prompt/retention policy, validate provisioning, route/fallback/retry providers/models, dispatch SDKs or execute AI.
 
 **Acceptance:** `AITENCFG-MODEL-CUR-001…008` in DD-17 and `tests/core/ai-tenant-config-model-allowlist-floors.test.mjs`.
+
+
+## DD-209 — IndustryAIConfig may be re-evaluated against a supplied same-Tenant TenantAIConfig as an enabled/capability/provider/model non-widening floor
+
+**Context:** migration 0031 validates IndustryAIConfig writes against one same-Tenant TenantAIConfig selected at write time by descending version. It rejects missing Tenant config, enabled Industry over disabled Tenant, and Industry capability/Provider/Model allowlists that are not subsets of the selected Tenant allowlists. DD-120 exposes the Industry-side evidence and DD-119 exposes the Tenant-side evidence. IndustryAIConfig does not persist the selected TenantAIConfig id/version.
+
+**Decision:** add pure helper `matchesAIIndustryConfigTenantNonWideningFloors(industryConfig, tenantConfig)`. It validates relevant identities, booleans and duplicate-free dense allowlist shapes; requires exact same Tenant; enforces enabled non-widening; and requires exact capability/Provider/Model subset membership against the supplied Tenant evidence.
+
+**Security / trade-off:** the helper deliberately accepts already-selected TenantAIConfig evidence and does not infer that it is current/latest or historically identical to the row selected by the write-time trigger. This avoids fabricating temporal authority absent from persisted IndustryAIConfig.
+
+**Boundary:** DD-209 does not select current/latest TenantAIConfig or IndustryAIConfig, reconstruct historical write-time selection, validate catalog/country-pack/PromptSet currentness, compose effective Tenant+Industry AI configuration, compile provisioning, resolve entitlement/RBAC/policy/budget/residency/retention, route providers/models, dispatch SDKs or execute AI.
+
+**Acceptance:** `AIINDCFG-TENANT-CUR-001…008` in DD-17 and `tests/core/ai-industry-config-tenant-non-widening-floors.test.mjs`.

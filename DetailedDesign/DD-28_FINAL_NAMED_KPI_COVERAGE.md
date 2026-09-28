@@ -1,7 +1,7 @@
 # DD-28 — FINAL NAMED-KPI COVERAGE MATRIX
-**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current checkpoint:** `DEV-AI-INDUSTRY-CONFIG-TENANT-NON-WIDENING-FLOORS-001`  
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED** through VC27-111 with all recorded current findings verified and open current-scope P0/P1 = 0. DD-208 remains the latest implemented checkpoint; DD-209 source audit is authorized as the next governed Development step. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED** through VC27-111 with all recorded current findings verified and open current-scope P0/P1 = 0. DD-209 is the latest implemented checkpoint; the next independent AI-configuration source audit remains separately governed. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-12 · **Historical status:** FINAL FABLE KPI REVALIDATION
 **Method:** independently extracted KPI/report metric names from all nine canonical industry/MS DD files and mapped each to stable DD-25 contract IDs. Composite labels map to each required underlying KPI rather than being accepted by fuzzy name alone.
 

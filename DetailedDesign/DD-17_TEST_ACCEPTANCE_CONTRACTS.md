@@ -3584,3 +3584,30 @@ Malformed config id/Tenant id or malformed Model id/provider-id/status evidence 
 
 ### AITENCFG-MODEL-CUR-008 — Unrelated semantics stay uninterpreted
 Capability allowlist, enablement, policies/sensitivity/version/timestamps and Model code/capabilities/modalities/residency/sensitivity/cost/latency/version/metadata do not affect this predicate; inputs remain unchanged.
+
+
+## DD-209 IndustryAIConfig TenantAIConfig Non-Widening Acceptance
+
+### AIINDCFG-TENANT-CUR-001 — Same-Tenant subset
+A valid enabled IndustryAIConfig passes against a supplied enabled same-Tenant TenantAIConfig when its capability, Provider-id and Model-id allowlists are exact subsets.
+
+### AIINDCFG-TENANT-CUR-002 — Enablement non-widening
+An enabled IndustryAIConfig fails against a disabled supplied TenantAIConfig. A disabled IndustryAIConfig does not widen Tenant enablement whether the supplied TenantAIConfig is enabled or disabled.
+
+### AIINDCFG-TENANT-CUR-003 — Relevant identity and boolean shape
+Foreign-Tenant evidence or malformed Industry/Tenant config identity or enabled-boolean evidence fails closed.
+
+### AIINDCFG-TENANT-CUR-004 — Capability subset
+Every Industry capability must be an exact raw-string member of the supplied Tenant capability set. No trimming, case-folding or invented non-empty rule is allowed.
+
+### AIINDCFG-TENANT-CUR-005 — Provider and Model subsets
+Every Industry Provider id and Model id must be an exact member of the corresponding supplied Tenant allowlist.
+
+### AIINDCFG-TENANT-CUR-006 — Allowlist set shape
+Duplicate, malformed or sparse capability/Provider/Model allowlist evidence on either side fails closed. Capability entries remain raw strings; Provider and Model entries require UUID shape.
+
+### AIINDCFG-TENANT-CUR-007 — Narrower/empty Industry sets
+Empty Industry allowlists and other narrower Industry subsets are valid against valid Tenant sets; extra Tenant entries do not fail this predicate.
+
+### AIINDCFG-TENANT-CUR-008 — Unrelated semantics and temporal boundary
+Unrelated fields remain uninterpreted and inputs remain unchanged. A true result does not select current/latest configuration, identify the historical write-time TenantAIConfig, compose effective configuration, provision, route or authorize AI execution.

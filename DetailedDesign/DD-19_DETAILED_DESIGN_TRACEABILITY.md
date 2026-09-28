@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current checkpoint:** `DEV-AI-INDUSTRY-CONFIG-TENANT-NON-WIDENING-FLOORS-001`  
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED** through VC27-111 with all recorded current findings verified and open current-scope P0/P1 = 0. DD-208 remains the latest implemented checkpoint; DD-209 source audit is authorized as the next governed Development step. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED** through VC27-111 with all recorded current findings verified and open current-scope P0/P1 = 0. DD-209 is the latest implemented checkpoint; the next independent AI-configuration source audit remains separately governed. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > The traceability chains and requirement-owner evidence below are preserved. Governed Development subsequently advanced through DD-208. Dated Core/session-security continuation sections describe their evaluated-era boundaries, not current unfinished work. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this file does not define the active project gate.
@@ -438,3 +438,15 @@ This chain claims only duplicate-free exact Model allowlist/evidence coverage, r
 |---|---|---|---|
 | VC26-01 | A-02; DD-02 §10; DD-057 | Cycle-safe OrgUnit ancestry; CTX-BOOT-007; PostgreSQL bootstrap regression | `Registers/VISION_CENTRIC_AUDIT_2026-09-26.md` |
 | VC26-02 | migration 0031; DD-208 item 1 | Dense UUID validation; strengthened AITENCFG-MODEL-CUR-006 | `Registers/VISION_CENTRIC_AUDIT_2026-09-26.md` |
+
+
+## DD-209 — IndustryAIConfig TenantAIConfig non-widening
+
+F-05 + A-07 + DD-09 → migration 0031 IndustryAIConfig integrity trigger →
+`Development/AI_INDUSTRY_CONFIG_TENANT_NON_WIDENING_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-209 → `src/core/ai/industry-config-tenant-non-widening-floors.ts` →
+`AIINDCFG-TENANT-CUR-001…008` →
+`tests/core/ai-industry-config-tenant-non-widening-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD209_VERIFICATION_2026-09-28.md`.
+
+This chain claims only the supplied same-Tenant enabled/capability/Provider/Model non-widening relationship. Current/latest selection, historical write-time Tenant config identity, effective AI configuration, provisioning, routing and AI execution remain separate.

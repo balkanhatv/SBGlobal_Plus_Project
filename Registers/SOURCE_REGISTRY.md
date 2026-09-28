@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
+**Current checkpoint:** `DEV-AI-INDUSTRY-CONFIG-TENANT-NON-WIDENING-FLOORS-001`
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`
 **Status:** ACTIVE · **Updated:** 2026-09-28
 
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED** through VC27-111 with all recorded current findings verified and open current-scope P0/P1 = 0. DD-208 remains the latest implemented checkpoint; DD-209 source audit is authorized as the next governed Development step. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED** through VC27-111 with all recorded current findings verified and open current-scope P0/P1 = 0. DD-209 is the latest implemented checkpoint; the next independent AI-configuration source audit remains separately governed. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority
@@ -47,6 +47,6 @@ Governed DD-208 promotion evidence remains `c7825bedc7e96b5010266a42c710e3608672
 
 The current bounded downstream executable audit basis is `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`: **739/739 Core**, **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation is **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed as of 2026-09-28; normal governed forward Development resumes from DD-208 with DD-209 source audit authorized.
 
-Next: source-audit DD-209 as the next independent Tenant/Industry AI-configuration relationship. Effective AI execution remains separately governed and is not authorized by audit closure.
+Next: verify this DD-209 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, source-audit the next independent AI-configuration relationship; effective AI configuration and AI execution remain locked.
 
 

@@ -1230,3 +1230,8 @@ inventory remains 2,962, current-scope open P0/P1 are zero, active REPO-007 proj
 reconciled, and governance-path CI reachability is enforced by REPO-010. DD-208 remains the
 latest implemented checkpoint; normal governed forward Development resumes with DD-209 source
 audit authorized. Production readiness and source-incomplete execution surfaces are not claimed.
+
+
+## 2026-09-28 — DD-209 canonical promotion staged
+
+DD-209 freezes and implements only the IndustryAIConfig → supplied same-Tenant TenantAIConfig enabled/capability/Provider/Model non-widening floor. Source-audit and implementation exact-head gates passed at `7cfd84d2013d3e1f0f4feaa9eb70f4cd66632787` and `f92c834a8a5a988c43d8b8ca6edd141deb2b1932`. Canonical promotion remains subject to this promotion commit's own exact-head Core/PostgreSQL/Database/Web gate. Effective AI configuration and AI execution are not claimed.
