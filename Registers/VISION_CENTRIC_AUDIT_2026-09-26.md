@@ -2757,3 +2757,24 @@ DD-30's evaluated-era/current traceability projection and REPO-007 coverage; eve
 chain/count and orphan/loss result remains preserved. DD-208 remains current and DD-209 stays
 locked until complete-project audit closure.
 
+## 2026-09-28 historical DD-31 Development/QA determinism projection continuation
+
+### VC27-100 — P2: DD-31 still exposed evaluated Phase-3 Development/QA determinism as a final current PASS
+
+The semantic file-coverage sweep found
+`DetailedDesign/DD-31_FINAL_DEVELOPMENT_QA_DETERMINISM.md` outside REPO-007. Its
+representative-flow matrix and 9/9 Development/QA determinism result remain valid Phase-3
+evidence at evaluated HEAD `b4bba9c4764025af3d4546644f7c67efa463c86d`, but the file
+still ended with “DETERMINISM FINAL AUDIT — PASS” without the active DD-208/project-audit
+overlay.
+
+Smallest forward-only correction:
+- preserve all nine representative flows, cross-cutting determinism evidence and 9/9 results;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- classify the final PASS explicitly as evaluated-era Phase-3 evidence;
+- add DD-31 to REPO-007 so future active-projection drift fails CI.
+
+No Development/QA determinism conclusion, business rule, acceptance contract, runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changes.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+
