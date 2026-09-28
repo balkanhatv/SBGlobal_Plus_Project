@@ -1,10 +1,10 @@
 # DOWNSTREAM BOUNDED RUNTIME AUDIT — 2026-09-27
 
-**Prior tree-qualified verified basis through VC27-68:** `d81dc49e76e5e911d87931fd1bd12aae2decec74` / tree `0993afd410099c6ad86a035fd88aba2fe1599984`
+**Prior tree-qualified verified basis through VC27-69:** `3a6849cd7a10e400674f9d5c80f5d052243868b2` / tree `9372a4c5e5137033fb8bd00cf53c87dce20f5e25`
 
-**Current exact-head correction basis:** `3a6849cd7a10e400674f9d5c80f5d052243868b2` / tree `9372a4c5e5137033fb8bd00cf53c87dce20f5e25`
+**Current exact-head correction basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`
 
-**Exact-head gate:** Core 738/738; PostgreSQL 512/512 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 739/739; PostgreSQL 512/512 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -79,6 +79,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 - **VC27-67 — exact SessionVersion evidence:** SessionSecurityService now rejects malformed or precision-unsafe current SessionVersion version/changed-at evidence before stale-session comparison or RequestContext projection; alternate/injected invalid session-security state cannot fail open.
 - **VC27-68 — exact first-party JSON media type:** POST content-type validation now compares the parsed media-type token exactly to application/json while retaining optional parameters; prefix-smuggled non-JSON types fail 415 before tRPC/schema/domain execution.
 - **VC27-69 — exact Clerk session creation time:** ClerkIdentityAdapter now requires provider session createdAtMs to be a safe integer before it becomes VerifiedIdentityEvidence, preserving exact stale-session comparison against Core SessionVersion.changed_at.
+- **VC27-70 — Core-authoritative SessionVersion projection:** human RequestContext now projects only the validated current Core SessionVersion from SessionSecurityService; provider/identity sessionVersion metadata cannot fill a missing Core value in Tenant or PLATFORM_GLOBAL context.
 
 ### Current bounded verdict
 
