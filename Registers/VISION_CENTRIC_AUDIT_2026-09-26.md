@@ -2721,3 +2721,24 @@ DD-29's evaluated-era/current project projection and REPO-007 coverage; its Phas
 classifications, recovered-requirement evidence and PASS verdict remain preserved. DD-208
 remains current and DD-209 stays locked until complete-project audit closure.
 
+## 2026-09-28 historical DD-30 requirement-traceability projection continuation
+
+### VC27-99 — P2: DD-30 still exposed evaluated Phase-3 traceability as current/final project status
+
+The semantic file-coverage sweep found
+`DetailedDesign/DD-30_FINAL_REQUIREMENT_TRACEABILITY_AUDIT.md` outside REPO-007. The file
+preserves valid Phase-3 traceability evidence at evaluated HEAD
+`b4bba9c4764025af3d4546644f7c67efa463c86d`, but it still introduced “Current chains”
+and ended with “TRACEABILITY FINAL AUDIT — PASS” without the active DD-208/project-audit
+overlay.
+
+Smallest forward-only correction:
+- preserve every traceability chain, count and orphan/loss result;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- qualify “Current chains” as evaluated-era Phase-3 traceability;
+- add DD-30 to REPO-007 so future active-projection drift fails CI.
+
+No traceability edge/count, requirement owner, Foundation/Architecture/DD contract, runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changes.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+
