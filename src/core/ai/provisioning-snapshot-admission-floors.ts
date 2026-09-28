@@ -1,11 +1,14 @@
 import type { AICapabilityCatalogMetadata } from "./capability-catalog-metadata.js";
 import type { AIProviderCatalogMetadata } from "./provider-catalog-metadata.js";
-import type { PersistedAIProvisioningSnapshot } from "./provisioning-snapshot.js";
+import type {
+  AIProvisioningApiAccessClass,
+  PersistedAIProvisioningSnapshot,
+} from "./provisioning-snapshot.js";
 import { matchesAIProvisioningSnapshotLifecycleValidityFloors } from "./provisioning-snapshot-lifecycle-validity-floors.js";
 
 const UUID_PATTERN =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-const API_CLASSES = new Set<string>([
+const API_CLASSES = new Set<AIProvisioningApiAccessClass>([
   "INTERNAL_FIRST_PARTY",
   "TENANT_API",
   "PARTNER_API",
@@ -14,6 +17,11 @@ const API_CLASSES = new Set<string>([
 
 function isUuid(value: unknown): value is string {
   return typeof value === "string" && UUID_PATTERN.test(value);
+}
+
+function isApiClass(value: unknown): value is AIProvisioningApiAccessClass {
+  return typeof value === "string"
+    && API_CLASSES.has(value as AIProvisioningApiAccessClass);
 }
 
 function hasSnapshotIdentity(snapshot: PersistedAIProvisioningSnapshot): boolean {
@@ -84,9 +92,8 @@ export function matchesAIProvisioningSnapshotApiClassAdmissionFloor(
   if (
     !hasSnapshotIdentity(snapshot)
     || !isDenseStringSet(snapshot.allowedApiClasses)
-    || !snapshot.allowedApiClasses.every((value) => API_CLASSES.has(value))
-    || typeof apiClass !== "string"
-    || !API_CLASSES.has(apiClass)
+    || !snapshot.allowedApiClasses.every((value) => isApiClass(value))
+    || !isApiClass(apiClass)
   ) {
     return false;
   }
