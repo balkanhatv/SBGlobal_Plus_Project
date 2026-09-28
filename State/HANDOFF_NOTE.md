@@ -2,7 +2,7 @@
 **Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
 **Updated:** 2026-09-27 · **Branch:** `docs/architecture-branch-2`
 
-> **2026-09-27 audit hold:** DD-208 remains the latest governed development checkpoint. Source-parent semantic reconciliation is complete at **372/372 owner-reconciled source parents, 0 NOT_CERTIFIED**. Current bounded downstream executable correction head `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70` passed exact-HEAD **739/739 Core**, **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web after VC27-70 Core-authoritative SessionVersion projection hardening; VC27-69 and the prior cross-context/REST/Webhook/Document/API-Credential corrections remain preserved. This is still a **bounded downstream result, not a complete-project PASS**. Presented-token grammar/hash verification, CIDR enforcement, permission-profile mapping, successful-use mutation/audit and final `VerifiedMachineEvidence`; external REST route catalog/OpenAPI publication; webhook endpoint/filter interpretation, signing, SSRF/DNS/redirect control, retry/DLQ/replay and network delivery; Integration/provider/sync execution; Workflow/Automation/Notification execution; final Document ACL effect/expiry/operation mapping/fallback plus signer/retention; AI provider/tool execution; and unfinished mobile/desktop executable surfaces remain locked. Forward development remains held and DD-209 is not authorized. [Current audit](../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md)
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED** through VC27-111 with all recorded current findings verified and open current-scope P0/P1 = 0. DD-208 remains the latest implemented checkpoint; DD-209 source audit is authorized as the next governed Development step. Production readiness is **NOT CLAIMED**.
 
 
 DD-208 implements only TenantAIConfig allowedModelIds[] duplicate-free exact-id/raw-ACTIVE AIModel binding plus exact Model providerId membership in the same config allowedProviderIds[]. Provider-row runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain outside this checkpoint.
@@ -13,10 +13,10 @@ DD-208 decision/acceptance/traceability are canonically promoted and its promoti
 
 Evidence: `Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: continue the downstream canonical/state/Development/Database/CI consistency and adversarial audit. Only after the complete-project audit is clean may the next independent source-owned development prerequisite be selected; effective configuration and AI execution remain locked.
+Next: source-audit DD-209 for the next independent Tenant/Industry AI-configuration non-widening relationship. Effective AI configuration and AI execution remain separately governed and are not authorized by audit closure.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
-Fetch the branch again before continuation. Re-bind to the latest HEAD and continue the downstream audit; do not open DD-209 until the complete-project gate is clean.
+Fetch the branch again before continuation. Re-bind to the latest HEAD and start DD-209 source audit; do not infer effective configuration or AI execution semantics.
 
 

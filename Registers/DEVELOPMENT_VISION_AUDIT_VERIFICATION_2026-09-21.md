@@ -1,9 +1,10 @@
 # Development verification — Vision audit and governed invariant continuation
 **Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED** through VC27-111 with all recorded current findings verified and open current-scope P0/P1 = 0. DD-208 remains the latest implemented checkpoint; DD-209 source audit is authorized as the next governed Development step. Production readiness is **NOT CLAIMED**.
 **Historical verification:** 2026-09-21 · checkpoint `DEV-VISION-AUDIT-INVARIANTS-001`
 
-> This file preserves the exact DD-079-era Development verification evidence. Its embedded continuation and DD-076 “Next” action describe the evaluated checkpoint only; governed Development subsequently advanced through DD-208. The complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**, DD-209 is not authorized, and this file does not define the current project next action.
+> This file preserves the exact DD-079-era Development verification evidence. Its embedded continuation and DD-076 “Next” action describe the evaluated checkpoint only; governed Development subsequently advanced through DD-208. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this file does not define the current project next action.
 
 ## Exact executable evidence
 

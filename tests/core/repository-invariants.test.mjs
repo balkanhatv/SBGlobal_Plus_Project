@@ -170,7 +170,7 @@ test("REPO-009: active source traceability projections separate inventory histor
 
   assert.ok(registry.includes("Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md"));
   assert.ok(registry.includes(m.github.current_downstream_verified_head));
-  assert.ok(registry.includes("complete-project downstream semantic/file-coverage audit remains in progress"));
+  assert.ok(registry.includes("complete-project downstream semantic/file-coverage/adversarial audit is clean / closed"));
   assert.ok(!registry.includes("Registers/DEVELOPMENT_DD201_VERIFICATION_2026-09-26.md"));
   assert.ok(!registry.includes("Next: Verify this DD-208 state-closure HEAD"));
 });

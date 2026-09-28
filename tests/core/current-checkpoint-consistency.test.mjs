@@ -89,7 +89,7 @@ test("REPO-007: active checkpoint projections distinguish governed feature evide
   assert.ok(/^VC27-\d+$/.test(latestRuntimeFinding), "Missing bounded runtime finding id");
   assert.equal(
     boundedRuntime.status,
-    `BOUNDED_CLEAN_WITH_VERIFIED_FAIL_CLOSED_CORRECTIONS_THROUGH_${latestRuntimeFinding.replace("-", "_")}_AUDIT_IN_PROGRESS`,
+    `BOUNDED_CLEAN_WITH_VERIFIED_FAIL_CLOSED_CORRECTIONS_THROUGH_${latestRuntimeFinding.replace("-", "_")}_COMPLETE_PROJECT_AUDIT_CLOSED`,
     "Bounded runtime status is stale against the verified finding basis",
   );
   assert.equal(m.current_audit_overlay.current_verification, runtimeAudit);
@@ -101,6 +101,10 @@ test("REPO-007: active checkpoint projections distinguish governed feature evide
     const match = firstLines.match(/\*\*Current checkpoint:\*\* `([^`]+)`/);
     assert.equal(match?.[1], m.checkpoint, `${path}: stale or absent active checkpoint`);
     assert.ok(firstLines.includes(auditHead), `${path}: stale active audit basis`);
+    assert.ok(firstLines.includes("Current audit gate (2026-09-28)"), `${path}: missing closed audit gate`);
+    assert.ok(firstLines.includes("**CLEAN / CLOSED**"), `${path}: audit gate is not closed`);
+    assert.ok(!firstLines.includes("DD-209 is not authorized"), `${path}: stale DD-209 lock`);
+    assert.ok(!firstLines.includes("audit hold"), `${path}: stale audit-hold marker`);
   }
 });
 
