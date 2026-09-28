@@ -95,6 +95,31 @@ test("REPO-007: active checkpoint projections distinguish governed feature evide
   }
 });
 
+test("REPO-010: governance evidence changes reach all exact-head verification workflows", () => {
+  const required = [
+    ".github/workflows/**", "RawSourceCorpus/**", "Governing/**", "Foundation/**",
+    "Architecture/**", "DetailedDesign/**", "Development/**", "Registers/**",
+    "State/**", "tests/core/**", "README_FOUNDATION.md",
+  ];
+  for (const workflow of [
+    ".github/workflows/core-service-verify.yml",
+    ".github/workflows/database-verify.yml",
+    ".github/workflows/web-dependency-lock.yml",
+  ]) {
+    const content = read(workflow);
+    const pushStart = content.indexOf("  push:");
+    const pullStart = content.indexOf("  pull_request:");
+    const dispatchStart = content.indexOf("  workflow_dispatch:");
+    assert.ok(pushStart >= 0 && pullStart > pushStart && dispatchStart > pullStart, workflow);
+    const push = content.slice(pushStart, pullStart);
+    const pull = content.slice(pullStart, dispatchStart);
+    for (const path of required) {
+      assert.ok(push.includes(`- "${path}"`), `${workflow}: push does not cover ${path}`);
+      assert.ok(pull.includes(`- "${path}"`), `${workflow}: pull_request does not cover ${path}`);
+    }
+  }
+});
+
 test("REPO-008: current feature has canonical decision, acceptance and executable evidence", () => {
   const m = JSON.parse(read("State/PROJECT_MANIFEST.json"));
   const feature = m.current_feature_verification;

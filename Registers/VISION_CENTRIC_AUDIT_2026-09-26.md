@@ -3088,3 +3088,26 @@ evaluated-era/current-status projection of the Wave-3 41-MS completion matrix an
 coverage; all 41-MS ownership/completeness evidence remains preserved. DD-208 remains current
 and DD-209 stays locked until complete-project audit closure.
 
+## 2026-09-28 CI governance-path reachability continuation
+
+### VC27-109 — P1: checkpoint/RawSource invariants could be bypassed by workflow path filters
+
+REPO-001 protects the accepted immutable RawSource blobs and REPO-007 protects active
+checkpoint/audit projections, but the Core Service Verify workflow did not trigger for most
+files those invariants inspect. On the pre-correction branch, REPO-007 listed 56 projection
+files while the Core push filters directly covered only 9; 47 projection files could change
+without automatically running the invariant suite. `RawSourceCorpus/**` also had no Core
+workflow trigger. Database/Web path filters were narrower still, despite this audit requiring
+exact-head Core/PostgreSQL/Database/Web verification for governance corrections.
+
+Smallest forward-only correction:
+- make all three verification workflows trigger on RawSource, Governing, Foundation,
+  Architecture, DetailedDesign, Development, Registers, State and Core-test governance paths;
+- make workflow-file changes trigger all three workflows through `.github/workflows/**`;
+- keep existing source/database/package triggers and every existing test/build step unchanged;
+- add REPO-010 to prove both push and pull_request filters retain the governance reachability.
+
+This strengthens CI reachability only. It does not alter application/runtime behavior,
+requirements, RawSource, migrations, RLS, roles/grants, test assertions, product semantics or
+DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

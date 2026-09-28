@@ -6,6 +6,17 @@ on:
       - docs/architecture-branch-2
     paths:
       - "database/**"
+      - ".github/workflows/**"
+      - "RawSourceCorpus/**"
+      - "Governing/**"
+      - "Foundation/**"
+      - "Architecture/**"
+      - "DetailedDesign/**"
+      - "Development/**"
+      - "Registers/**"
+      - "State/**"
+      - "tests/core/**"
+      - "README_FOUNDATION.md"
       - ".github/workflows/database-verify.yml"
       - "Development/CORE_SERVICE_CHECKPOINT.md"
       - "Development/DEVELOPMENT_STATE.md"
@@ -19,6 +30,17 @@ on:
   pull_request:
     paths:
       - "database/**"
+      - ".github/workflows/**"
+      - "RawSourceCorpus/**"
+      - "Governing/**"
+      - "Foundation/**"
+      - "Architecture/**"
+      - "DetailedDesign/**"
+      - "Development/**"
+      - "Registers/**"
+      - "State/**"
+      - "tests/core/**"
+      - "README_FOUNDATION.md"
       - ".github/workflows/database-verify.yml"
   workflow_dispatch:
 
