@@ -30,3 +30,14 @@ Database inventory remains **48 migrations / 42 verification files**. No schema,
 A true DD-209 result proves only that the two supplied config evidence objects are same-Tenant and satisfy the source-owned enabled/capability/Provider/Model non-widening relationship. It does not prove current/latest selection, the historical write-time Tenant config identity, catalog/country-pack/PromptSet currentness, effective AI configuration, provisioning, routing or AI execution authority.
 
 Canonical promotion uses the implementation HEAD above as verified feature evidence. The promotion commit must independently pass exact-head Core/PostgreSQL/Database/Web verification before DD-209 state closure or any next source-audit step opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `f5da3d09c8d63256050f6a204f28240dac3e7e60` / tree `dbd4c2383367e11817b2ce2ed40b3cfd285949c7` independently passed all required workflows:
+- Core Service Verify `36395275928`, Core job `108840061467`: **749/749 PASS**, zero failed/skipped; DD-209 acceptance and REPO-007/008/010 pass.
+- PostgreSQL job `108840061324`: **512/512 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36395275730`, job `108840060654`: PASS with **48 migrations / 42 SQL verification files**.
+- Web Boundary Verify `36395275849`, job `108840060940`: PASS.
+
+All required verification ran against the exact promotion HEAD/tree above. This authorizes DD-209 canonical promotion only; the state-closure commit must independently pass the same gate before another DD/source audit opens.
