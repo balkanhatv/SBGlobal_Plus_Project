@@ -2492,3 +2492,24 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-92 changes only
 the Architecture revalidation notice's evaluated-era/current projection and REPO-007 coverage;
 its Phase-2 Architecture evidence remains preserved. DD-208 remains current and DD-209 stays
 locked until complete-project audit closure.
+
+## 2026-09-28 historical Fable-5 DD traceability projection continuation
+
+### VC27-93 — P2: DD requirement traceability still labeled Phase-3 remediation evidence ACTIVE
+
+The semantic file-coverage sweep found `Registers/DD_REQUIREMENT_TRACEABILITY_F5.md`
+outside REPO-007 while its header still declared `Status: ACTIVE REMEDIATION EVIDENCE`.
+Its requirement-to-DD rows remain useful evaluated-era traceability evidence, but Fable-5
+remediation subsequently completed, the Phase-3/final pre-development gates passed, and
+governed Development advanced through DD-208.
+
+Smallest forward-only correction:
+- preserve every source/DD/acceptance traceability row and historical date;
+- relabel the status explicitly historical rather than active;
+- add the current DD-208/executable-audit/still-open project gate overlay;
+- add the file to REPO-007 so future active-projection drift fails CI.
+
+No traceability row, source ID/text, Foundation/Architecture/DD semantic contract, runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changes.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+
