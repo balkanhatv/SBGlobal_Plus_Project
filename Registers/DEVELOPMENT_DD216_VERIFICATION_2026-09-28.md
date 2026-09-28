@@ -18,3 +18,14 @@
 - Web `36439793840` / `108986997758`: PASS.
 
 Database inventory remains **48 migrations / 42 verification files**. No schema/RLS/role/grant/public-route/product-policy change.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `42d75f2b3b1302d43129c1096edca1a435c5809e` / tree `8ee2d0c13b36e46d8ca5fb1f8afaa07a293524d8` independently passed:
+- Core Service Verify `36442340471`, Core job `108995755540`: **789/789 PASS**, zero failed/skipped.
+- PostgreSQL job `108995755072`: **525/525 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36442340646`, job `108995757275`: PASS.
+- Web Boundary Verify `36442340572`, job `108995755805`: PASS.
+
+This authorizes DD-216 canonical promotion only. The state-closure commit must independently pass the same exact-head gate before DD-217 source audit opens.
