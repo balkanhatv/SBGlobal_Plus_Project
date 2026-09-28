@@ -857,3 +857,16 @@ adds the file to REPO-007. Correction HEAD `91b5bc92deb7083f87919148baf3f5a23c0e
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 traceability/isolation/DD semantics, runtime, RawSource, migration, RLS, role/grant, product
 requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-87 dated all-stages current-state audit projection correction
+
+The semantic file-coverage sweep found the 2026-09-13, 2026-09-17 and 2026-09-21
+`ALL_STAGES_CURRENT_STATE_AUDIT` records outside REPO-007 while they still exposed their
+evaluated-era current gate/next action as active project state. The correction preserves every
+dated finding/result/count, adds a current DD-208/project-audit overlay, labels the historical
+gate/next-action wording explicitly, and adds all three files to REPO-007. Correction HEAD
+`f93157d1962ad2d7b2b91157e3831a15fd913db2` / tree
+`01099131707e243eb772bfd0ab4161977c263ee0` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Foundation/Architecture/DD contract, runtime, RawSource, migration, RLS, role/grant, product
+requirement or DD-209 authority changed.
