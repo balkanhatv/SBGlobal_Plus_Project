@@ -1,11 +1,16 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
+**Updated:** 2026-09-28 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts
 
-**Updated:** 2026-09-14 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts  
-**Executable checkpoint:** `2c36b43a7d55c6600b71f9714389e025a06df580` · Database Verify run `34800144921`, job `103841023234` · **SUCCESS**
+> **Current bounded audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70` — **739/739 Core**, **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. DD-208 remains the latest governed Development checkpoint; complete-project audit is still in progress and DD-209 is not authorized. Current executable-isolation status is owned by [D-CHECKPOINT](D-CHECKPOINT.md) and the [bounded runtime audit](DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md).
 
-This overlay supersedes the current-status use of the Phase-4 design-only matrix retained below. SQL evidence proves only the named persistence invariant; future application/service attacks are acceptance contracts, not executed penetration tests. Final documentary commit/CI identities are recorded in [the current audit](ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md).
+## Historical 2026-09-14 executable persistence overlay
 
-| Adversarial attempt | Current enforced/verified boundary | Executable evidence or honest remaining boundary |
+**Historical executable checkpoint:** `2c36b43a7d55c6600b71f9714389e025a06df580` · Database Verify run `34800144921`, job `103841023234` · **SUCCESS**
+
+This overlay superseded the Phase-4 design-only matrix at its recorded date. It is preserved as historical persistence evidence and no longer owns current repository status. SQL evidence proves only the named persistence invariant; application/service attacks not executed at that historical checkpoint remain acceptance contracts.
+
+| Adversarial attempt | Historical enforced/verified boundary | Executable evidence or honest remaining boundary |
 |---|---|---|
 | Tenant A reads/writes Tenant B | Forced RLS, immutable ownership, same-Tenant references | 0029/0030 non-bypass role and constraint checks; 0099 registry checks PASS |
 | Same-Tenant Industry A accesses sibling B | Required exact context, same-context composite parents and explicit selectors | 0030/0031 negative relationship checks; 0099 all 181 Industry tables PASS |
@@ -29,7 +34,7 @@ This overlay supersedes the current-status use of the Phase-4 design-only matrix
 | Future partition loses scope enforcement or runtime caller provisions it | Governed migration helper installs exact forced RLS; PUBLIC execution revoked | 0029/0030 catalog/privilege checks PASS; production partition operations remain future |
 | Brand/country pack creates permissions or weakens safety | DD-05/10/17/26 protected security/accessibility and activation contracts | Design contract revalidated; publish/render/service tests NOT_YET_STARTED_FUTURE_SCOPE |
 
-Current exact-head regression at `3e7b2927839d289240eb389902563f5ab3d68074` passes Core Service Verify and Database Verify. The current tree contains 34 migrations and 28 verification SQL files; the added 0034 pair enforces the persisted PLATFORM_GLOBAL machine-credential floor. These are behavioral fixtures plus relevant policy/registry checks, not a claim that every service-level attack was executed. Current audited persistence/Core isolation blockers: **P0 0 / P1 0**.
+Historical exact-head regression at `3e7b2927839d289240eb389902563f5ab3d68074` passed Core Service Verify and Database Verify. That tree contained 34 migrations and 28 verification SQL files; the added 0034 pair enforced the persisted PLATFORM_GLOBAL machine-credential floor. These remain historical behavioral fixtures plus relevant policy/registry checks, not a claim that every service-level attack was executed. Historical audited persistence/Core isolation blockers at that checkpoint: **P0 0 / P1 0**.
 
 ---
 

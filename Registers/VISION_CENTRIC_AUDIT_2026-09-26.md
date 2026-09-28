@@ -1770,3 +1770,30 @@ projection semantics/invariants: governed DD-208 feature evidence stays historic
 current audit/executable projections use the current downstream basis. Forward Development
 remains held at DD-208; DD-209 is not authorized.
 
+## 2026-09-28 active isolation-matrix projection continuation
+
+### VC27-75 — P2: active Isolation Attack Matrix still advertised 2026-09-14 persistence evidence as current
+
+The current-file semantic coverage sweep found `Registers/ISOLATION_ATTACK_MATRIX.md`
+outside the REPO-007 projection set even though its title and top overlay explicitly claimed to
+be the current Core/Database checkpoint. It still advertised `2c36b43…` / `3e7b292…`,
+34 migrations / 28 verification files and 2026-09-14 execution boundaries as current.
+
+Those records are valuable historical isolation evidence, but they predate the current DD-208
+bounded Development/audit state, the 48/42 database inventory and the verified VC27-70
+executable basis.
+
+Smallest forward-only correction:
+- add an explicit current checkpoint/audit-basis block using the already-verified
+  `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree
+  `33ea828f05b2b8014b4c75401822cde89aa3ee70`;
+- reclassify the 2026-09-14 executable table/regression wording as historical without deleting
+  or rewriting its recorded evidence;
+- add the Isolation Attack Matrix to REPO-007 active-projection coverage so future current-basis
+  drift fails CI.
+
+This is current-state projection hygiene only. It does not claim unexecuted attack campaigns,
+change runtime/domain behavior, tests other than the stronger projection invariant, migrations,
+RLS, roles/grants, product requirements or DD-209 authority. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

@@ -9,7 +9,8 @@ const projections = [
   "State/PHASE_SUMMARY.md", "Development/CORE_SERVICE_CHECKPOINT.md",
   "Development/DEVELOPMENT_STATE.md", "Development/DB_CHECKPOINT.md",
   "Registers/D-INDEX.md", "Registers/D-CHECKPOINT.md", "Registers/REVIEW_REQUIRED.md",
-  "Registers/SOURCE_REGISTRY.md", "DetailedDesign/DD-INDEX.md",
+  "Registers/SOURCE_REGISTRY.md", "Registers/ISOLATION_ATTACK_MATRIX.md",
+  "DetailedDesign/DD-INDEX.md",
   "DetailedDesign/DD-CHECKPOINT.md", "DetailedDesign/DD-PHASE_STATE.md",
   "DetailedDesign/DD-REVIEW_REQUIRED.md",
 ];
