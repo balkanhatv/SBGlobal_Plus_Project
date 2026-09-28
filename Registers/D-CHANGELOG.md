@@ -898,3 +898,16 @@ reports to REPO-007. Correction HEAD
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Foundation/Architecture/DD semantic contract, runtime, RawSource, migration, RLS, role/grant,
 product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-90 CP-F1-005 traceability-extension projection correction
+
+The semantic file-coverage sweep found `Registers/TRACEABILITY_EXT_CP-F1-005.md` still
+presenting its Foundation-era 372-unit / 2,965-item accounting and “certification evidence”
+wording as current. The correction preserves that evaluated-era evidence, adds the current
+2,962 stable child-ID / 372-of-372 owner-reconciled qualification and still-open complete-
+project audit, and adds the file to REPO-007. Correction HEAD
+`1c9dbb332a723b52ee151e95d013bc8e97e0dd6d` / tree
+`20214f8f1e48fc36231ae86132de053dee71d26b` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No source
+ID/text, Foundation/Architecture/DD contract, runtime, RawSource, migration, RLS, role/grant,
+product requirement or DD-209 authority changed.
