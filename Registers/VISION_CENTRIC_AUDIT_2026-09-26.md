@@ -2380,3 +2380,28 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-89 changes only the
 three dated Vision-audit active projection/continuation headings and REPO-007 coverage; all
 evaluated-era findings and exact-head evidence remain preserved. DD-208 remains current and
 DD-209 stays locked until complete-project audit closure.
+
+## 2026-09-28 historical CP-F1-005 traceability-extension continuation
+
+### VC27-90 — P2: CP-F1-005 traceability extension still presented historical 2,965 accounting as current certification evidence
+
+The semantic file-coverage sweep found `TRACEABILITY_EXT_CP-F1-005.md` outside REPO-007.
+The file is valuable Foundation-era evidence, but it still states 372 units / 2,965 items /
+0 unmapped and says the unit matrix “remains the certification evidence” without a current
+qualification. Later source-fidelity reconciliation establishes the current stable child-ID
+inventory at 2,962, explicitly distinguishes inventory/provenance from certification, and
+closes the parent semantic ownership gate at 372/372 with 0 NOT_CERTIFIED while the complete-
+project downstream audit remains open.
+
+Smallest forward-only correction:
+- preserve the original CP-F1-005 2,965 accounting and destination-addition rows as historical
+  evidence rather than rewriting the past;
+- add a current qualification naming the 2,962 stable child-ID inventory, 372/372 parent gate
+  and still-open complete-project audit;
+- label the 2,965/certification sentence explicitly as historical evaluated accounting;
+- add the extension to REPO-007 so future active-projection drift fails CI.
+
+No source ID/text, Foundation/Architecture/DD semantic contract, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

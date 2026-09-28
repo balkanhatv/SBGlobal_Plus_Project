@@ -28,6 +28,7 @@ const projections = [
   "Registers/VISION_CENTRIC_AUDIT_2026-09-21.md",
   "Registers/VISION_CENTRIC_AUDIT_2026-09-24.md",
   "Registers/VISION_CENTRIC_AUDIT_2026-09-25.md",
+  "Registers/TRACEABILITY_EXT_CP-F1-005.md",
   "DetailedDesign/DD-INDEX.md", "DetailedDesign/DD-00_DETAILED_DESIGN_OVERVIEW.md",
   "DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md",
   "DetailedDesign/DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md",
