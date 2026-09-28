@@ -2828,3 +2828,28 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-101 changes only
 DD-20C's evaluated-era/current next-gate projection and REPO-007 coverage; the complete Wave-3
 matrix, adversarial findings and substantive verdict remain preserved. DD-208 remains current
 and DD-209 stays locked until complete-project audit closure.
+
+## 2026-09-28 DD-19 historical/current traceability projection continuation
+
+### VC27-102 — P2: DD-19 still exposed Phase-3 traceability/current-status prose without the active DD-208 project overlay
+
+The semantic file-coverage sweep found
+`DetailedDesign/DD-19_DETAILED_DESIGN_TRACEABILITY.md` outside REPO-007. Its requirement,
+Foundation/Architecture/ADR/DD/acceptance chains remain valid traceability evidence, and its
+later DD-188…DD-208 additions remain current provenance. However the file header still
+presented “PHASE 3 REVALIDATION — UPDATED TRACEABILITY” as the unqualified status, one
+Fable-5 sentence still routed certification to a Phase-3 final audit “at the current substantive
+HEAD”, and dated 2026-09-14/17 sections described then-unfinished dependencies without a
+present-day overlay.
+
+Smallest forward-only correction:
+- preserve every traceability row, requirement chain, owner and DD-188…208 continuation;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- classify the Phase-3 status and dated continuation boundaries as evaluated-era evidence;
+- historicalize only the stale Fable-5 “until Phase-3 final audit” sentence;
+- add DD-19 to REPO-007 so future active-projection drift fails CI.
+
+No requirement chain/count, Foundation/Architecture/ADR/DD owner, acceptance mapping,
+runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209 authority
+changes. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

@@ -1,5 +1,11 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Wave:** 1–3 · **Status:** PHASE 3 REVALIDATION — UPDATED TRACEABILITY
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
+
+> The traceability chains and requirement-owner evidence below are preserved. Governed Development subsequently advanced through DD-208. Dated Core/session-security continuation sections describe their evaluated-era boundaries, not current unfinished work. The complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**, DD-209 is not authorized, and this file does not define the active project gate.
+
+**Wave:** 1–3 · **Evaluated status:** PHASE 3 REVALIDATION — UPDATED TRACEABILITY
 
 | Foundation owner | Architecture owner | ADR | Detailed Design owner | Contract/result |
 |---|---|---|---|---|
@@ -163,7 +169,7 @@ The prior document/section-level Wave-3 table is historical convenience, not suf
 - expanded ADR-014 → DD-10/DD-11 + APP-009/013.
 - expanded ADR-008 access/localization implications → DD-05 + DATA-ACCESS/LOC tests.
 
-Historical DD-F5-RECERTIFIED evidence remains provenance only until the Phase-3 final audit is completed at the current substantive HEAD.
+Historical DD-F5-RECERTIFIED evidence remains provenance. The Phase-3 final audit subsequently completed and is itself historical evidence under the current DD-208/project-audit overlay.
 
 ## Concrete Core repository binding — 2026-09-14
 DD-02/03/04/05/06 → DD-040/041/042/043 → `../Development/CORE_PERSISTENCE_ADAPTER_MAP.md` → `src/core/context`, `src/core/tenancy`, `src/core/authorization`, `src/server/database` → `tests/core`, `tests/server`, `tests/postgres` → migrations/verifications `0033`/`0034`. Compiled permission and Current Supported Industry presentation read adapters are bound and tested. DD-043 additionally enforces the PLATFORM_GLOBAL principal/machine-credential floor in RequestContext, persisted API credentials and RequestScopedSql. Actual executable/CI status is owned by `../Development/CORE_SERVICE_CHECKPOINT.md`; provider/session-security, PDP/ABAC, Commercial validation and transports remain unfinished.
