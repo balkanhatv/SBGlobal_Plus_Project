@@ -20,3 +20,14 @@
 Database inventory remains **48 migrations / 42 verification files**. No schema/RLS/role/grant/public-route/product-policy change.
 
 A true DD-217 result proves only exact commercial version equality against supplied same-Tenant DD-216 evidence. Valid-time/source-linkage/lifecycle authorization/entitlement sufficiency/effective provisioning/routing/AI execution remain unclaimed.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `63766ca35b7090d5ceb2506994ba88e8bde8c915` / tree `c9ff420ce21cf9edd97d771cee5f64d72174d281` independently passed:
+- Core `36450812820` / `109024799844`: **797/797 PASS**, zero failed/skipped.
+- PostgreSQL `109024800300`: **525/525 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database `36450812754` / `109024799444`: PASS.
+- Web `36450812748` / `109024799670`: PASS.
+
+This authorizes DD-217 canonical promotion only. The state-closure commit must independently pass the same exact-head gate before another source audit opens.

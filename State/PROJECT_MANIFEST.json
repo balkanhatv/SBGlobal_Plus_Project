@@ -3,7 +3,7 @@
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-COMMERCIAL-VERSION-FLOORS-001",
-  "final_verdict": "Complete-project downstream semantic/file-coverage/adversarial audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-217 commercial-version equality is implemented and exact-head verified at 57f86d4b219cdbd59560276d2ed262cf7d22a8e6 / tree 47646d6795893ee0823cf73c58aa908c2d583e5d. Canonical promotion is pending its own exact-head gate. Valid-time, source-linkage, commercial authorization, effective provisioning, routing and AI execution remain unclaimed. Production readiness is NOT CLAIMED.",
+  "final_verdict": "Complete-project downstream semantic/file-coverage/adversarial audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-217 canonical promotion 63766ca35b7090d5ceb2506994ba88e8bde8c915 / tree c9ff420ce21cf9edd97d771cee5f64d72174d281 is exact-head verified at 797 Core / 525 PostgreSQL / 48 migrations / 42 verification files / Web PASS. State closure is pending its own exact-head gate. Valid-time, source-linkage, commercial authorization, effective provisioning, routing and AI execution remain unclaimed. Production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -1218,13 +1218,25 @@
       "web_run_id": 36444451315,
       "web_job_id": 109002993207,
       "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
+    },
+    "dd217_promotion_head": "63766ca35b7090d5ceb2506994ba88e8bde8c915",
+    "dd217_promotion_tree": "c9ff420ce21cf9edd97d771cee5f64d72174d281",
+    "dd217_promotion_ci": {
+      "core_run_id": 36450812820,
+      "core_job_id": 109024799844,
+      "postgres_job_id": 109024800300,
+      "database_run_id": 36450812754,
+      "database_job_id": 109024799444,
+      "web_run_id": 36450812748,
+      "web_job_id": 109024799670,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD217_PROMOTION_PENDING",
+    "current_phase": "DEVELOPMENT_DD217_STATE_CLOSURE_PENDING",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -1273,7 +1285,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify the DD-217 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-217 state and source-audit the next independently source-complete provisioning integrity prerequisite; valid-time/source-linkage/commercial authorization/effective provisioning/execution remain locked.",
+    "next_action": "After this DD-217 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit the next independently source-complete provisioning integrity prerequisite. Valid-time/source-linkage/commercial authorization/effective provisioning/routing/execution remain locked.",
     "core_services": {
       "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-COMMERCIAL-VERSION-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -1778,7 +1790,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify the DD-217 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-217 state and source-audit the next independently source-complete provisioning integrity prerequisite; valid-time/source-linkage/commercial authorization/effective provisioning/execution remain locked.",
+      "next_action": "After this DD-217 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit the next independently source-complete provisioning integrity prerequisite. Valid-time/source-linkage/commercial authorization/effective provisioning/routing/execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1872,7 +1884,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD217_PROMOTION_PENDING",
+  "current_phase": "DEVELOPMENT_DD217_STATE_CLOSURE_PENDING",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1909,7 +1921,7 @@
     "verified_code_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
     "source_audit": "Development/AI_PROVISIONING_SNAPSHOT_COMMERCIAL_VERSION_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "Verify the DD-217 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-217 state and source-audit the next independently source-complete provisioning integrity prerequisite; valid-time/source-linkage/commercial authorization/effective provisioning/execution remain locked.",
+    "next_action": "After this DD-217 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit the next independently source-complete provisioning integrity prerequisite. Valid-time/source-linkage/commercial authorization/effective provisioning/routing/execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {

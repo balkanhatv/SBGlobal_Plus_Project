@@ -1315,3 +1315,8 @@ Canonical DD-216 promotion `42d75f2b3b1302d43129c1096edca1a435c5809e` / tree `8e
 ## 2026-09-28 — DD-217 canonical promotion staged
 
 DD-217 implements only ProvisioningSnapshot commercial Subscription/EntitlementSnapshot version equality against supplied DD-216 raw evidence. Source-audit and implementation exact-head gates passed at `425d3d8f9c0c932b01fff452f4bc71b6e698d1a5` and `57f86d4b219cdbd59560276d2ed262cf7d22a8e6`. Canonical promotion remains subject to its own exact-head gate.
+
+
+## 2026-09-28 — DD-217 canonical promotion verified
+
+Canonical DD-217 promotion `63766ca35b7090d5ceb2506994ba88e8bde8c915` / tree `c9ff420ce21cf9edd97d771cee5f64d72174d281` passed **797/797 Core**, **525/525 PostgreSQL** plus database bootstrap, Database Verify and Web. State closure remains separately exact-head gated. No RawSource, schema, RLS, role/grant, route or product-policy change.
