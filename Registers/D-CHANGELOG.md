@@ -845,3 +845,15 @@ Correction HEAD `c6f27047bc445b45a3ca8e2ecdde5d9640fb090b` / tree
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No historical
 finding, Foundation/Architecture/DD contract, runtime, RawSource, migration, RLS, role/grant,
 product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-86 Phase-4 next-gate projection correction
+
+The semantic file-coverage sweep found `Registers/PHASE4_CROSS_LAYER_TRACEABILITY_ISOLATION_2026-09-13.md`
+still naming repository/state/backup closure plus the final pre-development adversarial gate as
+the unqualified next action. The correction preserves every Phase-4 chain/isolation/determinism
+PASS result, marks the document/next gate historical, adds a DD-208/current-audit overlay, and
+adds the file to REPO-007. Correction HEAD `91b5bc92deb7083f87919148baf3f5a23c0e9f11`
+/ tree `0c0a00554f890e6d56c25c7ff22087e8e4f62373` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+traceability/isolation/DD semantics, runtime, RawSource, migration, RLS, role/grant, product
+requirement or DD-209 authority changed.

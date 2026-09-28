@@ -2251,3 +2251,18 @@ No traceability/isolation/DD semantics, runtime, RawSource, migration, RLS, role
 requirement or DD-209 authority changes. Exact-head Core/PostgreSQL/Database/Web verification
 is required.
 
+#### VC27-86 exact-head closure
+
+Correction HEAD `91b5bc92deb7083f87919148baf3f5a23c0e9f11` /
+tree `0c0a00554f890e6d56c25c7ff22087e8e4f62373` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-86 changes only the
+historical Phase-4 next-action/current-project projection and REPO-007 coverage; its cross-layer
+traceability/isolation/determinism evidence is preserved. DD-208 remains current and DD-209
+stays locked until complete-project audit closure.
+
