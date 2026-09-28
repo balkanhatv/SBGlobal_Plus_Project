@@ -2226,3 +2226,28 @@ the 2026-09-10 Project Truth audit's active/current projection and REPO-007 cove
 historical findings/dispositions are preserved. DD-208 remains current and DD-209 stays
 locked until complete-project audit closure.
 
+## 2026-09-28 historical Phase-4 next-gate projection continuation
+
+### VC27-86 — P2: Phase-4 cross-layer audit still exposed the pre-development gate as the current next action
+
+The semantic file-coverage sweep found
+`Registers/PHASE4_CROSS_LAYER_TRACEABILITY_ISOLATION_2026-09-13.md` outside REPO-007
+while its PASS footer still named repository/state/backup closure and the final independent
+pre-development adversarial gate as the unqualified next action.
+
+That was the correct next gate at the evaluated 2026-09-13 Phase-4 boundary. The Phase-4
+traceability/isolation/determinism evidence remains valid. The drift is only its current-project
+projection: pre-development closure later completed, governed Development advanced through
+DD-208, and the complete-project downstream semantic/file-coverage audit is the current gate.
+
+Smallest forward-only correction:
+- preserve every Phase-4 traceability chain, isolation result and determinism verdict;
+- mark the document and its next-gate line explicitly historical;
+- add a current DD-208/project-audit overlay with the verified executable basis and current
+  vision/runtime/manifest owners, with DD-209 still locked;
+- add the Phase-4 audit to REPO-007 so future next-action drift fails CI.
+
+No traceability/isolation/DD semantics, runtime, RawSource, migration, RLS, role/grant, product
+requirement or DD-209 authority changes. Exact-head Core/PostgreSQL/Database/Web verification
+is required.
+

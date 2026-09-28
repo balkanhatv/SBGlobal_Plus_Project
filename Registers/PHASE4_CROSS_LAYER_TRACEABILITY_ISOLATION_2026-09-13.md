@@ -1,8 +1,9 @@
 # PHASE 4 — Cross-Layer Traceability / Isolation / Determinism Revalidation
-
-**Date:** 2026-09-13  
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Status:** HISTORICAL PHASE-4 GATE EVIDENCE · **Date:** 2026-09-13  
 **Evaluated substantive DD HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`  
-**Upstream gates:** Phase 1 Foundation PASS · Phase 2 Architecture PASS · Phase 3 DD PASS
+**Upstream gates at evaluation:** Phase 1 Foundation PASS · Phase 2 Architecture PASS · Phase 3 DD PASS
 
 ## 1. Traceability authority model
 
@@ -87,4 +88,9 @@ The new Phase-3 shared contracts are deterministic and have acceptance IDs; no d
 
 **PHASE 4 — CROSS-LAYER TRACEABILITY / ISOLATION / DETERMINISM: PASS.**
 
-Next: repository/state/backup closure and final independent pre-development adversarial gate.
+**Historical next gate:** repository/state/backup closure and final independent pre-development adversarial gate.
+
+## 7. Current project projection — 2026-09-28
+The Phase-4 PASS above remains valid historical cross-layer traceability/isolation/determinism evidence. Repository/state/pre-development closure subsequently completed and governed Development advanced through **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**.
+
+The independently verified current executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`; active current-state projection corrections through VC27-85 are independently exact-HEAD verified. The complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. Current project truth and exact continuation are owned by `VISION_CENTRIC_AUDIT_2026-09-26.md`, `DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`. The historical Phase-4 PASS does not establish production readiness, and **DD-209 is not authorized** until the current complete-project gate closes.

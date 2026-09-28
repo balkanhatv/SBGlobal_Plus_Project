@@ -16,6 +16,7 @@ const projections = [
   "Registers/D-INDEX.md", "Registers/D-CHECKPOINT.md", "Registers/REVIEW_REQUIRED.md",
   "Registers/SOURCE_REGISTRY.md", "Registers/ISOLATION_ATTACK_MATRIX.md",
   "Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md",
+  "Registers/PHASE4_CROSS_LAYER_TRACEABILITY_ISOLATION_2026-09-13.md",
   "DetailedDesign/DD-INDEX.md", "DetailedDesign/DD-00_DETAILED_DESIGN_OVERVIEW.md",
   "DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md",
   "DetailedDesign/DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md",
