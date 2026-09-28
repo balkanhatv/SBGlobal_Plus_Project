@@ -1489,18 +1489,18 @@
   },
   "continuation": {
     "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-    "verified_code_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
-    "verified_code_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
+    "verified_code_head": "4dd7138e5a546f608fe5e28e0912d17523e33693",
+    "verified_code_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
     "source_audit": "Development/AI_TENANT_CONFIG_MODEL_ALLOWLIST_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
+    "current_verification": "Registers/VISION_CENTRIC_AUDIT_2026-09-26.md",
     "next_action": "Continue downstream canonical/state/Development/Database/CI consistency and adversarial audit. Do not open DD-209 or effective AI execution until the complete-project audit is clean.",
     "main_merge": false
   },
   "current_audit_overlay": {
     "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-    "verified_executable_basis": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
-    "verified_executable_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
-    "current_verification": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
+    "verified_executable_basis": "4dd7138e5a546f608fe5e28e0912d17523e33693",
+    "verified_executable_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
+    "current_verification": "Registers/VISION_CENTRIC_AUDIT_2026-09-26.md",
     "scope": "DD-208 implements only TenantAIConfig allowedModelIds[] duplicate-free exact-id/raw-ACTIVE AIModel binding plus exact Model providerId membership in the same config allowedProviderIds[]. Provider-row runtime suitability, effective Tenant+Industry configuration, routing and AI execution remain outside this checkpoint.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",
@@ -1518,8 +1518,8 @@
       "scope": "Source-parent semantic ownership/status reconciliation only; does not certify downstream repository/runtime completeness."
     },
     "downstream_gate": "IN_PROGRESS_CURRENT_FILE_SEMANTIC_COVERAGE",
-    "current_projection_correction_head": "f3ed813a1df545d2895d1ba0ed0a29663ad9d03a",
-    "current_projection_correction_tree": "b122845dd3fca5bd8360a582d9213027066bc9c7",
+    "current_projection_correction_head": "94f8e92e100075f69b0595bb47fd426aba315c28",
+    "current_projection_correction_tree": "5687246a40e0a55a3429ae6c9f09924a25b1dc44",
     "current_projection_correction_ci": "739 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS"
   },
   "current_state_audit": {

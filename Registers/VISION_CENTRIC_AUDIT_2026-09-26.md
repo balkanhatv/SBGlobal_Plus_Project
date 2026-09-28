@@ -1682,3 +1682,30 @@ This is canonical current-state projection synchronization only. Exact-head
 Core/PostgreSQL/Database/Web verification is required before treating the corrected
 DetailedDesign projections as current.
 
+## 2026-09-28 active manifest current-overlay continuation
+
+### VC27-73 — P2: active manifest continuation/current-audit overlay still pointed to obsolete source-fidelity verification state
+
+After VC27-71/72 corrected other current projections, `State/PROJECT_MANIFEST.json` still had
+two active current-state objects that advertised the old source-fidelity correction as current:
+- `continuation.verified_code_head/tree` still pointed to `ea371dd1…` / `327e3aa9…`;
+- `current_audit_overlay.verified_executable_basis/tree` and `current_verification` still
+  pointed to that obsolete source-fidelity state;
+- `current_projection_correction_head/tree` still stopped at VC27-71 even after VC27-72
+  was independently exact-head verified.
+
+These fields are not the historical DD-208 feature-verification record; they are explicitly
+named active continuation/current-audit projections. Leaving them stale contradicts the
+manifest's own final verdict and can route continuation back to superseded evidence.
+
+Smallest forward-only correction:
+- bind continuation/current-audit executable evidence to the already-verified VC27-70 basis;
+- point current verification to the active vision-centric audit;
+- advance only the current projection-correction fields to the independently verified VC27-72
+  correction;
+- preserve historical DD-208/current_feature_verification and historical audit blocks unchanged.
+
+This is manifest projection synchronization only. No runtime, test, migration, RLS, role/grant,
+product requirement or DD-209 authority changes. Exact-head Core/PostgreSQL/Database/Web
+verification is required before promoting VC27-73 as current.
+
