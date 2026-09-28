@@ -1026,3 +1026,17 @@ tree `f3da66c0e8b707b6db702e3ba87efff9faa39b6e` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No DD
 ambiguity result, requirement owner, runtime, RawSource, migration, RLS, role/grant, product
 requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-99 DD-30 requirement-traceability historical projection correction
+
+The file-coverage sweep found `DetailedDesign/DD-30_FINAL_REQUIREMENT_TRACEABILITY_AUDIT.md`
+still introducing “Current chains” and exposing its Phase-3 final PASS without the active
+DD-208/project-audit overlay. The correction preserves every traceability chain/count and
+orphan/loss result, qualifies the current-status wording as evaluated-era evidence, adds the
+current project overlay and adds DD-30 to REPO-007.
+
+Correction HEAD `320909cf55631f3de90673f553413dcadfd303ac` /
+tree `5e516773aeadd2333d393c8b49bb2ea372ce5289` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+traceability edge/count, requirement owner, runtime, RawSource, migration, RLS, role/grant,
+product requirement or DD-209 authority changed.
