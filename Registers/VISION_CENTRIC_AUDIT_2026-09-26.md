@@ -1845,3 +1845,18 @@ No RawSource, requirement ID/text, owner routing row, Foundation/Architecture/DD
 runtime behavior, migration, RLS, role/grant, product requirement or DD-209 authority changes.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-76 exact-head closure
+
+Correction HEAD `f1a45a3bf8d935138cc5283fa708d72b00a8dfb2` /
+tree `0d5a1ea9a2780961d9db86da577db6bc9008996e` passed exact-head:
+- Core **740/740** including REPO-009;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-76 changes source
+traceability/current-continuation projections and repository invariants only; no source row,
+requirement ID/text, runtime authority or governed DD checkpoint changed. DD-208 remains
+current and DD-209 stays locked until complete-project audit closure.
+

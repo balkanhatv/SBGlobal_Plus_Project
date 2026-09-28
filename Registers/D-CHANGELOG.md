@@ -717,3 +717,17 @@ projection coverage. Correction head `728657faa202646fb8d335ffb1e3fb463e2365de` 
 tree `8d25108b6950bbd01d4a53178f2b003a4ee14554` passed **739/739 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No runtime,
 RawSource, migration, RLS, role/grant, product requirement or DD-209 change.
+
+## 2026-09-28 — VC27-76 active source-traceability projection reconciliation
+
+The current semantic-coverage sweep found `TRACEABILITY_MATRIX.md`,
+`TRACEABILITY_MATRIX_UNIT.md` and SOURCE_REGISTRY's current continuation block disagreeing
+with the already-complete **372/372 owner-reconciled, 0 NOT_CERTIFIED** parent gate.
+The correction labels the original 2,555/0/396/11 child dispositions as preserved historical
+inventory, updates the active parent-inventory qualification, corrects SOURCE_REGISTRY's
+DD-208 evidence/continuation, and adds REPO-009 to prevent recurrence. Correction head
+`f1a45a3bf8d935138cc5283fa708d72b00a8dfb2` / tree
+`0d5a1ea9a2780961d9db86da577db6bc9008996e` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No RawSource,
+source ID/text, owner row, runtime, migration, RLS, role/grant, product requirement or DD-209
+change.
