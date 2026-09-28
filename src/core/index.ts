@@ -135,6 +135,7 @@ export * from "./ai/tenant-config-model-allowlist-floors.js";
 export * from "./ai/industry-config.js";
 export * from "./ai/industry-config-prompt-set-binding-floors.js";
 export * from "./ai/industry-config-tenant-non-widening-floors.js";
+export * from "./ai/industry-config-country-pack-activation-floors.js";
 export * from "./ai/conversation.js";
 export * from "./ai/conversation-assistant-binding-floors.js";
 export * from "./ai/message.js";
