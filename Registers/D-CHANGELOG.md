@@ -1040,3 +1040,17 @@ tree `5e516773aeadd2333d393c8b49bb2ea372ce5289` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 traceability edge/count, requirement owner, runtime, RawSource, migration, RLS, role/grant,
 product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-100 DD-31 Development/QA determinism historical projection correction
+
+The file-coverage sweep found `DetailedDesign/DD-31_FINAL_DEVELOPMENT_QA_DETERMINISM.md`
+still exposing its evaluated Phase-3 “DETERMINISM FINAL AUDIT — PASS” without the active
+DD-208/project-audit overlay. The correction preserves all nine representative flows,
+cross-cutting determinism evidence and 9/9 Development/QA results, classifies the final PASS
+as historical Phase-3 evidence, adds the current project overlay and adds DD-31 to REPO-007.
+
+Correction HEAD `dbb166240172693c9aee877498bba22856b0a4a4` /
+tree `d61c2d69c7423230a5b936c2dfcbd88dcfc4a4fc` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Development/QA determinism conclusion, business rule, runtime, RawSource, migration, RLS,
+role/grant, product requirement or DD-209 authority changed.
