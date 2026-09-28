@@ -950,3 +950,21 @@ tree `9cd260b71a0dd151b0de8b913751df5858b2bd4f` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No source
 ID/text, traceability row, DD semantics, runtime, RawSource, migration, RLS, role/grant,
 product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-94 legacy DD-20H development-gate projection correction
+
+The file-coverage sweep found `DetailedDesign/DD-20H_LEGACY_COMBINED_AUDIT_HISTORY.md`
+still exposing pre-development “current gate”, “READY FOR DEVELOPMENT” and “authorizes
+Development to begin” wording without a present-day overlay. The correction preserves all
+Wave-1…Wave-3 evidence, labels that authorization historical, adds the current DD-208/project-
+audit overlay and adds DD-20H to REPO-007.
+
+The initial tree-composition commit `43c0b6f1f387638142d9292bc8fae78d55bc207f`
+did not inherit its parent tree. Forward-only recovery
+`6301b0ccb06ccec4278e2a2d557da5dc8625015d` restored the full verified parent tree and
+retained only the three intended VC27-94 files; no force-push/history rewrite occurred.
+Recovery HEAD / tree `6301b0ccb06ccec4278e2a2d557da5dc8625015d` /
+`88dea92a321738161d7739600617885fa7264970` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No DD
+semantics, runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209
+authority changed.
