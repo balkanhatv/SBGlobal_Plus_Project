@@ -807,3 +807,15 @@ DD-208/current-audit overlay, and adds A-00 to REPO-007. Correction HEAD
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Architecture contract/ADR semantics, Foundation/DD requirements, runtime, RawSource, migration,
 RLS, role/grant, product requirement or DD-209 change.
+
+## 2026-09-28 — VC27-83 Architecture final-audit projection correction
+
+The semantic file-coverage sweep found `Registers/ARCHITECTURE_FINAL_AUDIT.md` still exposing
+its 2026-09-12 Phase-2 “Development not authorized / next gate Phase 3” boundary as active
+project state. The correction preserves the complete Architecture adversarial/PASS evidence,
+marks that certification boundary historical, adds a DD-208/current-audit overlay, and adds
+the file to REPO-007. Correction HEAD `f322e16abd3c2d21c86059a53f48f5d928930c8c` /
+tree `61cd1159fc50eb0ffc4c25023635c1578143e193` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Architecture HOW/ADR semantics, Foundation/DD requirements, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 change.
