@@ -2549,3 +2549,30 @@ No Detailed Design evidence, Foundation/Architecture contract, runtime, RawSourc
 RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-94 exact-head closure
+
+The first VC27-94 tree-composition commit `43c0b6f1f387638142d9292bc8fae78d55bc207f`
+did not inherit the verified parent tree and temporarily represented the intended three-file
+documentation delta as a tree with the remaining repository paths absent. No force-push or
+history rewrite was used. Forward-only recovery commit
+`6301b0ccb06ccec4278e2a2d557da5dc8625015d` restored the full verified parent tree
+`8413096e43a7f6a119ee7bda0f4c0e1bc2b4db7f` and retained only the three intended
+VC27-94 modifications.
+
+Net diff from the prior verified state is therefore limited to:
+- `DetailedDesign/DD-20H_LEGACY_COMBINED_AUDIT_HISTORY.md`;
+- `tests/core/current-checkpoint-consistency.test.mjs`;
+- `Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`.
+
+Recovery/correction HEAD `6301b0ccb06ccec4278e2a2d557da5dc8625015d` /
+tree `88dea92a321738161d7739600617885fa7264970` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-94 changes only the
+legacy DD-20H evaluated-era/current-project projection and REPO-007 coverage; all Wave-1…3
+audit evidence remains preserved. DD-208 remains current and DD-209 stays locked until
+complete-project audit closure.
