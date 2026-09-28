@@ -1099,3 +1099,17 @@ tree `123dce16749aab060de2cac956507df663d6644f` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Industry/MS count, Wave-3 design conclusion, isolation rule, cross-context contract, runtime,
 RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-104 Architecture no-loss historical PASS projection correction
+
+The semantic file-coverage sweep found `Registers/ARCHITECTURE_NO_LOSS_AUDIT.md` still
+opening with its evaluated 2026-09-12 `Status: PASS` without the active DD-208/project-audit
+overlay. The correction preserves all Phase-1 delta propagation, Architecture invariants,
+contradiction/staleness checks and the substantive PASS result, classifies the PASS as
+historical Phase-2 evidence, adds the current project overlay and adds the file to REPO-007.
+
+Correction HEAD `8f05f31b4ab6e2048a368f8fecbb51b4c8ae0391` /
+tree `0c07e6f7e8089645b36ef312a589864e3c85ec74` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Architecture HOW/ADR conclusion, runtime, RawSource, migration, RLS, role/grant, product
+requirement or DD-209 authority changed.
