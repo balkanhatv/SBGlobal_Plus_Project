@@ -911,3 +911,17 @@ project audit, and adds the file to REPO-007. Correction HEAD
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No source
 ID/text, Foundation/Architecture/DD contract, runtime, RawSource, migration, RLS, role/grant,
 product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-91 DD-27 historical determinism-gate projection correction
+
+The file-coverage sweep found `DetailedDesign/DD-27_41_MS_DETERMINISM_AUDIT.md`
+still presenting its Fable-5 “final certification remains blocked” sequencing gate without a
+current project overlay. Its 984 dimension checks and representative 41-MS determinism evidence
+remain valid; later Phase-3 isolation, ambiguity and adversarial gates passed and governed
+Development advanced through DD-208. The correction preserves all evidence, qualifies the old
+gate as historical, and adds DD-27 to REPO-007. Correction HEAD
+`6bfab7f4b98e6172f55c7d2c9dd4e50364535ba8` / tree
+`9d7979f7bb3090b26fabebccc056a60196f9a051` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No DD
+semantics, runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209
+authority changed.
