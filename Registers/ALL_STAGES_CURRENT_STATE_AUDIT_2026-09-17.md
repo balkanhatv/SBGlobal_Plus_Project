@@ -1,9 +1,14 @@
 # ALL-STAGES CURRENT-STATE DEEP AUDIT — 2026-09-17
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Current project status:** complete-project downstream semantic/file-coverage audit **IN PROGRESS**; DD-208 remains the latest governed Development checkpoint; DD-209 is not authorized.
+
+> This file is preserved as dated historical audit evidence. Its evaluated-era “current”, gate and next-action statements do not override the current project overlay above.
 **Branch:** `docs/architecture-branch-2`  
 **Execution-start HEAD:** `6b0497c1773a2e10c470c0fd2f7ecfe72e439445`  
 **Execution-start tree:** `19d42c7f893022d69e2ef7355afa3d84cba29a92`  
 **Audit control:** `Governing/ULTRA_DEEP_VISION_CENTRIC_ALL_STAGES_CURRENT_STATE_AUDIT_MASTER_PROMPT.md` blob `5a44cc555c52c49632e0788ba5d4995559830a3e`  
-**Status:** CURRENT-SCOPE AUDIT COMPLETE; TARGETED DEVELOPMENT CONTINUATION OPEN
+**Historical evaluated status:** CURRENT-SCOPE AUDIT COMPLETE; TARGETED DEVELOPMENT CONTINUATION OPEN
 
 ## 1. Zero-trust truth freeze
 
@@ -74,7 +79,7 @@ Implemented in the continuation commit prepared by this audit:
 
 The slice adds PLATFORM_GLOBAL role assignment and immutable compiled-permission subject/snapshot persistence with FORCE RLS and least privilege. It deliberately does not create a compiler or evaluator.
 
-## 6. Current gate
+## 6. Historical evaluated gate
 
 **Foundation:** retained certified historical/current baseline; no changed-scope reopening finding.  
 **Architecture:** retained certified historical/current baseline; no changed-scope reopening finding.  
@@ -82,7 +87,7 @@ The slice adds PLATFORM_GLOBAL role assignment and immutable compiled-permission
 **Development:** IN PROGRESS. DD-044 provider/session-security is executable; PLATFORM_GLOBAL PDP persistence prerequisite is the current targeted correction; PDP/ABAC evaluator, compiler, Commercial integration and DD-06 transports remain unfinished.  
 **Production readiness/deployment:** NOT CLAIMED.
 
-## 7. Mandatory post-write validation
+## 7. Historical mandatory post-write validation at this audit boundary
 
 After committing 0035:
 

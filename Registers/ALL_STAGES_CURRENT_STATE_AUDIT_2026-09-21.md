@@ -1,4 +1,9 @@
 # ALL-STAGES CURRENT-STATE AUDIT — 2026-09-21
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Current project status:** complete-project downstream semantic/file-coverage audit **IN PROGRESS**; DD-208 remains the latest governed Development checkpoint; DD-209 is not authorized.
+
+> This file is preserved as dated historical audit evidence. Its evaluated-era “current”, gate and next-action statements do not override the current project overlay above.
 
 **Branch:** `docs/architecture-branch-2`  
 **Execution/audited HEAD:** `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e`  
@@ -50,7 +55,7 @@ The file-by-file inventory is `Registers/ALL_STAGES_FILE_COVERAGE_2026-09-21.md`
 
 **Targeted correction:** synchronize only current DD/Development/State/Checkpoint/Index overlays to the verified `ffe74ed8c3169c77b3a1135e615ae5d07a711e1e` evidence while preserving historical checkpoint sections and all valid implementation work. No RawSource or `main` mutation.
 
-## 7. Current unfinished governed work
+## 7. Historical unfinished governed work at this audit boundary
 The latest feature decision remains **DD-070**. The next safe feature slice is the bounded deterministic **DD-04 precedence stage** over DD-068 baseline + DD-070 prepared adjustments:
 1. PlanVersion baseline;
 2. approved/effective override application;
@@ -59,5 +64,5 @@ The latest feature decision remains **DD-070**. The next safe feature slice is t
 
 Still not claimed: concrete production add-on eligibility business rules, compliance/security restriction inputs, usage-meter target-impact evaluation, Billing/payment/proration producer, Workflow approval producer, broad REST/OpenAPI surface, product UI completion, deployment/production readiness, or public `core.commercial.subscription.changePlan`.
 
-## 8. Audit verdict
+## 8. Historical evaluated audit verdict
 **PASS FOR CURRENT IMPLEMENTED SCOPE AFTER TARGETED STATE/CHECKPOINT SYNCHRONIZATION.** No additional P0/P1 semantic/code/database defect was established by the fresh exact-tree audit. This does not certify unfinished Development or production readiness.

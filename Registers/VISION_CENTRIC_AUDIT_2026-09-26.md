@@ -2266,3 +2266,27 @@ historical Phase-4 next-action/current-project projection and REPO-007 coverage;
 traceability/isolation/determinism evidence is preserved. DD-208 remains current and DD-209
 stays locked until complete-project audit closure.
 
+## 2026-09-28 historical all-stages current-state audit projection continuation
+
+### VC27-87 — P2: three dated ALL_STAGES_CURRENT_STATE_AUDIT records still exposed evaluated-era current gates and next actions
+
+The semantic file-coverage sweep found the 2026-09-13, 2026-09-17 and 2026-09-21
+`ALL_STAGES_CURRENT_STATE_AUDIT` records outside REPO-007. Each remains valuable exact-era
+audit evidence, but its header/status/gate wording still presented the evaluated repository
+state as current. The dated records respectively route continuation to early identity/guard
+Development, PLATFORM_GLOBAL PDP/grammar work, or DD-070 Commercial precedence work rather
+than the later governed DD-208 checkpoint and current complete-project downstream
+semantic/file-coverage audit.
+
+Smallest forward-only correction:
+- preserve every dated finding, exact-head result, inventory count, historical gate and
+  remediation record;
+- add a top current-project overlay naming DD-208 and the verified current executable audit
+  basis;
+- label evaluated-era status/gate/next-action wording explicitly historical;
+- add all three dated audits to REPO-007 so future active-projection drift fails CI.
+
+No historical finding is rewritten as though it never occurred. No Foundation/Architecture/DD
+contract, runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209
+authority changes. Exact-head Core/PostgreSQL/Database/Web verification is required.
+
