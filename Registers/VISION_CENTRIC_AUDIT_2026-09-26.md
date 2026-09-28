@@ -2853,3 +2853,17 @@ No requirement chain/count, Foundation/Architecture/ADR/DD owner, acceptance map
 runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209 authority
 changes. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-102 exact-head closure
+
+Correction HEAD `63b71330c2d90109832e9f2b8a00da86394f6731` /
+tree `5eb505884dfbdcb4157f4745d09b1da2d23872f2` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-102 changes only
+DD-19's active/historical traceability projection and REPO-007 coverage; all requirement
+chains, owner mappings, acceptance links and later DD continuation evidence remain preserved.
+DD-208 remains current and DD-209 stays locked until complete-project audit closure.

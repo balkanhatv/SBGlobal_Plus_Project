@@ -1068,3 +1068,19 @@ tree `7e6b84b1112a7993ff9e4b7599239fc0ad64b512` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No Wave-3 DD
 evidence, isolation result, runtime, RawSource, migration, RLS, role/grant, product requirement
 or DD-209 authority changed.
+
+## 2026-09-28 — VC27-102 DD-19 historical/current traceability projection correction
+
+The semantic file-coverage sweep found `DetailedDesign/DD-19_DETAILED_DESIGN_TRACEABILITY.md`
+still presenting its Phase-3 revalidation status without the active DD-208/project-audit
+overlay and retaining one Fable-5 sentence that routed certification to a Phase-3 final audit
+at the “current substantive HEAD.” The correction preserves every requirement chain, owner,
+acceptance mapping and later DD-188…208 traceability continuation, classifies dated Core and
+session-security sections as evaluated-era evidence, historicalizes only the stale Phase-3
+gate sentence, and adds DD-19 to REPO-007.
+
+Correction HEAD `63b71330c2d90109832e9f2b8a00da86394f6731` /
+tree `5eb505884dfbdcb4157f4745d09b1da2d23872f2` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+requirement chain/count, owner mapping, runtime, RawSource, migration, RLS, role/grant,
+product requirement or DD-209 authority changed.
