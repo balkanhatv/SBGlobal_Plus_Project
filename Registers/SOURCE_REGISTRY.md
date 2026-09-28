@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-COMMERCIAL-VERSION-FLOORS-001`
+**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-GOVERNED-SHAPE-FLOORS-001`
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`
 **Status:** ACTIVE · **Updated:** 2026-09-28
 
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-217 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-218 corrected implementation is exact-head verified; canonical promotion is pending its own exact-head gate. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority
@@ -47,6 +47,6 @@ Governed DD-208 promotion evidence remains `c7825bedc7e96b5010266a42c710e3608672
 
 The current bounded downstream executable audit basis is `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`: **739/739 Core**, **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation is **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed as of 2026-09-28; normal governed forward Development resumes from DD-208 with DD-209 source audit authorized.
 
-Next: after this DD-217 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit the next independently source-complete provisioning integrity prerequisite. Valid-time/source-linkage/commercial authorization/effective provisioning/routing/execution remain locked.
+Next: verify this DD-218 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, close DD-218 state and source-audit the next independently source-complete provisioning integrity step; effective provisioning/routing/execution remain locked.
 
 

@@ -3042,3 +3042,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** ProvisioningSnapshot current/latest/ACTIVE status, valid-time, source linkage, commercial authorization, effective AI provisioning, permission/policy/budget/sensitivity/residency, Provider/model routing and AI execution remain separate.
 
 **Acceptance:** `AIPROVSNAP-COMVER-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-commercial-version-floors.test.mjs`.
+
+
+## DD-218 — ProvisioningSnapshot remaining governed-shape floor
+
+**Context:** migration 0031 independently requires ms/country pack-version JSON object shape, duplicate-free raw API/Model-class text sets and an exact API-class vocabulary. DD-211 and DD-212 already own Provider-id and Capability-id supplied-evidence floors.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotGovernedShapeFloors(snapshot)`. It validates snapshot/Tenant identity shape, both pack maps as non-null non-array objects, API-class dense duplicate-free string-set shape plus exact source vocabulary, and Model-class dense duplicate-free raw-string-set shape.
+
+**Correction:** initial implementation `a43f05c2ae0464e90e20b1c21bb9aae8a90863f5` exposed a malformed literal export separator in `src/core/index.ts`. Forward-only correction `3ec3ecf7b22128459b806a39a22e80f9fa2e7eff` changed only that separator and independently passed the full exact-head gate.
+
+**Boundary:** pack key/value semantics/currentness, API entitlement, Model-class compatibility, snapshot currentness, effective provisioning, routing and AI execution remain separate.
+
+**Acceptance:** `AIPROVSNAP-SHAPE-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-governed-shape-floors.test.mjs`.

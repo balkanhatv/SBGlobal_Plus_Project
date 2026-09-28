@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-COMMERCIAL-VERSION-FLOORS-001`  
+**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-GOVERNED-SHAPE-FLOORS-001`  
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-217 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-218 corrected implementation is exact-head verified; canonical promotion is pending its own exact-head gate. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > The traceability chains and requirement-owner evidence below are preserved. Governed Development subsequently advanced through DD-208. Dated Core/session-security continuation sections describe their evaluated-era boundaries, not current unfinished work. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this file does not define the active project gate.
@@ -544,3 +544,15 @@ DD-216 raw evidence → DD-217 →
 `Registers/DEVELOPMENT_DD217_VERIFICATION_2026-09-28.md`.
 
 This chain claims only exact same-Tenant commercial version equality against supplied DD-216 evidence. Valid-time/source-linkage/authorization/effective provisioning/routing/execution remain separate.
+
+
+## DD-218 — ProvisioningSnapshot remaining governed-shape floor
+
+F-05 + A-07 + DD-09 → migration 0031 ProvisioningSnapshot intrinsic governed-shape predicate →
+`Development/AI_PROVISIONING_SNAPSHOT_GOVERNED_SHAPE_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-218 → `src/core/ai/provisioning-snapshot-governed-shape-floors.ts` →
+`AIPROVSNAP-SHAPE-CUR-001…008` →
+`tests/core/ai-provisioning-snapshot-governed-shape-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD218_VERIFICATION_2026-09-28.md`.
+
+Provider-id and Capability-id binding remain separately governed by DD-211/DD-212. Effective provisioning/runtime authority is not claimed.

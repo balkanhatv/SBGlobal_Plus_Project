@@ -1320,3 +1320,8 @@ DD-217 implements only ProvisioningSnapshot commercial Subscription/EntitlementS
 ## 2026-09-28 — DD-217 canonical promotion verified
 
 Canonical DD-217 promotion `63766ca35b7090d5ceb2506994ba88e8bde8c915` / tree `c9ff420ce21cf9edd97d771cee5f64d72174d281` passed **797/797 Core**, **525/525 PostgreSQL** plus database bootstrap, Database Verify and Web. State closure remains separately exact-head gated. No RawSource, schema, RLS, role/grant, route or product-policy change.
+
+
+## 2026-09-28 — DD-218 canonical promotion staged
+
+DD-218 implements only the remaining intrinsic ProvisioningSnapshot governed-shape floor. Corrected implementation exact-head basis is `3ec3ecf7b22128459b806a39a22e80f9fa2e7eff`. Canonical promotion remains subject to its own exact-head Core/PostgreSQL/Database/Web gate.

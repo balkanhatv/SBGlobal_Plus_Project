@@ -511,3 +511,8 @@ Source audit `90c24e140352c20c0f9ef23af04f0a17982b97cb` / tree `b613db1cf3a4fd88
 ## 2026-09-28 — DD-217 AIProvisioningSnapshot commercial-version equality floor
 
 Source audit `425d3d8f9c0c932b01fff452f4bc71b6e698d1a5` / tree `0083eb21f640d5eef4e593623543f14a6a7edb22` passed **789/789 Core**, **525/525 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `57f86d4b219cdbd59560276d2ed262cf7d22a8e6` / tree `47646d6795893ee0823cf73c58aa908c2d583e5d` passed **797/797 Core**, **525/525 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change. Valid-time/source-linkage/commercial authorization/effective provisioning/routing/execution remain unclaimed.
+
+
+## 2026-09-28 — DD-218 ProvisioningSnapshot governed-shape floor
+
+Source audit `efe72b74dd6d2b9746b2335ba55be1df1bad72ca` / tree `7c1891d8452e07827d976177faa49fbed64c6c65` passed **797/797 Core**, **525/525 PostgreSQL** plus bootstrap, Database Verify and Web. Initial implementation `a43f05c2ae0464e90e20b1c21bb9aae8a90863f5` failed Core/Web because two Core export statements were joined by a literal `\n`. Minimal forward-only correction `3ec3ecf7b22128459b806a39a22e80f9fa2e7eff` / tree `f9d3842b69adf0237120fcd3ea07604d7a173e63` corrected only that separator and passed **805/805 Core**, **525/525 PostgreSQL** plus bootstrap, Database Verify and Web. No schema/RLS/role/grant/route/product-policy change.

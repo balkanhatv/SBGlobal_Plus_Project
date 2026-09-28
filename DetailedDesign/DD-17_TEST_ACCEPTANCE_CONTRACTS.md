@@ -3818,3 +3818,30 @@ Exact maximum PostgreSQL bigint values pass when evidence matches; no numeric co
 
 ### AIPROVSNAP-COMVER-CUR-008 — Unrelated semantics
 Unrelated snapshot/commercial evidence fields remain uninterpreted and inputs remain unchanged.
+
+
+## DD-218 AIProvisioningSnapshot Governed-Shape Acceptance
+
+### AIPROVSNAP-SHAPE-CUR-001 — Valid governed shape
+Valid non-null JSON-object pack maps plus exact duplicate-free API-class and raw Model-class string sets pass.
+
+### AIPROVSNAP-SHAPE-CUR-002 — Pack maps are JSON objects
+Null, array or scalar pack-version values fail; arbitrary nested object content remains uninterpreted.
+
+### AIPROVSNAP-SHAPE-CUR-003 — API-class set shape
+API classes must be an actual dense duplicate-free raw-string array.
+
+### AIPROVSNAP-SHAPE-CUR-004 — Exact API-class vocabulary
+API classes must exactly match INTERNAL_FIRST_PARTY, TENANT_API, PARTNER_API or PUBLIC_DEVELOPER_API; case/whitespace variants fail.
+
+### AIPROVSNAP-SHAPE-CUR-005 — Model-class set shape
+Model classes must be an actual dense duplicate-free raw-string array; no vocabulary or non-empty rule is invented.
+
+### AIPROVSNAP-SHAPE-CUR-006 — Empty governed sets
+Empty API-class and Model-class sets are valid with valid object maps.
+
+### AIPROVSNAP-SHAPE-CUR-007 — Separate Capability/Provider ownership
+Capability-id/Provider-id arrays and unrelated snapshot fields remain uninterpreted by DD-218.
+
+### AIPROVSNAP-SHAPE-CUR-008 — Immutability/no normalization
+Inputs remain unchanged and no trimming, case-folding or default insertion occurs.
