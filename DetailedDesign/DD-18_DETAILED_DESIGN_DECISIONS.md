@@ -3005,3 +3005,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** raw evidence is not authorization/currentness and does not compare a snapshot version, select a primary Industry, validate commercial authority, compose provisioning, route or execute AI.
 
 **Acceptance:** `INDCTX-ACT-PG-001…006` and `tests/postgres/industry-context-activation-store.test.mjs`.
+
+
+## DD-215 — AIProvisioningSnapshot Industry activation-version floor
+
+**Context:** migration 0031's Industry-scoped ProvisioningSnapshot branch requires an exact same-Tenant IndustryContext row with raw status `ACTIVE` and exact persisted `activation_version` equality. DD-214 exposes the exact tuple raw evidence required to re-evaluate this predicate.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotIndustryActivationFloors(snapshot, activation)`. It validates relevant UUIDs and canonical PostgreSQL bigint text, requires exact same Tenant and IndustryContext id, raw status exactly `ACTIVE`, and exact canonical activation-version equality.
+
+**Security / trade-off:** the helper accepts already-supplied exact IndustryContext evidence and does not select current/primary Industry state. Exact canonical-text comparison avoids unsafe JavaScript-number conversion.
+
+**Boundary:** operation authorization, snapshot currentness, commercial version currentness, effective provisioning, permission/policy/budget/sensitivity/residency, Provider/model/API suitability, routing and AI execution remain separate.
+
+**Acceptance:** `AIPROVSNAP-INDVER-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-industry-activation-floors.test.mjs`.

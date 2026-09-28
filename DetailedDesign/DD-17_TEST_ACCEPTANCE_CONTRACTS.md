@@ -3740,3 +3740,30 @@ Reader executes through `sbg_context_bootstrap_ro`, which remains NOBYPASSRLS an
 
 ### INDCTX-ACT-PG-006 — No selection/mutation authority
 Port exposes no list/current/primary/state-transition or mutation method.
+
+
+## DD-215 AIProvisioningSnapshot Industry Activation-Version Acceptance
+
+### AIPROVSNAP-INDVER-CUR-001 — Exact ACTIVE version match
+Exact same-Tenant/same-Industry ACTIVE activation evidence with equal canonical bigint version passes.
+
+### AIPROVSNAP-INDVER-CUR-002 — Industry scope required
+Missing IndustryContext id or missing Industry activation version fails this Industry-scoped predicate.
+
+### AIPROVSNAP-INDVER-CUR-003 — Exact ownership
+Foreign-Tenant or wrong-IndustryContext evidence fails closed.
+
+### AIPROVSNAP-INDVER-CUR-004 — Raw ACTIVE status
+Only raw status exactly `ACTIVE` passes; PENDING/SUSPENDED/DISABLED and malformed/normalized variants fail.
+
+### AIPROVSNAP-INDVER-CUR-005 — Exact version equality
+Stale lower or higher activation versions fail.
+
+### AIPROVSNAP-INDVER-CUR-006 — Relevant shape
+Malformed identities or non-canonical bigint text on either side fail closed.
+
+### AIPROVSNAP-INDVER-CUR-007 — Exact bigint text
+Zero, negative and bigint-boundary canonical strings compare exactly without JavaScript-number conversion.
+
+### AIPROVSNAP-INDVER-CUR-008 — Unrelated semantics
+Unrelated snapshot/evidence fields remain uninterpreted and inputs remain unchanged.

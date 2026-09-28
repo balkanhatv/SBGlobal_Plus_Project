@@ -1290,3 +1290,8 @@ DD-214 adds only the exact Tenant+Industry raw IndustryContext activation eviden
 ## 2026-09-28 — DD-214 canonical promotion verified
 
 Canonical DD-214 promotion `8afc9d34117d777628360ce7e88d531da51e3443` / tree `4715efc674357346aa6bd3c8713f12fe63d7aa9e` passed **781/781 Core**, **518/518 PostgreSQL** plus database bootstrap, Database Verify and Web. The state-closure commit must independently pass the same exact-head gate before DD-215 source audit opens. No RawSource, schema, RLS, role/grant, route or product-policy change.
+
+
+## 2026-09-28 — DD-215 canonical promotion staged
+
+DD-215 implements only the ProvisioningSnapshot exact same-Tenant/same-Industry/raw-ACTIVE/exact activation-version floor using DD-214 evidence. Source-audit and implementation exact-head gates passed at `77ebaaf992767a1713cc296a983bb6933ead9bdd` and `baecbd4956e5c6d97635f4359da608dc67a9ed61`. Canonical promotion remains subject to its own exact-head gate.
