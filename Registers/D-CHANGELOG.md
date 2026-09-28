@@ -1190,3 +1190,20 @@ tree `8959d6d389a4bb313e9f231130785fc91882a744` passed **741/741 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. Existing
 test/build commands were preserved; no runtime, RawSource, migration, RLS, role/grant,
 product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-110 named-KPI coverage historical projection correction
+
+The semantic file-coverage sweep found `DetailedDesign/DD-28_FINAL_NAMED_KPI_COVERAGE.md`
+outside REPO-007. Its 2026-09-12 named KPI → DD-25 mapping and row-level VERIFIED results
+remain evaluated-era Detailed Design evidence, but the file opened with
+`Status: FINAL FABLE KPI REVALIDATION` without the active DD-208/project-audit overlay.
+The correction preserves all KPI rows, contract ids, formula-completeness statements,
+fixture/isolation references and the 165/169 result, historicalizes the dated FINAL/VERIFIED
+projection, explicitly denies current runtime/project certification and adds the file to
+REPO-007.
+
+Correction HEAD `75270e7d24affcc867a5e1c6823724689c5d2423` /
+tree `6060d32af81e49927c437836e0df25db45702fb3` passed **741/741 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No KPI
+contract, formula, acceptance reference, Industry/MS result, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changed.

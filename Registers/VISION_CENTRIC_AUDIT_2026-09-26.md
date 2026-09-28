@@ -3151,3 +3151,19 @@ No KPI contract, formula, acceptance reference, Industry/MS result, requirement,
 RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changes.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-110 exact-head closure
+
+Correction HEAD `75270e7d24affcc867a5e1c6823724689c5d2423` /
+tree `6060d32af81e49927c437836e0df25db45702fb3` passed exact-head:
+- Core **741/741**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable product audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-110 changes only the
+evaluated-era/current-status projection of the named-KPI coverage matrix and REPO-007
+coverage; every KPI row, contract id, formula/fixture/isolation reference and 165/169 result
+remains preserved. DD-208 remains current and DD-209 stays locked until complete-project
+audit closure.
+
