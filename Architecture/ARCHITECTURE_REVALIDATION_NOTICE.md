@@ -1,6 +1,8 @@
 # ARCHITECTURE REVALIDATION NOTICE — PHASE 2 CLOSURE (2026-09-12)
 
-**Current Architecture status:** **FRESH REVALIDATED — PASS** on `docs/architecture-branch-2`.
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Historical Architecture status:** **FRESH REVALIDATED — PASS** on `docs/architecture-branch-2` at the evaluated Phase-2 boundary.
 
 **Upstream Foundation checkpoint:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`  
 **Final substantive Architecture HEAD:** `9453ebb0140670984753cec9e66613475789610b`  
@@ -29,3 +31,8 @@ This statement is the historical Phase-2 boundary. Detailed Design and the final
 
 ## Repository truth
 `main` remains at historical merge commit `3911590ff2020993ce51b32d7b091efd6f5f466f`; no main merge was performed by Phase 2. RawSourceCorpus remained untouched.
+
+## Current project projection — 2026-09-28
+The Phase-2 Architecture revalidation above remains valid historical HOW evidence. Detailed Design and the pre-development gates subsequently completed, and governed Development advanced through **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**.
+
+The independently verified current executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`; active current-state projection corrections through VC27-91 are independently exact-HEAD verified. The complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. Current project truth and continuation are owned by `../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`, `../Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`. This historical Architecture PASS does not establish production readiness, and **DD-209 is not authorized** until the complete-project gate closes.
