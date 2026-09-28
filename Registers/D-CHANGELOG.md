@@ -1275,3 +1275,8 @@ Canonical promotion `6aa205ae3e3d6b1efaa2b3210b5b835cf1e64ea3` / tree `7adfb37fd
 ## 2026-09-28 — DD-213 canonical promotion staged
 
 DD-213 implements only the Tenant-Core null-Industry/null-activation-version floor. Industry-scoped activation-version equality remains separately governed. Canonical promotion is subject to its own exact-head gate.
+
+
+## 2026-09-28 — DD-213 canonical promotion verified
+
+Canonical DD-213 promotion `e48c20e35f5037d78f75e6d761f665a2e8fb6a3c` / tree `c63e34cdcc8a4a88839fcbbff69a41f092b3c0bb` passed **781/781 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. State closure remains subject to its own exact-head gate. Industry-scoped activation-version equality remains blocked until exact persisted IndustryContext activation-version evidence exists.
