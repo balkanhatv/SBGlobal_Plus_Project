@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-CAPABILITY-FLOORS-001`  
+**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CORE-INDUSTRY-VERSION-FLOOR-001`  
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-212 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-213 is implemented and exact-head verified; canonical promotion is pending its own exact-head gate. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > The traceability chains and requirement-owner evidence below are preserved. Governed Development subsequently advanced through DD-208. Dated Core/session-security continuation sections describe their evaluated-era boundaries, not current unfinished work. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this file does not define the active project gate.
@@ -486,3 +486,15 @@ DD-212 → `src/core/ai/provisioning-snapshot-capability-floors.ts` →
 `Registers/DEVELOPMENT_DD212_VERIFICATION_2026-09-28.md`.
 
 This chain claims only exact supplied capability-id → raw-ACTIVE capability + exact code-in-referenced-Tenant-config binding. Broader provisioning/currentness/execution remains separate.
+
+
+## DD-213 — ProvisioningSnapshot Tenant-Core Industry-version floor
+
+F-01 + A-02 + A-07 + DD-02 + DD-09 → migration 0031 ProvisioningSnapshot Tenant-Core scope predicate →
+`Development/AI_PROVISIONING_SNAPSHOT_TENANT_CORE_INDUSTRY_VERSION_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-213 → `src/core/ai/provisioning-snapshot-tenant-core-industry-version-floor.ts` →
+`AIPROVSNAP-TCORE-CUR-001…008` →
+`tests/core/ai-provisioning-snapshot-tenant-core-industry-version-floor.test.mjs` →
+`Registers/DEVELOPMENT_DD213_VERIFICATION_2026-09-28.md`.
+
+Industry-scoped activation-version equality remains deferred until exact persisted activation-version evidence exists.

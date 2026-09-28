@@ -2981,3 +2981,14 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** commercial/Industry currentness, effective provisioning, permission/policy/budget/sensitivity/residency, Provider/model/API suitability, routing and AI execution remain separate.
 
 **Acceptance:** `AIPROVSNAP-CAP-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-capability-floors.test.mjs`.
+
+
+## DD-213 — ProvisioningSnapshot Tenant-Core Industry-version floor
+
+**Context:** migration 0031 requires `industry_activation_version IS NULL` whenever `industry_context_id IS NULL`. The Industry-scoped branch separately reads ACTIVE IndustryContext state and is not source-complete yet at the application evidence layer.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotTenantCoreIndustryVersionFloor(snapshot)`. It validates snapshot/Tenant identities, treats absent IndustryContext as Tenant-Core and rejects any present Industry activation-version value. For a present valid IndustryContext id it returns true only for this narrow floor without interpreting activation-version equality.
+
+**Boundary:** IndustryContext existence/ACTIVE status/version equality, commercial currentness, effective provisioning, routing and AI execution remain separate.
+
+**Acceptance:** `AIPROVSNAP-TCORE-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-tenant-core-industry-version-floor.test.mjs`.

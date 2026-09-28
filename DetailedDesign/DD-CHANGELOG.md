@@ -486,3 +486,8 @@ Source audit `26bedb78ebff417ddf007f5315cecd8ea05c9c20` / tree `b1c2ea947365ae29
 ## 2026-09-28 — DD-212 canonical promotion verified; state closure staged
 
 Canonical promotion `6aa205ae3e3d6b1efaa2b3210b5b835cf1e64ea3` / tree `7adfb37fd9831d5763279129c083d816552bb070` passed **773/773 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. DD-212 state closure now records that exact promotion evidence and remains subject to the closure commit's own exact-head Core/PostgreSQL/Database/Web gate. No RawSource, schema, RLS, role/grant, route or product-policy change.
+
+
+## 2026-09-28 — DD-213 ProvisioningSnapshot Tenant-Core Industry-version floor
+
+Source audit `b3fccf025cab1e46650155f347b716bb6a48cc73` / tree `7b2fa724589caf556739a99ff76a3c4237d9aa60` passed **773/773 Core**, **512/512 PostgreSQL** plus bootstrap, Database Verify and Web. Implementation `99cc21befadd93757a3be79ed81e98015fc53998` / tree `ebfd0c82f58fa4b395f569639f637be9e19db30b` passed **781/781 Core**, **512/512 PostgreSQL** plus bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change.

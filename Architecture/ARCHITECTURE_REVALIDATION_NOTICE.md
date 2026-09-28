@@ -1,8 +1,8 @@
 # ARCHITECTURE REVALIDATION NOTICE — PHASE 2 CLOSURE (2026-09-12)
 
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-CAPABILITY-FLOORS-001`  
+**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CORE-INDUSTRY-VERSION-FLOOR-001`  
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-212 canonical promotion is exact-head verified; this state-closure commit must independently pass before another source audit opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-213 is implemented and exact-head verified; canonical promotion is pending its own exact-head gate. Production readiness is **NOT CLAIMED**.
 **Historical Architecture status:** **FRESH REVALIDATED — PASS** on `docs/architecture-branch-2` at the evaluated Phase-2 boundary.
 
 **Upstream Foundation checkpoint:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`  

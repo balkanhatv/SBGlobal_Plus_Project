@@ -3692,3 +3692,30 @@ Empty snapshot capability set passes only with empty evidence; evidence order is
 
 ### AIPROVSNAP-CAP-CUR-008 — Unrelated semantics
 Unrelated snapshot/Tenant/capability fields remain uninterpreted and inputs remain unchanged.
+
+
+## DD-213 AIProvisioningSnapshot Tenant-Core Industry-Version Acceptance
+
+### AIPROVSNAP-TCORE-CUR-001 — Tenant-Core absence
+Tenant-Core snapshot with no Industry activation version passes.
+
+### AIPROVSNAP-TCORE-CUR-002 — Canonical version forbidden
+Tenant-Core snapshot carrying a canonical activation version fails.
+
+### AIPROVSNAP-TCORE-CUR-003 — Any present version forbidden
+Any non-undefined Tenant-Core Industry activation-version runtime value fails.
+
+### AIPROVSNAP-TCORE-CUR-004 — Industry scope not overclaimed
+Valid IndustryContext id passes this specific floor without proving activation-version equality.
+
+### AIPROVSNAP-TCORE-CUR-005 — IndustryContext identity shape
+Malformed present IndustryContext id fails closed.
+
+### AIPROVSNAP-TCORE-CUR-006 — Snapshot/Tenant identity shape
+Malformed snapshot or Tenant id fails closed.
+
+### AIPROVSNAP-TCORE-CUR-007 — Unrelated semantics
+Unrelated ProvisioningSnapshot fields remain uninterpreted.
+
+### AIPROVSNAP-TCORE-CUR-008 — Immutability/non-selection
+Input remains unchanged and this predicate selects no Industry state.

@@ -1270,3 +1270,8 @@ DD-212 implements only ProvisioningSnapshot allowedCapabilityIds → exact suppl
 ## 2026-09-28 — DD-212 canonical promotion verified; state closure staged
 
 Canonical promotion `6aa205ae3e3d6b1efaa2b3210b5b835cf1e64ea3` / tree `7adfb37fd9831d5763279129c083d816552bb070` passed **773/773 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. DD-212 state closure now records that exact promotion evidence and remains subject to the closure commit's own exact-head Core/PostgreSQL/Database/Web gate. No RawSource, schema, RLS, role/grant, route or product-policy change.
+
+
+## 2026-09-28 — DD-213 canonical promotion staged
+
+DD-213 implements only the Tenant-Core null-Industry/null-activation-version floor. Industry-scoped activation-version equality remains separately governed. Canonical promotion is subject to its own exact-head gate.
