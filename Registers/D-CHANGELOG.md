@@ -783,3 +783,15 @@ adds a 2026-09-28 DD-208/current-audit overlay, and adds F-00 to REPO-007. Corre
 `70a43f53a73e34aca089a3fe19f15872fd69a43a` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No Foundation
 semantics, RawSource, runtime, migration, RLS, role/grant, product requirement or DD-209 change.
+
+## 2026-09-28 — VC27-81 DD-00 active current-project projection correction
+
+The semantic file-coverage sweep found `DetailedDesign/DD-00_DETAILED_DESIGN_OVERVIEW.md`
+still presenting its 2026-09-13 Phase-3 result as CURRENT STATUS and saying Development was
+not yet authorized. The correction preserves all Wave-1/Phase-3 design evidence, relabels that
+status historical, adds a DD-208/current-audit overlay, and adds DD-00 to REPO-007. Correction
+HEAD `21d55a4bd0f0cc85ce5afda55c65d4867761c032` / tree
+`9eb25eb248dd9d043d0f9a96c508e874712c3b1a` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No Detailed
+Design contract, Foundation/Architecture semantics, runtime, RawSource, migration, RLS,
+role/grant, product requirement or DD-209 change.
