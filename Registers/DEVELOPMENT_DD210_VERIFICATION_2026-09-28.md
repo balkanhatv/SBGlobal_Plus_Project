@@ -28,3 +28,14 @@ Database inventory remains **48 migrations / 42 verification files**. No schema,
 A true DD-210 result proves only exact complete supplied same-Tenant ACTIVE activation evidence for the Industry config CountryPack refs. It does not prove current/effective CountryPack selection, CountryPack catalog ACTIVE/currentness, localization/default/reference/tax application, effective AI configuration, AI provisioning, routing or execution authority.
 
 Canonical promotion uses the implementation HEAD above as verified feature evidence. The promotion commit must independently pass exact-head Core/PostgreSQL/Database/Web verification before DD-210 state closure or any next source-audit step opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `794a8348f23085a145ec31780a0ad10c3c0f6c4b` / tree `5ce605ff1d06dd66eec5c25c38230e57b5e45b22` independently passed:
+- Core Service Verify `36397239871`, Core job `108846421209`: **757/757 PASS**, zero failed/skipped.
+- PostgreSQL job `108846421624`: **512/512 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36397239858`, job `108846421127`: PASS with **48 migrations / 42 SQL verification files**.
+- Web Boundary Verify `36397239881`, job `108846421145`: PASS.
+
+This authorizes DD-210 canonical promotion only; this state-closure commit must independently pass the same exact-head gate before another DD/source audit opens.
