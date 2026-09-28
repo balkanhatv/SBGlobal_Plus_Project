@@ -968,3 +968,18 @@ Recovery HEAD / tree `6301b0ccb06ccec4278e2a2d557da5dc8625015d` /
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No DD
 semantics, runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209
 authority changed.
+
+## 2026-09-28 — VC27-95 DD-22H remediation-status projection correction
+
+The file-coverage sweep found `DetailedDesign/DD-22H_STATE_ENUM_DERIVATION_HISTORY.md`
+still labeled `ACTIVE REMEDIATION EVIDENCE` even though DD-29 classifies DD-22H as
+non-authoritative state-derivation history and current workflow authority is DD-22 plus the
+active DD/acceptance owners. The correction preserves every historical transition row,
+relabels the file historical, adds the current DD-208/project-audit overlay and adds DD-22H
+to REPO-007.
+
+Correction HEAD `3700446ff55be8cf665535776371b6f903c9015b` /
+tree `1142d154e318d1c53f39045d167c33981509afbb` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No workflow
+semantics, DD-22 authority, runtime, RawSource, migration, RLS, role/grant, product
+requirement or DD-209 authority changed.
