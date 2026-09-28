@@ -59,6 +59,7 @@ export * from "./config/brand-configuration.js";
 export * from "./config/data-export-request.js";
 export * from "./tenancy/workspace-service.js";
 export * from "./tenancy/org-unit-industry.js";
+export * from "./tenancy/industry-context-activation.js";
 export * from "./identity/roles-query-service.js";
 export * from "./api/core-operation-contracts.js";
 
