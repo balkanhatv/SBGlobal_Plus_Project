@@ -3,7 +3,7 @@
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-INDUSTRY-ACTIVATION-FLOORS-001",
-  "final_verdict": "Complete-project downstream audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-215 canonical promotion 555bd515152712828ca7378eba31c6de9b88484e / tree 291d6d28e64ce0a185acbfe99a44eab731d27dca is exact-head verified at 789 Core / 518 PostgreSQL / 48 migrations / 42 verification files / Web PASS. State closure is pending its own exact-head gate. Effective provisioning, routing and AI execution remain unclaimed. Production readiness is NOT CLAIMED.",
+  "final_verdict": "Complete-project downstream audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-215 state closure 60c80fbec81a0258582fbc592cc7f460603b66ad / tree 78f04672001b9732b4a753280a6ff83fdc64facc is exact-head verified at 789 Core / 518 PostgreSQL / 48 migrations / 42 verification files / Web PASS. DD-216 raw Commercial provisioning-version evidence reader source audit is the only authorized forward step. Production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -1134,13 +1134,25 @@
       "web_run_id": 36436017907,
       "web_job_id": 108974023062,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd215_state_closure_head": "60c80fbec81a0258582fbc592cc7f460603b66ad",
+    "dd215_state_closure_tree": "78f04672001b9732b4a753280a6ff83fdc64facc",
+    "dd215_state_closure_ci": {
+      "core_run_id": 36437895821,
+      "core_job_id": 108980464023,
+      "postgres_job_id": 108980464131,
+      "database_run_id": 36437895775,
+      "database_job_id": 108980463514,
+      "web_run_id": 36437900275,
+      "web_job_id": 108980479717,
+      "result": "PASS_EXACT_STATE_CLOSURE_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD215_STATE_CLOSURE_PENDING",
+    "current_phase": "DEVELOPMENT_DD215_VERIFIED_DD216_SOURCE_AUDIT",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -1189,7 +1201,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "After this DD-215 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit the next independently source-complete provisioning integrity predicate. Effective provisioning, routing and AI execution remain locked.",
+    "next_action": "Verify DD-216 source audit for the minimal same-Tenant raw Commercial provisioning-version evidence reader. Do not compare AIProvisioningSnapshot commercial versions until this reader and its exact-head gate pass.",
     "core_services": {
       "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-INDUSTRY-ACTIVATION-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -1692,7 +1704,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "After this DD-215 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit the next independently source-complete provisioning integrity predicate. Effective provisioning, routing and AI execution remain locked.",
+      "next_action": "Verify DD-216 source audit for the minimal same-Tenant raw Commercial provisioning-version evidence reader. Do not compare AIProvisioningSnapshot commercial versions until this reader and its exact-head gate pass.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1786,7 +1798,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD215_STATE_CLOSURE_PENDING",
+  "current_phase": "DEVELOPMENT_DD215_VERIFIED_DD216_SOURCE_AUDIT",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1823,7 +1835,7 @@
     "verified_code_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
     "source_audit": "Development/AI_PROVISIONING_SNAPSHOT_INDUSTRY_ACTIVATION_VERSION_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "After this DD-215 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit the next independently source-complete provisioning integrity predicate. Effective provisioning, routing and AI execution remain locked.",
+    "next_action": "Verify DD-216 source audit for the minimal same-Tenant raw Commercial provisioning-version evidence reader. Do not compare AIProvisioningSnapshot commercial versions until this reader and its exact-head gate pass.",
     "main_merge": false
   },
   "current_audit_overlay": {
