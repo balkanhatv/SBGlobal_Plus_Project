@@ -1012,3 +1012,17 @@ tree `03386fb290cd602de47d375ba14578840da4546d` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No Wave-2
 DD semantics, runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209
 authority changed.
+
+## 2026-09-28 — VC27-98 DD-29 ambiguity-sweep historical projection correction
+
+The file-coverage sweep found `DetailedDesign/DD-29_FINAL_REVIEW_REQUIRED_SWEEP.md`
+still saying “Current authoritative DD” and exposing its Phase-3 final PASS without the
+active DD-208/project-audit overlay. The correction preserves every ambiguity classification,
+recovered-requirement item and PASS result, qualifies the current-status wording as
+evaluated-era evidence, adds the current project overlay and adds DD-29 to REPO-007.
+
+Correction HEAD `dd13af53d72cc1852054cb592f0141d7985ce036` /
+tree `f3da66c0e8b707b6db702e3ba87efff9faa39b6e` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No DD
+ambiguity result, requirement owner, runtime, RawSource, migration, RLS, role/grant, product
+requirement or DD-209 authority changed.
