@@ -471,3 +471,8 @@ Post-DD-208 and complete-project audit closure, source ownership isolated migrat
 ## 2026-09-28 — DD-210 IndustryAIConfig CountryPack activation floor
 
 Post-DD-209 source ownership isolated migration 0031's IndustryAIConfig CountryPack reference predicate as source-complete from DD-120 + DD-138. Source-audit `f390237c06bd9e60e54feddb29ccd26585be35e3` / tree `154048b6b36397b8e965a9b97b8b4dc1ae13f434` passed **749/749 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `f7cf617e751b7219de1d2391c9818148df74d63a` / tree `4c88357326f66087c4bb2c2bee9f313a774bfaf3` passed **757/757 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change. Catalog currentness, localization/default materialization, effective AI configuration, provisioning, routing and AI execution remain unclaimed.
+
+
+## 2026-09-28 — DD-211 AIProvisioningSnapshot TenantAIConfig binding floor
+
+Post-DD-210 source ownership isolated migration 0031's ProvisioningSnapshot → exact TenantAIConfig version/enabled/Provider-subset predicate as source-complete. Source-audit `ca04ee51110d1fe6f682366ff2cc5b3ebdb3fda0` passed **757/757 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `e15881e2052c51951c1ed103a769d9b7c14ded72` / tree `1381d28796629727ff5d573c82f001323225d6f6` passed **765/765 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change. Capability binding, commercial/Industry currentness, effective provisioning, routing and execution remain unclaimed.

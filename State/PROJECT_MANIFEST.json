@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-INDUSTRY-CONFIG-COUNTRY-PACK-ACTIVATION-FLOORS-001",
-  "final_verdict": "Complete-project downstream semantic/file-coverage/adversarial audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-210 state closure 790a07d583ce433f269b0c8d28ad0441e48a693f / tree 32de3ceddb8c3ab15033d6a49a88b2ef92460348 is exact-head verified at 757 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS. DD-211 source audit is now the only authorized forward step. Production readiness is NOT CLAIMED.",
+  "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CONFIG-FLOORS-001",
+  "final_verdict": "Complete-project downstream semantic/file-coverage/adversarial audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-211 ProvisioningSnapshot → exact supplied same-Tenant TenantAIConfig version/enabled/Provider-subset binding is implemented and exact-head verified at e15881e2052c51951c1ed103a769d9b7c14ded72 / tree 1381d28796629727ff5d573c82f001323225d6f6. Canonical promotion is pending its own exact-head gate. Capability binding, commercial/Industry currentness, effective provisioning, routing and AI execution remain unclaimed. Production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -907,13 +907,36 @@
       "web_run_id": 36397940489,
       "web_job_id": 108848690375,
       "result": "PASS_EXACT_STATE_CLOSURE_HEAD"
+    },
+    "dd211_source_audit_head": "ca04ee51110d1fe6f682366ff2cc5b3ebdb3fda0",
+    "dd211_source_audit_ci": {
+      "core_run_id": 36398332855,
+      "core_job_id": 108849950916,
+      "postgres_job_id": 108849950764,
+      "database_run_id": 36398332862,
+      "database_job_id": 108849950548,
+      "web_run_id": 36398332849,
+      "web_job_id": 108849950248,
+      "result": "PASS_EXACT_SOURCE_AUDIT_HEAD"
+    },
+    "dd211_implementation_head": "e15881e2052c51951c1ed103a769d9b7c14ded72",
+    "dd211_implementation_tree": "1381d28796629727ff5d573c82f001323225d6f6",
+    "dd211_implementation_ci": {
+      "core_run_id": 36398712214,
+      "core_job_id": 108851180612,
+      "postgres_job_id": 108851181005,
+      "database_run_id": 36398712234,
+      "database_job_id": 108851181039,
+      "web_run_id": 36398712274,
+      "web_job_id": 108851180914,
+      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD210_VERIFIED_DD211_SOURCE_AUDIT",
+    "current_phase": "DEVELOPMENT_DD211_PROMOTION_PENDING",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -962,14 +985,14 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify DD-211 source audit for AIProvisioningSnapshot → exact supplied same-Tenant TenantAIConfig version/enabled/Provider-subset binding. Keep snapshot capability, commercial, Industry activation, provisioning effectiveness and AI execution separately governed.",
+    "next_action": "Verify the DD-211 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-211 state and source-audit the separately governed ProvisioningSnapshot capability binding; broader provisioning/execution remain locked.",
     "core_services": {
-      "checkpoint": "DEV-AI-INDUSTRY-CONFIG-COUNTRY-PACK-ACTIVATION-FLOORS-001",
+      "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CONFIG-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–210 bounded implementation",
+      "decision": "DD-040–211 bounded implementation",
       "verified_head": "4dd7138e5a546f608fe5e28e0912d17523e33693",
       "verified_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
       "core_ci_run_id": 36345589360,
@@ -1334,7 +1357,8 @@
         "DD-207 TenantAIConfig duplicate-free exact-id/raw-ACTIVE Provider allowlist binding floor",
         "DD-208 TenantAIConfig Model allowlist current-binding floor",
         "DD-209 IndustryAIConfig supplied same-Tenant TenantAIConfig enabled/capability/provider/model non-widening floor",
-        "DD-210 IndustryAIConfig CountryPack refs exact same-Tenant raw-ACTIVE TenantCountryPackActivation floor"
+        "DD-210 IndustryAIConfig CountryPack refs exact same-Tenant raw-ACTIVE TenantCountryPackActivation floor",
+        "DD-211 AIProvisioningSnapshot exact TenantAIConfig version/enabled/Provider-subset binding floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -1460,7 +1484,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify DD-211 source audit for AIProvisioningSnapshot → exact supplied same-Tenant TenantAIConfig version/enabled/Provider-subset binding. Keep snapshot capability, commercial, Industry activation, provisioning effectiveness and AI execution separately governed.",
+      "next_action": "Verify the DD-211 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-211 state and source-audit the separately governed ProvisioningSnapshot capability binding; broader provisioning/execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1554,7 +1578,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD210_VERIFIED_DD211_SOURCE_AUDIT",
+  "current_phase": "DEVELOPMENT_DD211_PROMOTION_PENDING",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1586,20 +1610,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-COUNTRY-PACK-ACTIVATION-FLOORS-001",
+    "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CONFIG-FLOORS-001",
     "verified_code_head": "4dd7138e5a546f608fe5e28e0912d17523e33693",
     "verified_code_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
-    "source_audit": "Development/AI_INDUSTRY_CONFIG_COUNTRY_PACK_ACTIVATION_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "source_audit": "Development/AI_PROVISIONING_SNAPSHOT_TENANT_CONFIG_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "Verify DD-211 source audit for AIProvisioningSnapshot → exact supplied same-Tenant TenantAIConfig version/enabled/Provider-subset binding. Keep snapshot capability, commercial, Industry activation, provisioning effectiveness and AI execution separately governed.",
+    "next_action": "Verify the DD-211 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-211 state and source-audit the separately governed ProvisioningSnapshot capability binding; broader provisioning/execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-COUNTRY-PACK-ACTIVATION-FLOORS-001",
+    "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CONFIG-FLOORS-001",
     "verified_executable_basis": "4dd7138e5a546f608fe5e28e0912d17523e33693",
     "verified_executable_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "scope": "DD-210 re-evaluates only IndustryAIConfig CountryPack refs → exact supplied same-Tenant raw-ACTIVE TenantCountryPackActivation evidence. It does not establish CountryPack catalog currentness, default/materialization semantics, effective AI configuration, provisioning, routing or execution.",
+    "scope": "DD-211 re-evaluates only AIProvisioningSnapshot → exact supplied same-Tenant TenantAIConfig version/enabled/Provider-subset binding. Snapshot capability binding, commercial/Industry currentness, effective provisioning, routing and AI execution remain outside this checkpoint.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",
       "parents_total": 372,
@@ -1650,36 +1674,36 @@
     "source_requirement_text_reconciliation": "2,962 stable IDs retained; 85 mis-extracted texts restored and 21 provenance aliases explicitly located by VC27-01. Complete atomic no-loss certification remains open."
   },
   "current_feature_verification": {
-    "decision_id": "DD-210",
-    "decision": "DD-210 IndustryAIConfig CountryPack activation floor",
-    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-COUNTRY-PACK-ACTIVATION-FLOORS-001",
-    "verified_head": "f7cf617e751b7219de1d2391c9818148df74d63a",
-    "verified_tree": "4c88357326f66087c4bb2c2bee9f313a774bfaf3",
-    "source_audit": "Development/AI_INDUSTRY_CONFIG_COUNTRY_PACK_ACTIVATION_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-211",
+    "decision": "DD-211 AIProvisioningSnapshot exact TenantAIConfig binding",
+    "checkpoint": "DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CONFIG-FLOORS-001",
+    "verified_head": "e15881e2052c51951c1ed103a769d9b7c14ded72",
+    "verified_tree": "1381d28796629727ff5d573c82f001323225d6f6",
+    "source_audit": "Development/AI_PROVISIONING_SNAPSHOT_TENANT_CONFIG_BINDING_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AIINDCFG-PACK-CUR-001",
-      "AIINDCFG-PACK-CUR-002",
-      "AIINDCFG-PACK-CUR-003",
-      "AIINDCFG-PACK-CUR-004",
-      "AIINDCFG-PACK-CUR-005",
-      "AIINDCFG-PACK-CUR-006",
-      "AIINDCFG-PACK-CUR-007",
-      "AIINDCFG-PACK-CUR-008"
+      "AIPROVSNAP-TENCFG-CUR-001",
+      "AIPROVSNAP-TENCFG-CUR-002",
+      "AIPROVSNAP-TENCFG-CUR-003",
+      "AIPROVSNAP-TENCFG-CUR-004",
+      "AIPROVSNAP-TENCFG-CUR-005",
+      "AIPROVSNAP-TENCFG-CUR-006",
+      "AIPROVSNAP-TENCFG-CUR-007",
+      "AIPROVSNAP-TENCFG-CUR-008"
     ],
     "test_files": [
-      "tests/core/ai-industry-config-country-pack-activation-floors.test.mjs"
+      "tests/core/ai-provisioning-snapshot-tenant-config-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36396614865,
-      "job_id": 108844412517,
-      "tests": 757,
-      "pass": 757,
+      "run_id": 36398712214,
+      "job_id": 108851180612,
+      "tests": 765,
+      "pass": 765,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36396614865,
-      "job_id": 108844412326,
+      "run_id": 36398712214,
+      "job_id": 108851181005,
       "tests": 512,
       "pass": 512,
       "fail": 0,
@@ -1687,17 +1711,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36396614757,
-      "job_id": 108844411579,
+      "run_id": 36398712234,
+      "job_id": 108851181039,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36396614794,
-      "job_id": 108844411789,
+      "run_id": 36398712274,
+      "job_id": 108851180914,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD210_VERIFICATION_2026-09-28.md"
+    "evidence": "Registers/DEVELOPMENT_DD211_VERIFICATION_2026-09-28.md"
   },
   "historical_projection_payloads": {
     "continuation": {

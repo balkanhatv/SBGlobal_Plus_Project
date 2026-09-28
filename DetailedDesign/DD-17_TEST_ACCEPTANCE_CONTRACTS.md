@@ -3638,3 +3638,30 @@ Reference/evidence order does not matter, but every referenced CountryPack still
 
 ### AIINDCFG-PACK-CUR-008 — Unrelated semantics stay uninterpreted
 Industry enabled/other allowlists/domain PromptSet/localization/version/timestamps and activation override/timestamps/rowVersion do not affect this predicate; inputs remain unchanged.
+
+
+## DD-211 AIProvisioningSnapshot TenantAIConfig Binding Acceptance
+
+### AIPROVSNAP-TENCFG-CUR-001 — Exact referenced config
+Exact same-Tenant referenced TenantAIConfig version, enabled state and snapshot Provider subset pass.
+
+### AIPROVSNAP-TENCFG-CUR-002 — Exact version
+TenantAIConfig version mismatch or malformed/non-canonical snapshot TenantAIConfig version text fails closed.
+
+### AIPROVSNAP-TENCFG-CUR-003 — Same-Tenant identities
+Foreign-Tenant or malformed snapshot/config identity evidence fails closed.
+
+### AIPROVSNAP-TENCFG-CUR-004 — Enabled config
+The referenced TenantAIConfig must be strictly enabled; disabled or malformed boolean evidence fails closed.
+
+### AIPROVSNAP-TENCFG-CUR-005 — Provider subset
+Every snapshot Provider id must be an exact member of the referenced TenantAIConfig Provider set. Empty/narrower snapshot sets and wider Tenant sets are valid.
+
+### AIPROVSNAP-TENCFG-CUR-006 — Provider set shape
+Duplicate, malformed, sparse or non-array Provider evidence on either side fails closed.
+
+### AIPROVSNAP-TENCFG-CUR-007 — Order independence
+Provider order does not matter and extra Tenant Provider ids do not fail the subset relationship.
+
+### AIPROVSNAP-TENCFG-CUR-008 — Unrelated semantics
+Snapshot capability/API/model/commercial/Industry/packs/budget/status/validity and Tenant capability/model/policy/sensitivity fields remain uninterpreted; inputs remain unchanged.

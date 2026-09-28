@@ -2955,3 +2955,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-210 does not select current/effective/primary CountryPack, validate CountryPack catalog currentness, apply localization/default/reference/tax semantics, establish Industry activation/entitlement/permission authority, compose effective AI configuration, compile provisioning, route providers/models or execute AI.
 
 **Acceptance:** `AIINDCFG-PACK-CUR-001…008` in DD-17 and `tests/core/ai-industry-config-country-pack-activation-floors.test.mjs`.
+
+
+## DD-211 — AIProvisioningSnapshot exact TenantAIConfig binding
+
+**Context:** migration 0031 selects `core_ai.tenant_ai_config` by the ProvisioningSnapshot's exact Tenant and persisted `tenant_ai_config_version`, rejects missing/disabled config, and rejects snapshot Provider ids outside that Tenant config Provider allowlist. The trigger separately owns capability-id validation, which remains outside DD-211.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotTenantConfigFloors(snapshot, tenantConfig)`. It validates relevant identities/version/provider-set shapes, requires exact same Tenant and exact referenced positive config version, requires the supplied config to be enabled, and enforces snapshot Provider subset membership.
+
+**Security / trade-off:** the helper accepts already-supplied exact-version evidence and does not select current/latest TenantAIConfig. Matching the persisted version reference is not proof that the config or snapshot is current/effective now.
+
+**Boundary:** DD-211 does not validate snapshot capability ids, current Subscription/Entitlement/Industry activation, snapshot status/validity, effective Tenant+Industry configuration, budget/policy/permission, Provider runtime suitability, routing or AI execution.
+
+**Acceptance:** `AIPROVSNAP-TENCFG-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-tenant-config-floors.test.mjs`.
