@@ -1,5 +1,6 @@
 # DD CHECKPOINT — PHASE3-DD-REVALIDATED
 **Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`
 **Updated:** 2026-09-27 · **Branch:** `docs/architecture-branch-2`
 
 > **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED** through VC27-111 with all recorded current findings verified and open current-scope P0/P1 = 0. DD-208 remains the latest implemented checkpoint; DD-209 source audit is authorized as the next governed Development step. Production readiness is **NOT CLAIMED**.
