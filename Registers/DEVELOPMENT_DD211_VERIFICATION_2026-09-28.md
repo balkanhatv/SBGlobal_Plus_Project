@@ -28,3 +28,14 @@ Database inventory remains **48 migrations / 42 verification files**. No schema,
 A true DD-211 result proves only that the supplied TenantAIConfig matches the snapshot's Tenant/version reference, is enabled, and contains the snapshot Provider allowlist. It does not prove snapshot current/effective status, capability validity, commercial/Industry currentness, effective provisioning, routing or AI execution.
 
 Canonical promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-211 state closure or DD-212 source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `6b931ad919d024b27ea5e576ffcceb7afca5fc58` / tree `d7a1699ee139067818e25dcc435d195d06e8f83c` independently passed:
+- Core Service Verify `36399538209`, Core job `108853860275`: **765/765 PASS**, zero failed/skipped.
+- PostgreSQL job `108853860090`: **512/512 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36399538224`, job `108853859895`: PASS with **48 migrations / 42 SQL verification files**.
+- Web Boundary Verify `36399538215`, job `108853860031`: PASS.
+
+This authorizes DD-211 canonical promotion only; this state-closure commit must independently pass the same exact-head gate before DD-212 opens.
