@@ -1930,3 +1930,17 @@ No Foundation/Architecture/DD contract, runtime behavior, RawSource, migration, 
 role/grant, product requirement or DD-209 authority changes. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-78 exact-head closure
+
+Correction HEAD `93b13d39505d1aa58bc346fd9d584a504761c3d6` /
+tree `f6ea6a007f28be5358ec49070420fd4f90ad4dec` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-78 changes only
+DD-20's active current-project overlay and REPO-007 coverage; historical Phase-3 audit
+evidence is preserved. DD-208 remains current and DD-209 stays locked until complete-project
+audit closure.

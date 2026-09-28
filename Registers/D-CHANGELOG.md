@@ -744,3 +744,17 @@ historical evidence with explicit labels, and adds the matrix to REPO-007. Corre
 `ef943415e6521f95f9230115c29d14d7caae2023` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No runtime,
 RawSource, migration, RLS, role/grant, product requirement or DD-209 change.
+
+## 2026-09-28 — VC27-78 DD-20 active project-overlay correction
+
+The semantic file-coverage sweep found `DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md`
+still presenting the historical Phase-3 READY FOR FINAL PRE-DEVELOPMENT GATE result as the
+active overlay and routing current project truth to the dated 2026-09-13 all-stages audit.
+The correction preserves every Phase-3 audit/result row, adds the DD-208 current checkpoint
+and verified current executable basis, labels the Phase-3 readiness verdict historical, routes
+current truth to the active vision/runtime audits plus project manifest, and adds DD-20 to
+REPO-007. Correction HEAD `93b13d39505d1aa58bc346fd9d584a504761c3d6` /
+tree `f6ea6a007f28be5358ec49070420fd4f90ad4dec` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Foundation/Architecture/DD contract, runtime, RawSource, migration, RLS, role/grant, product
+requirement or DD-209 change.
