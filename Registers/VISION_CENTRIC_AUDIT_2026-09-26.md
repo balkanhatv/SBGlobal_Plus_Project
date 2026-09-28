@@ -3127,3 +3127,27 @@ executable product audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693
 tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. DD-208 remains current and
 DD-209 stays locked until complete-project audit closure.
 
+## 2026-09-28 historical named-KPI coverage projection continuation
+
+### VC27-110 — P2: DD-28 named-KPI FINAL/VERIFIED matrix remained outside active checkpoint projection coverage
+
+The semantic file-coverage sweep found `DetailedDesign/DD-28_FINAL_NAMED_KPI_COVERAGE.md`
+outside REPO-007. Its 2026-09-12 named KPI → DD-25 contract mapping, fixture/isolation test
+references and 165/169 coverage result remain useful evaluated-era Detailed Design evidence,
+but the file still opened with `Status: FINAL FABLE KPI REVALIDATION` and row-level
+`VERIFIED` labels without the active DD-208 / executable-audit / still-open project-gate
+overlay.
+
+Smallest forward-only correction:
+- preserve every KPI row, contract id, formula-completeness statement, fixture/isolation
+  reference and 165/169 result;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- classify the dated FINAL/VERIFIED labels as historical/evaluated-era evidence;
+- explicitly state that the matrix does not certify current runtime KPI implementation or
+  current project completion;
+- add the file to REPO-007 so future active-projection drift fails CI.
+
+No KPI contract, formula, acceptance reference, Industry/MS result, requirement, runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changes.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+

@@ -1,6 +1,10 @@
 # DD-28 — FINAL NAMED-KPI COVERAGE MATRIX
-**Date:** 2026-09-12 · **Status:** FINAL FABLE KPI REVALIDATION
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Date:** 2026-09-12 · **Historical status:** FINAL FABLE KPI REVALIDATION
 **Method:** independently extracted KPI/report metric names from all nine canonical industry/MS DD files and mapped each to stable DD-25 contract IDs. Composite labels map to each required underlying KPI rather than being accepted by fuzzy name alone.
+
+> **Current qualification (2026-09-28):** this matrix is preserved as evaluated-era Detailed Design KPI coverage evidence. The row-level VERIFIED labels and the historical “FINAL” status certify only the named-KPI-to-DD-25 mapping reviewed in that snapshot; they do not certify current runtime KPI implementation, current project completion, or the active Development gate. DD-208 remains the latest governed checkpoint, the complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**, and DD-209 is not authorized.
 
 | MS | Named KPI / metric in canonical industry DD | KPI contract ID(s) | Formula contract completeness | Fixture test | Isolation test | Result |
 |---|---|---|---|---|---|---|

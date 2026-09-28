@@ -45,6 +45,7 @@ const projections = [
   "DetailedDesign/DD-20H_LEGACY_COMBINED_AUDIT_HISTORY.md",
   "DetailedDesign/DD-22H_STATE_ENUM_DERIVATION_HISTORY.md",
   "DetailedDesign/DD-27_41_MS_DETERMINISM_AUDIT.md",
+  "DetailedDesign/DD-28_FINAL_NAMED_KPI_COVERAGE.md",
   "DetailedDesign/DD-29_FINAL_REVIEW_REQUIRED_SWEEP.md",
   "DetailedDesign/DD-30_FINAL_REQUIREMENT_TRACEABILITY_AUDIT.md",
   "DetailedDesign/DD-31_FINAL_DEVELOPMENT_QA_DETERMINISM.md",
