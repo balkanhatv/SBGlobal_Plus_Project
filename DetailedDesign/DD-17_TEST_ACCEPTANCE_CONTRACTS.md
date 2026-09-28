@@ -3719,3 +3719,24 @@ Unrelated ProvisioningSnapshot fields remain uninterpreted.
 
 ### AIPROVSNAP-TCORE-CUR-008 — Immutability/non-selection
 Input remains unchanged and this predicate selects no Industry state.
+
+
+## DD-214 IndustryContext Activation Raw Reader Acceptance
+
+### INDCTX-ACT-PG-001 — Exact tuple evidence
+Exact owning Tenant+Industry tuple returns frozen id/Tenant/status/exact bigint activationVersion evidence.
+
+### INDCTX-ACT-PG-002 — Tenant tuple isolation
+Same IndustryContext id with a foreign Tenant tuple returns null.
+
+### INDCTX-ACT-PG-003 — Raw lifecycle/version preservation
+ACTIVE/PENDING/SUSPENDED/DISABLED statuses and max/zero/negative bigint activation versions remain raw where physically persisted.
+
+### INDCTX-ACT-PG-004 — Missing/malformed handling
+Missing well-formed tuple returns null; malformed Tenant or Industry id fails closed before SQL.
+
+### INDCTX-ACT-PG-005 — Fixed bootstrap privilege boundary
+Reader executes through `sbg_context_bootstrap_ro`, which remains NOBYPASSRLS and SELECT-only for IndustryContext.
+
+### INDCTX-ACT-PG-006 — No selection/mutation authority
+Port exposes no list/current/primary/state-transition or mutation method.

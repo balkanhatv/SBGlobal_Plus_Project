@@ -2992,3 +2992,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** IndustryContext existence/ACTIVE status/version equality, commercial currentness, effective provisioning, routing and AI execution remain separate.
 
 **Acceptance:** `AIPROVSNAP-TCORE-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-tenant-core-industry-version-floor.test.mjs`.
+
+
+## DD-214 — Exact IndustryContext activation raw reader
+
+**Context:** migration 0031's Industry-scoped ProvisioningSnapshot branch compares persisted `industry_activation_version` against ACTIVE `core_tenancy.industry_context.activation_version`, but DD-057's general IndustryContext projection deliberately omits activationVersion. Migration 0041 already owns a SELECT-only NOBYPASSRLS bootstrap role over the IndustryContext directory.
+
+**Decision:** add `IndustryContextActivationReadPort.loadExact({tenantId, industryContextId})` and concrete `PostgresIndustryContextActivationStore`. The reader requires an exact Tenant+Industry tuple, returns only immutable id/Tenant/raw status/exact bigint activationVersion evidence, and uses the existing `PostgresContextBootstrapDatabase` boundary.
+
+**Security / trade-off:** the bootstrap role intentionally sees directory rows pre-context; therefore the application reader never offers unscoped by-id or list/current/primary APIs. No new privilege, policy or schema is introduced.
+
+**Boundary:** raw evidence is not authorization/currentness and does not compare a snapshot version, select a primary Industry, validate commercial authority, compose provisioning, route or execute AI.
+
+**Acceptance:** `INDCTX-ACT-PG-001…006` and `tests/postgres/industry-context-activation-store.test.mjs`.

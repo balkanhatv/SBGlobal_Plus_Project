@@ -1,20 +1,20 @@
 # DD PHASE STATE
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CORE-INDUSTRY-VERSION-FLOOR-001`
+**Current checkpoint:** `DEV-INDUSTRY-CONTEXT-ACTIVATION-RAW-READ-001`
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`
 **Updated:** 2026-09-28 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-213 canonical promotion is exact-head verified; this state-closure commit must independently pass before the next source audit opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-214 is implemented and exact-head verified; canonical promotion is pending its own exact-head gate. Production readiness is **NOT CLAIMED**.
 
 
-DD-213 re-evaluates only the ProvisioningSnapshot Tenant-Core scope floor: absent IndustryContext requires absent IndustryActivationVersion. Industry-scoped activation-version equality and broader provisioning/runtime authority remain separate.
+DD-214 adds only an exact `(tenantId, industryContextId)` raw IndustryContext activation evidence reader returning id/Tenant/raw status/exact bigint activationVersion through the existing SELECT-only context-bootstrap boundary. Snapshot activation-version equality and all authorization/runtime semantics remain outside this checkpoint.
 
-Verified canonical DD-213 promotion `e48c20e35f5037d78f75e6d761f665a2e8fb6a3c` / tree `c63e34cdcc8a4a88839fcbbff69a41f092b3c0bb`: **781/781 Core**, **512/512 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36406021885` (jobs `108874830532`, `108874830285`), Database `36406021997` (job `108874830658`), Web `36406021940` (job `108874830523`).
+Verified DD-214 implementation basis `95f2d2a995bb9e08b15a750cd9ee33f540907afc` / tree `476d6b7248e763e38d764cff5b930a9ec66e5e42`: **781/781 Core**, **518/518 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36408356074` (jobs `108882368829`, `108882369182`), Database `36408356050` (job `108882368928`), Web `36408356201` (job `108882369979`).
 
-DD-213 decision/acceptance/traceability are canonically promoted and the promotion HEAD is exact-head verified. This state-closure commit must pass its own Core/PostgreSQL/Database/Web gate before another DD/source audit opens.
+DD-214 decision/acceptance/traceability are canonically promoted in the current metadata change. The verified implementation basis is the HEAD above; this promotion HEAD must independently pass Core/PostgreSQL/Database/Web before another source audit opens.
 
-Evidence: `Registers/DEVELOPMENT_DD213_VERIFICATION_2026-09-28.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+Evidence: `Registers/DEVELOPMENT_DD214_VERIFICATION_2026-09-28.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: after this DD-213 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit the minimal exact `(tenantId, industryContextId)` raw IndustryContext activation-version evidence reader prerequisite. Do not implement Industry-scoped activation-version equality before that reader is independently verified.
+Next: verify this DD-214 canonical promotion HEAD with Core/PostgreSQL/Database/Web. Only after PASS, close DD-214 state and source-audit ProvisioningSnapshot Industry-scoped activation-version equality using the newly verified raw evidence reader.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
@@ -22,7 +22,7 @@ Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962
 
 The following evidence retains its original baseline and does not override the current checkpoint above.
 
-**Date:** 2026-09-25 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CORE-INDUSTRY-VERSION-FLOOR-001`
+**Date:** 2026-09-25 · **Historical DD checkpoint:** `PHASE3-DD-REVALIDATED` · **Current Development overlay:** `DEV-INDUSTRY-CONTEXT-ACTIVATION-RAW-READ-001`
 
 - Foundation: **FRESH RECONCILED — PASS**.
 - Architecture: **FRESH REVALIDATED — PASS**.

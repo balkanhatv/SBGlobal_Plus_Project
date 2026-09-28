@@ -1,7 +1,7 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CORE-INDUSTRY-VERSION-FLOOR-001`  
+**Current checkpoint:** `DEV-INDUSTRY-CONTEXT-ACTIVATION-RAW-READ-001`  
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-213 canonical promotion is exact-head verified; this state-closure commit must independently pass before the next source audit opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-214 is implemented and exact-head verified; canonical promotion is pending its own exact-head gate. Production readiness is **NOT CLAIMED**.
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 

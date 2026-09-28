@@ -491,3 +491,8 @@ Canonical promotion `6aa205ae3e3d6b1efaa2b3210b5b835cf1e64ea3` / tree `7adfb37fd
 ## 2026-09-28 — DD-213 ProvisioningSnapshot Tenant-Core Industry-version floor
 
 Source audit `b3fccf025cab1e46650155f347b716bb6a48cc73` / tree `7b2fa724589caf556739a99ff76a3c4237d9aa60` passed **773/773 Core**, **512/512 PostgreSQL** plus bootstrap, Database Verify and Web. Implementation `99cc21befadd93757a3be79ed81e98015fc53998` / tree `ebfd0c82f58fa4b395f569639f637be9e19db30b` passed **781/781 Core**, **512/512 PostgreSQL** plus bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change.
+
+
+## 2026-09-28 — DD-214 IndustryContext activation raw reader
+
+Source audit `04a239095dda9536ad79189cd0709e899aee4458` / tree `76a0ab23e605257b62a5e62419030e13ae181f9a` passed **781/781 Core**, **512/512 PostgreSQL** plus bootstrap, Database Verify and Web. Implementation `95f2d2a995bb9e08b15a750cd9ee33f540907afc` / tree `476d6b7248e763e38d764cff5b930a9ec66e5e42` passed **781/781 Core**, **518/518 PostgreSQL** plus bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change.

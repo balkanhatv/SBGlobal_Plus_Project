@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-TENANT-CORE-INDUSTRY-VERSION-FLOOR-001`  
+**Current checkpoint:** `DEV-INDUSTRY-CONTEXT-ACTIVATION-RAW-READ-001`  
 **Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-213 canonical promotion is exact-head verified; this state-closure commit must independently pass before the next source audit opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-214 is implemented and exact-head verified; canonical promotion is pending its own exact-head gate. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > The traceability chains and requirement-owner evidence below are preserved. Governed Development subsequently advanced through DD-208. Dated Core/session-security continuation sections describe their evaluated-era boundaries, not current unfinished work. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this file does not define the active project gate.
@@ -498,3 +498,14 @@ DD-213 → `src/core/ai/provisioning-snapshot-tenant-core-industry-version-floor
 `Registers/DEVELOPMENT_DD213_VERIFICATION_2026-09-28.md`.
 
 Industry-scoped activation-version equality remains deferred until exact persisted activation-version evidence exists.
+
+
+## DD-214 — IndustryContext activation raw reader
+
+F-01 + A-02 + A-07 + DD-02 + DD-09 → migration 0001 IndustryContext + migration 0041 context-bootstrap read boundary + migration 0031 activation-version consumer →
+`Development/INDUSTRY_CONTEXT_ACTIVATION_RAW_PERSISTENCE_READER_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-214 → `src/core/tenancy/industry-context-activation.ts` + `src/server/tenancy/postgres-industry-context-activation-store.ts` →
+`INDCTX-ACT-PG-001…006` → `tests/postgres/industry-context-activation-store.test.mjs` →
+`Registers/DEVELOPMENT_DD214_VERIFICATION_2026-09-28.md`.
+
+This chain proves only exact raw persisted activation evidence. ProvisioningSnapshot Industry activation-version equality remains a separate next predicate.
