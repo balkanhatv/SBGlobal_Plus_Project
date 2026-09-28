@@ -1714,7 +1714,8 @@ verification is required before promoting VC27-73 as current.
 ### VC27-74 — P1: REPO-007 conflated DD-208 feature evidence with the later current audit executable basis
 
 VC27-73 correctly advanced active manifest continuation/current-audit fields to the verified
-VC27-70 downstream executable basis. Exact-head Core then failed REPO-007 because that
+VC27-70 downstream executable basis `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree
+`33ea828f05b2b8014b4c75401822cde89aa3ee70`. Exact-head Core then failed REPO-007 because that
 repository invariant still required every active current verified SHA/tree to equal
 `current_feature_verification`, whose purpose is specifically to preserve the latest governed
 feature decision DD-208 and its original feature verification evidence.
