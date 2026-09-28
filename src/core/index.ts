@@ -155,6 +155,7 @@ export * from "./ai/provisioning-snapshot-tenant-core-industry-version-floor.js"
 export * from "./ai/provisioning-snapshot-industry-activation-floors.js";
 export * from "./ai/provisioning-snapshot-commercial-version-floors.js";
 export * from "./ai/provisioning-snapshot-governed-shape-floors.js";
+export * from "./ai/provisioning-snapshot-lifecycle-validity-floors.js";
 export * from "./ai/media-request.js";
 export * from "./ai/media-request-capability-binding-floors.js";
 export * from "./ai/media-request-prompt-template-binding-floors.js";
