@@ -3,7 +3,7 @@
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001",
-  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable correction basis 3a6849cd7a10e400674f9d5c80f5d052243868b2 / tree 9372a4c5e5137033fb8bd00cf53c87dce20f5e25 is exact-HEAD verified at 738 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-69 exact Clerk session creation-time hardening. Complete-project downstream canonical/state/Development/Database/CI/adversarial audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
+  "final_verdict": "Parent-source semantic reconciliation is complete (372/372 owner-reconciled; 0 NOT_CERTIFIED). Current bounded downstream executable correction basis 4dd7138e5a546f608fe5e28e0912d17523e33693 / tree 33ea828f05b2b8014b4c75401822cde89aa3ee70 is exact-HEAD verified at 739 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS after VC27-70 Core-authoritative SessionVersion projection hardening. Complete-project downstream canonical/state/Development/Database/CI/adversarial audit remains IN PROGRESS; forward development held at DD-208 and production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -796,20 +796,20 @@
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
     "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
-    "current_downstream_verified_head": "3a6849cd7a10e400674f9d5c80f5d052243868b2",
-    "current_downstream_verified_tree": "9372a4c5e5137033fb8bd00cf53c87dce20f5e25",
+    "current_downstream_verified_head": "4dd7138e5a546f608fe5e28e0912d17523e33693",
+    "current_downstream_verified_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
     "current_downstream_verified_ci": {
-      "core_run_id": 36345006013,
-      "core_job_id": 108692306435,
-      "core_pass": 738,
-      "postgres_job_id": 108692306313,
+      "core_run_id": 36345589360,
+      "core_job_id": 108693972942,
+      "core_pass": 739,
+      "postgres_job_id": 108693972814,
       "postgres_pass": 512,
-      "database_run_id": 36345005963,
-      "database_job_id": 108692306239,
+      "database_run_id": 36345589356,
+      "database_job_id": 108693972825,
       "database_migrations": 48,
       "database_verification_files": 42,
-      "web_run_id": 36345005959,
-      "web_job_id": 108692306061,
+      "web_run_id": 36345589340,
+      "web_job_id": 108693972758,
       "result": "PASS_EXACT_CORRECTION_HEAD"
     }
   },
@@ -2373,7 +2373,7 @@
     ],
     "remaining_gate": "Full semantic file coverage and cross-layer/adversarial reconciliation remain incomplete; no global clean verdict.",
     "continuation_report": "Registers/SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md",
-    "continuation_status": "DOWNSTREAM_CLERK_SESSION_TIME_EXACTNESS_VERIFIED_AUDIT_IN_PROGRESS",
+    "continuation_status": "DOWNSTREAM_CORE_AUTHORITATIVE_SESSION_VERSION_VERIFIED_AUDIT_IN_PROGRESS",
     "source_reading": "S1_AND_S2_COMPLETE_TEXT_READ; 372/372 SOURCE PARENTS OWNER_RECONCILED; DOWNSTREAM CANONICAL/STATE/RUNTIME SEMANTIC CERTIFICATION PENDING",
     "source_span_coverage": "Registers/SOURCE_SPAN_COVERAGE_2026-09-27.json",
     "additional_findings": {
@@ -2445,7 +2445,8 @@
       "VC27-66": "P1 SessionSecurityService trusted returned device identity/status without independently revalidating exact device/principal/Tenant binding or closed trusted status",
       "VC27-67": "P1 malformed or precision-unsafe current SessionVersion evidence could bypass stale-session invalidation or enter RequestContext",
       "VC27-68": "P2 first-party POST Content-Type prefix check accepted non-JSON media types beginning with application/json",
-      "VC27-69": "P1 Clerk provider session creation evidence accepted finite but non-integral or precision-unsafe timestamps before stale-session comparison"
+      "VC27-69": "P1 Clerk provider session creation evidence accepted finite but non-integral or precision-unsafe timestamps before stale-session comparison",
+      "VC27-70": "P1 provider/identity sessionVersion could fill a missing current Core SessionVersion in human RequestContext"
     },
     "source_fidelity_correction_head": "ea371dd1cf11666293b669acc80ab29d3e91ae9f",
     "source_fidelity_correction_tree": "327e3aa93088d3eec09a0150b89b29325953ee98",
@@ -2476,7 +2477,7 @@
       "SUPERSEDED_WITH_AUTHORITY": 8
     },
     "source_fidelity_remaining_gate": "Source-parent semantic reconciliation is complete at 372/372 owner-reconciled parents with 0 NOT_CERTIFIED. Remaining gate is downstream canonical/state/Development/Database/CI consistency plus adversarial reconciliation; parent counts/provenance do not certify runtime or complete-project correctness.",
-    "final_sync_gate": "Current bounded downstream executable correction basis 3a6849cd7a10e400674f9d5c80f5d052243868b2 / tree 9372a4c5e5137033fb8bd00cf53c87dce20f5e25 is exact-head verified: Core 738/738, PostgreSQL 512/512, Database 48 migrations / 42 verification files, Web PASS. VC27-69 exact Clerk session creation-time correction is included; prior VC27-30…68 corrections remain preserved. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
+    "final_sync_gate": "Current bounded downstream executable correction basis 4dd7138e5a546f608fe5e28e0912d17523e33693 / tree 33ea828f05b2b8014b4c75401822cde89aa3ee70 is exact-head verified: Core 739/739, PostgreSQL 512/512, Database 48 migrations / 42 verification files, Web PASS. VC27-70 Core-authoritative SessionVersion projection is included; prior VC27-30…69 corrections remain preserved. DD-208 remains latest governed checkpoint; complete-project downstream audit remains open.",
     "additional_findings_corrections_applied": [
       "VC27-01",
       "VC27-02",
@@ -2532,7 +2533,8 @@
       "VC27-66",
       "VC27-67",
       "VC27-68",
-      "VC27-69"
+      "VC27-69",
+      "VC27-70"
     ],
     "architecture_state_sync": {
       "head": "5e27fa41cb1fc2099d6033157589a3cf5ebeaeee",
@@ -2749,25 +2751,26 @@
           "VC27-66",
           "VC27-67",
           "VC27-68",
-          "VC27-69"
+          "VC27-69",
+          "VC27-70"
         ],
-        "head": "3a6849cd7a10e400674f9d5c80f5d052243868b2",
-        "tree": "9372a4c5e5137033fb8bd00cf53c87dce20f5e25",
+        "head": "4dd7138e5a546f608fe5e28e0912d17523e33693",
+        "tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
         "ci": {
-          "core_run": 36345006013,
-          "core_job": 108692306435,
-          "core_pass": 738,
-          "postgres_job": 108692306313,
+          "core_run": 36345589360,
+          "core_job": 108693972942,
+          "core_pass": 739,
+          "postgres_job": 108693972814,
           "postgres_pass": 512,
-          "database_run": 36345005963,
-          "database_job": 108692306239,
+          "database_run": 36345589356,
+          "database_job": 108693972825,
           "database_migrations": 48,
           "database_verification_files": 42,
-          "web_run": 36345005959,
-          "web_job": 108692306061,
+          "web_run": 36345589340,
+          "web_job": 108693972758,
           "result": "PASS_EXACT_CURRENT_BOUNDED_HEAD"
         },
-        "boundary": "Fail-closed REST/Webhook/Document trust floors, exact machine/session/scope evidence, strict malformed-instant rejection, governed rate/idempotency/web-edge behavior, exact provider-session time evidence and current bounded AI/Workflow/Notification relationship floors only. Dedicated cross-context transfer execution, presented-token/hash/CIDR/profile/use-audit/final machine evidence, final external REST publication, webhook delivery, Integration/provider/sync execution, Workflow/Automation/Notification execution, final Document ACL authorization/signing/retention, AI provider/tool execution and other source-incomplete surfaces remain blocked."
+        "boundary": "Fail-closed downstream trust floors and verified targeted corrections through VC27-70 only. Human sessionVersion is Core-authoritative; provider/identity metadata cannot substitute current Core truth. Dedicated cross-context transfer execution, presented-token/hash/CIDR/profile/use-audit/final machine evidence, final external REST publication, webhook delivery, Integration/provider/sync execution, Workflow/Automation/Notification execution, final Document ACL authorization/signing/retention, AI provider/tool execution and other source-incomplete surfaces remain blocked."
       }
     }
   }
