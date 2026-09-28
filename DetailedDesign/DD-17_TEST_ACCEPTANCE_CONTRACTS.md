@@ -3791,3 +3791,30 @@ Malformed or unsupported contexts fail closed and RequestScopedSql/RLS prevents 
 
 ### COMPROVVER-PG-007 — Read-only bounded authority
 The port exposes no list/latest/mutation/compile/authorize authority and returned evidence is immutable.
+
+
+## DD-217 AIProvisioningSnapshot Commercial-Version Equality Acceptance
+
+### AIPROVSNAP-COMVER-CUR-001 — Exact commercial versions
+Exact same-Tenant complete current-Subscription and raw-CURRENT EntitlementSnapshot version evidence matching the snapshot passes.
+
+### AIPROVSNAP-COMVER-CUR-002 — Identity isolation
+Foreign-Tenant or malformed snapshot/evidence identities fail closed.
+
+### AIPROVSNAP-COMVER-CUR-003 — Current Subscription evidence completeness
+Missing or incomplete current-Subscription id/version evidence fails closed.
+
+### AIPROVSNAP-COMVER-CUR-004 — CURRENT entitlement evidence completeness
+Missing or incomplete raw-CURRENT EntitlementSnapshot id/version evidence fails closed.
+
+### AIPROVSNAP-COMVER-CUR-005 — Subscription version equality
+Subscription version mismatch or malformed/non-canonical/out-of-range PostgreSQL bigint text fails closed; signed and zero values remain representable where schema-owned.
+
+### AIPROVSNAP-COMVER-CUR-006 — EntitlementSnapshot version equality
+EntitlementSnapshot version mismatch or non-positive/malformed/non-canonical/out-of-range PostgreSQL bigint text fails closed.
+
+### AIPROVSNAP-COMVER-CUR-007 — Bigint fidelity
+Exact maximum PostgreSQL bigint values pass when evidence matches; no numeric coercion is used.
+
+### AIPROVSNAP-COMVER-CUR-008 — Unrelated semantics
+Unrelated snapshot/commercial evidence fields remain uninterpreted and inputs remain unchanged.

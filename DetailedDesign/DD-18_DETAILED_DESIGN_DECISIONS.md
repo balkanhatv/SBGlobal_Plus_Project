@@ -3029,3 +3029,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-216 does not compare an AIProvisioningSnapshot's commercial versions, authorize commercial operations, prove entitlement sufficiency, compile effective provisioning, route or execute AI.
 
 **Acceptance:** `COMPROVVER-PG-001…007` in DD-17 and `tests/postgres/commercial-provisioning-version-store.test.mjs`.
+
+
+## DD-217 — AIProvisioningSnapshot commercial-version equality floor
+
+**Context:** migration 0031 accepts the commercial portion of a ProvisioningSnapshot only when the same-Tenant raw CURRENT EntitlementSnapshot version equals `snapshot.entitlementSnapshotVersion` and the Subscription referenced by `tenant.current_subscription_id` has a version equal to `snapshot.subscriptionVersion`. DD-216 exposes exactly those raw version pairs.
+
+**Decision:** add pure helper `matchesAIProvisioningSnapshotCommercialVersionFloors(snapshot, evidence)`. It validates relevant identities and canonical PostgreSQL bigint text, requires same Tenant, complete current-Subscription and raw-CURRENT EntitlementSnapshot evidence, and exact textual version equality.
+
+**Security / trade-off:** the helper deliberately preserves raw database evidence and does not infer wall-clock validity, source Subscription/Plan linkage, Subscription lifecycle authorization or entitlement sufficiency.
+
+**Boundary:** ProvisioningSnapshot current/latest/ACTIVE status, valid-time, source linkage, commercial authorization, effective AI provisioning, permission/policy/budget/sensitivity/residency, Provider/model routing and AI execution remain separate.
+
+**Acceptance:** `AIPROVSNAP-COMVER-CUR-001…008` in DD-17 and `tests/core/ai-provisioning-snapshot-commercial-version-floors.test.mjs`.

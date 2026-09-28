@@ -1,0 +1,22 @@
+# DD-217 verification — AIProvisioningSnapshot commercial-version equality floor
+
+**Date:** 2026-09-28 · **Repository:** `balkanhatv/SBGlobal_Plus_Project`
+**Source audit:** `Development/AI_PROVISIONING_SNAPSHOT_COMMERCIAL_VERSION_PREREQUISITE_OWNERSHIP_AUDIT.md`
+
+## Source-audit gate
+- `425d3d8f9c0c932b01fff452f4bc71b6e698d1a5` / tree `0083eb21f640d5eef4e593623543f14a6a7edb22`.
+- Core `36443998696` / `109001445192`: **789/789 PASS**.
+- PostgreSQL `109001444854`: **525/525 PASS**; database bootstrap PASS.
+- Database `36443999050` / `109001446489`: PASS.
+- Web `36443998948` / `109001445479`: PASS.
+
+## Implementation gate
+- `57f86d4b219cdbd59560276d2ed262cf7d22a8e6` / tree `47646d6795893ee0823cf73c58aa908c2d583e5d`.
+- Core `36444451377` / `109002993311`: **797/797 PASS**.
+- PostgreSQL `109002993841`: **525/525 PASS**; database bootstrap PASS.
+- Database `36444451317` / `109002993220`: PASS.
+- Web `36444451315` / `109002993207`: PASS.
+
+Database inventory remains **48 migrations / 42 verification files**. No schema/RLS/role/grant/public-route/product-policy change.
+
+A true DD-217 result proves only exact commercial version equality against supplied same-Tenant DD-216 evidence. Valid-time/source-linkage/lifecycle authorization/entitlement sufficiency/effective provisioning/routing/AI execution remain unclaimed.

@@ -1310,3 +1310,8 @@ DD-216 adds only the same-Tenant raw Commercial provisioning-version evidence re
 ## 2026-09-28 — DD-216 canonical promotion verified
 
 Canonical DD-216 promotion `42d75f2b3b1302d43129c1096edca1a435c5809e` / tree `8ee2d0c13b36e46d8ca5fb1f8afaa07a293524d8` passed **789/789 Core**, **525/525 PostgreSQL** plus database bootstrap, Database Verify and Web. The state-closure commit must independently pass the same exact-head gate before DD-217 source audit opens. No RawSource, schema, RLS, role/grant, route or product-policy change.
+
+
+## 2026-09-28 — DD-217 canonical promotion staged
+
+DD-217 implements only ProvisioningSnapshot commercial Subscription/EntitlementSnapshot version equality against supplied DD-216 raw evidence. Source-audit and implementation exact-head gates passed at `425d3d8f9c0c932b01fff452f4bc71b6e698d1a5` and `57f86d4b219cdbd59560276d2ed262cf7d22a8e6`. Canonical promotion remains subject to its own exact-head gate.

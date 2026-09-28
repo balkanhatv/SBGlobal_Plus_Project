@@ -506,3 +506,8 @@ Source audit `77ebaaf992767a1713cc296a983bb6933ead9bdd` / tree `e7302dd64365e577
 ## 2026-09-28 — DD-216 Commercial provisioning-version raw evidence reader
 
 Source audit `90c24e140352c20c0f9ef23af04f0a17982b97cb` / tree `b613db1cf3a4fd88cac36b7f6b73f787158081a2` passed **789/789 Core**, **518/518 PostgreSQL** plus bootstrap, Database/Web PASS. Implementation `0797d75511355719b2ba7a59e68f68b8cdb296dd` / tree `858c63f8048a9576ef01b2e2dceea16a1f329f98` passed **789/789 Core**, **525/525 PostgreSQL** plus bootstrap, Database/Web PASS. No schema/RLS/role/grant/route change.
+
+
+## 2026-09-28 — DD-217 AIProvisioningSnapshot commercial-version equality floor
+
+Source audit `425d3d8f9c0c932b01fff452f4bc71b6e698d1a5` / tree `0083eb21f640d5eef4e593623543f14a6a7edb22` passed **789/789 Core**, **525/525 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `57f86d4b219cdbd59560276d2ed262cf7d22a8e6` / tree `47646d6795893ee0823cf73c58aa908c2d583e5d` passed **797/797 Core**, **525/525 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change. Valid-time/source-linkage/commercial authorization/effective provisioning/routing/execution remain unclaimed.
