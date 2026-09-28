@@ -1,4 +1,9 @@
 # Vision-Centric Deep Audit — fresh remote baseline, 2026-09-21
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Current project status:** complete-project downstream semantic/file-coverage audit **IN PROGRESS**; DD-208 remains the latest governed Development checkpoint; DD-209 is not authorized.
+
+> This file is preserved as dated historical Vision-audit evidence. Its evaluated-era checkpoint, verdict and continuation statements do not override the current project overlay above.
 
 **Repository:** `yadavjalsingh192/SBGlobal_Plus_Project`
 **Branch:** `docs/architecture-branch-2`
@@ -95,7 +100,7 @@ scope/reference and producer/serialization assertions were checked against the
 existing database verification suite. A reference match or source-ID count is not
 substantive certification of every deferred requirement.
 
-## Continuation and verdict boundary
+## Historical continuation and verdict boundary at the evaluated 2026-09-21 state
 
 The audit covers the entire file inventory mechanically and substantively reviews
 the current identity/API/authorization/Commercial/database boundaries and their
@@ -115,7 +120,7 @@ Final checkpoint owns post-correction/post-continuation CI and current remote
 confirmation. Historical all-stages audit reports retain their original evaluated
 heads and are not silently rewritten as current proof.
 
-## Correction execution gate
+## Historical correction execution gate
 
 Correction commit `380ae7b984624ae3842e0293b2c075ac250c08a6`, tree
 `e2c20a33e70908064476e6ca848e7ab80c0abbb9`, passed all exact-head checks.

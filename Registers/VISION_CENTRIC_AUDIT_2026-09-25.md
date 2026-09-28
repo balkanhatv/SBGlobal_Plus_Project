@@ -1,4 +1,9 @@
 # SBGlobal Plus vision-centric repository audit — 2026-09-25
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Current project status:** complete-project downstream semantic/file-coverage audit **IN PROGRESS**; DD-208 remains the latest governed Development checkpoint; DD-209 is not authorized.
+
+> This file is preserved as dated historical Vision-audit evidence. Its evaluated-era checkpoint, verdict and continuation statements do not override the current project overlay above.
 
 Repository: `balkanhatv/SBGlobal_Plus_Project`; branch: `docs/architecture-branch-2`.
 Execution-start HEAD: `35ffce1cd8d079596b79452e1b5a117ebcd541c0`.
@@ -84,7 +89,7 @@ All four downloaded logs assert `35ffce1cd8d079596b79452e1b5a117ebcd541c0` / `a4
 
 Local dependency installation, Web build and repository-invariant checks also succeeded. Hosted Node 22/PostgreSQL 16+pgvector remains the authoritative full runtime gate; PostgreSQL is not installed in the scratch environment.
 
-## Unresolved source boundaries and continuation gate
+## Historical unresolved source boundaries and continuation gate at the evaluated state
 
 AIMemory principal currentness is already audited and **BLOCKED**, because original request-local operator-elevation provenance and membership validity evidence are not available in its contract. ACTIVE principal status alone is not a substitute. No approval or requirement is invented to unblock it.
 
@@ -94,7 +99,7 @@ Only after this correction commit passes all four exact-head jobs may the next i
 
 **Verdict at this report commit:** confirmed current-state defects corrected; correction-HEAD CI pending. Development remains IN PROGRESS. PR #2 remains draft/unmerged and main/RawSource remain unchanged.
 
-## Observed correction gate and authorized continuation
+## Historical observed correction gate and authorized continuation
 
 Verified canonical correction `4d9b609756d4c97417214eeadc54aa7531d57fdb` / tree `fa01068c39b18241399c5c28e9c71ea7ae67f57b`: **565/565 Core**, **497/497 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36121218741` (jobs `108026901271`, `108026901423`), Database `36121218700` (job `108026901298`), Web `36121218744` (job `108026901307`).
 

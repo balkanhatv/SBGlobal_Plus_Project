@@ -2344,3 +2344,25 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-88 changes only historical
 phase/final-gate active projection wording and REPO-007 coverage; all original phase findings,
 certification decisions and evaluated-era evidence remain preserved. DD-208 remains current
 and DD-209 stays locked until complete-project audit closure.
+
+## 2026-09-28 historical dated Vision-audit projection continuation
+
+### VC27-89 — P2: three dated Vision audits still exposed evaluated-era checkpoints and continuation gates as current
+
+The semantic file-coverage sweep found the 2026-09-21, 2026-09-24 and 2026-09-25 Vision
+audit reports outside REPO-007. Each remains important exact-era audit evidence, but their
+headings/continuation sections still route the reader through DD-079, DD-163 or DD-188-era
+next work rather than the later governed DD-208 checkpoint and current complete-project
+downstream semantic/file-coverage audit.
+
+Smallest forward-only correction:
+- preserve every dated finding, correction, exact-head CI record and locked-boundary statement;
+- add the current DD-208/project-audit overlay at the top of all three reports;
+- label evaluated-era verdict/continuation/correction-gate headings explicitly historical;
+- add all three reports to REPO-007 so future active-projection drift fails CI.
+
+No historical evidence is deleted or rewritten as though later progress existed on the audit
+date. No Foundation/Architecture/DD semantic contract, runtime, RawSource, migration, RLS,
+role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
