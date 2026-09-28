@@ -3611,3 +3611,30 @@ Empty Industry allowlists and other narrower Industry subsets are valid against 
 
 ### AIINDCFG-TENANT-CUR-008 — Unrelated semantics and temporal boundary
 Unrelated fields remain uninterpreted and inputs remain unchanged. A true result does not select current/latest configuration, identify the historical write-time TenantAIConfig, compose effective configuration, provision, route or authorize AI execution.
+
+
+## DD-210 IndustryAIConfig CountryPack Activation Acceptance
+
+### AIINDCFG-PACK-CUR-001 — Empty reference set
+An empty CountryPack reference set passes only with empty activation evidence.
+
+### AIINDCFG-PACK-CUR-002 — Complete exact ACTIVE set
+A duplicate-free CountryPack reference set passes with exactly one same-Tenant raw-ACTIVE TenantCountryPackActivation per exact CountryPack id, independent of evidence order.
+
+### AIINDCFG-PACK-CUR-003 — Exact evidence-set hygiene
+Missing, extra, duplicate, duplicate-pack or wrong-pack activation evidence fails closed.
+
+### AIINDCFG-PACK-CUR-004 — Raw ACTIVE status
+Every referenced activation status must equal `ACTIVE` exactly; PENDING, DISABLED, case/whitespace variants and malformed status fail.
+
+### AIINDCFG-PACK-CUR-005 — Same-Tenant ownership
+Every supplied activation must belong to the IndustryAIConfig Tenant exactly.
+
+### AIINDCFG-PACK-CUR-006 — Relevant identity/set shape
+Malformed Industry config identity, duplicate/malformed/sparse CountryPack refs, malformed activation identities or non-array activation evidence fail closed.
+
+### AIINDCFG-PACK-CUR-007 — Order independence
+Reference/evidence order does not matter, but every referenced CountryPack still requires exactly one matching activation.
+
+### AIINDCFG-PACK-CUR-008 — Unrelated semantics stay uninterpreted
+Industry enabled/other allowlists/domain PromptSet/localization/version/timestamps and activation override/timestamps/rowVersion do not affect this predicate; inputs remain unchanged.

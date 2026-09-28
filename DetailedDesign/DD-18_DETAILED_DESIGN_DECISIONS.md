@@ -2942,3 +2942,16 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** DD-209 does not select current/latest TenantAIConfig or IndustryAIConfig, reconstruct historical write-time selection, validate catalog/country-pack/PromptSet currentness, compose effective Tenant+Industry AI configuration, compile provisioning, resolve entitlement/RBAC/policy/budget/residency/retention, route providers/models, dispatch SDKs or execute AI.
 
 **Acceptance:** `AIINDCFG-TENANT-CUR-001…008` in DD-17 and `tests/core/ai-industry-config-tenant-non-widening-floors.test.mjs`.
+
+
+## DD-210 — IndustryAIConfig CountryPack refs may be re-evaluated as an exact same-Tenant ACTIVE activation floor
+
+**Context:** migration 0031 requires every `core_ai.industry_ai_config.country_pack_refs[]` id to have a `core_config.tenant_country_pack_activation` row for the same Tenant and exact CountryPack with raw status `ACTIVE`. Migration 0001 physically enforces uniqueness of `(tenant_id,country_pack_id)`. DD-120 exposes Industry config identity/Tenant/Industry/CountryPack refs and DD-138 exposes TenantCountryPackActivation id/Tenant/CountryPack/status.
+
+**Decision:** add pure helper `matchesAIIndustryConfigCountryPackActivationFloors(industryConfig, activations)`. It validates relevant identities and duplicate-free dense UUID CountryPack refs, requires an exact one-row-per-ref evidence set, requires same-Tenant ownership and raw status exactly `ACTIVE`, and is independent of evidence order.
+
+**Security / trade-off:** exact evidence-set completeness is an application validation boundary for supplied evidence. It does not add new persisted uniqueness beyond migration 0001 and does not infer any CountryPack catalog lifecycle or materialization semantics.
+
+**Boundary:** DD-210 does not select current/effective/primary CountryPack, validate CountryPack catalog currentness, apply localization/default/reference/tax semantics, establish Industry activation/entitlement/permission authority, compose effective AI configuration, compile provisioning, route providers/models or execute AI.
+
+**Acceptance:** `AIINDCFG-PACK-CUR-001…008` in DD-17 and `tests/core/ai-industry-config-country-pack-activation-floors.test.mjs`.

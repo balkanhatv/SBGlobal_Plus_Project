@@ -2,8 +2,8 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-27",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-INDUSTRY-CONFIG-TENANT-NON-WIDENING-FLOORS-001",
-  "final_verdict": "Complete-project downstream semantic/file-coverage/adversarial audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-209 state closure 458c0ac43b757c0a08de17a3af316decb4beb2de / tree 46e1735e901f0650965e23f893958cb456aa5eea is exact-head verified at 749 Core / 512 PostgreSQL / 48 migrations / 42 verification files / Web PASS. DD-210 source audit is now the only authorized forward step. Production readiness is NOT CLAIMED.",
+  "checkpoint": "DEV-AI-INDUSTRY-CONFIG-COUNTRY-PACK-ACTIVATION-FLOORS-001",
+  "final_verdict": "Complete-project downstream semantic/file-coverage/adversarial audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-210 IndustryAIConfig CountryPack-ref → exact supplied same-Tenant raw-ACTIVE TenantCountryPackActivation floor is implemented and exact-head verified at f7cf617e751b7219de1d2391c9818148df74d63a / tree 4c88357326f66087c4bb2c2bee9f313a774bfaf3. Canonical promotion is pending its own exact-head gate. CountryPack catalog currentness, localization/default materialization, effective AI configuration, provisioning, routing and AI execution remain unclaimed. Production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -859,13 +859,37 @@
       "web_run_id": 36395707268,
       "web_job_id": 108841465992,
       "result": "PASS_EXACT_STATE_CLOSURE_HEAD"
+    },
+    "dd210_source_audit_head": "f390237c06bd9e60e54feddb29ccd26585be35e3",
+    "dd210_source_audit_tree": "154048b6b36397b8e965a9b97b8b4dc1ae13f434",
+    "dd210_source_audit_ci": {
+      "core_run_id": 36396226419,
+      "core_job_id": 108843156281,
+      "postgres_job_id": 108843156773,
+      "database_run_id": 36396226427,
+      "database_job_id": 108843156337,
+      "web_run_id": 36396226501,
+      "web_job_id": 108843156790,
+      "result": "PASS_EXACT_SOURCE_AUDIT_HEAD"
+    },
+    "dd210_implementation_head": "f7cf617e751b7219de1d2391c9818148df74d63a",
+    "dd210_implementation_tree": "4c88357326f66087c4bb2c2bee9f313a774bfaf3",
+    "dd210_implementation_ci": {
+      "core_run_id": 36396614865,
+      "core_job_id": 108844412517,
+      "postgres_job_id": 108844412326,
+      "database_run_id": 36396614757,
+      "database_job_id": 108844411579,
+      "web_run_id": 36396614794,
+      "web_job_id": 108844411789,
+      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD209_VERIFIED_DD210_SOURCE_AUDIT",
+    "current_phase": "DEVELOPMENT_DD210_PROMOTION_PENDING",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -914,14 +938,14 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify DD-210 source audit for IndustryAIConfig CountryPack refs → exact supplied same-Tenant ACTIVE TenantCountryPackActivation evidence. Do not implement effective AI configuration, provisioning or AI execution.",
+    "next_action": "Verify the DD-210 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-210 state and source-audit the next independent relationship; effective AI configuration, provisioning and AI execution remain locked.",
     "core_services": {
-      "checkpoint": "DEV-AI-INDUSTRY-CONFIG-TENANT-NON-WIDENING-FLOORS-001",
+      "checkpoint": "DEV-AI-INDUSTRY-CONFIG-COUNTRY-PACK-ACTIVATION-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–209 bounded implementation",
+      "decision": "DD-040–210 bounded implementation",
       "verified_head": "4dd7138e5a546f608fe5e28e0912d17523e33693",
       "verified_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
       "core_ci_run_id": 36345589360,
@@ -1285,7 +1309,8 @@
         "DD-206 TenantAIConfig duplicate-free exact-code/raw-ACTIVE capability allowlist binding floor",
         "DD-207 TenantAIConfig duplicate-free exact-id/raw-ACTIVE Provider allowlist binding floor",
         "DD-208 TenantAIConfig Model allowlist current-binding floor",
-        "DD-209 IndustryAIConfig supplied same-Tenant TenantAIConfig enabled/capability/provider/model non-widening floor"
+        "DD-209 IndustryAIConfig supplied same-Tenant TenantAIConfig enabled/capability/provider/model non-widening floor",
+        "DD-210 IndustryAIConfig CountryPack refs exact same-Tenant raw-ACTIVE TenantCountryPackActivation floor"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -1411,7 +1436,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify DD-210 source audit for IndustryAIConfig CountryPack refs → exact supplied same-Tenant ACTIVE TenantCountryPackActivation evidence. Do not implement effective AI configuration, provisioning or AI execution.",
+      "next_action": "Verify the DD-210 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-210 state and source-audit the next independent relationship; effective AI configuration, provisioning and AI execution remain locked.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1505,7 +1530,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD209_VERIFIED_DD210_SOURCE_AUDIT",
+  "current_phase": "DEVELOPMENT_DD210_PROMOTION_PENDING",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -1537,20 +1562,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-TENANT-NON-WIDENING-FLOORS-001",
+    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-COUNTRY-PACK-ACTIVATION-FLOORS-001",
     "verified_code_head": "4dd7138e5a546f608fe5e28e0912d17523e33693",
     "verified_code_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
-    "source_audit": "Development/AI_INDUSTRY_CONFIG_TENANT_NON_WIDENING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "source_audit": "Development/AI_INDUSTRY_CONFIG_COUNTRY_PACK_ACTIVATION_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "Verify DD-210 source audit for IndustryAIConfig CountryPack refs → exact supplied same-Tenant ACTIVE TenantCountryPackActivation evidence. Do not implement effective AI configuration, provisioning or AI execution.",
+    "next_action": "Verify the DD-210 canonical promotion HEAD with exact-head Core/PostgreSQL/Database/Web. Only after PASS, close DD-210 state and source-audit the next independent relationship; effective AI configuration, provisioning and AI execution remain locked.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-TENANT-NON-WIDENING-FLOORS-001",
+    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-COUNTRY-PACK-ACTIVATION-FLOORS-001",
     "verified_executable_basis": "4dd7138e5a546f608fe5e28e0912d17523e33693",
     "verified_executable_tree": "33ea828f05b2b8014b4c75401822cde89aa3ee70",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "scope": "DD-209 re-evaluates only supplied IndustryAIConfig → supplied same-Tenant TenantAIConfig enabled/capability/provider/model non-widening. It does not select current/latest configs, reconstruct historical write-time selection, merge effective configuration, route or execute AI.",
+    "scope": "DD-210 re-evaluates only IndustryAIConfig CountryPack refs → exact supplied same-Tenant raw-ACTIVE TenantCountryPackActivation evidence. It does not establish CountryPack catalog currentness, default/materialization semantics, effective AI configuration, provisioning, routing or execution.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",
       "parents_total": 372,
@@ -1601,36 +1626,36 @@
     "source_requirement_text_reconciliation": "2,962 stable IDs retained; 85 mis-extracted texts restored and 21 provenance aliases explicitly located by VC27-01. Complete atomic no-loss certification remains open."
   },
   "current_feature_verification": {
-    "decision_id": "DD-209",
-    "decision": "DD-209 IndustryAIConfig TenantAIConfig non-widening floor",
-    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-TENANT-NON-WIDENING-FLOORS-001",
-    "verified_head": "f92c834a8a5a988c43d8b8ca6edd141deb2b1932",
-    "verified_tree": "bf519fdecdf9985493ef2ff617e653c136b07a96",
-    "source_audit": "Development/AI_INDUSTRY_CONFIG_TENANT_NON_WIDENING_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-210",
+    "decision": "DD-210 IndustryAIConfig CountryPack activation floor",
+    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-COUNTRY-PACK-ACTIVATION-FLOORS-001",
+    "verified_head": "f7cf617e751b7219de1d2391c9818148df74d63a",
+    "verified_tree": "4c88357326f66087c4bb2c2bee9f313a774bfaf3",
+    "source_audit": "Development/AI_INDUSTRY_CONFIG_COUNTRY_PACK_ACTIVATION_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AIINDCFG-TENANT-CUR-001",
-      "AIINDCFG-TENANT-CUR-002",
-      "AIINDCFG-TENANT-CUR-003",
-      "AIINDCFG-TENANT-CUR-004",
-      "AIINDCFG-TENANT-CUR-005",
-      "AIINDCFG-TENANT-CUR-006",
-      "AIINDCFG-TENANT-CUR-007",
-      "AIINDCFG-TENANT-CUR-008"
+      "AIINDCFG-PACK-CUR-001",
+      "AIINDCFG-PACK-CUR-002",
+      "AIINDCFG-PACK-CUR-003",
+      "AIINDCFG-PACK-CUR-004",
+      "AIINDCFG-PACK-CUR-005",
+      "AIINDCFG-PACK-CUR-006",
+      "AIINDCFG-PACK-CUR-007",
+      "AIINDCFG-PACK-CUR-008"
     ],
     "test_files": [
-      "tests/core/ai-industry-config-tenant-non-widening-floors.test.mjs"
+      "tests/core/ai-industry-config-country-pack-activation-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36394308637,
-      "job_id": 108836976140,
-      "tests": 749,
-      "pass": 749,
+      "run_id": 36396614865,
+      "job_id": 108844412517,
+      "tests": 757,
+      "pass": 757,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36394308637,
-      "job_id": 108836975534,
+      "run_id": 36396614865,
+      "job_id": 108844412326,
       "tests": 512,
       "pass": 512,
       "fail": 0,
@@ -1638,17 +1663,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36394308587,
-      "job_id": 108836975385,
+      "run_id": 36396614757,
+      "job_id": 108844411579,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36394308563,
-      "job_id": 108836974885,
+      "run_id": 36396614794,
+      "job_id": 108844411789,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD209_VERIFICATION_2026-09-28.md"
+    "evidence": "Registers/DEVELOPMENT_DD210_VERIFICATION_2026-09-28.md"
   },
   "historical_projection_payloads": {
     "continuation": {
