@@ -2612,3 +2612,26 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-95 changes only
 DD-22H's historical remediation/current-project projection and REPO-007 coverage; all
 transition/state-derivation rows remain preserved. DD-208 remains current and DD-209 stays
 locked until complete-project audit closure.
+
+## 2026-09-28 historical Development-verification next-action continuation
+
+### VC27-96 — P2: DD-079-era Development verification still exposed DD-076 as the current next action
+
+The semantic file-coverage sweep found
+`Registers/DEVELOPMENT_VISION_AUDIT_VERIFICATION_2026-09-21.md` outside REPO-007. The
+file correctly preserves exact DD-079-era executable evidence, but its final paragraph still
+said `Next: Concrete DD-076 evaluator remains blocked...` without a current-state overlay.
+Governed Development subsequently advanced through DD-208, so that evaluated-era next action
+must not be read as current project routing.
+
+Smallest forward-only correction:
+- preserve the complete 2026-09-21 exact-HEAD/run/job evidence and original checkpoint;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- relabel the embedded DD-076 continuation as the historical next action at that evaluated
+  checkpoint;
+- add the file to REPO-007 so future active-next-action drift fails CI.
+
+No Development feature semantics, Commercial policy, runtime, RawSource, migration, RLS,
+role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
