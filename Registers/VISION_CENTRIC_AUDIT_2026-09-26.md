@@ -3073,3 +3073,18 @@ No MS count/result, Foundation owner, Wave-3 owner, Industry neutrality rule, re
 runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209 authority
 changes. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-108 exact-head closure
+
+Correction HEAD `85bcee225389e43d77bceca05dcaefb5889dda06` /
+tree `40cf615bbd548b4d503ec193dfc247d590075037` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-108 changes only the
+evaluated-era/current-status projection of the Wave-3 41-MS completion matrix and REPO-007
+coverage; all 41-MS ownership/completeness evidence remains preserved. DD-208 remains current
+and DD-209 stays locked until complete-project audit closure.
+

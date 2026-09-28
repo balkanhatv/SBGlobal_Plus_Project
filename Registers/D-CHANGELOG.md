@@ -1160,3 +1160,18 @@ tree `128fd7e5c6cff0b8f5ec919f08844e97fc118824` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No MS
 count/result, Foundation owner, Industry-neutrality rule, runtime, RawSource, migration,
 RLS, role/grant, product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-108 Wave-3 MS completion historical projection correction
+
+The semantic file-coverage sweep found `DetailedDesign/WAVE3_MS_COMPLETENESS_MATRIX.md`
+outside REPO-007. Its 41-MS Foundation-owner → Wave-3-owner matrix and row-level
+COMPLETE/VERIFIED results remain evaluated-era Detailed Design evidence, but the file lacked
+the active DD-208/project-audit overlay. The correction preserves every row/owner/result,
+classifies the matrix as historical/evaluated-era evidence, explicitly denies current runtime
+certification and adds the file to REPO-007.
+
+Correction HEAD `85bcee225389e43d77bceca05dcaefb5889dda06` /
+tree `40cf615bbd548b4d503ec193dfc247d590075037` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No MS
+count/result, Foundation/Wave-3 owner, Industry-neutrality rule, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changed.
