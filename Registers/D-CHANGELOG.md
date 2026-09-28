@@ -1084,3 +1084,18 @@ tree `5eb505884dfbdcb4157f4745d09b1da2d23872f2` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 requirement chain/count, owner mapping, runtime, RawSource, migration, RLS, role/grant,
 product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-103 Wave-3 cross-industry historical PASS projection correction
+
+The semantic file-coverage sweep found `DetailedDesign/WAVE3_CROSS_INDUSTRY_AUDIT.md`
+still exposing its 2026-09-11 `Status: PASS` without the active DD-208/project-audit overlay.
+The correction preserves all nine-industry / 41-MS equal-discipline rows, shared-boundary
+checks, adversarial isolation results and the explicit cross-context rule, classifies the PASS
+as historical Wave-3 design evidence, adds the current project overlay and adds the file to
+REPO-007.
+
+Correction HEAD `4c4c028ec8078253871282a9e32b2cad964f9429` /
+tree `123dce16749aab060de2cac956507df663d6644f` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Industry/MS count, Wave-3 design conclusion, isolation rule, cross-context contract, runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changed.
