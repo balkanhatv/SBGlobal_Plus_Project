@@ -795,3 +795,15 @@ HEAD `21d55a4bd0f0cc85ce5afda55c65d4867761c032` / tree
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No Detailed
 Design contract, Foundation/Architecture semantics, runtime, RawSource, migration, RLS,
 role/grant, product requirement or DD-209 change.
+
+## 2026-09-28 — VC27-82 A-00 active current-project projection correction
+
+The semantic file-coverage sweep found `Architecture/A-00_ARCHITECTURE_OVERVIEW.md`
+still presenting Detailed Design, Development, Testing and Deployment implementation as future
+phases even though governed Development advanced through DD-208. The correction preserves all
+Architecture HOW/ADR content, marks that sentence as the historical Phase-2 boundary, adds a
+DD-208/current-audit overlay, and adds A-00 to REPO-007. Correction HEAD
+`6dfffb98c067d11a44c9acb8a492b7fd2562c0c3` / tree `8a02e6cf21377ba2ef84270dc739ee8d1732135b` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
+Architecture contract/ADR semantics, Foundation/DD requirements, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 change.

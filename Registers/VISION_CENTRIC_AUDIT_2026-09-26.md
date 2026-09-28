@@ -2090,3 +2090,17 @@ No Architecture contract/ADR semantics, Foundation/DD requirements, runtime, Raw
 migration, RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-82 exact-head closure
+
+Correction HEAD `6dfffb98c067d11a44c9acb8a492b7fd2562c0c3` /
+tree `8a02e6cf21377ba2ef84270dc739ee8d1732135b` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-82 changes only
+A-00's active current project projection and REPO-007 coverage; Architecture HOW/ADR semantics
+and historical Phase-2 evidence are preserved. DD-208 remains current and DD-209 stays locked
+until complete-project audit closure.
