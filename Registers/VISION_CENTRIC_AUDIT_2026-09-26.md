@@ -1629,23 +1629,28 @@ behavior or DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verificati
 
 ## 2026-09-28 active current-register projection continuation
 
-### VC27-71 — P2: D-INDEX and REVIEW_REQUIRED still projected the obsolete VC27-29 executable basis
+### VC27-71 — P2: active current-state projections still advertised obsolete downstream verification bases
 
 After VC27-70 was exact-head verified and synchronized across the primary checkpoint/state
-projection set, the active `Registers/D-INDEX.md` (“Current Canonical / Development Index”)
-and `Registers/REVIEW_REQUIRED.md` (“Current Dependency Ownership”) still described
-`285c0d2a…` / VC27-27…29 at 706 Core / 505 PostgreSQL as the **current bounded downstream
-executable basis**.
+projection set, four active “current” projections remained stale:
+- `README_FOUNDATION.md`, `Registers/D-INDEX.md` and `Registers/REVIEW_REQUIRED.md`
+  still described `285c0d2a…` / VC27-27…29 at 706 Core / 505 PostgreSQL as the current
+  bounded downstream executable basis;
+- `Development/DB_IMPLEMENTATION_MATRIX.md` still labelled `0075a7c8…` / 700 Core /
+  505 PostgreSQL as the **Current repository exact-HEAD evidence**.
 
-Those files are active current-state/navigation registers, not dated historical verification
-records. Leaving their current banner stale could route a subsequent continuation back to an
-already superseded audit basis, obscure VC27-30…70 corrections, and produce duplicate or
-contradictory work even though the authoritative checkpoint/manifest had advanced.
+These are active navigation/current-state projections, not dated historical verification records.
+Leaving them stale could route a subsequent continuation back to superseded evidence, obscure
+VC27-30…70 corrections, or make the persistence matrix contradict the authoritative current
+checkpoint/manifest.
 
 Smallest forward-only correction:
-- copy the already-current D-CHECKPOINT audit-hold projection into D-INDEX and REVIEW_REQUIRED;
+- copy the already-current D-CHECKPOINT audit-hold projection into README_FOUNDATION,
+  D-INDEX and REVIEW_REQUIRED;
+- update only the DB implementation matrix's explicitly-current exact-head evidence to the
+  already-verified VC27-70 state-sync head `b7b50bbc…` / tree `5da00a39…`;
 - preserve DD-208 as the latest governed Development checkpoint;
-- preserve all historical verification rows and source evidence unchanged;
+- preserve historical verification rows/source evidence unchanged;
 - do not alter runtime, tests, migrations, RLS, roles/grants or locked future execution scope.
 
 This is canonical-state projection synchronization only. Exact-head Core/PostgreSQL/Database/Web
