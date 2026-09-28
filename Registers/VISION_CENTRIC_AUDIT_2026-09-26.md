@@ -3111,3 +3111,19 @@ This strengthens CI reachability only. It does not alter application/runtime beh
 requirements, RawSource, migrations, RLS, roles/grants, test assertions, product semantics or
 DD-209 authority. Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-109 exact-head closure
+
+Correction HEAD `02bd30b6c59bac0c23d3ac08a01ee8d06940c308` /
+tree `8959d6d389a4bb313e9f231130785fc91882a744` passed exact-head:
+- Core **741/741**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The correction proves governance-path reachability itself: all three workflow classes triggered
+on the workflow/governance change, and REPO-010 passed inside the Core suite. Existing test,
+PostgreSQL bootstrap, database verification and web build commands remain unchanged. The
+executable product audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. DD-208 remains current and
+DD-209 stays locked until complete-project audit closure.
+

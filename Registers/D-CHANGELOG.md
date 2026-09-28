@@ -1175,3 +1175,18 @@ tree `40cf615bbd548b4d503ec193dfc247d590075037` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No MS
 count/result, Foundation/Wave-3 owner, Industry-neutrality rule, runtime, RawSource, migration,
 RLS, role/grant, product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-109 CI governance-path reachability hardening
+
+REPO-001 and REPO-007 could be bypassed by workflow path filters: on the measured pre-fix
+branch REPO-007 contained 56 projection files, but only 9 were covered by Core push filters
+and 47 could drift without automatically running the invariant suite; RawSourceCorpus also
+had no Core trigger. The correction adds RawSource/governance/canonical/state/Core-test
+coverage to all three exact-head workflows, makes workflow changes cross-trigger the full
+verification set, and adds REPO-010 to enforce push/pull-request reachability.
+
+Correction HEAD `02bd30b6c59bac0c23d3ac08a01ee8d06940c308` /
+tree `8959d6d389a4bb313e9f231130785fc91882a744` passed **741/741 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. Existing
+test/build commands were preserved; no runtime, RawSource, migration, RLS, role/grant,
+product requirement or DD-209 authority changed.
