@@ -22,3 +22,14 @@ Implementation `1079451c43aac7aa4a1b320ec10be8360dc21983` / tree `80fd6ba13c4456
 Database inventory remains **48 migrations / 42 verification files**. No schema/RLS/role/grant/route/product-policy change.
 
 A true DD-212 result proves only exact capability-id/status/code membership against the exact referenced Tenant config. Entitlement satisfaction, snapshot currentness, commercial/Industry currentness, effective provisioning, routing and AI execution remain unclaimed.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `6aa205ae3e3d6b1efaa2b3210b5b835cf1e64ea3` / tree `7adfb37fd9831d5763279129c083d816552bb070` independently passed:
+- Core `36403073471` / `108865273567`: **773/773 PASS**, zero failed/skipped.
+- PostgreSQL `108865273022`: **512/512 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database `36403073421` / `108865274764`: PASS.
+- Web `36403073392` / `108865272838`: PASS.
+
+This authorizes DD-212 canonical promotion only. The state-closure commit must independently pass the same exact-head gate before another source audit opens.

@@ -481,3 +481,8 @@ Post-DD-210 source ownership isolated migration 0031's ProvisioningSnapshot → 
 ## 2026-09-28 — DD-212 AIProvisioningSnapshot capability binding floor
 
 Source audit `26bedb78ebff417ddf007f5315cecd8ea05c9c20` / tree `b1c2ea947365ae296f9312ec4987e9e365319740` passed **765/765 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. Exact implementation `1079451c43aac7aa4a1b320ec10be8360dc21983` / tree `80fd6ba13c4456a41d756b7446a27910ba7672a6` passed **773/773 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. No schema/RLS/role/grant/route change.
+
+
+## 2026-09-28 — DD-212 canonical promotion verified; state closure staged
+
+Canonical promotion `6aa205ae3e3d6b1efaa2b3210b5b835cf1e64ea3` / tree `7adfb37fd9831d5763279129c083d816552bb070` passed **773/773 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. DD-212 state closure now records that exact promotion evidence and remains subject to the closure commit's own exact-head Core/PostgreSQL/Database/Web gate. No RawSource, schema, RLS, role/grant, route or product-policy change.

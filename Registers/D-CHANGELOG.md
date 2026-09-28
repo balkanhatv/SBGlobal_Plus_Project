@@ -1265,3 +1265,8 @@ Canonical DD-211 promotion `6b931ad919d024b27ea5e576ffcceb7afca5fc58` / tree `d7
 ## 2026-09-28 — DD-212 canonical promotion staged
 
 DD-212 implements only ProvisioningSnapshot allowedCapabilityIds → exact supplied ACTIVE AICapability ids whose exact codes are allowed by the exact referenced TenantAIConfig. Source-audit and implementation exact-head gates passed at `26bedb78ebff417ddf007f5315cecd8ea05c9c20` and `1079451c43aac7aa4a1b320ec10be8360dc21983`. Canonical promotion remains subject to its own exact-head gate.
+
+
+## 2026-09-28 — DD-212 canonical promotion verified; state closure staged
+
+Canonical promotion `6aa205ae3e3d6b1efaa2b3210b5b835cf1e64ea3` / tree `7adfb37fd9831d5763279129c083d816552bb070` passed **773/773 Core**, **512/512 PostgreSQL** plus database bootstrap, Database Verify and Web. DD-212 state closure now records that exact promotion evidence and remains subject to the closure commit's own exact-head Core/PostgreSQL/Database/Web gate. No RawSource, schema, RLS, role/grant, route or product-policy change.
