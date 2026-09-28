@@ -43,3 +43,14 @@ Canonical promotion `252526bbc93c22bd81fec7c68b7be881af41309d` / tree `1cfab680e
 - Web `36455170983` / `109039556349`: PASS.
 
 This authorizes DD-218 canonical promotion only. The state-closure commit must independently pass the same exact-head gate before another source audit opens.
+
+
+## State-closure exact-head gate
+
+State closure `9fd20afab23256edc8dae4c6018b8ed2596ce04d` / tree `f7284e50de6b786e40c30a69af3469adde7f7157` independently passed:
+- Core `36455876975` / `109041952933`: **805/805 PASS**.
+- PostgreSQL `109041953066`: **525/525 PASS**; database bootstrap PASS.
+- Database `36455876827` / `109041952559`: PASS.
+- Web `36455876788` / `109041952231`: PASS.
+
+This closes DD-218 canonical state and authorizes DD-219 source audit only.
