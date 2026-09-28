@@ -2513,3 +2513,17 @@ No traceability row, source ID/text, Foundation/Architecture/DD semantic contrac
 RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changes.
 Exact-head Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-93 exact-head closure
+
+Correction HEAD `f4eeeaa0ec068c7cf7e5cd000e432b5526c72abf` /
+tree `9cd260b71a0dd151b0de8b913751df5858b2bd4f` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-93 changes only the
+Fable-5 DD traceability file's active/historical project-status projection and REPO-007
+coverage; all 328 requirement-to-DD/acceptance chains remain preserved. DD-208 remains current
+and DD-209 stays locked until complete-project audit closure.
