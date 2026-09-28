@@ -3188,3 +3188,18 @@ No runtime code, requirement, RawSource, migration, RLS, role/grant, product beh
 verified executable basis or DD-209 authority changes. Exact-head
 Core/PostgreSQL/Database/Web verification is required.
 
+#### VC27-111 exact-head closure
+
+Correction HEAD `5a84d0eab512ea18afba108baaa2bb6e72725aa5` /
+tree `01485ee729eb597e808af7af067c8c4c089a6606` passed exact-head:
+- Core **741/741**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable product audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-111 changes only the
+manifest bounded-runtime status projection and REPO-007 drift invariant; the VC27-70 runtime
+head/tree/findings/CI evidence remain unchanged. DD-208 remains current and DD-209 stays
+locked until complete-project audit closure.
+

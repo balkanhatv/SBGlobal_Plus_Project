@@ -1207,3 +1207,17 @@ tree `6060d32af81e49927c437836e0df25db45702fb3` passed **741/741 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No KPI
 contract, formula, acceptance reference, Industry/MS result, runtime, RawSource, migration,
 RLS, role/grant, product requirement or DD-209 authority changed.
+
+## 2026-09-28 — VC27-111 bounded-runtime status projection consistency
+
+The state sweep found `State/PROJECT_MANIFEST.json` internally inconsistent: the
+bounded-runtime status string still said corrections were verified only through VC27-66,
+while the same object's verified finding basis, head/tree and the bounded runtime report
+were already through VC27-70. The correction advances only that status projection to
+VC27-70 and extends REPO-007 so the status must match the last verified runtime finding id.
+
+Correction HEAD `5a84d0eab512ea18afba108baaa2bb6e72725aa5` /
+tree `01485ee729eb597e808af7af067c8c4c089a6606` passed **741/741 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No runtime
+code, requirement, RawSource, migration, RLS, role/grant, product behavior, executable audit
+basis or DD-209 authority changed.
