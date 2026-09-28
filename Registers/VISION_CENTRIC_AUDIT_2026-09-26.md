@@ -1656,3 +1656,29 @@ Smallest forward-only correction:
 This is canonical-state projection synchronization only. Exact-head Core/PostgreSQL/Database/Web
 verification is required before treating the corrected register state as current.
 
+## 2026-09-28 active DetailedDesign current-projection continuation
+
+### VC27-72 — P2: three active DetailedDesign current-state files still advertised obsolete audit evidence and next actions
+
+The complete-project current-file coverage sweep found three active DetailedDesign navigation/
+state projections that still presented the pre-reconciliation source-fidelity state as current:
+- `DetailedDesign/DD-INDEX.md`
+- `DetailedDesign/DD-PHASE_STATE.md`
+- `DetailedDesign/DD-REVIEW_REQUIRED.md`
+
+Their top-level current blocks still named `ea371dd1…`, 700 Core / 505 PostgreSQL, said the
+state-closure HEAD still required verification, and instructed the next independent AI-config
+audit to open after that verification. Those statements are superseded by the exact-head
+verified VC27-70 executable basis and the current complete-project audit hold.
+
+Smallest forward-only correction:
+- align only the active top-level current block in those three DetailedDesign projections to
+  the already-authoritative D-CHECKPOINT current audit-hold block;
+- preserve the governed Development checkpoint at DD-208;
+- preserve each file's historical phase/design records and historical verification evidence;
+- do not change runtime, tests, migrations, RLS, roles/grants or locked future execution scope.
+
+This is canonical current-state projection synchronization only. Exact-head
+Core/PostgreSQL/Database/Web verification is required before treating the corrected
+DetailedDesign projections as current.
+
