@@ -1860,3 +1860,32 @@ traceability/current-continuation projections and repository invariants only; no
 requirement ID/text, runtime authority or governed DD checkpoint changed. DD-208 remains
 current and DD-209 stays locked until complete-project audit closure.
 
+## 2026-09-28 active database-implementation projection continuation
+
+### VC27-77 — P2: active DB implementation matrix advertised a state-sync HEAD as current executable evidence
+
+The current-file semantic coverage sweep found `Development/DB_IMPLEMENTATION_MATRIX.md`
+outside REPO-007 even though it explicitly labels itself `CURRENT PERSISTENCE CHECKPOINT
+VERIFIED` and its validation boundary names `Current repository exact-HEAD evidence`.
+
+The matrix pointed at VC27-70 state-sync HEAD
+`b7b50bbcdf30020c62a52e85a3cac3b074d0010b` / tree
+`5da00a39b83ce5e040e0d24b2f8b465fac376303`. That HEAD is valid verified canonical-state
+evidence, but the authoritative current executable audit basis is the independently verified
+VC27-70 correction `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree
+`33ea828f05b2b8014b4c75401822cde89aa3ee70`.
+
+Smallest forward-only correction:
+- add the governed DD-208 checkpoint and current executable audit basis to the matrix's active
+  header;
+- label `4dd7138e…` as the current executable evidence while preserving `b7b50bb…` as
+  later state-sync/projection evidence and the older 2026-09-13 evidence as historical;
+- add `Development/DB_IMPLEMENTATION_MATRIX.md` to REPO-007 so future checkpoint/audit-basis
+  drift fails CI.
+
+The 9 equal Industries / 41 canonical Management Systems / 181 registered Industry tables,
+48/42 database inventory and all historical verification records remain unchanged. No runtime,
+test semantics beyond stronger projection coverage, migration, RLS, role/grant, product
+requirement or DD-209 authority changes. Exact-head Core/PostgreSQL/Database/Web verification
+is required.
+
