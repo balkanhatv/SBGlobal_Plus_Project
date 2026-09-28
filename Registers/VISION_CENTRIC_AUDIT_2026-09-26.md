@@ -2419,3 +2419,25 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-90 changes only the
 historical CP-F1-005 traceability extension's active certification/count projection and
 REPO-007 coverage; its evaluated-era destination-addition evidence remains preserved.
 DD-208 remains current and DD-209 stays locked until complete-project audit closure.
+
+## 2026-09-28 historical DD-27 determinism-gate projection continuation
+
+### VC27-91 — P2: DD-27 still exposed its pre-final Phase-3 certification blocker as current
+
+The semantic file-coverage sweep found `DD-27_41_MS_DETERMINISM_AUDIT.md` outside
+REPO-007. Its 41-MS determinism matrix remains useful Phase-3 evidence, but the file still
+described itself as Fable-5 active remediation evidence and ended with “final certification
+remains blocked until fresh isolation, ambiguity-sweep and fresh adversarial audits pass.”
+Those later Phase-3 audits subsequently passed and the governed project advanced through
+DD-208.
+
+Smallest forward-only correction:
+- preserve all 984 dimension checks, representative flow evidence and original conclusions;
+- add the current DD-208/audit-basis overlay at the top;
+- label the old certification blocker explicitly as evaluated-era sequencing evidence;
+- add DD-27 to REPO-007 so future active-projection drift fails CI.
+
+No DD determinism evidence, Foundation/Architecture contract, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

@@ -32,6 +32,7 @@ const projections = [
   "DetailedDesign/DD-INDEX.md", "DetailedDesign/DD-00_DETAILED_DESIGN_OVERVIEW.md",
   "DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md",
   "DetailedDesign/DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md",
+  "DetailedDesign/DD-27_41_MS_DETERMINISM_AUDIT.md",
   "DetailedDesign/DD-CHECKPOINT.md", "DetailedDesign/DD-PHASE_STATE.md",
   "DetailedDesign/DD-REVIEW_REQUIRED.md",
 ];

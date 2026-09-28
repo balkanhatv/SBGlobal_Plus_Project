@@ -1,6 +1,11 @@
 # DD-27 — 41-MS DEVELOPMENT & QA DETERMINISM AUDIT
-**Date:** 2026-09-11 · **Status:** FABLE 5 REMEDIATION EVIDENCE
-**Hypothesis:** a developer or QA engineer still has to invent material behavior.
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Historical evaluated status:** 2026-09-11 · FABLE 5 REMEDIATION EVIDENCE
+
+> The determinism matrices below remain valid Phase-3 evidence. Their evaluated-era certification blocker was subsequently resolved by the fresh isolation, ambiguity and adversarial Phase-3 audits. Governed Development later advanced through DD-208; the complete-project downstream semantic/file-coverage audit remains IN PROGRESS and DD-209 is not authorized until that gate closes.
+
+**Historical hypothesis:** a developer or QA engineer still has to invent material behavior.
 
 ## 1. Per-MS evidence matrices
 Result values: COMPLETE · PARTIAL · MISSING · N/A WITH JUSTIFICATION. No critical PARTIAL/MISSING may pass.
@@ -1191,4 +1196,4 @@ Result values: COMPLETE · PARTIAL · MISSING · N/A WITH JUSTIFICATION. No crit
 - Healthcare bounded gaps were closed by HLT-AC-001…003 without rewriting already-deep LIS/HMS semantics.
 - No sibling suite imports patient/lab/clinical semantics.
 - Complete dimension checks recorded: **984** = 41 MS × 24 dimensions; PARTIAL=0; MISSING=0.
-- Final certification remains blocked until fresh isolation, ambiguity-sweep and fresh adversarial audits pass.
+- **Historical evaluated-era gate:** final certification remained blocked until fresh isolation, ambiguity-sweep and fresh adversarial audits passed. Those later Phase-3 gates are now recorded as PASS; this line is retained as historical sequencing evidence, not the current project gate.
