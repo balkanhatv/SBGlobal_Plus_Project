@@ -2145,3 +2145,29 @@ ARCHITECTURE_FINAL_AUDIT's active project projection and REPO-007 coverage; Phas
 Architecture adversarial evidence is preserved. DD-208 remains current and DD-209 stays
 locked until complete-project audit closure.
 
+## 2026-09-28 active Detailed Design overall-audit projection continuation
+
+### VC27-84 — P2: DD-20D still exposed the historical pre-development gate as current project state
+
+The semantic file-coverage sweep found
+`DetailedDesign/DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md` outside REPO-007 while its
+Phase-3 verdict still said Development was not authorized and the final pre-development
+closure/adversarial stages were the next project gate.
+
+The parent audit hierarchy `DD-20_DETAILED_DESIGN_FINAL_AUDIT.md` already classifies DD-20D
+as a historical PASS at its recorded HEAD. Its substantive 41-MS/DD/QA/traceability evidence
+remains valid. The defect is only the active project-state projection: pre-development closure
+subsequently completed, governed Development advanced through DD-208, and the current
+complete-project downstream semantic/file-coverage audit is the later gate.
+
+Smallest forward-only correction:
+- preserve all DD-20D Phase-3 attacks, evidence counts and PASS verdict;
+- mark its hypothesis/verdict/pre-development boundary explicitly historical;
+- add a current DD-208/project-audit overlay with the verified executable basis and current
+  vision/runtime/manifest owners, with DD-209 still locked;
+- add DD-20D to REPO-007 so future checkpoint/audit-basis drift fails CI.
+
+No Detailed Design contract, acceptance, Foundation/Architecture semantics, runtime, RawSource,
+migration, RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+

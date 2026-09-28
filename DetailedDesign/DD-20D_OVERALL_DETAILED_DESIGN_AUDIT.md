@@ -1,6 +1,8 @@
 # DD-20D — OVERALL DETAILED DESIGN ADVERSARIAL AUDIT — PHASE 3
-**Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
-**Adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Status:** HISTORICAL PHASE-3 DETAILED DESIGN EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
+**Historical adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
 
 ## Fresh coverage
 All 55 DetailedDesign files were freshly retrieved/inspected in Phase 3, including all nine Industry DD artifacts and the large acceptance/workflow/determinism evidence files.
@@ -36,9 +38,14 @@ PASS was required for:
 - Phase-3 ambiguity sweep: PASS
 - RawSource/Foundation/Architecture upstream deltas: all have DD owners/tests
 
-## Verdict
+## Historical verdict
 **REQUIREMENT SET COMPLETE — SUPPORTED**  
 **DETAILED DESIGN COMPLETE — SUPPORTED**  
 **READY FOR FINAL PRE-DEVELOPMENT GATE — SUPPORTED**
 
-This completes the Detailed Design gate and authorizes the project to enter the final pre-development closure/adversarial stages. It does **not** by itself authorize Development; the overall project gate still requires final cross-layer isolation, repository/state/backup closure and final adversarial verification.
+At the evaluated 2026-09-13 Phase-3 boundary, this completed the Detailed Design gate and authorized entry into the then-next final pre-development closure/adversarial stages. At that historical point it did **not** by itself authorize Development; the overall pre-development project gate still required final cross-layer isolation, repository/state/backup closure and final adversarial verification.
+
+## Current project projection — 2026-09-28
+The Phase-3 Detailed Design adversarial PASS above remains valid historical evidence. The pre-development gates subsequently closed and governed Development advanced through **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**.
+
+The independently verified current executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`; active current-state projection corrections through VC27-83 are independently exact-HEAD verified. The complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. Current project truth and exact continuation are owned by `../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`, `../Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`. The historical Phase-3 PASS does not establish production readiness, and **DD-209 is not authorized** until that complete-project gate closes.
