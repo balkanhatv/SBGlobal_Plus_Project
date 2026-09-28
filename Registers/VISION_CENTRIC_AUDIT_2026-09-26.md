@@ -2527,3 +2527,25 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-93 changes only the
 Fable-5 DD traceability file's active/historical project-status projection and REPO-007
 coverage; all 328 requirement-to-DD/acceptance chains remain preserved. DD-208 remains current
 and DD-209 stays locked until complete-project audit closure.
+
+## 2026-09-28 historical DD-20H combined-audit projection continuation
+
+### VC27-94 — P2: legacy DD-20H history still exposed pre-development authorization as a current gate
+
+The semantic file-coverage sweep found `DetailedDesign/DD-20H_LEGACY_COMBINED_AUDIT_HISTORY.md`
+outside REPO-007. The file intentionally preserves Wave-1…Wave-3 audit history, but its body
+still says “this current gate”, “READY FOR DEVELOPMENT” and “This authorizes Development to
+begin” without a present-day overlay. Those statements were valid at the evaluated
+pre-development phase, but governed Development subsequently advanced through DD-208 and the
+complete-project downstream semantic/file-coverage audit remains open.
+
+Smallest forward-only correction:
+- preserve the full Wave-1/Wave-2/Wave-3 evidence and original certification wording;
+- add an explicit current DD-208/executable-audit/project-gate overlay at the top;
+- label the embedded current-gate / READY-FOR-DEVELOPMENT authorization language historical;
+- add DD-20H to REPO-007 so future active-projection drift fails CI.
+
+No Detailed Design evidence, Foundation/Architecture contract, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
