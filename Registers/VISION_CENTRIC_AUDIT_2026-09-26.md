@@ -2937,3 +2937,26 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-104 changes only the
 evaluated-era/current-status projection of the Architecture no-loss audit and REPO-007
 coverage; all Architecture evidence remains preserved. DD-208 remains current and DD-209
 stays locked until complete-project audit closure.
+
+## 2026-09-28 historical Phase-2 Architecture traceability PASS projection continuation
+
+### VC27-105 — P2: Architecture traceability matrix still exposed its 2026-09-12 PASS as current-status authority
+
+The semantic file-coverage sweep found
+`Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md` outside REPO-007. Its Foundation concern →
+Architecture HOW owner/evidence/ADR/DD-deferral mapping remains useful evaluated-era Phase-2
+evidence, but the file still opened with unqualified `Status: PASS`, stated that it
+superseded the prior matrix's current-status effect, and carried no active DD-208/project-
+audit overlay.
+
+Smallest forward-only correction:
+- preserve every Foundation→Architecture owner/evidence/ADR/DD-deferral row and result;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- classify the 2026-09-12 PASS as historical Phase-2 Architecture traceability evidence;
+- qualify the old “current-status effect” statement to its evaluated Phase-2 snapshot;
+- add the file to REPO-007 so future active-projection drift fails CI.
+
+No Architecture HOW/ADR conclusion, Foundation requirement, DD deferral, runtime, RawSource,
+migration, RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
