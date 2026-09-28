@@ -2649,3 +2649,24 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-96 changes only the
 historical DD-079-era Development verification/current-next-action projection and REPO-007
 coverage. Its original run/job evidence remains preserved. DD-208 remains current and DD-209
 stays locked until complete-project audit closure.
+
+## 2026-09-28 historical DD-20B Wave-2 projection continuation
+
+### VC27-97 — P2: DD-20B still described Fable-5 remediation as current project routing
+
+The semantic file-coverage sweep found `DetailedDesign/DD-20B_WAVE2_AUDIT.md` outside
+REPO-007. The file was already labeled historical, but its only substantive sentence still
+said “Current Fable 5 remediation reuses valid Wave-2 Core design...” without a present-day
+overlay. Fable-5 remediation subsequently completed and governed Development advanced through
+DD-208, while the complete-project downstream semantic/file-coverage audit remains open.
+
+Smallest forward-only correction:
+- preserve the Wave-2 historical classification and link to DD-20H;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- relabel the embedded “Current Fable 5 remediation” statement as evaluated-era routing;
+- add DD-20B to REPO-007 so future active-projection drift fails CI.
+
+No Wave-2 design evidence, Foundation/Architecture/DD contract, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
