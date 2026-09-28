@@ -11,7 +11,7 @@ const projections = [
   "Development/DB_IMPLEMENTATION_MATRIX.md",
   "Registers/D-INDEX.md", "Registers/D-CHECKPOINT.md", "Registers/REVIEW_REQUIRED.md",
   "Registers/SOURCE_REGISTRY.md", "Registers/ISOLATION_ATTACK_MATRIX.md",
-  "DetailedDesign/DD-INDEX.md",
+  "DetailedDesign/DD-INDEX.md", "DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md",
   "DetailedDesign/DD-CHECKPOINT.md", "DetailedDesign/DD-PHASE_STATE.md",
   "DetailedDesign/DD-REVIEW_REQUIRED.md",
 ];

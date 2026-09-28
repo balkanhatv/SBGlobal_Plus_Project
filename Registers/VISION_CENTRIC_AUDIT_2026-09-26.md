@@ -1903,3 +1903,30 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-77 changes only
 the active DB implementation projection and REPO-007 coverage; no database inventory, runtime
 authority or governed DD checkpoint changed. DD-208 remains current and DD-209 stays locked
 until complete-project audit closure.
+
+## 2026-09-28 active DetailedDesign audit-overlay continuation
+
+### VC27-78 — P2: DD-20 active overlay still routed current project state to the historical pre-development gate
+
+The current-file semantic coverage sweep found
+`DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md` outside REPO-007 while its status
+explicitly said `current all-stages overlay below`.
+
+Its active overlay still described the current DD gate as `READY FOR FINAL PRE-DEVELOPMENT
+GATE` and routed current DD/downstream/project truth to the dated
+`ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`. Those statements are valid historical
+Phase-3 evidence, but Development subsequently advanced through governed DD-208 and the
+current complete-project downstream semantic/file-coverage audit remains open.
+
+Smallest forward-only correction:
+- preserve every Phase-3 audit row, substantive DD HEAD and historical readiness verdict;
+- add the current DD-208 checkpoint plus the verified current executable audit basis;
+- explicitly label the READY FOR FINAL PRE-DEVELOPMENT GATE verdict as historical;
+- route the active project overlay to the current vision audit, bounded-runtime audit and
+  project manifest, with DD-209 still locked;
+- add DD-20 to REPO-007 so future checkpoint/audit-basis drift fails CI.
+
+No Foundation/Architecture/DD contract, runtime behavior, RawSource, migration, RLS,
+role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
