@@ -169,3 +169,4 @@ export * from "./ai/memory-record.js";
 export * from "./ai/memory-assistant-binding-floors.js";
 export * from "./ai/memory-supersession-continuity-floors.js";
 export * from "./ai/media-request-input-document-binding-floors.js";
+export * from "./ai/operation-pre-provider-prerequisite-floors.js";
