@@ -24,3 +24,14 @@ Database inventory remains **48 migrations / 42 verification files**. No schema,
 A true DD-215 result proves only exact supplied same-Tenant/same-Industry/raw-ACTIVE/exact activation-version equality. Current/primary Industry selection, operation authorization, commercial currentness, effective provisioning, routing and AI execution remain unclaimed.
 
 Canonical promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-215 state closure or another source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `555bd515152712828ca7378eba31c6de9b88484e` / tree `291d6d28e64ce0a185acbfe99a44eab731d27dca` independently passed:
+- Core `36436017980` / `108974023609`: **789/789 PASS**, zero failed/skipped; REPO-007/008/010 pass.
+- PostgreSQL `108974023236`: **518/518 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database `36436017805` / `108974022600`: PASS.
+- Web `36436017907` / `108974023062`: PASS.
+
+This authorizes DD-215 canonical promotion only. The state-closure commit must independently pass the same exact-head gate before another source audit opens.

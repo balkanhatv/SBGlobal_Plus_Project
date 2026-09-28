@@ -1295,3 +1295,8 @@ Canonical DD-214 promotion `8afc9d34117d777628360ce7e88d531da51e3443` / tree `47
 ## 2026-09-28 — DD-215 canonical promotion staged
 
 DD-215 implements only the ProvisioningSnapshot exact same-Tenant/same-Industry/raw-ACTIVE/exact activation-version floor using DD-214 evidence. Source-audit and implementation exact-head gates passed at `77ebaaf992767a1713cc296a983bb6933ead9bdd` and `baecbd4956e5c6d97635f4359da608dc67a9ed61`. Canonical promotion remains subject to its own exact-head gate.
+
+
+## 2026-09-28 — DD-215 canonical promotion verified
+
+Canonical DD-215 promotion `555bd515152712828ca7378eba31c6de9b88484e` / tree `291d6d28e64ce0a185acbfe99a44eab731d27dca` passed **789/789 Core**, **518/518 PostgreSQL** plus database bootstrap, Database Verify and Web. The state-closure commit must now pass the same exact-head gate before another source audit opens. No RawSource, schema, RLS, role/grant, route or product-policy change.
