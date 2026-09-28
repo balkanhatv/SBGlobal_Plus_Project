@@ -12,6 +12,7 @@ const projections = [
   "Registers/ARCHITECTURE_FINAL_AUDIT.md",
   "Registers/ARCHITECTURE_NO_LOSS_AUDIT.md",
   "Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md",
+  "Registers/NO_LOSS_AUDIT.md",
   "Registers/DD_REQUIREMENT_TRACEABILITY_F5.md",
   "State/PROJECT_STATE.md", "State/HANDOFF_NOTE.md",
   "State/PHASE_SUMMARY.md", "Development/CORE_SERVICE_CHECKPOINT.md",

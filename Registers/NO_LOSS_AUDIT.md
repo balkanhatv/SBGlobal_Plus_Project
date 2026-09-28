@@ -1,7 +1,9 @@
 # NO-LOSS / DEPTH AUDIT — FRESH POST-REMEDIATION PASS
-**Status:** PASS · **Date:** 2026-09-11 · **Evaluated HEAD:** `df1f72412044751ac30c184315d05e4d72e0099a`
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Historical status:** FOUNDATION NO-LOSS PASS · **Date:** 2026-09-11 · **Evaluated HEAD:** `df1f72412044751ac30c184315d05e4d72e0099a`
 
-> **Current qualification (2026-09-27):** the dated PASS below is historical. New source-fidelity defects invalidate reliance on its child-row totals as a current semantic no-loss verdict. Corrective evidence is [SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md](SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md); full audit remains incomplete.
+> **Current qualification (2026-09-28):** the Foundation-depth PASS below and its later bounded Development continuation are preserved as evaluated-era evidence. Source-parent semantic reconciliation is now 372/372 owner-reconciled with 0 NOT_CERTIFIED, but the complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**, DD-209 is not authorized, and this historical no-loss audit does not define the active project gate. Current corrective evidence is [SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md](SOURCE_FIDELITY_RECONCILIATION_2026-09-27.md).
 
 ## 1. Source integrity
 - Accepted immutable S1 blob: `a9f63a64448a347edd0f2b0c74094284ee953c1b`.
@@ -49,4 +51,4 @@ The Foundation audit above retains its original evaluated HEAD and evidence dept
 
 The remote comparison contains no removed or renamed files, no RawSource/Governing/Foundation/Architecture changes and no migration/verification SQL changes. Both accepted source blobs in SOURCE_REGISTRY remain identical. Existing source/MS IDs and domain semantics are preserved; DD-040 adds the driver boundary and explicit unbound read contracts without inventing new Industry or business authorization models.
 
-[DEV-CORE-MAP-001](../Development/CORE_PERSISTENCE_ADAPTER_MAP.md) records the authority/field/dependency check. [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md) now records the DD-041/042 read bindings plus DD-043 protected PLATFORM_GLOBAL scope floor. Exact executable `3e7b2927839d289240eb389902563f5ab3d68074` has passing Core Service Verify and Database Verify; current inventory is 47 Core/server tests, 11 PostgreSQL tests, 34 migrations and 28 SQL verification files. The current nine Industries, 41 MS, 181 canonical Industry tables, exactly two Tenant mobile app classes and RBAC-primary policy are unchanged. Remaining provider/session-security, PDP/ABAC, Commercial and transport work is explicitly unfinished.
+[DEV-CORE-MAP-001](../Development/CORE_PERSISTENCE_ADAPTER_MAP.md) records the authority/field/dependency check. [CORE_SERVICE_CHECKPOINT](../Development/CORE_SERVICE_CHECKPOINT.md) now records the DD-041/042 read bindings plus DD-043 protected PLATFORM_GLOBAL scope floor. Exact executable `3e7b2927839d289240eb389902563f5ab3d68074` had passing Core Service Verify and Database Verify at that bounded continuation snapshot; its inventory was 47 Core/server tests, 11 PostgreSQL tests, 34 migrations and 28 SQL verification files. The current nine Industries, 41 MS, 181 canonical Industry tables, exactly two Tenant mobile app classes and RBAC-primary policy are unchanged. Remaining provider/session-security, PDP/ABAC, Commercial and transport work is explicitly unfinished.

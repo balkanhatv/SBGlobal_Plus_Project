@@ -2975,3 +2975,26 @@ evaluated-era/current-status projection of the Architecture traceability matrix 
 coverage; all Foundation→Architecture ownership, ADR and DD-deferral evidence remains
 preserved. DD-208 remains current and DD-209 stays locked until complete-project audit closure.
 
+## 2026-09-28 historical Foundation no-loss PASS projection continuation
+
+### VC27-106 — P2: Foundation no-loss audit remained outside active checkpoint projection coverage
+
+The semantic file-coverage sweep found `Registers/NO_LOSS_AUDIT.md` outside REPO-007.
+A 2026-09-27 qualification already stated that its dated PASS was historical, but the file
+still opened with `Status: PASS`, carried no active DD-208/executable-audit basis, and its
+2026-09-14 bounded continuation still described a 47-Core/11-PostgreSQL/34-migration/
+28-verification inventory as “current.”
+
+Smallest forward-only correction:
+- preserve the complete Foundation source-integrity, 2,962-child, 41-MS and phase-boundary
+  evidence plus the bounded Development continuation;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- classify the 2026-09-11 PASS and later bounded continuation as historical/evaluated-era
+  evidence;
+- qualify the old continuation inventory as its snapshot rather than current inventory;
+- add the file to REPO-007 so future active-projection drift fails CI.
+
+No Foundation requirement, source count, 41-MS result, phase-boundary conclusion, runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changes.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+
