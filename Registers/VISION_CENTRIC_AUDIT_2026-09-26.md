@@ -2685,3 +2685,24 @@ DD-20B's evaluated-era “Current Fable 5 remediation” projection and REPO-007
 Wave-2 historical classification/evidence remains preserved. DD-208 remains current and
 DD-209 stays locked until complete-project audit closure.
 
+## 2026-09-28 historical DD-29 ambiguity-sweep projection continuation
+
+### VC27-98 — P2: DD-29 still exposed evaluated Phase-3 ambiguity status as current without the active project overlay
+
+The semantic file-coverage sweep found
+`DetailedDesign/DD-29_FINAL_REVIEW_REQUIRED_SWEEP.md` outside REPO-007. The file records a
+valid Phase-3 ambiguity/review sweep at evaluated HEAD
+`b4bba9c4764025af3d4546644f7c67efa463c86d`, but it still said “Current authoritative DD”
+and ended with a “FINAL REVIEW_REQUIRED SWEEP — PASS” verdict without a present-day
+DD-208/project-audit overlay.
+
+Smallest forward-only correction:
+- preserve every ambiguity classification, recovered-requirement item and Phase-3 PASS verdict;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- qualify “Current authoritative DD” as evaluated-era Phase-3 status;
+- add DD-29 to REPO-007 so future active-projection drift fails CI.
+
+No Detailed Design ambiguity result, requirement owner, Foundation/Architecture contract,
+runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209 authority
+changes. Exact-head Core/PostgreSQL/Database/Web verification is required.
+

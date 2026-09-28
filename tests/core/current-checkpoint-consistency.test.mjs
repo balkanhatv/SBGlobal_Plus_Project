@@ -39,6 +39,7 @@ const projections = [
   "DetailedDesign/DD-20H_LEGACY_COMBINED_AUDIT_HISTORY.md",
   "DetailedDesign/DD-22H_STATE_ENUM_DERIVATION_HISTORY.md",
   "DetailedDesign/DD-27_41_MS_DETERMINISM_AUDIT.md",
+  "DetailedDesign/DD-29_FINAL_REVIEW_REQUIRED_SWEEP.md",
   "DetailedDesign/DD-CHECKPOINT.md", "DetailedDesign/DD-PHASE_STATE.md",
   "DetailedDesign/DD-REVIEW_REQUIRED.md",
 ];
