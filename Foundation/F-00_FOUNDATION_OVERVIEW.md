@@ -1,4 +1,6 @@
 # SBGlobal Plus — PROJECT FOUNDATION
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 
@@ -260,5 +262,8 @@ The complete immutable RawSourceCorpus and complete Foundation set were re-read.
 
 This Phase-1 PASS is a Foundation no-loss/depth result only. It does not certify Architecture, Detailed Design, implementation, testing, security validation or production readiness.
 
-## 16. Current-State Audit Projection — 13-09-2026
-Section 15 records the dependency invalidation at its original Phase-1 checkpoint. Architecture and DD subsequently advanced and Database Development began; its old `NOT AUTHORIZED` line is not the current project gate. The present all-stages audit revalidates the unchanged Foundation WHAT/WHY/WHO against the complete immutable source and then checks Architecture, DD, SQL and verification independently. The current evidence and exact next action are owned by `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` and `State/PROJECT_MANIFEST.json`; Foundation certification does not establish executable or production readiness.
+## 16. Historical Current-State Audit Projection — 13-09-2026
+Section 15 records the dependency invalidation at its original Phase-1 checkpoint. Architecture and DD subsequently advanced and Database Development began; its old `NOT AUTHORIZED` line ceased to be the project gate. The dated `Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` remains historical evidence for that transition and does not own today's exact next action.
+
+## 17. Current Project Projection — 28-09-2026
+Foundation remains the certified WHAT/WHY/WHO owner. The latest governed Development checkpoint is **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**; the independently verified current executable audit basis is `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`; and the complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. Current evidence and exact continuation are owned by `Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`, `Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `State/PROJECT_MANIFEST.json`. Foundation certification does not establish executable or production readiness, and **DD-209 is not authorized** until the complete-project gate closes.

@@ -1984,3 +1984,30 @@ tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-79 changes only
 F-15's current project overlay and REPO-007 coverage; Foundation certification/remediation
 history and source semantics are preserved. DD-208 remains current and DD-209 stays locked
 until complete-project audit closure.
+
+## 2026-09-28 active Foundation overview projection continuation
+
+### VC27-80 — P2: F-00 current-state audit projection still assigned exact next-action ownership to the 2026-09-13 audit
+
+The semantic file-coverage sweep found `Foundation/F-00_FOUNDATION_OVERVIEW.md` outside
+REPO-007 while §16 remained explicitly titled `Current-State Audit Projection`.
+It correctly explained that the original Phase-1 Development block was superseded, but still
+assigned `current evidence and exact next action` to the dated
+`ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md`.
+
+The Foundation WHAT/WHY/WHO certification remains valid. The drift is only its active
+project-state projection: Development is governed at DD-208, current executable evidence is
+the VC27-70 basis, and the complete-project downstream semantic/file-coverage audit remains
+open.
+
+Smallest forward-only correction:
+- preserve every Foundation requirement/status/history section;
+- relabel §16 as the historical 2026-09-13 projection;
+- append a current DD-208/project-audit overlay pointing at the current vision/runtime/manifest
+  owners with DD-209 still locked;
+- add F-00 to REPO-007 so future checkpoint/audit-basis drift fails CI.
+
+No Foundation semantics, source inventory, Architecture/DD contract, runtime, migration, RLS,
+role/grant, product requirement or DD-209 authority changes. Exact-head
+Core/PostgreSQL/Database/Web verification is required.
+
