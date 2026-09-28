@@ -1,5 +1,9 @@
 # WAVE-3 MANAGEMENT SYSTEM COMPLETION MATRIX
-**Status:** HISTORICAL STRUCTURAL MATRIX — FABLE 5 DETERMINISM RECERTIFICATION REQUIRED
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Historical status:** HISTORICAL STRUCTURAL MATRIX — FABLE 5 DETERMINISM RECERTIFICATION REQUIRED
+
+> **Current qualification (2026-09-28):** the 41-MS Wave-3 structural/semantic owner matrix below is preserved as evaluated-era Detailed Design evidence. Later Fable-5 determinism and governed Development advanced through DD-208. The complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**, DD-209 is not authorized, and the COMPLETE/VERIFIED row labels below do not certify current runtime completion or define the active project gate.
 
 | Industry | MS | Foundation owner | Wave-3 owner | Status |
 |---|---|---|---|---|

@@ -3052,3 +3052,24 @@ root-level audit/traceability candidates are either active current audit owners 
 historical/non-runtime-certifying ledgers. DD-208 remains current and DD-209 stays locked
 until complete-project audit closure.
 
+## 2026-09-28 historical Wave-3 MS completeness projection continuation
+
+### VC27-108 — P2: Wave-3 MS completion matrix remained outside active checkpoint projection coverage
+
+The semantic file-coverage sweep found `DetailedDesign/WAVE3_MS_COMPLETENESS_MATRIX.md`
+outside REPO-007. Its 41-MS Foundation-owner → Wave-3-owner matrix and row-level
+`COMPLETE — STRUCTURAL + SEMANTIC OWNER VERIFIED` results remain useful evaluated-era
+Detailed Design evidence, but the file exposed those labels without the active DD-208 /
+executable-audit / still-open project-gate overlay.
+
+Smallest forward-only correction:
+- preserve all 41 Management System rows, Foundation/Wave-3 owners and completion labels;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- classify the matrix as historical/evaluated-era evidence;
+- explicitly state that the row-level COMPLETE/VERIFIED labels do not certify current runtime completion;
+- add the file to REPO-007 so future active-projection drift fails CI.
+
+No MS count/result, Foundation owner, Wave-3 owner, Industry neutrality rule, requirement,
+runtime, RawSource, migration, RLS, role/grant, product requirement or DD-209 authority
+changes. Exact-head Core/PostgreSQL/Database/Web verification is required.
+
