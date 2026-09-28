@@ -819,3 +819,16 @@ tree `61cd1159fc50eb0ffc4c25023635c1578143e193` passed **740/740 Core**,
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No
 Architecture HOW/ADR semantics, Foundation/DD requirements, runtime, RawSource, migration,
 RLS, role/grant, product requirement or DD-209 change.
+
+## 2026-09-28 — VC27-84 DD-20D active project-projection correction
+
+The semantic file-coverage sweep found `DetailedDesign/DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md`
+still presenting its historical Phase-3 “Development not authorized / final pre-development
+gate next” boundary as active project state, while DD-20 already classifies DD-20D as historical
+evidence. The correction preserves all Phase-3 attacks/evidence/PASS results, marks that boundary
+historical, adds a DD-208/current-audit overlay, and adds DD-20D to REPO-007. Correction HEAD
+`de759f8c17a5f52a18434d0306807fbcc57b4e05` / tree
+`1bc67d0a8fe904e1596aa132633a3b6a130b7620` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No Detailed
+Design contract, acceptance, Foundation/Architecture semantics, runtime, RawSource, migration,
+RLS, role/grant, product requirement or DD-209 change.
