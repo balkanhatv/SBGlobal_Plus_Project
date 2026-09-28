@@ -731,3 +731,16 @@ DD-208 evidence/continuation, and adds REPO-009 to prevent recurrence. Correctio
 **512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No RawSource,
 source ID/text, owner row, runtime, migration, RLS, role/grant, product requirement or DD-209
 change.
+
+## 2026-09-28 — VC27-77 active DB implementation projection correction
+
+The current semantic-coverage sweep found `Development/DB_IMPLEMENTATION_MATRIX.md` outside
+REPO-007 while its active validation boundary called a VC27-70 state-sync HEAD the current
+repository exact-HEAD executable evidence. The correction adds the DD-208 current checkpoint,
+binds current executable evidence to `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`, preserves later state-sync and older
+historical evidence with explicit labels, and adds the matrix to REPO-007. Correction HEAD
+`03bc2a7514d63a956b856d9a6d09660ec02be77b` / tree
+`ef943415e6521f95f9230115c29d14d7caae2023` passed **740/740 Core**,
+**512/512 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web. No runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 change.

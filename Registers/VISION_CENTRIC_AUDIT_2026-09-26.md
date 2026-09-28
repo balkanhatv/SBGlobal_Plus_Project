@@ -1889,3 +1889,17 @@ test semantics beyond stronger projection coverage, migration, RLS, role/grant, 
 requirement or DD-209 authority changes. Exact-head Core/PostgreSQL/Database/Web verification
 is required.
 
+#### VC27-77 exact-head closure
+
+Correction HEAD `03bc2a7514d63a956b856d9a6d09660ec02be77b` /
+tree `ef943415e6521f95f9230115c29d14d7caae2023` passed exact-head:
+- Core **740/740**;
+- PostgreSQL **512/512** with bootstrap PASS;
+- Database **48 migrations / 42 verification files** PASS;
+- Web PASS.
+
+The executable audit basis remains `4dd7138e5a546f608fe5e28e0912d17523e33693` /
+tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`. VC27-77 changes only
+the active DB implementation projection and REPO-007 coverage; no database inventory, runtime
+authority or governed DD checkpoint changed. DD-208 remains current and DD-209 stays locked
+until complete-project audit closure.
