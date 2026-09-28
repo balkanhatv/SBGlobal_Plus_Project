@@ -2793,3 +2793,24 @@ DD-31's evaluated-era/current determinism projection and REPO-007 coverage; all 
 representative flows, cross-cutting determinism evidence and 9/9 Development/QA results remain
 preserved. DD-208 remains current and DD-209 stays locked until complete-project audit closure.
 
+## 2026-09-28 historical DD-20C Wave-3 gate projection continuation
+
+### VC27-101 — P2: DD-20C still exposed the old Overall DD-20D gate as its current next gate
+
+The semantic file-coverage sweep found
+`DetailedDesign/DD-20C_WAVE3_ADVERSARIAL_AUDIT.md` outside REPO-007. Its 41-MS Wave-3
+matrix and adversarial findings remain useful evaluated-era evidence, but the closing verdict
+still said Wave 3 was supported “subject to the separate Overall DD-20D gate” without a
+present-day overlay. DD-20D subsequently passed and governed Development advanced through
+DD-208.
+
+Smallest forward-only correction:
+- preserve the complete 41-MS Wave-3 matrix, finding register and substantive verdict;
+- add the current DD-208/executable-audit/still-open project-gate overlay;
+- relabel the DD-20D dependency as the historical next gate at that evaluated boundary;
+- add DD-20C to REPO-007 so future active-projection drift fails CI.
+
+No Wave-3 DD evidence, isolation result, Foundation/Architecture/DD contract, runtime,
+RawSource, migration, RLS, role/grant, product requirement or DD-209 authority changes.
+Exact-head Core/PostgreSQL/Database/Web verification is required.
+

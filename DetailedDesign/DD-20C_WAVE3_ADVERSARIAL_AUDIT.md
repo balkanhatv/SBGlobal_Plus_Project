@@ -1,6 +1,10 @@
 # DD-20C — WAVE-3 ADVERSARIAL AUDIT
-**Date:** 2026-09-12 · **Evaluated substantive HEAD:** `810e43c9c75e3750f52cc7e1954db8f341e6d79b`  
-**Adversarial hypothesis:** **WAVE 3 IS NOT IMPLEMENTATION READY**
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`  
+**Current executable audit basis:** `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`  
+**Historical status:** WAVE-3 ADVERSARIAL EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `810e43c9c75e3750f52cc7e1954db8f341e6d79b`  
+**Historical adversarial hypothesis:** **WAVE 3 IS NOT IMPLEMENTATION READY**
+
+> The 41-MS matrix, findings and Wave-3 verdict below are preserved as evaluated-era evidence. The then-next Overall DD-20D gate subsequently passed and governed Development advanced through DD-208. The complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**, DD-209 is not authorized, and this file does not define the active project gate.
 
 ## Method
 The canonical nine industry DD files were re-read independently. For each MS, evidence was checked for entities, typed fields, immutable Tenant+Industry ownership, exact indexes/constraints, state model, exact major transition matrix, forbidden transitions, cancellation/reversal, domain rules, approvals, permissions, ABAC, behavior catalogs, documents, notifications, KPI formula mapping, API operations, events, integrations, AI/RAG/tools, surfaces, offline, configuration, entitlements, audit, acceptance IDs and requirement-level traceability. DD-27 was not accepted as standalone proof.
@@ -87,4 +91,4 @@ Historical/superseded artifacts contain old OPEN/TBD/deferral language by design
 - Developer-invented material product behavior identified: **0**.
 - QA-invented material expected behavior identified: **0**.
 
-**ADVERSARIAL HYPOTHESIS REJECTED. DD WAVE 3 COMPLETE — SUPPORTED**, subject to the separate Overall DD-20D gate.
+**Historical Wave-3 verdict:** **ADVERSARIAL HYPOTHESIS REJECTED. DD WAVE 3 COMPLETE — SUPPORTED.** At the evaluated boundary this remained subject to the then-next Overall DD-20D gate; that gate subsequently passed and is no longer the current project next action.

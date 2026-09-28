@@ -35,6 +35,7 @@ const projections = [
   "DetailedDesign/DD-INDEX.md", "DetailedDesign/DD-00_DETAILED_DESIGN_OVERVIEW.md",
   "DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md",
   "DetailedDesign/DD-20B_WAVE2_AUDIT.md",
+  "DetailedDesign/DD-20C_WAVE3_ADVERSARIAL_AUDIT.md",
   "DetailedDesign/DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md",
   "DetailedDesign/DD-20H_LEGACY_COMBINED_AUDIT_HISTORY.md",
   "DetailedDesign/DD-22H_STATE_ENUM_DERIVATION_HISTORY.md",
