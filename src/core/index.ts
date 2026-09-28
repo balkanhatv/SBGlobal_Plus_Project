@@ -147,6 +147,7 @@ export * from "./ai/token-usage-capability-binding-floors.js";
 export * from "./ai/cost.js";
 export * from "./ai/cost-token-usage-binding-floors.js";
 export * from "./ai/provisioning-snapshot.js";
+export * from "./ai/provisioning-snapshot-tenant-config-floors.js";
 export * from "./ai/media-request.js";
 export * from "./ai/media-request-capability-binding-floors.js";
 export * from "./ai/media-request-prompt-template-binding-floors.js";
