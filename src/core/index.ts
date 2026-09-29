@@ -175,3 +175,4 @@ export * from "./ai/provider-model-catalog-pre-candidate-set.js";
 export * from "./ai/request-pre-routing-floors.js";
 export * from "./ai/tenant-config-request-candidate-floors.js";
 export * from "./ai/industry-config-request-candidate-floors.js";
+export * from "./ai/industry-config-relationship-pre-routing-floors.js";
