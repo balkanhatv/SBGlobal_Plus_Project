@@ -3,7 +3,7 @@
 > **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-248…DD-252 TenantAIConfig request/candidate prerequisite batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-09-28 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts
 
-> **Current executable audit basis:** `6903bf671d5b99e78d2ebc8b2d94ce55dd4411b7` / tree `66b417fde1f543200cb26e815464484daad1a34e`
+> **Current executable audit basis:** `e507456d37ef83bd5c69355b27c07ef7472114bf` / tree `9ef6b9bbf2128fbd8bd65541e679478fe2badc12`
 
 ## Historical 2026-09-14 executable persistence overlay
 
