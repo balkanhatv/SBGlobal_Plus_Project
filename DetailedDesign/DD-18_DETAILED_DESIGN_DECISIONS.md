@@ -3535,3 +3535,57 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no effective config, prompt/localization materialization, policy decision, scoring, route/fallback, credential resolution or execution authority.
 
 **Acceptance:** `AIINDREL-PRE-001…004`.
+
+## DD-263 — Exact supplied RequestContext to Industry snapshot scope floor
+
+**Context:** A-07 and DD-09 require server-verified Tenant + Industry Context at the AI Gateway boundary; RequestContext exposes supplied Tenant/Industry/scope facts while AIRequest.requestContextRef has no authoritative binding contract here.
+
+**Decision:** add `matchesAIRequestContextIndustrySnapshotScopeFloor(requestContext, snapshot)`, requiring TENANT_INDUSTRY scope, valid UUID identities and exact Tenant + Industry equality.
+
+**Boundary:** no authentication/RequestContext resolution, current snapshot selection, permission checks or requestContextRef dereference.
+
+**Acceptance:** `AIINDGW-CTX-001…003`.
+
+
+## DD-264 — Compose Industry context scope with operation admission
+
+**Context:** DD-230 already owns snapshot lifecycle/API-class/capability admission.
+
+**Decision:** add `matchesAIIndustryOperationGatewayAdmissionFloors(...)` as DD-263 plus DD-230 only.
+
+**Boundary:** a true result is not authorization, entitlement, policy or routing approval.
+
+**Acceptance:** `AIINDGW-ADM-001…002`.
+
+
+## DD-265 — Compose AIRequest integrity with Industry Gateway admission
+
+**Context:** DD-247 already owns exact AIRequest/declaration integrity.
+
+**Decision:** add `matchesAIRequestIndustryGatewayAdmissionFloors(...)` as DD-247 plus DD-264.
+
+**Boundary:** AIRequest.requestContextRef remains uninterpreted because no source contract binds it to RequestContext identity.
+
+**Acceptance:** `AIINDGW-REQ-001…002`.
+
+
+## DD-266 — Compose Gateway admission with relationship-complete Industry prerequisites
+
+**Context:** DD-261 already owns request/Tenant/Industry config + PromptSet/CountryPack relationship prerequisites.
+
+**Decision:** add `matchesAIRequestIndustryGatewayRelationshipPrerequisiteFloors(...)` as DD-265 plus DD-261.
+
+**Boundary:** this remains a necessary prerequisite only; no live policy/quota/residency/routing authority.
+
+**Acceptance:** `AIINDGW-REL-001…002`.
+
+
+## DD-267 — Preserve DD-262 candidates only when Gateway prerequisites pass
+
+**Context:** DD-262 already returns immutable non-ranking relationship-complete Industry-constrained candidate refs.
+
+**Decision:** add `buildAIIndustryGatewayRelationshipPreRoutingSet(input)`. Build DD-262, require DD-266, and return the same immutable refs.
+
+**Boundary:** no auth decision, entitlement decision, effective config, scoring, route/fallback, credential or execution authority is projected.
+
+**Acceptance:** `AIINDGW-PRE-001…004`.

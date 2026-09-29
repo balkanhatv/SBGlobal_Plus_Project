@@ -4318,3 +4318,56 @@ When all relationships pass, a valid DD-257 empty candidate set remains immutabl
 
 ### AIINDREL-PRE-004 — No new authority or mutation
 Inputs remain unchanged and output exposes no effective-config, prompt, localization, policy, score, fallback, credential, route or execution authority.
+
+## DD-263 RequestContext ↔ Industry Snapshot Scope Acceptance
+
+### AIINDGW-CTX-001 — Exact TENANT_INDUSTRY scope match
+A supplied TENANT_INDUSTRY RequestContext whose Tenant + Industry Context exactly equals the supplied Industry-scoped ProvisioningSnapshot passes.
+
+### AIINDGW-CTX-002 — Wrong/missing scope evidence denies
+TENANT_CORE/other scope, missing ids, foreign Tenant or sibling Industry fails closed.
+
+### AIINDGW-CTX-003 — Malformed identity denial; unrelated fields uninterpreted
+Malformed RequestContext/snapshot identities fail closed while unrelated supplied context/snapshot fields remain uninterpreted and inputs unchanged.
+
+
+## DD-264 Industry Operation Gateway Admission Acceptance
+
+### AIINDGW-ADM-001 — Exact context plus DD-230 admission
+DD-263 exact supplied Industry context/snapshot scope plus DD-230 operation admission passes.
+
+### AIINDGW-ADM-002 — Any admission prerequisite failure denies
+Context/snapshot scope, snapshot lifecycle, API class or capability admission failure returns false.
+
+
+## DD-265 AIRequest + Industry Gateway Admission Acceptance
+
+### AIINDGW-REQ-001 — Request integrity plus gateway admission
+DD-247 request integrity plus DD-264 Industry gateway admission passes without inferring requestContextRef identity binding.
+
+### AIINDGW-REQ-002 — Request or gateway admission failure denies
+Request capability/schema integrity or gateway admission failure returns false.
+
+
+## DD-266 Relationship-Complete Industry Gateway Prerequisite Acceptance
+
+### AIINDGW-REL-001 — Admission plus relationship-complete Industry prerequisites
+DD-265 plus DD-261 relationship-complete supplied Industry prerequisites passes.
+
+### AIINDGW-REL-002 — Any prerequisite failure denies
+Context/admission/request/config/PromptSet/CountryPack prerequisite failure returns false.
+
+
+## DD-267 Industry Gateway Relationship-Complete Pre-Routing Set Acceptance
+
+### AIINDGW-PRE-001 — Expected immutable candidate set
+The full relationship-complete Industry Gateway path returns the expected immutable DD-262 candidate refs.
+
+### AIINDGW-PRE-002 — Failure is not empty success
+Any gateway/relationship prerequisite failure returns null rather than an empty successful set.
+
+### AIINDGW-PRE-003 — Valid empty remains valid empty
+A valid empty DD-262 candidate set remains immutable empty success when all gateway prerequisites pass.
+
+### AIINDGW-PRE-004 — No new authority or mutation
+Inputs remain unchanged and output exposes no authentication/authorization/entitlement/effective-config/policy/score/fallback/credential/route/execution authority.
