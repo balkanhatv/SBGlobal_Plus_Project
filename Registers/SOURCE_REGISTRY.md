@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
 **Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001`
-**Current executable audit basis:** `69ffec4c068e98e4b7d80e757b70589c49a626c4` / tree `3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e`
+**Current executable audit basis:** `01b6c530490735ba5f5354d15230a90c4ea73243` / tree `50028566216ac2a178eb85bdb6760cbcdb22cf0c`
 **Status:** ACTIVE · **Updated:** 2026-09-28
 
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 Provider/Model catalog pre-candidate set batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority
@@ -45,8 +45,8 @@ DD-238…DD-242 is the latest implemented governed backend batch at this promoti
 
 Governed DD-208 promotion evidence remains `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba28541da36bd4c94d9559f91121a0aae2`, recorded in `Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md`.
 
-The current bounded downstream executable audit basis is `69ffec4c068e98e4b7d80e757b70589c49a626c4` / tree `3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e`: **870/870 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation remains **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED**; DD-238…DD-242 canonical promotion is staged.
+The current bounded downstream executable audit basis is `01b6c530490735ba5f5354d15230a90c4ea73243` / tree `50028566216ac2a178eb85bdb6760cbcdb22cf0c`: **870/870 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation remains **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED**; DD-238…DD-242 canonical promotion is exact-head verified and state closure is staged.
 
-Next: after this DD-238…DD-242 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the batch state before the next independently source-complete governed backend batch opens. Model-class mapping, live policy/quota/health/scoring/fallback/credentials/routing selection and AI execution remain locked.
+Next: this DD-238…DD-242 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the batch is closed and the next independently source-complete governed backend batch may be source-audited. Model-class mapping, live policy/quota/health/scoring/fallback/credentials/routing selection and AI execution remain locked.
 
 

@@ -1,7 +1,7 @@
 # FABLE 5 — REQUIREMENT-ID DETAILED DESIGN TRACEABILITY
 **Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001`  
-**Current executable audit basis:** `69ffec4c068e98e4b7d80e757b70589c49a626c4` / tree `3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 Provider/Model catalog pre-candidate set batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `01b6c530490735ba5f5354d15230a90c4ea73243` / tree `50028566216ac2a178eb85bdb6760cbcdb22cf0c`  
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-11 · **Historical status:** FABLE 5 REMEDIATION EVIDENCE
 
 > The requirement-to-DD rows below remain preserved as evaluated-era Phase-3 traceability evidence. Fable-5 remediation subsequently completed, governed Development advanced through DD-208, and the complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**. This file does not define the current development gate and does not authorize DD-209.

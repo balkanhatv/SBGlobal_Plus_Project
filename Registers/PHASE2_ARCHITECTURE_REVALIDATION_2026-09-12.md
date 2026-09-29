@@ -1,7 +1,7 @@
 # PHASE 2 — Foundation → Architecture/ADR Fresh Revalidation
 **Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001`  
-**Current executable audit basis:** `69ffec4c068e98e4b7d80e757b70589c49a626c4` / tree `3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 Provider/Model catalog pre-candidate set batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `01b6c530490735ba5f5354d15230a90c4ea73243` / tree `50028566216ac2a178eb85bdb6760cbcdb22cf0c`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.
