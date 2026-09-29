@@ -588,3 +588,7 @@ DD-263…DD-267 add only exact supplied TENANT_INDUSTRY RequestContext ↔ Indus
 ## 2026-09-29 — DD-263…DD-267 canonical promotion verified; state closure staged
 
 Canonical promotion `804fe042619f0535fb3bade1b7b58479b48a435c` / tree `205867ed9f10c93ae1b9a173667a75fdc2d98ce2` independently passed **937/937 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. This state-closure sync promotes that verified canonical promotion to the current executable basis without changing runtime, schema, RawSource or tests.
+
+## 2026-09-29 — DD-268…DD-272 Industry Gateway live GuardPipeline authorization batch
+
+DD-268…DD-272 reuse the existing GuardPipeline public authorization surface before DD-267 Industry AI pre-routing. The bridge passes exact RequestContext + declaration.operation, preserves optional resourceReference, exact GuardResult identity and unchanged GuardPipeline errors, then returns immutable DD-267 candidate refs only after successful authorization. Source audit `a469bcd462bca595a2d018e504d8dce36d227497` / tree `0c8fd53505362c1385f9bf126a1c07eef526fd65` preceded implementation `5fab213c77fe7e3cf33e4f5af1503b38dba6d966` / tree `bcd4e16ab8b95cd3aecc069b044b75971951addf`, which passed **947/947 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, role/grant, public route, provider SDK, frontend or product-policy change.

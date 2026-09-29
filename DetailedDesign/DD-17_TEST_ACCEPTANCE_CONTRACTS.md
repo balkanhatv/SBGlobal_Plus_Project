@@ -4371,3 +4371,47 @@ A valid empty DD-262 candidate set remains immutable empty success when all gate
 
 ### AIINDGW-PRE-004 — No new authority or mutation
 Inputs remain unchanged and output exposes no authentication/authorization/entitlement/effective-config/policy/score/fallback/credential/route/execution authority.
+
+## DD-268 AI Industry Gateway Live Authorization Port Acceptance
+
+### AIINDGUARD-PORT-001 — Exact RequestContext + operation bridge
+The GuardPipeline-compatible port receives the exact supplied RequestContext and exact declaration.operation once.
+
+### AIINDGUARD-PORT-002 — Optional resource reference preservation
+resourceReference is omitted when absent and passed unchanged when supplied.
+
+
+## DD-269 Exact Live Authorization Bridge Acceptance
+
+### AIINDGUARD-AUTH-001 — Exact GuardResult preservation
+The exact resolved GuardResult object is returned unchanged.
+
+### AIINDGUARD-AUTH-002 — Denial/dependency errors propagate
+Authorization denial or dependency failure rejects unchanged and is never normalized to null or empty success.
+
+
+## DD-270 Authorization-Before-Pre-Routing Acceptance
+
+### AIINDGUARD-ORDER-001 — Live authorization precedes DD-267 evidence construction
+The live authorization call completes before DD-267 candidate evidence is accepted or evaluated as successful.
+
+### AIINDGUARD-ORDER-002 — Post-authorization DD-267 evidence failure remains null
+After successful authorization, malformed/invalid DD-267 evidence returns null rather than an authorization failure or empty success.
+
+
+## DD-271 Guard Evidence Preservation Acceptance
+
+### AIINDGUARD-EVID-001 — Guard evidence identity is preserved
+The envelope preserves the exact GuardResult, including decisionId, resourceDescriptor and restrictionSet.
+
+### AIINDGUARD-EVID-002 — Immutable envelope and candidates
+The envelope and candidate collection are immutable; supplied inputs remain unchanged.
+
+
+## DD-272 Valid-Empty / No-New-Authority Acceptance
+
+### AIINDGUARD-EMPTY-001 — Authorized valid-empty succeeds
+Successful live authorization plus a valid empty DD-267 candidate set returns an immutable envelope with immutable [] candidates.
+
+### AIINDGUARD-BOUNDARY-001 — No new AI authority
+The envelope exposes no new authorization decision, effective config, AI policy, budget, residency route, score, fallback, credential, route or execution authority beyond the preserved GuardResult.

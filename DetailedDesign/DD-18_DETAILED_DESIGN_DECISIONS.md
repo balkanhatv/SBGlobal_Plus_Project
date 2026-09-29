@@ -3589,3 +3589,45 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no auth decision, entitlement decision, effective config, scoring, route/fallback, credential or execution authority is projected.
 
 **Acceptance:** `AIINDGW-PRE-001…004`.
+
+## DD-268 — Reuse the existing GuardPipeline public authorization surface
+
+**Context:** DD-03/DD-04 already own current commercial, RBAC/ABAC/security/residency/resource/business-rule authorization and durable audit through GuardPipeline.authorize.
+
+**Decision:** define `AIIndustryGatewayAuthorizationPort` with the exact narrow `authorize({requestContext, operation, resourceReference?}) -> Promise<GuardResult>` surface already satisfied structurally by GuardPipeline.
+
+**Boundary:** no parallel PDP, commercial guard or AI-specific authorization contract is created.
+
+**Acceptance:** `AIINDGUARD-PORT-001…002`.
+
+
+## DD-269 — Exact live authorization bridge
+
+**Decision:** add `authorizeAIIndustryGatewayOperation(...)`. It calls the supplied authorization port exactly once with the exact RequestContext + declaration.operation, conditionally preserves resourceReference presence, returns the exact GuardResult and does not catch/normalize GuardPipeline errors.
+
+**Acceptance:** `AIINDGUARD-AUTH-001…002`.
+
+
+## DD-270 — Authorization before Industry pre-routing construction
+
+**Decision:** add `buildAuthorizedAIIndustryGatewayPreRoutingEnvelope(input, authorization)`. Await DD-269 first; only after successful authorization invoke DD-267 pre-routing construction.
+
+**Security / trade-off:** this ordering prevents candidate construction from substituting for live authorization.
+
+**Acceptance:** `AIINDGUARD-ORDER-001…002`.
+
+
+## DD-271 — Preserve exact GuardPipeline evidence and existing failure semantics
+
+**Decision:** the authorized envelope carries the exact GuardResult reference and the immutable DD-267 candidate refs. GuardPipeline errors reject unchanged; DD-267 evidence failure after successful authorization remains null.
+
+**Boundary:** no synthetic decision id, restriction set or resource evidence is fabricated.
+
+**Acceptance:** `AIINDGUARD-EVID-001…002`.
+
+
+## DD-272 — Preserve valid-empty and no-new-authority boundary
+
+**Decision:** successful live authorization + valid empty DD-267 candidates returns immutable empty success. The envelope adds no AI-specific effective config, policy, budget, residency-route, score, fallback, credential or execution decision.
+
+**Acceptance:** `AIINDGUARD-EMPTY-001`, `AIINDGUARD-BOUNDARY-001`.
