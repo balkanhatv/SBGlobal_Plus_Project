@@ -1,7 +1,7 @@
 # PHASE 2 — Foundation → Architecture/ADR Fresh Revalidation
 **Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-LIVE-GUARD-AUTHORIZATION-001`
-**Current executable audit basis:** `5fab213c77fe7e3cf33e4f5af1503b38dba6d966` / tree `bcd4e16ab8b95cd3aecc069b044b75971951addf`
-> **Current audit gate (2026-09-28):** DD-268…DD-272 live GuardPipeline authorization-before-pre-routing batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `7296dd2ac24525cfd20cb79a16b8c218d55e82dc` / tree `97467a0133874a1ba8bc328d2a61e5f5ac2ba8cc`
+> **Current audit gate (2026-09-28):** DD-268…DD-272 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.

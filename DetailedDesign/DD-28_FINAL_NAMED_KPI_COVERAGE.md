@@ -1,7 +1,7 @@
 # DD-28 — FINAL NAMED-KPI COVERAGE MATRIX
 **Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-LIVE-GUARD-AUTHORIZATION-001`
-**Current executable audit basis:** `5fab213c77fe7e3cf33e4f5af1503b38dba6d966` / tree `bcd4e16ab8b95cd3aecc069b044b75971951addf`
-> **Current audit gate (2026-09-28):** DD-268…DD-272 live GuardPipeline authorization-before-pre-routing batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `7296dd2ac24525cfd20cb79a16b8c218d55e82dc` / tree `97467a0133874a1ba8bc328d2a61e5f5ac2ba8cc`
+> **Current audit gate (2026-09-28):** DD-268…DD-272 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-12 · **Historical status:** FINAL FABLE KPI REVALIDATION
 **Method:** independently extracted KPI/report metric names from all nine canonical industry/MS DD files and mapped each to stable DD-25 contract IDs. Composite labels map to each required underlying KPI rather than being accepted by fuzzy name alone.
 
