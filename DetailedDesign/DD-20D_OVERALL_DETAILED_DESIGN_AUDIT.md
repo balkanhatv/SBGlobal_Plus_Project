@@ -1,7 +1,7 @@
 # DD-20D — OVERALL DETAILED DESIGN ADVERSARIAL AUDIT — PHASE 3
 **Current checkpoint:** `DEV-AI-TENANT-CONFIG-REQUEST-CANDIDATE-FLOORS-001`
-**Current executable audit basis:** `e507456d37ef83bd5c69355b27c07ef7472114bf` / tree `9ef6b9bbf2128fbd8bd65541e679478fe2badc12`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-248…DD-252 TenantAIConfig request/candidate prerequisite batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `6ca1382076afe77d0265b15422aaf0644272e9ab` / tree `a44102f2e17af8bb6e8845507796e739de012e8e`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-248…DD-252 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-3 DETAILED DESIGN EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 **Historical adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
 

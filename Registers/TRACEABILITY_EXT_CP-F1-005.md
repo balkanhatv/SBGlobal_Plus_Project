@@ -1,7 +1,7 @@
 # TRACEABILITY EXTENSION — CP-F1-005 (F-13, F-14)
 **Current checkpoint:** `DEV-AI-TENANT-CONFIG-REQUEST-CANDIDATE-FLOORS-001`
-**Current executable audit basis:** `e507456d37ef83bd5c69355b27c07ef7472114bf` / tree `9ef6b9bbf2128fbd8bd65541e679478fe2badc12`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-248…DD-252 TenantAIConfig request/candidate prerequisite batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `6ca1382076afe77d0265b15422aaf0644272e9ab` / tree `a44102f2e17af8bb6e8845507796e739de012e8e`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-248…DD-252 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
 **Current traceability qualification:** stable child-ID inventory is **2,962**; parent/source-heading semantic ownership gate is **372/372 owner-reconciled, 0 NOT_CERTIFIED**; complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**.
 
 > This CP-F1-005 extension is preserved as historical Foundation-era traceability evidence. Its 2,965-item accounting and certification wording are evaluated-era evidence and do not override current source-fidelity/traceability owners.
