@@ -24,3 +24,16 @@ No schema, migration, RLS, role, grant, public route, provider SDK or product-po
 ## Canonical promotion gate
 
 This register is created by the DD-225…DD-230 canonical promotion. The promotion commit must independently pass exact-head Core/PostgreSQL/Database/Web before batch state closure and before the next governed source audit opens.
+
+## Canonical promotion/correction exact-head gate
+
+Initial canonical promotion `0ecbf13d98dbb42593210c9b52e066255f012a30` / tree `f193d2fc18c6fe7cdf24949e79116c2ef3c8de5b` preserved all runtime tests and passed PostgreSQL/Database/Web, but Core failed only **REPO-009** because the Source Registry's required literal “complete-project downstream semantic/file-coverage/adversarial audit is clean / closed” had been reworded during stale-overlay cleanup. REPO-007 and REPO-008 passed; no runtime implementation failure occurred.
+
+Smallest forward-only governance correction `697ee9e4b3afb89eaf9e6c12b02712b61a3634cf` / tree `69e22b23955aacba109436ba648514629b4c4118` restored that exact invariant phrase in `Registers/SOURCE_REGISTRY.md` only and independently passed:
+- Core Service Verify `36518754946` / `109246812579`: **843/843 PASS**, zero failed/skipped.
+- PostgreSQL `36518754946` / `109246812308`: **525/525 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36518754988` / `109246812581`: PASS.
+- Web Boundary Verify `36518754903` / `109246812461`: PASS.
+
+The corrected promotion therefore verifies the canonical DD-225…DD-230 decisions, acceptance, traceability, evidence and active projection synchronization. The containing state-closure commit must independently pass the same gate before another governed source audit opens.
+
