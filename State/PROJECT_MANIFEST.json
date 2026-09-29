@@ -2093,31 +2093,31 @@
     "source_requirement_text_reconciliation": "2,962 stable IDs retained; 85 mis-extracted texts restored and 21 provenance aliases explicitly located by VC27-01. Complete atomic no-loss certification remains open."
   },
   "current_feature_verification": {
-    "decision_id": "DD-247",
-    "decision": "DD-247 Combined AIRequest pre-routing prerequisite floor",
-    "checkpoint": "DEV-AI-REQUEST-PRE-ROUTING-FLOORS-001",
-    "verified_head": "a55d54d0e640d58b18c8d691c26a57835c79aa2e",
-    "verified_tree": "75c109735c2331e357cac7ab599a02cbd8dd8fff",
-    "source_audit": "Development/AI_REQUEST_PRE_ROUTING_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-252",
+    "decision": "DD-252 Combined TenantAIConfig-constrained pre-routing set",
+    "checkpoint": "DEV-AI-TENANT-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
+    "verified_head": "e507456d37ef83bd5c69355b27c07ef7472114bf",
+    "verified_tree": "9ef6b9bbf2128fbd8bd65541e679478fe2badc12",
+    "source_audit": "Development/AI_TENANT_CONFIG_REQUEST_CANDIDATE_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AIREQ-PRE-001",
-      "AIREQ-PRE-002",
-      "AIREQ-PRE-003"
+      "AITENROUTE-PRE-001",
+      "AITENROUTE-PRE-002",
+      "AITENROUTE-PRE-003"
     ],
     "test_files": [
-      "tests/core/ai-request-pre-routing-floors.test.mjs"
+      "tests/core/ai-tenant-config-request-candidate-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36529101421,
-      "job_id": 109278515932,
-      "tests": 883,
-      "pass": 883,
+      "run_id": 36555489588,
+      "job_id": 109363499843,
+      "tests": 896,
+      "pass": 896,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36529101421,
-      "job_id": 109278516221,
+      "run_id": 36555489588,
+      "job_id": 109363499610,
       "tests": 525,
       "pass": 525,
       "fail": 0,
@@ -2125,17 +2125,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36529101326,
-      "job_id": 109278515847,
+      "run_id": 36555489624,
+      "job_id": 109363499926,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36529101378,
-      "job_id": 109278515832,
+      "run_id": 36555489829,
+      "job_id": 109363500769,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD243_DD247_VERIFICATION_2026-09-29.md"
+    "evidence": "Registers/DEVELOPMENT_DD248_DD252_VERIFICATION_2026-09-29.md"
   },
   "historical_projection_payloads": {
     "continuation": {
