@@ -4210,3 +4210,58 @@ A request/config prerequisite failure returns null rather than an empty successf
 
 ### AITENROUTE-PRE-003 — Immutable non-routing boundary
 Inputs remain unchanged and output exposes no policy decision, score, fallback, credential, route decision or execution authority.
+
+## DD-253 IndustryAIConfig Snapshot Scope Acceptance
+
+### AIINDREQ-SCOPE-001 — Exact same-Tenant/same-Industry enabled Industry config
+A valid Industry-scoped ProvisioningSnapshot and supplied enabled IndustryAIConfig with exact Tenant and Industry Context equality pass.
+
+### AIINDREQ-SCOPE-002 — Tenant-Core/foreign/sibling/disabled denial
+A Tenant-Core snapshot, foreign Tenant, sibling Industry Context or disabled supplied IndustryAIConfig fails closed.
+
+### AIINDREQ-SCOPE-003 — Malformed identity/enablement denial
+Malformed snapshot/config identity or non-boolean Industry config enablement evidence fails closed.
+
+### AIINDREQ-SCOPE-004 — Unrelated fields remain uninterpreted
+Version/status/CountryPack/PromptSet/localization and other unrelated fields do not affect this floor; inputs remain unchanged.
+
+## DD-254 AIRequest IndustryAIConfig Capability Acceptance
+
+### AIINDREQ-CAP-001 — Exact Industry capability membership
+A valid DD-243 request whose exact capability code is present in a dense duplicate-free supplied IndustryAIConfig capability allowlist passes.
+
+### AIINDREQ-CAP-002 — Missing/duplicate/malformed Industry capability denial
+Absent capability membership, duplicate capability evidence or malformed Industry config/capability evidence fails closed.
+
+## DD-255 IndustryAIConfig Provider/Model Pre-Candidate Allowlist Acceptance
+
+### AIINDROUTE-ALLOW-001 — Exact Industry Provider and Model allowlist subset
+Exact Provider+Model allowlist candidates return immutable canonical Provider/Model refs.
+
+### AIINDROUTE-ALLOW-002 — Valid partial Industry subset
+Valid evidence returns only exact candidates whose Provider and Model ids are both Industry allowlisted.
+
+### AIINDROUTE-ALLOW-003 — Malformed/duplicate evidence denial
+Malformed, duplicate or sparse candidate/Industry allowlist evidence returns null.
+
+### AIINDROUTE-ALLOW-004 — Valid empty/zero-match distinction
+Valid empty or zero-match evidence returns an immutable empty array.
+
+## DD-256 Bound AIRequest/IndustryAIConfig Prerequisite Acceptance
+
+### AIINDREQ-BIND-001 — Tenant plus Industry request/config prerequisites
+DD-250 Tenant request/config prerequisites, DD-209 Industry→Tenant non-widening, DD-253 exact Industry scope/enablement and DD-254 Industry capability membership pass together.
+
+### AIINDREQ-BIND-002 — Any Tenant/Industry prerequisite failure denies
+Tenant/config/scope/enablement/non-widening/capability failure fails closed.
+
+## DD-257 IndustryAIConfig-Constrained Pre-Routing Set Acceptance
+
+### AIINDROUTE-PRE-001 — Combined Tenant plus Industry constrained candidate set
+DD-252 Tenant-constrained pre-routing evidence plus DD-256 Industry prerequisites and DD-255 Industry filtering returns the expected immutable set.
+
+### AIINDROUTE-PRE-002 — Prerequisite failure is not empty success
+A request/config prerequisite failure returns null rather than an empty successful set.
+
+### AIINDROUTE-PRE-003 — Immutable non-routing/non-effective-config boundary
+Inputs remain unchanged and output exposes no effective-config claim, policy decision, score, fallback, credential, route decision or execution authority.

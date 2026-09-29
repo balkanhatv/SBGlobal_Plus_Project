@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-29",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-TENANT-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
-  "final_verdict": "Complete-project downstream audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-248…DD-252 corrected canonical promotion 6ca1382076afe77d0265b15422aaf0644272e9ab / tree a44102f2e17af8bb6e8845507796e739de012e8e is exact-head verified at 896 Core / 525 PostgreSQL / 48 migrations / 42 verification files / Web PASS. This state-closure commit must independently pass before the next governed backend batch opens. Production readiness is NOT CLAIMED.",
+  "checkpoint": "DEV-AI-INDUSTRY-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
+  "final_verdict": "Complete-project downstream audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-253…DD-257 implementation 25ca6cfe2db72604e04c2d1973565cf3f3ac65d2 / tree 4d381a12be147442dde837dbbc3d442d1f575e06 is exact-head verified at 911 Core / 525 PostgreSQL / 48 migrations / 42 verification files / Web PASS. Canonical promotion is staged; production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD252_CANONICAL",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD257_CANONICAL",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
     "development": "IN_PROGRESS_NORMAL_GOVERNED_FORWARD_DEVELOPMENT",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD252_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED_STATE_CLOSURE",
+    "core_services": "DD040_DD257_IMPLEMENTED_BATCH_PROMOTION_STAGED",
     "vision_centric_current_state_audit": "PASS_COMPLETE_PROJECT_DOWNSTREAM_AUDIT_CLEAN"
   },
   "defects": {
@@ -54,9 +54,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "6ca1382076afe77d0265b15422aaf0644272e9ab",
-    "verified_code_tree": "a44102f2e17af8bb6e8845507796e739de012e8e",
-    "state_projection_basis_head": "6ca1382076afe77d0265b15422aaf0644272e9ab",
+    "verified_code_head": "25ca6cfe2db72604e04c2d1973565cf3f3ac65d2",
+    "verified_code_tree": "4d381a12be147442dde837dbbc3d442d1f575e06",
+    "state_projection_basis_head": "25ca6cfe2db72604e04c2d1973565cf3f3ac65d2",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -796,21 +796,21 @@
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
     "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
-    "current_downstream_verified_head": "6ca1382076afe77d0265b15422aaf0644272e9ab",
-    "current_downstream_verified_tree": "a44102f2e17af8bb6e8845507796e739de012e8e",
+    "current_downstream_verified_head": "25ca6cfe2db72604e04c2d1973565cf3f3ac65d2",
+    "current_downstream_verified_tree": "4d381a12be147442dde837dbbc3d442d1f575e06",
     "current_downstream_verified_ci": {
-      "core_run_id": 36559620544,
-      "core_job_id": 109377048887,
-      "core_pass": 896,
-      "postgres_job_id": 109377048400,
+      "core_run_id": 36563727176,
+      "core_job_id": 109390490088,
+      "core_pass": 911,
+      "postgres_job_id": 109390489942,
       "postgres_pass": 525,
-      "database_run_id": 36559620549,
-      "database_job_id": 109377048237,
+      "database_run_id": 36563727372,
+      "database_job_id": 109390490780,
       "database_migrations": 48,
       "database_verification_files": 42,
-      "web_run_id": 36559620548,
-      "web_job_id": 109377048104,
-      "result": "PASS_EXACT_PROMOTION_CORRECTION_HEAD"
+      "web_run_id": 36563727304,
+      "web_job_id": 109390490389,
+      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
     },
     "dd209_source_audit_head": "7cfd84d2013d3e1f0f4feaa9eb70f4cd66632787",
     "dd209_source_audit_tree": "cc45b89efda581548010eb3a19ce44bd6d7cacf2",
@@ -1330,7 +1330,7 @@
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD248_DD252_STATE_CLOSURE",
+    "current_phase": "DEVELOPMENT_DD253_DD257_CANONICAL_PROMOTION",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -1345,9 +1345,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "6ca1382076afe77d0265b15422aaf0644272e9ab",
-      "ci_run_id": 36559620549,
-      "ci_job_id": 109377048237,
+      "ci_verified_head": "25ca6cfe2db72604e04c2d1973565cf3f3ac65d2",
+      "ci_run_id": 36563727372,
+      "ci_job_id": 109390490780,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -1359,7 +1359,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "a44102f2e17af8bb6e8845507796e739de012e8e",
+      "ci_verified_tree": "4d381a12be147442dde837dbbc3d442d1f575e06",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -1379,27 +1379,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "This DD-248…DD-252 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the batch is closed and the next independently source-complete governed backend batch may be source-audited.",
+    "next_action": "After this DD-253…DD-257 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the DD-253…DD-257 batch state before opening the next independently source-complete governed backend batch.",
     "core_services": {
-      "checkpoint": "DEV-AI-TENANT-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
+      "checkpoint": "DEV-AI-INDUSTRY-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–252 bounded implementation",
-      "verified_head": "6ca1382076afe77d0265b15422aaf0644272e9ab",
-      "verified_tree": "a44102f2e17af8bb6e8845507796e739de012e8e",
-      "core_ci_run_id": 36559620544,
-      "core_ci_job_id": 109377048887,
-      "tests": "896/896 PASS",
+      "decision": "DD-040–257 bounded implementation",
+      "verified_head": "25ca6cfe2db72604e04c2d1973565cf3f3ac65d2",
+      "verified_tree": "4d381a12be147442dde837dbbc3d442d1f575e06",
+      "core_ci_run_id": 36563727176,
+      "core_ci_job_id": 109390490088,
+      "tests": "911/911 PASS",
       "core_test_counts": {
-        "tests": 896,
-        "pass": 896,
+        "tests": 911,
+        "pass": 911,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36559620544,
-      "postgres_ci_job_id": 109377048400,
+      "postgres_ci_run_id": 36563727176,
+      "postgres_ci_job_id": 109390489942,
       "postgres_tests": "525/525 PASS",
       "postgres_test_counts": {
         "tests": 525,
@@ -1408,8 +1408,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36559620549,
-      "database_regression_job_id": 109377048237,
+      "database_regression_run_id": 36563727372,
+      "database_regression_job_id": 109390490780,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -1793,7 +1793,12 @@
         "DD-249 AIRequest sensitivity <= TenantAIConfig max-sensitivity prerequisite",
         "DD-250 combined exact snapshot-bound TenantAIConfig request prerequisite floor",
         "DD-251 deterministic TenantAIConfig Provider/Model pre-candidate allowlist filter",
-        "DD-252 combined TenantAIConfig-constrained non-routing pre-routing set"
+        "DD-252 combined TenantAIConfig-constrained non-routing pre-routing set",
+        "DD-253 exact IndustryAIConfig snapshot-scope/enabled prerequisite",
+        "DD-254 exact AIRequest capability membership in supplied IndustryAIConfig prerequisite",
+        "DD-255 deterministic IndustryAIConfig Provider/Model pre-candidate allowlist filter",
+        "DD-256 combined Tenant + supplied IndustryAIConfig request prerequisite floor",
+        "DD-257 combined IndustryAIConfig-constrained non-routing pre-routing set"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -1919,7 +1924,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "This DD-248…DD-252 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the batch is closed and the next independently source-complete governed backend batch may be source-audited.",
+      "next_action": "After this DD-253…DD-257 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the DD-253…DD-257 batch state before opening the next independently source-complete governed backend batch.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -2013,7 +2018,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD248_DD252_STATE_CLOSURE",
+  "current_phase": "DEVELOPMENT_DD253_DD257_CANONICAL_PROMOTION",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -2045,20 +2050,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-TENANT-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
-    "verified_code_head": "6ca1382076afe77d0265b15422aaf0644272e9ab",
-    "verified_code_tree": "a44102f2e17af8bb6e8845507796e739de012e8e",
-    "source_audit": "Development/AI_TENANT_CONFIG_REQUEST_CANDIDATE_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
+    "verified_code_head": "25ca6cfe2db72604e04c2d1973565cf3f3ac65d2",
+    "verified_code_tree": "4d381a12be147442dde837dbbc3d442d1f575e06",
+    "source_audit": "Development/AI_INDUSTRY_CONFIG_REQUEST_CANDIDATE_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "This DD-248…DD-252 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the batch is closed and the next independently source-complete governed backend batch may be source-audited.",
+    "next_action": "After this DD-253…DD-257 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the DD-253…DD-257 batch state before opening the next independently source-complete governed backend batch.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-TENANT-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
-    "verified_executable_basis": "6ca1382076afe77d0265b15422aaf0644272e9ab",
-    "verified_executable_tree": "a44102f2e17af8bb6e8845507796e739de012e8e",
+    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
+    "verified_executable_basis": "25ca6cfe2db72604e04c2d1973565cf3f3ac65d2",
+    "verified_executable_tree": "4d381a12be147442dde837dbbc3d442d1f575e06",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "scope": "DD-248…DD-252 corrected canonical TenantAIConfig request/candidate prerequisite batch is promoted and exact-head verified; current/latest/effective AI config, RequestContext trust, live authorization/policy/quota, model-class mapping, routing, credentials and AI execution remain separately governed.",
+    "scope": "DD-253…DD-257 implement only supplied IndustryAIConfig scope/enablement + capability prerequisites and deterministic Industry Provider/Model narrowing of DD-252 Tenant-constrained pre-candidates; current/latest/effective Industry config, CountryPack/PromptSet composition, live authorization/policy/quota/residency, routing, credentials and AI execution remain separately governed.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",
       "parents_total": 372,
@@ -2109,31 +2114,31 @@
     "source_requirement_text_reconciliation": "2,962 stable IDs retained; 85 mis-extracted texts restored and 21 provenance aliases explicitly located by VC27-01. Complete atomic no-loss certification remains open."
   },
   "current_feature_verification": {
-    "decision_id": "DD-252",
-    "decision": "DD-252 Combined TenantAIConfig-constrained pre-routing set",
-    "checkpoint": "DEV-AI-TENANT-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
-    "verified_head": "e507456d37ef83bd5c69355b27c07ef7472114bf",
-    "verified_tree": "9ef6b9bbf2128fbd8bd65541e679478fe2badc12",
-    "source_audit": "Development/AI_TENANT_CONFIG_REQUEST_CANDIDATE_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-257",
+    "decision": "DD-257 Combined IndustryAIConfig-constrained pre-routing set",
+    "checkpoint": "DEV-AI-INDUSTRY-CONFIG-REQUEST-CANDIDATE-FLOORS-001",
+    "verified_head": "25ca6cfe2db72604e04c2d1973565cf3f3ac65d2",
+    "verified_tree": "4d381a12be147442dde837dbbc3d442d1f575e06",
+    "source_audit": "Development/AI_INDUSTRY_CONFIG_REQUEST_CANDIDATE_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AITENROUTE-PRE-001",
-      "AITENROUTE-PRE-002",
-      "AITENROUTE-PRE-003"
+      "AIINDROUTE-PRE-001",
+      "AIINDROUTE-PRE-002",
+      "AIINDROUTE-PRE-003"
     ],
     "test_files": [
-      "tests/core/ai-tenant-config-request-candidate-floors.test.mjs"
+      "tests/core/ai-industry-config-request-candidate-floors.test.mjs"
     ],
     "core": {
-      "run_id": 36555489588,
-      "job_id": 109363499843,
-      "tests": 896,
-      "pass": 896,
+      "run_id": 36563727176,
+      "job_id": 109390490088,
+      "tests": 911,
+      "pass": 911,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36555489588,
-      "job_id": 109363499610,
+      "run_id": 36563727176,
+      "job_id": 109390489942,
       "tests": 525,
       "pass": 525,
       "fail": 0,
@@ -2141,17 +2146,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36555489624,
-      "job_id": 109363499926,
+      "run_id": 36563727372,
+      "job_id": 109390490780,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36555489829,
-      "job_id": 109363500769,
+      "run_id": 36563727304,
+      "job_id": 109390490389,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD248_DD252_VERIFICATION_2026-09-29.md"
+    "evidence": "Registers/DEVELOPMENT_DD253_DD257_VERIFICATION_2026-09-29.md"
   },
   "historical_projection_payloads": {
     "continuation": {

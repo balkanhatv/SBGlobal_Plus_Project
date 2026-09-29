@@ -3429,3 +3429,55 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** the returned set means only that candidates remain eligible to continue into separately governed policy/residency/model-class/health/scoring/routing stages. It is not a route decision and does not execute AI.
 
 **Acceptance:** `AITENROUTE-PRE-001…003`.
+
+## DD-253 — IndustryAIConfig snapshot scope/enabled prerequisite
+
+**Context:** DD-09 gives AIProvisioningSnapshot exact Tenant + optional Industry Context and IndustryAIConfig exact Tenant + Industry Context + enablement. The snapshot does not persist an IndustryAIConfig id/version.
+
+**Decision:** add `matchesAIIndustryConfigSnapshotScopeFloor(snapshot, industryConfig)`, requiring a valid explicit Industry-scoped snapshot, valid Industry config identity, raw boolean enablement, exact Tenant equality, exact Industry Context equality and enabled=true.
+
+**Boundary:** this is supplied-evidence scope coherence only. It does not bind an IndustryAIConfig version or select current/latest/effective configuration.
+
+**Acceptance:** `AIINDREQ-SCOPE-001…004`.
+
+## DD-254 — AIRequest IndustryAIConfig capability prerequisite
+
+**Context:** DD-09 AIRequest carries the requested capability and IndustryAIConfig owns an Industry capability allowlist constrained by Tenant policy.
+
+**Decision:** add `matchesAIRequestIndustryConfigCapabilityFloor(request, industryConfig)`, requiring valid DD-243 request shape, valid Industry config identity, a dense duplicate-free raw string capability allowlist and exact request capability membership.
+
+**Boundary:** no normalization, entitlement inference, current-config selection or effective-config merge is performed.
+
+**Acceptance:** `AIINDREQ-CAP-001…002`.
+
+## DD-255 — IndustryAIConfig Provider/Model pre-candidate allowlist filter
+
+**Context:** DD-252 produces Tenant-config-constrained non-ranking Provider/Model pre-candidates; IndustryAIConfig may narrow Provider/Model allowlists but cannot widen Tenant policy.
+
+**Decision:** add `filterAIIndustryConfigProviderModelPreCandidates(candidates, industryConfig)`. Candidate evidence and Industry Provider/Model allowlists must be dense, duplicate-free and UUID-valid. Output contains only pairs whose Provider and Model ids are exact Industry allowlist members. Malformed evidence returns `null`; valid zero-match evidence returns immutable `[]`.
+
+**Security / trade-off:** output is immutable and lexically ordered by Provider id then Model id for serialization determinism only.
+
+**Boundary:** lexical order is not route preference; no ranking, health, fallback, credential or execution decision is created.
+
+**Acceptance:** `AIINDROUTE-ALLOW-001…004`.
+
+## DD-256 — Bound request/IndustryAIConfig prerequisite floor
+
+**Context:** DD-250 owns exact request + snapshot-bound Tenant config prerequisites; DD-209 owns supplied Industry→Tenant non-widening; DD-253/DD-254 own exact Industry scope/enablement and capability membership.
+
+**Decision:** add `matchesAIRequestIndustryConfigPrerequisiteFloors(request, declaration, snapshot, tenantConfig, industryConfig)`, composing those existing floors only.
+
+**Boundary:** a true result does not establish that IndustryAIConfig is current/latest/effective and does not authorize routing.
+
+**Acceptance:** `AIINDREQ-BIND-001…002`.
+
+## DD-257 — Combined IndustryAIConfig-constrained pre-routing set
+
+**Context:** the source permits an Industry-scoped supplied config to further narrow an already Tenant-constrained candidate set, but does not define effective-config materialization.
+
+**Decision:** add `buildAIIndustryConfigConstrainedPreRoutingSet(input)`, composing DD-252 Tenant-constrained evidence, DD-256 Industry prerequisites and DD-255 Industry Provider/Model narrowing.
+
+**Boundary:** the returned immutable set means only that candidates remain eligible to continue into separately governed policy/residency/model-class/health/scoring/routing stages. It is not an effective config, route decision or AI execution authority.
+
+**Acceptance:** `AIINDROUTE-PRE-001…003`.
