@@ -1,10 +1,10 @@
 # ARCHITECTURE NO-LOSS / DEPTH AUDIT — PHASE 2 FRESH PASS
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
-**Current executable audit basis:** `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-OPERATION-PRE-PROVIDER-FLOORS-001`  
+**Current executable audit basis:** `6272e70f586210e26b7306dbee729ed50f7d7d63` / tree `3018baeeed79a0a567e10a260dbf1dabb1c1da96`  
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-225…DD-230 AI OperationContract pre-provider prerequisite batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Historical status:** PHASE-2 ARCHITECTURE NO-LOSS PASS · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 
-> The Phase-2 Architecture coverage, contradiction sweep and PASS result below are preserved as evaluated-era evidence. Governed Development subsequently advanced through DD-208. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this historical Architecture PASS does not define the active project gate.
+> **Current project overlay (2026-09-28):** this file is preserved as evaluated-era evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
 
 ## Full Architecture coverage
 A-00 through A-12 were freshly read in full against the corrected Phase-1 Foundation.

@@ -525,3 +525,7 @@ Under the substantial-batch cadence, DD-219 intrinsic lifecycle/validity integri
 
 Canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185` passed **831/831 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis and must independently pass before the next governed batch opens. No RawSource, schema, migration, RLS, role/grant, route or product-policy change.
 
+## 2026-09-28 — DD-225…DD-230 AI OperationContract pre-provider prerequisite batch
+
+Under the substantial-batch cadence, DD-225…DD-230 add only a pre-provider AI operation prerequisite boundary: canonical Core + AI declaration shape, deterministic DD-09 projection, exact RequestContext scope, current ProvisioningSnapshot/API-class admission, exact ACTIVE capability binding and their combined fail-closed floor. Source audit `2e288cb57e6490ea465ac4016d40aa29957798a8` preceded implementation `6272e70f586210e26b7306dbee729ed50f7d7d63` / tree `3018baeeed79a0a567e10a260dbf1dabb1c1da96`, which passed **843/843 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, role/grant, public route, provider SDK or product-policy change. Live Authorization/policy/quota/residency/routing/execution remain unclaimed.
+

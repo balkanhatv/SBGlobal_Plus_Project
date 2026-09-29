@@ -1,10 +1,10 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
-**Current executable audit basis:** `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-OPERATION-PRE-PROVIDER-FLOORS-001`  
+**Current executable audit basis:** `6272e70f586210e26b7306dbee729ed50f7d7d63` / tree `3018baeeed79a0a567e10a260dbf1dabb1c1da96`  
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-225…DD-230 AI OperationContract pre-provider prerequisite batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
-> The traceability chains and requirement-owner evidence below are preserved. Governed Development subsequently advanced through DD-208. Dated Core/session-security continuation sections describe their evaluated-era boundaries, not current unfinished work. The complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, DD-209 source audit is authorized, and this file does not define the active project gate.
+> **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
 
 **Wave:** 1–3 · **Evaluated status:** PHASE 3 REVALIDATION — UPDATED TRACEABILITY
 
@@ -619,4 +619,16 @@ DD-224 → `src/core/ai/provisioning-snapshot-admission-floors.ts` →
 `Registers/DEVELOPMENT_DD219_DD224_VERIFICATION_2026-09-28.md`.
 
 DD-220…DD-224 are necessary admission prerequisites only. Entitlement/quota, RBAC/ABAC, policy, sensitivity/residency, provider health/credentials, concrete model selection, routing, execution, metering and output guardrails remain separately governed.
+
+## DD-225…DD-230 — AI OperationContract pre-provider prerequisite batch
+
+F-05 + A-07 + DD-09 AI Gateway/API contracts → DD-06 canonical Core OperationContract + DD-02/DD-03 RequestContext → DD-220…DD-222 ProvisioningSnapshot lifecycle/API-class/Capability admission floors →
+`Development/AI_OPERATION_PRE_PROVIDER_ADMISSION_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-225…DD-230 →
+`src/core/ai/operation-pre-provider-prerequisite-floors.ts` →
+`AIOP-SHAPE-001…002`, `AIOP-PROJ-001…002`, `AIOP-SCOPE-001`, `AIOP-SNAP-001…002`, `AIOP-CAP-001…002`, `AIOP-PRE-001…003` →
+`tests/core/ai-operation-pre-provider-prerequisite-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD225_DD230_VERIFICATION_2026-09-28.md`.
+
+This chain proves only structural Core/AI declaration coherence, exact declared RequestContext scope, current snapshot/API-class admission and exact ACTIVE capability binding before Provider routing. DD-03/DD-04 live authorization, AIPolicy evaluation, quota/budget, sensitivity/residency, Provider health/credentials, concrete Model selection, routing/fallback, SDK execution, metering, output guardrails and final audit remain separate.
 

@@ -3121,3 +3121,70 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIPROVSNAP-ADM-MODEL-001…003` plus shared immutability acceptance in DD-17 and `tests/core/ai-provisioning-snapshot-admission-floors.test.mjs`.
 
+## DD-225 — AI OperationContract declaration shape floor
+
+**Context:** DD-09 requires every AI API OperationContract to declare API class, capability, permission/entitlement, scope, schema versions, streaming/rate/data-class/residency/audit metadata. DD-06 already owns the canonical Core OperationContract fields for permission, entitlement, scope, schemas, rate and audit.
+
+**Decision:** add `matchesAIOperationContractDeclarationShapeFloor(declaration)`. The declaration embeds the canonical Core `OperationContract` plus only five AI-specific fields: `apiAccessClass`, `capabilityCode`, `streamingMode`, `dataClassCeiling`, and `residencyPolicyRef`. The API class uses DD-09's exact four-value vocabulary; no new vocabulary is invented for the other raw metadata.
+
+**Boundary:** shape validity is not Authentication, Authorization, entitlement sufficiency, quota/budget, policy, sensitivity/residency, Provider/Model selection, routing or execution.
+
+**Acceptance:** `AIOP-SHAPE-001…002` in DD-17 and `tests/core/ai-operation-pre-provider-prerequisite-floors.test.mjs`.
+
+
+## DD-226 — Deterministic DD-09 AI OperationContract projection
+
+**Context:** creating a second AI-owned permission/entitlement/scope/schema/rate/audit contract would split authority from DD-06.
+
+**Decision:** add `projectAIOperationContractDeclaration(declaration)`. For a valid declaration it returns an immutable DD-09 projection deriving `requiredPermission`, optional `requiredEntitlement`, `scopeClass`, request/response schema versions, `ratePolicyRef` and `auditClass` exclusively from the embedded canonical Core OperationContract; AI-only fields are preserved exactly. Invalid declarations return null.
+
+**Boundary:** projection is metadata normalization only and never an allow/route/execute decision.
+
+**Acceptance:** `AIOP-PROJ-001…002` in DD-17 and the DD-225…230 executable test file.
+
+
+## DD-227 — AI Operation exact RequestContext scope prerequisite
+
+**Context:** A-07 and DD-09 require verified server RequestContext; clients do not own Tenant/Industry/permission truth.
+
+**Decision:** add `matchesAIOperationRequestContextScopeFloor(declaration, requestContext)`. It requires a valid declaration, a known RequestContext scope class and exact equality with the canonical OperationContract scope.
+
+**Boundary:** this helper does not authenticate, resolve, enrich, revalidate membership, authorize or synthesize RequestContext. DD-02/DD-03 remain authoritative.
+
+**Acceptance:** `AIOP-SCOPE-001` in DD-17 and the DD-225…230 executable test file.
+
+
+## DD-228 — AI Operation snapshot lifecycle + API-class prerequisite
+
+**Context:** DD-220 and DD-221 already own current ProvisioningSnapshot lifecycle and exact API-class membership as necessary admission floors.
+
+**Decision:** add `matchesAIOperationSnapshotAdmissionFloor(declaration, snapshot, evaluatedAt)`, composing only DD-220 current-lifecycle admission and DD-221 exact membership for the declaration's API class.
+
+**Boundary:** it does not select the current/latest snapshot, evaluate permission/entitlement, reserve quota, interpret policy/residency, choose a Provider/Model or execute AI.
+
+**Acceptance:** `AIOP-SNAP-001…002` in DD-17 and the DD-225…230 executable test file.
+
+
+## DD-229 — AI Operation capability binding prerequisite
+
+**Context:** DD-222 owns exact ACTIVE AICapability membership in a ProvisioningSnapshot. DD-09 declares a capability code on every AI API OperationContract.
+
+**Decision:** add `matchesAIOperationCapabilityAdmissionFloor(declaration, snapshot, capability)`. It requires exact `declaration.ai.capabilityCode === capability.code` plus DD-222 exact allowed ACTIVE capability-id membership.
+
+**Boundary:** `requiredEntitlement`, `defaultPolicyClass`, category and schema metadata remain evidence for later guards/policy. This helper does not evaluate them.
+
+**Acceptance:** `AIOP-CAP-001…002` in DD-17 and the DD-225…230 executable test file.
+
+
+## DD-230 — Combined pre-provider AI operation prerequisite floor
+
+**Context:** the source now owns a coherent set of pre-provider structural/context/provisioning prerequisites, but the live AI Gateway authorization/policy/routing/execution pipeline is still separately governed.
+
+**Decision:** add `matchesAIOperationPreProviderPrerequisiteFloors(input)`, composing DD-225 declaration shape, DD-227 exact RequestContext scope, DD-228 snapshot lifecycle/API-class and DD-229 capability binding only.
+
+**Security / trade-off:** a true result means only that the request may continue into later mandatory live authorization/policy/quota/sensitivity/residency/routing stages. It must never be interpreted as authorized, routable or executable.
+
+**Boundary:** no AIPolicy AST evaluation, quota/budget reservation, RBAC/ABAC/entitlement guard success, sensitivity/redaction/residency decision, Provider health/credentials, model-class mapping, Provider/Model ranking/fallback, provider SDK call, metering, output guardrails or final audit append.
+
+**Acceptance:** `AIOP-PRE-001…003` in DD-17 and `tests/core/ai-operation-pre-provider-prerequisite-floors.test.mjs`.
+

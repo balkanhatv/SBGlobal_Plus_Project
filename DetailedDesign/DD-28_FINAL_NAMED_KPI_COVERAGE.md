@@ -1,11 +1,11 @@
 # DD-28 — FINAL NAMED-KPI COVERAGE MATRIX
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
-**Current executable audit basis:** `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-OPERATION-PRE-PROVIDER-FLOORS-001`  
+**Current executable audit basis:** `6272e70f586210e26b7306dbee729ed50f7d7d63` / tree `3018baeeed79a0a567e10a260dbf1dabb1c1da96`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-225…DD-230 AI OperationContract pre-provider prerequisite batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-12 · **Historical status:** FINAL FABLE KPI REVALIDATION
 **Method:** independently extracted KPI/report metric names from all nine canonical industry/MS DD files and mapped each to stable DD-25 contract IDs. Composite labels map to each required underlying KPI rather than being accepted by fuzzy name alone.
 
-> **Current qualification (2026-09-28):** this matrix is preserved as evaluated-era Detailed Design KPI coverage evidence. The row-level VERIFIED labels and the historical “FINAL” status certify only the named-KPI-to-DD-25 mapping reviewed in that snapshot; they do not certify current runtime KPI implementation, current project completion, or the active Development gate. DD-208 remains the latest governed checkpoint, the complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**, and DD-209 source audit is authorized.
+> **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
 
 | MS | Named KPI / metric in canonical industry DD | KPI contract ID(s) | Formula contract completeness | Fixture test | Isolation test | Result |
 |---|---|---|---|---|---|---|

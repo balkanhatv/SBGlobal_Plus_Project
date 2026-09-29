@@ -3941,3 +3941,56 @@ Malformed or duplicate persisted model-class sets fail closed.
 ### AIPROVSNAP-ADM-IMM-001 — Batch immutability
 DD-220…DD-224 helpers do not mutate supplied snapshot, capability or Provider evidence.
 
+## DD-225 AI OperationContract Declaration Shape Acceptance
+
+### AIOP-SHAPE-001 — Valid canonical Core + AI declaration shape
+A valid canonical Core OperationContract plus the five AI-only DD-09 declaration fields passes.
+
+### AIOP-SHAPE-002 — Malformed or unknown declaration evidence
+Unknown API class, malformed Core enum/schema/array shape, or non-string AI-only metadata fails closed.
+
+
+## DD-226 Deterministic AI OperationContract Projection Acceptance
+
+### AIOP-PROJ-001 — Canonical projection ownership
+Projection derives DD-09 permission, entitlement, scope, request/response schema, rate and audit fields only from the canonical Core OperationContract while preserving AI-only fields exactly.
+
+### AIOP-PROJ-002 — Immutable/no parallel authority
+Projection is immutable; invalid declarations return null and no parallel Tenant/Industry/permission authority is created.
+
+
+## DD-227 AI Operation RequestContext Scope Acceptance
+
+### AIOP-SCOPE-001 — Exact declared/request scope
+Exact declared/request scope matches; mismatched or malformed RequestContext scope fails closed.
+
+
+## DD-228 AI Operation Snapshot Admission Acceptance
+
+### AIOP-SNAP-001 — Current lifecycle + exact API class
+A snapshot satisfying DD-220 current lifecycle and DD-221 exact declared API-class membership passes.
+
+### AIOP-SNAP-002 — Lifecycle/API-class denial
+Inactive, not-yet-valid, expired lifecycle or absent/invalid API-class membership fails closed.
+
+
+## DD-229 AI Operation Capability Admission Acceptance
+
+### AIOP-CAP-001 — Exact declared ACTIVE capability
+Exact declaration capability code plus exact DD-222 allowed ACTIVE capability-id membership passes.
+
+### AIOP-CAP-002 — Capability mismatch/inactive/absence
+Wrong capability code, inactive/malformed capability or absent capability id fails closed.
+
+
+## DD-230 Combined AI Pre-Provider Prerequisite Acceptance
+
+### AIOP-PRE-001 — All known prerequisites
+Valid declaration shape, exact RequestContext scope, current snapshot/API class and exact ACTIVE capability binding pass together.
+
+### AIOP-PRE-002 — Any prerequisite failure denies
+Failure of any composed DD-225/DD-227/DD-228/DD-229 prerequisite fails the combined floor.
+
+### AIOP-PRE-003 — Immutable and non-authorizing
+Inputs remain unchanged and a true result grants no Provider/Model, policy/quota, credential, routing or execution authority.
+

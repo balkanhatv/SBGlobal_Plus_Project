@@ -1,7 +1,7 @@
 # DD-20 — DETAILED DESIGN AUDIT HIERARCHY
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
-**Current executable audit basis:** `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-OPERATION-PRE-PROVIDER-FLOORS-001`  
+**Current executable audit basis:** `6272e70f586210e26b7306dbee729ed50f7d7d63` / tree `3018baeeed79a0a567e10a260dbf1dabb1c1da96`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-225…DD-230 AI OperationContract pre-provider prerequisite batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-13 · **Status:** PHASE-3 AUDIT HISTORY; current project overlay below
 
 | Audit | Artifact | Status | Authority |
@@ -19,6 +19,6 @@
 
 Historical Phase-3 DD gate: **REQUIREMENT SET COMPLETE — SUPPORTED · DETAILED DESIGN COMPLETE — SUPPORTED · READY FOR FINAL PRE-DEVELOPMENT GATE — SUPPORTED.**
 
-**Current project overlay (2026-09-28):** Detailed Design remains completed/revalidated input, the latest governed Development checkpoint is **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**, and the complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. **DD-209 is not authorized** until that gate closes.
+> **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
 
 The preceding READY FOR FINAL PRE-DEVELOPMENT GATE statement belongs to the historical Phase-3 checkpoint. Database Development subsequently began under user authorization. The 2026-09-13 all-stages audit is a dated historical implementation snapshot; current project/audit truth is owned by `../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`, `../Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`.

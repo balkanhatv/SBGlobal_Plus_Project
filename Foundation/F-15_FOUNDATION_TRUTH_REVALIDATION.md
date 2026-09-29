@@ -1,7 +1,7 @@
 # F-15 — FOUNDATION TRUTH REVALIDATION
-**Current checkpoint:** `DEV-AI-PROVISIONING-SNAPSHOT-ADMISSION-FLOORS-001`  
-**Current executable audit basis:** `7fef22f11fb48708e37223ede602e824dacd5149` / tree `8729e77cc1d792b799d9f7a3b77a864ffa32c185`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-219…DD-224 canonical promotion `7fef22f11fb48708e37223ede602e824dacd5149` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-OPERATION-PRE-PROVIDER-FLOORS-001`  
+**Current executable audit basis:** `6272e70f586210e26b7306dbee729ed50f7d7d63` / tree `3018baeeed79a0a567e10a260dbf1dabb1c1da96`  
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-225…DD-230 AI OperationContract pre-provider prerequisite batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-15 · **Version:** 2.0 · **Status:** CLOSED — FOUNDATION REVALIDATED · **Date:** 11-09-2026
 
 ## 1. Purpose
@@ -97,4 +97,4 @@ Next phase is a fresh Architecture/ADR revalidation against this corrected Found
 The blocked downstream statuses in §16 describe the original Phase-1 transition. Subsequent Architecture/DD reconciliation and the authorized Database phase were present by 13-09-2026. The dated `../Registers/ALL_STAGES_CURRENT_STATE_AUDIT_2026-09-13.md` remains historical evidence for that transition and does not represent the current project checkpoint.
 
 ## 18. Current Project Projection — 28-09-2026
-Foundation remains the certified WHAT/WHY/WHO owner. The latest governed Development checkpoint is **DD-208 / `DEV-AI-TENANT-CONFIG-MODEL-ALLOWLIST-FLOORS-001`**; the independently verified current executable audit basis is `4dd7138e5a546f608fe5e28e0912d17523e33693` / tree `33ea828f05b2b8014b4c75401822cde89aa3ee70`; and the complete-project downstream semantic/file-coverage audit remains **IN PROGRESS**. Current audit/project truth is owned by `../Registers/VISION_CENTRIC_AUDIT_2026-09-26.md`, `../Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`. This Foundation file does not grant implementation, runtime-security or production certification, and **DD-209 is not authorized** until the complete-project gate closes.
+Foundation remains the certified WHAT/WHY/WHO owner. Current governed Development is at the DD-225…DD-230 canonical-promotion boundary; implementation is exact-head verified at the executable basis shown above, the complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**, and production readiness is **NOT CLAIMED**. Current executable/project truth is owned by `../Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and `../State/PROJECT_MANIFEST.json`.
