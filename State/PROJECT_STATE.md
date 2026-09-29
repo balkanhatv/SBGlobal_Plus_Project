@@ -3,7 +3,7 @@
 **Current executable audit basis:** `697ee9e4b3afb89eaf9e6c12b02712b61a3634cf` / tree `69e22b23955aacba109436ba648514629b4c4118`
 **Updated:** 2026-09-29 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-09-29):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-225…DD-230 canonical promotion/correction `697ee9e4b3afb89eaf9e6c12b02712b61a3634cf` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-225…DD-230 canonical promotion/correction `697ee9e4b3afb89eaf9e6c12b02712b61a3634cf` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
 
 DD-225…DD-230 is one governed AI pre-provider prerequisite batch. It reuses the canonical Core OperationContract as the sole owner of permission/entitlement/scope/schema/rate/audit fields, preserves only five AI-specific declaration fields, checks exact RequestContext scope, current ProvisioningSnapshot/API-class admission and exact ACTIVE capability binding, then composes those necessary floors.
 

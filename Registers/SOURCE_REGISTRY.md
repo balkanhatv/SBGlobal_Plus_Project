@@ -3,7 +3,7 @@
 **Current executable audit basis:** `697ee9e4b3afb89eaf9e6c12b02712b61a3634cf` / tree `69e22b23955aacba109436ba648514629b4c4118`
 **Status:** ACTIVE · **Updated:** 2026-09-28
 
-> **Current audit gate (2026-09-29):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-225…DD-230 canonical promotion/correction `697ee9e4b3afb89eaf9e6c12b02712b61a3634cf` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-225…DD-230 canonical promotion/correction `697ee9e4b3afb89eaf9e6c12b02712b61a3634cf` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority
@@ -47,6 +47,6 @@ Governed DD-208 promotion evidence remains `c7825bedc7e96b5010266a42c710e3608672
 
 The current bounded downstream executable audit basis is `6272e70f586210e26b7306dbee729ed50f7d7d63` / tree `3018baeeed79a0a567e10a260dbf1dabb1c1da96`: **843/843 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation remains **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed as of 2026-09-28 and remains **CLEAN / CLOSED**; DD-225…DD-230 canonical promotion is exact-head verified; state closure is staged.
 
-Next: after this DD-218 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, source-audit the next independently source-complete provisioning integrity step. Pack currentness, API entitlement, Model compatibility, effective provisioning, routing and AI execution remain locked.
+Next: after this DD-225…DD-230 state-closure HEAD passes exact-head Core/PostgreSQL/Database/Web, the batch is closed and the next independently source-complete governed batch may be source-audited. Live authorization, policy/quota/residency, Provider/Model routing and AI execution remain locked.
 
 
