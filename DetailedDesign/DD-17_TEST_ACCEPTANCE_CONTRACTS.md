@@ -4415,3 +4415,47 @@ Successful live authorization plus a valid empty DD-267 candidate set returns an
 
 ### AIINDGUARD-BOUNDARY-001 — No new AI authority
 The envelope exposes no new authorization decision, effective config, AI policy, budget, residency route, score, fallback, credential, route or execution authority beyond the preserved GuardResult.
+
+## DD-273 Authorized Raw-Catalog Gateway Input Acceptance
+
+### AIINDCAT-AUTH-001 — Authorization precedes request/catalog candidate evidence
+Live authorization completes before AIRequest/raw Provider/Model evidence is read for candidate construction.
+
+### AIINDCAT-AUTH-002 — Guard denial/dependency failure propagates
+GuardPipeline denial or dependency error propagates unchanged and no catalog success is returned.
+
+
+## DD-274 Authorized Request Evidence Acceptance
+
+### AIINDCAT-REQ-001 — Malformed AIRequest after authorization denies
+After successful live authorization, malformed DD-243 AIRequest evidence returns null.
+
+
+## DD-275 Post-Authorization Raw Catalog Construction Acceptance
+
+### AIINDCAT-CAT-001 — Valid raw catalog builds expected DD-242 then DD-267 subset
+Valid raw Provider/Model evidence is filtered by DD-242 and then narrowed by DD-267 to the expected immutable set.
+
+### AIINDCAT-CAT-002 — Malformed catalog evidence denies
+Duplicate Provider identity, orphan Model binding or malformed catalog identity returns null after successful authorization.
+
+### AIINDCAT-CAT-003 — Valid zero-match remains immutable empty success
+Valid raw catalog evidence with no DD-242 survivor returns immutable [] when downstream prerequisites pass.
+
+### AIINDCAT-REG-001 — Exact already-authorized residency region is applied
+The exact supplied already-authorized residency region is passed into DD-242; unsupported region yields valid empty evidence and no derived region.
+
+
+## DD-276 DD-242 → DD-267 Narrowing Acceptance
+
+### AIINDCAT-NARROW-001 — Tenant/Industry allowlists only narrow
+DD-267 receives only DD-242 candidate refs; Tenant/Industry allowlists cannot add a Provider/Model pair.
+
+
+## DD-277 Authorized Raw-Catalog Envelope Acceptance
+
+### AIINDCAT-EVID-001 — Exact GuardResult and immutable candidates preserved
+Successful output preserves exact GuardResult identity and immutable candidate refs; inputs remain unchanged.
+
+### AIINDCAT-BOUNDARY-001 — No new routing/policy authority
+Output exposes no residency authorization, effective config, AI policy, budget, health score, cost/latency preference, fallback, credential, route or execution authority.

@@ -3631,3 +3631,49 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Decision:** successful live authorization + valid empty DD-267 candidates returns immutable empty success. The envelope adds no AI-specific effective config, policy, budget, residency-route, score, fallback, credential or execution decision.
 
 **Acceptance:** `AIINDGUARD-EMPTY-001`, `AIINDGUARD-BOUNDARY-001`.
+
+## DD-273 — Authorized raw Provider/Model catalog Gateway input
+
+**Context:** DD-268…DD-272 authorize before DD-267, while DD-238…DD-242 own raw Provider/Model catalog hygiene and deterministic non-ranking pre-candidate construction.
+
+**Decision:** add a full raw-catalog Gateway input contract carrying DD-267 evidence plus raw Providers, raw Models, exact supplied already-authorized residency region and optional resourceReference. Externally prebuilt candidate refs are not accepted on this path.
+
+**Boundary:** no residency authorization/derivation, current catalog loading or policy inference.
+
+**Acceptance:** `AIINDCAT-AUTH-001…002`.
+
+
+## DD-274 — Live authorization before request/catalog evidence
+
+**Decision:** add `buildAuthorizedAIIndustryGatewayCatalogPreRoutingEnvelope(input, authorization)` and invoke the existing DD-269 live authorization bridge before request/catalog candidate evidence is accepted.
+
+**Boundary:** GuardPipeline errors propagate unchanged; this is not an alternate PDP.
+
+**Acceptance:** `AIINDCAT-AUTH-001…002`, `AIINDCAT-REQ-001`.
+
+
+## DD-275 — Post-authorization DD-242 raw catalog construction
+
+**Decision:** after authorization, validate DD-243 request shape and invoke DD-242 with exact declaration, snapshot, raw Providers/Models, request sensitivityClass and exact supplied already-authorized residency region.
+
+**Boundary:** null retains malformed-evidence meaning; immutable [] retains valid zero-match meaning. No residency authorization or model-class mapping is added.
+
+**Acceptance:** `AIINDCAT-CAT-001…003`, `AIINDCAT-REG-001`.
+
+
+## DD-276 — Feed only DD-242 refs into DD-267
+
+**Decision:** pass only the immutable DD-242 Provider/Model refs to DD-267 with the supplied RequestContext/snapshot/capability/Tenant config/Industry config/PromptSet/CountryPack evidence.
+
+**Boundary:** Tenant/Industry allowlists can only narrow DD-242 output.
+
+**Acceptance:** `AIINDCAT-NARROW-001`.
+
+
+## DD-277 — Authorized raw-catalog pre-routing envelope
+
+**Decision:** on success return an immutable envelope containing exact DD-269 GuardResult identity and final immutable DD-267 candidate refs.
+
+**Boundary:** output remains non-ranking pre-routing evidence and creates no residency authorization, policy, scoring, route, credential or execution authority.
+
+**Acceptance:** `AIINDCAT-EVID-001`, `AIINDCAT-BOUNDARY-001`.

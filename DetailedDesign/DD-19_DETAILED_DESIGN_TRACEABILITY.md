@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-LIVE-GUARD-AUTHORIZATION-001`
-**Current executable audit basis:** `7296dd2ac24525cfd20cb79a16b8c218d55e82dc` / tree `97467a0133874a1ba8bc328d2a61e5f5ac2ba8cc`
-> **Current audit gate (2026-09-28):** DD-268…DD-272 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-AUTHORIZED-CATALOG-PRE-ROUTING-001`
+**Current executable audit basis:** `8324e75e5f251930de009208069770a19581c28d` / tree `b6c4d9a72f9014e1e8b6329e29b100c7de7e2661`
+> **Current audit gate (2026-09-28):** DD-273…DD-277 live-authorized raw Provider/Model catalog → DD-242 → DD-267 pre-routing batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -763,3 +763,25 @@ DD-268…DD-272 →
 `Registers/DEVELOPMENT_DD268_DD272_VERIFICATION_2026-09-29.md`.
 
 This chain reuses the existing GuardPipeline live authorization surface and preserves its exact GuardResult/failure semantics before DD-267 pre-routing candidates may be returned. It does not create a new PDP/commercial guard, authenticate/resolve RequestContext, bind AIRequest.requestContextRef, select current/latest config/snapshot, evaluate new AI policy/budget/residency semantics, rank/route or execute AI.
+
+## DD-273…DD-277 — Authorized raw Provider/Model catalog pre-routing batch
+
+A-07 + DD-09 routing inputs →
+DD-231…DD-237 supplied Provider/Model pair eligibility with already-authorized residency region →
+DD-238…DD-242 raw catalog evidence validation + immutable non-ranking pre-candidates →
+DD-263…DD-267 verified Industry Gateway admission + Tenant/Industry narrowing →
+DD-268…DD-272 live GuardPipeline authorization-before-pre-routing →
+`Development/AI_INDUSTRY_GATEWAY_AUTHORIZED_CATALOG_PRE_ROUTING_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-273…DD-277 →
+`src/core/ai/industry-gateway-authorized-catalog-pre-routing.ts` →
+`AIINDCAT-AUTH-001…002`,
+`AIINDCAT-REQ-001`,
+`AIINDCAT-CAT-001…003`,
+`AIINDCAT-REG-001`,
+`AIINDCAT-NARROW-001`,
+`AIINDCAT-EVID-001`,
+`AIINDCAT-BOUNDARY-001` →
+`tests/core/ai-industry-gateway-authorized-catalog-pre-routing.test.mjs` →
+`Registers/DEVELOPMENT_DD273_DD277_VERIFICATION_2026-09-29.md`.
+
+This chain proves only live authorization followed by raw supplied Provider/Model catalog construction through DD-242 and downstream DD-267 narrowing. The supplied residency region is already-authorized upstream evidence and is neither derived nor authorized here. No effective config, AIPolicy evaluation, budget, model-class mapping, Provider health/scoring, routing, credentials or AI execution is created.

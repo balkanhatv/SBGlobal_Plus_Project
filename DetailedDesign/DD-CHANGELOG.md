@@ -596,3 +596,7 @@ DD-268…DD-272 reuse the existing GuardPipeline public authorization surface be
 ## 2026-09-29 — DD-268…DD-272 canonical promotion verified; state closure staged
 
 Canonical promotion `7296dd2ac24525cfd20cb79a16b8c218d55e82dc` / tree `97467a0133874a1ba8bc328d2a61e5f5ac2ba8cc` independently passed **947/947 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. This state-closure sync records that verified promotion as the current executable basis without changing runtime, schema, RawSource or tests.
+
+## 2026-09-29 — DD-273…DD-277 authorized raw Provider/Model catalog pre-routing batch
+
+DD-273…DD-277 move DD-242 raw Provider/Model catalog pre-candidate construction inside the already-authorized Industry Gateway composition, before DD-267 Tenant/Industry narrowing. The exact supplied already-authorized residency region remains opaque upstream evidence. Source audit `84a0da315a6fa9fc13f7e099b33c6e785eea25a9` / tree `5f0798d275c1ad39e7e32152646aac4cc5e80239` preceded implementation `8324e75e5f251930de009208069770a19581c28d` / tree `b6c4d9a72f9014e1e8b6329e29b100c7de7e2661`, which passed **957/957 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, role/grant, public route, provider SDK, frontend or product-policy change. Residency authorization/derivation, current/latest/effective config, AIPolicy/budget, health/scoring, routing, credentials and execution remain unclaimed.
