@@ -1346,3 +1346,7 @@ Initial promotion `0ecbf13d98dbb42593210c9b52e066255f012a30` failed only REPO-00
 
 Under the substantial-batch cadence, DD-231…DD-237 add only necessary Provider/Model catalog-candidate filters: exact snapshot-allowed ACTIVE Provider capability, already-authorized Provider region, exact ACTIVE Model→Provider binding, Model capability, sensitivity ceiling, Model region and their combined catalog floor. Source audit `00f2a69e991162f353cf89de1d6b047526a0a61e` preceded implementation `b9ba948e0c16ce64b12b1623f1675f71d4d45560` / tree `fd42d07ed3117322fb6f833aebe3d7c084a4f3c7`, which passed **858/858 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, role/grant, public route, provider SDK or product-policy change. Model-class mapping, live policy/quota/health/scoring/fallback/credentials and execution remain unclaimed.
 
+## 2026-09-29 — DD-231…DD-237 canonical promotion verified; state closure staged
+
+Canonical promotion `fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c` / tree `ff650b866230dc6055c5d275e8eae00756af0d26` passed **858/858 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis and must independently pass before the next governed backend batch opens. No RawSource, runtime, frontend, schema, migration, RLS, role/grant, public route, provider SDK or product-policy change.
+

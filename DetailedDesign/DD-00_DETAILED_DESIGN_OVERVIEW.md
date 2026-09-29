@@ -1,7 +1,7 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
 **Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-CANDIDATE-FLOORS-001`  
-**Current executable audit basis:** `b9ba948e0c16ce64b12b1623f1675f71d4d45560` / tree `fd42d07ed3117322fb6f833aebe3d7c084a4f3c7`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-231…DD-237 Provider/Model catalog-candidate prerequisite batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c` / tree `ff650b866230dc6055c5d275e8eae00756af0d26`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-231…DD-237 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 
