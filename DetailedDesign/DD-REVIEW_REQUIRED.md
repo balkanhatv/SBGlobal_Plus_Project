@@ -1,9 +1,9 @@
 # DD REVIEW REQUIRED — PHASE 3 CLOSURE
-**Current checkpoint:** `DEV-AI-REQUEST-PRE-ROUTING-FLOORS-001`
-**Current executable audit basis:** `6903bf671d5b99e78d2ebc8b2d94ce55dd4411b7` / tree `66b417fde1f543200cb26e815464484daad1a34e`
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-REQUEST-CANDIDATE-FLOORS-001`
+**Current executable audit basis:** `e507456d37ef83bd5c69355b27c07ef7472114bf` / tree `9ef6b9bbf2128fbd8bd65541e679478fe2badc12`
 **Updated:** 2026-09-28 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-243…DD-247 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-248…DD-252 TenantAIConfig request/candidate prerequisite batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Production readiness is **NOT CLAIMED**.
 
 
 DD-218 re-evaluates only the remaining intrinsic ProvisioningSnapshot governed-shape floor: pack-version JSON-object shape, exact API-class set/vocabulary and raw Model-class text-set shape. Capability/Provider binding and runtime provisioning semantics remain separate.

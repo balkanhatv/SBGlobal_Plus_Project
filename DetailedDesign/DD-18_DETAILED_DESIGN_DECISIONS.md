@@ -3376,3 +3376,56 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIREQ-PRE-001…003`.
 
+## DD-248 — AIRequest TenantAIConfig capability prerequisite
+
+**Context:** DD-09 AIRequest carries the requested capability and TenantAIConfig owns the Tenant capability allowlist.
+
+**Decision:** add `matchesAIRequestTenantConfigCapabilityFloor(request, tenantConfig)`, requiring a valid DD-243 request, valid TenantAIConfig identity, a dense duplicate-free raw string capability allowlist and exact request capability membership.
+
+**Boundary:** no normalization, entitlement inference or catalog lookup is performed.
+
+**Acceptance:** `AITENREQ-CAP-001…002`.
+
+## DD-249 — AIRequest TenantAIConfig sensitivity prerequisite
+
+**Context:** DD-09 gives both AIRequest sensitivity and TenantAIConfig max sensitivity; A-07 requires Tenant AI policy/config constraints before routing.
+
+**Decision:** add `matchesAIRequestTenantConfigSensitivityFloor(request, tenantConfig)` using only the existing closed order `PUBLIC < INTERNAL < CONFIDENTIAL < SENSITIVE_PERSONAL < REGULATED`, requiring request sensitivity <= the exact supplied config ceiling.
+
+**Boundary:** this is only a necessary ceiling check, not full data-class policy, redaction or residency authorization.
+
+**Acceptance:** `AITENREQ-SENS-001…002`.
+
+## DD-250 — Bound request/TenantAIConfig prerequisite floor
+
+**Context:** DD-247 owns request/declaration integrity and DD-211 owns exact snapshot→TenantAIConfig same-Tenant/version/enabled/Provider-subset binding.
+
+**Decision:** add `matchesAIRequestTenantConfigPrerequisiteFloors(request, declaration, snapshot, tenantConfig)`, composing DD-247, DD-211, DD-248 and DD-249 only.
+
+**Security / trade-off:** a true result proves only exact supplied evidence coherence and necessary Tenant config constraints.
+
+**Boundary:** no current/latest config selection, effective Tenant+Industry config merge, policy decision or route authorization is created.
+
+**Acceptance:** `AITENREQ-BIND-001…002`.
+
+## DD-251 — TenantAIConfig Provider/Model pre-candidate allowlist filter
+
+**Context:** DD-238…DD-242 produce deterministic non-ranking Provider/Model pre-candidates; TenantAIConfig independently owns exact Provider and Model allowlists.
+
+**Decision:** add `filterAITenantConfigProviderModelPreCandidates(candidates, tenantConfig)`. Candidate evidence and config allowlists must be dense, duplicate-free and UUID-valid; output contains only pairs whose Provider and Model ids are exact allowlist members. Malformed evidence returns `null`; valid zero-match evidence returns immutable `[]`.
+
+**Security / trade-off:** output is immutable and lexically ordered by Provider id then Model id for serialization determinism only.
+
+**Boundary:** lexical order is not route preference and the filter performs no scoring, health, fallback, credential or execution decision.
+
+**Acceptance:** `AITENROUTE-ALLOW-001…004`.
+
+## DD-252 — Combined TenantAIConfig-constrained pre-routing set
+
+**Context:** DD-250 proves request/config prerequisites and DD-251 narrows an already-built DD-242 catalog pre-candidate set.
+
+**Decision:** add `buildAITenantConfigConstrainedPreRoutingSet(input)`, requiring DD-250 and then applying DD-251.
+
+**Boundary:** the returned set means only that candidates remain eligible to continue into separately governed policy/residency/model-class/health/scoring/routing stages. It is not a route decision and does not execute AI.
+
+**Acceptance:** `AITENROUTE-PRE-001…003`.

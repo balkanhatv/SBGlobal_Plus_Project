@@ -4162,3 +4162,51 @@ Failure of any composed request prerequisite fails the combined floor.
 ### AIREQ-PRE-003 — Immutable and non-routing
 Inputs remain unchanged and a true result grants no context resolution, policy, route, credential or execution authority.
 
+## DD-248 AIRequest TenantAIConfig Capability Acceptance
+
+### AITENREQ-CAP-001 — Exact request capability membership
+A valid DD-243 request whose exact capability code is present in a dense duplicate-free supplied TenantAIConfig capability allowlist passes.
+
+### AITENREQ-CAP-002 — Missing/duplicate/malformed capability evidence denial
+Absent capability membership, duplicate capability evidence or malformed TenantAIConfig capability evidence fails closed.
+
+## DD-249 AIRequest TenantAIConfig Sensitivity Acceptance
+
+### AITENREQ-SENS-001 — Exact sensitivity ceiling ordering
+For every known sensitivity pair, request sensitivity <= supplied TenantAIConfig max sensitivity passes and a request above the ceiling fails.
+
+### AITENREQ-SENS-002 — Unknown/malformed sensitivity denial
+Unknown request/config sensitivity or malformed TenantAIConfig identity evidence fails closed.
+
+## DD-250 Bound AIRequest/TenantAIConfig Prerequisite Acceptance
+
+### AITENREQ-BIND-001 — Exact snapshot-bound Tenant config prerequisites
+DD-247 request/declaration integrity plus exact DD-211 snapshot→TenantAIConfig binding, capability membership and sensitivity ceiling pass together.
+
+### AITENREQ-BIND-002 — Any binding/config prerequisite failure denies
+Tenant/config version mismatch, Tenant mismatch, disabled config, capability denial or sensitivity denial fails closed.
+
+## DD-251 TenantAIConfig Provider/Model Pre-Candidate Allowlist Acceptance
+
+### AITENROUTE-ALLOW-001 — Exact Provider and Model allowlist subset
+Exact Provider+Model allowlist candidates return immutable canonical Provider/Model refs.
+
+### AITENROUTE-ALLOW-002 — Valid partial subset
+Valid evidence returns only exact candidates whose Provider and Model ids are both allowlisted.
+
+### AITENROUTE-ALLOW-003 — Malformed/duplicate evidence denial
+Malformed, duplicate or sparse candidate/config allowlist evidence returns null.
+
+### AITENROUTE-ALLOW-004 — Valid empty/zero-match distinction
+Valid empty or zero-match evidence returns an immutable empty array.
+
+## DD-252 TenantAIConfig-Constrained Pre-Routing Set Acceptance
+
+### AITENROUTE-PRE-001 — Combined prerequisite and allowlist filtering
+The DD-250 request/config prerequisite plus DD-251 candidate filter returns the expected immutable set.
+
+### AITENROUTE-PRE-002 — Prerequisite failure is not empty success
+A request/config prerequisite failure returns null rather than an empty successful set.
+
+### AITENROUTE-PRE-003 — Immutable non-routing boundary
+Inputs remain unchanged and output exposes no policy decision, score, fallback, credential, route decision or execution authority.

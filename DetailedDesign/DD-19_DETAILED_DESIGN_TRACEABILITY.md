@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-REQUEST-PRE-ROUTING-FLOORS-001`  
-**Current executable audit basis:** `6903bf671d5b99e78d2ebc8b2d94ce55dd4411b7` / tree `66b417fde1f543200cb26e815464484daad1a34e`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-243…DD-247 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-TENANT-CONFIG-REQUEST-CANDIDATE-FLOORS-001`
+**Current executable audit basis:** `e507456d37ef83bd5c69355b27c07ef7472114bf` / tree `9ef6b9bbf2128fbd8bd65541e679478fe2badc12`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-248…DD-252 TenantAIConfig request/candidate prerequisite batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -670,3 +670,19 @@ DD-243…DD-247 →
 
 This chain proves request-envelope integrity and exact operation capability/input-schema coherence only. Context resolution/trust, Authorization/entitlement, residency/grounding policy, quota/budget, candidate selection, Provider/Model routing, credentials, execution, metering/output guardrails and final audit remain separately governed.
 
+## DD-248…DD-252 — TenantAIConfig request/candidate prerequisite batch
+
+F-05 + F-11 + A-07 + DD-09 TenantAIConfig/AIRequest →
+DD-206…DD-208 TenantAIConfig allowlist integrity →
+DD-211 exact ProvisioningSnapshot→TenantAIConfig binding →
+DD-238…DD-242 deterministic non-ranking catalog pre-candidates →
+DD-243…DD-247 exact request/declaration integrity →
+`Development/AI_TENANT_CONFIG_REQUEST_CANDIDATE_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-248…DD-252 →
+`src/core/ai/tenant-config-request-candidate-floors.ts` →
+`AITENREQ-CAP-001…002`, `AITENREQ-SENS-001…002`, `AITENREQ-BIND-001…002`,
+`AITENROUTE-ALLOW-001…004`, `AITENROUTE-PRE-001…003` →
+`tests/core/ai-tenant-config-request-candidate-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD248_DD252_VERIFICATION_2026-09-29.md`.
+
+This chain proves only exact capability/sensitivity prerequisites against the supplied snapshot-bound enabled TenantAIConfig and deterministic Provider/Model allowlist narrowing of already-built pre-candidates. Current/latest config selection, effective Tenant+Industry configuration, RequestContext trust, Authentication/Authorization/entitlement, residency/budget/quota policy, model-class mapping, Provider health/scoring, route/fallback/retry, credentials, provider execution, metering, output guardrails and final audit remain separate.
