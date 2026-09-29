@@ -1413,3 +1413,7 @@ DD-273…DD-277 freeze and implement only the live-authorized raw catalog → DD
 ## 2026-09-29 — DD-273…DD-277 canonical promotion verified; state closure staged
 
 Canonical promotion `b79c1f99af8395d7618e4b294575628f6bd26775` / tree `03a46c64bf9fd19aab537d3a12dff76d532a422c` passed **957/957 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis while keeping DD-277 feature evidence bound to implementation `8324e75e5f251930de009208069770a19581c28d`. No runtime, schema, migration, RLS, role/grant, RawSource, public route, provider SDK or frontend change.
+
+## 2026-09-29 — DD-278…DD-282 canonical promotion staged
+
+DD-278…DD-282 freeze and implement only the Tenant residency-policy context evidence boundary recorded in `Development/AI_TENANT_RESIDENCY_POLICY_CONTEXT_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Implementation `097fea66954fe37bdb12da4cd381f6dfec800eb1` / tree `d088b607d564ad266ed6f49e097ef9380683ef54` passed **967/967 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. Canonical promotion remains subject to this promotion commit's own exact-head Core/PostgreSQL/Database/Web gate. AIPolicy decision semantics, residency authorization/region derivation, current/latest/effective config, routing, credentials and AI execution are not claimed.

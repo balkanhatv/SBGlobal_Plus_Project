@@ -1,19 +1,19 @@
 # DD CHECKPOINT — PHASE3-DD-REVALIDATED
-**Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-AUTHORIZED-CATALOG-PRE-ROUTING-001`
-**Current executable audit basis:** `b79c1f99af8395d7618e4b294575628f6bd26775` / tree `03a46c64bf9fd19aab537d3a12dff76d532a422c`
+**Current checkpoint:** `DEV-AI-TENANT-RESIDENCY-POLICY-CONTEXT-EVIDENCE-001`
+**Current executable audit basis:** `097fea66954fe37bdb12da4cd381f6dfec800eb1` / tree `d088b607d564ad266ed6f49e097ef9380683ef54`
 **Updated:** 2026-09-29 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-09-28):** DD-273…DD-277 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** DD-278…DD-282 TenantAIConfig residency-policy context evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 
-DD-273…DD-277 is the current governed backend-only live-authorized raw Provider/Model catalog composition batch. It authorizes first through the existing GuardPipeline bridge, validates the supplied AIRequest, constructs DD-242 candidates from raw Provider/Model rows using the exact supplied already-authorized residency region, and feeds only that immutable set into DD-267 Tenant/Industry narrowing.
+DD-278…DD-282 is one governed backend-only Tenant residency-policy context evidence batch. It validates supplied AIPolicy identity/owner shape, mirrors migration-0048 RequestContext applicability, binds exact TenantAIConfig.residencyPolicyId to the supplied policy id, composes exact Tenant context coherence, and loads the exact policy through the existing contextual read port.
 
-Verified canonical promotion basis `b79c1f99af8395d7618e4b294575628f6bd26775` / tree `03a46c64bf9fd19aab537d3a12dff76d532a422c`: **957/957 Core**, **525/525 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36603651140` (jobs `109527038824`, `109527038987`), Database `36603651219` (job `109527038852`), Web `36603651174` (job `109527038400`).
+Verified implementation basis `097fea66954fe37bdb12da4cd381f6dfec800eb1` / tree `d088b607d564ad266ed6f49e097ef9380683ef54`: **967/967 Core**, **525/525 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36606082853` (jobs `109535324162`, `109535323896`), Database `36606082822` (job `109535323784`), Web `36606082999` (job `109535325044`).
 
-Frontend/UI remains untouched. Authentication/RequestContext resolution, AIRequest.requestContextRef binding, current/latest snapshot/config selection, effective Tenant+Industry configuration, AIPolicy evaluation, residency-policy authorization/region derivation, budget reservation/metering, model-class mapping, Provider health/scoring, route/fallback/retry, credentials, provider execution, guardrails and final AI audit remain separately governed.
+Frontend/UI remains untouched. AIPolicy condition AST/constraint evaluation, ALLOW/DENY/RESTRICT composition or priority resolution, ACTIVE-only execution semantics, residency-policy authorization, authorized-region derivation, request residencyRequirement interpretation, budget reservation/metering, current/latest policy selection, effective Tenant+Industry AI configuration, authentication/RequestContext resolution, AIRequest.requestContextRef binding, Provider health/scoring, routing, credentials, provider execution, output guardrails and final AI audit remain separately governed.
 
-Evidence: `Registers/DEVELOPMENT_DD273_DD277_VERIFICATION_2026-09-29.md`. Source audit: `Development/AI_INDUSTRY_GATEWAY_AUTHORIZED_CATALOG_PRE_ROUTING_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+Evidence: `Registers/DEVELOPMENT_DD278_DD282_VERIFICATION_2026-09-29.md`. Source audit: `Development/AI_TENANT_RESIDENCY_POLICY_CONTEXT_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: this state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, DD-273…DD-277 is closed and the next independently source-complete governed backend batch may be source-audited.
+Next: this canonical promotion must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, record promotion evidence and close DD-278…DD-282 before opening the next independently source-complete governed backend batch.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 

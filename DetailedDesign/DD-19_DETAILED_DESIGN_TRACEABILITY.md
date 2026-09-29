@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-AUTHORIZED-CATALOG-PRE-ROUTING-001`
-**Current executable audit basis:** `b79c1f99af8395d7618e4b294575628f6bd26775` / tree `03a46c64bf9fd19aab537d3a12dff76d532a422c`
-> **Current audit gate (2026-09-28):** DD-273…DD-277 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-TENANT-RESIDENCY-POLICY-CONTEXT-EVIDENCE-001`
+**Current executable audit basis:** `097fea66954fe37bdb12da4cd381f6dfec800eb1` / tree `d088b607d564ad266ed6f49e097ef9380683ef54`
+> **Current audit gate (2026-09-28):** DD-278…DD-282 TenantAIConfig residency-policy context evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -785,3 +785,22 @@ DD-273…DD-277 →
 `Registers/DEVELOPMENT_DD273_DD277_VERIFICATION_2026-09-29.md`.
 
 This chain proves only live authorization followed by raw supplied Provider/Model catalog construction through DD-242 and downstream DD-267 narrowing. The supplied residency region is already-authorized upstream evidence and is neither derived nor authorized here. No effective config, AIPolicy evaluation, budget, model-class mapping, Provider health/scoring, routing, credentials or AI execution is created.
+
+## DD-278…DD-282 — Tenant residency-policy context evidence batch
+
+DD-09 TenantAIConfig.residencyPolicyId + AIPolicy →
+migration 0011 owner-shape invariants →
+migration 0048 definition_applies_to_scope semantics →
+AIPolicyReadPort.loadForContext →
+`Development/AI_TENANT_RESIDENCY_POLICY_CONTEXT_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-278…DD-282 →
+`src/core/ai/tenant-residency-policy-context-evidence-floors.ts` →
+`AIRESPOL-SHAPE-001…002`,
+`AIRESPOL-SCOPE-001…002`,
+`AIRESPOL-BIND-001…002`,
+`AIRESPOL-CTX-001…002`,
+`AIRESPOL-LOAD-001…002` →
+`tests/core/ai-tenant-residency-policy-context-evidence-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD278_DD282_VERIFICATION_2026-09-29.md`.
+
+This chain proves only exact supplied residency-policy identity/owner shape, RequestContext applicability, TenantAIConfig policy-id binding and contextual loading. It does not evaluate condition AST/constraints, compose ALLOW/DENY/RESTRICT, authorize residency, derive an authorized region, select current/latest policy or execute AI.

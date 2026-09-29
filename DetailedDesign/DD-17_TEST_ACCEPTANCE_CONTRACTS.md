@@ -4459,3 +4459,43 @@ Successful output preserves exact GuardResult identity and immutable candidate r
 
 ### AIINDCAT-BOUNDARY-001 — No new routing/policy authority
 Output exposes no residency authorization, effective config, AI policy, budget, health score, cost/latency preference, fallback, credential, route or execution authority.
+
+## DD-278 AIPolicy Identity / Owner-Shape Acceptance
+
+### AIRESPOL-SHAPE-001 — Valid owner shapes
+Valid PLATFORM, TENANT and INDUSTRY AIPolicy identity/owner shapes pass.
+
+### AIRESPOL-SHAPE-002 — Malformed owner-shape evidence denial
+Malformed UUID, owner shape, effect, version, priority or empty status evidence fails closed.
+
+## DD-279 AIPolicy RequestContext Applicability Acceptance
+
+### AIRESPOL-SCOPE-001 — Migration-0048 applicability semantics
+PLATFORM applies to valid Tenant targets, TENANT only to exact same-Tenant targets, and INDUSTRY only to exact same-Tenant + same-Industry targets.
+
+### AIRESPOL-SCOPE-002 — Non-Tenant / foreign / sibling scope denial
+Platform-global/public/cross-context targets, foreign Tenant or sibling Industry fail this Tenant residency-policy evidence floor.
+
+## DD-280 TenantAIConfig Residency-Policy Binding Acceptance
+
+### AIRESPOL-BIND-001 — Exact config-to-policy id binding
+Exact TenantAIConfig.residencyPolicyId ↔ supplied AIPolicy.id binding passes.
+
+### AIRESPOL-BIND-002 — Malformed/mismatched identity denial
+Malformed TenantAIConfig/policy identity or id mismatch fails closed.
+
+## DD-281 Residency-Policy Context Relationship Acceptance
+
+### AIRESPOL-CTX-001 — Exact Tenant context + applicable policy + config binding
+Exact RequestContext Tenant, applicable supplied policy and exact TenantAIConfig binding pass.
+
+### AIRESPOL-CTX-002 — Foreign/inapplicable/mismatched evidence denial
+Foreign Tenant, inapplicable owner scope or policy-id mismatch fails closed.
+
+## DD-282 Contextual Residency-Policy Evidence Load Acceptance
+
+### AIRESPOL-LOAD-001 — Exact contextual read and identity preservation
+The contextual loader receives the exact supplied RequestContext and policy id exactly once and returns the exact loaded policy identity when DD-281 passes.
+
+### AIRESPOL-LOAD-002 — Missing/mismatched/error and uninterpreted semantics
+Missing or mismatched evidence returns null, dependency errors propagate unchanged, and conditionAst/constraint/status semantics remain uninterpreted.

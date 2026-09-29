@@ -1,7 +1,7 @@
 # PHASE 2 — Foundation → Architecture/ADR Fresh Revalidation
-**Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-AUTHORIZED-CATALOG-PRE-ROUTING-001`
-**Current executable audit basis:** `b79c1f99af8395d7618e4b294575628f6bd26775` / tree `03a46c64bf9fd19aab537d3a12dff76d532a422c`
-> **Current audit gate (2026-09-28):** DD-273…DD-277 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-TENANT-RESIDENCY-POLICY-CONTEXT-EVIDENCE-001`
+**Current executable audit basis:** `097fea66954fe37bdb12da4cd381f6dfec800eb1` / tree `d088b607d564ad266ed6f49e097ef9380683ef54`
+> **Current audit gate (2026-09-28):** DD-278…DD-282 TenantAIConfig residency-policy context evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.

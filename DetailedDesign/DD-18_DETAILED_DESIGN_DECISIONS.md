@@ -3677,3 +3677,53 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** output remains non-ranking pre-routing evidence and creates no residency authorization, policy, scoring, route, credential or execution authority.
 
 **Acceptance:** `AIINDCAT-EVID-001`, `AIINDCAT-BOUNDARY-001`.
+
+## DD-278 — AIPolicy identity and owner-shape floor
+
+**Context:** DD-09 and migration 0011 define AIPolicy identity and PLATFORM/TENANT/INDUSTRY owner-shape invariants.
+
+**Decision:** add `matchesAIPolicyIdentityOwnerShapeFloor(policy)` requiring valid id, owner shape, non-empty code/status, integer priority, closed effect enum and positive integer version.
+
+**Boundary:** status value, condition AST and constraint semantics are not interpreted.
+
+**Acceptance:** `AIRESPOL-SHAPE-001…002`.
+
+## DD-279 — AIPolicy RequestContext applicability floor
+
+**Context:** migration 0048 defines fail-closed definition applicability by target scope.
+
+**Decision:** add `matchesAIPolicyRequestContextScopeFloor(policy, requestContext)` for Tenant-scoped contexts only, mirroring PLATFORM/TENANT/INDUSTRY applicability exactly.
+
+**Boundary:** this is context applicability evidence only, not policy effect evaluation.
+
+**Acceptance:** `AIRESPOL-SCOPE-001…002`.
+
+## DD-280 — TenantAIConfig residency-policy exact-id binding
+
+**Context:** TenantAIConfig owns required `residencyPolicyId`, but no FK or execution semantics establish more than exact supplied identity binding here.
+
+**Decision:** add `matchesAITenantConfigResidencyPolicyBindingFloor(tenantConfig, policy)` requiring valid config identity, valid policy identity/owner shape and exact policy id equality.
+
+**Boundary:** scope applicability is intentionally separate.
+
+**Acceptance:** `AIRESPOL-BIND-001…002`.
+
+## DD-281 — RequestContext + TenantAIConfig + AIPolicy relationship floor
+
+**Context:** residency-policy evidence must agree on Tenant context, contextual applicability and exact config policy reference.
+
+**Decision:** add `matchesAITenantResidencyPolicyContextBindingFloors(requestContext, tenantConfig, policy)` composing exact Tenant equality, DD-279 applicability and DD-280 binding.
+
+**Boundary:** a true result means coherent supplied evidence only; it is not ALLOW or residency authorization.
+
+**Acceptance:** `AIRESPOL-CTX-001…002`.
+
+## DD-282 — Contextual residency-policy evidence loading
+
+**Context:** `AIPolicyReadPort.loadForContext` is the existing contextual read surface.
+
+**Decision:** add `loadAITenantResidencyPolicyContextEvidence(readPort, requestContext, tenantConfig)`; call the read port exactly once using the exact supplied RequestContext and config policy id, propagate dependency errors, return null for missing/incoherent evidence and return the exact loaded policy object unchanged on DD-281 success.
+
+**Boundary:** no normalization, current/latest selection, AST/constraint evaluation, policy effect composition or authorized-region derivation.
+
+**Acceptance:** `AIRESPOL-LOAD-001…002`.
