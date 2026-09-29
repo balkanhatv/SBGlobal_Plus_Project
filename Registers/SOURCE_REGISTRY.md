@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
 **Current checkpoint:** `DEV-AI-REQUEST-PRE-ROUTING-FLOORS-001`
-**Current executable audit basis:** `a55d54d0e640d58b18c8d691c26a57835c79aa2e` / tree `75c109735c2331e357cac7ab599a02cbd8dd8fff`
+**Current executable audit basis:** `6903bf671d5b99e78d2ebc8b2d94ce55dd4411b7` / tree `66b417fde1f543200cb26e815464484daad1a34e`
 **Status:** ACTIVE · **Updated:** 2026-09-28
 
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-243…DD-247 AIRequest pre-routing prerequisite batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-243…DD-247 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority
@@ -41,12 +41,12 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 ## Current audit / continuation evidence — 2026-09-28
 
-DD-243…DD-247 is the latest implemented governed backend batch at this promotion boundary. It owns only exact AIRequest envelope integrity, immutable projection and exact operation capability/input-schema-version coherence. Context resolution/trust, live authorization/policy/quota, candidate selection/routing, credentials and AI execution remain outside this batch.
+DD-243…DD-247 is the latest canonically promoted governed backend batch at this state-closure boundary. It owns only exact AIRequest envelope integrity, immutable projection and exact operation capability/input-schema-version coherence. Context resolution/trust, live authorization/policy/quota, candidate selection/routing, credentials and AI execution remain outside this batch.
 
 Governed DD-208 promotion evidence remains `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba28541da36bd4c94d9559f91121a0aae2`, recorded in `Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md`.
 
-The current bounded downstream executable audit basis is `a55d54d0e640d58b18c8d691c26a57835c79aa2e` / tree `75c109735c2331e357cac7ab599a02cbd8dd8fff`: **883/883 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation remains **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED**; DD-243…DD-247 canonical promotion is staged.
+The current bounded downstream executable audit basis is `6903bf671d5b99e78d2ebc8b2d94ce55dd4411b7` / tree `66b417fde1f543200cb26e815464484daad1a34e`: **883/883 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation remains **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED**; DD-243…DD-247 canonical promotion is exact-head verified and state closure is staged.
 
-Next: after this DD-243…DD-247 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the batch state before the next independently source-complete governed backend batch opens. Context trust, live policy/quota/routing/credentials and AI execution remain locked.
+Next: this DD-243…DD-247 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the next independently source-complete governed backend batch may be source-audited. Context trust, live policy/quota/routing/credentials and AI execution remain locked.
 
 

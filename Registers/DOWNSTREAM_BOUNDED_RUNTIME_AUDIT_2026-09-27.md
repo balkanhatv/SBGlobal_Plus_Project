@@ -2,7 +2,7 @@
 
 **Prior tree-qualified verified basis through VC27-69:** `3a6849cd7a10e400674f9d5c80f5d052243868b2` / tree `9372a4c5e5137033fb8bd00cf53c87dce20f5e25`
 
-**Current exact-head correction basis:** `a55d54d0e640d58b18c8d691c26a57835c79aa2e` / tree `75c109735c2331e357cac7ab599a02cbd8dd8fff`
+**Current exact-head correction basis:** `6903bf671d5b99e78d2ebc8b2d94ce55dd4411b7` / tree `66b417fde1f543200cb26e815464484daad1a34e`
 
 **Exact-head gate:** Core 883/883; PostgreSQL 525/525 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
@@ -35,7 +35,7 @@ The general application role remains an RLS-enforced application role rather tha
 
 This bounded report alone did **not** clear the complete-project audit. The 2026-09-28 complete-project semantic/file-coverage/adversarial closure now treats the following as governed future Development surfaces; they remain locked until their own source-complete contracts are promoted: external REST route catalog/machine credentials, webhook runtime, Integration/provider execution, Workflow/Automation/Notification execution, Commercial write/apply path, retention/ACL, AI provider/tool execution, mobile/desktop executable surfaces, and remaining historical/canonical downstream semantics.
 
-DD-238…DD-242 is now the latest implemented governed Provider/Model catalog pre-candidate set batch at the exact-head basis above. This bounded report does not convert deterministic catalog filtering into route preference, routing selection or AI execution authority.
+DD-243…DD-247 is now the latest implemented governed AIRequest pre-routing prerequisite batch at the exact-head basis above. This bounded report does not convert request-envelope integrity into RequestContext trust, live authorization, routing or AI execution authority.
 
 
 ## Verified continuation through VC27-36
