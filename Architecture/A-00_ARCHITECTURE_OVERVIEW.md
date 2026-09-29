@@ -1,7 +1,7 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
 **Current checkpoint:** `DEV-AI-INDUSTRY-CONFIG-REQUEST-CANDIDATE-FLOORS-001`
 **Current executable audit basis:** `25ca6cfe2db72604e04c2d1973565cf3f3ac65d2` / tree `4d381a12be147442dde837dbbc3d442d1f575e06`
-> **Current audit gate (2026-09-29):** DD-248…DD-252 is closed at exact-head state-closure basis `3c631f5e9233b371f05b6155f4c076512666d3e6`. DD-253…DD-257 IndustryAIConfig request/candidate prerequisite batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** DD-248…DD-252 is closed at exact-head state-closure basis `3c631f5e9233b371f05b6155f4c076512666d3e6`. DD-253…DD-257 IndustryAIConfig request/candidate prerequisite batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 
