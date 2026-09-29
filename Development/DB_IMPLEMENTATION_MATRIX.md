@@ -1,7 +1,7 @@
 # DATABASE IMPLEMENTATION MATRIX — INDUSTRY WAVE
 **Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-AUTHORIZED-CATALOG-PRE-ROUTING-001`
-**Current executable audit basis:** `8324e75e5f251930de009208069770a19581c28d` / tree `b6c4d9a72f9014e1e8b6329e29b100c7de7e2661`
-> **Current audit gate (2026-09-28):** DD-273…DD-277 live-authorized raw Provider/Model catalog → DD-242 → DD-267 pre-routing batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `b79c1f99af8395d7618e4b294575628f6bd26775` / tree `03a46c64bf9fd19aab537d3a12dff76d532a422c`
+> **Current audit gate (2026-09-28):** DD-273…DD-277 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-09-28 · **Branch:** `docs/architecture-branch-2`  
 **Status:** 9 CURRENT SUPPORTED INDUSTRY TABLE SETS IMPLEMENTED · CURRENT PERSISTENCE CHECKPOINT VERIFIED
 
