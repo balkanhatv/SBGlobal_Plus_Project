@@ -2,19 +2,19 @@
   "project": "SBGlobal Plus",
   "updated": "2026-09-29",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-PROVIDER-MODEL-CATALOG-CANDIDATE-FLOORS-001",
-  "final_verdict": "Complete-project downstream audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-231…DD-237 canonical promotion fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c / tree ff650b866230dc6055c5d275e8eae00756af0d26 is exact-head verified at 858 Core / 525 PostgreSQL / 48 migrations / 42 verification files / Web PASS. This state-closure commit must independently pass before the next governed backend batch opens. Production readiness is NOT CLAIMED.",
+  "checkpoint": "DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001",
+  "final_verdict": "Complete-project downstream audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 implementation 69ffec4c068e98e4b7d80e757b70589c49a626c4 / tree 3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e is exact-head verified at 870 Core / 525 PostgreSQL / 48 migrations / 42 verification files / Web PASS. Canonical promotion is staged; production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD237_CANONICAL",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD242_CANONICAL",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
     "development": "IN_PROGRESS_NORMAL_GOVERNED_FORWARD_DEVELOPMENT",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD237_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED_STATE_CLOSURE",
+    "core_services": "DD040_DD242_IMPLEMENTED_BATCH_PROMOTION_STAGED",
     "vision_centric_current_state_audit": "PASS_COMPLETE_PROJECT_DOWNSTREAM_AUDIT_CLEAN"
   },
   "defects": {
@@ -54,9 +54,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c",
-    "verified_code_tree": "ff650b866230dc6055c5d275e8eae00756af0d26",
-    "state_projection_basis_head": "fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c",
+    "verified_code_head": "69ffec4c068e98e4b7d80e757b70589c49a626c4",
+    "verified_code_tree": "3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e",
+    "state_projection_basis_head": "69ffec4c068e98e4b7d80e757b70589c49a626c4",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -796,8 +796,8 @@
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
     "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
-    "current_downstream_verified_head": "fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c",
-    "current_downstream_verified_tree": "ff650b866230dc6055c5d275e8eae00756af0d26",
+    "current_downstream_verified_head": "69ffec4c068e98e4b7d80e757b70589c49a626c4",
+    "current_downstream_verified_tree": "3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e",
     "current_downstream_verified_ci": {
       "core_run_id": 36345589360,
       "core_job_id": 108693972942,
@@ -1314,7 +1314,7 @@
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD231_DD237_STATE_CLOSURE",
+    "current_phase": "DEVELOPMENT_DD238_DD242_CANONICAL_PROMOTION",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -1329,9 +1329,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c",
-      "ci_run_id": 36520843223,
-      "ci_job_id": 109253114524,
+      "ci_verified_head": "69ffec4c068e98e4b7d80e757b70589c49a626c4",
+      "ci_run_id": 36524190817,
+      "ci_job_id": 109263461319,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -1343,7 +1343,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "ff650b866230dc6055c5d275e8eae00756af0d26",
+      "ci_verified_tree": "3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -1363,27 +1363,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "This DD-231…DD-237 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the batch is closed and the next independently source-complete governed backend batch may be source-audited.",
+    "next_action": "After this DD-238…DD-242 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the batch state before opening the next independently source-complete governed backend batch.",
     "core_services": {
-      "checkpoint": "DEV-AI-PROVIDER-MODEL-CATALOG-CANDIDATE-FLOORS-001",
+      "checkpoint": "DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–237 bounded implementation",
-      "verified_head": "fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c",
-      "verified_tree": "ff650b866230dc6055c5d275e8eae00756af0d26",
-      "core_ci_run_id": 36520843210,
-      "core_ci_job_id": 109253114394,
-      "tests": "858/858 PASS",
+      "decision": "DD-040–242 bounded implementation",
+      "verified_head": "69ffec4c068e98e4b7d80e757b70589c49a626c4",
+      "verified_tree": "3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e",
+      "core_ci_run_id": 36524190771,
+      "core_ci_job_id": 109263461087,
+      "tests": "870/870 PASS",
       "core_test_counts": {
-        "tests": 858,
-        "pass": 858,
+        "tests": 870,
+        "pass": 870,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36520843210,
-      "postgres_ci_job_id": 109253114670,
+      "postgres_ci_run_id": 36524190771,
+      "postgres_ci_job_id": 109263461296,
       "postgres_tests": "525/525 PASS",
       "postgres_test_counts": {
         "tests": 525,
@@ -1392,8 +1392,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36520843223,
-      "database_regression_job_id": 109253114524,
+      "database_regression_run_id": 36524190817,
+      "database_regression_job_id": 109263461319,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -1762,7 +1762,12 @@
         "DD-234 exact AIModel capability support prerequisite",
         "DD-235 AIModel sensitivity-ceiling candidate prerequisite",
         "DD-236 exact already-authorized AIModel residency-region support prerequisite",
-        "DD-237 combined Provider/Model catalog-candidate prerequisite floor"
+        "DD-237 combined Provider/Model catalog-candidate prerequisite floor",
+        "DD-238 finite unique Provider/Model catalog evidence-set shape floor",
+        "DD-239 exact immutable Provider/Model pair projection",
+        "DD-240 DD-237 Provider/Model catalog pre-candidate filtering",
+        "DD-241 deterministic non-ranking candidate-set canonicalization",
+        "DD-242 malformed-versus-empty/partial catalog pre-candidate set semantics"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -1888,7 +1893,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "This DD-231…DD-237 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the batch is closed and the next independently source-complete governed backend batch may be source-audited.",
+      "next_action": "After this DD-238…DD-242 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the batch state before opening the next independently source-complete governed backend batch.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -1896,7 +1901,7 @@
       "promotion_invariant_gate_unique_dd": 109,
       "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
-    "application_api_ui_scope_note": "Backend/Core work now includes DD-231…DD-237 Provider/Model catalog-candidate prerequisites. Frontend/UI implementation is not part of this batch. Live AI policy/quota/health/scoring/fallback/credentials/provider execution and full product UI/Industry services remain unfinished.",
+    "application_api_ui_scope_note": "Backend/Core work now includes DD-238…DD-242 deterministic non-ranking Provider/Model catalog pre-candidate set construction. Frontend/UI remains untouched. Model-class mapping, live AI policy/quota/health/scoring/fallback/credentials/route selection/provider execution and full product UI/Industry services remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -1982,7 +1987,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD231_DD237_STATE_CLOSURE",
+  "current_phase": "DEVELOPMENT_DD238_DD242_CANONICAL_PROMOTION",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -2014,20 +2019,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-PROVIDER-MODEL-CATALOG-CANDIDATE-FLOORS-001",
-    "verified_code_head": "fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c",
-    "verified_code_tree": "ff650b866230dc6055c5d275e8eae00756af0d26",
-    "source_audit": "Development/AI_PROVIDER_MODEL_CATALOG_CANDIDATE_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "checkpoint": "DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001",
+    "verified_code_head": "69ffec4c068e98e4b7d80e757b70589c49a626c4",
+    "verified_code_tree": "3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e",
+    "source_audit": "Development/AI_PROVIDER_MODEL_CATALOG_PRE_CANDIDATE_SET_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "This DD-231…DD-237 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the batch is closed and the next independently source-complete governed backend batch may be source-audited.",
+    "next_action": "After this DD-238…DD-242 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the batch state before opening the next independently source-complete governed backend batch.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-PROVIDER-MODEL-CATALOG-CANDIDATE-FLOORS-001",
-    "verified_executable_basis": "fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c",
-    "verified_executable_tree": "ff650b866230dc6055c5d275e8eae00756af0d26",
+    "checkpoint": "DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001",
+    "verified_executable_basis": "69ffec4c068e98e4b7d80e757b70589c49a626c4",
+    "verified_executable_tree": "3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "scope": "DD-231…DD-237 canonical Provider/Model catalog-candidate prerequisite batch is promoted and exact-head verified; model-class mapping, live policy/quota/health/scoring/fallback/credentials, route selection and AI execution remain separately governed.",
+    "scope": "DD-238…DD-242 validate and deterministically canonicalize only a non-ranking Provider/Model catalog pre-candidate set; model-class mapping, live policy/quota/health/scoring/fallback/credentials, route selection and AI execution remain separately governed.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",
       "parents_total": 372,
@@ -2078,31 +2083,32 @@
     "source_requirement_text_reconciliation": "2,962 stable IDs retained; 85 mis-extracted texts restored and 21 provenance aliases explicitly located by VC27-01. Complete atomic no-loss certification remains open."
   },
   "current_feature_verification": {
-    "decision_id": "DD-237",
-    "decision": "DD-237 Combined Provider/Model catalog-candidate prerequisite floor",
-    "checkpoint": "DEV-AI-PROVIDER-MODEL-CATALOG-CANDIDATE-FLOORS-001",
-    "verified_head": "b9ba948e0c16ce64b12b1623f1675f71d4d45560",
-    "verified_tree": "fd42d07ed3117322fb6f833aebe3d7c084a4f3c7",
-    "source_audit": "Development/AI_PROVIDER_MODEL_CATALOG_CANDIDATE_FLOORS_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-242",
+    "decision": "DD-242 Empty/partial catalog pre-candidate set semantics",
+    "checkpoint": "DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001",
+    "verified_head": "69ffec4c068e98e4b7d80e757b70589c49a626c4",
+    "verified_tree": "3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e",
+    "source_audit": "Development/AI_PROVIDER_MODEL_CATALOG_PRE_CANDIDATE_SET_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AIROUTE-CAND-001",
-      "AIROUTE-CAND-002",
-      "AIROUTE-CAND-003"
+      "AIROUTE-SET-EMPTY-001",
+      "AIROUTE-SET-EMPTY-002",
+      "AIROUTE-SET-BOUND-001",
+      "AIROUTE-SET-BOUND-002"
     ],
     "test_files": [
-      "tests/core/ai-provider-model-catalog-candidate-floors.test.mjs"
+      "tests/core/ai-provider-model-catalog-pre-candidate-set.test.mjs"
     ],
     "core": {
-      "run_id": 36520247461,
-      "job_id": 109251303224,
-      "tests": 858,
-      "pass": 858,
+      "run_id": 36524190771,
+      "job_id": 109263461087,
+      "tests": 870,
+      "pass": 870,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 36520247461,
-      "job_id": 109251302946,
+      "run_id": 36524190771,
+      "job_id": 109263461296,
       "tests": 525,
       "pass": 525,
       "fail": 0,
@@ -2110,17 +2116,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 36520247428,
-      "job_id": 109251303098,
+      "run_id": 36524190817,
+      "job_id": 109263461319,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 36520247436,
-      "job_id": 109251302950,
+      "run_id": 36524190778,
+      "job_id": 109263461149,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD231_DD237_VERIFICATION_2026-09-29.md"
+    "evidence": "Registers/DEVELOPMENT_DD238_DD242_VERIFICATION_2026-09-29.md"
   },
   "historical_projection_payloads": {
     "continuation": {

@@ -34,3 +34,13 @@ Canonical promotion `fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c` / tree `ff650b866
 
 The canonical DD-231…DD-237 decisions, acceptance, traceability, implementation evidence and current projections are therefore promotion-verified. This containing state-closure commit must independently pass the same gate before another governed backend source audit opens.
 
+## State-closure correction exact-head gate
+
+Final DD-231…DD-237 runtime-audit binding correction `8038e2aefa5476d04ddcbcb336d7b6aa7923b1de` / tree `d1ed95613a09b295073680edd6d641c4c6c2913b` independently passed:
+- Core Service Verify `36523737789` / `109262054540`: **858/858 PASS**.
+- PostgreSQL `36523737789` / `109262054734`: **525/525 PASS** plus database bootstrap.
+- Database Verify `36523737821` / `109262054803`: PASS.
+- Web Boundary Verify `36523737792` / `109262054534`: PASS.
+
+DD-231…DD-237 is closed. The correction aligned only the bounded runtime-audit current basis with the already verified canonical promotion; runtime/backend behavior did not change.
+

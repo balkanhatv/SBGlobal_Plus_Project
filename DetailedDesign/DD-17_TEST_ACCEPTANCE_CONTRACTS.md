@@ -4059,3 +4059,53 @@ Failure of any DD-231…DD-236 prerequisite fails the combined candidate floor.
 ### AIROUTE-CAND-003 — Immutable and non-routing
 Inputs remain unchanged and a true result grants no model-class mapping, live policy/quota, health/scoring/fallback, credential or execution authority.
 
+## DD-238 AI Provider/Model Evidence-Set Shape Acceptance
+
+### AIROUTE-SET-SHAPE-001 — Valid finite unique evidence set
+Dense finite Provider/Model arrays with unique valid ids and every Model resolving to exactly one supplied Provider pass.
+
+### AIROUTE-SET-SHAPE-002 — Malformed/duplicate/orphan evidence denial
+Sparse arrays, duplicate ids, malformed ids or orphan Model provider references fail closed.
+
+
+## DD-239 AI Provider/Model Exact Pair Projection Acceptance
+
+### AIROUTE-PAIR-001 — Exact immutable pair
+Exact DD-200 Model→Provider binding projects immutable Provider/Model ids.
+
+### AIROUTE-PAIR-002 — Invalid pair denial
+Wrong or malformed pair returns null and exposes no route metadata.
+
+
+## DD-240 AI Catalog Pre-Candidate Filtering Acceptance
+
+### AIROUTE-SET-FILTER-001 — DD-237 pair filtering
+All supplied pairs passing DD-237 are included and failing pairs are excluded.
+
+### AIROUTE-SET-FILTER-002 — Input-order independence
+Equivalent Provider/Model evidence produces the same candidate set regardless of input array order.
+
+
+## DD-241 Deterministic Non-Ranking Candidate-Set Acceptance
+
+### AIROUTE-SET-CANON-001 — Canonical immutable output
+Output is immutable, duplicate-free and canonically ordered by Provider id then Model id.
+
+### AIROUTE-SET-CANON-002 — Canonical order is not routing preference
+Output exposes no score, preference, health or fallback metadata.
+
+
+## DD-242 Empty/Partial Candidate-Set Semantics Acceptance
+
+### AIROUTE-SET-EMPTY-001 — Valid zero-match set
+Valid evidence with no passing pair returns an immutable empty array.
+
+### AIROUTE-SET-EMPTY-002 — Malformed evidence distinction
+Malformed evidence returns null instead of an empty successful set.
+
+### AIROUTE-SET-BOUND-001 — Immutability
+Input evidence remains unchanged.
+
+### AIROUTE-SET-BOUND-002 — Non-routing boundary
+Output exposes only Provider/Model ids and no model-class mapping, route decision, policy/quota, health, score, fallback, credentials or execution authority.
+

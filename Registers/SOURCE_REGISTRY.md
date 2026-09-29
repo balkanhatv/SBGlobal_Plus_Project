@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-CANDIDATE-FLOORS-001`
-**Current executable audit basis:** `fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c` / tree `ff650b866230dc6055c5d275e8eae00756af0d26`
+**Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001`
+**Current executable audit basis:** `69ffec4c068e98e4b7d80e757b70589c49a626c4` / tree `3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e`
 **Status:** ACTIVE · **Updated:** 2026-09-28
 
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-231…DD-237 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 Provider/Model catalog pre-candidate set batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority
@@ -41,12 +41,12 @@ The literal filename `Primary Source of Truth Enterprise Architecture & Product 
 
 ## Current audit / continuation evidence — 2026-09-28
 
-DD-231…DD-237 is the latest implemented governed backend batch at this promotion boundary. It owns only necessary Provider/Model catalog-candidate compatibility: allowed ACTIVE Provider capability, already-authorized Provider/Model regions, exact ACTIVE Model→Provider binding, Model capability and sensitivity ceiling. Live model-class mapping, policy/quota/health/scoring/fallback/credentials/routing selection and AI execution remain outside this batch.
+DD-238…DD-242 is the latest implemented governed backend batch at this promotion boundary. It owns only finite Provider/Model evidence-set validation, exact pair projection and deterministic non-ranking filtering/canonicalization of DD-237-passing catalog pairs. Model-class mapping, live policy/quota/health/scoring/fallback/credentials/routing selection and AI execution remain outside this batch.
 
 Governed DD-208 promotion evidence remains `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba28541da36bd4c94d9559f91121a0aae2`, recorded in `Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md`.
 
-The current bounded downstream executable audit basis is `b9ba948e0c16ce64b12b1623f1675f71d4d45560` / tree `fd42d07ed3117322fb6f833aebe3d7c084a4f3c7`: **858/858 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation remains **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED**; DD-231…DD-237 canonical promotion is staged.
+The current bounded downstream executable audit basis is `69ffec4c068e98e4b7d80e757b70589c49a626c4` / tree `3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e`: **870/870 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation remains **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED**; DD-238…DD-242 canonical promotion is staged.
 
-Next: after this DD-231…DD-237 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the batch state before the next independently source-complete governed backend batch opens. Live model-class mapping, policy/quota/health/scoring/fallback/credentials/routing selection and AI execution remain locked.
+Next: after this DD-238…DD-242 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the batch state before the next independently source-complete governed backend batch opens. Model-class mapping, live policy/quota/health/scoring/fallback/credentials/routing selection and AI execution remain locked.
 
 

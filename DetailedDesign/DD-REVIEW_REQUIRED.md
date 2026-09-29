@@ -1,9 +1,9 @@
 # DD REVIEW REQUIRED — PHASE 3 CLOSURE
-**Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-CANDIDATE-FLOORS-001`
-**Current executable audit basis:** `fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c` / tree `ff650b866230dc6055c5d275e8eae00756af0d26`
+**Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001`
+**Current executable audit basis:** `69ffec4c068e98e4b7d80e757b70589c49a626c4` / tree `3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e`
 **Updated:** 2026-09-28 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-231…DD-237 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 Provider/Model catalog pre-candidate set batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 
 
 DD-218 re-evaluates only the remaining intrinsic ProvisioningSnapshot governed-shape floor: pack-version JSON-object shape, exact API-class set/vocabulary and raw Model-class text-set shape. Capability/Provider binding and runtime provisioning semantics remain separate.

@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-CANDIDATE-FLOORS-001`  
-**Current executable audit basis:** `fd6e3b0ac03ad7ba3d6aea18d9776b087c86ae5c` / tree `ff650b866230dc6055c5d275e8eae00756af0d26`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-231…DD-237 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001`  
+**Current executable audit basis:** `69ffec4c068e98e4b7d80e757b70589c49a626c4` / tree `3b9e48181e3780f7dcc7aba10f9f981e34bd8d4e`  
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 Provider/Model catalog pre-candidate set batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -644,4 +644,17 @@ DD-231…DD-237 →
 `Registers/DEVELOPMENT_DD231_DD237_VERIFICATION_2026-09-29.md`.
 
 This chain proves necessary catalog compatibility only. Model-class mapping/current effective configuration, live policy/entitlement/quota/budget, context-window/modality, Provider health/circuit, scoring/preference, route/fallback, credentials, provider SDK execution, metering, output guardrails and final audit remain separately governed.
+
+## DD-238…DD-242 — AI Provider/Model catalog pre-candidate set batch
+
+F-05 + F-11 + A-07 + DD-09 routing separation →
+DD-200 exact Model→Provider continuity + DD-231…DD-237 pair-level Provider/Model catalog-candidate floors →
+`Development/AI_PROVIDER_MODEL_CATALOG_PRE_CANDIDATE_SET_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-238…DD-242 →
+`src/core/ai/provider-model-catalog-pre-candidate-set.ts` →
+`AIROUTE-SET-SHAPE-001…002`, `AIROUTE-PAIR-001…002`, `AIROUTE-SET-FILTER-001…002`, `AIROUTE-SET-CANON-001…002`, `AIROUTE-SET-EMPTY-001…002`, `AIROUTE-SET-BOUND-001…002` →
+`tests/core/ai-provider-model-catalog-pre-candidate-set.test.mjs` →
+`Registers/DEVELOPMENT_DD238_DD242_VERIFICATION_2026-09-29.md`.
+
+This chain proves deterministic, non-ranking construction of a finite Provider/Model catalog pre-candidate set only. Model-class→Model mapping, effective configuration, AIPolicy/entitlement/quota/budget, context-window/modality, Provider health/circuit, cost/latency scoring, route/fallback/retry, credentials, provider SDK execution, metering, output guardrails and final audit remain separately governed.
 

@@ -3266,3 +3266,57 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIROUTE-CAND-001…003`.
 
+## DD-238 — Provider/Model candidate evidence-set shape floor
+
+**Context:** DD-237 owns pair-level catalog compatibility, but a finite multi-candidate set must first reject duplicate, malformed or orphan catalog identity evidence.
+
+**Decision:** add `matchesAIProviderModelCatalogEvidenceSetFloor(providers, models)`. It requires dense finite arrays, unique valid Provider ids, unique valid Model ids, valid Model Provider ids and exact resolution of every Model Provider id to one supplied Provider.
+
+**Boundary:** catalog semantics beyond identity are uninterpreted here. No Provider/Model preference, scoring, health or route authority is created.
+
+**Acceptance:** `AIROUTE-SET-SHAPE-001…002` in DD-17 and `tests/core/ai-provider-model-catalog-pre-candidate-set.test.mjs`.
+
+
+## DD-239 — Exact immutable Provider/Model pair projection
+
+**Context:** DD-200 already owns direct Model→Provider identity continuity.
+
+**Decision:** add `projectAIProviderModelCatalogPair(model, provider)`. An exact DD-200 binding returns immutable `{ providerId, modelId }`; invalid binding returns null.
+
+**Boundary:** the projection carries no score, preference, health, fallback, credential or execution metadata.
+
+**Acceptance:** `AIROUTE-PAIR-001…002`.
+
+
+## DD-240 — DD-237 catalog pre-candidate filtering
+
+**Context:** DD-231…DD-237 provide the necessary pair-level Provider/Model catalog checks, but do not aggregate a finite candidate set.
+
+**Decision:** add `filterAIOperationProviderModelCatalogPreCandidates(input)`. It validates the complete supplied evidence set with DD-238, resolves each Model's exact Provider, and includes only pairs satisfying DD-237.
+
+**Boundary:** this is filtering only; no model-class mapping, scoring, route selection, fallback or Provider substitution is performed.
+
+**Acceptance:** `AIROUTE-SET-FILTER-001…002`.
+
+
+## DD-241 — Deterministic non-ranking catalog candidate-set canonicalization
+
+**Context:** deterministic serialization/testing requires stable output, while A-07 reserves preference ordering for later cost/latency/health/fallback logic.
+
+**Decision:** DD-240 output is immutable, duplicate-free and sorted lexically by `providerId`, then `modelId`.
+
+**Security / trade-off:** the canonical sort is serialization determinism only. It must not be interpreted as route preference, health order, cost order or fallback order.
+
+**Acceptance:** `AIROUTE-SET-CANON-001…002`.
+
+
+## DD-242 — Empty/partial catalog pre-candidate set semantics
+
+**Context:** callers must distinguish malformed supplied evidence from a valid evidence set with no surviving candidates.
+
+**Decision:** malformed evidence returns null; valid evidence with zero passing pairs returns an immutable empty array; valid partial evidence returns only passing pairs.
+
+**Boundary:** rejected pairs do not trigger fallback invention, Provider substitution, Model guessing, model-class mapping or route creation.
+
+**Acceptance:** `AIROUTE-SET-EMPTY-001…002`, `AIROUTE-SET-BOUND-001…002`.
+
