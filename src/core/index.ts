@@ -178,3 +178,4 @@ export * from "./ai/industry-config-request-candidate-floors.js";
 export * from "./ai/industry-config-relationship-pre-routing-floors.js";
 export * from "./ai/industry-gateway-context-admission-floors.js";
 export * from "./ai/industry-gateway-live-guard-authorization.js";
+export * from "./ai/industry-gateway-authorized-catalog-pre-routing.js";
