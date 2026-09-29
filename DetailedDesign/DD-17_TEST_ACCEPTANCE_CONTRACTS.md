@@ -4265,3 +4265,56 @@ A request/config prerequisite failure returns null rather than an empty successf
 
 ### AIINDROUTE-PRE-003 — Immutable non-routing/non-effective-config boundary
 Inputs remain unchanged and output exposes no effective-config claim, policy decision, score, fallback, credential, route decision or execution authority.
+
+## DD-258 IndustryAIConfig Tenant + PromptSet Relationship Composition Acceptance
+
+### AIINDREL-PROMPT-001 — Valid supplied relationships
+Valid DD-209 Tenant non-widening plus valid DD-205 optional domain PromptSet binding passes.
+
+### AIINDREL-PROMPT-002 — Either child relationship failure denies
+Tenant non-widening failure or PromptSet relationship failure returns false.
+
+
+## DD-259 Relationship-Complete IndustryAIConfig Acceptance
+
+### AIINDREL-PACK-001 — PromptSet + CountryPack relationships pass together
+Valid DD-258 plus exact DD-210 CountryPack activation evidence passes.
+
+### AIINDREL-PACK-002 — Invalid CountryPack evidence denies
+Missing, extra, foreign-Tenant or non-ACTIVE CountryPack activation evidence fails closed.
+
+### AIINDREL-PACK-003 — Fully unbound relationship case
+An Industry config with no domain PromptSet and empty CountryPack refs passes only with no PromptSet evidence and empty activation evidence.
+
+
+## DD-260 Snapshot-Scoped Relationship-Complete Industry Config Acceptance
+
+### AIINDREL-SCOPE-001 — Exact Industry snapshot scope plus complete relationships
+DD-253 exact scope/enabled floor plus DD-259 relationship-complete supplied config passes.
+
+### AIINDREL-SCOPE-002 — Scope/config/relationship failure denies
+Wrong scope, disabled Industry config or any DD-259 relationship failure returns false.
+
+
+## DD-261 Request + Relationship-Complete Industry Config Acceptance
+
+### AIINDREL-REQ-001 — Request prerequisites plus complete Industry relationships
+DD-256 request/Tenant/Industry prerequisites plus DD-259 relationship-complete supplied config passes.
+
+### AIINDREL-REQ-002 — Request or relationship prerequisite failure denies
+Any request/Tenant/Industry or relationship failure returns false.
+
+
+## DD-262 Relationship-Complete Industry-Constrained Pre-Routing Set Acceptance
+
+### AIINDREL-PRE-001 — Expected immutable candidate set
+Valid DD-257 candidates plus DD-261 relationships return the same immutable non-ranking candidate refs.
+
+### AIINDREL-PRE-002 — Relationship failure is not empty success
+A relationship prerequisite failure returns null rather than an empty successful set.
+
+### AIINDREL-PRE-003 — Valid empty candidate set remains valid empty
+When all relationships pass, a valid DD-257 empty candidate set remains immutable empty success.
+
+### AIINDREL-PRE-004 — No new authority or mutation
+Inputs remain unchanged and output exposes no effective-config, prompt, localization, policy, score, fallback, credential, route or execution authority.

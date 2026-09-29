@@ -2,9 +2,9 @@
 
 **Prior tree-qualified verified basis through VC27-69:** `3a6849cd7a10e400674f9d5c80f5d052243868b2` / tree `9372a4c5e5137033fb8bd00cf53c87dce20f5e25`
 
-**Current exact-head correction basis:** `768fbfbb2db11dc14c25f287b74f3a618c509b94` / tree `4ee109137502c128600f0b3767737bbc6b8cb23d`
+**Current exact-head correction basis:** `dbdefb73c78567f5a63dcb2fe88b40b94107d271` / tree `5a3f9f1aaf5dbd8516fe20ecead636054a91d8b3`
 
-**Exact-head gate:** Core 911/911; PostgreSQL 525/525 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 924/924; PostgreSQL 525/525 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 

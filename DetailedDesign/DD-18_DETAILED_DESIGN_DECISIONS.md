@@ -3481,3 +3481,57 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** the returned immutable set means only that candidates remain eligible to continue into separately governed policy/residency/model-class/health/scoring/routing stages. It is not an effective config, route decision or AI execution authority.
 
 **Acceptance:** `AIINDROUTE-PRE-001…003`.
+
+## DD-258 — Compose Tenant non-widening and optional domain PromptSet relationships
+
+**Context:** DD-209 and DD-205 independently validate two exact supplied-evidence relationships owned by the same IndustryAIConfig.
+
+**Decision:** add `matchesAIIndustryConfigTenantPromptSetRelationshipFloors(industryConfig, tenantConfig, promptSet?)` as pure conjunction of DD-209 and DD-205.
+
+**Boundary:** no PromptSet selection, member resolution, PromptTemplate currentness/rendering or effective config semantics.
+
+**Acceptance:** `AIINDREL-PROMPT-001…002`.
+
+
+## DD-259 — Compose relationship-complete supplied IndustryAIConfig evidence
+
+**Context:** DD-210 independently validates every IndustryAIConfig CountryPack ref against exact same-Tenant raw ACTIVE activation evidence.
+
+**Decision:** add `matchesAIIndustryConfigRelationshipFloors(industryConfig, tenantConfig, promptSet, activations)` as DD-258 plus DD-210.
+
+**Boundary:** a true result means only that the supplied Tenant, PromptSet and CountryPack relationships agree. It is not current/latest/effective configuration.
+
+**Acceptance:** `AIINDREL-PACK-001…003`.
+
+
+## DD-260 — Compose exact Industry snapshot scope with supplied config relationships
+
+**Context:** DD-253 proves exact Tenant+Industry scope and Industry config enablement against the supplied Industry-scoped snapshot.
+
+**Decision:** add `matchesAIIndustryConfigSnapshotRelationshipFloors(snapshot, industryConfig, tenantConfig, promptSet, activations)` as DD-253 plus DD-259.
+
+**Boundary:** no IndustryAIConfig version is bound to the snapshot and no current/latest inference is created.
+
+**Acceptance:** `AIINDREL-SCOPE-001…002`.
+
+
+## DD-261 — Compose request prerequisites with relationship-complete Industry config
+
+**Context:** DD-256 already proves request/Tenant/Industry capability/config prerequisites.
+
+**Decision:** add `matchesAIRequestIndustryConfigRelationshipPrerequisiteFloors(...)` as DD-256 plus DD-259.
+
+**Boundary:** a true result is still a prerequisite only and does not authorize routing or provider execution.
+
+**Acceptance:** `AIINDREL-REQ-001…002`.
+
+
+## DD-262 — Preserve DD-257 candidates only when supplied relationships are complete
+
+**Context:** DD-257 returns immutable non-ranking Industry-config-constrained candidate refs.
+
+**Decision:** add `buildAIIndustryConfigRelationshipConstrainedPreRoutingSet(input)`. Build DD-257, require DD-261, and return the same immutable refs. PromptSet/CountryPack evidence is not projected into candidates.
+
+**Boundary:** no effective config, prompt/localization materialization, policy decision, scoring, route/fallback, credential resolution or execution authority.
+
+**Acceptance:** `AIINDREL-PRE-001…004`.
