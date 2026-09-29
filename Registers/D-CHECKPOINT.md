@@ -1,21 +1,22 @@
 # D-CHECKPOINT
-**Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001`
-**Current executable audit basis:** `01b6c530490735ba5f5354d15230a90c4ea73243` / tree `50028566216ac2a178eb85bdb6760cbcdb22cf0c`
+**Current checkpoint:** `DEV-AI-REQUEST-PRE-ROUTING-FLOORS-001`
+**Current executable audit basis:** `a55d54d0e640d58b18c8d691c26a57835c79aa2e` / tree `75c109735c2331e357cac7ab599a02cbd8dd8fff`
 **Updated:** 2026-09-29 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-243…DD-247 AIRequest pre-routing prerequisite batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Production readiness is **NOT CLAIMED**.
 
-DD-238…DD-242 is the current governed backend-only catalog pre-candidate set batch. It proves only finite evidence-set integrity, exact pair projection, DD-237 filtering, deterministic non-ranking canonicalization and explicit malformed-versus-empty semantics.
+DD-243…DD-247 is one governed backend-only AIRequest pre-routing batch. It validates the exact DD-09 request envelope, projects it immutably, binds capability code and input-schema version to the canonical AI operation declaration, and composes only those request-integrity prerequisites.
 
-Verified canonical promotion basis `01b6c530490735ba5f5354d15230a90c4ea73243` / tree `50028566216ac2a178eb85bdb6760cbcdb22cf0c`: **870/870 Core**, **525/525 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36527993540` (jobs `109275152229`, `109275152529`), Database `36527993579` (job `109275152476`), Web `36527993545` (job `109275152560`).
+Verified implementation basis `a55d54d0e640d58b18c8d691c26a57835c79aa2e` / tree `75c109735c2331e357cac7ab599a02cbd8dd8fff`: **883/883 Core**, **525/525 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36529101421` (jobs `109278515932`, `109278516221`), Database `36529101326` (job `109278515847`), Web `36529101378` (job `109278515832`).
 
-Frontend/UI remains untouched. Model-class→Model mapping, effective Tenant/Industry AI config, AIPolicy/entitlement/quota/budget, context-window/modality, Provider health/circuit, cost/latency scoring, route/fallback/retry, credential/secret access, provider SDK execution, metering, output guardrails and final audit remain separately governed.
+Frontend/UI remains untouched. RequestContext trust, Authentication/Authorization/entitlement, residency/grounding policy, output-schema business validation, AIPolicy/quota/budget, candidate/model mapping, Provider health/scoring, route/fallback/retry, credentials, provider SDK execution, metering, output guardrails and final audit remain separately governed.
 
-Evidence: `Registers/DEVELOPMENT_DD238_DD242_VERIFICATION_2026-09-29.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+Evidence: `Registers/DEVELOPMENT_DD243_DD247_VERIFICATION_2026-09-29.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: this state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, DD-238…DD-242 is closed and the next independently source-complete governed backend batch may be source-audited.
+Next: after this canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the DD-243…DD-247 batch state before opening the next independently source-complete governed backend batch.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
+
 
 
 

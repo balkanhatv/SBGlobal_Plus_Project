@@ -34,3 +34,13 @@ Canonical promotion `01b6c530490735ba5f5354d15230a90c4ea73243` / tree `500285662
 
 The canonical DD-238…DD-242 decisions, acceptance, traceability, implementation evidence and current projections are promotion-verified. This containing state-closure commit must independently pass the same gate before another governed backend source audit opens.
 
+## State-closure exact-head gate
+
+State closure `d940e4dd6bcee4635ecaff18ce01b5a4efbdc582` / tree `1a9a809896b490c6d5b546708056c63c9f1e5f54` independently passed:
+- Core Service Verify `36528504518` / `109276692511`: **870/870 PASS**.
+- PostgreSQL `36528504518` / `109276692395`: **525/525 PASS** plus database bootstrap.
+- Database Verify `36528504512` / `109276692130`: PASS.
+- Web Boundary Verify `36528504632` / `109276692544`: PASS.
+
+DD-238…DD-242 is closed; no runtime/frontend/schema/policy authority was added by closure.
+

@@ -3320,3 +3320,59 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIROUTE-SET-EMPTY-001…002`, `AIROUTE-SET-BOUND-001…002`.
 
+## DD-243 — Exact AIRequest shape floor
+
+**Context:** DD-09 defines the exact AIRequest envelope. A-07 requires server-authoritative context and rejects client ownership of trusted Tenant/Industry/permission facts.
+
+**Decision:** add `matchesAIRequestShapeFloor(request)`. Required DD-09 strings must be non-empty, `inputSchemaVersion` must be a positive safe integer, `input` and optional `requestedOutputSchema` must be JSON values, sensitivity uses the existing five-value vocabulary, optional string fields must be non-empty, optional source scopes must be a dense array of non-empty strings, and unknown top-level fields fail closed.
+
+**Boundary:** request payload JSON remains uninterpreted. This does not resolve `requestContextRef`, authorize residency/grounding, validate business DTO schema, reserve quota/budget, route or execute.
+
+**Acceptance:** `AIREQ-SHAPE-001…004` in DD-17 and `tests/core/ai-request-pre-routing-floors.test.mjs`.
+
+
+## DD-244 — Immutable canonical AIRequest projection
+
+**Context:** downstream AI stages need one bounded request representation without creating trusted-context authority from client input.
+
+**Decision:** add `projectAIRequest(request)`. Valid DD-243 input is projected to only the exact DD-09 fields with recursively cloned/frozen JSON and frozen list evidence; invalid requests return null.
+
+**Boundary:** projection preserves raw evidence only and does not dereference context, authorize or route.
+
+**Acceptance:** `AIREQ-PROJ-001…002`.
+
+
+## DD-245 — AIRequest capability binding prerequisite
+
+**Context:** DD-225 owns the canonical AI operation declaration capability; DD-09 AIRequest repeats the requested capability.
+
+**Decision:** add `matchesAIRequestOperationCapabilityFloor(request, declaration)`, requiring valid request/declaration evidence and exact capability-code equality.
+
+**Boundary:** no entitlement, policy, Provider/Model candidate or execution semantics are inferred.
+
+**Acceptance:** `AIREQ-CAP-001…002`.
+
+
+## DD-246 — AIRequest input-schema binding prerequisite
+
+**Context:** DD-06 owns canonical OperationContract input schema version; DD-09 request carries the version used by the client request envelope.
+
+**Decision:** add `matchesAIRequestOperationInputSchemaFloor(request, declaration)`, requiring exact equality between request `inputSchemaVersion` and canonical `OperationContract.inputSchemaVersion`.
+
+**Boundary:** this is version binding only; actual DTO/schema-registry validation remains downstream.
+
+**Acceptance:** `AIREQ-SCHEMA-001…002`.
+
+
+## DD-247 — Combined AIRequest pre-routing prerequisite floor
+
+**Context:** DD-243, DD-245 and DD-246 form the source-complete request-integrity boundary before later live context/policy/routing stages.
+
+**Decision:** add `matchesAIRequestPreRoutingPrerequisiteFloors(request, declaration)`, composing DD-243 shape, DD-245 capability binding and DD-246 input-schema binding only.
+
+**Security / trade-off:** a true result means only that the supplied AIRequest is structurally valid and coherent with the declared operation capability/schema version.
+
+**Boundary:** RequestContext resolution, authentication/authorization/entitlement, residency/grounding semantics, requested-output business validation, AIPolicy/quota/budget, candidate/model-class mapping, context-window/modality, Provider health/circuit, scoring, route/fallback/retry, credentials, provider SDK execution, metering/output guardrails/final audit remain separate.
+
+**Acceptance:** `AIREQ-PRE-001…003`.
+

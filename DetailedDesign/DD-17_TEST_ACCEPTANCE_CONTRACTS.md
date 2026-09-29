@@ -4109,3 +4109,56 @@ Input evidence remains unchanged.
 ### AIROUTE-SET-BOUND-002 — Non-routing boundary
 Output exposes only Provider/Model ids and no model-class mapping, route decision, policy/quota, health, score, fallback, credentials or execution authority.
 
+## DD-243 AIRequest Shape Acceptance
+
+### AIREQ-SHAPE-001 — Exact DD-09 field set
+A valid request carrying exactly the required DD-09 fields plus only the allowed optional fields passes.
+
+### AIREQ-SHAPE-002 — Missing or unknown top-level field
+A missing required field or unknown top-level field fails closed.
+
+### AIREQ-SHAPE-003 — Malformed required evidence
+Malformed required strings, non-positive/non-safe schema version, non-JSON input or unknown sensitivity class fails closed.
+
+### AIREQ-SHAPE-004 — Malformed optional evidence
+Malformed optional strings, requested-output JSON or allowed-source-scope evidence fails closed.
+
+
+## DD-244 Immutable AIRequest Projection Acceptance
+
+### AIREQ-PROJ-001 — Exact deeply immutable projection
+A valid request projects only the DD-09 fields with deeply immutable JSON/list evidence.
+
+### AIREQ-PROJ-002 — Invalid/no parallel authority
+Invalid requests return null and projection exposes no Tenant/Industry/permission/route authority.
+
+
+## DD-245 AIRequest Capability Binding Acceptance
+
+### AIREQ-CAP-001 — Exact capability binding
+Exact request/declaration capability-code equality passes.
+
+### AIREQ-CAP-002 — Capability mismatch
+Mismatched or malformed capability binding fails closed.
+
+
+## DD-246 AIRequest Input-Schema Binding Acceptance
+
+### AIREQ-SCHEMA-001 — Exact input-schema version
+Exact request/declaration input-schema-version equality passes.
+
+### AIREQ-SCHEMA-002 — Schema mismatch
+Mismatched or malformed schema binding fails closed.
+
+
+## DD-247 Combined AIRequest Pre-Routing Acceptance
+
+### AIREQ-PRE-001 — All request prerequisites
+DD-243 shape plus DD-245 capability and DD-246 schema bindings pass together.
+
+### AIREQ-PRE-002 — Any prerequisite failure denies
+Failure of any composed request prerequisite fails the combined floor.
+
+### AIREQ-PRE-003 — Immutable and non-routing
+Inputs remain unchanged and a true result grants no context resolution, policy, route, credential or execution authority.
+

@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-PRE-CANDIDATE-SET-001`  
-**Current executable audit basis:** `01b6c530490735ba5f5354d15230a90c4ea73243` / tree `50028566216ac2a178eb85bdb6760cbcdb22cf0c`  
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-238…DD-242 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-REQUEST-PRE-ROUTING-FLOORS-001`  
+**Current executable audit basis:** `a55d54d0e640d58b18c8d691c26a57835c79aa2e` / tree `75c109735c2331e357cac7ab599a02cbd8dd8fff`  
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-243…DD-247 AIRequest pre-routing prerequisite batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -657,4 +657,16 @@ DD-238…DD-242 →
 `Registers/DEVELOPMENT_DD238_DD242_VERIFICATION_2026-09-29.md`.
 
 This chain proves deterministic, non-ranking construction of a finite Provider/Model catalog pre-candidate set only. Model-class→Model mapping, effective configuration, AIPolicy/entitlement/quota/budget, context-window/modality, Provider health/circuit, cost/latency scoring, route/fallback/retry, credentials, provider SDK execution, metering, output guardrails and final audit remain separately governed.
+
+## DD-243…DD-247 — AIRequest pre-routing prerequisite batch
+
+A-07 AI Gateway + DD-09 exact AIRequest contract + DD-06 canonical OperationContract input schema + DD-225 canonical AI operation declaration →
+`Development/AI_REQUEST_PRE_ROUTING_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-243…DD-247 →
+`src/core/ai/request-pre-routing-floors.ts` →
+`AIREQ-SHAPE-001…004`, `AIREQ-PROJ-001…002`, `AIREQ-CAP-001…002`, `AIREQ-SCHEMA-001…002`, `AIREQ-PRE-001…003` →
+`tests/core/ai-request-pre-routing-floors.test.mjs` →
+`Registers/DEVELOPMENT_DD243_DD247_VERIFICATION_2026-09-29.md`.
+
+This chain proves request-envelope integrity and exact operation capability/input-schema coherence only. Context resolution/trust, Authorization/entitlement, residency/grounding policy, quota/budget, candidate selection, Provider/Model routing, credentials, execution, metering/output guardrails and final audit remain separately governed.
 

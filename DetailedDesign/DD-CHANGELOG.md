@@ -549,3 +549,7 @@ Under the substantial-batch cadence, DD-238…DD-242 build only a deterministic 
 
 Canonical promotion `01b6c530490735ba5f5354d15230a90c4ea73243` / tree `50028566216ac2a178eb85bdb6760cbcdb22cf0c` passed **870/870 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis and must independently pass before the next governed backend batch opens. No RawSource, runtime, frontend, schema, migration, RLS, role/grant, public route, provider SDK or product-policy change.
 
+## 2026-09-29 — DD-243…DD-247 AIRequest pre-routing prerequisite batch
+
+Under the substantial-batch cadence, DD-243…DD-247 add only exact DD-09 AIRequest shape validation, immutable projection, exact operation capability binding, exact input-schema-version binding and their combined pre-routing request floor. Source audit `aa542e87291aa52c10dfa32f56e6ff861578f245` / tree `6d170ee04c40b5a4af9e7f3645278526347560f4` preceded implementation `a55d54d0e640d58b18c8d691c26a57835c79aa2e` / tree `75c109735c2331e357cac7ab599a02cbd8dd8fff`, which passed **883/883 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, role/grant, public route, provider SDK, frontend or product-policy change. Context resolution, live policy/quota/routing/credentials/execution remain unclaimed.
+
