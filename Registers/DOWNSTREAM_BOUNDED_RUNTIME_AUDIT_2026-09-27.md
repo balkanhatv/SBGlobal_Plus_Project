@@ -2,9 +2,9 @@
 
 **Prior tree-qualified verified basis through VC27-69:** `3a6849cd7a10e400674f9d5c80f5d052243868b2` / tree `9372a4c5e5137033fb8bd00cf53c87dce20f5e25`
 
-**Current exact-head correction basis:** `697ee9e4b3afb89eaf9e6c12b02712b61a3634cf` / tree `69e22b23955aacba109436ba648514629b4c4118`
+**Current exact-head correction basis:** `b9ba948e0c16ce64b12b1623f1675f71d4d45560` / tree `fd42d07ed3117322fb6f833aebe3d7c084a4f3c7`
 
-**Exact-head gate:** Core 843/843; PostgreSQL 525/525 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
+**Exact-head gate:** Core 858/858; PostgreSQL 525/525 with bootstrap PASS; Database 48 migrations / 42 verification files; Web PASS.
 
 ## Scope reviewed
 
@@ -35,7 +35,7 @@ The general application role remains an RLS-enforced application role rather tha
 
 This bounded report alone did **not** clear the complete-project audit. The 2026-09-28 complete-project semantic/file-coverage/adversarial closure now treats the following as governed future Development surfaces; they remain locked until their own source-complete contracts are promoted: external REST route catalog/machine credentials, webhook runtime, Integration/provider execution, Workflow/Automation/Notification execution, Commercial write/apply path, retention/ACL, AI provider/tool execution, mobile/desktop executable surfaces, and remaining historical/canonical downstream semantics.
 
-DD-225…DD-230 is now the latest implemented governed AI pre-provider prerequisite batch at the exact-head basis above. This bounded report does not convert those prerequisites into live authorization, routing or AI execution authority.
+DD-231…DD-237 is now the latest implemented governed Provider/Model catalog-candidate prerequisite batch at the exact-head basis above. This bounded report does not convert catalog compatibility into live routing or AI execution authority.
 
 
 ## Verified continuation through VC27-36

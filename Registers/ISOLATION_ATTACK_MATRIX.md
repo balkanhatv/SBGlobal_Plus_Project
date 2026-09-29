@@ -1,9 +1,9 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
-**Current checkpoint:** `DEV-AI-OPERATION-PRE-PROVIDER-FLOORS-001`
-> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-225…DD-230 canonical promotion/correction `697ee9e4b3afb89eaf9e6c12b02712b61a3634cf` is exact-head verified; this state-closure commit must independently pass before the next governed batch opens. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-PROVIDER-MODEL-CATALOG-CANDIDATE-FLOORS-001`
+> **Current audit gate (2026-09-28):** complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. DD-231…DD-237 Provider/Model catalog-candidate prerequisite batch is implemented and exact-head verified at the basis above; canonical promotion is the current batch-boundary step. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-09-28 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts
 
-> **Current bounded audit basis:** `697ee9e4b3afb89eaf9e6c12b02712b61a3634cf` / tree `69e22b23955aacba109436ba648514629b4c4118` — **843/843 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS.
+> **Current executable audit basis:** `b9ba948e0c16ce64b12b1623f1675f71d4d45560` / tree `fd42d07ed3117322fb6f833aebe3d7c084a4f3c7`
 
 ## Historical 2026-09-14 executable persistence overlay
 

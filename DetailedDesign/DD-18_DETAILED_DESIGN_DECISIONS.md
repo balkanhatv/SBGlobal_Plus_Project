@@ -3188,3 +3188,81 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIOP-PRE-001…003` in DD-17 and `tests/core/ai-operation-pre-provider-prerequisite-floors.test.mjs`.
 
+## DD-231 — AI Provider capability candidate prerequisite
+
+**Context:** A-07 routes by capability through the Gateway. DD-09 persists Provider supported-capabilities, while DD-223 already owns exact snapshot-allowed raw-ACTIVE Provider membership.
+
+**Decision:** add `matchesAIOperationProviderCapabilityCandidateFloor(declaration, snapshot, provider)`. It requires a valid DD-225 declaration, DD-223 Provider admission, string/null-preserving Provider capability-array evidence and exact raw declaration capability-code membership.
+
+**Boundary:** null/empty unrelated catalog entries are not normalized into support. Provider region, health, credentials, policy, scoring, routing and execution remain separate.
+
+**Acceptance:** `AIROUTE-PROV-CAP-001…002` in DD-17 and `tests/core/ai-provider-model-catalog-candidate-floors.test.mjs`.
+
+
+## DD-232 — AI Provider authorized-region support prerequisite
+
+**Context:** A-07/F-11 require Provider routing to remain inside an allowed residency region. The authorization of a region belongs to upstream residency policy.
+
+**Decision:** add `matchesAIProviderAuthorizedRegionCandidateFloor(provider, authorizedResidencyRegion)`. It validates Provider identity and string/null-preserving supported-region evidence, then requires a non-empty already-authorized region to match exactly.
+
+**Boundary:** this helper does not derive or authorize the region, inspect Provider residency metadata, or choose/fallback a Provider.
+
+**Acceptance:** `AIROUTE-PROV-REG-001…002`.
+
+
+## DD-233 — AI Model exact Provider + ACTIVE candidate prerequisite
+
+**Context:** DD-200 owns direct AIModel→AIProvider id continuity. DD-09 routing uses registry Models, and current Tenant model integrity already treats raw ACTIVE status as necessary evidence.
+
+**Decision:** add `matchesAIModelProviderActiveCandidateFloor(model, provider)`, composing DD-200 exact Provider binding and raw `model.status === "ACTIVE"`.
+
+**Boundary:** Provider ACTIVE/snapshot membership remains DD-231; model allowlist/class mapping, capability, residency, sensitivity, scoring and execution remain separate.
+
+**Acceptance:** `AIROUTE-MODEL-PROV-001…002`.
+
+
+## DD-234 — AI Model capability support prerequisite
+
+**Context:** DD-09 persists Model `capabilities[]` and routes only after model capability/context need.
+
+**Decision:** add `matchesAIModelCapabilityCandidateFloor(declaration, model)`, requiring valid declaration/Model identity, string/null-preserving capability evidence and exact declaration capability-code membership.
+
+**Boundary:** no context-window/modality suitability or model selection is inferred.
+
+**Acceptance:** `AIROUTE-MODEL-CAP-001…002`.
+
+
+## DD-235 — AI Model sensitivity-ceiling prerequisite
+
+**Context:** DD-09 routing explicitly filters by sensitivity ceiling. The source-owned sensitivity order is PUBLIC < INTERNAL < CONFIDENTIAL < SENSITIVE_PERSONAL < REGULATED.
+
+**Decision:** add `matchesAIModelSensitivityCandidateFloor(model, sensitivityClass)`. Known request sensitivity must be <= the Model's exact known sensitivity ceiling.
+
+**Boundary:** this is only catalog ceiling compatibility; tenant data-class policy, redaction and residency remain separate.
+
+**Acceptance:** `AIROUTE-MODEL-SENS-001…002`.
+
+
+## DD-236 — AI Model authorized-region support prerequisite
+
+**Context:** DD-09 persists Model residency regions and requires residency filtering before preference/fallback.
+
+**Decision:** add `matchesAIModelAuthorizedRegionCandidateFloor(model, authorizedResidencyRegion)`, requiring valid Model identity, string/null-preserving residency-region evidence and exact membership of an already-authorized non-empty region.
+
+**Boundary:** region authorization is upstream; no route selection/fallback is created.
+
+**Acceptance:** `AIROUTE-MODEL-REG-001…002`.
+
+
+## DD-237 — Combined Provider/Model catalog-candidate prerequisite floor
+
+**Context:** DD-231…236 now provide the source-complete catalog compatibility checks that may run after DD-230 pre-provider admission and before still-governed route selection.
+
+**Decision:** add `matchesAIOperationProviderModelCatalogCandidateFloors(input)`, composing DD-231 through DD-236 only.
+
+**Security / trade-off:** a true result means only that already-supplied Provider/Model catalog evidence survives capability, allowed-Provider, Provider/Model identity, ACTIVE Model, sensitivity and already-authorized-region checks.
+
+**Boundary:** no model-class→Model mapping, effective Tenant/Industry model selection, AIPolicy/entitlement/quota/budget, context-window/modality decision, Provider health/circuit, cost/latency scoring, route decision, fallback, credential/secret access, SDK call, metering, output guardrail or final audit.
+
+**Acceptance:** `AIROUTE-CAND-001…003`.
+

@@ -3994,3 +3994,68 @@ Failure of any composed DD-225/DD-227/DD-228/DD-229 prerequisite fails the combi
 ### AIOP-PRE-003 — Immutable and non-authorizing
 Inputs remain unchanged and a true result grants no Provider/Model, policy/quota, credential, routing or execution authority.
 
+## DD-231 AI Provider Capability Candidate Acceptance
+
+### AIROUTE-PROV-CAP-001 — Exact allowed ACTIVE Provider capability
+An exact snapshot-allowed raw-ACTIVE Provider whose supported-capabilities evidence contains the declaration capability code passes.
+
+### AIROUTE-PROV-CAP-002 — Provider capability denial
+Absent capability, malformed support-array evidence, disallowed Provider id or non-ACTIVE Provider fails closed.
+
+
+## DD-232 AI Provider Authorized-Region Candidate Acceptance
+
+### AIROUTE-PROV-REG-001 — Exact pre-authorized Provider region
+A non-empty already-authorized region exactly present in Provider supported-regions evidence passes.
+
+### AIROUTE-PROV-REG-002 — Provider region denial
+Empty/unknown/non-string region or malformed Provider region evidence fails closed.
+
+
+## DD-233 AI Model Provider/ACTIVE Candidate Acceptance
+
+### AIROUTE-MODEL-PROV-001 — Exact Provider binding + ACTIVE Model
+Exact AIModel→AIProvider id continuity with raw Model status ACTIVE passes.
+
+### AIROUTE-MODEL-PROV-002 — Model/Provider denial
+Wrong Provider, malformed Model/Provider identity or non-ACTIVE Model fails closed.
+
+
+## DD-234 AI Model Capability Candidate Acceptance
+
+### AIROUTE-MODEL-CAP-001 — Exact Model capability
+Exact declaration capability-code membership in Model capability evidence passes.
+
+### AIROUTE-MODEL-CAP-002 — Model capability denial
+Absent capability or malformed Model capability evidence fails closed.
+
+
+## DD-235 AI Model Sensitivity-Ceiling Candidate Acceptance
+
+### AIROUTE-MODEL-SENS-001 — Sensitivity ceiling ordering
+For every known sensitivity pair, Model ceiling >= request sensitivity passes and lower ceiling fails.
+
+### AIROUTE-MODEL-SENS-002 — Unknown sensitivity denial
+Unknown, malformed or non-string request/Model sensitivity evidence fails closed.
+
+
+## DD-236 AI Model Authorized-Region Candidate Acceptance
+
+### AIROUTE-MODEL-REG-001 — Exact pre-authorized Model region
+A non-empty already-authorized region exactly present in Model residency-region evidence passes.
+
+### AIROUTE-MODEL-REG-002 — Model region denial
+Unknown/empty/non-string region or malformed Model residency-region evidence fails closed.
+
+
+## DD-237 Combined Provider/Model Catalog-Candidate Acceptance
+
+### AIROUTE-CAND-001 — All known catalog prerequisites
+All DD-231…DD-236 Provider/Model catalog-candidate prerequisites pass together.
+
+### AIROUTE-CAND-002 — Any candidate prerequisite failure denies
+Failure of any DD-231…DD-236 prerequisite fails the combined candidate floor.
+
+### AIROUTE-CAND-003 — Immutable and non-routing
+Inputs remain unchanged and a true result grants no model-class mapping, live policy/quota, health/scoring/fallback, credential or execution authority.
+

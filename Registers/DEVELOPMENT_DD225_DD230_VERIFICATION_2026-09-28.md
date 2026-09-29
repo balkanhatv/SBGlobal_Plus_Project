@@ -37,3 +37,13 @@ Smallest forward-only governance correction `697ee9e4b3afb89eaf9e6c12b02712b61a3
 
 The corrected promotion therefore verifies the canonical DD-225…DD-230 decisions, acceptance, traceability, evidence and active projection synchronization. The containing state-closure commit must independently pass the same gate before another governed source audit opens.
 
+## State-closure correction exact-head gate
+
+Final governance-marker correction `1df6459e3da0d6fa8972a27f7af4eae9341a3c91` / tree `da55ae9be19ec9f45c032348c139ce2dbbff9805` independently passed:
+- Core Service Verify `36519762912` / `109249832430`: **843/843 PASS**.
+- PostgreSQL `36519762912` / `109249832547`: **525/525 PASS** plus database bootstrap.
+- Database Verify `36519762925`: PASS.
+- Web Boundary Verify `36519762947`: PASS.
+
+DD-225…DD-230 is closed. The correction restored the canonical REPO-007 audit-gate marker and current Source Registry continuation wording only; runtime/backend behavior did not change.
+
