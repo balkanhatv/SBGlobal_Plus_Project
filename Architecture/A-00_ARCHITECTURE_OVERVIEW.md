@@ -1,7 +1,7 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CURRENT-RESIDENCY-EVIDENCE-001`
-**Current executable audit basis:** `c02aa25deff7cb9e1de2a15fe98f65132b401c81` / tree `ce2f7ef4692a67aacc0265ea1eed9d1f8b0865fe`
-> **Current audit gate (2026-09-28):** DD-328…DD-332 NotificationDelivery source-event current Tenant residency evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `1a894443d81b81bfd68b30e2ca32202231e321b5` / tree `238c7f3639f3a933ccde160c71436b0a958aaecb`
+> **Current audit gate (2026-09-28):** DD-328…DD-332 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 
