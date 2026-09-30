@@ -1,19 +1,19 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-KNOWN-RELATIONSHIP-READER-001`
-**Current executable audit basis:** `7b86d9c70701f5b3c5ef13ca4234eb6855043c4b` / tree `ec45f70b63c23d6ab9b963da1abefe38bea21157`
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-VISIBLE-KNOWN-RELATIONSHIP-READER-001`
+**Current executable audit basis:** `213d8421cd5a6ddd55c8182e462373a67d876610` / tree `3b921f25f1a6b5d346e6d4471153d88e4697eef7`
 **Updated:** 2026-09-30 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-09-28):** DD-298…DD-302 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** DD-303…DD-307 visible-parent NotificationDelivery known-relationship reader composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 
-DD-298…DD-302 is the current governed backend-only NotificationDelivery known-relationship reader composition batch. For an already RequestContext-visible Delivery it conditionally reads only the exact bound TenantIntegration, source OutboxEvent and NotificationTemplate under the exact supplied RequestContext, then delegates relationship validity to DD-172 and projects immutable evidence.
+DD-303…DD-307 is one governed backend-only parent-first NotificationDelivery known-relationship reader composition batch. It loads the exact Delivery under the exact supplied RequestContext before any relationship read, stops on hidden/absent parent, then delegates the exact visible parent to DD-302 for conditional Integration/source-Event/Template reads and DD-172 relationship validation.
 
-Verified canonical promotion basis `7b86d9c70701f5b3c5ef13ca4234eb6855043c4b` / tree `ec45f70b63c23d6ab9b963da1abefe38bea21157`: **1008/1008 Core**, **525/525 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36678459754` (jobs `109768498623`, `109768498863`), Database `36678459744` (job `109768498415`), Web `36678459808` (job `109768498842`).
+Verified implementation basis `213d8421cd5a6ddd55c8182e462373a67d876610` / tree `3b921f25f1a6b5d346e6d4471153d88e4697eef7`: **1017/1017 Core**, **525/525 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests. Exact-head runs: Core `36705438993` (jobs `109854458545`, `109854458207`), Database `36705438984` (job `109854458117`), Web `36705439026` (job `109854458641`).
 
-Frontend/UI remains untouched. Parent Delivery loading/visibility, recipient-principal currentness, complete Delivery validity, latest/fallback template selection, rendering/sanitization, deeper TenantIntegration runtime integrity, source-event readiness/retry state, Delivery lifecycle/finality, attempt normalized status, provider selection/execution, credential access, retry/send/scheduling and mutation remain separately governed.
+Frontend/UI remains untouched. Recipient-principal currentness remains source-incomplete. Complete Delivery validity, template selection/rendering/sanitization, deeper Integration runtime integrity, source-event readiness/retry state, Delivery lifecycle/finality, attempt normalized status, provider/credential runtime, retry/send/scheduling and mutation remain separately governed.
 
-Evidence: `Registers/DEVELOPMENT_DD298_DD302_VERIFICATION_2026-09-30.md`. Source audit: `Development/NOTIFICATION_DELIVERY_KNOWN_RELATIONSHIP_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+Evidence: `Registers/DEVELOPMENT_DD303_DD307_VERIFICATION_2026-09-30.md`. Source audit: `Development/NOTIFICATION_DELIVERY_VISIBLE_KNOWN_RELATIONSHIP_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: this state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, DD-298…DD-302 is closed and the next independently source-complete governed backend batch may be source-audited.
+Next: this canonical promotion must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, record promotion evidence and close DD-303…DD-307 before opening the next independently source-complete governed backend batch.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 

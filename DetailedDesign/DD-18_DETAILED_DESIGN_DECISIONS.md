@@ -3921,3 +3921,49 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** this is not complete Delivery validity, recipient currentness, provider/send authorization, retry/scheduling or mutation.
 
 **Acceptance:** `NOTIF-RELREAD-ERR-001`, `NOTIF-RELREAD-BOUND-001`.
+
+## DD-303 — Parent-first exact NotificationDelivery reader composition
+
+**Context:** DD-098 owns RequestContext-scoped NotificationDelivery visibility; DD-302 intentionally assumes an already-visible parent.
+
+**Decision:** add `loadVisibleNotificationDeliveryKnownRelationshipEvidence(...)` and call `NotificationDeliveryReadPort.loadForContext` first with the exact supplied RequestContext and NotificationDelivery id.
+
+**Boundary:** no RequestContext normalization, id substitution, recipient validation or Delivery lifecycle interpretation.
+
+**Acceptance:** `NOTIF-VRELREAD-PARENT-001`.
+
+
+## DD-304 — Preserve parent absence and dependency-error semantics
+
+**Decision:** a null parent returns null before any relationship reader access. Delivery-reader errors propagate unchanged.
+
+**Security / trade-off:** hidden/absent parent cannot be distinguished through child relationship reads.
+
+**Acceptance:** `NOTIF-VRELREAD-PARENT-002…003`.
+
+
+## DD-305 — Delegate exact visible parent to DD-302
+
+**Decision:** after a visible parent, pass the exact RequestContext and exact returned Delivery reference to `loadNotificationDeliveryKnownRelationshipEvidence` with the supplied Integration/Event/Template ports unchanged.
+
+**Boundary:** no parent re-read, fallback relationship lookup, latest-template selection or alternate relationship search.
+
+**Acceptance:** `NOTIF-VRELREAD-DELEG-001…002`.
+
+
+## DD-306 — Preserve DD-302 evidence/null/error semantics
+
+**Decision:** return DD-302's evidence result directly. DD-302 null stays null; invoked relationship-reader errors propagate unchanged; exact loaded reference identity remains preserved in the immutable envelope.
+
+**Boundary:** no recipient-currentness or complete Delivery validity is inferred.
+
+**Acceptance:** `NOTIF-VRELREAD-EVID-001…002`, `NOTIF-VRELREAD-ERR-001`.
+
+
+## DD-307 — One bounded visible-parent known-relationship reader
+
+**Decision:** expose the parent-first composition as one Core read boundary.
+
+**Boundary:** evidence only. No lifecycle/finality, rendering, provider/credential, retry, dispatch, scheduling, send or mutation authority is added.
+
+**Acceptance:** `NOTIF-VRELREAD-BOUND-001`.

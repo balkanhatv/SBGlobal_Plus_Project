@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-KNOWN-RELATIONSHIP-READER-001`
-**Current executable audit basis:** `7b86d9c70701f5b3c5ef13ca4234eb6855043c4b` / tree `ec45f70b63c23d6ab9b963da1abefe38bea21157`
-> **Current audit gate (2026-09-28):** DD-298…DD-302 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-VISIBLE-KNOWN-RELATIONSHIP-READER-001`
+**Current executable audit basis:** `213d8421cd5a6ddd55c8182e462373a67d876610` / tree `3b921f25f1a6b5d346e6d4471153d88e4697eef7`
+> **Current audit gate (2026-09-28):** DD-303…DD-307 visible-parent NotificationDelivery known-relationship reader composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -884,3 +884,23 @@ DD-298…DD-302 →
 `Registers/DEVELOPMENT_DD298_DD302_VERIFICATION_2026-09-30.md`.
 
 This chain conditionally loads only exact relationships already named by an already-visible NotificationDelivery under the same RequestContext, then re-applies DD-172. It does not re-read the parent, validate recipient-principal currentness, select fallback/latest templates, interpret event/delivery lifecycle, compose provider credentials, retry/send/schedule or mutate Notification state.
+
+## DD-303…DD-307 — Visible-parent NotificationDelivery known-relationship reader composition
+
+F-01/A-01 Notification ownership →
+DD-098 RequestContext-scoped NotificationDelivery reader →
+DD-168/DD-169/DD-171 persisted relationship floors →
+DD-172 known-relationship conjunction →
+DD-298…DD-302 conditional relationship reader composition →
+`Development/NOTIFICATION_DELIVERY_VISIBLE_KNOWN_RELATIONSHIP_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-303…DD-307 →
+`src/core/notification/delivery-visible-known-relationship-reader.ts` →
+`NOTIF-VRELREAD-PARENT-001…003`,
+`NOTIF-VRELREAD-DELEG-001…002`,
+`NOTIF-VRELREAD-EVID-001…002`,
+`NOTIF-VRELREAD-ERR-001`,
+`NOTIF-VRELREAD-BOUND-001` →
+`tests/core/notification-delivery-visible-known-relationship-reader.test.mjs` →
+`Registers/DEVELOPMENT_DD303_DD307_VERIFICATION_2026-09-30.md`.
+
+Recipient-principal currentness remains explicitly source-incomplete. This chain adds only parent visibility before DD-302 and does not define complete Delivery validity, template fallback/rendering, source-event readiness, Integration provider runtime, retry/send/scheduling or mutation.

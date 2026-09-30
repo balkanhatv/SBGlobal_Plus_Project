@@ -644,3 +644,7 @@ Under the substantial-batch cadence, DD-298…DD-302 add only conditional exact 
 ## 2026-09-30 — DD-298…DD-302 canonical promotion verified; state closure staged
 
 Canonical promotion `7b86d9c70701f5b3c5ef13ca4234eb6855043c4b` / tree `ec45f70b63c23d6ab9b963da1abefe38bea21157` passed **1008/1008 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. This state-closure projection records that verified promotion as the current executable basis; no runtime, schema, RawSource, test or UI change is introduced by closure. The closure commit must independently pass before the next governed backend batch opens.
+
+## 2026-09-30 — DD-303…DD-307 visible-parent NotificationDelivery known-relationship reader
+
+DD-303…DD-307 add only parent-first DD-098 visibility before the existing DD-302 known-relationship reader. Source audit `f0b020e988786a32be3bda40bbcf9efb252a0e31` / tree `841ec8ecb50eeae54fa3faed3b2963c78dfa2eb3` preceded implementation `213d8421cd5a6ddd55c8182e462373a67d876610` / tree `3b921f25f1a6b5d346e6d4471153d88e4697eef7`, which passed **1017/1017 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, role/grant, public route, provider SDK, frontend or product-policy change. Recipient currentness, complete Delivery validity, rendering, provider/credential runtime, source-event readiness, retry/send/scheduling and mutation remain unclaimed.

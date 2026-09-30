@@ -4678,3 +4678,44 @@ A dependency/persistence error from any invoked relationship reader propagates u
 
 ### NOTIF-RELREAD-BOUND-001 — No mutation or send/runtime authority
 Inputs remain unchanged and output exposes no recipient-validity, lifecycle, rendering, provider-selection, credential, retry, dispatch, scheduling or send authority.
+
+## DD-303 Parent-First Visible NotificationDelivery Acceptance
+
+### NOTIF-VRELREAD-PARENT-001 — Exact parent read forwarding
+The Delivery reader receives the exact supplied RequestContext object and exact NotificationDelivery id before any relationship reader is accessed.
+
+
+## DD-304 Parent Absence / Error Acceptance
+
+### NOTIF-VRELREAD-PARENT-002 — Hidden/absent parent stops relationship access
+A null/RLS-hidden Delivery returns null and no Integration/Event/Template reader is called.
+
+### NOTIF-VRELREAD-PARENT-003 — Parent dependency error propagates unchanged
+A Delivery-reader dependency/persistence error is propagated by identity and no relationship reader is called.
+
+
+## DD-305 Visible Parent → DD-302 Delegation Acceptance
+
+### NOTIF-VRELREAD-DELEG-001 — Exact visible parent/context delegation
+The exact RequestContext and exact Delivery object returned by DD-098 are delegated to DD-302.
+
+### NOTIF-VRELREAD-DELEG-002 — No parent re-read/fallback relationship access
+The parent is read once; unbound relationships remain skipped through DD-302 and no fallback lookup is introduced.
+
+
+## DD-306 DD-302 Result / Error Preservation Acceptance
+
+### NOTIF-VRELREAD-EVID-001 — Exact-reference immutable evidence
+Valid relationships return immutable evidence preserving the exact Delivery/Integration/Event/Template references loaded by the existing readers.
+
+### NOTIF-VRELREAD-EVID-002 — DD-302 null remains null
+Missing bound relationship evidence or DD-172 mismatch remains null without fallback selection.
+
+### NOTIF-VRELREAD-ERR-001 — Relationship dependency error propagates unchanged
+An invoked DD-302 relationship-reader dependency error propagates unchanged.
+
+
+## DD-307 Bounded Visible-Parent Known-Relationship Read Acceptance
+
+### NOTIF-VRELREAD-BOUND-001 — No new runtime authority
+Inputs remain unchanged and output exposes no recipient-currentness, complete-Delivery-validity, lifecycle, rendering, provider, credential, retry, dispatch, scheduling, send or mutation authority.
