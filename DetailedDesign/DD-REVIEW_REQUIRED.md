@@ -1,9 +1,9 @@
 # DD REVIEW REQUIRED — PHASE 3 CLOSURE
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-ATTEMPT-HISTORY-READER-001`
-**Current executable audit basis:** `12c0895ad43a8e03f5ce45502084d0053da3d067` / tree `da95531297976224af4ad7658ccf75131559695d`
+**Current executable audit basis:** `1c6cf8ebf514346e3fa2c5b34067e01066e369ec` / tree `21377d69f878f202694f58979d410990b533eee6`
 **Updated:** 2026-09-28 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-09-28):** DD-293…DD-297 parent-first RequestContext-scoped NotificationDelivery + NotificationDeliveryAttempt reader composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-09-28):** DD-293…DD-297 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 
 
 DD-218 re-evaluates only the remaining intrinsic ProvisioningSnapshot governed-shape floor: pack-version JSON-object shape, exact API-class set/vocabulary and raw Model-class text-set shape. Capability/Provider binding and runtime provisioning semantics remain separate.

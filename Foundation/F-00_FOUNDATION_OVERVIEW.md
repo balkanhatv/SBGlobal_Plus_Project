@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT FOUNDATION
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-ATTEMPT-HISTORY-READER-001`
-**Current executable audit basis:** `12c0895ad43a8e03f5ce45502084d0053da3d067` / tree `da95531297976224af4ad7658ccf75131559695d`
-> **Current audit gate (2026-09-28):** DD-293…DD-297 parent-first RequestContext-scoped NotificationDelivery + NotificationDeliveryAttempt reader composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `1c6cf8ebf514346e3fa2c5b34067e01066e369ec` / tree `21377d69f878f202694f58979d410990b533eee6`
+> **Current audit gate (2026-09-28):** DD-293…DD-297 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 

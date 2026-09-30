@@ -1,7 +1,7 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-ATTEMPT-HISTORY-READER-001`
-**Current executable audit basis:** `12c0895ad43a8e03f5ce45502084d0053da3d067` / tree `da95531297976224af4ad7658ccf75131559695d`
-> **Current audit gate (2026-09-28):** DD-293…DD-297 parent-first RequestContext-scoped NotificationDelivery + NotificationDeliveryAttempt reader composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `1c6cf8ebf514346e3fa2c5b34067e01066e369ec` / tree `21377d69f878f202694f58979d410990b533eee6`
+> **Current audit gate (2026-09-28):** DD-293…DD-297 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 

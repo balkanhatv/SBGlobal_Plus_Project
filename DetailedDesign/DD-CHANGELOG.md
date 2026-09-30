@@ -632,3 +632,7 @@ Canonical promotion `be5e21f6c600ad868eb2ef8ef434f66c354e6258` / tree `29b031e11
 ## 2026-09-30 — DD-293…DD-297 NotificationDelivery attempt-history reader composition
 
 DD-293…DD-297 implement only parent-first RequestContext-scoped composition of the existing NotificationDelivery and NotificationDeliveryAttempt readers into DD-292 raw history evidence. Source audit `ea48408c9011b6cde54b6939123cf82e61940c05` / tree `0e8cddbf55c5310070f7ffbd52739ba5ce07a8d1` preceded implementation `12c0895ad43a8e03f5ce45502084d0053da3d067` / tree `da95531297976224af4ad7658ccf75131559695d`, which passed **998/998 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, role/grant, public route, provider adapter, secret access, frontend or product-policy change. Retry/finality/provider/worker/send semantics remain unclaimed.
+
+## 2026-09-30 — DD-293…DD-297 canonical promotion verified; state closure staged
+
+Canonical promotion `1c6cf8ebf514346e3fa2c5b34067e01066e369ec` / tree `21377d69f878f202694f58979d410990b533eee6` passed **998/998 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records this promotion as the current verified executable basis and must independently pass before the next governed backend batch opens. Runtime, schema, RawSource and tests are unchanged by this closure projection.
