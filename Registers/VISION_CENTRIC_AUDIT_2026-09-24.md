@@ -1,7 +1,7 @@
 # VISION-CENTRIC CURRENT-STATE AUDIT — 2026-09-24
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-ATTEMPT-HISTORY-READER-001`
-**Current executable audit basis:** `1c6cf8ebf514346e3fa2c5b34067e01066e369ec` / tree `21377d69f878f202694f58979d410990b533eee6`
-> **Current audit gate (2026-09-28):** DD-293…DD-297 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-KNOWN-RELATIONSHIP-READER-001`
+**Current executable audit basis:** `151f316239c0723e3e30f98fec58392b59cef412` / tree `b6d37acabc733c5b0ab388fda9415b68beacb767`
+> **Current audit gate (2026-09-28):** DD-298…DD-302 NotificationDelivery known-relationship reader batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as dated historical Vision-audit evidence. Its evaluated-era checkpoint, verdict and continuation statements do not override the current project overlay above.

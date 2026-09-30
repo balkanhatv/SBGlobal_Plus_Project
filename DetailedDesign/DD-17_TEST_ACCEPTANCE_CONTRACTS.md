@@ -4634,3 +4634,47 @@ Malformed, duplicate or cross-parent attempt evidence returned by a supplied rea
 
 ### NOTIF-ATTHIST-BOUND-001 — No mutation or runtime decision authority
 Inputs remain unchanged and output exposes no retry, finality, backoff, provider-selection, credential, dispatch, worker or scheduling authority.
+
+## DD-298 Conditional TenantIntegration Relationship Read Acceptance
+
+### NOTIF-RELREAD-INT-001 — Exact bound Integration read
+When tenantIntegrationId is bound, the exact supplied RequestContext and exact bound id are forwarded and the returned reference is preserved.
+
+### NOTIF-RELREAD-INT-002 — Unbound skip / bound null fail-closed
+An unbound Integration skips the reader and projects no Integration evidence; a bound reader returning null causes the composed evidence load to fail closed.
+
+
+## DD-299 Conditional Source OutboxEvent Relationship Read Acceptance
+
+### NOTIF-RELREAD-EVT-001 — Exact bound source Event read
+When sourceEventId is bound, the exact supplied RequestContext and exact bound id are forwarded and the returned reference is preserved.
+
+### NOTIF-RELREAD-EVT-002 — Unbound skip / bound null fail-closed
+An unbound source Event skips the reader and projects no Event evidence; a bound reader returning null causes the composed evidence load to fail closed.
+
+
+## DD-300 Conditional NotificationTemplate Relationship Read Acceptance
+
+### NOTIF-RELREAD-TPL-001 — Exact bound Template read
+When templateId is bound, the exact supplied RequestContext and exact bound id are forwarded and the returned reference is preserved.
+
+### NOTIF-RELREAD-TPL-002 — Unbound skip / bound null fail-closed
+An unbound Template skips the reader and projects no Template evidence; a bound reader returning null causes the composed evidence load to fail closed.
+
+
+## DD-301 DD-172 Relationship Validation Acceptance
+
+### NOTIF-RELREAD-REL-001 — Exact loaded relationship evidence passes DD-172
+Valid exact loaded Integration/Event/Template relationships return the expected immutable evidence envelope.
+
+### NOTIF-RELREAD-REL-002 — Any DD-172 mismatch denies without fallback
+Any known-relationship mismatch returns null and does not search or substitute another relationship.
+
+
+## DD-302 Immutable Known-Relationship Evidence Loader Acceptance
+
+### NOTIF-RELREAD-ERR-001 — Reader error propagation
+A dependency/persistence error from any invoked relationship reader propagates unchanged.
+
+### NOTIF-RELREAD-BOUND-001 — No mutation or send/runtime authority
+Inputs remain unchanged and output exposes no recipient-validity, lifecycle, rendering, provider-selection, credential, retry, dispatch, scheduling or send authority.

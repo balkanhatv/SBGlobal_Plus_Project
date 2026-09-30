@@ -1445,3 +1445,7 @@ DD-293…DD-297 freeze and implement only the parent-first RequestContext-scoped
 ## 2026-09-30 — DD-293…DD-297 canonical promotion verified; state closure staged
 
 Canonical promotion `1c6cf8ebf514346e3fa2c5b34067e01066e369ec` / tree `21377d69f878f202694f58979d410990b533eee6` passed **998/998 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records this promotion as the current verified executable basis and must independently pass before the next governed backend batch opens. Runtime, schema, RawSource and tests are unchanged by this closure projection.
+
+## 2026-09-30 — DD-298…DD-302 canonical promotion staged
+
+DD-298…DD-302 freeze and implement only the NotificationDelivery known-relationship reader-composition boundary recorded in `Development/NOTIFICATION_DELIVERY_KNOWN_RELATIONSHIP_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Implementation `151f316239c0723e3e30f98fec58392b59cef412` / tree `b6d37acabc733c5b0ab388fda9415b68beacb767` passed **1008/1008 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. Canonical promotion remains subject to this promotion commit's own exact-head Core/PostgreSQL/Database/Web gate. Complete Delivery validity, recipient currentness, rendering, provider selection/execution, credentials, retry/send/scheduling and mutation are not claimed.

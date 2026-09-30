@@ -3867,3 +3867,57 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** result remains raw evidence only and adds no retry/finality/backoff/provider/credential/dispatch/worker/scheduling authority.
 
 **Acceptance:** `NOTIF-ATTHIST-BOUND-001`.
+
+## DD-298 — Conditionally load exact bound TenantIntegration evidence
+
+**Context:** DD-168 owns the optional NotificationDelivery→TenantIntegration relationship and DD-095 exposes exact RequestContext-scoped Integration lookup.
+
+**Decision:** when `delivery.tenantIntegrationId` is absent, do not call the Integration reader; when present, call `TenantIntegrationReadPort.loadForContext` with the exact supplied RequestContext and exact bound id.
+
+**Boundary:** no Integration fallback, definition/capability runtime composition, credential resolution or provider authorization is added.
+
+**Acceptance:** `NOTIF-RELREAD-INT-001…002`.
+
+
+## DD-299 — Conditionally load exact bound source OutboxEvent evidence
+
+**Context:** DD-169 owns the optional NotificationDelivery→source OutboxEvent relationship and DD-090 exposes exact RequestContext-scoped Event lookup.
+
+**Decision:** when `delivery.sourceEventId` is absent, do not call the Event reader; when present, call `OutboxEventReadPort.loadForContext` with the exact supplied RequestContext and exact bound id.
+
+**Boundary:** no event readiness, retry, dispatch or payload interpretation is added.
+
+**Acceptance:** `NOTIF-RELREAD-EVT-001…002`.
+
+
+## DD-300 — Conditionally load exact bound NotificationTemplate evidence
+
+**Context:** DD-171 owns the optional NotificationDelivery→NotificationTemplate id/version relationship and DD-100 exposes exact RequestContext-scoped Template lookup.
+
+**Decision:** when `delivery.templateId` is absent, do not call the Template reader; when present, call `NotificationTemplateReadPort.loadForContext` with the exact supplied RequestContext and exact bound id.
+
+**Boundary:** no latest/code/locale/fallback selection, rendering or sanitization is introduced.
+
+**Acceptance:** `NOTIF-RELREAD-TPL-001…002`.
+
+
+## DD-301 — Re-apply DD-172 after exact relationship reads
+
+**Context:** DD-172 already owns the conjunction of DD-168, DD-169 and DD-171 current persisted relationship floors.
+
+**Decision:** apply `matchesKnownNotificationDeliveryRelationshipFloors(delivery, integration, event, template)` to the exact supplied Delivery and exact reader results. Return null on false.
+
+**Security / trade-off:** a bound reader returning null is represented as absent evidence and therefore fails the owning relationship floor; no fallback relationship is searched.
+
+**Acceptance:** `NOTIF-RELREAD-REL-001…002`.
+
+
+## DD-302 — Immutable known-relationship evidence loader
+
+**Context:** the parent NotificationDelivery is already RequestContext-visible before this batch.
+
+**Decision:** add `loadNotificationDeliveryKnownRelationshipEvidence(input, integrationReader, eventReader, templateReader)`, preserving the exact Delivery and exact loaded relationship references in an immutable envelope after DD-172 passes.
+
+**Boundary:** this is not complete Delivery validity, recipient currentness, provider/send authorization, retry/scheduling or mutation.
+
+**Acceptance:** `NOTIF-RELREAD-ERR-001`, `NOTIF-RELREAD-BOUND-001`.
