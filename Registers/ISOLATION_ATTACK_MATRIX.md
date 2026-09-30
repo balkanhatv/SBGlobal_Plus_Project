@@ -1,8 +1,8 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-INTEGRATION-CURRENT-INTEGRITY-EVIDENCE-READER-001`
-> **Current audit gate (2026-09-28):** DD-313…DD-317 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CATALOG-EVIDENCE-READER-001`
+> **Current audit gate (2026-09-28):** DD-318…DD-322 NotificationDelivery source-event EventCatalog evidence reader batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-09-28 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts
-> **Current executable audit basis:** `af4f941c1499ad845301034bbdf3b44a35df95c0` / tree `8946fa4a9bb742eade0567c494dcf00b9525e3c6`
+> **Current executable audit basis:** `f3c95cd629462f82284e7bdda37fbd42c2da4a98` / tree `5b219c35db19f38259f204da87022be59546f04a`
 
 ## Historical 2026-09-14 executable persistence overlay
 

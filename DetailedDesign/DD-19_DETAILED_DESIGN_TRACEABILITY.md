@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-INTEGRATION-CURRENT-INTEGRITY-EVIDENCE-READER-001`
-**Current executable audit basis:** `af4f941c1499ad845301034bbdf3b44a35df95c0` / tree `8946fa4a9bb742eade0567c494dcf00b9525e3c6`
-> **Current audit gate (2026-09-28):** DD-313…DD-317 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CATALOG-EVIDENCE-READER-001`
+**Current executable audit basis:** `f3c95cd629462f82284e7bdda37fbd42c2da4a98` / tree `5b219c35db19f38259f204da87022be59546f04a`
+> **Current audit gate (2026-09-28):** DD-318…DD-322 NotificationDelivery source-event EventCatalog evidence reader batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -944,3 +944,25 @@ DD-313…DD-317 →
 `Registers/DEVELOPMENT_DD313_DD317_VERIFICATION_2026-09-30.md`.
 
 This chain establishes DD-312 first, conditionally reads only the exact preserved Integration's current integrity dependencies, delegates exact evidence to DD-167 and returns immutable evidence. It does not select providers, access secret material, approve health/fallback, interpret retry/finality, render templates, dispatch/send or mutate Notification state.
+
+## DD-318…DD-322 — NotificationDelivery source-event EventCatalog evidence reader
+
+F-01 Notification/Communication + Integration ownership →
+A-06 Event Catalog / transactional outbox →
+DD-090 raw RequestContext-scoped OutboxEvent evidence →
+DD-091 exact EventCatalog tuple reader →
+DD-169 source-event relationship floor →
+DD-298…DD-317 visible/composed/Integration-currentness Delivery evidence →
+`Development/NOTIFICATION_DELIVERY_SOURCE_EVENT_CATALOG_EVIDENCE_READER_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-318…DD-322 →
+`src/core/notification/delivery-source-event-catalog-evidence-reader.ts` →
+`NOTIF-EVTCAT-BASE-001…003`,
+`NOTIF-EVTCAT-UNBOUND-001`,
+`NOTIF-EVTCAT-READ-001…002`,
+`NOTIF-EVTCAT-TUPLE-001…002`,
+`NOTIF-EVTCAT-EVID-001`,
+`NOTIF-EVTCAT-BOUND-001…002` →
+`tests/core/notification-delivery-source-event-catalog-evidence-reader.test.mjs` →
+`Registers/DEVELOPMENT_DD318_DD322_VERIFICATION_2026-09-30.md`.
+
+This chain proves only parent-first DD-317 evidence plus conditional exact persisted source-event EventCatalog tuple evidence. It does not interpret Outbox readiness/retry, EventCatalog lifecycle for execution, payload schema execution, webhook/consumer eligibility, dispatch, provider/secret access, send authorization or mutation.

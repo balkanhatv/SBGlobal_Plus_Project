@@ -668,3 +668,7 @@ DD-313…DD-317 extend DD-312 only with conditional exact TenantIntegration curr
 ## 2026-09-30 — DD-313…DD-317 canonical promotion verified; state closure staged
 
 Canonical promotion `af4f941c1499ad845301034bbdf3b44a35df95c0` / tree `8946fa4a9bb742eade0567c494dcf00b9525e3c6` passed **1038/1038 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The closure advances all current projections to that verified promotion basis while preserving DD-317 feature evidence on implementation `dcc220cad203d7ecb273b099d0064b16d53a161a` / tree `9179390de15fbc582355b9386222b002a6ca3bcb`. No RawSource, runtime, schema, route, provider SDK, secret access, frontend or product-policy change.
+
+## 2026-09-30 — DD-318…DD-322 NotificationDelivery source-event EventCatalog evidence reader
+
+DD-318…DD-322 add only parent-first DD-317 composition plus conditional exact preserved OutboxEvent → EventCatalog tuple evidence. Source-audit `0d3f34c2a31fdb9b98cf4f913110862ce26ab68a` / tree `a73f7e219e2da25eb0f9240444277f1e4280db5d` preceded implementation `f3c95cd629462f82284e7bdda37fbd42c2da4a98` / tree `5b219c35db19f38259f204da87022be59546f04a`, which passed **1049/1049 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, public route, provider SDK, secret, frontend or product-policy change. Readiness/retry/catalog lifecycle execution/payload/webhook/dispatch/send/mutation remain unclaimed.

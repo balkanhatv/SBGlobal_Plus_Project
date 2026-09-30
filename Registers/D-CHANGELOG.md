@@ -1477,3 +1477,7 @@ DD-313…DD-317 freeze and implement only the NotificationDelivery Integration c
 ## 2026-09-30 — DD-313…DD-317 canonical promotion verified; state closure staged
 
 Canonical promotion `af4f941c1499ad845301034bbdf3b44a35df95c0` / tree `8946fa4a9bb742eade0567c494dcf00b9525e3c6` passed **1038/1038 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The closure advances all current projections to that verified promotion basis while preserving DD-317 feature evidence on implementation `dcc220cad203d7ecb273b099d0064b16d53a161a` / tree `9179390de15fbc582355b9386222b002a6ca3bcb`. No RawSource, runtime, schema, route, provider SDK, secret access, frontend or product-policy change.
+
+## 2026-09-30 — DD-318…DD-322 canonical promotion staged
+
+DD-318…DD-322 freeze and implement only the parent-first NotificationDelivery + conditional exact source-event EventCatalog tuple evidence boundary in `Development/NOTIFICATION_DELIVERY_SOURCE_EVENT_CATALOG_EVIDENCE_READER_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Implementation `f3c95cd629462f82284e7bdda37fbd42c2da4a98` / tree `5b219c35db19f38259f204da87022be59546f04a` passed **1049/1049 Core**, **525/525 PostgreSQL** plus bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. Canonical promotion remains subject to its own exact-head gate; no dispatch/send/readiness/execution authority is claimed.

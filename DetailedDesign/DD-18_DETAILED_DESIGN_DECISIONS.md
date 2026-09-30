@@ -4051,3 +4051,47 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** evidence only; no combined sendable/executable/healthy flag or runtime/send authority.
 
 **Acceptance:** `NOTIF-INTCUR-BOUND-001`.
+
+## DD-318 — Establish DD-317 before EventCatalog access
+
+**Decision:** add a bounded reader that first invokes `loadNotificationDeliveryIntegrationCurrentIntegrityEvidence(...)` with the exact supplied RequestContext/id/evaluatedAt and child readers.
+
+**Boundary:** DD-317 null short-circuits; DD-317 errors propagate unchanged; EventCatalog is not accessed before parent evidence succeeds.
+
+**Acceptance:** `NOTIF-EVTCAT-BASE-001…003`.
+
+
+## DD-319 — Follow only the preserved optional source OutboxEvent
+
+**Decision:** inspect only `integrationEvidence.composed.relationships.event`. If absent, return immutable parent evidence without EventCatalog access. If present, preserve that exact object as the sole source-event authority.
+
+**Boundary:** no source-event re-read or substitution.
+
+**Acceptance:** `NOTIF-EVTCAT-UNBOUND-001`.
+
+
+## DD-320 — Read one exact EventCatalog tuple
+
+**Decision:** call `EventCatalogReadPort.loadExact` exactly once with the preserved eventType/eventVersion/scopeClass. Null returns null; reader errors propagate unchanged.
+
+**Boundary:** no alternate version/type/scope lookup.
+
+**Acceptance:** `NOTIF-EVTCAT-READ-001…002`.
+
+
+## DD-321 — Re-evaluate only persisted tuple equality
+
+**Decision:** add `matchesOutboxEventCatalogTupleFloors(event, catalog)`, requiring a non-empty eventType, positive safe integer eventVersion, governed scopeClass and exact catalog tuple equality.
+
+**Boundary:** catalog status, producer, sensitivity, payload schema, webhook eligibility, consumer classes, compatibility, retention and ordering metadata are uninterpreted.
+
+**Acceptance:** `NOTIF-EVTCAT-TUPLE-001…002`.
+
+
+## DD-322 — Return immutable parent + optional source-event catalog evidence
+
+**Decision:** return the exact DD-317 evidence and, only when bound, an immutable `sourceEventCatalog` containing the exact preserved OutboxEvent and loaded EventCatalog references.
+
+**Boundary:** no ready/dispatchable/sendable flag or mutation authority is synthesized.
+
+**Acceptance:** `NOTIF-EVTCAT-EVID-001`, `NOTIF-EVTCAT-BOUND-001…002`.

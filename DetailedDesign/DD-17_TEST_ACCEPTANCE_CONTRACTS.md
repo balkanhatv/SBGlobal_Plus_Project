@@ -4812,3 +4812,50 @@ A false DD-167 result returns null without fallback or alternate evidence lookup
 
 ### NOTIF-INTCUR-BOUND-001 — Evidence only, no send/runtime authority
 Inputs remain unchanged and output exposes no sendable/executable/health/fallback/provider/secret/retry/dispatch/scheduling/mutation authority.
+
+## DD-318 NotificationDelivery Parent-First EventCatalog Acceptance
+
+### NOTIF-EVTCAT-BASE-001 — DD-317 parent evidence first
+DD-317 executes with the exact supplied RequestContext, Delivery id and evaluatedAt before any EventCatalog access.
+
+### NOTIF-EVTCAT-BASE-002 — Parent null short-circuits
+DD-317 null returns null and EventCatalog is not read.
+
+### NOTIF-EVTCAT-BASE-003 — Parent error propagates
+DD-317 dependency/persistence error propagates unchanged and EventCatalog is not read.
+
+
+## DD-319 Conditional Source-Event Branch Acceptance
+
+### NOTIF-EVTCAT-UNBOUND-001 — Unbound Delivery does not read EventCatalog
+A DD-317 success with no preserved source event returns immutable parent evidence only, with no EventCatalog access/evidence.
+
+
+## DD-320 Exact EventCatalog Tuple Read Acceptance
+
+### NOTIF-EVTCAT-READ-001 — Exact tuple forwarded once
+A bound source event forwards its exact eventType, eventVersion and scopeClass to EventCatalogReadPort.loadExact exactly once.
+
+### NOTIF-EVTCAT-READ-002 — Null/error semantics
+Null catalog evidence returns null and EventCatalog reader errors propagate unchanged.
+
+
+## DD-321 OutboxEvent ↔ EventCatalog Tuple Acceptance
+
+### NOTIF-EVTCAT-TUPLE-001 — Exact tuple only
+Exact type/version/scope equality passes regardless of ACTIVE or RETIRED catalog lifecycle.
+
+### NOTIF-EVTCAT-TUPLE-002 — Mismatch/malformed tuple denial
+Type/version/scope mismatch or malformed source-event tuple fails closed.
+
+
+## DD-322 Immutable Delivery + Source-Event Catalog Evidence Acceptance
+
+### NOTIF-EVTCAT-EVID-001 — Exact identity preservation
+Success preserves the exact DD-317, OutboxEvent and EventCatalog object identities in immutable evidence.
+
+### NOTIF-EVTCAT-BOUND-001 — Evidence-only boundary
+Inputs remain unchanged and output exposes no catalog-lifecycle/readiness/payload/webhook/dispatch/retry/provider/secret/send/mutation authority.
+
+### NOTIF-EVTCAT-BOUND-002 — No alternate lookup
+Null or tuple mismatch performs no fallback/alternate EventCatalog lookup.
