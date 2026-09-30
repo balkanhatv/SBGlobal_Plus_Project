@@ -36,17 +36,16 @@ extends Omit<AIIndustryGatewayRelationshipPreRoutingSetInput, "candidates"> {
  * null remains reserved for malformed/ineligible downstream evidence.
  * [] remains valid immutable empty success.
  */
-export async function buildAuthorizedAIIndustryGatewayCatalogPreRoutingEnvelope(
+/**
+ * DD-283: post-authorization raw-catalog candidate construction/narrowing only.
+ *
+ * This helper performs no live authorization and derives no policy or
+ * residency region. The supplied authorizedResidencyRegion remains opaque
+ * upstream evidence.
+ */
+export function buildAIIndustryGatewayCatalogPreRoutingAfterAuthorization(
   input: AuthorizedAIIndustryGatewayCatalogPreRoutingInput,
-  authorization: AIIndustryGatewayAuthorizationPort,
-): Promise<AuthorizedAIIndustryGatewayPreRoutingEnvelope | null> {
-  const guardResult = await authorizeAIIndustryGatewayOperation(
-    authorization,
-    input.declaration,
-    input.requestContext,
-    input.resourceReference,
-  );
-
+) {
   if (!matchesAIRequestShapeFloor(input.request)) return null;
 
   const catalogCandidates = filterAIOperationProviderModelCatalogPreCandidates({
@@ -59,7 +58,7 @@ export async function buildAuthorizedAIIndustryGatewayCatalogPreRoutingEnvelope(
   });
   if (catalogCandidates === null) return null;
 
-  const candidates = buildAIIndustryGatewayRelationshipPreRoutingSet({
+  return buildAIIndustryGatewayRelationshipPreRoutingSet({
     request: input.request,
     declaration: input.declaration,
     requestContext: input.requestContext,
@@ -72,6 +71,24 @@ export async function buildAuthorizedAIIndustryGatewayCatalogPreRoutingEnvelope(
     candidates: catalogCandidates,
     evaluatedAt: input.evaluatedAt,
   });
+}
+
+/**
+ * DD-284: preserve the DD-277 public behavior by authorizing exactly once,
+ * then delegating the post-authorization catalog work to DD-283.
+ */
+export async function buildAuthorizedAIIndustryGatewayCatalogPreRoutingEnvelope(
+  input: AuthorizedAIIndustryGatewayCatalogPreRoutingInput,
+  authorization: AIIndustryGatewayAuthorizationPort,
+): Promise<AuthorizedAIIndustryGatewayPreRoutingEnvelope | null> {
+  const guardResult = await authorizeAIIndustryGatewayOperation(
+    authorization,
+    input.declaration,
+    input.requestContext,
+    input.resourceReference,
+  );
+
+  const candidates = buildAIIndustryGatewayCatalogPreRoutingAfterAuthorization(input);
   if (candidates === null) return null;
 
   return Object.freeze({
