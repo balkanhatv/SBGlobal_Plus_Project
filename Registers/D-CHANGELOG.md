@@ -1437,3 +1437,7 @@ DD-288…DD-292 freeze and implement only the raw NotificationDeliveryAttempt hi
 ## 2026-09-30 — DD-288…DD-292 canonical promotion verified; state closure staged
 
 Canonical promotion `be5e21f6c600ad868eb2ef8ef434f66c354e6258` / tree `29b031e11068895f8b537ab76dff892aa9b6ab06` passed **989/989 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records this promotion as the current verified executable basis. Runtime, schema, RawSource and tests are unchanged; retry/finality/provider/dispatch semantics remain unclaimed.
+
+## 2026-09-30 — DD-293…DD-297 canonical promotion staged
+
+DD-293…DD-297 freeze and implement only the parent-first RequestContext-scoped NotificationDelivery attempt-history reader boundary recorded in `Development/NOTIFICATION_DELIVERY_ATTEMPT_HISTORY_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Implementation `12c0895ad43a8e03f5ce45502084d0053da3d067` / tree `da95531297976224af4ad7658ccf75131559695d` passed **998/998 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. Canonical promotion remains subject to this promotion commit's own exact-head Core/PostgreSQL/Database/Web gate. Retry/finality/provider/credential/worker/send authority is not claimed.

@@ -3821,3 +3821,49 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no retry/finality/backoff/provider/credential/dispatch/scheduling authority is added.
 
 **Acceptance:** `NOTIF-ATT-ENV-001`, `NOTIF-ATT-BOUND-001`.
+
+## DD-293 — Parent-first exact Delivery reader forwarding
+
+**Context:** NotificationDeliveryReadPort is the RLS-aware parent visibility boundary and the attempt reader cannot distinguish no attempts from a hidden parent.
+
+**Decision:** `loadNotificationDeliveryAttemptHistoryEvidence(...)` calls `NotificationDeliveryReadPort.loadForContext` first with the exact supplied RequestContext and NotificationDelivery id.
+
+**Boundary:** no context normalization, id substitution, authorization inference or Delivery lifecycle interpretation.
+
+**Acceptance:** `NOTIF-ATTHIST-READ-001`.
+
+
+## DD-294 — Preserve parent absence and reader error semantics
+
+**Decision:** a null Delivery returns null without attempting child reads. Delivery-reader errors propagate unchanged.
+
+**Boundary:** absence is not converted into an empty attempt history and dependency failure is not converted into absence.
+
+**Acceptance:** `NOTIF-ATTHIST-READ-002…003`.
+
+
+## DD-295 — Exact attempt-reader forwarding only after visible parent
+
+**Decision:** after a non-null parent, call `NotificationDeliveryAttemptReadPort.loadForDelivery` using the exact same RequestContext and NotificationDelivery id. Attempt-reader errors propagate unchanged.
+
+**Boundary:** no retry/finality/provider semantics are inferred from the raw rows.
+
+**Acceptance:** `NOTIF-ATTHIST-ATT-001…002`.
+
+
+## DD-296 — Delegate raw history semantics to DD-292
+
+**Decision:** pass the exact loaded Delivery reference and exact loaded attempt evidence into `buildNotificationDeliveryAttemptHistoryEvidence`.
+
+**Boundary:** DD-292 continues to own malformed-null, valid-empty, canonical ordering and latest raw attempt semantics; this reader adds none.
+
+**Acceptance:** `NOTIF-ATTHIST-EVID-001…003`.
+
+
+## DD-297 — Expose one bounded RequestContext-scoped attempt-history read composition
+
+**Decision:** export `loadNotificationDeliveryAttemptHistoryEvidence(input, deliveryReader, attemptReader)` as the sole new Core boundary for this batch.
+
+**Boundary:** result remains raw evidence only and adds no retry/finality/backoff/provider/credential/dispatch/worker/scheduling authority.
+
+**Acceptance:** `NOTIF-ATTHIST-BOUND-001`.

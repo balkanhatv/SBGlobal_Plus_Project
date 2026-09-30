@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-ATTEMPT-HISTORY-EVIDENCE-001`
-**Current executable audit basis:** `be5e21f6c600ad868eb2ef8ef434f66c354e6258` / tree `29b031e11068895f8b537ab76dff892aa9b6ab06`
-> **Current audit gate (2026-09-28):** DD-288…DD-292 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-ATTEMPT-HISTORY-READER-001`
+**Current executable audit basis:** `12c0895ad43a8e03f5ce45502084d0053da3d067` / tree `da95531297976224af4ad7658ccf75131559695d`
+> **Current audit gate (2026-09-28):** DD-293…DD-297 parent-first RequestContext-scoped NotificationDelivery + NotificationDeliveryAttempt reader composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -843,3 +843,21 @@ DD-288…DD-292 →
 `Registers/DEVELOPMENT_DD288_DD292_VERIFICATION_2026-09-30.md`.
 
 This chain proves only coherent raw supplied attempt-history evidence for one supplied Delivery. It does not interpret status terminality/retryability, allocate attempts, select providers, schedule/dispatch work, resolve credentials or mutate Delivery lifecycle.
+
+## DD-293…DD-297 — NotificationDelivery attempt-history reader composition batch
+
+Migration 0026 NotificationDelivery/NotificationDeliveryAttempt + FORCE-RLS →
+DD-098 raw NotificationDelivery reader →
+DD-099 raw NotificationDeliveryAttempt reader →
+DD-288…DD-292 raw parent/history evidence →
+`Development/NOTIFICATION_DELIVERY_ATTEMPT_HISTORY_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-293…DD-297 →
+`src/core/notification/delivery-attempt-history-reader.ts` →
+`NOTIF-ATTHIST-READ-001…003`,
+`NOTIF-ATTHIST-ATT-001…002`,
+`NOTIF-ATTHIST-EVID-001…003`,
+`NOTIF-ATTHIST-BOUND-001` →
+`tests/core/notification-delivery-attempt-history-reader.test.mjs` →
+`Registers/DEVELOPMENT_DD293_DD297_VERIFICATION_2026-09-30.md`.
+
+This chain proves only parent-first same-RequestContext reader composition into the existing DD-292 raw attempt-history evidence envelope. It does not define normalized-status terminality, retryability, next-attempt allocation, backoff/exhaustion, provider execution, credential use, worker scheduling, Delivery mutation or final Notification send authorization.

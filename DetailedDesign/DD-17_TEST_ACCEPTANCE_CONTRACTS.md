@@ -4593,3 +4593,44 @@ The envelope preserves the exact supplied Delivery identity and immutable canoni
 
 ### NOTIF-ATT-BOUND-001 — No runtime decision authority
 Inputs remain unchanged and the envelope exposes no retry, finality, backoff, provider-selection, credential, dispatch or scheduling authority.
+
+## DD-293 NotificationDelivery Parent-First Reader Acceptance
+
+### NOTIF-ATTHIST-READ-001 — Exact Delivery reader forwarding before attempt access
+The Delivery reader receives the exact supplied RequestContext and NotificationDelivery id before the attempt reader is accessed.
+
+
+## DD-294 Parent Absence/Error Acceptance
+
+### NOTIF-ATTHIST-READ-002 — Hidden/absent parent short-circuit
+A null Delivery result returns null and the attempt reader is not called.
+
+### NOTIF-ATTHIST-READ-003 — Delivery dependency error propagation
+A Delivery-reader error propagates unchanged and the attempt reader is not called.
+
+
+## DD-295 NotificationDeliveryAttempt Reader Forwarding Acceptance
+
+### NOTIF-ATTHIST-ATT-001 — Exact same RequestContext/id forwarding
+After a visible parent, the attempt reader receives the exact same supplied RequestContext and NotificationDelivery id.
+
+### NOTIF-ATTHIST-ATT-002 — Attempt dependency error propagation
+An attempt-reader error propagates unchanged.
+
+
+## DD-296 DD-292 Evidence Composition Acceptance
+
+### NOTIF-ATTHIST-EVID-001 — Canonical non-empty history/latest evidence
+Valid raw attempt rows compose to the expected DD-292 canonical immutable history and latest raw attempt evidence.
+
+### NOTIF-ATTHIST-EVID-002 — Valid empty evidence distinction
+Valid empty attempt evidence returns a non-null immutable empty-history envelope with no latest member.
+
+### NOTIF-ATTHIST-EVID-003 — Malformed/cross-parent evidence denial
+Malformed, duplicate or cross-parent attempt evidence returned by a supplied reader fails closed as null.
+
+
+## DD-297 RequestContext-Scoped Attempt-History Reader Boundary Acceptance
+
+### NOTIF-ATTHIST-BOUND-001 — No mutation or runtime decision authority
+Inputs remain unchanged and output exposes no retry, finality, backoff, provider-selection, credential, dispatch, worker or scheduling authority.
