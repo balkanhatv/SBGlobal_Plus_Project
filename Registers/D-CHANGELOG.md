@@ -1461,3 +1461,7 @@ DD-303…DD-307 freeze and implement only the visible-parent NotificationDeliver
 ## 2026-09-30 — DD-303…DD-307 canonical promotion verified; state closure staged
 
 Canonical promotion `4aab9f1435d7c7475fe32723634fa036230de6bc` / tree `ab492530ee23ac260f9f6cdc37b2d3c3126b5a04` passed **1017/1017 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis while DD-307 feature evidence remains anchored to implementation `213d8421cd5a6ddd55c8182e462373a67d876610`. No runtime, schema, RawSource or test weakening is introduced.
+
+## 2026-09-30 — DD-308…DD-312 canonical promotion staged
+
+DD-308…DD-312 freeze and implement only the visible known-relationship + raw attempt-history composed NotificationDelivery evidence reader boundary recorded in `Development/NOTIFICATION_DELIVERY_COMPOSED_EVIDENCE_READER_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Implementation `c37ad8e926a5f2ef16f1d5c70b4b8a8cc749977d` / tree `46e6e8d9fd62ec554d1be2ddc4fee9fd51e2bd90` passed **1026/1026 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. Canonical promotion remains subject to this promotion commit's own exact-head Core/PostgreSQL/Database/Web gate. Runtime/send/retry/mutation authority is not claimed.

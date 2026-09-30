@@ -652,3 +652,7 @@ DD-303…DD-307 add only parent-first DD-098 visibility before the existing DD-3
 ## 2026-09-30 — DD-303…DD-307 canonical promotion verified; state closure staged
 
 Canonical promotion `4aab9f1435d7c7475fe32723634fa036230de6bc` / tree `ab492530ee23ac260f9f6cdc37b2d3c3126b5a04` passed **1017/1017 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis while DD-307 feature evidence remains anchored to implementation `213d8421cd5a6ddd55c8182e462373a67d876610`. No runtime, schema, RawSource or test weakening is introduced.
+
+## 2026-09-30 — DD-308…DD-312 NotificationDelivery composed evidence reader batch
+
+DD-308…DD-312 compose only already-governed DD-307 visible known-relationship evidence and DD-292 raw attempt-history evidence. Source audit `33060bd6a82113e0b8272cdad674543ed45aa2d7` / tree `306eda3d73232f6571ffc5fc21f21601293fad94` preceded implementation `c37ad8e926a5f2ef16f1d5c70b4b8a8cc749977d` / tree `46e6e8d9fd62ec554d1be2ddc4fee9fd51e2bd90`, which passed **1026/1026 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, role/grant, public route, frontend or product-policy change. Recipient currentness, lifecycle/finality, retry semantics, rendering, provider/credential runtime, dispatch/send and mutation remain unclaimed.

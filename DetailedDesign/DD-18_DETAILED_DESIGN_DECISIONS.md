@@ -3967,3 +3967,43 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** evidence only. No lifecycle/finality, rendering, provider/credential, retry, dispatch, scheduling, send or mutation authority is added.
 
 **Acceptance:** `NOTIF-VRELREAD-BOUND-001`.
+
+## DD-308 — Establish DD-307 relationship-valid visible parent before attempt access
+
+**Context:** DD-307 already owns parent-first RequestContext visibility and known Integration/Event/Template relationship evidence.
+
+**Decision:** the composed reader must invoke DD-307 first with the exact supplied RequestContext/id. If DD-307 returns null or throws, no attempt evidence is requested.
+
+**Boundary:** no recipient-currentness, lifecycle or runtime/send semantics.
+
+**Acceptance:** `NOTIF-COMPEVID-REL-001…003`.
+
+
+## DD-309 — Forward exact RequestContext/id to attempt reader only after DD-307 success
+
+**Decision:** after non-null DD-307 evidence, call `NotificationDeliveryAttemptReadPort.loadForDelivery` with the same RequestContext object and NotificationDelivery id. Reader errors propagate unchanged.
+
+**Acceptance:** `NOTIF-COMPEVID-ATT-001…002`.
+
+
+## DD-310 — Delegate exact Delivery + raw attempts to DD-292
+
+**Decision:** call `buildNotificationDeliveryAttemptHistoryEvidence(relationships.delivery, attempts)` and preserve DD-292 null/empty/non-empty semantics exactly.
+
+**Boundary:** no normalized-status, retryability, finality, next-attempt or backoff interpretation.
+
+**Acceptance:** `NOTIF-COMPEVID-HIST-001…003`.
+
+
+## DD-311 — Return immutable nested child evidence only
+
+**Decision:** on success return an immutable envelope containing the exact DD-307 `relationships` evidence reference and exact DD-292 `attemptHistory` evidence reference. Do not flatten or synthesize a combined validity flag.
+
+**Acceptance:** `NOTIF-COMPEVID-BOUND-001`.
+
+
+## DD-312 — Export the bounded composed NotificationDelivery evidence reader
+
+**Decision:** expose `loadNotificationDeliveryComposedEvidence` as the sole new composition boundary.
+
+**Boundary:** no recipient-principal currentness, complete Delivery validity, lifecycle/finality, retry/backoff, rendering, provider/credential, dispatch, scheduling, send, callback reconciliation or mutation authority.

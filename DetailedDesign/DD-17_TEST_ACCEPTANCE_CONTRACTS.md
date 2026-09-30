@@ -4719,3 +4719,46 @@ An invoked DD-302 relationship-reader dependency error propagates unchanged.
 
 ### NOTIF-VRELREAD-BOUND-001 — No new runtime authority
 Inputs remain unchanged and output exposes no recipient-currentness, complete-Delivery-validity, lifecycle, rendering, provider, credential, retry, dispatch, scheduling, send or mutation authority.
+
+## DD-308 Visible Relationship Parent Before Attempt Access Acceptance
+
+### NOTIF-COMPEVID-REL-001 — DD-307 path precedes attempt access
+DD-307 executes first with the exact supplied RequestContext and NotificationDelivery id before any attempt read.
+
+### NOTIF-COMPEVID-REL-002 — Hidden/absent/mismatched relationship evidence stops composition
+A null DD-307 result returns null and the attempt reader is not called.
+
+### NOTIF-COMPEVID-REL-003 — Relationship dependency failure propagates
+A DD-307 dependency/persistence error propagates unchanged and the attempt reader is not called.
+
+
+## DD-309 Exact Attempt Reader Forwarding Acceptance
+
+### NOTIF-COMPEVID-ATT-001 — Exact RequestContext/id forwarding
+After DD-307 succeeds, the attempt reader receives the exact same RequestContext object and NotificationDelivery id.
+
+### NOTIF-COMPEVID-ATT-002 — Attempt reader failure propagates
+Attempt-reader dependency/persistence errors propagate unchanged.
+
+
+## DD-310 DD-292 Attempt History Composition Acceptance
+
+### NOTIF-COMPEVID-HIST-001 — Valid raw attempts compose canonically
+The exact DD-307 Delivery plus exact raw attempt evidence yields the expected canonical DD-292 history/latest evidence.
+
+### NOTIF-COMPEVID-HIST-002 — Valid empty attempt history remains success
+Valid empty raw attempts produce an immutable empty history envelope with no latest member.
+
+### NOTIF-COMPEVID-HIST-003 — Invalid attempt evidence remains null
+Malformed, cross-parent or duplicate attempt evidence returns null.
+
+
+## DD-311 Immutable Combined Evidence Envelope Acceptance
+
+### NOTIF-COMPEVID-BOUND-001 — Preserve child evidence without new authority
+The combined envelope is immutable, preserves exact child evidence references, leaves inputs unchanged and exposes no runtime/send/retry/mutation authority.
+
+
+## DD-312 Bounded Composed Evidence Reader Acceptance
+
+DD-312 exports only the RequestContext-scoped composed NotificationDelivery evidence reader defined by the acceptance contracts above. No recipient-currentness, lifecycle/finality, retryability, rendering, provider/credential, dispatch, scheduling, send or mutation semantics are added.

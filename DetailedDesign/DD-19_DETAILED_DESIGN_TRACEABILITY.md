@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-VISIBLE-KNOWN-RELATIONSHIP-READER-001`
-**Current executable audit basis:** `4aab9f1435d7c7475fe32723634fa036230de6bc` / tree `ab492530ee23ac260f9f6cdc37b2d3c3126b5a04`
-> **Current audit gate (2026-09-28):** DD-303…DD-307 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-COMPOSED-EVIDENCE-READER-001`
+**Current executable audit basis:** `c37ad8e926a5f2ef16f1d5c70b4b8a8cc749977d` / tree `46e6e8d9fd62ec554d1be2ddc4fee9fd51e2bd90`
+> **Current audit gate (2026-09-28):** DD-308…DD-312 visible known-relationship + raw attempt-history composed evidence reader batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -904,3 +904,20 @@ DD-303…DD-307 →
 `Registers/DEVELOPMENT_DD303_DD307_VERIFICATION_2026-09-30.md`.
 
 Recipient-principal currentness remains explicitly source-incomplete. This chain adds only parent visibility before DD-302 and does not define complete Delivery validity, template fallback/rendering, source-event readiness, Integration provider runtime, retry/send/scheduling or mutation.
+
+## DD-308…DD-312 — NotificationDelivery composed evidence reader batch
+
+DD-288…DD-292 raw attempt-history evidence →
+DD-298…DD-302 known-relationship reader composition →
+DD-303…DD-307 visible-parent known-relationship reader →
+`Development/NOTIFICATION_DELIVERY_COMPOSED_EVIDENCE_READER_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-308…DD-312 →
+`src/core/notification/delivery-composed-evidence-reader.ts` →
+`NOTIF-COMPEVID-REL-001…003`,
+`NOTIF-COMPEVID-ATT-001…002`,
+`NOTIF-COMPEVID-HIST-001…003`,
+`NOTIF-COMPEVID-BOUND-001` →
+`tests/core/notification-delivery-composed-evidence-reader.test.mjs` →
+`Registers/DEVELOPMENT_DD308_DD312_VERIFICATION_2026-09-30.md`.
+
+This chain proves only that one RequestContext-visible relationship-valid NotificationDelivery can be combined with its valid raw DD-292 attempt-history evidence. Recipient-principal currentness, complete Delivery validity, lifecycle/finality, retry semantics, rendering, provider/credential execution and notification mutation remain separate.
