@@ -95,6 +95,7 @@ export * from "./notification/known-relationship-floors.js";
 export * from "./notification/delivery-attempt.js";
 export * from "./notification/delivery-attempt-history-evidence.js";
 export * from "./notification/delivery-attempt-history-reader.js";
+export * from "./notification/delivery-known-relationship-reader.js";
 export * from "./notification/template.js";
 export * from "./workflow/definition.js";
 export * from "./workflow/instance.js";
