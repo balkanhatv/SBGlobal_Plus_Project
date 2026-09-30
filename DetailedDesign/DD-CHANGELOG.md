@@ -660,3 +660,7 @@ DD-308…DD-312 compose only already-governed DD-307 visible known-relationship 
 ## 2026-09-30 — DD-308…DD-312 canonical promotion verified; state closure staged
 
 Canonical promotion `02b54b445d4a6ad90634add6a51da296fe67786f` / tree `e972a33f1a93ed67bef1844abd07f8e7a636fe8d` passed **1026/1026 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis and must independently pass before the next governed backend batch opens. No runtime, schema, RawSource, route or frontend change is introduced by closure.
+
+## 2026-09-30 — DD-313…DD-317 NotificationDelivery Integration current-integrity evidence reader
+
+DD-313…DD-317 extend DD-312 only with conditional exact TenantIntegration current-integrity evidence owned by DD-167. Source audit `2ea6fffa7498532eb137fe1053edf9d17fcadb1c` preceded implementation `dcc220cad203d7ecb273b099d0064b16d53a161a` / tree `9179390de15fbc582355b9386222b002a6ca3bcb`, which passed **1038/1038 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, public route, provider SDK, secret access, frontend or product-policy change. Provider selection, health/fallback, secret material, retry/finality, rendering, dispatch/send and mutation remain unclaimed.

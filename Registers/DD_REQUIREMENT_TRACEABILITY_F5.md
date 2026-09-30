@@ -1,7 +1,7 @@
 # FABLE 5 — REQUIREMENT-ID DETAILED DESIGN TRACEABILITY
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-COMPOSED-EVIDENCE-READER-001`
-**Current executable audit basis:** `02b54b445d4a6ad90634add6a51da296fe67786f` / tree `e972a33f1a93ed67bef1844abd07f8e7a636fe8d`
-> **Current audit gate (2026-09-28):** DD-308…DD-312 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-INTEGRATION-CURRENT-INTEGRITY-EVIDENCE-READER-001`
+**Current executable audit basis:** `dcc220cad203d7ecb273b099d0064b16d53a161a` / tree `9179390de15fbc582355b9386222b002a6ca3bcb`
+> **Current audit gate (2026-09-28):** DD-313…DD-317 NotificationDelivery TenantIntegration current-integrity evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-11 · **Historical status:** FABLE 5 REMEDIATION EVIDENCE
 
 > The requirement-to-DD rows below remain preserved as evaluated-era Phase-3 traceability evidence. Fable-5 remediation subsequently completed, governed Development advanced through DD-208, and the complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**. This file does not define the current development gate and does not authorize DD-209.

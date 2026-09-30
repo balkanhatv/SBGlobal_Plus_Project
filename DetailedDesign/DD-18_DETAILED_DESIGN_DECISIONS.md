@@ -4007,3 +4007,47 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Decision:** expose `loadNotificationDeliveryComposedEvidence` as the sole new composition boundary.
 
 **Boundary:** no recipient-principal currentness, complete Delivery validity, lifecycle/finality, retry/backoff, rendering, provider/credential, dispatch, scheduling, send, callback reconciliation or mutation authority.
+
+## DD-313 — Establish DD-312 composed Delivery evidence before deeper Integration reads
+
+**Decision:** invoke `loadNotificationDeliveryComposedEvidence(...)` first with the exact supplied RequestContext, NotificationDelivery id and Delivery/Integration/Event/Template/Attempt ports. Null returns null; dependency errors propagate unchanged before any current-integrity read.
+
+**Boundary:** no deeper Integration evidence may be used to distinguish a hidden/invalid DD-312 parent path.
+
+**Acceptance:** `NOTIF-INTCUR-BASE-001…003`.
+
+
+## DD-314 — Branch only on the exact preserved Integration relationship
+
+**Decision:** inspect only `composed.relationships.integration`. If absent, return immutable composed evidence without current-integrity evidence or reads. If present, preserve that exact Integration object as this batch's sole Integration identity authority.
+
+**Boundary:** no re-selection, alternate Integration lookup, health/provider interpretation or lifecycle inference.
+
+**Acceptance:** `NOTIF-INTCUR-UNBOUND-001`.
+
+
+## DD-315 — Read exact Credential/Definition/Capability current-integrity evidence
+
+**Decision:** for an Integration-bound Delivery, read exact CredentialReference metadata under the same RequestContext, exact IntegrationDefinition by persisted id and one exact IntegrationCapability per persisted enabled capability in persisted order. Required null evidence returns null; reader errors propagate unchanged.
+
+**Boundary:** no fallback/latest/alternate Credential, Definition or Capability lookup.
+
+**Acceptance:** `NOTIF-INTCUR-CRED-001`, `NOTIF-INTCUR-DEF-001`, `NOTIF-INTCUR-CAP-001`, `NOTIF-INTCUR-DEP-001…002`.
+
+
+## DD-316 — Delegate supplied current-integrity semantics to DD-167
+
+**Decision:** call `matchesCurrentTenantIntegrationIntegrityFloors(...)` with the exact preserved Integration, loaded Credential metadata, supplied evaluatedAt, loaded Definition and immutable capability evidence array. False returns null.
+
+**Boundary:** no additional status/health/profile/provider/secret/network predicates are added.
+
+**Acceptance:** `NOTIF-INTCUR-FLOOR-001…002`.
+
+
+## DD-317 — Return one bounded immutable NotificationDelivery + Integration-currentness evidence envelope
+
+**Decision:** return the exact DD-312 `composed` reference and, only when Integration-bound, immutable `integrationCurrentIntegrity` evidence preserving exact child references and supplied evaluatedAt.
+
+**Boundary:** evidence only; no combined sendable/executable/healthy flag or runtime/send authority.
+
+**Acceptance:** `NOTIF-INTCUR-BOUND-001`.

@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-COMPOSED-EVIDENCE-READER-001`
-**Current executable audit basis:** `02b54b445d4a6ad90634add6a51da296fe67786f` / tree `e972a33f1a93ed67bef1844abd07f8e7a636fe8d`
-> **Current audit gate (2026-09-28):** DD-308…DD-312 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-INTEGRATION-CURRENT-INTEGRITY-EVIDENCE-READER-001`
+**Current executable audit basis:** `dcc220cad203d7ecb273b099d0064b16d53a161a` / tree `9179390de15fbc582355b9386222b002a6ca3bcb`
+> **Current audit gate (2026-09-28):** DD-313…DD-317 NotificationDelivery TenantIntegration current-integrity evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -921,3 +921,26 @@ DD-308…DD-312 →
 `Registers/DEVELOPMENT_DD308_DD312_VERIFICATION_2026-09-30.md`.
 
 This chain proves only that one RequestContext-visible relationship-valid NotificationDelivery can be combined with its valid raw DD-292 attempt-history evidence. Recipient-principal currentness, complete Delivery validity, lifecycle/finality, retry semantics, rendering, provider/credential execution and notification mutation remain separate.
+
+## DD-313…DD-317 — NotificationDelivery Integration current-integrity evidence reader
+
+F-01 Notification/Communication + Integration Management →
+A-01 Notification/Integration ownership + A-06 provider-port architecture →
+DD-165…DD-167 TenantIntegration current integrity →
+DD-168 Delivery→TenantIntegration relationship →
+DD-298…DD-312 visible/composed NotificationDelivery evidence →
+`Development/NOTIFICATION_DELIVERY_INTEGRATION_CURRENT_INTEGRITY_EVIDENCE_READER_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-313…DD-317 →
+`src/core/notification/delivery-integration-current-integrity-evidence-reader.ts` →
+`NOTIF-INTCUR-BASE-001…003`,
+`NOTIF-INTCUR-UNBOUND-001`,
+`NOTIF-INTCUR-CRED-001`,
+`NOTIF-INTCUR-DEF-001`,
+`NOTIF-INTCUR-CAP-001`,
+`NOTIF-INTCUR-DEP-001…002`,
+`NOTIF-INTCUR-FLOOR-001…002`,
+`NOTIF-INTCUR-BOUND-001` →
+`tests/core/notification-delivery-integration-current-integrity-evidence-reader.test.mjs` →
+`Registers/DEVELOPMENT_DD313_DD317_VERIFICATION_2026-09-30.md`.
+
+This chain establishes DD-312 first, conditionally reads only the exact preserved Integration's current integrity dependencies, delegates exact evidence to DD-167 and returns immutable evidence. It does not select providers, access secret material, approve health/fallback, interpret retry/finality, render templates, dispatch/send or mutate Notification state.

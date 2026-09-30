@@ -1,7 +1,7 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-COMPOSED-EVIDENCE-READER-001`
-**Current executable audit basis:** `02b54b445d4a6ad90634add6a51da296fe67786f` / tree `e972a33f1a93ed67bef1844abd07f8e7a636fe8d`
-> **Current audit gate (2026-09-28):** DD-308…DD-312 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-INTEGRATION-CURRENT-INTEGRITY-EVIDENCE-READER-001`
+**Current executable audit basis:** `dcc220cad203d7ecb273b099d0064b16d53a161a` / tree `9179390de15fbc582355b9386222b002a6ca3bcb`
+> **Current audit gate (2026-09-28):** DD-313…DD-317 NotificationDelivery TenantIntegration current-integrity evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 

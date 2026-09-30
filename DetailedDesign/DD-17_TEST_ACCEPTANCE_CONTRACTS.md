@@ -4762,3 +4762,53 @@ The combined envelope is immutable, preserves exact child evidence references, l
 ## DD-312 Bounded Composed Evidence Reader Acceptance
 
 DD-312 exports only the RequestContext-scoped composed NotificationDelivery evidence reader defined by the acceptance contracts above. No recipient-currentness, lifecycle/finality, retryability, rendering, provider/credential, dispatch, scheduling, send or mutation semantics are added.
+
+## DD-313 DD-312 Parent Evidence Before Integration Currentness Acceptance
+
+### NOTIF-INTCUR-BASE-001 — Parent composed evidence precedes current-integrity access
+DD-312 executes first with the exact supplied RequestContext/id and supplied Delivery/relationship/attempt readers before any current-integrity reader is accessed.
+
+### NOTIF-INTCUR-BASE-002 — Parent null short-circuits deeper reads
+DD-312 null returns null and no CredentialReference, IntegrationDefinition or IntegrationCapability read occurs.
+
+### NOTIF-INTCUR-BASE-003 — Parent dependency error propagates
+A DD-312 dependency/persistence error propagates unchanged and no current-integrity read occurs.
+
+
+## DD-314 Conditional Integration-Bound Evidence Acceptance
+
+### NOTIF-INTCUR-UNBOUND-001 — Unbound Delivery skips Integration currentness
+An unbound Delivery succeeds with exact DD-312 evidence, no integrationCurrentIntegrity member and no Integration-currentness reads.
+
+
+## DD-315 Exact Integration Current-Integrity Dependency Read Acceptance
+
+### NOTIF-INTCUR-CRED-001 — Exact CredentialReference metadata forwarding
+The exact RequestContext object and exact preserved integration.credentialReferenceId are forwarded.
+
+### NOTIF-INTCUR-DEF-001 — Exact IntegrationDefinition forwarding
+The exact preserved integration.integrationDefinitionId is forwarded.
+
+### NOTIF-INTCUR-CAP-001 — Exact persisted capability reads
+Exactly one capability read occurs per persisted enabledCapabilities entry in persisted order; an empty set performs no capability read.
+
+### NOTIF-INTCUR-DEP-001 — Required null dependency evidence fails closed
+Null CredentialReference metadata, Definition or required Capability evidence returns null.
+
+### NOTIF-INTCUR-DEP-002 — Dependency errors propagate unchanged
+Credential/Definition/Capability reader errors propagate unchanged.
+
+
+## DD-316 DD-167 Current Integrity Delegation Acceptance
+
+### NOTIF-INTCUR-FLOOR-001 — DD-167 true preserves exact evidence
+A true DD-167 result returns immutable evidence preserving exact Integration/Credential/Definition/Capability references and supplied evaluatedAt.
+
+### NOTIF-INTCUR-FLOOR-002 — DD-167 false fails closed
+A false DD-167 result returns null without fallback or alternate evidence lookup.
+
+
+## DD-317 Bounded Immutable Integration-Currentness Envelope Acceptance
+
+### NOTIF-INTCUR-BOUND-001 — Evidence only, no send/runtime authority
+Inputs remain unchanged and output exposes no sendable/executable/health/fallback/provider/secret/retry/dispatch/scheduling/mutation authority.
