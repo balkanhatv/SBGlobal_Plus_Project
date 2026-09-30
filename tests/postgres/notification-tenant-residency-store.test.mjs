@@ -18,7 +18,7 @@ const admin = new pg.Pool({connectionString: process.env.SBG_POSTGRES_TEST_URL, 
 const role = "sbg_notification_residency_" + randomBytes(8).toString("hex");
 const password = randomBytes(24).toString("hex");
 const f = Object.fromEntries([
-  "home","tenantA","tenantB","principalA","principalB","industryA1","industryA2",
+  "home","tenantA","tenantB","principalA","principalB","industryA1","industryA2","industryB1",
 ].map(key => [key, randomUUID()]));
 
 let pool;
@@ -84,6 +84,7 @@ before(async () => {
     for (const [id,tenantId,code,primary] of [
       [f.industryA1,f.tenantA,"RTL",true],
       [f.industryA2,f.tenantA,"MFG",false],
+      [f.industryB1,f.tenantB,"EDU",true],
     ]) {
       await client.query(
         `INSERT INTO core_tenancy.industry_context
@@ -117,7 +118,7 @@ after(async () => {
   const client=await admin.connect();
   try {
     await client.query("BEGIN");
-    await client.query("DELETE FROM core_tenancy.industry_context WHERE id=ANY($1::uuid[])",[[f.industryA1,f.industryA2]]);
+    await client.query("DELETE FROM core_tenancy.industry_context WHERE id=ANY($1::uuid[])",[[f.industryA1,f.industryA2,f.industryB1]]);
     await client.query("DELETE FROM core_identity.platform_principal WHERE id=ANY($1::uuid[])",[[f.principalA,f.principalB]]);
     await client.query("DELETE FROM core_tenancy.tenant WHERE id=ANY($1::uuid[])",[[f.tenantA,f.tenantB]]);
     await client.query("DELETE FROM platform_directory.data_home WHERE id=$1",[f.home]);
