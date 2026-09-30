@@ -1,7 +1,7 @@
 # DD-29 — FINAL REVIEW_REQUIRED / AMBIGUITY SWEEP — PHASE 3
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CATALOG-EVIDENCE-READER-001`
-**Current executable audit basis:** `f3c95cd629462f82284e7bdda37fbd42c2da4a98` / tree `5b219c35db19f38259f204da87022be59546f04a`
-> **Current audit gate (2026-09-28):** DD-318…DD-322 NotificationDelivery source-event EventCatalog evidence reader batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `09238112636c422d7c16043e1f13d45176664849` / tree `2d9e9d5dccac48c4a12c32b3292ca53d1f488090`
+> **Current audit gate (2026-09-28):** DD-318…DD-322 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** PHASE-3 AMBIGUITY-SWEEP EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.

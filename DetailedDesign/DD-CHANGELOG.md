@@ -672,3 +672,7 @@ Canonical promotion `af4f941c1499ad845301034bbdf3b44a35df95c0` / tree `8946fa4a9
 ## 2026-09-30 — DD-318…DD-322 NotificationDelivery source-event EventCatalog evidence reader
 
 DD-318…DD-322 add only parent-first DD-317 composition plus conditional exact preserved OutboxEvent → EventCatalog tuple evidence. Source-audit `0d3f34c2a31fdb9b98cf4f913110862ce26ab68a` / tree `a73f7e219e2da25eb0f9240444277f1e4280db5d` preceded implementation `f3c95cd629462f82284e7bdda37fbd42c2da4a98` / tree `5b219c35db19f38259f204da87022be59546f04a`, which passed **1049/1049 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, public route, provider SDK, secret, frontend or product-policy change. Readiness/retry/catalog lifecycle execution/payload/webhook/dispatch/send/mutation remain unclaimed.
+
+## 2026-09-30 — DD-318…DD-322 canonical promotion verified; state closure staged
+
+Canonical promotion `09238112636c422d7c16043e1f13d45176664849` / tree `2d9e9d5dccac48c4a12c32b3292ca53d1f488090` passed **1049/1049 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records this promotion as the current verified executable basis and must independently pass before the next governed backend batch opens. No runtime, schema, RawSource, public route, provider SDK, secret, frontend or product-policy change is introduced by closure.
