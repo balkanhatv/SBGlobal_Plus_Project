@@ -1,7 +1,7 @@
 # PHASE 2 — Foundation → Architecture/ADR Fresh Revalidation
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-ENVELOPE-EVIDENCE-001`
-**Current executable audit basis:** `ee4fe871968b75f825b6c59a7ac6a805291765c7` / tree `ab1d4504481c46225f8baea19b71f15ebba0d7cc`
-> **Current audit gate (2026-09-28):** DD-323…DD-327 NotificationDelivery source-event persisted-envelope evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `bd20799b7fc790057b2419bdd0da812f2a7d31db` / tree `690593a95f3075463942c31df1af879dca8ec6fb`
+> **Current audit gate (2026-09-28):** DD-323…DD-327 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.

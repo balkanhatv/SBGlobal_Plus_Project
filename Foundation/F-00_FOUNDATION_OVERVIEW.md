@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT FOUNDATION
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-ENVELOPE-EVIDENCE-001`
-**Current executable audit basis:** `ee4fe871968b75f825b6c59a7ac6a805291765c7` / tree `ab1d4504481c46225f8baea19b71f15ebba0d7cc`
-> **Current audit gate (2026-09-28):** DD-323…DD-327 NotificationDelivery source-event persisted-envelope evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `bd20799b7fc790057b2419bdd0da812f2a7d31db` / tree `690593a95f3075463942c31df1af879dca8ec6fb`
+> **Current audit gate (2026-09-28):** DD-323…DD-327 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 

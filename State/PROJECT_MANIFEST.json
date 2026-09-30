@@ -3,7 +3,7 @@
   "updated": "2026-09-30",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-ENVELOPE-EVIDENCE-001",
-  "final_verdict": "Complete-project downstream audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-323…DD-327 implementation ee4fe871968b75f825b6c59a7ac6a805291765c7 / tree ab1d4504481c46225f8baea19b71f15ebba0d7cc is exact-head verified at 1061 Core / 525 PostgreSQL / 48 migrations / 42 verification files / Web PASS. Canonical promotion is staged; production readiness is NOT CLAIMED.",
+  "final_verdict": "Complete-project downstream audit remains CLEAN / CLOSED through VC27-111 with open current-scope P0/P1 = 0. DD-323…DD-327 canonical promotion bd20799b7fc790057b2419bdd0da812f2a7d31db / tree 690593a95f3075463942c31df1af879dca8ec6fb is exact-head verified at 1061 Core / 525 PostgreSQL / 48 migrations / 42 verification files / Web PASS. This state-closure commit must independently pass before the next governed backend batch opens. Production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -14,7 +14,7 @@
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD327_IMPLEMENTED_BATCH_PROMOTION_STAGED",
+    "core_services": "DD040_DD327_CANONICALLY_PROMOTED_EXACT_HEAD_VERIFIED_STATE_CLOSURE",
     "vision_centric_current_state_audit": "PASS_COMPLETE_PROJECT_DOWNSTREAM_AUDIT_CLEAN"
   },
   "defects": {
@@ -54,9 +54,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "ee4fe871968b75f825b6c59a7ac6a805291765c7",
-    "verified_code_tree": "ab1d4504481c46225f8baea19b71f15ebba0d7cc",
-    "state_projection_basis_head": "ee4fe871968b75f825b6c59a7ac6a805291765c7",
+    "verified_code_head": "bd20799b7fc790057b2419bdd0da812f2a7d31db",
+    "verified_code_tree": "690593a95f3075463942c31df1af879dca8ec6fb",
+    "state_projection_basis_head": "bd20799b7fc790057b2419bdd0da812f2a7d31db",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -796,21 +796,21 @@
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
     "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
-    "current_downstream_verified_head": "ee4fe871968b75f825b6c59a7ac6a805291765c7",
-    "current_downstream_verified_tree": "ab1d4504481c46225f8baea19b71f15ebba0d7cc",
+    "current_downstream_verified_head": "bd20799b7fc790057b2419bdd0da812f2a7d31db",
+    "current_downstream_verified_tree": "690593a95f3075463942c31df1af879dca8ec6fb",
     "current_downstream_verified_ci": {
-      "core_run_id": 36747342137,
-      "core_job_id": 109996766204,
+      "core_run_id": 36748273513,
+      "core_job_id": 109999965410,
       "core_pass": 1061,
-      "postgres_job_id": 109996765921,
+      "postgres_job_id": 109999965200,
       "postgres_pass": 525,
-      "database_run_id": 36747342198,
-      "database_job_id": 109996766207,
+      "database_run_id": 36748273678,
+      "database_job_id": 109999966041,
       "database_migrations": 48,
       "database_verification_files": 42,
-      "web_run_id": 36747342135,
-      "web_job_id": 109996766008,
-      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
+      "web_run_id": 36748273515,
+      "web_job_id": 109999965321,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     },
     "dd209_source_audit_head": "7cfd84d2013d3e1f0f4feaa9eb70f4cd66632787",
     "dd209_source_audit_tree": "cc45b89efda581548010eb3a19ce44bd6d7cacf2",
@@ -1714,13 +1714,29 @@
       "web_run_id": 36747342135,
       "web_job_id": 109996766008,
       "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
+    },
+    "dd323_dd327_promotion_head": "bd20799b7fc790057b2419bdd0da812f2a7d31db",
+    "dd323_dd327_promotion_tree": "690593a95f3075463942c31df1af879dca8ec6fb",
+    "dd323_dd327_ci": {
+      "implementation_head": "ee4fe871968b75f825b6c59a7ac6a805291765c7",
+      "implementation_tree": "ab1d4504481c46225f8baea19b71f15ebba0d7cc",
+      "promotion_head": "bd20799b7fc790057b2419bdd0da812f2a7d31db",
+      "promotion_tree": "690593a95f3075463942c31df1af879dca8ec6fb",
+      "core_run_id": 36748273513,
+      "core_job_id": 109999965410,
+      "postgres_job_id": 109999965200,
+      "database_run_id": 36748273678,
+      "database_job_id": 109999966041,
+      "web_run_id": 36748273515,
+      "web_job_id": 109999965321,
+      "result": "PASS_EXACT_PROMOTION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD323_DD327_CANONICAL_PROMOTION",
+    "current_phase": "DEVELOPMENT_DD323_DD327_STATE_CLOSURE",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -1735,9 +1751,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "ee4fe871968b75f825b6c59a7ac6a805291765c7",
-      "ci_run_id": 36747342198,
-      "ci_job_id": 109996766207,
+      "ci_verified_head": "bd20799b7fc790057b2419bdd0da812f2a7d31db",
+      "ci_run_id": 36748273678,
+      "ci_job_id": 109999966041,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -1749,7 +1765,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "ab1d4504481c46225f8baea19b71f15ebba0d7cc",
+      "ci_verified_tree": "690593a95f3075463942c31df1af879dca8ec6fb",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -1769,7 +1785,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "After this DD-323…DD-327 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the batch state before opening the next independently source-complete governed backend batch.",
+    "next_action": "This DD-323…DD-327 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the batch is closed and the next independently source-complete governed backend batch may be source-audited.",
     "core_services": {
       "checkpoint": "DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-ENVELOPE-EVIDENCE-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -1777,10 +1793,10 @@
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040–327 bounded implementation",
-      "verified_head": "ee4fe871968b75f825b6c59a7ac6a805291765c7",
-      "verified_tree": "ab1d4504481c46225f8baea19b71f15ebba0d7cc",
-      "core_ci_run_id": 36747342137,
-      "core_ci_job_id": 109996766204,
+      "verified_head": "bd20799b7fc790057b2419bdd0da812f2a7d31db",
+      "verified_tree": "690593a95f3075463942c31df1af879dca8ec6fb",
+      "core_ci_run_id": 36748273513,
+      "core_ci_job_id": 109999965410,
       "tests": "1061/1061 PASS",
       "core_test_counts": {
         "tests": 1061,
@@ -1788,8 +1804,8 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 36747342137,
-      "postgres_ci_job_id": 109996765921,
+      "postgres_ci_run_id": 36748273513,
+      "postgres_ci_job_id": 109999965200,
       "postgres_tests": "525/525 PASS",
       "postgres_test_counts": {
         "tests": 525,
@@ -1798,8 +1814,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 36747342198,
-      "database_regression_job_id": 109996766207,
+      "database_regression_run_id": 36748273678,
+      "database_regression_job_id": 109999966041,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -2384,7 +2400,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "After this DD-323…DD-327 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the batch state before opening the next independently source-complete governed backend batch.",
+      "next_action": "This DD-323…DD-327 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the batch is closed and the next independently source-complete governed backend batch may be source-audited.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -2478,7 +2494,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD323_DD327_CANONICAL_PROMOTION",
+  "current_phase": "DEVELOPMENT_DD323_DD327_STATE_CLOSURE",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -2511,19 +2527,19 @@
   },
   "continuation": {
     "checkpoint": "DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-ENVELOPE-EVIDENCE-001",
-    "verified_code_head": "ee4fe871968b75f825b6c59a7ac6a805291765c7",
-    "verified_code_tree": "ab1d4504481c46225f8baea19b71f15ebba0d7cc",
+    "verified_code_head": "bd20799b7fc790057b2419bdd0da812f2a7d31db",
+    "verified_code_tree": "690593a95f3075463942c31df1af879dca8ec6fb",
     "source_audit": "Development/NOTIFICATION_DELIVERY_SOURCE_EVENT_ENVELOPE_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "After this DD-323…DD-327 canonical promotion passes exact-head Core/PostgreSQL/Database/Web, record promotion evidence and close the batch state before opening the next independently source-complete governed backend batch.",
+    "next_action": "This DD-323…DD-327 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the batch is closed and the next independently source-complete governed backend batch may be source-audited.",
     "main_merge": false
   },
   "current_audit_overlay": {
     "checkpoint": "DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-ENVELOPE-EVIDENCE-001",
-    "verified_executable_basis": "ee4fe871968b75f825b6c59a7ac6a805291765c7",
-    "verified_executable_tree": "ab1d4504481c46225f8baea19b71f15ebba0d7cc",
+    "verified_executable_basis": "bd20799b7fc790057b2419bdd0da812f2a7d31db",
+    "verified_executable_tree": "690593a95f3075463942c31df1af879dca8ec6fb",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "scope": "DD-323…DD-327 re-evaluate only directly available persisted Outbox envelope identity, exact EventCatalog producer/sensitivity and local scope-shape evidence over the exact DD-322 pair; Tenant residency, explicit cross-context ownership, payload-schema execution, catalog lifecycle, retry/dispatch/provider/secret/send/mutation remain separately governed.",
+    "scope": "DD-323…DD-327 canonical persisted source-event envelope evidence is promoted and exact-head verified; Tenant residency/currentness, explicit cross-context endpoint ownership, payload-schema execution, catalog lifecycle, retry/dispatch/provider/secret/send/mutation remain separately governed.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",
       "parents_total": 372,
