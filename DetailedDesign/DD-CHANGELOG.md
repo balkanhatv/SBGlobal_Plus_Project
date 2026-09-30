@@ -664,3 +664,7 @@ Canonical promotion `02b54b445d4a6ad90634add6a51da296fe67786f` / tree `e972a33f1
 ## 2026-09-30 — DD-313…DD-317 NotificationDelivery Integration current-integrity evidence reader
 
 DD-313…DD-317 extend DD-312 only with conditional exact TenantIntegration current-integrity evidence owned by DD-167. Source audit `2ea6fffa7498532eb137fe1053edf9d17fcadb1c` preceded implementation `dcc220cad203d7ecb273b099d0064b16d53a161a` / tree `9179390de15fbc582355b9386222b002a6ca3bcb`, which passed **1038/1038 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, public route, provider SDK, secret access, frontend or product-policy change. Provider selection, health/fallback, secret material, retry/finality, rendering, dispatch/send and mutation remain unclaimed.
+
+## 2026-09-30 — DD-313…DD-317 canonical promotion verified; state closure staged
+
+Canonical promotion `af4f941c1499ad845301034bbdf3b44a35df95c0` / tree `8946fa4a9bb742eade0567c494dcf00b9525e3c6` passed **1038/1038 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The closure advances all current projections to that verified promotion basis while preserving DD-317 feature evidence on implementation `dcc220cad203d7ecb273b099d0064b16d53a161a` / tree `9179390de15fbc582355b9386222b002a6ca3bcb`. No RawSource, runtime, schema, route, provider SDK, secret access, frontend or product-policy change.

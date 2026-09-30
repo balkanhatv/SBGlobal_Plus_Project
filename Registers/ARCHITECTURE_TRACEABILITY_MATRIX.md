@@ -1,7 +1,7 @@
 # ARCHITECTURE TRACEABILITY MATRIX — PHASE 2 FRESH REVALIDATION
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-INTEGRATION-CURRENT-INTEGRITY-EVIDENCE-READER-001`
-**Current executable audit basis:** `dcc220cad203d7ecb273b099d0064b16d53a161a` / tree `9179390de15fbc582355b9386222b002a6ca3bcb`
-> **Current audit gate (2026-09-28):** DD-313…DD-317 NotificationDelivery TenantIntegration current-integrity evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `af4f941c1499ad845301034bbdf3b44a35df95c0` / tree `8946fa4a9bb742eade0567c494dcf00b9525e3c6`
+> **Current audit gate (2026-09-28):** DD-313…DD-317 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** PHASE-2 ARCHITECTURE TRACEABILITY PASS · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 **Upstream Foundation:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`
 
