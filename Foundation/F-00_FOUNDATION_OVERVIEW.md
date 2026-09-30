@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT FOUNDATION
 **Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-RESIDENCY-POLICY-EVIDENCE-PRE-ROUTING-001`
-**Current executable audit basis:** `38a43f2a9639b47415027cfe78290e7bfbc81ad0` / tree `5bda28a378358836d3651364e16c78ca5be24c43`
-> **Current audit gate (2026-09-28):** DD-283…DD-287 live authorization → exact residency-policy evidence → existing raw-catalog pre-routing batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `574b5f1ec9646c35e1ea668b8553d04aa9151b83` / tree `b9f66ab86767184947952c2f2a7249ae68d14fee`
+> **Current audit gate (2026-09-28):** DD-283…DD-287 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 

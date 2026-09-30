@@ -1,7 +1,7 @@
 # DD-20C — WAVE-3 ADVERSARIAL AUDIT
 **Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-RESIDENCY-POLICY-EVIDENCE-PRE-ROUTING-001`
-**Current executable audit basis:** `38a43f2a9639b47415027cfe78290e7bfbc81ad0` / tree `5bda28a378358836d3651364e16c78ca5be24c43`
-> **Current audit gate (2026-09-28):** DD-283…DD-287 live authorization → exact residency-policy evidence → existing raw-catalog pre-routing batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `574b5f1ec9646c35e1ea668b8553d04aa9151b83` / tree `b9f66ab86767184947952c2f2a7249ae68d14fee`
+> **Current audit gate (2026-09-28):** DD-283…DD-287 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE-3 ADVERSARIAL EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `810e43c9c75e3750f52cc7e1954db8f341e6d79b`  
 **Historical adversarial hypothesis:** **WAVE 3 IS NOT IMPLEMENTATION READY**
 

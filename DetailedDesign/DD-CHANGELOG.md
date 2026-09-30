@@ -616,3 +616,7 @@ Canonical promotion `7caa7c6ee610904c95031536a87ecfab08255cac` / tree `6bb3b9414
 ## 2026-09-30 — DD-283…DD-287 Industry Gateway residency-policy evidence pre-routing batch
 
 DD-283…DD-287 preserve the existing authorized raw-catalog pre-routing path while inserting exact DD-282 Tenant residency-policy evidence loading between live GuardPipeline authorization and raw Provider/Model catalog access. Source audit `6488905f334ee8cbe188d7f26a946dcccf3b03a6` / tree `947ffd4b50516a55ab38f4530fed3859942e4b38` preceded implementation `38a43f2a9639b47415027cfe78290e7bfbc81ad0` / tree `5bda28a378358836d3651364e16c78ca5be24c43`, which passed **977/977 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, role/grant, public route, provider SDK, frontend or product-policy change. AIPolicy evaluation, residency authorization/region derivation, budget, routing, credentials and execution remain unclaimed.
+
+## 2026-09-30 — DD-283…DD-287 canonical promotion verified; state closure staged
+
+Canonical promotion `574b5f1ec9646c35e1ea668b8553d04aa9151b83` / tree `b9f66ab86767184947952c2f2a7249ae68d14fee` passed **977/977 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records this promotion as the current executable audit basis without changing runtime, schema, migrations, RLS, RawSource, routes or frontend.
