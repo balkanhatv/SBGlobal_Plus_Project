@@ -3727,3 +3727,53 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no normalization, current/latest selection, AST/constraint evaluation, policy effect composition or authorized-region derivation.
 
 **Acceptance:** `AIRESPOL-LOAD-001…002`.
+
+## DD-283 — Extract post-authorization raw-catalog pre-routing helper
+
+**Context:** DD-277 already performs raw Provider/Model catalog construction after live authorization.
+
+**Decision:** add `buildAIIndustryGatewayCatalogPreRoutingAfterAuthorization(input)` containing only DD-243 request-shape validation, DD-242 raw-catalog pre-candidate construction using the exact supplied already-authorized residency region, and DD-267 Tenant/Industry narrowing.
+
+**Boundary:** this helper performs no authorization, AIPolicy evaluation or residency-region derivation.
+
+**Acceptance:** `AIRESGW-POST-001…002`.
+
+
+## DD-284 — Preserve DD-277 public behavior through DD-283
+
+**Decision:** refactor `buildAuthorizedAIIndustryGatewayCatalogPreRoutingEnvelope` to invoke the existing DD-269 authorization bridge exactly once and delegate post-authorization catalog work to DD-283.
+
+**Boundary:** GuardPipeline errors, GuardResult identity, null/empty semantics and output shape remain unchanged.
+
+**Acceptance:** `AIRESGW-AUTH-001…002`.
+
+
+## DD-285 — Require exact residency-policy evidence before catalog access
+
+**Context:** DD-282 loads exact TenantAIConfig residency-policy evidence without policy interpretation.
+
+**Decision:** add `buildAuthorizedAIIndustryGatewayResidencyPolicyEvidencePreRoutingEnvelope(input, authorization, policyReadPort)`, ordered as live authorization → DD-282 policy evidence load → DD-283 raw catalog work.
+
+**Security / trade-off:** missing/mismatched policy evidence returns null before raw catalog access; GuardPipeline and policy-read dependency errors propagate unchanged.
+
+**Boundary:** loaded AIPolicy evidence does not authorize or derive `authorizedResidencyRegion`.
+
+**Acceptance:** `AIRESGW-POL-001…003`.
+
+
+## DD-286 — Preserve exact Guard and policy evidence
+
+**Decision:** successful DD-285 output is immutable `{guardResult, residencyPolicy, candidates}` with exact GuardResult and PersistedAIPolicy object identities.
+
+**Boundary:** no normalization or policy-derived decision is projected.
+
+**Acceptance:** `AIRESGW-EVID-001`.
+
+
+## DD-287 — Preserve empty/null semantics and lock authority boundary
+
+**Decision:** valid empty DD-283 candidates remain immutable empty success; downstream malformed/ineligible evidence remains null; no new authority fields are emitted.
+
+**Boundary:** policy decision/residency authorization, budget, scoring, routing, credentials and provider execution remain separate.
+
+**Acceptance:** `AIRESGW-EMPTY-001`, `AIRESGW-BOUNDARY-001`.

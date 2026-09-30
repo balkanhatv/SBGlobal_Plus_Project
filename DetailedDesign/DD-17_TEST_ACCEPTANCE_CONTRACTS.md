@@ -4499,3 +4499,47 @@ The contextual loader receives the exact supplied RequestContext and policy id e
 
 ### AIRESPOL-LOAD-002 — Missing/mismatched/error and uninterpreted semantics
 Missing or mismatched evidence returns null, dependency errors propagate unchanged, and conditionAst/constraint/status semantics remain uninterpreted.
+
+## DD-283 Post-Authorization Raw-Catalog Pre-Routing Acceptance
+
+### AIRESGW-POST-001 — Existing candidate construction/narrowing preserved
+The extracted post-authorization helper returns the same immutable DD-242 → DD-267 candidate subset for valid supplied evidence.
+
+### AIRESGW-POST-002 — Malformed-versus-empty semantics preserved
+Malformed/ineligible evidence returns null; valid zero-match evidence returns immutable empty success.
+
+
+## DD-284 Existing Authorized Catalog Envelope Preservation Acceptance
+
+### AIRESGW-AUTH-001 — Exact one-time authorization
+The existing DD-277 envelope authorizes exactly once before DD-283 and preserves exact GuardResult object identity.
+
+### AIRESGW-AUTH-002 — Guard failure remains authoritative
+GuardPipeline denial/dependency error propagates unchanged and raw Provider/Model catalog evidence is not read.
+
+
+## DD-285 Residency-Policy Evidence Ordering Acceptance
+
+### AIRESGW-POL-001 — Required order
+Execution order is live authorization → exact DD-282 residency-policy evidence load → raw Provider/Model catalog access.
+
+### AIRESGW-POL-002 — Missing/mismatched policy stops before catalog
+Missing or DD-281-incoherent policy evidence returns null before raw Provider/Model catalog evidence is read.
+
+### AIRESGW-POL-003 — Policy-read dependency failure remains authoritative
+AIPolicy read dependency error propagates unchanged and raw catalog evidence is not read.
+
+
+## DD-286 Evidence-Preserving Envelope Acceptance
+
+### AIRESGW-EVID-001 — Exact identities + immutable candidates
+Success preserves exact GuardResult identity, exact loaded PersistedAIPolicy identity, immutable candidate refs and unchanged inputs.
+
+
+## DD-287 Empty / Boundary Acceptance
+
+### AIRESGW-EMPTY-001 — Valid empty remains successful empty
+Valid empty DD-283 candidates plus valid policy evidence return an immutable empty successful envelope.
+
+### AIRESGW-BOUNDARY-001 — No new authority
+Output exposes no policy decision, residency authorization/derived region, effective configuration, budget approval/reservation, score, route/fallback, credential or execution authority.

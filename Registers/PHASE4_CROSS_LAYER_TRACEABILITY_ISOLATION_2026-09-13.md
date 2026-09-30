@@ -1,7 +1,7 @@
 # PHASE 4 — Cross-Layer Traceability / Isolation / Determinism Revalidation
-**Current checkpoint:** `DEV-AI-TENANT-RESIDENCY-POLICY-CONTEXT-EVIDENCE-001`
-**Current executable audit basis:** `7caa7c6ee610904c95031536a87ecfab08255cac` / tree `6bb3b94148d8ca04a02871a94a58c33c57b69365`
-> **Current audit gate (2026-09-28):** DD-278…DD-282 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-RESIDENCY-POLICY-EVIDENCE-PRE-ROUTING-001`
+**Current executable audit basis:** `38a43f2a9639b47415027cfe78290e7bfbc81ad0` / tree `5bda28a378358836d3651364e16c78ca5be24c43`
+> **Current audit gate (2026-09-28):** DD-283…DD-287 live authorization → exact residency-policy evidence → existing raw-catalog pre-routing batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-4 GATE EVIDENCE · **Date:** 2026-09-13  
 **Evaluated substantive DD HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`  
 **Upstream gates at evaluation:** Phase 1 Foundation PASS · Phase 2 Architecture PASS · Phase 3 DD PASS
