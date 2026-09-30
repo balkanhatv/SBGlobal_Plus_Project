@@ -99,6 +99,7 @@ export * from "./notification/delivery-known-relationship-reader.js";
 export * from "./notification/delivery-visible-known-relationship-reader.js";
 export * from "./notification/delivery-composed-evidence-reader.js";
 export * from "./notification/delivery-integration-current-integrity-evidence-reader.js";
+export * from "./notification/delivery-source-event-catalog-evidence-reader.js";
 export * from "./notification/template.js";
 export * from "./workflow/definition.js";
 export * from "./workflow/instance.js";
