@@ -1,7 +1,7 @@
 # PHASE 3 — Detailed Design Fresh Revalidation
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-KNOWN-RELATIONSHIP-READER-001`
-**Current executable audit basis:** `151f316239c0723e3e30f98fec58392b59cef412` / tree `b6d37acabc733c5b0ab388fda9415b68beacb767`
-> **Current audit gate (2026-09-28):** DD-298…DD-302 NotificationDelivery known-relationship reader batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `7b86d9c70701f5b3c5ef13ca4234eb6855043c4b` / tree `ec45f70b63c23d6ab9b963da1abefe38bea21157`
+> **Current audit gate (2026-09-28):** DD-298…DD-302 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.
