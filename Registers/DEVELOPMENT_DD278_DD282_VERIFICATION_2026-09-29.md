@@ -23,3 +23,13 @@ No schema, migration, RLS, role, grant, public route, provider SDK, frontend or 
 ## Canonical promotion gate
 
 This register is created by the DD-278…DD-282 canonical promotion. The promotion commit must independently pass exact-head Core/PostgreSQL/Database/Web before batch state closure and before another governed backend source audit opens.
+
+## Canonical promotion exact-head gate
+
+Promotion `7caa7c6ee610904c95031536a87ecfab08255cac` / tree `6bb3b94148d8ca04a02871a94a58c33c57b69365` independently passed:
+- Core Service Verify `36609161465` / `109545848334`: **967/967 PASS**, zero failed/skipped.
+- PostgreSQL `36609161465` / `109545848740`: **525/525 PASS**, zero failed/skipped; database bootstrap PASS.
+- Database Verify `36609161322` / `109545847538`: PASS; inventory remains **48 migrations / 42 verification files**.
+- Web Boundary Verify `36609161384` / `109545848745`: PASS.
+
+The promotion changes only canonical documentation/state/evidence. Runtime, schema, migrations, RLS, RawSource and executable tests remain unchanged. This containing state-closure commit must independently pass the same exact-head gate before another governed backend source audit opens.
