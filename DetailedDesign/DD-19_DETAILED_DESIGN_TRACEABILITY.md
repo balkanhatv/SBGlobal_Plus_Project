@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-INDUSTRY-GATEWAY-RESIDENCY-POLICY-EVIDENCE-PRE-ROUTING-001`
-**Current executable audit basis:** `574b5f1ec9646c35e1ea668b8553d04aa9151b83` / tree `b9f66ab86767184947952c2f2a7249ae68d14fee`
-> **Current audit gate (2026-09-28):** DD-283…DD-287 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-ATTEMPT-HISTORY-EVIDENCE-001`
+**Current executable audit basis:** `1a131d2a3ac4312a37e7e0886c4667b1257ee352` / tree `fd5e26a6fe1475342090fc05421f50d0f316a747`
+> **Current audit gate (2026-09-28):** DD-288…DD-292 NotificationDeliveryAttempt history-evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -825,3 +825,21 @@ DD-283…DD-287 →
 `Registers/DEVELOPMENT_DD283_DD287_VERIFICATION_2026-09-30.md`.
 
 This chain proves only evidence ordering and identity preservation: live GuardPipeline authorization completes, exact DD-282 residency-policy evidence is loaded, and only then does the existing DD-242 → DD-267 raw-catalog pre-routing path run. It does not interpret AIPolicy semantics or derive/authorize a residency region.
+
+## DD-288…DD-292 — NotificationDeliveryAttempt raw history-evidence batch
+
+migration 0026 NotificationDeliveryAttempt FK/unique constraints →
+DD-099 raw DeliveryAttempt contract + PostgreSQL attempt reader →
+`Development/NOTIFICATION_DELIVERY_ATTEMPT_HISTORY_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-288…DD-292 →
+`src/core/notification/delivery-attempt-history-evidence.ts` →
+`NOTIF-ATT-PARENT-001…002`,
+`NOTIF-ATT-SET-001…004`,
+`NOTIF-ATT-HIST-001…002`,
+`NOTIF-ATT-LATEST-001…002`,
+`NOTIF-ATT-ENV-001`,
+`NOTIF-ATT-BOUND-001` →
+`tests/core/notification-delivery-attempt-history-evidence.test.mjs` →
+`Registers/DEVELOPMENT_DD288_DD292_VERIFICATION_2026-09-30.md`.
+
+This chain proves only coherent raw supplied attempt-history evidence for one supplied Delivery. It does not interpret status terminality/retryability, allocate attempts, select providers, schedule/dispatch work, resolve credentials or mutate Delivery lifecycle.

@@ -3777,3 +3777,47 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** policy decision/residency authorization, budget, scoring, routing, credentials and provider execution remain separate.
 
 **Acceptance:** `AIRESGW-EMPTY-001`, `AIRESGW-BOUNDARY-001`.
+
+## DD-288 — Exact NotificationDeliveryAttempt parent binding floor
+
+**Decision:** add `matchesNotificationDeliveryAttemptParentFloor(attempt, delivery)` requiring UUID-shaped attempt/delivery identity, positive safe-integer attemptNo and exact `attempt.deliveryId === delivery.id`.
+
+**Boundary:** provider/status/error/timestamp and Delivery lifecycle semantics remain uninterpreted.
+
+**Acceptance:** `NOTIF-ATT-PARENT-001…002`.
+
+
+## DD-289 — Supplied attempt-history evidence-set floor
+
+**Decision:** add `matchesNotificationDeliveryAttemptHistoryEvidenceFloor(delivery, attempts)`, requiring a dense finite same-parent evidence array, unique attempt ids and unique positive attempt numbers. Empty history is valid.
+
+**Boundary:** no gap-free/contiguous attempt-number rule is invented.
+
+**Acceptance:** `NOTIF-ATT-SET-001…004`.
+
+
+## DD-290 — Immutable canonical raw attempt-history projection
+
+**Decision:** add `projectNotificationDeliveryAttemptHistory(delivery, attempts)`. Malformed evidence returns null; valid evidence returns immutable cloned raw attempts sorted by attemptNo then id.
+
+**Boundary:** ordering is deterministic evidence serialization only, not retry/finality precedence.
+
+**Acceptance:** `NOTIF-ATT-HIST-001…002`.
+
+
+## DD-291 — Latest raw attempt evidence projection
+
+**Decision:** add `projectLatestNotificationDeliveryAttemptEvidence(delivery, attempts)`. Valid empty history returns undefined; malformed history returns null; non-empty history returns the final canonical attempt-number item.
+
+**Boundary:** “latest” means highest supplied persisted attempt number only. Normalized status is not interpreted.
+
+**Acceptance:** `NOTIF-ATT-LATEST-001…002`.
+
+
+## DD-292 — Combined NotificationDelivery attempt-history evidence envelope
+
+**Decision:** add `buildNotificationDeliveryAttemptHistoryEvidence(delivery, attempts)`, preserving exact supplied Delivery reference plus immutable canonical history and optional latest raw attempt evidence.
+
+**Boundary:** no retry/finality/backoff/provider/credential/dispatch/scheduling authority is added.
+
+**Acceptance:** `NOTIF-ATT-ENV-001`, `NOTIF-ATT-BOUND-001`.

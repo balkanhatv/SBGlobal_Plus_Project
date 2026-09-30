@@ -4543,3 +4543,53 @@ Valid empty DD-283 candidates plus valid policy evidence return an immutable emp
 
 ### AIRESGW-BOUNDARY-001 — No new authority
 Output exposes no policy decision, residency authorization/derived region, effective configuration, budget approval/reservation, score, route/fallback, credential or execution authority.
+
+## DD-288 NotificationDeliveryAttempt Parent Binding Acceptance
+
+### NOTIF-ATT-PARENT-001 — Exact parent identity and positive attempt number
+A UUID-shaped attempt whose deliveryId exactly equals the supplied Delivery id and whose attemptNo is a positive safe integer passes.
+
+### NOTIF-ATT-PARENT-002 — Wrong/malformed parent or attempt number denies
+Malformed ids, cross-Delivery evidence, zero/negative/non-integer attempt numbers fail closed.
+
+
+## DD-289 NotificationDeliveryAttempt History Evidence-Set Acceptance
+
+### NOTIF-ATT-SET-001 — Unique same-Delivery evidence passes
+A dense finite same-Delivery array with unique attempt ids and unique positive attempt numbers passes.
+
+### NOTIF-ATT-SET-002 — Duplicate identity/number denial
+Duplicate attempt id or duplicate attemptNo fails closed.
+
+### NOTIF-ATT-SET-003 — Cross-Delivery/sparse/malformed denial
+Cross-Delivery, sparse or malformed attempt evidence fails closed.
+
+### NOTIF-ATT-SET-004 — Empty history is valid
+A valid Delivery with an empty supplied attempt array passes.
+
+
+## DD-290 Canonical Raw Attempt History Projection Acceptance
+
+### NOTIF-ATT-HIST-001 — Immutable canonical ordering
+Unsorted valid evidence projects immutable cloned attempts ordered by attemptNo then id.
+
+### NOTIF-ATT-HIST-002 — Raw evidence preservation
+Provider message reference, normalized status/error and timestamps are preserved exactly without semantic interpretation.
+
+
+## DD-291 Latest Raw Attempt Evidence Acceptance
+
+### NOTIF-ATT-LATEST-001 — Highest supplied attempt number
+Non-empty valid history returns the immutable highest-attempt-number evidence item.
+
+### NOTIF-ATT-LATEST-002 — Empty versus malformed distinction
+Valid empty history returns undefined; malformed history remains distinguishable as null.
+
+
+## DD-292 Combined Delivery Attempt-History Evidence Acceptance
+
+### NOTIF-ATT-ENV-001 — Exact Delivery plus immutable history/latest
+The envelope preserves the exact supplied Delivery identity and immutable canonical history/latest evidence.
+
+### NOTIF-ATT-BOUND-001 — No runtime decision authority
+Inputs remain unchanged and the envelope exposes no retry, finality, backoff, provider-selection, credential, dispatch or scheduling authority.
