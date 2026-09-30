@@ -648,3 +648,7 @@ Canonical promotion `7b86d9c70701f5b3c5ef13ca4234eb6855043c4b` / tree `ec45f70b6
 ## 2026-09-30 — DD-303…DD-307 visible-parent NotificationDelivery known-relationship reader
 
 DD-303…DD-307 add only parent-first DD-098 visibility before the existing DD-302 known-relationship reader. Source audit `f0b020e988786a32be3bda40bbcf9efb252a0e31` / tree `841ec8ecb50eeae54fa3faed3b2963c78dfa2eb3` preceded implementation `213d8421cd5a6ddd55c8182e462373a67d876610` / tree `3b921f25f1a6b5d346e6d4471153d88e4697eef7`, which passed **1017/1017 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. No RawSource, schema, migration, RLS, role/grant, public route, provider SDK, frontend or product-policy change. Recipient currentness, complete Delivery validity, rendering, provider/credential runtime, source-event readiness, retry/send/scheduling and mutation remain unclaimed.
+
+## 2026-09-30 — DD-303…DD-307 canonical promotion verified; state closure staged
+
+Canonical promotion `4aab9f1435d7c7475fe32723634fa036230de6bc` / tree `ab492530ee23ac260f9f6cdc37b2d3c3126b5a04` passed **1017/1017 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis while DD-307 feature evidence remains anchored to implementation `213d8421cd5a6ddd55c8182e462373a67d876610`. No runtime, schema, RawSource or test weakening is introduced.

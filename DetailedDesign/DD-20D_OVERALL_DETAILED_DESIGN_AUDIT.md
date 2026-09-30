@@ -1,7 +1,7 @@
 # DD-20D — OVERALL DETAILED DESIGN ADVERSARIAL AUDIT — PHASE 3
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-VISIBLE-KNOWN-RELATIONSHIP-READER-001`
-**Current executable audit basis:** `213d8421cd5a6ddd55c8182e462373a67d876610` / tree `3b921f25f1a6b5d346e6d4471153d88e4697eef7`
-> **Current audit gate (2026-09-28):** DD-303…DD-307 visible-parent NotificationDelivery known-relationship reader composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `4aab9f1435d7c7475fe32723634fa036230de6bc` / tree `ab492530ee23ac260f9f6cdc37b2d3c3126b5a04`
+> **Current audit gate (2026-09-28):** DD-303…DD-307 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-3 DETAILED DESIGN EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 **Historical adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
 
