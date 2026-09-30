@@ -1,7 +1,7 @@
 # ARCHITECTURE TRACEABILITY MATRIX — PHASE 2 FRESH REVALIDATION
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CATALOG-EVIDENCE-READER-001`
-**Current executable audit basis:** `09238112636c422d7c16043e1f13d45176664849` / tree `2d9e9d5dccac48c4a12c32b3292ca53d1f488090`
-> **Current audit gate (2026-09-28):** DD-318…DD-322 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-ENVELOPE-EVIDENCE-001`
+**Current executable audit basis:** `ee4fe871968b75f825b6c59a7ac6a805291765c7` / tree `ab1d4504481c46225f8baea19b71f15ebba0d7cc`
+> **Current audit gate (2026-09-28):** DD-323…DD-327 NotificationDelivery source-event persisted-envelope evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** PHASE-2 ARCHITECTURE TRACEABILITY PASS · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 **Upstream Foundation:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`
 

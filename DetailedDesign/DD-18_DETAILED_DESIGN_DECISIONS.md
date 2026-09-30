@@ -4095,3 +4095,53 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no ready/dispatchable/sendable flag or mutation authority is synthesized.
 
 **Acceptance:** `NOTIF-EVTCAT-EVID-001`, `NOTIF-EVTCAT-BOUND-001…002`.
+
+## DD-323 — Re-evaluate directly persisted Outbox envelope row identity
+
+**Context:** migration 0030 persists the Outbox row and envelope identity/mandatory fields; DD-090 preserves immutable raw envelope JSON.
+
+**Decision:** add `matchesOutboxEventEnvelopeIdentityFloors(event)`, requiring exact eventId/type/version/scope plus valid correlation/timestamp, mandatory non-empty actor/resource/schema strings and own payload member.
+
+**Boundary:** payload contents and external ownership are uninterpreted.
+
+**Acceptance:** `NOTIF-EVTENV-ID-001…003`.
+
+
+## DD-324 — Re-evaluate directly available EventCatalog metadata relation
+
+**Context:** migration 0030 requires envelope sourceModule/dataSensitivity to match the exact catalog producer/sensitivity and DD-321 already owns the exact tuple relation.
+
+**Decision:** add `matchesOutboxEventEnvelopeCatalogMetadataFloors(event, catalog)` as DD-323 + DD-321 + exact producer/sensitivity equality.
+
+**Boundary:** catalog lifecycle, webhook eligibility, consumers, compatibility, retention and payload-schema execution are not interpreted.
+
+**Acceptance:** `NOTIF-EVTENV-CAT-001…002`.
+
+
+## DD-325 — Re-evaluate only local scope shape
+
+**Context:** DD-081 and migration 0030 define local Tenant/Industry selector shape, while Tenant residency and EXPLICIT_CROSS_CONTEXT endpoint ownership require external authority not present in DD-322 evidence.
+
+**Decision:** add `matchesOutboxEventEnvelopeLocalScopeFloors(event)` for locally re-evaluable PLATFORM_GLOBAL/TENANT_CORE/TENANT_INDUSTRY shape and syntactic/distinct EXPLICIT_CROSS_CONTEXT selectors.
+
+**Boundary:** no Tenant residency currentness or cross-context endpoint same-Tenant proof.
+
+**Acceptance:** `NOTIF-EVTENV-SCOPE-001…003`.
+
+
+## DD-326 — Compose source-event persisted-envelope necessary evidence
+
+**Decision:** add `matchesNotificationDeliverySourceEventEnvelopeEvidenceFloors(sourceEventCatalog)` as DD-321 + DD-324 + DD-325 only.
+
+**Boundary:** true means necessary local persisted-evidence coherence, not complete EventEnvelope validation or dispatch approval.
+
+**Acceptance:** `NOTIF-EVTENV-COMP-001`.
+
+
+## DD-327 — Preserve DD-322 with immutable persisted-envelope evidence
+
+**Decision:** add `buildNotificationDeliverySourceEventEnvelopeEvidence(dd322Evidence)`. Unbound DD-322 evidence succeeds without source envelope; bound evidence requires DD-326 and preserves exact DD-322/Event/Catalog/envelope identities.
+
+**Boundary:** no reread, payload validator, residency lookup, external ownership lookup, catalog lifecycle interpretation, dispatch or mutation.
+
+**Acceptance:** `NOTIF-EVTENV-UNBOUND-001`, `NOTIF-EVTENV-EVID-001`, `NOTIF-EVTENV-BOUND-001`.

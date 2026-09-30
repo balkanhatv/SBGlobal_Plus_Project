@@ -1485,3 +1485,7 @@ DD-318…DD-322 freeze and implement only the parent-first NotificationDelivery 
 ## 2026-09-30 — DD-318…DD-322 canonical promotion verified; state closure staged
 
 Canonical promotion `09238112636c422d7c16043e1f13d45176664849` / tree `2d9e9d5dccac48c4a12c32b3292ca53d1f488090` passed **1049/1049 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records this promotion as the current verified executable basis and must independently pass before the next governed backend batch opens. No runtime, schema, RawSource, public route, provider SDK, secret, frontend or product-policy change is introduced by closure.
+
+## 2026-09-30 — DD-323…DD-327 canonical promotion staged
+
+DD-323…DD-327 freeze and implement only the NotificationDelivery source-event persisted-envelope evidence boundary recorded in `Development/NOTIFICATION_DELIVERY_SOURCE_EVENT_ENVELOPE_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Implementation `ee4fe871968b75f825b6c59a7ac6a805291765c7` / tree `ab1d4504481c46225f8baea19b71f15ebba0d7cc` passed **1061/1061 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. Canonical promotion remains subject to this promotion commit's own exact-head Core/PostgreSQL/Database/Web gate. Residency/endpoint ownership, payload-schema execution, catalog lifecycle, retry/dispatch/provider/secret/send authority remain unclaimed.

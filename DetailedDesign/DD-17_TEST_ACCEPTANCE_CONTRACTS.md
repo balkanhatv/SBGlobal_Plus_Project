@@ -4859,3 +4859,53 @@ Inputs remain unchanged and output exposes no catalog-lifecycle/readiness/payloa
 
 ### NOTIF-EVTCAT-BOUND-002 — No alternate lookup
 Null or tuple mismatch performs no fallback/alternate EventCatalog lookup.
+
+## DD-323 Outbox Envelope Row-Identity Acceptance
+
+### NOTIF-EVTENV-ID-001 — Exact persisted identity and mandatory envelope evidence
+Exact event id/type/version/scope plus valid correlation/timestamp, non-empty mandatory fields and payload member passes.
+
+### NOTIF-EVTENV-ID-002 — Identity mismatch denial
+Envelope event id/type/version/scope mismatch fails closed.
+
+### NOTIF-EVTENV-ID-003 — Mandatory evidence denial
+Invalid correlation/timestamp or missing/blank actorType/sourceResourceType/sourceResourceId/payloadSchema/payload evidence fails closed.
+
+
+## DD-324 Outbox Envelope EventCatalog Metadata Acceptance
+
+### NOTIF-EVTENV-CAT-001 — Exact producer/sensitivity metadata
+Exact producerModule + sensitivityClass plus DD-321 tuple passes regardless of ACTIVE/RETIRED catalog status.
+
+### NOTIF-EVTENV-CAT-002 — Metadata/tuple mismatch denial
+Producer, sensitivity or exact tuple mismatch fails closed.
+
+
+## DD-325 Local Envelope Scope-Shape Acceptance
+
+### NOTIF-EVTENV-SCOPE-001 — Local PLATFORM/TENANT scope shape
+Valid PLATFORM_GLOBAL, TENANT_CORE and TENANT_INDUSTRY locally re-evaluable ownership shapes pass.
+
+### NOTIF-EVTENV-SCOPE-002 — Local ownership/selectors mismatch denial
+Tenant/Industry mismatch or forbidden local selectors fail closed.
+
+### NOTIF-EVTENV-SCOPE-003 — Explicit cross-context local shape only
+EXPLICIT_CROSS_CONTEXT requires exact Tenant plus distinct UUID source/target selectors; this does not prove same-Tenant endpoint ownership.
+
+
+## DD-326 Source-Event Persisted-Envelope Composition Acceptance
+
+### NOTIF-EVTENV-COMP-001 — Exact composed evidence
+DD-321 exact tuple + DD-324 metadata + DD-325 local scope evidence passes together.
+
+
+## DD-327 Immutable DD-322 + Envelope Evidence Acceptance
+
+### NOTIF-EVTENV-UNBOUND-001 — Unbound DD-322 evidence
+DD-322 without source event remains valid without synthesized source-envelope evidence.
+
+### NOTIF-EVTENV-EVID-001 — Bound identity preservation
+Bound success preserves exact DD-322/Event/Catalog/envelope identities in immutable nested evidence.
+
+### NOTIF-EVTENV-BOUND-001 — No new authority or mutation
+Inputs remain unchanged and output exposes no residency/currentness/payload-schema/catalog-lifecycle/webhook/dispatch/retry/provider/secret/send/mutation authority.

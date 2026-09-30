@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CATALOG-EVIDENCE-READER-001`
-**Current executable audit basis:** `09238112636c422d7c16043e1f13d45176664849` / tree `2d9e9d5dccac48c4a12c32b3292ca53d1f488090`
-> **Current audit gate (2026-09-28):** DD-318…DD-322 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-ENVELOPE-EVIDENCE-001`
+**Current executable audit basis:** `ee4fe871968b75f825b6c59a7ac6a805291765c7` / tree `ab1d4504481c46225f8baea19b71f15ebba0d7cc`
+> **Current audit gate (2026-09-28):** DD-323…DD-327 NotificationDelivery source-event persisted-envelope evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -966,3 +966,26 @@ DD-318…DD-322 →
 `Registers/DEVELOPMENT_DD318_DD322_VERIFICATION_2026-09-30.md`.
 
 This chain proves only parent-first DD-317 evidence plus conditional exact persisted source-event EventCatalog tuple evidence. It does not interpret Outbox readiness/retry, EventCatalog lifecycle for execution, payload schema execution, webhook/consumer eligibility, dispatch, provider/secret access, send authorization or mutation.
+
+## DD-323…DD-327 — NotificationDelivery source-event persisted-envelope evidence
+
+A-06 transactional outbox/Event Catalog →
+DD-081 EventEnvelope contract/validator boundary →
+migration 0030 persisted Outbox envelope constraints →
+DD-090 raw OutboxEvent evidence →
+DD-091 exact EventCatalog evidence →
+DD-318…DD-322 Delivery source-event catalog evidence →
+`Development/NOTIFICATION_DELIVERY_SOURCE_EVENT_ENVELOPE_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-323…DD-327 →
+`src/core/notification/delivery-source-event-envelope-evidence.ts` →
+`NOTIF-EVTENV-ID-001…003`,
+`NOTIF-EVTENV-CAT-001…002`,
+`NOTIF-EVTENV-SCOPE-001…003`,
+`NOTIF-EVTENV-COMP-001`,
+`NOTIF-EVTENV-UNBOUND-001`,
+`NOTIF-EVTENV-EVID-001`,
+`NOTIF-EVTENV-BOUND-001` →
+`tests/core/notification-delivery-source-event-envelope-evidence.test.mjs` →
+`Registers/DEVELOPMENT_DD323_DD327_VERIFICATION_2026-09-30.md`.
+
+This chain proves only locally re-evaluable persisted Outbox envelope identity/catalog/local-scope evidence from the exact DD-322 event/catalog pair. Tenant residency, explicit cross-context endpoint ownership, payload-schema execution, complete EventEnvelope validation, catalog execution lifecycle, webhook/consumer selection, Outbox readiness/retry and Notification dispatch/send remain separate.
