@@ -4909,3 +4909,53 @@ Bound success preserves exact DD-322/Event/Catalog/envelope identities in immuta
 
 ### NOTIF-EVTENV-BOUND-001 — No new authority or mutation
 Inputs remain unchanged and output exposes no residency/currentness/payload-schema/catalog-lifecycle/webhook/dispatch/retry/provider/secret/send/mutation authority.
+
+## DD-328 Notification Tenant Residency Read Port Acceptance
+
+### NOTIF-EVTRES-FLOOR-001 — Exact current Tenant residency equality
+Exact TENANT_CORE/TENANT_INDUSTRY source-event Tenant plus current authoritative Tenant residency and persisted envelope residency equality passes.
+
+### NOTIF-EVTRES-FLOOR-002 — Invalid residency evidence denies
+Wrong Tenant, wrong/blank region, invalid scope or invalid DD-326 source-event envelope evidence fails closed.
+
+
+## DD-329 PostgreSQL Current Tenant Residency Reader Acceptance
+
+### NOTIF-EVTRES-PG-001 — Exact Industry-scoped read
+Exact Industry-scoped same-Tenant current residency read preserves immutable Tenant residency evidence.
+
+### NOTIF-EVTRES-PG-002 — Tenant-Core and sibling-Industry same-Tenant read
+Tenant-Core and sibling-Industry RequestContexts for the same Tenant read the same current Tenant residency.
+
+### NOTIF-EVTRES-PG-003 — Foreign-Tenant read denied
+A foreign-Tenant input/context cannot read another Tenant residency through the Notification-worker RLS boundary.
+
+### NOTIF-EVTRES-PG-004 — Malformed/mismatched context or route denied
+Malformed/mismatched context/id or database-route mismatch fails closed.
+
+
+## DD-330 Source-Event Current Residency Floor Acceptance
+
+### NOTIF-EVTRES-BASE-001 — Parent evidence before residency read
+DD-327 parent envelope evidence is established before any residency read.
+
+### NOTIF-EVTRES-BASE-002 — Parent null/error short-circuits
+Parent null returns null and parent error propagates unchanged; residency is not read.
+
+
+## DD-331 Parent-First Current Residency Reader Acceptance
+
+### NOTIF-EVTRES-UNBOUND-001 — Unbound source-event success
+An unbound source event succeeds with exact DD-327 evidence and performs no residency read or synthesized residency evidence.
+
+### NOTIF-EVTRES-READ-001 — Exact bound residency read
+A bound source event forwards the exact supplied RequestContext and preserved event Tenant id exactly once.
+
+### NOTIF-EVTRES-READ-002 — Residency null/error semantics
+Null residency returns null; residency-reader errors propagate unchanged.
+
+
+## DD-332 Immutable DD-327 + Current Residency Evidence Acceptance
+
+### NOTIF-EVTRES-EVID-001 — Exact immutable evidence preservation
+Success preserves exact DD-327/current-residency evidence identities, immutable output, unchanged inputs and no historical-residency/payload/catalog/readiness/provider/render/send/mutation authority.

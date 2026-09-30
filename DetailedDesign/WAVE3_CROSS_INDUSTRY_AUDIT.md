@@ -1,7 +1,7 @@
 # WAVE-3 CROSS-INDUSTRY CONSISTENCY & ISOLATION AUDIT
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-ENVELOPE-EVIDENCE-001`
-**Current executable audit basis:** `bd20799b7fc790057b2419bdd0da812f2a7d31db` / tree `690593a95f3075463942c31df1af879dca8ec6fb`
-> **Current audit gate (2026-09-28):** DD-323…DD-327 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CURRENT-RESIDENCY-EVIDENCE-001`
+**Current executable audit basis:** `c02aa25deff7cb9e1de2a15fe98f65132b401c81` / tree `ce2f7ef4692a67aacc0265ea1eed9d1f8b0865fe`
+> **Current audit gate (2026-09-28):** DD-328…DD-332 NotificationDelivery source-event current Tenant residency evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE-3 CROSS-INDUSTRY AUDIT PASS · **Date:** 2026-09-11 · **Scope:** all 9 industries / 41 Management Systems
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.

@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-ENVELOPE-EVIDENCE-001`
-**Current executable audit basis:** `bd20799b7fc790057b2419bdd0da812f2a7d31db` / tree `690593a95f3075463942c31df1af879dca8ec6fb`
-> **Current audit gate (2026-09-28):** DD-323…DD-327 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CURRENT-RESIDENCY-EVIDENCE-001`
+**Current executable audit basis:** `c02aa25deff7cb9e1de2a15fe98f65132b401c81` / tree `ce2f7ef4692a67aacc0265ea1eed9d1f8b0865fe`
+> **Current audit gate (2026-09-28):** DD-328…DD-332 NotificationDelivery source-event current Tenant residency evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -989,3 +989,24 @@ DD-323…DD-327 →
 `Registers/DEVELOPMENT_DD323_DD327_VERIFICATION_2026-09-30.md`.
 
 This chain proves only locally re-evaluable persisted Outbox envelope identity/catalog/local-scope evidence from the exact DD-322 event/catalog pair. Tenant residency, explicit cross-context endpoint ownership, payload-schema execution, complete EventEnvelope validation, catalog execution lifecycle, webhook/consumer selection, Outbox readiness/retry and Notification dispatch/send remain separate.
+
+## DD-328…DD-332 — NotificationDelivery source-event current Tenant residency evidence batch
+
+A-06 Event Catalog / transactional-outbox architecture →
+DD-07 consumer residency/data-home validation →
+DD-081 envelope/catalog validation ownership →
+DD-090 raw Outbox evidence →
+DD-169 exact NotificationDelivery→Outbox scope binding →
+DD-318…DD-327 source-event catalog/envelope evidence →
+migration 0027 Notification-worker Tenant SELECT + migration 0029 FORCE-RLS + migration 0030 Tenant residency envelope invariant →
+`Development/NOTIFICATION_DELIVERY_SOURCE_EVENT_CURRENT_RESIDENCY_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-328…DD-332 →
+`src/core/notification/delivery-source-event-current-residency-evidence-reader.ts` +
+`src/server/notification/postgres-notification-tenant-residency-store.ts` →
+Core `NOTIF-EVTRES-FLOOR-001…002`, `NOTIF-EVTRES-BASE-001…002`, `NOTIF-EVTRES-UNBOUND-001`, `NOTIF-EVTRES-READ-001…002`, `NOTIF-EVTRES-EVID-001` →
+PostgreSQL `NOTIF-EVTRES-PG-001…004` →
+`tests/core/notification-delivery-source-event-current-residency-evidence-reader.test.mjs` +
+`tests/postgres/notification-tenant-residency-store.test.mjs` →
+`Registers/DEVELOPMENT_DD328_DD332_VERIFICATION_2026-09-30.md`.
+
+This chain re-evaluates only current authoritative Tenant residency equality for an already DD-327-valid bound source event. It does not reconstruct historical write-time residency or add payload-schema/catalog-lifecycle/readiness/retry/provider/render/send/mutation authority.

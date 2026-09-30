@@ -4145,3 +4145,49 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no reread, payload validator, residency lookup, external ownership lookup, catalog lifecycle interpretation, dispatch or mutation.
 
 **Acceptance:** `NOTIF-EVTENV-UNBOUND-001`, `NOTIF-EVTENV-EVID-001`, `NOTIF-EVTENV-BOUND-001`.
+
+## DD-328 — Notification Tenant residency evidence/read port
+
+**Context:** DD-327 already proves the directly re-evaluable persisted source-event envelope evidence. Migration 0030 requires Tenant-scoped Outbox residency to equal the authoritative Tenant residency region, while the existing Notification worker can read the current Tenant row through RequestScopedSql/FORCE-RLS.
+
+**Decision:** add immutable `NotificationTenantResidencyEvidence` plus `NotificationTenantResidencyReadPort.loadCurrentForContext({requestContext, tenantId})`.
+
+**Boundary:** this is a current authoritative read contract only; it does not reconstruct historical write-time residency.
+
+**Acceptance:** `NOTIF-EVTRES-FLOOR-001…002`.
+
+
+## DD-329 — PostgreSQL current Tenant residency reader
+
+**Decision:** add `PostgresNotificationTenantResidencyStore` using the existing `RequestScopedSql` boundary. Require resolved TENANT_CORE/TENANT_INDUSTRY context, exact same Tenant, one parameterized read of `core_tenancy.tenant(id,residency_region_code)`, immutable exact evidence, null for RLS-hidden/absent rows and fail-closed malformed/mismatched evidence.
+
+**Boundary:** no new schema, role, grant or RLS policy.
+
+**Acceptance:** `NOTIF-EVTRES-PG-001…004`.
+
+
+## DD-330 — Source-event current residency equality floor
+
+**Decision:** add `matchesNotificationDeliverySourceEventCurrentResidencyFloors(sourceEventEnvelope, residency)`, requiring valid DD-326 envelope evidence, TENANT_CORE/TENANT_INDUSTRY scope, exact event/envelope/residency Tenant identity and exact persisted-envelope/current-Tenant residency equality.
+
+**Boundary:** EventCatalog lifecycle, payload schema, Outbox readiness and Delivery lifecycle remain uninterpreted.
+
+**Acceptance:** `NOTIF-EVTRES-BASE-001…002` plus floor acceptance above.
+
+
+## DD-331 — Parent-first current-residency reader composition
+
+**Decision:** add `loadNotificationDeliverySourceEventCurrentResidencyEvidence(...)`. Establish DD-322 and DD-327 first; unbound source events succeed without a residency read; bound source events perform exactly one current Tenant residency read using the exact supplied RequestContext and preserved event Tenant id; null returns null and reader errors propagate unchanged.
+
+**Boundary:** no fallback Tenant lookup or alternate region source.
+
+**Acceptance:** `NOTIF-EVTRES-UNBOUND-001`, `NOTIF-EVTRES-READ-001…002`.
+
+
+## DD-332 — Immutable DD-327 + current-residency evidence envelope
+
+**Decision:** on bound success return immutable composed evidence preserving exact DD-327 and current-residency evidence references; on unbound success preserve DD-327 evidence without synthesizing residency.
+
+**Boundary:** no historical residency claim, payload/catalog/readiness/retry/provider/render/send/mutation authority.
+
+**Acceptance:** `NOTIF-EVTRES-EVID-001`.

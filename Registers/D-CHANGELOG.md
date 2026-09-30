@@ -1493,3 +1493,7 @@ DD-323…DD-327 freeze and implement only the NotificationDelivery source-event 
 ## 2026-09-30 — DD-323…DD-327 canonical promotion verified; state closure staged
 
 Canonical promotion `bd20799b7fc790057b2419bdd0da812f2a7d31db` / tree `690593a95f3075463942c31df1af879dca8ec6fb` passed **1061/1061 Core**, **525/525 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis. No runtime, schema, RawSource, route, provider SDK, secret-access or frontend change is introduced by closure. Tenant residency/currentness, explicit cross-context endpoint ownership, payload-schema execution, catalog lifecycle, retry/dispatch/provider/secret/send authority remain separately governed.
+
+## 2026-09-30 — DD-328…DD-332 canonical promotion staged
+
+DD-328…DD-332 freeze and implement only current Tenant residency evidence for an already DD-327-valid NotificationDelivery source event. Corrected implementation `c02aa25deff7cb9e1de2a15fe98f65132b401c81` / tree `ce2f7ef4692a67aacc0265ea1eed9d1f8b0865fe` passed **1069/1069 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. Canonical promotion remains subject to this promotion commit's own exact-head Core/PostgreSQL/Database/Web gate. No historical residency reconstruction or downstream dispatch authority is claimed.
