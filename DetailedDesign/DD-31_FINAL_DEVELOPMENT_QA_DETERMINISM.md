@@ -1,7 +1,7 @@
 # DD-31 — FINAL DEVELOPMENT & QA DETERMINISM AUDIT — PHASE 3
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-PAYLOAD-VALIDATION-EVIDENCE-001`
-**Current executable audit basis:** `ed69061b6e42d5439c1c7c8004f765272a971b5a` / tree `30a37eea88d1d554d8dc47fdb6d2efe4b6e2c9eb`
-> **Current audit gate (2026-10-01):** DD-343…DD-347 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-PAYLOAD-VALIDATED-READER-COMPOSITION-001`
+**Current executable audit basis:** `fb0a917161c989cae612a69f30f215703aef6595` / tree `f0beecbaa53c76950bbdb1549da5d1f31c08e535`
+> **Current audit gate (2026-10-01):** DD-348…DD-352 payload-validated NotificationDelivery source-event reader composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** PHASE-3 DEVELOPMENT/QA DETERMINISM EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.

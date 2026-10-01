@@ -4330,3 +4330,44 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** success does not authorize EventCatalog lifecycle, consumer selection, webhook delivery, Outbox readiness/retry or Notification dispatch/send/mutation.
 
 **Acceptance:** `NOTIF-EVTPAY-EVID-001`, `NOTIF-EVTPAY-BOUNDARY-001`.
+
+
+## DD-348 — Establish DD-332 current-residency reader evidence first
+
+**Decision:** add `loadNotificationDeliverySourceEventPayloadValidatedEvidence(...)` and make its first governed action the exact DD-332 reader with the supplied context, Delivery id, evaluatedAt and reader ports.
+
+**Boundary:** parent null returns null; parent errors propagate; payload validation cannot run before DD-332.
+
+**Acceptance:** `NOTIF-EVTPAYREAD-BASE-001…002`.
+
+
+## DD-349 — Compose exact DD-337 consumer-metadata evidence
+
+**Decision:** from the exact DD-332 result invoke only `buildNotificationDeliverySourceEventConsumerMetadataEvidence(...)`. No additional read or evidence substitution is allowed.
+
+**Boundary:** the unbound source-event path remains read-minimal and synthesizes no event.
+
+**Acceptance:** `NOTIF-EVTPAYREAD-UNBOUND-001`.
+
+
+## DD-350 — Compose exact DD-342 pre-payload evidence
+
+**Decision:** from exact DD-337 evidence invoke only `buildNotificationDeliverySourceEventPrePayloadStructureEvidence(...)`. Calendar-valid occurredAt and JSON structural floors remain fail-closed before payload interpretation.
+
+**Acceptance:** `NOTIF-EVTPAYREAD-PRE-001…002`.
+
+
+## DD-351 — Delegate exact DD-342 evidence to DD-347
+
+**Decision:** invoke `validateNotificationDeliverySourceEventPayloadEvidence(prePayloadEvidence, payloadValidator)` without calling the payload port directly or changing DD-081/DD-347 failure semantics.
+
+**Acceptance:** `NOTIF-EVTPAYREAD-PAY-001`, `NOTIF-EVTPAYREAD-FAIL-001`.
+
+
+## DD-352 — Return exact DD-347 evidence without new authority
+
+**Decision:** return the exact DD-347 result. Preserve exact nested Delivery/Event/Catalog/residency/evidence identities and unbound behavior.
+
+**Boundary:** no EventCatalog lifecycle, consumer selection, event-consumer idempotency, Outbox readiness/retry, provider/render/send or mutation authority.
+
+**Acceptance:** `NOTIF-EVTPAYREAD-EVID-001`.

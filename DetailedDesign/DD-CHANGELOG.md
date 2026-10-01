@@ -722,3 +722,8 @@ DD-343…DD-347 reuse the existing DD-081 EventEnvelopeCatalogValidator and inje
 ## 2026-10-01 — DD-343…DD-347 canonical promotion verified; state closure staged
 
 Canonical promotion `ed69061b6e42d5439c1c7c8004f765272a971b5a` / tree `30a37eea88d1d554d8dc47fdb6d2efe4b6e2c9eb` passed **1093/1093 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis. No runtime, schema, RawSource, route, concrete schema-engine, provider SDK, secret-access or frontend change is introduced by closure.
+
+
+## 2026-10-01 — DD-348…DD-352 payload-validated Notification source-event reader composition
+
+DD-348…DD-352 compose the already-governed DD-332 → DD-337 → DD-342 → DD-347 chain into one parent-first NotificationDelivery reader. Source audit `b16913acc4ebc53ea17425d1552b02c9881be3ab` preceded implementation `fb0a917161c989cae612a69f30f215703aef6595` / tree `f0beecbaa53c76950bbdb1549da5d1f31c08e535`. Verified implementation passes **1101/1101 Core**, **529/529 PostgreSQL**, Database and Web. No lifecycle, idempotency, readiness, provider/send or mutation authority is introduced.

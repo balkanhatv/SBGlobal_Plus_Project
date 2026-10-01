@@ -5076,3 +5076,42 @@ Successful validation preserves exact DD-342/source-event references in immutabl
 
 ### NOTIF-EVTPAY-BOUNDARY-001 — Payload validation grants no lifecycle/delivery authority
 RETIRED catalog and DEAD Outbox evidence may remain raw; no catalog-active, consumer-selected, webhook-authorized, readiness/retry/provider/render/send/mutation authority is synthesized.
+
+
+## DD-348 Parent-First Payload-Validated Reader Acceptance
+
+### NOTIF-EVTPAYREAD-BASE-001 — DD-332 reader precedes payload validation
+The exact supplied RequestContext, Delivery id, evaluatedAt and reader ports flow first through the DD-332 current-residency reader before the payload port can run.
+
+### NOTIF-EVTPAYREAD-BASE-002 — Parent null/error stops composition
+A null parent returns null and a parent dependency error propagates unchanged; payload validation is not invoked.
+
+
+## DD-349 Consumer-Metadata Composition Acceptance
+
+### NOTIF-EVTPAYREAD-UNBOUND-001 — Unbound source-event path stays read-minimal
+A source-event-unbound Delivery succeeds with exact nested evidence and performs no EventCatalog, Tenant-residency or payload-port invocation.
+
+
+## DD-350 Pre-Payload Composition Acceptance
+
+### NOTIF-EVTPAYREAD-PRE-001 — Calendar-invalid occurrence stops before payload port
+A runtime-parseable but calendar-invalid occurredAt is rejected by DD-342 before payload validation.
+
+### NOTIF-EVTPAYREAD-PRE-002 — Non-JSON payload stops before payload port
+Structurally non-JSON payload evidence is rejected by DD-342 before payload validation.
+
+
+## DD-351 DD-347 Delegation Acceptance
+
+### NOTIF-EVTPAYREAD-PAY-001 — Exact DD-347 payload validation
+Valid bound evidence invokes the supplied DD-081 payload port exactly once and returns exact DD-347 evidence.
+
+### NOTIF-EVTPAYREAD-FAIL-001 — Payload failure semantics propagate unchanged
+DD-347/DD-081 payload validation errors retain their governed normalization and identity semantics.
+
+
+## DD-352 Exact Reader Evidence Acceptance
+
+### NOTIF-EVTPAYREAD-EVID-001 — Exact nested identities with no execution authority
+Success preserves exact nested source identities and immutable evidence while synthesizing no lifecycle, idempotency, readiness, provider, render, send or mutation authority.
