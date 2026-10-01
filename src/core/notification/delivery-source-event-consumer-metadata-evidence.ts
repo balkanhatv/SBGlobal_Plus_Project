@@ -45,6 +45,10 @@ export function matchesNotificationDeliverySourceEventConsumerMetadataFloors(
     return false;
   }
 
+  if (sourceEventEnvelope.envelopeJson !== sourceEventEnvelope.event.envelopeJson) {
+    return false;
+  }
+
   const envelope = sourceEventEnvelope.envelopeJson as Record<string, unknown>;
   return optionalUuidIsValid(envelope.actorPrincipalId)
     && optionalUuidIsValid(envelope.causationId)

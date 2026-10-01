@@ -187,6 +187,18 @@ test("NOTIF-EVTMETA-BASE-001 invalid DD-326 or DD-330 parent evidence fails clos
     ),
     false,
   );
+
+  const divergent = sourceEventEnvelope();
+  assert.equal(
+    matchesNotificationDeliverySourceEventConsumerMetadataFloors(
+      Object.freeze({
+        ...divergent,
+        envelopeJson: envelope({actorPrincipalId: "not-a-uuid"}),
+      }),
+      residency,
+    ),
+    false,
+  );
 });
 
 test("NOTIF-EVTMETA-UNBOUND-001 unbound source event preserves exact DD-332 evidence without synthesized metadata", () => {
@@ -219,10 +231,7 @@ test("NOTIF-EVTMETA-EVID-001 bound success preserves exact DD-332/source-event i
   assert.equal(result.currentResidencyEvidence, currentResidencyEvidence);
   assert.equal(result.sourceEventEnvelope, source);
   assert.equal(Object.isFrozen(result), true);
-});
 
-test("NOTIF-EVTMETA-EVID-002 incomplete or malformed bound DD-332 evidence returns null", () => {
-  const currentResidencyEvidence = dd332();
   assert.equal(
     buildNotificationDeliverySourceEventConsumerMetadataEvidence(
       Object.freeze({
