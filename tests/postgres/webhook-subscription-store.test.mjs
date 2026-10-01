@@ -145,14 +145,9 @@ function tenantCoreB() {
 before(async () => {
   const client = await admin.connect();
   try {
-    await client.query("SELECT pg_advisory_lock(19790415)");
-    try {
-      await client.query(
-        "SELECT platform_directory.ensure_evidence_month_partitions(date_trunc('month',now())::date)",
-      );
-    } finally {
-      await client.query("SELECT pg_advisory_unlock(19790415)");
-    }
+    // Migration 0008 guarantees the database-current month partition.
+    // Keep fixture setup DML-only so parallel PostgreSQL test files cannot
+    // deadlock against partition-policy DDL.
     await client.query("BEGIN");
     await client.query(
       "CREATE ROLE " + role
