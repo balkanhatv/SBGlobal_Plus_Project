@@ -4285,3 +4285,48 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no new read, payload-schema execution, catalog lifecycle decision, provider resolution, dispatch or mutation.
 
 **Acceptance:** `NOTIF-EVTPRE-UNBOUND-001`, `NOTIF-EVTPRE-EVID-001`.
+
+
+## DD-343 — Re-establish exact DD-342 parent evidence before payload interpretation
+
+**Decision:** the payload-validation composition must rebuild/check `buildNotificationDeliverySourceEventPrePayloadStructureEvidence(...)` from the supplied parent before any payload-validator call. Malformed/substituted bound evidence returns null; unbound evidence succeeds without port invocation.
+
+**Boundary:** no synthetic source event and no read.
+
+**Acceptance:** `NOTIF-EVTPAY-UNBOUND-001`, `NOTIF-EVTPAY-BASE-001`.
+
+
+## DD-344 — Project exact DD-081 persistence binding from preserved evidence
+
+**Decision:** project only exact event id/type/version/scope, Tenant id, Industry Context when TENANT_INDUSTRY and current Tenant residency region already proven by the DD-342 chain.
+
+**Boundary:** no alternate tuple, historical residency reconstruction or EXPLICIT_CROSS_CONTEXT authority.
+
+**Acceptance:** `NOTIF-EVTPAY-BIND-001`.
+
+
+## DD-345 — Delegate payload interpretation to the existing DD-081 validator
+
+**Decision:** instantiate the existing `EventEnvelopeCatalogValidator` with the supplied `EventPayloadValidatorPort` and validate the exact persisted envelope, preserved EventCatalog entry and DD-344 binding. Do not duplicate a schema engine or invoke the port ahead of DD-081 validation.
+
+**Boundary:** concrete schema-engine selection remains unowned.
+
+**Acceptance:** `NOTIF-EVTPAY-PORT-001`.
+
+
+## DD-346 — Preserve DD-081 payload-validation error normalization
+
+**Decision:** retain DD-081 semantics: existing EventEnvelopeValidationError is preserved; any other payload-validator failure is normalized to the safe governed EventEnvelopeValidationError message.
+
+**Boundary:** provider/schema implementation detail must not escape.
+
+**Acceptance:** `NOTIF-EVTPAY-FAIL-001…002`.
+
+
+## DD-347 — Immutable payload-validated Notification source-event evidence
+
+**Decision:** successful composition returns only immutable evidence containing the exact DD-342 parent and exact source-event reference when bound.
+
+**Boundary:** success does not authorize EventCatalog lifecycle, consumer selection, webhook delivery, Outbox readiness/retry or Notification dispatch/send/mutation.
+
+**Acceptance:** `NOTIF-EVTPAY-EVID-001`, `NOTIF-EVTPAY-BOUNDARY-001`.

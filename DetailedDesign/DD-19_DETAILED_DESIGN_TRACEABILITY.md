@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-PRE-PAYLOAD-STRUCTURE-EVIDENCE-001`
-**Current executable audit basis:** `0c50e40ed9e96d6182c73c75777eb7bde142467b` / tree `c94826b15e51c2b0f6f54161dbefb51145973dfc`
-> **Current audit gate (2026-10-01):** DD-338…DD-342 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-PAYLOAD-VALIDATION-EVIDENCE-001`
+**Current executable audit basis:** `826cba55180d5de49877481b28ef467b1f7ea6a7` / tree `f829778e45265dfd61a3ab6faa6c6ca7c12f52a8`
+> **Current audit gate (2026-10-01):** DD-343…DD-347 NotificationDelivery source-event payload-validation evidence is exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1044,3 +1044,21 @@ Core `NOTIF-EVTPRE-DATE-001…002`, `NOTIF-EVTPRE-PAYLOAD-001…002`, `NOTIF-EVT
 `Registers/DEVELOPMENT_DD338_DD342_VERIFICATION_2026-10-01.md`.
 
 This chain finishes only the locally re-evaluable DD-081 pre-payload structural prerequisites on exact DD-337 evidence. EventPayloadValidator execution, schema semantics, catalog lifecycle/consumer policy, webhook authorization, Outbox readiness/retry, recipient currentness, provider/render/send/mutation and historical residency remain separate.
+
+
+## DD-343…DD-347 — NotificationDelivery source-event payload-validation evidence batch
+
+A-06 event/outbox architecture →
+DD-07 consumer validation ordering →
+DD-081 EventEnvelopeCatalogValidator + injected EventPayloadValidatorPort →
+DD-091 exact EventCatalog evidence →
+DD-169 NotificationDelivery→Outbox local-scope binding →
+DD-318…DD-342 source-event evidence chain →
+`Development/NOTIFICATION_DELIVERY_SOURCE_EVENT_PAYLOAD_VALIDATION_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-343…DD-347 →
+`src/core/notification/delivery-source-event-payload-validation-evidence.ts` →
+Core `NOTIF-EVTPAY-UNBOUND-001`, `NOTIF-EVTPAY-BASE-001`, `NOTIF-EVTPAY-BIND-001`, `NOTIF-EVTPAY-PORT-001`, `NOTIF-EVTPAY-FAIL-001…002`, `NOTIF-EVTPAY-EVID-001`, `NOTIF-EVTPAY-BOUNDARY-001` →
+`tests/core/notification-delivery-source-event-payload-validation-evidence.test.mjs` →
+`Registers/DEVELOPMENT_DD343_DD347_VERIFICATION_2026-10-01.md`.
+
+The composition reuses DD-081 with an injected payload validator only after exact DD-342 evidence. It does not select a schema engine or interpret EventCatalog lifecycle/consumer policy, webhook authorization, Outbox readiness/retry or Notification provider/send/mutation.

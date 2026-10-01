@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT FOUNDATION
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-PRE-PAYLOAD-STRUCTURE-EVIDENCE-001`
-**Current executable audit basis:** `0c50e40ed9e96d6182c73c75777eb7bde142467b` / tree `c94826b15e51c2b0f6f54161dbefb51145973dfc`
-> **Current audit gate (2026-10-01):** DD-338…DD-342 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-PAYLOAD-VALIDATION-EVIDENCE-001`
+**Current executable audit basis:** `826cba55180d5de49877481b28ef467b1f7ea6a7` / tree `f829778e45265dfd61a3ab6faa6c6ca7c12f52a8`
+> **Current audit gate (2026-10-01):** DD-343…DD-347 NotificationDelivery source-event payload-validation evidence is exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 

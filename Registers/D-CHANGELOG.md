@@ -1521,3 +1521,8 @@ DD-338…DD-342 freeze and implement only the remaining locally re-evaluable DD-
 ## 2026-10-01 — DD-338…DD-342 canonical promotion verified; state closure staged
 
 Canonical promotion `0c50e40ed9e96d6182c73c75777eb7bde142467b` / tree `c94826b15e51c2b0f6f54161dbefb51145973dfc` passed **1085/1085 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis. No runtime, schema, RawSource, route, provider SDK, secret-access or frontend change is introduced by closure. Payload-schema execution, catalog lifecycle/consumer selection, readiness/retry/provider/render/send/mutation and historical residency remain separately governed.
+
+
+## 2026-10-01 — DD-343…DD-347 canonical promotion staged
+
+DD-343…DD-347 add exact DD-342 parent revalidation, DD-081 persistence-binding projection, injected payload-port delegation, governed failure normalization and immutable payload-validated evidence. Verified corrected implementation `826cba55180d5de49877481b28ef467b1f7ea6a7` / tree `f829778e45265dfd61a3ab6faa6c6ca7c12f52a8` passes **1093/1093 Core**, **529/529 PostgreSQL** (including push concurrency-sensitive run), **48 migrations / 42 SQL verification files**, Database Verify and Web. No schema-engine, catalog-lifecycle, consumer-selection, readiness/provider/send/mutation authority is claimed.

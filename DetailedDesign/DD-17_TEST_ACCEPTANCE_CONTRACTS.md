@@ -5037,3 +5037,42 @@ Unbound DD-337 evidence preserves the exact parent reference and synthesizes no 
 
 ### NOTIF-EVTPRE-EVID-001 — Bound evidence is exact, immutable and non-authoritative
 Bound success preserves exact DD-337/source-event identities in immutable evidence; malformed evidence returns null and no payload-schema, catalog-lifecycle, readiness, provider, send or mutation authority is added.
+
+
+## DD-343 Exact DD-342 Parent Evidence Acceptance
+
+### NOTIF-EVTPAY-UNBOUND-001 — Unbound DD-342 evidence bypasses payload validation
+Unbound DD-342 evidence succeeds without invoking the payload port, preserves the exact parent reference and synthesizes no source-event member.
+
+### NOTIF-EVTPAY-BASE-001 — Malformed/substituted DD-342 evidence denies before port use
+Malformed parent evidence or a substituted source-event reference returns null before payload-validator invocation.
+
+
+## DD-344 Exact DD-081 Persistence-Binding Projection Acceptance
+
+### NOTIF-EVTPAY-BIND-001 — Exact bound event/current-residency facts only
+Bound validation projects exact event identity, event type/version, scope, Tenant, Industry Context when applicable and current Tenant residency region with no fallback tuple.
+
+
+## DD-345 Existing DD-081 Payload-Port Delegation Acceptance
+
+### NOTIF-EVTPAY-PORT-001 — Existing validator owns ordering and normalized inputs
+The injected DD-081 payload port runs exactly once only after parent/envelope/catalog checks and receives the expected event type/version/schema id plus normalized catalog schema and payload.
+
+
+## DD-346 DD-081 Payload-Failure Semantics Acceptance
+
+### NOTIF-EVTPAY-FAIL-001 — Ordinary provider error is normalized
+A non-governed payload-validator error becomes the safe DD-081 EventEnvelopeValidationError message.
+
+### NOTIF-EVTPAY-FAIL-002 — Existing governed validation error is preserved
+An existing EventEnvelopeValidationError is rethrown unchanged.
+
+
+## DD-347 Immutable Payload-Validated Evidence Acceptance
+
+### NOTIF-EVTPAY-EVID-001 — Exact immutable success evidence
+Successful validation preserves exact DD-342/source-event references in immutable evidence and leaves input unchanged.
+
+### NOTIF-EVTPAY-BOUNDARY-001 — Payload validation grants no lifecycle/delivery authority
+RETIRED catalog and DEAD Outbox evidence may remain raw; no catalog-active, consumer-selected, webhook-authorized, readiness/retry/provider/render/send/mutation authority is synthesized.
