@@ -737,3 +737,8 @@ Canonical promotion `92b8cd67ba6a1e62937633beb7fd25f5da5cdb00` / tree `5c7197df0
 ## 2026-10-01 — DD-353…DD-357 Workflow visible-definition current-evidence reader
 
 DD-353…DD-357 compose the existing WorkflowInstance reader, same-RequestContext WorkflowDefinition reader and DD-173 current-binding floor. Source audit `95878ad42a50a9b3f37fba370168d2df2a88f272` preceded implementation `981eba90e72106a68dcfb70d658f7b5ebb530dc6` / tree `02a545cd982a980c13de86116b7569579c894c92`. Verified implementation passes **1109/1109 Core**, **529/529 PostgreSQL**, Database and Web. No schema/RLS/role/route/UI or workflow-execution authority is added.
+
+
+## 2026-10-01 — DD-353…DD-357 canonical promotion verified; state closure staged
+
+Canonical promotion `669381753a9da961454ab9e0c14f3551d4abc8df` / tree `50b2cf77e390347d78344b62340121507fba7f40` passed **1109/1109 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis. No runtime, schema, RawSource, route, UI or workflow-execution authority is introduced by closure.

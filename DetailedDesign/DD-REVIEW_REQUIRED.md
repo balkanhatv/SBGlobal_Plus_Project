@@ -1,9 +1,9 @@
 # DD REVIEW REQUIRED — PHASE 3 CLOSURE
 **Current checkpoint:** `DEV-WORKFLOW-INSTANCE-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `981eba90e72106a68dcfb70d658f7b5ebb530dc6` / tree `02a545cd982a980c13de86116b7569579c894c92`
+**Current executable audit basis:** `669381753a9da961454ab9e0c14f3551d4abc8df` / tree `50b2cf77e390347d78344b62340121507fba7f40`
 **Updated:** 2026-10-01 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-10-01):** DD-353…DD-357 WorkflowInstance visible WorkflowDefinition current-evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-01):** DD-353…DD-357 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 
 DD-338…DD-342 is the current governed backend-only NotificationDelivery source-event pre-payload structural evidence batch. It starts from exact DD-337 consumer-metadata evidence, re-evaluates strict occurredAt calendar validity plus payload/catalog-schema JSON structure, and returns immutable composed evidence without a new read or schema execution.
 
