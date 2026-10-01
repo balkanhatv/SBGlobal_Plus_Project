@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-PAYLOAD-VALIDATED-READER-COMPOSITION-001`
-**Current executable audit basis:** `92b8cd67ba6a1e62937633beb7fd25f5da5cdb00` / tree `5c7197df074d33c138c695f0eeb932d5a66c84e0`
-> **Current audit gate (2026-10-01):** DD-348…DD-352 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-WORKFLOW-INSTANCE-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `981eba90e72106a68dcfb70d658f7b5ebb530dc6` / tree `02a545cd982a980c13de86116b7569579c894c92`
+> **Current audit gate (2026-10-01):** DD-353…DD-357 WorkflowInstance visible WorkflowDefinition current-evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1078,3 +1078,22 @@ Core `NOTIF-EVTPAYREAD-BASE-001…002`, `NOTIF-EVTPAYREAD-UNBOUND-001`, `NOTIF-E
 `Registers/DEVELOPMENT_DD348_DD352_VERIFICATION_2026-10-01.md`.
 
 This orchestration adds no primitive semantics: it sequences exact DD-332 → DD-337 → DD-342 → DD-347 boundaries parent-first. EventCatalog lifecycle/consumer policy, event-consumer idempotency, Outbox readiness/retry, provider/render/send/mutation and historical residency remain separate.
+
+
+## DD-353…DD-357 — WorkflowInstance visible WorkflowDefinition current-evidence reader
+
+Migration 0026 WorkflowDefinition/WorkflowInstance persistence →
+migration 0027 Workflow worker privileges →
+migration 0031 workflow relationship integrity →
+DD-101 raw WorkflowDefinition reader →
+DD-102 raw WorkflowInstance reader →
+DD-170 definition-scope applicability →
+DD-173 WorkflowInstance→WorkflowDefinition current-binding floor →
+`Development/WORKFLOW_INSTANCE_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` →
+DD-353…DD-357 →
+`src/core/workflow/instance-visible-definition-current-evidence-reader.ts` →
+Core `WFI-DEFREAD-BASE-001…002`, `WFI-DEFREAD-DEF-001…002`, `WFI-DEFREAD-FLOOR-001`, `WFI-DEFREAD-NOFALLBACK-001`, `WFI-DEFREAD-EVID-001`, `WFI-DEFREAD-BOUND-001` →
+`tests/core/workflow-instance-visible-definition-current-evidence-reader.test.mjs` →
+`Registers/DEVELOPMENT_DD353_DD357_VERIFICATION_2026-10-01.md`.
+
+This chain proves only same-RequestContext visibility plus exact DD-173 current binding. PLATFORM_GLOBAL fallback resolution, active-version selection, creator currentness, state-machine interpretation, transition/task authorization, execution, mutation and event emission remain separate.

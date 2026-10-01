@@ -1541,3 +1541,8 @@ DD-348…DD-352 add only the exact parent-first reader composition from DD-332 t
 ## 2026-10-01 — DD-348…DD-352 canonical promotion verified; state closure staged
 
 Canonical promotion `92b8cd67ba6a1e62937633beb7fd25f5da5cdb00` / tree `5c7197df074d33c138c695f0eeb932d5a66c84e0` passed **1101/1101 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis. No runtime, schema, RawSource, route, provider SDK, secret-access or frontend change is introduced by closure.
+
+
+## 2026-10-01 — DD-353…DD-357 canonical promotion staged
+
+DD-353…DD-357 implement only a parent-first same-RequestContext WorkflowInstance + visible WorkflowDefinition current-evidence reader over existing DD-101/DD-102/DD-173 authority. Verified implementation `981eba90e72106a68dcfb70d658f7b5ebb530dc6` / tree `02a545cd982a980c13de86116b7569579c894c92` passes **1109/1109 Core**, **529/529 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database Verify and Web. No PLATFORM_GLOBAL fallback, state interpretation, transition/task/execution or mutation authority is claimed.

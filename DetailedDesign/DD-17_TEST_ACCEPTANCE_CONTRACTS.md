@@ -5115,3 +5115,42 @@ DD-347/DD-081 payload validation errors retain their governed normalization and 
 
 ### NOTIF-EVTPAYREAD-EVID-001 — Exact nested identities with no execution authority
 Success preserves exact nested source identities and immutable evidence while synthesizing no lifecycle, idempotency, readiness, provider, render, send or mutation authority.
+
+
+## DD-353 WorkflowInstance Parent-First Read Acceptance
+
+### WFI-DEFREAD-BASE-001 — Exact RequestContext/id reaches WorkflowInstance first
+The exact supplied RequestContext object and WorkflowInstance id reach the WorkflowInstance reader first; definition access occurs only after a visible parent.
+
+### WFI-DEFREAD-BASE-002 — Parent null/error short-circuits
+A null parent returns null without definition access; a parent dependency error propagates unchanged.
+
+
+## DD-354 Exact Visible WorkflowDefinition Read Acceptance
+
+### WFI-DEFREAD-DEF-001 — Exact same context and persisted definition id
+The visible parent forwards the exact same RequestContext object and its exact persisted WorkflowDefinition id once.
+
+### WFI-DEFREAD-DEF-002 — Definition null/error semantics
+A null definition returns null; a definition dependency error propagates unchanged.
+
+
+## DD-355 DD-173 Current-Binding Floor Acceptance
+
+### WFI-DEFREAD-FLOOR-001 — Exact ACTIVE/version/applicability floor
+The exact visible ACTIVE/version/applicable definition passes DD-173; status, version, Tenant or Industry mismatch fails closed.
+
+
+## DD-356 Immutable Exact-Reference Evidence Acceptance
+
+### WFI-DEFREAD-EVID-001 — Exact identities preserved
+Success preserves the exact WorkflowInstance and WorkflowDefinition object references in a frozen evidence envelope.
+
+
+## DD-357 Bounded Visibility and No-Execution Acceptance
+
+### WFI-DEFREAD-NOFALLBACK-001 — No PLATFORM_GLOBAL fallback
+A referenced definition hidden under the supplied RequestContext remains null; the reader never switches to PLATFORM_GLOBAL or another scope.
+
+### WFI-DEFREAD-BOUND-001 — Raw workflow semantics remain uninterpreted
+currentState, lifecycle state, creator, effective dates, stateMachine, approvalPolicy and ruleRefs remain raw; no transition/task/execution/mutation/event authority is synthesized.

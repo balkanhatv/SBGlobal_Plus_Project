@@ -1,9 +1,9 @@
 # SBGlobal Plus — Canonical Development Branch
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-PAYLOAD-VALIDATED-READER-COMPOSITION-001`
-**Current executable audit basis:** `92b8cd67ba6a1e62937633beb7fd25f5da5cdb00` / tree `5c7197df074d33c138c695f0eeb932d5a66c84e0`
+**Current checkpoint:** `DEV-WORKFLOW-INSTANCE-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `981eba90e72106a68dcfb70d658f7b5ebb530dc6` / tree `02a545cd982a980c13de86116b7569579c894c92`
 **Updated:** 2026-10-01 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-10-01):** DD-348…DD-352 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-01):** DD-353…DD-357 WorkflowInstance visible WorkflowDefinition current-evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 
 DD-348…DD-352 is the current governed backend-only payload-validated NotificationDelivery source-event reader-composition batch. It sequences exact DD-332 → DD-337 → DD-342 → DD-347 evidence parent-first and returns the exact DD-347 result without adding primitive semantics.
 

@@ -4371,3 +4371,48 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no EventCatalog lifecycle, consumer selection, event-consumer idempotency, Outbox readiness/retry, provider/render/send or mutation authority.
 
 **Acceptance:** `NOTIF-EVTPAYREAD-EVID-001`.
+
+
+## DD-353 — WorkflowInstance parent-first exact visible read
+
+**Decision:** `loadWorkflowInstanceDefinitionCurrentEvidence(...)` first invokes the existing WorkflowInstance reader with the exact supplied RequestContext object and instance id. A null parent returns null before definition access; dependency errors propagate unchanged.
+
+**Boundary:** no alternate instance lookup, state interpretation or mutation.
+
+**Acceptance:** `WFI-DEFREAD-BASE-001…002`.
+
+
+## DD-354 — Exact referenced WorkflowDefinition read under the same RequestContext
+
+**Decision:** after a visible parent, invoke the existing WorkflowDefinition reader exactly once with the exact same RequestContext and exactly `instance.workflowDefinitionId`.
+
+**Boundary:** no code/version lookup, no PLATFORM_GLOBAL context switch, no cross-scope fallback.
+
+**Acceptance:** `WFI-DEFREAD-DEF-001…002`.
+
+
+## DD-355 — Re-apply DD-173 current-binding floor
+
+**Decision:** evaluate only `matchesWorkflowInstanceDefinitionBindingFloors(instance, definition)`. False returns null.
+
+**Boundary:** do not duplicate or weaken DD-173 id/version/ACTIVE/owner-scope applicability semantics.
+
+**Acceptance:** `WFI-DEFREAD-FLOOR-001`.
+
+
+## DD-356 — Immutable exact-reference current evidence
+
+**Decision:** success returns a frozen evidence envelope containing the exact WorkflowInstance and WorkflowDefinition references.
+
+**Boundary:** no cloning, normalization or mutation.
+
+**Acceptance:** `WFI-DEFREAD-EVID-001`.
+
+
+## DD-357 — Preserve bounded visibility and no workflow-execution authority
+
+**Decision:** same-RequestContext visibility is authoritative for this composition. An RLS-hidden referenced definition remains unavailable; no fallback resolver is invented.
+
+**Boundary:** creator currentness, active-version selection by code/date, currentState/stateMachine validity, approval/rule execution, transition/task authorization, state mutation and event emission remain separately governed.
+
+**Acceptance:** `WFI-DEFREAD-NOFALLBACK-001`, `WFI-DEFREAD-BOUND-001`.
