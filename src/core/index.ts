@@ -104,6 +104,7 @@ export * from "./notification/delivery-source-event-envelope-evidence.js";
 export * from "./notification/delivery-source-event-current-residency-evidence-reader.js";
 export * from "./notification/delivery-source-event-consumer-metadata-evidence.js";
 export * from "./notification/delivery-source-event-pre-payload-structure-evidence.js";
+export * from "./notification/delivery-source-event-payload-validation-evidence.js";
 export * from "./notification/template.js";
 export * from "./workflow/definition.js";
 export * from "./workflow/instance.js";
