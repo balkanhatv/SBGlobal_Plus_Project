@@ -1,7 +1,7 @@
 # ARCHITECTURE TRACEABILITY MATRIX — PHASE 2 FRESH REVALIDATION
-**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CURRENT-RESIDENCY-EVIDENCE-001`
-**Current executable audit basis:** `1a894443d81b81bfd68b30e2ca32202231e321b5` / tree `238c7f3639f3a933ccde160c71436b0a958aaecb`
-> **Current audit gate (2026-09-28):** DD-328…DD-332 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CONSUMER-METADATA-EVIDENCE-001`
+**Current executable audit basis:** `74d09e139d4c6c9e2e922da2a67ff78f9296ed64` / tree `8b6f77c09f74a12dffb864244a3fdc76377c345e`
+> **Current audit gate (2026-10-01):** DD-333…DD-337 is implemented and exact-head verified at `74d09e139d4c6c9e2e922da2a67ff78f9296ed64`; canonical promotion remains the active gate. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111; production readiness is **NOT CLAIMED**.
 **Historical status:** PHASE-2 ARCHITECTURE TRACEABILITY PASS · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 **Upstream Foundation:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`
 
