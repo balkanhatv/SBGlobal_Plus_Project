@@ -1536,3 +1536,8 @@ Canonical promotion `ed69061b6e42d5439c1c7c8004f765272a971b5a` / tree `30a37eea8
 ## 2026-10-01 — DD-348…DD-352 canonical promotion staged
 
 DD-348…DD-352 add only the exact parent-first reader composition from DD-332 through DD-347. Verified implementation `fb0a917161c989cae612a69f30f215703aef6595` / tree `f0beecbaa53c76950bbdb1549da5d1f31c08e535` passes **1101/1101 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. Canonical promotion remains subject to this promotion head's own exact-head gate.
+
+
+## 2026-10-01 — DD-348…DD-352 canonical promotion verified; state closure staged
+
+Canonical promotion `92b8cd67ba6a1e62937633beb7fd25f5da5cdb00` / tree `5c7197df074d33c138c695f0eeb932d5a66c84e0` passed **1101/1101 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis. No runtime, schema, RawSource, route, provider SDK, secret-access or frontend change is introduced by closure.
