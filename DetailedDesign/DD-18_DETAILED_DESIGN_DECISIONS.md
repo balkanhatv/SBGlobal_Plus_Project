@@ -4238,3 +4238,50 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no new read, payload execution, catalog lifecycle decision, provider resolution, dispatch or mutation.
 
 **Acceptance:** `NOTIF-EVTMETA-UNBOUND-001`, `NOTIF-EVTMETA-EVID-001`, `NOTIF-EVTMETA-BOUNDARY-001`.
+
+
+## DD-338 — Notification source-event strict occurredAt floor
+
+**Context:** DD-323 requires parseable occurredAt evidence, while DD-081 additionally rejects calendar-invalid YYYY-MM-DD prefixes that permissive runtime parsing may normalize.
+
+**Decision:** mirror DD-081 date-time structure locally: require a non-empty parseable string and, when a YYYY-MM-DD prefix is present, require it to describe a real UTC calendar date.
+
+**Boundary:** no ordering against Outbox createdAt, Delivery timestamps or wall clock.
+
+**Acceptance:** `NOTIF-EVTPRE-DATE-001…002`.
+
+
+## DD-339 — Notification source-event payload JSON-structure floor
+
+**Decision:** require the exact persisted envelope payload to recursively contain only JSON-compatible null/string/boolean/finite-number/array/plain-object values, without normalizing or interpreting event-specific fields.
+
+**Boundary:** no event-specific payload schema, required-property or business-rule execution.
+
+**Acceptance:** `NOTIF-EVTPRE-PAYLOAD-001…002`.
+
+
+## DD-340 — Notification source-event catalog payload-schema JSON-structure floor
+
+**Decision:** require the exact preserved EventCatalog payloadSchema evidence to satisfy the same JSON structural contract.
+
+**Boundary:** no JSON Schema dialect, validator engine or schema semantics are selected.
+
+**Acceptance:** `NOTIF-EVTPRE-SCHEMA-001`.
+
+
+## DD-341 — Parent-first source-event pre-payload structure floor
+
+**Decision:** add `matchesNotificationDeliverySourceEventPrePayloadStructureFloors(sourceEventEnvelope, residency)`. Re-establish DD-336, then evaluate DD-338…DD-340 only.
+
+**Boundary:** EventPayloadValidatorPort, EventCatalog lifecycle/consumer policy, webhook authorization, Outbox readiness and Notification delivery policy remain uninterpreted.
+
+**Acceptance:** `NOTIF-EVTPRE-BASE-001` plus DD-338…DD-340 acceptance.
+
+
+## DD-342 — Immutable DD-337 + pre-payload structure evidence envelope
+
+**Decision:** add `buildNotificationDeliverySourceEventPrePayloadStructureEvidence(consumerMetadataEvidence)`. Rebuild/check exact DD-337 evidence without reads; unbound success preserves the exact parent with no synthesized event; bound success preserves exact DD-337/source-event references after DD-341; malformed/incomplete evidence returns null.
+
+**Boundary:** no new read, payload-schema execution, catalog lifecycle decision, provider resolution, dispatch or mutation.
+
+**Acceptance:** `NOTIF-EVTPRE-UNBOUND-001`, `NOTIF-EVTPRE-EVID-001`.

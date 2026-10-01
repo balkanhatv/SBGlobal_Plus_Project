@@ -4998,3 +4998,42 @@ Bound success preserves exact DD-332/source-envelope identities in immutable evi
 
 ### NOTIF-EVTMETA-BOUNDARY-001 — No payload/lifecycle/delivery authority
 Catalog lifecycle, consumer classes, webhook eligibility, payload-schema JSON/payload contents, Outbox readiness/retry and Notification delivery/provider authority remain uninterpreted; inputs remain unchanged.
+
+
+## DD-338 Strict Source-Event OccurredAt Acceptance
+
+### NOTIF-EVTPRE-DATE-001 — Strict valid occurrence timestamp
+A valid parseable occurrence timestamp with a real calendar date passes.
+
+### NOTIF-EVTPRE-DATE-002 — Calendar-invalid normalization denied
+A calendar-invalid YYYY-MM-DD prefix that a permissive runtime parser can normalize fails closed.
+
+
+## DD-339 Source-Event Payload JSON-Structure Acceptance
+
+### NOTIF-EVTPRE-PAYLOAD-001 — Nested JSON-safe payload
+Nested JSON-compatible payload evidence passes unchanged.
+
+### NOTIF-EVTPRE-PAYLOAD-002 — Non-JSON payload denied
+Undefined, non-finite numbers or custom-prototype nested payload evidence fails closed.
+
+
+## DD-340 Catalog Payload-Schema JSON-Structure Acceptance
+
+### NOTIF-EVTPRE-SCHEMA-001 — Structural JSON only
+JSON-safe catalog payload-schema evidence passes and malformed JSON structure fails without schema interpretation.
+
+
+## DD-341 Parent-First Pre-Payload Structure Acceptance
+
+### NOTIF-EVTPRE-BASE-001 — DD-336 and exact source-event identity remain mandatory
+Invalid consumer-metadata/current-residency parent evidence or a substituted source-event reference fails closed.
+
+
+## DD-342 Immutable DD-337 + Pre-Payload Structure Evidence Acceptance
+
+### NOTIF-EVTPRE-UNBOUND-001 — Unbound evidence stays exact
+Unbound DD-337 evidence preserves the exact parent reference and synthesizes no source-event member.
+
+### NOTIF-EVTPRE-EVID-001 — Bound evidence is exact, immutable and non-authoritative
+Bound success preserves exact DD-337/source-event identities in immutable evidence; malformed evidence returns null and no payload-schema, catalog-lifecycle, readiness, provider, send or mutation authority is added.
