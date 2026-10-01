@@ -58,6 +58,13 @@ const operation = {
 before(async () => {
   const client = await admin.connect();
   try {
+    // This fixture writes deterministic 2026-09 audit evidence. Migration 0008
+    // provisions only the database-current month plus two future months, so make
+    // the fixture's own evidence month explicit instead of depending on wall time.
+    await client.query(
+      "SELECT platform_directory.ensure_evidence_month_partitions($1::date)",
+      ["2026-09-01"],
+    );
     await client.query("BEGIN");
     await client.query(`CREATE ROLE ${role} LOGIN PASSWORD '${password}' NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS`);
     await client.query(`GRANT sbg_app_rw TO ${role}`);
