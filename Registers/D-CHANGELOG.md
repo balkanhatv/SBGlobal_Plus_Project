@@ -1501,3 +1501,8 @@ DD-328…DD-332 freeze and implement only current Tenant residency evidence for 
 ## 2026-09-30 — DD-328…DD-332 canonical promotion verified; state closure staged
 
 Canonical promotion `1a894443d81b81bfd68b30e2ca32202231e321b5` / tree `238c7f3639f3a933ccde160c71436b0a958aaecb` independently passed **1069/1069 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The closure projection preserves DD-332 feature evidence on corrected implementation `c02aa25deff7cb9e1de2a15fe98f65132b401c81` while advancing current executable basis to the verified promotion. No runtime/schema/RawSource/test change is introduced by closure.
+
+
+## 2026-10-01 — DD-333…DD-337 canonical promotion staged
+
+DD-333…DD-337 freeze and implement only the remaining locally re-evaluable DD-081 pre-payload optional consumer-metadata structure on exact DD-332 NotificationDelivery source-event evidence. Verified implementation `74d09e139d4c6c9e2e922da2a67ff78f9296ed64` / tree `8b6f77c09f74a12dffb864244a3fdc76377c345e` passes **1077/1077 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. Canonical promotion remains subject to this promotion head's own exact-head Core/PostgreSQL/Database/Web gate. No payload-schema, catalog-lifecycle, dispatch/provider/send or mutation authority is claimed.

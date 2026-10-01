@@ -4191,3 +4191,50 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** no historical residency claim, payload/catalog/readiness/retry/provider/render/send/mutation authority.
 
 **Acceptance:** `NOTIF-EVTRES-EVID-001`.
+
+
+## DD-333 — Notification source-event optional actor-principal structural floor
+
+**Context:** DD-081 owns an optional actorPrincipalId field whose structural contract is UUID-or-absent. DD-332 already supplies exact current-residency-valid persisted source-event evidence.
+
+**Decision:** on an already DD-332-valid bound source event, require a present actorPrincipalId to be a UUID; absent/null remains allowed.
+
+**Boundary:** no principal currentness, membership, role, permission or attribution lookup.
+
+**Acceptance:** `NOTIF-EVTMETA-FLOOR-001…002`.
+
+
+## DD-334 — Notification source-event optional causation structural floor
+
+**Decision:** require a present causationId to be a UUID; absent/null remains allowed.
+
+**Boundary:** no causation graph traversal, source-event read or causal authorization.
+
+**Acceptance:** `NOTIF-EVTMETA-FLOOR-003`.
+
+
+## DD-335 — Notification source-event optional aggregate-version structural floor
+
+**Decision:** mirror DD-081 exactly: absent/null aggregateVersion is allowed; a present number must be a JavaScript-safe integer; a present string must match signed decimal integer syntax `^-?\\d+$`.
+
+**Boundary:** no positivity, sequence ordering, row/envelope equality, aggregate read or optimistic-concurrency semantics are invented.
+
+**Acceptance:** `NOTIF-EVTMETA-FLOOR-004`.
+
+
+## DD-336 — Parent-first source-event consumer-metadata floor
+
+**Decision:** add `matchesNotificationDeliverySourceEventConsumerMetadataFloors(sourceEventEnvelope, residency)`. Re-establish DD-326 plus DD-330, require the exact persisted envelope reference, then evaluate DD-333…DD-335 only.
+
+**Boundary:** payload validation, catalog lifecycle/consumer policy, webhook authorization, Outbox readiness and Notification delivery policy remain uninterpreted.
+
+**Acceptance:** `NOTIF-EVTMETA-BASE-001` plus DD-333…DD-335 acceptance.
+
+
+## DD-337 — Immutable DD-332 + consumer-metadata evidence envelope
+
+**Decision:** add `buildNotificationDeliverySourceEventConsumerMetadataEvidence(currentResidencyEvidence)`. Unbound success preserves exact DD-332 evidence without synthesizing source-event metadata; bound success requires DD-336 and preserves exact parent/source-envelope references in frozen evidence; malformed/incomplete evidence returns null.
+
+**Boundary:** no new read, payload execution, catalog lifecycle decision, provider resolution, dispatch or mutation.
+
+**Acceptance:** `NOTIF-EVTMETA-UNBOUND-001`, `NOTIF-EVTMETA-EVID-001`, `NOTIF-EVTMETA-BOUNDARY-001`.

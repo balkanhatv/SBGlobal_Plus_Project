@@ -4959,3 +4959,42 @@ Null residency returns null; residency-reader errors propagate unchanged.
 
 ### NOTIF-EVTRES-EVID-001 — Exact immutable evidence preservation
 Success preserves exact DD-327/current-residency evidence identities, immutable output, unchanged inputs and no historical-residency/payload/catalog/readiness/provider/render/send/mutation authority.
+
+
+## DD-333 Optional Actor-Principal Structural Floor Acceptance
+
+### NOTIF-EVTMETA-FLOOR-001 — Valid optional metadata shape
+Valid actor/causation UUIDs pass and absent optional actorPrincipalId, causationId and aggregateVersion remain allowed.
+
+### NOTIF-EVTMETA-FLOOR-002 — Malformed actorPrincipalId denies
+A present malformed actorPrincipalId fails closed without principal lookup or attribution semantics.
+
+
+## DD-334 Optional Causation Structural Floor Acceptance
+
+### NOTIF-EVTMETA-FLOOR-003 — Malformed causationId denies
+A present malformed causationId fails closed without causation-graph traversal.
+
+
+## DD-335 Optional Aggregate-Version Structural Floor Acceptance
+
+### NOTIF-EVTMETA-FLOOR-004 — Exact DD-081 integer structure
+Absent/null aggregateVersion passes; a safe-integer number or signed decimal integer string passes; fractional, precision-unsafe, non-decimal or non-scalar values fail closed.
+
+
+## DD-336 Parent-First Consumer-Metadata Floor Acceptance
+
+### NOTIF-EVTMETA-BASE-001 — Prior envelope/residency evidence remains mandatory
+Invalid DD-326 envelope/catalog/local-scope evidence, invalid DD-330 current-residency equality, or a substituted envelope reference fails closed.
+
+
+## DD-337 Immutable DD-332 + Consumer-Metadata Evidence Acceptance
+
+### NOTIF-EVTMETA-UNBOUND-001 — Unbound evidence stays exact
+Unbound DD-332 evidence preserves the exact parent reference and synthesizes no source-event metadata.
+
+### NOTIF-EVTMETA-EVID-001 — Bound evidence is exact, immutable and fail-closed
+Bound success preserves exact DD-332/source-envelope identities in immutable evidence; incomplete or malformed bound evidence returns null.
+
+### NOTIF-EVTMETA-BOUNDARY-001 — No payload/lifecycle/delivery authority
+Catalog lifecycle, consumer classes, webhook eligibility, payload-schema JSON/payload contents, Outbox readiness/retry and Notification delivery/provider authority remain uninterpreted; inputs remain unchanged.
