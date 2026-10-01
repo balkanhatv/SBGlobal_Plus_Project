@@ -10,7 +10,7 @@
     "build:core": "tsc -p tsconfig.json",
     "build:web": "next build",
     "test:core": "npm run build:core && node --test tests/core/*.test.mjs tests/server/*.test.mjs",
-    "test:postgres": "npm run build:core && node --test tests/postgres/*.test.mjs"
+    "test:postgres": "npm run build:core && node --test --test-concurrency=1 tests/postgres/*.test.mjs"
   },
   "devDependencies": {
     "@types/node": "22.20.2",
