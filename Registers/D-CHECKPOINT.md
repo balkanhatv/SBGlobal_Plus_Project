@@ -1,9 +1,9 @@
 # D-CHECKPOINT
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-CONSUMER-METADATA-EVIDENCE-001`
-**Current executable audit basis:** `74d09e139d4c6c9e2e922da2a67ff78f9296ed64` / tree `8b6f77c09f74a12dffb864244a3fdc76377c345e`
+**Current executable audit basis:** `fad2320545a1b6c371d929b809dbc3cd1cc6d379` / tree `32c16b9a22537bff4041636ddf52489016c97e37`
 **Updated:** 2026-10-01 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-10-01):** DD-333…DD-337 NotificationDelivery source-event consumer-metadata evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-01):** DD-333…DD-337 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 
 DD-333…DD-337 is the current governed backend-only NotificationDelivery source-event consumer-metadata evidence batch. It starts from exact DD-332 current-residency evidence, re-evaluates only the remaining DD-081 pre-payload optional actorPrincipalId, causationId and aggregateVersion structural rules, requires the exact persisted envelope reference, and returns immutable composed evidence without a new read.
 

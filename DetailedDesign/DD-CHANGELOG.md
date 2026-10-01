@@ -697,3 +697,8 @@ Canonical promotion `1a894443d81b81bfd68b30e2ca32202231e321b5` / tree `238c7f363
 ## 2026-10-01 — DD-333…DD-337 Notification source-event consumer-metadata evidence batch
 
 DD-333…DD-337 add only DD-081 pre-payload optional actorPrincipalId, causationId and aggregateVersion structural evidence on exact DD-332 NotificationDelivery source-event evidence. Source audit `12d4323cfbc1bc6b8fd61649860cedab62ac1c56` preceded implementation `486dc388320cf18a218d0418dac62bf04bef0d0f`; forward corrections `cad95d0888ee6c193ba2eac0e52ea4af62c4a386` and `f24c0e81abafa64ecfed7486e04a1c9606d22df5` hardened exact envelope identity and corrected an export separator. Calendar-rollover test correction `74d09e139d4c6c9e2e922da2a67ff78f9296ed64` explicitly provisions the fixed September audit fixture month without changing production schema/runtime authority. Verified implementation passes **1077/1077 Core**, **529/529 PostgreSQL**, Database and Web.
+
+
+## 2026-10-01 — DD-333…DD-337 canonical promotion verified; state closure staged
+
+Canonical promotion `fad2320545a1b6c371d929b809dbc3cd1cc6d379` / tree `32c16b9a22537bff4041636ddf52489016c97e37` passed **1077/1077 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis. No runtime, schema, RawSource, route, provider SDK, secret-access or frontend change is introduced by closure. Payload-schema execution, catalog lifecycle/consumer selection, readiness/retry/provider/render/send/mutation and historical residency remain separately governed.
