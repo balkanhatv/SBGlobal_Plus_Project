@@ -1,7 +1,7 @@
 # FINAL PRE-DEVELOPMENT INDEPENDENT ADVERSARIAL AUDIT — 2026-09-13
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-PRE-PAYLOAD-STRUCTURE-EVIDENCE-001`
-**Current executable audit basis:** `68e8e0fe2b14effe492bade508e9a877cfbf783c` / tree `ac6fed6f137e677c12d188007b53e063f336e8ec`
-> **Current audit gate (2026-10-01):** DD-338…DD-342 NotificationDelivery source-event pre-payload structural evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `0c50e40ed9e96d6182c73c75777eb7bde142467b` / tree `c94826b15e51c2b0f6f54161dbefb51145973dfc`
+> **Current audit gate (2026-10-01):** DD-338…DD-342 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.

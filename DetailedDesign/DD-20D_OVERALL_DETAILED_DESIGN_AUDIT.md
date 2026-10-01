@@ -1,7 +1,7 @@
 # DD-20D — OVERALL DETAILED DESIGN ADVERSARIAL AUDIT — PHASE 3
 **Current checkpoint:** `DEV-NOTIFICATION-DELIVERY-SOURCE-EVENT-PRE-PAYLOAD-STRUCTURE-EVIDENCE-001`
-**Current executable audit basis:** `68e8e0fe2b14effe492bade508e9a877cfbf783c` / tree `ac6fed6f137e677c12d188007b53e063f336e8ec`
-> **Current audit gate (2026-10-01):** DD-338…DD-342 NotificationDelivery source-event pre-payload structural evidence batch is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `0c50e40ed9e96d6182c73c75777eb7bde142467b` / tree `c94826b15e51c2b0f6f54161dbefb51145973dfc`
+> **Current audit gate (2026-10-01):** DD-338…DD-342 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-3 DETAILED DESIGN EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 **Historical adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
 

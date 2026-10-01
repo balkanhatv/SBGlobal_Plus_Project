@@ -1516,3 +1516,8 @@ Canonical promotion `fad2320545a1b6c371d929b809dbc3cd1cc6d379` / tree `32c16b9a2
 ## 2026-10-01 — DD-338…DD-342 canonical promotion staged
 
 DD-338…DD-342 freeze and implement only the remaining locally re-evaluable DD-081 pre-payload occurrence-time and JSON structural evidence on exact DD-337 NotificationDelivery source-event evidence. Verified implementation `68e8e0fe2b14effe492bade508e9a877cfbf783c` / tree `ac6fed6f137e677c12d188007b53e063f336e8ec` passes **1085/1085 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 SQL verification files**, Database Verify and Web. Canonical promotion remains subject to this promotion head's own exact-head Core/PostgreSQL/Database/Web gate.
+
+
+## 2026-10-01 — DD-338…DD-342 canonical promotion verified; state closure staged
+
+Canonical promotion `0c50e40ed9e96d6182c73c75777eb7bde142467b` / tree `c94826b15e51c2b0f6f54161dbefb51145973dfc` passed **1085/1085 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis. No runtime, schema, RawSource, route, provider SDK, secret-access or frontend change is introduced by closure. Payload-schema execution, catalog lifecycle/consumer selection, readiness/retry/provider/render/send/mutation and historical residency remain separately governed.
