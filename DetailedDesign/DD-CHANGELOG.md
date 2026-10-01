@@ -717,3 +717,8 @@ Canonical promotion `0c50e40ed9e96d6182c73c75777eb7bde142467b` / tree `c94826b15
 ## 2026-10-01 — DD-343…DD-347 Notification source-event payload-validation evidence
 
 DD-343…DD-347 reuse the existing DD-081 EventEnvelopeCatalogValidator and injected EventPayloadValidatorPort over exact DD-342 NotificationDelivery source-event evidence. Source audit `760f723c4443a8045e3a76dab3a7a83a2f23b837` preceded implementation `659c68c3d1f4ce4e708513b755cc1ca65be8a9cf`. Exact-head correction `826cba55180d5de49877481b28ef467b1f7ea6a7` removes concurrent test-only partition DDL while preserving migration-owned current-month provisioning. Verified basis passes **1093/1093 Core**, **529/529 PostgreSQL**, Database and Web.
+
+
+## 2026-10-01 — DD-343…DD-347 canonical promotion verified; state closure staged
+
+Canonical promotion `ed69061b6e42d5439c1c7c8004f765272a971b5a` / tree `30a37eea88d1d554d8dc47fdb6d2efe4b6e2c9eb` passed **1093/1093 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis. No runtime, schema, RawSource, route, concrete schema-engine, provider SDK, secret-access or frontend change is introduced by closure.

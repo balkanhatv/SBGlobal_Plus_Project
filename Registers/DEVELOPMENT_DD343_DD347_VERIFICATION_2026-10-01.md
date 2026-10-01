@@ -32,3 +32,14 @@ No schema, migration, RLS, role, grant, public route, concrete schema engine, pr
 ## Canonical promotion gate
 
 This register is created by the DD-343…DD-347 canonical promotion. The final promotion head must independently pass exact-head Core/PostgreSQL/Database/Web before state closure and before another governed backend source audit opens.
+
+
+## Canonical promotion exact-head gate
+
+Canonical promotion `ed69061b6e42d5439c1c7c8004f765272a971b5a` / tree `30a37eea88d1d554d8dc47fdb6d2efe4b6e2c9eb` independently passed:
+- Core Service Verify `36897378438` / `110487656924`: **1093/1093 PASS**, zero failed/skipped.
+- PostgreSQL `36897378438` / `110487656655`: **529/529 PASS**, zero failed/skipped.
+- Database Verify `36897378266` / `110487656080`: PASS; **48 migrations / 42 verification files**.
+- Web Boundary Verify `36897378332` / `110487656166`: PASS.
+
+The canonical promotion is therefore the verified executable audit basis for DD-343…DD-347. The state-closure commit that records this basis must independently pass the same exact-head gates before the next governed backend batch opens.
