@@ -1,7 +1,7 @@
 # DD-20D — OVERALL DETAILED DESIGN ADVERSARIAL AUDIT — PHASE 3
-**Current checkpoint:** `DEV-WORKFLOW-INSTANCE-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `669381753a9da961454ab9e0c14f3551d4abc8df` / tree `50b2cf77e390347d78344b62340121507fba7f40`
-> **Current audit gate (2026-10-01):** DD-353…DD-357 canonical promotion is exact-head verified at the basis above; this state-closure commit must independently pass before the next governed backend batch opens. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-WORKFLOW-TASK-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `6dfdc0b9041186e91c94e5f39f0a9f8a4e9e9328` / tree `66c35b1de6d9ac5baf0dab260e2b39dca3023e6e`
+> **Current audit gate (2026-10-01):** DD-358…DD-362 WorkflowTask visible WorkflowInstance current-evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111 with open current-scope P0/P1 = 0. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-3 DETAILED DESIGN EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 **Historical adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
 

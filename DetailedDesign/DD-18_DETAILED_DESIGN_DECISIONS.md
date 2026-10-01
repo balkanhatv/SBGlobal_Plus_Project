@@ -4416,3 +4416,48 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** creator currentness, active-version selection by code/date, currentState/stateMachine validity, approval/rule execution, transition/task authorization, state mutation and event emission remain separately governed.
 
 **Acceptance:** `WFI-DEFREAD-NOFALLBACK-001`, `WFI-DEFREAD-BOUND-001`.
+
+
+## DD-358 — WorkflowTask parent-first exact visible read
+
+**Decision:** `loadWorkflowTaskInstanceCurrentEvidence(...)` first invokes the existing WorkflowTask reader with the exact supplied RequestContext object and task id. A null task returns null before parent access; dependency errors propagate unchanged.
+
+**Boundary:** no assignment resolution, task action or mutation.
+
+**Acceptance:** `WFT-INSTREAD-BASE-001…002`.
+
+
+## DD-359 — Exact referenced WorkflowInstance read under the same RequestContext
+
+**Decision:** after a visible task, invoke the existing WorkflowInstance reader exactly once with the same RequestContext and exactly `task.workflowInstanceId`.
+
+**Boundary:** no resource/definition/state lookup, alternate-id search or context switch.
+
+**Acceptance:** `WFT-INSTREAD-INST-001…002`.
+
+
+## DD-360 — Re-apply DD-174 child→parent current-binding floor
+
+**Decision:** evaluate only `matchesWorkflowChildParentBindingFloors(task, instance)`. False returns null.
+
+**Boundary:** do not duplicate or weaken DD-174 parent id/Tenant/nullable-Industry semantics.
+
+**Acceptance:** `WFT-INSTREAD-FLOOR-001`.
+
+
+## DD-361 — Immutable exact-reference task/instance evidence
+
+**Decision:** success returns a frozen envelope containing the exact WorkflowTask and WorkflowInstance references.
+
+**Boundary:** no clone, normalization or mutation.
+
+**Acceptance:** `WFT-INSTREAD-EVID-001`.
+
+
+## DD-362 — Preserve raw task semantics and add no action/execution authority
+
+**Decision:** task assignment, state, due, claim/completion and parent workflow state/lifecycle remain raw evidence only.
+
+**Boundary:** assignee PRINCIPAL/ROLE/ORG_UNIT resolution, claimant/completer currentness, permission evaluation, due/expiry, claim/approve/reject/complete, transition authorization, mutation and event emission remain separately governed.
+
+**Acceptance:** `WFT-INSTREAD-RAW-001`, `WFT-INSTREAD-BOUND-001`.

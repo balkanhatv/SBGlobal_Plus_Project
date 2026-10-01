@@ -5154,3 +5154,42 @@ A referenced definition hidden under the supplied RequestContext remains null; t
 
 ### WFI-DEFREAD-BOUND-001 — Raw workflow semantics remain uninterpreted
 currentState, lifecycle state, creator, effective dates, stateMachine, approvalPolicy and ruleRefs remain raw; no transition/task/execution/mutation/event authority is synthesized.
+
+
+## DD-358 WorkflowTask Parent-First Read Acceptance
+
+### WFT-INSTREAD-BASE-001 — Exact RequestContext/id reaches WorkflowTask first
+The exact supplied RequestContext object and WorkflowTask id reach the WorkflowTask reader first; WorkflowInstance access occurs only after a visible task.
+
+### WFT-INSTREAD-BASE-002 — Task null/error short-circuits
+A null task returns null without WorkflowInstance access; a task dependency error propagates unchanged.
+
+
+## DD-359 Exact Visible WorkflowInstance Read Acceptance
+
+### WFT-INSTREAD-INST-001 — Exact same context and persisted instance id
+The visible task forwards the exact same RequestContext object and its exact persisted WorkflowInstance id once.
+
+### WFT-INSTREAD-INST-002 — WorkflowInstance null/error semantics
+A null WorkflowInstance returns null; a dependency error propagates unchanged.
+
+
+## DD-360 DD-174 Current-Binding Floor Acceptance
+
+### WFT-INSTREAD-FLOOR-001 — Exact parent id/Tenant/nullable-Industry floor
+Exact Tenant-Core/Tenant-Industry parent binding passes DD-174; wrong parent id, Tenant, sibling Industry or Core/Industry mismatch fails closed.
+
+
+## DD-361 Immutable Exact-Reference Evidence Acceptance
+
+### WFT-INSTREAD-EVID-001 — Exact identities preserved
+Success preserves the exact WorkflowTask and WorkflowInstance references in a frozen evidence envelope.
+
+
+## DD-362 Raw Task Evidence and No-Action Authority Acceptance
+
+### WFT-INSTREAD-RAW-001 — Task and parent evidence remain raw
+Assignment/state/due/claim/completion/version plus parent currentState/lifecycle evidence remain unchanged and uninterpreted.
+
+### WFT-INSTREAD-BOUND-001 — No assignee/task-action/transition/execution authority
+No assignee/claimant/completer currentness, due/expired result, task-action authorization, WorkflowTransition authorization, execution, mutation or event authority is synthesized.

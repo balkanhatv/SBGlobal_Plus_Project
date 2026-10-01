@@ -1551,3 +1551,8 @@ DD-353…DD-357 implement only a parent-first same-RequestContext WorkflowInstan
 ## 2026-10-01 — DD-353…DD-357 canonical promotion verified; state closure staged
 
 Canonical promotion `669381753a9da961454ab9e0c14f3551d4abc8df` / tree `50b2cf77e390347d78344b62340121507fba7f40` passed **1109/1109 Core**, **529/529 PostgreSQL** plus database bootstrap, **48 migrations / 42 verification files**, Database Verify and Web. The state-closure commit records that promotion as the current verified executable basis. No runtime, schema, RawSource, route, UI or workflow-execution authority is introduced by closure.
+
+
+## 2026-10-01 — DD-358…DD-362 canonical promotion staged
+
+DD-358…DD-362 implement only a parent-first same-RequestContext WorkflowTask + visible WorkflowInstance current-evidence reader over existing DD-102/DD-103/DD-174 authority. Verified implementation `6dfdc0b9041186e91c94e5f39f0a9f8a4e9e9328` / tree `66c35b1de6d9ac5baf0dab260e2b39dca3023e6e` passes **1117/1117 Core**, **529/529 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database Verify and Web. No assignee/currentness, permission/due, task-action, transition/execution or mutation authority is claimed.
