@@ -30,3 +30,8 @@ No schema, migration, RLS, grant, role, route, frontend, provider, scheduler, wo
 ## Canonical promotion gate
 
 This promotion records DD-17 acceptance contracts, DD-18 decisions, DD-19 traceability, D-DECISIONS, manifest and all active/current checkpoint projections. The promotion's own exact-head Core/PostgreSQL/Database/Web gate must pass before DD-398…DD-402 closure or another source audit. Production readiness is not claimed.
+
+## First canonical-promotion gate finding and forward-only correction
+
+Promotion HEAD `98ac4cb657f150c82fd0840d0dcc470a57da9f86` correctly failed Core PR run `37020870978` / job `110883301609` on canonical consistency only. REPO-011 found the three DetailedDesign active narratives still named DD-393…DD-397, and REPO-007 found DD-19's current header had been overwritten by the pre-promotion header during traceability append. REPO-008 passed, so canonical decision/acceptance/executable evidence was present. The smallest forward-only correction updates only those four projections plus this evidence record; no runtime/schema/RLS/route/UI/RawSource change. Fresh exact-head Core/PostgreSQL/Database/Web verification is required.
+
