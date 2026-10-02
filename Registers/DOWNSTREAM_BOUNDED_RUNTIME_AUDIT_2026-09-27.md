@@ -155,3 +155,7 @@ Verified basis `b0e47cd5d391c3a181cbed6ef90e3b9f22f3dbac` / tree `50b49da02b20cd
 
 Current verified promotion basis `f10b442302c7cf5717f75f28b09cb0d408903afb` / tree `edb6d631fc222e42337ebe2ce6f92e7e291c3fe8`: 1182 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only; the bounded AgentStep/tool-binding evidence scope is unchanged and no member-constraint interpretation, permission/entitlement/approval admission, schema validation, GuardPipeline, dispatch, transition/retry/resume, provider/model routing, AI/tool execution, UI, schema or RawSource authority is added.
 
+## DD-403…DD-407 implementation verification — 2026-10-02
+
+Verified basis `6c90539a1f9577cefad1a060918f4950a7fc1b7e` / tree `0fa85fb805251f56d8054679f8aa8d968601133d`: **1190 Core / 529 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD403_DD407_VERIFICATION_2026-10-02.md`. The composition preserves exact DD-402 parent/tool evidence and adds only optional same-RequestContext AgentApproval relationship evidence through DD-183/DD-184; persisted APPROVED remains raw and no approval-currentness/permission, AgentRun resume/cancel, tool/OperationContract admission/dispatch, mutation or AI execution authority is introduced. Canonical promotion requires its own exact-head gate.
+

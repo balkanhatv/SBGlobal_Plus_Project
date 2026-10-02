@@ -4946,3 +4946,59 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AISTEP-EVID-BOUND-001`.
 
+## DD-403 — reuse DD-402 AgentStep parent/tool evidence first
+
+**Context:** DD-402 already owns exact visible AgentStep, exact AgentRun/AgentDefinition/ToolSet parent evidence and conditional TOOL member/catalog binding.
+
+**Decision:** `loadAIAgentStepApprovalCurrentEvidence(...)` invokes DD-402 first with the exact supplied RequestContext and AgentStep id. Null short-circuits AgentApproval access and dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Rebuilding step/run/tool reads would duplicate validated relationship logic and risk divergent semantics.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-APPREAD-BASE-001…002`.
+
+## DD-404 — optional exact same-context AgentApproval read
+
+**Context:** Persisted AgentStep carries optional approvalId and DD-132 owns exact-by-id RequestContext-scoped raw AgentApproval reads.
+
+**Decision:** When approvalId is absent, perform zero approval reads. When present, read exactly that id once under the identical RequestContext. Null returns null and dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Selecting approval by run, permission, type or status would invent a resolver absent from source ownership.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-APPREAD-APP-001…002`.
+
+## DD-405 — DD-183 backlink plus DD-184 parent/scope floors
+
+**Context:** Migration 0031 owns both optional AgentStep→AgentApproval backlink and AgentApproval→AgentRun/AgentStep/Tenant/nullable-Industry scope consistency.
+
+**Decision:** Re-apply DD-183 to the preserved AgentStep and optional approval. For present approval evidence, additionally re-apply DD-184 against the exact DD-402 AgentRun and same AgentStep. False returns null.
+
+**Alternatives / trade-off:** Persisted APPROVED, approver identity or requiredPermission are not substitutes for current approval satisfaction.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-APPREAD-FLOOR-001, AISTEP-APPREAD-RAW-001`.
+
+## DD-406 — immutable layered exact-reference approval evidence
+
+**Decision:** Return frozen `{ parent }` when unbound or frozen `{ parent, approval }` when bound, preserving exact DD-402 parent and AgentApproval identities without cloning or mutation.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-APPREAD-EVID-001`.
+
+## DD-407 — raw AgentApproval evidence without approval/runtime authority
+
+**Context:** DD-09 requires current approval/permission/context revalidation before tool execution.
+
+**Decision:** Preserve approval requestedBy/type/requiredPermission/approver/status/summary/time/reason/correlation as raw evidence only. Do not decide approval satisfaction/currentness, approver permission/context, AgentRun resume/cancel, tool/OperationContract admission/dispatch, mutation, event emission, provider/model routing or AI execution.
+
+**Consequences:** Approval satisfaction/currentness and all AI/tool execution remain separately governed.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-APPREAD-BOUND-001`.
+

@@ -1161,3 +1161,9 @@ DD-131 AgentStep raw reader → DD-397 AgentRun/AgentDefinition/ToolSet current 
 
 The chain resolves only persisted current evidence. Non-TOOL steps perform no tool reads; TOOL steps use only the persisted member and exact referenced catalog tool. Constraint/permission/entitlement/approval/schema/OperationContract/provider/model/tool/AI execution semantics remain separate.
 
+## DD-403…DD-407 — AgentStep visible parent + optional AgentApproval current evidence
+
+DD-402 AgentStep parent/tool current evidence → DD-132 AgentApproval raw reader → DD-183 optional approval backlink → DD-184 approval parent/scope floor → `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-403…DD-407 → `src/core/ai/agent-step-visible-approval-current-evidence-reader.ts` → `tests/core/ai-agent-step-visible-approval-current-evidence-reader.test.mjs` (`AISTEP-APPREAD-BASE-001…002`, `AISTEP-APPREAD-APP-001…002`, `AISTEP-APPREAD-FLOOR-001`, `AISTEP-APPREAD-RAW-001`, `AISTEP-APPREAD-EVID-001`, `AISTEP-APPREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD403_DD407_VERIFICATION_2026-10-02.md`.
+
+This chain proves only optional visible AgentApproval relationship evidence. Persisted APPROVED remains raw historical evidence; approval-currentness/permission, AgentRun resume/cancel, tool/OperationContract admission/dispatch and AI execution remain separate.
+

@@ -5458,3 +5458,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 ### AISTEP-EVID-BOUND-001 — No admission, planning, dispatch or execution authority
 **Owner:** DD-402. Member constraints and ToolDefinition permission/entitlement/scope/schema/side-effect/approval/idempotency/audit/OperationContract metadata remain raw; output exposes no permission/entitlement/approval admission, schema validation, GuardPipeline, next-step/retry/resume, dispatch, provider/model routing, mutation, event or tool/AI execution authority.
 
+## DD-403 DD-402 Parent Evidence First Acceptance
+
+### AISTEP-APPREAD-BASE-001 — Exact DD-402 chain first
+**Owner:** DD-403. The exact supplied RequestContext and AgentStep id enter the existing DD-402 parent/tool evidence chain before any AgentApproval access.
+
+### AISTEP-APPREAD-BASE-002 — Parent absence and errors
+**Owner:** DD-403. DD-402 null/error short-circuits all AgentApproval access and preserves dependency error identity.
+
+## DD-404 Optional Exact AgentApproval Read Acceptance
+
+### AISTEP-APPREAD-APP-001 — Zero-read unbound / exact bound read
+**Owner:** DD-404. Absent approvalId performs zero approval reads; present approvalId performs exactly one read with the identical RequestContext and exact persisted id.
+
+### AISTEP-APPREAD-APP-002 — Approval absence and errors
+**Owner:** DD-404. Hidden/missing AgentApproval returns null; AgentApproval-reader dependency errors propagate unchanged.
+
+## DD-405 DD-183/DD-184 Approval Relationship Acceptance
+
+### AISTEP-APPREAD-FLOOR-001 — Backlink plus run/step/Tenant/Industry scope
+**Owner:** DD-405. DD-183 exact optional backlink and DD-184 parent/scope floors pass valid evidence and reject wrong id/run/step/Tenant/sibling-Industry/Core-vs-Industry or malformed evidence.
+
+### AISTEP-APPREAD-RAW-001 — Approval state remains raw
+**Owner:** DD-405. PENDING/APPROVED/REJECTED/EXPIRED plus requiredPermission, approver, type, summary, times and reason remain raw evidence; persisted APPROVED is not current approval satisfaction.
+
+## DD-406 Immutable Layered Approval Evidence Acceptance
+
+### AISTEP-APPREAD-EVID-001 — Preserve exact nested identities
+**Owner:** DD-406. Success preserves the exact frozen DD-402 parent envelope and optional exact AgentApproval reference inside a frozen outer envelope without input mutation.
+
+## DD-407 Approval Evidence Runtime Boundary Acceptance
+
+### AISTEP-APPREAD-BOUND-001 — No approval-currentness, resume or tool execution authority
+**Owner:** DD-407. Output exposes no approver-currentness/permission/context decision, AgentRun resume/cancel, tool/OperationContract admission/dispatch, mutation, event, provider/model routing or AI execution authority.
+
