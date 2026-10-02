@@ -121,6 +121,7 @@ export * from "./workflow/automation-run.js";
 export * from "./workflow/automation-run-definition-binding-floors.js";
 export * from "./workflow/automation-run-visible-definition-current-evidence-reader.js";
 export * from "./workflow/automation-definition-workflow-containment-floors.js";
+export * from "./workflow/automation-definition-visible-workflow-containment-evidence-reader.js";
 export * from "./ai/provider-catalog-metadata.js";
 export * from "./ai/model-catalog-metadata.js";
 export * from "./ai/model-provider-binding-floors.js";
