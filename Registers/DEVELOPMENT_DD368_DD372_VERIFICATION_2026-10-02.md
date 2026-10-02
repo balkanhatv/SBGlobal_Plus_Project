@@ -39,3 +39,7 @@ This promotion records DD-17 acceptance contracts, DD-18 decisions, DD-19 tracea
 
 Promotion HEAD `25754e014c3c042c2bd2b161f4eef90da3ac8a4b` correctly failed Core run `36962858438` / job `110700132509` at REPO-008. REPO-007 and REPO-011 both passed; the only canonical defect was that the new DD-19 DD-368…DD-372 trace line linked implementation/test/evidence but omitted the exact source-audit path required by the current-feature invariant. The smallest correction inserts that source-audit link in DD-19 only. No runtime, schema, RLS, route, UI or RawSource change. The corrected promotion must independently pass exact-head Core/PostgreSQL/Database/Web.
 
+## Canonical promotion verified; state closure staged — 2026-10-02
+
+Corrected promotion HEAD `1835994b2e5238390365e4e2ca12702eb02289c4` / tree `7c2acda6ac22fe334601eee0401d6f34253298ef` passed **1134/1134 Core**, **529/529 PostgreSQL**, full database bootstrap, **48 migrations / 42 SQL verification files**, Database and Web. Core push run `36962950136` / jobs `110700412309`, `110700412042`; Database push run `36962950176` / job `110700411966`; Web push run `36962950132` / job `110700411823`. The prior promotion attempt `25754e014c3c042c2bd2b161f4eef90da3ac8a4b` remains preserved as the REPO-008 traceability failure described above. This state-closure commit must independently pass exact-head gates before DD-368…DD-372 is closed and before another source audit opens.
+
