@@ -145,6 +145,7 @@ export * from "./ai/agent-definition.js";
 export * from "./ai/agent-definition-tool-set-binding-floors.js";
 export * from "./ai/agent-run.js";
 export * from "./ai/agent-run-definition-binding-floors.js";
+export * from "./ai/agent-run-visible-definition-current-evidence-reader.js";
 export * from "./ai/agent-step.js";
 export * from "./ai/agent-step-tool-binding-floors.js";
 export * from "./ai/agent-step-approval-backlink-floors.js";
