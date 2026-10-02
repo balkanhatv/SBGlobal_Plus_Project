@@ -94,3 +94,8 @@ Current verified basis `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9
 ## DD-363…DD-367 implementation verification — 2026-10-02
 
 Verified basis `58af7b52b8797c7564000376e295372fe58785e0` / tree `536eb45578642ab06d910b5bc96954912ab544e4`: 1126 Core / 529 PostgreSQL / Database 48/42 / Web PASS. Evidence: `Registers/DEVELOPMENT_DD363_DD367_VERIFICATION_2026-10-02.md`. Canonical promotion and the expanded state-narrative guard still require their own exact-head gate. The historical transition reader grants no actor or execution authority.
+
+## DD-363…DD-367 canonical promotion evidence — 2026-10-02
+
+Current verified promotion basis `4fc6c1956b86b00f2a87b2dc0ab0d7a3afec24d6` / tree `aea5ce4e4ef0658c95397e5691a20df74dbf6357`: 1126 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only; bounded runtime scope remains unchanged and no actor, workflow-execution, mutation, UI, schema or RawSource authority is added.
+
