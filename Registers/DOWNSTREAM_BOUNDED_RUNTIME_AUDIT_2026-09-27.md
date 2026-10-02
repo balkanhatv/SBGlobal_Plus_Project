@@ -139,3 +139,7 @@ Verified basis `30ef23844579ff74fef3ec5e3408de3f88717d5e` / tree `7c7a6a9d2bf083
 
 Current verified promotion basis `465ee23c98304a80bb01f7942d9b2e53bebebdfa` / tree `a3a2675989b315df4990338fbce0e9c02bfdba79`: 1166 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only; bounded runtime scope is unchanged and no principal/membership/snapshot/resource/budget/tool/approval/provider/model execution, mutation, UI, schema or RawSource authority is added.
 
+## DD-393…DD-397 implementation verification — 2026-10-02
+
+Verified basis `e9e7e17c6556f99435eb3babdc250a7b21e5791f` / tree `09cad785b8547dffbc5ecc8c416b36297d7e3987`: **1174 Core / 529 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD393_DD397_VERIFICATION_2026-10-02.md`. The reader preserves exact DD-392 parent evidence and adds only same-RequestContext exact ToolSet evidence through DD-180; hidden PLATFORM ToolSet evidence remains hidden and no member resolution, tool eligibility, permission/entitlement/approval, AgentStep, OperationContract, provider/model, mutation or AI execution authority is introduced. Canonical promotion requires its own exact-head gate.
+

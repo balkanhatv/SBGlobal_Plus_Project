@@ -5390,3 +5390,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 ### AIARUN-DEFREAD-BOUND-001 — No principal, resume, tool or execution authority
 **Owner:** DD-392. Acting-principal/membership, startup entitlement/permission snapshots, requested resource scope, run status/budgets and definition ToolSet/risk/approval/budget/version evidence remain uninterpreted; output exposes no principal/membership-currentness, resume, step, tool, approval, OperationContract, provider/model, mutation, event or execution authority.
 
+## DD-393 DD-392 Parent Evidence First Acceptance
+
+### AIARUN-TOOLSETREAD-BASE-001 — Exact DD-392 chain first
+**Owner:** DD-393. The exact supplied RequestContext and AgentRun id enter the existing DD-392 parent chain before any ToolSet access.
+
+### AIARUN-TOOLSETREAD-BASE-002 — Parent absence and errors
+**Owner:** DD-393. DD-392 null/error short-circuits all ToolSet access and preserves dependency error identity.
+
+## DD-394 Same-Context Exact ToolSet Read Acceptance
+
+### AIARUN-TOOLSETREAD-TOOLSET-001 — Exact persisted ToolSet reference
+**Owner:** DD-394. Successful parent evidence forwards the identical RequestContext and exact persisted allowedToolSetId to the ToolSet reader exactly once, with no AgentDefinition re-read beyond DD-392.
+
+### AIARUN-TOOLSETREAD-TOOLSET-002 — ToolSet absence and errors
+**Owner:** DD-394. Hidden/missing ToolSet returns null; ToolSet-reader dependency errors propagate unchanged.
+
+## DD-395 DD-180 Binding / No-Fallback Acceptance
+
+### AIARUN-TOOLSETREAD-FLOOR-001 — Exact ACTIVE broader-or-equal binding
+**Owner:** DD-395. DD-180 exact id + ACTIVE + broader-or-equal PLATFORM/TENANT/INDUSTRY containment passes; wrong id, non-ACTIVE, narrower/foreign/sibling or malformed evidence fails closed.
+
+### AIARUN-TOOLSETREAD-NOFALLBACK-001 — No PLATFORM_GLOBAL fallback
+**Owner:** DD-395. A broader PLATFORM ToolSet hidden under Tenant context remains null after one same-context read; no context elevation, synthetic principal or alternate reader path occurs.
+
+## DD-396 Immutable Layered Agent/ToolSet Evidence Acceptance
+
+### AIARUN-TOOLSETREAD-EVID-001 — Preserve exact nested identities
+**Owner:** DD-396. Success preserves the exact frozen DD-392 parent envelope and exact ToolSet object reference inside a frozen outer envelope without input mutation.
+
+## DD-397 Raw Agent/ToolSet Boundary Acceptance
+
+### AIARUN-TOOLSETREAD-BOUND-001 — No member/tool/permission/execution authority
+**Owner:** DD-397. Combined AgentRun/AgentDefinition/ToolSet evidence remains raw and exposes no ToolSet-member resolution, tool eligibility, permission/entitlement/approval, AgentStep planning, OperationContract dispatch, provider/model routing, mutation, event or AI execution authority.
+

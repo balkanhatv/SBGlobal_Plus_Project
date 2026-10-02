@@ -4842,3 +4842,57 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIARUN-DEFREAD-BOUND-001`.
 
+## DD-393 — reuse DD-392 AgentRun/AgentDefinition evidence first
+
+**Context:** DD-392 already owns exact visible AgentRun→ACTIVE/applicable AgentDefinition current evidence.
+
+**Decision:** `loadAIAgentRunDefinitionToolSetCurrentEvidence(...)` invokes DD-392 first with the exact supplied RequestContext and AgentRun id. Null short-circuits and dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Rebuilding the run/definition reads would duplicate validated relationship logic and risk divergent semantics.
+
+**Source audit:** `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIARUN-TOOLSETREAD-BASE-001…002`.
+
+## DD-394 — exact same-RequestContext persisted ToolSet read
+
+**Context:** The preserved AgentDefinition contains one exact allowedToolSetId and DD-111 owns exact-by-id ToolSet visibility.
+
+**Decision:** Read exactly `parent.definition.allowedToolSetId` once under the identical RequestContext. Null returns null; dependency errors propagate unchanged. Do not re-read AgentDefinition, lookup ToolSet by code/version or change context.
+
+**Alternatives / trade-off:** Alternate lookup or context switching could select unrelated/hidden ToolSet evidence.
+
+**Source audit:** `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIARUN-TOOLSETREAD-TOOLSET-001…002`.
+
+## DD-395 — DD-180 current binding with no PLATFORM_GLOBAL fallback
+
+**Context:** DD-180 owns exact id/ACTIVE/broader-or-equal ToolSet containment and DD-111 owns visibility.
+
+**Decision:** Re-apply DD-180 to the preserved AgentDefinition and visible ToolSet. A broader PLATFORM ToolSet hidden from the supplied Tenant RequestContext remains null; never elevate to PLATFORM_GLOBAL or synthesize another principal.
+
+**Consequences:** ToolSet version/effective selection and member/tool eligibility remain outside this relationship.
+
+**Source audit:** `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIARUN-TOOLSETREAD-FLOOR-001, AIARUN-TOOLSETREAD-NOFALLBACK-001`.
+
+## DD-396 — immutable layered exact-reference Agent/ToolSet evidence
+
+**Decision:** Return frozen `{ runDefinition: parent, toolSet }`, preserving the exact DD-392 parent object and exact reader-returned ToolSet reference. Do not clone, normalize or mutate.
+
+**Source audit:** `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIARUN-TOOLSETREAD-EVID-001`.
+
+## DD-397 — raw Agent/ToolSet evidence without tool or AI runtime authority
+
+**Context:** AgentRun, AgentDefinition and ToolSet carry execution-adjacent metadata, while ToolSet members, eligibility, permissions, entitlements, approvals and AI execution are separately governed.
+
+**Decision:** Preserve those fields as raw evidence only. Do not resolve ToolSet members, authorize tools, permissions/entitlements/approvals, select current versions, plan AgentSteps, dispatch OperationContracts, route providers/models, mutate, emit events or execute AI.
+
+**Source audit:** `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIARUN-TOOLSETREAD-BOUND-001`.
+

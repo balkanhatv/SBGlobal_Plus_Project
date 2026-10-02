@@ -1,7 +1,7 @@
 # FINAL PRE-DEVELOPMENT INDEPENDENT ADVERSARIAL AUDIT — 2026-09-13
-**Current checkpoint:** `DEV-AI-AGENT-RUN-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `465ee23c98304a80bb01f7942d9b2e53bebebdfa` / tree `a3a2675989b315df4990338fbce0e9c02bfdba79`
-> **Current audit gate (2026-10-02):** DD-388…DD-392 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-AGENT-RUN-VISIBLE-DEFINITION-TOOL-SET-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `e9e7e17c6556f99435eb3babdc250a7b21e5791f` / tree `09cad785b8547dffbc5ecc8c416b36297d7e3987`
+> **Current audit gate (2026-10-02):** DD-393…DD-397 AgentRun/AgentDefinition plus exact visible ToolSet current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.
