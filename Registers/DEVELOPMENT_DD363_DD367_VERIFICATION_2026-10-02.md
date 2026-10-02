@@ -32,3 +32,8 @@ State reconciliation also found two manifest summary strings still capped at DD-
 ## First state-closure gate finding and forward-only correction
 
 State-closure HEAD `053157839f329f5360c3e4cabd7fd913180eefac` correctly failed Core run `36961242339` / job `110695187603`: REPO-007 found that `current_downstream_verified_head` had advanced to the verified promotion while `Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` did not yet contain that promotion evidence. The suite ran **1126 tests: 1125 pass / 1 fail / 0 skipped**. The smallest correction adds only the missing verified promotion-basis reference to that bounded audit and fixes the documentation-only expected-count wording; no runtime/schema/RawSource change. Exact-head Core/PostgreSQL/Database/Web must rerun on the correction commit.
+
+## State closure verified — 2026-10-02
+
+Forward-only correction/closure HEAD `fb143106868206abb9452046c300b10d941b3916` / tree `544ecb583c44cb9631b6ff6a93b723760f75a7e0` passed exact-head push gates: Core run `36961367413` / job `110695572337` **1126/1126 PASS**; PostgreSQL job `110695572390` **529/529 PASS**, fail/skip 0 plus full bootstrap PASS; Database run `36961367404` / job `110695572159` PASS with **48 migrations / 42 SQL verification files**; Web run `36961367420` / job `110695572594` PASS. DD-363…DD-367 is closed at this bounded evidence scope. Source-owned forward development may resume.
+
