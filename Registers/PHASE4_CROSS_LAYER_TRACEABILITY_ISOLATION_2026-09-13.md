@@ -1,7 +1,7 @@
 # PHASE 4 — Cross-Layer Traceability / Isolation / Determinism Revalidation
 **Current checkpoint:** `DEV-AI-AGENT-RUN-VISIBLE-DEFINITION-TOOL-SET-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `e9e7e17c6556f99435eb3babdc250a7b21e5791f` / tree `09cad785b8547dffbc5ecc8c416b36297d7e3987`
-> **Current audit gate (2026-10-02):** DD-393…DD-397 AgentRun/AgentDefinition plus exact visible ToolSet current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `c9909e83b1e8e08f3f221df00c653da448ac205b` / tree `c850fa2ed0f0b465631338f192ff726e6d31a139`
+> **Current audit gate (2026-10-02):** DD-393…DD-397 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-4 GATE EVIDENCE · **Date:** 2026-09-13  
 **Evaluated substantive DD HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`  
 **Upstream gates at evaluation:** Phase 1 Foundation PASS · Phase 2 Architecture PASS · Phase 3 DD PASS
