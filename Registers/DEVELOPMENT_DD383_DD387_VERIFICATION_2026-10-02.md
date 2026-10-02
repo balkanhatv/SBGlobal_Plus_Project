@@ -33,3 +33,7 @@ This promotion must independently pass exact-head Core/PostgreSQL/Database/Web b
 
 Promotion HEAD `637b8bc43f742454f7840c14b94692cd83d4d88b` correctly failed Core push run `36975765825` / job `110739138120` at REPO-011: the three active DetailedDesign checkpoint narratives had their headers/verified basis/next action advanced to DD-387, but their batch/boundary/evidence prose still named DD-378…DD-382. REPO-007 and REPO-008 passed. The suite ran **1158 tests: 1157 pass / 1 fail / 0 skipped**. The smallest forward-only correction updates only `DetailedDesign/DD-CHECKPOINT.md`, `DD-PHASE_STATE.md` and `DD-REVIEW_REQUIRED.md` to the already-canonical DD-383…DD-387 narrative plus this evidence note; no runtime/schema/RLS/route/UI/RawSource change. Corrected promotion must independently pass exact-head Core/PostgreSQL/Database/Web.
 
+## Corrected canonical promotion verified; state closure staged — 2026-10-02
+
+Corrected promotion HEAD `0a97220a0faa92a66f3b73594b251c51611373a1` / tree `bf0aeb28f8b71dfba273eab5a8c671fc5f049f59` passed **1158/1158 Core**, **529/529 PostgreSQL**, full database bootstrap, **48 migrations / 42 SQL verification files**, Database and Web. Core push run `36975931528` / jobs `110739638919`, `110739639268`; Database push run `36975931515` / job `110739639046`; Web push run `36975931569` / job `110739638898`. REPO-011, REPO-007 and REPO-008 all pass. This state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web before DD-383…DD-387 is closed and before another source audit opens.
+

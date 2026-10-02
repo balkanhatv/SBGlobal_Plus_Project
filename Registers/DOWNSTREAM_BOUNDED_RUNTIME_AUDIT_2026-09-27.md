@@ -127,3 +127,7 @@ Current verified promotion basis `11153944df9ccae7bcb57cda80140765f20693d5` / tr
 
 Verified basis `e2fbc0eabf3f38bad817e5d1dc94ff47122b0394` / tree `00198651fcdef3b8c71d1d15eb3ac93ebcfa8224`: **1158 Core / 529 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD383_DD387_VERIFICATION_2026-10-02.md`. The composition adds only optional exact OperationContract registry identity to DD-382 current evidence. Operation metadata remains raw; no RequestContext compatibility, permission/entitlement, GuardPipeline, idempotency/rate/commercial/authz admission, dispatch, mutation or execution authority is introduced. Canonical promotion requires its own exact-head gate.
 
+## DD-383…DD-387 corrected canonical promotion evidence — 2026-10-02
+
+Current verified promotion basis `0a97220a0faa92a66f3b73594b251c51611373a1` / tree `bf0aeb28f8b71dfba273eab5a8c671fc5f049f59`: 1158 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only; OperationContract registry metadata remains evidence-only and no scope/permission/entitlement/admission, GuardPipeline, idempotency/rate/commercial/authz, dispatch, mutation, UI, schema or RawSource authority is added.
+
