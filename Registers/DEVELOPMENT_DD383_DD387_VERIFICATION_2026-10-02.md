@@ -28,3 +28,8 @@ No schema, migration, RLS, grant, role, route, frontend or RawSource change. Ope
 ## Canonical promotion gate
 
 This promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-383…DD-387 closure or another source audit. Production readiness is not claimed.
+
+## First canonical-promotion gate finding and forward-only correction
+
+Promotion HEAD `637b8bc43f742454f7840c14b94692cd83d4d88b` correctly failed Core push run `36975765825` / job `110739138120` at REPO-011: the three active DetailedDesign checkpoint narratives had their headers/verified basis/next action advanced to DD-387, but their batch/boundary/evidence prose still named DD-378…DD-382. REPO-007 and REPO-008 passed. The suite ran **1158 tests: 1157 pass / 1 fail / 0 skipped**. The smallest forward-only correction updates only `DetailedDesign/DD-CHECKPOINT.md`, `DD-PHASE_STATE.md` and `DD-REVIEW_REQUIRED.md` to the already-canonical DD-383…DD-387 narrative plus this evidence note; no runtime/schema/RLS/route/UI/RawSource change. Corrected promotion must independently pass exact-head Core/PostgreSQL/Database/Web.
+
