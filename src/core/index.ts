@@ -113,6 +113,7 @@ export * from "./workflow/instance-definition-binding-floors.js";
 export * from "./workflow/instance-visible-definition-current-evidence-reader.js";
 export * from "./workflow/task.js";
 export * from "./workflow/task-visible-instance-current-evidence-reader.js";
+export * from "./workflow/transition-visible-instance-current-evidence-reader.js";
 export * from "./workflow/transition.js";
 export * from "./workflow/child-parent-binding-floors.js";
 export * from "./workflow/automation-definition.js";
