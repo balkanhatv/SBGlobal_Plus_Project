@@ -1,8 +1,8 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
-**Current checkpoint:** `DEV-WORKFLOW-TASK-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
-> **Current audit gate (2026-10-02):** DD-358…DD-362 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. The active-narrative correction and regression guard must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111; this targeted state correction adds no runtime authority. Production readiness is **NOT CLAIMED**.
-**Updated:** 2026-10-02 · **Authority:** DD-02/03/05/07/08/09/16/17/21 and current Industry contracts
-> **Current executable audit basis:** `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9e3494a425b6d83ae5fb12005e04aa16280`
+**Current checkpoint:** `DEV-WORKFLOW-TRANSITION-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
+> **Current audit gate (2026-10-02):** DD-363…DD-367 implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above. This canonical promotion and the expanded narrative guard must independently pass before closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Updated:** 2026-10-02 · **Branch:** `docs/architecture-branch-2`
+> **Current executable audit basis:** `58af7b52b8797c7564000376e295372fe58785e0` / tree `536eb45578642ab06d910b5bc96954912ab544e4`
 
 ## Historical 2026-09-14 executable persistence overlay
 

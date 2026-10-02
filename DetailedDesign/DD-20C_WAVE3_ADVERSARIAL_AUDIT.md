@@ -1,11 +1,11 @@
 # DD-20C — WAVE-3 ADVERSARIAL AUDIT
-**Current checkpoint:** `DEV-WORKFLOW-TASK-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9e3494a425b6d83ae5fb12005e04aa16280`
-> **Current audit gate (2026-10-02):** DD-358…DD-362 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. The active-narrative correction and regression guard must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111; this targeted state correction adds no runtime authority. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-WORKFLOW-TRANSITION-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `58af7b52b8797c7564000376e295372fe58785e0` / tree `536eb45578642ab06d910b5bc96954912ab544e4`
+> **Current audit gate (2026-10-02):** DD-363…DD-367 implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above. This canonical promotion and the expanded narrative guard must independently pass before closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE-3 ADVERSARIAL EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `810e43c9c75e3750f52cc7e1954db8f341e6d79b`  
 **Historical adversarial hypothesis:** **WAVE 3 IS NOT IMPLEMENTATION READY**
 
-> **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
+> **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
 
 ## Method
 The canonical nine industry DD files were re-read independently. For each MS, evidence was checked for entities, typed fields, immutable Tenant+Industry ownership, exact indexes/constraints, state model, exact major transition matrix, forbidden transitions, cancellation/reversal, domain rules, approvals, permissions, ABAC, behavior catalogs, documents, notifications, KPI formula mapping, API operations, events, integrations, AI/RAG/tools, surfaces, offline, configuration, entitlements, audit, acceptance IDs and requirement-level traceability. DD-27 was not accepted as standalone proof.

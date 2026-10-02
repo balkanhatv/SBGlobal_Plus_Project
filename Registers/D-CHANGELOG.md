@@ -1560,3 +1560,7 @@ DD-358…DD-362 implement only a parent-first same-RequestContext WorkflowTask +
 ## 2026-10-02 — DD-358…DD-362 promotion verified; current narrative drift corrected
 
 Synchronize twelve current narrative blocks, remove the obsolete duplicate handoff action, and add REPO-011 after reproducing the stale DD-352 versus DD-362 failure. Historical evidence is preserved. Exact-head promotion basis: `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9e3494a425b6d83ae5fb12005e04aa16280`; 1117 Core / 529 PostgreSQL / Database 48/42 / Web PASS. Correction evidence: `Registers/CHECKPOINT_NARRATIVE_CORRECTION_2026-10-02.md`.
+
+## 2026-10-02 — DD-363…DD-367 implemented and canonical promotion staged
+
+Add the source-owned same-context WorkflowTransition/WorkflowInstance evidence composition with eight executable acceptances. Implementation `58af7b52b8797c7564000376e295372fe58785e0` / tree `536eb45578642ab06d910b5bc96954912ab544e4` passed 1126 Core / 529 PostgreSQL / Database 48/42 / Web. Synchronize all fourteen active summaries; expand the narrative regression to canonical indexes and old duplicate overlay labels. Historical evidence and all existing dependency locks remain preserved. Promotion requires its own exact-head verification.

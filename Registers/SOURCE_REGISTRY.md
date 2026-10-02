@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-WORKFLOW-TASK-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9e3494a425b6d83ae5fb12005e04aa16280`
-**Status:** ACTIVE · **Updated:** 2026-09-28
+**Current checkpoint:** `DEV-WORKFLOW-TRANSITION-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `58af7b52b8797c7564000376e295372fe58785e0` / tree `536eb45578642ab06d910b5bc96954912ab544e4`
+**Status:** ACTIVE · **Updated:** 2026-10-02
 
-> **Current audit gate (2026-10-02):** DD-358…DD-362 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. The active-narrative correction and regression guard must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111; this targeted state correction adds no runtime authority. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-02):** DD-363…DD-367 implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above. This canonical promotion and the expanded narrative guard must independently pass before closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority
@@ -48,5 +48,3 @@ Governed DD-208 promotion evidence remains `c7825bedc7e96b5010266a42c710e3608672
 The current bounded downstream executable audit basis is `6903bf671d5b99e78d2ebc8b2d94ce55dd4411b7` / tree `66b417fde1f543200cb26e815464484daad1a34e`: **883/883 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation remains **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED**; DD-243…DD-247 canonical promotion is exact-head verified and state closure is staged.
 
 Next: this DD-243…DD-247 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the next independently source-complete governed backend batch may be source-audited. Context trust, live policy/quota/routing/credentials and AI execution remain locked.
-
-

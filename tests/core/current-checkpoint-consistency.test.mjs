@@ -64,7 +64,7 @@ test("REPO-011: active checkpoint narratives agree with the manifest beyond thei
     "Development/DEVELOPMENT_STATE.md", "Development/DB_CHECKPOINT.md",
     "Registers/D-CHECKPOINT.md", "DetailedDesign/DD-CHECKPOINT.md",
     "DetailedDesign/DD-PHASE_STATE.md", "DetailedDesign/DD-REVIEW_REQUIRED.md",
-    "DetailedDesign/DD-INDEX.md",
+    "DetailedDesign/DD-INDEX.md", "Registers/D-INDEX.md", "Registers/REVIEW_REQUIRED.md",
   ];
   for (const path of paths) {
     // Historical sections retain their own evidence; these paragraphs are current.
@@ -81,6 +81,12 @@ test("REPO-011: active checkpoint narratives agree with the manifest beyond thei
   }
   assert.ok(!read("State/HANDOFF_NOTE.md").split("## Historical")[0]
     .match(/Fetch the branch again[^\n]*DD-\d+/), "Handoff has a second batch-specific continuation instruction");
+  for (const path of projections) {
+    const content = read(path);
+    assert.ok(!content.includes("> **Current project overlay"), `${path}: duplicate dated current overlay`);
+    const updated = content.split("\n").slice(0, 8).join("\n").match(/\*\*Updated:\*\* (\d{4}-\d{2}-\d{2})/);
+    if (updated) assert.equal(updated[1], m.updated, `${path}: stale current update date`);
+  }
 });
 
 test("REPO-007: active checkpoint projections distinguish governed feature evidence from current audit basis", () => {

@@ -4461,3 +4461,73 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Boundary:** assignee PRINCIPAL/ROLE/ORG_UNIT resolution, claimant/completer currentness, permission evaluation, due/expiry, claim/approve/reject/complete, transition authorization, mutation and event emission remain separately governed.
 
 **Acceptance:** `WFT-INSTREAD-RAW-001`, `WFT-INSTREAD-BOUND-001`.
+
+## DD-363 — WorkflowTransition first exact visible read
+
+**Context:** DD-104 owns the exact-by-id transition read port and RLS-scoped evidence.
+
+**Decision:** Add `loadWorkflowTransitionInstanceCurrentEvidence(...)`; read the transition once with the exact input context/id before any parent access. Null short-circuits; dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Reading the parent first would require guessing an id or bypassing the visible transition. Composing the existing port avoids duplicate persistence logic.
+
+**Consequences / dependencies:** existing DD-102/DD-104/DD-174 and migration 0026/0027/0031 boundaries remain authoritative. No schema, RLS, role, grant, public route or frontend change.
+
+**Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WTR-INSTREAD-BASE-001…002`.
+
+## DD-364 — same-RequestContext exact referenced WorkflowInstance read
+
+**Context:** DD-102 owns the exact-by-id instance reader; migration 0031 binds the transition to its persisted parent.
+
+**Decision:** After a visible transition, read exactly `transition.workflowInstanceId` once using the same RequestContext object. Null returns null; errors propagate unchanged.
+
+**Alternatives / trade-off:** Alternate resource/state lookups or context switching could select an unrelated or hidden parent; exact reference following preserves the existing isolation boundary.
+
+**Consequences / dependencies:** existing DD-102/DD-104/DD-174 and migration 0026/0027/0031 boundaries remain authoritative. No schema, RLS, role, grant, public route or frontend change.
+
+**Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WTR-INSTREAD-INST-001…002`.
+
+## DD-365 — DD-174 transition-parent current-binding floor
+
+**Context:** DD-174 already implements transition-to-instance id/Tenant/nullable-Industry binding.
+
+**Decision:** Call `matchesWorkflowChildParentBindingFloors(transition, instance)` and return null on false.
+
+**Alternatives / trade-off:** Duplicating predicates risks semantic drift; omitting them relies solely on persistence-era integrity. Reusing the pure owner adds no new actor or product policy.
+
+**Consequences / dependencies:** existing DD-102/DD-104/DD-174 and migration 0026/0027/0031 boundaries remain authoritative. No schema, RLS, role, grant, public route or frontend change.
+
+**Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WTR-INSTREAD-FLOOR-001`.
+
+## DD-366 — immutable exact-reference WorkflowTransition/Instance evidence
+
+**Context:** Callers need the exact visible evidence without derived authority.
+
+**Decision:** Return frozen `{ transition, instance }` with exact input identities; do not clone, normalize or mutate.
+
+**Alternatives / trade-off:** Cloning would break evidence identity and could obscure raw values. The envelope is shallowly frozen; it adds no deep-freeze guarantee beyond the existing read-port contract.
+
+**Consequences / dependencies:** existing DD-102/DD-104/DD-174 and migration 0026/0027/0031 boundaries remain authoritative. No schema, RLS, role, grant, public route or frontend change.
+
+**Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WTR-INSTREAD-EVID-001`.
+
+## DD-367 — historical transition evidence without actor or execution authority
+
+**Context:** DD-104 versions/states describe a past transition; its parent may have advanced. Migration 0031 actor membership at occurredAt is separate from DD-174.
+
+**Decision:** Preserve all transition and parent semantic fields as raw evidence. Do not equate historical toState/resultingInstanceVersion to currentState/rowVersion, resolve actors/definitions, authorize replay/transition, mutate or emit events.
+
+**Alternatives / trade-off:** Treating this as action authority would invent missing policy; forcing historical/current equality would reject legitimate history. The bounded reader deliberately leaves actor and execution policy to their owners.
+
+**Consequences / dependencies:** existing DD-102/DD-104/DD-174 and migration 0026/0027/0031 boundaries remain authoritative. No schema, RLS, role, grant, public route or frontend change.
+
+**Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WTR-INSTREAD-HISTORY-001, WTR-INSTREAD-BOUND-001`.

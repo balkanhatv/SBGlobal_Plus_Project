@@ -1,10 +1,10 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-WORKFLOW-TASK-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9e3494a425b6d83ae5fb12005e04aa16280`
-> **Current audit gate (2026-10-02):** DD-358…DD-362 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. The active-narrative correction and regression guard must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111; this targeted state correction adds no runtime authority. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-WORKFLOW-TRANSITION-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `58af7b52b8797c7564000376e295372fe58785e0` / tree `536eb45578642ab06d910b5bc96954912ab544e4`
+> **Current audit gate (2026-10-02):** DD-363…DD-367 implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above. This canonical promotion and the expanded narrative guard must independently pass before closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
-> **Current project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
+> **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
 
 **Wave:** 1–3 · **Evaluated status:** PHASE 3 REVALIDATION — UPDATED TRACEABILITY
 
@@ -1114,3 +1114,9 @@ Core `WFT-INSTREAD-BASE-001…002`, `WFT-INSTREAD-INST-001…002`, `WFT-INSTREAD
 `Registers/DEVELOPMENT_DD358_DD362_VERIFICATION_2026-10-01.md`.
 
 This chain proves only same-RequestContext task visibility plus exact DD-174 parent binding. Assignment currentness, permission/due semantics, task actions, transition authorization, workflow execution, mutation and event emission remain separate.
+
+## DD-363…DD-367 — WorkflowTransition visible-parent current evidence
+
+Migration 0026 transition/instance persistence and parent RLS → migration 0027 append-only grants → migration 0031 exact parent binding → DD-102/DD-104 raw readers + DD-174 binding floor → `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-363…DD-367 → `src/core/workflow/transition-visible-instance-current-evidence-reader.ts` → `tests/core/workflow-transition-visible-instance-current-evidence-reader.test.mjs` (`WTR-INSTREAD-BASE-001…002`, `WTR-INSTREAD-INST-001…002`, `WTR-INSTREAD-FLOOR-001`, `WTR-INSTREAD-EVID-001`, `WTR-INSTREAD-HISTORY-001`, `WTR-INSTREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD363_DD367_VERIFICATION_2026-10-02.md`.
+
+The reader establishes current parent binding only. Transition state/version remains historical; actor-at-occurrence validity, replay/transition authorization, definition/state-machine interpretation, mutation and event emission remain separate.

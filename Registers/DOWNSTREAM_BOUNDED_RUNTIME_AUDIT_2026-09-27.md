@@ -90,3 +90,7 @@ This bounded report does not authorize source-incomplete execution by itself. Th
 ## DD-358…DD-362 promotion evidence — 2026-10-02
 
 Current verified basis `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9e3494a425b6d83ae5fb12005e04aa16280`: 1117 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. Active checkpoint body drift is corrected separately in `Registers/CHECKPOINT_NARRATIVE_CORRECTION_2026-10-02.md`; its own exact-head gate remains required. Runtime scope is unchanged.
+
+## DD-363…DD-367 implementation verification — 2026-10-02
+
+Verified basis `58af7b52b8797c7564000376e295372fe58785e0` / tree `536eb45578642ab06d910b5bc96954912ab544e4`: 1126 Core / 529 PostgreSQL / Database 48/42 / Web PASS. Evidence: `Registers/DEVELOPMENT_DD363_DD367_VERIFICATION_2026-10-02.md`. Canonical promotion and the expanded state-narrative guard still require their own exact-head gate. The historical transition reader grants no actor or execution authority.

@@ -5193,3 +5193,29 @@ Assignment/state/due/claim/completion/version plus parent currentState/lifecycle
 
 ### WFT-INSTREAD-BOUND-001 — No assignee/task-action/transition/execution authority
 No assignee/claimant/completer currentness, due/expired result, task-action authorization, WorkflowTransition authorization, execution, mutation or event authority is synthesized.
+
+## DD-363…DD-367 WorkflowTransition Visible-Parent Evidence Acceptance
+
+### WTR-INSTREAD-BASE-001 — Exact transition first
+**Owner:** DD-363. The exact RequestContext object and transition id reach the transition reader once before parent access.
+
+### WTR-INSTREAD-BASE-002 — Transition short-circuit
+**Owner:** DD-363. Null returns null and transition errors propagate unchanged; neither path accesses the parent.
+
+### WTR-INSTREAD-INST-001 — Same context and persisted parent
+**Owner:** DD-364. Read the exact persisted WorkflowInstance id once under the identical RequestContext, for both Core and Industry contexts.
+
+### WTR-INSTREAD-INST-002 — Parent absence and errors
+**Owner:** DD-364. Missing or hidden parent returns null; parent dependency errors preserve identity.
+
+### WTR-INSTREAD-FLOOR-001 — DD-174 exact parent ownership
+**Owner:** DD-365. Exact Core/Industry binding passes; wrong parent id, Tenant, sibling Industry, Core/Industry mismatch or malformed ownership fails closed.
+
+### WTR-INSTREAD-EVID-001 — Immutable exact references
+**Owner:** DD-366. Success is a frozen two-field envelope retaining exact transition/instance identities without input mutation.
+
+### WTR-INSTREAD-HISTORY-001 — Historical state and large versions
+**Owner:** DD-367. Preserve actor/from/action/to/reason/occurredAt/correlation and large decimal version strings; a parent with later state/version does not invalidate historical transition evidence.
+
+### WTR-INSTREAD-BOUND-001 — No actor or execution authority
+**Owner:** DD-367. Expose no actor-current/actor-at-occurrence validation, state-machine/replay/transition/task authorization, mutation, event or execution authority.

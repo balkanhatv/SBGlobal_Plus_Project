@@ -195,3 +195,7 @@ continuation, not invention of missing commercial policy.
 
 ## 2026-09-21 — DD-080 disposition
 The external REST plane reuses the canonical OperationExecutor and DD-052 projector through a metadata-only preflight boundary. Concrete routes and credential syntax require separate source-complete registration; the adapter is not public exposure authority.
+
+## 2026-10-02 — WorkflowTransition visible-parent evidence disposition
+
+DD-363…DD-367 in `DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md` own this bounded composition over DD-102/DD-104/DD-174. Source audit: `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. This reuses existing source-owned policy and does not resolve a Vision-level or security-boundary approval item.
