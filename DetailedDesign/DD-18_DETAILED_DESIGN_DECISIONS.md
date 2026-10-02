@@ -4672,3 +4672,55 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `WFA-DEF-WFREAD-BOUND-001`.
 
+## DD-378 — reuse DD-372 parent evidence first
+
+**Context:** DD-372 already owns the exact visible AutomationRun→ACTIVE/applicable AutomationDefinition evidence chain.
+
+**Decision:** `loadAutomationRunDefinitionWorkflowCurrentEvidence(...)` invokes DD-372 first with the exact supplied RequestContext and AutomationRun id. Null short-circuits and dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Rebuilding the run/definition reads here would duplicate validated relationship logic and risk divergent semantics.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_CONTAINMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-WFREAD-BASE-001…002`.
+
+## DD-379 — optional WorkflowDefinition extension without AutomationDefinition re-read
+
+**Context:** The exact DD-372 parent envelope already contains the authoritative visible AutomationDefinition reference.
+
+**Decision:** Use exactly `parent.definition.workflowDefinitionId`. If absent, skip WorkflowDefinition access; if bound, read that id once under the identical RequestContext. Never re-read AutomationDefinition.
+
+**Alternatives / trade-off:** Calling the DD-377 reader would re-read AutomationDefinition and weaken exact parent-envelope identity.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_CONTAINMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-WFREAD-WF-001…002`.
+
+## DD-380 — DD-176 containment with no cross-context fallback
+
+**Context:** DD-176 owns optional exact-reference containment and DD-101 owns RequestContext visibility.
+
+**Decision:** Re-apply DD-176 to the preserved AutomationDefinition and optional visible WorkflowDefinition. Hidden broader PLATFORM parent evidence remains null; no PLATFORM_GLOBAL elevation or alternate reader path.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_CONTAINMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-WFREAD-FLOOR-001, WFA-RUN-WFREAD-NOFALLBACK-001`.
+
+## DD-381 — immutable layered exact-reference evidence
+
+**Decision:** Return frozen `{ runDefinition: parent }` when unbound or frozen `{ runDefinition: parent, workflowDefinition }` when bound, preserving exact nested object identities.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_CONTAINMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-WFREAD-EVID-001`.
+
+## DD-382 — combined raw evidence without runtime authority
+
+**Decision:** Preserve AutomationRun, AutomationDefinition and WorkflowDefinition execution-adjacent fields as raw evidence only. Do not select active/effective definitions, interpret triggers/conditions/state machines, authorize run/transition/retry, dispatch OperationContract/WorkflowDefinition, mutate or emit events.
+
+**Consequences:** Automation/Workflow execution remains separately governed.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_CONTAINMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-WFREAD-BOUND-001`.
+

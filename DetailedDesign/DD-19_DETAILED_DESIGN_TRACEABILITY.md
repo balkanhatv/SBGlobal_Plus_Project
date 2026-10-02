@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AUTOMATION-DEFINITION-VISIBLE-WORKFLOW-CONTAINMENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `8acbf6e1318b1182d9ced288f7bdc0d91b315e24` / tree `413458bb721a3851f17eba44161b6c1a9aa81aa5`
-> **Current audit gate (2026-10-02):** DD-373…DD-377 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AUTOMATION-RUN-VISIBLE-DEFINITION-WORKFLOW-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `cda146975415a8024bb54512e53bdca57a8913a1` / tree `bfa3a468991c02c0a9f45e8ca70d025b66dc68d1`
+> **Current audit gate (2026-10-02):** DD-378…DD-382 AutomationRun→AutomationDefinition→optional WorkflowDefinition current-evidence composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1130,4 +1130,10 @@ The reader establishes only visible current AutomationRun→AutomationDefinition
 Migration 0026 AutomationDefinition/WorkflowDefinition persistence → migration 0031 optional reference integrity → migration 0048 definition containment → DD-101/DD-105 raw readers → DD-176 optional containment floor → `Development/AUTOMATION_DEFINITION_VISIBLE_WORKFLOW_CONTAINMENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-373…DD-377 → `src/core/workflow/automation-definition-visible-workflow-containment-evidence-reader.ts` → `tests/core/automation-definition-visible-workflow-containment-evidence-reader.test.mjs` (`WFA-DEF-WFREAD-BASE-001…002`, `WFA-DEF-WFREAD-WF-001…002`, `WFA-DEF-WFREAD-FLOOR-001`, `WFA-DEF-WFREAD-NOFALLBACK-001`, `WFA-DEF-WFREAD-EVID-001`, `WFA-DEF-WFREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD373_DD377_VERIFICATION_2026-10-02.md`.
 
 This chain proves only visible optional WorkflowDefinition containment under the same RequestContext. Hidden PLATFORM parents remain hidden; lifecycle/version/effective selection, state-machine/rule/trigger interpretation, dispatch, mutation and Automation/Workflow execution remain separate.
+
+## DD-378…DD-382 — AutomationRun visible Definition + optional Workflow current evidence
+
+DD-372 AutomationRun→AutomationDefinition current evidence → DD-176 AutomationDefinition→WorkflowDefinition optional containment → `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_CONTAINMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-378…DD-382 → `src/core/workflow/automation-run-visible-definition-workflow-current-evidence-reader.ts` → `tests/core/automation-run-visible-definition-workflow-current-evidence-reader.test.mjs` (`WFA-RUN-WFREAD-BASE-001…002`, `WFA-RUN-WFREAD-WF-001…002`, `WFA-RUN-WFREAD-FLOOR-001`, `WFA-RUN-WFREAD-NOFALLBACK-001`, `WFA-RUN-WFREAD-EVID-001`, `WFA-RUN-WFREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD378_DD382_VERIFICATION_2026-10-02.md`.
+
+This composition preserves exact DD-372 parent evidence, avoids duplicate AutomationDefinition reads and adds only optional same-context WorkflowDefinition containment. Active/effective selection, trigger/condition/state-machine interpretation, retry/transition authorization, dispatch, mutation and execution remain separate.
 

@@ -5288,3 +5288,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 ### WFA-DEF-WFREAD-BOUND-001 — No selection, dispatch or execution authority
 **Owner:** DD-377. Automation/Workflow status, version, effective, stateMachine, approval, rule, trigger, config, condition and operation evidence remains uninterpreted; output exposes no active-version selection, trigger/condition decision, dispatch, retry/state-transition, mutation, event or Automation/Workflow execution authority.
 
+## DD-378 DD-372 Parent Evidence First Acceptance
+
+### WFA-RUN-WFREAD-BASE-001 — Exact DD-372 chain first
+**Owner:** DD-378. The exact supplied RequestContext and AutomationRun id enter the existing DD-372 parent chain before any WorkflowDefinition access.
+
+### WFA-RUN-WFREAD-BASE-002 — Parent absence and errors
+**Owner:** DD-378. DD-372 null/error short-circuits all WorkflowDefinition access and preserves dependency error identity.
+
+## DD-379 Optional WorkflowDefinition Extension Acceptance
+
+### WFA-RUN-WFREAD-WF-001 — Unbound skip / bound exact parent id without re-read
+**Owner:** DD-379. Unbound preserved AutomationDefinition skips WorkflowDefinition access; bound evidence forwards the identical RequestContext and exact persisted WorkflowDefinition id once, with no AutomationDefinition re-read beyond DD-372.
+
+### WFA-RUN-WFREAD-WF-002 — Bound parent absence and errors
+**Owner:** DD-379. Bound hidden/missing WorkflowDefinition returns null; WorkflowDefinition-reader errors propagate unchanged.
+
+## DD-380 DD-176 Containment / No-Fallback Acceptance
+
+### WFA-RUN-WFREAD-FLOOR-001 — Exact optional containment
+**Owner:** DD-380. DD-176 valid optional/reference containment passes and wrong-id/narrower/foreign/sibling/malformed evidence fails closed.
+
+### WFA-RUN-WFREAD-NOFALLBACK-001 — No PLATFORM_GLOBAL fallback
+**Owner:** DD-380. A bound PLATFORM WorkflowDefinition hidden under Tenant context remains null after one same-context read; no context elevation or alternate reader path occurs.
+
+## DD-381 Immutable Layered Evidence Acceptance
+
+### WFA-RUN-WFREAD-EVID-001 — Preserve exact nested identities
+**Owner:** DD-381. Success preserves the exact frozen DD-372 parent envelope and optional exact WorkflowDefinition reference inside a frozen outer envelope without input mutation.
+
+## DD-382 Combined Raw-Evidence Boundary Acceptance
+
+### WFA-RUN-WFREAD-BOUND-001 — No selection, transition, dispatch or execution authority
+**Owner:** DD-382. Combined run/definition/workflow evidence remains raw and exposes no active/effective selection, trigger/condition/state-machine decision, retry/finality, transition authorization, dispatch, mutation, event or execution authority.
+
