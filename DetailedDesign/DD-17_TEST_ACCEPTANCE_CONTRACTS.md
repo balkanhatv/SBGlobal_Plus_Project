@@ -5356,3 +5356,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 ### WFA-RUN-OPREAD-BOUND-001 — Evidence only
 **Owner:** DD-387. Combined run/definition/workflow/operation evidence exposes no compatibility, permission/entitlement, GuardPipeline, idempotency/rate/commercial/authz, selection, transition/retry, dispatch, mutation, event or execution authority.
 
+## DD-388 AgentRun First Visible Read Acceptance
+
+### AIARUN-DEFREAD-BASE-001 — Exact run read first
+**Owner:** DD-388. The exact supplied RequestContext object and exact AgentRun id reach the AgentRun reader once before any AgentDefinition access.
+
+### AIARUN-DEFREAD-BASE-002 — Run absence and errors
+**Owner:** DD-388. Null/RLS-hidden AgentRun returns null without definition access; run-reader dependency errors propagate unchanged.
+
+## DD-389 Same-RequestContext AgentDefinition Read Acceptance
+
+### AIARUN-DEFREAD-DEF-001 — Exact persisted definition read
+**Owner:** DD-389. A visible run forwards the identical RequestContext object and exact persisted agentDefinitionId to the AgentDefinition reader once for Tenant-Core and Tenant-Industry visibility cases.
+
+### AIARUN-DEFREAD-DEF-002 — Definition absence and errors
+**Owner:** DD-389. Null/RLS-hidden AgentDefinition returns null; definition-reader dependency errors propagate unchanged.
+
+## DD-390 DD-181 Current-Binding / No-Fallback Acceptance
+
+### AIARUN-DEFREAD-FLOOR-001 — Exact ACTIVE applicable definition
+**Owner:** DD-390. DD-181 exact id + ACTIVE + PLATFORM/TENANT/INDUSTRY applicability passes; wrong id, non-ACTIVE, foreign Tenant, sibling Industry or malformed ownership fails closed.
+
+### AIARUN-DEFREAD-NOFALLBACK-001 — No PLATFORM_GLOBAL fallback
+**Owner:** DD-390. A PLATFORM AgentDefinition hidden from the supplied Tenant RequestContext remains null after exactly one same-context definition read; no context elevation, synthetic platform principal or alternate reader path is used.
+
+## DD-391 Immutable AgentRun/Definition Evidence Acceptance
+
+### AIARUN-DEFREAD-EVID-001 — Immutable exact references
+**Owner:** DD-391. Success returns a frozen two-field envelope retaining the exact AgentRun and AgentDefinition object references without input mutation.
+
+## DD-392 Raw Agent Evidence Boundary Acceptance
+
+### AIARUN-DEFREAD-BOUND-001 — No principal, resume, tool or execution authority
+**Owner:** DD-392. Acting-principal/membership, startup entitlement/permission snapshots, requested resource scope, run status/budgets and definition ToolSet/risk/approval/budget/version evidence remain uninterpreted; output exposes no principal/membership-currentness, resume, step, tool, approval, OperationContract, provider/model, mutation, event or execution authority.
+

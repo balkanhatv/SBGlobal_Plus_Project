@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AUTOMATION-RUN-VISIBLE-DEFINITION-WORKFLOW-OPERATION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `0a97220a0faa92a66f3b73594b251c51611373a1` / tree `bf0aeb28f8b71dfba273eab5a8c671fc5f049f59`
-> **Current audit gate (2026-10-02):** DD-383…DD-387 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-AGENT-RUN-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `30ef23844579ff74fef3ec5e3408de3f88717d5e` / tree `7c7a6a9d2bf0837eea417d4985c773df3d992a2d`
+> **Current audit gate (2026-10-02):** DD-388…DD-392 AI AgentRun visible AgentDefinition current-evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1142,4 +1142,10 @@ This composition preserves exact DD-372 parent evidence, avoids duplicate Automa
 DD-382 AutomationRun/Definition/Workflow current evidence → DD-06 OperationContract/OperationRegistry exact registration model → `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-383…DD-387 → `src/core/workflow/automation-run-visible-definition-workflow-operation-current-evidence-reader.ts` → `tests/core/automation-run-visible-definition-workflow-operation-current-evidence-reader.test.mjs` (`WFA-RUN-OPREAD-BASE-001…002`, `WFA-RUN-OPREAD-OP-001…002`, `WFA-RUN-OPREAD-COEXIST-001`, `WFA-RUN-OPREAD-RAW-001`, `WFA-RUN-OPREAD-EVID-001`, `WFA-RUN-OPREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD383_DD387_VERIFICATION_2026-10-02.md`.
 
 This chain proves only exact optional OperationContract registry evidence over the already-governed DD-382 parent. It does not establish RequestContext/OperationContract compatibility, permission/entitlement, GuardPipeline, idempotency/rate/commercial/authz admission, dispatch or execution authority.
+
+## DD-388…DD-392 — AI AgentRun visible AgentDefinition current evidence
+
+Migration 0031 AgentRun→AgentDefinition relationship + migration 0048 owner containment → DD-118 AgentDefinition raw reader + DD-130 AgentRun raw reader → DD-181 exact ACTIVE/applicable binding floor → `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-388…DD-392 → `src/core/ai/agent-run-visible-definition-current-evidence-reader.ts` → `tests/core/ai-agent-run-visible-definition-current-evidence-reader.test.mjs` (`AIARUN-DEFREAD-BASE-001…002`, `AIARUN-DEFREAD-DEF-001…002`, `AIARUN-DEFREAD-FLOOR-001`, `AIARUN-DEFREAD-NOFALLBACK-001`, `AIARUN-DEFREAD-EVID-001`, `AIARUN-DEFREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD388_DD392_VERIFICATION_2026-10-02.md`.
+
+The reader proves only visible current AgentRun→AgentDefinition evidence. PLATFORM definitions hidden from Tenant contexts remain hidden; principal/membership/snapshot/resource/budget/ToolSet/approval/provider/model and execution semantics remain separate.
 

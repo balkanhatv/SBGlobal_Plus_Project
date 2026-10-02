@@ -4776,3 +4776,69 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `WFA-RUN-OPREAD-BOUND-001`.
 
+## DD-388 — AgentRun first exact visible read
+
+**Context:** DD-130 owns the exact-by-id RequestContext-scoped AgentRun raw reader, including Tenant/Industry/principal-scoped visibility, without resume or execution semantics.
+
+**Decision:** Add `loadAIAgentRunDefinitionCurrentEvidence(...)`; read the AgentRun exactly once with the exact supplied RequestContext and AgentRun id before any AgentDefinition access. Null short-circuits and dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Definition-first lookup would require guessing or selecting an id and could bypass the visible run boundary.
+
+**Consequences / dependencies:** DD-118/DD-130/DD-181 and migrations 0031/0048 remain authoritative. No schema, RLS, role, grant, route, provider, worker or UI change.
+
+**Source audit:** `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIARUN-DEFREAD-BASE-001…002`.
+
+## DD-389 — same-RequestContext exact referenced AgentDefinition read
+
+**Context:** A visible AgentRun persists one exact agentDefinitionId; DD-118 owns exact-by-id AgentDefinition visibility.
+
+**Decision:** Read exactly `run.agentDefinitionId` once with the identical RequestContext object. Null returns null and dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Code/version lookup or context switching could select unrelated or hidden definition evidence.
+
+**Consequences / dependencies:** No active/effective AgentDefinition selector or alternate catalog resolver is introduced.
+
+**Source audit:** `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIARUN-DEFREAD-DEF-001…002`.
+
+## DD-390 — DD-181 AgentRun-definition current binding and no fallback
+
+**Context:** DD-181 owns exact AgentRun→AgentDefinition id/ACTIVE/scope applicability. DD-118 keeps PLATFORM definitions behind trusted PLATFORM_GLOBAL context.
+
+**Decision:** Apply `matchesAIAgentRunDefinitionBindingFloors(run, definition)` and return null on false. If the same-context AgentDefinition read is null, remain null; never elevate/switch to PLATFORM_GLOBAL or synthesize a platform principal.
+
+**Alternatives / trade-off:** Cross-scope fallback could reveal otherwise hidden platform catalog evidence and invent resolver authority.
+
+**Consequences / dependencies:** Principal/membership currentness, startup snapshot currentness, requested-resource authorization, budgets and lifecycle/effective selection remain outside this floor.
+
+**Source audit:** `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIARUN-DEFREAD-FLOOR-001, AIARUN-DEFREAD-NOFALLBACK-001`.
+
+## DD-391 — immutable exact-reference AgentRun/AgentDefinition evidence
+
+**Decision:** Return frozen `{ run, definition }` with exact reader-returned references; do not clone, normalize or mutate.
+
+**Consequences / dependencies:** Existing reader immutability remains authoritative and no deeper runtime guarantee is added.
+
+**Source audit:** `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIARUN-DEFREAD-EVID-001`.
+
+## DD-392 — raw Agent evidence without runtime authority
+
+**Context:** AgentRun/AgentDefinition expose principal, membership, snapshot, resource, budget, ToolSet, risk and approval metadata, but current authorization and Agent execution are separately governed.
+
+**Decision:** Preserve those fields as raw evidence only. Do not infer current principal/membership authorization, snapshot currentness, resumability, budget sufficiency, AgentStep planning, ToolSet/tool permission, approval satisfaction, OperationContract dispatch, provider/model routing, mutation or events.
+
+**Alternatives / trade-off:** Treating persisted startup or policy metadata as live execution authority would invent missing runtime semantics.
+
+**Consequences / dependencies:** Identity-currentness, provisioning/authorization currentness, tools, approvals, provider/model routing and AI execution remain separately governed.
+
+**Source audit:** `Development/AI_AGENT_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIARUN-DEFREAD-BOUND-001`.
+
