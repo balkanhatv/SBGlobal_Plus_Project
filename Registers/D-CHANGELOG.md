@@ -1590,3 +1590,5 @@ Add the source-owned same-context WorkflowTransition/WorkflowInstance evidence c
 - 2026-10-02 — DD-393…DD-397 implementation `e9e7e17c6556f99435eb3babdc250a7b21e5791f` / tree `09cad785b8547dffbc5ecc8c416b36297d7e3987` verified: Core 1174/1174, PostgreSQL 529/529 + bootstrap, Database 48/42, Web PASS. Canonical promotion staged; no schema/RLS/route/UI/RawSource or ToolSet-member/AI execution authority added.
 
 - 2026-10-02 — DD-393…DD-397 canonical promotion `c9909e83b1e8e08f3f221df00c653da448ac205b` / tree `c850fa2ed0f0b465631338f192ff726e6d31a139` verified: Core 1174/1174, PostgreSQL 529/529 + bootstrap, Database 48/42, Web PASS. State closure staged; no runtime/schema/RawSource authority added.
+
+- 2026-10-02 — DD-398…DD-402 implementation `b0e47cd5d391c3a181cbed6ef90e3b9f22f3dbac` / tree `50b49da02b20cd0f11918d3a4b8263cbb9293d03` verified: Core 1182/1182, PostgreSQL 529/529 + bootstrap, Database 48/42, Web PASS. Canonical promotion staged; no schema/RLS/route/UI/RawSource or AI/tool execution authority added.

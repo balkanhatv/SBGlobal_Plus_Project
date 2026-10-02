@@ -5424,3 +5424,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 ### AIARUN-TOOLSETREAD-BOUND-001 — No member/tool/permission/execution authority
 **Owner:** DD-397. Combined AgentRun/AgentDefinition/ToolSet evidence remains raw and exposes no ToolSet-member resolution, tool eligibility, permission/entitlement/approval, AgentStep planning, OperationContract dispatch, provider/model routing, mutation, event or AI execution authority.
 
+## DD-398 AgentStep First Visible Read Acceptance
+
+### AISTEP-EVID-BASE-001 — Exact AgentStep read first
+**Owner:** DD-398. The exact supplied RequestContext object and exact AgentStep id reach the AgentStep reader once before DD-397 parent/tool access.
+
+### AISTEP-EVID-BASE-002 — AgentStep absence and errors
+**Owner:** DD-398. Null/RLS-hidden AgentStep returns null without parent/member/catalog access; dependency errors propagate unchanged.
+
+## DD-399 Exact DD-397 Parent Acceptance
+
+### AISTEP-EVID-PARENT-001 — Persisted runId enters DD-397 exactly
+**Owner:** DD-399. Visible AgentStep forwards the identical RequestContext and exact persisted runId into DD-397; AgentRun, AgentDefinition and ToolSet are not independently re-read outside that chain.
+
+## DD-400 Persisted Step-Type / Tool-Binding Acceptance
+
+### AISTEP-EVID-BRANCH-001 — Non-TOOL skip / TOOL exact binding
+**Owner:** DD-400. PLAN/RAG/APPROVAL/INFERENCE perform zero member/catalog reads and apply DD-182 without tool evidence; TOOL reads exactly the persisted ToolSetMember in the same RequestContext and then exactly member.toolDefinitionId through the global ToolDefinition reader.
+
+### AISTEP-EVID-ERROR-001 — TOOL binding absence and errors
+**Owner:** DD-400. Hidden/missing ToolSetMember or ToolDefinition returns null; member/catalog dependency errors propagate unchanged.
+
+### AISTEP-EVID-FLOOR-001 — DD-182 fail-closed tool-binding floor
+**Owner:** DD-400. Wrong run/definition/member/tool ids, disabled member, non-ACTIVE ToolDefinition, member outside allowedToolSetId, malformed evidence or non-TOOL persisted binding fails closed.
+
+## DD-401 Immutable Layered AgentStep Evidence Acceptance
+
+### AISTEP-EVID-EVID-001 — Exact nested identities
+**Owner:** DD-401. Non-TOOL success returns frozen step+parent evidence; TOOL success additionally preserves exact ToolSetMember and ToolDefinition references in the frozen envelope without input mutation.
+
+## DD-402 Raw Tool / AI Boundary Acceptance
+
+### AISTEP-EVID-BOUND-001 — No admission, planning, dispatch or execution authority
+**Owner:** DD-402. Member constraints and ToolDefinition permission/entitlement/scope/schema/side-effect/approval/idempotency/audit/OperationContract metadata remain raw; output exposes no permission/entitlement/approval admission, schema validation, GuardPipeline, next-step/retry/resume, dispatch, provider/model routing, mutation, event or tool/AI execution authority.
+

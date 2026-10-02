@@ -4896,3 +4896,53 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AIARUN-TOOLSETREAD-BOUND-001`.
 
+## DD-398 — AgentStep first exact visible read
+
+**Context:** DD-131 owns exact-by-id RequestContext-scoped raw AgentStep visibility and parent-derived RLS.
+
+**Decision:** Add `loadAIAgentStepToolBindingCurrentEvidence(...)`; read AgentStep exactly once with the exact supplied RequestContext and AgentStep id before any DD-397 parent or tool-binding access. Null short-circuits; dependency errors propagate unchanged.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_RUN_DEFINITION_TOOL_SET_TOOL_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-EVID-BASE-001…002`.
+
+## DD-399 — exact DD-397 parent evidence by persisted runId
+
+**Context:** DD-397 already owns visible AgentRun→ACTIVE/applicable AgentDefinition→ACTIVE/broader-or-equal ToolSet evidence.
+
+**Decision:** Invoke DD-397 with the identical RequestContext and exactly `step.runId`; preserve the exact returned parent object and do not independently re-read its run/definition/ToolSet components.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_RUN_DEFINITION_TOOL_SET_TOOL_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-EVID-PARENT-001`.
+
+## DD-400 — branch only on persisted stepType and DD-182 tool-binding floor
+
+**Context:** DD-182 owns the persisted non-TOOL/TOOL relationship and exact ToolSetMember/ToolDefinition requirements.
+
+**Decision:** Non-TOOL PLAN/RAG/APPROVAL/INFERENCE performs no member/catalog reads and applies DD-182 without tool evidence. TOOL reads exactly `step.toolBindingId` once in the same RequestContext, then exactly `member.toolDefinitionId` once from the global ToolDefinition catalog, and applies DD-182. Null returns null; errors propagate unchanged.
+
+**Alternatives / trade-off:** Lookup by tool code/version/capability/operation or member selection would invent selection policy beyond persisted evidence.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_RUN_DEFINITION_TOOL_SET_TOOL_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-EVID-BRANCH-001, AISTEP-EVID-ERROR-001, AISTEP-EVID-FLOOR-001`.
+
+## DD-401 — immutable layered AgentStep/parent/tool evidence
+
+**Decision:** Return frozen `{ step, parent }` for non-TOOL or frozen `{ step, parent, member, toolDefinition }` for TOOL, preserving exact reader/DD-397 references with no clone, normalization or mutation.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_RUN_DEFINITION_TOOL_SET_TOOL_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-EVID-EVID-001`.
+
+## DD-402 — raw tool-binding evidence without AI/tool runtime authority
+
+**Context:** ToolSetMember and ToolDefinition expose execution-adjacent metadata, but constraint interpretation, authorization/admission, schema validation, OperationContract dispatch and AI/tool execution remain separately governed.
+
+**Decision:** Preserve all such fields as raw evidence only. Do not authorize permission/entitlement/approval, interpret member constraints, validate schemas, run GuardPipeline/idempotency/rate/audit, choose next/retry/resume, dispatch OperationContract, route provider/model, mutate, emit events or execute AI/tools.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_RUN_DEFINITION_TOOL_SET_TOOL_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-EVID-BOUND-001`.
+

@@ -1155,3 +1155,9 @@ DD-392 AgentRun→AgentDefinition current evidence → DD-111 exact ToolSet visi
 
 This chain proves only exact visible current ToolSet binding layered on DD-392 evidence. Hidden PLATFORM ToolSet evidence remains hidden; member resolution, tool eligibility, permission/entitlement/approval, AgentStep, OperationContract, provider/model and AI execution remain separate.
 
+## DD-398…DD-402 — AgentStep visible parent + conditional tool-binding current evidence
+
+DD-131 AgentStep raw reader → DD-397 AgentRun/AgentDefinition/ToolSet current evidence → DD-113 ToolSetMember raw reader → DD-110 global ToolDefinition catalog reader → DD-182 AgentStep tool-binding floor → `Development/AI_AGENT_STEP_VISIBLE_RUN_DEFINITION_TOOL_SET_TOOL_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-398…DD-402 → `src/core/ai/agent-step-visible-tool-binding-current-evidence-reader.ts` → `tests/core/ai-agent-step-visible-tool-binding-current-evidence-reader.test.mjs` (`AISTEP-EVID-BASE-001…002`, `AISTEP-EVID-PARENT-001`, `AISTEP-EVID-BRANCH-001`, `AISTEP-EVID-ERROR-001`, `AISTEP-EVID-FLOOR-001`, `AISTEP-EVID-EVID-001`, `AISTEP-EVID-BOUND-001`) → `Registers/DEVELOPMENT_DD398_DD402_VERIFICATION_2026-10-02.md`.
+
+The chain resolves only persisted current evidence. Non-TOOL steps perform no tool reads; TOOL steps use only the persisted member and exact referenced catalog tool. Constraint/permission/entitlement/approval/schema/OperationContract/provider/model/tool/AI execution semantics remain separate.
+

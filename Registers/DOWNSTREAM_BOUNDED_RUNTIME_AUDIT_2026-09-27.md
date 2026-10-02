@@ -147,3 +147,7 @@ Verified basis `e9e7e17c6556f99435eb3babdc250a7b21e5791f` / tree `09cad785b8547d
 
 Current verified promotion basis `c9909e83b1e8e08f3f221df00c653da448ac205b` / tree `c850fa2ed0f0b465631338f192ff726e6d31a139`: 1174 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only; bounded runtime scope remains unchanged and no ToolSet-member resolution, authorization, AgentStep, OperationContract, provider/model, AI execution, UI, schema or RawSource authority is added.
 
+## DD-398…DD-402 implementation verification — 2026-10-02
+
+Verified basis `b0e47cd5d391c3a181cbed6ef90e3b9f22f3dbac` / tree `50b49da02b20cd0f11918d3a4b8263cbb9293d03`: **1182 Core / 529 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD398_DD402_VERIFICATION_2026-10-02.md`. The reader composes exact visible AgentStep, DD-397 parent evidence and only persisted TOOL binding evidence through DD-182. Non-TOOL steps do not access tool readers; TOOL evidence adds no constraint/permission/entitlement/approval/schema/OperationContract/provider/model/tool/AI execution authority. Canonical promotion requires its own exact-head gate.
+
