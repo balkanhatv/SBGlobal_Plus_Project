@@ -1,7 +1,7 @@
 # DD-20 — DETAILED DESIGN AUDIT HIERARCHY
 **Current checkpoint:** `DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `6c90539a1f9577cefad1a060918f4950a7fc1b7e` / tree `0fa85fb805251f56d8054679f8aa8d968601133d`
-> **Current audit gate (2026-10-02):** DD-403…DD-407 AgentStep visible-parent + optional AgentApproval current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `ea5c7e74e0849e363c4a441b6fd09f64cdbba460` / tree `62b66c29eb4906ba18289512cb349f67ac0df64e`
+> **Current audit gate (2026-10-02):** DD-403…DD-407 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-13 · **Status:** PHASE-3 AUDIT HISTORY; current project overlay below
 
 | Audit | Artifact | Status | Authority |

@@ -28,3 +28,11 @@ No schema, migration, RLS, grant, role, route, frontend, provider, scheduler, wo
 ## Canonical promotion gate
 
 This promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-403…DD-407 closure or another source audit. Production readiness is not claimed.
+
+## First canonical-promotion gate finding and forward-only correction
+
+Promotion HEAD `5d3f2779cc04a24be1717f09af0fbe7c296b500c` / tree `99eb05b7b77051705145bbf2c64cc9aceae9227a` correctly failed Core push run `37029421951` / job `110912205000` on canonical consistency only. REPO-007 found `DetailedDesign/DD-19_DETAILED_DESIGN_TRACEABILITY.md` still projected the prior DD-398…DD-402 checkpoint while the DD-403…DD-407 traceability body and implementation evidence were already present. Core otherwise reached 1189/1190; PostgreSQL, Database and Web were green. The smallest forward-only correction updates only that active DD-19 header projection; no runtime, schema, RLS, route, UI or RawSource change is introduced.
+
+## Corrected canonical promotion verified; state closure staged — 2026-10-02
+
+Forward-only correction HEAD `ea5c7e74e0849e363c4a441b6fd09f64cdbba460` / tree `62b66c29eb4906ba18289512cb349f67ac0df64e` passed **1190/1190 Core**, **529/529 PostgreSQL**, full database bootstrap, **48 migrations / 42 SQL verification files**, Database and Web. Core push run `37033429632` / jobs `110925674696`, `110925675215`; Database push run `37033429665` / job `110925675635`; Web push run `37033429637` / job `110925675226`. The correction fixed only active canonical trace/projection consistency after the first promotion-gate finding; implementation evidence remains `6c90539a1f9577cefad1a060918f4950a7fc1b7e`. This state-closure commit must independently pass exact-head gates before DD-403…DD-407 is closed and before another source audit opens.
