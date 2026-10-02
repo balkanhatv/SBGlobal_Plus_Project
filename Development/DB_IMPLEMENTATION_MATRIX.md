@@ -1,7 +1,7 @@
 # DATABASE IMPLEMENTATION MATRIX — INDUSTRY WAVE
-**Current checkpoint:** `DEV-AUTOMATION-RUN-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `1835994b2e5238390365e4e2ca12702eb02289c4` / tree `7c2acda6ac22fe334601eee0401d6f34253298ef`
-> **Current audit gate (2026-10-02):** DD-368…DD-372 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AUTOMATION-DEFINITION-VISIBLE-WORKFLOW-CONTAINMENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `17b3367c8ab2c113c91f970ed1fbeaa66432a2aa` / tree `553c851c671add550b0f0ee17d7faac04d2909b2`
+> **Current audit gate (2026-10-02):** DD-373…DD-377 AutomationDefinition visible WorkflowDefinition containment-evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-10-02 · **Branch:** `docs/architecture-branch-2`
 **Status:** 9 CURRENT SUPPORTED INDUSTRY TABLE SETS IMPLEMENTED · CURRENT PERSISTENCE CHECKPOINT VERIFIED
 

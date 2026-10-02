@@ -5254,3 +5254,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 ### WFA-RUN-DEFREAD-BOUND-001 — No trigger, retry, dispatch or execution authority
 **Owner:** DD-372. Run trigger/idempotency/status/time/error and definition version/schema/trigger/config/condition/operation/workflow/effective evidence remain uninterpreted; output exposes no definition-selection, trigger-match, condition, retry/finality, next-state, dispatch, mutation, event or execution authority.
 
+## DD-373 AutomationDefinition First Visible Read Acceptance
+
+### WFA-DEF-WFREAD-BASE-001 — Exact AutomationDefinition read first
+**Owner:** DD-373. The exact supplied RequestContext object and exact AutomationDefinition id reach the AutomationDefinition reader once before any WorkflowDefinition access.
+
+### WFA-DEF-WFREAD-BASE-002 — AutomationDefinition absence and errors
+**Owner:** DD-373. Null/RLS-hidden AutomationDefinition returns null without WorkflowDefinition access; dependency errors propagate unchanged.
+
+## DD-374 Optional Same-RequestContext WorkflowDefinition Read Acceptance
+
+### WFA-DEF-WFREAD-WF-001 — Unbound skip / bound exact reference
+**Owner:** DD-374. An unbound AutomationDefinition performs no WorkflowDefinition read and may return automation-only evidence; a bound definition forwards the identical RequestContext and exact persisted WorkflowDefinition id once.
+
+### WFA-DEF-WFREAD-WF-002 — Bound parent absence and errors
+**Owner:** DD-374. Bound hidden/missing WorkflowDefinition returns null; WorkflowDefinition-reader dependency errors propagate unchanged.
+
+## DD-375 DD-176 Containment / No-Fallback Acceptance
+
+### WFA-DEF-WFREAD-FLOOR-001 — Exact optional-reference containment
+**Owner:** DD-375. DD-176 valid unbound and visible broader/equal parent containment passes; wrong id, narrower/foreign/sibling parent or malformed ownership fails closed.
+
+### WFA-DEF-WFREAD-NOFALLBACK-001 — No PLATFORM_GLOBAL parent fallback
+**Owner:** DD-375. A bound PLATFORM WorkflowDefinition hidden from the Tenant RequestContext remains null after exactly one same-context read; no context elevation, synthetic principal or alternate reader path is used.
+
+## DD-376 Immutable Definition Containment Evidence Acceptance
+
+### WFA-DEF-WFREAD-EVID-001 — Immutable exact references
+**Owner:** DD-376. Unbound success returns frozen automation-only evidence; bound success returns a frozen envelope preserving exact AutomationDefinition and WorkflowDefinition references without input mutation.
+
+## DD-377 Raw Automation / Workflow Definition Boundary Acceptance
+
+### WFA-DEF-WFREAD-BOUND-001 — No selection, dispatch or execution authority
+**Owner:** DD-377. Automation/Workflow status, version, effective, stateMachine, approval, rule, trigger, config, condition and operation evidence remains uninterpreted; output exposes no active-version selection, trigger/condition decision, dispatch, retry/state-transition, mutation, event or Automation/Workflow execution authority.
+

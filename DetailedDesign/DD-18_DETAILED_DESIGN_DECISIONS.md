@@ -4602,3 +4602,73 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `WFA-RUN-DEFREAD-BOUND-001`.
 
+## DD-373 — AutomationDefinition first exact visible read
+
+**Context:** DD-105 owns the exact-by-id RequestContext-scoped AutomationDefinition raw reader and preserves optional WorkflowDefinition reference evidence without runtime interpretation.
+
+**Decision:** Add `loadAutomationDefinitionWorkflowContainmentEvidence(...)`; read the AutomationDefinition exactly once with the exact supplied RequestContext and AutomationDefinition id before any WorkflowDefinition access. Null short-circuits and dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Looking up WorkflowDefinition first would require guessing a reference. Parent-first composition reuses existing persistence/RLS ownership.
+
+**Consequences / dependencies:** DD-101/DD-105/DD-176 plus migrations 0026/0031/0048 remain authoritative. No schema, RLS, role, grant, route, scheduler, worker or UI change.
+
+**Source audit:** `Development/AUTOMATION_DEFINITION_VISIBLE_WORKFLOW_CONTAINMENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-DEF-WFREAD-BASE-001…002`.
+
+## DD-374 — optional same-RequestContext exact WorkflowDefinition read
+
+**Context:** AutomationDefinition may have no workflowDefinitionId or one exact persisted UUID.
+
+**Decision:** If unbound, do not call the WorkflowDefinition reader and evaluate DD-176 with no parent evidence. If bound, read exactly the persisted WorkflowDefinition id once using the identical RequestContext. Bound null returns null; errors propagate unchanged.
+
+**Alternatives / trade-off:** Code/version search or alternate context lookup could select different or hidden evidence. Exact reference following preserves the bounded read contract.
+
+**Consequences / dependencies:** No active/effective WorkflowDefinition selector or cross-scope resolver is introduced.
+
+**Source audit:** `Development/AUTOMATION_DEFINITION_VISIBLE_WORKFLOW_CONTAINMENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-DEF-WFREAD-WF-001…002`.
+
+## DD-375 — DD-176 containment floor and no PLATFORM_GLOBAL fallback
+
+**Context:** DD-176 owns exact optional-reference and PLATFORM/TENANT/INDUSTRY containment. DD-101 proves PLATFORM WorkflowDefinition catalog rows require PLATFORM_GLOBAL context rather than Tenant fallback.
+
+**Decision:** Apply `matchesAutomationDefinitionWorkflowDefinitionContainmentFloors(...)`; false returns null. A bound broader PLATFORM parent hidden from the supplied Tenant RequestContext remains null, with no elevation, synthetic principal or alternate read path.
+
+**Alternatives / trade-off:** Cross-context fallback would invent resolver authority and expose otherwise hidden platform catalog evidence.
+
+**Consequences / dependencies:** Lifecycle/status/version/effective semantics are not added to the containment relation.
+
+**Source audit:** `Development/AUTOMATION_DEFINITION_VISIBLE_WORKFLOW_CONTAINMENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-DEF-WFREAD-FLOOR-001, WFA-DEF-WFREAD-NOFALLBACK-001`.
+
+## DD-376 — immutable exact-reference AutomationDefinition/WorkflowDefinition evidence
+
+**Context:** Downstream governed seams need exact source evidence identity, including a valid unbound AutomationDefinition.
+
+**Decision:** Return frozen `{ automationDefinition }` when unbound or frozen `{ automationDefinition, workflowDefinition }` when bound, preserving exact reader-returned references without cloning or mutation.
+
+**Alternatives / trade-off:** Cloning can hide raw persistence evidence and break identity-based audit reasoning.
+
+**Consequences / dependencies:** Existing reader immutability remains authoritative; no deeper semantic guarantee is introduced.
+
+**Source audit:** `Development/AUTOMATION_DEFINITION_VISIBLE_WORKFLOW_CONTAINMENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-DEF-WFREAD-EVID-001`.
+
+## DD-377 — raw Automation/Workflow definition evidence without runtime authority
+
+**Context:** Both definitions carry lifecycle, version, effective and execution-adjacent metadata, but active/effective selection and Automation/Workflow execution are separately governed.
+
+**Decision:** Preserve all such fields as raw evidence only. Do not select active/current versions, interpret state machines/approval/rules/triggers/conditions, dispatch OperationContract/WorkflowDefinition, create runs/instances, mutate, emit events or execute workers.
+
+**Alternatives / trade-off:** Treating raw definition metadata as executable policy would invent missing runtime semantics.
+
+**Consequences / dependencies:** Active/effective WorkflowDefinition selection, Automation trigger/condition evaluation, OperationContract dispatch, Workflow execution and run-state/retry semantics remain locked to later source-owned seams.
+
+**Source audit:** `Development/AUTOMATION_DEFINITION_VISIBLE_WORKFLOW_CONTAINMENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-DEF-WFREAD-BOUND-001`.
+

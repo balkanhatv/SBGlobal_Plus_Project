@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AUTOMATION-RUN-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `1835994b2e5238390365e4e2ca12702eb02289c4` / tree `7c2acda6ac22fe334601eee0401d6f34253298ef`
-> **Current audit gate (2026-10-02):** DD-368…DD-372 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AUTOMATION-DEFINITION-VISIBLE-WORKFLOW-CONTAINMENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `17b3367c8ab2c113c91f970ed1fbeaa66432a2aa` / tree `553c851c671add550b0f0ee17d7faac04d2909b2`
+> **Current audit gate (2026-10-02):** DD-373…DD-377 AutomationDefinition visible WorkflowDefinition containment-evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1124,4 +1124,10 @@ The reader establishes current parent binding only. Transition state/version rem
 DD-368…DD-372 → `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → `src/core/workflow/automation-run-visible-definition-current-evidence-reader.ts` → `tests/core/automation-run-visible-definition-current-evidence-reader.test.mjs` (`WFA-RUN-DEFREAD-BASE-001…002`, `WFA-RUN-DEFREAD-DEF-001…002`, `WFA-RUN-DEFREAD-FLOOR-001`, `WFA-RUN-DEFREAD-NOFALLBACK-001`, `WFA-RUN-DEFREAD-EVID-001`, `WFA-RUN-DEFREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD368_DD372_VERIFICATION_2026-10-02.md`.
 
 The reader establishes only visible current AutomationRun→AutomationDefinition evidence through DD-175. Hidden PLATFORM definition evidence remains hidden under Tenant RequestContext; trigger/condition/retry/run-transition/OperationContract/Workflow dispatch, mutation and execution remain separate.
+
+## DD-373…DD-377 — AutomationDefinition visible WorkflowDefinition containment evidence
+
+Migration 0026 AutomationDefinition/WorkflowDefinition persistence → migration 0031 optional reference integrity → migration 0048 definition containment → DD-101/DD-105 raw readers → DD-176 optional containment floor → `Development/AUTOMATION_DEFINITION_VISIBLE_WORKFLOW_CONTAINMENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-373…DD-377 → `src/core/workflow/automation-definition-visible-workflow-containment-evidence-reader.ts` → `tests/core/automation-definition-visible-workflow-containment-evidence-reader.test.mjs` (`WFA-DEF-WFREAD-BASE-001…002`, `WFA-DEF-WFREAD-WF-001…002`, `WFA-DEF-WFREAD-FLOOR-001`, `WFA-DEF-WFREAD-NOFALLBACK-001`, `WFA-DEF-WFREAD-EVID-001`, `WFA-DEF-WFREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD373_DD377_VERIFICATION_2026-10-02.md`.
+
+This chain proves only visible optional WorkflowDefinition containment under the same RequestContext. Hidden PLATFORM parents remain hidden; lifecycle/version/effective selection, state-machine/rule/trigger interpretation, dispatch, mutation and Automation/Workflow execution remain separate.
 
