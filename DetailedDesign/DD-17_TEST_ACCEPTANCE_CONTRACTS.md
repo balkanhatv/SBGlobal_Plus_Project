@@ -5219,3 +5219,38 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WTR-INSTREAD-BOUND-001 — No actor or execution authority
 **Owner:** DD-367. Expose no actor-current/actor-at-occurrence validation, state-machine/replay/transition/task authorization, mutation, event or execution authority.
+
+## DD-368 AutomationRun First Visible Read Acceptance
+
+### WFA-RUN-DEFREAD-BASE-001 — Exact run read first
+**Owner:** DD-368. The exact supplied RequestContext object and exact AutomationRun id reach the AutomationRun reader once before any AutomationDefinition access.
+
+### WFA-RUN-DEFREAD-BASE-002 — Run absence and errors
+**Owner:** DD-368. Null/RLS-hidden AutomationRun returns null without definition access; run-reader dependency errors propagate unchanged.
+
+## DD-369 Same-RequestContext AutomationDefinition Read Acceptance
+
+### WFA-RUN-DEFREAD-DEF-001 — Exact persisted definition read
+**Owner:** DD-369. A visible run forwards the identical RequestContext object and exact persisted automationDefinitionId to the AutomationDefinition reader once for Tenant-Core and Tenant-Industry inputs.
+
+### WFA-RUN-DEFREAD-DEF-002 — Definition absence and errors
+**Owner:** DD-369. Null/RLS-hidden AutomationDefinition returns null; definition-reader dependency errors propagate unchanged.
+
+## DD-370 DD-175 Current-Binding Floor Acceptance
+
+### WFA-RUN-DEFREAD-FLOOR-001 — Exact ACTIVE applicable definition
+**Owner:** DD-370. DD-175 exact id + ACTIVE + PLATFORM/TENANT/INDUSTRY applicability passes; wrong id, non-ACTIVE status, foreign Tenant, sibling Industry or malformed ownership fails closed.
+
+### WFA-RUN-DEFREAD-NOFALLBACK-001 — No PLATFORM_GLOBAL fallback
+**Owner:** DD-370. A PLATFORM AutomationDefinition hidden from the supplied Tenant RequestContext remains null after exactly one same-context read; no context elevation, synthetic principal or alternate reader path is used.
+
+## DD-371 Immutable AutomationRun/Definition Evidence Acceptance
+
+### WFA-RUN-DEFREAD-EVID-001 — Immutable exact references
+**Owner:** DD-371. Success returns a frozen two-field envelope retaining the exact AutomationRun and AutomationDefinition object references without input mutation.
+
+## DD-372 Raw Automation Evidence Boundary Acceptance
+
+### WFA-RUN-DEFREAD-BOUND-001 — No trigger, retry, dispatch or execution authority
+**Owner:** DD-372. Run trigger/idempotency/status/time/error and definition version/schema/trigger/config/condition/operation/workflow/effective evidence remain uninterpreted; output exposes no definition-selection, trigger-match, condition, retry/finality, next-state, dispatch, mutation, event or execution authority.
+

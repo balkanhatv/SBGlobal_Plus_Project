@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-WORKFLOW-TRANSITION-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `4fc6c1956b86b00f2a87b2dc0ab0d7a3afec24d6` / tree `aea5ce4e4ef0658c95397e5691a20df74dbf6357`
-> **Current audit gate (2026-10-02):** DD-363…DD-367 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AUTOMATION-RUN-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `1c5c3a4d94582ce50fe78403975b38b125500f04` / tree `0e163c0d7673770771137a09b5c2ff1f767c0707`
+> **Current audit gate (2026-10-02):** DD-368…DD-372 AutomationRun visible AutomationDefinition current-evidence reader is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1120,3 +1120,8 @@ This chain proves only same-RequestContext task visibility plus exact DD-174 par
 Migration 0026 transition/instance persistence and parent RLS → migration 0027 append-only grants → migration 0031 exact parent binding → DD-102/DD-104 raw readers + DD-174 binding floor → `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-363…DD-367 → `src/core/workflow/transition-visible-instance-current-evidence-reader.ts` → `tests/core/workflow-transition-visible-instance-current-evidence-reader.test.mjs` (`WTR-INSTREAD-BASE-001…002`, `WTR-INSTREAD-INST-001…002`, `WTR-INSTREAD-FLOOR-001`, `WTR-INSTREAD-EVID-001`, `WTR-INSTREAD-HISTORY-001`, `WTR-INSTREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD363_DD367_VERIFICATION_2026-10-02.md`.
 
 The reader establishes current parent binding only. Transition state/version remains historical; actor-at-occurrence validity, replay/transition authorization, definition/state-machine interpretation, mutation and event emission remain separate.
+
+DD-368…DD-372 → `src/core/workflow/automation-run-visible-definition-current-evidence-reader.ts` → `tests/core/automation-run-visible-definition-current-evidence-reader.test.mjs` (`WFA-RUN-DEFREAD-BASE-001…002`, `WFA-RUN-DEFREAD-DEF-001…002`, `WFA-RUN-DEFREAD-FLOOR-001`, `WFA-RUN-DEFREAD-NOFALLBACK-001`, `WFA-RUN-DEFREAD-EVID-001`, `WFA-RUN-DEFREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD368_DD372_VERIFICATION_2026-10-02.md`.
+
+The reader establishes only visible current AutomationRun→AutomationDefinition evidence through DD-175. Hidden PLATFORM definition evidence remains hidden under Tenant RequestContext; trigger/condition/retry/run-transition/OperationContract/Workflow dispatch, mutation and execution remain separate.
+

@@ -99,3 +99,7 @@ Verified basis `58af7b52b8797c7564000376e295372fe58785e0` / tree `536eb45578642a
 
 Current verified promotion basis `4fc6c1956b86b00f2a87b2dc0ab0d7a3afec24d6` / tree `aea5ce4e4ef0658c95397e5691a20df74dbf6357`: 1126 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only; bounded runtime scope remains unchanged and no actor, workflow-execution, mutation, UI, schema or RawSource authority is added.
 
+## DD-368…DD-372 implementation verification — 2026-10-02
+
+Verified basis `1c5c3a4d94582ce50fe78403975b38b125500f04` / tree `0e163c0d7673770771137a09b5c2ff1f767c0707`: **1134 Core / 529 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD368_DD372_VERIFICATION_2026-10-02.md`. The bounded reader composes only visible same-RequestContext AutomationRun and AutomationDefinition evidence through DD-175; hidden PLATFORM definition evidence remains hidden and no trigger, condition, retry/finality, run-transition, dispatch, mutation or execution authority is introduced. Canonical promotion requires its own exact-head gate.
+

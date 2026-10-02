@@ -4531,3 +4531,74 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WTR-INSTREAD-HISTORY-001, WTR-INSTREAD-BOUND-001`.
+
+## DD-368 — AutomationRun first exact visible read
+
+**Context:** DD-106 owns the exact-by-id RequestContext-scoped AutomationRun raw reader and preserves persisted trigger/idempotency/status/time/error evidence without execution semantics.
+
+**Decision:** Add `loadAutomationRunDefinitionCurrentEvidence(...)`; read the AutomationRun exactly once with the exact input RequestContext and AutomationRun id before any definition access. Null short-circuits; dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Reading a definition first would require guessing or selecting an id. Composing the existing visible run reader keeps persistence/RLS ownership unchanged.
+
+**Consequences / dependencies:** DD-105/DD-106/DD-175 and migrations 0026/0031 remain authoritative. No schema, RLS, role, grant, route, frontend, scheduler or worker change.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-DEFREAD-BASE-001…002`.
+
+## DD-369 — same-RequestContext exact referenced AutomationDefinition read
+
+**Context:** A visible AutomationRun persists one automationDefinitionId; DD-105 owns exact-by-id AutomationDefinition visibility under the supplied RequestContext.
+
+**Decision:** After a visible run, read exactly `run.automationDefinitionId` once with the identical RequestContext object. Null returns null and dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Code/version lookup or context switching could select unrelated or hidden definition evidence. Exact reference following preserves the existing read boundary.
+
+**Consequences / dependencies:** DD-105/DD-106/DD-175 and migrations 0026/0031 remain authoritative. No new definition selector or effective-version policy is introduced.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-DEFREAD-DEF-001…002`.
+
+## DD-370 — DD-175 AutomationRun-definition current-binding floor and no fallback
+
+**Context:** DD-175 owns exact AutomationRun→AutomationDefinition id/ACTIVE/scope applicability. DD-105 separately proves PLATFORM AutomationDefinition rows require PLATFORM_GLOBAL context and are not Tenant-reader fallback evidence.
+
+**Decision:** Apply `matchesAutomationRunDefinitionBindingFloors(run, definition)` and return null on false. If the same-context definition reader returns null, remain null; never elevate/switch to PLATFORM_GLOBAL or synthesize a platform principal.
+
+**Alternatives / trade-off:** Cross-scope fallback could reveal otherwise hidden platform catalog evidence and invent resolver authority. The bounded composition deliberately represents visible current evidence only.
+
+**Consequences / dependencies:** Definition version/effective dates, trigger/config/condition semantics and runtime selection remain outside this floor.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-DEFREAD-FLOOR-001, WFA-RUN-DEFREAD-NOFALLBACK-001`.
+
+## DD-371 — immutable exact-reference AutomationRun/Definition evidence
+
+**Context:** Downstream governed seams need exact evidence identity without derived authority.
+
+**Decision:** Return frozen `{ run, definition }` with exact reader-returned references; do not clone, normalize or mutate.
+
+**Alternatives / trade-off:** Cloning can obscure raw persisted evidence and break identity-based audit reasoning. A shallow frozen envelope adds no deeper semantics.
+
+**Consequences / dependencies:** Existing reader immutability remains authoritative; no persistence or product policy changes.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-DEFREAD-EVID-001`.
+
+## DD-372 — raw Automation evidence without execution authority
+
+**Context:** AutomationRun and AutomationDefinition expose trigger, idempotency, lifecycle and dispatch-related fields, but source ownership for trigger execution, condition evaluation, retry/finality, run transitions and dispatch remains separate.
+
+**Decision:** Preserve those fields as raw evidence only. Do not select an effective definition, parse/execute EVENT/SCHEDULE/MANUAL triggers, evaluate conditions, authorize run-state changes, decide retry/finality, dispatch OperationContract/WorkflowDefinition, mutate or emit events.
+
+**Alternatives / trade-off:** Treating persisted raw fields as executable policy would invent missing runtime semantics. This reader stays evidence-only.
+
+**Consequences / dependencies:** AutomationDefinition→WorkflowDefinition containment and all Automation execution/runtime seams remain separately governed.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-DEFREAD-BOUND-001`.
+
