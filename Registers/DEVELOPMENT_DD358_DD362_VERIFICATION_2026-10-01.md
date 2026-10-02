@@ -27,3 +27,7 @@ This register is created by the DD-358…DD-362 canonical promotion. The promoti
 ## Canonical promotion verified; narrative correction — 2026-10-02
 
 Promotion HEAD `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9e3494a425b6d83ae5fb12005e04aa16280` passed **1117/1117 Core**, **529/529 PostgreSQL**, database bootstrap, **48 migrations / 42 SQL verification files**, Database and Web. Runs/jobs and the targeted narrative correction are recorded in `Registers/CHECKPOINT_NARRATIVE_CORRECTION_2026-10-02.md`. The correction commit must independently pass before opening the next batch.
+
+## State closure verified — 2026-10-02
+
+Correction/closure HEAD `5c84e635285fceea1b3e28030d872bb8b51546dd` / tree `38bb9a253940c4c5105286b29497f3dbb90d7d39` passed **1118/1118 Core**, **529/529 PostgreSQL**, **48/42 Database** and Web. Exact run/job evidence is in `Registers/CHECKPOINT_NARRATIVE_CORRECTION_2026-10-02.md`. DD-358…DD-362 is closed at this bounded evidence scope.

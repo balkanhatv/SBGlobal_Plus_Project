@@ -34,3 +34,7 @@ These green results cover the prior promotion, not this correction. This correct
 - `DetailedDesign/DD-CHECKPOINT.md`
 - `DetailedDesign/DD-INDEX.md`
 - `Registers/D-CHECKPOINT.md`
+
+## Exact-head correction closure
+
+Correction `5c84e635285fceea1b3e28030d872bb8b51546dd` / tree `38bb9a253940c4c5105286b29497f3dbb90d7d39`: Core run `36958140793` / job `110685638195` **1118/1118 PASS**; PostgreSQL job `110685638317` **529/529 PASS**, fail/skip 0 and bootstrap PASS. Database run `36958140792` / job `110685638025` PASS (**48/42**); Web run `36958140791` / job `110685638024` PASS. Both push and PR workflow sets passed. The targeted finding is closed; source-owned forward development may resume.
