@@ -1556,3 +1556,7 @@ Canonical promotion `669381753a9da961454ab9e0c14f3551d4abc8df` / tree `50b2cf77e
 ## 2026-10-01 — DD-358…DD-362 canonical promotion staged
 
 DD-358…DD-362 implement only a parent-first same-RequestContext WorkflowTask + visible WorkflowInstance current-evidence reader over existing DD-102/DD-103/DD-174 authority. Verified implementation `6dfdc0b9041186e91c94e5f39f0a9f8a4e9e9328` / tree `66c35b1de6d9ac5baf0dab260e2b39dca3023e6e` passes **1117/1117 Core**, **529/529 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database Verify and Web. No assignee/currentness, permission/due, task-action, transition/execution or mutation authority is claimed.
+
+## 2026-10-02 — DD-358…DD-362 promotion verified; current narrative drift corrected
+
+Synchronize twelve current narrative blocks, remove the obsolete duplicate handoff action, and add REPO-011 after reproducing the stale DD-352 versus DD-362 failure. Historical evidence is preserved. Exact-head promotion basis: `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9e3494a425b6d83ae5fb12005e04aa16280`; 1117 Core / 529 PostgreSQL / Database 48/42 / Web PASS. Correction evidence: `Registers/CHECKPOINT_NARRATIVE_CORRECTION_2026-10-02.md`.

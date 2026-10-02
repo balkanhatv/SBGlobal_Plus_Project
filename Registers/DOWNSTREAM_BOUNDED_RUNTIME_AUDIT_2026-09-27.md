@@ -86,3 +86,7 @@ The bounded audit was extended beyond the original DD-206/207/208 + mounted tRPC
 **CLEAN AFTER VERIFIED TARGETED CORRECTIONS / COMPLETE-PROJECT AUDIT CLOSED FOR NORMAL GOVERNED DEVELOPMENT.**
 
 This bounded report does not authorize source-incomplete execution by itself. The subsequent complete-project audit closure authorizes DD-209 source audit only and does not elevate the project to Production Ready, Deployed or Operational.
+
+## DD-358…DD-362 promotion evidence — 2026-10-02
+
+Current verified basis `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9e3494a425b6d83ae5fb12005e04aa16280`: 1117 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. Active checkpoint body drift is corrected separately in `Registers/CHECKPOINT_NARRATIVE_CORRECTION_2026-10-02.md`; its own exact-head gate remains required. Runtime scope is unchanged.

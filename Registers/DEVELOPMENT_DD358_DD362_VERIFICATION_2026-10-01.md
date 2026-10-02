@@ -23,3 +23,7 @@ No schema, migration, RLS, role, grant, public route, UI/frontend or product-pol
 ## Canonical promotion gate
 
 This register is created by the DD-358…DD-362 canonical promotion. The promotion head must independently pass exact-head Core/PostgreSQL/Database/Web before state closure and before another governed backend source audit opens.
+
+## Canonical promotion verified; narrative correction — 2026-10-02
+
+Promotion HEAD `606b76870a8318d5d9f962f30953b0f417eb137d` / tree `88a2f9e3494a425b6d83ae5fb12005e04aa16280` passed **1117/1117 Core**, **529/529 PostgreSQL**, database bootstrap, **48 migrations / 42 SQL verification files**, Database and Web. Runs/jobs and the targeted narrative correction are recorded in `Registers/CHECKPOINT_NARRATIVE_CORRECTION_2026-10-02.md`. The correction commit must independently pass before opening the next batch.

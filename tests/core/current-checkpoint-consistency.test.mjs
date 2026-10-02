@@ -55,6 +55,34 @@ const projections = [
   "DetailedDesign/DD-REVIEW_REQUIRED.md",
 ];
 
+test("REPO-011: active checkpoint narratives agree with the manifest beyond their headers", () => {
+  const m = JSON.parse(read("State/PROJECT_MANIFEST.json"));
+  const feature = m.current_feature_verification;
+  const paths = [
+    "README_FOUNDATION.md", "State/PROJECT_STATE.md", "State/HANDOFF_NOTE.md",
+    "State/PHASE_SUMMARY.md", "Development/CORE_SERVICE_CHECKPOINT.md",
+    "Development/DEVELOPMENT_STATE.md", "Development/DB_CHECKPOINT.md",
+    "Registers/D-CHECKPOINT.md", "DetailedDesign/DD-CHECKPOINT.md",
+    "DetailedDesign/DD-PHASE_STATE.md", "DetailedDesign/DD-REVIEW_REQUIRED.md",
+    "DetailedDesign/DD-INDEX.md",
+  ];
+  for (const path of paths) {
+    // Historical sections retain their own evidence; these paragraphs are current.
+    const body = read(path).split("\n").slice(7, 19).join("\n");
+    const currentBatch = body.match(/^DD-\d+…(DD-\d+) is the current governed/m);
+    assert.equal(currentBatch?.[1], feature.decision_id, `${path}: stale active batch narrative`);
+    assert.ok(body.includes(m.github.current_downstream_verified_head), `${path}: stale narrative HEAD`);
+    assert.ok(body.includes(m.github.current_downstream_verified_tree), `${path}: stale narrative tree`);
+    assert.ok(body.includes(m.development.core_services.tests.replace(" PASS", " Core")), `${path}: stale Core count`);
+    assert.ok(body.includes(m.development.core_services.postgres_tests.replace(" PASS", " PostgreSQL")), `${path}: stale PostgreSQL count`);
+    assert.ok(body.includes(feature.evidence), `${path}: stale feature evidence`);
+    assert.ok(body.includes(feature.source_audit), `${path}: stale source audit`);
+    assert.ok(body.includes(`Next: ${m.continuation.next_action}`), `${path}: stale continuation instruction`);
+  }
+  assert.ok(!read("State/HANDOFF_NOTE.md").split("## Historical")[0]
+    .match(/Fetch the branch again[^\n]*DD-\d+/), "Handoff has a second batch-specific continuation instruction");
+});
+
 test("REPO-007: active checkpoint projections distinguish governed feature evidence from current audit basis", () => {
   const m = JSON.parse(read("State/PROJECT_MANIFEST.json"));
   const feature = m.current_feature_verification;
