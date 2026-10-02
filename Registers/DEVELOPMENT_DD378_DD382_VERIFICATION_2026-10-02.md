@@ -28,3 +28,8 @@ No schema, migration, RLS, grant, role, route, frontend or RawSource change. Act
 ## Canonical promotion gate
 
 This promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-378…DD-382 closure or another source audit. Production readiness is not claimed.
+
+## Canonical promotion verified; state closure staged — 2026-10-02
+
+Promotion HEAD `11153944df9ccae7bcb57cda80140765f20693d5` / tree `03309620b36aaa22ed35825176dfeb1827acb42e` passed **1150/1150 Core**, **529/529 PostgreSQL**, full database bootstrap, **48 migrations / 42 SQL verification files**, Database and Web. Core push run `36969580284` / jobs `110720535797`, `110720535739`; Database push run `36969580288` / job `110720535670`; Web push run `36969580286` / job `110720535599`. This state-closure commit must independently pass exact-head gates before DD-378…DD-382 is closed and before another source audit opens.
+

@@ -119,3 +119,7 @@ Current verified promotion basis `8acbf6e1318b1182d9ced288f7bdc0d91b315e24` / tr
 
 Verified basis `cda146975415a8024bb54512e53bdca57a8913a1` / tree `bfa3a468991c02c0a9f45e8ca70d025b66dc68d1`: **1150 Core / 529 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD378_DD382_VERIFICATION_2026-10-02.md`. The composition preserves exact DD-372 parent evidence and adds only optional visible WorkflowDefinition containment through DD-176; no duplicate AutomationDefinition read, cross-context fallback, selection, transition/retry, dispatch, mutation or execution authority is introduced. Canonical promotion requires its own exact-head gate.
 
+## DD-378…DD-382 canonical promotion evidence — 2026-10-02
+
+Current verified promotion basis `11153944df9ccae7bcb57cda80140765f20693d5` / tree `03309620b36aaa22ed35825176dfeb1827acb42e`: 1150 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only; bounded runtime scope is unchanged and no definition selection, transition/retry, dispatch, mutation, UI, schema or RawSource authority is added.
+
