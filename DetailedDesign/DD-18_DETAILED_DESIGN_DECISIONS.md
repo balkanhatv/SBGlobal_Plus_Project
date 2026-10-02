@@ -4724,3 +4724,55 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `WFA-RUN-WFREAD-BOUND-001`.
 
+## DD-383 — establish DD-382 parent evidence before OperationRegistry access
+
+**Context:** DD-382 already owns the exact visible AutomationRun→AutomationDefinition→optional WorkflowDefinition evidence chain.
+
+**Decision:** `loadAutomationRunDefinitionWorkflowOperationCurrentEvidence(...)` invokes DD-382 first with the exact RequestContext and AutomationRun id. Null short-circuits registry access and dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Rebuilding the parent reads would duplicate validated relationship logic and risk divergent evidence identity.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-OPREAD-BASE-001…002`.
+
+## DD-384 — optional exact OperationContract registry lookup
+
+**Context:** AutomationDefinition persists a nullable raw `operationContractId`; DD-06 owns the canonical OperationRegistry exact registration model.
+
+**Decision:** If the persisted id is absent, perform no registry access. If present, invoke exactly one `OperationRegistry.get(operationContractId)`; propagate unknown-operation or registry errors unchanged and never derive/fallback by module, workflow, trigger, code or domainService.
+
+**Alternatives / trade-off:** Inference/fallback could silently bind a different operation and invent selection authority.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-OPREAD-OP-001…002`.
+
+## DD-385 — registry identity only; no compatibility policy
+
+**Context:** OperationContract exposes execution-adjacent metadata, but no source-owned AutomationDefinition→OperationContract compatibility/admission predicate exists.
+
+**Decision:** Treat the exact registry-returned contract as raw canonical registration evidence. Preserve its metadata unchanged. Do not evaluate RequestContext scope compatibility, permission, entitlement, idempotency, rate, audit, commercial, domain-service, event/error or lifecycle semantics. Optional WorkflowDefinition and OperationContract evidence may coexist.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-OPREAD-COEXIST-001, WFA-RUN-OPREAD-RAW-001`.
+
+## DD-386 — immutable layered exact-reference operation evidence
+
+**Decision:** Return a frozen envelope preserving the exact DD-382 parent object and, when present, the exact registry-returned OperationContract reference. No clone, normalization or mutation.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-OPREAD-EVID-001`.
+
+## DD-387 — combined raw evidence without admission, dispatch or execution authority
+
+**Decision:** Preserve all run/definition/workflow/operation fields as evidence only. Do not perform compatibility/admission, GuardPipeline, idempotency claim, rate/commercial/authz enforcement, definition selection, trigger/condition/state-machine interpretation, transition/retry authorization, domainService/Workflow dispatch, mutation or event/worker execution.
+
+**Consequences:** Operation compatibility/admission and Automation/Workflow execution remain separately governed.
+
+**Source audit:** `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_WORKFLOW_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-OPREAD-BOUND-001`.
+

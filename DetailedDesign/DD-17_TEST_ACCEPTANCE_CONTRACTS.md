@@ -5322,3 +5322,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 ### WFA-RUN-WFREAD-BOUND-001 — No selection, transition, dispatch or execution authority
 **Owner:** DD-382. Combined run/definition/workflow evidence remains raw and exposes no active/effective selection, trigger/condition/state-machine decision, retry/finality, transition authorization, dispatch, mutation, event or execution authority.
 
+## DD-383 DD-382 Parent Evidence First Acceptance
+
+### WFA-RUN-OPREAD-BASE-001 — Exact DD-382 chain before registry access
+**Owner:** DD-383. The exact supplied RequestContext and AutomationRun id enter the existing DD-382 parent chain before any OperationRegistry access.
+
+### WFA-RUN-OPREAD-BASE-002 — Parent absence and errors
+**Owner:** DD-383. DD-382 null/error short-circuits registry access and preserves dependency error identity.
+
+## DD-384 Optional Exact OperationContract Registry Acceptance
+
+### WFA-RUN-OPREAD-OP-001 — Absent skip / exact one lookup
+**Owner:** DD-384. Missing operationContractId performs zero registry access; a present persisted id performs exactly one canonical registry lookup using that exact string.
+
+### WFA-RUN-OPREAD-OP-002 — Unknown/error propagation
+**Owner:** DD-384. OperationRegistry lookup errors propagate unchanged and no fallback or derived operation lookup occurs.
+
+## DD-385 Registry Identity / Raw Metadata Acceptance
+
+### WFA-RUN-OPREAD-COEXIST-001 — Workflow and Operation evidence coexist
+**Owner:** DD-385. Optional WorkflowDefinition and OperationContract evidence may coexist without mutual-exclusion or precedence policy.
+
+### WFA-RUN-OPREAD-RAW-001 — Operation metadata remains raw
+**Owner:** DD-385. scopeClass, permission, entitlement, schema versions, idempotency, rate, audit, domainService, emittedEvents and errors remain raw registry evidence and are not evaluated against RequestContext/run/definition.
+
+## DD-386 Immutable Layered Operation Evidence Acceptance
+
+### WFA-RUN-OPREAD-EVID-001 — Exact nested and registry identities
+**Owner:** DD-386. Success preserves the exact DD-382 parent envelope and exact registry-returned OperationContract reference inside a frozen outer envelope without input mutation.
+
+## DD-387 No Admission / Dispatch / Execution Authority Acceptance
+
+### WFA-RUN-OPREAD-BOUND-001 — Evidence only
+**Owner:** DD-387. Combined run/definition/workflow/operation evidence exposes no compatibility, permission/entitlement, GuardPipeline, idempotency/rate/commercial/authz, selection, transition/retry, dispatch, mutation, event or execution authority.
+

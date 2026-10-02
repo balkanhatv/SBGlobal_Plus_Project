@@ -1,7 +1,7 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
-**Current checkpoint:** `DEV-AUTOMATION-RUN-VISIBLE-DEFINITION-WORKFLOW-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `11153944df9ccae7bcb57cda80140765f20693d5` / tree `03309620b36aaa22ed35825176dfeb1827acb42e`
-> **Current audit gate (2026-10-02):** DD-378…DD-382 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AUTOMATION-RUN-VISIBLE-DEFINITION-WORKFLOW-OPERATION-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `e2fbc0eabf3f38bad817e5d1dc94ff47122b0394` / tree `00198651fcdef3b8c71d1d15eb3ac93ebcfa8224`
+> **Current audit gate (2026-10-02):** DD-383…DD-387 AutomationRun/Definition/Workflow evidence plus optional OperationContract registry evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 
