@@ -40,3 +40,7 @@ Forward-only correction HEAD `ea5c7e74e0849e363c4a441b6fd09f64cdbba460` / tree `
 ## State-closure exact-head finding and forward-only correction
 
 State-closure HEAD `c1a1fd2c9b45aebed3dbb50e5a7d6d9a7dd799db` / tree `c24e5bad18870bd5e8b25a153309d4f9363c3c2a` correctly failed Core push run `37035573833` / job `110932822076` with **1189/1190 PASS** and zero skips. REPO-007 found only a manifest projection mismatch: root `current_phase` still named `DEVELOPMENT_DD403_DD407_CANONICAL_PROMOTION` while `development.current_phase` correctly named `DEVELOPMENT_DD403_DD407_STATE_CLOSURE`. REPO-011 and REPO-008 passed; Database and Web passed. The smallest correction changes only the root manifest phase projection and records this evidence; no runtime, schema, RLS, route, UI or RawSource change. Fresh exact-head gates are required.
+
+## State-closure correction follow-up
+
+Correction HEAD `4ae1ca2adbc975042f221b6eab8d61a7f93d714d` fixed the root/current development phase projection, but Core push run `37035799159` / job `110933575927` still correctly failed REPO-007 because the bounded runtime audit had not yet recorded the current verified audit basis `ea5c7e74e0849e363c4a441b6fd09f64cdbba460`. REPO-011 and REPO-008 remained green; Database push run `37035798976` and Web push run `37035799081` passed. The smallest follow-up appends only that already-verified corrected promotion basis to `Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md` and records this evidence. Fresh exact-head verification remains required.
