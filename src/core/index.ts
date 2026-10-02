@@ -149,6 +149,7 @@ export * from "./ai/agent-run-visible-definition-current-evidence-reader.js";
 export * from "./ai/agent-run-visible-definition-tool-set-current-evidence-reader.js";
 export * from "./ai/agent-step.js";
 export * from "./ai/agent-step-tool-binding-floors.js";
+export * from "./ai/agent-step-visible-tool-binding-current-evidence-reader.js";
 export * from "./ai/agent-step-approval-backlink-floors.js";
 export * from "./ai/agent-approval.js";
 export * from "./ai/agent-approval-parent-scope-floors.js";
