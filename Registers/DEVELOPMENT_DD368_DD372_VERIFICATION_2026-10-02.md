@@ -43,3 +43,7 @@ Promotion HEAD `25754e014c3c042c2bd2b161f4eef90da3ac8a4b` correctly failed Core 
 
 Corrected promotion HEAD `1835994b2e5238390365e4e2ca12702eb02289c4` / tree `7c2acda6ac22fe334601eee0401d6f34253298ef` passed **1134/1134 Core**, **529/529 PostgreSQL**, full database bootstrap, **48 migrations / 42 SQL verification files**, Database and Web. Core push run `36962950136` / jobs `110700412309`, `110700412042`; Database push run `36962950176` / job `110700411966`; Web push run `36962950132` / job `110700411823`. The prior promotion attempt `25754e014c3c042c2bd2b161f4eef90da3ac8a4b` remains preserved as the REPO-008 traceability failure described above. This state-closure commit must independently pass exact-head gates before DD-368…DD-372 is closed and before another source audit opens.
 
+## State closure verified — 2026-10-02
+
+State-closure HEAD `d6ac80b1d82520de1312c347c2e2941308265aba` / tree `200dc503f13b1d76ef469c7036cc50ee0c5a940a` passed exact-head PR gates: Core run `36963295272` / job `110701480141` **1134/1134 PASS**; PostgreSQL job `110701479923` **529/529 PASS**, fail/skip 0 plus full bootstrap PASS; Database run `36963295285` / job `110701479833` PASS with **48 migrations / 42 SQL verification files**; Web run `36963295330` / job `110701480526` PASS. Push workflow set also passed. DD-368…DD-372 is closed at this bounded evidence scope; source-owned forward development may resume.
+
