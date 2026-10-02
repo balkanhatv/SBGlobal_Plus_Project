@@ -135,3 +135,7 @@ Current verified promotion basis `0a97220a0faa92a66f3b73594b251c51611373a1` / tr
 
 Verified basis `30ef23844579ff74fef3ec5e3408de3f88717d5e` / tree `7c7a6a9d2bf0837eea417d4985c773df3d992a2d`: **1166 Core / 529 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD388_DD392_VERIFICATION_2026-10-02.md`. The reader composes only visible same-RequestContext AgentRun and AgentDefinition evidence through DD-181; hidden PLATFORM definition evidence remains hidden and no principal/membership/snapshot/resource/budget/tool/approval/provider/model/OperationContract or AI execution authority is introduced. Canonical promotion requires its own exact-head gate.
 
+## DD-388…DD-392 canonical promotion evidence — 2026-10-02
+
+Current verified promotion basis `465ee23c98304a80bb01f7942d9b2e53bebebdfa` / tree `a3a2675989b315df4990338fbce0e9c02bfdba79`: 1166 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only; bounded runtime scope is unchanged and no principal/membership/snapshot/resource/budget/tool/approval/provider/model execution, mutation, UI, schema or RawSource authority is added.
+
