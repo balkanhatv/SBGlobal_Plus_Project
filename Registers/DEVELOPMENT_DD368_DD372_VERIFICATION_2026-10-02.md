@@ -34,3 +34,8 @@ This is backend relationship evidence only. It does not select effective Automat
 ## Canonical promotion gate
 
 This promotion records DD-17 acceptance contracts, DD-18 decisions, DD-19 traceability, D-DECISIONS, manifest and all active/current checkpoint projections. The promotion's own exact-head Core/PostgreSQL/Database/Web gate must pass before DD-368…DD-372 closure or another source audit. Production readiness is not claimed.
+
+## First canonical-promotion gate finding and forward-only correction
+
+Promotion HEAD `25754e014c3c042c2bd2b161f4eef90da3ac8a4b` correctly failed Core run `36962858438` / job `110700132509` at REPO-008. REPO-007 and REPO-011 both passed; the only canonical defect was that the new DD-19 DD-368…DD-372 trace line linked implementation/test/evidence but omitted the exact source-audit path required by the current-feature invariant. The smallest correction inserts that source-audit link in DD-19 only. No runtime, schema, RLS, route, UI or RawSource change. The corrected promotion must independently pass exact-head Core/PostgreSQL/Database/Web.
+

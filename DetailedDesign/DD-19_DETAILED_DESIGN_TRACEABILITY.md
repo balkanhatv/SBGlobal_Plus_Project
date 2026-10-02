@@ -1121,7 +1121,7 @@ Migration 0026 transition/instance persistence and parent RLS → migration 0027
 
 The reader establishes current parent binding only. Transition state/version remains historical; actor-at-occurrence validity, replay/transition authorization, definition/state-machine interpretation, mutation and event emission remain separate.
 
-DD-368…DD-372 → `src/core/workflow/automation-run-visible-definition-current-evidence-reader.ts` → `tests/core/automation-run-visible-definition-current-evidence-reader.test.mjs` (`WFA-RUN-DEFREAD-BASE-001…002`, `WFA-RUN-DEFREAD-DEF-001…002`, `WFA-RUN-DEFREAD-FLOOR-001`, `WFA-RUN-DEFREAD-NOFALLBACK-001`, `WFA-RUN-DEFREAD-EVID-001`, `WFA-RUN-DEFREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD368_DD372_VERIFICATION_2026-10-02.md`.
+DD-368…DD-372 → `Development/AUTOMATION_RUN_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → `src/core/workflow/automation-run-visible-definition-current-evidence-reader.ts` → `tests/core/automation-run-visible-definition-current-evidence-reader.test.mjs` (`WFA-RUN-DEFREAD-BASE-001…002`, `WFA-RUN-DEFREAD-DEF-001…002`, `WFA-RUN-DEFREAD-FLOOR-001`, `WFA-RUN-DEFREAD-NOFALLBACK-001`, `WFA-RUN-DEFREAD-EVID-001`, `WFA-RUN-DEFREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD368_DD372_VERIFICATION_2026-10-02.md`.
 
 The reader establishes only visible current AutomationRun→AutomationDefinition evidence through DD-175. Hidden PLATFORM definition evidence remains hidden under Tenant RequestContext; trigger/condition/retry/run-transition/OperationContract/Workflow dispatch, mutation and execution remain separate.
 
