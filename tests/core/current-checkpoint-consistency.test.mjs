@@ -92,6 +92,9 @@ test("REPO-011: active checkpoint narratives agree with the manifest beyond thei
 test("REPO-007: active checkpoint projections distinguish governed feature evidence from current audit basis", () => {
   const m = JSON.parse(read("State/PROJECT_MANIFEST.json"));
   const feature = m.current_feature_verification;
+  const currentDecisionToken = feature.decision_id.replace("-", "");
+  assert.ok(m.gates.detailed_design.includes(currentDecisionToken), "Stale canonical Detailed Design gate token");
+  assert.ok(m.gates.core_services.includes(currentDecisionToken), "Stale canonical Core services gate token");
   const auditHead = m.github.current_downstream_verified_head;
   const auditTree = m.github.current_downstream_verified_tree;
 

@@ -1,7 +1,7 @@
 # DD-20D — OVERALL DETAILED DESIGN ADVERSARIAL AUDIT — PHASE 3
 **Current checkpoint:** `DEV-WORKFLOW-TRANSITION-VISIBLE-INSTANCE-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `58af7b52b8797c7564000376e295372fe58785e0` / tree `536eb45578642ab06d910b5bc96954912ab544e4`
-> **Current audit gate (2026-10-02):** DD-363…DD-367 implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above. This canonical promotion and the expanded narrative guard must independently pass before closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `4fc6c1956b86b00f2a87b2dc0ab0d7a3afec24d6` / tree `aea5ce4e4ef0658c95397e5691a20df74dbf6357`
+> **Current audit gate (2026-10-02):** DD-363…DD-367 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-3 DETAILED DESIGN EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 **Historical adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
 

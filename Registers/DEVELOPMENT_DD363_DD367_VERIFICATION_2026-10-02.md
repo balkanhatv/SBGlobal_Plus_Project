@@ -21,3 +21,10 @@ This is backend relationship evidence only. Actor membership/currentness, Workfl
 ## Canonical promotion gate
 
 This promotion records DD-17/18/19, manifest and all fourteen active summaries. It also extends REPO-011 to D-INDEX/REVIEW_REQUIRED and labels old duplicate dated overlays historical; see `Registers/CHECKPOINT_NARRATIVE_CORRECTION_2026-10-02.md`. This promotion's own exact-head Core/PostgreSQL/Database/Web gate must pass before closure or another source audit. Production readiness is not claimed.
+
+## Canonical promotion verified; state closure staged — 2026-10-02
+
+Promotion HEAD `4fc6c1956b86b00f2a87b2dc0ab0d7a3afec24d6` / tree `aea5ce4e4ef0658c95397e5691a20df74dbf6357` passed **1126/1126 Core**, **529/529 PostgreSQL**, database bootstrap, **48 migrations / 42 SQL verification files**, Database and Web. Core run `36959176714` / jobs `110688806193`, `110688806408`; Database run `36959176680` / job `110688805905`; Web run `36959176695` / job `110688806115`.
+
+State reconciliation also found two manifest summary strings still capped at DD-362 while the canonical feature is DD-367. The smallest correction advances those summaries to DD-367 and extends REPO-007 to reject a future stale canonical gate token. Expected closure Core delta: **1126 → 1127**; PostgreSQL remains **529**, Database **48/42**, Web unchanged. This state-closure commit must independently pass exact-head gates before DD-363…DD-367 is closed and before another source audit opens.
+

@@ -1564,3 +1564,5 @@ Synchronize twelve current narrative blocks, remove the obsolete duplicate hando
 ## 2026-10-02 — DD-363…DD-367 implemented and canonical promotion staged
 
 Add the source-owned same-context WorkflowTransition/WorkflowInstance evidence composition with eight executable acceptances. Implementation `58af7b52b8797c7564000376e295372fe58785e0` / tree `536eb45578642ab06d910b5bc96954912ab544e4` passed 1126 Core / 529 PostgreSQL / Database 48/42 / Web. Synchronize all fourteen active summaries; expand the narrative regression to canonical indexes and old duplicate overlay labels. Historical evidence and all existing dependency locks remain preserved. Promotion requires its own exact-head verification.
+
+- 2026-10-02 — DD-363…DD-367 canonical promotion `4fc6c1956b86b00f2a87b2dc0ab0d7a3afec24d6` / tree `aea5ce4e4ef0658c95397e5691a20df74dbf6357` verified: Core 1126/1126, PostgreSQL 529/529 + bootstrap, Database 48/42, Web PASS. State closure staged; manifest gate summaries aligned through DD-367; no runtime/schema/RawSource authority added.
