@@ -2913,7 +2913,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD403_DD407_CANONICAL_PROMOTION",
+  "current_phase": "DEVELOPMENT_DD403_DD407_STATE_CLOSURE",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
