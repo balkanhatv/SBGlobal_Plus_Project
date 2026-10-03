@@ -182,3 +182,7 @@ Current verified promotion basis `dfa9a46e580b03a68d8b6ca3bdd008ba138ac78f` / tr
 ## DD-418…DD-422 implementation verification — 2026-10-03
 
 Verified implementation basis `3903356bdd47817d1cf1008304603193e93856f4` / tree `1010f65e4628048de9e0607db7975ec90063e83f`: **1219 Core / 532 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD418_DD422_VERIFICATION_2026-10-03.md`. The batch adds only persisted APPROVED necessary-floor evidence plus exact identity/Tenant/Industry continuity against an already-trusted approver RequestContext. requiredPermission/current authorization, approval satisfaction, GuardPipeline/resource admission, AgentRun resume/cancel, dispatch, provider/model routing and AI/tool execution remain blocked.
+
+## DD-418…DD-422 canonical promotion evidence — 2026-10-03
+
+Current verified promotion basis `cbf14c4c1d93a8f77bd52c2d5a6b432d59350d83` / tree `12508e7734ebaa0e34c49955ba219ef5151ece3b`: 1219 Core / 532 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only. Persisted APPROVED plus trusted approver-context continuity remains evidence-only; requiredPermission/current authorization, approval satisfaction, GuardPipeline/resource admission, AgentRun transitions, dispatch, provider/model routing, AI/tool execution, UI, schema and RawSource authority are not added.
