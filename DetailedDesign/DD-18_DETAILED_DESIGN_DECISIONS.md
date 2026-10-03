@@ -5057,3 +5057,51 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AISTEP-OPREAD-RAW-001, AISTEP-OPREAD-BOUND-001`.
+
+## DD-413 — exact-by-code AICapability catalog read surface
+
+**Context:** Migration 0011 makes `ai_capability.code` unique and migration 0013 references that exact column from `ai_tool_definition.capability_code`. DD-109 already owns the immutable capability metadata shape and exact-by-id reader.
+
+**Decision:** Add `AICapabilityCatalogMetadataByCodeReadPort.loadByCode(code)` and implement it on the existing PostgreSQL capability store with exact text equality. Return the same immutable DD-109 metadata shape; absent row returns null; non-string runtime input fails closed; no trim/case-fold/alias/fallback is added. Empty text is not rejected by an invented non-empty rule.
+
+**Consequences:** This is a persistence lookup surface only. Capability status, entitlement, default policy and execution eligibility remain uninterpreted.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AICAP-CODE-PG-001…003`.
+
+## DD-414 — reuse DD-412 evidence first and branch only on persisted TOOL evidence
+
+**Decision:** `loadAIAgentStepApprovalOperationCapabilityCurrentEvidence(...)` invokes DD-412 first with the exact supplied RequestContext and AgentStep id. Null short-circuits capability access and dependency errors propagate unchanged. Non-TOOL evidence performs zero capability reads and returns the exact DD-412 parent-only envelope.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-CAPREAD-BASE-001…002, AISTEP-CAPREAD-BRANCH-001`.
+
+## DD-415 — exact persisted capabilityCode lookup and DD-203 continuity
+
+**Context:** The already-bound ToolDefinition preserves one persisted `capabilityCode`; DD-203 owns exact ToolDefinition→AICapability code continuity.
+
+**Decision:** For TOOL evidence, perform exactly one `loadByCode(toolDefinition.capabilityCode)` call and re-apply DD-203 to the exact preserved ToolDefinition and returned capability. Missing evidence or false continuity returns null; reader errors propagate unchanged. No alternate lookup or fallback is added.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-CAPREAD-CAP-001…002, AISTEP-CAPREAD-FLOOR-001`.
+
+## DD-416 — immutable layered exact-reference capability evidence
+
+**Decision:** Return frozen `{ parent }` for non-TOOL or frozen `{ parent, capability }` for TOOL, preserving the exact DD-412 parent and exact capability-reader object without clone, normalization or mutation.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-CAPREAD-EVID-001`.
+
+## DD-417 — raw capability evidence without eligibility/admission/runtime authority
+
+**Context:** DD-109/DD-203 make catalog facts and FK continuity evidence; they do not make `status='ACTIVE'`, required entitlement or default policy current authorization.
+
+**Decision:** Preserve capability id/code/category/requiredEntitlement/defaultPolicyClass/schemaVersion/status as raw catalog evidence only. Do not decide capability currentness/eligibility, entitlement/default-policy satisfaction, ToolDefinition↔OperationContract↔capability compatibility, Tenant/Industry allowlisting, RequestContext authorization, approval satisfaction/currentness, GuardPipeline/idempotency/rate/commercial admission, AgentRun transitions, dispatch, provider/model routing or AI/tool execution.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-CAPREAD-RAW-001, AISTEP-CAPREAD-BOUND-001`.

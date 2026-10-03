@@ -170,3 +170,7 @@ Verified corrected implementation basis `d874f4196879fe0d80944f29f278f0b7c931c6d
 ## DD-408…DD-412 corrected canonical promotion evidence — 2026-10-03
 
 Current verified promotion basis `011651b6e92feba687b3907320c4979566f7ee9f` / tree `efcd5cff0d17516dd463983fba8291c91b9d5636`: 1198 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only; exact OperationContract registry metadata remains evidence-only and no ToolDefinition↔OperationContract compatibility, current authorization/entitlement/approval, GuardPipeline/admission, AgentRun resume/cancel, dispatch, provider/model routing, AI/tool execution, UI, schema or RawSource authority is added.
+
+## DD-413…DD-417 implementation verification — 2026-10-03
+
+Verified implementation basis `7b766a9bc417c9cb4f16d9fa3e3a70f7c354f557` / tree `91512fae65ebd79c41f9f3c6ee6d8330ced18c67`: **1207 Core / 532 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD413_DD417_VERIFICATION_2026-10-03.md`. The batch adds only exact-by-code immutable AICapability lookup and DD-412 TOOL-evidence extension through the persisted ToolDefinition capabilityCode plus DD-203 continuity. Capability lifecycle/category/entitlement/default-policy/schema/status remain raw; no capability eligibility, authorization, admission, provider/model routing, dispatch or AI/tool execution authority is introduced. Canonical promotion requires its own exact-head gate.

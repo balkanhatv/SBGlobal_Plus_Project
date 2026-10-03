@@ -5525,3 +5525,49 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AISTEP-OPREAD-BOUND-001 — No authorization, approval, dispatch or execution authority
 **Owner:** DD-412. Output exposes no ToolDefinition↔OperationContract compatibility decision, RequestContext authorization, entitlement, approval satisfaction/currentness, resource/GuardPipeline/idempotency/rate/commercial admission, AgentRun resume/cancel, dispatch, mutation, event, provider/model routing or tool/AI execution authority.
+
+## DD-413 Exact-by-code AICapability Catalog Read Acceptance
+
+### AICAP-CODE-PG-001 — Exact unique capability-code read
+**Owner:** DD-413. Exact `ai_capability.code` lookup returns the complete immutable DD-109 capability metadata shape.
+
+### AICAP-CODE-PG-002 — Exact equality and runtime type floor
+**Owner:** DD-413. Absent exact code returns null; case/whitespace variants are not normalized and non-string runtime input fails closed.
+
+### AICAP-CODE-PG-003 — No invented non-empty or authority semantics
+**Owner:** DD-413. Empty-string lookup is not rejected by a new non-empty rule and the read surface adds no mutation, entitlement/policy or execution authority.
+
+## DD-414 DD-412 Parent Evidence First Acceptance
+
+### AISTEP-CAPREAD-BASE-001 — Exact DD-412 chain first
+**Owner:** DD-414. The exact supplied RequestContext and AgentStep id enter the existing DD-412 AgentStep/approval/OperationContract evidence chain before any capability access.
+
+### AISTEP-CAPREAD-BASE-002 — Parent absence and errors
+**Owner:** DD-414. DD-412 null short-circuits capability access and dependency errors propagate unchanged.
+
+### AISTEP-CAPREAD-BRANCH-001 — Non-TOOL zero capability reads
+**Owner:** DD-414. Non-TOOL evidence performs zero capability reads and returns the exact DD-412 parent-only evidence.
+
+## DD-415 Exact Capability FK Continuity Acceptance
+
+### AISTEP-CAPREAD-CAP-001 — Exact persisted capabilityCode
+**Owner:** DD-415. TOOL evidence performs exactly one capability read using the preserved ToolDefinition `capabilityCode`.
+
+### AISTEP-CAPREAD-CAP-002 — Missing/read error and no fallback
+**Owner:** DD-415. Missing capability returns null, reader errors propagate, and no id/category/entitlement/default-policy alternate lookup occurs.
+
+### AISTEP-CAPREAD-FLOOR-001 — DD-203 continuity re-application
+**Owner:** DD-415. The exact preserved ToolDefinition and returned capability must pass DD-203 byte-for-byte capability-code continuity; mismatch or malformed relevant identity evidence fails closed.
+
+## DD-416 Immutable Layered Capability Evidence Acceptance
+
+### AISTEP-CAPREAD-EVID-001 — Preserve exact parent and capability identity
+**Owner:** DD-416. Success returns a frozen outer envelope preserving the exact DD-412 parent and exact capability-reader object without clone, normalization or mutation.
+
+## DD-417 Capability Evidence Runtime Boundary Acceptance
+
+### AISTEP-CAPREAD-RAW-001 — Capability metadata remains raw
+**Owner:** DD-417. Capability lifecycle/category/requiredEntitlement/defaultPolicyClass/schemaVersion/status remain uninterpreted and inputs remain unchanged.
+
+### AISTEP-CAPREAD-BOUND-001 — No eligibility, authorization, policy, routing or execution authority
+**Owner:** DD-417. Output exposes no capability-currentness/eligibility, entitlement/default-policy decision, compatibility, RequestContext authorization, approval satisfaction, admission, provider/model routing, dispatch or AI/tool execution authority.
