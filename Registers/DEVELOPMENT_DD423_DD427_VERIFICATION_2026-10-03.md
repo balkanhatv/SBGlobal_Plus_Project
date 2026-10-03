@@ -34,3 +34,7 @@ No schema, migration, SQL verification, RLS, grant, role, route, frontend, provi
 ## Canonical promotion gate
 
 This promotion records DD-17 acceptance contracts, DD-18 decisions, DD-19 traceability, D-DECISIONS, runtime audit, manifest and active/current projections. The promotion's own exact-head Core/PostgreSQL/Database/Web gate must pass before DD-423…DD-427 closure or another source audit. Production readiness is not claimed.
+
+## Canonical promotion verified; state closure staged — 2026-10-03
+
+Promotion HEAD `8dd7281e90271cb3846718a05049488025bde506` / tree `84b0b25c07985d1a804feef56afb2b084cac1c2f` passed exact-head push gates: Core run `37107835139` / job `111159734056` **1227/1227 PASS**; PostgreSQL job `111159733933` **532/532 PASS**, fail/skip 0 plus full bootstrap PASS; Database run `37107835172` / job `111159734071` PASS with **48 migrations / 42 SQL verification files**; Web run `37107835156` / job `111159733907` PASS. Implementation proof remains `ec7d0f8b3e7d99349f6006c3987e5fa42d12a92f`. This state-closure commit must independently pass exact-head gates before DD-423…DD-427 is closed and before another source audit opens.

@@ -1,7 +1,7 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
 **Current checkpoint:** `DEV-AI-AGENT-APPROVAL-VISIBLE-PARENT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `ec7d0f8b3e7d99349f6006c3987e5fa42d12a92f` / tree `063482ea378129a9d0d2bcdf0eb8c4c962a0db01`
-> **Current audit gate (2026-10-03):** DD-423…DD-427 AgentApproval visible AgentRun/AgentStep parent current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `8dd7281e90271cb3846718a05049488025bde506` / tree `84b0b25c07985d1a804feef56afb2b084cac1c2f`
+> **Current audit gate (2026-10-03):** DD-423…DD-427 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 

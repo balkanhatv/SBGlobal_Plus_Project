@@ -1,7 +1,7 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
 **Current checkpoint:** `DEV-AI-AGENT-APPROVAL-VISIBLE-PARENT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `ec7d0f8b3e7d99349f6006c3987e5fa42d12a92f` / tree `063482ea378129a9d0d2bcdf0eb8c4c962a0db01`
-> **Current audit gate (2026-10-03):** DD-423…DD-427 AgentApproval visible AgentRun/AgentStep parent current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `8dd7281e90271cb3846718a05049488025bde506` / tree `84b0b25c07985d1a804feef56afb2b084cac1c2f`
+> **Current audit gate (2026-10-03):** DD-423…DD-427 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 
