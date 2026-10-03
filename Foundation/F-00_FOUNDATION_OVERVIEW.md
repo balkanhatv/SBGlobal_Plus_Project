@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT FOUNDATION
 **Current checkpoint:** `DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-OPERATION-CAPABILITY-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `7b766a9bc417c9cb4f16d9fa3e3a70f7c354f557` / tree `91512fae65ebd79c41f9f3c6ee6d8330ced18c67`
-> **Current audit gate (2026-10-03):** DD-413…DD-417 AgentStep visible-parent + optional AgentApproval + OperationContract + exact capability current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `dfa9a46e580b03a68d8b6ca3bdd008ba138ac78f` / tree `4ea1b3b82f90a62d5ba7c278aab63b1b4c4e758f`
+> **Current audit gate (2026-10-03):** DD-413…DD-417 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 

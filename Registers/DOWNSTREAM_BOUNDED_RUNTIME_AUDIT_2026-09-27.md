@@ -174,3 +174,7 @@ Current verified promotion basis `011651b6e92feba687b3907320c4979566f7ee9f` / tr
 ## DD-413…DD-417 implementation verification — 2026-10-03
 
 Verified implementation basis `7b766a9bc417c9cb4f16d9fa3e3a70f7c354f557` / tree `91512fae65ebd79c41f9f3c6ee6d8330ced18c67`: **1207 Core / 532 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD413_DD417_VERIFICATION_2026-10-03.md`. The batch adds only exact-by-code immutable AICapability lookup and DD-412 TOOL-evidence extension through the persisted ToolDefinition capabilityCode plus DD-203 continuity. Capability lifecycle/category/entitlement/default-policy/schema/status remain raw; no capability eligibility, authorization, admission, provider/model routing, dispatch or AI/tool execution authority is introduced. Canonical promotion requires its own exact-head gate.
+
+## DD-413…DD-417 canonical promotion evidence — 2026-10-03
+
+Current verified promotion basis `dfa9a46e580b03a68d8b6ca3bdd008ba138ac78f` / tree `4ea1b3b82f90a62d5ba7c278aab63b1b4c4e758f`: 1207 Core / 532 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only. Exact-by-code capability evidence and DD-203 continuity remain evidence-only; no capability currentness/eligibility, entitlement/default-policy decision, ToolDefinition↔OperationContract↔capability compatibility, authorization/approval, GuardPipeline/admission, AgentRun transition, dispatch, provider/model routing, AI/tool execution, UI, schema or RawSource authority is added.

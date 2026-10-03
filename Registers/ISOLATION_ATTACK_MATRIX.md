@@ -1,8 +1,8 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
 **Current checkpoint:** `DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-OPERATION-CAPABILITY-CURRENT-EVIDENCE-READER-001`
-> **Current audit gate (2026-10-03):** DD-413…DD-417 AgentStep visible-parent + optional AgentApproval + OperationContract + exact capability current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-03):** DD-413…DD-417 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-10-03 · **Branch:** `docs/architecture-branch-2`
-> **Current executable audit basis:** `7b766a9bc417c9cb4f16d9fa3e3a70f7c354f557` / tree `91512fae65ebd79c41f9f3c6ee6d8330ced18c67`
+> **Current executable audit basis:** `dfa9a46e580b03a68d8b6ca3bdd008ba138ac78f` / tree `4ea1b3b82f90a62d5ba7c278aab63b1b4c4e758f`
 
 ## Historical 2026-09-14 executable persistence overlay
 
