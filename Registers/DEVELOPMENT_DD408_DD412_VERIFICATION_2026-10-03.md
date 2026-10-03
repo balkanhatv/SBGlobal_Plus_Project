@@ -43,3 +43,7 @@ Promotion HEAD `530c7544dc17baf417078c01682dd9ca49afa680` / tree `ea8010b2928d3c
 ## Corrected canonical promotion verified; state closure staged — 2026-10-03
 
 Forward-only correction HEAD `011651b6e92feba687b3907320c4979566f7ee9f` / tree `efcd5cff0d17516dd463983fba8291c91b9d5636` passed exact-head push gates: Core run `37086998685` / job `111099263961` **1198/1198 PASS**; PostgreSQL job `111099264143` **529/529 PASS**, fail/skip 0 plus full bootstrap PASS; Database run `37086998694` / job `111099264384` PASS with **48 migrations / 42 SQL verification files**; Web run `37086998679` / job `111099263979` PASS. The correction changed only the Source Registry active date projection after the first promotion-gate finding; implementation proof remains `d874f4196879fe0d80944f29f278f0b7c931c6d8`. This state-closure commit must independently pass exact-head gates before DD-408…DD-412 is closed and before another source audit opens.
+
+## State closure verified — 2026-10-03
+
+State-closure HEAD `38e0457e1bd774607c429ae767a1495d2d1bca9c` / tree `f3efd822b21101385c2cd515f73ea9f76ae9186e` passed exact-head push gates: Core run `37088619585` / job `111103950894` **1198/1198 PASS**; PostgreSQL job `111103950781` **529/529 PASS**, fail/skip 0 plus full bootstrap PASS; Database run `37088619578` / job `111103950660` PASS with **48 migrations / 42 SQL verification files**; Web run `37088619583` / job `111103950840` PASS. DD-408…DD-412 is closed at this bounded evidence scope; source-owned forward development may resume.
