@@ -156,6 +156,7 @@ export * from "./ai/agent-step-visible-approval-operation-capability-current-evi
 export * from "./ai/agent-step-approval-backlink-floors.js";
 export * from "./ai/agent-approval.js";
 export * from "./ai/agent-approval-parent-scope-floors.js";
+export * from "./ai/agent-approval-visible-parent-current-evidence-reader.js";
 export * from "./ai/agent-step-approved-approver-context-current-evidence-reader.js";
 export * from "./ai/agent-approval-approved-context-floors.js";
 export * from "./ai/tenant-config.js";
