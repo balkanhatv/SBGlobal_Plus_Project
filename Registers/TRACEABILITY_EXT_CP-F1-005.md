@@ -1,7 +1,7 @@
 # TRACEABILITY EXTENSION — CP-F1-005 (F-13, F-14)
-**Current checkpoint:** `DEV-AI-AGENT-STEP-APPROVED-APPROVER-CONTEXT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `cbf14c4c1d93a8f77bd52c2d5a6b432d59350d83` / tree `12508e7734ebaa0e34c49955ba219ef5151ece3b`
-> **Current audit gate (2026-10-03):** DD-418…DD-422 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above; state closure `3d0599dd` also passed all four gates in LOCAL CLOUD verification. The DD-423…DD-427 source-audit staging requires its own exact-head gate before implementation. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-VISIBLE-PARENT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `ec7d0f8b3e7d99349f6006c3987e5fa42d12a92f` / tree `063482ea378129a9d0d2bcdf0eb8c4c962a0db01`
+> **Current audit gate (2026-10-03):** DD-423…DD-427 AgentApproval visible AgentRun/AgentStep parent current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current traceability qualification:** stable child-ID inventory is **2,962**; parent/source-heading semantic ownership gate is **372/372 owner-reconciled, 0 NOT_CERTIFIED**; complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**.
 
 > This CP-F1-005 extension is preserved as historical Foundation-era traceability evidence. Its 2,965-item accounting and certification wording are evaluated-era evidence and do not override current source-fidelity/traceability owners.

@@ -5617,3 +5617,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AISTEP-APPCTX-BOUND-001 — No approval-satisfaction or execution authority
 **Owner:** DD-422. Output exposes no required-permission decision, approval-satisfied flag, GuardPipeline result, AgentRun resume/cancel, dispatch, provider/model routing or AI/tool execution authority.
+
+## DD-423 Exact Visible AgentApproval First Acceptance
+
+### AIAPP-PARENTREAD-BASE-001 — Exact approval first
+**Owner:** DD-423. The exact supplied AgentApproval id and identical supplied RequestContext reach DD-132 exactly once before either parent read.
+
+### AIAPP-PARENTREAD-BASE-002 — Approval absence and errors
+**Owner:** DD-423. Approval null short-circuits both parent readers and dependency errors propagate unchanged.
+
+## DD-424 Exact Persisted Parent Read Acceptance
+
+### AIAPP-PARENTREAD-PARENT-001 — Approval → run → step fixed same-context order
+**Owner:** DD-424. Success reads the exact persisted approval.runId then approval.stepId once each in the identical RequestContext; valid Tenant-Core and Tenant-Industry chains pass.
+
+### AIAPP-PARENTREAD-PARENT-002 — Hidden/error parent fail-closed behavior
+**Owner:** DD-424. Hidden/missing run prevents step access; run/step errors preserve identity; no alternate id/context read, retry, list/search or PLATFORM_GLOBAL fallback occurs.
+
+## DD-425 Existing DD-184 Parent/Scope Floor Acceptance
+
+### AIAPP-PARENTREAD-FLOOR-001 — Exact parent/Tenant/nullable-Industry continuity
+**Owner:** DD-425. DD-184 rejects wrong run/step ids, step-to-run mismatch, foreign Tenant, sibling or Core/Industry mismatch and malformed relevant identifiers; exact relationship evidence passes without reciprocal backlink requirement.
+
+## DD-426 Immutable Exact-Reference Evidence Acceptance
+
+### AIAPP-PARENTREAD-EVID-001 — Preserve exact approval/run/step identities
+**Owner:** DD-426. Success returns only a frozen envelope containing the exact reader-returned approval, run and step references without clone, normalization, mutation or re-read.
+
+## DD-427 Raw Approval History and Execution Boundary Acceptance
+
+### AIAPP-PARENTREAD-RAW-001 — All schema-valid approval history stays raw
+**Owner:** DD-427. PENDING/APPROVED/REJECTED/EXPIRED evidence, historical principal/permission/timestamps/reason, later parent state and absent/different step.approvalId remain acceptable when DD-184 matches.
+
+### AIAPP-PARENTREAD-BOUND-001 — No approval/currentness/permission/execution authority
+**Owner:** DD-427. Output exposes no current approver context, approval-satisfied/current result, permission result, AgentRun resume/cancel, GuardPipeline/admission, OperationContract/capability, mutation/event, dispatch, provider/model or AI/tool execution authority.

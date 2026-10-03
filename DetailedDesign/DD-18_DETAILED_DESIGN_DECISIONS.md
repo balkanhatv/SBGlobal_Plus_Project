@@ -5151,3 +5151,51 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AI_AGENT_STEP_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AISTEP-APPCTX-BOUND-001`.
+
+## DD-423 — read exact visible AgentApproval first
+
+**Context:** DD-132 owns exact-by-id RequestContext-scoped raw AgentApproval visibility and immutable persisted approval evidence.
+
+**Decision:** Add `loadAIAgentApprovalParentCurrentEvidence(...)`. Invoke DD-132 once with the exact supplied RequestContext object and AgentApproval id before any parent access. Null returns null and dependency errors propagate unchanged.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_VISIBLE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-PARENTREAD-BASE-001…002`.
+
+## DD-424 — follow only persisted approval parent ids in fixed order
+
+**Context:** Migration 0031 owns the direct AgentApproval→AgentRun/AgentStep relationship and same Tenant/nullable-Industry integrity.
+
+**Decision:** After visible approval, read exact `approval.runId` through DD-130, then exact `approval.stepId` through DD-131, using the identical supplied RequestContext for both. Run null/error prevents step access; no alternate id/context lookup, search, retry or PLATFORM_GLOBAL fallback is allowed.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_VISIBLE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-PARENTREAD-PARENT-001…002`.
+
+## DD-425 — re-apply DD-184 only; reciprocal backlink is not required
+
+**Context:** DD-184 owns exact approval/run/step ids, step→run continuity, Tenant equality and nullable-Industry equality. Migration 0031's approval branch does not require the step to backlink this approval.
+
+**Decision:** Apply `matchesAIAgentApprovalParentScopeFloors(approval, run, step)` to the exact reader-returned objects. False returns null. Do not add approval status, approver context, permission, definition/tool, lifecycle or reciprocal `step.approvalId === approval.id` predicates.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_VISIBLE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-PARENTREAD-FLOOR-001`.
+
+## DD-426 — immutable exact-reference parent evidence
+
+**Decision:** Success returns frozen `{ approval, run, step }`, preserving the exact three reader-returned references without clone, normalization, mutation or re-read.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_VISIBLE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-PARENTREAD-EVID-001`.
+
+## DD-427 — raw approval history without approval or execution authority
+
+**Context:** Approval-first parent visibility is valid for pending, rejected, expired or historical approval evidence and is independent of DD-418…DD-422 persisted-APPROVED/current-approver-context floors.
+
+**Decision:** Preserve all schema-valid approval states/fields plus raw parent-run and step history. Do not call DD-418/DD-419/DD-422, require APPROVED, require reciprocal backlink, construct current approver context, decide permission/approval satisfaction, resume/cancel AgentRun, admit/dispatch OperationContract, mutate/emit, route providers/models or execute AI/tools.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_VISIBLE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-PARENTREAD-RAW-001, AIAPP-PARENTREAD-BOUND-001`.
