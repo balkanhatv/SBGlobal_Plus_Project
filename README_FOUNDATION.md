@@ -1,22 +1,18 @@
-# SBGlobal Plus — Project Foundation (CP-F1-005)
+# SBGlobal Plus — Canonical Development Branch
+**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-CONTEXT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `3df3bfdc3bb55eb6930463ec24ea71e34f647571` / tree `ee65d77e72d916b0f58d47330a1f8ba007d2ffed`
+**Updated:** 2026-10-03 · **Branch:** `docs/architecture-branch-2`
 
-**Status: FOUNDATION CERTIFIED** — granted 02-09-2026 at CP-F1-005 on dual-audit evidence (`Registers/FINAL_AUDIT_CP-F1-005.md`; certification history incl. the CP-F1-003 revocation preserved in `Foundation/F-00_FOUNDATION_OVERVIEW.md` §9–§11). Certification covers the Foundation phase only. Governed by MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 (unchanged).
+> **Current audit gate (2026-10-03):** DD-428…DD-432 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 
-**04-09-2026 correction:** commit `b83bea9` (unnecessary brand/color canonicalization — F-06 §6.1, AC-19, RR-03) was reverted via history-preserving revert `efd16eb6`; F-06 restored to v0.1; registers restored; RR-03 withdrawn. The owner-directed corpus edit `a811a1ab` is preserved intact as ACTIVE owner intent. No history rewrite; `main` not merged.
+DD-428…DD-432 is the current governed backend-only AgentApproval-first persisted-APPROVED + trusted approver-context current-evidence composition. It reuses exact DD-427 approval-parent evidence first, requires an explicitly supplied already-trusted approver RequestContext, and re-applies DD-419 exact approver principal/Tenant/nullable-Industry continuity without constructing or re-resolving context.
 
-> "SBGlobal Plus is an AI-Ready, AI-Extensible, AI-Powered, Enterprise-Grade, Multi-Tenant, Multi-Industry SaaS Platform."
-> Tagline: **One Intelligent Platform. Every Industry. Infinite Possibilities.**
+Verified canonical promotion basis `3df3bfdc3bb55eb6930463ec24ea71e34f647571` / tree `ee65d77e72d916b0f58d47330a1f8ba007d2ffed`: **1235/1235 Core**, **532/532 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests.
 
-## Package layout
-- `Foundation/` — canonical Foundation documents F-00…F-14 (F-13 MS depth completion; F-14 Commercial Foundation)
-- `Registers/` — Source Registry, D-INDEX, D-DECISIONS, D-CHANGELOG, D-CHECKPOINT (CP-F1-005 rev C), Traceability (section + unit + extension), No-Loss Audit, REVIEW_REQUIRED, FINAL_AUDIT_CP-F1-005
-- `State/` — PROJECT_STATE, PHASE_SUMMARY, HANDOFF_NOTE, PROJECT_MANIFEST
-- `Governing/` — MASTER_INSTRUCTION v2.5, MASTER_PROMPT v2.5 (preserved verbatim)
-- `RawSourceCorpus/` — Disorganized Data 1.md / 2.md (immutable knowledge boundary; current content per the owner-directed edit `a811a1ab`, full history preserved)
-- `BACKUP_METADATA.json` — recovery package record (latest verified: **v1.2 @ CP-F1-005** — SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip, open-and-compare PASS)
+AgentApproval requiredPermission/type/status/history plus AgentRun/AgentStep lifecycle and backlink state remain raw evidence. Success means only persisted APPROVED plus recorded approver identity matching an explicitly supplied already-trusted current Tenant/Industry RequestContext. No RequestContext synthesis, current permission decision, approval-satisfaction, GuardPipeline/commercial admission, AgentRun transition, dispatch, mutation/event, provider/model routing or AI/tool execution is introduced. Frontend/UI remains untouched.
 
-## Verified evidence
-Unit-level traceability 372 units / 2,965 items / 0 unmapped (+ CP-F1-005 extension, totals unchanged) · No-Loss PASS · dual final audit records · all 9 industry suites and every Foundational MS specified at Foundation depth (F-07…F-09 + F-12 + F-13) · full commercial model (F-14).
+Evidence: `Registers/DEVELOPMENT_DD428_DD432_VERIFICATION_2026-10-03.md`. Source audit: `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-## Boundaries
-Architecture has NOT started — gated on explicit user approval. Merge to `main` requires explicit approval.
+Next: Verify this state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-428…DD-432 is closed; source-audit the next independently source-complete backend batch.
+
+Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.

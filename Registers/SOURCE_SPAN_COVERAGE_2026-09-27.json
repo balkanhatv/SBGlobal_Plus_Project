@@ -1,0 +1,3954 @@
+{
+  "baseline_head": "0258d787c17ccdfb5c3c7782702907400b96a57d",
+  "kind": "LOCATOR_INVENTORY_NOT_SEMANTIC_CERTIFICATION",
+  "source_blobs": {
+    "S1": "a9f63a64448a347edd0f2b0c74094284ee953c1b",
+    "S2": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd"
+  },
+  "stable_inventory_ids": 2962,
+  "parents": [
+    {
+      "unit": "S1-U001",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "SBGlobal Plus — Enterprise SaaS",
+      "start_line": 1,
+      "end_line": 5,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source document title/version/status is provenance only; no current project-status authority; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U002",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "Table of Contents",
+      "start_line": 6,
+      "end_line": 27,
+      "located_inventory_rows": 16,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U003",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "0. Purpose & Consolidation Note",
+      "start_line": 28,
+      "end_line": 35,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; historical consolidation/deduplication note preserved; active RawSourceCorpus is immutable and this prose is not permission to rewrite source; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U004",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "1. Architect's Gap Analysis — Recommended Additions, Replacements & Deletions",
+      "start_line": 36,
+      "end_line": 39,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U005",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "A. Security & Trust — 5 recommendations",
+      "start_line": 40,
+      "end_line": 49,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; security recommendations preserved as control/readiness inputs; regulatory/certification status requires independent evidence; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U006",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "B. Homepage / Landing Page & Website — 4 recommendations",
+      "start_line": 50,
+      "end_line": 62,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; website recommendations preserved; trust/compliance badges only when backed by real evidence and Free/Starter self-serve route remains canonical; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U007",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "2. Target Vision",
+      "start_line": 63,
+      "end_line": 81,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; target vision preserved while Windows-only desktop wording is historical under UD-TECH-01/AC-15; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U008",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "3. Core Principles",
+      "start_line": 82,
+      "end_line": 87,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U009",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "4. Platform Scope & Access Flow",
+      "start_line": 88,
+      "end_line": 115,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Website/Mobile/Windows + REST/JWT access flow normalized to current Application Surface Model, Core Identity, tRPC-first-party and REST/OpenAPI external boundaries; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U010",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "5. Identity, Authentication & Authorization Framework",
+      "start_line": 116,
+      "end_line": 129,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; authentication method/provider capability list preserved behind one provider-isolated Core Identity; no separate app-owned token engine; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U011",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "6. Security, Trust & Compliance Framework",
+      "start_line": 130,
+      "end_line": 131,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U012",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "6.1 Location, Device & Session Security",
+      "start_line": 132,
+      "end_line": 134,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U013",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "6.2 Trust Services",
+      "start_line": 135,
+      "end_line": 137,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U014",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "6.3 🆕 Secrets & Key Management *(Recommendation #2)*",
+      "start_line": 138,
+      "end_line": 143,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U015",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "6.4 🆕 Data Privacy & Regulatory Compliance *(Recommendation #1)*",
+      "start_line": 144,
+      "end_line": 149,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; GDPR/DPDP/HIPAA/SOC2/ISO source references are alignment/readiness requirements, not automatic certification claims; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U016",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "6.5 🆕 API Threat Protection *(Recommendation #3)*",
+      "start_line": 150,
+      "end_line": 155,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U017",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "6.6 🆕 Vulnerability & Incident Response Program *(Recommendation #4)*",
+      "start_line": 156,
+      "end_line": 161,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U018",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "6.7 🆕 Data Residency & Sovereignty *(Recommendation #5)*",
+      "start_line": 162,
+      "end_line": 165,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U019",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "6.8 Encryption & Data Protection",
+      "start_line": 166,
+      "end_line": 170,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U020",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "7. Supported Core Industries (Initial)",
+      "start_line": 171,
+      "end_line": 174,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source nine-industry catalog preserved as nine equal Current Supported Industries; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U021",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "Enterprise-Critical Management Systems Policy",
+      "start_line": 175,
+      "end_line": 219,
+      "located_inventory_rows": 27,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 2–8 foundational MS policy preserved; exceptions now require explicit user approval under current MI governance rather than an undefined Enterprise Architecture Governance body; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U022",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "8. Super Admin Philosophy",
+      "start_line": 220,
+      "end_line": 225,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U023",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "9. Tenant Philosophy",
+      "start_line": 226,
+      "end_line": 233,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; tenant configuration preserved only within entitlement/security/residency boundaries; database/deployment settings do not grant independent backend/DataHome authority; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U024",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "10. Dynamic / Configuration Philosophy",
+      "start_line": 234,
+      "end_line": 247,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U025",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "11. Website, Landing Page & Marketing Layer",
+      "start_line": 248,
+      "end_line": 251,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U026",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "11.1 Website Loader Animation — \"SBGlobal Plus Enterprise Core Initialization\"",
+      "start_line": 252,
+      "end_line": 260,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U027",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "11.2 Recommended Sitemap",
+      "start_line": 261,
+      "end_line": 277,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source sitemap's six named industries are illustrative/non-exhaustive; current public Industries catalog shows all nine equally; Windows-only desktop label historical; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U028",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "11.3 Homepage Structure",
+      "start_line": 278,
+      "end_line": 289,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source homepage six-industry showcase is illustrative/non-exhaustive; nine current industries are equal and Trust/uptime/compliance claims are evidence-gated; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U029",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "11.4 Additional Website Components",
+      "start_line": 290,
+      "end_line": 292,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U030",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "11.5 Enterprise Announcement Bar",
+      "start_line": 293,
+      "end_line": 301,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; announcement-bar core capability preserved; AI personalization/geo/A-B/CRM entries remain future enhancement ideas until separately governed; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U031",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "11.6 Legal & Compliance Pages 🆕 *(Recommendation #7)*",
+      "start_line": 302,
+      "end_line": 306,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Foundation/Architecture/Governing owners with no current-status inference; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U032",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "12. Branding & Visual Identity Direction",
+      "start_line": 307,
+      "end_line": 322,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; visual styling is directional; canonical accessible design system governs; native-Windows desktop styling is historical; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U033",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "12.1 Brand Story",
+      "start_line": 323,
+      "end_line": 330,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; brand story preserved; source primary tagline is historical/alternative under CR-02, not active primary; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U034",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "13. Company Information",
+      "start_line": 331,
+      "end_line": 339,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source company/contact values preserved as governed company-profile configuration rather than immutable code; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U035",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "14. Implementation Roadmap",
+      "start_line": 340,
+      "end_line": 349,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; three-phase roadmap is website/content scope only and non-competing under CR-08; current project phases are dependency-driven; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U036",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "15. Expected Outcome",
+      "start_line": 350,
+      "end_line": 359,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; expected outcome is aspirational; Windows-only wording historical and no completion/production status inferred; not runtime/project certification"
+    },
+    {
+      "unit": "S1-U037",
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "heading": "Appendix A — Glossary of Abbreviations",
+      "start_line": 360,
+      "end_line": 392,
+      "located_inventory_rows": 25,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; glossary/source footer preserved as history; outdated JWT/technology terms do not override canonical architecture and Final/QA/31-file wording is historical under CR-07; not runtime/project certification"
+    },
+    {
+      "unit": "S2.1-U001",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "SBGlobal Plus Master Development Instruction",
+      "start_line": 16,
+      "end_line": 25,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U002",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "1. Purpose",
+      "start_line": 26,
+      "end_line": 40,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        34,
+        35,
+        36,
+        37
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U003",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "2. Governing Documents Priority",
+      "start_line": 41,
+      "end_line": 52,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U004",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "2A. Specialized Standards Tier",
+      "start_line": 53,
+      "end_line": 60,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U005",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "3. Development Principles",
+      "start_line": 61,
+      "end_line": 82,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U006",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "4. Implementation Rules",
+      "start_line": 83,
+      "end_line": 95,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        87,
+        88,
+        89,
+        90,
+        91,
+        92
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U007",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "5. Gap Analysis Policy",
+      "start_line": 96,
+      "end_line": 118,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        100,
+        101,
+        102,
+        103,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U008",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "6. Autonomous Development Policy",
+      "start_line": 119,
+      "end_line": 134,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U009",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "6A. Silent Development Mode",
+      "start_line": 135,
+      "end_line": 173,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        154,
+        155,
+        156,
+        157,
+        161,
+        162,
+        163,
+        164
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U010",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "7. Source of Truth",
+      "start_line": 174,
+      "end_line": 189,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        178,
+        179,
+        180,
+        184,
+        185,
+        186
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U011",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "8. Continuity Policy",
+      "start_line": 190,
+      "end_line": 193,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U012",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Same Chat",
+      "start_line": 194,
+      "end_line": 203,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        198,
+        199,
+        200
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U013",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "New Chat / Context Loss",
+      "start_line": 204,
+      "end_line": 224,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [
+        208,
+        209,
+        210,
+        211,
+        212,
+        213
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U014",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "9. User Continuation Commands",
+      "start_line": 225,
+      "end_line": 240,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U015",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "10. Backup & Recovery Policy",
+      "start_line": 241,
+      "end_line": 263,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        245,
+        246,
+        247,
+        248
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U016",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "11. No Regression Policy",
+      "start_line": 264,
+      "end_line": 282,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U017",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "12. Deployment Simplicity Policy",
+      "start_line": 283,
+      "end_line": 318,
+      "located_inventory_rows": 13,
+      "glyph_bullet_lines": [
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED: deployment simplicity/portability survives, cPanel/shared-hosting/no-Docker/no-Vercel defaults superseded by UD-TECH-01; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U018",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "13. Code Quality Rules",
+      "start_line": 319,
+      "end_line": 337,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U019",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "14. Testing Policy",
+      "start_line": 338,
+      "end_line": 356,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U020",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "15. Documentation Policy",
+      "start_line": 357,
+      "end_line": 364,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U021",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "16. Completion Policy",
+      "start_line": 365,
+      "end_line": 381,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        369,
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U022",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "17. Blocking Rule",
+      "start_line": 382,
+      "end_line": 395,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        386,
+        387,
+        388,
+        389,
+        390
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U023",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "18. Technology Stack",
+      "start_line": 396,
+      "end_line": 399,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED technology umbrella: capability intent survives where separately owned, implementation stack governed by UD-TECH-01; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U024",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Backend",
+      "start_line": 400,
+      "end_line": 404,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        402,
+        403
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Laravel/PHP source baseline is historical under UD-TECH-01; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U025",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Frontend",
+      "start_line": 405,
+      "end_line": 410,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        407,
+        408,
+        409
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Tailwind compatible, Blade/Alpine source baseline superseded by Next.js/React/Shadcn UI; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U026",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Database",
+      "start_line": 411,
+      "end_line": 414,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        413
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MySQL-primary source baseline superseded by PostgreSQL; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U027",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Admin Panel",
+      "start_line": 415,
+      "end_line": 418,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        417
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Filament source assumption superseded by Payload CMS/Refine where appropriate; admin capability retained; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U028",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Authentication",
+      "start_line": 419,
+      "end_line": 439,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        421,
+        422,
+        423,
+        424,
+        425,
+        426,
+        427,
+        428,
+        429,
+        430,
+        431,
+        432,
+        433,
+        434,
+        435,
+        436
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED: identity capabilities preserved in F-03/A-03, Laravel/direct-JWT implementation baseline superseded by Core Identity + Clerk/Auth.js boundary; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U029",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Deployment Constraints",
+      "start_line": 440,
+      "end_line": 447,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        442,
+        443,
+        444
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; cPanel/no-Docker/no-Vercel constraints historical under UD-TECH-01; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U030",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Mobile Application Stack",
+      "start_line": 448,
+      "end_line": 474,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        452,
+        456,
+        457,
+        461,
+        462,
+        463,
+        464,
+        468,
+        469
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED: Android/iOS/offline/API/push obligations preserved, Flutter/direct-JWT/FCM implementation baseline superseded by React Native + Expo/Core Identity/Expo Push or OneSignal; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U031",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Desktop Application Stack",
+      "start_line": 475,
+      "end_line": 503,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        479,
+        483,
+        484,
+        488,
+        489,
+        490,
+        491,
+        495,
+        496
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED: installer/update/offline/secure-storage obligations preserved, Windows-only/direct-JWT posture superseded by Tauri + Core Identity; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U032",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "19. Reference Architecture",
+      "start_line": 504,
+      "end_line": 530,
+      "located_inventory_rows": 11,
+      "glyph_bullet_lines": [
+        510,
+        511,
+        512,
+        513
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; reference-use/no-copy/no-license-conflict governance remains active; stack choices inside references never become authority; not runtime certification"
+    },
+    {
+      "unit": "S2.1-U033",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "20. Development Phase Roadmap",
+      "start_line": 531,
+      "end_line": 568,
+      "located_inventory_rows": 23,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 01-21B sequence preserved as source history/reference; CR-04/LG-13 make active phase governance dependency-driven; not phase-status certification"
+    },
+    {
+      "unit": "S2.1-U034",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "21. Recovery File Specifications",
+      "start_line": 569,
+      "end_line": 570,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U035",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "PROJECT_STATE.md shall include:",
+      "start_line": 571,
+      "end_line": 574,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        573
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U036",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "PROJECT_MANIFEST.json (machine-readable) shall maintain:",
+      "start_line": 575,
+      "end_line": 578,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        577
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U037",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "PHASE_SUMMARY.md shall include:",
+      "start_line": 579,
+      "end_line": 584,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        581
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; fresh S2.1 source read mapped to Governing/MASTER_INSTRUCTION_v2_5.md; active governance semantics preserved; not runtime or project-completion certification"
+    },
+    {
+      "unit": "S2.1-U038",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "22. Final Delivery Package",
+      "start_line": 585,
+      "end_line": 606,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [
+        589,
+        593
+      ],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; final-delivery obligations preserved while stack/app labels normalize through UD-TECH-01 and Application Surface Model; not production-readiness certification"
+    },
+    {
+      "unit": "S2.2-U039",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "SBGlobal Plus — Production Product Specification / Business Requirement",
+      "start_line": 607,
+      "end_line": 618,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source document `Status: Production Ready` is historical/source metadata only under MI §27/§33A/LG-14; child requirements traced separately; not project certification"
+    },
+    {
+      "unit": "S2.2-U040",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "1. Product Vision",
+      "start_line": 619,
+      "end_line": 644,
+      "located_inventory_rows": 16,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Product Vision target preserved while Healthcare flagship and source Production Ready wording are legacy/status-target language under equal-nine-industry and evidence-gated status rules; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U041",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "2. Product Objectives",
+      "start_line": 645,
+      "end_line": 669,
+      "located_inventory_rows": 17,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U042",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "3. Core Principles",
+      "start_line": 670,
+      "end_line": 687,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U043",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "4. Business Scope",
+      "start_line": 688,
+      "end_line": 724,
+      "located_inventory_rows": 27,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Business Scope is incomplete for current catalog; Security & Facility Management restored and Government/NGO names normalized while Future Industries remain promotion-gated; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U044",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "4A. 🆕 Industry Vertical Suite Scope Note",
+      "start_line": 725,
+      "end_line": 730,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare detail preserved but flagship/template and permanently shallower-suite posture are legacy under CR-05/LG-03/LG-04; all 9 current industries equal/full-spec; not industry certification"
+    },
+    {
+      "unit": "S2.2-U045",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "5. User Types",
+      "start_line": 731,
+      "end_line": 760,
+      "located_inventory_rows": 23,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source complete platform-wide User Types claim is Healthcare-heavy legacy wording; current actor classes plus suite-owned roles/personas across all nine are canonical; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U046",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "6. Multi-Tenant Architecture",
+      "start_line": 761,
+      "end_line": 786,
+      "located_inventory_rows": 19,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; tenant isolation preserved; Patient/Doctor examples are Healthcare-specific and current fail-closed isolation includes applicable Industry Context/Data Home; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U047",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "7. Global Configuration Policy",
+      "start_line": 787,
+      "end_line": 804,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U048",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "8. Dynamic Configuration",
+      "start_line": 805,
+      "end_line": 850,
+      "located_inventory_rows": 39,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U049",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "9. SaaS Website",
+      "start_line": 851,
+      "end_line": 936,
+      "located_inventory_rows": 75,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; public production-content requirement preserved with evidence gate for real testimonials, customer logos, certification/accreditation/compliance badges, uptime/SLA and measured outcome claims; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U050",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "10. Laboratory Website",
+      "start_line": 937,
+      "end_line": 1005,
+      "located_inventory_rows": 59,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Laboratory Website is Healthcare-only; NABL/certification/testimonial claims require governed evidence and cannot be fabricated by AI; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U051",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "10A. Production Content, Demo Data & Master Data Policy",
+      "start_line": 1006,
+      "end_line": 1015,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source §10A installation-readiness umbrella is now explicit as F-04 BR-DATA-03 → A-05 §2A/A-09 §4 → DD-17 DATA-BOOT-001…005; required production baseline auto-materializes while demo transactions remain separate/governed; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U052",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Production Content",
+      "start_line": 1016,
+      "end_line": 1019,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; production-content umbrella routes to F-04/F-06/industry experience owners; child content lists remain separately traced; not deployment/runtime certification"
+    },
+    {
+      "unit": "S2.2-U053",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "SaaS Website",
+      "start_line": 1020,
+      "end_line": 1040,
+      "located_inventory_rows": 18,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U054",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Laboratory Websites",
+      "start_line": 1041,
+      "end_line": 1060,
+      "located_inventory_rows": 17,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U055",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Super Admin Portal",
+      "start_line": 1061,
+      "end_line": 1070,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Super Admin Portal maps to Platform Application/Control Plane rather than unrestricted tenant operational data; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U056",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Tenant Web Portal",
+      "start_line": 1071,
+      "end_line": 1092,
+      "located_inventory_rows": 32,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Tenant Web Portal production-content list is Healthcare operational Industry Experience content, not canonical Tenant Management Application; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U057",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Mobile Applications",
+      "start_line": 1093,
+      "end_line": 1102,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile content maps into exactly two Tenant app classes plus separate Platform Application channel; no role-specific binaries; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U058",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Realistic Demo Data",
+      "start_line": 1103,
+      "end_line": 1106,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; realistic demo-data umbrella preserved by F-04 §9 BR-DATA-02/03 and all-industry demo policy; demo is synthetic/DEMO-flagged/resettable and separate from production truth; not runtime completeness certification"
+    },
+    {
+      "unit": "S2.2-U059",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Healthcare Data",
+      "start_line": 1107,
+      "end_line": 1124,
+      "located_inventory_rows": 15,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U060",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Laboratory Data",
+      "start_line": 1125,
+      "end_line": 1138,
+      "located_inventory_rows": 11,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U061",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Medical Data",
+      "start_line": 1139,
+      "end_line": 1155,
+      "located_inventory_rows": 14,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U062",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Enterprise Master Data",
+      "start_line": 1156,
+      "end_line": 1159,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; enterprise master-data umbrella routes to F-04 §1–§2/A-05 §2A plus suite-owned master families; preloaded baseline intent preserved; not volume/runtime certification"
+    },
+    {
+      "unit": "S2.2-U063",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "General Masters",
+      "start_line": 1160,
+      "end_line": 1171,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U064",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Identity Masters",
+      "start_line": 1172,
+      "end_line": 1182,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; identity reference masters are jurisdiction/tenant-applicable reference data only; sensitive classifications are not universal mandatory identity/authorization facts; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U065",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Organization Masters",
+      "start_line": 1183,
+      "end_line": 1192,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; organization masters normalize Branch/Department to typed OrgUnit and keep role/permission authorization under Identity/RBAC ownership; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U066",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Laboratory Masters",
+      "start_line": 1193,
+      "end_line": 1217,
+      "located_inventory_rows": 22,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U067",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Inventory Masters",
+      "start_line": 1218,
+      "end_line": 1227,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; inventory master list is MIXED reusable inventory + Healthcare LIS consumable defaults; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U068",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Billing Masters",
+      "start_line": 1228,
+      "end_line": 1236,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; billing masters are MIXED reusable commercial/reference + India GST Country-Pack + Healthcare usage; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U069",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Workflow Masters",
+      "start_line": 1237,
+      "end_line": 1245,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; workflow master list is Healthcare-heavy and does not create a global status vocabulary; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U070",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Healthcare Standards",
+      "start_line": 1246,
+      "end_line": 1254,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U071",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Media Assets",
+      "start_line": 1255,
+      "end_line": 1265,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; media assets are reusable platform/industry governed artifacts rather than Healthcare-owned content; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U072",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Media Asset Generation & Licensing Policy",
+      "start_line": 1266,
+      "end_line": 1269,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; media generation/licensing umbrella preserved by F-04 §10/A-05 §5 and experience owners; not asset-inventory completeness certification"
+    },
+    {
+      "unit": "S2.2-U073",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Generation Policy",
+      "start_line": 1270,
+      "end_line": 1297,
+      "located_inventory_rows": 22,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U074",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Copyright-Free Fallback Policy",
+      "start_line": 1298,
+      "end_line": 1311,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; named fallback libraries are source allowlist examples subject to current item-level commercial license/provenance verification; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U075",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Approved Icon Libraries",
+      "start_line": 1312,
+      "end_line": 1320,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U076",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Strictly Prohibited",
+      "start_line": 1321,
+      "end_line": 1336,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U077",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Asset Quality Standards",
+      "start_line": 1337,
+      "end_line": 1349,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U078",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Content Rules",
+      "start_line": 1350,
+      "end_line": 1365,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; production content must be truthful: synthetic realism cannot impersonate real endorsement/accreditation/status/result without evidence; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U079",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Demo Record Rules",
+      "start_line": 1366,
+      "end_line": 1374,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Platform/Industry/configuration/data/media owners with status/scope normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U080",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "11. Super Admin Platform",
+      "start_line": 1375,
+      "end_line": 1420,
+      "located_inventory_rows": 38,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Super Admin Platform is Control Plane; Lab/branch items are governed catalog/health projections and tenant operational access requires elevation/justification; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U081",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "12. 🆕 Tenant Web Portal",
+      "start_line": 1421,
+      "end_line": 1464,
+      "located_inventory_rows": 34,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source unified Tenant Web Portal is preserved as Healthcare Industry Experience Web; canonical Tenant Management remains administration-only; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U082",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "13. Branch Management",
+      "start_line": 1465,
+      "end_line": 1491,
+      "located_inventory_rows": 17,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; laboratory branch section is MIXED: canonical OrgUnit organization data plus Healthcare collection/equipment/inventory/report/billing/dashboard semantics; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U083",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "14. Department Management",
+      "start_line": 1492,
+      "end_line": 1517,
+      "located_inventory_rows": 16,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; department section is MIXED: reusable OrgUnit structure plus Healthcare laboratory department/worklist/equipment/KPI semantics; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U084",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "15. Staff Management",
+      "start_line": 1518,
+      "end_line": 1553,
+      "located_inventory_rows": 26,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; staff section is MIXED: reusable Core HR lifecycle plus Healthcare staff personas; IAM owns roles/permissions; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U085",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "16. Patient Management",
+      "start_line": 1554,
+      "end_line": 1583,
+      "located_inventory_rows": 23,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U086",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "17. Doctor Management",
+      "start_line": 1584,
+      "end_line": 1615,
+      "located_inventory_rows": 21,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U087",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "18. Appointment Management",
+      "start_line": 1616,
+      "end_line": 1638,
+      "located_inventory_rows": 16,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U088",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "19. Laboratory Information System (LIS)",
+      "start_line": 1639,
+      "end_line": 1675,
+      "located_inventory_rows": 28,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U089",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "20. Test Catalogue",
+      "start_line": 1676,
+      "end_line": 1706,
+      "located_inventory_rows": 23,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U090",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "21. Sample Lifecycle",
+      "start_line": 1707,
+      "end_line": 1744,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; exact LIS Sample Lifecycle and per-action audit-log obligation preserved at F-07 §1.4; not runtime certification"
+    },
+    {
+      "unit": "S2.2-U091",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "22. Reports",
+      "start_line": 1745,
+      "end_line": 1781,
+      "located_inventory_rows": 30,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare report AI summary/risk/health/diet/lifestyle capabilities are assistive only and cannot alter verified results, bypass clinician/pathologist approval or autonomously diagnose/prescribe/treat; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U092",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "23. Billing & Finance",
+      "start_line": 1782,
+      "end_line": 1813,
+      "located_inventory_rows": 22,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare billing uses reusable finance/commercial primitives; GST/TDS are jurisdiction-pack governed rather than global defaults; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U093",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "24. Inventory Management",
+      "start_line": 1814,
+      "end_line": 1842,
+      "located_inventory_rows": 21,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare reagents/chemicals/kits/machines/expiry/consumption semantics consume reusable Inventory primitives; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U094",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "25. Communication Center",
+      "start_line": 1843,
+      "end_line": 1906,
+      "located_inventory_rows": 41,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Communication Center provider/channel engine is Core; named providers are configurable integrations and source presence does not mean enabled/contracted; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U095",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "26. Subscription Management",
+      "start_line": 1907,
+      "end_line": 1957,
+      "located_inventory_rows": 35,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; subscription tiers preserved; Renewed normalized to event, Pro/Premium dual-route per current F-14, and expiry/suspension never delete tenant data; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U096",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "26A. 🆕 Affiliate, Referral & Commission Platform",
+      "start_line": 1958,
+      "end_line": 1978,
+      "located_inventory_rows": 11,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U097",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "27. Enterprise Integration",
+      "start_line": 1979,
+      "end_line": 2005,
+      "located_inventory_rows": 18,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Integration organization list is Healthcare-specific while integration transport/security/retry/webhook mechanics remain Core; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U098",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "28. API & Interoperability",
+      "start_line": 2006,
+      "end_line": 2042,
+      "located_inventory_rows": 27,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; API section is MIXED Core API + Healthcare interoperability; current tRPC first-party/REST OpenAPI external and no separate app-owned JWT authority; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U099",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "29. Integration Management",
+      "start_line": 2043,
+      "end_line": 2072,
+      "located_inventory_rows": 22,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U100",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "30. Mobile Applications",
+      "start_line": 2073,
+      "end_line": 2092,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile application set normalizes to exactly two Tenant apps plus separate Platform Application channel; roles are not separate binaries; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U101",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "31. Dynamic Mobile Platform",
+      "start_line": 2093,
+      "end_line": 2128,
+      "located_inventory_rows": 26,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; dynamic mobile API endpoint is governed environment/profile configuration, not arbitrary tenant URL authority; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U102",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "32. AI Platform",
+      "start_line": 2129,
+      "end_line": 2153,
+      "located_inventory_rows": 14,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI capabilities are mixed Core/domain; health/report/risk semantics remain Healthcare-scoped; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U103",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "33. AI Development Center",
+      "start_line": 2154,
+      "end_line": 2184,
+      "located_inventory_rows": 20,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI Development Center remains human-governed review assistance and cannot autonomously modify production code or self-approve; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U104",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "34. Analytics & Dashboards",
+      "start_line": 2185,
+      "end_line": 2208,
+      "located_inventory_rows": 17,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U105",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "35. Security & Compliance",
+      "start_line": 2209,
+      "end_line": 2263,
+      "located_inventory_rows": 36,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; security/compliance capabilities preserved; HIPAA is Healthcare readiness and GDPR/DPDP/SOC2/ISO wording is alignment/readiness rather than certification; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U106",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "36. Monitoring & Diagnostics",
+      "start_line": 2264,
+      "end_line": 2292,
+      "located_inventory_rows": 21,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U107",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "37. Backup & Disaster Recovery",
+      "start_line": 2293,
+      "end_line": 2315,
+      "located_inventory_rows": 14,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U108",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "38. License & Environment Management",
+      "start_line": 2316,
+      "end_line": 2338,
+      "located_inventory_rows": 16,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U109",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "39. Dynamic Configuration Platform",
+      "start_line": 2339,
+      "end_line": 2387,
+      "located_inventory_rows": 43,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U110",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Typography Management",
+      "start_line": 2388,
+      "end_line": 2416,
+      "located_inventory_rows": 19,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current Healthcare/Core/Commercial/API/Mobile/AI/Operations owners with scope/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U111",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "40. Deployment Requirements",
+      "start_line": 2417,
+      "end_line": 2439,
+      "located_inventory_rows": 19,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; deployment list is target-state language; cPanel/Docker-optional assumptions are historical under UD-TECH-01 and no Production Ready status is inferred; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U112",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "40A. Deployment Simplicity Policy",
+      "start_line": 2440,
+      "end_line": 2449,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED deployment policy: simplicity/portability survives while cPanel/no-Docker defaults do not override UD-TECH-01/A-10; not deployment certification"
+    },
+    {
+      "unit": "S2.2-U113",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "41. Machine Integration Roadmap",
+      "start_line": 2450,
+      "end_line": 2470,
+      "located_inventory_rows": 13,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; laboratory analyzer roadmap is Healthcare interoperability over Core integration/device boundaries; roadmap text is target capability, not operational certification; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U114",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "42. Reporting & Business Intelligence",
+      "start_line": 2471,
+      "end_line": 2492,
+      "located_inventory_rows": 14,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U115",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "43. Disaster Recovery Policy",
+      "start_line": 2493,
+      "end_line": 2509,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U116",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "44. Quality Assurance Policy",
+      "start_line": 2510,
+      "end_line": 2532,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U117",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "45. Future Extension Policy",
+      "start_line": 2533,
+      "end_line": 2548,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U118",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "46. Audit & Versioning Policy",
+      "start_line": 2549,
+      "end_line": 2566,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; audit/versioning preserved while soft-delete/restore applies only where owning data class permits; immutable/financial history uses governed correction/reversal; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U119",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "47. Search & Productivity",
+      "start_line": 2567,
+      "end_line": 2586,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; bulk search/productivity operations remain server-authorized and cannot bypass Tenant/Industry scope, workflow state, retention/legal hold or data-class policy; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U120",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "48. Document Management",
+      "start_line": 2587,
+      "end_line": 2605,
+      "located_inventory_rows": 11,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Document Management is Core; Patient documents are Healthcare-specific and all document classes retain ACL/sensitivity/residency/secure-upload controls; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U121",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "49. Localization & Internationalization",
+      "start_line": 2606,
+      "end_line": 2621,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U122",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "50. Non-Functional Requirements (NFR)",
+      "start_line": 2622,
+      "end_line": 2644,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 99.9% is a target baseline, not achieved-availability or customer-SLA proof absent governed contract/evidence; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U123",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "51. Data Lifecycle & Retention Policy",
+      "start_line": 2645,
+      "end_line": 2667,
+      "located_inventory_rows": 13,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; data lifecycle has no blanket hard/soft delete; legal hold/retention/data class/immutable audit-financial rules govern and subscription expiry never deletes tenant data; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U124",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "52. Database Standards",
+      "start_line": 2668,
+      "end_line": 2675,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; database technical detail routes to F-04/A-05 and tenant-isolation testing obligation to F-03/DD-17; not runtime/database certification"
+    },
+    {
+      "unit": "S2.2-U125",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "53. Logging & Observability Policy",
+      "start_line": 2676,
+      "end_line": 2699,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U126",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "54. Notification & Queue Policy",
+      "start_line": 2700,
+      "end_line": 2719,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U127",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "55. CI/CD & Release Management",
+      "start_line": 2720,
+      "end_line": 2739,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; zero-downtime/blue-green remain topology capability targets where applicable, not proof every release uses them or is production-ready; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U128",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "56. Support & Maintenance Policy",
+      "start_line": 2740,
+      "end_line": 2759,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source semantics mapped to current reporting/resilience/QA/extension/audit/search/document/localization/NFR/lifecycle/operations owners with evidence/status normalization; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U129",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "57. Performance & Scalability Standards",
+      "start_line": 2760,
+      "end_line": 2765,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; performance/scalability cross-reference routes to F-01 §9/A-10/A-11; not performance certification"
+    },
+    {
+      "unit": "S2.2-U130",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "58. Acceptance Criteria",
+      "start_line": 2766,
+      "end_line": 2790,
+      "located_inventory_rows": 17,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source acceptance checklist is necessary but not sufficient; current MI §27/§33A evidence gate governs and not every AI registry provider must be simultaneously operational; not runtime/project certification"
+    },
+    {
+      "unit": "S2.2-U131",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "59. Product Goal",
+      "start_line": 2791,
+      "end_line": 2808,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Product Goal remains target state; Healthcare personas/medical workflows stay Healthcare-scoped, current Core API contracts replace REST-only assumption, and Production Ready is not current status; not runtime/project certification"
+    },
+    {
+      "unit": "S2.3-U132",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Engineering Standards (Global)",
+      "start_line": 2809,
+      "end_line": 2816,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Engineering Standards source-domain obligations preserved while canonical architecture and UD-TECH-01 normalize implementation; not runtime/production certification"
+    },
+    {
+      "unit": "S2.3-U133",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "1. Non-Functional Requirements (NFR)",
+      "start_line": 2817,
+      "end_line": 2820,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; NFR umbrella routes to F-01/A-10/A-11; not production certification"
+    },
+    {
+      "unit": "S2.3-U134",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Performance",
+      "start_line": 2821,
+      "end_line": 2829,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; performance NFR preserved at F-01/A-10/A-11; full performance gate not claimed"
+    },
+    {
+      "unit": "S2.3-U135",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Scalability",
+      "start_line": 2830,
+      "end_line": 2838,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; scalability NFR preserved at F-01/A-10/A-11; no full scale certification"
+    },
+    {
+      "unit": "S2.3-U136",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Availability",
+      "start_line": 2839,
+      "end_line": 2845,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; availability/resilience semantics preserved and normalized through A-10/A-11; no SLA certification"
+    },
+    {
+      "unit": "S2.3-U137",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Backup & Recovery",
+      "start_line": 2846,
+      "end_line": 2854,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; backup/restore/DR semantics preserved at A-10/A-11/DD-14/DD-17; recoverability requires restore evidence"
+    },
+    {
+      "unit": "S2.3-U138",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Logging & Monitoring",
+      "start_line": 2855,
+      "end_line": 2866,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; logging/monitoring semantics preserved at A-11/DD-15/DD-16"
+    },
+    {
+      "unit": "S2.3-U139",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Observability",
+      "start_line": 2867,
+      "end_line": 2871,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; tracing/metrics observability preserved at A-11/DD-15"
+    },
+    {
+      "unit": "S2.3-U140",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Caching",
+      "start_line": 2872,
+      "end_line": 2883,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; caching obligation preserved; Redis-ready does not force premature Redis adoption"
+    },
+    {
+      "unit": "S2.3-U141",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "2. Database Standards",
+      "start_line": 2884,
+      "end_line": 2902,
+      "located_inventory_rows": 13,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; S2.4 remains source database-domain owner; current canonical owner F-04/A-05/DD-05; not database certification"
+    },
+    {
+      "unit": "S2.3-U142",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "3. Coding Standards",
+      "start_line": 2903,
+      "end_line": 2923,
+      "located_inventory_rows": 17,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED: generic coding principles survive; Laravel/PSR-12 source tooling superseded by UD-TECH-01; no replacement lint tool invented"
+    },
+    {
+      "unit": "S2.3-U143",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Code Quality",
+      "start_line": 2924,
+      "end_line": 2932,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED: static/dead/duplicate/technical-debt quality obligations survive; PHPStan/Pint historical under UD-TECH-01; current build does not prove full production code-quality gate"
+    },
+    {
+      "unit": "S2.3-U144",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Dependency Management",
+      "start_line": 2933,
+      "end_line": 2942,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MIXED: package approval/license/vulnerability/update/lock obligations survive; Composer-specific wording historical; npm lock verified, dependency security scan remains unclaimed later gate"
+    },
+    {
+      "unit": "S2.3-U145",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "4. Security Standards",
+      "start_line": 2943,
+      "end_line": 2946,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; security umbrella routes to F-03/A-03/DD-16; not Security Validated certification"
+    },
+    {
+      "unit": "S2.3-U146",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Application Security Controls",
+      "start_line": 2947,
+      "end_line": 2971,
+      "located_inventory_rows": 22,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; application security controls preserved; JWT wording normalized behind Core Identity/Clerk/Auth.js boundary and does not create separate app-owned token authority"
+    },
+    {
+      "unit": "S2.3-U147",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Secrets & Key Management",
+      "start_line": 2972,
+      "end_line": 2977,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; secrets/vault/rotation/HSM semantics preserved at F-03/A-03/A-10/DD-16"
+    },
+    {
+      "unit": "S2.3-U148",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 API Threat Protection",
+      "start_line": 2978,
+      "end_line": 2986,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; API gateway/rate/WAF/DDoS/bot protections preserved at A-03/A-10/DD-16"
+    },
+    {
+      "unit": "S2.3-U149",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Vulnerability & Incident Response Program",
+      "start_line": 2987,
+      "end_line": 2997,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; penetration/disclosure/incident/breach-response obligations preserved; execution evidence remains later security gate"
+    },
+    {
+      "unit": "S2.3-U150",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "5. Testing Standards",
+      "start_line": 2998,
+      "end_line": 3001,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; testing taxonomy routes to DD-17/applicable executable suites; not all test types inferred complete"
+    },
+    {
+      "unit": "S2.3-U151",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Unit Testing",
+      "start_line": 3002,
+      "end_line": 3008,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; unit-testing obligation preserved; current coverage applies only to implemented scope"
+    },
+    {
+      "unit": "S2.3-U152",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Feature Testing",
+      "start_line": 3009,
+      "end_line": 3019,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; feature-testing obligation preserved; full product coverage not inferred"
+    },
+    {
+      "unit": "S2.3-U153",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Integration Testing",
+      "start_line": 3020,
+      "end_line": 3027,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; integration-testing obligation preserved; provider-specific coverage remains scoped"
+    },
+    {
+      "unit": "S2.3-U154",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Tenant Isolation Testing",
+      "start_line": 3028,
+      "end_line": 3034,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; dedicated tenant/cross-industry isolation testing preserved; current PostgreSQL evidence covers implemented scope only"
+    },
+    {
+      "unit": "S2.3-U155",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "API Testing",
+      "start_line": 3035,
+      "end_line": 3043,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; API testing taxonomy preserved at DD-06/DD-17"
+    },
+    {
+      "unit": "S2.3-U156",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Performance Testing",
+      "start_line": 3044,
+      "end_line": 3051,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; performance testing remains active later gate; no performance certification claimed"
+    },
+    {
+      "unit": "S2.3-U157",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Production Readiness",
+      "start_line": 3052,
+      "end_line": 3073,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Production Readiness checklist preserved under MI §27/§33A/LG-14; static analysis/dependency scan/code style/release-tag remain required before Production Ready and are not currently claimed"
+    },
+    {
+      "unit": "S2.4-U158",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "SBGlobal Plus Database Architecture Standards",
+      "start_line": 3074,
+      "end_line": 3085,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; specialized database-domain source preserved; engine/naming conflicts explicitly reconciled by UD-TECH-01/AC-19; not database/project certification"
+    },
+    {
+      "unit": "S2.4-U159",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Purpose",
+      "start_line": 3086,
+      "end_line": 3089,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; database purpose preserved at F-04/F-11/A-05"
+    },
+    {
+      "unit": "S2.4-U160",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Scope",
+      "start_line": 3090,
+      "end_line": 3103,
+      "located_inventory_rows": 14,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Super Admin/Tenant Portal/LIS labels normalized to current Platform/Tenant Management/Industry Experience surfaces without adding apps"
+    },
+    {
+      "unit": "S2.4-U161",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Database Engine",
+      "start_line": 3104,
+      "end_line": 3109,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; MySQL-default/MariaDB/PostgreSQL-future source engine wording superseded by UD-TECH-01; PostgreSQL ACTIVE"
+    },
+    {
+      "unit": "S2.4-U162",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Architecture",
+      "start_line": 3110,
+      "end_line": 3119,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; multi-tenant/config/database-driven/modular/scalable/normalized/API-first architecture preserved"
+    },
+    {
+      "unit": "S2.4-U163",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Database Structure",
+      "start_line": 3120,
+      "end_line": 3137,
+      "located_inventory_rows": 15,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source database table-class categories preserved through A-05/DD-05 module/schema ownership; not exact schema certification"
+    },
+    {
+      "unit": "S2.4-U164",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Identifiers",
+      "start_line": 3138,
+      "end_line": 3145,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; UUID/Tenant/Industry identifiers preserved; Branch/Department identity normalized to typed OrgUnit id/path rather than duplicated identifier systems"
+    },
+    {
+      "unit": "S2.4-U165",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Naming Standards",
+      "start_line": 3146,
+      "end_line": 3153,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; snake_case/FK/index intent preserved; source plural-table convention superseded by recorded AC-19 singular physical table convention; no rename"
+    },
+    {
+      "unit": "S2.4-U166",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Data Standards",
+      "start_line": 3154,
+      "end_line": 3166,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; soft-delete/audit attribution/timestamps preserved subject to canonical append-only/retention rules"
+    },
+    {
+      "unit": "S2.4-U167",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Performance",
+      "start_line": 3167,
+      "end_line": 3178,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; database performance obligations preserved at A-05/A-10/DD-05; partition/replica decisions evidence-driven; not performance certification"
+    },
+    {
+      "unit": "S2.4-U168",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Security",
+      "start_line": 3179,
+      "end_line": 3187,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; isolation/encryption/backup/access-log controls preserved; password/API credential ownership remains Core Identity/security"
+    },
+    {
+      "unit": "S2.4-U169",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Data Residency",
+      "start_line": 3188,
+      "end_line": 3193,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; tenant-configurable residency/regional database/sovereignty mapping preserved through Regional Data Home model"
+    },
+    {
+      "unit": "S2.4-U170",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Backup",
+      "start_line": 3194,
+      "end_line": 3201,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source daily/weekly/monthly backup classes restored explicitly in DD-14 alongside WAL/PITR and RCV-007; recoverability still requires restore evidence"
+    },
+    {
+      "unit": "S2.4-U171",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Data Governance",
+      "start_line": 3202,
+      "end_line": 3213,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; validation/integrity/migration/seeder/version/rollback/archive/retention governance preserved"
+    },
+    {
+      "unit": "S2.4-U172",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Integration",
+      "start_line": 3214,
+      "end_line": 3224,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; REST/webhook/import/export/queue/scheduler routed to platform integration owners; FHIR/HL7 routed to Healthcare interoperability; no capability dropped"
+    },
+    {
+      "unit": "S2.4-U173",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Change Policy",
+      "start_line": 3225,
+      "end_line": 3237,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; backward-compatible/integrity-preserving database change policy preserved through A-05/DD-05"
+    },
+    {
+      "unit": "S2.5-U174",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "SBGlobal Plus Mobile Architecture Standards",
+      "start_line": 3238,
+      "end_line": 3249,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U175",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Purpose",
+      "start_line": 3250,
+      "end_line": 3253,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U176",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Scope",
+      "start_line": 3254,
+      "end_line": 3262,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; exactly two Tenant apps preserved; source Super Admin App normalized to separate conditional Platform Mobile; no third Tenant app; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U177",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Supported Platforms",
+      "start_line": 3263,
+      "end_line": 3268,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U178",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Framework",
+      "start_line": 3269,
+      "end_line": 3272,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Flutter superseded by React Native + Expo under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U179",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Language",
+      "start_line": 3273,
+      "end_line": 3276,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Dart belongs to superseded Flutter baseline; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U180",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Architecture",
+      "start_line": 3277,
+      "end_line": 3288,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U181",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "State Management",
+      "start_line": 3289,
+      "end_line": 3293,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Riverpod/Bloc/Cubit are Flutter-era choices; state-management responsibility preserved without inventing a React Native library; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U182",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Local Storage",
+      "start_line": 3294,
+      "end_line": 3300,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U183",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Cache",
+      "start_line": 3301,
+      "end_line": 3307,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U184",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Network",
+      "start_line": 3308,
+      "end_line": 3316,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; network obligations preserved with tRPC first-party/REST interoperability and Core Identity token boundary; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U185",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Background Services",
+      "start_line": 3317,
+      "end_line": 3323,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U186",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Offline Strategy",
+      "start_line": 3324,
+      "end_line": 3331,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; offline-first/queue/sync/retry preserved; conflict resolution constrained by DD-11 risk classes; no naive LWW for controlled/high-integrity data; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U187",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Notifications",
+      "start_line": 3332,
+      "end_line": 3340,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; push preserved through Expo Push/OneSignal; SMS/WhatsApp/Email remain Core Communication; direct FCM baseline historical; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U188",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Authentication",
+      "start_line": 3341,
+      "end_line": 3353,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; OTP/biometric/device/session/MFA/SSO/OAuth/OIDC preserved through Core Identity; source JWT/refresh wording does not create separate mobile auth; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U189",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Security",
+      "start_line": 3354,
+      "end_line": 3364,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U190",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "QR & Barcode",
+      "start_line": 3365,
+      "end_line": 3373,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; generic QR/barcode shared; Patient/Report/Invoice/Sample examples remain Healthcare-scoped; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U191",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Device Features",
+      "start_line": 3374,
+      "end_line": 3386,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U192",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Vertical Suite Note",
+      "start_line": 3387,
+      "end_line": 3390,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare mobile depth preserved; flagship/template/shallow-parity posture legacy under CR-05/LG-03/LG-04; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U193",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Tenant User/Customer App Modules",
+      "start_line": 3391,
+      "end_line": 3404,
+      "located_inventory_rows": 11,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare Tenant User modules live inside TENANT_USER_APP; not platform-wide or separate role app; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U194",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Tenant Staff App Modules",
+      "start_line": 3405,
+      "end_line": 3426,
+      "located_inventory_rows": 17,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Healthcare Tenant Staff modules live inside TENANT_STAFF_APP; internal roles are RBAC personas; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U195",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Super Admin App Modules",
+      "start_line": 3427,
+      "end_line": 3439,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Super Admin App maps to Platform Application/conditional Platform Mobile; no third Tenant app or implicit tenant-data access; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U196",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Supported AI Providers",
+      "start_line": 3440,
+      "end_line": 3443,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U197",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Features",
+      "start_line": 3444,
+      "end_line": 3456,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U198",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Performance",
+      "start_line": 3457,
+      "end_line": 3465,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U199",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Observability",
+      "start_line": 3466,
+      "end_line": 3471,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U200",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Accessibility",
+      "start_line": 3472,
+      "end_line": 3480,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U201",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Multi Tenant",
+      "start_line": 3481,
+      "end_line": 3488,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U202",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Testing",
+      "start_line": 3489,
+      "end_line": 3497,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile test taxonomy preserved; Flutter Widget Test terminology normalized without inventing tooling; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U203",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Deployment",
+      "start_line": 3498,
+      "end_line": 3504,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U204",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Update Strategy",
+      "start_line": 3505,
+      "end_line": 3510,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U205",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "CI/CD",
+      "start_line": 3511,
+      "end_line": 3516,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; CI/CD preserved; GitHub Actions current while Codemagic/Fastlane remain source candidates until explicitly selected; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.5-U206",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Versioning",
+      "start_line": 3517,
+      "end_line": 3530,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; mobile capability/source semantics mapped to F-06/A-08/DD-10/DD-11/DD-16 with stack-specific wording normalized under UD-TECH-01; not mobile runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U207",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "SBGlobal Plus AI Architecture Standards",
+      "start_line": 3531,
+      "end_line": 3542,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U208",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Purpose",
+      "start_line": 3543,
+      "end_line": 3546,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U209",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Scope",
+      "start_line": 3547,
+      "end_line": 3561,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U210",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Supported AI Providers",
+      "start_line": 3562,
+      "end_line": 3579,
+      "located_inventory_rows": 13,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U211",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Provider Capability Matrix",
+      "start_line": 3580,
+      "end_line": 3583,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U212",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Supported Capability Categories",
+      "start_line": 3584,
+      "end_line": 3609,
+      "located_inventory_rows": 20,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U213",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Capabilities",
+      "start_line": 3610,
+      "end_line": 3638,
+      "located_inventory_rows": 24,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U214",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Agents",
+      "start_line": 3639,
+      "end_line": 3653,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI agent source list preserved; Healthcare-specific personas remain Healthcare-scoped; source 'other suites as built out' posture is legacy because all nine Current Supported Industries are first-class; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U215",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Knowledge",
+      "start_line": 3654,
+      "end_line": 3663,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U216",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Memory",
+      "start_line": 3664,
+      "end_line": 3671,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U217",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Security",
+      "start_line": 3672,
+      "end_line": 3687,
+      "located_inventory_rows": 13,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U218",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Integration",
+      "start_line": 3688,
+      "end_line": 3697,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U219",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Model Routing",
+      "start_line": 3698,
+      "end_line": 3729,
+      "located_inventory_rows": 22,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U220",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Workflow Engine",
+      "start_line": 3730,
+      "end_line": 3748,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI workflow capabilities preserved; AI-generated approval/recommendation cannot substitute for required human/authorized-principal approval; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U221",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Governance",
+      "start_line": 3749,
+      "end_line": 3772,
+      "located_inventory_rows": 16,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U222",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Enterprise Pack Architecture",
+      "start_line": 3773,
+      "end_line": 3784,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Pack semantics routed to F-14/A-04 commercial entitlement ownership; AI architecture consumes, not owns, licensing truth; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U223",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Subscription & Billing Architecture",
+      "start_line": 3785,
+      "end_line": 3802,
+      "located_inventory_rows": 13,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI billing/credits/metering/overage/cost-allocation routed to F-14/A-04/DD-04; AI usage ledger is evidence, not invoice/commercial truth; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U224",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "NEW SECTION — Enterprise AI Platform Expansion",
+      "start_line": 3803,
+      "end_line": 3806,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U225",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Enterprise AI Assistant Framework",
+      "start_line": 3807,
+      "end_line": 3810,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U226",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Core AI Assistants",
+      "start_line": 3811,
+      "end_line": 3817,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U227",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Industry AI Assistants",
+      "start_line": 3818,
+      "end_line": 3832,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source combined Government & NGO AI Assistant label normalized into separate Government & Public Sector and NGO / Temple / Trust suite-owned assistants; nine Current Supported Industries remain independent; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U228",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Enterprise AI Agent Framework",
+      "start_line": 3833,
+      "end_line": 3836,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U229",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Platform Agents",
+      "start_line": 3837,
+      "end_line": 3847,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U230",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Industry Agents",
+      "start_line": 3848,
+      "end_line": 3886,
+      "located_inventory_rows": 19,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U231",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Document Intelligence",
+      "start_line": 3887,
+      "end_line": 3919,
+      "located_inventory_rows": 24,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U232",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Enterprise AI API Platform",
+      "start_line": 3920,
+      "end_line": 3942,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI API categories preserved; source GraphQL interface is historical under UD-TECH-01 active tRPC-first-party + REST/OpenAPI external baseline; MCP/SDK/webhook/streaming remain governed integrations; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U233",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Enterprise AI Marketplace",
+      "start_line": 3943,
+      "end_line": 3963,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI Marketplace items preserved but entitlement/licensing/provisioning truth routed to F-14/A-04 and platform Marketplace ownership; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U234",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Provisioning",
+      "start_line": 3964,
+      "end_line": 3978,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI provisioning preserved through AIProvisioningSnapshot and live entitlement/context/policy revalidation; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U235",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Prompt Management",
+      "start_line": 3979,
+      "end_line": 3998,
+      "located_inventory_rows": 13,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U236",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Media Generation Framework",
+      "start_line": 3999,
+      "end_line": 4019,
+      "located_inventory_rows": 14,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U237",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "AI Observability",
+      "start_line": 4020,
+      "end_line": 4039,
+      "located_inventory_rows": 13,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.6-U238",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Change Policy",
+      "start_line": 4040,
+      "end_line": 4052,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; AI source semantics mapped to F-05/A-07/DD-09 and downstream API/commercial/security owners where applicable; not AI runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U239",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "SBGlobal Plus Enterprise Default Standards",
+      "start_line": 4053,
+      "end_line": 4060,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U240",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Product Name",
+      "start_line": 4061,
+      "end_line": 4064,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U241",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Tagline",
+      "start_line": 4065,
+      "end_line": 4068,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source tagline preserved as historical/alternative; F-06 §6.1 + CR-02 own the active primary tagline; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U242",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Organization Information",
+      "start_line": 4069,
+      "end_line": 4075,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; organization/contact source values preserved as Platform company-profile defaults; F-06 makes them governed CMS/config metadata rather than immutable code; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U243",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Default Brand Colors",
+      "start_line": 4076,
+      "end_line": 4086,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U244",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Background",
+      "start_line": 4087,
+      "end_line": 4093,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U245",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Text",
+      "start_line": 4094,
+      "end_line": 4100,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U246",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Typography",
+      "start_line": 4101,
+      "end_line": 4108,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U247",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Font Weight",
+      "start_line": 4109,
+      "end_line": 4115,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U248",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Font Size",
+      "start_line": 4116,
+      "end_line": 4130,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U249",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Border Radius",
+      "start_line": 4131,
+      "end_line": 4138,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U250",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Spacing",
+      "start_line": 4139,
+      "end_line": 4142,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U251",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Shadow",
+      "start_line": 4143,
+      "end_line": 4147,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U252",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Default Layout",
+      "start_line": 4148,
+      "end_line": 4157,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U253",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Animation",
+      "start_line": 4158,
+      "end_line": 4161,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U254",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Default Website",
+      "start_line": 4162,
+      "end_line": 4170,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U255",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Vertical Suite Note",
+      "start_line": 4171,
+      "end_line": 4174,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source explicitly scopes Tenant Portal/LIS/Invoice/Report defaults to Healthcare; downstream rows are reconciled accordingly; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U256",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Tenant Web Portal",
+      "start_line": 4175,
+      "end_line": 4181,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source Tenant Web Portal defaults treated as Healthcare operational web experience, not canonical Tenant Management Application; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U257",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Dashboard & Analytics",
+      "start_line": 4182,
+      "end_line": 4192,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; patient/doctor/test/sample dashboard metrics are Healthcare-scoped; Core owns reusable analytics engine only; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U258",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Patient-Facing Modules",
+      "start_line": 4193,
+      "end_line": 4203,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; patient-facing modules are Healthcare-scoped experience content; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U259",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Doctor-Facing Modules",
+      "start_line": 4204,
+      "end_line": 4212,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; doctor-facing modules are Healthcare-scoped experience content; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U260",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "LIS Module",
+      "start_line": 4213,
+      "end_line": 4230,
+      "located_inventory_rows": 15,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U261",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Invoice Default",
+      "start_line": 4231,
+      "end_line": 4245,
+      "located_inventory_rows": 12,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; invoice default with patient/doctor/test semantics is Healthcare-scoped presentation, not universal invoice schema; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U262",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Report Default",
+      "start_line": 4246,
+      "end_line": 4262,
+      "located_inventory_rows": 14,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; report default with patient/pathologist/reference-range semantics is Healthcare-scoped presentation, not universal report schema; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U263",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Table Settings",
+      "start_line": 4263,
+      "end_line": 4277,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U264",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Form Settings",
+      "start_line": 4278,
+      "end_line": 4288,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U265",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Master Dropdowns",
+      "start_line": 4289,
+      "end_line": 4330,
+      "located_inventory_rows": 37,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Master Dropdowns is MIXED: general/reference seeds are Core; doctor/patient/sample/test/specimen/machine and similar entries are Healthcare-scoped and materialize only when applicable; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U266",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Session Format",
+      "start_line": 4331,
+      "end_line": 4338,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U267",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Master Data Table (Standard Columns)",
+      "start_line": 4339,
+      "end_line": 4354,
+      "located_inventory_rows": 13,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; standard master columns are baseline only; Industry-owned rows require Industry Context ownership/equivalent relation under A-05/DD-05; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U268",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Setting Modules",
+      "start_line": 4355,
+      "end_line": 4394,
+      "located_inventory_rows": 37,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Setting Modules is MIXED: Core settings remain shared while LIS/Healthcare portal/report/invoice settings are suite-scoped; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U269",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Default Status",
+      "start_line": 4395,
+      "end_line": 4408,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Enterprise Default source semantics mapped to F-04/F-06/DD-10/DD-05 and suite owners where domain-specific; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U270",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Default User Role Seeds",
+      "start_line": 4409,
+      "end_line": 4428,
+      "located_inventory_rows": 14,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; role seeds are MIXED: shared platform/tenant roles plus Healthcare source roles; 'other suites as built out' posture is legacy and all nine current suites require applicable role packs; not runtime/project certification"
+    },
+    {
+      "unit": "S2.7-U271",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "System Defaults",
+      "start_line": 4429,
+      "end_line": 4457,
+      "located_inventory_rows": 18,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; India defaults preserved as baseline; Country Pack/tenant configuration may override allowed locale/currency/time defaults and feature defaults never bypass entitlement/security/data rules; not runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U272",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "SBGlobal Plus Enterprise UI Design System",
+      "start_line": 4458,
+      "end_line": 4465,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U273",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Grid System",
+      "start_line": 4466,
+      "end_line": 4471,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U274",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Container Width",
+      "start_line": 4472,
+      "end_line": 4480,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U275",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Spacing Scale",
+      "start_line": 4481,
+      "end_line": 4486,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U276",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Border Radius",
+      "start_line": 4487,
+      "end_line": 4496,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U277",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Buttons",
+      "start_line": 4497,
+      "end_line": 4498,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U278",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Variants",
+      "start_line": 4499,
+      "end_line": 4512,
+      "located_inventory_rows": 11,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U279",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Button Heights",
+      "start_line": 4513,
+      "end_line": 4518,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U280",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Button Width",
+      "start_line": 4519,
+      "end_line": 4523,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U281",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Button Icons",
+      "start_line": 4524,
+      "end_line": 4530,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U282",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Inputs",
+      "start_line": 4531,
+      "end_line": 4532,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U283",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Standard Inputs",
+      "start_line": 4533,
+      "end_line": 4551,
+      "located_inventory_rows": 16,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U284",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Advanced Inputs",
+      "start_line": 4552,
+      "end_line": 4563,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U285",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Select Components",
+      "start_line": 4564,
+      "end_line": 4571,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U286",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Checkbox",
+      "start_line": 4572,
+      "end_line": 4576,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U287",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Radio",
+      "start_line": 4577,
+      "end_line": 4581,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U288",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Switch",
+      "start_line": 4582,
+      "end_line": 4585,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U289",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "File Components",
+      "start_line": 4586,
+      "end_line": 4594,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; file UI capability preserved but upload/camera paths remain subject to DD-08/DD-16 secure upload, ACL and residency controls; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U290",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Cards",
+      "start_line": 4595,
+      "end_line": 4605,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U291",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Tables",
+      "start_line": 4606,
+      "end_line": 4607,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U292",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Capabilities",
+      "start_line": 4608,
+      "end_line": 4621,
+      "located_inventory_rows": 11,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U293",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Table Actions",
+      "start_line": 4622,
+      "end_line": 4635,
+      "located_inventory_rows": 9,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; table action names are presentation capabilities only; server OperationContract/permission/state/data-lifecycle rules authorize actual View/Edit/Delete/etc.; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U294",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Status Badges",
+      "start_line": 4636,
+      "end_line": 4644,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U295",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Default Status Colors",
+      "start_line": 4645,
+      "end_line": 4660,
+      "located_inventory_rows": 11,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; status color mapping preserved as presentation; accessibility requires text/semantic state and prohibits color-only meaning; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U296",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Modals",
+      "start_line": 4661,
+      "end_line": 4668,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U297",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Drawers",
+      "start_line": 4669,
+      "end_line": 4674,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U298",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Navigation",
+      "start_line": 4675,
+      "end_line": 4683,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U299",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Search",
+      "start_line": 4684,
+      "end_line": 4689,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U300",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Filters",
+      "start_line": 4690,
+      "end_line": 4700,
+      "located_inventory_rows": 8,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Filters is MIXED: generic filters shared; Doctor/Report are Healthcare examples and Payment/domain filters apply only where owned; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U301",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Alerts",
+      "start_line": 4701,
+      "end_line": 4707,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U302",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Toast",
+      "start_line": 4708,
+      "end_line": 4714,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U303",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Loader",
+      "start_line": 4715,
+      "end_line": 4721,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U304",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Charts",
+      "start_line": 4722,
+      "end_line": 4734,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U305",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Icons",
+      "start_line": 4735,
+      "end_line": 4739,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U306",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Forms",
+      "start_line": 4740,
+      "end_line": 4748,
+      "located_inventory_rows": 6,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U307",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Validation",
+      "start_line": 4749,
+      "end_line": 4762,
+      "located_inventory_rows": 11,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Validation is MIXED: generic validators shared; GST/PAN/Aadhaar are India/jurisdiction/identity-provider scoped and not global hard-coded validators; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U308",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Profile Components",
+      "start_line": 4763,
+      "end_line": 4769,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U309",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Timeline",
+      "start_line": 4770,
+      "end_line": 4779,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Timeline is MIXED: Audit/Activity/Workflow shared; Patient/Sample remain Healthcare-specific; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U310",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Notifications",
+      "start_line": 4780,
+      "end_line": 4789,
+      "located_inventory_rows": 7,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U311",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "🆕 Vertical Suite Note",
+      "start_line": 4790,
+      "end_line": 4793,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source explicitly scopes Report Colors and Report Flags to Healthcare & Diagnostics; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U312",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Report Colors",
+      "start_line": 4794,
+      "end_line": 4800,
+      "located_inventory_rows": 4,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; laboratory Report Colors are Healthcare-specific presentation defaults, not global status colors; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U313",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Report Flags",
+      "start_line": 4801,
+      "end_line": 4808,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; H/L/HH/LL/Critical report flags are Healthcare laboratory semantics; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U314",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Print Settings",
+      "start_line": 4809,
+      "end_line": 4816,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U315",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Dashboard Widgets",
+      "start_line": 4817,
+      "end_line": 4836,
+      "located_inventory_rows": 16,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Dashboard Widgets is MIXED: reusable shell widgets plus Healthcare-specific Patients/Doctors/Collection/Reports/Sample/Tests defaults; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U316",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Default Animation",
+      "start_line": 4837,
+      "end_line": 4843,
+      "located_inventory_rows": 2,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U317",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Themes",
+      "start_line": 4844,
+      "end_line": 4849,
+      "located_inventory_rows": 3,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U318",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Accessibility",
+      "start_line": 4850,
+      "end_line": 4857,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; source accessibility baseline preserved and strengthened by canonical WCAG AA/reduced-motion/responsive accessibility requirements; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.8-U319",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Responsive Breakpoints",
+      "start_line": 4858,
+      "end_line": 4875,
+      "located_inventory_rows": 5,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; base UI component/token semantics remain Core design-system defaults under F-06/A-08/DD-10; not UI runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U320",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "SBGlobal Plus Enterprise Development Roadmap",
+      "start_line": 4876,
+      "end_line": 4885,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Tier-5 roadmap reconciled as thematic/volume authority only; current phase governance is dependency-driven under MI §26/CR-04; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U321",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 01 — Enterprise Foundation",
+      "start_line": 4886,
+      "end_line": 4900,
+      "located_inventory_rows": 10,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap thematic checklist/volume target mapped to current canonical owners without granting phase order or completion status; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U322",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 02 — Enterprise Database Standards",
+      "start_line": 4901,
+      "end_line": 4927,
+      "located_inventory_rows": 20,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 500+ tables preserved as roadmap volume target only, not current table count or completion evidence; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U323",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 03 — Enterprise Master Data Library",
+      "start_line": 4928,
+      "end_line": 4937,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 250+ masters target is MIXED platform+Healthcare scope; Healthcare master categories remain suite-owned; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U324",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 04 — Complete Master Dropdown Library",
+      "start_line": 4938,
+      "end_line": 4947,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 1000+ dropdown target is MIXED; generic reference values shared and healthcare-specific status/test/machine items suite-owned; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U325",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 05 — Global Settings Platform",
+      "start_line": 4948,
+      "end_line": 4955,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 100+ settings-page target is MIXED; patient/doctor/lab/LIS/machine settings are domain-owned; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U326",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 06 — Complete LIS Configuration",
+      "start_line": 4956,
+      "end_line": 4963,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 200+ LIS settings target is Healthcare-only, not Platform-wide; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U327",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 07 — RBAC Security Platform",
+      "start_line": 4964,
+      "end_line": 4975,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; 1000+ permissions target preserved; source role list is an example subset and does not replace authoritative user/role catalogs; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U328",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 08 — Workflow Engine",
+      "start_line": 4976,
+      "end_line": 4981,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap thematic checklist/volume target mapped to current canonical owners without granting phase order or completion status; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U329",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 09 — Notification Engine",
+      "start_line": 4982,
+      "end_line": 4987,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap Browser/Slack/Teams/Telegram mentions do not silently create active provider/channel requirements; canonical Communication ownership applies; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U330",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 10 — Template Engine",
+      "start_line": 4988,
+      "end_line": 4993,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap thematic checklist/volume target mapped to current canonical owners without granting phase order or completion status; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U331",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 11 — Enterprise API Platform",
+      "start_line": 4994,
+      "end_line": 4999,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; API roadmap checklist preserved, but JWT/Swagger source wording is not active stack authority under UD-TECH-01 tRPC + REST/OpenAPI boundaries; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U332",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 12 — Audit Platform",
+      "start_line": 5000,
+      "end_line": 5005,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap thematic checklist/volume target mapped to current canonical owners without granting phase order or completion status; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U333",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 13 — Reporting & Analytics",
+      "start_line": 5006,
+      "end_line": 5011,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; roadmap thematic checklist/volume target mapped to current canonical owners without granting phase order or completion status; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U334",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Phase 14 — Enterprise Quality Standards",
+      "start_line": 5012,
+      "end_line": 5017,
+      "located_inventory_rows": 0,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; quality checklist is a future acceptance gate set; roadmap heading does not grant TESTED/SECURITY VALIDATED/PRODUCTION READY status; not runtime/project certification"
+    },
+    {
+      "unit": "S2.9-U335",
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "heading": "Final Target",
+      "start_line": 5018,
+      "end_line": 5047,
+      "located_inventory_rows": 22,
+      "glyph_bullet_lines": [],
+      "semantic_reconciliation": "OWNER_RECONCILED_2026-09-27; Final Target is aspirational target only; current surface/desktop/Industry/status normalization applies and Production Ready is not claimed; not runtime/project certification"
+    }
+  ]
+}

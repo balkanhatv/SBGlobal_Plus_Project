@@ -1,5 +1,11 @@
 # TRACEABILITY EXTENSION — CP-F1-005 (F-13, F-14)
-Extends Registers/TRACEABILITY_MATRIX_UNIT.md (372 units / 2,965 items / 0 unmapped — totals UNCHANGED: F-13 and F-14 introduce no new source units; both are `[AC]`/`[UD]`-labelled completions of already-mapped units). The unit matrix remains the certification evidence; this extension records destination additions only.
+**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-CONTEXT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `3df3bfdc3bb55eb6930463ec24ea71e34f647571` / tree `ee65d77e72d916b0f58d47330a1f8ba007d2ffed`
+> **Current audit gate (2026-10-03):** DD-428…DD-432 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current traceability qualification:** stable child-ID inventory is **2,962**; parent/source-heading semantic ownership gate is **372/372 owner-reconciled, 0 NOT_CERTIFIED**; complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**.
+
+> This CP-F1-005 extension is preserved as historical Foundation-era traceability evidence. Its 2,965-item accounting and certification wording are evaluated-era evidence and do not override current source-fidelity/traceability owners.
+**Historical CP-F1-005 accounting:** Extends Registers/TRACEABILITY_MATRIX_UNIT.md (372 units / 2,965 items / 0 unmapped — totals UNCHANGED at that evaluated checkpoint: F-13 and F-14 introduce no new source units; both are `[AC]`/`[UD]`-labelled completions of already-mapped units). At that checkpoint the unit matrix was treated as certification evidence; this extension records destination additions only.
 
 | Source unit(s) | Prior canonical destination | Destination addition (this pass) |
 |---|---|---|

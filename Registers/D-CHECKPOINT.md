@@ -1,10 +1,18 @@
-# D-CHECKPOINT — CP-F1-005 (revision C, 04-09-2026; supersedes revision B; prior checkpoints preserved in their recovery ZIPs)
-- Checkpoint ID: CP-F1-005 (revision C)
-- Created: 2026-09-02 (UTC) · Revision B: 2026-09-04 (UTC) · Revision C: 2026-09-04 (UTC)
-- Phase: Project Foundation — **FOUNDATION CERTIFIED** (granted 02-09-2026 on dual-audit evidence — Registers/FINAL_AUDIT_CP-F1-005.md; Foundation only, per the certification boundary)
-- Completed at 02-09-2026: F-14 Commercial Foundation (AC-18); F-00 §11 amendment; FF-01/FF-02 dispositions re-verified against actual F-13/F-07 content; traceability extension (totals unchanged 372/2,965/0); registers/state/README/manifest synchronized; Final Audit Pass 1 (corrected → PASS) and independent Pass 2 (PASS) recorded.
-- 04-09-2026 corrective action (revision B): commit b83bea9 (F-06 §6.1 brand/color canonicalization, AC-19; RR-03) REVERTED via history-preserving revert commit efd16eb6 — the additional canonicalization/closure changes were unnecessary. F-06 restored to v0.1; D-CHANGELOG/D-DECISIONS/REVIEW_REQUIRED restored; RR-03 withdrawn. The owner-directed corpus edit a811a1ab (`RawSourceCorpus/Disorganized Data 2.md`) is ACTIVE owner intent — preserved intact, not reverted, not a defect. No reset, force-push, or history rewrite; main not merged. Do NOT recreate the b83bea9 changes in another form.
-- 04-09-2026 delivery closure (revision C): **SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip built from the final post-revert HEAD tree and open-and-compare VERIFIED (36/36 files, no size mismatches, corpus byte-identical — see BACKUP_METADATA.json). No open delivery items remain.**
-- Carried verified: unit traceability 372/2,965/0 · No-Loss PASS · governance Masters unchanged · RawSourceCorpus per the owner-directed a811a1ab state (full history preserved).
-- Gates: Architecture start requires explicit user approval; merge to main requires explicit approval.
-- GitHub: this commit on docs/foundation-build-2; PR #1 carries it (open, unmerged).
+# D-CHECKPOINT
+**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-CONTEXT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `3df3bfdc3bb55eb6930463ec24ea71e34f647571` / tree `ee65d77e72d916b0f58d47330a1f8ba007d2ffed`
+**Updated:** 2026-10-03 · **Branch:** `docs/architecture-branch-2`
+
+> **Current audit gate (2026-10-03):** DD-428…DD-432 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+
+DD-428…DD-432 is the current governed backend-only AgentApproval-first persisted-APPROVED + trusted approver-context current-evidence composition. It reuses exact DD-427 approval-parent evidence first, requires an explicitly supplied already-trusted approver RequestContext, and re-applies DD-419 exact approver principal/Tenant/nullable-Industry continuity without constructing or re-resolving context.
+
+Verified canonical promotion basis `3df3bfdc3bb55eb6930463ec24ea71e34f647571` / tree `ee65d77e72d916b0f58d47330a1f8ba007d2ffed`: **1235/1235 Core**, **532/532 PostgreSQL**, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests.
+
+AgentApproval requiredPermission/type/status/history plus AgentRun/AgentStep lifecycle and backlink state remain raw evidence. Success means only persisted APPROVED plus recorded approver identity matching an explicitly supplied already-trusted current Tenant/Industry RequestContext. No RequestContext synthesis, current permission decision, approval-satisfaction, GuardPipeline/commercial admission, AgentRun transition, dispatch, mutation/event, provider/model routing or AI/tool execution is introduced. Frontend/UI remains untouched.
+
+Evidence: `Registers/DEVELOPMENT_DD428_DD432_VERIFICATION_2026-10-03.md`. Source audit: `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+
+Next: Verify this state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-428…DD-432 is closed; source-audit the next independently source-complete backend batch.
+
+Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
