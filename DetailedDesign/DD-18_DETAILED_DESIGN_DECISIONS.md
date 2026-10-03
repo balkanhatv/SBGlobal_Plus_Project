@@ -5199,3 +5199,51 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AI_AGENT_APPROVAL_VISIBLE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AIAPP-PARENTREAD-RAW-001, AIAPP-PARENTREAD-BOUND-001`.
+
+## DD-428 — reuse exact DD-427 approval-parent evidence first
+
+**Context:** DD-427 already owns exact visible AgentApproval→AgentRun→AgentStep historical parent evidence under one acting RequestContext.
+
+**Decision:** Add `loadAIAgentApprovalApprovedApproverContextCurrentEvidence(...)`. Invoke DD-427 first with the exact supplied acting RequestContext and AgentApproval id. Parent null returns null before approver-context evaluation; dependency errors propagate unchanged.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-APPCTXREAD-BASE-001…002`.
+
+## DD-429 — require only an explicitly supplied trusted approver RequestContext
+
+**Context:** Current source does not own identity/session reconstruction inside this bounded reader.
+
+**Decision:** Approval-context evaluation requires an explicitly supplied already-trusted `approverRequestContext`. Do not construct it from approverPrincipalId, copy/switch the acting RequestContext, or resolve identity/session state.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-APPCTXREAD-CTX-001…004`.
+
+## DD-430 — apply exact DD-419 approved/context floor only
+
+**Context:** DD-419 already composes DD-418 APPROVED evidence with exact trusted principal/Tenant/nullable-Industry RequestContext continuity.
+
+**Decision:** Apply `matchesAIAgentApprovalApproverContextFloor(parent.approval, approverRequestContext)` exactly once. False returns null. Do not add reciprocal step backlink, parent lifecycle, required-permission or timestamp-order predicates.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-APPCTXREAD-CTX-001…004`.
+
+## DD-431 — immutable exact-reference layered evidence
+
+**Decision:** Success returns frozen `{ parent, approverRequestContext }`, preserving the exact DD-427 parent and exact supplied trusted RequestContext references without clone, normalization, mutation or re-read.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-APPCTXREAD-EVID-001`.
+
+## DD-432 — trusted current context is not permission, approval-satisfaction or execution authority
+
+**Context:** DD-09 requires approver permission/context revalidation before execution, but current source still has no approval-specific OperationContract/resource contract for evaluating AgentApproval.requiredPermission through DD-03.
+
+**Decision:** Treat success only as persisted APPROVED evidence whose recorded approver matches an already-trusted current Tenant/Industry RequestContext. Preserve requiredPermission/type/status/history and parent lifecycle/backlink evidence raw. Do not claim current permission, approval satisfaction, GuardPipeline/commercial admission, resume/cancel, dispatch, mutation/events, provider/model routing or AI/tool execution.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-APPCTXREAD-BOUND-001`.

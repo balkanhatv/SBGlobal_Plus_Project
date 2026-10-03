@@ -194,3 +194,7 @@ Verified implementation basis `ec7d0f8b3e7d99349f6006c3987e5fa42d12a92f` / tree 
 ## DD-423…DD-427 canonical promotion evidence — 2026-10-03
 
 Current verified promotion basis `8dd7281e90271cb3846718a05049488025bde506` / tree `84b0b25c07985d1a804feef56afb2b084cac1c2f`: 1227 Core / 532 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only. Approval-first exact parent evidence remains historical relationship evidence; no APPROVED/current approver requirement, reciprocal backlink, current permission/approval-satisfaction, GuardPipeline/admission, AgentRun transition, dispatch, provider/model routing, AI/tool execution, UI, schema or RawSource authority is added.
+
+## DD-428…DD-432 implementation verification — 2026-10-03
+
+Verified implementation basis `4b47b11185737e20ed190816bb7ecc20d9ce5e10` / tree `c161d44101d460ac84b8e225adf70ba5f81677fa`: **1235 Core / 532 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD428_DD432_VERIFICATION_2026-10-03.md`. The composition reuses exact DD-427 parent evidence and only an explicitly supplied trusted approver RequestContext through DD-419. No identity/session reconstruction, requiredPermission authorization, approval-satisfaction, GuardPipeline/admission, AgentRun transition, dispatch, provider/model routing or AI/tool execution authority is introduced. Canonical promotion requires its own exact-head gate.

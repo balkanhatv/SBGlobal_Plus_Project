@@ -1,7 +1,7 @@
 # ARCHITECTURE NO-LOSS / DEPTH AUDIT — PHASE 2 FRESH PASS
-**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-VISIBLE-PARENT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `8dd7281e90271cb3846718a05049488025bde506` / tree `84b0b25c07985d1a804feef56afb2b084cac1c2f`
-> **Current audit gate (2026-10-03):** DD-423…DD-427 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-CONTEXT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `4b47b11185737e20ed190816bb7ecc20d9ce5e10` / tree `c161d44101d460ac84b8e225adf70ba5f81677fa`
+> **Current audit gate (2026-10-03):** DD-428…DD-432 AgentApproval parent + persisted APPROVED + trusted approver-context current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** PHASE-2 ARCHITECTURE NO-LOSS PASS · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.

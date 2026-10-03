@@ -5651,3 +5651,39 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIAPP-PARENTREAD-BOUND-001 — No approval/currentness/permission/execution authority
 **Owner:** DD-427. Output exposes no current approver context, approval-satisfied/current result, permission result, AgentRun resume/cancel, GuardPipeline/admission, OperationContract/capability, mutation/event, dispatch, provider/model or AI/tool execution authority.
+
+## DD-428 DD-427 Parent Evidence First Acceptance
+
+### AIAPP-APPCTXREAD-BASE-001 — Exact DD-427 chain first
+**Owner:** DD-428. Exact supplied acting RequestContext and AgentApproval id enter DD-427 before approver-context evaluation.
+
+### AIAPP-APPCTXREAD-BASE-002 — Parent absence and errors
+**Owner:** DD-428. DD-427 null short-circuits approver-context evaluation and dependency errors propagate unchanged.
+
+## DD-429 Explicit Trusted Approver RequestContext Acceptance
+
+### AIAPP-APPCTXREAD-CTX-001 — Tenant-Core exact approver context
+**Owner:** DD-429. Exact persisted APPROVED Tenant-Core approval plus exact trusted same-principal/same-Tenant TENANT_CORE approver context passes.
+
+### AIAPP-APPCTXREAD-CTX-002 — Tenant-Industry may satisfy Tenant-Core continuity
+**Owner:** DD-429. Tenant-Core approval may pass an already-trusted same-principal/same-Tenant TENANT_INDUSTRY approver context without any permission inference.
+
+### AIAPP-APPCTXREAD-CTX-003 — Industry exact context
+**Owner:** DD-429. Industry-scoped approval requires exact TENANT_INDUSTRY scope and exact Industry Context.
+
+### AIAPP-APPCTXREAD-CTX-004 — Missing, malformed or foreign context fails closed
+**Owner:** DD-429. Missing approver context, non-APPROVED/malformed approval, wrong principal/Tenant/Industry/scope or malformed trusted context fails closed.
+
+## DD-430 Exact DD-419 Floor Acceptance
+
+**Owner:** DD-430. The exact persisted approval and explicit trusted approver RequestContext are evaluated only by DD-419; no context synthesis, reciprocal backlink, parent-lifecycle or timestamp-order predicates are added.
+
+## DD-431 Immutable Layered Approval Context Evidence Acceptance
+
+### AIAPP-APPCTXREAD-EVID-001 — Preserve exact parent and trusted context references
+**Owner:** DD-431. Success returns a frozen envelope preserving the exact DD-427 parent and exact supplied approver RequestContext references without clone, normalization, mutation or re-resolution.
+
+## DD-432 Approval Permission and Execution Boundary Acceptance
+
+### AIAPP-APPCTXREAD-BOUND-001 — No required-permission, approval-satisfaction or execution authority
+**Owner:** DD-432. Output exposes no requiredPermission decision, approval-satisfied/current authorization result, GuardPipeline/commercial result, AgentRun resume/cancel, dispatch, mutation/event, provider/model routing or AI/tool execution authority.

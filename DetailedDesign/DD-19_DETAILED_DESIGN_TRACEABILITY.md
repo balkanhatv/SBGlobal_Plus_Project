@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-VISIBLE-PARENT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `8dd7281e90271cb3846718a05049488025bde506` / tree `84b0b25c07985d1a804feef56afb2b084cac1c2f`
-> **Current audit gate (2026-10-03):** DD-423…DD-427 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-CONTEXT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `4b47b11185737e20ed190816bb7ecc20d9ce5e10` / tree `c161d44101d460ac84b8e225adf70ba5f81677fa`
+> **Current audit gate (2026-10-03):** DD-428…DD-432 AgentApproval parent + persisted APPROVED + trusted approver-context current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1190,3 +1190,9 @@ This chain proves only persisted APPROVED evidence plus exact continuity to an a
 DD-132 visible AgentApproval → persisted `runId`/`stepId` → DD-130 visible AgentRun → DD-131 visible AgentStep → DD-184 exact parent/Tenant/nullable-Industry floor → `Development/AI_AGENT_APPROVAL_VISIBLE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-423…DD-427 → `src/core/ai/agent-approval-visible-parent-current-evidence-reader.ts` → `tests/core/ai-agent-approval-visible-parent-current-evidence-reader.test.mjs` → `Registers/DEVELOPMENT_DD423_DD427_VERIFICATION_2026-10-03.md`.
 
 This chain proves only visible direct approval-parent relationship evidence. APPROVED/current approver context, required-permission authorization, approval satisfaction, reciprocal backlink, GuardPipeline/resource admission, AgentRun transition, dispatch and AI/tool execution remain separate.
+
+## DD-428…DD-432 — AgentApproval parent + persisted APPROVED + trusted approver-context evidence
+
+DD-427 exact visible AgentApproval→AgentRun→AgentStep parent evidence → DD-419 persisted APPROVED + trusted approver RequestContext continuity → `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-428…DD-432 → `src/core/ai/agent-approval-approved-approver-context-current-evidence-reader.ts` → `tests/core/ai-agent-approval-approved-approver-context-current-evidence-reader.test.mjs` (`AIAPP-APPCTXREAD-BASE-001…002`, `AIAPP-APPCTXREAD-CTX-001…004`, `AIAPP-APPCTXREAD-EVID-001`, `AIAPP-APPCTXREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD428_DD432_VERIFICATION_2026-10-03.md`.
+
+This proves persisted APPROVED plus recorded approver identity matching an explicitly supplied already-trusted current Tenant/Industry RequestContext only. requiredPermission/current authorization, approval-satisfaction, GuardPipeline/admission, AgentRun transitions, dispatch and AI/tool execution remain separate.
