@@ -1,7 +1,7 @@
 # ARCHITECTURE FINAL / ADVERSARIAL AUDIT — PHASE 2
 **Current checkpoint:** `DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-OPERATION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `d874f4196879fe0d80944f29f278f0b7c931c6d8` / tree `e529e7f3b3694bbf98f791800f0da3a862804baa`
-> **Current audit gate (2026-10-03):** DD-408…DD-412 AgentStep visible-parent + optional AgentApproval + conditional TOOL OperationContract current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `011651b6e92feba687b3907320c4979566f7ee9f` / tree `efcd5cff0d17516dd463983fba8291c91b9d5636`
+> **Current audit gate (2026-10-03):** DD-408…DD-412 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-2 ARCHITECTURE REVALIDATION EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 
 ## Pass 1 — evidence reconciliation
