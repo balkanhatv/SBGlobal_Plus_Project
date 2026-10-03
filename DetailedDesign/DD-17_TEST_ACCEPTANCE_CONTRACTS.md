@@ -5492,3 +5492,36 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 ### AISTEP-APPREAD-BOUND-001 — No approval-currentness, resume or tool execution authority
 **Owner:** DD-407. Output exposes no approver-currentness/permission/context decision, AgentRun resume/cancel, tool/OperationContract admission/dispatch, mutation, event, provider/model routing or AI execution authority.
 
+## DD-408 DD-407 Parent Evidence First Acceptance
+
+### AISTEP-OPREAD-BASE-001 — Exact DD-407 chain first
+**Owner:** DD-408. The exact supplied RequestContext and AgentStep id enter the existing DD-407 AgentStep/approval evidence chain before any OperationRegistry access.
+
+### AISTEP-OPREAD-BASE-002 — Parent absence and errors
+**Owner:** DD-408. DD-407 null short-circuits all OperationRegistry access and dependency errors propagate unchanged.
+
+## DD-409 Persisted TOOL Branch Acceptance
+
+### AISTEP-OPREAD-BRANCH-001 — Non-TOOL zero registry reads
+**Owner:** DD-409. PLAN/RAG/APPROVAL/INFERENCE evidence performs zero OperationRegistry reads and returns the exact DD-407 parent-only evidence; only persisted TOOL evidence may continue to operation lookup.
+
+## DD-410 Exact OperationContract Registry Read Acceptance
+
+### AISTEP-OPREAD-OP-001 — Exact persisted operationContractId
+**Owner:** DD-410. TOOL evidence performs exactly one canonical OperationRegistry lookup using the exact DD-402-preserved ToolDefinition operationContractId.
+
+### AISTEP-OPREAD-OP-002 — Unknown operation and no fallback
+**Owner:** DD-410. An unknown operation id preserves the registry error and no module/permission/capability/schema/domain-service alternate lookup or fallback occurs.
+
+## DD-411 Immutable Layered Operation Evidence Acceptance
+
+### AISTEP-OPREAD-EVID-001 — Preserve exact parent and registry identity
+**Owner:** DD-411. Success returns a frozen outer envelope preserving the exact DD-407 parent and, for TOOL, the exact registry-returned OperationContract reference without clone, normalization or input mutation.
+
+## DD-412 Operation Evidence Runtime Boundary Acceptance
+
+### AISTEP-OPREAD-RAW-001 — Operation metadata remains raw
+**Owner:** DD-412. OperationContract and ToolDefinition scope/permission/entitlement/schema/idempotency/rate/audit/domain-service/event/error metadata remain uninterpreted; field mismatches do not become compatibility or admission authority.
+
+### AISTEP-OPREAD-BOUND-001 — No authorization, approval, dispatch or execution authority
+**Owner:** DD-412. Output exposes no ToolDefinition↔OperationContract compatibility decision, RequestContext authorization, entitlement, approval satisfaction/currentness, resource/GuardPipeline/idempotency/rate/commercial admission, AgentRun resume/cancel, dispatch, mutation, event, provider/model routing or tool/AI execution authority.

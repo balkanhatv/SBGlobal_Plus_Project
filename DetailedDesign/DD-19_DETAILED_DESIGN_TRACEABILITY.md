@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `ea5c7e74e0849e363c4a441b6fd09f64cdbba460` / tree `62b66c29eb4906ba18289512cb349f67ac0df64e`
-> **Current audit gate (2026-10-02):** DD-403…DD-407 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-OPERATION-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `d874f4196879fe0d80944f29f278f0b7c931c6d8` / tree `e529e7f3b3694bbf98f791800f0da3a862804baa`
+> **Current audit gate (2026-10-03):** DD-408…DD-412 AgentStep visible-parent + optional AgentApproval + conditional TOOL OperationContract current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1167,3 +1167,8 @@ DD-402 AgentStep parent/tool current evidence → DD-132 AgentApproval raw reade
 
 This chain proves only optional visible AgentApproval relationship evidence. Persisted APPROVED remains raw historical evidence; approval-currentness/permission, AgentRun resume/cancel, tool/OperationContract admission/dispatch and AI execution remain separate.
 
+## DD-408…DD-412 — AgentStep visible parent + optional approval + conditional TOOL OperationContract evidence
+
+DD-407 AgentStep/approval current evidence → DD-402 preserved TOOL ToolDefinition `operationContractId` → DD-06 canonical OperationRegistry exact lookup → `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-408…DD-412 → `src/core/ai/agent-step-visible-approval-operation-current-evidence-reader.ts` → `tests/core/ai-agent-step-visible-approval-operation-current-evidence-reader.test.mjs` (`AISTEP-OPREAD-BASE-001…002`, `AISTEP-OPREAD-BRANCH-001`, `AISTEP-OPREAD-OP-001…002`, `AISTEP-OPREAD-EVID-001`, `AISTEP-OPREAD-RAW-001`, `AISTEP-OPREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD408_DD412_VERIFICATION_2026-10-03.md`.
+
+This chain proves only exact canonical registry evidence for an already-bound TOOL definition. ToolDefinition↔OperationContract compatibility, current authorization/entitlement/approval, GuardPipeline/admission, AgentRun resume/cancel, dispatch and AI/tool execution remain separate.

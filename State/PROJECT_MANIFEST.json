@@ -1,20 +1,20 @@
 {
   "project": "SBGlobal Plus",
-  "updated": "2026-10-02",
+  "updated": "2026-10-03",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-CURRENT-EVIDENCE-READER-001",
-  "final_verdict": "DD-403…DD-407 corrected canonical promotion ea5c7e74e0849e363c4a441b6fd09f64cdbba460 / tree 62b66c29eb4906ba18289512cb349f67ac0df64e passed 1190 Core / 529 PostgreSQL / Database 48/42 / Web. State closure is staged and requires its own exact-head gates before forward development. Production readiness is NOT CLAIMED.",
+  "checkpoint": "DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-OPERATION-CURRENT-EVIDENCE-READER-001",
+  "final_verdict": "DD-408…DD-412 corrected implementation d874f4196879fe0d80944f29f278f0b7c931c6d8 / tree e529e7f3b3694bbf98f791800f0da3a862804baa passed 1198 Core / 529 PostgreSQL / Database 48/42 / Web. Canonical promotion requires its own exact-head gates before batch closure. Production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
-    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD407_CANONICAL",
+    "detailed_design": "HISTORICAL_PHASE3_COMPLETE_DD001_DD412_CANONICAL",
     "cross_layer_traceability": "SOURCE_IDS_PRESERVED_OWNER_ROUTES_CORRECTED",
     "isolation": "TESTED_CURRENT_SQL_CORE_POSTGRESQL_POOL_AUTHORIZATION_COMMERCIAL_PUBLICATION_AND_PLAN_CHANGE_EVIDENCE_BOUNDARIES",
     "development": "IN_PROGRESS_NORMAL_GOVERNED_FORWARD_DEVELOPMENT",
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD407_IMPLEMENTED_BATCH_PROMOTION_STAGED",
+    "core_services": "DD040_DD412_IMPLEMENTED_BATCH_PROMOTION_STAGED",
     "vision_centric_current_state_audit": "PASS_COMPLETE_PROJECT_DOWNSTREAM_AUDIT_CLEAN"
   },
   "defects": {
@@ -54,9 +54,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "ea5c7e74e0849e363c4a441b6fd09f64cdbba460",
-    "verified_code_tree": "62b66c29eb4906ba18289512cb349f67ac0df64e",
-    "state_projection_basis_head": "ea5c7e74e0849e363c4a441b6fd09f64cdbba460",
+    "verified_code_head": "d874f4196879fe0d80944f29f278f0b7c931c6d8",
+    "verified_code_tree": "e529e7f3b3694bbf98f791800f0da3a862804baa",
+    "state_projection_basis_head": "d874f4196879fe0d80944f29f278f0b7c931c6d8",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -796,21 +796,21 @@
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
     "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
-    "current_downstream_verified_head": "ea5c7e74e0849e363c4a441b6fd09f64cdbba460",
-    "current_downstream_verified_tree": "62b66c29eb4906ba18289512cb349f67ac0df64e",
+    "current_downstream_verified_head": "d874f4196879fe0d80944f29f278f0b7c931c6d8",
+    "current_downstream_verified_tree": "e529e7f3b3694bbf98f791800f0da3a862804baa",
     "current_downstream_verified_ci": {
-      "core_run_id": 37033429632,
-      "core_job_id": 110925674696,
-      "core_pass": 1190,
-      "postgres_job_id": 110925675215,
+      "core_run_id": 37037261156,
+      "core_job_id": 110938420419,
+      "core_pass": 1198,
+      "postgres_job_id": 110938420106,
       "postgres_pass": 529,
-      "database_run_id": 37033429665,
-      "database_job_id": 110925675635,
+      "database_run_id": 37037269038,
+      "database_job_id": 110938446166,
       "database_migrations": 48,
       "database_verification_files": 42,
-      "web_run_id": 37033429637,
-      "web_job_id": 110925675226,
-      "result": "PASS_EXACT_CORRECTED_PROMOTION_HEAD"
+      "web_run_id": 37037261096,
+      "web_job_id": 110938419670,
+      "result": "PASS_EXACT_CORRECTED_IMPLEMENTATION_HEAD"
     },
     "dd209_source_audit_head": "7cfd84d2013d3e1f0f4feaa9eb70f4cd66632787",
     "dd209_source_audit_tree": "cc45b89efda581548010eb3a19ce44bd6d7cacf2",
@@ -2069,13 +2069,38 @@
       "web_run_id": 37033429637,
       "web_job_id": 110925675226,
       "result": "PASS_EXACT_CORRECTED_PROMOTION_HEAD"
+    },
+    "dd408_dd412_source_audit_head": "557552a3e44a943e3bf6198197015abb5a632bce",
+    "dd408_dd412_source_audit_tree": "f67ce4bbd4370f526cb54aeee58cf4be4e0277d6",
+    "dd408_dd412_source_audit_ci": {
+      "core_run_id": 37036691052,
+      "core_job_id": 110936531560,
+      "postgres_job_id": 110936531329,
+      "database_run_id": 37036691007,
+      "database_job_id": 110936531641,
+      "web_run_id": 37036691087,
+      "web_job_id": 110936532132,
+      "result": "PASS_EXACT_SOURCE_AUDIT_HEAD"
+    },
+    "dd408_dd412_initial_implementation_head": "e53267a2c479f040277a12d6af17f6532d61535b",
+    "dd408_dd412_implementation_head": "d874f4196879fe0d80944f29f278f0b7c931c6d8",
+    "dd408_dd412_implementation_tree": "e529e7f3b3694bbf98f791800f0da3a862804baa",
+    "dd408_dd412_implementation_ci": {
+      "core_run_id": 37037261156,
+      "core_job_id": 110938420419,
+      "postgres_job_id": 110938420106,
+      "database_run_id": 37037269038,
+      "database_job_id": 110938446166,
+      "web_run_id": 37037261096,
+      "web_job_id": 110938419670,
+      "result": "PASS_EXACT_CORRECTED_IMPLEMENTATION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD403_DD407_STATE_CLOSURE",
+    "current_phase": "DEVELOPMENT_DD408_DD412_CANONICAL_PROMOTION",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -2090,9 +2115,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "ea5c7e74e0849e363c4a441b6fd09f64cdbba460",
-      "ci_run_id": 37033429665,
-      "ci_job_id": 110925675635,
+      "ci_verified_head": "d874f4196879fe0d80944f29f278f0b7c931c6d8",
+      "ci_run_id": 37037269038,
+      "ci_job_id": 110938446166,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -2104,7 +2129,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "62b66c29eb4906ba18289512cb349f67ac0df64e",
+      "ci_verified_tree": "e529e7f3b3694bbf98f791800f0da3a862804baa",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -2124,27 +2149,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify this state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-403…DD-407 is closed; source-audit the next independently source-complete backend batch.",
+    "next_action": "Verify this canonical promotion at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, record promotion evidence and close DD-408…DD-412 before the next independently source-complete backend batch.",
     "core_services": {
-      "checkpoint": "DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-CURRENT-EVIDENCE-READER-001",
+      "checkpoint": "DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-OPERATION-CURRENT-EVIDENCE-READER-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–407 bounded implementation",
-      "verified_head": "ea5c7e74e0849e363c4a441b6fd09f64cdbba460",
-      "verified_tree": "62b66c29eb4906ba18289512cb349f67ac0df64e",
-      "core_ci_run_id": 37033429632,
-      "core_ci_job_id": 110925674696,
-      "tests": "1190/1190 PASS",
+      "decision": "DD-040–412 bounded implementation",
+      "verified_head": "d874f4196879fe0d80944f29f278f0b7c931c6d8",
+      "verified_tree": "e529e7f3b3694bbf98f791800f0da3a862804baa",
+      "core_ci_run_id": 37037261156,
+      "core_ci_job_id": 110938420419,
+      "tests": "1198/1198 PASS",
       "core_test_counts": {
-        "tests": 1190,
-        "pass": 1190,
+        "tests": 1198,
+        "pass": 1198,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 37033429632,
-      "postgres_ci_job_id": 110925675215,
+      "postgres_ci_run_id": 37037261156,
+      "postgres_ci_job_id": 110938420106,
       "postgres_tests": "529/529 PASS",
       "postgres_test_counts": {
         "tests": 529,
@@ -2153,8 +2178,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 37033429665,
-      "database_regression_job_id": 110925675635,
+      "database_regression_run_id": 37037269038,
+      "database_regression_job_id": 110938446166,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -2693,7 +2718,12 @@
         "DD-404 optional exact same-RequestContext AgentApproval read",
         "DD-405 DD-183 backlink plus DD-184 AgentApproval parent/scope floors",
         "DD-406 immutable layered exact-reference AgentStep parent/approval evidence",
-        "DD-407 raw AgentApproval evidence without approval-currentness/resume/tool/AI execution authority"
+        "DD-407 raw AgentApproval evidence without approval-currentness/resume/tool/AI execution authority",
+        "DD-408 reuse DD-407 AgentStep/approval current evidence first",
+        "DD-409 persisted stepType branch with zero OperationRegistry reads for non-TOOL evidence",
+        "DD-410 exact preserved ToolDefinition operationContractId lookup through canonical OperationRegistry",
+        "DD-411 immutable layered exact-reference AgentStep/approval/OperationContract evidence",
+        "DD-412 raw OperationContract evidence without compatibility/admission/authorization/dispatch/AI execution authority"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -2819,7 +2849,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify this state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-403…DD-407 is closed; source-audit the next independently source-complete backend batch.",
+      "next_action": "Verify this canonical promotion at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, record promotion evidence and close DD-408…DD-412 before the next independently source-complete backend batch.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -2827,7 +2857,7 @@
       "promotion_invariant_gate_unique_dd": 109,
       "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
-    "application_api_ui_scope_note": "Backend/Core includes bounded implementation through DD-407. Frontend/UI remains untouched; approval satisfaction/currentness, Agent resume/tool execution, provider/model execution and full Industry services remain unfinished.",
+    "application_api_ui_scope_note": "Backend/Core includes bounded implementation through DD-412. Frontend/UI remains untouched; ToolDefinition↔OperationContract compatibility, approval satisfaction/currentness, Agent resume/tool execution, provider/model execution and full Industry services remain unfinished.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -2913,7 +2943,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD403_DD407_STATE_CLOSURE",
+  "current_phase": "DEVELOPMENT_DD408_DD412_CANONICAL_PROMOTION",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -2945,20 +2975,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-CURRENT-EVIDENCE-READER-001",
-    "verified_code_head": "ea5c7e74e0849e363c4a441b6fd09f64cdbba460",
-    "verified_code_tree": "62b66c29eb4906ba18289512cb349f67ac0df64e",
-    "source_audit": "Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "checkpoint": "DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-OPERATION-CURRENT-EVIDENCE-READER-001",
+    "verified_code_head": "d874f4196879fe0d80944f29f278f0b7c931c6d8",
+    "verified_code_tree": "e529e7f3b3694bbf98f791800f0da3a862804baa",
+    "source_audit": "Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "Verify this state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-403…DD-407 is closed; source-audit the next independently source-complete backend batch.",
+    "next_action": "Verify this canonical promotion at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, record promotion evidence and close DD-408…DD-412 before the next independently source-complete backend batch.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-CURRENT-EVIDENCE-READER-001",
-    "verified_executable_basis": "ea5c7e74e0849e363c4a441b6fd09f64cdbba460",
-    "verified_executable_tree": "62b66c29eb4906ba18289512cb349f67ac0df64e",
+    "checkpoint": "DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-OPERATION-CURRENT-EVIDENCE-READER-001",
+    "verified_executable_basis": "d874f4196879fe0d80944f29f278f0b7c931c6d8",
+    "verified_executable_tree": "e529e7f3b3694bbf98f791800f0da3a862804baa",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "scope": "DD-403…DD-407 reuse DD-402 AgentStep parent/tool evidence and add only optional same-RequestContext AgentApproval relationship evidence through DD-183/DD-184. Persisted APPROVED remains raw; approval-currentness/permission, AgentRun resume/cancel, tool/OperationContract admission/dispatch and AI execution remain separate.",
+    "scope": "DD-408…DD-412 reuse exact DD-407 AgentStep/approval evidence, perform zero OperationRegistry reads for non-TOOL steps, and for TOOL follow only the preserved ToolDefinition operationContractId into the canonical DD-06 registry. Registry metadata remains raw; compatibility, current authorization/entitlement/approval, admission, dispatch and AI/tool execution remain separate.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",
       "parents_total": 372,
@@ -3009,36 +3039,36 @@
     "source_requirement_text_reconciliation": "2,962 stable IDs retained; 85 mis-extracted texts restored and 21 provenance aliases explicitly located by VC27-01. Complete atomic no-loss certification remains open."
   },
   "current_feature_verification": {
-    "decision_id": "DD-407",
-    "decision": "DD-407 Raw AgentApproval evidence without approval/runtime authority",
-    "checkpoint": "DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-CURRENT-EVIDENCE-READER-001",
-    "verified_head": "6c90539a1f9577cefad1a060918f4950a7fc1b7e",
-    "verified_tree": "0fa85fb805251f56d8054679f8aa8d968601133d",
-    "source_audit": "Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-412",
+    "decision": "DD-412 Raw OperationContract evidence without compatibility/admission/runtime authority",
+    "checkpoint": "DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-OPERATION-CURRENT-EVIDENCE-READER-001",
+    "verified_head": "d874f4196879fe0d80944f29f278f0b7c931c6d8",
+    "verified_tree": "e529e7f3b3694bbf98f791800f0da3a862804baa",
+    "source_audit": "Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AISTEP-APPREAD-BASE-001",
-      "AISTEP-APPREAD-BASE-002",
-      "AISTEP-APPREAD-APP-001",
-      "AISTEP-APPREAD-APP-002",
-      "AISTEP-APPREAD-FLOOR-001",
-      "AISTEP-APPREAD-RAW-001",
-      "AISTEP-APPREAD-EVID-001",
-      "AISTEP-APPREAD-BOUND-001"
+      "AISTEP-OPREAD-BASE-001",
+      "AISTEP-OPREAD-BASE-002",
+      "AISTEP-OPREAD-BRANCH-001",
+      "AISTEP-OPREAD-OP-001",
+      "AISTEP-OPREAD-OP-002",
+      "AISTEP-OPREAD-EVID-001",
+      "AISTEP-OPREAD-RAW-001",
+      "AISTEP-OPREAD-BOUND-001"
     ],
     "test_files": [
-      "tests/core/ai-agent-step-visible-approval-current-evidence-reader.test.mjs"
+      "tests/core/ai-agent-step-visible-approval-operation-current-evidence-reader.test.mjs"
     ],
     "core": {
-      "run_id": 37027913937,
-      "job_id": 110907149454,
-      "tests": 1190,
-      "pass": 1190,
+      "run_id": 37037261156,
+      "job_id": 110938420419,
+      "tests": 1198,
+      "pass": 1198,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 37027913937,
-      "job_id": 110907149112,
+      "run_id": 37037261156,
+      "job_id": 110938420106,
       "tests": 529,
       "pass": 529,
       "fail": 0,
@@ -3046,17 +3076,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 37027914159,
-      "job_id": 110907149769,
+      "run_id": 37037269038,
+      "job_id": 110938446166,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 37027914066,
-      "job_id": 110907148679,
+      "run_id": 37037261096,
+      "job_id": 110938419670,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD403_DD407_VERIFICATION_2026-10-02.md"
+    "evidence": "Registers/DEVELOPMENT_DD408_DD412_VERIFICATION_2026-10-03.md"
   },
   "historical_projection_payloads": {
     "continuation": {

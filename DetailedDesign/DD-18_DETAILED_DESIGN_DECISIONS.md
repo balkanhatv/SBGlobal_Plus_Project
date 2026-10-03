@@ -5002,3 +5002,58 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 
 **Acceptance:** `AISTEP-APPREAD-BOUND-001`.
 
+## DD-408 — reuse DD-407 AgentStep/approval evidence first
+
+**Context:** DD-407 already owns exact visible AgentStep, AgentRun/AgentDefinition/ToolSet/tool-binding evidence and optional exact AgentApproval relationship evidence.
+
+**Decision:** `loadAIAgentStepApprovalOperationCurrentEvidence(...)` invokes DD-407 first with the exact supplied RequestContext and AgentStep id. Null short-circuits OperationRegistry access and dependency errors propagate unchanged.
+
+**Alternatives / trade-off:** Rebuilding the step/approval/tool chain would duplicate validated relationship logic and risk divergent semantics.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-OPREAD-BASE-001…002`.
+
+## DD-409 — branch only on persisted TOOL evidence
+
+**Context:** DD-402 guarantees that non-TOOL steps carry no ToolDefinition evidence while TOOL steps preserve one exact ToolDefinition through the persisted binding chain.
+
+**Decision:** For non-TOOL PLAN/RAG/APPROVAL/INFERENCE, perform zero OperationRegistry reads and return the exact DD-407 parent evidence. Only persisted TOOL evidence may continue to operation lookup.
+
+**Alternatives / trade-off:** Inferring an operation from step input/output, approval type, capability, definition or code would invent resolver policy.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-OPREAD-BRANCH-001`.
+
+## DD-410 — exact persisted OperationContract registry lookup
+
+**Context:** DD-09 §12 persists AIToolDefinition.operation_contract_id and DD-06 owns the canonical OperationRegistry keyed by operationId.
+
+**Decision:** For TOOL evidence, use exactly the preserved ToolDefinition `operationContractId` for one `OperationRegistry.get(...)` lookup. Unknown ids propagate the registry error unchanged; no alternate lookup or fallback is added.
+
+**Alternatives / trade-off:** Search by module, permission, capability, schema or domain service could bind a different operation and invent compatibility policy.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-OPREAD-OP-001…002`.
+
+## DD-411 — immutable layered exact-reference operation evidence
+
+**Decision:** Return frozen `{ parent }` for non-TOOL or frozen `{ parent, operationContract }` for TOOL, preserving the exact DD-407 parent and exact registry-returned OperationContract reference without clone, normalization or mutation.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-OPREAD-EVID-001`.
+
+## DD-412 — raw OperationContract evidence without compatibility/admission/runtime authority
+
+**Context:** DD-09 §13 places schema validation, current RequestContext authorization, entitlement/limits and approval checks before OperationContract execution; no source-owned rule makes registry presence itself admission authority.
+
+**Decision:** Preserve OperationContract scope/kind/permission/entitlement/schema/idempotency/rate/audit/domainService/event/error metadata as raw canonical registry evidence only. Do not decide ToolDefinition↔OperationContract compatibility, current authorization, entitlement, approval satisfaction/currentness, resource/GuardPipeline/idempotency/rate/commercial admission, AgentRun resume/cancel, dispatch, mutation, events, provider/model routing or AI/tool execution.
+
+**Consequences:** Compatibility/admission, approval-currentness and all execution remain separately governed.
+
+**Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-OPREAD-RAW-001, AISTEP-OPREAD-BOUND-001`.

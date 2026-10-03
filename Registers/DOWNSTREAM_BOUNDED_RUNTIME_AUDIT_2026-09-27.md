@@ -162,3 +162,7 @@ Verified basis `6c90539a1f9577cefad1a060918f4950a7fc1b7e` / tree `0fa85fb805251f
 ## DD-403…DD-407 corrected canonical promotion evidence — 2026-10-02
 
 Current verified promotion basis `ea5c7e74e0849e363c4a441b6fd09f64cdbba460` / tree `62b66c29eb4906ba18289512cb349f67ac0df64e`: 1190 Core / 529 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS. This advances canonical checkpoint evidence only; the bounded AgentStep/AgentApproval evidence scope is unchanged and no approval-currentness/permission decision, AgentRun resume/cancel, tool/OperationContract admission/dispatch, mutation, provider/model routing, AI execution, UI, schema or RawSource authority is added.
+
+## DD-408…DD-412 corrected implementation verification — 2026-10-02
+
+Verified corrected implementation basis `d874f4196879fe0d80944f29f278f0b7c931c6d8` / tree `e529e7f3b3694bbf98f791800f0da3a862804baa`: **1198 Core / 529 PostgreSQL / Database 48/42 / Web PASS**. Evidence: `Registers/DEVELOPMENT_DD408_DD412_VERIFICATION_2026-10-03.md`. The composition reuses exact DD-407 AgentStep/approval evidence, performs zero registry reads for non-TOOL steps, and for TOOL follows only the preserved ToolDefinition operationContractId into the canonical DD-06 OperationRegistry. Registry metadata remains raw; no ToolDefinition↔OperationContract compatibility, current authorization/entitlement/approval, admission, dispatch, provider/model routing or AI/tool execution authority is introduced. Canonical promotion requires its own exact-head gate.
