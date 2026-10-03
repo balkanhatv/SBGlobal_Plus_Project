@@ -1,5 +1,6 @@
 import type {
   AICapabilityCatalogMetadata,
+  AICapabilityCatalogMetadataByCodeReadPort,
   AICapabilityCatalogMetadataReadPort,
   AICapabilityCategory,
 } from "../../core/ai/capability-catalog-metadata.js";
@@ -118,8 +119,33 @@ async function readById(
   return parseRow(result.rows[0]);
 }
 
+async function readByCode(
+  transaction: SqlTransaction,
+  code: string,
+): Promise<AICapabilityCatalogMetadata | null> {
+  const result = await transaction.query<AICapabilityCatalogMetadataRow>(
+    `SELECT id,
+            code,
+            category,
+            required_entitlement,
+            default_policy_class,
+            schema_version,
+            status
+       FROM core_ai.ai_capability
+      WHERE code=$1`,
+    [code],
+  );
+
+  if (result.rowCount === 0) return null;
+  if (result.rowCount !== 1 || !result.rows[0]) {
+    invalid("Persisted AICapability is ambiguous.");
+  }
+  return parseRow(result.rows[0]);
+}
+
 export class PostgresAICapabilityCatalogMetadataStore
-implements AICapabilityCatalogMetadataReadPort {
+implements AICapabilityCatalogMetadataReadPort,
+AICapabilityCatalogMetadataByCodeReadPort {
   constructor(private readonly database: SqlDatabase) {}
 
   async loadById(id: string): Promise<AICapabilityCatalogMetadata | null> {
@@ -127,5 +153,12 @@ implements AICapabilityCatalogMetadataReadPort {
       invalid("AICapability id is invalid.");
     }
     return this.database.transaction((transaction) => readById(transaction, id));
+  }
+
+  async loadByCode(code: string): Promise<AICapabilityCatalogMetadata | null> {
+    if (typeof code !== "string") {
+      invalid("AICapability code is invalid.");
+    }
+    return this.database.transaction((transaction) => readByCode(transaction, code));
   }
 }

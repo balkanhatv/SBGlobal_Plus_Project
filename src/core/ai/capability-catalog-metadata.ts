@@ -27,3 +27,7 @@ export interface AICapabilityCatalogMetadata {
 export interface AICapabilityCatalogMetadataReadPort {
   loadById(id: string): Promise<AICapabilityCatalogMetadata | null>;
 }
+
+export interface AICapabilityCatalogMetadataByCodeReadPort {
+  loadByCode(code: string): Promise<AICapabilityCatalogMetadata | null>;
+}

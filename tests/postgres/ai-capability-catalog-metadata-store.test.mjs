@@ -153,3 +153,34 @@ test("AICAP-PG-005 dedicated AI role has read-only capability catalog authority"
   assert.equal(typeof store.update, "undefined");
   assert.equal(typeof store.delete, "undefined");
 });
+
+test("AICAP-CODE-PG-001 exact code read returns complete immutable DD-109 capability metadata", async () => {
+  const row = await store.loadByCode(capabilityCode);
+  assert.ok(row);
+  assert.equal(row.id, capabilityId);
+  assert.equal(row.code, capabilityCode);
+  assert.equal(row.category, "API");
+  assert.equal(row.requiredEntitlement, null);
+  assert.equal(row.defaultPolicyClass, "");
+  assert.equal(row.schemaVersion, 2);
+  assert.equal(row.status, "ACTIVE");
+  assert.equal(Object.isFrozen(row), true);
+});
+
+test("AICAP-CODE-PG-002 exact code lookup does not normalize and non-string runtime input fails closed", async () => {
+  assert.equal(await store.loadByCode("missing-" + randomBytes(8).toString("hex")), null);
+  assert.equal(await store.loadByCode(capabilityCode.toLowerCase()), null);
+  assert.equal(await store.loadByCode(capabilityCode + " "), null);
+  await assert.rejects(store.loadByCode(7));
+});
+
+test("AICAP-CODE-PG-003 empty-string lookup is not strengthened and read surface adds no authority", async () => {
+  assert.equal(await store.loadByCode(""), null);
+  assert.equal(typeof store.create, "undefined");
+  assert.equal(typeof store.update, "undefined");
+  assert.equal(typeof store.delete, "undefined");
+  assert.equal(typeof store.evaluateEntitlement, "undefined");
+  assert.equal(typeof store.evaluatePolicy, "undefined");
+  assert.equal(typeof store.execute, "undefined");
+  assert.equal(typeof store.generate, "undefined");
+});
