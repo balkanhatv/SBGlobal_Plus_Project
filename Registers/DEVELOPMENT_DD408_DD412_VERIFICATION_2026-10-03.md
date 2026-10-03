@@ -35,3 +35,7 @@ No schema, migration, RLS, grant, role, route, frontend, provider, scheduler, wo
 ## Canonical promotion gate
 
 This promotion records DD-17 acceptance contracts, DD-18 decisions, DD-19 traceability, D-DECISIONS, manifest and all active/current checkpoint projections. The promotion's own exact-head Core/PostgreSQL/Database/Web gate must pass before DD-408…DD-412 closure or another source audit. Production readiness is not claimed.
+
+## First canonical-promotion gate finding and forward-only correction
+
+Promotion HEAD `530c7544dc17baf417078c01682dd9ca49afa680` / tree `ea8010b2928d3cb447c51be642943231de7f7084` correctly failed Core push run `37086890775` / job `111098951672` on one canonical consistency assertion only: **1197/1198 PASS**, zero skips. REPO-011 found `Registers/SOURCE_REGISTRY.md` retained header date `2026-10-02` while manifest/current gate date is `2026-10-03`. REPO-007, REPO-008 and REPO-010 passed; Database push run `37086890791` and Web push run `37086890777` passed. The smallest forward-only correction changes only that active Source Registry date projection and records this evidence; no runtime, schema, RLS, route, UI or RawSource change. Fresh exact-head gates are required.
