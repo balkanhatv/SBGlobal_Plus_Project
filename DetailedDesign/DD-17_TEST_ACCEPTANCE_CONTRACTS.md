@@ -5571,3 +5571,49 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AISTEP-CAPREAD-BOUND-001 — No eligibility, authorization, policy, routing or execution authority
 **Owner:** DD-417. Output exposes no capability-currentness/eligibility, entitlement/default-policy decision, compatibility, RequestContext authorization, approval satisfaction, admission, provider/model routing, dispatch or AI/tool execution authority.
+
+## DD-418 Persisted APPROVED Necessary Floor Acceptance
+
+### AIAPP-APPROVED-CUR-001 — Persisted APPROVED evidence
+**Owner:** DD-418. Exact APPROVED status with valid non-null approver principal UUID and valid approvedAt timestamp passes the persisted necessary floor.
+
+### AIAPP-APPROVED-CUR-002 — Fail closed malformed or non-approved state
+**Owner:** DD-418. PENDING/REJECTED/EXPIRED or missing/malformed approver/approvedAt evidence fails closed.
+
+### AIAPP-APPROVED-CUR-003 — No invented timestamp or semantic policy
+**Owner:** DD-418. Approval type/permission/request-summary/reason/requestedByAgent remain raw, approvedAt is not ordered against createdAt by an invented rule, and inputs remain unchanged.
+
+## DD-419 Trusted Approver RequestContext Continuity Acceptance
+
+### AIAPP-CTX-CUR-001 — Tenant-Core exact approver continuity
+**Owner:** DD-419. Exact current approver principal plus same-Tenant TENANT_CORE context passes a Tenant-Core approval continuity floor.
+
+### AIAPP-CTX-CUR-002 — Tenant-Industry context may see Tenant-Core approval
+**Owner:** DD-419. Same approver/same Tenant TENANT_INDUSTRY context may satisfy Tenant-Core approval continuity; no permission result is inferred.
+
+### AIAPP-CTX-CUR-003 — Industry approval exact scope continuity
+**Owner:** DD-419. Industry-scoped approval requires exact Tenant, TENANT_INDUSTRY scope and exact Industry Context.
+
+### AIAPP-CTX-CUR-004 — Foreign/malformed context fails closed
+**Owner:** DD-419. Wrong principal, foreign Tenant, sibling/missing Industry, PUBLIC/PLATFORM_GLOBAL/EXPLICIT_CROSS_CONTEXT or malformed context fails closed.
+
+## DD-420 DD-417 Parent First and Optional Approval Branch Acceptance
+
+### AISTEP-APPCTX-BASE-001 — Exact DD-417 parent first
+**Owner:** DD-420. Exact DD-417 parent evidence is established first; parent null/error short-circuits or propagates before approval-context logic.
+
+### AISTEP-APPCTX-BRANCH-001 — No approval returns parent-only evidence
+**Owner:** DD-420. If no persisted AgentApproval exists, return exact frozen parent-only evidence and do not require or synthesize approver context; this does not infer approval is unnecessary.
+
+### AISTEP-APPCTX-APPROVAL-001 — Persisted approval requires trusted context continuity
+**Owner:** DD-420. If AgentApproval exists, explicit trusted approver RequestContext must pass DD-419; missing/mismatched/non-APPROVED evidence returns null.
+
+## DD-421 Immutable Layered Approver-Context Evidence Acceptance
+
+### AISTEP-APPCTX-EVID-001 — Preserve exact parent and context identities
+**Owner:** DD-421. Success preserves the exact DD-417 parent and exact supplied approver RequestContext references in a frozen envelope without clone, normalization, mutation or re-resolution.
+
+## DD-422 Approval Permission and Execution Boundary Acceptance
+
+### AISTEP-APPCTX-BOUND-001 — No approval-satisfaction or execution authority
+**Owner:** DD-422. Output exposes no required-permission decision, approval-satisfied flag, GuardPipeline result, AgentRun resume/cancel, dispatch, provider/model routing or AI/tool execution authority.

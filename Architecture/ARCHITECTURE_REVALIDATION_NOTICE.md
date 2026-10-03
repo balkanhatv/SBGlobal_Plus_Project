@@ -1,8 +1,8 @@
 # ARCHITECTURE REVALIDATION NOTICE — PHASE 2 CLOSURE (2026-09-12)
 
-**Current checkpoint:** `DEV-AI-AGENT-STEP-VISIBLE-PARENT-APPROVAL-OPERATION-CAPABILITY-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `dfa9a46e580b03a68d8b6ca3bdd008ba138ac78f` / tree `4ea1b3b82f90a62d5ba7c278aab63b1b4c4e758f`
-> **Current audit gate (2026-10-03):** DD-413…DD-417 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-AGENT-STEP-APPROVED-APPROVER-CONTEXT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `3903356bdd47817d1cf1008304603193e93856f4` / tree `1010f65e4628048de9e0607db7975ec90063e83f`
+> **Current audit gate (2026-10-03):** DD-418…DD-422 persisted-approved + trusted approver-context current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical Architecture status:** **FRESH REVALIDATED — PASS** on `docs/architecture-branch-2` at the evaluated Phase-2 boundary.
 
 **Upstream Foundation checkpoint:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`  

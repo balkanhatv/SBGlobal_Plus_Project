@@ -5105,3 +5105,49 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AI_AGENT_STEP_VISIBLE_PARENT_APPROVAL_OPERATION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AISTEP-CAPREAD-RAW-001, AISTEP-CAPREAD-BOUND-001`.
+
+## DD-418 — persisted APPROVED is a necessary evidence floor only
+
+**Context:** Migration 0013 owns the AgentApproval status vocabulary and requires APPROVED rows to carry non-null approver principal and approvedAt. Migration 0031 further owns write-time approver/Tenant relationship integrity.
+
+**Decision:** Add `matchesAIAgentApprovalPersistedApprovedFloor(approval)`. Require a valid persisted approval identity/parent/Tenant shape, exact status APPROVED, valid non-null approver principal UUID and valid approvedAt timestamp. Do not invent approvedAt≥createdAt ordering or interpret approval type/permission/summary/reason/requestedByAgent.
+
+**Source audit:** `Development/AI_AGENT_STEP_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-APPROVED-CUR-001…003`.
+
+## DD-419 — trusted current approver RequestContext continuity only
+
+**Context:** DD-02 RequestContext is server-resolved current evidence; this batch may consume an already-trusted approver RequestContext but may not manufacture one from persisted identity.
+
+**Decision:** Add `matchesAIAgentApprovalApproverContextFloor(approval, approverRequestContext)`. Require DD-418 first, exact approver principal and Tenant, protected Tenant scope, and exact Industry Context for Industry-scoped approval. Same-Tenant TENANT_CORE or TENANT_INDUSTRY context may satisfy Tenant-Core approval continuity because physical AgentApproval visibility includes nullable-Industry rows inside the Tenant. Permission remains a later guard.
+
+**Source audit:** `Development/AI_AGENT_STEP_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-CTX-CUR-001…004`.
+
+## DD-420 — reuse DD-417 parent first and branch only on persisted approval
+
+**Decision:** `loadAIAgentStepApprovedApproverContextCurrentEvidence(...)` invokes exact DD-417 evidence first with the existing acting RequestContext and AgentStep id. Null/error short-circuits unchanged. No AgentApproval returns frozen parent-only evidence without inferring approval is unnecessary. Persisted AgentApproval requires explicit trusted approver RequestContext and DD-419 success; absent/mismatch/non-APPROVED returns null.
+
+**Source audit:** `Development/AI_AGENT_STEP_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-APPCTX-BASE-001, AISTEP-APPCTX-BRANCH-001, AISTEP-APPCTX-APPROVAL-001`.
+
+## DD-421 — immutable layered exact-reference approver-context evidence
+
+**Decision:** Preserve the exact DD-417 parent object and, when approval exists and passes DD-419, the exact supplied trusted approver RequestContext reference. Do not clone, normalize, mutate, re-read or synthesize principal/context evidence.
+
+**Source audit:** `Development/AI_AGENT_STEP_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-APPCTX-EVID-001`.
+
+## DD-422 — required permission and execution remain blocked
+
+**Context:** DD-09 requires approval permission/context revalidation before required tool execution. Current source has no approval-specific OperationContract/permission evaluator, and AgentStep exposes opaque inputRef rather than schema-validated resource references.
+
+**Decision:** Treat successful evidence only as persisted APPROVED plus recorded approver identity matching an already-trusted current Tenant/Industry RequestContext. Do not interpret requiredPermission, approvalType, ToolDefinition approval policy/side-effect metadata, current permission/ABAC/commercial state, GuardPipeline, resume/cancel, dispatch, provider/model routing or AI/tool execution.
+
+**Source audit:** `Development/AI_AGENT_STEP_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-APPCTX-BOUND-001`.
