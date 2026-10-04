@@ -5475,3 +5475,49 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AI_AGENT_STEP_ACTING_OPERATION_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AISTEP-OPRBAC-BOUND-001`.
+
+## DD-458 — reuse exact DD-457 evidence first and branch only on canonical OperationContract
+
+**Context:** DD-457 owns acting-principal ToolDefinition + canonical OperationContract current RBAC necessary evidence while preserving the exact canonical OperationContract reference.
+
+**Decision:** Add `loadAIAgentStepActingOperationCommercialCurrentEvidence(...)`. Invoke DD-457 first with exact supplied inputs/dependencies. Parent null/errors preserve DD-457 behavior. No-operation evidence returns frozen parent-only evidence with zero Commercial calls and does not infer Commercial validation is unnecessary.
+
+**Source audit:** `Development/AI_AGENT_STEP_ACTING_OPERATION_COMMERCIAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-OPCOMM-BASE-001…002, AISTEP-OPCOMM-BRANCH-001`.
+
+## DD-459 — call source-owned CommercialGuard exactly once
+
+**Decision:** For canonical TOOL evidence call `CommercialGuardPort.validateCurrent({ requestContext: input.requestContext, operation: exactOperationContract })` exactly once. Do not read Commercial persistence directly, rebuild CommercialContext, or substitute ToolDefinition/Capability entitlement metadata.
+
+**Source audit:** `Development/AI_AGENT_STEP_ACTING_OPERATION_COMMERCIAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-OPCOMM-READ-001…002`.
+
+## DD-460 — require current Commercial ALLOW and fail closed otherwise
+
+**Context:** DD-04 §11 owns current subscription/license/OperationContract.entitlementRequirement validation.
+
+**Decision:** Only `allowed === true` passes. Current subscription/license/entitlement denial returns null; dependency/current-state errors propagate unchanged. Do not reinterpret denial as unknown or retry through alternate entitlement metadata.
+
+**Source audit:** `Development/AI_AGENT_STEP_ACTING_OPERATION_COMMERCIAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-OPCOMM-DENY-001`.
+
+## DD-461 — preserve exact immutable Commercial evidence
+
+**Decision:** No-operation success returns frozen `{ parent }`. TOOL+Commercial success returns frozen `{ parent, commercialResult }`, preserving exact references without clone/normalization/mutation.
+
+**Source audit:** `Development/AI_AGENT_STEP_ACTING_OPERATION_COMMERCIAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-OPCOMM-EVID-001`.
+
+## DD-462 — Commercial current-state ALLOW is necessary evidence only
+
+**Context:** ToolDefinition.requiredEntitlement, AICapability.requiredEntitlement and OperationContract.entitlementRequirement remain independently evidenced metadata. Usage limits/resource facts/approval/final authorization remain separately governed.
+
+**Decision:** Do not equate entitlement metadata, reserve/consume limits, evaluate DD-03 ABAC/resource rules, claim approval satisfaction or final GuardPipeline authorization, transition state, dispatch/mutate/emit, route providers/models or execute AI/tools.
+
+**Source audit:** `Development/AI_AGENT_STEP_ACTING_OPERATION_COMMERCIAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-OPCOMM-BOUND-001`.

@@ -252,3 +252,9 @@ The exact canonical registry OperationContract reference is preserved. ToolDefin
 Canonical promotion basis `c73107484c32596fcc39c230b02fbafc3d667ebc` / tree `bd25f767db966e3e2c47146fa8b795bf6fd750cb` passed exact-head Core **1278/1278**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The feature implementation proof remains `8cf4cd88e584c05a21bbaff0b044ea2b18679414`.
 
 The bounded result adds exactly one additional acting-principal current compiled-RBAC necessary floor for preserved canonical OperationContract.permissionCode on TOOL evidence. ToolDefinition.requiredPermission, OperationContract.permissionCode and AgentApproval.requiredPermission remain independent; applicable ABAC remains raw. No full AuthorizationDecision, approval satisfaction, commercial/resource/entitlement admission, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority is added.
+
+## DD-458…DD-462 exact-head implementation evidence — 2026-10-04
+
+Implementation basis `e3d664381ed067e6891dce22a23a9dca932a1d30` / tree `982661c67a790d07179eba3c3c754745ff9d3702` passed Core **1286/1286**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch extends exact DD-457 evidence with one source-owned CommercialGuard current-state check for the exact canonical OperationContract under the unchanged acting RequestContext; no-operation evidence performs zero Commercial calls.
+
+Commercial ALLOW remains necessary evidence only. ToolDefinition.requiredEntitlement, AICapability.requiredEntitlement and OperationContract.entitlementRequirement are not equated. No usage-limit reservation/consumption, full AuthorizationDecision, approval satisfaction, resource admission, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority is added.

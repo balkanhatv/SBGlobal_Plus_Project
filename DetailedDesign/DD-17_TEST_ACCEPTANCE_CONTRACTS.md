@@ -5866,3 +5866,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AISTEP-OPRBAC-BOUND-001 — Independent evidence is not compatibility/full authorization/execution authority
 **Owner:** DD-457. Output exposes no ToolDefinition↔OperationContract↔AgentApproval permission compatibility, full AuthorizationDecision, ABAC/resource/commercial/entitlement/approval-satisfied result, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority.
+
+## DD-458 Exact DD-457 Parent / Commercial Branch Acceptance
+
+### AISTEP-OPCOMM-BASE-001 — Exact DD-457 chain first
+**Owner:** DD-458. Exact supplied acting RequestContext, AgentStep id, optional trusted approver RequestContext and unchanged parent dependencies enter DD-457 before any Commercial call.
+
+### AISTEP-OPCOMM-BASE-002 — Parent absence/errors precede Commercial
+**Owner:** DD-458. DD-457 null short-circuits and DD-457 dependency errors propagate unchanged before any Commercial read/guard access.
+
+### AISTEP-OPCOMM-BRANCH-001 — No canonical OperationContract means zero Commercial calls
+**Owner:** DD-458. When DD-457 preserves no canonical OperationContract, return frozen exact parent-only evidence with zero Commercial calls and do not infer Commercial validation is unnecessary.
+
+## DD-459 Exact CommercialGuard Call Acceptance
+
+### AISTEP-OPCOMM-READ-001 — One exact acting-context canonical-operation call
+**Owner:** DD-459. TOOL evidence calls CommercialGuard exactly once with unchanged acting RequestContext and exact canonical registry OperationContract reference.
+
+### AISTEP-OPCOMM-READ-002 — Commercial errors propagate unchanged
+**Owner:** DD-459. Commercial dependency/current-state errors propagate unchanged with no direct-store read, reconstructed context or ToolDefinition/Capability entitlement fallback.
+
+## DD-460 Fail-Closed Commercial Denial Acceptance
+
+### AISTEP-OPCOMM-DENY-001 — Subscription/license/entitlement denial fails closed
+**Owner:** DD-460. SUBSCRIPTION_INVALID, LICENSE_INVALID or ENTITLEMENT_DENIED returns null without alternate entitlement substitution.
+
+## DD-461 Immutable Commercial Evidence Acceptance
+
+### AISTEP-OPCOMM-EVID-001 — Preserve exact parent/operation/result references
+**Owner:** DD-461. TOOL success preserves exact DD-457 parent, exact nested canonical OperationContract and exact Commercial ALLOW result references unchanged.
+
+## DD-462 Authority / Compatibility Boundary Acceptance
+
+### AISTEP-OPCOMM-BOUND-001 — Commercial ALLOW is not full authorization or execution authority
+**Owner:** DD-462. Output exposes no entitlement-metadata compatibility, usage-limit satisfaction, full AuthorizationDecision, approval satisfaction, resource admission, transition, dispatch, mutation, routing or AI/tool execution authority.
