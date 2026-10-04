@@ -218,3 +218,9 @@ Verified exact-head implementation-evidence basis `5a07e13e8f542962c282cc0b7b852
 ## DD-438…DD-442 canonical promotion evidence — 2026-10-04
 
 Canonical promotion basis `f4befcbd36cd7ebaf9c223c425b41d8b5bcf7269` / tree `ed92b956a3322367f2b61ef3400f6925eeef7a95` passed exact-head Core **1251/1251**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The feature evidence itself remains anchored to `5a07e13e8f542962c282cc0b7b852515c017181d`. The bounded result is DD-437 necessary RBAC evidence plus exact DD-183 reciprocal persisted AgentStep↔AgentApproval backlink currentness, with zero additional reads. It is not full authorization, approval satisfaction, transition, dispatch, mutation or AI/tool execution authority.
+
+## DD-443…DD-447 exact-head implementation evidence — 2026-10-04
+
+Implementation basis `4b08c8c01eb7cfd2a567dcffad9b4984299e168a` / tree `fd9d6797da2f9373bf9e7465fd9f987d2f37465c` passed Core **1260/1260**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch extends exact DD-422 step-centered evidence with one approval-branch current compiled-RBAC necessary floor; the no-approval branch performs zero Authorization reads. DD-437 and DD-447 now share one pure RBAC floor to prevent semantic drift.
+
+ToolDefinition.requiredPermission, OperationContract.permissionCode, capability metadata and applicable ABAC remain raw evidence. No permission compatibility, full AuthorizationDecision, approval satisfaction, entitlement/commercial/resource admission, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority is added.

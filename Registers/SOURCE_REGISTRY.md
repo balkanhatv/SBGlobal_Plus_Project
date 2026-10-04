@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-RBAC-BACKLINK-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `f4befcbd36cd7ebaf9c223c425b41d8b5bcf7269` / tree `ed92b956a3322367f2b61ef3400f6925eeef7a95`
+**Current checkpoint:** `DEV-AI-AGENT-STEP-APPROVED-APPROVER-RBAC-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `4b08c8c01eb7cfd2a567dcffad9b4984299e168a` / tree `fd9d6797da2f9373bf9e7465fd9f987d2f37465c`
 **Status:** ACTIVE · **Updated:** 2026-10-04
 
-> **Current audit gate (2026-10-04):** DD-438…DD-442 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-04):** DD-443…DD-447 AgentStep approved/trusted-approver-context + current RBAC necessary evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority

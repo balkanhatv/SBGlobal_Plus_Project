@@ -1,7 +1,7 @@
 # DD-20D — OVERALL DETAILED DESIGN ADVERSARIAL AUDIT — PHASE 3
-**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-RBAC-BACKLINK-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `f4befcbd36cd7ebaf9c223c425b41d8b5bcf7269` / tree `ed92b956a3322367f2b61ef3400f6925eeef7a95`
-> **Current audit gate (2026-10-04):** DD-438…DD-442 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-AGENT-STEP-APPROVED-APPROVER-RBAC-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `4b08c8c01eb7cfd2a567dcffad9b4984299e168a` / tree `fd9d6797da2f9373bf9e7465fd9f987d2f37465c`
+> **Current audit gate (2026-10-04):** DD-443…DD-447 AgentStep approved/trusted-approver-context + current RBAC necessary evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-3 DETAILED DESIGN EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 **Historical adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
 

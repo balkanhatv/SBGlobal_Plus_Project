@@ -5755,3 +5755,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIAPP-RBACBACK-BOUND-001 — Reciprocal backlink evidence is not execution authority
 **Owner:** DD-442. Output exposes no full authorization, ABAC/commercial/resource/approval-satisfied result, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority.
+
+## DD-443 Exact DD-422 Parent / Approval Branch Acceptance
+
+### AISTEP-RBACREAD-BASE-001 — Exact DD-422 chain first
+**Owner:** DD-443. Exact supplied acting RequestContext, AgentStep id, optional trusted approver RequestContext and reader/registry dependencies enter DD-422 unchanged before Authorization access.
+
+### AISTEP-RBACREAD-BASE-002 — Parent absence/errors precede Authorization
+**Owner:** DD-443. DD-422 null short-circuits and DD-422 dependency errors propagate unchanged before any Authorization read.
+
+### AISTEP-RBACREAD-BRANCH-001 — No approval means zero Authorization reads
+**Owner:** DD-443. When DD-422 preserves no AgentApproval, return frozen exact parent-only evidence with zero Authorization reads and do not infer that approval is unnecessary.
+
+## DD-444 Exact Approval-Branch Authorization Read Acceptance
+
+### AISTEP-RBACREAD-READ-001 — One exact persisted requiredPermission read
+**Owner:** DD-444. Approval evidence causes exactly one Authorization read using the exact DD-422 trusted approver RequestContext and persisted AgentApproval.requiredPermission.
+
+### AISTEP-RBACREAD-READ-002 — No permission substitution/fallback
+**Owner:** DD-444. Authorization dependency errors propagate unchanged and ToolDefinition.requiredPermission / OperationContract.permissionCode are never substituted, normalized, searched or used as fallback.
+
+## DD-445 Shared Current Compiled RBAC Floor Acceptance
+
+### AISTEP-RBACREAD-CUR-001 — Exact snapshot continuity plus one ALLOW
+**Owner:** DD-445. Exact protected Tenant scope, positive safe-integer permissionVersion, ordered roleIds parity and exactly one matching canonical RBAC ALLOW passes and preserves the exact permission object.
+
+### AISTEP-RBACREAD-CUR-002 — Stale/missing/DENY/duplicate fails closed
+**Owner:** DD-445. Scope/version/role mismatch or missing, DENY or duplicate exact permission evidence returns null. DD-437 and DD-447 share the same pure floor without semantic widening.
+
+## DD-446 Immutable Branch-Specific Evidence Acceptance
+
+### AISTEP-RBACREAD-EVID-001 — Preserve exact parent/state/permission/raw ABAC
+**Owner:** DD-446. Approval+RBAC success preserves exact DD-422 parent, Authorization state, matched permission and raw applicable ABAC references; no-approval success preserves only exact parent. Inputs and raw OperationContract/capability evidence remain unchanged.
+
+## DD-447 Authority / Compatibility Boundary Acceptance
+
+### AISTEP-RBACREAD-BOUND-001 — No compatibility, full authorization, approval satisfaction or execution authority
+**Owner:** DD-447. Output exposes no ToolDefinition↔OperationContract↔AgentApproval permission compatibility, full AuthorizationDecision, ABAC/commercial/resource/approval-satisfied result, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority.
