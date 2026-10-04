@@ -5900,3 +5900,35 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AISTEP-OPCOMM-BOUND-001 — Commercial ALLOW is not full authorization or execution authority
 **Owner:** DD-462. Output exposes no entitlement-metadata compatibility, usage-limit satisfaction, full AuthorizationDecision, approval satisfaction, resource admission, transition, dispatch, mutation, routing or AI/tool execution authority.
+
+## DD-463 Exact DD-462 Parent / Resource-Free Branch Acceptance
+
+### AISTEP-GUARD-BASE-001 — Exact DD-462 chain first
+**Owner:** DD-463. Exact supplied acting RequestContext, AgentStep id, optional trusted approver RequestContext and unchanged parent dependencies establish DD-462 before GuardPipeline access.
+
+### AISTEP-GUARD-BASE-002 — Parent absence/errors precede GuardPipeline
+**Owner:** DD-463. DD-462 null short-circuits and DD-462 dependency errors propagate unchanged before any GuardPipeline call.
+
+### AISTEP-GUARD-BRANCH-001 — No canonical operation means zero GuardPipeline calls
+**Owner:** DD-463. No canonical OperationContract returns frozen exact parent-only evidence with zero GuardPipeline calls and no authorization-success inference.
+
+### AISTEP-GUARD-BRANCH-002 — Resource-resolved operation remains parent-only
+**Owner:** DD-463. A canonical OperationContract with resourceResolver performs zero GuardPipeline calls and returns frozen parent-only evidence because no source-owned resourceReference exists.
+
+## DD-464 GuardPipeline-Compatible Port Acceptance
+
+### AISTEP-GUARD-AUTH-001 — One exact resource-free live authorization call
+**Owner:** DD-464/DD-465. Resource-free canonical operations call the GuardPipeline-compatible authorization surface exactly once with exact acting RequestContext + exact canonical OperationContract and no resourceReference.
+
+### AISTEP-GUARD-AUTH-002 — GuardPipeline errors propagate unchanged
+**Owner:** DD-465. GuardPipeline denial, dependency and audit errors propagate unchanged and are never normalized to null or synthetic ALLOW evidence.
+
+## DD-466 Immutable Guard Evidence Acceptance
+
+### AISTEP-GUARD-EVID-001 — Preserve exact parent and GuardResult
+**Owner:** DD-466. Resource-free success returns frozen exact DD-462 parent plus exact GuardResult reference; inputs and nested evidence remain unchanged.
+
+## DD-467 Authority Boundary Acceptance
+
+### AISTEP-GUARD-BOUND-001 — Generic Guard ALLOW is not complete AI execution admission
+**Owner:** DD-467. Output exposes no synthetic resourceReference, approval satisfaction, usage-limit/budget/quota satisfaction, dispatch, transition, mutation/event, provider/model routing, credential resolution or AI/tool execution authority.

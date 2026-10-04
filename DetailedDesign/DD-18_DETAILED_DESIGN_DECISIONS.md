@@ -5521,3 +5521,47 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AI_AGENT_STEP_ACTING_OPERATION_COMMERCIAL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AISTEP-OPCOMM-BOUND-001`.
+
+## DD-463 — reuse exact DD-462 evidence and branch only on source-owned resource-free eligibility
+
+**Context:** DD-462 preserves exact acting RequestContext, canonical OperationContract and current Commercial necessary evidence.
+
+**Decision:** Add `loadAIAgentStepResourceFreeGuardAuthorizationCurrentEvidence(...)`. Invoke DD-462 first with exact supplied inputs/dependencies. No canonical OperationContract returns frozen `{ parent }` with zero GuardPipeline calls. A canonical operation declaring `resourceResolver` also returns frozen `{ parent }` with zero GuardPipeline calls because AgentStep.inputRef has no source-owned mapping to resourceReference.
+
+**Source audit:** `Development/AI_AGENT_STEP_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-GUARD-BASE-001…002, AISTEP-GUARD-BRANCH-001…002`.
+
+## DD-464 — reuse the existing GuardPipeline authorization surface structurally
+
+**Decision:** Define only a narrow AI composition port structurally matching `GuardPipeline.authorize({ requestContext, operation, resourceReference? }) -> Promise<GuardResult>`. Do not create a parallel PDP, commercial decision, resource-rule or access-decision contract.
+
+**Source audit:** `Development/AI_AGENT_STEP_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-GUARD-AUTH-001`.
+
+## DD-465 — authorize resource-free canonical operations exactly once
+
+**Decision:** Only when the exact canonical OperationContract has `resourceResolver === undefined`, call the GuardPipeline-compatible port once using the unchanged acting RequestContext and exact canonical OperationContract, omitting `resourceReference`. Denial/dependency/audit errors propagate unchanged.
+
+**Source audit:** `Development/AI_AGENT_STEP_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-GUARD-AUTH-001…002`.
+
+## DD-466 — preserve exact immutable GuardPipeline evidence
+
+**Decision:** Resource-free success returns frozen `{ parent, guardResult }` preserving exact DD-462 parent and exact GuardResult identity. Parent-only branches remain frozen `{ parent }`. Do not reinterpret decisionId, restrictionSet, nested Commercial/RBAC/approval evidence or synthesize resource facts.
+
+**Source audit:** `Development/AI_AGENT_STEP_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-GUARD-EVID-001`.
+
+## DD-467 — GuardPipeline success is not complete AI execution admission
+
+**Context:** DD-04 usage-limit reservation/consumption metadata is absent from canonical OperationContract, approval satisfaction remains separately governed, and provider/model/credential/dispatch/output controls are downstream concerns.
+
+**Decision:** Treat GuardResult as authoritative current generic GuardPipeline evidence only for the exact resource-free operation at the call time. Do not claim approval satisfaction, usage-limit/budget/quota satisfaction, provider/model routing, credential availability, dispatch, transition, mutation/event success or AI/tool execution completion.
+
+**Source audit:** `Development/AI_AGENT_STEP_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-GUARD-BOUND-001`.

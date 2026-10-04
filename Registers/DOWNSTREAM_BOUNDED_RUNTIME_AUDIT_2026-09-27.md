@@ -264,3 +264,9 @@ Commercial ALLOW remains necessary evidence only. ToolDefinition.requiredEntitle
 Canonical promotion basis `ee77a43e1537f4cea6572127a476d60da1ea90b9` / tree `7ab358c4d836bbd70fc132ddad5d02da68472b07` passed exact-head Core **1286/1286**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains `e3d664381ed067e6891dce22a23a9dca932a1d30`.
 
 The bounded result remains source-owned current Commercial necessary evidence for the exact canonical OperationContract under the unchanged acting RequestContext. ToolDefinition.requiredEntitlement, AICapability.requiredEntitlement and OperationContract.entitlementRequirement remain separate metadata. No usage-limit reservation/consumption, full AuthorizationDecision, approval satisfaction, resource admission, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority is created.
+
+## DD-463…DD-467 exact-head implementation evidence — 2026-10-04
+
+Implementation basis `9149f9e076e5a16e60737127a6943239eca5d53f` / tree `82e47bc94d62d572d3a708794e043415bd040963` passed Core **1294/1294**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch reuses exact DD-462 evidence and calls the existing GuardPipeline-compatible authorization surface only for exact canonical OperationContracts with no resourceResolver. Missing operations and resource-resolved operations remain frozen parent-only evidence with zero GuardPipeline calls.
+
+The preserved GuardResult is generic protected-operation authorization evidence only. It does not prove approval satisfaction, DD-04 usage-limit reservation/consumption, AI budget/quota, provider/model routing, credential availability, dispatch, transition, mutation/event success, output guardrails or AI/tool execution completion.
