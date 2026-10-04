@@ -26,3 +26,13 @@ Commercial ALLOW remains necessary evidence only. ToolDefinition.requiredEntitle
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-458…DD-462 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-04
+
+Canonical promotion HEAD `ee77a43e1537f4cea6572127a476d60da1ea90b9` / tree `7ab358c4d836bbd70fc132ddad5d02da68472b07` passed exact-head push gates:
+- Core run `37200511419` / job `111431062838`: **1286/1286 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111431062932`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37200511396` / job `111431062729`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37200511407` / job `111431062588`: PASS.
+
+Pull-request Core/Database/Web workflows on the same promotion HEAD also passed. This state-closure commit must independently pass the same four gates before DD-458…DD-462 is closed and another source audit may open.
