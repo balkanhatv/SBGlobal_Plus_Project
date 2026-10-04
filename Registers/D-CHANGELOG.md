@@ -1657,3 +1657,6 @@ Add the source-owned same-context WorkflowTransition/WorkflowInstance evidence c
 
 
 - 2026-10-04 — DD-468…DD-472 implementation `19bd9d77558eaa7db6e09a3d826664a4e4df5370` / tree `921dfbd01a0d3cd5969a25e90a93e8c563268399` exact-head verified: Core 1302/1302, PostgreSQL 532/532 + bootstrap, Database 48/42, Web PASS. Canonical promotion staged; bounded resource-free AutomationRun Guard evidence only, with no schema or RawSource change.
+
+
+- 2026-10-04 — DD-468…DD-472 canonical promotion `89cb17995827caf1739657b55501725018993bf0` / tree `d1cb19329689666153c0172a84b238f91e33d36c` exact-head verified: Core 1302/1302, PostgreSQL 532/532 + bootstrap, Database 48/42, Web PASS. State closure staged; feature evidence remains anchored to implementation `19bd9d77558eaa7db6e09a3d826664a4e4df5370`.

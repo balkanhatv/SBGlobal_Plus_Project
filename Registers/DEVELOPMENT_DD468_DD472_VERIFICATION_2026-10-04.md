@@ -27,3 +27,15 @@ AutomationRun.triggerRef, correlation/idempotency data and AutomationDefinition/
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-468…DD-472 can be closed.
+
+
+## Canonical promotion verified; state closure staged — 2026-10-04
+
+Canonical promotion HEAD `89cb17995827caf1739657b55501725018993bf0` / tree `d1cb19329689666153c0172a84b238f91e33d36c` passed exact-head push gates:
+- Core run `37216422658` / job `111477743397`: **1302/1302 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111477743297`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37216422659` / job `111477743446`: PASS; inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37216422726` / job `111477743455`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+This state-closure commit must independently pass the same four gates before DD-468…DD-472 is closed and another source audit may open.

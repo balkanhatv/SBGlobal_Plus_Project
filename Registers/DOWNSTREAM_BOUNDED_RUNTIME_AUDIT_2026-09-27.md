@@ -283,3 +283,10 @@ The preserved GuardResult remains generic protected-operation authorization evid
 Implementation basis `19bd9d77558eaa7db6e09a3d826664a4e4df5370` / tree `921dfbd01a0d3cd5969a25e90a93e8c563268399` passed Core **1302/1302**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web.
 
 The bounded result reuses exact DD-387 AutomationRun evidence. Missing operations and operations with resourceResolver remain parent-only with zero GuardPipeline calls. Resource-free canonical operations are authorized once with the exact RequestContext and exact OperationContract and no resourceReference. The exact GuardResult remains protected-operation authorization evidence only; automation trigger/state-machine and execution lifecycle remain separate.
+
+
+## DD-468…DD-472 canonical promotion evidence — 2026-10-04
+
+Canonical promotion basis `89cb17995827caf1739657b55501725018993bf0` / tree `d1cb19329689666153c0172a84b238f91e33d36c` passed exact-head Core **1302/1302**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `19bd9d77558eaa7db6e09a3d826664a4e4df5370`.
+
+The bounded result remains AutomationRun resource-free generic GuardPipeline authorization evidence only. Missing/resource-resolved operations remain parent-only, while resource-free exact canonical operations preserve the exact GuardResult. Automation trigger/state-machine and execution lifecycle remain separately governed.
