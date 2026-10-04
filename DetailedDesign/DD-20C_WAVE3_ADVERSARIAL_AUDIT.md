@@ -1,7 +1,7 @@
 # DD-20C — WAVE-3 ADVERSARIAL AUDIT
 **Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-RBAC-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `95dfef25f9652ba042b52ca9ac7491b087abfe7d` / tree `3e42dbd743e44b9a6f1573a47b91320dbac7e7ba`
-> **Current audit gate (2026-10-04):** DD-433…DD-437 AgentApproval persisted-APPROVED + trusted approver-context + current RBAC necessary-evidence composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `80a1067b8c900af46ced6e54349f5627f06e2e2a` / tree `4aa65111f88526b8962b485f9a45f5e40645a185`
+> **Current audit gate (2026-10-04):** DD-433…DD-437 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE-3 ADVERSARIAL EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `810e43c9c75e3750f52cc7e1954db8f341e6d79b`  
 **Historical adversarial hypothesis:** **WAVE 3 IS NOT IMPLEMENTATION READY**
 

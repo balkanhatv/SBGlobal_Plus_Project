@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT FOUNDATION
 **Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-RBAC-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `95dfef25f9652ba042b52ca9ac7491b087abfe7d` / tree `3e42dbd743e44b9a6f1573a47b91320dbac7e7ba`
-> **Current audit gate (2026-10-04):** DD-433…DD-437 AgentApproval persisted-APPROVED + trusted approver-context + current RBAC necessary-evidence composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `80a1067b8c900af46ced6e54349f5627f06e2e2a` / tree `4aa65111f88526b8962b485f9a45f5e40645a185`
+> **Current audit gate (2026-10-04):** DD-433…DD-437 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 

@@ -32,3 +32,15 @@ No schema, migration, SQL verification, RLS, role, grant, route, frontend, ident
 ## Canonical promotion gate
 
 This promotion records DD-17 acceptance contracts, DD-18 decisions, DD-19 traceability, D-DECISIONS/D-CHANGELOG, manifest and active/current checkpoint projections. The promotion's own exact-head Core/PostgreSQL/Database/Web gate must pass before DD-433…DD-437 state closure or another source audit. Production readiness is not claimed.
+
+## Corrected canonical promotion verified; state closure staged — 2026-10-04
+
+Corrected promotion HEAD `80a1067b8c900af46ced6e54349f5627f06e2e2a` / tree `4aa65111f88526b8962b485f9a45f5e40645a185` passed exact-head push gates:
+- Core run `37174945038` / job `111355522120`: **1244/1244 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111355522017`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37174945041` / job `111355522147`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37174945069` / job `111355522080`: PASS.
+
+The canonical promotion was corrected forward-only without altering runtime semantics: `a3499912a61664160b58fd744a42569047d76d2d` exposed active-state narrative/gate-token drift; `0448d12b9df764a5ca647240f419c028a258d15f` aligned those projections; `06aff2ec58fd8e42d446480eba848efd75285eab` aligned Source Registry date and bounded-runtime evidence; `80a1067b8c900af46ced6e54349f5627f06e2e2a` aligned the final Isolation Attack Matrix active audit basis. Implementation proof remains `95dfef25f9652ba042b52ca9ac7491b087abfe7d` / tree `3e42dbd743e44b9a6f1573a47b91320dbac7e7ba`.
+
+This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-433…DD-437 is closed and before another source audit opens.
