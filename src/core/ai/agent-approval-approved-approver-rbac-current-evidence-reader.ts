@@ -4,6 +4,7 @@ import type {
   AuthorizationReadStorePort,
 } from "../authorization/read-store.js";
 import type { CompiledPermissionV1 } from "../authorization/policy-grammar.js";
+import { selectAIAgentApprovalApproverRbacCurrentAllow } from "./agent-approval-approver-rbac-current-floors.js";
 import type { AIAgentApprovalReadPort } from "./agent-approval.js";
 import {
   loadAIAgentApprovalApprovedApproverContextCurrentEvidence,
@@ -22,34 +23,6 @@ export interface AIAgentApprovalApprovedApproverRbacCurrentEvidence {
   readonly parent: AIAgentApprovalApprovedApproverContextCurrentEvidence;
   readonly authorizationState: AuthorizationReadState;
   readonly permission: CompiledPermissionV1;
-}
-
-function isPositiveSafeInteger(value: unknown): value is number {
-  return Number.isSafeInteger(value) && Number(value) > 0;
-}
-
-function equalStrings(left: readonly string[], right: readonly string[]): boolean {
-  return left.length === right.length
-    && left.every((value, index) => value === right[index]);
-}
-
-function matchesCurrentAuthorizationSnapshot(
-  requestContext: RequestContext,
-  authorizationState: AuthorizationReadState,
-): boolean {
-  const snapshot = authorizationState.permissionSnapshot;
-  if (snapshot.scopeClass !== requestContext.scopeClass) return false;
-
-  if (
-    requestContext.scopeClass !== "TENANT_CORE"
-    && requestContext.scopeClass !== "TENANT_INDUSTRY"
-  ) {
-    return false;
-  }
-
-  return isPositiveSafeInteger(requestContext.permissionVersion)
-    && requestContext.permissionVersion === snapshot.permissionVersion
-    && equalStrings(requestContext.roleIds, snapshot.roleIds);
 }
 
 /**
@@ -83,25 +56,12 @@ export async function loadAIAgentApprovalApprovedApproverRbacCurrentEvidence(
     permissionCode: requiredPermission,
   });
 
-  if (
-    !matchesCurrentAuthorizationSnapshot(
-      parent.approverRequestContext,
-      authorizationState,
-    )
-  ) {
-    return null;
-  }
-
-  const matchingPermissions = authorizationState.permissionSnapshot.permissionSet.permissions
-    .filter((entry) => entry.code === requiredPermission);
-  const permission = matchingPermissions[0];
-  if (
-    matchingPermissions.length !== 1
-    || permission === undefined
-    || permission.effect !== "ALLOW"
-  ) {
-    return null;
-  }
+  const permission = selectAIAgentApprovalApproverRbacCurrentAllow(
+    parent.approverRequestContext,
+    authorizationState,
+    requiredPermission,
+  );
+  if (permission === null) return null;
 
   return Object.freeze({
     parent,

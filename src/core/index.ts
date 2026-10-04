@@ -160,6 +160,7 @@ export * from "./ai/agent-approval-visible-parent-current-evidence-reader.js";
 export * from "./ai/agent-approval-approved-approver-context-current-evidence-reader.js";
 export * from "./ai/agent-approval-approved-approver-rbac-current-evidence-reader.js";
 export * from "./ai/agent-approval-approved-approver-rbac-backlink-current-evidence-reader.js";
+export * from "./ai/agent-step-approved-approver-rbac-current-evidence-reader.js";
 export * from "./ai/agent-step-approved-approver-context-current-evidence-reader.js";
 export * from "./ai/agent-approval-approved-context-floors.js";
 export * from "./ai/tenant-config.js";
