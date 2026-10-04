@@ -1,7 +1,7 @@
 # WAVE-3 MANAGEMENT SYSTEM COMPLETION MATRIX
-**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-CONTEXT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `3df3bfdc3bb55eb6930463ec24ea71e34f647571` / tree `ee65d77e72d916b0f58d47330a1f8ba007d2ffed`
-> **Current audit gate (2026-10-03):** DD-428…DD-432 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-RBAC-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `95dfef25f9652ba042b52ca9ac7491b087abfe7d` / tree `3e42dbd743e44b9a6f1573a47b91320dbac7e7ba`
+> **Current audit gate (2026-10-04):** DD-433…DD-437 AgentApproval persisted-APPROVED + trusted approver-context + current RBAC necessary-evidence composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** HISTORICAL STRUCTURAL MATRIX — FABLE 5 DETERMINISM RECERTIFICATION REQUIRED
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.

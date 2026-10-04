@@ -5247,3 +5247,51 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_CONTEXT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AIAPP-APPCTXREAD-BOUND-001`.
+
+## DD-433 — reuse exact DD-432 approval + trusted approver-context evidence first
+
+**Context:** DD-432 already owns persisted APPROVED evidence matched to one explicitly supplied already-trusted current approver RequestContext.
+
+**Decision:** Add `loadAIAgentApprovalApprovedApproverRbacCurrentEvidence(...)`. Invoke DD-432 first with the exact supplied acting RequestContext, AgentApproval id and trusted approver RequestContext. Parent null returns null before Authorization access; parent dependency errors propagate unchanged.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-RBACREAD-BASE-001…002`.
+
+## DD-434 — read exact current Authorization state by persisted requiredPermission
+
+**Context:** `AuthorizationReadStorePort.load` is the source-owned boundary for current compiled permission snapshot plus applicable ACTIVE ABAC evidence.
+
+**Decision:** Call it exactly once with `requestContext === parent.approverRequestContext` and `permissionCode === parent.parent.approval.requiredPermission`. Do not trim, normalize, alias, substitute ToolDefinition/OperationContract permissions or perform fallback searches. Dependency/state errors propagate unchanged.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-RBACREAD-READ-001…002`.
+
+## DD-435 — require current compiled snapshot continuity
+
+**Context:** DD-045 owns the Authorization current-context floor.
+
+**Decision:** Require the returned snapshot scope to equal the trusted approver RequestContext scope. For Tenant scopes require a positive safe-integer permissionVersion equal to the snapshot version and exact ordered roleIds parity. Do not strengthen membership, entitlement, device, session or policy facts beyond the already-trusted context/read store.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-RBACREAD-CUR-001…002`.
+
+## DD-436 — require exact RBAC ALLOW as a necessary floor only
+
+**Context:** Permission Set v1 owns exact canonical `{code,effect: ALLOW|DENY}` entries; RBAC missing/DENY is final while ABAC may still narrow ALLOW.
+
+**Decision:** Require exactly one current permission entry whose code equals persisted AgentApproval.requiredPermission and whose effect is ALLOW. Missing, DENY or non-unique exact evidence returns null. Preserve applicable ABAC policies as uninterpreted raw evidence.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-RBACREAD-PERM-001`.
+
+## DD-437 — immutable layered evidence without full authorization or approval authority
+
+**Decision:** Success returns frozen `{ parent, authorizationState, permission }`, preserving exact DD-432 parent, Authorization state and matched permission references. Do not call AuthorizationDecisionService, invent OperationContract/resource facts, evaluate ABAC/commercial state, claim approval satisfaction, transition AgentRun, dispatch tools or invoke provider/model/AI execution.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-RBACREAD-EVID-001, AIAPP-RBACREAD-BOUND-001`.

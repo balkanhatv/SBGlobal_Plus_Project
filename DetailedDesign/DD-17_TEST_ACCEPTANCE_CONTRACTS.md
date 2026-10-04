@@ -5687,3 +5687,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIAPP-APPCTXREAD-BOUND-001 — No required-permission, approval-satisfaction or execution authority
 **Owner:** DD-432. Output exposes no requiredPermission decision, approval-satisfied/current authorization result, GuardPipeline/commercial result, AgentRun resume/cancel, dispatch, mutation/event, provider/model routing or AI/tool execution authority.
+
+## DD-433 Exact DD-432 Parent Evidence First Acceptance
+
+### AIAPP-RBACREAD-BASE-001 — Exact DD-432 chain first
+**Owner:** DD-433. Exact supplied acting RequestContext, AgentApproval id and explicit trusted approver RequestContext enter DD-432 unchanged before any Authorization read.
+
+### AIAPP-RBACREAD-BASE-002 — Parent absence and errors precede Authorization
+**Owner:** DD-433. DD-432 null short-circuits before Authorization read access and DD-432 dependency errors propagate unchanged.
+
+## DD-434 Exact Current Authorization Read Acceptance
+
+### AIAPP-RBACREAD-READ-001 — One exact requiredPermission read
+**Owner:** DD-434. Exactly one Authorization read uses the exact trusted approver RequestContext and the persisted AgentApproval.requiredPermission without trim, alias, substitution or fallback.
+
+### AIAPP-RBACREAD-READ-002 — Authorization dependency errors preserve identity
+**Owner:** DD-434. Authorization read dependency/state errors propagate unchanged and no permission, OperationContract or alternate-context fallback is attempted.
+
+## DD-435 Current Compiled Snapshot Continuity Acceptance
+
+### AIAPP-RBACREAD-CUR-001 — Exact Tenant scope/version/ordered-role parity
+**Owner:** DD-435. Exact TENANT_CORE or TENANT_INDUSTRY scope plus positive safe-integer permissionVersion equality and exact ordered roleIds parity passes.
+
+### AIAPP-RBACREAD-CUR-002 — Stale or mismatched current snapshot fails closed
+**Owner:** DD-435. Scope mismatch, missing/stale/invalid permissionVersion or ordered role-set mismatch returns null.
+
+## DD-436 Exact RBAC ALLOW Necessary Floor Acceptance
+
+### AIAPP-RBACREAD-PERM-001 — Exact canonical ALLOW only
+**Owner:** DD-436. Exactly one current Permission Set v1 entry whose code equals persisted AgentApproval.requiredPermission and whose effect is ALLOW passes; missing, DENY or non-unique exact evidence fails closed.
+
+## DD-437 Immutable Layered RBAC Evidence and Authority Boundary Acceptance
+
+### AIAPP-RBACREAD-EVID-001 — Preserve exact parent/state/permission references
+**Owner:** DD-437. Success returns a frozen envelope preserving the exact DD-432 parent, exact Authorization read state, exact matched permission entry and raw applicable ABAC policy evidence references without mutation or evaluation.
+
+### AIAPP-RBACREAD-BOUND-001 — Necessary RBAC evidence is not full authorization
+**Owner:** DD-437. Output exposes no full AuthorizationDecision, ABAC/commercial/resource/approval-satisfied result, GuardPipeline result, AgentRun transition, dispatch, mutation, provider/model routing or AI/tool execution authority.
