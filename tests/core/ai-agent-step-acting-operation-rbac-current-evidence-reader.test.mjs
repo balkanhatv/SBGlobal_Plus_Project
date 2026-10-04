@@ -202,7 +202,8 @@ function fixture(overrides={}) {
     }},
   };
   const registry=new OperationRegistry(); registry.register(values.operation);
-  return {order,authorizationCalls,values,readers,registry,acting,approverCtx};
+  const registeredOperation=registry.get(operationId);
+  return {order,authorizationCalls,values,readers,registry,registeredOperation,acting,approverCtx};
 }
 async function load(f,inputOverrides={}) {
   return loadAIAgentStepActingOperationRbacCurrentEvidence(
@@ -302,7 +303,7 @@ test("AISTEP-OPRBAC-EVID-001 TOOL success preserves exact parent operation state
   assert.equal(result.operationAuthorizationState.policies,operationState.policies);
   assert.equal(result.operationPermission,operationState.permissionSnapshot.permissionSet.permissions[0]);
   assert.equal(result.parent.actingAuthorizationState,f.values.toolState);
-  assert.equal(result.parent.parent.parent.parent.parent.operationContract,f.values.operation);
+  assert.equal(result.parent.parent.parent.parent.parent.operationContract,f.registeredOperation);
   assert.equal(result.parent.parent.parent.parent.capability,f.values.capability);
   assert.equal(JSON.stringify([
     f.values.step,f.values.toolDefinition,f.values.operation,f.values.approval,
