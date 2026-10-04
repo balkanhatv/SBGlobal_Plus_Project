@@ -48,3 +48,9 @@ Canonical promotion HEAD `f4befcbd36cd7ebaf9c223c425b41d8b5bcf7269` / tree `ed92
 - Web run `37176423766` / job `111359862771`: PASS.
 
 Pull-request Core/Database/Web workflows on the same promotion HEAD also passed. This state-closure commit must independently pass the same four gates before DD-438…DD-442 is closed and another source audit may open.
+
+## State closure verified — 2026-10-04
+
+State-closure correction HEAD `01be53486e4b2c58385e6e7f19871801862a4c34` / tree `3ab77461e031552b0ef09de31f0aba65e62157dd` passed exact-head push gates after the forward-only projection repair: Core run `37176963787` / job `111361487499` **1251/1251 PASS**; PostgreSQL job `111361487279` **532/532 PASS**, fail/skip 0 plus full bootstrap PASS; Database run `37176963780` / job `111361487327` PASS with **48 migrations / 42 SQL verification files**; Web run `37176963764` / job `111361487587` PASS.
+
+The preceding state-closure commit `b2cad287ea67754937dec58a533ca19fa473bd10` exposed only stale top-level active audit-basis projections (REPO-007/REPO-009). `01be53486e4b2c58385e6e7f19871801862a4c34` corrected those projection headers forward-only. DD-438…DD-442 is closed at its bounded evidence scope; source-owned forward development may resume.
