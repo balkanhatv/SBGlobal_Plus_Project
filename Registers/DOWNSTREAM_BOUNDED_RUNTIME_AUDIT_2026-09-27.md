@@ -234,3 +234,9 @@ Canonical promotion basis `63c90c4f896330e6d609295977028259cf343f53` / tree `782
 Corrected implementation basis `ff2aaba886bc1ba2237ffcc7691099cda01d5fb7` / tree `26e5305cb12ce4e50782ba30f71e77091a898733` passed Core **1269/1269**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch extends exact DD-447 evidence only for acting-principal TOOL current-RBAC necessary evidence: non-TOOL paths perform zero new acting Authorization reads; TOOL paths use exact preserved ToolDefinition.requiredPermission under the unchanged acting RequestContext and the shared protected-Tenant exact-one-ALLOW floor.
 
 AgentApproval.requiredPermission, OperationContract.permissionCode, capability metadata and applicable ABAC remain raw/separate. No permission compatibility, full AuthorizationDecision, approval satisfaction, resource/commercial/entitlement admission, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority is added.
+
+## DD-448…DD-452 canonical promotion evidence — 2026-10-04
+
+Canonical promotion basis `2cf2cca23f3d71d0966751c60674965c5ceb93f5` / tree `cfa891011dd0bb562281c1ca58419c74342d5acc` passed exact-head Core **1269/1269**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains `ff2aaba886bc1ba2237ffcc7691099cda01d5fb7`. The bounded result remains acting-principal TOOL current compiled-RBAC necessary evidence over exact DD-447 parent evidence; non-TOOL paths perform zero new acting Authorization reads.
+
+AgentApproval.requiredPermission, OperationContract.permissionCode, capability and ABAC evidence remain raw/separate. No permission compatibility, full AuthorizationDecision, approval satisfaction, resource/commercial/entitlement admission, transition, dispatch, mutation/event or AI/tool execution authority is created.

@@ -35,3 +35,15 @@ No full AuthorizationDecision, resource/commercial/entitlement admission, approv
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-448…DD-452 can be closed. Production readiness is not claimed.
+
+## Canonical promotion verified; state closure staged — 2026-10-04
+
+Canonical promotion HEAD `2cf2cca23f3d71d0966751c60674965c5ceb93f5` / tree `cfa891011dd0bb562281c1ca58419c74342d5acc` passed exact-head push gates:
+- Core run `37183182320` / job `111379678651`: **1269/1269 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111379678531`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37183182346` / job `111379678453`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37183182355` / job `111379678366`: PASS.
+
+Pull-request Core/Database/Web workflows on the same promotion HEAD also passed or are redundant to the push evidence. Feature evidence remains anchored to corrected implementation `ff2aaba886bc1ba2237ffcc7691099cda01d5fb7` / tree `26e5305cb12ce4e50782ba30f71e77091a898733`.
+
+This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-448…DD-452 is closed and another source audit may open.

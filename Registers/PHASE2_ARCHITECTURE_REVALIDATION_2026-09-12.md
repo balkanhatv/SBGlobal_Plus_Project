@@ -1,7 +1,7 @@
 # PHASE 2 — Foundation → Architecture/ADR Fresh Revalidation
 **Current checkpoint:** `DEV-AI-AGENT-STEP-ACTING-TOOL-RBAC-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `ff2aaba886bc1ba2237ffcc7691099cda01d5fb7` / tree `26e5305cb12ce4e50782ba30f71e77091a898733`
-> **Current audit gate (2026-10-04):** DD-448…DD-452 AgentStep acting-principal TOOL current-RBAC necessary evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `2cf2cca23f3d71d0966751c60674965c5ceb93f5` / tree `cfa891011dd0bb562281c1ca58419c74342d5acc`
+> **Current audit gate (2026-10-04):** DD-448…DD-452 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.
