@@ -5565,3 +5565,47 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AI_AGENT_STEP_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AISTEP-GUARD-BOUND-001`.
+
+## DD-468 — reuse exact DD-387 AutomationRun evidence first
+
+**Context:** DD-387 already preserves exact current AutomationRun → AutomationDefinition → optional WorkflowDefinition + optional canonical OperationContract registry evidence without authorization/execution authority.
+
+**Decision:** Add `loadAutomationRunResourceFreeGuardAuthorizationCurrentEvidence(...)`. Invoke DD-387 first with exact supplied RequestContext, AutomationRun id and unchanged dependencies. Parent null/errors preserve DD-387 behavior and occur before GuardPipeline access.
+
+**Source audit:** `Development/AUTOMATION_RUN_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-GUARD-BASE-001…002`.
+
+## DD-469 — only source-owned resource-free operation branch is eligible
+
+**Decision:** If DD-387 preserves no OperationContract, return frozen `{ parent }` with zero GuardPipeline calls. If the exact canonical OperationContract declares `resourceResolver`, also return frozen parent-only evidence with zero GuardPipeline calls. Never reinterpret AutomationRun.triggerRef, correlation/idempotency fields or automation/workflow JSON as resourceReference.
+
+**Source audit:** `Development/AUTOMATION_RUN_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-GUARD-BRANCH-001…002`.
+
+## DD-470 — authorize exact resource-free canonical operation once
+
+**Decision:** Only for an exact canonical OperationContract with `resourceResolver === undefined`, call the injected GuardPipeline-compatible authorization port once with exact supplied RequestContext + exact OperationContract and omit resourceReference. Denial/dependency/audit errors propagate unchanged.
+
+**Source audit:** `Development/AUTOMATION_RUN_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-GUARD-AUTH-001…002`.
+
+## DD-471 — preserve exact immutable GuardResult evidence
+
+**Decision:** Resource-free success returns frozen `{ parent, guardResult }`, preserving exact DD-387 parent and exact GuardResult identity including decisionId/restrictionSet. Do not clone, normalize or reinterpret nested evidence.
+
+**Source audit:** `Development/AUTOMATION_RUN_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-GUARD-EVID-001`.
+
+## DD-472 — GuardPipeline evidence does not authorize automation execution
+
+**Context:** Current source does not define AutomationRun.triggerRef as canonical resourceReference/input, nor own the downstream state-machine, approval, rate/idempotency, scheduler/worker and execution lifecycle needed for automation execution.
+
+**Decision:** Treat GuardResult as bounded generic protected-operation authorization evidence only for the exact resource-free OperationContract at call time. Do not interpret trigger/condition/action/state-machine JSON; claim transition/retry eligibility, approval satisfaction, rate/idempotency acquisition, scheduler/worker ownership, dispatch, domain mutation/event success or execution completion; or invoke OperationExecutor/DomainOperationRegistry.
+
+**Source audit:** `Development/AUTOMATION_RUN_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFA-RUN-GUARD-BOUND-001`.

@@ -5932,3 +5932,35 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AISTEP-GUARD-BOUND-001 — Generic Guard ALLOW is not complete AI execution admission
 **Owner:** DD-467. Output exposes no synthetic resourceReference, approval satisfaction, usage-limit/budget/quota satisfaction, dispatch, transition, mutation/event, provider/model routing, credential resolution or AI/tool execution authority.
+
+## DD-468 Exact DD-387 Parent / Resource-Free Branch Acceptance
+
+### WFA-RUN-GUARD-BASE-001 — Exact DD-387 parent first
+**Owner:** DD-468. Exact supplied RequestContext, AutomationRun id and unchanged read/registry dependencies establish DD-387 before GuardPipeline access.
+
+### WFA-RUN-GUARD-BASE-002 — Parent null/error precedes GuardPipeline
+**Owner:** DD-468. DD-387 null short-circuits and DD-387 dependency/registry errors propagate unchanged before any GuardPipeline call.
+
+### WFA-RUN-GUARD-BRANCH-001 — Missing operation remains parent-only
+**Owner:** DD-469. Absent canonical OperationContract returns frozen exact parent-only evidence with zero GuardPipeline calls.
+
+### WFA-RUN-GUARD-BRANCH-002 — Resource-resolved operation remains parent-only
+**Owner:** DD-469. Canonical OperationContract with resourceResolver returns frozen exact parent-only evidence with zero GuardPipeline calls and never derives resourceReference from AutomationRun fields.
+
+## DD-470 Exact Resource-Free GuardPipeline Authorization Acceptance
+
+### WFA-RUN-GUARD-AUTH-001 — One exact resource-free authorization call
+**Owner:** DD-470. Resource-free canonical OperationContract causes exactly one GuardPipeline-compatible authorization call using exact supplied RequestContext + exact OperationContract and omits resourceReference.
+
+### WFA-RUN-GUARD-AUTH-002 — Guard errors propagate unchanged
+**Owner:** DD-470. GuardPipeline denial/dependency/audit errors propagate unchanged with no retry, fallback or synthetic ALLOW.
+
+## DD-471 Immutable Guard Evidence Acceptance
+
+### WFA-RUN-GUARD-EVID-001 — Preserve exact parent and GuardResult
+**Owner:** DD-471. Success returns frozen exact DD-387 parent + exact GuardResult reference; nested AutomationRun/Definition/Workflow/Operation evidence and inputs remain unchanged.
+
+## DD-472 Automation Authority Boundary Acceptance
+
+### WFA-RUN-GUARD-BOUND-001 — Generic Guard evidence is not automation execution authority
+**Owner:** DD-472. Output exposes no trigger/condition/state-machine decision, transition/retry, idempotency/rate, approval, scheduler/worker, dispatch, mutation/event or execution-completion authority.
