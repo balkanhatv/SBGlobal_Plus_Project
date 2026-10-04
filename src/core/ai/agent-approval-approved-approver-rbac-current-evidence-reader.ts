@@ -94,13 +94,18 @@ export async function loadAIAgentApprovalApprovedApproverRbacCurrentEvidence(
 
   const matchingPermissions = authorizationState.permissionSnapshot.permissionSet.permissions
     .filter((entry) => entry.code === requiredPermission);
-  if (matchingPermissions.length !== 1 || matchingPermissions[0].effect !== "ALLOW") {
+  const permission = matchingPermissions[0];
+  if (
+    matchingPermissions.length !== 1
+    || permission === undefined
+    || permission.effect !== "ALLOW"
+  ) {
     return null;
   }
 
   return Object.freeze({
     parent,
     authorizationState,
-    permission: matchingPermissions[0],
+    permission,
   });
 }
