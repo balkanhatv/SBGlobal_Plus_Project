@@ -7,7 +7,7 @@
 
 DD-453…DD-457 is the current governed backend-only AgentStep acting-principal OperationContract current-RBAC necessary-evidence composition. It reuses exact DD-452 evidence; non-TOOL branches perform zero new OperationContract-permission Authorization reads, while TOOL branches perform exactly one additional read for the preserved canonical OperationContract.permissionCode under the unchanged acting RequestContext.
 
-Verified exact-head implementation basis `8cf4cd88e584c05a21bbaff0b044ea2b18679414` / tree `0a8e1003ea79d37451a4dcabfeacec2df848fc9f`: **1278/1278 Core**, **532/532 PostgreSQL** plus full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests.
+Verified canonical promotion basis `c73107484c32596fcc39c230b02fbafc3d667ebc` / tree `bd25f767db966e3e2c47146fa8b795bf6fd750cb`: **1278/1278 Core**, **532/532 PostgreSQL** plus full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests.
 
 ToolDefinition.requiredPermission, OperationContract.permissionCode and AgentApproval.requiredPermission remain independently evidenced and are not equated. Applicable ABAC plus nested approval/capability/tool metadata remain raw evidence only. TOOL success adds only a necessary current compiled-RBAC ALLOW floor for canonical OperationContract.permissionCode; no full AuthorizationDecision, approval satisfaction, resource/commercial/entitlement admission, transition, dispatch, mutation/event, provider/model routing or AI/tool execution is introduced.
 
