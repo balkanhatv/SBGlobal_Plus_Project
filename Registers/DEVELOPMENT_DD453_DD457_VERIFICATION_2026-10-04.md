@@ -33,3 +33,14 @@ ToolDefinition.requiredPermission, OperationContract.permissionCode and AgentApp
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-453…DD-457 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-04
+
+Canonical promotion HEAD `c73107484c32596fcc39c230b02fbafc3d667ebc` / tree `bd25f767db966e3e2c47146fa8b795bf6fd750cb` passed exact-head push gates:
+- Core run `37197418642` / job `111422044495`: **1278/1278 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111422044814`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37197418625` / job `111422044427`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37197418640` / job `111422044593`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+This state-closure commit must independently pass the same four gates before DD-453…DD-457 is closed and another source audit may open.

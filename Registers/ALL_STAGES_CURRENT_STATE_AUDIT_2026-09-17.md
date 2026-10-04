@@ -1,7 +1,7 @@
 # ALL-STAGES CURRENT-STATE DEEP AUDIT — 2026-09-17
 **Current checkpoint:** `DEV-AI-AGENT-STEP-ACTING-OPERATION-RBAC-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `8cf4cd88e584c05a21bbaff0b044ea2b18679414` / tree `0a8e1003ea79d37451a4dcabfeacec2df848fc9f`
-> **Current audit gate (2026-10-04):** DD-453…DD-457 AgentStep acting-principal OperationContract current-RBAC necessary evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `c73107484c32596fcc39c230b02fbafc3d667ebc` / tree `bd25f767db966e3e2c47146fa8b795bf6fd750cb`
+> **Current audit gate (2026-10-04):** DD-453…DD-457 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as dated historical audit evidence. Its evaluated-era “current”, gate and next-action statements do not override the current project overlay above.
