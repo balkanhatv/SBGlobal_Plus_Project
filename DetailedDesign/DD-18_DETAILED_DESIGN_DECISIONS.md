@@ -5609,3 +5609,49 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AUTOMATION_RUN_RESOURCE_FREE_GUARD_AUTHORIZATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WFA-RUN-GUARD-BOUND-001`.
+
+## DD-473 — reuse exact DD-362 WorkflowTask→WorkflowInstance evidence first
+
+**Context:** DD-362 already owns current visible WorkflowTask→WorkflowInstance relationship evidence under the unchanged RequestContext.
+
+**Decision:** Add `loadWorkflowTaskActingRbacCurrentEvidence(...)`. Invoke DD-362 first with exact RequestContext/id/readers. Parent null/errors preserve DD-362 behavior and occur before Authorization access.
+
+**Source audit:** `Development/WORKFLOW_TASK_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-RBAC-BASE-001…002`.
+
+## DD-474 — read exact persisted WorkflowTask.permissionCode once
+
+**Decision:** After DD-362 evidence, call `AuthorizationReadStorePort.load` exactly once using the exact supplied RequestContext and `permissionCode === parent.task.permissionCode`. Do not trim, lowercase, canonicalize, alias, substitute or fall back. Raw/noncanonical/empty persisted strings are forwarded unchanged; Authorization-owned dependency/current-state behavior remains authoritative.
+
+**Source audit:** `Development/WORKFLOW_TASK_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-RBAC-READ-001…002`.
+
+## DD-475 — move the generic protected-Tenant RBAC selector to Authorization ownership
+
+**Context:** DD-450's mechanics are domain-generic and are now needed outside AI.
+
+**Decision:** Place the generic scope/version/ordered-role/exact-one-ALLOW selector under Authorization ownership. Keep `selectAICurrentTenantRbacAllow(...)` as a stable thin compatibility wrapper so DD-450/DD-452/DD-457 semantics/imports remain unchanged.
+
+**Source audit:** `Development/WORKFLOW_TASK_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-RBAC-CUR-001…002` plus all existing AI current-RBAC acceptance suites.
+
+## DD-476 — preserve exact immutable WorkflowTask RBAC evidence
+
+**Decision:** Success returns frozen `{ parent, authorizationState, permission }`, retaining exact DD-362 parent, exact AuthorizationReadState, exact matched permission and raw ABAC references. Do not clone, normalize or mutate evidence.
+
+**Source audit:** `Development/WORKFLOW_TASK_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-RBAC-EVID-001`.
+
+## DD-477 — WorkflowTask RBAC evidence does not authorize task/workflow execution
+
+**Context:** WorkflowTask assignment/current claimant/completer, due/expiry, task actions and Workflow transition/state-machine execution remain separately governed. WorkflowTask has no canonical OperationContract binding.
+
+**Decision:** Treat the RBAC ALLOW only as necessary current permission evidence. Do not resolve assignees, decide task actions, evaluate ABAC/commercial/resource facts, claim full AuthorizationDecision/GuardPipeline authorization, transition Workflow state, mutate/emit, dispatch workers or execute workflow actions.
+
+**Source audit:** `Development/WORKFLOW_TASK_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-RBAC-BOUND-001`.

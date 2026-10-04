@@ -290,3 +290,9 @@ The bounded result reuses exact DD-387 AutomationRun evidence. Missing operation
 Canonical promotion basis `89cb17995827caf1739657b55501725018993bf0` / tree `d1cb19329689666153c0172a84b238f91e33d36c` passed exact-head Core **1302/1302**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `19bd9d77558eaa7db6e09a3d826664a4e4df5370`.
 
 The bounded result remains AutomationRun resource-free generic GuardPipeline authorization evidence only. Missing/resource-resolved operations remain parent-only, while resource-free exact canonical operations preserve the exact GuardResult. Automation trigger/state-machine and execution lifecycle remain separately governed.
+
+## DD-473…DD-477 exact-head implementation evidence — 2026-10-04
+
+Implementation basis `3e3f18723e6caec609077f618b447e9df9ba23a3` / tree `362ec8fcf7b1906b3cff88ac3ae15ec4240f300d` passed Core **1310/1310**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch reuses exact DD-362 WorkflowTask→WorkflowInstance evidence and performs one exact current Authorization read for persisted WorkflowTask.permissionCode under the unchanged acting RequestContext. The generic protected-Tenant RBAC selector mechanics now live under Authorization ownership; the existing AI wrapper remains stable.
+
+Applicable ABAC and task/instance assignment/state/lifecycle fields remain raw. The result is necessary current RBAC evidence only—not assignee/current claimant/completer validation, due/expiry/action authority, full AuthorizationDecision/GuardPipeline, transition, mutation/event, worker dispatch or workflow execution.

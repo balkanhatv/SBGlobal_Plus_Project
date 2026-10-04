@@ -5964,3 +5964,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WFA-RUN-GUARD-BOUND-001 — Generic Guard evidence is not automation execution authority
 **Owner:** DD-472. Output exposes no trigger/condition/state-machine decision, transition/retry, idempotency/rate, approval, scheduler/worker, dispatch, mutation/event or execution-completion authority.
+
+## DD-473 Exact DD-362 Parent Acceptance
+
+### WFT-RBAC-BASE-001 — Exact WorkflowTask parent first
+**Owner:** DD-473. Exact RequestContext and WorkflowTask id establish DD-362 WorkflowTask→WorkflowInstance evidence before Authorization access.
+
+### WFT-RBAC-BASE-002 — Parent null/error precedes Authorization
+**Owner:** DD-473. DD-362 null short-circuits and DD-362 dependency errors propagate unchanged before any Authorization read.
+
+## DD-474 Exact Persisted Task Permission Read Acceptance
+
+### WFT-RBAC-READ-001 — One exact raw permissionCode read
+**Owner:** DD-474. Exactly one Authorization read receives the identical RequestContext and exact persisted WorkflowTask.permissionCode with no trim, canonicalization, alias, substitution or fallback, including raw noncanonical/empty values.
+
+### WFT-RBAC-READ-002 — Authorization errors propagate unchanged
+**Owner:** DD-474. Authorization dependency/current-state errors propagate unchanged with no alternate permission lookup.
+
+## DD-475 Authorization-Owned Current RBAC Floor Acceptance
+
+### WFT-RBAC-CUR-001 — Exact protected Tenant snapshot plus one ALLOW
+**Owner:** DD-475. Exact Tenant scope, positive safe-integer permissionVersion, ordered roleIds parity and exactly one matching RBAC ALLOW passes and preserves the exact permission object.
+
+### WFT-RBAC-CUR-002 — Stale/missing/DENY/duplicate fails closed
+**Owner:** DD-475. Scope/version/role mismatch or missing, DENY or duplicate exact permission evidence returns null. Existing AI callers remain behaviorally unchanged through the stable wrapper over the Authorization-owned helper.
+
+## DD-476 Immutable WorkflowTask RBAC Evidence Acceptance
+
+### WFT-RBAC-EVID-001 — Preserve exact parent/state/permission/raw ABAC
+**Owner:** DD-476. Success preserves exact DD-362 parent, Authorization state, matched permission and raw applicable ABAC references in a frozen envelope without mutation.
+
+## DD-477 Authority Boundary Acceptance
+
+### WFT-RBAC-BOUND-001 — RBAC ALLOW is not task action or workflow execution authority
+**Owner:** DD-477. Output exposes no assignment/claimant/completer currentness, due/expiry, claim/approve/reject/complete, full AuthorizationDecision, GuardPipeline, transition, mutation/event, worker or execution authority.

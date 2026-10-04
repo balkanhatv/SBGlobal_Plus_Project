@@ -1660,3 +1660,5 @@ Add the source-owned same-context WorkflowTransition/WorkflowInstance evidence c
 
 
 - 2026-10-04 — DD-468…DD-472 canonical promotion `89cb17995827caf1739657b55501725018993bf0` / tree `d1cb19329689666153c0172a84b238f91e33d36c` exact-head verified: Core 1302/1302, PostgreSQL 532/532 + bootstrap, Database 48/42, Web PASS. State closure staged; feature evidence remains anchored to implementation `19bd9d77558eaa7db6e09a3d826664a4e4df5370`.
+
+- 2026-10-04 — DD-473…DD-477 implementation `3e3f18723e6caec609077f618b447e9df9ba23a3` / tree `362ec8fcf7b1906b3cff88ac3ae15ec4240f300d` exact-head verified: Core **1310/1310**, PostgreSQL **532/532** + bootstrap, Database **48/42**, Web PASS. Moved generic protected-Tenant RBAC selection mechanics to Authorization ownership while preserving the AI wrapper, and added exact WorkflowTask.permissionCode current-RBAC necessary evidence. Canonical promotion staged. No assignment/action/transition/full-authorization/GuardPipeline/schema/RLS/route/UI/RawSource or workflow execution authority added.
