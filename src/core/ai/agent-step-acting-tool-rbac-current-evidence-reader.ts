@@ -84,7 +84,7 @@ export async function loadAIAgentStepActingToolRbacCurrentEvidence(
   );
   if (parent === null) return null;
 
-  const stepEvidence = parent.parent.parent.parent.parent;
+  const stepEvidence = parent.parent.parent.parent.parent.parent;
   if (stepEvidence.step.stepType !== "TOOL") {
     return Object.freeze({ parent });
   }
