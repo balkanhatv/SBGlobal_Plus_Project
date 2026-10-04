@@ -1,57 +1,23 @@
 import type { RequestContext } from "../context/contracts.js";
 import type { AuthorizationReadState } from "../authorization/read-store.js";
 import type { CompiledPermissionV1 } from "../authorization/policy-grammar.js";
-
-function isPositiveSafeInteger(value: unknown): value is number {
-  return Number.isSafeInteger(value) && Number(value) > 0;
-}
-
-function equalStrings(left: readonly string[], right: readonly string[]): boolean {
-  return left.length === right.length
-    && left.every((value, index) => value === right[index]);
-}
+import { selectCurrentTenantRbacAllow } from "../authorization/current-tenant-rbac-current-allow.js";
 
 /**
- * DD-450 generic protected-Tenant current compiled RBAC necessary floor.
+ * DD-450 stable AI compatibility wrapper.
  *
- * This selects one exact canonical ALLOW entry only after current
- * scope/permissionVersion/ordered-role continuity. It does not evaluate ABAC,
- * commercial/entitlement/resource facts or create a full AuthorizationDecision.
+ * DD-475 moves the reusable mechanics to Authorization ownership so non-AI
+ * protected-Tenant callers can share the exact same floor without importing
+ * from the AI domain.
  */
 export function selectAICurrentTenantRbacAllow(
   requestContext: RequestContext,
   authorizationState: AuthorizationReadState,
   permissionCode: string,
 ): CompiledPermissionV1 | null {
-  const snapshot = authorizationState.permissionSnapshot;
-
-  if (snapshot.scopeClass !== requestContext.scopeClass) return null;
-  if (
-    requestContext.scopeClass !== "TENANT_CORE"
-    && requestContext.scopeClass !== "TENANT_INDUSTRY"
-  ) {
-    return null;
-  }
-
-  if (
-    !isPositiveSafeInteger(requestContext.permissionVersion)
-    || requestContext.permissionVersion !== snapshot.permissionVersion
-    || !equalStrings(requestContext.roleIds, snapshot.roleIds)
-  ) {
-    return null;
-  }
-
-  const matches = snapshot.permissionSet.permissions
-    .filter((entry) => entry.code === permissionCode);
-  const permission = matches[0];
-
-  if (
-    matches.length !== 1
-    || permission === undefined
-    || permission.effect !== "ALLOW"
-  ) {
-    return null;
-  }
-
-  return permission;
+  return selectCurrentTenantRbacAllow(
+    requestContext,
+    authorizationState,
+    permissionCode,
+  );
 }
