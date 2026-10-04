@@ -1,7 +1,7 @@
 # SOURCE REGISTRY — SBGlobal Plus
 **Current checkpoint:** `DEV-AI-AGENT-APPROVAL-APPROVED-APPROVER-RBAC-CURRENT-EVIDENCE-READER-001`
 **Current executable audit basis:** `95dfef25f9652ba042b52ca9ac7491b087abfe7d` / tree `3e42dbd743e44b9a6f1573a47b91320dbac7e7ba`
-**Status:** ACTIVE · **Updated:** 2026-10-03
+**Status:** ACTIVE · **Updated:** 2026-10-04
 
 > **Current audit gate (2026-10-04):** DD-433…DD-437 AgentApproval persisted-APPROVED + trusted approver-context + current RBAC necessary-evidence composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 
