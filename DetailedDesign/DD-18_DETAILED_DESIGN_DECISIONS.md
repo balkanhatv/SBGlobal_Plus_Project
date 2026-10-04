@@ -5385,3 +5385,49 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AI_AGENT_STEP_APPROVED_APPROVER_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AISTEP-RBACREAD-BOUND-001`.
+
+## DD-448 — reuse exact DD-447 evidence first and branch only on preserved TOOL evidence
+
+**Context:** DD-447 already owns step-centered approval/context current-RBAC evidence while preserving exact DD-402 ToolDefinition evidence.
+
+**Decision:** Add `loadAIAgentStepActingToolRbacCurrentEvidence(...)`. Invoke DD-447 first with exact supplied inputs/dependencies. Parent null/errors preserve DD-447 behavior. Non-TOOL evidence returns frozen parent-only evidence and performs zero new acting-principal Authorization reads.
+
+**Source audit:** `Development/AI_AGENT_STEP_ACTING_TOOL_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-ACTRBAC-BASE-001…002, AISTEP-ACTRBAC-BRANCH-001`.
+
+## DD-449 — read exact current acting-principal RBAC evidence for ToolDefinition.requiredPermission
+
+**Decision:** For preserved TOOL evidence, call `AuthorizationReadStorePort.load` exactly once with the exact input acting RequestContext and `permissionCode === toolDefinition.requiredPermission`. Do not trim, alias, search or substitute AgentApproval.requiredPermission or OperationContract.permissionCode.
+
+**Source audit:** `Development/AI_AGENT_STEP_ACTING_TOOL_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-ACTRBAC-READ-001…002`.
+
+## DD-450 — generic shared protected-Tenant current RBAC necessary floor
+
+**Context:** The current scope/version/ordered-role/exact-one-ALLOW mechanics are reusable for both approver and acting-principal necessary-evidence paths.
+
+**Decision:** Extract `selectAICurrentTenantRbacAllow(...)` as the generic pure floor and retain `selectAIAgentApprovalApproverRbacCurrentAllow(...)` as a thin approval-specific wrapper. Require protected Tenant scope parity, positive safe-integer permissionVersion equality, exact ordered roleIds parity and exactly one matching ALLOW. Missing/DENY/duplicate/stale evidence fails closed.
+
+**Source audit:** `Development/AI_AGENT_STEP_ACTING_TOOL_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-ACTRBAC-CUR-001…002` plus all existing DD-433…DD-447 acceptances.
+
+## DD-451 — preserve exact immutable acting-RBAC evidence
+
+**Decision:** Non-TOOL success returns frozen `{ parent }`. TOOL success returns frozen `{ parent, actingAuthorizationState, actingPermission }`, preserving exact object references and applicable ABAC policies raw without clone, normalization or mutation.
+
+**Source audit:** `Development/AI_AGENT_STEP_ACTING_TOOL_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-ACTRBAC-EVID-001`.
+
+## DD-452 — acting ToolDefinition RBAC evidence does not define compatibility, full access or execution authority
+
+**Context:** DD-408 leaves duplicated ToolDefinition↔OperationContract metadata compatibility source-undefined; DD-447 separately preserves approval permission evidence; AgentStep.inputRef remains opaque and does not supply canonical resource facts.
+
+**Decision:** Do not compare ToolDefinition.requiredPermission with OperationContract.permissionCode or AgentApproval.requiredPermission. Do not evaluate ABAC/resource/commercial/entitlement facts, claim approval satisfaction, call GuardPipeline/OperationExecutor, transition state, dispatch/mutate/emit, route providers/models or execute AI/tools.
+
+**Source audit:** `Development/AI_AGENT_STEP_ACTING_TOOL_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AISTEP-ACTRBAC-BOUND-001`.

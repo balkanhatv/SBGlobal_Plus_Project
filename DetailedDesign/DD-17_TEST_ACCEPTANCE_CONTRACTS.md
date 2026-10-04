@@ -5792,3 +5792,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AISTEP-RBACREAD-BOUND-001 — No compatibility, full authorization, approval satisfaction or execution authority
 **Owner:** DD-447. Output exposes no ToolDefinition↔OperationContract↔AgentApproval permission compatibility, full AuthorizationDecision, ABAC/commercial/resource/approval-satisfied result, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority.
+
+## DD-448 Exact DD-447 Parent / TOOL Branch Acceptance
+
+### AISTEP-ACTRBAC-BASE-001 — Exact DD-447 chain first
+**Owner:** DD-448. Exact supplied acting RequestContext, AgentStep id, optional trusted approver RequestContext and unchanged dependencies enter DD-447 before any new acting-principal Authorization read.
+
+### AISTEP-ACTRBAC-BASE-002 — Parent absence/errors precede acting Authorization
+**Owner:** DD-448. DD-447 null short-circuits and DD-447 dependency errors propagate unchanged before any new acting Authorization read.
+
+### AISTEP-ACTRBAC-BRANCH-001 — Non-TOOL means zero new acting Authorization reads
+**Owner:** DD-448. Non-TOOL evidence returns frozen exact parent-only evidence with zero new acting-principal Authorization reads.
+
+## DD-449 Exact Acting Tool Permission Read Acceptance
+
+### AISTEP-ACTRBAC-READ-001 — One exact acting-context ToolDefinition permission read
+**Owner:** DD-449. TOOL evidence performs exactly one Authorization read using the exact input acting RequestContext and the preserved ToolDefinition.requiredPermission.
+
+### AISTEP-ACTRBAC-READ-002 — No alternate permission fallback
+**Owner:** DD-449. Authorization dependency errors propagate unchanged; AgentApproval.requiredPermission and OperationContract.permissionCode are not substituted, normalized, searched or used as fallback.
+
+## DD-450 Generic Shared Tenant RBAC Floor Acceptance
+
+### AISTEP-ACTRBAC-CUR-001 — Exact current protected-Tenant snapshot plus one ALLOW
+**Owner:** DD-450. Exact protected Tenant scope, positive safe-integer permissionVersion, ordered roleIds parity and exactly one matching current Permission Set ALLOW passes and preserves the exact permission entry.
+
+### AISTEP-ACTRBAC-CUR-002 — Stale/missing/DENY/duplicate fails closed
+**Owner:** DD-450. Scope/version/role mismatch or missing, DENY or duplicate exact permission evidence returns null. The approval-specific DD-445 helper remains a thin wrapper over the same generic floor and all prior DD-437/DD-447 behavior remains green.
+
+## DD-451 Immutable Acting-RBAC Evidence Acceptance
+
+### AISTEP-ACTRBAC-EVID-001 — Preserve exact parent/state/permission/raw policy references
+**Owner:** DD-451. TOOL success returns frozen `{ parent, actingAuthorizationState, actingPermission }` preserving exact DD-447 parent, Authorization state, matched permission and raw ABAC references; non-TOOL preserves exact parent only.
+
+## DD-452 Authority / Compatibility Boundary Acceptance
+
+### AISTEP-ACTRBAC-BOUND-001 — Acting RBAC evidence is not full authorization or execution authority
+**Owner:** DD-452. Output exposes no ToolDefinition↔OperationContract↔AgentApproval permission compatibility, full AuthorizationDecision, ABAC/resource/commercial/entitlement/approval-satisfied result, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority.

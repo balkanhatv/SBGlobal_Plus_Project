@@ -1,7 +1,7 @@
 # DD-28 — FINAL NAMED-KPI COVERAGE MATRIX
-**Current checkpoint:** `DEV-AI-AGENT-STEP-APPROVED-APPROVER-RBAC-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `63c90c4f896330e6d609295977028259cf343f53` / tree `7829e0499c4e5ff77d4df4f0168fcab0ecb0dffb`
-> **Current audit gate (2026-10-04):** DD-443…DD-447 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-AGENT-STEP-ACTING-TOOL-RBAC-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `ff2aaba886bc1ba2237ffcc7691099cda01d5fb7` / tree `26e5305cb12ce4e50782ba30f71e77091a898733`
+> **Current audit gate (2026-10-04):** DD-448…DD-452 AgentStep acting-principal TOOL current-RBAC necessary evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-12 · **Historical status:** FINAL FABLE KPI REVALIDATION
 **Method:** independently extracted KPI/report metric names from all nine canonical industry/MS DD files and mapped each to stable DD-25 contract IDs. Composite labels map to each required underlying KPI rather than being accepted by fuzzy name alone.
 
