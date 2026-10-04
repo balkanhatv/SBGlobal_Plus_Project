@@ -29,3 +29,13 @@ GuardResult is generic protected-operation authorization evidence only. It does 
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-463…DD-467 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-04
+
+Canonical promotion HEAD `09cdc4285e3b6be1879f52b7c4acea9cf91f8eee` / tree `4499848ee913fda1d432f2a399adf0460c9c93d7` passed exact-head push gates:
+- Core run `37202605314` / job `111437177826`: **1294/1294 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111437177627`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37202605328` / job `111437177736`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37202605312` / job `111437177699`: PASS.
+
+This state-closure commit must independently pass the same four gates before DD-463…DD-467 is closed and another source audit may open.

@@ -270,3 +270,9 @@ The bounded result remains source-owned current Commercial necessary evidence fo
 Implementation basis `9149f9e076e5a16e60737127a6943239eca5d53f` / tree `82e47bc94d62d572d3a708794e043415bd040963` passed Core **1294/1294**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch reuses exact DD-462 evidence and calls the existing GuardPipeline-compatible authorization surface only for exact canonical OperationContracts with no resourceResolver. Missing operations and resource-resolved operations remain frozen parent-only evidence with zero GuardPipeline calls.
 
 The preserved GuardResult is generic protected-operation authorization evidence only. It does not prove approval satisfaction, DD-04 usage-limit reservation/consumption, AI budget/quota, provider/model routing, credential availability, dispatch, transition, mutation/event success, output guardrails or AI/tool execution completion.
+
+## DD-463…DD-467 canonical promotion evidence — 2026-10-04
+
+Canonical promotion basis `09cdc4285e3b6be1879f52b7c4acea9cf91f8eee` / tree `4499848ee913fda1d432f2a399adf0460c9c93d7` passed exact-head Core **1294/1294**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation HEAD `9149f9e076e5a16e60737127a6943239eca5d53f`.
+
+The preserved GuardResult remains generic protected-operation authorization evidence only for exact resource-free canonical operations. Resource-resolved operations remain un-authorized at this composition boundary because no source-owned resourceReference mapping exists.

@@ -1,7 +1,7 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
 **Current checkpoint:** `DEV-AI-AGENT-STEP-RESOURCE-FREE-GUARD-AUTHORIZATION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `9149f9e076e5a16e60737127a6943239eca5d53f` / tree `82e47bc94d62d572d3a708794e043415bd040963`
-> **Current audit gate (2026-10-04):** DD-463…DD-467 resource-free GuardPipeline authorization evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `09cdc4285e3b6be1879f52b7c4acea9cf91f8eee` / tree `4499848ee913fda1d432f2a399adf0460c9c93d7`
+> **Current audit gate (2026-10-04):** DD-463…DD-467 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 
