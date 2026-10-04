@@ -5724,3 +5724,34 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIAPP-RBACREAD-BOUND-001 — Necessary RBAC evidence is not full authorization
 **Owner:** DD-437. Output exposes no full AuthorizationDecision, ABAC/commercial/resource/approval-satisfied result, GuardPipeline result, AgentRun transition, dispatch, mutation, provider/model routing or AI/tool execution authority.
+
+## DD-438 Exact DD-437 Parent Evidence First Acceptance
+
+### AIAPP-RBACBACK-BASE-001 — Exact DD-437 chain first
+**Owner:** DD-438. Exact supplied acting RequestContext, AgentApproval id, trusted approver RequestContext and reader dependencies enter DD-437 unchanged before reciprocal-backlink evaluation.
+
+### AIAPP-RBACBACK-BASE-002 — Parent absence and errors precede backlink evaluation
+**Owner:** DD-438. DD-437 null short-circuits and DD-437 dependency errors propagate unchanged before reciprocal-backlink evaluation.
+
+## DD-439 Exact Reciprocal Backlink Acceptance
+
+### AIAPP-RBACBACK-BACK-001 — Exact bound backlink passes
+**Owner:** DD-439. Valid Tenant-Core and Tenant-Industry evidence passes only when the already-loaded AgentStep approvalId exactly equals the already-loaded AgentApproval id and the persisted same-run/same-step relationship remains exact.
+
+### AIAPP-RBACBACK-BACK-002 — Missing, mismatched or malformed backlink fails closed
+**Owner:** DD-439. Unbound step, wrong approval id, wrong run/step backlink or malformed relevant identifiers returns null.
+
+## DD-440 No Re-read / Alternate Resolution Acceptance
+
+### AIAPP-RBACBACK-BACK-003 — Exact already-loaded references only
+**Owner:** DD-440. Backlink evaluation uses only the already-loaded exact AgentApproval and AgentStep references from DD-437; no additional reader/search/fallback occurs and unrelated evidence remains uninterpreted.
+
+## DD-441 Immutable Layered Evidence Acceptance
+
+### AIAPP-RBACBACK-EVID-001 — Preserve exact DD-437 reference
+**Owner:** DD-441. Success returns frozen `{ parent }`, preserving the exact DD-437 evidence reference and leaving all nested context/authorization/permission/ABAC/approval/run/step evidence unchanged.
+
+## DD-442 Authority Boundary Acceptance
+
+### AIAPP-RBACBACK-BOUND-001 — Reciprocal backlink evidence is not execution authority
+**Owner:** DD-442. Output exposes no full authorization, ABAC/commercial/resource/approval-satisfied result, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority.

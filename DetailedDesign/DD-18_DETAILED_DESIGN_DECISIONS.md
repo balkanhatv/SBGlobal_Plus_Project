@@ -5295,3 +5295,47 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AIAPP-RBACREAD-EVID-001, AIAPP-RBACREAD-BOUND-001`.
+
+## DD-438 — reuse exact DD-437 approval/RBAC evidence first
+
+**Context:** DD-437 owns persisted APPROVED + explicit trusted approver-context + current compiled RBAC ALLOW necessary evidence.
+
+**Decision:** Add `loadAIAgentApprovalApprovedApproverRbacBacklinkCurrentEvidence(...)`. Invoke DD-437 first with the exact supplied acting RequestContext, AgentApproval id, trusted approver RequestContext and unchanged reader dependencies. Parent null returns null; dependency errors propagate unchanged.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_BACKLINK_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-RBACBACK-BASE-001…002`.
+
+## DD-439 — require exact DD-183 reciprocal persisted backlink
+
+**Context:** DD-183 owns the pure optional AgentStep→AgentApproval persisted backlink floor.
+
+**Decision:** Apply `matchesAIAgentStepApprovalBacklinkFloors(parent.parent.parent.step, parent.parent.parent.approval)` to the exact already-loaded references. Because approval evidence is necessarily present, an unbound step, wrong approval id, wrong run/step relation or malformed relevant identifier fails closed.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_BACKLINK_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-RBACBACK-BACK-001…002`.
+
+## DD-440 — perform zero additional relationship reads
+
+**Decision:** Do not re-read AgentApproval, AgentRun, AgentStep, Authorization or policy state; do not search/list by alternate ids, synthesize reciprocal links, follow step.approvalId into another approval or fall back to another RequestContext/scope.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_BACKLINK_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-RBACBACK-BACK-003`.
+
+## DD-441 — preserve exact layered evidence by reference
+
+**Decision:** Success returns frozen `{ parent }` and preserves the exact DD-437 parent reference. Do not clone, normalize or mutate nested context, authorization, permission, ABAC, approval, run or step evidence.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_BACKLINK_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-RBACBACK-EVID-001`.
+
+## DD-442 — reciprocal backlink remains a necessary evidence floor only
+
+**Decision:** Success proves only DD-437 necessary RBAC evidence plus exact reciprocal persisted step↔approval binding. Do not call AuthorizationDecisionService/GuardPipeline, evaluate ABAC/commercial/resource facts, claim approval satisfaction, transition state, dispatch operations/tools, mutate/emit, route providers/models or execute AI/tools.
+
+**Source audit:** `Development/AI_AGENT_APPROVAL_APPROVED_APPROVER_RBAC_BACKLINK_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIAPP-RBACBACK-BOUND-001`.
