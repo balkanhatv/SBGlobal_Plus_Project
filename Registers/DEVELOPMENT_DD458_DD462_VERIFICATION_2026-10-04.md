@@ -36,3 +36,13 @@ Canonical promotion HEAD `ee77a43e1537f4cea6572127a476d60da1ea90b9` / tree `7ab3
 - Web run `37200511407` / job `111431062588`: PASS.
 
 Pull-request Core/Database/Web workflows on the same promotion HEAD also passed. This state-closure commit must independently pass the same four gates before DD-458…DD-462 is closed and another source audit may open.
+
+## State closure verified — 2026-10-04
+
+State-closure HEAD `01ab894328b91b8c0ceefc071bca4533ae3ec00c` / tree `53e8e42a42ba796950b28c752d7bf37701d020a5` passed exact-head push gates:
+- Core run `37201381501` / job `111433611132`: **1286/1286 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111433611003`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37201381528` / job `111433611326`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37201381505` / job `111433612134`: PASS.
+
+DD-458…DD-462 is closed at its bounded evidence scope. Forward development may resume only through a new source audit. Commercial ALLOW remains necessary evidence only; usage limits, full authorization, approval satisfaction, resource admission, transition, dispatch and AI/tool execution remain separately governed.
