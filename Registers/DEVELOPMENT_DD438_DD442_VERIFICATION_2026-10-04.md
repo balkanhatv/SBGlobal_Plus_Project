@@ -38,3 +38,13 @@ Verification-staging HEAD `5a07e13e8f542962c282cc0b7b852515c017181d` / tree `6b4
 - Web run `37175988883` / job `111358568710`: PASS.
 
 This provides one exact HEAD for corrected reader/tests/export plus all four gates. Canonical DD-438…DD-442 promotion may proceed. The implementation remains bounded to DD-437 + DD-183 reciprocal backlink evidence and does not add full authorization, approval satisfaction, state transition, dispatch or AI/tool execution authority.
+
+## Canonical promotion verified; state closure staged — 2026-10-04
+
+Canonical promotion HEAD `f4befcbd36cd7ebaf9c223c425b41d8b5bcf7269` / tree `ed92b956a3322367f2b61ef3400f6925eeef7a95` passed exact-head push gates:
+- Core run `37176423778` / job `111359862856`: **1251/1251 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111359862883`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37176423767` / job `111359862637`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37176423766` / job `111359862771`: PASS.
+
+Pull-request Core/Database/Web workflows on the same promotion HEAD also passed. This state-closure commit must independently pass the same four gates before DD-438…DD-442 is closed and another source audit may open.
