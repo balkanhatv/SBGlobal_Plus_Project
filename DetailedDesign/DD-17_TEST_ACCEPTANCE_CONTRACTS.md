@@ -5829,3 +5829,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AISTEP-ACTRBAC-BOUND-001 — Acting RBAC evidence is not full authorization or execution authority
 **Owner:** DD-452. Output exposes no ToolDefinition↔OperationContract↔AgentApproval permission compatibility, full AuthorizationDecision, ABAC/resource/commercial/entitlement/approval-satisfied result, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority.
+
+## DD-453 Exact DD-452 Parent / Operation Branch Acceptance
+
+### AISTEP-OPRBAC-BASE-001 — Exact DD-452 chain first
+**Owner:** DD-453. Exact supplied inputs and dependencies establish DD-452 before any new OperationContract-permission Authorization read.
+
+### AISTEP-OPRBAC-BASE-002 — Parent absence/errors precede operation permission access
+**Owner:** DD-453. DD-452 null short-circuits and DD-452 dependency errors propagate unchanged before any new OperationContract-permission read.
+
+### AISTEP-OPRBAC-BRANCH-001 — Non-TOOL means zero new operation permission reads
+**Owner:** DD-453. Non-TOOL evidence returns frozen exact parent-only evidence and performs zero new OperationContract-permission Authorization reads.
+
+## DD-454 Exact Acting OperationContract Permission Read Acceptance
+
+### AISTEP-OPRBAC-READ-001 — One additional exact operation permission read
+**Owner:** DD-454. TOOL evidence performs exactly one additional Authorization read using the unchanged acting RequestContext and exact preserved canonical OperationContract.permissionCode.
+
+### AISTEP-OPRBAC-READ-002 — No alternate permission substitution/fallback
+**Owner:** DD-454. Operation Authorization errors propagate unchanged; ToolDefinition.requiredPermission and AgentApproval.requiredPermission are never substituted, normalized, searched or used as fallback.
+
+## DD-455 Shared Generic Current Tenant RBAC Floor Acceptance
+
+### AISTEP-OPRBAC-CUR-001 — Exact current snapshot plus one operation ALLOW
+**Owner:** DD-455. Exact protected Tenant scope, positive safe-integer permissionVersion, ordered roleIds parity and exactly one matching OperationContract permission ALLOW passes and preserves the exact permission reference.
+
+### AISTEP-OPRBAC-CUR-002 — Stale/missing/DENY/duplicate fails closed
+**Owner:** DD-455. Scope/version/role mismatch or missing, DENY or duplicate exact OperationContract permission evidence returns null.
+
+## DD-456 Immutable Operation-RBAC Evidence Acceptance
+
+### AISTEP-OPRBAC-EVID-001 — Preserve exact parent/operation/state/permission/raw policy evidence
+**Owner:** DD-456. TOOL success returns frozen exact parent plus exact canonical registry OperationContract, Authorization state, matched permission and raw applicable ABAC references without mutation; non-TOOL preserves exact parent only.
+
+## DD-457 Authority / Compatibility Boundary Acceptance
+
+### AISTEP-OPRBAC-BOUND-001 — Independent evidence is not compatibility/full authorization/execution authority
+**Owner:** DD-457. Output exposes no ToolDefinition↔OperationContract↔AgentApproval permission compatibility, full AuthorizationDecision, ABAC/resource/commercial/entitlement/approval-satisfied result, transition, dispatch, mutation/event, provider/model routing or AI/tool execution authority.
