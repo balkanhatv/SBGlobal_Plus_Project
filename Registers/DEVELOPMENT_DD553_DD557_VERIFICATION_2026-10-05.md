@@ -27,3 +27,13 @@ Expiry/status/media/size/temp-object/checksum facts remain raw. Current-principa
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-553…DD-557 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `68502f46dddc3aca95bc07a2f3cf33f730b604e7` / tree `71d2bcec6d054308fdbd8b299b4bb827714948a5` passed exact-head push gates:
+- Core run `37347557584` / job `111889876323`: **1444/1444 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111889876757`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37347557657` / job `111889877600`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37347557509` / job `111889876355`: PASS.
+
+The feature implementation evidence remains anchored to `8dd4212e5f1c878a562664fd227df6ff8c555f89` / tree `4ad1a7541db4537638ff7dbd1be1e2e0e4ee5471`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-553…DD-557 is closed and another source audit may open.
