@@ -5998,3 +5998,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WFT-RBAC-BOUND-001 — RBAC ALLOW is not task action or workflow execution authority
 **Owner:** DD-477. Output exposes no assignment/claimant/completer currentness, due/expiry, claim/approve/reject/complete, full AuthorizationDecision, GuardPipeline, transition, mutation/event, worker or execution authority.
+
+## DD-478 Exact DD-362 Parent Acceptance
+
+### WFT-DEFREAD-BASE-001 — Exact task/instance parent first
+**Owner:** DD-478. Exact RequestContext, WorkflowTask id and unchanged task/instance readers enter DD-362 first; definition access occurs only after successful parent evidence.
+
+### WFT-DEFREAD-BASE-002 — Parent null/error precedes definition access
+**Owner:** DD-478. DD-362 null short-circuits and dependency errors propagate unchanged before WorkflowDefinition access.
+
+## DD-479 Exact Same-Context Definition Read Acceptance
+
+### WFT-DEFREAD-DEF-001 — One exact persisted definition-id read
+**Owner:** DD-479. Exactly one WorkflowDefinition read receives the identical RequestContext and exact persisted parent.instance.workflowDefinitionId for Tenant-Core and Tenant-Industry evidence.
+
+### WFT-DEFREAD-DEF-002 — Hidden/missing/error preserves reader authority
+**Owner:** DD-479. Hidden/missing definition returns null and dependency errors propagate unchanged.
+
+## DD-480 Exact DD-173 Definition Binding Acceptance
+
+### WFT-DEFREAD-FLOOR-001 — Exact id/version/ACTIVE/applicability floor
+**Owner:** DD-480. DD-173 exact definition id, positive version equality, ACTIVE status and owner-scope applicability pass; mismatches fail closed.
+
+### WFT-DEFREAD-NOFALLBACK-001 — No PLATFORM_GLOBAL or alternate fallback
+**Owner:** DD-480. An RLS-hidden referenced definition remains null; no context switch, retry, code/version/date lookup or alternate id is attempted.
+
+## DD-481 Immutable Exact-Reference Evidence Acceptance
+
+### WFT-DEFREAD-EVID-001 — Preserve exact parent and definition references
+**Owner:** DD-481. Success returns a frozen envelope preserving the exact DD-362 parent and exact WorkflowDefinition reference without clone/normalization/mutation.
+
+## DD-482 Authority Boundary Acceptance
+
+### WFT-DEFREAD-BOUND-001 — No assignment/action/effective-date/transition/execution authority
+**Owner:** DD-482. Output exposes no assignee/claimant/completer currentness, due/expiry, task-action authority, definition selection/effective-date result, current-state validity, WorkflowTransition authority, mutation/event, worker dispatch or workflow execution authority.

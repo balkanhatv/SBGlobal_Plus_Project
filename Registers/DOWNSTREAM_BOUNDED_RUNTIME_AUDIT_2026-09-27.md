@@ -302,3 +302,9 @@ Applicable ABAC and task/instance assignment/state/lifecycle fields remain raw. 
 Canonical promotion basis `8b1c99e13a92c770f045b009196b78b4f61898b5` / tree `f8759ac3b89949495854abbaab11ca555c27433d` passed exact-head Core **1310/1310**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `3e3f18723e6caec609077f618b447e9df9ba23a3`.
 
 The bounded result remains WorkflowTask acting-principal current compiled-RBAC necessary evidence only. Applicable ABAC plus WorkflowTask/WorkflowInstance assignment/state/lifecycle evidence remain raw. No assignee/claimant/completer currentness, due/expiry/action authority, full AuthorizationDecision/GuardPipeline, WorkflowTransition, mutation/event, worker dispatch or workflow execution authority is created.
+
+## DD-478…DD-482 exact-head implementation evidence — 2026-10-05
+
+Implementation basis `d0a0422473aecd820c83860b96c33e28e5e27738` / tree `cbe5a22452b02812f99428d832ff6e7ddcf5e41f` passed exact-head Core **1318/1318**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch extends exact DD-362 WorkflowTask→WorkflowInstance evidence with one same-RequestContext read of the exact persisted WorkflowDefinition id and reapplies DD-173 id/version/ACTIVE/owner-scope applicability. It performs no second WorkflowInstance read and no PLATFORM_GLOBAL fallback.
+
+Task assignment/current claimant/completer, permissionCode, due/expiry/action semantics, WorkflowInstance currentState/lifecycle and WorkflowDefinition effective/date/stateMachine/approvalPolicy/ruleRefs remain raw/uninterpreted. No task-action, transition, mutation/event, worker dispatch or workflow execution authority is added.

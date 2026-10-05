@@ -5655,3 +5655,47 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/WORKFLOW_TASK_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WFT-RBAC-BOUND-001`.
+
+## DD-478 — reuse exact DD-362 WorkflowTask→WorkflowInstance evidence first
+
+**Context:** DD-362 already owns exact visible WorkflowTask→WorkflowInstance current-binding evidence under the unchanged supplied RequestContext.
+
+**Decision:** Add `loadWorkflowTaskDefinitionCurrentEvidence(...)`. Invoke DD-362 first with exact RequestContext/id/readers. Parent null/errors preserve DD-362 behavior and precede WorkflowDefinition access.
+
+**Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-DEFREAD-BASE-001…002`.
+
+## DD-479 — read only the exact persisted WorkflowDefinition under the same context
+
+**Decision:** After DD-362 evidence, call `WorkflowDefinitionReadPort.loadForContext` exactly once with the identical RequestContext and `workflowDefinitionId === parent.instance.workflowDefinitionId`. Do not look up by task fields, code/version/date or alternate ids. Hidden/missing definition returns null; dependency errors propagate unchanged.
+
+**Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-DEFREAD-DEF-001…002`.
+
+## DD-480 — re-apply DD-173 and preserve fail-closed visibility
+
+**Context:** DD-173 owns WorkflowInstance→WorkflowDefinition id/version/ACTIVE/scope applicability. DD-357 owns the same-context/no-PLATFORM_GLOBAL-fallback visibility boundary.
+
+**Decision:** Apply only `matchesWorkflowInstanceDefinitionBindingFloors(parent.instance, definition)`. False returns null. Do not add effective-date, creator, assignment, state-machine or task-action predicates and do not switch context or retry.
+
+**Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-DEFREAD-FLOOR-001, WFT-DEFREAD-NOFALLBACK-001`.
+
+## DD-481 — preserve exact task/instance/definition evidence
+
+**Decision:** Success returns frozen `{ parent, definition }`, preserving the exact DD-362 parent plus exact WorkflowDefinition reference. No clone, normalization or mutation.
+
+**Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-DEFREAD-EVID-001`.
+
+## DD-482 — visible current definition evidence is not task or workflow execution authority
+
+**Decision:** Preserve task assignment/claim/completion, permissionCode, due/expiry, instance currentState/lifecycle and definition effective/stateMachine/approvalPolicy/ruleRefs as raw evidence. Do not select another definition, authorize task actions or WorkflowTransition, mutate state, emit events, dispatch workers or execute workflow logic.
+
+**Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-DEFREAD-BOUND-001`.

@@ -1,7 +1,7 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
-**Current checkpoint:** `DEV-WORKFLOW-TASK-ACTING-RBAC-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `8b1c99e13a92c770f045b009196b78b4f61898b5` / tree `f8759ac3b89949495854abbaab11ca555c27433d`
-> **Current audit gate (2026-10-04):** DD-473…DD-477 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-WORKFLOW-TASK-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `d0a0422473aecd820c83860b96c33e28e5e27738` / tree `cbe5a22452b02812f99428d832ff6e7ddcf5e41f`
+> **Current audit gate (2026-10-05):** DD-478…DD-482 WorkflowTask visible current WorkflowDefinition evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 
