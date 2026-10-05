@@ -400,3 +400,9 @@ Current Tenant residency, cross-context endpoint ownership, payload-schema execu
 Canonical promotion basis `57d14a1f6bef67eb46091a8503f5fc3c09a3961f` / tree `0d8e1f19a2c0bbe47e0887d067d5db7d1c6cf175` passed exact-head Core **1379/1379**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains `585146252d7acfdeccffd1efdb92de9ff42981c6`.
 
 The bounded result remains persisted Outbox envelope/catalog coherence over exact DD-512 ordinary Webhook evidence only. Current residency, payload-schema execution, catalog lifecycle authorization, event-filter/endpoint/signing/retry/cross-context/network/dispatch/mutation authority remain separate.
+
+## DD-518…DD-522 corrected implementation evidence — 2026-10-05
+
+Corrected implementation basis `20721fa96b30321d4bb049033a5e46bd91a51541` / tree `6e3dcdd3799a37a5cf49af3cdcd908e7c926894a` passed Core **1387/1387**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web.
+
+The Webhook result proves current authoritative Tenant residency equality for exact already-DD-517-valid ordinary Tenant event-envelope evidence. Historical write-time residency and later Webhook delivery-policy/execution decisions remain separate.

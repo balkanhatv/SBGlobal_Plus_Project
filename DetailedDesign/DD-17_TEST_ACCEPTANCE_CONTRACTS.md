@@ -6285,3 +6285,42 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WH-EVTENV-BOUND-001 — No residency/payload/filter/endpoint/signing/retry/network authority
 **Owner:** DD-517. Output exposes no current-residency, payload-schema-valid, catalog-active, filter-match, endpoint-safe, signed, retryable, deliverable, cross-context, dispatch/network, secret, mutation or event authority.
+
+## DD-518 Exact DD-517 Parent Acceptance
+
+### WH-EVTRES-BASE-001 — Exact DD-517 chain first
+**Owner:** DD-518. Exact supplied RequestContext, WebhookDelivery id and existing DD-517 reader dependencies enter DD-517 unchanged; no residency read occurs before DD-517 success.
+
+### WH-EVTRES-BASE-002 — Parent absence/errors precede residency access
+**Owner:** DD-518. DD-517 null short-circuits and DD-517 dependency errors propagate unchanged without invoking current-residency access.
+
+## DD-519 Integration Current Tenant Residency Read Acceptance
+
+### WH-EVTRES-READ-001 — Exact preserved Tenant/context read
+**Owner:** DD-519. The exact preserved source-event Tenant id and exact supplied RequestContext are forwarded once to the Integration residency port.
+
+### WH-EVTRES-READ-002 — Null/error fail closed
+**Owner:** DD-519. RLS-hidden/absent residency evidence returns null and residency-reader errors propagate unchanged.
+
+### WH-EVTRES-PG-001…004 — Integration PostgreSQL residency isolation
+**Owner:** DD-519. Same-Tenant Industry/Core reads preserve exact current residency; sibling Industry shares Tenant evidence; foreign Tenant, malformed/mismatched context/id or database-route failure fails closed under existing Integration-service RLS.
+
+## DD-520 Shared Integration Current-Residency Floor Acceptance
+
+### WH-EVTRES-FLOOR-001 — Exact current Tenant/envelope residency equality passes
+**Owner:** DD-520. Already-valid ordinary TENANT_CORE/TENANT_INDUSTRY event/envelope evidence plus exact current Tenant id and residency-region equality passes.
+
+### WH-EVTRES-FLOOR-002 — Wrong Tenant/region/scope/envelope fails closed
+**Owner:** DD-520. Tenant mismatch, blank/wrong residency region, invalid scope or invalid persisted envelope evidence returns false/null. Historical Notification wrappers must remain semantically unchanged.
+
+## DD-521 Exact One-Read Webhook Residency Composition Acceptance
+
+**Owner:** DD-521. After exact DD-517 success, exactly one residency read uses the exact preserved event Tenant id and supplied RequestContext; no fallback Tenant/region source is consulted.
+
+## DD-522 Immutable Current-Residency Evidence / Authority Boundary Acceptance
+
+### WH-EVTRES-EVID-001 — Preserve exact parent/residency references
+**Owner:** DD-522. Success returns frozen exact DD-517 parent plus exact current-residency reference with inputs unchanged.
+
+### WH-EVTRES-BOUND-001 — No historical/payload/filter/endpoint/signing/retry/network authority
+**Owner:** DD-522. Output exposes no historical-residency certification, payload-schema/catalog-lifecycle decision, filter match, endpoint/SSRF/signing/secret authority, retry/DLQ/replay/finality, cross-context authorization, dispatch/network, GuardPipeline/Commercial, mutation or event authority.

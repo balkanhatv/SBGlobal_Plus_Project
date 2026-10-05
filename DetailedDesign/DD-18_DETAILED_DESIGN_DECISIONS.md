@@ -5983,3 +5983,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_ENVELOPE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WH-EVTENV-BOUND-001`.
+
+## DD-518 — reuse exact DD-517 Webhook event-envelope evidence first
+
+**Decision:** Add `loadWebhookDeliveryEventCurrentResidencyEvidence(...)`. Invoke DD-517 first with exact supplied RequestContext, delivery id and unchanged reader dependencies. Parent null returns null; dependency errors propagate unchanged. No residency read occurs before DD-517 success.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_CURRENT_RESIDENCY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTRES-BASE-001…002`.
+
+## DD-519 — add Integration-owned current Tenant residency read boundary
+
+**Decision:** Add immutable `IntegrationTenantResidencyEvidence`, `IntegrationTenantResidencyReadPort.loadCurrentForContext(...)`, and `PostgresIntegrationTenantResidencyStore` over existing `RequestScopedSql` / `PostgresIntegrationDatabase` / `sbg_integration_service_rw`. Require exact Tenant context/id continuity, one parameterized Tenant-row read, immutable non-empty residency evidence, RLS-hidden/absent null, and fail-closed malformed/mismatched/database errors. Add no role/grant/RLS policy.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_CURRENT_RESIDENCY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTRES-READ-001…002, WH-EVTRES-PG-001…004`.
+
+## DD-520 — share current-residency equality semantics under Integration ownership
+
+**Context:** Historical Notification DD-328…DD-332 already proved current authoritative Tenant residency equality but the semantics are reusable Integration/event facts.
+
+**Decision:** Add one shared pure floor requiring ordinary Tenant scope, valid event Tenant, exact residency Tenant equality, exact persisted envelope Tenant equality and exact persisted envelope residencyRegion/current residencyRegion equality. Refactor Notification wrapper/type surfaces to delegate without semantic widening. Preserve explicit persisted envelope evidence; do not synthesize it from current residency.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_CURRENT_RESIDENCY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTRES-FLOOR-001…002` plus unchanged historical Notification current-residency tests.
+
+## DD-521 — compose exactly one current-residency read after DD-517
+
+**Decision:** After exact DD-517 success, take exact `parent.parent.event.tenantId`; call the Integration residency port exactly once with that Tenant id and exact RequestContext; null returns null and errors propagate; apply only the DD-520 shared floor to exact event/envelope/current-residency references. Do not fall back to alternate Tenant or region sources.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_CURRENT_RESIDENCY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTRES-READ-001…002, WH-EVTRES-FLOOR-001…002`.
+
+## DD-522 — current authoritative residency evidence is not delivery authority
+
+**Decision:** Success returns frozen `{ parent, currentResidency }` preserving exact references. Do not claim historical write-time residency; do not execute payload schema or catalog lifecycle policy; do not evaluate filter, endpoint/SSRF, signing/secrets, retry/DLQ/replay/readiness/finality, EXPLICIT_CROSS_CONTEXT, dispatch/network, GuardPipeline/Commercial, mutation or event emission.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_CURRENT_RESIDENCY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTRES-EVID-001, WH-EVTRES-BOUND-001`.

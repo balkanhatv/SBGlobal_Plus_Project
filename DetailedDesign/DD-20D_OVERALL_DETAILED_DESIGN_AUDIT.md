@@ -1,7 +1,7 @@
 # DD-20D — OVERALL DETAILED DESIGN ADVERSARIAL AUDIT — PHASE 3
-**Current checkpoint:** `DEV-WEBHOOK-DELIVERY-EVENT-ENVELOPE-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `57d14a1f6bef67eb46091a8503f5fc3c09a3961f` / tree `0d8e1f19a2c0bbe47e0887d067d5db7d1c6cf175`
-> **Current audit gate (2026-10-05):** DD-513…DD-517 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-WEBHOOK-DELIVERY-EVENT-CURRENT-RESIDENCY-EVIDENCE-READER-001`
+**Current executable audit basis:** `20721fa96b30321d4bb049033a5e46bd91a51541` / tree `6e3dcdd3799a37a5cf49af3cdcd908e7c926894a`
+> **Current audit gate (2026-10-05):** DD-518…DD-522 corrected Webhook source-event current Tenant residency evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-3 DETAILED DESIGN EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 **Historical adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
 
