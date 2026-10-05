@@ -344,3 +344,9 @@ The evidence remains bounded to historical WorkflowTransition + current Workflow
 Corrected implementation basis `6272ba702b02fac02d42cff34dca864ff9325f87` / tree `7b547cd8245087b3611999ac7e779cb9aa4a7496` passed Core **1343/1343**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader materializes only the exact evidence required by existing DD-167 TenantIntegration integrity: visible TenantIntegration, same-context CredentialReference metadata, exact IntegrationDefinition and exact persisted enabled Capability sequence.
 
 Success remains necessary persisted-integrity evidence only. TenantIntegration lifecycle/health/profile, Credential secret/provider metadata, Definition provider/adapter/data-transfer metadata and Capability OperationContract/event/direction/rate/idempotency stay raw. No secret access, provider selection, sync/callback/network/GuardPipeline/dispatch/mutation authority is added.
+
+## DD-493…DD-497 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `4dfd13190e037e10ca42cd04838c4545b84fc68d` / tree `857662ecb823933e9e983a7098bb1d9840db57b2` passed exact-head Core **1343/1343**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation evidence remains anchored to `6272ba702b02fac02d42cff34dca864ff9325f87`.
+
+The bounded result remains TenantIntegration persisted-integrity evidence only: one visible integration, exact same-context credential metadata, exact definition and exact enabled capabilities under DD-167. Status/health/profile and credential/definition/capability operational metadata remain raw. No secret access, provider selection, SyncCursor resume, callback/network execution, GuardPipeline/Commercial authorization, dispatch, mutation or event authority is added.

@@ -1,7 +1,7 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
 **Current checkpoint:** `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-EVIDENCE-READER-001`
-**Current executable audit basis:** `6272ba702b02fac02d42cff34dca864ff9325f87` / tree `7b547cd8245087b3611999ac7e779cb9aa4a7496`
-> **Current audit gate (2026-10-05):** DD-493…DD-497 TenantIntegration current-integrity evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `4dfd13190e037e10ca42cd04838c4545b84fc68d` / tree `857662ecb823933e9e983a7098bb1d9840db57b2`
+> **Current audit gate (2026-10-05):** DD-493…DD-497 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 

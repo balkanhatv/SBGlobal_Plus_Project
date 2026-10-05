@@ -31,3 +31,14 @@ No secrets are read. TenantIntegration status/health/profile, Credential provide
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-493…DD-497 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `4dfd13190e037e10ca42cd04838c4545b84fc68d` / tree `857662ecb823933e9e983a7098bb1d9840db57b2` passed exact-head push gates:
+- Core run `37263528815` / job `111615472815`: **1343/1343 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111615473038`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37263528776` / job `111615472636`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37263528848` / job `111615472720`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+This state-closure commit must independently pass the same four gates before DD-493…DD-497 is closed and another source audit may open.
