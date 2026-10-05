@@ -1,18 +1,18 @@
 # DEVELOPMENT STATE — SBGlobal Plus
-**Current checkpoint:** `DEV-SYNC-CURSOR-CURRENT-INTEGRITY-EVIDENCE-READER-001`
-**Current executable audit basis:** `ed623e5cb669a62162eb608c8ac706ab45917e4c` / tree `10e477adb9089915a806fb4ae23c648c61211a25`
+**Current checkpoint:** `DEV-WEBHOOK-DELIVERY-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `08a1d0938c1c62d3907e844fe27de96dc7d0a43d` / tree `3f6681d75a3e3c1c59e3c815a001123a18bc06a0`
 **Updated:** 2026-10-05 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-10-05):** DD-503…DD-507 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-05):** DD-508…DD-512 WebhookDelivery ordinary single-context current-evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 
-DD-503…DD-507 is the current governed backend-only SyncCursor current-integrity evidence composition. It reuses exact DD-502 current-binding evidence, reads exact CredentialReference metadata and IntegrationDefinition, materializes the persisted enabled-capability sequence while reusing the exact DD-502 cursor capability without a duplicate read, then applies only existing DD-167 TenantIntegration current-integrity floors.
+DD-508…DD-512 is the current governed backend-only WebhookDelivery ordinary single-context current-evidence composition. It reads the exact visible persisted Delivery first, then exact same-context persisted Subscription and OutboxEvent parents, then one exact EventCatalog tuple, and delegates only the existing DD-163 necessary delivery prerequisites.
 
-Verified canonical promotion basis `ed623e5cb669a62162eb608c8ac706ab45917e4c` / tree `10e477adb9089915a806fb4ae23c648c61211a25`: **1361/1361 Core**, **532/532 PostgreSQL** plus full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests.
+Verified exact-head implementation basis `08a1d0938c1c62d3907e844fe27de96dc7d0a43d` / tree `3f6681d75a3e3c1c59e3c815a001123a18bc06a0`: **1371/1371 Core**, **532/532 PostgreSQL** plus full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests.
 
-Cursor payload/watermark/sourceVersion/updatedAt, Integration health/profile/config, Credential secret/provider metadata, Definition provider/adapter/data-transfer metadata and Capability direction/OperationContract/event/data/rate/idempotency remain raw. Success proves only DD-502 current binding plus DD-167 parent persisted integrity at the supplied evaluation instant; it adds no cursor-valid/fresh/resumable, provider/secret, GuardPipeline/Commercial, sync/network/dispatch/mutation/event authority.
+Delivery attempt/status/HTTP/error/timing, Subscription filter/endpoint/secret metadata, Outbox dispatch/readiness state and EventCatalog lifecycle remain raw. Success proves only ordinary single-context persisted Delivery→Subscription/Event→Catalog evidence satisfying DD-163; it adds no filter-match, endpoint/SSRF safety, signing/secret, retry/DLQ/replay, EXPLICIT_CROSS_CONTEXT, dispatch/network, GuardPipeline/Commercial, mutation/event authority.
 
-Evidence: `Registers/DEVELOPMENT_DD503_DD507_VERIFICATION_2026-10-05.md`. Source audit: `Development/SYNC_CURSOR_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
+Evidence: `Registers/DEVELOPMENT_DD508_DD512_VERIFICATION_2026-10-05.md`. Source audit: `Development/WEBHOOK_DELIVERY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Current status is bounded Development **IN PROGRESS**; production readiness is **NOT CLAIMED**.
 
-Next: Verify this state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-503…DD-507 is closed; source-audit the next independently source-complete backend batch.
+Next: Verify this canonical promotion at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, record promotion evidence and stage DD-508…DD-512 state closure before another source audit.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant mobile app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.

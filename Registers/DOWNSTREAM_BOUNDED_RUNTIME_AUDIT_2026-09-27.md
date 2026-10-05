@@ -374,3 +374,11 @@ The bounded result proves current SyncCursor parent/capability binding plus curr
 Canonical promotion basis `ed623e5cb669a62162eb608c8ac706ab45917e4c` / tree `10e477adb9089915a806fb4ae23c648c61211a25` passed exact-head Core **1361/1361**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature proof remains `b198c3f01ab26b10f088b0efb2835b2f5f3bd883`.
 
 The promoted scope remains bounded to DD-502 current SyncCursor binding + DD-167 parent TenantIntegration persisted-integrity. Cursor freshness/resume/replay, provider/secret access, health approval, GuardPipeline/Commercial, sync/network/callback/dispatch, mutation and event authority remain outside this evidence.
+
+## DD-508…DD-512 exact-head implementation evidence — 2026-10-05
+
+Implementation basis `08a1d0938c1c62d3907e844fe27de96dc7d0a43d` / tree `3f6681d75a3e3c1c59e3c815a001123a18bc06a0` passed exact-head Core **1371/1371**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web.
+
+The reader loads one exact visible WebhookDelivery, one exact same-context persisted Subscription, one exact same-context persisted OutboxEvent, one exact EventCatalog tuple, and delegates only the existing DD-163 ordinary single-context necessary delivery floor. Success preserves exact frozen references.
+
+Event filter matching, endpoint challenge/DNS/IP/redirect/SSRF safety, signing secret access/signature generation, retry/DLQ/replay semantics, EXPLICIT_CROSS_CONTEXT authorization, GuardPipeline/Commercial admission, dispatch/network execution, mutation and events remain outside this evidence boundary.

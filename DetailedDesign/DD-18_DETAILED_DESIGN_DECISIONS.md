@@ -5899,3 +5899,43 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/SYNC_CURSOR_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `SYNC-INTCUR-BOUND-001`.
+
+## DD-508 — read one exact visible WebhookDelivery first
+
+**Decision:** Add `loadWebhookDeliveryCurrentEvidence(...)`. Invoke `WebhookDeliveryReadPort.loadForContext` exactly once with the identical supplied RequestContext object and exact delivery id. Null short-circuits all dependent reads; errors propagate unchanged.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVID-BASE-001…002`.
+
+## DD-509 — read exact persisted Subscription and OutboxEvent parents
+
+**Decision:** After Delivery succeeds, read WebhookSubscription exactly once under the identical RequestContext using persisted `delivery.subscriptionId`, then read OutboxEvent exactly once using persisted `delivery.eventId`. Require exact returned id continuity. Null/error fails closed. Do not search by Tenant, endpoint, event type, aggregate or alternate ids.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVID-PARENT-001…002`.
+
+## DD-510 — read one exact EventCatalog tuple from the loaded Event
+
+**Decision:** Call `EventCatalogReadPort.loadExact` exactly once with loaded eventType, eventVersion and scopeClass. Null/error fails closed. No latest-version, ACTIVE-only, alias or fallback lookup.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVID-CAT-001, WH-EVID-DEP-001`.
+
+## DD-511 — delegate only ordinary single-context prerequisites to DD-163
+
+**Decision:** Apply `matchesWebhookDeliveryNecessaryFloors(subscription,event,catalog)` to the exact reader-returned references. TENANT_CORE and exact allowed TENANT_INDUSTRY evidence may pass. PLATFORM_GLOBAL and EXPLICIT_CROSS_CONTEXT remain rejected. Catalog lifecycle, event dispatch state, subscription filters and endpoint metadata remain uninterpreted.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVID-FLOOR-001…002`.
+
+## DD-512 — preserve immutable evidence without delivery/network authority
+
+**Decision:** Success returns frozen `{ delivery, subscription, event, catalog }` with exact references. Do not evaluate eventFilterJson, endpoint URL/snapshot safety, DNS/IP/redirect/SSRF, secret/signature material, retry/DLQ/replay, delivery/event lifecycle, cross-context authorization, GuardPipeline/Commercial, dispatch/network calls, mutation or events.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVID-EVID-001, WH-EVID-BOUND-001`.

@@ -6211,3 +6211,43 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### SYNC-INTCUR-BOUND-001 — Combined binding/integrity is not cursor or sync authority
 **Owner:** DD-507. Output exposes no cursor-valid/fresh/resumable, provider/secret/health/profile, GuardPipeline/Commercial, sync/network/dispatch/mutation/event authority.
+
+## DD-508 Exact WebhookDelivery Read Acceptance
+
+### WH-EVID-BASE-001 — Exact visible Delivery first
+**Owner:** DD-508. Exactly one WebhookDelivery read executes first using the exact supplied RequestContext object and exact supplied delivery id.
+
+### WH-EVID-BASE-002 — Delivery absence/error precedes parent reads
+**Owner:** DD-508. Delivery null short-circuits Subscription/Event/Catalog access; Delivery dependency errors propagate unchanged.
+
+## DD-509 Exact Persisted Parent Acceptance
+
+### WH-EVID-PARENT-001 — Exact Subscription identity continuity
+**Owner:** DD-509. Exactly one same-context WebhookSubscription read uses persisted delivery.subscriptionId and requires exact returned id continuity.
+
+### WH-EVID-PARENT-002 — Exact Event identity continuity
+**Owner:** DD-509. Exactly one same-context OutboxEvent read uses persisted delivery.eventId and requires exact returned id continuity.
+
+## DD-510 Exact EventCatalog Tuple Acceptance
+
+### WH-EVID-CAT-001 — Exact loaded-event catalog tuple only
+**Owner:** DD-510. Exactly one EventCatalog read uses the loaded eventType/eventVersion/scopeClass tuple with no latest-version, ACTIVE-only, alias or fallback lookup.
+
+### WH-EVID-DEP-001 — Required dependency absence/errors fail closed
+**Owner:** DD-510. Null required Subscription/Event/Catalog evidence returns null and dependency errors propagate unchanged.
+
+## DD-511 DD-163 Ordinary Single-Context Floor Acceptance
+
+### WH-EVID-FLOOR-001 — Ordinary Tenant-Core / allowed Tenant-Industry passes
+**Owner:** DD-511. Exact ordinary TENANT_CORE and exact allowed TENANT_INDUSTRY evidence satisfying DD-163 passes.
+
+### WH-EVID-FLOOR-002 — Invalid/cross-context evidence fails closed
+**Owner:** DD-511. Inactive/unverified/foreign/ineligible/mismatched/PLATFORM_GLOBAL/EXPLICIT_CROSS_CONTEXT evidence fails closed through exact identity continuity and DD-163.
+
+## DD-512 Immutable Evidence / Authority Boundary Acceptance
+
+### WH-EVID-EVID-001 — Preserve exact frozen references
+**Owner:** DD-512. Success returns one frozen envelope preserving exact Delivery/Subscription/Event/Catalog reader-returned references and leaves inputs/evidence unchanged.
+
+### WH-EVID-BOUND-001 — No filter/endpoint/signing/retry/network authority
+**Owner:** DD-512. Output exposes no filter-match, endpoint-safe, signed, retryable, deliverable, cross-context, dispatch/network, secret, mutation or event authority.
