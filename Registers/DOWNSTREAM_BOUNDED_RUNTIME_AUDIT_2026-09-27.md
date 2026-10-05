@@ -356,3 +356,9 @@ The bounded result remains TenantIntegration persisted-integrity evidence only: 
 Implementation basis `50f414f02baa645e9a30a92c58804a7ae090a312` / tree `267c7b7aae032dc72ccedd20e61a7152652a2c58` passed Core **1351/1351**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader composes exact raw SyncCursor, exact visible parent TenantIntegration, exact IntegrationCapability and only DD-164 current-binding floors.
 
 Cursor payload/freshness and all DD-497/provider/credential/secret/health/profile/OperationContract/event/resume/replay/sync/network/dispatch/mutation semantics remain outside this evidence boundary.
+
+## DD-498…DD-502 corrected canonical promotion evidence — 2026-10-05
+
+Corrected canonical promotion basis `512d6ddaf85bb6abfa795d62c1ddc4f44f7539b9` / tree `9564b6b66f15616a90ccf3dbfa94e940bcc87db8` passed exact-head Core **1351/1351**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `50f414f02baa645e9a30a92c58804a7ae090a312`.
+
+The bounded result remains exact SyncCursor current-binding evidence only: raw SyncCursor tuple, exact visible TenantIntegration, exact IntegrationCapability under the loaded parent Definition and DD-164 necessary binding floors. Cursor freshness/resume/replay, DD-497 full persisted-integrity, provider/credential/secret, health/profile, GuardPipeline/Commercial, network/sync/dispatch/mutation authority remain unproved and separate.

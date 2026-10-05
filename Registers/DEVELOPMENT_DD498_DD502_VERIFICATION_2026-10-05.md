@@ -27,3 +27,15 @@ Cursor payload, watermark, sourceVersion and updatedAt remain raw. DD-497 full T
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-498…DD-502 can be closed.
+
+## Corrected canonical promotion verified; state closure staged — 2026-10-05
+
+Initial canonical promotion `0476c575700ecf35bf2dcdccae86c17dbca2f1bc` passed PostgreSQL/Database/Web but Core governance failed only REPO-011 because the 14 active narrative files still carried DD-493…DD-497 promotion/count/continuation text. No runtime or feature acceptance failed.
+
+Forward-only correction `512d6ddaf85bb6abfa795d62c1ddc4f44f7539b9` / tree `9564b6b66f15616a90ccf3dbfa94e940bcc87db8` changed only those stale active narrative lines and passed exact-head:
+- Core run `37266521704` / job `111624415461`: **1351/1351 PASS**, fail/skip 0; REPO-011 PASS.
+- PostgreSQL same run / job `111624415662`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37266521695` / job `111624415504`: PASS; inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37266521718` / job `111624415564`: PASS.
+
+Feature implementation proof remains anchored to `50f414f02baa645e9a30a92c58804a7ae090a312` / tree `267c7b7aae032dc72ccedd20e61a7152652a2c58`. This closure commit must independently pass the same exact-head gates before DD-498…DD-502 is closed and another source audit may open.
