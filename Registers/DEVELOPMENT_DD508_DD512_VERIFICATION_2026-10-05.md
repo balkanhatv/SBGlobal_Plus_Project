@@ -29,3 +29,13 @@ This is not delivery authorization. No filter matching, endpoint/SSRF validation
 ## Canonical promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-508…DD-512 state closure.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `2a8da8112ebbaa9d2454518d5b6a92efc7f353ea` / tree `c64bb1c4afa990da548ee81767fca686da1884cf` passed exact-head push gates:
+- Core run `37270485545` / job `111636229604`: **1371/1371 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111636229642`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37270485568` / job `111636229290`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37270485605` / job `111636229621`: PASS.
+
+Feature implementation proof remains anchored to `08a1d0938c1c62d3907e844fe27de96dc7d0a43d` / tree `3f6681d75a3e3c1c59e3c815a001123a18bc06a0`. This state-closure commit must independently pass the same four gates before DD-508…DD-512 is closed and another source audit may open.

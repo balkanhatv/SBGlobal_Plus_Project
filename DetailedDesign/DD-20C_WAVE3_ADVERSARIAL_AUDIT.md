@@ -1,7 +1,7 @@
 # DD-20C — WAVE-3 ADVERSARIAL AUDIT
 **Current checkpoint:** `DEV-WEBHOOK-DELIVERY-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `08a1d0938c1c62d3907e844fe27de96dc7d0a43d` / tree `3f6681d75a3e3c1c59e3c815a001123a18bc06a0`
-> **Current audit gate (2026-10-05):** DD-508…DD-512 WebhookDelivery ordinary single-context current-evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `2a8da8112ebbaa9d2454518d5b6a92efc7f353ea` / tree `c64bb1c4afa990da548ee81767fca686da1884cf`
+> **Current audit gate (2026-10-05):** DD-508…DD-512 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE-3 ADVERSARIAL EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `810e43c9c75e3750f52cc7e1954db8f341e6d79b`  
 **Historical adversarial hypothesis:** **WAVE 3 IS NOT IMPLEMENTATION READY**
 

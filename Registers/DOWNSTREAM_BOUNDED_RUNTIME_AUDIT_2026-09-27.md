@@ -382,3 +382,9 @@ Implementation basis `08a1d0938c1c62d3907e844fe27de96dc7d0a43d` / tree `3f6681d7
 The reader loads one exact visible WebhookDelivery, one exact same-context persisted Subscription, one exact same-context persisted OutboxEvent, one exact EventCatalog tuple, and delegates only the existing DD-163 ordinary single-context necessary delivery floor. Success preserves exact frozen references.
 
 Event filter matching, endpoint challenge/DNS/IP/redirect/SSRF safety, signing secret access/signature generation, retry/DLQ/replay semantics, EXPLICIT_CROSS_CONTEXT authorization, GuardPipeline/Commercial admission, dispatch/network execution, mutation and events remain outside this evidence boundary.
+
+## DD-508…DD-512 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `2a8da8112ebbaa9d2454518d5b6a92efc7f353ea` / tree `c64bb1c4afa990da548ee81767fca686da1884cf` passed exact-head Core **1371/1371**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `08a1d0938c1c62d3907e844fe27de96dc7d0a43d`.
+
+The promoted scope remains one visible ordinary single-context WebhookDelivery with exact persisted Subscription/Event parents, exact EventCatalog tuple and DD-163 necessary prerequisites. Event-filter matching, endpoint challenge/DNS/IP/redirect/SSRF safety, signing/secret access, retry/DLQ/replay, EXPLICIT_CROSS_CONTEXT authorization, GuardPipeline/Commercial admission, network/dispatch, mutation and event authority remain outside this evidence.

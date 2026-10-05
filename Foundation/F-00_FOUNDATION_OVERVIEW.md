@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT FOUNDATION
 **Current checkpoint:** `DEV-WEBHOOK-DELIVERY-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `08a1d0938c1c62d3907e844fe27de96dc7d0a43d` / tree `3f6681d75a3e3c1c59e3c815a001123a18bc06a0`
-> **Current audit gate (2026-10-05):** DD-508…DD-512 WebhookDelivery ordinary single-context current-evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `2a8da8112ebbaa9d2454518d5b6a92efc7f353ea` / tree `c64bb1c4afa990da548ee81767fca686da1884cf`
+> **Current audit gate (2026-10-05):** DD-508…DD-512 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 

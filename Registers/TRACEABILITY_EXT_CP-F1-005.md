@@ -1,7 +1,7 @@
 # TRACEABILITY EXTENSION — CP-F1-005 (F-13, F-14)
 **Current checkpoint:** `DEV-WEBHOOK-DELIVERY-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `08a1d0938c1c62d3907e844fe27de96dc7d0a43d` / tree `3f6681d75a3e3c1c59e3c815a001123a18bc06a0`
-> **Current audit gate (2026-10-05):** DD-508…DD-512 WebhookDelivery ordinary single-context current-evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `2a8da8112ebbaa9d2454518d5b6a92efc7f353ea` / tree `c64bb1c4afa990da548ee81767fca686da1884cf`
+> **Current audit gate (2026-10-05):** DD-508…DD-512 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current traceability qualification:** stable child-ID inventory is **2,962**; parent/source-heading semantic ownership gate is **372/372 owner-reconciled, 0 NOT_CERTIFIED**; complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**.
 
 > This CP-F1-005 extension is preserved as historical Foundation-era traceability evidence. Its 2,965-item accounting and certification wording are evaluated-era evidence and do not override current source-fidelity/traceability owners.
