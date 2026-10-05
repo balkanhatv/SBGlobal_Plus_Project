@@ -37,3 +37,9 @@ Canonical promotion HEAD `68502f46dddc3aca95bc07a2f3cf33f730b604e7` / tree `71d2
 - Web run `37347557509` / job `111889876355`: PASS.
 
 The feature implementation evidence remains anchored to `8dd4212e5f1c878a562664fd227df6ff8c555f89` / tree `4ad1a7541db4537638ff7dbd1be1e2e0e4ee5471`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-553…DD-557 is closed and another source audit may open.
+
+## State closure verified — 2026-10-05
+
+State-closure HEAD `e1af3f91183d1798498b6d397e333708fe86e2df` / tree `5e676ea6ab9cd176b0f46f225a402e476e8fc978` passed exact-head push gates: Core run `37348257778` / job `111892272362` **1444/1444 PASS**; PostgreSQL job `111892272534` **536/536 PASS**, fail/skip 0 plus full database bootstrap PASS; Database run `37348257628` / job `111892271783` PASS; Web run `37348257629` / job `111892271758` PASS.
+
+DD-553…DD-557 is therefore closed at its bounded upload-session Tenant/scope/acting-principal ownership evidence scope. Expiry/status/media/size/checksum/usability and authorization/mutation authority remain explicitly outside that closed batch.
