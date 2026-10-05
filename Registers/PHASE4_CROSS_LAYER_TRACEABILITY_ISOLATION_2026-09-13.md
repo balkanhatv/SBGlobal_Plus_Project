@@ -1,7 +1,7 @@
 # PHASE 4 — Cross-Layer Traceability / Isolation / Determinism Revalidation
 **Current checkpoint:** `DEV-WEBHOOK-DELIVERY-EVENT-PAYLOAD-VALIDATION-EVIDENCE-001`
-**Current executable audit basis:** `ceb85e10f71b20fa12c2b36b24220eb4a3695aee` / tree `8ee4fb5f6eedd0cf690051f662bce8220e2c8fb9`
-> **Current audit gate (2026-10-05):** DD-528…DD-532 Webhook source-event payload-validation evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `efdd8425bbf5e20d9ff379465569258bc4732d81` / tree `7544aaa355e25e3f099a0f3e23f57dd3697a1c50`
+> **Current audit gate (2026-10-05):** DD-528…DD-532 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-4 GATE EVIDENCE · **Date:** 2026-09-13  
 **Evaluated substantive DD HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`  
 **Upstream gates at evaluation:** Phase 1 Foundation PASS · Phase 2 Architecture PASS · Phase 3 DD PASS
