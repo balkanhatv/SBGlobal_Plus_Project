@@ -31,3 +31,16 @@ No historical write-time residency certification, EventPayloadValidator/catalog 
 ## Canonical promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-518…DD-522 state closure.
+
+## Corrected canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion `b175cb4a40eb4ea93be1276fa2f2c579f3caf55b` was followed by the smallest forward-only acceptance-projection correction `d0e4cc4c2c4f8314588271439bcc2dce00c57105`, which enumerated the PostgreSQL acceptance IDs without changing runtime semantics.
+
+Corrected promotion HEAD `d0e4cc4c2c4f8314588271439bcc2dce00c57105` / tree `192c75cb6c1d972703e84ec7039ec005284e4ad8` passed exact-head push gates:
+- Core run `37277206196` / job `111656767126`: **1387/1387 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111656767317`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37277206025` / job `111656766672`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37277206042` / job `111656766939`: PASS.
+- Pull-request Core/Database/Web workflows on the same corrected promotion HEAD also passed.
+
+Feature evidence remains anchored to corrected implementation `20721fa96b30321d4bb049033a5e46bd91a51541`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-518…DD-522 is closed and another source audit may open.

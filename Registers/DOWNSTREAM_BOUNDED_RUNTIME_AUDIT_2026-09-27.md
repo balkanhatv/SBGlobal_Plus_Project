@@ -406,3 +406,9 @@ The bounded result remains persisted Outbox envelope/catalog coherence over exac
 Corrected implementation basis `20721fa96b30321d4bb049033a5e46bd91a51541` / tree `6e3dcdd3799a37a5cf49af3cdcd908e7c926894a` passed Core **1387/1387**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web.
 
 The Webhook result proves current authoritative Tenant residency equality for exact already-DD-517-valid ordinary Tenant event-envelope evidence. Historical write-time residency and later Webhook delivery-policy/execution decisions remain separate.
+
+## DD-518…DD-522 corrected canonical promotion evidence — 2026-10-05
+
+Current verified promotion basis `d0e4cc4c2c4f8314588271439bcc2dce00c57105` / tree `192c75cb6c1d972703e84ec7039ec005284e4ad8`: **1387 Core / 536 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS**. Feature implementation evidence remains `20721fa96b30321d4bb049033a5e46bd91a51541`.
+
+The composition proves only exact DD-517 source-event envelope evidence plus one current Integration-owned Tenant residency read and current authoritative Tenant residency equality. Explicit persisted envelope evidence is preserved. Historical write-time residency certification, Event Catalog payload-schema execution, Subscription filter/endpoint/secret semantics, retry/DLQ/replay/finality, EXPLICIT_CROSS_CONTEXT authorization, network dispatch/provider execution, GuardPipeline/Commercial and mutation/event authority remain separate.
