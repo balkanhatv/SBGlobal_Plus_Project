@@ -39,3 +39,9 @@ Canonical promotion HEAD `57d14a1f6bef67eb46091a8503f5fc3c09a3961f` / tree `0d8e
 - Web run `37272833494` / job `111643302149`: PASS.
 
 Feature implementation proof remains anchored to `585146252d7acfdeccffd1efdb92de9ff42981c6` / tree `7489bddc4e3679f50065eacab1d343353f068c5f`. This state-closure commit must independently pass the same four gates before DD-513…DD-517 is closed and another source audit may open.
+
+## State closure verified — 2026-10-05
+
+State-closure HEAD `23cb4d98b9fe203ad4181c5bae92750b5e1767a1` / tree `cdb3d62b07935d5d2eeed68eb608827bdbd0ca7d` passed exact-head push gates: Core run `37273563695` / job `111645561255` **1379/1379 PASS**; PostgreSQL job `111645561503` **532/532 PASS**, fail/skip 0 plus full bootstrap PASS; Database run `37273563700` / job `111645561354` PASS with **48 migrations / 42 SQL verification files**; Web run `37273563726` / job `111645561549` PASS.
+
+DD-513…DD-517 is closed at its bounded persisted event-envelope evidence scope. Source-owned forward development may resume.
