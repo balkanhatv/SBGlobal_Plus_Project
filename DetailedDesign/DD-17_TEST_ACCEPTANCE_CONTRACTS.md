@@ -6333,3 +6333,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WH-EVTRES-BOUND-001 — No historical/payload/filter/endpoint/signing/retry/network authority
 **Owner:** DD-522. Output exposes no historical-residency certification, payload-schema/catalog-lifecycle decision, filter match, endpoint/SSRF/signing/secret authority, retry/DLQ/replay/finality, cross-context authorization, dispatch/network, GuardPipeline/Commercial, mutation or event authority.
+
+## DD-523 Strict Occurrence Date-Time Acceptance
+
+### WH-EVTPRE-DATE-001 — Strict valid occurrence timestamp passes unchanged
+**Owner:** DD-523. A non-empty parseable occurredAt with a real UTC calendar-date prefix passes without normalization or mutation.
+
+### WH-EVTPRE-DATE-002 — Runtime-parseable impossible date fails closed
+**Owner:** DD-523. Calendar-invalid values such as an impossible YYYY-MM-DD prefix fail closed even when the JavaScript runtime would normalize/parse them.
+
+## DD-524 Exact Event Payload JSON Structure Acceptance
+
+### WH-EVTPRE-PAYLOAD-001 — Nested JSON-safe payload passes unchanged
+**Owner:** DD-524. Exact persisted payload recursively containing only null/string/boolean/finite-number/array/plain-object/null-prototype-object values passes without clone or normalization.
+
+### WH-EVTPRE-PAYLOAD-002 — Malformed JSON structure fails closed
+**Owner:** DD-524. Undefined, non-finite numbers, sparse/invalid nested values, bigint/symbol/function or custom-prototype objects fail closed.
+
+## DD-525 Catalog Payload-Schema JSON Structure Acceptance
+
+### WH-EVTPRE-SCHEMA-001 — JSON-safe schema structure only
+**Owner:** DD-525. Exact preserved EventCatalog payloadSchema must satisfy the same recursive JSON structural contract; malformed structure fails closed without interpreting JSON Schema semantics.
+
+## DD-526 Exact DD-522 Parent / Residency Revalidation Acceptance
+
+### WH-EVTPRE-BASE-001 — Malformed/substituted parent evidence fails closed
+**Owner:** DD-526. Exact DD-522 parent/reference/current-residency structure must re-satisfy the shared current-residency floor; malformed, substituted or incoherent evidence returns false.
+
+## DD-527 Immutable Pre-Payload Evidence and Authority Boundary Acceptance
+
+### WH-EVTPRE-EVID-001 — Preserve exact DD-522/envelope identities
+**Owner:** DD-527. Success returns immutable evidence preserving the exact DD-522 parent and exact persisted envelope reference with zero persistence reads and zero payload-validator invocation.
+
+### WH-EVTPRE-BOUND-001 — Structural evidence grants no delivery authority
+**Owner:** DD-527. Output exposes no payload-schema-valid, EventCatalog lifecycle, filter-match, endpoint authorization, signing, readiness/retry, cross-context, dispatched/network or mutation authority.

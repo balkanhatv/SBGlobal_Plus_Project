@@ -412,3 +412,9 @@ The Webhook result proves current authoritative Tenant residency equality for ex
 Current verified promotion basis `d0e4cc4c2c4f8314588271439bcc2dce00c57105` / tree `192c75cb6c1d972703e84ec7039ec005284e4ad8`: **1387 Core / 536 PostgreSQL / 48 migrations / 42 SQL verifications / Web PASS**. Feature implementation evidence remains `20721fa96b30321d4bb049033a5e46bd91a51541`.
 
 The composition proves only exact DD-517 source-event envelope evidence plus one current Integration-owned Tenant residency read and current authoritative Tenant residency equality. Explicit persisted envelope evidence is preserved. Historical write-time residency certification, Event Catalog payload-schema execution, Subscription filter/endpoint/secret semantics, retry/DLQ/replay/finality, EXPLICIT_CROSS_CONTEXT authorization, network dispatch/provider execution, GuardPipeline/Commercial and mutation/event authority remain separate.
+
+## DD-523…DD-527 exact-head implementation evidence — 2026-10-05
+
+Corrected implementation basis `fa4c8406748fc33ecd83238404ca82515ab3937a` / tree `64053088e93d74a9d3afdbd925c49077b78b31c6` passed Core **1395/1395**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch reuses exact DD-522 current-residency evidence and adds only locally re-evaluable DD-081 pre-payload structural prerequisites: strict occurredAt calendar/date-time validity, recursive JSON-safe persisted payload structure and recursive JSON-safe EventCatalog payloadSchema structure.
+
+It performs zero new persistence reads and zero EventPayloadValidatorPort calls. Payload-schema semantics, EventCatalog lifecycle, event-filter match, endpoint/SSRF authorization, signing, retry/DLQ/replay, cross-context authorization, network dispatch and mutation remain separate.

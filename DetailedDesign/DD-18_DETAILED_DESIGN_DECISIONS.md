@@ -6025,3 +6025,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_CURRENT_RESIDENCY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WH-EVTRES-EVID-001, WH-EVTRES-BOUND-001`.
+
+## DD-523 — enforce strict occurredAt calendar/date-time evidence
+
+**Context:** DD-081 applies occurrence-time structural checks before payload-schema interpretation; DD-522 already preserves the exact persisted Webhook source envelope.
+
+**Decision:** Require a non-empty Date.parse-compatible occurredAt and reject impossible YYYY-MM-DD calendar prefixes by exact UTC calendar reconstruction. Do not infer ordering against Outbox, Delivery, attempt or wall-clock time.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PRE_PAYLOAD_STRUCTURE_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPRE-DATE-001…002`.
+
+## DD-524 — require exact persisted payload JSON-compatible structure
+
+**Decision:** Recursively accept only JSON-compatible null/string/boolean/finite-number/array/plain-object/null-prototype-object values from the exact persisted envelope payload. Reject undefined, non-finite, bigint, symbol, function, sparse/invalid nested evidence, custom prototypes and cycles. Preserve exact payload identity; do not execute event-specific schema semantics.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PRE_PAYLOAD_STRUCTURE_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPRE-PAYLOAD-001…002`.
+
+## DD-525 — require exact EventCatalog payloadSchema JSON-compatible structure
+
+**Decision:** Apply the same recursive structural predicate to the exact preserved EventCatalog payloadSchema. Do not select a JSON Schema dialect/engine, interpret schema ids/required fields or invoke EventPayloadValidatorPort.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PRE_PAYLOAD_STRUCTURE_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPRE-SCHEMA-001`.
+
+## DD-526 — re-apply exact DD-522 parent/current-residency floor before structure
+
+**Decision:** The pure pre-payload predicate must re-establish exact Delivery→Subscription→Event identity, exact envelope reference, DD-163 ordinary Webhook necessary floors and the shared DD-520 current Tenant-residency equality floor before DD-523…DD-525. Malformed/substituted evidence fails closed.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PRE_PAYLOAD_STRUCTURE_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPRE-BASE-001`.
+
+## DD-527 — immutable exact-reference pre-payload evidence with zero reads
+
+**Decision:** Add `buildWebhookDeliveryEventPrePayloadStructureEvidence(...)` over exact DD-522 evidence only. Success returns frozen `{ parent, envelopeJson }` preserving exact references. Perform zero persistence reads and zero payload-validator calls. Do not grant catalog lifecycle, filter, endpoint, signing, retry/finality, cross-context, dispatch/network or mutation authority.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PRE_PAYLOAD_STRUCTURE_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPRE-EVID-001, WH-EVTPRE-BOUND-001`.
