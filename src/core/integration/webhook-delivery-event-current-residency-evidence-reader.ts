@@ -64,6 +64,7 @@ export async function loadWebhookDeliveryEventCurrentResidencyEvidence(
   if (!matchesPersistedOutboxEventCurrentTenantResidencyFloors(
     parent.parent.event,
     parent.parent.catalog,
+    parent.envelopeJson,
     currentResidency,
   )) {
     return null;

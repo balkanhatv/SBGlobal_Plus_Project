@@ -82,6 +82,7 @@ export function matchesNotificationDeliverySourceEventCurrentResidencyFloors(
   return matchesPersistedOutboxEventCurrentTenantResidencyFloors(
     sourceEventEnvelope.event,
     sourceEventEnvelope.catalog,
+    sourceEventEnvelope.envelopeJson,
     residency,
   );
 }

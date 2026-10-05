@@ -229,6 +229,7 @@ test("WH-EVTRES-FLOOR-001 exact Tenant-Core/Tenant-Industry current residency eq
     matchesPersistedOutboxEventCurrentTenantResidencyFloors(
       event(),
       catalog(),
+      event().envelopeJson,
       residency(),
     ),
     true,
@@ -246,6 +247,7 @@ test("WH-EVTRES-FLOOR-001 exact Tenant-Core/Tenant-Industry current residency eq
     matchesPersistedOutboxEventCurrentTenantResidencyFloors(
       coreEvent,
       catalog({scopeClass: "TENANT_CORE"}),
+      coreEvent.envelopeJson,
       residency(),
     ),
     true,
@@ -253,19 +255,24 @@ test("WH-EVTRES-FLOOR-001 exact Tenant-Core/Tenant-Industry current residency eq
 });
 
 test("WH-EVTRES-FLOOR-002 wrong Tenant/region, invalid scope or invalid persisted envelope evidence fails closed", () => {
+  const industryEvent = event();
+  const crossEvent = event({scopeClass: "EXPLICIT_CROSS_CONTEXT", industryContextId: undefined});
+  const wrongRegionEvent = event({envelopeJson: envelope({residencyRegion: "EU-WEST"})});
+  const wrongTenantEvent = event({envelopeJson: envelope({tenantId: ids.foreignTenant})});
   const cases = [
-    [event(), catalog(), residency({tenantId: ids.foreignTenant})],
-    [event(), catalog(), residency({residencyRegionCode: "EU-WEST"})],
-    [event(), catalog(), residency({residencyRegionCode: ""})],
-    [event({scopeClass: "EXPLICIT_CROSS_CONTEXT", industryContextId: undefined}), catalog({scopeClass: "EXPLICIT_CROSS_CONTEXT"}), residency()],
-    [event({envelopeJson: envelope({residencyRegion: "EU-WEST"})}), catalog(), residency()],
-    [event({envelopeJson: envelope({tenantId: ids.foreignTenant})}), catalog(), residency()],
+    [industryEvent, catalog(), industryEvent.envelopeJson, residency({tenantId: ids.foreignTenant})],
+    [industryEvent, catalog(), industryEvent.envelopeJson, residency({residencyRegionCode: "EU-WEST"})],
+    [industryEvent, catalog(), industryEvent.envelopeJson, residency({residencyRegionCode: ""})],
+    [crossEvent, catalog({scopeClass: "EXPLICIT_CROSS_CONTEXT"}), crossEvent.envelopeJson, residency()],
+    [wrongRegionEvent, catalog(), wrongRegionEvent.envelopeJson, residency()],
+    [wrongTenantEvent, catalog(), wrongTenantEvent.envelopeJson, residency()],
   ];
-  for (const [candidateEvent, candidateCatalog, current] of cases) {
+  for (const [candidateEvent, candidateCatalog, candidateEnvelope, current] of cases) {
     assert.equal(
       matchesPersistedOutboxEventCurrentTenantResidencyFloors(
         candidateEvent,
         candidateCatalog,
+        candidateEnvelope,
         current,
       ),
       false,

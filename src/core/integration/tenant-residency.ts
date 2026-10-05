@@ -38,9 +38,13 @@ function isNonEmptyString(value: unknown): value is string {
 export function matchesPersistedOutboxEventCurrentTenantResidencyFloors(
   event: OutboxEventEvidence,
   catalog: PersistedEventCatalogEntry,
+  envelopeJson: Readonly<Record<string, unknown>>,
   residency: IntegrationTenantResidencyEvidence,
 ): boolean {
   if (!matchesPersistedOutboxEventEnvelopeEvidenceFloors(event, catalog)
+    || !envelopeJson
+    || typeof envelopeJson !== "object"
+    || Array.isArray(envelopeJson)
     || !residency
     || typeof residency !== "object") {
     return false;
@@ -55,7 +59,6 @@ export function matchesPersistedOutboxEventCurrentTenantResidencyFloors(
     return false;
   }
 
-  const envelope = event.envelopeJson as Record<string, unknown>;
-  return envelope.tenantId === event.tenantId
-    && envelope.residencyRegion === residency.residencyRegionCode;
+  return envelopeJson.tenantId === event.tenantId
+    && envelopeJson.residencyRegion === residency.residencyRegionCode;
 }
