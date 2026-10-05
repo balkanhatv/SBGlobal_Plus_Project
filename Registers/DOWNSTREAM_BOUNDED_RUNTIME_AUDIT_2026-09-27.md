@@ -388,3 +388,9 @@ Event filter matching, endpoint challenge/DNS/IP/redirect/SSRF safety, signing s
 Canonical promotion basis `2a8da8112ebbaa9d2454518d5b6a92efc7f353ea` / tree `c64bb1c4afa990da548ee81767fca686da1884cf` passed exact-head Core **1371/1371**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `08a1d0938c1c62d3907e844fe27de96dc7d0a43d`.
 
 The promoted scope remains one visible ordinary single-context WebhookDelivery with exact persisted Subscription/Event parents, exact EventCatalog tuple and DD-163 necessary prerequisites. Event-filter matching, endpoint challenge/DNS/IP/redirect/SSRF safety, signing/secret access, retry/DLQ/replay, EXPLICIT_CROSS_CONTEXT authorization, GuardPipeline/Commercial admission, network/dispatch, mutation and event authority remain outside this evidence.
+
+## DD-513…DD-517 exact-head implementation evidence — 2026-10-05
+
+Implementation basis `585146252d7acfdeccffd1efdb92de9ff42981c6` / tree `7489bddc4e3679f50065eacab1d343353f068c5f` passed Core **1379/1379**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch reuses exact DD-512 ordinary Webhook evidence and applies only shared Integration-owned persisted Outbox envelope tuple/identity/catalog-metadata/local-scope floors with zero additional reads.
+
+Current Tenant residency, cross-context endpoint ownership, payload-schema execution, EventCatalog lifecycle authorization, event-filter matching, endpoint/SSRF verification, signing/secret access, retry/DLQ/replay, dispatch/network, GuardPipeline/Commercial, mutation and event authority remain outside this evidence.

@@ -6251,3 +6251,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WH-EVID-BOUND-001 — No filter/endpoint/signing/retry/network authority
 **Owner:** DD-512. Output exposes no filter-match, endpoint-safe, signed, retryable, deliverable, cross-context, dispatch/network, secret, mutation or event authority.
+
+## DD-513 Exact DD-512 Parent Acceptance
+
+### WH-EVTENV-BASE-001 — Exact DD-512 chain first
+**Owner:** DD-513. Exact supplied RequestContext, WebhookDelivery id and Delivery/Subscription/Event/Catalog readers enter DD-512 unchanged before local envelope evidence is evaluated. No new persistence read occurs after DD-512.
+
+### WH-EVTENV-BASE-002 — Parent absence/errors precede local envelope evidence
+**Owner:** DD-513. DD-512 null short-circuits and DD-512 dependency errors propagate unchanged.
+
+## DD-514 Shared Persisted Outbox Envelope Floor Acceptance
+
+### WH-EVTENV-ID-001 — Exact persisted identity + catalog metadata passes
+**Owner:** DD-514. Exact Outbox event/envelope id/type/version/scope plus catalog producer-module/sensitivity evidence passes through the shared Integration-owned floor.
+
+### WH-EVTENV-ID-002 — Identity/catalog mismatch fails closed
+**Owner:** DD-514. Event id/type/version/scope or producer/sensitivity mismatch returns null. Historical Notification DD-321/DD-323…DD-325 semantics remain unchanged through wrappers.
+
+## DD-515 Ordinary Local Scope Acceptance
+
+### WH-EVTENV-SCOPE-001 — Tenant-Core / allowed Tenant-Industry local shape passes
+**Owner:** DD-515. Exact ordinary TENANT_CORE and exact allowed TENANT_INDUSTRY DD-512 evidence with matching local envelope ownership shape passes.
+
+### WH-EVTENV-SCOPE-002 — Malformed ownership/mandatory structure fails closed
+**Owner:** DD-515. Tenant/Industry/selectors mismatch or malformed required envelope identity/correlation/time/actor/source-resource/payload-schema/payload-member evidence returns null.
+
+## DD-516 Immutable Exact-Reference Envelope Evidence Acceptance
+
+### WH-EVTENV-EVID-001 — Preserve exact parent and persisted envelope reference
+**Owner:** DD-516. Success returns frozen exact DD-512 parent plus exact parent.event.envelopeJson reference, leaving all inputs/evidence unchanged.
+
+## DD-517 Authority Boundary Acceptance
+
+### WH-EVTENV-BOUND-001 — No residency/payload/filter/endpoint/signing/retry/network authority
+**Owner:** DD-517. Output exposes no current-residency, payload-schema-valid, catalog-active, filter-match, endpoint-safe, signed, retryable, deliverable, cross-context, dispatch/network, secret, mutation or event authority.

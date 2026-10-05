@@ -5939,3 +5939,47 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/WEBHOOK_DELIVERY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WH-EVID-EVID-001, WH-EVID-BOUND-001`.
+
+## DD-513 — reuse exact DD-512 WebhookDelivery current evidence first
+
+**Decision:** Add `loadWebhookDeliveryEventEnvelopeCurrentEvidence(...)`. Invoke DD-512 first with the exact supplied RequestContext, delivery id and unchanged Delivery/Subscription/Event/Catalog reader dependencies. Parent null returns null; dependency errors propagate unchanged. No additional persistence reads occur after DD-512.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_ENVELOPE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTENV-BASE-001…002`.
+
+## DD-514 — move reusable persisted Outbox envelope semantics to Integration ownership
+
+**Context:** DD-321/DD-323/DD-324/DD-325 historically proved generic OutboxEvent/EventCatalog/envelope semantics inside Notification-specific files.
+
+**Decision:** Add one Integration-owned pure shared floor module for exact event/catalog tuple, envelope identity/mandatory structure, producer/sensitivity and local scope-shape evidence. Refactor historical Notification wrappers to delegate to that shared floor without changing their public acceptance semantics.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_ENVELOPE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTENV-ID-001…002` plus unchanged historical Notification envelope acceptance tests.
+
+## DD-515 — apply only shared local envelope evidence to exact DD-512 event/catalog
+
+**Decision:** Evaluate the shared persisted Outbox envelope evidence floor over the exact DD-512 `event` and `catalog` references. False returns null. DD-512 continues to own ordinary Webhook eligibility/Tenant/Industry prerequisites, so only TENANT_CORE and allowed TENANT_INDUSTRY parent evidence may succeed.
+
+Do not add current Tenant residency, cross-context endpoint ownership or payload-schema execution.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_ENVELOPE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTENV-SCOPE-001…002`.
+
+## DD-516 — preserve immutable exact envelope evidence
+
+**Decision:** Success returns frozen `{ parent, envelopeJson }`, where `parent` is the exact DD-512 evidence and `envelopeJson === parent.event.envelopeJson`. Do not clone, normalize, rewrite or interpret payload contents.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_ENVELOPE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTENV-EVID-001`.
+
+## DD-517 — persisted envelope coherence is not Webhook delivery authority
+
+**Decision:** Do not claim current Tenant residency; do not invoke EventEnvelopeCatalogValidator/EventPayloadValidatorPort; do not interpret EventCatalog lifecycle; do not evaluate filters, endpoint/SSRF, signing/secrets, retry/DLQ/replay/readiness/finality, EXPLICIT_CROSS_CONTEXT, dispatch/network, GuardPipeline/Commercial, mutation or event emission.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_ENVELOPE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTENV-BOUND-001`.
