@@ -1,7 +1,7 @@
 # PHASE 3 — Detailed Design Fresh Revalidation
 **Current checkpoint:** `DEV-WORKFLOW-TASK-ACTING-RBAC-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `3e3f18723e6caec609077f618b447e9df9ba23a3` / tree `362ec8fcf7b1906b3cff88ac3ae15ec4240f300d`
-> **Current audit gate (2026-10-04):** DD-473…DD-477 WorkflowTask acting-principal current RBAC necessary evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `8b1c99e13a92c770f045b009196b78b4f61898b5` / tree `f8759ac3b89949495854abbaab11ca555c27433d`
+> **Current audit gate (2026-10-04):** DD-473…DD-477 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.

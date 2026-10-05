@@ -296,3 +296,9 @@ The bounded result remains AutomationRun resource-free generic GuardPipeline aut
 Implementation basis `3e3f18723e6caec609077f618b447e9df9ba23a3` / tree `362ec8fcf7b1906b3cff88ac3ae15ec4240f300d` passed Core **1310/1310**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch reuses exact DD-362 WorkflowTask→WorkflowInstance evidence and performs one exact current Authorization read for persisted WorkflowTask.permissionCode under the unchanged acting RequestContext. The generic protected-Tenant RBAC selector mechanics now live under Authorization ownership; the existing AI wrapper remains stable.
 
 Applicable ABAC and task/instance assignment/state/lifecycle fields remain raw. The result is necessary current RBAC evidence only—not assignee/current claimant/completer validation, due/expiry/action authority, full AuthorizationDecision/GuardPipeline, transition, mutation/event, worker dispatch or workflow execution.
+
+## DD-473…DD-477 canonical promotion evidence — 2026-10-04
+
+Canonical promotion basis `8b1c99e13a92c770f045b009196b78b4f61898b5` / tree `f8759ac3b89949495854abbaab11ca555c27433d` passed exact-head Core **1310/1310**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `3e3f18723e6caec609077f618b447e9df9ba23a3`.
+
+The bounded result remains WorkflowTask acting-principal current compiled-RBAC necessary evidence only. Applicable ABAC plus WorkflowTask/WorkflowInstance assignment/state/lifecycle evidence remain raw. No assignee/claimant/completer currentness, due/expiry/action authority, full AuthorizationDecision/GuardPipeline, WorkflowTransition, mutation/event, worker dispatch or workflow execution authority is created.

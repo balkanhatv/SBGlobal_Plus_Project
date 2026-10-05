@@ -29,3 +29,13 @@ No schema, migration, RLS, role, grant, route, frontend, worker, scheduler, RawS
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-473…DD-477 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-04
+
+Canonical promotion HEAD `8b1c99e13a92c770f045b009196b78b4f61898b5` / tree `f8759ac3b89949495854abbaab11ca555c27433d` passed exact-head push gates:
+- Core run `37218143751` / job `111482788673`: **1310/1310 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111482788914`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37218143845` / job `111482788960`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37218143771` / job `111482788693`: PASS.
+
+Pull-request Core/Database/Web workflows on the same promotion HEAD also passed. Feature evidence remains anchored to implementation `3e3f18723e6caec609077f618b447e9df9ba23a3`. This state-closure commit must independently pass the same gates before DD-473…DD-477 is closed and another source audit may open.
