@@ -368,3 +368,9 @@ The bounded result remains exact SyncCursor current-binding evidence only: raw S
 Implementation basis `b198c3f01ab26b10f088b0efb2835b2f5f3bd883` / tree `43500d42cd55223aea6462d70c52689b341c7368` passed Core **1361/1361**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader reuses exact DD-502 current-binding evidence, reads exact same-context CredentialReference metadata and exact IntegrationDefinition, reuses the exact cursor capability object in persisted enabled-capability order, reads every remaining enabled capability exactly once, and applies DD-167 only.
 
 The bounded result proves current SyncCursor parent/capability binding plus current parent TenantIntegration persisted integrity at the supplied evaluation instant. Cursor payload/freshness/resume/replay safety, Integration lifecycle/health/profile, Credential secret/provider details, Definition provider/adapter/data-transfer metadata, Capability routing/OperationContract/event semantics, GuardPipeline/Commercial admission, synchronization/network/dispatch/mutation/event execution remain separate.
+
+## DD-503…DD-507 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `ed623e5cb669a62162eb608c8ac706ab45917e4c` / tree `10e477adb9089915a806fb4ae23c648c61211a25` passed exact-head Core **1361/1361**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature proof remains `b198c3f01ab26b10f088b0efb2835b2f5f3bd883`.
+
+The promoted scope remains bounded to DD-502 current SyncCursor binding + DD-167 parent TenantIntegration persisted-integrity. Cursor freshness/resume/replay, provider/secret access, health approval, GuardPipeline/Commercial, sync/network/callback/dispatch, mutation and event authority remain outside this evidence.

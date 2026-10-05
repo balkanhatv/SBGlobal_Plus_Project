@@ -27,3 +27,14 @@ Cursor payload/watermark/sourceVersion/updatedAt, Integration lifecycle/health/p
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-503…DD-507 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `ed623e5cb669a62162eb608c8ac706ab45917e4c` / tree `10e477adb9089915a806fb4ae23c648c61211a25` passed exact-head push gates:
+- Core run `37268714585` / job `111630933856`: **1361/1361 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111630933986`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37268714593` / job `111630933910`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37268714616` / job `111630933747`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+Feature proof remains anchored to exact implementation HEAD `b198c3f01ab26b10f088b0efb2835b2f5f3bd883`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-503…DD-507 is closed and before another source audit opens.
