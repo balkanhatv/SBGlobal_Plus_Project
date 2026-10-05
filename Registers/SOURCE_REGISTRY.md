@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-SUBJECT-EVIDENCE-READER-001`
-**Current executable audit basis:** `7cfec70c641eb05e5c33db3bcba324e43720140c` / tree `64f2414b6da65c6931950a6043e2bc3036d9a7a2`
+**Current checkpoint:** `DEV-DOCUMENT-ACCESS-STORAGE-BINDING-EVIDENCE-READER-001`
+**Current executable audit basis:** `a009c30cb79d604417de0f81faadea0b65a964ad` / tree `cd539a9620f3cf9402f4737121bde3e638929455`
 **Status:** ACTIVE · **Updated:** 2026-10-05
 
-> **Current audit gate (2026-10-05):** DD-538…DD-542 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-05):** DD-543…DD-547 Document access candidate + physical StorageObject binding evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority

@@ -6189,3 +6189,43 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_ACCESS_ACL_SUBJECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOC-ACLEVID-BOUND-001`.
+
+## DD-543 — establish exact DD-082 Document access candidate first
+
+**Decision:** Add `loadDocumentAccessStorageBindingEvidence(...)`. Its first governed action invokes `DocumentAccessCandidateService.prepare` with the exact supplied RequestContext/document id and exact metadata reader. Candidate errors propagate unchanged; DD-086 binding access is not attempted after DD-082 failure.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-STOEVID-BASE-001…002`.
+
+## DD-544 — read physical binding only through exact candidate linkage
+
+**Decision:** After DD-082 succeeds, call the supplied DD-086 binding reader exactly once with the exact supplied RequestContext, `documentId === candidate.documentId` and `storageObjectId === candidate.storageObjectId`. No caller-supplied StorageObject locator or source resource/provider/key substitution is allowed.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-STOEVID-READ-001…002`.
+
+## DD-545 — preserve null/error semantics without locator fallback
+
+**Decision:** DD-086 null returns null. Dependency errors propagate unchanged. Do not retry, search by object key/id, choose another Data Home/provider or synthesize an authorization/storage outcome.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-STOEVID-NULL-001` plus `DOC-STOEVID-READ-002`.
+
+## DD-546 — preserve immutable exact-reference physical binding evidence
+
+**Decision:** Success returns frozen `{ candidate, binding }` preserving the exact DD-082 candidate and exact DD-086 binding references. Private locator/integrity fields remain raw and encrypted where persisted; no clone/decryption/normalization/policy conversion is introduced.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-STOEVID-EVID-001…002`.
+
+## DD-547 — physical binding evidence is not authorization, signing or StoragePort execution
+
+**Decision:** Do not evaluate ACL effect/expiry/DENY precedence, operation→ACL mapping, entitlement/RBAC/ABAC/sensitivity/step-up/residency exception policy; do not decrypt providerRefEncrypted, select provider/bucket, sign URL/token/grant, establish TTL, expose download/share/delete authority, dispatch StoragePort operations or mutate Document/Storage/ACL state.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-STOEVID-BOUND-001`.

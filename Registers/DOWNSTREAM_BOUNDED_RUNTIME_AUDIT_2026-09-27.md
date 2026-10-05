@@ -458,3 +458,9 @@ Empty subject-match evidence is not deny; non-empty subject-match evidence is no
 Canonical promotion basis `7cfec70c641eb05e5c33db3bcba324e43720140c` / tree `64f2414b6da65c6931950a6043e2bc3036d9a7a2` passed Core **1420/1420**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains implementation-anchored to `85c4ac385fad6b6900fd08c1c4c8f3f5034e1f30`.
 
 The promoted boundary is still evidence-only: exact DD-082 candidate + DD-084 raw ACL + DD-085 explicit-permission subject matching. Empty/non-empty matches are not deny/allow decisions. ACL effectiveness, permission mapping, final authorization, sensitivity/step-up/residency, signing/storage and download/share/delete/dispatch/mutation remain separate.
+
+## DD-543…DD-547 exact-head implementation evidence — 2026-10-05
+
+Implementation basis `a009c30cb79d604417de0f81faadea0b65a964ad` / tree `cd539a9620f3cf9402f4737121bde3e638929455` passed Core **1428/1428**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader sequences exact DD-082 ACTIVE+CLEAN candidate evidence into one exact DD-086 physical binding read using only candidate.documentId + candidate.storageObjectId and preserves exact references.
+
+This remains internal evidence only. ACL effectiveness/final authorization, permission/entitlement/RBAC/ABAC/sensitivity/step-up/residency exception policy, provider decryption/selection, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain separate.

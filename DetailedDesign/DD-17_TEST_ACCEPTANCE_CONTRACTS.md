@@ -6472,3 +6472,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-ACLEVID-BOUND-001 — Evidence grants no authorization or operation authority
 **Owner:** DD-542. Output exposes no authorized/denied/effective/expired/step-up/signed/download/share/delete/dispatch/mutation authority.
+
+## DD-543 Exact DD-082 Candidate-First Acceptance
+
+### DOC-STOEVID-BASE-001 — Exact DD-082 candidate executes first
+**Owner:** DD-543. Exact supplied RequestContext, document id and metadata dependency enter DocumentAccessCandidateService first.
+
+### DOC-STOEVID-BASE-002 — Candidate failure precedes physical binding access
+**Owner:** DD-543. Governed DD-082 candidate failure propagates unchanged and the physical binding reader is not invoked.
+
+## DD-544 Exact DD-086 Physical Binding Read Acceptance
+
+### DOC-STOEVID-READ-001 — One exact candidate-linked binding read
+**Owner:** DD-544. Candidate success causes exactly one physical binding read using the exact supplied RequestContext plus candidate.documentId and candidate.storageObjectId.
+
+### DOC-STOEVID-READ-002 — Binding dependency errors preserve identity
+**Owner:** DD-544. DD-086 dependency errors propagate unchanged with no retry, search, alternate locator, provider, Data Home or arbitrary object fallback.
+
+## DD-545 Null / Fallback Boundary Acceptance
+
+### DOC-STOEVID-NULL-001 — Missing exact binding fails closed
+**Owner:** DD-545. A null DD-086 binding returns null without object-key, provider, sibling-object or Data Home fallback.
+
+## DD-546 Immutable Physical Binding Evidence Acceptance
+
+### DOC-STOEVID-EVID-001 — Preserve exact candidate and binding references
+**Owner:** DD-546. Success returns frozen evidence preserving exact DD-082 candidate and exact DD-086 binding references.
+
+### DOC-STOEVID-EVID-002 — Private locator/integrity facts stay raw
+**Owner:** DD-546. providerRefEncrypted, bucket class, object key/version, size/checksum and encryption-key reference remain exact raw internal evidence without decryption, normalization or policy interpretation.
+
+## DD-547 Authorization / Signing / Storage Execution Boundary Acceptance
+
+### DOC-STOEVID-BOUND-001 — Evidence grants no authorization or signing authority
+**Owner:** DD-547. Output exposes no authorized/denied/ACL-effective/signed/provider-selected/download/share/delete/dispatch/mutation authority.
