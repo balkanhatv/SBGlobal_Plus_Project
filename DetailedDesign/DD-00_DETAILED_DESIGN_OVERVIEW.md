@@ -1,7 +1,7 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
 **Current checkpoint:** `DEV-WORKFLOW-TASK-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `d0a0422473aecd820c83860b96c33e28e5e27738` / tree `cbe5a22452b02812f99428d832ff6e7ddcf5e41f`
-> **Current audit gate (2026-10-05):** DD-478…DD-482 WorkflowTask visible current WorkflowDefinition evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `8f254a4f4ec72ae65149ac3143cbd3cdea754f0b` / tree `5fff5727e6c478490c0e017bbab1627425347d0f`
+> **Current audit gate (2026-10-05):** DD-478…DD-482 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 
