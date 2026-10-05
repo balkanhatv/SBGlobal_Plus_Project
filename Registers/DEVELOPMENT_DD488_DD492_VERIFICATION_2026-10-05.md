@@ -26,3 +26,14 @@ The nested WorkflowTransition remains historical evidence while WorkflowInstance
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-488…DD-492 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `c5d1160da96abaf5641d7326251daa13a83ebf60` / tree `d88ae087d0e97829b0dae5e8816ed94f18068ec7` passed exact-head push gates:
+- Core run `37261024259` / job `111608084629`: **1335/1335 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111608084843`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37261024158` / job `111608084262`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37261024237` / job `111608084695`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-488…DD-492 is closed and before another source audit opens.

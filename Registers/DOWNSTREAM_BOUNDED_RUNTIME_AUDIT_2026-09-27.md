@@ -332,3 +332,9 @@ The bounded result remains WorkflowTask visible WorkflowDefinition + acting-prin
 Implementation basis `bbfb75c730225306dd72926a470d0a0cfe1f8c21` / tree `08065eb187244a621837ef66ee93e36797183f48` passed Core **1335/1335**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader reuses exact DD-367 historical transition + current parent evidence, performs one exact same-RequestContext definition read and applies only DD-173.
 
 Historical actor/from/action/to/version/time and current parent/definition lifecycle/state/stateMachine/approval/rule/effective metadata remain raw. No actor-currentness, action compatibility, transition/replay/task-action authorization, mutation/event or workflow execution authority is added.
+
+## DD-488…DD-492 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `c5d1160da96abaf5641d7326251daa13a83ebf60` / tree `d88ae087d0e97829b0dae5e8816ed94f18068ec7` passed exact-head Core **1335/1335**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The feature implementation proof remains `bbfb75c730225306dd72926a470d0a0cfe1f8c21` / tree `08065eb187244a621837ef66ee93e36797183f48`.
+
+The evidence remains bounded to historical WorkflowTransition + current WorkflowInstance/WorkflowDefinition visibility/binding. Actor validity, action↔state-machine compatibility, replay/transition/task-action authorization, mutation/events and workflow execution remain separate and unproved.
