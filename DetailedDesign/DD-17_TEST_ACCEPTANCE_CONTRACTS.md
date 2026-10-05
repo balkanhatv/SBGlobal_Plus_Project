@@ -6066,3 +6066,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WFT-DEFRBAC-BOUND-001 — No assignment/action/state-machine/transition/execution authority
 **Owner:** DD-487. Output exposes no assignment-current, claimant/completer-current, due/expiry, task-action, effective-date/state-machine validity, full AuthorizationDecision, GuardPipeline, transition, mutation/event, worker dispatch or workflow execution authority.
+
+## DD-488 Exact DD-367 Parent Acceptance
+
+### WTR-DEFREAD-BASE-001 — Exact DD-367 chain first
+**Owner:** DD-488. Exact supplied RequestContext, WorkflowTransition id and transition/instance dependencies enter DD-367 unchanged before WorkflowDefinition access.
+
+### WTR-DEFREAD-BASE-002 — Parent absence/errors precede definition access
+**Owner:** DD-488. DD-367 null short-circuits and DD-367 dependency errors propagate unchanged before any WorkflowDefinition read.
+
+## DD-489 Exact Same-Context Definition Read Acceptance
+
+### WTR-DEFREAD-DEF-001 — One exact persisted definition read
+**Owner:** DD-489. Exactly one WorkflowDefinition read uses the identical RequestContext and exact current parent WorkflowInstance.workflowDefinitionId for Tenant-Core and Tenant-Industry evidence.
+
+### WTR-DEFREAD-DEF-002 — Definition absence/errors preserve fail-closed behavior
+**Owner:** DD-489. Hidden/missing definition returns null and dependency errors propagate unchanged.
+
+## DD-490 Exact DD-173 Definition Binding Acceptance
+
+### WTR-DEFREAD-FLOOR-001 — ACTIVE/version/applicability floor only
+**Owner:** DD-490. Exact DD-173 id/version/ACTIVE/owner-scope applicability passes; status/version/Tenant/Industry mismatch fails closed.
+
+### WTR-DEFREAD-NOFALLBACK-001 — No PLATFORM_GLOBAL fallback
+**Owner:** DD-490. RLS-hidden/absent referenced definition remains null with no context switch, code/version search or PLATFORM_GLOBAL fallback.
+
+## DD-491 Immutable Historical/Current Layered Evidence Acceptance
+
+### WTR-DEFREAD-EVID-001 — Preserve exact references with no second instance read
+**Owner:** DD-491. Success returns frozen exact-reference `{ parent, definition }`; nested transition/instance and definition references are unchanged and the WorkflowInstance reader is invoked only by DD-367.
+
+### WTR-DEFREAD-HISTORY-001 — Historical transition may differ from advanced current parent
+**Owner:** DD-491. Historical transition from/action/to/version/time evidence remains raw and is not rejected merely because current WorkflowInstance state/version/lifecycle has advanced.
+
+## DD-492 Authority Boundary Acceptance
+
+### WTR-DEFREAD-BOUND-001 — No actor/action/state-machine/replay/execution authority
+**Owner:** DD-492. Output exposes no actor-current/actor-at-occurrence result, action↔stateMachine compatibility, transition/replay/task-action authorization, mutation/event or workflow execution authority.

@@ -5739,3 +5739,43 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WFT-DEFRBAC-BOUND-001`.
+
+## DD-488 — reuse exact DD-367 transition + current instance evidence first
+
+**Decision:** Add `loadWorkflowTransitionInstanceDefinitionCurrentEvidence(...)`. Invoke DD-367 first with exact supplied RequestContext, WorkflowTransition id and transition/instance readers. Parent null returns null before definition access; dependency errors propagate unchanged.
+
+**Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WTR-DEFREAD-BASE-001…002`.
+
+## DD-489 — read exactly the persisted current parent definition in the same context
+
+**Decision:** After DD-367 succeeds, call `WorkflowDefinitionReadPort.loadForContext` exactly once with the identical RequestContext object and `parent.instance.workflowDefinitionId`. Do not read by code/version, switch context, retry or fall back.
+
+**Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WTR-DEFREAD-DEF-001…002`.
+
+## DD-490 — re-apply only DD-173 and preserve the no-fallback boundary
+
+**Decision:** Apply `matchesWorkflowInstanceDefinitionBindingFloors(parent.instance, definition)`. False returns null. RLS-hidden/absent definitions remain null; no PLATFORM_GLOBAL lookup is invented. Do not add actor/current-state/action predicates.
+
+**Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WTR-DEFREAD-FLOOR-001, WTR-DEFREAD-NOFALLBACK-001`.
+
+## DD-491 — preserve historical transition versus current parent/definition semantics
+
+**Decision:** Success returns frozen `{ parent, definition }` preserving exact object references. The transition is historical evidence; current WorkflowInstance and WorkflowDefinition are present-time visible evidence. Do not compare historical transition state/version against later parent state/version.
+
+**Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WTR-DEFREAD-EVID-001, WTR-DEFREAD-HISTORY-001`.
+
+## DD-492 — no actor/action/state-machine/replay or execution authority
+
+**Decision:** Preserve transition actor/from/action/to/reason/version/time/correlation plus current parent/definition lifecycle/state/stateMachine/approval/rule/effective metadata raw. Do not validate actor membership/currentness, map actionCode into stateMachine, authorize replay/transition/task action, mutate state, emit events or execute workflow workers.
+
+**Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WTR-DEFREAD-BOUND-001`.

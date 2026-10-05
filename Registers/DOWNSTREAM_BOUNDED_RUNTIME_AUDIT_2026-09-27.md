@@ -326,3 +326,9 @@ Assignment/current claimant/completer, due/expiry/task actions, WorkflowDefiniti
 Canonical promotion basis `8f52a253c65553124adcc7301ae8f2cfe84f0277` / tree `79d5769f28d9f89017bdef9da10c9336d9edc66b` passed exact-head Core **1326/1326**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `93ae951362fc79c83e7c47c54308f3fa1c7eaf65`.
 
 The bounded result remains WorkflowTask visible WorkflowDefinition + acting-principal current compiled-RBAC necessary evidence only. Assignment/current claimant/completer, due/expiry/task-action semantics, WorkflowInstance lifecycle/state, WorkflowDefinition effective dates/stateMachine/approvalPolicy/ruleRefs and applicable ABAC remain uninterpreted. No full AuthorizationDecision, GuardPipeline, transition, mutation/event, worker dispatch or workflow execution authority is created.
+
+## DD-488…DD-492 exact-head implementation evidence — 2026-10-05
+
+Implementation basis `bbfb75c730225306dd72926a470d0a0cfe1f8c21` / tree `08065eb187244a621837ef66ee93e36797183f48` passed Core **1335/1335**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader reuses exact DD-367 historical transition + current parent evidence, performs one exact same-RequestContext definition read and applies only DD-173.
+
+Historical actor/from/action/to/version/time and current parent/definition lifecycle/state/stateMachine/approval/rule/effective metadata remain raw. No actor-currentness, action compatibility, transition/replay/task-action authorization, mutation/event or workflow execution authority is added.
