@@ -6506,3 +6506,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-STOEVID-BOUND-001 — Evidence grants no authorization or signing authority
 **Owner:** DD-547. Output exposes no authorized/denied/ACL-effective/signed/provider-selected/download/share/delete/dispatch/mutation authority.
+
+## DD-548 Exact DD-542 Parent Acceptance
+
+### DOC-ACLSTO-BASE-001 — Exact DD-542 parent executes first
+**Owner:** DD-548. Exact supplied RequestContext, document id, explicit DocumentAclPermission and metadata/ACL/matcher dependencies enter DD-542 unchanged before physical binding access.
+
+### DOC-ACLSTO-BASE-002 — DD-542 failure precedes binding access
+**Owner:** DD-548. Governed DD-542 errors propagate unchanged and the DD-086 physical binding reader is not invoked.
+
+## DD-549 Exact Candidate-Linked DD-086 Read Acceptance
+
+### DOC-ACLSTO-READ-001 — One exact preserved candidate binding read
+**Owner:** DD-549. DD-542 success causes exactly one DD-086 read using exact supplied RequestContext plus parent.candidate.documentId and parent.candidate.storageObjectId with no duplicate candidate read.
+
+### DOC-ACLSTO-READ-002 — Binding dependency errors preserve identity
+**Owner:** DD-549. DD-086 errors propagate unchanged with no retry/search, alternate locator, provider, source/owner or Data Home fallback.
+
+## DD-550 Null / Fallback Boundary Acceptance
+
+### DOC-ACLSTO-NULL-001 — Missing exact binding fails closed
+**Owner:** DD-550. A null DD-086 binding returns null without authorization synthesis or alternate object/provider/Data Home lookup.
+
+## DD-551 Immutable Combined Evidence Acceptance
+
+### DOC-ACLSTO-EVID-001 — Preserve exact DD-542 parent and DD-086 binding references
+**Owner:** DD-551. Success returns frozen evidence preserving the exact DD-542 parent and exact DD-086 binding references.
+
+### DOC-ACLSTO-EVID-002 — ACL and physical locator/integrity evidence remains raw
+**Owner:** DD-551. Empty/non-empty ACL subject evidence and provider ciphertext, bucket/key/version, size/checksum and encryption-key facts remain exact and uninterpreted.
+
+## DD-552 Authorization / Provider / Signing / Storage Boundary Acceptance
+
+### DOC-ACLSTO-BOUND-001 — Combined evidence grants no operation authority
+**Owner:** DD-552. Output exposes no ACL-effect authorization, provider selection/decryption, signed access/TTL, download/share/delete, StoragePort dispatch, mutation or event authority.

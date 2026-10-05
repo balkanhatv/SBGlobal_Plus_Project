@@ -6229,3 +6229,43 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_ACCESS_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOC-STOEVID-BOUND-001`.
+
+## DD-548 — establish exact DD-542 ACL-subject parent first
+
+**Decision:** Add `loadDocumentAccessAclStorageBindingEvidence(...)`. Its first governed action invokes `loadDocumentAccessAclSubjectEvidence(...)` with the exact supplied RequestContext, document id, explicit DocumentAclPermission and exact metadata/ACL/matcher dependencies. Parent errors propagate unchanged and binding access does not occur after DD-542 failure.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLSTO-BASE-001…002`.
+
+## DD-549 — read physical binding only from preserved candidate linkage
+
+**Decision:** After DD-542 succeeds, invoke the supplied DD-086 physical binding reader exactly once with the exact supplied RequestContext plus `documentId === parent.candidate.documentId` and `storageObjectId === parent.candidate.storageObjectId`. Do not rerun DD-082 and do not accept/substitute caller StorageObject locators, sourceResourceId, provider reference or object key.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLSTO-READ-001…002`.
+
+## DD-550 — preserve null/error semantics without fallback
+
+**Decision:** DD-086 null returns null and dependency errors propagate unchanged. Do not retry/search by id/key, choose another provider/Data Home, use source/owner fallback or synthesize an authorization/storage decision.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLSTO-NULL-001` plus `DOC-ACLSTO-READ-002`.
+
+## DD-551 — preserve immutable exact-reference ACL + physical binding evidence
+
+**Decision:** Success returns frozen `{ parent, binding }`, preserving exact DD-542 parent and DD-086 binding references. Raw ACL entries/matches/permission and private storage locator/integrity fields remain unchanged, including an empty matched ACL set.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLSTO-EVID-001…002`.
+
+## DD-552 — stop before ACL effectiveness, final authorization, provider selection and signing
+
+**Decision:** Do not interpret ACL effect/validUntil/DENY precedence; do not infer operation→ACL mapping or source/owner fallback; do not evaluate entitlement/RBAC/ABAC/sensitivity/step-up/residency-exception policy; do not decrypt/select provider/bucket, sign URL/token/grant, establish TTL, expose download/share/delete authority, dispatch StoragePort or mutate Document/Storage/ACL state.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLSTO-BOUND-001`.

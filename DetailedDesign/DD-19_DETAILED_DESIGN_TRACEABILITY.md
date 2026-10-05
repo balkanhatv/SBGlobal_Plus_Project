@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-DOCUMENT-ACCESS-STORAGE-BINDING-EVIDENCE-READER-001`
-**Current executable audit basis:** `6cd94327284e1acefdab1fb07c4c10e02e9a3239` / tree `9005f3816086003bde8e2a225bf734f94a034f94`
-> **Current audit gate (2026-10-05):** DD-543…DD-547 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-STORAGE-BINDING-EVIDENCE-READER-001`
+**Current executable audit basis:** `7212643715d725abd7d934cee2843f5c8317c1ef` / tree `6ac3e236fd8faee65f76af2a86a57eb14f9d6b86`
+> **Current audit gate (2026-10-05):** DD-548…DD-552 Document ACL-subject + physical StorageObject binding evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1334,3 +1334,9 @@ Success proves only one exact DD-082 candidate, exact raw DD-084 ACL array and D
 DD-082 exact ACTIVE+CLEAN pre-sign Document access candidate → exact persisted candidate.documentId + candidate.storageObjectId → DD-086 physical binding read under exact supplied RequestContext/current Data Home → `Development/DOCUMENT_ACCESS_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-543…DD-547 → `src/server/document/document-access-storage-binding-evidence-reader.ts` → `tests/server/document-access-storage-binding-evidence-reader.test.mjs` (`DOC-STOEVID-BASE-001…002`, `DOC-STOEVID-READ-001…002`, `DOC-STOEVID-NULL-001`, `DOC-STOEVID-EVID-001…002`, `DOC-STOEVID-BOUND-001`) → `Registers/DEVELOPMENT_DD543_DD547_VERIFICATION_2026-10-05.md`.
 
 Success proves only one exact DD-082 candidate and one exact DD-086 currently valid physical StorageObject binding for that candidate linkage. Private provider/bucket/key/version/integrity/encryption facts remain raw internal evidence. ACL effectiveness/final authorization, permission/entitlement/RBAC/ABAC/sensitivity/step-up/residency exception policy, provider selection/decryption, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain separate.
+
+## DD-548…DD-552 — Document ACL-subject + physical StorageObject binding evidence
+
+DD-542 exact candidate/raw-ACL/subject-match evidence → preserved candidate.documentId + candidate.storageObjectId → one exact DD-086 physical binding read under the same supplied RequestContext → `Development/DOCUMENT_ACCESS_ACL_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-548…DD-552 → `src/server/document/document-access-acl-storage-binding-evidence-reader.ts` → `tests/server/document-access-acl-storage-binding-evidence-reader.test.mjs` (`DOC-ACLSTO-BASE-001…002`, `DOC-ACLSTO-READ-001…002`, `DOC-ACLSTO-NULL-001`, `DOC-ACLSTO-EVID-001…002`, `DOC-ACLSTO-BOUND-001`) → `Registers/DEVELOPMENT_DD548_DD552_VERIFICATION_2026-10-05.md`.
+
+This proves only exact DD-542 ACL-subject evidence plus exact same-candidate DD-086 physical binding evidence. ACL effectiveness/final authorization, operation→ACL permission mapping, entitlement/RBAC/ABAC/sensitivity/step-up/residency exceptions, provider selection/decryption, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain separate.
