@@ -6313,3 +6313,47 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_UPLOAD_SESSION_ACTING_PRINCIPAL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOC-UPOWN-BOUND-001`.
+
+## DD-558 — reuse exact DD-542 ACL subject evidence first
+
+**Context:** DD-542 already owns the DD-082 candidate + DD-084 raw ACL + DD-085 subject match for one explicit ACL permission.
+
+**Decision:** Add `loadDocumentAccessAclCurrentEffectEvidence(...)`. Invoke DD-542 once with exact inputs/dependencies before time/effect interpretation. Parent dependency/governed errors propagate unchanged.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEFFECT-BASE-001…002`.
+
+## DD-559 — interpret validUntil only against an explicit trusted current instant
+
+**Decision:** Accept explicit server-supplied `currentTimeIso`; do not read wall-clock time internally. A matched row without validUntil is current. A row with validUntil is current only when its parsed instant is strictly greater than currentTimeIso; equal/earlier is expired. Malformed time evidence fails closed.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEFFECT-TIME-001…002`.
+
+## DD-560 — preserve exact current/expired ACL evidence partitions
+
+**Decision:** Partition only DD-542 matchedEntries, preserve order and exact entry references, and freeze both arrays. Raw/unmatched ACL evidence remains reachable only through the exact parent.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEFFECT-PART-001`.
+
+## DD-561 — explicit DENY wins inside current ACL evidence only
+
+**Context:** DD-08 §6 explicitly states that explicit deny wins.
+
+**Decision:** Derive ACL-layer `effectEvidence`: DENY if any current matched row is DENY; otherwise ALLOW if any current matched row is ALLOW; otherwise NONE. Expired rows do not participate. This is not a final access decision.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEFFECT-DENY-001…002`.
+
+## DD-562 — do not widen ACL evidence into access/signing authority
+
+**Decision:** Preserve exact DD-542 parent plus current/expired/effect evidence only. Do not choose source-resource inheritance, map OperationContract permissions, evaluate RBAC/ABAC/entitlement/sensitivity/residency/step-up, load StorageObject, sign URLs/tokens, issue grants or claim download/share/delete/mutation authority.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEFFECT-EVID-001, DOC-ACLEFFECT-BOUND-001`.

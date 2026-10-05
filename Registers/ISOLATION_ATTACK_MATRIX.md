@@ -1,8 +1,8 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
-**Current checkpoint:** `DEV-DOCUMENT-UPLOAD-SESSION-ACTING-PRINCIPAL-EVIDENCE-READER-001`
-> **Current audit gate (2026-10-05):** DD-553…DD-557 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
+> **Current audit gate (2026-10-05):** DD-558…DD-562 Document ACL currentness + explicit-DENY-wins evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-10-05 · **Branch:** `docs/architecture-branch-2`
-> **Current executable audit basis:** `68502f46dddc3aca95bc07a2f3cf33f730b604e7` / tree `71d2bcec6d054308fdbd8b299b4bb827714948a5`
+> **Current executable audit basis:** `7cbf93ff1295765995bb83a97122920f958cc1f1` / tree `8b9907bb849f9251d77bbdd977ba456f4a437493`
 
 ## Historical 2026-09-14 executable persistence overlay
 

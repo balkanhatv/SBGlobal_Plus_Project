@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-DOCUMENT-UPLOAD-SESSION-ACTING-PRINCIPAL-EVIDENCE-READER-001`
-**Current executable audit basis:** `68502f46dddc3aca95bc07a2f3cf33f730b604e7` / tree `71d2bcec6d054308fdbd8b299b4bb827714948a5`
-> **Current audit gate (2026-10-05):** DD-553…DD-557 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
+**Current executable audit basis:** `7cbf93ff1295765995bb83a97122920f958cc1f1` / tree `8b9907bb849f9251d77bbdd977ba456f4a437493`
+> **Current audit gate (2026-10-05):** DD-558…DD-562 Document ACL currentness + explicit-DENY-wins evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1346,3 +1346,9 @@ This proves only exact DD-542 ACL-subject evidence plus exact same-candidate DD-
 DD-087 raw DocumentUploadSession read → migration 0006 protected Tenant/scope/Industry continuity + acting-principal ownership evidence → `Development/DOCUMENT_UPLOAD_SESSION_ACTING_PRINCIPAL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-553…DD-557 → `src/core/document/upload-session-acting-principal-evidence-reader.ts` → `tests/core/document-upload-session-acting-principal-evidence-reader.test.mjs` (`DOC-UPOWN-BASE-001…002`, `DOC-UPOWN-SCOPE-001…002`, `DOC-UPOWN-PRINCIPAL-001…002`, `DOC-UPOWN-EVID-001`, `DOC-UPOWN-BOUND-001`) → `Registers/DEVELOPMENT_DD553_DD557_VERIFICATION_2026-10-05.md`.
 
 This proves only exact persisted/current upload-session ownership continuity. Expiry/status/media/size/temp-object/checksum/current-principal-activity/authorization/upload-usability/signing/StoragePort/finalization/mutation semantics remain separately governed.
+
+## DD-558…DD-562 — Document ACL currentness + explicit-DENY-wins evidence
+
+DD-542 Document candidate/raw ACL/subject-match evidence → optional `DocumentAclEntry.validUntil` + explicit trusted currentTimeIso → current/expired exact-reference partition → DD-08 §6 explicit-DENY-wins ACL-layer effect evidence → `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-558…DD-562 → `src/core/document/access-acl-current-effect-evidence-reader.ts` → `tests/core/document-access-acl-current-effect-evidence-reader.test.mjs` (`DOC-ACLEFFECT-BASE-001…002`, `DOC-ACLEFFECT-TIME-001…002`, `DOC-ACLEFFECT-PART-001`, `DOC-ACLEFFECT-DENY-001…002`, `DOC-ACLEFFECT-EVID-001`, `DOC-ACLEFFECT-BOUND-001`) → `Registers/DEVELOPMENT_DD558_DD562_VERIFICATION_2026-10-05.md`.
+
+This proves only ACL-layer current/effect evidence. It does not choose source-resource inheritance, replace DD-03/DD-04 authorization/commercial policy, evaluate sensitivity/residency/step-up, load StorageObject, sign a grant or establish download/share/delete/mutation authority.

@@ -6574,3 +6574,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-UPOWN-BOUND-001 — No usability, authorization or StoragePort authority
 **Owner:** DD-557. Output exposes no expiry/status-transition/media-size/checksum/temp-object/current-principal-activity/authorization/signing/storage-dispatch/upload-finalization/cancellation/activation/mutation/event authority.
+
+## DD-558 Exact DD-542 Parent Acceptance
+
+### DOC-ACLEFFECT-BASE-001 — Exact DD-542 chain first
+**Owner:** DD-558. Exact RequestContext, document id, explicit ACL permission and metadata/ACL/matcher dependencies enter DD-542 unchanged before time/effect interpretation.
+
+### DOC-ACLEFFECT-BASE-002 — Parent errors precede time/effect interpretation
+**Owner:** DD-558. DD-542 dependency/governed errors propagate unchanged; no retry, fallback or synthesized ACL decision occurs.
+
+## DD-559 Deterministic Current-Instant Acceptance
+
+### DOC-ACLEFFECT-TIME-001 — Optional validUntil currentness
+**Owner:** DD-559. No-expiry and future-expiry matched rows are current; equal/past expiry rows are expired against the exact supplied currentTimeIso.
+
+### DOC-ACLEFFECT-TIME-002 — Malformed time evidence fails closed
+**Owner:** DD-559. Invalid currentTimeIso or matched validUntil evidence fails closed without fallback or wall-clock substitution.
+
+## DD-560 Immutable Current/Expired Partition Acceptance
+
+### DOC-ACLEFFECT-PART-001 — Preserve matched-entry order/references
+**Owner:** DD-560. Frozen currentEntries and expiredEntries preserve DD-542 matched-entry order and exact object references.
+
+## DD-561 Explicit DENY Precedence Acceptance
+
+### DOC-ACLEFFECT-DENY-001 — Any current DENY wins
+**Owner:** DD-561. Any current matched DENY yields ACL-layer DENY even when current ALLOW evidence also exists.
+
+### DOC-ACLEFFECT-DENY-002 — ALLOW/NONE evidence only after DENY absence
+**Owner:** DD-561. Current ALLOW with no current DENY yields ACL-layer ALLOW; no current matched entries yields NONE.
+
+## DD-562 Evidence / Authority Boundary Acceptance
+
+### DOC-ACLEFFECT-EVID-001 — Exact parent/raw evidence preserved
+**Owner:** DD-562. Exact DD-542 parent, candidate, raw ACL evidence and requested permission remain unchanged.
+
+### DOC-ACLEFFECT-BOUND-001 — No final authorization, fallback or signing authority
+**Owner:** DD-562. Output grants no source-resource fallback choice, full authorization, RBAC/ABAC/commercial/sensitivity/residency/step-up result, StorageObject binding/signing/grant/download/share/delete/mutation authority.

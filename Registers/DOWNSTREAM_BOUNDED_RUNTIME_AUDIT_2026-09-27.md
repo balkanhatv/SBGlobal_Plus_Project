@@ -494,3 +494,9 @@ Expiry/status/media/size/temp-object/checksum remain raw. Current-principal acti
 Canonical promotion basis `68502f46dddc3aca95bc07a2f3cf33f730b604e7` / tree `71d2bcec6d054308fdbd8b299b4bb827714948a5` passed Core **1444/1444**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `8dd4212e5f1c878a562664fd227df6ff8c555f89`.
 
 The bounded authority remains unchanged: exact DD-087 read plus protected Tenant/scope/Industry and acting-principal ownership evidence only; no expiry/status/media/checksum/usability/authorization/signing/StoragePort/finalization/mutation semantics.
+
+## DD-558…DD-562 exact-head implementation evidence — 2026-10-05
+
+Implementation basis `7cbf93ff1295765995bb83a97122920f958cc1f1` / tree `8b9907bb849f9251d77bbdd977ba456f4a437493` passed Core **1453/1453**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The bounded reader reuses exact DD-542 ACL subject evidence, partitions current/expired matched entries using optional validUntil against an explicit trusted currentTimeIso, preserves exact references/order and applies explicit DENY precedence only inside current ACL evidence.
+
+The result is not final authorization. Source-resource fallback, DD-03/DD-04 access/commercial policy, sensitivity/residency/step-up, StorageObject lookup, signing/grants and download/share/delete/mutation authority remain separate.
