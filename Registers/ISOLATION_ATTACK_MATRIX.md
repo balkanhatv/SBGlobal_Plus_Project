@@ -1,8 +1,8 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
 **Current checkpoint:** `DEV-DOCUMENT-ACCESS-STORAGE-BINDING-EVIDENCE-READER-001`
-> **Current audit gate (2026-10-05):** DD-543…DD-547 Document access candidate + physical StorageObject binding evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-05):** DD-543…DD-547 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-10-05 · **Branch:** `docs/architecture-branch-2`
-> **Current executable audit basis:** `a009c30cb79d604417de0f81faadea0b65a964ad` / tree `cd539a9620f3cf9402f4737121bde3e638929455`
+> **Current executable audit basis:** `6cd94327284e1acefdab1fb07c4c10e02e9a3239` / tree `9005f3816086003bde8e2a225bf734f94a034f94`
 
 ## Historical 2026-09-14 executable persistence overlay
 

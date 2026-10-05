@@ -464,3 +464,9 @@ The promoted boundary is still evidence-only: exact DD-082 candidate + DD-084 ra
 Implementation basis `a009c30cb79d604417de0f81faadea0b65a964ad` / tree `cd539a9620f3cf9402f4737121bde3e638929455` passed Core **1428/1428**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader sequences exact DD-082 ACTIVE+CLEAN candidate evidence into one exact DD-086 physical binding read using only candidate.documentId + candidate.storageObjectId and preserves exact references.
 
 This remains internal evidence only. ACL effectiveness/final authorization, permission/entitlement/RBAC/ABAC/sensitivity/step-up/residency exception policy, provider decryption/selection, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain separate.
+
+## DD-543…DD-547 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `6cd94327284e1acefdab1fb07c4c10e02e9a3239` / tree `9005f3816086003bde8e2a225bf734f94a034f94` passed exact-head Core **1428/1428**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Implementation proof remains anchored to `a009c30cb79d604417de0f81faadea0b65a964ad`.
+
+This advances canonical evidence only. Exact DD-082 candidate + DD-086 physical binding evidence remains server-internal and non-authoritative for ACL/final authorization, provider selection/decryption, signing/TTL, download/share/delete, StoragePort execution or mutation.
