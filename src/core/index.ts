@@ -77,6 +77,7 @@ export * from "./integration/webhook-delivery.js";
 export * from "./integration/outbox-event.js";
 export * from "./integration/event-catalog.js";
 export * from "./integration/webhook-delivery-floors.js";
+export * from "./integration/webhook-delivery-current-evidence-reader.js";
 export * from "./integration/integration-definition.js";
 export * from "./integration/integration-capability.js";
 export * from "./integration/provider-adapter.js";
