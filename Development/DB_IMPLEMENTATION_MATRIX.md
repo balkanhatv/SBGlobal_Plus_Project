@@ -1,7 +1,7 @@
 # DATABASE IMPLEMENTATION MATRIX — INDUSTRY WAVE
 **Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-SUBJECT-EVIDENCE-READER-001`
-**Current executable audit basis:** `85c4ac385fad6b6900fd08c1c4c8f3f5034e1f30` / tree `d38598c36e1b384984516f59b3a5a7e07fca90d1`
-> **Current audit gate (2026-10-05):** DD-538…DD-542 Document access candidate + raw ACL subject-match evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `7cfec70c641eb05e5c33db3bcba324e43720140c` / tree `64f2414b6da65c6931950a6043e2bc3036d9a7a2`
+> **Current audit gate (2026-10-05):** DD-538…DD-542 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-10-05 · **Branch:** `docs/architecture-branch-2`
 **Status:** 9 CURRENT SUPPORTED INDUSTRY TABLE SETS IMPLEMENTED · CURRENT PERSISTENCE CHECKPOINT VERIFIED
 

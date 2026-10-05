@@ -1,7 +1,7 @@
 # DD-20D — OVERALL DETAILED DESIGN ADVERSARIAL AUDIT — PHASE 3
 **Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-SUBJECT-EVIDENCE-READER-001`
-**Current executable audit basis:** `85c4ac385fad6b6900fd08c1c4c8f3f5034e1f30` / tree `d38598c36e1b384984516f59b3a5a7e07fca90d1`
-> **Current audit gate (2026-10-05):** DD-538…DD-542 Document access candidate + raw ACL subject-match evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `7cfec70c641eb05e5c33db3bcba324e43720140c` / tree `64f2414b6da65c6931950a6043e2bc3036d9a7a2`
+> **Current audit gate (2026-10-05):** DD-538…DD-542 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-3 DETAILED DESIGN EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 **Historical adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
 

@@ -452,3 +452,9 @@ The bounded reader still proves only DD-522 current-residency → DD-527 pre-pay
 Implementation basis `85c4ac385fad6b6900fd08c1c4c8f3f5034e1f30` / tree `d38598c36e1b384984516f59b3a5a7e07fca90d1` passed Core **1420/1420**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader sequences only existing DD-082 candidate, DD-084 raw ACL and DD-085 subject-match boundaries for one explicit DocumentAclPermission.
 
 Empty subject-match evidence is not deny; non-empty subject-match evidence is not allow. Raw ACL effect/validUntil, DENY precedence, operation→ACL permission mapping, source/owner fallback, final entitlement/RBAC/ABAC/sensitivity/step-up/residency authorization, signed grants/storage provider, download/share/delete/dispatch and mutation remain separate.
+
+## DD-538…DD-542 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `7cfec70c641eb05e5c33db3bcba324e43720140c` / tree `64f2414b6da65c6931950a6043e2bc3036d9a7a2` passed Core **1420/1420**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains implementation-anchored to `85c4ac385fad6b6900fd08c1c4c8f3f5034e1f30`.
+
+The promoted boundary is still evidence-only: exact DD-082 candidate + DD-084 raw ACL + DD-085 explicit-permission subject matching. Empty/non-empty matches are not deny/allow decisions. ACL effectiveness, permission mapping, final authorization, sensitivity/step-up/residency, signing/storage and download/share/delete/dispatch/mutation remain separate.
