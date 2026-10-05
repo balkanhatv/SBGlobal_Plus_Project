@@ -37,3 +37,13 @@ Canonical promotion HEAD `7cfec70c641eb05e5c33db3bcba324e43720140c` / tree `64f2
 - Web run `37311334531` / job `111767211866`: PASS.
 
 Pull-request Core/Database/Web workflows on the same promotion HEAD also passed. Feature implementation proof remains anchored to `85c4ac385fad6b6900fd08c1c4c8f3f5034e1f30` / tree `d38598c36e1b384984516f59b3a5a7e07fca90d1`. This state-closure commit must independently pass the same exact-head gates before DD-538…DD-542 is closed and another source audit opens.
+
+## State closure verified — 2026-10-05
+
+State-closure HEAD `6d57e7b1bbd4c390f843cc5123f85dabecfbc13e` / tree `4135dffc1f0c7d5bc9801b51bc20d2ac2af3fc16` passed exact-head push gates:
+- Core run `37312179642` / job `111770013035`: **1420/1420 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111770012499`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37312179665` / job `111770012244`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37312179914` / job `111770012988`: PASS.
+
+DD-538…DD-542 is closed at its bounded evidence scope. Forward development may resume only through a fresh source-complete audit.
