@@ -1,7 +1,7 @@
 # DD-22H — STATE ENUM DERIVATION HISTORY
 **Current checkpoint:** `DEV-WEBHOOK-DELIVERY-EVENT-PRE-PAYLOAD-STRUCTURE-EVIDENCE-001`
-**Current executable audit basis:** `fa4c8406748fc33ecd83238404ca82515ab3937a` / tree `64053088e93d74a9d3afdbd925c49077b78b31c6`
-> **Current audit gate (2026-10-05):** DD-523…DD-527 Webhook source-event pre-payload structural evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `546c8405e339d03959057039ac572b97a2f43cb4` / tree `24475c772a018a846e5a04454696961d7b66289a`
+> **Current audit gate (2026-10-05):** DD-523…DD-527 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** FABLE 5 REMEDIATION / STATE-DERIVATION EVIDENCE · **Date:** 2026-09-11
 **Historical authority:** Fable 5 remediation mandate · industry DD state contracts · DD-03/06/07/15 · DD-21
 

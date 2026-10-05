@@ -418,3 +418,9 @@ The composition proves only exact DD-517 source-event envelope evidence plus one
 Corrected implementation basis `fa4c8406748fc33ecd83238404ca82515ab3937a` / tree `64053088e93d74a9d3afdbd925c49077b78b31c6` passed Core **1395/1395**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch reuses exact DD-522 current-residency evidence and adds only locally re-evaluable DD-081 pre-payload structural prerequisites: strict occurredAt calendar/date-time validity, recursive JSON-safe persisted payload structure and recursive JSON-safe EventCatalog payloadSchema structure.
 
 It performs zero new persistence reads and zero EventPayloadValidatorPort calls. Payload-schema semantics, EventCatalog lifecycle, event-filter match, endpoint/SSRF authorization, signing, retry/DLQ/replay, cross-context authorization, network dispatch and mutation remain separate.
+
+## DD-523…DD-527 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `546c8405e339d03959057039ac572b97a2f43cb4` / tree `24475c772a018a846e5a04454696961d7b66289a` passed exact-head Core **1395/1395**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to corrected implementation `fa4c8406748fc33ecd83238404ca82515ab3937a`.
+
+The bounded result remains exact DD-522 current-residency evidence plus strict occurredAt calendar validity and JSON-compatible payload/payloadSchema structure, with zero new persistence reads and zero payload-validator calls. It does not authorize payload-schema semantics, EventCatalog lifecycle, filter evaluation, endpoint/SSRF, signing, retry/DLQ/replay, EXPLICIT_CROSS_CONTEXT dispatch, network delivery or mutation.

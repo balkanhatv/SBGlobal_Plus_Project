@@ -30,3 +30,13 @@ Success is not payload-schema validation, EventCatalog ACTIVE/RETIRED authorizat
 ## Canonical promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-523…DD-527 state closure or another source audit.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `546c8405e339d03959057039ac572b97a2f43cb4` / tree `24475c772a018a846e5a04454696961d7b66289a` passed exact-head push gates:
+- Core run `37281843631` / job `111671484201`: **1395/1395 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111671483734`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37281843799` / job `111671483991`: PASS; database inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37281843678` / job `111671484269`: PASS.
+
+Pull-request Core/PostgreSQL/Database/Web workflows on the same promotion HEAD also passed. This state-closure commit must independently pass the same gates before DD-523…DD-527 is closed and another source audit may open.
