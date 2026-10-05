@@ -27,3 +27,15 @@ WorkflowTask assignment/current claimant/completer, due/expiry/task-action seman
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-483…DD-487 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `8f52a253c65553124adcc7301ae8f2cfe84f0277` / tree `79d5769f28d9f89017bdef9da10c9336d9edc66b` passed exact-head push gates:
+- Core run `37259619336` / job `111603903240`: **1326/1326 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111603903066`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37259619340` / job `111603902915`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37259619323` / job `111603902928`: PASS.
+
+Pull-request Database/Web and Core workflow evidence on the same promotion HEAD is also green/finishing cleanly. The feature implementation proof remains anchored to `93ae951362fc79c83e7c47c54308f3fa1c7eaf65` / tree `3b71d836f839b80c73b1a0a63a3da23345471c7e`.
+
+This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-483…DD-487 is closed and before another source audit opens.

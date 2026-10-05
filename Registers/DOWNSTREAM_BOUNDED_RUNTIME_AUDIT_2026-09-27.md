@@ -320,3 +320,9 @@ This batch remains evidence-only: WorkflowTask assignment/current claimant/compl
 Implementation basis `93ae951362fc79c83e7c47c54308f3fa1c7eaf65` / tree `3b71d836f839b80c73b1a0a63a3da23345471c7e` passed Core **1326/1326**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader reuses exact DD-482 task/instance/definition evidence, performs one exact current Authorization read for persisted WorkflowTask.permissionCode, and applies the existing DD-475 protected-Tenant RBAC necessary floor.
 
 Assignment/current claimant/completer, due/expiry/task actions, WorkflowDefinition effective dates/stateMachine/approvalPolicy/ruleRefs, applicable ABAC/resource/commercial facts, WorkflowTransition authority, mutation/event, worker dispatch and workflow execution remain outside this evidence.
+
+## DD-483…DD-487 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `8f52a253c65553124adcc7301ae8f2cfe84f0277` / tree `79d5769f28d9f89017bdef9da10c9336d9edc66b` passed exact-head Core **1326/1326**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `93ae951362fc79c83e7c47c54308f3fa1c7eaf65`.
+
+The bounded result remains WorkflowTask visible WorkflowDefinition + acting-principal current compiled-RBAC necessary evidence only. Assignment/current claimant/completer, due/expiry/task-action semantics, WorkflowInstance lifecycle/state, WorkflowDefinition effective dates/stateMachine/approvalPolicy/ruleRefs and applicable ABAC remain uninterpreted. No full AuthorizationDecision, GuardPipeline, transition, mutation/event, worker dispatch or workflow execution authority is created.
