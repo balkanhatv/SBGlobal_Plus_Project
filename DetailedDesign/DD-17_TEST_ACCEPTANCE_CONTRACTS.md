@@ -6302,8 +6302,17 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 ### WH-EVTRES-READ-002 — Null/error fail closed
 **Owner:** DD-519. RLS-hidden/absent residency evidence returns null and residency-reader errors propagate unchanged.
 
-### WH-EVTRES-PG-001…004 — Integration PostgreSQL residency isolation
-**Owner:** DD-519. Same-Tenant Industry/Core reads preserve exact current residency; sibling Industry shares Tenant evidence; foreign Tenant, malformed/mismatched context/id or database-route failure fails closed under existing Integration-service RLS.
+### WH-EVTRES-PG-001 — Industry-scoped current residency read preserves exact evidence
+**Owner:** DD-519. Exact same-Tenant Industry-scoped current residency read preserves the current region and immutable evidence identity.
+
+### WH-EVTRES-PG-002 — Tenant-Core and sibling Industry share the same Tenant residency evidence
+**Owner:** DD-519. Tenant-Core and sibling-Industry contexts of the same Tenant read the same current authoritative Tenant residency evidence.
+
+### WH-EVTRES-PG-003 — Foreign Tenant residency is not readable
+**Owner:** DD-519. Foreign-Tenant input/context cannot read another Tenant's residency evidence through the existing Integration-service RLS boundary.
+
+### WH-EVTRES-PG-004 — Malformed/mismatched route fails closed
+**Owner:** DD-519. Malformed or mismatched context/id and database-route failure fail closed without alternate Tenant or region fallback.
 
 ## DD-520 Shared Integration Current-Residency Floor Acceptance
 
