@@ -6103,3 +6103,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WTR-DEFREAD-BOUND-001 — No actor/action/state-machine/replay/execution authority
 **Owner:** DD-492. Output exposes no actor-current/actor-at-occurrence result, action↔stateMachine compatibility, transition/replay/task-action authorization, mutation/event or workflow execution authority.
+
+## DD-493 TenantIntegration-First Current Integrity Evidence Acceptance
+
+### INT-EVID-BASE-001 — Exact visible TenantIntegration first
+**Owner:** DD-493. The exact supplied RequestContext and TenantIntegration id reach the raw DD-095 reader first; null/error short-circuits every dependent read.
+
+## DD-494 Exact CredentialReference Metadata Acceptance
+
+### INT-EVID-CRED-001 — One exact same-context credential metadata read
+**Owner:** DD-494. Exactly one CredentialReference metadata read uses the identical RequestContext and persisted credentialReferenceId; null/error fails closed unchanged and no secret material is accessed.
+
+## DD-495 Exact Definition and Enabled Capability Evidence Acceptance
+
+### INT-EVID-DEF-001 — One exact IntegrationDefinition read
+**Owner:** DD-495. Exactly one IntegrationDefinition read uses the exact persisted integrationDefinitionId; null/error fails closed unchanged.
+
+### INT-EVID-CAP-001 — Persisted enabled capability sequence only
+**Owner:** DD-495. Each persisted enabled code is read in original order with exact Definition id/code. Empty set performs zero reads. No trim/lowercase/dedupe/sort/alias/fallback; null/error fails closed.
+
+## DD-496 DD-167 Current Integrity / Immutable Evidence Acceptance
+
+### INT-EVID-FLOOR-001 — Exact DD-167 conjunction passes
+**Owner:** DD-496. Exact DD-165 credential currentness plus DD-166 Definition/config/enabled-capability current-set evidence passes only through DD-167 using the exact supplied evaluation instant.
+
+### INT-EVID-FLOOR-002 — Any primitive integrity mismatch fails closed
+**Owner:** DD-496. Credential expiry/status/scope mismatch or Definition/config/capability mismatch returns null.
+
+### INT-EVID-EVID-001 — Preserve exact references and evaluatedAt
+**Owner:** DD-496. Success returns a frozen envelope preserving exact Integration/Credential/Definition/Capability references and exact evaluatedAt; inputs remain unchanged.
+
+## DD-497 Integration Authority Boundary Acceptance
+
+### INT-EVID-BOUND-001 — Integrity is not execution authority
+**Owner:** DD-497. Output exposes no executable-status/health/profile/secret/provider/OperationContract/event/sync/network/callback/GuardPipeline/mutation authority.

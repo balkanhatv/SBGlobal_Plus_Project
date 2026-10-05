@@ -338,3 +338,9 @@ Historical actor/from/action/to/version/time and current parent/definition lifec
 Canonical promotion basis `c5d1160da96abaf5641d7326251daa13a83ebf60` / tree `d88ae087d0e97829b0dae5e8816ed94f18068ec7` passed exact-head Core **1335/1335**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The feature implementation proof remains `bbfb75c730225306dd72926a470d0a0cfe1f8c21` / tree `08065eb187244a621837ef66ee93e36797183f48`.
 
 The evidence remains bounded to historical WorkflowTransition + current WorkflowInstance/WorkflowDefinition visibility/binding. Actor validity, action↔state-machine compatibility, replay/transition/task-action authorization, mutation/events and workflow execution remain separate and unproved.
+
+## DD-493…DD-497 exact-head implementation evidence — 2026-10-05
+
+Corrected implementation basis `6272ba702b02fac02d42cff34dca864ff9325f87` / tree `7b547cd8245087b3611999ac7e779cb9aa4a7496` passed Core **1343/1343**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader materializes only the exact evidence required by existing DD-167 TenantIntegration integrity: visible TenantIntegration, same-context CredentialReference metadata, exact IntegrationDefinition and exact persisted enabled Capability sequence.
+
+Success remains necessary persisted-integrity evidence only. TenantIntegration lifecycle/health/profile, Credential secret/provider metadata, Definition provider/adapter/data-transfer metadata and Capability OperationContract/event/direction/rate/idempotency stay raw. No secret access, provider selection, sync/callback/network/GuardPipeline/dispatch/mutation authority is added.

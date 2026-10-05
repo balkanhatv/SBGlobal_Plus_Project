@@ -5779,3 +5779,43 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/WORKFLOW_TRANSITION_VISIBLE_INSTANCE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WTR-DEFREAD-BOUND-001`.
+
+## DD-493 — read exact visible TenantIntegration first
+
+**Decision:** Add `loadTenantIntegrationCurrentIntegrityEvidence(...)`. Invoke DD-095 through `TenantIntegrationReadPort.loadForContext` exactly once with the supplied RequestContext and TenantIntegration id. Null short-circuits all dependent reads; errors propagate unchanged.
+
+**Source audit:** `Development/TENANT_INTEGRATION_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `INT-EVID-BASE-001`.
+
+## DD-494 — read exact referenced CredentialReference metadata in the same context
+
+**Decision:** After DD-493 succeeds, call `CredentialReferenceMetadataReadPort.loadForContext` once with the identical RequestContext and `integration.credentialReferenceId`. Preserve metadata-only scope; do not retrieve secret_reference/material or switch context.
+
+**Source audit:** `Development/TENANT_INTEGRATION_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `INT-EVID-CRED-001`.
+
+## DD-495 — read exact IntegrationDefinition and persisted enabled Capability sequence
+
+**Decision:** Read the exact persisted `integration.integrationDefinitionId` once. Then read every persisted `enabledCapabilities` entry in original order using exact Definition id + exact raw code. Empty set causes zero capability reads. Do not normalize, deduplicate, sort, alias or fall back; duplicate raw codes remain duplicated evidence for DD-166 to reject.
+
+**Source audit:** `Development/TENANT_INTEGRATION_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `INT-EVID-DEF-001, INT-EVID-CAP-001`.
+
+## DD-496 — apply only DD-167 and preserve immutable exact evidence
+
+**Decision:** Freeze the collected capability array and call `matchesCurrentTenantIntegrationIntegrityFloors(...)` exactly once with exact Integration/Credential/evaluatedAt/Definition/capability evidence. False returns null. Success returns frozen `{ integration, credential, definition, capabilities, evaluatedAt }` with exact references.
+
+**Source audit:** `Development/TENANT_INTEGRATION_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `INT-EVID-FLOOR-001…002, INT-EVID-EVID-001`.
+
+## DD-497 — current persisted integrity does not create Integration execution authority
+
+**Decision:** Treat success only as current migration-0030 necessary integrity evidence. TenantIntegration status/health/profile, Credential provider/type/key/rotation, Definition provider/data-transfer/adapter metadata and Capability direction/OperationContract/event/data/rate/idempotency remain raw. Do not access secrets, select providers, authorize sync/callback/network/Operation execution, invoke GuardPipeline, mutate state or emit events.
+
+**Source audit:** `Development/TENANT_INTEGRATION_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `INT-EVID-BOUND-001`.
