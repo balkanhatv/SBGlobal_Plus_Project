@@ -69,6 +69,7 @@ export * from "./document/access-candidate.js";
 export * from "./document/acl.js";
 export * from "./document/acl-subject-match.js";
 export * from "./document/access-acl-subject-evidence-reader.js";
+export * from "./document/access-acl-current-effect-evidence-reader.js";
 export * from "./document/upload-session.js";
 export * from "./document/upload-session-acting-principal-evidence-reader.js";
 export * from "./document/ai-generated-provenance.js";
