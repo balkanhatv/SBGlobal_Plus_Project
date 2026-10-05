@@ -424,3 +424,9 @@ It performs zero new persistence reads and zero EventPayloadValidatorPort calls.
 Canonical promotion basis `546c8405e339d03959057039ac572b97a2f43cb4` / tree `24475c772a018a846e5a04454696961d7b66289a` passed exact-head Core **1395/1395**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to corrected implementation `fa4c8406748fc33ecd83238404ca82515ab3937a`.
 
 The bounded result remains exact DD-522 current-residency evidence plus strict occurredAt calendar validity and JSON-compatible payload/payloadSchema structure, with zero new persistence reads and zero payload-validator calls. It does not authorize payload-schema semantics, EventCatalog lifecycle, filter evaluation, endpoint/SSRF, signing, retry/DLQ/replay, EXPLICIT_CROSS_CONTEXT dispatch, network delivery or mutation.
+
+## DD-528…DD-532 exact-head implementation evidence — 2026-10-05
+
+Implementation basis `ceb85e10f71b20fa12c2b36b24220eb4a3695aee` / tree `8ee4fb5f6eedd0cf690051f662bce8220e2c8fb9` passed Core **1403/1403**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch re-establishes exact DD-527 evidence, projects only exact ordinary Tenant persistence-binding facts already proven by that evidence, and delegates exact persisted envelope/catalog validation to the existing DD-081 `EventEnvelopeCatalogValidator` with an injected `EventPayloadValidatorPort`.
+
+Success proves only successful DD-081 payload validation. EventCatalog lifecycle, event-filter matching, endpoint/SSRF authorization, signing/secrets, readiness/retry/finality/DLQ/replay, EXPLICIT_CROSS_CONTEXT dispatch, network execution and mutation remain unproved.

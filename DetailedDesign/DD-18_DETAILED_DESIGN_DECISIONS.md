@@ -6067,3 +6067,43 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PRE_PAYLOAD_STRUCTURE_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WH-EVTPRE-EVID-001, WH-EVTPRE-BOUND-001`.
+
+## DD-528 — re-establish exact DD-527 pre-payload evidence before validation
+
+**Decision:** Add `validateWebhookDeliveryEventPayloadEvidence(...)` over exact `WebhookDeliveryEventPrePayloadStructureEvidence`. Rebuild only through `buildWebhookDeliveryEventPrePayloadStructureEvidence(parent)` and require the rebuilt envelope reference to equal the supplied envelope reference before invoking any payload validator.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATION_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPAY-BASE-001`.
+
+## DD-529 — project only exact DD-081 persistence-binding facts already proven by DD-527
+
+**Decision:** Project exact event id/type/version/scope, Tenant id, current Tenant residency, and Industry Context only for TENANT_INDUSTRY. Existing Webhook floors permit only TENANT_CORE/TENANT_INDUSTRY, so do not synthesize platform-global/cross-context bindings or historical residency.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATION_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPAY-BIND-001…002`.
+
+## DD-530 — delegate exact evidence to existing EventEnvelopeCatalogValidator
+
+**Decision:** Instantiate the existing DD-081 `EventEnvelopeCatalogValidator` with the supplied `EventPayloadValidatorPort`; validate the exact persisted envelope, exact preserved EventCatalog entry and exact DD-529 binding. Do not select or implement a concrete JSON Schema/Zod/AJV engine and do not call the payload port directly before DD-081 validation.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATION_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPAY-PORT-001`.
+
+## DD-531 — preserve existing DD-081 payload failure semantics
+
+**Decision:** Preserve an existing `EventEnvelopeValidationError` unchanged; normalize any other payload-validator exception to the existing safe DD-081 payload error. No provider/schema-engine implementation detail may escape and no success evidence may be returned after rejection.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATION_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPAY-FAIL-001…002`.
+
+## DD-532 — immutable exact-reference payload-validated evidence without delivery authority
+
+**Decision:** Success returns frozen `{ prePayloadEvidence, envelopeJson }` preserving exact DD-527 and persisted envelope references. This proves only successful injected DD-081 payload validation over exact DD-527 evidence. Do not interpret EventCatalog lifecycle, filters, endpoint/SSRF, signing/secrets, readiness/retry/DLQ/replay, EXPLICIT_CROSS_CONTEXT authorization, network dispatch or mutation.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATION_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPAY-EVID-001, WH-EVTPAY-BOUND-001`.

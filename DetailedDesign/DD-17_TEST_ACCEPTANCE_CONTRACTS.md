@@ -6367,3 +6367,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WH-EVTPRE-BOUND-001 — Structural evidence grants no delivery authority
 **Owner:** DD-527. Output exposes no payload-schema-valid, EventCatalog lifecycle, filter-match, endpoint authorization, signing, readiness/retry, cross-context, dispatched/network or mutation authority.
+
+## DD-528 Exact DD-527 Parent Evidence Acceptance
+
+### WH-EVTPAY-BASE-001 — Malformed/incomplete/substituted DD-527 evidence fails before payload validation
+**Owner:** DD-528. Exact DD-527 evidence must rebuild successfully and preserve the exact persisted envelope reference before any payload-validator invocation; malformed, incomplete or substituted evidence returns null with zero payload-port calls.
+
+## DD-529 Exact DD-081 Persistence Binding Acceptance
+
+### WH-EVTPAY-BIND-001 — Tenant-Core exact binding projection
+**Owner:** DD-529. Exact TENANT_CORE evidence projects event id/type/version/scope, Tenant id and exact current Tenant residency with no Industry Context.
+
+### WH-EVTPAY-BIND-002 — Tenant-Industry exact binding projection
+**Owner:** DD-529. Exact TENANT_INDUSTRY evidence additionally projects the exact persisted Industry Context id with the same exact current Tenant residency.
+
+## DD-530 Existing DD-081 Payload Validator Composition Acceptance
+
+### WH-EVTPAY-PORT-001 — Injected payload port executes once after parent validation
+**Owner:** DD-530. Existing EventEnvelopeCatalogValidator invokes the supplied EventPayloadValidatorPort exactly once with exact event type/version/schema id and DD-081-normalized catalog schema/payload after exact DD-527 and binding validation.
+
+## DD-531 DD-081 Failure Semantics Acceptance
+
+### WH-EVTPAY-FAIL-001 — Ordinary validator errors normalize safely
+**Owner:** DD-531. Non-EventEnvelopeValidationError payload-validator failures are normalized to the existing safe DD-081 payload validation error.
+
+### WH-EVTPAY-FAIL-002 — Governed validation errors preserve identity
+**Owner:** DD-531. An existing EventEnvelopeValidationError is re-thrown unchanged.
+
+## DD-532 Immutable Payload-Validated Evidence / Authority Boundary Acceptance
+
+### WH-EVTPAY-EVID-001 — Preserve exact DD-527 and envelope references
+**Owner:** DD-532. Success returns immutable evidence preserving the exact supplied DD-527 evidence and exact persisted envelope reference with inputs unchanged.
+
+### WH-EVTPAY-BOUND-001 — Payload validation grants no Webhook delivery authority
+**Owner:** DD-532. RETIRED/catalog lifecycle, raw event/delivery/filter/endpoint/signing/retry/cross-context/network evidence remains uninterpreted; output exposes no lifecycle, filter-match, endpoint-authorized, signed, readiness/retry, dispatch/network, mutation or event authority.
