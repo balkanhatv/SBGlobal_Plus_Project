@@ -39,3 +39,13 @@ Canonical promotion HEAD `8f52a253c65553124adcc7301ae8f2cfe84f0277` / tree `79d5
 Pull-request Database/Web and Core workflow evidence on the same promotion HEAD is also green/finishing cleanly. The feature implementation proof remains anchored to `93ae951362fc79c83e7c47c54308f3fa1c7eaf65` / tree `3b71d836f839b80c73b1a0a63a3da23345471c7e`.
 
 This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-483…DD-487 is closed and before another source audit opens.
+
+## State closure verified — 2026-10-05
+
+State-closure HEAD `4fcd4d038e01552540c79ae35818f112c1323c00` / tree `482100084c0366b2a9e14f96f9f0510a5e9537b5` passed exact-head push gates:
+- Core run `37259961972` / job `111604931579`: **1326/1326 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111604931662`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37259961980` / job `111604931509`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37259961973` / job `111604931529`: PASS.
+
+DD-483…DD-487 is therefore closed at its bounded evidence scope. The feature implementation proof remains `93ae951362fc79c83e7c47c54308f3fa1c7eaf65`; canonical promotion proof remains `8f52a253c65553124adcc7301ae8f2cfe84f0277`. Source-owned forward development may resume. Production readiness is not claimed.
