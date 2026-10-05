@@ -1,4 +1,9 @@
 import type { RequestContext } from "../context/contracts.js";
+import {
+  type IntegrationTenantResidencyEvidence,
+  type IntegrationTenantResidencyReadPort,
+  matchesPersistedOutboxEventCurrentTenantResidencyFloors,
+} from "../integration/tenant-residency.js";
 import type {
   CredentialReferenceMetadataReadPort,
 } from "../integration/credential-reference-metadata.js";
@@ -25,7 +30,6 @@ import type {
 } from "./delivery.js";
 import {
   buildNotificationDeliverySourceEventEnvelopeEvidence,
-  matchesNotificationDeliverySourceEventEnvelopeEvidenceFloors,
   type NotificationDeliverySourceEventEnvelopeComposedEvidence,
   type NotificationDeliverySourceEventEnvelopeEvidence,
 } from "./delivery-source-event-envelope-evidence.js";
@@ -34,17 +38,11 @@ import {
 } from "./delivery-source-event-catalog-evidence-reader.js";
 import type { NotificationTemplateReadPort } from "./template.js";
 
-export interface NotificationTenantResidencyEvidence {
-  readonly tenantId: string;
-  readonly residencyRegionCode: string;
-}
+export type NotificationTenantResidencyEvidence =
+  IntegrationTenantResidencyEvidence;
 
-export interface NotificationTenantResidencyReadPort {
-  loadCurrentForContext(input: {
-    readonly requestContext: RequestContext;
-    readonly tenantId: string;
-  }): Promise<NotificationTenantResidencyEvidence | null>;
-}
+export type NotificationTenantResidencyReadPort =
+  IntegrationTenantResidencyReadPort;
 
 export interface NotificationDeliverySourceEventCurrentResidencyReadInput {
   readonly requestContext: RequestContext;
@@ -65,10 +63,6 @@ function isUuid(value: unknown): value is string {
   return typeof value === "string" && UUID_PATTERN.test(value);
 }
 
-function isNonEmptyString(value: unknown): value is string {
-  return typeof value === "string" && value.trim().length > 0;
-}
-
 /**
  * DD-330: re-evaluate only current authoritative Tenant residency for the exact
  * already-DD-326-valid NotificationDelivery source-event envelope evidence.
@@ -81,26 +75,15 @@ export function matchesNotificationDeliverySourceEventCurrentResidencyFloors(
   sourceEventEnvelope: NotificationDeliverySourceEventEnvelopeEvidence,
   residency: NotificationTenantResidencyEvidence,
 ): boolean {
-  if (!sourceEventEnvelope || typeof sourceEventEnvelope !== "object"
-    || !residency || typeof residency !== "object"
-    || !matchesNotificationDeliverySourceEventEnvelopeEvidenceFloors({
-      event: sourceEventEnvelope.event,
-      catalog: sourceEventEnvelope.catalog,
-    })) {
+  if (!sourceEventEnvelope || typeof sourceEventEnvelope !== "object") {
     return false;
   }
 
-  const event = sourceEventEnvelope.event;
-  const envelope = sourceEventEnvelope.envelopeJson as Record<string, unknown>;
-
-  return (event.scopeClass === "TENANT_CORE"
-      || event.scopeClass === "TENANT_INDUSTRY")
-    && isUuid(event.tenantId)
-    && isUuid(residency.tenantId)
-    && isNonEmptyString(residency.residencyRegionCode)
-    && residency.tenantId === event.tenantId
-    && envelope.tenantId === event.tenantId
-    && envelope.residencyRegion === residency.residencyRegionCode;
+  return matchesPersistedOutboxEventCurrentTenantResidencyFloors(
+    sourceEventEnvelope.event,
+    sourceEventEnvelope.catalog,
+    residency,
+  );
 }
 
 /**
