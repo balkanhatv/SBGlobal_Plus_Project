@@ -6269,3 +6269,47 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_ACCESS_ACL_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOC-ACLSTO-BOUND-001`.
+
+## DD-553 — establish exact DD-087 raw upload-session evidence first
+
+**Context:** DD-087 owns the typed DocumentUploadSessionReadPort and concrete PostgreSQL reader.
+
+**Decision:** Add `loadDocumentUploadSessionActingPrincipalEvidence(...)`. Invoke the supplied DD-087 read port exactly once with the exact RequestContext and upload-session id. Null remains null; dependency/current-state errors propagate unchanged with no retry/fallback.
+
+**Source audit:** `Development/DOCUMENT_UPLOAD_SESSION_ACTING_PRINCIPAL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-UPOWN-BASE-001…002`.
+
+## DD-554 — re-apply exact protected Tenant scope continuity only
+
+**Decision:** Require exact tenantId and scopeClass equality. TENANT_CORE requires both session and RequestContext Industry Context absent. TENANT_INDUSTRY requires exact non-null Industry equality. All mismatch fails closed; no context synthesis or cross-scope fallback.
+
+**Source audit:** `Development/DOCUMENT_UPLOAD_SESSION_ACTING_PRINCIPAL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-UPOWN-SCOPE-001…002`.
+
+## DD-555 — re-apply exact acting-principal ownership floor
+
+**Context:** Migration 0006 write WITH CHECK requires `principal_id = core_tenancy.current_principal_id()`.
+
+**Decision:** Require exact `session.principalId === requestContext.principalId`. This proves only current acting-principal ownership continuity; it does not prove current principal activity or authorize an upload transition.
+
+**Source audit:** `Development/DOCUMENT_UPLOAD_SESSION_ACTING_PRINCIPAL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-UPOWN-PRINCIPAL-001…002`.
+
+## DD-556 — preserve immutable exact-reference upload-session evidence
+
+**Decision:** Success returns frozen `{ session }` and preserves the exact DD-087 session object reference. Expiry, status, media/size, temp-object, checksum and timestamps remain raw and uninterpreted.
+
+**Source audit:** `Development/DOCUMENT_UPLOAD_SESSION_ACTING_PRINCIPAL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-UPOWN-EVID-001`.
+
+## DD-557 — stop before upload usability, authorization or mutation
+
+**Decision:** Do not interpret expiresAt/status/maxSizeClass/expectedMediaTypes/tempObjectRef/checksumExpected; do not establish current principal activity, permission/entitlement/RBAC/ABAC; do not sign/select/dispatch StoragePort; do not finalize/cancel/activate/mutate upload/session/document/storage state or emit events.
+
+**Source audit:** `Development/DOCUMENT_UPLOAD_SESSION_ACTING_PRINCIPAL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-UPOWN-BOUND-001`.

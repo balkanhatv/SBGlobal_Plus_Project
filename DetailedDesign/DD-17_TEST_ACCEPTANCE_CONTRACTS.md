@@ -6540,3 +6540,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-ACLSTO-BOUND-001 — Combined evidence grants no operation authority
 **Owner:** DD-552. Output exposes no ACL-effect authorization, provider selection/decryption, signed access/TTL, download/share/delete, StoragePort dispatch, mutation or event authority.
+
+## DD-553 Exact DD-087 Raw Upload-Session Read Acceptance
+
+### DOC-UPOWN-BASE-001 — Exact raw session read once
+**Owner:** DD-553. The exact supplied RequestContext and upload-session id are delegated once to DocumentUploadSessionReadPort.loadForContext.
+
+### DOC-UPOWN-BASE-002 — Null/error preserves DD-087 behavior
+**Owner:** DD-553. Null remains null; dependency/current-state errors propagate unchanged with no retry or alternate lookup.
+
+## DD-554 Protected Tenant Scope Continuity Acceptance
+
+### DOC-UPOWN-SCOPE-001 — Exact Tenant-Core/Tenant-Industry continuity passes
+**Owner:** DD-554. Session tenantId and scopeClass equal the RequestContext; TENANT_CORE requires both Industry Contexts absent and TENANT_INDUSTRY requires exact non-null Industry equality.
+
+### DOC-UPOWN-SCOPE-002 — Cross-scope mismatch fails closed
+**Owner:** DD-554. Tenant, scopeClass, null-vs-present Industry or sibling-Industry mismatch returns null without context synthesis or fallback.
+
+## DD-555 Acting-Principal Ownership Acceptance
+
+### DOC-UPOWN-PRINCIPAL-001 — Exact persisted/current principal equality passes
+**Owner:** DD-555. Persisted session.principalId must exactly equal RequestContext.principalId.
+
+### DOC-UPOWN-PRINCIPAL-002 — Principal mismatch fails closed
+**Owner:** DD-555. Missing/mismatched acting principal returns null without alternate-owner or principal-currentness lookup.
+
+## DD-556 Immutable Exact-Reference Evidence Acceptance
+
+### DOC-UPOWN-EVID-001 — Preserve exact raw session evidence
+**Owner:** DD-556. Success returns frozen { session }, preserving the exact DD-087 session reference and all expiry/status/media/size/temp-object/checksum/timestamp facts unchanged.
+
+## DD-557 Upload-Usability / Mutation Authority Boundary Acceptance
+
+### DOC-UPOWN-BOUND-001 — No usability, authorization or StoragePort authority
+**Owner:** DD-557. Output exposes no expiry/status-transition/media-size/checksum/temp-object/current-principal-activity/authorization/signing/storage-dispatch/upload-finalization/cancellation/activation/mutation/event authority.

@@ -482,3 +482,9 @@ The result remains bounded internal evidence. ACL effect/expiry/final authorizat
 Canonical promotion basis `107dac059f5f253cf56ccbbb208731d5dc7fb364` / tree `affd88746b14f0c434d8dabed201462423acfd3f` passed exact-head Core **1436/1436**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains anchored to `7212643715d725abd7d934cee2843f5c8317c1ef`.
 
 The result remains bounded internal evidence only: ACL effect/expiry/final authorization, operation→ACL mapping, permission/entitlement/RBAC/ABAC/sensitivity/step-up/residency exceptions, provider selection/decryption, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain separate.
+
+## DD-553…DD-557 exact-head implementation evidence — 2026-10-05
+
+Implementation basis `8dd4212e5f1c878a562664fd227df6ff8c555f89` / tree `4ad1a7541db4537638ff7dbd1be1e2e0e4ee5471` passed Core **1444/1444**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader performs one exact DD-087 session read and re-applies only protected Tenant/scope/Industry continuity plus exact acting-principal ownership.
+
+Expiry/status/media/size/temp-object/checksum remain raw. Current-principal activity, permission/entitlement/RBAC/ABAC, upload usability, signing/provider selection, StoragePort dispatch, finalization/cancellation/activation and mutation/event authority are not added.
