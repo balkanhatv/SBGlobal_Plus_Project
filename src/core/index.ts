@@ -117,6 +117,7 @@ export * from "./workflow/task-acting-rbac-current-evidence-reader.js";
 export * from "./workflow/task-visible-definition-current-evidence-reader.js";
 export * from "./workflow/task-visible-definition-acting-rbac-current-evidence-reader.js";
 export * from "./workflow/transition-visible-instance-current-evidence-reader.js";
+export * from "./workflow/transition-visible-instance-definition-current-evidence-reader.js";
 export * from "./workflow/transition.js";
 export * from "./workflow/child-parent-binding-floors.js";
 export * from "./workflow/automation-definition.js";
