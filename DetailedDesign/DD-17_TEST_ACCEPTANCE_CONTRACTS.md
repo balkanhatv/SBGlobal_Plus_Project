@@ -6401,3 +6401,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WH-EVTPAY-BOUND-001 — Payload validation grants no Webhook delivery authority
 **Owner:** DD-532. RETIRED/catalog lifecycle, raw event/delivery/filter/endpoint/signing/retry/cross-context/network evidence remains uninterpreted; output exposes no lifecycle, filter-match, endpoint-authorized, signed, readiness/retry, dispatch/network, mutation or event authority.
+
+## DD-533 Exact DD-522 Reader-First Acceptance
+
+### WH-EVTPAYREAD-BASE-001 — Exact DD-522 reader chain first
+**Owner:** DD-533. The exact RequestContext, WebhookDelivery id and supplied Delivery/Subscription/Outbox/EventCatalog/current-residency ports enter DD-522 unchanged before any payload validation.
+
+### WH-EVTPAYREAD-BASE-002 — Parent null/errors precede payload validation
+**Owner:** DD-533. DD-522 null returns null and dependency errors propagate unchanged with zero payload-validator invocation.
+
+## DD-534 Exact DD-527 Pre-Payload Composition Acceptance
+
+### WH-EVTPAYREAD-PRE-001 — Strict calendar-invalid occurredAt stops before payload port
+**Owner:** DD-534. A runtime-parseable but calendar-invalid occurredAt is rejected by DD-527 after parent evidence and before payload validation.
+
+### WH-EVTPAYREAD-PRE-002 — Structurally non-JSON payload stops before payload port
+**Owner:** DD-534. Persisted payload evidence that fails DD-527 recursive JSON structure validation returns null before payload validation.
+
+## DD-535 Existing DD-532 Delegation Acceptance
+
+### WH-EVTPAYREAD-PAY-001 — Tenant-Industry delegates once and returns exact DD-532 evidence
+**Owner:** DD-535. Valid TENANT_INDUSTRY evidence invokes the supplied DD-081 payload port exactly once through DD-532 and returns the exact DD-532 result.
+
+### WH-EVTPAYREAD-FAIL-001 — DD-532 payload failure semantics propagate unchanged
+**Owner:** DD-535. Ordinary payload errors retain DD-081 safe normalization and an existing EventEnvelopeValidationError preserves exact identity.
+
+## DD-536 Ordinary Tenant-Core Branch Acceptance
+
+### WH-EVTPAYREAD-CORE-001 — Tenant-Core no-Industry branch is preserved
+**Owner:** DD-536. Valid TENANT_CORE evidence remains Industry-free, invokes payload validation exactly once and synthesizes no platform-global or cross-context evidence.
+
+## DD-537 Immutable Reader Evidence / Authority Boundary Acceptance
+
+### WH-EVTPAYREAD-EVID-001 — Preserve exact nested evidence and grant no delivery authority
+**Owner:** DD-537. Success preserves exact Delivery/Subscription/Event/Catalog/current-residency/pre-payload/envelope references and immutability while exposing no catalog-lifecycle, filter, endpoint/SSRF, signing, readiness/retry, cross-context, dispatch/network or mutation authority.

@@ -1,7 +1,7 @@
 # ARCHITECTURE FINAL / ADVERSARIAL AUDIT — PHASE 2
-**Current checkpoint:** `DEV-WEBHOOK-DELIVERY-EVENT-PAYLOAD-VALIDATION-EVIDENCE-001`
-**Current executable audit basis:** `efdd8425bbf5e20d9ff379465569258bc4732d81` / tree `7544aaa355e25e3f099a0f3e23f57dd3697a1c50`
-> **Current audit gate (2026-10-05):** DD-528…DD-532 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-WEBHOOK-DELIVERY-EVENT-PAYLOAD-VALIDATED-READER-001`
+**Current executable audit basis:** `4926f5c50dc8df49509b467a39fa85e986cf54cc` / tree `b843a4a542cd87f4616d19bef57ea107297781d7`
+> **Current audit gate (2026-10-05):** DD-533…DD-537 WebhookDelivery payload-validated reader composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-2 ARCHITECTURE REVALIDATION EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 
 ## Pass 1 — evidence reconciliation

@@ -6107,3 +6107,43 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATION_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WH-EVTPAY-EVID-001, WH-EVTPAY-BOUND-001`.
+
+## DD-533 — establish exact DD-522 current-residency reader evidence first
+
+**Decision:** Add `loadWebhookDeliveryEventPayloadValidatedEvidence(...)`. Its first action is the exact existing `loadWebhookDeliveryEventCurrentResidencyEvidence(...)` call using unchanged RequestContext, WebhookDelivery id and reader ports. Parent null returns null; dependency errors propagate unchanged; payload validation is not invoked on parent failure.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATED_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPAYREAD-BASE-001…002`.
+
+## DD-534 — build exact DD-527 pre-payload evidence before payload validation
+
+**Decision:** From exact DD-522 success invoke only `buildWebhookDeliveryEventPrePayloadStructureEvidence(...)`. Null returns null before payload validation. This preserves strict calendar-valid occurredAt and recursive JSON structure floors with zero additional reads.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATED_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPAYREAD-PRE-001…002`.
+
+## DD-535 — delegate exact DD-527 evidence to existing DD-532 composition
+
+**Decision:** Invoke only `validateWebhookDeliveryEventPayloadEvidence(prePayloadEvidence, payloadValidator)`. Preserve DD-081/DD-532 payload failure semantics unchanged and do not call the supplied payload port directly.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATED_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPAYREAD-PAY-001, WH-EVTPAYREAD-FAIL-001`.
+
+## DD-536 — preserve ordinary Tenant-Core / Tenant-Industry evidence branches only
+
+**Decision:** Preserve the exact DD-163/DD-522 ordinary TENANT_CORE and allowed TENANT_INDUSTRY branches. TENANT_CORE remains Industry-free. Do not synthesize PLATFORM_GLOBAL or EXPLICIT_CROSS_CONTEXT Webhook evidence.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATED_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPAYREAD-CORE-001` plus `WH-EVTPAYREAD-PAY-001`.
+
+## DD-537 — return exact DD-532 payload-validated evidence without delivery authority
+
+**Decision:** Return the exact DD-532 result and preserve all nested evidence references. Do not synthesize EventCatalog-active, filter-matched, endpoint-authorized, signed, ready/retryable/deliverable, cross-context-authorized, dispatch/network-authorized or mutation state.
+
+**Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATED_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WH-EVTPAYREAD-EVID-001`.

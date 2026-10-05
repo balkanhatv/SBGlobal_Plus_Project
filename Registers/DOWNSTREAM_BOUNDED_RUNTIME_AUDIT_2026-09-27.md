@@ -434,3 +434,9 @@ Success proves only successful DD-081 payload validation. EventCatalog lifecycle
 ## DD-528…DD-532 canonical promotion evidence — 2026-10-05
 
 Canonical promotion basis `efdd8425bbf5e20d9ff379465569258bc4732d81` / tree `7544aaa355e25e3f099a0f3e23f57dd3697a1c50` passed exact-head Core **1403/1403**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The feature proof remains anchored to implementation `ceb85e10f71b20fa12c2b36b24220eb4a3695aee`. Success remains bounded to existing DD-081 payload validation over exact DD-527 Webhook source-event evidence; catalog lifecycle, filters, endpoint/SSRF, signing/secrets, retry/finality, cross-context dispatch, network execution and mutation remain separate.
+
+## DD-533…DD-537 exact-head implementation evidence — 2026-10-05
+
+Implementation basis `4926f5c50dc8df49509b467a39fa85e986cf54cc` / tree `b843a4a542cd87f4616d19bef57ea107297781d7` passed Core **1411/1411**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web.
+
+The reader composes exact DD-522 current-residency evidence → DD-527 pre-payload structure → DD-532 injected DD-081 payload validation and returns the exact DD-532 result. No EventCatalog lifecycle, filter matching, endpoint/SSRF authorization, signing/secrets, readiness/retry/finality/DLQ/replay, EXPLICIT_CROSS_CONTEXT authorization, dispatcher/network execution or mutation authority is added.

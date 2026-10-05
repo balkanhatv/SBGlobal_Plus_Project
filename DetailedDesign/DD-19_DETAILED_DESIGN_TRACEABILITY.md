@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-WEBHOOK-DELIVERY-EVENT-PAYLOAD-VALIDATION-EVIDENCE-001`
-**Current executable audit basis:** `efdd8425bbf5e20d9ff379465569258bc4732d81` / tree `7544aaa355e25e3f099a0f3e23f57dd3697a1c50`
-> **Current audit gate (2026-10-05):** DD-528…DD-532 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-WEBHOOK-DELIVERY-EVENT-PAYLOAD-VALIDATED-READER-001`
+**Current executable audit basis:** `4926f5c50dc8df49509b467a39fa85e986cf54cc` / tree `b843a4a542cd87f4616d19bef57ea107297781d7`
+> **Current audit gate (2026-10-05):** DD-533…DD-537 WebhookDelivery payload-validated reader composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1316,3 +1316,9 @@ This proves only locally re-evaluable pre-payload structural prerequisites over 
 DD-527 exact pre-payload structural evidence → exact DD-081 Tenant-Core/Tenant-Industry persistence binding projection using current Tenant residency → existing `EventEnvelopeCatalogValidator` + injected `EventPayloadValidatorPort` → preserved DD-081 safe failure semantics → `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATION_EVIDENCE_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-528…DD-532 → `src/core/integration/webhook-delivery-event-payload-validation-evidence.ts` → `tests/core/webhook-delivery-event-payload-validation-evidence.test.mjs` (`WH-EVTPAY-BASE-001`, `WH-EVTPAY-BIND-001…002`, `WH-EVTPAY-PORT-001`, `WH-EVTPAY-FAIL-001…002`, `WH-EVTPAY-EVID-001`, `WH-EVTPAY-BOUND-001`) → `Registers/DEVELOPMENT_DD528_DD532_VERIFICATION_2026-10-05.md`.
 
 Success proves only that the existing DD-081 validator accepted the exact persisted Webhook source envelope/catalog/current-residency binding and that the injected payload validator completed successfully. EventCatalog lifecycle, event-filter matching, endpoint/SSRF authorization, signing, delivery readiness/retry/finality/DLQ/replay, EXPLICIT_CROSS_CONTEXT dispatch, network execution and mutation remain separate.
+
+## DD-533…DD-537 — WebhookDelivery source-event payload-validated reader composition
+
+DD-522 WebhookDelivery current-residency evidence → pure DD-527 pre-payload structural evidence → exact DD-532 injected DD-081 payload validation → `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATED_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-533…DD-537 → `src/core/integration/webhook-delivery-event-payload-validated-reader.ts` → `tests/core/webhook-delivery-event-payload-validated-reader.test.mjs` (`WH-EVTPAYREAD-BASE-001…002`, `WH-EVTPAYREAD-PRE-001…002`, `WH-EVTPAYREAD-CORE-001`, `WH-EVTPAYREAD-PAY-001`, `WH-EVTPAYREAD-FAIL-001`, `WH-EVTPAYREAD-EVID-001`) → `Registers/DEVELOPMENT_DD533_DD537_VERIFICATION_2026-10-05.md`.
+
+The reader adds no primitive semantics: it only sequences existing parent-first boundaries and returns the exact DD-532 result. EventCatalog lifecycle, filter grammar/matching, endpoint challenge/SSRF authorization, signing/secrets, readiness/retry/finality/DLQ/replay, EXPLICIT_CROSS_CONTEXT authorization, dispatcher/network execution and mutation remain separately governed.
