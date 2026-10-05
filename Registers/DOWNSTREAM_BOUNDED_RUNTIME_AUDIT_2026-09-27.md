@@ -394,3 +394,9 @@ The promoted scope remains one visible ordinary single-context WebhookDelivery w
 Implementation basis `585146252d7acfdeccffd1efdb92de9ff42981c6` / tree `7489bddc4e3679f50065eacab1d343353f068c5f` passed Core **1379/1379**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch reuses exact DD-512 ordinary Webhook evidence and applies only shared Integration-owned persisted Outbox envelope tuple/identity/catalog-metadata/local-scope floors with zero additional reads.
 
 Current Tenant residency, cross-context endpoint ownership, payload-schema execution, EventCatalog lifecycle authorization, event-filter matching, endpoint/SSRF verification, signing/secret access, retry/DLQ/replay, dispatch/network, GuardPipeline/Commercial, mutation and event authority remain outside this evidence.
+
+## DD-513…DD-517 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `57d14a1f6bef67eb46091a8503f5fc3c09a3961f` / tree `0d8e1f19a2c0bbe47e0887d067d5db7d1c6cf175` passed exact-head Core **1379/1379**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains `585146252d7acfdeccffd1efdb92de9ff42981c6`.
+
+The bounded result remains persisted Outbox envelope/catalog coherence over exact DD-512 ordinary Webhook evidence only. Current residency, payload-schema execution, catalog lifecycle authorization, event-filter/endpoint/signing/retry/cross-context/network/dispatch/mutation authority remain separate.
