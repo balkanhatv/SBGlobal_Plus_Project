@@ -82,6 +82,7 @@ export * from "./integration/webhook-delivery-event-envelope-current-evidence-re
 export * from "./integration/tenant-residency.js";
 export * from "./integration/webhook-delivery-event-current-residency-evidence-reader.js";
 export * from "./integration/webhook-delivery-event-pre-payload-structure-evidence.js";
+export * from "./integration/webhook-delivery-event-payload-validation-evidence.js";
 export * from "./integration/integration-definition.js";
 export * from "./integration/integration-capability.js";
 export * from "./integration/provider-adapter.js";
