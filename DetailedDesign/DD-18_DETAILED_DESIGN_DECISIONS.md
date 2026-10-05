@@ -5819,3 +5819,43 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/TENANT_INTEGRATION_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `INT-EVID-BOUND-001`.
+
+## DD-498 — read one exact raw SyncCursor tuple first
+
+**Decision:** Add `loadSyncCursorCurrentBindingEvidence(...)`. Invoke `SyncCursorReadPort.loadExact` exactly once with the supplied RequestContext, TenantIntegration id, capability code and nullable Industry Context. Null short-circuits all dependent reads; errors propagate unchanged; no normalization/alias/fallback.
+
+**Source audit:** `Development/SYNC_CURSOR_CURRENT_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `SYNC-EVID-BASE-001`.
+
+## DD-499 — read exact visible parent TenantIntegration in the same context
+
+**Decision:** After the cursor is loaded, call `TenantIntegrationReadPort.loadForContext` exactly once with the identical RequestContext and `tenantIntegrationId === cursor.tenantIntegrationId`. Null/error fails closed. Do not substitute another parent or compose DD-497 automatically.
+
+**Source audit:** `Development/SYNC_CURSOR_CURRENT_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `SYNC-EVID-INT-001`.
+
+## DD-500 — read exact capability under the loaded parent Definition
+
+**Decision:** Call `IntegrationCapabilityReadPort.loadExact` exactly once with the loaded parent's IntegrationDefinition id and exact cursor capability code. Null/error fails closed. Do not infer direction/routing semantics or perform alternate lookup.
+
+**Source audit:** `Development/SYNC_CURSOR_CURRENT_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `SYNC-EVID-CAP-001`.
+
+## DD-501 — apply only DD-164 and preserve immutable exact evidence
+
+**Decision:** Evaluate `matchesCurrentSyncCursorBindingFloors(cursor, integration, capability)` over the exact reader-returned objects. False returns null. Success returns frozen `{ cursor, integration, capability }` preserving exact references.
+
+**Source audit:** `Development/SYNC_CURSOR_CURRENT_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `SYNC-EVID-FLOOR-001…002, SYNC-EVID-EVID-001`.
+
+## DD-502 — current binding evidence does not create cursor validity or synchronization authority
+
+**Decision:** Keep cursor payload/freshness metadata, TenantIntegration health/profile/config, capability direction/OperationContract/event/data/rate/idempotency, credentials/secrets and provider semantics raw. Do not compose DD-497 automatically, authorize resume/replay/sync, invoke GuardPipeline/Commercial, execute network/provider/callback paths, mutate state or emit events.
+
+**Source audit:** `Development/SYNC_CURSOR_CURRENT_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `SYNC-EVID-OPAQUE-001, SYNC-EVID-BOUND-001`.

@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-TENANT-INTEGRATION-CURRENT-INTEGRITY-EVIDENCE-READER-001`
-**Current executable audit basis:** `4dfd13190e037e10ca42cd04838c4545b84fc68d` / tree `857662ecb823933e9e983a7098bb1d9840db57b2`
-> **Current audit gate (2026-10-05):** DD-493…DD-497 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-SYNC-CURSOR-CURRENT-BINDING-EVIDENCE-READER-001`
+**Current executable audit basis:** `50f414f02baa645e9a30a92c58804a7ae090a312` / tree `267c7b7aae032dc72ccedd20e61a7152652a2c58`
+> **Current audit gate (2026-10-05):** DD-498…DD-502 SyncCursor current-binding evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1274,3 +1274,9 @@ This proves only that one visible historical transition is bound to one visible 
 DD-095 visible TenantIntegration → DD-096 exact same-context CredentialReference metadata → DD-092 exact IntegrationDefinition → DD-093 exact persisted enabled Capability sequence → DD-165 credential current binding + DD-166 Definition/config/capability current set → DD-167 conjunction → `Development/TENANT_INTEGRATION_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-493…DD-497 → `src/core/integration/tenant-integration-current-integrity-evidence-reader.ts` → `tests/core/tenant-integration-current-integrity-evidence-reader.test.mjs` (`INT-EVID-BASE-001`, `INT-EVID-CRED-001`, `INT-EVID-DEF-001`, `INT-EVID-CAP-001`, `INT-EVID-FLOOR-001…002`, `INT-EVID-EVID-001`, `INT-EVID-BOUND-001`) → `Registers/DEVELOPMENT_DD493_DD497_VERIFICATION_2026-10-05.md`.
 
 Success proves only current migration-0030 necessary persisted-integrity evidence at the supplied evaluation instant. TenantIntegration lifecycle/health/profile, Credential secret/provider details, Definition provider/adapter/data-transfer metadata and Capability OperationContract/event/direction/rate/idempotency remain raw. Provider/secret/sync/callback/network/GuardPipeline/operation execution and mutation remain separate.
+
+## DD-498…DD-502 — SyncCursor exact current-binding evidence
+
+DD-097 exact raw SyncCursor tuple → DD-095 exact same-context TenantIntegration → DD-093 exact IntegrationCapability under the loaded parent Definition → DD-164 current parent/capability binding floor → `Development/SYNC_CURSOR_CURRENT_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-498…DD-502 → `src/core/integration/sync-cursor-current-binding-evidence-reader.ts` → `tests/core/sync-cursor-current-binding-evidence-reader.test.mjs` (`SYNC-EVID-BASE-001`, `SYNC-EVID-INT-001`, `SYNC-EVID-CAP-001`, `SYNC-EVID-FLOOR-001…002`, `SYNC-EVID-EVID-001`, `SYNC-EVID-OPAQUE-001`, `SYNC-EVID-BOUND-001`) → `Registers/DEVELOPMENT_DD498_DD502_VERIFICATION_2026-10-05.md`.
+
+Success proves only exact migration-0030 current parent/capability binding evidence. Cursor payload/freshness, DD-497 TenantIntegration full persisted integrity, provider/credential/secret semantics, health/profile policy, OperationContract/event execution, resume/replay/synchronization, network/dispatch/mutation authority remain separate.

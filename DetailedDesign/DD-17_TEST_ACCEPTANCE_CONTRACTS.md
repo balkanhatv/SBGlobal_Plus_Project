@@ -6137,3 +6137,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### INT-EVID-BOUND-001 — Integrity is not execution authority
 **Owner:** DD-497. Output exposes no executable-status/health/profile/secret/provider/OperationContract/event/sync/network/callback/GuardPipeline/mutation authority.
+
+## DD-498 Exact SyncCursor Tuple Read Acceptance
+
+### SYNC-EVID-BASE-001 — Exact cursor tuple first
+**Owner:** DD-498. Exact supplied RequestContext, TenantIntegration id, capability code and nullable Industry Context reach SyncCursorReadPort.loadExact first; null/error short-circuits all dependent reads.
+
+## DD-499 Exact TenantIntegration Parent Acceptance
+
+### SYNC-EVID-INT-001 — One same-context parent read
+**Owner:** DD-499. Exactly one TenantIntegration read receives the identical RequestContext and exact persisted cursor TenantIntegration id; null/error fails closed unchanged.
+
+## DD-500 Exact IntegrationCapability Acceptance
+
+### SYNC-EVID-CAP-001 — One exact capability read
+**Owner:** DD-500. Exactly one IntegrationCapability read uses the loaded parent IntegrationDefinition id and exact cursor capability code; null/error fails closed unchanged.
+
+## DD-501 DD-164 Current-Binding Evidence Acceptance
+
+### SYNC-EVID-FLOOR-001 — Exact current binding passes
+**Owner:** DD-501. Matching active Tenant-Core and Tenant-Industry cursor/parent/capability evidence passes exact DD-164 and preserves exact child references.
+
+### SYNC-EVID-FLOOR-002 — Stale or malformed binding fails closed
+**Owner:** DD-501. Inactive/mismatched parent, non-active/mismatched capability, duplicate enabled-capability evidence or Industry-shape mismatch returns null.
+
+### SYNC-EVID-EVID-001 — Immutable exact-reference evidence
+**Owner:** DD-501. Success returns frozen exact Cursor/Integration/Capability references and leaves inputs unchanged.
+
+## DD-502 Opaque Cursor / Authority Boundary Acceptance
+
+### SYNC-EVID-OPAQUE-001 — Cursor content and freshness metadata remain uninterpreted
+**Owner:** DD-502. cursorEncryptedOrOpaque, watermarkTime, sourceVersion and updatedAt are preserved raw and do not independently create acceptance.
+
+### SYNC-EVID-BOUND-001 — No resume/provider/secret/execution authority
+**Owner:** DD-502. Output exposes no cursor-valid/fresh/resumable, provider/secret, health/profile, OperationContract/event, GuardPipeline/Commercial, sync/network/dispatch/mutation authority.

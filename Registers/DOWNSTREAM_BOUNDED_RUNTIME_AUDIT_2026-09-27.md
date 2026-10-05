@@ -350,3 +350,9 @@ Success remains necessary persisted-integrity evidence only. TenantIntegration l
 Canonical promotion basis `4dfd13190e037e10ca42cd04838c4545b84fc68d` / tree `857662ecb823933e9e983a7098bb1d9840db57b2` passed exact-head Core **1343/1343**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation evidence remains anchored to `6272ba702b02fac02d42cff34dca864ff9325f87`.
 
 The bounded result remains TenantIntegration persisted-integrity evidence only: one visible integration, exact same-context credential metadata, exact definition and exact enabled capabilities under DD-167. Status/health/profile and credential/definition/capability operational metadata remain raw. No secret access, provider selection, SyncCursor resume, callback/network execution, GuardPipeline/Commercial authorization, dispatch, mutation or event authority is added.
+
+## DD-498…DD-502 exact-head implementation evidence — 2026-10-05
+
+Implementation basis `50f414f02baa645e9a30a92c58804a7ae090a312` / tree `267c7b7aae032dc72ccedd20e61a7152652a2c58` passed Core **1351/1351**, PostgreSQL **532/532** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader composes exact raw SyncCursor, exact visible parent TenantIntegration, exact IntegrationCapability and only DD-164 current-binding floors.
+
+Cursor payload/freshness and all DD-497/provider/credential/secret/health/profile/OperationContract/event/resume/replay/sync/network/dispatch/mutation semantics remain outside this evidence boundary.
