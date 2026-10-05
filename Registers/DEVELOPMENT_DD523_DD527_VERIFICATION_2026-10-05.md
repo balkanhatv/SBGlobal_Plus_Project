@@ -40,3 +40,13 @@ Canonical promotion HEAD `546c8405e339d03959057039ac572b97a2f43cb4` / tree `2447
 - Web run `37281843678` / job `111671484269`: PASS.
 
 Pull-request Core/PostgreSQL/Database/Web workflows on the same promotion HEAD also passed. This state-closure commit must independently pass the same gates before DD-523…DD-527 is closed and another source audit may open.
+
+## State closure verified — 2026-10-05
+
+State-closure HEAD `ba6f01836947996e0bc69f383772a2a162ef22cf` / tree `ac95af078a3a31973decdc2a277324076c3d4c5f` passed exact-head push gates:
+- Core run `37283323557` / job `111676263336`: **1395/1395 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111676263496`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37283323509` / job `111676263013`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37283323513` / job `111676263238`: PASS.
+
+DD-523…DD-527 is closed at its bounded source-event pre-payload structural evidence scope. Source-owned forward development may resume.
