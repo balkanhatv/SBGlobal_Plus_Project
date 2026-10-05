@@ -476,3 +476,9 @@ This advances canonical evidence only. Exact DD-082 candidate + DD-086 physical 
 Implementation basis `7212643715d725abd7d934cee2843f5c8317c1ef` / tree `6ac3e236fd8faee65f76af2a86a57eb14f9d6b86` passed Core **1436/1436**, PostgreSQL **536/536** plus full bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. It composes exact DD-542 Document ACL-subject evidence with one exact DD-086 physical StorageObject binding read using only the already-preserved candidate linkage.
 
 The result remains bounded internal evidence. ACL effect/expiry/final authorization, operation→ACL permission mapping, entitlement/RBAC/ABAC/sensitivity/step-up/residency exceptions, provider selection/decryption, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain separately governed.
+
+## DD-548…DD-552 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `107dac059f5f253cf56ccbbb208731d5dc7fb364` / tree `affd88746b14f0c434d8dabed201462423acfd3f` passed exact-head Core **1436/1436**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains anchored to `7212643715d725abd7d934cee2843f5c8317c1ef`.
+
+The result remains bounded internal evidence only: ACL effect/expiry/final authorization, operation→ACL mapping, permission/entitlement/RBAC/ABAC/sensitivity/step-up/residency exceptions, provider selection/decryption, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain separate.

@@ -1,7 +1,7 @@
 # DD-28 — FINAL NAMED-KPI COVERAGE MATRIX
 **Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-STORAGE-BINDING-EVIDENCE-READER-001`
-**Current executable audit basis:** `7212643715d725abd7d934cee2843f5c8317c1ef` / tree `6ac3e236fd8faee65f76af2a86a57eb14f9d6b86`
-> **Current audit gate (2026-10-05):** DD-548…DD-552 Document ACL-subject + physical StorageObject binding evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `107dac059f5f253cf56ccbbb208731d5dc7fb364` / tree `affd88746b14f0c434d8dabed201462423acfd3f`
+> **Current audit gate (2026-10-05):** DD-548…DD-552 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-12 · **Historical status:** FINAL FABLE KPI REVALIDATION
 **Method:** independently extracted KPI/report metric names from all nine canonical industry/MS DD files and mapped each to stable DD-25 contract IDs. Composite labels map to each required underlying KPI rather than being accepted by fuzzy name alone.
 

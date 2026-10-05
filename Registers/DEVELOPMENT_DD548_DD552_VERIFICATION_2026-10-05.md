@@ -29,3 +29,13 @@ No ACL effectiveness/final authorization, operation→ACL mapping, permission/en
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-548…DD-552 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `107dac059f5f253cf56ccbbb208731d5dc7fb364` / tree `affd88746b14f0c434d8dabed201462423acfd3f` passed exact-head push gates:
+- Core run `37344135350` / job `111878346443`: **1436/1436 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111878346048`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37344135509` / job `111878346345`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37344135355` / job `111878345533`: PASS.
+
+The feature implementation evidence remains anchored to `7212643715d725abd7d934cee2843f5c8317c1ef` / tree `6ac3e236fd8faee65f76af2a86a57eb14f9d6b86`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-548…DD-552 is closed and another source audit may open.
