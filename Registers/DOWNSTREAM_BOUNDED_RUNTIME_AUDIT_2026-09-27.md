@@ -500,3 +500,7 @@ The bounded authority remains unchanged: exact DD-087 read plus protected Tenant
 Implementation basis `7cbf93ff1295765995bb83a97122920f958cc1f1` / tree `8b9907bb849f9251d77bbdd977ba456f4a437493` passed Core **1453/1453**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The bounded reader reuses exact DD-542 ACL subject evidence, partitions current/expired matched entries using optional validUntil against an explicit trusted currentTimeIso, preserves exact references/order and applies explicit DENY precedence only inside current ACL evidence.
 
 The result is not final authorization. Source-resource fallback, DD-03/DD-04 access/commercial policy, sensitivity/residency/step-up, StorageObject lookup, signing/grants and download/share/delete/mutation authority remain separate.
+
+## DD-558…DD-562 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `ebc1738ac8ffc63cc545f69e9638c326904a22b1` / tree `c0c77d73b43d95fb85d3e5dfde3734d6e6e588e5` passed exact-head Core **1453/1453**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature proof remains `7cbf93ff1295765995bb83a97122920f958cc1f1`. The result remains ACL-layer current/effect evidence only; final authorization/signing/operation authority is not claimed.

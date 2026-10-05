@@ -26,3 +26,13 @@ No upload-session policy, source-resource fallback, full authorization, RBAC/ABA
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-558…DD-562 state closure.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `ebc1738ac8ffc63cc545f69e9638c326904a22b1` / tree `c0c77d73b43d95fb85d3e5dfde3734d6e6e588e5` passed exact-head push gates:
+- Core run `37351486617` / job `111903136180`: **1453/1453 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111903136894`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37351486629` / job `111903136008`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37351486542` / job `111903135184`: PASS.
+
+This state-closure commit must independently pass the same four gates before DD-558…DD-562 is closed and another source audit may open.

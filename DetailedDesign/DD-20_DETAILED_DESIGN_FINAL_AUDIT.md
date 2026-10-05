@@ -1,7 +1,7 @@
 # DD-20 — DETAILED DESIGN AUDIT HIERARCHY
 **Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
-**Current executable audit basis:** `7cbf93ff1295765995bb83a97122920f958cc1f1` / tree `8b9907bb849f9251d77bbdd977ba456f4a437493`
-> **Current audit gate (2026-10-05):** DD-558…DD-562 Document ACL currentness + explicit-DENY-wins evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `ebc1738ac8ffc63cc545f69e9638c326904a22b1` / tree `c0c77d73b43d95fb85d3e5dfde3734d6e6e588e5`
+> **Current audit gate (2026-10-05):** DD-558…DD-562 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-13 · **Status:** PHASE-3 AUDIT HISTORY; current project overlay below
 
 | Audit | Artifact | Status | Authority |
