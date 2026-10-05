@@ -27,3 +27,14 @@ Success returns the exact DD-532 payload-validated evidence. EventCatalog lifecy
 ## Canonical promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-533…DD-537 state closure or another source audit.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `ab5757455770dbdd8b32ed31d3c7cb47f68e2460` / tree `6463ac4dec98c7c8424c738db78e838380d0b278` passed exact-head push gates:
+- Core run `37289426805` / job `111696063222`: **1411/1411 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111696063559`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37289426739` / job `111696063495`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37289426749` / job `111696063194`: PASS.
+- Pull-request Core/PostgreSQL/Database/Web workflows on the same promotion HEAD also passed.
+
+The feature implementation evidence remains anchored to `4926f5c50dc8df49509b467a39fa85e986cf54cc`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-533…DD-537 is closed and another source audit opens.

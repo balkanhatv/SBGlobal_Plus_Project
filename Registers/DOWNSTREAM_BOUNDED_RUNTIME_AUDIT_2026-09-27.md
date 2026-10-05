@@ -440,3 +440,9 @@ Canonical promotion basis `efdd8425bbf5e20d9ff379465569258bc4732d81` / tree `754
 Implementation basis `4926f5c50dc8df49509b467a39fa85e986cf54cc` / tree `b843a4a542cd87f4616d19bef57ea107297781d7` passed Core **1411/1411**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web.
 
 The reader composes exact DD-522 current-residency evidence → DD-527 pre-payload structure → DD-532 injected DD-081 payload validation and returns the exact DD-532 result. No EventCatalog lifecycle, filter matching, endpoint/SSRF authorization, signing/secrets, readiness/retry/finality/DLQ/replay, EXPLICIT_CROSS_CONTEXT authorization, dispatcher/network execution or mutation authority is added.
+
+## DD-533…DD-537 canonical promotion evidence — 2026-10-05
+
+Canonical promotion basis `ab5757455770dbdd8b32ed31d3c7cb47f68e2460` / tree `6463ac4dec98c7c8424c738db78e838380d0b278` passed Core **1411/1411**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to `4926f5c50dc8df49509b467a39fa85e986cf54cc`.
+
+The bounded reader still proves only DD-522 current-residency → DD-527 pre-payload structure → DD-532 injected DD-081 payload validation. EventCatalog lifecycle, event-filter matching, endpoint/SSRF authorization, signing/secrets, readiness/retry/finality/DLQ/replay, EXPLICIT_CROSS_CONTEXT authorization, dispatcher/network execution and mutation remain unproved/separately governed.
