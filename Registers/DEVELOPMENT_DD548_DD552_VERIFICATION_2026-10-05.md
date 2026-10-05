@@ -39,3 +39,13 @@ Canonical promotion HEAD `107dac059f5f253cf56ccbbb208731d5dc7fb364` / tree `affd
 - Web run `37344135355` / job `111878345533`: PASS.
 
 The feature implementation evidence remains anchored to `7212643715d725abd7d934cee2843f5c8317c1ef` / tree `6ac3e236fd8faee65f76af2a86a57eb14f9d6b86`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-548…DD-552 is closed and another source audit may open.
+
+## State closure verified — 2026-10-05
+
+State-closure HEAD `f69750583dcea79c246b8e08cd74529dd0c86f7a` / tree `099d0c85d1d6916f3f4be02d9bd2a62b81932814` passed exact-head push gates:
+- Core run `37344856385` / job `111880754473`: **1436/1436 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111880754770`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37344856345` / job `111880754983`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37344856381` / job `111880754966`: PASS.
+
+DD-548…DD-552 is closed at its bounded evidence scope. ACL-effect/expiry/final authorization and signed/storage execution policy remain separately governed.
