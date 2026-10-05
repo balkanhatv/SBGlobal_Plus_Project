@@ -5699,3 +5699,43 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WFT-DEFREAD-BOUND-001`.
+
+## DD-483 — reuse exact DD-482 visible-definition evidence first
+
+**Decision:** Add `loadWorkflowTaskDefinitionActingRbacCurrentEvidence(...)`. Invoke DD-482 first with exact supplied RequestContext, WorkflowTask id and unchanged task/instance/definition readers. Parent null/errors preserve DD-482 behavior and no Authorization read occurs beforehand.
+
+**Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-DEFRBAC-BASE-001…002`.
+
+## DD-484 — one exact Authorization read for persisted WorkflowTask.permissionCode
+
+**Decision:** After DD-482 evidence, call `AuthorizationReadStorePort.load` exactly once with the identical RequestContext and `permissionCode === parent.parent.task.permissionCode`. Do not normalize, alias, substitute or derive permission from WorkflowDefinition metadata.
+
+**Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-DEFRBAC-READ-001…002`.
+
+## DD-485 — reuse DD-475 protected-Tenant current RBAC selector
+
+**Decision:** Apply `selectCurrentTenantRbacAllow` to the exact supplied context, returned Authorization state and persisted task permission. Require exact scope/version/ordered-role continuity and exactly one ALLOW; stale/missing/DENY/duplicate evidence fails closed.
+
+**Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-DEFRBAC-CUR-001…002`.
+
+## DD-486 — immutable exact-reference definition + RBAC evidence
+
+**Decision:** Success returns frozen `{ parent, authorizationState, permission }`, preserving exact DD-482 task/instance/definition evidence plus exact Authorization/permission/raw-ABAC references without clone, normalization or mutation.
+
+**Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-DEFRBAC-EVID-001`.
+
+## DD-487 — visible definition + RBAC remains necessary evidence only
+
+**Decision:** Do not resolve assignee/claimant/completer currentness, due/expiry, task actions, definition effective dates/state-machine/policies/rules, full AuthorizationDecision/GuardPipeline, transition authority, mutation/event emission, worker dispatch or workflow execution.
+
+**Source audit:** `Development/WORKFLOW_TASK_VISIBLE_DEFINITION_ACTING_RBAC_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `WFT-DEFRBAC-BOUND-001`.

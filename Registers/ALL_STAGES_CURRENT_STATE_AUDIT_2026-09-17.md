@@ -1,7 +1,7 @@
 # ALL-STAGES CURRENT-STATE DEEP AUDIT — 2026-09-17
-**Current checkpoint:** `DEV-WORKFLOW-TASK-VISIBLE-DEFINITION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `8f254a4f4ec72ae65149ac3143cbd3cdea754f0b` / tree `5fff5727e6c478490c0e017bbab1627425347d0f`
-> **Current audit gate (2026-10-05):** DD-478…DD-482 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-WORKFLOW-TASK-VISIBLE-DEFINITION-ACTING-RBAC-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `93ae951362fc79c83e7c47c54308f3fa1c7eaf65` / tree `3b71d836f839b80c73b1a0a63a3da23345471c7e`
+> **Current audit gate (2026-10-05):** DD-483…DD-487 WorkflowTask visible WorkflowDefinition + acting-principal current-RBAC necessary evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as dated historical audit evidence. Its evaluated-era “current”, gate and next-action statements do not override the current project overlay above.

@@ -6032,3 +6032,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WFT-DEFREAD-BOUND-001 — No assignment/action/effective-date/transition/execution authority
 **Owner:** DD-482. Output exposes no assignee/claimant/completer currentness, due/expiry, task-action authority, definition selection/effective-date result, current-state validity, WorkflowTransition authority, mutation/event, worker dispatch or workflow execution authority.
+
+## DD-483 Exact DD-482 Parent Acceptance
+
+### WFT-DEFRBAC-BASE-001 — Exact DD-482 chain first
+**Owner:** DD-483. Exact RequestContext/WorkflowTask id reaches DD-482 first; Authorization access occurs only after successful visible task/instance/definition evidence.
+
+### WFT-DEFRBAC-BASE-002 — Parent absence/errors precede Authorization
+**Owner:** DD-483. DD-482 null short-circuits and DD-482 dependency errors propagate unchanged before Authorization access.
+
+## DD-484 Exact Persisted Task Permission Read Acceptance
+
+### WFT-DEFRBAC-READ-001 — One exact persisted permissionCode read
+**Owner:** DD-484. Exactly one Authorization read receives the identical RequestContext and exact persisted parent.parent.task.permissionCode without normalization or fallback.
+
+### WFT-DEFRBAC-READ-002 — No definition-derived fallback
+**Owner:** DD-484. Authorization dependency/current-state errors propagate unchanged; WorkflowDefinition stateMachine/approvalPolicy/ruleRefs never substitute or derive the task permission.
+
+## DD-485 Current Protected-Tenant RBAC Floor Acceptance
+
+### WFT-DEFRBAC-CUR-001 — Exact snapshot continuity plus one ALLOW
+**Owner:** DD-485. Exact protected Tenant scope, positive safe-integer permissionVersion, ordered roleIds parity and exactly one matching RBAC ALLOW passes and preserves the exact permission object.
+
+### WFT-DEFRBAC-CUR-002 — Stale/missing/DENY/duplicate fails closed
+**Owner:** DD-485. Scope/version/role mismatch or missing, DENY or duplicate exact permission evidence returns null.
+
+## DD-486 Immutable Combined Evidence Acceptance
+
+### WFT-DEFRBAC-EVID-001 — Preserve exact definition + RBAC evidence
+**Owner:** DD-486. Success preserves exact DD-482 parent, nested task/instance, definition, Authorization state, matched permission and raw ABAC references in a frozen envelope without mutation.
+
+## DD-487 Authority Boundary Acceptance
+
+### WFT-DEFRBAC-BOUND-001 — No assignment/action/state-machine/transition/execution authority
+**Owner:** DD-487. Output exposes no assignment-current, claimant/completer-current, due/expiry, task-action, effective-date/state-machine validity, full AuthorizationDecision, GuardPipeline, transition, mutation/event, worker dispatch or workflow execution authority.
