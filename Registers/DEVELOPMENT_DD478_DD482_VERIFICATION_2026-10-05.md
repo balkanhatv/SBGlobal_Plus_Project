@@ -37,3 +37,13 @@ Canonical promotion HEAD `8f254a4f4ec72ae65149ac3143cbd3cdea754f0b` / tree `5fff
 - Web run `37254813181` / job `111589510359`: PASS.
 
 Pull-request Core/Database/Web workflows on the same promotion HEAD also passed. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-478…DD-482 is closed and before another source audit opens.
+
+## State closure verified — 2026-10-05
+
+State-closure HEAD `a65825f009aeb4f2ab5cc2bc68656cedd5cf8cbe` / tree `e763d63904e570a806ddb5bd1d6181a49fa5e72b` passed exact-head push gates:
+- Core run `37258490195` / job `111600482997`: **1318/1318 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111600483016`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37258490187` / job `111600482719`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37258490272` / job `111600483308`: PASS.
+
+DD-478…DD-482 is closed at its bounded evidence scope. WorkflowTask assignment/current claimant/completer, permissionCode, due/expiry/action semantics, WorkflowInstance lifecycle/state, and WorkflowDefinition policy/state-machine semantics remain raw/uninterpreted. Source-owned forward development may resume only through a new prerequisite/ownership audit.
