@@ -16,6 +16,7 @@ import type {
   OutboxEventEvidence,
   OutboxEventReadPort,
 } from "../integration/outbox-event.js";
+import { matchesPersistedOutboxEventCatalogTupleFloors } from "../integration/outbox-event-envelope-floors.js";
 import type {
   TenantIntegrationReadPort,
 } from "../integration/tenant-integration.js";
@@ -48,30 +49,15 @@ export interface NotificationDeliverySourceEventCatalogComposedEvidence {
   readonly sourceEventCatalog?: NotificationDeliverySourceEventCatalogEvidence;
 }
 
-const EVENT_SCOPE_CLASSES = new Set([
-  "PLATFORM_GLOBAL",
-  "TENANT_CORE",
-  "TENANT_INDUSTRY",
-  "EXPLICIT_CROSS_CONTEXT",
-] as const);
-
 /**
- * DD-321: re-evaluate only the exact persisted OutboxEvent -> EventCatalog
- * tuple relationship. Catalog lifecycle and all non-tuple metadata are
- * deliberately uninterpreted.
+ * DD-321: preserve the historical Notification-facing wrapper while delegating
+ * the generic OutboxEvent/EventCatalog tuple semantics to the Integration owner.
  */
 export function matchesOutboxEventCatalogTupleFloors(
   event: OutboxEventEvidence,
   catalog: PersistedEventCatalogEntry,
 ): boolean {
-  return typeof event.eventType === "string"
-    && event.eventType.trim().length > 0
-    && Number.isSafeInteger(event.eventVersion)
-    && event.eventVersion > 0
-    && EVENT_SCOPE_CLASSES.has(event.scopeClass)
-    && catalog.eventType === event.eventType
-    && catalog.eventVersion === event.eventVersion
-    && catalog.scopeClass === event.scopeClass;
+  return matchesPersistedOutboxEventCatalogTupleFloors(event, catalog);
 }
 
 /**
