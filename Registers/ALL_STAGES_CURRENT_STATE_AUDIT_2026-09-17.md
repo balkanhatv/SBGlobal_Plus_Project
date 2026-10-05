@@ -1,7 +1,7 @@
 # ALL-STAGES CURRENT-STATE DEEP AUDIT — 2026-09-17
-**Current checkpoint:** `DEV-SYNC-CURSOR-CURRENT-BINDING-EVIDENCE-READER-001`
-**Current executable audit basis:** `512d6ddaf85bb6abfa795d62c1ddc4f44f7539b9` / tree `9564b6b66f15616a90ccf3dbfa94e940bcc87db8`
-> **Current audit gate (2026-10-05):** DD-498…DD-502 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-SYNC-CURSOR-CURRENT-INTEGRITY-EVIDENCE-READER-001`
+**Current executable audit basis:** `b198c3f01ab26b10f088b0efb2835b2f5f3bd883` / tree `43500d42cd55223aea6462d70c52689b341c7368`
+> **Current audit gate (2026-10-05):** DD-503…DD-507 SyncCursor current-integrity evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as dated historical audit evidence. Its evaluated-era “current”, gate and next-action statements do not override the current project overlay above.

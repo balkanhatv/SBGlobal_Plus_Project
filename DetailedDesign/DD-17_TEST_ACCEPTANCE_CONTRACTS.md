@@ -6171,3 +6171,43 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### SYNC-EVID-BOUND-001 — No resume/provider/secret/execution authority
 **Owner:** DD-502. Output exposes no cursor-valid/fresh/resumable, provider/secret, health/profile, OperationContract/event, GuardPipeline/Commercial, sync/network/dispatch/mutation authority.
+
+## DD-503 Exact DD-502 Parent Acceptance
+
+### SYNC-INTCUR-BASE-001 — Exact DD-502 chain first
+**Owner:** DD-503. Exact supplied RequestContext, TenantIntegration id, capability code, nullable Industry Context and cursor/integration/capability readers enter DD-502 unchanged before any new integrity dependency read.
+
+### SYNC-INTCUR-BASE-002 — Parent null/error precedes added integrity reads
+**Owner:** DD-503. DD-502 null short-circuits and DD-502 dependency errors propagate unchanged before CredentialReference, IntegrationDefinition or remaining-capability reads.
+
+## DD-504 Exact Credential / Definition Dependency Acceptance
+
+### SYNC-INTCUR-CRED-001 — Exact same-context credential metadata read
+**Owner:** DD-504. Exactly one CredentialReference metadata read uses the identical RequestContext and preserved parent credentialReferenceId; null/error fails closed unchanged without secret access.
+
+### SYNC-INTCUR-DEF-001 — Exact IntegrationDefinition read
+**Owner:** DD-504. Exactly one IntegrationDefinition read uses the preserved parent integrationDefinitionId; null/error fails closed unchanged with no provider/adapter fallback.
+
+## DD-505 Exact Enabled Capability Sequence Acceptance
+
+### SYNC-INTCUR-CAP-001 — Persisted order with exact cursor-capability reuse
+**Owner:** DD-505. Capability evidence follows parent.integration.enabledCapabilities in exact persisted order, reuses the exact DD-502 cursor capability object with zero duplicate read, and reads every remaining code exactly once under the same Definition id.
+
+### SYNC-INTCUR-DEP-001 — Missing/error dependency fails closed without fallback
+**Owner:** DD-505. Missing required remaining capability returns null and dependency errors propagate unchanged; no normalize/sort/dedupe/alias/fallback behavior is introduced.
+
+## DD-506 DD-167 Conjunction / Immutable Evidence Acceptance
+
+### SYNC-INTCUR-FLOOR-001 — Exact assembled DD-167 evidence passes
+**Owner:** DD-506. Exact Integration/Credential/Definition/enabled-Capability evidence satisfying DD-167 passes using the exact supplied server-owned evaluatedAt.
+
+### SYNC-INTCUR-FLOOR-002 — Parent integrity mismatch fails closed
+**Owner:** DD-506. Credential/definition/config/enabled-capability integrity mismatch returns null.
+
+### SYNC-INTCUR-EVID-001 — Preserve exact references and order
+**Owner:** DD-506. Success returns a frozen envelope preserving exact DD-502 parent, parent integration, credential metadata, definition, exact ordered capability references and exact evaluatedAt; inputs remain unchanged.
+
+## DD-507 Authority Boundary Acceptance
+
+### SYNC-INTCUR-BOUND-001 — Combined binding/integrity is not cursor or sync authority
+**Owner:** DD-507. Output exposes no cursor-valid/fresh/resumable, provider/secret/health/profile, GuardPipeline/Commercial, sync/network/dispatch/mutation/event authority.

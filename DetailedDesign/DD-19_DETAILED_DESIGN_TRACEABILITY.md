@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-SYNC-CURSOR-CURRENT-BINDING-EVIDENCE-READER-001`
-**Current executable audit basis:** `512d6ddaf85bb6abfa795d62c1ddc4f44f7539b9` / tree `9564b6b66f15616a90ccf3dbfa94e940bcc87db8`
-> **Current audit gate (2026-10-05):** DD-498…DD-502 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-SYNC-CURSOR-CURRENT-INTEGRITY-EVIDENCE-READER-001`
+**Current executable audit basis:** `b198c3f01ab26b10f088b0efb2835b2f5f3bd883` / tree `43500d42cd55223aea6462d70c52689b341c7368`
+> **Current audit gate (2026-10-05):** DD-503…DD-507 SyncCursor current-integrity evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1280,3 +1280,9 @@ Success proves only current migration-0030 necessary persisted-integrity evidenc
 DD-097 exact raw SyncCursor tuple → DD-095 exact same-context TenantIntegration → DD-093 exact IntegrationCapability under the loaded parent Definition → DD-164 current parent/capability binding floor → `Development/SYNC_CURSOR_CURRENT_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-498…DD-502 → `src/core/integration/sync-cursor-current-binding-evidence-reader.ts` → `tests/core/sync-cursor-current-binding-evidence-reader.test.mjs` (`SYNC-EVID-BASE-001`, `SYNC-EVID-INT-001`, `SYNC-EVID-CAP-001`, `SYNC-EVID-FLOOR-001…002`, `SYNC-EVID-EVID-001`, `SYNC-EVID-OPAQUE-001`, `SYNC-EVID-BOUND-001`) → `Registers/DEVELOPMENT_DD498_DD502_VERIFICATION_2026-10-05.md`.
 
 Success proves only exact migration-0030 current parent/capability binding evidence. Cursor payload/freshness, DD-497 TenantIntegration full persisted integrity, provider/credential/secret semantics, health/profile policy, OperationContract/event execution, resume/replay/synchronization, network/dispatch/mutation authority remain separate.
+
+## DD-503…DD-507 — SyncCursor current binding + parent persisted integrity evidence
+
+DD-502 exact SyncCursor→TenantIntegration→cursor-capability current-binding evidence → exact same-context CredentialReference metadata + exact IntegrationDefinition → persisted enabled-capability sequence with exact DD-502 cursor capability identity reused and every remaining code read once → DD-167 TenantIntegration current-integrity conjunction at exact supplied evaluatedAt → `Development/SYNC_CURSOR_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-503…DD-507 → `src/core/integration/sync-cursor-current-integrity-evidence-reader.ts` → `tests/core/sync-cursor-current-integrity-evidence-reader.test.mjs` (`SYNC-INTCUR-BASE-001…002`, `SYNC-INTCUR-CRED-001`, `SYNC-INTCUR-DEF-001`, `SYNC-INTCUR-CAP-001`, `SYNC-INTCUR-DEP-001`, `SYNC-INTCUR-FLOOR-001…002`, `SYNC-INTCUR-EVID-001`, `SYNC-INTCUR-BOUND-001`) → `Registers/DEVELOPMENT_DD503_DD507_VERIFICATION_2026-10-05.md`.
+
+Success proves only exact DD-502 current cursor binding plus exact DD-167 parent persisted integrity. Cursor freshness/resume/replay, secret/provider selection, lifecycle/health/profile approval, GuardPipeline/Commercial authorization, synchronization/network/dispatch/mutation/event execution remain separate and unproved.

@@ -5859,3 +5859,43 @@ emit downstream workflow events, expose a route, or change SQL/roles/privileges.
 **Source audit:** `Development/SYNC_CURSOR_CURRENT_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `SYNC-EVID-OPAQUE-001, SYNC-EVID-BOUND-001`.
+
+## DD-503 — reuse exact DD-502 current-binding evidence first
+
+**Decision:** Add `loadSyncCursorCurrentIntegrityEvidence(...)`. Invoke DD-502 first with the exact supplied RequestContext, TenantIntegration id, capability code, nullable Industry Context and unchanged cursor/integration/capability readers. Parent null returns null before any added integrity dependency read; parent errors propagate unchanged. Do not re-read or substitute SyncCursor/TenantIntegration evidence.
+
+**Source audit:** `Development/SYNC_CURSOR_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `SYNC-INTCUR-BASE-001…002`.
+
+## DD-504 — read exact parent CredentialReference metadata and IntegrationDefinition
+
+**Decision:** After DD-502 succeeds, read CredentialReference metadata exactly once with the identical RequestContext and preserved `parent.integration.credentialReferenceId`, then read IntegrationDefinition exactly once by `parent.integration.integrationDefinitionId`. Null/error fails closed unchanged. Do not access secret locator/material or resolve provider/adapter fallback.
+
+**Source audit:** `Development/SYNC_CURSOR_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `SYNC-INTCUR-CRED-001, SYNC-INTCUR-DEF-001`.
+
+## DD-505 — materialize exact enabled capability order while reusing DD-502 cursor capability
+
+**Decision:** Iterate `parent.integration.enabledCapabilities` in persisted order. For the exact cursor capability code, append `parent.capability` and perform zero duplicate read. For every other code, perform exactly one `IntegrationCapabilityReadPort.loadExact` under the preserved Definition id. No normalize/sort/dedupe/alias/fallback behavior.
+
+**Source audit:** `Development/SYNC_CURSOR_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `SYNC-INTCUR-CAP-001, SYNC-INTCUR-DEP-001`.
+
+## DD-506 — delegate exact assembled parent evidence to DD-167 and preserve immutable identities
+
+**Decision:** Freeze the ordered capability evidence array and call `matchesCurrentTenantIntegrationIntegrityFloors(...)` exactly once with exact parent integration, credential metadata, supplied server-owned evaluatedAt, exact definition and exact capability sequence. False returns null. Success preserves exact DD-502 parent and exact integration-integrity references without clone/normalization/mutation.
+
+**Source audit:** `Development/SYNC_CURSOR_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `SYNC-INTCUR-FLOOR-001…002, SYNC-INTCUR-EVID-001`.
+
+## DD-507 — combined current binding + parent integrity remains evidence-only
+
+**Decision:** Success proves only DD-164 current cursor binding plus DD-167 current parent persisted integrity at the supplied evaluation instant. Keep cursor payload/freshness, Integration health/profile/config, Credential secret/provider data, Definition provider/adapter/data-transfer data and Capability routing/execution metadata raw. Do not authorize resume/replay/sync, provider/network execution, GuardPipeline/Commercial, dispatch, mutation or events.
+
+**Source audit:** `Development/SYNC_CURSOR_CURRENT_INTEGRITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `SYNC-INTCUR-BOUND-001`.
