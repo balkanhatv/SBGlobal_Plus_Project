@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-WEBHOOK-DELIVERY-EVENT-PAYLOAD-VALIDATED-READER-001`
-**Current executable audit basis:** `ab5757455770dbdd8b32ed31d3c7cb47f68e2460` / tree `6463ac4dec98c7c8424c738db78e838380d0b278`
-> **Current audit gate (2026-10-05):** DD-533…DD-537 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-SUBJECT-EVIDENCE-READER-001`
+**Current executable audit basis:** `85c4ac385fad6b6900fd08c1c4c8f3f5034e1f30` / tree `d38598c36e1b384984516f59b3a5a7e07fca90d1`
+> **Current audit gate (2026-10-05):** DD-538…DD-542 Document access candidate + raw ACL subject-match evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1322,3 +1322,9 @@ Success proves only that the existing DD-081 validator accepted the exact persis
 DD-522 WebhookDelivery current-residency evidence → pure DD-527 pre-payload structural evidence → exact DD-532 injected DD-081 payload validation → `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATED_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-533…DD-537 → `src/core/integration/webhook-delivery-event-payload-validated-reader.ts` → `tests/core/webhook-delivery-event-payload-validated-reader.test.mjs` (`WH-EVTPAYREAD-BASE-001…002`, `WH-EVTPAYREAD-PRE-001…002`, `WH-EVTPAYREAD-CORE-001`, `WH-EVTPAYREAD-PAY-001`, `WH-EVTPAYREAD-FAIL-001`, `WH-EVTPAYREAD-EVID-001`) → `Registers/DEVELOPMENT_DD533_DD537_VERIFICATION_2026-10-05.md`.
 
 The reader adds no primitive semantics: it only sequences existing parent-first boundaries and returns the exact DD-532 result. EventCatalog lifecycle, filter grammar/matching, endpoint challenge/SSRF authorization, signing/secrets, readiness/retry/finality/DLQ/replay, EXPLICIT_CROSS_CONTEXT authorization, dispatcher/network execution and mutation remain separately governed.
+
+## DD-538…DD-542 — Document access candidate + raw ACL subject-match evidence
+
+DD-082 exact ACTIVE+CLEAN pre-sign Document access candidate → DD-084 exact raw same-context Document ACL read for candidate.documentId → DD-085 exact PRINCIPAL/ROLE/ORG_UNIT subject matching for one explicit caller-supplied DocumentAclPermission → `Development/DOCUMENT_ACCESS_ACL_SUBJECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-538…DD-542 → `src/core/document/access-acl-subject-evidence-reader.ts` → `tests/core/document-access-acl-subject-evidence-reader.test.mjs` (`DOC-ACLEVID-BASE-001…002`, `DOC-ACLEVID-READ-001…002`, `DOC-ACLEVID-MATCH-001…002`, `DOC-ACLEVID-EVID-001…002`, `DOC-ACLEVID-BOUND-001`) → `Registers/DEVELOPMENT_DD538_DD542_VERIFICATION_2026-10-05.md`.
+
+Success proves only one exact DD-082 candidate, exact raw DD-084 ACL array and DD-085 subject-match evidence for the explicit input permission. Empty/non-empty matches are not DENY/ALLOW decisions. ACL effect/expiry, DENY precedence, operation→ACL mapping, source/owner fallback, entitlement/RBAC/ABAC/sensitivity/step-up/residency authorization, storage signing/TTL/provider selection and download/share/delete/dispatch/mutation remain separate.

@@ -6147,3 +6147,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/WEBHOOK_DELIVERY_EVENT_PAYLOAD_VALIDATED_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `WH-EVTPAYREAD-EVID-001`.
+
+## DD-538 — establish exact DD-082 access candidate before ACL evidence
+
+**Decision:** Add `loadDocumentAccessAclSubjectEvidence(...)`. Its first governed action is `DocumentAccessCandidateService.prepare` using the exact supplied RequestContext, document id and metadata port. Preserve DD-082 governed errors unchanged and do not access ACL evidence after candidate failure.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_SUBJECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEVID-BASE-001…002`.
+
+## DD-539 — read exact raw ACL evidence only after candidate success
+
+**Decision:** Invoke `DocumentAclReadPort.loadForDocument` exactly once using the exact supplied RequestContext and `documentId === candidate.documentId`. Do not substitute sourceResourceId, storageObjectId or another identifier; do not retry/search/fallback or normalize dependency failure into authorization.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_SUBJECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEVID-READ-001…002`.
+
+## DD-540 — delegate only exact explicit permission subject matching to DD-085
+
+**Decision:** Invoke `DocumentAclSubjectMatcher.match` with exact RequestContext, candidate document id, exact caller-supplied DocumentAclPermission and exact raw DD-084 array. Permission is explicit input evidence only and is not inferred from OperationContract, route, source resource, media type or sensitivity.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_SUBJECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEVID-MATCH-001…002`.
+
+## DD-541 — preserve immutable exact-reference candidate / ACL / match evidence
+
+**Decision:** Success returns frozen `{ candidate, rawAclEntries, matchedEntries, permission }` preserving exact candidate and raw ACL array references and the exact DD-085 matched array. Empty matches remain successful evidence; non-empty matches retain raw ordering/effect/validUntil facts.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_SUBJECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEVID-EVID-001…002`.
+
+## DD-542 — stop before ACL effectiveness, final authorization and signing
+
+**Context:** DD-085 leaves operation→ACL permission mapping, expiry effectiveness, DENY precedence/reduction, source-resource fallback, final authorization, sensitivity/step-up/residency composition and signed-grant generation source-unowned.
+
+**Decision:** Do not interpret ACL effect or validUntil; do not infer DENY precedence/owner/source fallback; do not call GuardPipeline/AuthorizationDecisionService, StoragePort or signer/provider; do not create signed URL/token/grant or expose download/share/delete/dispatch/mutation authority.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_SUBJECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEVID-BOUND-001`.

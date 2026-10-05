@@ -1,7 +1,7 @@
 # DD-30 — FINAL REQUIREMENT-LEVEL TRACEABILITY AUDIT — PHASE 3
-**Current checkpoint:** `DEV-WEBHOOK-DELIVERY-EVENT-PAYLOAD-VALIDATED-READER-001`
-**Current executable audit basis:** `ab5757455770dbdd8b32ed31d3c7cb47f68e2460` / tree `6463ac4dec98c7c8424c738db78e838380d0b278`
-> **Current audit gate (2026-10-05):** DD-533…DD-537 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-SUBJECT-EVIDENCE-READER-001`
+**Current executable audit basis:** `85c4ac385fad6b6900fd08c1c4c8f3f5034e1f30` / tree `d38598c36e1b384984516f59b3a5a7e07fca90d1`
+> **Current audit gate (2026-10-05):** DD-538…DD-542 Document access candidate + raw ACL subject-match evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** PHASE-3 REQUIREMENT-TRACEABILITY AUDIT EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.

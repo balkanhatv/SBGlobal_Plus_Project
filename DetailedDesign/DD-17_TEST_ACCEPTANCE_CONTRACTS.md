@@ -6435,3 +6435,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### WH-EVTPAYREAD-EVID-001 — Preserve exact nested evidence and grant no delivery authority
 **Owner:** DD-537. Success preserves exact Delivery/Subscription/Event/Catalog/current-residency/pre-payload/envelope references and immutability while exposing no catalog-lifecycle, filter, endpoint/SSRF, signing, readiness/retry, cross-context, dispatch/network or mutation authority.
+
+## DD-538 Exact DD-082 Document Access Candidate Acceptance
+
+### DOC-ACLEVID-BASE-001 — Exact candidate executes first
+**Owner:** DD-538. Exact supplied RequestContext, document id and metadata dependency enter DD-082 DocumentAccessCandidateService first.
+
+### DOC-ACLEVID-BASE-002 — Candidate failure precedes ACL access
+**Owner:** DD-538. Governed DD-082 candidate errors propagate unchanged and ACL reader / subject matcher are not invoked.
+
+## DD-539 Exact Raw Document ACL Read Acceptance
+
+### DOC-ACLEVID-READ-001 — One exact candidate-document ACL read
+**Owner:** DD-539. Candidate success causes exactly one DD-084 ACL read using the exact supplied RequestContext and candidate.documentId.
+
+### DOC-ACLEVID-READ-002 — ACL dependency errors remain dependency errors
+**Owner:** DD-539. ACL read errors propagate unchanged with no retry, search, fallback, normalization or authorization synthesis.
+
+## DD-540 Exact DD-085 Subject Match Acceptance
+
+### DOC-ACLEVID-MATCH-001 — Exact permission/raw ACL delegation
+**Owner:** DD-540. Exact caller-supplied DocumentAclPermission and exact raw ACL array are delegated once to DD-085 with exact RequestContext and candidate document id.
+
+### DOC-ACLEVID-MATCH-002 — Matcher evidence errors propagate unchanged
+**Owner:** DD-540. DD-085 malformed/context/cross-document evidence errors preserve exact failure identity.
+
+## DD-541 Immutable ACL Subject Evidence Acceptance
+
+### DOC-ACLEVID-EVID-001 — Empty matched set is valid evidence
+**Owner:** DD-541. Empty subject-match evidence succeeds as immutable evidence preserving exact candidate/raw ACL references without deny synthesis.
+
+### DOC-ACLEVID-EVID-002 — Raw matched ACL facts remain raw
+**Owner:** DD-541. Non-empty matches preserve exact input order plus raw ALLOW/DENY and validUntil facts without reducer, precedence or expiry interpretation.
+
+## DD-542 Document Authorization / Signing Boundary Acceptance
+
+### DOC-ACLEVID-BOUND-001 — Evidence grants no authorization or operation authority
+**Owner:** DD-542. Output exposes no authorized/denied/effective/expired/step-up/signed/download/share/delete/dispatch/mutation authority.
