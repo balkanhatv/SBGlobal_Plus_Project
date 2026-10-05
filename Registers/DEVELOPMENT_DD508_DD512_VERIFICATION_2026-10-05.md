@@ -39,3 +39,13 @@ Canonical promotion HEAD `2a8da8112ebbaa9d2454518d5b6a92efc7f353ea` / tree `c64b
 - Web run `37270485605` / job `111636229621`: PASS.
 
 Feature implementation proof remains anchored to `08a1d0938c1c62d3907e844fe27de96dc7d0a43d` / tree `3f6681d75a3e3c1c59e3c815a001123a18bc06a0`. This state-closure commit must independently pass the same four gates before DD-508…DD-512 is closed and another source audit may open.
+
+## State closure verified — 2026-10-05
+
+State-closure HEAD `c84ddb241413d61c6f4551d0df3eb2aba63d2ae7` / tree `5a8185766737796d7af8b933d45ad7dfc5c66445` passed exact-head push gates:
+- Core run `37270949559` / job `111637614012`: **1371/1371 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111637613700`: **532/532 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37270949842` / job `111637614766`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37270949760` / job `111637614538`: PASS.
+
+DD-508…DD-512 is closed at its bounded ordinary single-context WebhookDelivery evidence scope. Source-owned forward development may resume only through a newly frozen independently source-complete batch.
