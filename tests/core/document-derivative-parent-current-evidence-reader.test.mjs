@@ -41,7 +41,7 @@ function relationship(overrides={}) {
     scopeClass:"TENANT_INDUSTRY",
     parentDocumentId:ids.parent,
     derivativeType:"THUMBNAIL",
-    sensitivityClass:"PUBLIC",
+    sensitivityClass:"REGULATED",
     residencyRegion:"IN-CENTRAL",
     status:"SCANNING",
     virusScanStatus:"PENDING",
@@ -52,7 +52,7 @@ function relationship(overrides={}) {
     tenantId:ids.tenant,
     industryContextId:ids.industry,
     scopeClass:"TENANT_INDUSTRY",
-    sensitivityClass:"REGULATED",
+    sensitivityClass:"CONFIDENTIAL",
     residencyRegion:"IN-CENTRAL",
     status:"ACTIVE",
     virusScanStatus:"CLEAN",
@@ -159,6 +159,10 @@ test("DOC-DERIV-SAFE-002 unsafe parent or residency/context mismatch fails close
     relationship({parent:{virusScanStatus:"INFECTED"}}),
     relationship({parent:{residencyRegion:"US-EAST"}}),
     relationship({parent:{tenantId:"12121212-1212-4212-8212-121212121212"}}),
+    relationship({
+      derivative:{sensitivityClass:"PUBLIC"},
+      parent:{sensitivityClass:"REGULATED"},
+    }),
   ];
   for(const value of cases){
     assert.equal(await load(fixture({value})),null);
@@ -172,15 +176,15 @@ test("DOC-DERIV-SAFE-002 unsafe parent or residency/context mismatch fails close
   );
 });
 
-test("DOC-DERIV-EVID-001 success preserves exact raw lifecycle and sensitivity evidence without ranking or mutation",async()=>{
+test("DOC-DERIV-EVID-001 success preserves exact raw lifecycle and sensitivity evidence after canonical non-lowering floor",async()=>{
   const value=relationship({
     derivative:{
-      sensitivityClass:"PUBLIC",
+      sensitivityClass:"REGULATED",
       status:"SCANNING",
       virusScanStatus:"PENDING",
     },
     parent:{
-      sensitivityClass:"REGULATED",
+      sensitivityClass:"CONFIDENTIAL",
       status:"ACTIVE",
       virusScanStatus:"CLEAN",
     },
@@ -191,8 +195,8 @@ test("DOC-DERIV-EVID-001 success preserves exact raw lifecycle and sensitivity e
   assert.ok(result);
   assert.equal(Object.isFrozen(result),true);
   assert.equal(result.relationship,value);
-  assert.equal(result.relationship.derivative.sensitivityClass,"PUBLIC");
-  assert.equal(result.relationship.parent.sensitivityClass,"REGULATED");
+  assert.equal(result.relationship.derivative.sensitivityClass,"REGULATED");
+  assert.equal(result.relationship.parent.sensitivityClass,"CONFIDENTIAL");
   assert.equal(result.relationship.derivative.status,"SCANNING");
   assert.equal(result.relationship.derivative.virusScanStatus,"PENDING");
   assert.equal(JSON.stringify(value),before);

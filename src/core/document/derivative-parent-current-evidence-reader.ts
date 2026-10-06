@@ -56,12 +56,12 @@ export interface DocumentDerivativeParentCurrentEvidence {
 const UUID_PATTERN =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
-const SENSITIVITY = new Set<DocumentSensitivityClass>([
-  "PUBLIC",
-  "INTERNAL",
-  "CONFIDENTIAL",
-  "SENSITIVE_PERSONAL",
-  "REGULATED",
+const SENSITIVITY_RANK = new Map<DocumentSensitivityClass, number>([
+  ["PUBLIC", 1],
+  ["INTERNAL", 2],
+  ["CONFIDENTIAL", 3],
+  ["SENSITIVE_PERSONAL", 4],
+  ["REGULATED", 5],
 ]);
 
 const STATUS = new Set<DocumentStatus>([
@@ -100,7 +100,7 @@ function validSide(
     && validUuid(value.tenantId)
     && validScope(value.scopeClass)
     && (value.industryContextId === undefined || validUuid(value.industryContextId))
-    && SENSITIVITY.has(value.sensitivityClass)
+    && SENSITIVITY_RANK.has(value.sensitivityClass)
     && validText(value.residencyRegion)
     && STATUS.has(value.status)
     && VIRUS.has(value.virusScanStatus)
@@ -153,6 +153,18 @@ export async function loadDocumentDerivativeParentCurrentEvidence(
     || derivative.residencyRegion !== parent.residencyRegion
     || parent.status !== "ACTIVE"
     || parent.virusScanStatus !== "CLEAN"
+  ) {
+    return null;
+  }
+
+  const derivativeSensitivityRank = SENSITIVITY_RANK.get(
+    derivative.sensitivityClass,
+  );
+  const parentSensitivityRank = SENSITIVITY_RANK.get(parent.sensitivityClass);
+  if (
+    derivativeSensitivityRank === undefined
+    || parentSensitivityRank === undefined
+    || derivativeSensitivityRank < parentSensitivityRank
   ) {
     return null;
   }

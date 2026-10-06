@@ -123,9 +123,9 @@ before(async()=>{
     }
 
     const parents=[
-      [f.industryParent,f.industry,"TENANT_INDUSTRY",f.industryParentObject,"industry-parent","REGULATED"],
-      [f.siblingParent,f.sibling,"TENANT_INDUSTRY",f.siblingParentObject,"sibling-parent","CONFIDENTIAL"],
-      [f.tenantParent,null,"TENANT_CORE",f.tenantParentObject,"tenant-parent","SENSITIVE_PERSONAL"],
+      [f.industryParent,f.industry,"TENANT_INDUSTRY",f.industryParentObject,"industry-parent","CONFIDENTIAL"],
+      [f.siblingParent,f.sibling,"TENANT_INDUSTRY",f.siblingParentObject,"sibling-parent","INTERNAL"],
+      [f.tenantParent,null,"TENANT_CORE",f.tenantParentObject,"tenant-parent","CONFIDENTIAL"],
     ];
     for(const [id,industryContextId,scopeClass,objectId,key,sensitivity] of parents){
       await client.query(
@@ -146,9 +146,9 @@ before(async()=>{
     }
 
     const derivatives=[
-      [f.industryDerivative,f.industry,"TENANT_INDUSTRY",f.industryDerivativeObject,"industry-derivative",f.industryParent,"THUMBNAIL","PUBLIC"],
-      [f.siblingDerivative,f.sibling,"TENANT_INDUSTRY",f.siblingDerivativeObject,"sibling-derivative",f.siblingParent,"PREVIEW","INTERNAL"],
-      [f.tenantDerivative,null,"TENANT_CORE",f.tenantDerivativeObject,"tenant-derivative",f.tenantParent,"OCR_EXTRACT","CONFIDENTIAL"],
+      [f.industryDerivative,f.industry,"TENANT_INDUSTRY",f.industryDerivativeObject,"industry-derivative",f.industryParent,"THUMBNAIL","REGULATED"],
+      [f.siblingDerivative,f.sibling,"TENANT_INDUSTRY",f.siblingDerivativeObject,"sibling-derivative",f.siblingParent,"PREVIEW","CONFIDENTIAL"],
+      [f.tenantDerivative,null,"TENANT_CORE",f.tenantDerivativeObject,"tenant-derivative",f.tenantParent,"OCR_EXTRACT","SENSITIVE_PERSONAL"],
     ];
     for(const [id,industryContextId,scopeClass,objectId,key,parentId,derivativeType,sensitivity] of derivatives){
       await client.query(
