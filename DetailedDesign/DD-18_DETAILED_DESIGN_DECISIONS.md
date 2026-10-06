@@ -6357,3 +6357,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOC-ACLEFFECT-EVID-001, DOC-ACLEFFECT-BOUND-001`.
+
+## DD-563 — reuse exact DD-562 current ACL-effect evidence first
+
+**Context:** DD-562 owns DD-542 subject-match evidence plus explicit trusted-time current/expired partitioning and ACL-layer explicit-DENY-wins effect evidence.
+
+**Decision:** Add `loadDocumentAccessAclCurrentEffectStorageBindingEvidence(...)`. Invoke DD-562 exactly once with the exact RequestContext, document id, explicit ACL permission, currentTimeIso and unchanged dependencies. Parent errors propagate unchanged and no storage binding access occurs.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEFFSTO-BASE-001…002`.
+
+## DD-564 — read exact DD-086 physical binding from preserved candidate linkage
+
+**Decision:** After DD-562 success, invoke DD-086 exactly once using the exact supplied RequestContext and only `parent.parent.candidate.documentId + storageObjectId`. Do not accept/substitute caller storage ids, object keys, sourceResourceId, provider refs or alternate locators. Do not rerun DD-082/DD-542.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEFFSTO-READ-001…002`.
+
+## DD-565 — fail closed on absent physical binding
+
+**Decision:** DD-086 null returns null. Do not retry/search, choose alternate Data Home/provider, reinterpret ACL NONE, synthesize authorization or apply source-resource fallback.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEFFSTO-NULL-001`.
+
+## DD-566 — preserve immutable exact-reference combined evidence
+
+**Decision:** Success returns frozen `{ parent, binding }`, preserving exact DD-562 parent and DD-086 binding references. ACL partitions/effect and private locator/integrity fields retain only their existing meanings.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEFFSTO-EVID-001…002`.
+
+## DD-567 — stop before source-resource choice, final authorization, provider selection and signing
+
+**Decision:** Do not map OperationContract to ACL permission, choose source-resource inheritance, evaluate RBAC/ABAC/entitlement/commercial/sensitivity/residency/step-up, decrypt/select provider/bucket, issue signed URL/token/grant/TTL, expose download/share/delete authority, dispatch StoragePort or mutate DocumentMeta/StorageObject/ACL state.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLEFFSTO-BOUND-001`.

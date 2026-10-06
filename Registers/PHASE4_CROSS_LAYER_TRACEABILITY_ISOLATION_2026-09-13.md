@@ -1,7 +1,7 @@
 # PHASE 4 — Cross-Layer Traceability / Isolation / Determinism Revalidation
-**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
-**Current executable audit basis:** `ebc1738ac8ffc63cc545f69e9638c326904a22b1` / tree `c0c77d73b43d95fb85d3e5dfde3734d6e6e588e5`
-> **Current audit gate (2026-10-05):** DD-558…DD-562 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-STORAGE-BINDING-EVIDENCE-READER-001`
+**Current executable audit basis:** `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926` / tree `b0eafbc82217c76999c09e07c66f90498fa3ce9c`
+> **Current audit gate (2026-10-06):** DD-563…DD-567 Document ACL current-effect + physical StorageObject binding evidence is exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-4 GATE EVIDENCE · **Date:** 2026-09-13  
 **Evaluated substantive DD HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`  
 **Upstream gates at evaluation:** Phase 1 Foundation PASS · Phase 2 Architecture PASS · Phase 3 DD PASS

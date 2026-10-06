@@ -29,3 +29,14 @@ No schema, migration, SQL verification, RLS, role, grant, route, frontend, worke
 ## Exact-head staging gate
 
 This verification-staging commit must pass Core/PostgreSQL/Database/Web on the same HEAD before canonical DD-563…DD-567 promotion. Production readiness is not claimed.
+
+## Exact-head staging verified; canonical promotion staged — 2026-10-06
+
+Verification-staging HEAD `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926` / tree `b0eafbc82217c76999c09e07c66f90498fa3ce9c` passed exact-head push gates:
+- Core run `37401819394` / job `112070486915`: **1461/1461 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112070486920`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37401819367` / job `112070486701`: PASS; inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37401819369` / job `112070486797`: PASS.
+Pull-request Core/Database/Web workflows on the same staging HEAD also passed.
+
+Canonical promotion is staged; its own exact-head Core/PostgreSQL/Database/Web gates must pass before state closure.

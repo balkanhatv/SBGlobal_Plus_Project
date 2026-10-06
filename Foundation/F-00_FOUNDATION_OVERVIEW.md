@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT FOUNDATION
-**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
-**Current executable audit basis:** `ebc1738ac8ffc63cc545f69e9638c326904a22b1` / tree `c0c77d73b43d95fb85d3e5dfde3734d6e6e588e5`
-> **Current audit gate (2026-10-05):** DD-558…DD-562 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-STORAGE-BINDING-EVIDENCE-READER-001`
+**Current executable audit basis:** `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926` / tree `b0eafbc82217c76999c09e07c66f90498fa3ce9c`
+> **Current audit gate (2026-10-06):** DD-563…DD-567 Document ACL current-effect + physical StorageObject binding evidence is exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 

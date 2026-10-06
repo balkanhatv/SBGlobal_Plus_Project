@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
-**Current executable audit basis:** `ebc1738ac8ffc63cc545f69e9638c326904a22b1` / tree `c0c77d73b43d95fb85d3e5dfde3734d6e6e588e5`
-> **Current audit gate (2026-10-05):** DD-558…DD-562 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-STORAGE-BINDING-EVIDENCE-READER-001`
+**Current executable audit basis:** `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926` / tree `b0eafbc82217c76999c09e07c66f90498fa3ce9c`
+> **Current audit gate (2026-10-06):** DD-563…DD-567 Document ACL current-effect + physical StorageObject binding evidence is exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1352,3 +1352,9 @@ This proves only exact persisted/current upload-session ownership continuity. Ex
 DD-542 Document candidate/raw ACL/subject-match evidence → optional `DocumentAclEntry.validUntil` + explicit trusted currentTimeIso → current/expired exact-reference partition → DD-08 §6 explicit-DENY-wins ACL-layer effect evidence → `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-558…DD-562 → `src/core/document/access-acl-current-effect-evidence-reader.ts` → `tests/core/document-access-acl-current-effect-evidence-reader.test.mjs` (`DOC-ACLEFFECT-BASE-001…002`, `DOC-ACLEFFECT-TIME-001…002`, `DOC-ACLEFFECT-PART-001`, `DOC-ACLEFFECT-DENY-001…002`, `DOC-ACLEFFECT-EVID-001`, `DOC-ACLEFFECT-BOUND-001`) → `Registers/DEVELOPMENT_DD558_DD562_VERIFICATION_2026-10-05.md`.
 
 This proves only ACL-layer current/effect evidence. It does not choose source-resource inheritance, replace DD-03/DD-04 authorization/commercial policy, evaluate sensitivity/residency/step-up, load StorageObject, sign a grant or establish download/share/delete/mutation authority.
+
+## DD-563…DD-567 — Document ACL current-effect + physical StorageObject binding evidence
+
+DD-562 exact current ACL-effect evidence → preserved candidate.documentId + candidate.storageObjectId → one exact DD-086 physical binding read under the same supplied RequestContext/current Data Home → `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-563…DD-567 → `src/server/document/document-access-acl-current-effect-storage-binding-evidence-reader.ts` → `tests/server/document-access-acl-current-effect-storage-binding-evidence-reader.test.mjs` (`DOC-ACLEFFSTO-BASE-001…002`, `DOC-ACLEFFSTO-READ-001…002`, `DOC-ACLEFFSTO-NULL-001`, `DOC-ACLEFFSTO-EVID-001…002`, `DOC-ACLEFFSTO-BOUND-001`) → `Registers/DEVELOPMENT_DD563_DD567_VERIFICATION_2026-10-06.md`.
+
+This proves only exact DD-562 ACL current/effect evidence plus exact same-candidate DD-086 physical binding evidence. ACL NONE is not reinterpreted; source-resource inheritance, final authorization, operation→ACL mapping, permission/entitlement/RBAC/ABAC/sensitivity/residency/step-up, provider selection/decryption, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain separate.

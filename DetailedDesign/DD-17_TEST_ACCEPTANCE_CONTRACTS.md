@@ -6611,3 +6611,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-ACLEFFECT-BOUND-001 — No final authorization, fallback or signing authority
 **Owner:** DD-562. Output grants no source-resource fallback choice, full authorization, RBAC/ABAC/commercial/sensitivity/residency/step-up result, StorageObject binding/signing/grant/download/share/delete/mutation authority.
+
+## DD-563 Exact DD-562 Parent Acceptance
+
+### DOC-ACLEFFSTO-BASE-001 — Exact DD-562 chain first
+**Owner:** DD-563. Exact RequestContext, document id, explicit ACL permission, explicit trusted currentTimeIso and DD-562 dependencies enter DD-562 unchanged before physical binding access.
+
+### DOC-ACLEFFSTO-BASE-002 — Parent error precedes physical binding
+**Owner:** DD-563. DD-562 dependency/governed errors propagate unchanged and the DD-086 binding reader is not invoked.
+
+## DD-564 Exact Preserved Candidate Binding Read Acceptance
+
+### DOC-ACLEFFSTO-READ-001 — One exact DD-086 read from preserved linkage
+**Owner:** DD-564. Parent success causes exactly one DD-086 binding read with exact RequestContext plus candidate.documentId/storageObjectId from DD-562, with zero duplicate candidate/ACL read.
+
+### DOC-ACLEFFSTO-READ-002 — Binding dependency errors preserve identity
+**Owner:** DD-564. DD-086 dependency errors propagate unchanged with no retry, alternate locator, provider, Data Home or source-resource fallback.
+
+## DD-565 Fail-Closed Null Binding Acceptance
+
+### DOC-ACLEFFSTO-NULL-001 — Binding null remains null
+**Owner:** DD-565. DD-086 null returns null without source-resource fallback, authorization synthesis or alternate storage lookup.
+
+## DD-566 Immutable Combined Evidence Acceptance
+
+### DOC-ACLEFFSTO-EVID-001 — Preserve exact DD-562 parent and DD-086 binding
+**Owner:** DD-566. Success returns frozen evidence preserving exact parent and binding object references.
+
+### DOC-ACLEFFSTO-EVID-002 — Preserve ACL/storage raw evidence unchanged
+**Owner:** DD-566. current/expired/effect ACL evidence and private locator/integrity fields remain exact and uninterpreted.
+
+## DD-567 Authority Boundary Acceptance
+
+### DOC-ACLEFFSTO-BOUND-001 — No final authorization, provider or signing authority
+**Owner:** DD-567. Output exposes no source-resource decision, final permission/entitlement/RBAC/ABAC/sensitivity/residency/step-up result, provider selection/decryption, signing/grant/download/share/delete/dispatch/mutation authority.

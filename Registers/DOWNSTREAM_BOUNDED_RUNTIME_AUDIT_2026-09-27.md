@@ -504,3 +504,9 @@ The result is not final authorization. Source-resource fallback, DD-03/DD-04 acc
 ## DD-558…DD-562 canonical promotion evidence — 2026-10-05
 
 Canonical promotion basis `ebc1738ac8ffc63cc545f69e9638c326904a22b1` / tree `c0c77d73b43d95fb85d3e5dfde3734d6e6e588e5` passed exact-head Core **1453/1453**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature proof remains `7cbf93ff1295765995bb83a97122920f958cc1f1`. The result remains ACL-layer current/effect evidence only; final authorization/signing/operation authority is not claimed.
+
+## DD-563…DD-567 exact-head implementation evidence — 2026-10-06
+
+Verification-staging basis `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926` / tree `b0eafbc82217c76999c09e07c66f90498fa3ce9c` passed Core **1461/1461**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The server-internal composition establishes exact DD-562 current ACL-effect evidence first, then one exact DD-086 physical binding read using only preserved candidate documentId/storageObjectId.
+
+ACL NONE, source-resource inheritance, operation→ACL mapping, final permission/entitlement/RBAC/ABAC/sensitivity/residency/step-up authorization, provider selection/decryption, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain outside this evidence seam.
