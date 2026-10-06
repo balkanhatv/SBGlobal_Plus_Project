@@ -580,3 +580,9 @@ Canonical promotion basis `06c99d9b5b48b522b7788dac6a0a260d51a8c48b` / tree `f46
 Implementation basis `3e6bd8985f5778eccbed34f79b7ad2ad3513059d` / tree `8de14fb9f1e5518ba2c6a28517cf2676fd18239b` passed Core **1509/1509**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader composes only exact AIMediaRequest evidence with the existing DD-188 optional PromptTemplate binding floor. Unbound requests perform zero PromptTemplate reads; bound requests read exactly the persisted promptTemplateId under the same RequestContext.
 
 No prompt selection/latest fallback/rendering/approval/override/grounding, principal/document authorization, entitlement/moderation/provider/model/tool routing, media generation/publication, mutation or event authority is added.
+
+## DD-593…DD-597 canonical promotion evidence — 2026-10-06
+
+Canonical promotion basis `33e1abccdcdbf7394d0838f86a09de06e43ebf9f` / tree `7e8115c18128b108976910356b7e7de446e6cc47` passed exact-head Core **1509/1509**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains implementation-anchored to `3e6bd8985f5778eccbed34f79b7ad2ad3513059d`.
+
+The bounded result remains optional persisted PromptTemplate current-binding evidence only. Unbound requests do not select a default; bound requests preserve exact request/prompt references after one exact same-RequestContext read and DD-188 validation. No prompt rendering/approval/override/grounding, principal/document authorization, entitlement/moderation/provider/model/tool routing, media generation/publication, mutation or event authority is added.

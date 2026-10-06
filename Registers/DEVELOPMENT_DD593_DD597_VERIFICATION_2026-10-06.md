@@ -27,3 +27,14 @@ Success preserves exact request/prompt references. No prompt selection/rendering
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-593…DD-597 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-06
+
+Canonical promotion HEAD `33e1abccdcdbf7394d0838f86a09de06e43ebf9f` / tree `7e8115c18128b108976910356b7e7de446e6cc47` passed exact-head push gates:
+- Core run `37493057433` / job `112370454855`: **1509/1509 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112370454669`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37493057444` / job `112370454931`: PASS with repository tree inventory **48 migrations / 42 SQL verification files**.
+- Web run `37493057437` / job `112370454380`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+Feature evidence remains anchored to implementation `3e6bd8985f5778eccbed34f79b7ad2ad3513059d` / tree `8de14fb9f1e5518ba2c6a28517cf2676fd18239b`. This state-closure commit must independently pass the same four gates before DD-593…DD-597 is closed and another source audit may open.

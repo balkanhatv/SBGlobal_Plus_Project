@@ -1,7 +1,7 @@
 # SBGlobal Plus vision-centric repository audit — 2026-09-25
 **Current checkpoint:** `DEV-AI-MEDIA-REQUEST-PROMPT-TEMPLATE-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `3e6bd8985f5778eccbed34f79b7ad2ad3513059d` / tree `8de14fb9f1e5518ba2c6a28517cf2676fd18239b`
-> **Current audit gate (2026-10-06):** DD-593…DD-597 AIMediaRequest optional PromptTemplate current-binding evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `33e1abccdcdbf7394d0838f86a09de06e43ebf9f` / tree `7e8115c18128b108976910356b7e7de446e6cc47`
+> **Current audit gate (2026-10-06):** DD-593…DD-597 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as dated historical Vision-audit evidence. Its evaluated-era checkpoint, verdict and continuation statements do not override the current project overlay above.
