@@ -6535,3 +6535,47 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Acceptance:** `DOC-DERIV-BOUND-001`.
 
 **PostgreSQL acceptance:** `DOC-DERIV-PG-001…004`.
+
+## DD-583 — reuse exact DD-582 derivative-parent current evidence first
+
+**Context:** DD-582 owns exact persisted derivative→parent identity, scope/residency continuity, parent ACTIVE+CLEAN currentness and sensitivity non-lowering evidence.
+
+**Decision:** Add `loadDocumentDerivativeParentRawAclEvidence(...)`. Invoke DD-582 first with exact supplied inputs and unchanged relationship dependency. Parent null/errors preserve DD-582 behavior; no ACL access occurs before success.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_RAW_ACL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIVACL-BASE-001…002`.
+
+## DD-584 — read exact derivative raw ACL evidence once
+
+**Decision:** After DD-582 success, call DD-084 `DocumentAclReadPort.loadForDocument` exactly once with the exact supplied RequestContext and exact persisted derivative id from the relationship. Do not substitute caller aliases, source-resource/storage ids or alternate document ids.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_RAW_ACL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIVACL-READ-001…002`.
+
+## DD-585 — read exact parent raw ACL evidence once and require row/document binding
+
+**Decision:** Then read the exact persisted parent id once through the same DD-084 port. Empty arrays are valid raw evidence. Require each returned row's documentId to equal its requested derivative/parent side; mismatch fails closed. Do not retry, search or fall back.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_RAW_ACL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIVACL-BIND-001…002`.
+
+## DD-586 — preserve immutable exact-reference paired raw ACL evidence
+
+**Decision:** Success returns frozen `{ parent, derivativeAclEntries, parentAclEntries }` and preserves exact DD-582 parent plus exact ACL array/entry references. Do not sort, clone, normalize, subject-match, filter expiry or derive effect.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_RAW_ACL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIVACL-EVID-001`.
+
+## DD-587 — paired raw ACL evidence does not define derivative ACL non-widening
+
+**Context:** DD-08 §8 says a derivative cannot widen ACL, but the repository still lacks a complete parent-child ACL comparison/inheritance/reduction contract.
+
+**Decision:** Do not compare permission/effect/subject sets, inherit/merge/reduce ACLs or claim non-widening is enforced. Do not interpret validUntil/effect, choose source-resource fallback, map operations, authorize access, sign grants, dispatch StoragePort, mutate state or emit events.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_RAW_ACL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIVACL-BOUND-001`.

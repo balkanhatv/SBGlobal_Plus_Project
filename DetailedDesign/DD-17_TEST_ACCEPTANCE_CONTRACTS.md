@@ -6755,3 +6755,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-DERIV-PG-004 — Tenant Core remains same-Tenant visible
 **Owner:** DD-578…DD-582. Tenant-Core derivative-parent relation remains visible under the existing same-Tenant Core visibility model.
+
+## DD-583 Exact DD-582 Parent Acceptance
+
+### DOC-DERIVACL-BASE-001 — Exact DD-582 chain first
+**Owner:** DD-583. Exact RequestContext + derivativeDocumentId + parentDocumentId enter DD-582 unchanged; ACL reads begin only after DD-582 success.
+
+### DOC-DERIVACL-BASE-002 — Parent absence/errors precede ACL access
+**Owner:** DD-583. DD-582 null remains null and DD-582 dependency errors propagate unchanged before any ACL read.
+
+## DD-584 Exact Derivative ACL Read Acceptance
+
+### DOC-DERIVACL-READ-001 — One derivative read then one parent read
+**Owner:** DD-584/DD-585. Use the same exact RequestContext and exact persisted relationship ids; perform exactly one derivative ACL read followed by exactly one parent ACL read.
+
+### DOC-DERIVACL-READ-002 — ACL dependency failures preserve identity
+**Owner:** DD-584/DD-585. ACL reader errors propagate unchanged with no retry/search/fallback; derivative-read failure prevents parent ACL access.
+
+## DD-585 Exact ACL Row Binding Acceptance
+
+### DOC-DERIVACL-BIND-001 — Empty or exactly bound raw arrays pass
+**Owner:** DD-585. Empty arrays are valid raw evidence; otherwise every derivative ACL row must carry the exact derivative document id and every parent ACL row the exact parent document id.
+
+### DOC-DERIVACL-BIND-002 — Cross-bound rows fail closed
+**Owner:** DD-585. Any ACL row bound to another document returns null; no alternate ACL source or normalization is attempted.
+
+## DD-586 Immutable Paired Raw ACL Evidence Acceptance
+
+### DOC-DERIVACL-EVID-001 — Preserve exact parent/array/entry references
+**Owner:** DD-586. Success returns a frozen envelope preserving exact DD-582 parent plus exact derivative/parent ACL arrays and entry references unchanged.
+
+## DD-587 Authority / Non-Widening Boundary Acceptance
+
+### DOC-DERIVACL-BOUND-001 — Raw paired ACL evidence is not ACL non-widening or access authority
+**Owner:** DD-587. Output exposes no ACL comparison/non-widening decision, inherited/reduced ACL, current/effect/subject-match decision, final authorization, signed access, StoragePort dispatch or mutation authority.

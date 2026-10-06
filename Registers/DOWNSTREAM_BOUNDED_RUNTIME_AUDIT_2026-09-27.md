@@ -552,3 +552,9 @@ ACL inheritance/non-widening mechanics remain unresolved/source-incomplete. No s
 Canonical promotion basis `35eaa86a7dcddcc6d75d85258d49324c8687d45a` / tree `5e5aabb87af40eadca4405534753782176941880` passed exact-head Core **1483/1483**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains implementation-anchored to `55a88b430cdcc929ea6730582d04b21fc7b154ef`.
 
 The bounded result remains derivative-parent current evidence only: exact persisted relationship/linkage, parent ACTIVE+CLEAN, Tenant/scope/Industry/residency continuity and canonical sensitivity non-lowering. ACL inheritance/non-widening and all final authorization/signing/storage/mutation authority remain separate.
+
+## DD-583…DD-587 exact-head implementation evidence — 2026-10-06
+
+Implementation basis `f416c6107fc3d3c3b96e74b5dc9e829a13764397` / tree `3671c815820bbc3eeb63e61e79ab69c9aba01935` passed Core **1491/1491**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader reuses exact DD-582 derivative-parent current evidence, then reads exact raw DD-084 ACL arrays for the derivative and parent under the same RequestContext and requires only row/document identity binding.
+
+The two ACL arrays remain uninterpreted raw evidence. No ACL comparison/non-widening result, inheritance/merge/reduction, expiry/effect/subject-match decision, source-resource/final authorization, signing/grants, StoragePort dispatch, mutation or event authority is added.
