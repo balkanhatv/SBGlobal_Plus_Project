@@ -52,3 +52,9 @@ Corrected canonical promotion HEAD `9633b14ba1068a3ca619562aa4dbcbb3e192d7ab` / 
 Initial promotion `81ac5e802235cdcba0ae1d71e999beca51b085fe` was rejected only because active projection update dates remained 2026-10-05 while the manifest moved to 2026-10-06 (REPO-011). Forward-only correction `9633b14ba1068a3ca619562aa4dbcbb3e192d7ab` aligned those current projection dates without changing runtime/design semantics.
 
 This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-563…DD-567 is closed and another source audit opens.
+
+## State closure verified — 2026-10-06
+
+State-closure HEAD `b542e12aeb7306d2b84f98e1324d323fb1b818f1` / tree `47fd789fbb67323de7f3944c98bfff26ae5325c1` passed exact-head push gates: Core run `37405177814` / job `112081032216` **1461/1461 PASS**; PostgreSQL same run / job `112081032093` **536/536 PASS**, fail/skip 0 plus full database bootstrap PASS; Database run `37405177769` / job `112081031766` PASS with the unchanged **48 migrations / 42 SQL verification files** inventory; Web run `37405177788` / job `112081032138` PASS. Pull-request Core/Database/Web workflows on the same closure HEAD also passed.
+
+DD-563…DD-567 is closed at its bounded evidence scope. Forward development may resume only from a separately source-audited seam.
