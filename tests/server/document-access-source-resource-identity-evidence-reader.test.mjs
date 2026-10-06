@@ -274,7 +274,7 @@ test("DOC-SRCID-EVID-001 success preserves exact DD-572 parent and nested candid
   assert.equal(Object.isFrozen(result), true);
   assert.equal(Object.isFrozen(result.parent), true);
   assert.equal(result.parent.parent.parent.parent.rawAclEntries, entries);
-  assert.equal(result.parent.parent.parent.binding, exactBinding);
+  assert.equal(result.parent.parent.binding, exactBinding);
   assert.equal(result.parent.parent.parent.parent.candidate.sourceResourceId, "case-42");
   assert.equal(JSON.stringify([f.metadataValue, entries, exactBinding]), before);
 });
