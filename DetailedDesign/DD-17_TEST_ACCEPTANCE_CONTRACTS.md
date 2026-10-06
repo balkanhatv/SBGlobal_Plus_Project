@@ -6826,3 +6826,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-DERIVEFFECT-BOUND-001 — No derivative-vs-parent verdict or final authority
 **Owner:** DD-592. Output exposes no broader/equal/narrower or non-widening verdict, source-resource fallback, final authorization, signing/grant/download/share/delete/StoragePort dispatch, mutation or event authority.
+
+## DD-593 Exact AIMediaRequest Parent Read Acceptance
+
+### AIMEDIA-PROMPTREAD-BASE-001 — Exact request first
+**Owner:** DD-593. Exact supplied RequestContext and mediaRequestId enter AIMediaRequestReadPort exactly once before any PromptTemplate access.
+
+### AIMEDIA-PROMPTREAD-BASE-002 — Request absence/errors precede prompt access
+**Owner:** DD-593. Request null returns null and request dependency/persistence errors propagate unchanged with zero PromptTemplate reads.
+
+## DD-594 Optional Unbound Prompt Branch Acceptance
+
+### AIMEDIA-PROMPTREAD-BRANCH-001 — Unbound request performs zero prompt reads
+**Owner:** DD-594. Absent promptTemplateId is evaluated only by DD-188 with absent prompt evidence; absent promptVersion is required and success returns frozen exact request-only evidence without prompt fallback/selection.
+
+## DD-595 Exact Bound Prompt Read Acceptance
+
+### AIMEDIA-PROMPTREAD-READ-001 — One exact same-context prompt read
+**Owner:** DD-595. Bound request causes exactly one AIPromptTemplateReadPort read with the same exact RequestContext and persisted promptTemplateId.
+
+### AIMEDIA-PROMPTREAD-READ-002 — Prompt null/error fails closed without fallback
+**Owner:** DD-595. Missing prompt returns null; prompt dependency/persistence errors propagate unchanged. No code/latest/version search or alternate prompt fallback occurs.
+
+## DD-596 DD-188 Relationship Floor Acceptance
+
+### AIMEDIA-PROMPTREAD-FLOOR-001 — Exact ACTIVE applicable binding passes
+**Owner:** DD-596. Exact id/version plus raw ACTIVE and canonical PLATFORM/TENANT/INDUSTRY applicability passes through DD-188.
+
+### AIMEDIA-PROMPTREAD-FLOOR-002 — Binding mismatch fails closed
+**Owner:** DD-596. Prompt id/version/status/owner-shape/applicability mismatch fails closed.
+
+### AIMEDIA-PROMPTREAD-EVID-001 — Preserve exact immutable evidence
+**Owner:** DD-596. Success is frozen and preserves exact AIMediaRequest and PromptTemplate references without mutation/normalization.
+
+## DD-597 Authority Boundary Acceptance
+
+### AIMEDIA-PROMPTREAD-BOUND-001 — Binding evidence is not prompt/media execution authority
+**Owner:** DD-597. Output exposes no prompt selection/rendering/approval/override/grounding, principal/document authorization, entitlement/moderation/provider/model/tool routing, media execution/publication, mutation or event authority.

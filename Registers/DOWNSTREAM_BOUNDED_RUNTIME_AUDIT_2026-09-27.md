@@ -574,3 +574,9 @@ Derivative and parent raw ACL sets are subject-matched and current-effect reduce
 ## DD-588…DD-592 canonical promotion evidence — 2026-10-06
 
 Canonical promotion basis `06c99d9b5b48b522b7788dac6a0a260d51a8c48b` / tree `f463c2608eca4a85c557e5f3f5db177d9c00cefb` passed exact-head Core **1500/1500**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `b9f82b467742b6a89353423f3348630647d82c9f`. The paired derivative/parent ACL effects remain independent raw/current-effect evidence; no broader/equal/narrower or ACL non-widening verdict, source-resource fallback, final authorization, signing/grant/storage dispatch, mutation or event authority is added.
+
+## DD-593…DD-597 exact-head implementation evidence — 2026-10-06
+
+Implementation basis `3e6bd8985f5778eccbed34f79b7ad2ad3513059d` / tree `8de14fb9f1e5518ba2c6a28517cf2676fd18239b` passed Core **1509/1509**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader composes only exact AIMediaRequest evidence with the existing DD-188 optional PromptTemplate binding floor. Unbound requests perform zero PromptTemplate reads; bound requests read exactly the persisted promptTemplateId under the same RequestContext.
+
+No prompt selection/latest fallback/rendering/approval/override/grounding, principal/document authorization, entitlement/moderation/provider/model/tool routing, media generation/publication, mutation or event authority is added.

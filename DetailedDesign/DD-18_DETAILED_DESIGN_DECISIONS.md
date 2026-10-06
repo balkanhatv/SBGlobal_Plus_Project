@@ -6625,3 +6625,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOC-DERIVEFFECT-BOUND-001`.
+
+## DD-593 — establish exact AIMediaRequest evidence first
+
+**Context:** DD-125 owns raw AIMediaRequest persistence and exact RequestContext/id read semantics.
+
+**Decision:** Add `loadAIMediaRequestPromptTemplateCurrentEvidence(...)`. Read the exact media request first using the exact supplied RequestContext and mediaRequestId. Null remains null; dependency/persistence errors propagate unchanged. No prompt access occurs before parent success.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-PROMPTREAD-BASE-001…002`.
+
+## DD-594 — preserve a zero-read unbound prompt branch
+
+**Decision:** If persisted promptTemplateId is absent, perform zero PromptTemplate reads and apply DD-188 with undefined prompt evidence. Success requires the exact DD-188 unbound shape, including absent promptVersion, and returns frozen request-only evidence. Do not select default/latest/by-code prompts.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-PROMPTREAD-BRANCH-001`.
+
+## DD-595 — read the exact bound PromptTemplate once
+
+**Decision:** If persisted promptTemplateId is present, read exactly that id once through AIPromptTemplateReadPort under the same exact RequestContext. Prompt null returns null; errors propagate unchanged. No alternate prompt lookup/search/fallback.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-PROMPTREAD-READ-001…002`.
+
+## DD-596 — apply only existing DD-188 optional binding semantics
+
+**Decision:** Require `matchesAIMediaRequestPromptTemplateBindingFloors(request, promptTemplate)`. This proves exact id/version, raw ACTIVE and canonical owner-scope applicability only. Preserve exact request/prompt references in an immutable result.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-PROMPTREAD-FLOOR-001…002, AIMEDIA-PROMPTREAD-EVID-001`.
+
+## DD-597 — stop before prompt rendering, selection or AI/media execution
+
+**Decision:** Do not select latest/by-code/fallback PromptTemplates; render/substitute variables; evaluate approval/override/grounding; establish principal currentness or Document ACL/access; evaluate brand/localization/moderation/entitlement/budget; select provider/model/tool; execute/publish media; mutate state or emit events.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-PROMPTREAD-BOUND-001`.
