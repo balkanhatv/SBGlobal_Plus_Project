@@ -38,3 +38,13 @@ Canonical promotion HEAD `06c99d9b5b48b522b7788dac6a0a260d51a8c48b` / tree `f463
 - Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
 
 This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-588…DD-592 is closed and another source audit may open.
+
+## State closure verified — 2026-10-06
+
+State-closure HEAD `e0c522b65d8bd2a18c247f49dc88177fa692a355` / tree `fff0280ed552ed38ac8e9a63e4f209fe5370b81e` passed exact-head push gates:
+- Core run `37489834100` / job `112359345085`: PASS with the preserved **1500/1500** Core acceptance baseline.
+- PostgreSQL same run / job `112359344837`: PASS with preserved **540/540** baseline and full database bootstrap PASS.
+- Database run `37489834098` / job `112359334622`: PASS with unchanged **48 migrations / 42 SQL verification files**.
+- Web run `37489834124` / job `112359334266`: PASS.
+
+DD-588…DD-592 is therefore closed at its bounded paired derivative/parent ACL current-effect evidence scope. Full derivative ACL non-widening remains source-incomplete and was not invented.
