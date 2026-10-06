@@ -540,3 +540,9 @@ Explicit ACL DENY/ALLOW remain parent-only. SOURCE_RESOURCE_AUTHORIZATION_REQUIR
 Corrected promotion basis `d7e2b82ebb248557ee5e348aa07c658c819b95e9` / tree `eb83b5d67c9ab76734a8e1fcd0b29cad9a9b3abf` passed Core **1475/1475**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation evidence remains anchored to `ea8a2c4851726696fea11937bdb1f8002078d248`.
 
 The bounded result remains exact source-resource identity evidence only. Explicit ACL DENY/ALLOW remain parent-only; SOURCE_RESOURCE_AUTHORIZATION_REQUIRED exposes exact persisted identity without ResourceDescriptor, resolver/load, operation mapping, final authorization, policy evaluation, provider/signing/grant/download/share/delete/StoragePort dispatch or mutation authority.
+
+## DD-578…DD-582 exact-head implementation evidence — 2026-10-06
+
+Corrected implementation basis `55a88b430cdcc929ea6730582d04b21fc7b154ef` / tree `cc49b04e46a05045eaa1053d6cc01b4ca13731a8` passed Core **1483/1483**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. It reads one exact persisted derivative→parent relationship under existing Document RLS, preserves exact relationship/lifecycle/sensitivity evidence, requires parent ACTIVE+CLEAN and exact Tenant/scope/Industry/residency continuity, and re-evaluates only migration-0031's canonical sensitivity non-lowering floor.
+
+ACL inheritance/non-widening mechanics remain unresolved/source-incomplete. No source-resource/final authorization, permission/entitlement/RBAC/ABAC/commercial policy, provider/signing/grant/download/share/delete/StoragePort dispatch, derivative purge/rebuild/mutation or event authority is added.

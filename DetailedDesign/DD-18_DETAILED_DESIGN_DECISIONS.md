@@ -6489,3 +6489,49 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_ACCESS_SOURCE_RESOURCE_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOC-SRCID-BOUND-001`.
+
+## DD-578 — dedicated exact derivative-parent current evidence read
+
+**Context:** DD-08 §8 requires derivative/parent continuity and migration 0006 persists parent_document_id + derivative_type under existing Document RLS.
+
+**Decision:** Add `DocumentDerivativeParentCurrentEvidenceReadPort` and `loadDocumentDerivativeParentCurrentEvidence(...)`. Perform exactly one read using exact RequestContext + derivativeDocumentId + parentDocumentId. Null remains null; dependency errors propagate unchanged. No alternate-parent search or generic candidate/source-resource fallback.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIV-BASE-001…002`.
+
+## DD-579 — require exact persisted relationship identity
+
+**Decision:** Require exact supplied derivative id, exact supplied parent id and non-empty persisted derivativeType. Malformed/mismatched linkage fails closed; derivative type is never inferred from media, filename or caller metadata.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIV-REL-001…002`.
+
+## DD-580 — require exact parent safety and ownership/residency continuity
+
+**Decision:** Derivative and parent must share tenantId, scopeClass, nullable industryContextId and residencyRegion. TENANT_INDUSTRY evidence must match RequestContext Industry Context; TENANT_CORE stays same-Tenant Core evidence. Parent must be exactly ACTIVE + CLEAN. Do not strengthen derivative lifecycle here.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIV-SAFE-001…002`.
+
+## DD-581 — reuse migration-0031 sensitivity order only
+
+**Context:** migration 0031 canonically owns `PUBLIC < INTERNAL < CONFIDENTIAL < SENSITIVE_PERSONAL < REGULATED` and rejects derivatives below parent sensitivity.
+
+**Decision:** Re-evaluate only that source-owned non-lowering floor in Core. Preserve exact relationship/raw lifecycle evidence and never expose numeric ranks or invent classification semantics.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIV-EVID-001`.
+
+## DD-582 — stop before ACL inheritance, final authorization, signing/storage or derivative mutation
+
+**Decision:** Do not compare/inherit/reduce parent-child ACLs; do not claim ACL non-widening is enforced; do not map operations/permissions/entitlements or call AuthorizationDecisionService/GuardPipeline; do not select/decrypt provider, sign access, expose download/share/delete, dispatch StoragePort, purge/rebuild derivative state, mutate Document metadata or emit events.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIV-BOUND-001`.
+
+**PostgreSQL acceptance:** `DOC-DERIV-PG-001…004`.

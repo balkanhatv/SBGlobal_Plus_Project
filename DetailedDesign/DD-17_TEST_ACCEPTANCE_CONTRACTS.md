@@ -6707,3 +6707,51 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-SRCID-BOUND-001 — No resolver, authorization, policy, signing or mutation authority
 **Owner:** DD-577. Output exposes no source-resource resolver result, ResourceDescriptor, OperationContract, AuthorizationDecision/GuardResult, permission/entitlement/RBAC/ABAC/commercial/sensitivity/residency/step-up result, provider/signing/grant/download/share/delete/dispatch/mutation authority.
+
+## DD-578 Exact Derivative-Parent Read Acceptance
+
+### DOC-DERIV-BASE-001 — One exact relationship read
+**Owner:** DD-578. Exact supplied RequestContext, derivativeDocumentId and parentDocumentId cause exactly one derivative-parent read.
+
+### DOC-DERIV-BASE-002 — Null/error preserve dependency behavior
+**Owner:** DD-578. Null remains null; dependency/persistence errors propagate unchanged with no retry, alternate-parent search, source-resource fallback or generic candidate reread.
+
+## DD-579 Persisted Relationship Identity Acceptance
+
+### DOC-DERIV-REL-001 — Exact derivative/parent ids + derivativeType pass
+**Owner:** DD-579. Persisted derivative id, parent id and non-empty derivativeType must exactly match supplied identifiers and relationship evidence.
+
+### DOC-DERIV-REL-002 — Malformed/mismatched relationship fails closed
+**Owner:** DD-579. Wrong/malformed derivative or parent id/type, sibling/cross-scope relationship or unexpected linkage returns null.
+
+## DD-580 Parent Safety / Scope Continuity Acceptance
+
+### DOC-DERIV-SAFE-001 — Exact ownership/residency + parent ACTIVE/CLEAN pass
+**Owner:** DD-580. Derivative and parent must preserve exact Tenant/scope/nullable Industry/residency continuity; TENANT_INDUSTRY must match RequestContext and parent must be ACTIVE + CLEAN. TENANT_CORE remains same-Tenant Core evidence.
+
+### DOC-DERIV-SAFE-002 — Unsafe/mismatched evidence fails closed
+**Owner:** DD-580. Parent non-ACTIVE/non-CLEAN, Tenant/context/scope/residency mismatch, or derivative sensitivity below parent fails closed.
+
+## DD-581 Canonical Sensitivity / Immutable Evidence Acceptance
+
+### DOC-DERIV-EVID-001 — Canonical non-lowering floor with raw evidence preservation
+**Owner:** DD-581. Reuse only migration-0031 sensitivity order and require derivative rank >= parent rank. Success preserves exact relationship object and raw derivativeType, sensitivity, lifecycle, residency and ownership fields without exposing numeric ranks.
+
+## DD-582 Authority Boundary Acceptance
+
+### DOC-DERIV-BOUND-001 — No ACL/final authorization/signing/storage/mutation authority
+**Owner:** DD-582. Output exposes no sensitivity-rank decision, ACL-widening decision, AuthorizationDecision/GuardResult, provider/signing/grant/download/share/delete/StoragePort dispatch, derivative purge/rebuild/mutation or event authority.
+
+## DD-578…DD-582 PostgreSQL Acceptance
+
+### DOC-DERIV-PG-001 — In-scope persisted relationship visible
+**Owner:** DD-578…DD-582. Exact in-scope derivative→parent relation is readable under existing Document role/RLS.
+
+### DOC-DERIV-PG-002 — Wrong supplied parent stays null
+**Owner:** DD-578…DD-582. Wrong supplied parent id returns null with no alternate-parent lookup.
+
+### DOC-DERIV-PG-003 — Sibling Industry remains RLS-hidden
+**Owner:** DD-578…DD-582. Sibling-Industry relationship is hidden unless that sibling Industry is the active RequestContext.
+
+### DOC-DERIV-PG-004 — Tenant Core remains same-Tenant visible
+**Owner:** DD-578…DD-582. Tenant-Core derivative-parent relation remains visible under the existing same-Tenant Core visibility model.

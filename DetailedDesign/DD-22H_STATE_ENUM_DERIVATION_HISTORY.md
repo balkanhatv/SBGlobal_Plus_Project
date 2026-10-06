@@ -1,7 +1,7 @@
 # DD-22H — STATE ENUM DERIVATION HISTORY
-**Current checkpoint:** `DEV-DOCUMENT-ACCESS-SOURCE-RESOURCE-IDENTITY-EVIDENCE-READER-001`
-**Current executable audit basis:** `d7e2b82ebb248557ee5e348aa07c658c819b95e9` / tree `eb83b5d67c9ab76734a8e1fcd0b29cad9a9b3abf`
-> **Current audit gate (2026-10-06):** DD-573…DD-577 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-DERIVATIVE-PARENT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `55a88b430cdcc929ea6730582d04b21fc7b154ef` / tree `cc49b04e46a05045eaa1053d6cc01b4ca13731a8`
+> **Current audit gate (2026-10-06):** DD-578…DD-582 corrected Document derivative-parent current evidence implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** FABLE 5 REMEDIATION / STATE-DERIVATION EVIDENCE · **Date:** 2026-09-11
 **Historical authority:** Fable 5 remediation mandate · industry DD state contracts · DD-03/06/07/15 · DD-21
 
