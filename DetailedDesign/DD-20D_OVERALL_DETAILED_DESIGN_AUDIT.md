@@ -1,7 +1,7 @@
 # DD-20D — OVERALL DETAILED DESIGN ADVERSARIAL AUDIT — PHASE 3
 **Current checkpoint:** `DEV-DOCUMENT-ACCESS-SOURCE-RESOURCE-IDENTITY-EVIDENCE-READER-001`
-**Current executable audit basis:** `ea8a2c4851726696fea11937bdb1f8002078d248` / tree `defff33c64c313e0526ee32ff3ff17dec67baa68`
-> **Current audit gate (2026-10-06):** DD-573…DD-577 Document source-resource identity evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `d7e2b82ebb248557ee5e348aa07c658c819b95e9` / tree `eb83b5d67c9ab76734a8e1fcd0b29cad9a9b3abf`
+> **Current audit gate (2026-10-06):** DD-573…DD-577 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-3 DETAILED DESIGN EVIDENCE · **Date:** 2026-09-13 · **Evaluated substantive HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`
 **Historical adversarial hypothesis:** THE COMPLETE DETAILED DESIGN IS STILL NOT READY FOR DEVELOPMENT.
 

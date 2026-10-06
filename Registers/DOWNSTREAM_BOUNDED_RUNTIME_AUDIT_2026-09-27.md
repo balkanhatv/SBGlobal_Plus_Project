@@ -534,3 +534,9 @@ The bounded result remains access-path evidence only: explicit DENY blocks sourc
 Corrected implementation basis `ea8a2c4851726696fea11937bdb1f8002078d248` / tree `defff33c64c313e0526ee32ff3ff17dec67baa68` passed Core **1475/1475**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader reuses exact DD-572 evidence and performs zero additional reads.
 
 Explicit ACL DENY/ALLOW remain parent-only. SOURCE_RESOURCE_AUTHORIZATION_REQUIRED exposes only exact persisted candidate Tenant/Industry/scope + sourceModule/sourceResourceType/sourceResourceId evidence. No DD-03 ResourceDescriptor, source-resource resolver/load, OperationContract/permission mapping, final AuthorizationDecision/GuardResult, permission/entitlement/RBAC/ABAC/commercial/sensitivity/residency/step-up, provider/signing/grant/download/share/delete/StoragePort dispatch or mutation authority is added.
+
+## DD-573…DD-577 canonical promotion evidence — 2026-10-06
+
+Corrected promotion basis `d7e2b82ebb248557ee5e348aa07c658c819b95e9` / tree `eb83b5d67c9ab76734a8e1fcd0b29cad9a9b3abf` passed Core **1475/1475**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation evidence remains anchored to `ea8a2c4851726696fea11937bdb1f8002078d248`.
+
+The bounded result remains exact source-resource identity evidence only. Explicit ACL DENY/ALLOW remain parent-only; SOURCE_RESOURCE_AUTHORIZATION_REQUIRED exposes exact persisted identity without ResourceDescriptor, resolver/load, operation mapping, final authorization, policy evaluation, provider/signing/grant/download/share/delete/StoragePort dispatch or mutation authority.

@@ -31,3 +31,15 @@ No DD-03 ResourceDescriptor, source-resource resolver, OperationContract/permiss
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-573…DD-577 can be closed.
+
+## Corrected canonical promotion verified; state closure staged — 2026-10-06
+
+Corrected canonical promotion HEAD `d7e2b82ebb248557ee5e348aa07c658c819b95e9` / tree `eb83b5d67c9ab76734a8e1fcd0b29cad9a9b3abf` passed exact-head push gates:
+- Core run `37424963325` / job `112142438505`: **1475/1475 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112142438356`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37424963240` / job `112142437772`: PASS with unchanged **48 migrations / 42 SQL verification files** inventory.
+- Web run `37424963310` / job `112142438752`: PASS.
+
+Initial promotion `40c9736b1e7449d8d30075a4e4c22aa67da2d858` failed only REPO-007 because DD-19's final traceability append reintroduced its prior active checkpoint header. `d7e2b82ebb248557ee5e348aa07c658c819b95e9` repaired only that projection header forward-only. Runtime/source-reader semantics were unchanged.
+
+This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-573…DD-577 is closed and another source audit opens.

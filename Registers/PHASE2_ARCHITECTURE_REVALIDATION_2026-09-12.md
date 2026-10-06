@@ -1,7 +1,7 @@
 # PHASE 2 — Foundation → Architecture/ADR Fresh Revalidation
 **Current checkpoint:** `DEV-DOCUMENT-ACCESS-SOURCE-RESOURCE-IDENTITY-EVIDENCE-READER-001`
-**Current executable audit basis:** `ea8a2c4851726696fea11937bdb1f8002078d248` / tree `defff33c64c313e0526ee32ff3ff17dec67baa68`
-> **Current audit gate (2026-10-06):** DD-573…DD-577 Document source-resource identity evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `d7e2b82ebb248557ee5e348aa07c658c819b95e9` / tree `eb83b5d67c9ab76734a8e1fcd0b29cad9a9b3abf`
+> **Current audit gate (2026-10-06):** DD-573…DD-577 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.
