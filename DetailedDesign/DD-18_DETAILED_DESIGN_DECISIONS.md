@@ -6579,3 +6579,49 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_RAW_ACL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOC-DERIVACL-BOUND-001`.
+
+## DD-588 — reuse exact DD-587 paired raw ACL evidence first
+
+**Context:** DD-587 already owns exact DD-582 derivative-parent current evidence plus exact raw DD-084 ACL arrays for derivative and parent.
+
+**Decision:** Add `loadDocumentDerivativeParentAclCurrentEffectEvidence(...)`. Invoke DD-587 first with exact RequestContext/document ids and unchanged dependencies. Parent null remains null and dependency errors propagate unchanged before subject/current-effect interpretation.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIVEFFECT-BASE-001…002`.
+
+## DD-589 — apply one exact explicit ACL permission independently to both sides
+
+**Decision:** Reuse DD-085 `DocumentAclSubjectMatcher` for derivative then parent with the same exact resolved RequestContext and caller-supplied explicit `DocumentAclPermission`; use each persisted side id and raw array from DD-587. Do not infer permission from route, OperationContract, derivative type, source resource or storage metadata.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIVEFFECT-MATCH-001…002`.
+
+## DD-590 — share one explicit trusted current instant and DD-558…DD-561 reducer
+
+**Context:** Existing DD-562 owns deterministic `currentTimeIso`, expiry partition and explicit-DENY-wins semantics but had them embedded in one access reader.
+
+**Decision:** Extract/reuse one pure helper implementing exactly DD-558…DD-561. Refactor DD-562 to consume the helper without behavior change. Apply the same exact supplied `currentTimeIso` independently to derivative and parent matched sets. Never read wall-clock time internally.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIVEFFECT-TIME-001, DOC-DERIVEFFECT-EFFECT-002` plus existing DD-558…DD-562 acceptance tests.
+
+## DD-591 — preserve immutable paired current/effect evidence without cross-side comparison
+
+**Decision:** Preserve exact DD-587 parent/raw references and matcher-returned arrays; expose independently frozen derivative/parent currentEntries, expiredEntries and `ALLOW | DENY | NONE` evidence. Do not merge, inherit, intersect, subtract or compare the two sides.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIVEFFECT-EFFECT-001, DOC-DERIVEFFECT-EVID-001`.
+
+## DD-592 — paired effects do not define derivative ACL non-widening or final access
+
+**Context:** DD-08 states that derivatives cannot widen ACL, but complete parent-child ACL comparison/inheritance semantics remain source-undefined.
+
+**Decision:** Do not emit broader/equal/narrower, compliant/non-compliant or non-widening verdicts. Do not choose explicit ACL versus source-resource inheritance, map OperationContract→ACL permission, evaluate RBAC/ABAC/entitlement/commercial/sensitivity/residency/step-up, sign/grant/download/share/delete, dispatch StoragePort, mutate DocumentMeta/document_acl or emit events.
+
+**Source audit:** `Development/DOCUMENT_DERIVATIVE_PARENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-DERIVEFFECT-BOUND-001`.

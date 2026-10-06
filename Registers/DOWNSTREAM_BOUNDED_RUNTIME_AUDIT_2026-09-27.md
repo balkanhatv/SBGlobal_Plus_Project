@@ -564,3 +564,9 @@ The two ACL arrays remain uninterpreted raw evidence. No ACL comparison/non-wide
 Canonical promotion basis `64da5e29121ee3541fb0eac3ffcb1287e2207150` / tree `c5225e4b1223d896ef9f3c0f8119fb77ea677af7` passed exact-head Core **1491/1491**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The feature evidence itself remains anchored to `f416c6107fc3d3c3b96e74b5dc9e829a13764397`.
 
 The bounded result is exact DD-582 derivative-parent current evidence plus two same-RequestContext raw DD-084 ACL reads with exact returned-row document binding. ACL arrays remain uninterpreted raw evidence: no comparison, inheritance, merge/reduction, expiry/effect interpretation, subject matching, derivative ACL non-widening decision, final authorization, signing/grant/download/share/delete/StoragePort dispatch, mutation or event authority is added.
+
+## DD-588…DD-592 exact-head implementation evidence — 2026-10-06
+
+Implementation basis `b9f82b467742b6a89353423f3348630647d82c9f` / tree `e41dc0294c52f9c9a3db0078ce451d2beeae6b89` passed Core **1500/1500**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. DD-562 now shares one pure DD-558…DD-561 trusted-time/currentness/explicit-DENY-wins helper with the new derivative-parent paired evidence path.
+
+Derivative and parent raw ACL sets are subject-matched and current-effect reduced independently under the same exact RequestContext, explicit ACL permission and trusted currentTimeIso. The two sides are not compared; no ACL non-widening verdict, source-resource fallback, final authorization, signing/grant/storage dispatch, mutation or event authority is added.

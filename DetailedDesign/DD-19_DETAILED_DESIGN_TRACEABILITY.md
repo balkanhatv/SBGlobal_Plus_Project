@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-DOCUMENT-DERIVATIVE-PARENT-RAW-ACL-EVIDENCE-READER-001`
-**Current executable audit basis:** `64da5e29121ee3541fb0eac3ffcb1287e2207150` / tree `c5225e4b1223d896ef9f3c0f8119fb77ea677af7`
-> **Current audit gate (2026-10-06):** DD-583…DD-587 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-DERIVATIVE-PARENT-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
+**Current executable audit basis:** `b9f82b467742b6a89353423f3348630647d82c9f` / tree `e41dc0294c52f9c9a3db0078ce451d2beeae6b89`
+> **Current audit gate (2026-10-06):** DD-588…DD-592 derivative-parent paired ACL current-effect evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1382,3 +1382,9 @@ Success proves one exact persisted derivative→parent relationship, parent ACTI
 DD-582 exact derivative-parent current evidence → DD-084 exact raw same-context ACL reads for derivative id + parent id → exact returned-row documentId binding only → `Development/DOCUMENT_DERIVATIVE_PARENT_RAW_ACL_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-583…DD-587 → `src/core/document/derivative-parent-raw-acl-evidence-reader.ts` → `tests/core/document-derivative-parent-raw-acl-evidence-reader.test.mjs` (`DOC-DERIVACL-BASE-001…002`, `DOC-DERIVACL-READ-001…002`, `DOC-DERIVACL-BIND-001…002`, `DOC-DERIVACL-EVID-001`, `DOC-DERIVACL-BOUND-001`) → `Registers/DEVELOPMENT_DD583_DD587_VERIFICATION_2026-10-06.md`.
 
 Success proves only that exact raw visible ACL arrays for the already-DD-582-valid derivative and parent were read under the same RequestContext and remain bound to their respective document ids. It does not compare, inherit, merge or reduce ACLs and does not prove the DD-08 derivative ACL non-widening requirement. Expiry/effect/subject matching, source-resource choice, final authorization, signing/storage dispatch and mutation remain separate.
+
+## DD-588…DD-592 — derivative-parent paired ACL current-effect evidence
+
+DD-587 exact derivative-parent current + paired raw DD-084 ACL evidence → DD-085 subject matching on derivative and parent under the same exact RequestContext/explicit DocumentAclPermission → shared DD-558…DD-561 explicit trusted-time currentness + explicit-DENY-wins helper → `Development/DOCUMENT_DERIVATIVE_PARENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-588…DD-592 → `src/core/document/acl-current-effect.ts` + behavior-preserving DD-562 refactor + `src/core/document/derivative-parent-acl-current-effect-evidence-reader.ts` → `tests/core/document-derivative-parent-acl-current-effect-evidence-reader.test.mjs` (`DOC-DERIVEFFECT-BASE-001…002`, `DOC-DERIVEFFECT-MATCH-001…002`, `DOC-DERIVEFFECT-TIME-001`, `DOC-DERIVEFFECT-EFFECT-001…002`, `DOC-DERIVEFFECT-EVID-001`, `DOC-DERIVEFFECT-BOUND-001`) → `Registers/DEVELOPMENT_DD588_DD592_VERIFICATION_2026-10-06.md`.
+
+The two ACL sides are interpreted independently only. Their effect evidence is not compared and does not establish derivative ACL non-widening, source-resource fallback, final authorization or signed/storage/mutation authority.

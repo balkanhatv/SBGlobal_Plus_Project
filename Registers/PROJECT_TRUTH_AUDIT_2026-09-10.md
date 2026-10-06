@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT TRUTH AUDIT (2026-09-10)
-**Current checkpoint:** `DEV-DOCUMENT-DERIVATIVE-PARENT-RAW-ACL-EVIDENCE-READER-001`
-**Current executable audit basis:** `64da5e29121ee3541fb0eac3ffcb1287e2207150` / tree `c5225e4b1223d896ef9f3c0f8119fb77ea677af7`
-> **Current audit gate (2026-10-06):** DD-583…DD-587 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-DERIVATIVE-PARENT-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
+**Current executable audit basis:** `b9f82b467742b6a89353423f3348630647d82c9f` / tree `e41dc0294c52f9c9a3db0078ce451d2beeae6b89`
+> **Current audit gate (2026-10-06):** DD-588…DD-592 derivative-parent paired ACL current-effect evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 
 **Scope:** repository state evaluated on 2026-09-10 on `docs/architecture-branch-2` · **Purpose:** historical Vision-centric evidence audit and targeted correction · **Status:** HISTORICAL AUDIT RECORD.
 

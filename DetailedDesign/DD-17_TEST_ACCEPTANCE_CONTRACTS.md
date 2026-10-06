@@ -6789,3 +6789,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-DERIVACL-BOUND-001 — Raw paired ACL evidence is not ACL non-widening or access authority
 **Owner:** DD-587. Output exposes no ACL comparison/non-widening decision, inherited/reduced ACL, current/effect/subject-match decision, final authorization, signed access, StoragePort dispatch or mutation authority.
+
+## DD-588 Exact DD-587 Parent Evidence Acceptance
+
+### DOC-DERIVEFFECT-BASE-001 — Exact DD-587 chain first
+**Owner:** DD-588. Exact supplied RequestContext, derivativeDocumentId, parentDocumentId and unchanged relationship/ACL dependencies establish DD-587 before subject/current-effect interpretation begins.
+
+### DOC-DERIVEFFECT-BASE-002 — Parent absence/errors precede interpretation
+**Owner:** DD-588. DD-587 null short-circuits and DD-587 dependency errors propagate unchanged before matcher/effect interpretation.
+
+## DD-589 Paired Subject-Match Acceptance
+
+### DOC-DERIVEFFECT-MATCH-001 — Same exact context/permission on both sides
+**Owner:** DD-589. Derivative then parent matching use the same exact resolved RequestContext and caller-supplied explicit DocumentAclPermission with exact persisted side document ids/raw arrays.
+
+### DOC-DERIVEFFECT-MATCH-002 — Matcher/DD-587 failures fail closed
+**Owner:** DD-589. DD-085 validation/malformed evidence errors propagate unchanged; DD-587 cross-document binding failures remain fail-closed. No alternate permission, source-resource or fallback path is attempted.
+
+## DD-590 Shared Trusted-Time Acceptance
+
+### DOC-DERIVEFFECT-TIME-001 — One exact current instant for both sides
+**Owner:** DD-590. Derivative and parent independently use the same explicit trusted currentTimeIso and the existing DD-558…DD-561 no-expiry/future-current, equal/past-expired boundary.
+
+## DD-591 Independent Effect Evidence Acceptance
+
+### DOC-DERIVEFFECT-EFFECT-001 — Per-side DENY → ALLOW → NONE reducer
+**Owner:** DD-591. Each side independently applies current-entry explicit-DENY-wins, then ALLOW, else NONE; neither side influences the other.
+
+### DOC-DERIVEFFECT-EFFECT-002 — Malformed time evidence fails closed
+**Owner:** DD-591. Malformed currentTimeIso or matched validUntil evidence fails closed through the shared DD-558…DD-561 helper with no wall-clock fallback.
+
+### DOC-DERIVEFFECT-EVID-001 — Preserve exact layered references
+**Owner:** DD-591. Success preserves exact DD-587 parent/raw ACL references and exact matcher-returned arrays plus immutable current/expired/effect evidence without mutating inputs.
+
+## DD-592 Non-Widening / Authority Boundary Acceptance
+
+### DOC-DERIVEFFECT-BOUND-001 — No derivative-vs-parent verdict or final authority
+**Owner:** DD-592. Output exposes no broader/equal/narrower or non-widening verdict, source-resource fallback, final authorization, signing/grant/download/share/delete/StoragePort dispatch, mutation or event authority.
