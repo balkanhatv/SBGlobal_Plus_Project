@@ -558,3 +558,9 @@ The bounded result remains derivative-parent current evidence only: exact persis
 Implementation basis `f416c6107fc3d3c3b96e74b5dc9e829a13764397` / tree `3671c815820bbc3eeb63e61e79ab69c9aba01935` passed Core **1491/1491**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader reuses exact DD-582 derivative-parent current evidence, then reads exact raw DD-084 ACL arrays for the derivative and parent under the same RequestContext and requires only row/document identity binding.
 
 The two ACL arrays remain uninterpreted raw evidence. No ACL comparison/non-widening result, inheritance/merge/reduction, expiry/effect/subject-match decision, source-resource/final authorization, signing/grants, StoragePort dispatch, mutation or event authority is added.
+
+## DD-583…DD-587 canonical promotion evidence — 2026-10-06
+
+Canonical promotion basis `64da5e29121ee3541fb0eac3ffcb1287e2207150` / tree `c5225e4b1223d896ef9f3c0f8119fb77ea677af7` passed exact-head Core **1491/1491**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The feature evidence itself remains anchored to `f416c6107fc3d3c3b96e74b5dc9e829a13764397`.
+
+The bounded result is exact DD-582 derivative-parent current evidence plus two same-RequestContext raw DD-084 ACL reads with exact returned-row document binding. ACL arrays remain uninterpreted raw evidence: no comparison, inheritance, merge/reduction, expiry/effect interpretation, subject matching, derivative ACL non-widening decision, final authorization, signing/grant/download/share/delete/StoragePort dispatch, mutation or event authority is added.
