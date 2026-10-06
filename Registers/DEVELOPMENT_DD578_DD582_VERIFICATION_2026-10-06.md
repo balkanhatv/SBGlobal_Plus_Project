@@ -43,3 +43,14 @@ Canonical promotion HEAD `35eaa86a7dcddcc6d75d85258d49324c8687d45a` / tree `5e5a
 - Web run `37431341058` / job `112162674564`: PASS.
 
 Feature implementation proof remains anchored to corrected implementation `55a88b430cdcc929ea6730582d04b21fc7b154ef`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-578…DD-582 is closed and before another source audit opens.
+
+## State closure verified — 2026-10-06
+
+State-closure HEAD `d0267eab8707d66c09660727cdbc1ea2dbd8dc8c` / tree `f7a6c7c7f0ecfa9c3ca2e28dc89c0c2a5b57a3ac` passed exact-head push gates:
+- Core run `37431895165` / job `112164451471`: **1483/1483 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112164451799`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37431895176` / job `112164451838`: PASS with unchanged **48 migrations / 42 SQL verification files**.
+- Web run `37431895096` / job `112164451217`: PASS.
+- Pull-request Core/Database/Web workflows on the same state-closure HEAD also passed.
+
+DD-578…DD-582 is closed at its bounded derivative-parent current-evidence scope. Parent-child ACL non-widening remains source-incomplete as a decision rule; forward development may continue only through a separately source-audited bounded seam.
