@@ -546,3 +546,9 @@ The bounded result remains exact source-resource identity evidence only. Explici
 Corrected implementation basis `55a88b430cdcc929ea6730582d04b21fc7b154ef` / tree `cc49b04e46a05045eaa1053d6cc01b4ca13731a8` passed Core **1483/1483**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. It reads one exact persisted derivative→parent relationship under existing Document RLS, preserves exact relationship/lifecycle/sensitivity evidence, requires parent ACTIVE+CLEAN and exact Tenant/scope/Industry/residency continuity, and re-evaluates only migration-0031's canonical sensitivity non-lowering floor.
 
 ACL inheritance/non-widening mechanics remain unresolved/source-incomplete. No source-resource/final authorization, permission/entitlement/RBAC/ABAC/commercial policy, provider/signing/grant/download/share/delete/StoragePort dispatch, derivative purge/rebuild/mutation or event authority is added.
+
+## DD-578…DD-582 canonical promotion evidence — 2026-10-06
+
+Canonical promotion basis `35eaa86a7dcddcc6d75d85258d49324c8687d45a` / tree `5e5aabb87af40eadca4405534753782176941880` passed exact-head Core **1483/1483**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains implementation-anchored to `55a88b430cdcc929ea6730582d04b21fc7b154ef`.
+
+The bounded result remains derivative-parent current evidence only: exact persisted relationship/linkage, parent ACTIVE+CLEAN, Tenant/scope/Industry/residency continuity and canonical sensitivity non-lowering. ACL inheritance/non-widening and all final authorization/signing/storage/mutation authority remain separate.

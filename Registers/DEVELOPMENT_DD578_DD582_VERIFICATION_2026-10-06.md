@@ -33,3 +33,13 @@ ACL inheritance/non-widening remains explicitly unresolved because the current s
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-578…DD-582 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-06
+
+Canonical promotion HEAD `35eaa86a7dcddcc6d75d85258d49324c8687d45a` / tree `5e5aabb87af40eadca4405534753782176941880` passed exact-head push gates:
+- Core run `37431341100` / job `112162674443`: **1483/1483 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112162674644`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37431340988` / job `112162674423`: PASS with unchanged **48 migrations / 42 SQL verification files**.
+- Web run `37431341058` / job `112162674564`: PASS.
+
+Feature implementation proof remains anchored to corrected implementation `55a88b430cdcc929ea6730582d04b21fc7b154ef`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-578…DD-582 is closed and before another source audit opens.

@@ -1,7 +1,7 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
 **Current checkpoint:** `DEV-DOCUMENT-DERIVATIVE-PARENT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `55a88b430cdcc929ea6730582d04b21fc7b154ef` / tree `cc49b04e46a05045eaa1053d6cc01b4ca13731a8`
-> **Current audit gate (2026-10-06):** DD-578…DD-582 corrected Document derivative-parent current evidence implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `35eaa86a7dcddcc6d75d85258d49324c8687d45a` / tree `5e5aabb87af40eadca4405534753782176941880`
+> **Current audit gate (2026-10-06):** DD-578…DD-582 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 
