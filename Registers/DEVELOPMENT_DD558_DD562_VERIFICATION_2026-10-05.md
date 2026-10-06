@@ -36,3 +36,9 @@ Canonical promotion HEAD `ebc1738ac8ffc63cc545f69e9638c326904a22b1` / tree `c0c7
 - Web run `37351486542` / job `111903135184`: PASS.
 
 This state-closure commit must independently pass the same four gates before DD-558…DD-562 is closed and another source audit may open.
+
+## State closure verified — 2026-10-06
+
+State-closure HEAD `6c0bed30054c6afa4d58c9e109aec015f191d46f` passed exact-head push and pull-request gates. Push Core run `37352360093` / job `111906090482`: **1453/1453 PASS**, fail/skip 0. PostgreSQL same run / job `111906090297`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS. Database push run `37352360272` / job `111906090943`: PASS. Web push run `37352360052` / job `111906089881`: PASS.
+
+DD-558…DD-562 is therefore closed at its bounded ACL-layer current/effect evidence scope. Forward development may resume only through a fresh source-owned seam.
