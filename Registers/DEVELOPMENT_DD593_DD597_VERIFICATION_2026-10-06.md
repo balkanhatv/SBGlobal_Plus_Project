@@ -38,3 +38,9 @@ Canonical promotion HEAD `33e1abccdcdbf7394d0838f86a09de06e43ebf9f` / tree `7e81
 - Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
 
 Feature evidence remains anchored to implementation `3e6bd8985f5778eccbed34f79b7ad2ad3513059d` / tree `8de14fb9f1e5518ba2c6a28517cf2676fd18239b`. This state-closure commit must independently pass the same four gates before DD-593…DD-597 is closed and another source audit may open.
+
+## State closure verified — 2026-10-06
+
+State-closure HEAD `9ca4308f0f1049b1738ab6f806298d514b9f2f51` / tree `4acd8f4c0e06c8d0968651cef718dd3d532dd418` passed exact-head push gates: Core run `37494017091` / job `112373782473` **1509/1509 PASS**; PostgreSQL same run / job `112373782793` **540/540 PASS**, fail/skip 0 plus full bootstrap PASS; Database run `37494017118` / job `112373785249` PASS with **48 migrations / 42 SQL verification files**; Web run `37494017122` / job `112373781692` PASS.
+
+DD-593…DD-597 is closed at its bounded optional PromptTemplate current-binding evidence scope. Source-owned forward development may resume from the next independently source-complete backend seam.
