@@ -570,3 +570,7 @@ The bounded result is exact DD-582 derivative-parent current evidence plus two s
 Implementation basis `b9f82b467742b6a89353423f3348630647d82c9f` / tree `e41dc0294c52f9c9a3db0078ce451d2beeae6b89` passed Core **1500/1500**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. DD-562 now shares one pure DD-558…DD-561 trusted-time/currentness/explicit-DENY-wins helper with the new derivative-parent paired evidence path.
 
 Derivative and parent raw ACL sets are subject-matched and current-effect reduced independently under the same exact RequestContext, explicit ACL permission and trusted currentTimeIso. The two sides are not compared; no ACL non-widening verdict, source-resource fallback, final authorization, signing/grant/storage dispatch, mutation or event authority is added.
+
+## DD-588…DD-592 canonical promotion evidence — 2026-10-06
+
+Canonical promotion basis `06c99d9b5b48b522b7788dac6a0a260d51a8c48b` / tree `f463c2608eca4a85c557e5f3f5db177d9c00cefb` passed exact-head Core **1500/1500**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `b9f82b467742b6a89353423f3348630647d82c9f`. The paired derivative/parent ACL effects remain independent raw/current-effect evidence; no broader/equal/narrower or ACL non-widening verdict, source-resource fallback, final authorization, signing/grant/storage dispatch, mutation or event authority is added.

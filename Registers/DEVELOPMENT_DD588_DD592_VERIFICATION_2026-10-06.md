@@ -27,3 +27,14 @@ Success preserves the exact DD-587 parent/raw evidence and exact matcher-returne
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-588…DD-592 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-06
+
+Canonical promotion HEAD `06c99d9b5b48b522b7788dac6a0a260d51a8c48b` / tree `f463c2608eca4a85c557e5f3f5db177d9c00cefb` passed exact-head push gates:
+- Core run `37452309407` / job `112231520741`: **1500/1500 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112231520293`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37452309411` / job `112231519944`: PASS with unchanged **48 migrations / 42 SQL verification files**.
+- Web run `37452309380` / job `112231519831`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-588…DD-592 is closed and another source audit may open.

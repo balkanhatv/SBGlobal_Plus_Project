@@ -1,7 +1,7 @@
 # F-15 — FOUNDATION TRUTH REVALIDATION
 **Current checkpoint:** `DEV-DOCUMENT-DERIVATIVE-PARENT-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
-**Current executable audit basis:** `b9f82b467742b6a89353423f3348630647d82c9f` / tree `e41dc0294c52f9c9a3db0078ce451d2beeae6b89`
-> **Current audit gate (2026-10-06):** DD-588…DD-592 derivative-parent paired ACL current-effect evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `06c99d9b5b48b522b7788dac6a0a260d51a8c48b` / tree `f463c2608eca4a85c557e5f3f5db177d9c00cefb`
+> **Current audit gate (2026-10-06):** DD-588…DD-592 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-15 · **Version:** 2.0 · **Status:** CLOSED — FOUNDATION REVALIDATED · **Date:** 11-09-2026
 
 ## 1. Purpose
