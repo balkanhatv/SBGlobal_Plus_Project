@@ -528,3 +528,9 @@ EXPLICIT_ACL_DENY blocks source-resource fallback at the ACL layer. EXPLICIT_ACL
 Canonical promotion basis `ce8370da3b7232a0b41718f06a318e7fc8e7c350` / tree `a85de93f8378c18204e90b899ff3cd092e0fd303` passed exact-head Core **1468/1468**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `3434e0f34718141e2cf47d0b02c18759d02eb474`.
 
 The bounded result remains access-path evidence only: explicit DENY blocks source-resource fallback at the ACL layer; explicit ALLOW is not final authorization; NONE marks the unexecuted source-resource authorization path. All permission/entitlement/security-policy/signing/StoragePort authority remains separate.
+
+## DD-573…DD-577 exact-head implementation evidence — 2026-10-06
+
+Corrected implementation basis `ea8a2c4851726696fea11937bdb1f8002078d248` / tree `defff33c64c313e0526ee32ff3ff17dec67baa68` passed Core **1475/1475**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader reuses exact DD-572 evidence and performs zero additional reads.
+
+Explicit ACL DENY/ALLOW remain parent-only. SOURCE_RESOURCE_AUTHORIZATION_REQUIRED exposes only exact persisted candidate Tenant/Industry/scope + sourceModule/sourceResourceType/sourceResourceId evidence. No DD-03 ResourceDescriptor, source-resource resolver/load, OperationContract/permission mapping, final AuthorizationDecision/GuardResult, permission/entitlement/RBAC/ABAC/commercial/sensitivity/residency/step-up, provider/signing/grant/download/share/delete/StoragePort dispatch or mutation authority is added.

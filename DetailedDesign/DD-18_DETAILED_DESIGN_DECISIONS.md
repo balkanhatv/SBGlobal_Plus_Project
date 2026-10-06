@@ -6445,3 +6445,47 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOC-ACLPATH-EVID-001, DOC-ACLPATH-BOUND-001`.
+
+## DD-573 — reuse exact DD-572 access-path evidence first
+
+**Context:** DD-572 owns exact ACL current-effect + physical StorageObject binding + pure access-path classification evidence.
+
+**Decision:** Add `loadDocumentAccessSourceResourceIdentityEvidence(...)`. Invoke DD-572 exactly once with unchanged inputs/dependencies. Parent null remains null; governed/dependency errors propagate unchanged. After parent success perform zero additional reads.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_SOURCE_RESOURCE_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-SRCID-BASE-001…002`.
+
+## DD-574 — keep explicit ACL DENY/ALLOW branches parent-only
+
+**Decision:** For `EXPLICIT_ACL_DENY` and `EXPLICIT_ACL_ALLOW`, return frozen `{ parent }` only. Do not synthesize source-resource identity usage/fallback or final authorization.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_SOURCE_RESOURCE_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-SRCID-PATH-001`.
+
+## DD-575 — project exact persisted source-resource identity only on the required branch
+
+**Context:** DD-082 already preserves validated immutable sourceModule/sourceResourceType/sourceResourceId plus exact Tenant/Industry/scope ownership in DocumentAccessCandidate.
+
+**Decision:** For `SOURCE_RESOURCE_AUTHORIZATION_REQUIRED`, derive frozen `sourceResourceIdentity` only from candidate tenantId, optional industryContextId, scopeClass, sourceModule, sourceResourceType and sourceResourceId. Preserve strings byte-for-byte. Do not normalize/alias/parse or construct a DD-03 ResourceDescriptor, resolver result, OperationContract or permission mapping.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_SOURCE_RESOURCE_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-SRCID-REQ-001…002`.
+
+## DD-576 — preserve immutable exact-reference evidence
+
+**Decision:** Preserve the exact DD-572 parent and all nested ACL/storage/candidate references unchanged. The projected identity is not a second Tenant/Industry truth source.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_SOURCE_RESOURCE_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-SRCID-EVID-001`.
+
+## DD-577 — stop before source-resource resolution, authorization and signing/storage authority
+
+**Decision:** Do not resolve/load the source resource; construct ResourceDescriptor; map OperationContract/permission/entitlement; call AuthorizationDecisionService/GuardPipeline; evaluate RBAC/ABAC/commercial/sensitivity/residency/step-up; treat ACL ALLOW as final access; select/decrypt provider; issue signed grants; expose download/share/delete authority; dispatch StoragePort or mutate state.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_SOURCE_RESOURCE_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-SRCID-BOUND-001`.

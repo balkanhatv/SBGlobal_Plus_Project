@@ -1,7 +1,7 @@
 # TRACEABILITY EXTENSION — CP-F1-005 (F-13, F-14)
-**Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-STORAGE-ACCESS-PATH-EVIDENCE-READER-001`
-**Current executable audit basis:** `ce8370da3b7232a0b41718f06a318e7fc8e7c350` / tree `a85de93f8378c18204e90b899ff3cd092e0fd303`
-> **Current audit gate (2026-10-06):** DD-568…DD-572 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-ACCESS-SOURCE-RESOURCE-IDENTITY-EVIDENCE-READER-001`
+**Current executable audit basis:** `ea8a2c4851726696fea11937bdb1f8002078d248` / tree `defff33c64c313e0526ee32ff3ff17dec67baa68`
+> **Current audit gate (2026-10-06):** DD-573…DD-577 Document source-resource identity evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current traceability qualification:** stable child-ID inventory is **2,962**; parent/source-heading semantic ownership gate is **372/372 owner-reconciled, 0 NOT_CERTIFIED**; complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**.
 
 > This CP-F1-005 extension is preserved as historical Foundation-era traceability evidence. Its 2,965-item accounting and certification wording are evaluated-era evidence and do not override current source-fidelity/traceability owners.

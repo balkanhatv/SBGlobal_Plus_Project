@@ -6676,3 +6676,34 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-ACLPATH-BOUND-001 — Classification grants no final authorization/signing/storage authority
 **Owner:** DD-572. Output exposes no operation→ACL mapping, AuthorizationDecision/GuardResult, permission/entitlement/RBAC/ABAC/commercial/sensitivity/residency/step-up result, provider/signing/grant/download/share/delete/dispatch/mutation authority.
+
+## DD-573 Exact DD-572 Parent Acceptance
+
+### DOC-SRCID-BASE-001 — Exact DD-572 chain first with zero additional reads
+**Owner:** DD-573. Exact RequestContext, document id, explicit DocumentAclPermission, currentTimeIso and metadata/ACL/binding/matcher dependencies enter DD-572 unchanged; after parent success this seam performs zero additional reads.
+
+### DOC-SRCID-BASE-002 — Parent null/errors preserve DD-572 behavior
+**Owner:** DD-573. DD-572 null remains null and governed/dependency errors propagate unchanged.
+
+## DD-574 Explicit ACL Terminal-Branch Acceptance
+
+### DOC-SRCID-PATH-001 — DENY/ALLOW remain frozen parent-only evidence
+**Owner:** DD-574. EXPLICIT_ACL_DENY and EXPLICIT_ACL_ALLOW return frozen { parent } only, with no source-resource identity projection and no final authorization claim.
+
+## DD-575 Source-Resource Identity Projection Acceptance
+
+### DOC-SRCID-REQ-001 — Required branch exposes only exact persisted identity
+**Owner:** DD-575. SOURCE_RESOURCE_AUTHORIZATION_REQUIRED projects only exact candidate tenantId, optional industryContextId, scopeClass, sourceModule, sourceResourceType and sourceResourceId.
+
+### DOC-SRCID-REQ-002 — No normalization or ResourceDescriptor/operation mapping
+**Owner:** DD-575. Persisted source identity strings are preserved byte-for-byte; no DD-03 ResourceDescriptor, source-resource resolver result, OperationContract or permission mapping is created.
+
+## DD-576 Immutable Evidence Acceptance
+
+### DOC-SRCID-EVID-001 — Preserve exact DD-572 parent and nested references
+**Owner:** DD-576. Success preserves the exact DD-572 parent plus nested candidate/ACL/storage object references and values unchanged.
+
+## DD-577 Authority Boundary Acceptance
+
+### DOC-SRCID-BOUND-001 — No resolver, authorization, policy, signing or mutation authority
+**Owner:** DD-577. Output exposes no source-resource resolver result, ResourceDescriptor, OperationContract, AuthorizationDecision/GuardResult, permission/entitlement/RBAC/ABAC/commercial/sensitivity/residency/step-up result, provider/signing/grant/download/share/delete/dispatch/mutation authority.
