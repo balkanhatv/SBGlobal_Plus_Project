@@ -1,7 +1,7 @@
 # DD REVIEW REQUIRED — PHASE 3 CLOSURE
 **Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-STORAGE-BINDING-EVIDENCE-READER-001`
 **Current executable audit basis:** `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926` / tree `b0eafbc82217c76999c09e07c66f90498fa3ce9c`
-**Updated:** 2026-10-05 · **Branch:** `docs/architecture-branch-2`
+**Updated:** 2026-10-06 · **Branch:** `docs/architecture-branch-2`
 
 > **Current audit gate (2026-10-06):** DD-563…DD-567 Document ACL current-effect + physical StorageObject binding evidence is exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 
@@ -19,7 +19,7 @@ Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962
 
 The following evidence retains its original baseline and does not override the current checkpoint above.
 
-**Updated:** 2026-10-05 · **Historical checkpoint:** `PHASE3-DD-REVALIDATED` · **Historical Phase-3 status:** CLOSED FOR DD; current dependencies below
+**Updated:** 2026-10-06 · **Historical checkpoint:** `PHASE3-DD-REVALIDATED` · **Historical Phase-3 status:** CLOSED FOR DD; current dependencies below
 
 ## Historical Phase-3 result
 - Open P0: **0**
