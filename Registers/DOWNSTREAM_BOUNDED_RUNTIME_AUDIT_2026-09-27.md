@@ -516,3 +516,9 @@ ACL NONE, source-resource inheritance, operation→ACL mapping, final permission
 Corrected promotion basis `9633b14ba1068a3ca619562aa4dbcbb3e192d7ab` / tree `eb14f5f3c0ec9ea15024dc678998712f8d6e126d` passed Core **1461/1461**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature verification remains anchored to exact verification-staging evidence `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926`.
 
 The composition remains evidence-only: exact DD-562 ACL current/effect evidence plus one exact same-candidate DD-086 physical binding. ACL NONE/source-resource choice, final authorization, policy evaluation, provider selection/decryption, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain separate.
+
+## DD-568…DD-572 exact-head implementation evidence — 2026-10-06
+
+Implementation basis `3434e0f34718141e2cf47d0b02c18759d02eb474` / tree `898c8a81b459a3f7e23b23ec5c2844f5e40f36b9` passed Core **1468/1468**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader reuses exact DD-567 evidence and performs zero additional reads while deriving only ACL access-path evidence.
+
+EXPLICIT_ACL_DENY blocks source-resource fallback at the ACL layer. EXPLICIT_ACL_ALLOW is not final authorization. SOURCE_RESOURCE_AUTHORIZATION_REQUIRED identifies a required but unexecuted inheritance path. Operation→ACL mapping, final AuthorizationDecision/GuardResult, permission/entitlement/RBAC/ABAC/commercial/sensitivity/residency/step-up, provider/signing/grant/download/share/delete/StoragePort execution and mutation remain separate.

@@ -6645,3 +6645,34 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOC-ACLEFFSTO-BOUND-001 — No final authorization, provider or signing authority
 **Owner:** DD-567. Output exposes no source-resource decision, final permission/entitlement/RBAC/ABAC/sensitivity/residency/step-up result, provider selection/decryption, signing/grant/download/share/delete/dispatch/mutation authority.
+
+## DD-568 Exact DD-567 Parent Acceptance
+
+### DOC-ACLPATH-BASE-001 — Exact DD-567 chain first with zero additional reads
+**Owner:** DD-568. Exact supplied RequestContext, document id, explicit DocumentAclPermission, currentTimeIso and metadata/ACL/binding/matcher dependencies enter DD-567 unchanged. Access-path classification performs zero additional reads after parent success.
+
+### DOC-ACLPATH-BASE-002 — Parent null/errors preserve DD-567 behavior
+**Owner:** DD-568. DD-567 null remains null and governed/dependency errors propagate unchanged.
+
+## DD-569 Explicit-DENY Access Path Acceptance
+
+### DOC-ACLPATH-DENY-001 — DENY maps only to EXPLICIT_ACL_DENY
+**Owner:** DD-569. Exact DD-561 current effect DENY maps to EXPLICIT_ACL_DENY and exposes no source-resource fallback authority.
+
+## DD-570 Explicit-ALLOW Access Path Acceptance
+
+### DOC-ACLPATH-ALLOW-001 — ALLOW maps only to EXPLICIT_ACL_ALLOW
+**Owner:** DD-570. Exact current ALLOW maps to EXPLICIT_ACL_ALLOW as positive ACL-path evidence only and does not claim final authorization.
+
+## DD-571 Source-Resource-Required Access Path Acceptance
+
+### DOC-ACLPATH-NONE-001 — NONE maps only to SOURCE_RESOURCE_AUTHORIZATION_REQUIRED
+**Owner:** DD-571. Exact NONE maps to SOURCE_RESOURCE_AUTHORIZATION_REQUIRED without executing or synthesizing source-resource authorization and without treating NONE as allow/deny.
+
+## DD-572 Immutable Evidence / Authority Boundary Acceptance
+
+### DOC-ACLPATH-EVID-001 — Preserve exact DD-567 nested evidence
+**Owner:** DD-572. Success is frozen and preserves exact nested ACL candidate/current-effect/physical-binding references and values unchanged.
+
+### DOC-ACLPATH-BOUND-001 — Classification grants no final authorization/signing/storage authority
+**Owner:** DD-572. Output exposes no operation→ACL mapping, AuthorizationDecision/GuardResult, permission/entitlement/RBAC/ABAC/commercial/sensitivity/residency/step-up result, provider/signing/grant/download/share/delete/dispatch/mutation authority.

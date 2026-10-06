@@ -6399,3 +6399,49 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_BINDING_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOC-ACLEFFSTO-BOUND-001`.
+
+## DD-568 — reuse exact DD-567 combined evidence first
+
+**Context:** DD-567 owns the exact DD-562 ACL current-effect evidence plus DD-086 physical StorageObject binding evidence.
+
+**Decision:** Add `loadDocumentAccessAclCurrentEffectStorageAccessPathEvidence(...)`. Invoke DD-567 exactly once with exact supplied inputs/dependencies. Parent null remains null; parent errors propagate unchanged. Perform zero additional persistence/authorization/storage reads after parent success.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLPATH-BASE-001…002`.
+
+## DD-569 — explicit ACL DENY selects terminal ACL-deny path
+
+**Context:** DD-08 §6 states explicit DENY wins.
+
+**Decision:** Map only DD-567 nested `effectEvidence === "DENY"` to `EXPLICIT_ACL_DENY`. Do not permit source-resource fallback. This is an ACL-layer deny fact, not a synthesized DD-03 AuthorizationDecision.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLPATH-DENY-001`.
+
+## DD-570 — explicit ACL ALLOW selects explicit-ACL path only
+
+**Decision:** Map only `effectEvidence === "ALLOW"` to `EXPLICIT_ACL_ALLOW`. This proves positive current ACL-path evidence for the requested ACL permission only. It cannot bypass permission/entitlement/RBAC/ABAC, sensitivity/residency/step-up or other security/compliance gates.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLPATH-ALLOW-001`.
+
+## DD-571 — ACL NONE selects source-resource-authorization-required path only
+
+**Context:** DD-08 §6 allows Document access to inherit source-resource authorization or use explicit ACL entries.
+
+**Decision:** Map only `effectEvidence === "NONE"` to `SOURCE_RESOURCE_AUTHORIZATION_REQUIRED`. Do not treat NONE as allow/deny, resolve source-resource authorization, call AuthorizationDecisionService/GuardPipeline or invent an operation→ACL mapping.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLPATH-NONE-001`.
+
+## DD-572 — immutable access-path evidence without final authorization/signing/storage authority
+
+**Decision:** Return frozen `{ parent, accessPathEvidence }`, preserving exact DD-567 evidence. Do not map operations to ACL permissions, authorize source resources, evaluate permission/entitlement/RBAC/ABAC/commercial/sensitivity/residency/step-up, select/decrypt providers, sign grants/URLs/tokens, expose download/share/delete authority, dispatch StoragePort or mutate Document/Storage/ACL state.
+
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_STORAGE_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOC-ACLPATH-EVID-001, DOC-ACLPATH-BOUND-001`.
