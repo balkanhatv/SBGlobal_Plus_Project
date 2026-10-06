@@ -36,3 +36,13 @@ Canonical promotion HEAD `64da5e29121ee3541fb0eac3ffcb1287e2207150` / tree `c522
 - Web run `37448780670` / job `112219933745`: PASS.
 
 Pull-request Core/Database/Web workflows on the same promotion HEAD also passed. This state-closure commit must independently pass the same four gates before DD-583…DD-587 is closed and another source audit may open.
+
+## State closure verified — 2026-10-06
+
+State-closure HEAD `441a9f7e4b9e96ba4fcbc19c0cfc5a971b357f2c` / tree `0b4d4e7a881f8a2b609f87e2973be115f60f3cbf` passed exact-head push gates:
+- Core run `37449571321` / job `112222568507`: **1491/1491 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112222568395`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37449571538` / job `112222569344`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37449571641` / job `112222568841`: PASS.
+
+DD-583…DD-587 is closed at its bounded raw paired-ACL evidence scope. Source-owned forward development may resume; the derivative ACL non-widening verdict itself remains source-incomplete.
