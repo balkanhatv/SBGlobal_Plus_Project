@@ -1,5 +1,4 @@
 import type {
-  DocumentAclEntry,
   DocumentAclPermission,
   DocumentAclReadPort,
 } from "./acl.js";
@@ -10,27 +9,19 @@ import {
   loadDocumentAccessAclSubjectEvidence,
   type DocumentAccessAclSubjectEvidence,
 } from "./access-acl-subject-evidence-reader.js";
+import {
+  evaluateDocumentAclCurrentEffectEvidence,
+  type DocumentAclCurrentEffectEvidence,
+} from "./acl-current-effect.js";
+export {
+  DocumentAccessAclCurrentEffectEvidenceError,
+} from "./acl-current-effect.js";
+export type {
+  DocumentAccessAclCurrentEffectEvidenceErrorCode,
+  DocumentAclCurrentEffectEvidence,
+} from "./acl-current-effect.js";
 import type { DocumentAccessMetadataPort } from "./access-candidate.js";
 import type { RequestContext } from "../context/contracts.js";
-
-export type DocumentAclCurrentEffectEvidence =
-  | "DENY"
-  | "ALLOW"
-  | "NONE";
-
-export type DocumentAccessAclCurrentEffectEvidenceErrorCode =
-  | "ACL_EFFECT_TIME_INVALID"
-  | "ACL_EFFECT_EVIDENCE_INVALID";
-
-export class DocumentAccessAclCurrentEffectEvidenceError extends Error {
-  constructor(
-    readonly code: DocumentAccessAclCurrentEffectEvidenceErrorCode,
-    message: string,
-  ) {
-    super(message);
-    this.name = "DocumentAccessAclCurrentEffectEvidenceError";
-  }
-}
 
 export interface DocumentAccessAclCurrentEffectEvidenceReadInput {
   readonly requestContext: RequestContext;
@@ -42,21 +33,9 @@ export interface DocumentAccessAclCurrentEffectEvidenceReadInput {
 export interface DocumentAccessAclCurrentEffectEvidence {
   readonly parent: DocumentAccessAclSubjectEvidence;
   readonly currentTimeIso: string;
-  readonly currentEntries: readonly DocumentAclEntry[];
-  readonly expiredEntries: readonly DocumentAclEntry[];
+  readonly currentEntries: readonly import("./acl.js").DocumentAclEntry[];
+  readonly expiredEntries: readonly import("./acl.js").DocumentAclEntry[];
   readonly effectEvidence: DocumentAclCurrentEffectEvidence;
-}
-
-function parseInstant(value: unknown, code: DocumentAccessAclCurrentEffectEvidenceErrorCode, field: string): number {
-  if (typeof value !== "string" || value.length === 0) {
-    throw new DocumentAccessAclCurrentEffectEvidenceError(code, `Document ACL ${field} is invalid.`);
-  }
-
-  const instant = Date.parse(value);
-  if (!Number.isFinite(instant)) {
-    throw new DocumentAccessAclCurrentEffectEvidenceError(code, `Document ACL ${field} is invalid.`);
-  }
-  return instant;
 }
 
 /**
@@ -84,46 +63,16 @@ export async function loadDocumentAccessAclCurrentEffectEvidence(
     matcher,
   );
 
-  const currentInstant = parseInstant(
-    input.currentTimeIso,
-    "ACL_EFFECT_TIME_INVALID",
-    "current time",
-  );
-
-  const currentEntries: DocumentAclEntry[] = [];
-  const expiredEntries: DocumentAclEntry[] = [];
-
-  for (const entry of parent.matchedEntries) {
-    if (entry.validUntil === undefined) {
-      currentEntries.push(entry);
-      continue;
-    }
-
-    const validUntilInstant = parseInstant(
-      entry.validUntil,
-      "ACL_EFFECT_EVIDENCE_INVALID",
-      "validUntil evidence",
-    );
-
-    if (validUntilInstant > currentInstant) {
-      currentEntries.push(entry);
-    } else {
-      expiredEntries.push(entry);
-    }
-  }
-
-  let effectEvidence: DocumentAclCurrentEffectEvidence = "NONE";
-  if (currentEntries.some((entry) => entry.effect === "DENY")) {
-    effectEvidence = "DENY";
-  } else if (currentEntries.some((entry) => entry.effect === "ALLOW")) {
-    effectEvidence = "ALLOW";
-  }
+  const evaluation = evaluateDocumentAclCurrentEffectEvidence({
+    matchedEntries: parent.matchedEntries,
+    currentTimeIso: input.currentTimeIso,
+  });
 
   return Object.freeze({
     parent,
     currentTimeIso: input.currentTimeIso,
-    currentEntries: Object.freeze(currentEntries),
-    expiredEntries: Object.freeze(expiredEntries),
-    effectEvidence,
+    currentEntries: evaluation.currentEntries,
+    expiredEntries: evaluation.expiredEntries,
+    effectEvidence: evaluation.effectEvidence,
   });
 }
