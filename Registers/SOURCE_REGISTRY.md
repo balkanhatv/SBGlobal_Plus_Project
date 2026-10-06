@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
 **Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-STORAGE-ACCESS-PATH-EVIDENCE-READER-001`
-**Current executable audit basis:** `3434e0f34718141e2cf47d0b02c18759d02eb474` / tree `898c8a81b459a3f7e23b23ec5c2844f5e40f36b9`
+**Current executable audit basis:** `ce8370da3b7232a0b41718f06a318e7fc8e7c350` / tree `a85de93f8378c18204e90b899ff3cd092e0fd303`
 **Status:** ACTIVE · **Updated:** 2026-10-06
 
-> **Current audit gate (2026-10-06):** DD-568…DD-572 Document ACL access-path evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-06):** DD-568…DD-572 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority

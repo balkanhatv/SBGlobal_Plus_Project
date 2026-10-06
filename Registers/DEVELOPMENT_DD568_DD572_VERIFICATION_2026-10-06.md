@@ -29,3 +29,13 @@ No canonical document-download OperationContract, operation→ACL mapping, permi
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-568…DD-572 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-06
+
+Canonical promotion HEAD `ce8370da3b7232a0b41718f06a318e7fc8e7c350` / tree `a85de93f8378c18204e90b899ff3cd092e0fd303` passed exact-head push gates:
+- Core run `37413917623` / job `112108220293`: **1468/1468 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112108220107`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37413917551` / job `112108219940`: PASS with the unchanged **48 migrations / 42 SQL verification files** inventory.
+- Web run `37413917608` / job `112108220311`: PASS.
+
+This state-closure commit must independently pass the same four gates before DD-568…DD-572 is closed and another source audit may open. Feature implementation proof remains anchored to `3434e0f34718141e2cf47d0b02c18759d02eb474`.

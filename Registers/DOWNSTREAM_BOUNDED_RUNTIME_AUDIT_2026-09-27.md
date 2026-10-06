@@ -522,3 +522,9 @@ The composition remains evidence-only: exact DD-562 ACL current/effect evidence 
 Implementation basis `3434e0f34718141e2cf47d0b02c18759d02eb474` / tree `898c8a81b459a3f7e23b23ec5c2844f5e40f36b9` passed Core **1468/1468**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader reuses exact DD-567 evidence and performs zero additional reads while deriving only ACL access-path evidence.
 
 EXPLICIT_ACL_DENY blocks source-resource fallback at the ACL layer. EXPLICIT_ACL_ALLOW is not final authorization. SOURCE_RESOURCE_AUTHORIZATION_REQUIRED identifies a required but unexecuted inheritance path. Operation→ACL mapping, final AuthorizationDecision/GuardResult, permission/entitlement/RBAC/ABAC/commercial/sensitivity/residency/step-up, provider/signing/grant/download/share/delete/StoragePort execution and mutation remain separate.
+
+## DD-568…DD-572 canonical promotion evidence — 2026-10-06
+
+Canonical promotion basis `ce8370da3b7232a0b41718f06a318e7fc8e7c350` / tree `a85de93f8378c18204e90b899ff3cd092e0fd303` passed exact-head Core **1468/1468**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `3434e0f34718141e2cf47d0b02c18759d02eb474`.
+
+The bounded result remains access-path evidence only: explicit DENY blocks source-resource fallback at the ACL layer; explicit ALLOW is not final authorization; NONE marks the unexecuted source-resource authorization path. All permission/entitlement/security-policy/signing/StoragePort authority remains separate.
