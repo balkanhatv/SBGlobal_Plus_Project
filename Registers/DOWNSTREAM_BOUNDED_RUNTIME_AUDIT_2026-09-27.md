@@ -586,3 +586,9 @@ No prompt selection/latest fallback/rendering/approval/override/grounding, princ
 Canonical promotion basis `33e1abccdcdbf7394d0838f86a09de06e43ebf9f` / tree `7e8115c18128b108976910356b7e7de446e6cc47` passed exact-head Core **1509/1509**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains implementation-anchored to `3e6bd8985f5778eccbed34f79b7ad2ad3513059d`.
 
 The bounded result remains optional persisted PromptTemplate current-binding evidence only. Unbound requests do not select a default; bound requests preserve exact request/prompt references after one exact same-RequestContext read and DD-188 validation. No prompt rendering/approval/override/grounding, principal/document authorization, entitlement/moderation/provider/model/tool routing, media generation/publication, mutation or event authority is added.
+
+## DD-598…DD-602 exact-head implementation evidence — 2026-10-06
+
+Corrected implementation basis `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f` / tree `49e4febadfbdce76e0f6f9baeb9db12c033ce888` passed Core **1517/1517**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader performs one exact AIMediaRequest read and one exact global AICapability `loadByCode` read using persisted capabilityCode, then reuses only DD-202's exact code-binding floor.
+
+Capability status/category/requiredEntitlement/defaultPolicyClass/schemaVersion remain raw evidence. No capability eligibility/currentness, entitlement/policy/allowlist, prompt/document authorization, moderation/provisioning/provider/model routing, budget/quota, media execution/publication, mutation or event authority is added.

@@ -6863,3 +6863,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIMEDIA-PROMPTREAD-BOUND-001 — Binding evidence is not prompt/media execution authority
 **Owner:** DD-597. Output exposes no prompt selection/rendering/approval/override/grounding, principal/document authorization, entitlement/moderation/provider/model/tool routing, media execution/publication, mutation or event authority.
+
+## DD-598 Exact AIMediaRequest-First Acceptance
+
+### AIMEDIA-CAPREAD-BASE-001 — Exact request first and null short-circuit
+**Owner:** DD-598. Exact RequestContext/mediaRequestId enter the AIMediaRequest reader unchanged; null returns null before capability access.
+
+### AIMEDIA-CAPREAD-BASE-002 — Request errors precede capability access
+**Owner:** DD-598. AIMediaRequest dependency errors propagate unchanged before any capability read.
+
+## DD-599 Exact Capability-by-Code Read Acceptance
+
+### AIMEDIA-CAPREAD-READ-001 — One exact raw code read
+**Owner:** DD-599. Exactly one AICapability `loadByCode` uses persisted request.capabilityCode with no trim, case-fold, alias, default or id fallback.
+
+### AIMEDIA-CAPREAD-READ-002 — Missing/error preserves failure semantics
+**Owner:** DD-599. Missing capability returns null and capability dependency errors propagate unchanged with no alternate lookup.
+
+## DD-600 Existing DD-202 Binding-Floor Acceptance
+
+### AIMEDIA-CAPREAD-FLOOR-001 — Exact binding passes
+**Owner:** DD-600. Existing DD-202 exact request.capabilityCode ↔ capability.code equality passes and preserves exact references, including schema-valid raw empty-to-empty equality.
+
+### AIMEDIA-CAPREAD-FLOOR-002 — Mismatch/malformed fails closed
+**Owner:** DD-600. Code mismatch or malformed relevant request/capability identity shape fails closed; equality is exact and unnormalized.
+
+## DD-601 Immutable Evidence Acceptance
+
+### AIMEDIA-CAPREAD-EVID-001 — Preserve exact raw evidence
+**Owner:** DD-601. Success returns frozen exact request/capability references and leaves capability lifecycle/category/requiredEntitlement/defaultPolicyClass/schemaVersion plus unrelated request evidence unchanged.
+
+## DD-602 Authority Boundary Acceptance
+
+### AIMEDIA-CAPREAD-BOUND-001 — Relationship evidence only
+**Owner:** DD-602. Output exposes no capability eligibility/currentness, entitlement/policy/allowlist decision, prompt/document authorization, moderation/provisioning/provider/model/budget decision, media execution/publication, mutation or event authority.

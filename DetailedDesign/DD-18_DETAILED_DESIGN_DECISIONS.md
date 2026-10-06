@@ -6667,3 +6667,43 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/AI_MEDIA_REQUEST_PROMPT_TEMPLATE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AIMEDIA-PROMPTREAD-BOUND-001`.
+
+## DD-598 — load exact AIMediaRequest first
+
+**Decision:** Add `loadAIMediaRequestCapabilityCurrentEvidence(...)`. Read the exact AIMediaRequest under the supplied RequestContext/id before any capability access. Null returns null and request dependency errors propagate unchanged.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-CAPREAD-BASE-001…002`.
+
+## DD-599 — read exactly one global capability by persisted code
+
+**Decision:** For a present request, call `AICapabilityCatalogMetadataByCodeReadPort.loadByCode(request.capabilityCode)` exactly once. Preserve the raw code; no trim/case-fold/alias/default selection/id fallback. Missing evidence returns null; dependency errors propagate unchanged.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-CAPREAD-READ-001…002`.
+
+## DD-600 — apply only the existing DD-202 relationship floor
+
+**Decision:** Require `matchesAIMediaRequestCapabilityBindingFloors(request, capability)`. Do not strengthen raw capability status/category/entitlement/default-policy/schema semantics or infer request-time eligibility.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-CAPREAD-FLOOR-001…002`.
+
+## DD-601 — preserve immutable exact references
+
+**Decision:** Success returns frozen `{ request, capability }` preserving exact loaded object references without clone, normalization or mutation.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-CAPREAD-EVID-001`.
+
+## DD-602 — capability binding is not authorization or execution
+
+**Decision:** Exact persisted code continuity is relationship evidence only. Do not evaluate capability eligibility, requiredEntitlement/defaultPolicyClass, Tenant/Industry allowlisting, PromptTemplate rendering/approval, input-document access, sensitivity/residency, moderation, provisioning, provider/model routing, budget/quota, execution/publication, mutation or events.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-CAPREAD-BOUND-001`.
