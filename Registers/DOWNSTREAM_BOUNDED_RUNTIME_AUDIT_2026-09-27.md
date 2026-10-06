@@ -510,3 +510,9 @@ Canonical promotion basis `ebc1738ac8ffc63cc545f69e9638c326904a22b1` / tree `c0c
 Verification-staging basis `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926` / tree `b0eafbc82217c76999c09e07c66f90498fa3ce9c` passed Core **1461/1461**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The server-internal composition establishes exact DD-562 current ACL-effect evidence first, then one exact DD-086 physical binding read using only preserved candidate documentId/storageObjectId.
 
 ACL NONE, source-resource inheritance, operation→ACL mapping, final permission/entitlement/RBAC/ABAC/sensitivity/residency/step-up authorization, provider selection/decryption, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain outside this evidence seam.
+
+## DD-563…DD-567 canonical promotion evidence — 2026-10-06
+
+Corrected promotion basis `9633b14ba1068a3ca619562aa4dbcbb3e192d7ab` / tree `eb14f5f3c0ec9ea15024dc678998712f8d6e126d` passed Core **1461/1461**, PostgreSQL **536/536** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature verification remains anchored to exact verification-staging evidence `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926`.
+
+The composition remains evidence-only: exact DD-562 ACL current/effect evidence plus one exact same-candidate DD-086 physical binding. ACL NONE/source-resource choice, final authorization, policy evaluation, provider selection/decryption, signing/TTL, download/share/delete, StoragePort dispatch and mutation remain separate.

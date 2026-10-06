@@ -1,7 +1,7 @@
 # F-15 — FOUNDATION TRUTH REVALIDATION
 **Current checkpoint:** `DEV-DOCUMENT-ACCESS-ACL-CURRENT-EFFECT-STORAGE-BINDING-EVIDENCE-READER-001`
-**Current executable audit basis:** `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926` / tree `b0eafbc82217c76999c09e07c66f90498fa3ce9c`
-> **Current audit gate (2026-10-06):** DD-563…DD-567 Document ACL current-effect + physical StorageObject binding evidence is exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `9633b14ba1068a3ca619562aa4dbcbb3e192d7ab` / tree `eb14f5f3c0ec9ea15024dc678998712f8d6e126d`
+> **Current audit gate (2026-10-06):** DD-563…DD-567 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-15 · **Version:** 2.0 · **Status:** CLOSED — FOUNDATION REVALIDATED · **Date:** 11-09-2026
 
 ## 1. Purpose

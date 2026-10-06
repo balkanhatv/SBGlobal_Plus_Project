@@ -40,3 +40,15 @@ Verification-staging HEAD `66d6a0b6bbbd0aa694768a03ec05af8c28ac4926` / tree `b0e
 Pull-request Core/Database/Web workflows on the same staging HEAD also passed.
 
 Canonical promotion is staged; its own exact-head Core/PostgreSQL/Database/Web gates must pass before state closure.
+
+## Canonical promotion verified; state closure staged — 2026-10-06
+
+Corrected canonical promotion HEAD `9633b14ba1068a3ca619562aa4dbcbb3e192d7ab` / tree `eb14f5f3c0ec9ea15024dc678998712f8d6e126d` passed exact-head push gates:
+- Core run `37404758594` / job `112079732679`: **1461/1461 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112079732525`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37404758622` / job `112079732454`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37404758619` / job `112079732598`: PASS.
+
+Initial promotion `81ac5e802235cdcba0ae1d71e999beca51b085fe` was rejected only because active projection update dates remained 2026-10-05 while the manifest moved to 2026-10-06 (REPO-011). Forward-only correction `9633b14ba1068a3ca619562aa4dbcbb3e192d7ab` aligned those current projection dates without changing runtime/design semantics.
+
+This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-563…DD-567 is closed and another source audit opens.
