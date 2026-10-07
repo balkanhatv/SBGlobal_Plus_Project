@@ -3,7 +3,7 @@
   "updated": "2026-10-07",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-MEDIA-REQUEST-INPUT-DOCUMENT-CURRENT-EVIDENCE-READER-001",
-  "final_verdict": "DD-603…DD-607 canonical promotion 007aaf85103d8ccca51fa841567c3917e4bd6ced / tree ba3f354d4341afabff289da020755efd156b226d passed 1526 Core / 540 PostgreSQL / Database 48/42 / Web. State closure is staged and requires its own exact-head gates before forward development. Production readiness is NOT CLAIMED.",
+  "final_verdict": "DD-603…DD-607 state closure 7c11fb74c49cfc9a79180cfd16bf9833b344693b / tree 7875f1c96bc87b3c1a7d87e1abd36a9990b62eaf passed 1526 Core / 540 PostgreSQL / Database 48/42 / Web. DD-608…DD-612 Generated Document→AIMediaRequest current-evidence source audit is staged and requires its own exact-head gates before implementation. Production readiness is NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -14,7 +14,7 @@
     "application_api_ui": "FIRST_PARTY_NEXTJS_TRPC_THREE_QUERIES_AND_UNMOUNTED_EXTERNAL_REST_ADAPTER_FLOOR_VERIFIED_UI_UNFINISHED",
     "production_readiness": "NOT_CLAIMED",
     "predevelopment_zip": "WAIVED_BY_USER_DIRECTION",
-    "core_services": "DD040_DD607_IMPLEMENTED_BATCH_PROMOTION_VERIFIED_STATE_CLOSURE_STAGED",
+    "core_services": "DD040_DD607_IMPLEMENTED_BATCH_STATE_CLOSED_DD608_DD612_SOURCE_AUDIT_STAGED",
     "vision_centric_current_state_audit": "PASS_COMPLETE_PROJECT_DOWNSTREAM_AUDIT_CLEAN"
   },
   "defects": {
@@ -54,9 +54,9 @@
       "purpose": "REVIEW_ONLY_DO_NOT_MERGE"
     },
     "main_merge": "not performed; future merge requires explicit user direction",
-    "verified_code_head": "007aaf85103d8ccca51fa841567c3917e4bd6ced",
-    "verified_code_tree": "ba3f354d4341afabff289da020755efd156b226d",
-    "state_projection_basis_head": "007aaf85103d8ccca51fa841567c3917e4bd6ced",
+    "verified_code_head": "7c11fb74c49cfc9a79180cfd16bf9833b344693b",
+    "verified_code_tree": "7875f1c96bc87b3c1a7d87e1abd36a9990b62eaf",
+    "state_projection_basis_head": "7c11fb74c49cfc9a79180cfd16bf9833b344693b",
     "promotion_head_resolution": "Commit containing this checkpoint; verify its own exact-head CI separately. Executable basis remains the already-verified parent to avoid self-reference.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
@@ -796,21 +796,21 @@
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
     "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
-    "current_downstream_verified_head": "007aaf85103d8ccca51fa841567c3917e4bd6ced",
-    "current_downstream_verified_tree": "ba3f354d4341afabff289da020755efd156b226d",
+    "current_downstream_verified_head": "7c11fb74c49cfc9a79180cfd16bf9833b344693b",
+    "current_downstream_verified_tree": "7875f1c96bc87b3c1a7d87e1abd36a9990b62eaf",
     "current_downstream_verified_ci": {
-      "core_run_id": 37562709767,
-      "core_job_id": 112603381376,
+      "core_run_id": 37563071700,
+      "core_job_id": 112604532483,
       "core_pass": 1526,
-      "postgres_job_id": 112603381071,
+      "postgres_job_id": 112604532687,
       "postgres_pass": 540,
-      "database_run_id": 37562709778,
-      "database_job_id": 112603381096,
+      "database_run_id": 37563071694,
+      "database_job_id": 112604531964,
       "database_migrations": 48,
       "database_verification_files": 42,
-      "web_run_id": 37562709763,
-      "web_job_id": 112603381208,
-      "result": "PASS_EXACT_PROMOTION_HEAD"
+      "web_run_id": 37563071697,
+      "web_job_id": 112604531987,
+      "result": "PASS_EXACT_STATE_CLOSURE_HEAD"
     },
     "dd209_source_audit_head": "7cfd84d2013d3e1f0f4feaa9eb70f4cd66632787",
     "dd209_source_audit_tree": "cc45b89efda581548010eb3a19ce44bd6d7cacf2",
@@ -3381,7 +3381,7 @@
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD603_DD607_STATE_CLOSURE",
+    "current_phase": "DEVELOPMENT_DD608_DD612_SOURCE_AUDIT",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -3396,9 +3396,9 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "007aaf85103d8ccca51fa841567c3917e4bd6ced",
-      "ci_run_id": 37562709778,
-      "ci_job_id": 112603381096,
+      "ci_verified_head": "7c11fb74c49cfc9a79180cfd16bf9833b344693b",
+      "ci_run_id": 37563071694,
+      "ci_job_id": 112604531964,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
       "not_claimed": [
         "end-to-end application/API/UI behavior",
@@ -3410,7 +3410,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "ba3f354d4341afabff289da020755efd156b226d",
+      "ci_verified_tree": "7875f1c96bc87b3c1a7d87e1abd36a9990b62eaf",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -3430,7 +3430,7 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify this state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-603…DD-607 is closed; source-audit the next independently source-complete backend batch.",
+    "next_action": "Verify DD-608…DD-612 source-audit commit at its exact HEAD with Core/PostgreSQL/Database/Web. Only if green, implement only the frozen DD-608…DD-612 scope.",
     "core_services": {
       "checkpoint": "DEV-AI-MEDIA-REQUEST-INPUT-DOCUMENT-CURRENT-EVIDENCE-READER-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
@@ -3438,10 +3438,10 @@
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
       "decision": "DD-040–552 bounded implementation",
-      "verified_head": "007aaf85103d8ccca51fa841567c3917e4bd6ced",
-      "verified_tree": "ba3f354d4341afabff289da020755efd156b226d",
-      "core_ci_run_id": 37562709767,
-      "core_ci_job_id": 112603381376,
+      "verified_head": "7c11fb74c49cfc9a79180cfd16bf9833b344693b",
+      "verified_tree": "7875f1c96bc87b3c1a7d87e1abd36a9990b62eaf",
+      "core_ci_run_id": 37563071700,
+      "core_ci_job_id": 112604532483,
       "tests": "1526/1526 PASS",
       "core_test_counts": {
         "tests": 1526,
@@ -3449,8 +3449,8 @@
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 37562709767,
-      "postgres_ci_job_id": 112603381071,
+      "postgres_ci_run_id": 37563071700,
+      "postgres_ci_job_id": 112604532687,
       "postgres_tests": "540/540 PASS",
       "postgres_test_counts": {
         "tests": 540,
@@ -3459,8 +3459,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 37562709778,
-      "database_regression_job_id": 112603381096,
+      "database_regression_run_id": 37563071694,
+      "database_regression_job_id": 112604531964,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -4150,7 +4150,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify this state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-603…DD-607 is closed; source-audit the next independently source-complete backend batch.",
+      "next_action": "Verify DD-608…DD-612 source-audit commit at its exact HEAD with Core/PostgreSQL/Database/Web. Only if green, implement only the frozen DD-608…DD-612 scope.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -4244,7 +4244,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD603_DD607_STATE_CLOSURE",
+  "current_phase": "DEVELOPMENT_DD608_DD612_SOURCE_AUDIT",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
@@ -4277,19 +4277,19 @@
   },
   "continuation": {
     "checkpoint": "DEV-AI-MEDIA-REQUEST-INPUT-DOCUMENT-CURRENT-EVIDENCE-READER-001",
-    "verified_code_head": "007aaf85103d8ccca51fa841567c3917e4bd6ced",
-    "verified_code_tree": "ba3f354d4341afabff289da020755efd156b226d",
-    "source_audit": "Development/AI_MEDIA_REQUEST_INPUT_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "verified_code_head": "7c11fb74c49cfc9a79180cfd16bf9833b344693b",
+    "verified_code_tree": "7875f1c96bc87b3c1a7d87e1abd36a9990b62eaf",
+    "source_audit": "Development/DOCUMENT_AI_GENERATED_MEDIA_REQUEST_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "Verify this state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-603…DD-607 is closed; source-audit the next independently source-complete backend batch.",
+    "next_action": "Verify DD-608…DD-612 source-audit commit at its exact HEAD with Core/PostgreSQL/Database/Web. Only if green, implement only the frozen DD-608…DD-612 scope.",
     "main_merge": false
   },
   "current_audit_overlay": {
     "checkpoint": "DEV-AI-MEDIA-REQUEST-INPUT-DOCUMENT-CURRENT-EVIDENCE-READER-001",
-    "verified_executable_basis": "007aaf85103d8ccca51fa841567c3917e4bd6ced",
-    "verified_executable_tree": "ba3f354d4341afabff289da020755efd156b226d",
+    "verified_executable_basis": "7c11fb74c49cfc9a79180cfd16bf9833b344693b",
+    "verified_executable_tree": "7875f1c96bc87b3c1a7d87e1abd36a9990b62eaf",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "scope": "DD-603…DD-607 exact AIMediaRequest input-document current evidence: exact request first; zero Document reads for empty refs; otherwise one exact same-RequestContext metadata read per persisted ref, then only DD-189 relationship/currentness floors. ACL/access/storage/source-resource/principal/prompt/capability/moderation/routing/budget/media execution authority remains separate.",
+    "scope": "DD-603…DD-607 input-document current evidence is closed at its bounded scope. DD-608…DD-612 source-audits Generated Document→completed AIMediaRequest current provenance only: exact Document provenance first; non-AI branch zero request reads; AI-generated branch one exact same-RequestContext request read by persisted aiMediaRequestId; apply only DD-191. Provider/Model/moderation/licensing/access/execution authority remains separate.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",
       "parents_total": 372,

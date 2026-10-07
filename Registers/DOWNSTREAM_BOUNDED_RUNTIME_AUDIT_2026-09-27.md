@@ -618,3 +618,7 @@ Document ACL/access, source-resource authorization, StorageObject/signed-url acc
 Canonical promotion basis `007aaf85103d8ccca51fa841567c3917e4bd6ced` / tree `ba3f354d4341afabff289da020755efd156b226d` passed exact-head Core **1526/1526**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation evidence remains anchored to `02311955f29f691887f3b9e2bb011767b6300c80`.
 
 The bounded result remains exact AIMediaRequest→input-document relationship/currentness evidence only. ACL/access, source-resource/StorageObject authorization, principal/prompt/capability/moderation/routing/budget, media execution/publication, mutation and events remain separate.
+
+## DD-603…DD-607 state closure evidence — 2026-10-07
+
+State-closure basis `7c11fb74c49cfc9a79180cfd16bf9833b344693b` / tree `7875f1c96bc87b3c1a7d87e1abd36a9990b62eaf` passed exact-head Core **1526/1526**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. DD-603…DD-607 is therefore closed at its bounded request→input-document relationship/currentness scope. This closure does not widen Document ACL/storage/access or media execution authority.
