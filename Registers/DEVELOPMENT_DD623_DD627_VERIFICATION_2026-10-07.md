@@ -27,3 +27,14 @@ No Document ACL/access/storage/source-resource authorization, source latest/curr
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-623…DD-627 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-07
+
+Canonical promotion HEAD `70b435e4fe8b6df010bd838b0f8da991481b99c1` / tree `a64bcc884a43bf4b24683612162ed4c25bed7b6a` passed exact-head push gates:
+- Core run `37578804351` / job `112653579786`: **1562/1562 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112653579528`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37578804297` / job `112653579783`: PASS; repository inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37578804274` / job `112653579480`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+Feature implementation proof remains `e5faecb4da6e7f344cdd7c68ee2eeb4b76019ee4` / tree `fdd162392eeed387cb570922da1aa33db266a4d7`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-623…DD-627 is closed and another source audit may open.

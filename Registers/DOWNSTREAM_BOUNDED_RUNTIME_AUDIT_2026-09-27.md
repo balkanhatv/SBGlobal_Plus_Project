@@ -664,3 +664,9 @@ The bounded result remains exact DD-617 Generated Document→completed AIMediaRe
 Implementation basis `e5faecb4da6e7f344cdd7c68ee2eeb4b76019ee4` / tree `fdd162392eeed387cb570922da1aa33db266a4d7` passed Core **1562/1562**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader establishes exact RAGSource evidence first; unbound sources perform zero Document metadata reads, while bound sources read exact persisted documentId once under the same supplied RequestContext and apply only DD-193.
 
 Success proves only RAGSource→Document relationship/currentness evidence. Document ACL/access/storage/source-resource authorization, RAGSource latest/current selection, chunking/embedding/retrieval/ranking/grounding, provider/model routing, AI execution, mutation and events remain separately governed.
+
+## DD-623…DD-627 canonical promotion evidence — 2026-10-07
+
+Canonical promotion basis `70b435e4fe8b6df010bd838b0f8da991481b99c1` / tree `a64bcc884a43bf4b24683612162ed4c25bed7b6a` passed exact-head Core **1562/1562**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains `e5faecb4da6e7f344cdd7c68ee2eeb4b76019ee4` / tree `fdd162392eeed387cb570922da1aa33db266a4d7`.
+
+The bounded authority remains unchanged: exact RAGSource→Document DD-193 relationship/currentness evidence only. Document ACL/access/storage/source-resource authorization, RAGSource latest/current selection, chunking/embedding/retrieval/ranking/grounding, provider/model routing, mutation/events and AI execution remain separately governed.
