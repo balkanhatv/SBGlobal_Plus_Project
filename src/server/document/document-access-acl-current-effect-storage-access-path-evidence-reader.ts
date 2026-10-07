@@ -1,6 +1,15 @@
 import type { RequestContext } from "../../core/context/contracts.js";
 import type { DocumentAccessMetadataPort } from "../../core/document/access-candidate.js";
 import {
+  classifyDocumentAclAccessPathEvidence,
+} from "../../core/document/acl-access-path-evidence.js";
+import type {
+  DocumentAccessAclPathEvidence,
+} from "../../core/document/acl-access-path-evidence.js";
+export type {
+  DocumentAccessAclPathEvidence,
+} from "../../core/document/acl-access-path-evidence.js";
+import {
   DocumentAclSubjectMatcher,
 } from "../../core/document/acl-subject-match.js";
 import type {
@@ -15,10 +24,6 @@ import type {
   DocumentStorageBindingReadPort,
 } from "./document-access-storage-binding-evidence-reader.js";
 
-export type DocumentAccessAclPathEvidence =
-  | "EXPLICIT_ACL_DENY"
-  | "EXPLICIT_ACL_ALLOW"
-  | "SOURCE_RESOURCE_AUTHORIZATION_REQUIRED";
 
 export interface DocumentAccessAclCurrentEffectStorageAccessPathEvidenceReadInput {
   readonly requestContext: RequestContext;
@@ -58,18 +63,8 @@ export async function loadDocumentAccessAclCurrentEffectStorageAccessPathEvidenc
   );
   if (parent === null) return null;
 
-  let accessPathEvidence: DocumentAccessAclPathEvidence;
-  switch (parent.parent.effectEvidence) {
-    case "DENY":
-      accessPathEvidence = "EXPLICIT_ACL_DENY";
-      break;
-    case "ALLOW":
-      accessPathEvidence = "EXPLICIT_ACL_ALLOW";
-      break;
-    case "NONE":
-      accessPathEvidence = "SOURCE_RESOURCE_AUTHORIZATION_REQUIRED";
-      break;
-  }
+  const accessPathEvidence: DocumentAccessAclPathEvidence =
+    classifyDocumentAclAccessPathEvidence(parent.parent.effectEvidence);
 
   return Object.freeze({
     parent,
