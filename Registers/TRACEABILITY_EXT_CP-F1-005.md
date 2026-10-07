@@ -1,7 +1,7 @@
 # TRACEABILITY EXTENSION — CP-F1-005 (F-13, F-14)
-**Current checkpoint:** `DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `144b9237c8de7c57e24980855779eeb8c0a846be` / tree `7d32afcba68b2f4b184fcf5ae9b680540046084b`
-> **Current audit gate (2026-10-07):** DD-633…DD-637 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-PROVIDER-BINDING-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `27aac80f2f9da39efacb027e4e702a4c2a29892b` / tree `860fb6d45801fe4ee014c1908295e3909d4131ef`
+> **Current audit gate (2026-10-07):** DD-638…DD-642 RAGChunk embedding AIModel→AIProvider binding current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current traceability qualification:** stable child-ID inventory is **2,962**; parent/source-heading semantic ownership gate is **372/372 owner-reconciled, 0 NOT_CERTIFIED**; complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**.
 
 > This CP-F1-005 extension is preserved as historical Foundation-era traceability evidence. Its 2,965-item accounting and certification wording are evaluated-era evidence and do not override current source-fidelity/traceability owners.

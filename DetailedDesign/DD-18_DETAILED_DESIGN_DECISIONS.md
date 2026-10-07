@@ -6995,3 +6995,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `RAGCHUNK-MODELREAD-BOUND-001`.
+
+## DD-638 — reuse exact DD-637 embedding-model evidence first
+
+**Context:** DD-637 already owns exact RAGChunk + current eligible embedding AIModel evidence.
+
+**Decision:** Add `loadAIRAGChunkEmbeddingModelProviderBindingCurrentEvidence(...)`. Invoke DD-637 first with exact supplied input and chunk/model dependencies. Parent null returns null; DD-637 dependency errors propagate unchanged. No Provider read occurs before DD-637 success.
+
+**Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_PROVIDER_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-MODELPROV-BASE-001…002`.
+
+## DD-639 — read exactly the Provider referenced by preserved Model evidence
+
+**Decision:** Call `AIProviderCatalogMetadataReadPort.loadById(parent.model.providerId)` exactly once. Do not normalize, alias, search, re-read the Model, read RAGSource, or fall back. Missing Provider returns null; dependency errors propagate unchanged.
+
+**Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_PROVIDER_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-MODELPROV-READ-001…002`.
+
+## DD-640 — apply only DD-200 direct Model→Provider id continuity
+
+**Decision:** Reuse `matchesAIModelProviderBindingFloors(parent.model, provider)`. Require exact Provider id continuity and fail closed on wrong/malformed relevant identities. Provider lifecycle, health, credential, capability, region, security, residency and version evidence remains uninterpreted.
+
+**Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_PROVIDER_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-MODELPROV-BIND-001…002`.
+
+## DD-641 — preserve immutable layered evidence
+
+**Decision:** Return frozen `{ parent, provider }` with exact references only; no clone, normalization or mutation.
+
+**Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_PROVIDER_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-MODELPROV-EVID-001`.
+
+## DD-642 — direct binding is not Provider usability, routing or RAG execution authority
+
+**Decision:** DD-637 eligibility + DD-200 Model→Provider id continuity does not establish Provider ACTIVE/current/healthy state, credential access, capability/residency route compatibility, Tenant/Industry allowlists, quota/budget, route/fallback/retry, RAGSource/Document/ACL validity, retrieval/ranking/grounding or provider SDK/AI execution.
+
+**Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_PROVIDER_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-MODELPROV-BOUND-001`.

@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `144b9237c8de7c57e24980855779eeb8c0a846be` / tree `7d32afcba68b2f4b184fcf5ae9b680540046084b`
-> **Current audit gate (2026-10-07):** DD-633…DD-637 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-PROVIDER-BINDING-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `27aac80f2f9da39efacb027e4e702a4c2a29892b` / tree `860fb6d45801fe4ee014c1908295e3909d4131ef`
+> **Current audit gate (2026-10-07):** DD-638…DD-642 RAGChunk embedding AIModel→AIProvider binding current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1442,3 +1442,9 @@ Success proves only the direct persisted RAGChunk→RAGSource relationship under
 DD-128 exact RAGChunk metadata → persisted `embeddingModelId` → one global DD-108 AIModel metadata read → DD-195 exact-id/raw-ACTIVE/sensitivity-ceiling current eligibility → `Development/RAG_CHUNK_EMBEDDING_MODEL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-633…DD-637 → `src/core/ai/rag-chunk-embedding-model-current-evidence-reader.ts` → `tests/core/ai-rag-chunk-embedding-model-current-evidence-reader.test.mjs` (`RAGCHUNK-MODELREAD-BASE-001…002`, `RAGCHUNK-MODELREAD-READ-001…002`, `RAGCHUNK-MODELREAD-FLOOR-001…002`, `RAGCHUNK-MODELREAD-EVID-001`, `RAGCHUNK-MODELREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD633_DD637_VERIFICATION_2026-10-07.md`.
 
 This relationship is independent from DD-194 RAGChunk→RAGSource binding. Success proves only fresh exact chunk evidence plus exact current AIModel id/ACTIVE/sensitivity sufficiency. Source/document/ACL validity, Provider currentness, capability/modality/residency/embedding-version compatibility, retrieval/grounding, routing and AI execution remain separate.
+
+## DD-638…DD-642 — RAGChunk eligible embedding AIModel + exact Provider binding evidence
+
+DD-637 exact RAGChunk→eligible embedding AIModel evidence → exact global AIProvider read by preserved `model.providerId` → DD-200 direct AIModel.providerId→AIProvider.id continuity → `Development/RAG_CHUNK_EMBEDDING_MODEL_PROVIDER_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-638…DD-642 → `src/core/ai/rag-chunk-embedding-model-provider-binding-current-evidence-reader.ts` → `tests/core/ai-rag-chunk-embedding-model-provider-binding-current-evidence-reader.test.mjs` (`RAGCHUNK-MODELPROV-BASE-001…002`, `RAGCHUNK-MODELPROV-READ-001…002`, `RAGCHUNK-MODELPROV-BIND-001…002`, `RAGCHUNK-MODELPROV-EVID-001`, `RAGCHUNK-MODELPROV-BOUND-001`) → `Registers/DEVELOPMENT_DD638_DD642_VERIFICATION_2026-10-07.md`.
+
+This proves only DD-637 embedding-model eligibility plus DD-200 direct Model→Provider id continuity. Provider lifecycle/health/credential/capability/region evidence, route suitability, source/document/ACL validity, retrieval/grounding and AI execution remain separately governed.

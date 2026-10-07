@@ -694,3 +694,9 @@ The bounded result is independent current embedding-model eligibility evidence o
 Canonical promotion basis `144b9237c8de7c57e24980855779eeb8c0a846be` / tree `7d32afcba68b2f4b184fcf5ae9b680540046084b` passed exact-head Core **1578/1578**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains `b6d614568da4fa0a25372e472534143b961617c5` / tree `4e0ae0c5978cfbba2abfd4732ae1dc116076ce48`.
 
 The bounded authority remains unchanged: exact current AIModel id/raw-ACTIVE/sensitivity sufficiency for persisted RAGChunk.embeddingModelId only. DD-194 parent RAGSource binding, RAGSource/Document/ACL validity, Provider currentness/health/credentials, Provider↔Model continuity, capability/modality/residency/embedding-version compatibility, retrieval/grounding/routing and AI execution remain separately governed.
+
+## DD-638…DD-642 exact-head implementation evidence — 2026-10-07
+
+Corrected implementation basis `27aac80f2f9da39efacb027e4e702a4c2a29892b` / tree `860fb6d45801fe4ee014c1908295e3909d4131ef` passed Core **1586/1586**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. It extends exact DD-637 RAGChunk→eligible embedding AIModel evidence with exactly one Provider metadata read by persisted `model.providerId` and applies only DD-200 direct id continuity.
+
+Provider lifecycle/health/credential/capability/region/security/residency/version evidence remains uninterpreted. This is not Provider usability, operation route compatibility, Tenant/Industry allowlist, quota/budget, RAGSource/Document/ACL validity, retrieval/grounding or AI execution authority.

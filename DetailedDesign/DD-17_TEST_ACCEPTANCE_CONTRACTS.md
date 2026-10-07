@@ -7150,3 +7150,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### RAGCHUNK-MODELREAD-BOUND-001 — Eligibility is not retrieval/routing/execution authority
 **Owner:** DD-637. Output exposes no source/document/ACL/provider/compatibility/retrieval/grounding/routing/execution/mutation/event authority.
+
+## DD-638 Exact DD-637 Parent Evidence Acceptance
+
+### RAGCHUNK-MODELPROV-BASE-001 — Exact DD-637 chain first
+**Owner:** DD-638. Exact supplied RequestContext/RAGChunk id and unchanged chunk/model/provider dependencies establish DD-637 before Provider access.
+
+### RAGCHUNK-MODELPROV-BASE-002 — Parent absence/errors precede Provider access
+**Owner:** DD-638. DD-637 null short-circuits and DD-637 dependency errors propagate unchanged before any Provider read.
+
+## DD-639 Exact Provider Read Acceptance
+
+### RAGCHUNK-MODELPROV-READ-001 — One exact persisted model.providerId read
+**Owner:** DD-639. Exactly one AIProvider metadata read uses the exact preserved DD-637 `parent.model.providerId`.
+
+### RAGCHUNK-MODELPROV-READ-002 — Missing/error Provider fails closed
+**Owner:** DD-639. Missing Provider returns null and Provider dependency errors propagate unchanged with no search, normalization, re-read or fallback.
+
+## DD-640 DD-200 Binding Acceptance
+
+### RAGCHUNK-MODELPROV-BIND-001 — Exact Model→Provider id continuity passes
+**Owner:** DD-640. Exact `provider.id === model.providerId` passes through the existing DD-200 floor.
+
+### RAGCHUNK-MODELPROV-BIND-002 — Wrong/malformed relevant identity fails closed
+**Owner:** DD-640. Wrong Provider id or malformed relevant Model/Provider identity evidence fails closed; malformed model identity rejected by DD-637 performs no Provider read.
+
+## DD-641 Immutable Evidence Acceptance
+
+### RAGCHUNK-MODELPROV-EVID-001 — Preserve exact parent/provider references
+**Owner:** DD-641. Success is frozen and preserves the exact DD-637 parent and exact Provider metadata references without clone, normalization or mutation.
+
+## DD-642 Authority Boundary Acceptance
+
+### RAGCHUNK-MODELPROV-BOUND-001 — No Provider-current/routing/retrieval/execution authority
+**Owner:** DD-642. Output exposes no Provider ACTIVE/current/health/credential authority, provider/model capability/residency route compatibility, source/document/ACL/retrieval/grounding or AI execution authority.
