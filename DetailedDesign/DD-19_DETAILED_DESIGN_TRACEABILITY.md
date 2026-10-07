@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-RAG-SOURCE-DOCUMENT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `70b435e4fe8b6df010bd838b0f8da991481b99c1` / tree `a64bcc884a43bf4b24683612162ed4c25bed7b6a`
-> **Current audit gate (2026-10-07):** DD-623…DD-627 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-RAG-CHUNK-SOURCE-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `8d7406744ac6b79006d519146f6ee34a893e3dce` / tree `142ffa9332a753e95c47ee674b0e9045426c484d`
+> **Current audit gate (2026-10-07):** DD-628…DD-632 RAGChunk→parent RAGSource current-evidence composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1430,3 +1430,9 @@ Non-AI/model-absent evidence performs zero AIProvider reads. Model-bound evidenc
 DD-127 exact RequestContext-scoped RAGSource evidence → zero-read unbound branch or exact same-RequestContext DD-082 DocumentAccessMetadata read by persisted RAGSource.documentId → existing DD-193 exact id/version/Tenant/nullable-Industry/scope + ACTIVE+CLEAN + residency + sensitivity floor → `Development/RAG_SOURCE_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-623…DD-627 → `src/core/ai/rag-source-document-current-evidence-reader.ts` → `tests/core/ai-rag-source-document-current-evidence-reader.test.mjs` (`RAGSRC-DOCREAD-BASE-001…002`, `RAGSRC-DOCREAD-BRANCH-001`, `RAGSRC-DOCREAD-READ-001…002`, `RAGSRC-DOCREAD-FLOOR-001…002`, `RAGSRC-DOCREAD-EVID-001`, `RAGSRC-DOCREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD623_DD627_VERIFICATION_2026-10-07.md`.
 
 Unbound sources perform zero Document reads. Bound evidence proves only the existing DD-193 current relationship floor under the supplied RequestContext. Document ACL/access/storage/source-resource authorization, RAGSource latest/current selection, chunking/embedding/retrieval/ranking/grounding, provider/model routing and AI execution remain separate.
+
+## DD-628…DD-632 — RAGChunk → current parent RAGSource evidence
+
+DD-128 exact RequestContext-scoped RAGChunk metadata → exact same-RequestContext DD-127 RAGSource read by persisted chunk.sourceId → existing DD-194 id/Tenant/null-safe-Industry/scope/residency/retention/sensitivity continuity floor → `Development/RAG_CHUNK_SOURCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-628…DD-632 → `src/core/ai/rag-chunk-source-current-evidence-reader.ts` → `tests/core/ai-rag-chunk-source-current-evidence-reader.test.mjs` (`RAGCHUNK-SRCREAD-BASE-001…002`, `RAGCHUNK-SRCREAD-READ-001…002`, `RAGCHUNK-SRCREAD-FLOOR-001…002`, `RAGCHUNK-SRCREAD-EVID-001`, `RAGCHUNK-SRCREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD628_DD632_VERIFICATION_2026-10-07.md`.
+
+Success proves only the direct persisted RAGChunk→RAGSource relationship under a fresh same-context source read and DD-194 revalidation. RAGSource ACTIVE/latest currentness, DD-193 Document binding, Document/source ACL/access, chunk ACL interpretation, DD-195 embedding-model eligibility, vector/search/retrieval/ranking/grounding, provider/model routing and AI execution remain separate.

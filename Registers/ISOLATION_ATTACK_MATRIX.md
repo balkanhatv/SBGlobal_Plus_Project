@@ -1,8 +1,8 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
-**Current checkpoint:** `DEV-AI-RAG-SOURCE-DOCUMENT-CURRENT-EVIDENCE-READER-001`
-> **Current audit gate (2026-10-07):** DD-623…DD-627 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-RAG-CHUNK-SOURCE-CURRENT-EVIDENCE-READER-001`
+> **Current audit gate (2026-10-07):** DD-628…DD-632 RAGChunk→parent RAGSource current-evidence composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-10-07 · **Branch:** `docs/architecture-branch-2`
-> **Current executable audit basis:** `70b435e4fe8b6df010bd838b0f8da991481b99c1` / tree `a64bcc884a43bf4b24683612162ed4c25bed7b6a`
+> **Current executable audit basis:** `8d7406744ac6b79006d519146f6ee34a893e3dce` / tree `142ffa9332a753e95c47ee674b0e9045426c484d`
 
 ## Historical 2026-09-14 executable persistence overlay
 

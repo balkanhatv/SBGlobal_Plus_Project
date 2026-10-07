@@ -7082,3 +7082,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### RAGSRC-DOCREAD-BOUND-001 — No ACL/retrieval/grounding/execution authority
 **Owner:** DD-627. Output exposes no Document ACL/access/storage/source-resource/current-source/chunking/embedding/retrieval/ranking/grounding/routing/execution/mutation/event authority.
+
+## DD-628 Exact RAGChunk Parent Acceptance
+
+### RAGCHUNK-SRCREAD-BASE-001 — Exact RAGChunk first
+**Owner:** DD-628. Exact supplied RequestContext and RAGChunk id enter AIRAGChunkMetadataReadPort unchanged before any parent RAGSource access.
+
+### RAGCHUNK-SRCREAD-BASE-002 — Chunk absence/errors precede source access
+**Owner:** DD-628. Null RAGChunk short-circuits and chunk dependency/validation errors propagate unchanged before any RAGSource read.
+
+## DD-629 Exact Parent RAGSource Read Acceptance
+
+### RAGCHUNK-SRCREAD-READ-001 — One exact same-context sourceId read
+**Owner:** DD-629. Successful chunk evidence causes exactly one AIRAGSourceReadPort read using the exact same RequestContext object and persisted chunk.sourceId.
+
+### RAGCHUNK-SRCREAD-READ-002 — Missing/error fails without retry/search/fallback
+**Owner:** DD-629. Hidden/missing parent source returns null and source dependency errors propagate unchanged; no retry, alternate context, source-module/resource search or fallback occurs.
+
+## DD-630 Existing DD-194 Relationship Floor Acceptance
+
+### RAGCHUNK-SRCREAD-FLOOR-001 — Exact direct relationship passes
+**Owner:** DD-630. Exact Tenant-Core and Tenant-Industry DD-194 id/Tenant/null-safe-Industry/scope/residency/retention plus chunk-sensitivity >= source-sensitivity relationship evidence passes.
+
+### RAGCHUNK-SRCREAD-FLOOR-002 — Invalid relationship fails closed
+**Owner:** DD-630. Wrong parent, scope/security continuity mismatch or malformed relevant relationship evidence returns null without normalization or alternate lookup.
+
+## DD-631 Immutable Exact-Reference Evidence Acceptance
+
+### RAGCHUNK-SRCREAD-EVID-001 — Preserve exact chunk/source references
+**Owner:** DD-631. Success is frozen and preserves exact RAGChunk/RAGSource references with unrelated raw chunk/source metadata unchanged; the composition performs exactly two persistence reads in order.
+
+## DD-632 Authority Boundary Acceptance
+
+### RAGCHUNK-SRCREAD-BOUND-001 — Parent relationship evidence is not retrieval/access/model/execution authority
+**Owner:** DD-632. Output exposes no source ACTIVE/latest currentness, Document/ACL/storage/source-resource authority, chunk ACL authorization, embedding-model eligibility, vector/search/retrieval/ranking/grounding/routing/execution/mutation/event authority.

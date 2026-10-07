@@ -6913,3 +6913,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/RAG_SOURCE_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `RAGSRC-DOCREAD-EVID-001, RAGSRC-DOCREAD-BOUND-001`.
+
+## DD-628 — read exact RAGChunk first
+
+**Context:** DD-128 owns exact RequestContext-scoped RAGChunk metadata evidence and deliberately excludes vector materialization/search authority.
+
+**Decision:** Add `loadAIRAGChunkSourceCurrentEvidence(...)`. Read the exact RAGChunk first using the exact supplied RequestContext and ragChunkId. Null remains null and chunk dependency/validation errors propagate unchanged. No parent RAGSource access occurs before chunk evidence exists.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-SRCREAD-BASE-001…002`.
+
+## DD-629 — read exactly persisted chunk.sourceId under the same RequestContext
+
+**Decision:** After chunk evidence exists, call `AIRAGSourceReadPort.loadForContext` exactly once with the exact supplied RequestContext object and `ragSourceId === chunk.sourceId`. Missing/hidden source returns null and dependency errors propagate unchanged. Do not retry, search by module/resource, substitute ids or use an alternate context.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-SRCREAD-READ-001…002`.
+
+## DD-630 — apply only existing DD-194 direct parent relationship floors
+
+**Decision:** Require `matchesAIRAGChunkSourceBindingFloors(chunk, source)` only: exact source id/Tenant/null-safe Industry/scope/residency/retention plus chunk sensitivity rank >= source sensitivity rank. Do not interpret RAGSource status/version/document/ACL fields or chunk ACL/model/vector/retrieval fields.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-SRCREAD-FLOOR-001…002`.
+
+## DD-631 — preserve exact loaded evidence references
+
+**Decision:** Success returns frozen `{ chunk, source }`, preserving the exact DD-128 chunk and DD-127 source object references without clone, normalization or mutation.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-SRCREAD-EVID-001`.
+
+## DD-632 — direct parent evidence does not grant source-current/retrieval/model/execution authority
+
+**Decision:** Do not infer source.status ACTIVE/latest sourceVersion, DD-193 Document validity, Document ACL/access/storage, source-resource authorization, chunk ACL projection authorization, DD-195 embedding-model eligibility, vector/FTS retrieval, ranking/reranking, grounding/citation, provider/model routing, mutation/events or AI execution.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-SRCREAD-BOUND-001`.

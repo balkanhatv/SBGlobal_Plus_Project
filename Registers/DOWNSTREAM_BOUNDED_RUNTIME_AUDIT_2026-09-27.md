@@ -670,3 +670,9 @@ Success proves only RAGSource→Document relationship/currentness evidence. Docu
 Canonical promotion basis `70b435e4fe8b6df010bd838b0f8da991481b99c1` / tree `a64bcc884a43bf4b24683612162ed4c25bed7b6a` passed exact-head Core **1562/1562**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains `e5faecb4da6e7f344cdd7c68ee2eeb4b76019ee4` / tree `fdd162392eeed387cb570922da1aa33db266a4d7`.
 
 The bounded authority remains unchanged: exact RAGSource→Document DD-193 relationship/currentness evidence only. Document ACL/access/storage/source-resource authorization, RAGSource latest/current selection, chunking/embedding/retrieval/ranking/grounding, provider/model routing, mutation/events and AI execution remain separately governed.
+
+## DD-628…DD-632 exact-head implementation evidence — 2026-10-07
+
+Implementation basis `8d7406744ac6b79006d519146f6ee34a893e3dce` / tree `142ffa9332a753e95c47ee674b0e9045426c484d` passed Core **1570/1570**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader loads exact RAGChunk evidence first, then performs one exact same-RequestContext RAGSource read by persisted chunk.sourceId and applies only DD-194.
+
+Success remains direct parent relationship evidence only. RAGSource ACTIVE/latest state, DD-193 Document validity, Document/source ACL/access/storage, chunk ACL interpretation, DD-195 embedding-model eligibility, vector/search/retrieval/ranking/grounding, provider/model routing, mutation/events and AI execution remain separately governed.
