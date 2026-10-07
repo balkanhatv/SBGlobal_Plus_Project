@@ -7045,3 +7045,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOCAI-PROVREAD-BOUND-001 — Provider-row evidence is not currentness, credentials, routing or execution authority
 **Owner:** DD-622. Output exposes no Provider/Model currentness/health/credential/eligibility/routing, moderation/licensing approval, request-principal/Document access, storage/signing, entitlement/budget, publication, mutation/event or AI execution authority.
+
+## DD-623 Exact RAGSource Parent Acceptance
+
+### RAGSRC-DOCREAD-BASE-001 — Exact RAGSource first
+**Owner:** DD-623. Exact supplied RequestContext and RAGSource id enter AIRAGSourceReadPort unchanged before any Document metadata access.
+
+### RAGSRC-DOCREAD-BASE-002 — Source absence/errors precede Document access
+**Owner:** DD-623. Null RAGSource short-circuits and source dependency errors propagate unchanged before any Document metadata read.
+
+## DD-624 Unbound Zero-Read Branch Acceptance
+
+### RAGSRC-DOCREAD-BRANCH-001 — Unbound source means zero Document reads
+**Owner:** DD-624. When persisted documentId/documentVersion are absent, perform zero Document reads and return frozen source-only evidence only when DD-193 unbound semantics pass.
+
+## DD-625 Exact Bound Document Read Acceptance
+
+### RAGSRC-DOCREAD-READ-001 — One exact same-context documentId read
+**Owner:** DD-625. A bound source performs exactly one DocumentAccessMetadata read using the exact supplied RequestContext and exact persisted RAGSource.documentId.
+
+### RAGSRC-DOCREAD-READ-002 — Missing/error fails without retry/search/fallback
+**Owner:** DD-625. Missing Document returns null and Document dependency errors propagate unchanged; no id normalization, version search, alternate lookup or substitution occurs.
+
+## DD-626 Existing DD-193 Current Relationship Floor Acceptance
+
+### RAGSRC-DOCREAD-FLOOR-001 — Exact current relationship passes
+**Owner:** DD-626. Exact id/version/Tenant/nullable-Industry/scope plus ACTIVE+CLEAN, residency and sensitivity-rank DD-193 evidence passes for Tenant-Core and Tenant-Industry.
+
+### RAGSRC-DOCREAD-FLOOR-002 — Mismatched/unsafe evidence fails closed
+**Owner:** DD-626. Wrong/malformed/mismatched/unsafe DD-193 evidence returns null without alternate lookup or normalization.
+
+## DD-627 Immutable Evidence / Authority Boundary Acceptance
+
+### RAGSRC-DOCREAD-EVID-001 — Preserve exact source/document references
+**Owner:** DD-627. Success is frozen and preserves exact RAGSource and optional Document object references with unrelated raw metadata unchanged.
+
+### RAGSRC-DOCREAD-BOUND-001 — No ACL/retrieval/grounding/execution authority
+**Owner:** DD-627. Output exposes no Document ACL/access/storage/source-resource/current-source/chunking/embedding/retrieval/ranking/grounding/routing/execution/mutation/event authority.

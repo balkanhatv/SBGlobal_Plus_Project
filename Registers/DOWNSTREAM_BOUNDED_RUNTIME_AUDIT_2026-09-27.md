@@ -658,3 +658,9 @@ The bounded result remains exact DD-617 evidence plus direct Model.providerId→
 Canonical promotion basis `2df278983ce6d339063af7513adac48874a35403` / tree `458c2559fced54ddf2b5abf7ed571532c8301542` passed exact-head Core **1553/1553**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation evidence remains anchored to corrected implementation `52c5a3d7e82de97681c5eb495ea78962a4bb4fae`.
 
 The bounded result remains exact DD-617 Generated Document→completed AIMediaRequest→AIModel evidence plus direct Model.providerId→AIProvider.id row continuity. Provider/Model currentness, health, credentials, eligibility/routing, compatibility/allowlists/provisioning, moderation/licensing, Document access/storage/publication, mutation/events and AI execution remain separately governed.
+
+## DD-623…DD-627 exact-head implementation evidence — 2026-10-07
+
+Implementation basis `e5faecb4da6e7f344cdd7c68ee2eeb4b76019ee4` / tree `fdd162392eeed387cb570922da1aa33db266a4d7` passed Core **1562/1562**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader establishes exact RAGSource evidence first; unbound sources perform zero Document metadata reads, while bound sources read exact persisted documentId once under the same supplied RequestContext and apply only DD-193.
+
+Success proves only RAGSource→Document relationship/currentness evidence. Document ACL/access/storage/source-resource authorization, RAGSource latest/current selection, chunking/embedding/retrieval/ranking/grounding, provider/model routing, AI execution, mutation and events remain separately governed.

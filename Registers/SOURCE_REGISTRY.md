@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
-**Current checkpoint:** `DEV-DOCUMENT-AI-GENERATED-MODEL-PROVIDER-ROW-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `2df278983ce6d339063af7513adac48874a35403` / tree `458c2559fced54ddf2b5abf7ed571532c8301542`
+**Current checkpoint:** `DEV-AI-RAG-SOURCE-DOCUMENT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `e5faecb4da6e7f344cdd7c68ee2eeb4b76019ee4` / tree `fdd162392eeed387cb570922da1aa33db266a4d7`
 **Status:** ACTIVE · **Updated:** 2026-10-07
 
-> **Current audit gate (2026-10-07):** DD-618…DD-622 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-07):** DD-623…DD-627 RAGSource→Document current-evidence composition is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 
 
 ## Authority

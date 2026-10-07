@@ -6871,3 +6871,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_ROW_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOCAI-PROVREAD-BOUND-001`.
+
+## DD-623 — read exact RAGSource first
+
+**Context:** DD-127 owns the exact RequestContext-scoped RAGSource reader and raw optional Document identity/version evidence.
+
+**Decision:** Add `loadAIRAGSourceDocumentCurrentEvidence(...)`. Read the exact RAGSource first using the exact supplied RequestContext and ragSourceId. Null remains null and source dependency errors propagate unchanged. No Document access occurs before a source exists.
+
+**Source audit:** `Development/RAG_SOURCE_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGSRC-DOCREAD-BASE-001…002`.
+
+## DD-624 — preserve the unbound zero-Document-read branch
+
+**Decision:** If `source.documentId` is absent, perform zero Document metadata reads and apply DD-193 with absent Document evidence. Return frozen `{ source }` only when the DD-193 unbound shape passes. Do not infer source latest/current state or retrieval authority.
+
+**Source audit:** `Development/RAG_SOURCE_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGSRC-DOCREAD-BRANCH-001`.
+
+## DD-625 — read exactly persisted RAGSource.documentId under the same RequestContext
+
+**Decision:** For bound evidence call `DocumentAccessMetadataPort.loadForContext` exactly once with the exact supplied RequestContext and exact persisted documentId. Missing Document returns null and dependency errors propagate unchanged. Do not normalize/search/fallback or substitute source/storage identifiers.
+
+**Source audit:** `Development/RAG_SOURCE_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGSRC-DOCREAD-READ-001…002`.
+
+## DD-626 — apply only existing DD-193 RAGSource→Document current relationship floors
+
+**Decision:** Require `matchesAIRAGSourceDocumentBindingFloors(source, document)` only. This proves exact persisted id/version/Tenant/nullable-Industry/scope plus raw ACTIVE+CLEAN Document state, exact residency and source-sensitivity >= document-sensitivity. No ACL/owner/storage/source-resource/retention/source-status/chunking semantics are added.
+
+**Source audit:** `Development/RAG_SOURCE_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGSRC-DOCREAD-FLOOR-001…002`.
+
+## DD-627 — preserve exact layered evidence without access/retrieval/execution authority
+
+**Decision:** Unbound success returns frozen `{ source }`; bound success returns frozen `{ source, document }` with exact references. Do not evaluate Document ACLs, source-resource authorization, StorageObject/signed URLs, RAGSource latest/current selection, chunks/chunking, embedding eligibility, retrieval/ranking/grounding, provider/model routing, AI execution, mutation or events.
+
+**Source audit:** `Development/RAG_SOURCE_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGSRC-DOCREAD-EVID-001, RAGSRC-DOCREAD-BOUND-001`.
