@@ -27,3 +27,13 @@ The exact DD-562 envelope, including current/expired entries and DENY/ALLOW/NONE
 ## Canonical promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-648…DD-652 state closure.
+
+## Canonical promotion verified; state closure staged — 2026-10-07
+
+Canonical promotion HEAD `cbe35ba3ba32a43f37b2ee9ab19473be17ad5152` / tree `86cdb892b2a62e8052db9f44d4873255e0dee6b8` passed exact-head push gates:
+- Core run `37659848435` / job `112924260005`: **1606/1606 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112924259462`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37659848249` / job `112924259451`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37659848285` / job `112924260829`: PASS.
+
+Pull-request Core/Database/Web workflows on the same promotion HEAD also passed. This state-closure commit must independently pass the same four gates before DD-648…DD-652 is closed and another source audit may open.

@@ -724,3 +724,9 @@ The bounded result remains composed DD-642 + DD-194 + DD-193 lineage/current rel
 Implementation basis `52f961bf63d46457023421c56c457d497aec2866` / tree `ca0ec46e73f2d9f4e63fcae255b7d7b4679708fc` passed Core **1606/1606**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Unbound DD-647 lineage performs zero ACL-layer reads. Bound lineage re-reads the exact persisted Document through DD-562 under the same RequestContext with one explicit supplied DocumentAclPermission/currentTimeIso and requires exact id/Tenant/null-safe-Industry/scope/version/sensitivity/residency continuity.
 
 The preserved DD-562 DENY/ALLOW/NONE effect is ACL-layer evidence only. No RAG→Document permission mapping, source-resource fallback, final access authorization, raw RAGSource/RAGChunk ACL interpretation, retrieval/filter/ranking/reranking/grounding/citation, prompt-injection policy, provider/model routing, inference, mutation/event or AI execution authority is added.
+
+## DD-648…DD-652 canonical promotion evidence — 2026-10-07
+
+Canonical promotion basis `cbe35ba3ba32a43f37b2ee9ab19473be17ad5152` / tree `86cdb892b2a62e8052db9f44d4873255e0dee6b8` passed exact-head Core **1606/1606**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `52f961bf63d46457023421c56c457d497aec2866`.
+
+The composition remains bounded to DD-647 lineage plus optional bound-Document DD-562 ACL current-effect evidence with exact re-read continuity. DENY/ALLOW/NONE is not reinterpreted as final RAG access. No RAG permission mapping, source-resource fallback, retrieval/ranking/grounding, provider/model routing, inference, mutation/event or AI execution authority is added.
