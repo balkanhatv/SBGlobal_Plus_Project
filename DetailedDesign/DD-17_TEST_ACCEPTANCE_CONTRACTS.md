@@ -7184,3 +7184,43 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### RAGCHUNK-MODELPROV-BOUND-001 — No Provider-current/routing/retrieval/execution authority
 **Owner:** DD-642. Output exposes no Provider ACTIVE/current/health/credential authority, provider/model capability/residency route compatibility, source/document/ACL/retrieval/grounding or AI execution authority.
+
+## DD-643 Exact DD-642 Parent Evidence Acceptance
+
+### RAGCHUNK-LINEAGE-BASE-001 — Exact DD-642 chain first
+**Owner:** DD-643. Exact supplied RequestContext/RAGChunk id and unchanged chunk/model/provider dependencies establish DD-642 before any RAGSource or Document access.
+
+### RAGCHUNK-LINEAGE-BASE-002 — Parent absence/errors precede lineage access
+**Owner:** DD-643. DD-642 null short-circuits and DD-642 dependency errors propagate unchanged before every Source/Document read.
+
+## DD-644 Parent RAGSource Read + DD-194 Acceptance
+
+### RAGCHUNK-LINEAGE-SRC-001 — One exact same-context sourceId read
+**Owner:** DD-644. Exactly one RAGSource read uses the exact supplied RequestContext object and preserved chunk.sourceId.
+
+### RAGCHUNK-LINEAGE-SRC-002 — Missing/error Source fails without fallback
+**Owner:** DD-644. Missing Source returns null and Source dependency errors propagate unchanged; no chunk re-read/search/alternate id/context/fallback occurs.
+
+### RAGCHUNK-LINEAGE-SRC-003 — Exact DD-194 relationship only
+**Owner:** DD-644. Exact DD-194 id/Tenant/null-safe-Industry/scope/residency/retention/sensitivity continuity passes; mismatched or malformed relevant evidence fails closed.
+
+## DD-645 Optional Document Branch Acceptance
+
+### RAGCHUNK-LINEAGE-DOC-001 — Unbound source performs zero Document reads
+**Owner:** DD-645. source.documentId absent requires documentVersion absent, performs zero Document reads and applies only DD-193 unbound semantics.
+
+### RAGCHUNK-LINEAGE-DOC-002 — Bound source performs one exact Document read
+**Owner:** DD-645. Bound Source performs exactly one same-RequestContext Document metadata read by persisted documentId; missing/error evidence returns null or propagates unchanged with no version search/retry/fallback.
+
+## DD-646 Existing DD-193 Current Relationship Acceptance
+
+### RAGCHUNK-LINEAGE-DOC-003 — Exact bound relationship passes
+**Owner:** DD-646. Exact DD-193 id/version/Tenant/null-safe-Industry/scope + ACTIVE+CLEAN + residency + sensitivity relationship passes; unsafe/mismatched evidence fails closed.
+
+## DD-647 Immutable Lineage / Authority Boundary Acceptance
+
+### RAGCHUNK-LINEAGE-EVID-001 — Preserve exact parent/Model/Provider/Source/Document references
+**Owner:** DD-647. Success is frozen and preserves exact DD-642 parent/model/provider plus exact source and optional document references, leaving unrelated raw metadata unchanged.
+
+### RAGCHUNK-LINEAGE-BOUND-001 — No ACL/storage/provider-routing/retrieval/execution authority
+**Owner:** DD-647. Output exposes no Document ACL/access/storage/signed-url authority, Provider usability/routing/credentials, Tenant/Industry allowlist, vector/FTS retrieval/filtering/ranking/grounding/citation, AI/provider execution, mutation or event authority.

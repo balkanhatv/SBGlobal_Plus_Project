@@ -706,3 +706,9 @@ Provider lifecycle/health/credential/capability/region/security/residency/versio
 Canonical promotion basis `f33e192257e5ec60ae9caea329926eb9ee4d6a7a` / tree `68e17c2a7eaaf22c29dac933dcf906634c94759d` passed exact-head Core **1586/1586**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to corrected implementation `27aac80f2f9da39efacb027e4e702a4c2a29892b`.
 
 The bounded result remains exact DD-637 embedding-model eligibility plus DD-200 AIModel.providerId→AIProvider.id continuity only. Provider status/health/credentials/capabilities/regions/security/residency/version, provider/model routing compatibility, Tenant/Industry allowlists, RAGSource/Document/ACL validity, retrieval/grounding and AI execution remain separate.
+
+## DD-643…DD-647 exact-head implementation evidence — 2026-10-07
+
+Implementation basis `3c23b1e034630dfa76ea9263b683b9063371f059` / tree `6c681a2ca41ad47edcc365b9c890bd0f332a8716` passed Core **1596/1596**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader extends exact DD-642 chunk/model/provider evidence with one exact same-context parent RAGSource read by persisted chunk.sourceId and applies DD-194, then follows DD-193 with zero Document reads when unbound or one exact same-context Document metadata read by persisted source.documentId when bound.
+
+Success remains immutable lineage evidence only. Provider usability/routing/credentials/allowlists, RAGSource latest/current selection, Document ACL/access/storage/source-resource/signed-url authority, chunk ACL interpretation, retrieval/filtering/ranking/reranking/grounding/citation/prompt-injection policy, provider/model execution, mutation and events remain separately governed.

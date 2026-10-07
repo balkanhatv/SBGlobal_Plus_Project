@@ -7037,3 +7037,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_PROVIDER_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `RAGCHUNK-MODELPROV-BOUND-001`.
+
+## DD-643 — reuse exact DD-642 chunk/model/provider evidence first
+
+**Context:** DD-642 already owns exact RAGChunk + eligible embedding AIModel + exact AIProvider id-binding evidence.
+
+**Decision:** Add `loadAIRAGChunkSourceDocumentModelProviderCurrentEvidence(...)`. Invoke DD-642 first with the exact supplied RequestContext/RAGChunk id and unchanged chunk/model/provider dependencies. Parent null returns null; DD-642 errors propagate unchanged. No Source or Document read occurs before DD-642 succeeds.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_DOCUMENT_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-LINEAGE-BASE-001…002`.
+
+## DD-644 — read exact parent RAGSource once and apply only DD-194
+
+**Decision:** Read exactly persisted `parent.parent.chunk.sourceId` once using the exact same RequestContext. Missing Source returns null; errors propagate unchanged. Require only `matchesAIRAGChunkSourceBindingFloors(chunk, source)`. Do not re-read/search/normalize/fallback or interpret source lifecycle/currentness/ACL fields.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_DOCUMENT_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-LINEAGE-SRC-001…003`.
+
+## DD-645 — preserve DD-193 optional Document branch exactly
+
+**Decision:** If source.documentId is absent, perform zero Document reads and require the DD-193 unbound form. If present, read exactly that persisted documentId once under the same RequestContext. Missing/error Document evidence fails without version search, alternate lookup or fallback.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_DOCUMENT_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-LINEAGE-DOC-001…002`.
+
+## DD-646 — apply only existing DD-193 Source→Document current relationship
+
+**Decision:** Require `matchesAIRAGSourceDocumentBindingFloors(source, document?)`. This proves only optional id/version/Tenant/null-safe-Industry/scope + ACTIVE+CLEAN + residency + sensitivity continuity. Do not interpret source raw status/version/chunking policy, aclPolicyRef, Document ACL/storage/owner/resource fields or retrieval authority.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_DOCUMENT_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-LINEAGE-DOC-003`.
+
+## DD-647 — immutable composed lineage is not access/retrieval/routing/execution authority
+
+**Decision:** Unbound success returns frozen `{ parent, source }`; bound success returns frozen `{ parent, source, document }`, preserving exact references. The composition proves only DD-642 + DD-194 + DD-193 lineage floors. Do not grant Document ACL/access/storage/signed-url authority, Provider usability/routing/credentials, Tenant/Industry allowlists, vector/FTS retrieval/filtering/ranking/grounding/citation, AI/provider execution, mutation or events.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_DOCUMENT_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-LINEAGE-EVID-001, RAGCHUNK-LINEAGE-BOUND-001`.
