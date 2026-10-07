@@ -6787,3 +6787,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_AI_GENERATED_MEDIA_REQUEST_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOCAI-MEDIAREAD-BOUND-001`.
+
+## DD-613 — reuse exact DD-612 Generated Document / MediaRequest evidence first
+
+**Context:** DD-612 already owns exact Generated Document→completed AIMediaRequest current evidence and the non-AI zero-request-read branch.
+
+**Decision:** Add `loadDocumentAIGeneratedModelProviderCurrentEvidence(...)`. Invoke DD-612 first with exact RequestContext/document id and unchanged dependencies. Parent null/errors preserve DD-612 behavior. If the preserved Document is non-AI, apply the existing DD-192 non-AI shape floor, return frozen parent-only evidence and perform zero AIModel reads.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-MODELREAD-BASE-001…002, DOCAI-MODELREAD-BRANCH-001`.
+
+## DD-614 — read only persisted Document.aiModelId
+
+**Decision:** For AI-generated evidence require persisted `document.aiModelId`, call global `AIModelCatalogMetadataReadPort.loadById(document.aiModelId)` exactly once, return null if absent and propagate reader errors unchanged. Do not trim/normalize/search by model code/provider, select current/latest or read AIProvider.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-MODELREAD-READ-001…002`.
+
+## DD-615 — apply only DD-192 exact model/provider composite-pair floor
+
+**Decision:** Require only `matchesDocumentAIGeneratedModelProviderBindingFloors(document, model)`: exact Model.id continuity and exact Model.providerId→Document.aiProviderId continuity. Do not interpret Model status/version/capabilities/modalities/residency/sensitivity/cost/latency/metadata.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-MODELREAD-FLOOR-001…002`.
+
+## DD-616 — preserve exact layered evidence
+
+**Decision:** Non-AI success returns frozen `{ parent }`. AI-generated success returns frozen `{ parent, model }`, preserving exact DD-612 parent and exact model reference without clone, normalization or mutation.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-MODELREAD-EVID-001`.
+
+## DD-617 — model/provider relationship evidence is not currentness or execution authority
+
+**Decision:** Do not read AIProvider; do not interpret Provider/Model ACTIVE, health, credentials, capability, residency, sensitivity, cost, latency or currentness; do not evaluate moderation/licensing approval, request-principal currentness, Document ACL/storage/signed access, prompt/capability/entitlement/budget, provider/model routing, media publication, mutation or events.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-MODELREAD-BOUND-001`.

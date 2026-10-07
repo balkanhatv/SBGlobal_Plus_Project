@@ -6971,3 +6971,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOCAI-MEDIAREAD-BOUND-001 — Provenance evidence is not publication/access/execution authority
 **Owner:** DD-612. Output exposes no Provider/Model eligibility, moderation/licensing approval, principal/document access, storage/signing, prompt/capability/budget, media execution/publication, mutation or event authority.
+
+## DD-613 Exact DD-612 Parent / Non-AI Branch Acceptance
+
+### DOCAI-MODELREAD-BASE-001 — Exact DD-612 chain first
+**Owner:** DD-613. Exact supplied RequestContext/document id and Document/MediaRequest dependencies enter DD-612 unchanged before any AIModel read.
+
+### DOCAI-MODELREAD-BASE-002 — Parent absence/errors precede AIModel access
+**Owner:** DD-613. DD-612 null short-circuits and DD-612 dependency errors propagate unchanged before any AIModel read.
+
+### DOCAI-MODELREAD-BRANCH-001 — Non-AI means zero AIModel reads
+**Owner:** DD-613. Non-AI Document returns frozen exact parent-only evidence and performs zero AIModel reads.
+
+## DD-614 Exact Persisted AIModel Read Acceptance
+
+### DOCAI-MODELREAD-READ-001 — One exact aiModelId read
+**Owner:** DD-614. AI-generated evidence performs exactly one global AIModel metadata read using persisted Document.aiModelId.
+
+### DOCAI-MODELREAD-READ-002 — Missing/error fails without search/fallback/provider read
+**Owner:** DD-614. Missing Model returns null; Model-reader errors propagate unchanged; malformed/missing aiModelId fails before read; no code/provider/latest/current lookup or AIProvider read is attempted.
+
+## DD-615 Exact Composite Model/Provider Pair Acceptance
+
+### DOCAI-MODELREAD-FLOOR-001 — Exact DD-192 pair passes
+**Owner:** DD-615. Exact Model.id == Document.aiModelId and Model.providerId == Document.aiProviderId passes.
+
+### DOCAI-MODELREAD-FLOOR-002 — Wrong/malformed pair fails closed
+**Owner:** DD-615. Wrong or malformed model/provider identifiers fail closed through DD-192.
+
+## DD-616 Immutable Layered Evidence Acceptance
+
+### DOCAI-MODELREAD-EVID-001 — Preserve exact parent/model/raw metadata
+**Owner:** DD-616. Success preserves exact DD-612 parent and exact AIModel reference without clone/normalization/mutation; request/provenance/moderation/licensing/model metadata remain raw.
+
+## DD-617 Authority Boundary Acceptance
+
+### DOCAI-MODELREAD-BOUND-001 — No provider/model currentness or execution authority
+**Owner:** DD-617. Output exposes no AIProvider row/currentness/health/credential, Model eligibility/currentness/routing, moderation/licensing approval, Document access/storage, media publication or AI execution authority.

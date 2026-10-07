@@ -634,3 +634,9 @@ Provider/Model lifecycle/eligibility/routing, moderation/licensing approval, req
 Corrected promotion basis `40eea8e6f25443822760c624b01bb1959f5e2e92` / tree `c84314accec0bc90de107b55d22a767a5d954dac` passed exact-head Core **1535/1535**, PostgreSQL **540/540** plus full bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains implementation-anchored to `95372c72f3670022a49345f0d556687d413e37a5`.
 
 The initial promotion failed only an active DD-19 checkpoint-header projection under REPO-007 and was corrected forward-only. The bounded result remains exact Generated Document→completed AIMediaRequest same-scope/residency/sensitivity provenance evidence only. Provider/Model lifecycle/eligibility/routing, moderation/licensing approval, request-principal currentness, Document ACL/storage/signed access, prompt/capability/entitlement/budget, media generation/publication, mutation and events remain separate.
+
+## DD-613…DD-617 exact-head implementation evidence — 2026-10-07
+
+Implementation basis `ae94a05dd187e0a38fbe9409ca28bf0de1348b38` / tree `c1d4955e0a3cdaaa673d4f3d556e3688b72d3752` passed Core **1544/1544**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader extends exact DD-612 Generated Document→completed AIMediaRequest evidence with zero AIModel reads for non-AI Documents or one exact global model lookup by persisted Document.aiModelId for AI-generated Documents, then applies only DD-192 exact Model.id + Model.providerId continuity.
+
+AIProvider is not read. Provider/Model lifecycle, health, credential, capability, residency, sensitivity, currentness/routing, moderation/licensing approval, request-principal currentness, Document ACL/storage/signing, media publication and AI execution remain separate. No schema/RLS/route/UI/RawSource authority is added.
