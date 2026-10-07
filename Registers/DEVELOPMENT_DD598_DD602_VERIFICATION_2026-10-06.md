@@ -30,3 +30,15 @@ Capability status/category/requiredEntitlement/defaultPolicyClass/schemaVersion 
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-598…DD-602 can be closed.
+
+## Corrected canonical promotion verified; state closure staged — 2026-10-07
+
+Initial canonical promotion `42407ddc86d042c3e0101eaae920211505cda5dc` passed Database/Web/PostgreSQL but failed Core REPO-011 because 14 active checkpoint narratives retained the prior DD-593…DD-597 promotion basis/counts. No runtime or DD-598…DD-602 implementation semantics failed.
+
+Forward-only correction `0347fc01793aa8d9928b6bee3e99871ec1c33bd4` / tree `0bc495c5a6ef7727ea0bd9358dfcc014f9a554de` aligned only those active narrative projections and passed exact-head push gates:
+- Core run `37558992438` / job `112591739949`: **1517/1517 PASS**, fail/skip 0; REPO-011 PASS.
+- PostgreSQL same run / job `112591739729`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37558992491` / job `112591739764`: PASS; repository inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37558992431` / job `112591739768`: PASS.
+
+Feature implementation evidence remains anchored to corrected implementation `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f` / tree `49e4febadfbdce76e0f6f9baeb9db12c033ce888`. This state-closure commit must independently pass the same four gates before DD-598…DD-602 is closed.

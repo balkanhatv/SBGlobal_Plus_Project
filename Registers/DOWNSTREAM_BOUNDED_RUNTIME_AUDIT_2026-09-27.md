@@ -592,3 +592,9 @@ The bounded result remains optional persisted PromptTemplate current-binding evi
 Corrected implementation basis `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f` / tree `49e4febadfbdce76e0f6f9baeb9db12c033ce888` passed Core **1517/1517**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader performs one exact AIMediaRequest read and one exact global AICapability `loadByCode` read using persisted capabilityCode, then reuses only DD-202's exact code-binding floor.
 
 Capability status/category/requiredEntitlement/defaultPolicyClass/schemaVersion remain raw evidence. No capability eligibility/currentness, entitlement/policy/allowlist, prompt/document authorization, moderation/provisioning/provider/model routing, budget/quota, media execution/publication, mutation or event authority is added.
+
+## DD-598…DD-602 corrected canonical promotion evidence — 2026-10-07
+
+Corrected promotion basis `0347fc01793aa8d9928b6bee3e99871ec1c33bd4` / tree `0bc495c5a6ef7727ea0bd9358dfcc014f9a554de` passed exact-head Core **1517/1517**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation evidence remains anchored to `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f`.
+
+The bounded result remains exact AIMediaRequest→AICapability code-binding evidence only. Capability lifecycle/eligibility, entitlement/policy/allowlist, prompt/document authorization, moderation/provisioning/provider/model routing, budget/quota, media execution/publication, mutation and event authority remain separate.
