@@ -80,6 +80,7 @@ export * from "./document/ai-generated-media-request-provenance-floors.js";
 export * from "./document/ai-generated-media-request-current-evidence-reader.js";
 export * from "./document/ai-generated-model-provider-binding-floors.js";
 export * from "./document/ai-generated-model-provider-current-evidence-reader.js";
+export * from "./document/ai-generated-model-provider-row-current-evidence-reader.js";
 export * from "./integration/webhook-subscription.js";
 export * from "./integration/webhook-delivery.js";
 export * from "./integration/outbox-event.js";
