@@ -1,7 +1,7 @@
 # ARCHITECTURE FINAL / ADVERSARIAL AUDIT — PHASE 2
-**Current checkpoint:** `DEV-AI-RAG-CHUNK-SOURCE-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `4cb6ca41b84317a3b932a7808733e8c81631dfc7` / tree `d25dc96b27d1356c4bd890a7970b467d2f5baf2e`
-> **Current audit gate (2026-10-07):** DD-628…DD-632 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `b6d614568da4fa0a25372e472534143b961617c5` / tree `4e0ae0c5978cfbba2abfd4732ae1dc116076ce48`
+> **Current audit gate (2026-10-07):** DD-633…DD-637 RAGChunk→current embedding AIModel evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-2 ARCHITECTURE REVALIDATION EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 
 ## Pass 1 — evidence reconciliation

@@ -7116,3 +7116,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### RAGCHUNK-SRCREAD-BOUND-001 — Parent relationship evidence is not retrieval/access/model/execution authority
 **Owner:** DD-632. Output exposes no source ACTIVE/latest currentness, Document/ACL/storage/source-resource authority, chunk ACL authorization, embedding-model eligibility, vector/search/retrieval/ranking/grounding/routing/execution/mutation/event authority.
+
+## DD-633 Exact RAGChunk-First Acceptance
+
+### RAGCHUNK-MODELREAD-BASE-001 — Exact RAGChunk evidence first
+**Owner:** DD-633. Exact supplied RequestContext/ragChunkId reaches DD-128 reader first and success preserves the exact chunk reference.
+
+### RAGCHUNK-MODELREAD-BASE-002 — Chunk absence/errors precede model access
+**Owner:** DD-633. Chunk null short-circuits and chunk dependency errors propagate unchanged before every AIModel read.
+
+## DD-634 Exact Persisted Embedding-Model Read Acceptance
+
+### RAGCHUNK-MODELREAD-READ-001 — One exact global model read
+**Owner:** DD-634. Exactly one AIModel catalog read uses persisted chunk.embeddingModelId with no alternate id/search/default/provider fallback.
+
+### RAGCHUNK-MODELREAD-READ-002 — Model absence/errors fail closed
+**Owner:** DD-634. Missing model returns null and model dependency errors propagate unchanged without retry/search/fallback.
+
+## DD-635 DD-195 Current Eligibility Acceptance
+
+### RAGCHUNK-MODELREAD-FLOOR-001 — Exact ACTIVE sufficient model passes
+**Owner:** DD-635. Exact model id, raw ACTIVE status and model sensitivity ceiling >= chunk sensitivity passes and preserves exact model evidence.
+
+### RAGCHUNK-MODELREAD-FLOOR-002 — Wrong/stale/malformed eligibility fails closed
+**Owner:** DD-635. Wrong model id, non-exact ACTIVE, insufficient/unknown sensitivity or malformed relevant evidence returns null.
+
+## DD-636 Immutable Evidence Acceptance
+
+### RAGCHUNK-MODELREAD-EVID-001 — Preserve exact chunk/model raw evidence
+**Owner:** DD-636. Success returns frozen exact chunk/model references, performs exactly two reads in order and leaves unrelated raw metadata unchanged.
+
+## DD-637 Authority Boundary Acceptance
+
+### RAGCHUNK-MODELREAD-BOUND-001 — Eligibility is not retrieval/routing/execution authority
+**Owner:** DD-637. Output exposes no source/document/ACL/provider/compatibility/retrieval/grounding/routing/execution/mutation/event authority.

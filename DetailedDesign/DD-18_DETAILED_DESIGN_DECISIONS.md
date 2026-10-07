@@ -6955,3 +6955,43 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/RAG_CHUNK_SOURCE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `RAGCHUNK-SRCREAD-BOUND-001`.
+
+## DD-633 — establish exact RAGChunk evidence first
+
+**Decision:** Add `loadAIRAGChunkEmbeddingModelCurrentEvidence(...)`. Read the requested RAGChunk first with exact supplied RequestContext and ragChunkId. Missing/error chunk evidence prevents all AIModel access.
+
+**Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-MODELREAD-BASE-001…002`.
+
+## DD-634 — read exactly persisted embeddingModelId once
+
+**Decision:** After chunk evidence exists, call `AIModelCatalogMetadataReadPort.loadById(chunk.embeddingModelId)` exactly once. Missing model returns null; dependency errors propagate unchanged. No search/default/provider lookup/retry/fallback.
+
+**Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-MODELREAD-READ-001…002`.
+
+## DD-635 — apply only DD-195 embedding-model current eligibility
+
+**Decision:** Apply `matchesAIRAGChunkEmbeddingModelEligibilityFloors(chunk, model)` once. Require exact model id, raw ACTIVE status and sensitivity ceiling rank >= chunk sensitivity. Do not interpret Provider/capability/modality/residency/cost/latency/version metadata or chunk source/ACL/embeddingVersion fields.
+
+**Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-MODELREAD-FLOOR-001…002`.
+
+## DD-636 — preserve exact immutable evidence references
+
+**Decision:** Success returns frozen `{ chunk, model }` preserving exact DD-128/DD-108 object references without clone, normalization or mutation.
+
+**Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-MODELREAD-EVID-001`.
+
+## DD-637 — current model eligibility is not source/access/routing/execution authority
+
+**Decision:** DD-195 evidence remains independent from DD-194 source binding. Do not infer source/document/ACL validity, Provider currentness, capability/modality/residency/embedding-version compatibility, model selection/routing, retrieval/grounding, prompt/inference, mutation/events or AI execution.
+
+**Source audit:** `Development/RAG_CHUNK_EMBEDDING_MODEL_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-MODELREAD-BOUND-001`.
