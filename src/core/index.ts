@@ -226,6 +226,7 @@ export * from "./ai/media-request-capability-current-evidence-reader.js";
 export * from "./ai/media-request-input-document-current-evidence-reader.js";
 export * from "./ai/rag-source.js";
 export * from "./ai/rag-source-document-binding-floors.js";
+export * from "./ai/rag-source-document-current-evidence-reader.js";
 export * from "./ai/rag-chunk-metadata.js";
 export * from "./ai/rag-chunk-source-binding-floors.js";
 export * from "./ai/rag-chunk-embedding-model-eligibility-floors.js";
