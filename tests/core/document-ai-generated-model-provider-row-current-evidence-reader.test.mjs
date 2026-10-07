@@ -264,7 +264,7 @@ test("DOCAI-PROVREAD-FLOOR-001 exact DD-200 Model.providerId to Provider.id bind
   assert.equal(result.provider, f.values.provider);
 });
 
-test("DOCAI-PROVREAD-FLOOR-002 wrong or malformed Provider id or Model providerId fails closed through DD-200", async () => {
+test("DOCAI-PROVREAD-FLOOR-002 wrong or malformed Provider fails through DD-200 while malformed Model evidence fails in DD-617 before Provider read", async () => {
   const cases = [
     fixture({provider: provider({id: ids.otherProvider})}),
     fixture({provider: provider({id: "bad"})}),
@@ -274,10 +274,10 @@ test("DOCAI-PROVREAD-FLOOR-002 wrong or malformed Provider id or Model providerI
 
   for (const f of cases) {
     assert.equal(await load(f), null);
-    if (f.values.model.providerId === "bad") {
-      assert.equal(f.providerCalls.length, 1);
-      assert.deepEqual(f.providerCalls, ["bad"]);
-    } else if (f.values.model.id === "bad") {
+    if (
+      f.values.model.providerId === "bad"
+      || f.values.model.id === "bad"
+    ) {
       assert.equal(f.providerCalls.length, 0);
     } else {
       assert.equal(f.providerCalls.length, 1);

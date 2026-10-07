@@ -29,8 +29,8 @@ Add `loadDocumentAIGeneratedModelProviderRowCurrentEvidence(...)`. Invoke DD-617
 **DD-619 — exact persisted Model.providerId Provider read only.**  
 For model-bound evidence call `AIProviderCatalogMetadataReadPort.loadById(parent.model.providerId)` exactly once. Missing Provider returns null. Provider-reader errors propagate unchanged. Do not trim/normalize/search by Provider code, choose current/latest, inspect health/status to select fallback, or read credentials/secrets.
 
-**DD-620 — apply only DD-200 direct Model→Provider FK floor.**  
-Require `matchesAIModelProviderBindingFloors(parent.model, provider)`. Exact Provider.id == Model.providerId is necessary. Model/Provider lifecycle, capability, residency, sensitivity, cost, latency, security, health, version and metadata remain uninterpreted.
+**DD-620 — apply only DD-200 direct Model→Provider FK floor after the valid DD-617 parent.**  
+Require `matchesAIModelProviderBindingFloors(parent.model, provider)`. Exact Provider.id == Model.providerId is necessary. Malformed Model identity evidence remains fail-closed in the DD-617/DD-192 parent before any Provider read; DD-620 does not bypass or duplicate that parent floor. Model/Provider lifecycle, capability, residency, sensitivity, cost, latency, security, health, version and metadata remain uninterpreted.
 
 **DD-621 — immutable layered evidence.**  
 Non-AI success returns frozen `{ parent }`. Model-bound success returns frozen `{ parent, provider }`, preserving exact DD-617 parent and exact Provider reference without clone/normalization/mutation.
@@ -46,7 +46,7 @@ Do not interpret Provider/Model ACTIVE/current/healthy/eligible/routable state, 
 - **DOCAI-PROVREAD-READ-001** model-bound parent performs exactly one `loadById` using exact preserved `model.providerId`.
 - **DOCAI-PROVREAD-READ-002** missing Provider returns null and Provider-reader errors propagate unchanged with no code/current/latest/fallback/credential lookup.
 - **DOCAI-PROVREAD-FLOOR-001** exact DD-200 Model.providerId→Provider.id binding passes.
-- **DOCAI-PROVREAD-FLOOR-002** wrong/malformed Provider id or malformed relevant Model evidence fails closed through DD-200.
+- **DOCAI-PROVREAD-FLOOR-002** wrong/malformed Provider id fails closed through DD-200; malformed relevant Model identity evidence fails closed earlier through the DD-617/DD-192 parent with zero Provider reads.
 - **DOCAI-PROVREAD-EVID-001** success preserves exact DD-617 parent and exact Provider references; raw model/provider/request/provenance metadata remain unchanged.
 - **DOCAI-PROVREAD-BOUND-001** output grants no Provider/Model currentness/health/credential/eligibility/routing, moderation/licensing, Document access/publication or AI execution authority.
 
