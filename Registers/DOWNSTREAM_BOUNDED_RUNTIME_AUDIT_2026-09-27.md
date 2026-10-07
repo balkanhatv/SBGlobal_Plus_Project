@@ -688,3 +688,9 @@ The bounded authority remains unchanged: exact RAGChunk→parent RAGSource DD-19
 Implementation basis `b6d614568da4fa0a25372e472534143b961617c5` / tree `4e0ae0c5978cfbba2abfd4732ae1dc116076ce48` passed Core **1578/1578**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader loads exact RAGChunk evidence first, performs one exact global AIModel read by persisted `chunk.embeddingModelId`, and applies only DD-195.
 
 The bounded result is independent current embedding-model eligibility evidence only: exact id, raw ACTIVE and sufficient sensitivity ceiling. DD-194 source binding, RAGSource/Document/ACL validity, AIProvider currentness/health/credentials/continuity, capability/modality/residency/embedding-version compatibility, vector/search/retrieval/ranking/grounding, model routing and AI execution remain separate.
+
+## DD-633…DD-637 canonical promotion evidence — 2026-10-07
+
+Canonical promotion basis `144b9237c8de7c57e24980855779eeb8c0a846be` / tree `7d32afcba68b2f4b184fcf5ae9b680540046084b` passed exact-head Core **1578/1578**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains `b6d614568da4fa0a25372e472534143b961617c5` / tree `4e0ae0c5978cfbba2abfd4732ae1dc116076ce48`.
+
+The bounded authority remains unchanged: exact current AIModel id/raw-ACTIVE/sensitivity sufficiency for persisted RAGChunk.embeddingModelId only. DD-194 parent RAGSource binding, RAGSource/Document/ACL validity, Provider currentness/health/credentials, Provider↔Model continuity, capability/modality/residency/embedding-version compatibility, retrieval/grounding/routing and AI execution remain separately governed.

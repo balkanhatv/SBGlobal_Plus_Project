@@ -1,7 +1,7 @@
 # PHASE 4 — Cross-Layer Traceability / Isolation / Determinism Revalidation
 **Current checkpoint:** `DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `b6d614568da4fa0a25372e472534143b961617c5` / tree `4e0ae0c5978cfbba2abfd4732ae1dc116076ce48`
-> **Current audit gate (2026-10-07):** DD-633…DD-637 RAGChunk→current embedding AIModel evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `144b9237c8de7c57e24980855779eeb8c0a846be` / tree `7d32afcba68b2f4b184fcf5ae9b680540046084b`
+> **Current audit gate (2026-10-07):** DD-633…DD-637 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-4 GATE EVIDENCE · **Date:** 2026-09-13  
 **Evaluated substantive DD HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`  
 **Upstream gates at evaluation:** Phase 1 Foundation PASS · Phase 2 Architecture PASS · Phase 3 DD PASS
