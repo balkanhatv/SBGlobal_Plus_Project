@@ -46,3 +46,13 @@ Canonical promotion HEAD `f33e192257e5ec60ae9caea329926eb9ee4d6a7a` / tree `68e1
 - Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
 
 This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-638…DD-642 is closed and another source audit may open.
+
+## State closure verified — 2026-10-07
+
+State-closure HEAD `9a8eb43fd1f33675a8a71adff7e246c81230f41d` / tree `a7f466109792bb7067c5bdf4fbf5b845fc981f0a` passed exact-head push gates:
+- Core run `37649039589` / job `112887216757`: **1586/1586 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112887217586`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37649039670` / job `112887217404`: PASS; inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37649039694` / job `112887217456`: PASS.
+
+DD-638…DD-642 is closed at its bounded RAGChunk→eligible embedding AIModel→exact AIProvider id-binding evidence scope. Forward development may resume only through a separately source-audited seam.
