@@ -1,7 +1,7 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
-**Current checkpoint:** `DEV-AI-RAG-CHUNK-BOUND-DOCUMENT-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
-**Current executable audit basis:** `cbe35ba3ba32a43f37b2ee9ab19473be17ad5152` / tree `86cdb892b2a62e8052db9f44d4873255e0dee6b8`
-> **Current audit gate (2026-10-07):** DD-648…DD-652 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-RAG-CHUNK-BOUND-DOCUMENT-ACL-ACCESS-PATH-EVIDENCE-READER-001`
+**Current executable audit basis:** `c35494e6f825e611f475733180fbedb8837f6d0a` / tree `7b47dbeff5acf6104fc2ec152af60150b085342f`
+> **Current audit gate (2026-10-07):** DD-653…DD-657 RAG bound-Document ACL access-path evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 

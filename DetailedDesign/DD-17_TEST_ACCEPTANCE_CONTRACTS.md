@@ -7264,3 +7264,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### RAGCHUNK-DOCACL-BOUND-001 — No inferred RAG permission or retrieval/execution authority
 **Owner:** DD-652. Output exposes no inferred RAG→Document permission mapping, source-resource fallback, full access decision, retrieval/filter/ranking/reranking/grounding/citation, prompt-injection policy, provider/model routing, inference, mutation/event or AI execution authority.
+
+## DD-653 Exact DD-652 Parent Acceptance
+
+### RAGCHUNK-ACLPATH-BASE-001 — Exact DD-652 chain first
+**Owner:** DD-653. Exact supplied RequestContext, RAGChunk id, explicit DocumentAclPermission, trusted currentTimeIso and unchanged dependencies enter DD-652 first; access-path classification performs no persistence reads after parent success.
+
+### RAGCHUNK-ACLPATH-BASE-002 — Parent absence/errors precede classification
+**Owner:** DD-653. DD-652 null returns null and DD-652 dependency/governed errors propagate unchanged before classification.
+
+## DD-654 Unbound Branch Acceptance
+
+### RAGCHUNK-ACLPATH-BRANCH-001 — Unbound evidence remains parent-only
+**Owner:** DD-654. If DD-652 has no bound Document ACL envelope, return frozen exact parent-only evidence with no accessPathEvidence and no inferred access/ACL/source-resource result.
+
+## DD-655 Shared ACL Access-Path Classifier Acceptance
+
+### RAGCHUNK-ACLPATH-DENY-001 — DENY is explicit ACL deny path only
+**Owner:** DD-655. Exact DD-652 DENY maps only to EXPLICIT_ACL_DENY and exposes no source-resource fallback authority.
+
+### RAGCHUNK-ACLPATH-ALLOW-001 — ALLOW is explicit ACL positive-path evidence only
+**Owner:** DD-655. Exact DD-652 ALLOW maps only to EXPLICIT_ACL_ALLOW and does not claim final RAG retrieval authorization.
+
+### RAGCHUNK-ACLPATH-NONE-001 — NONE identifies still-required source-resource path
+**Owner:** DD-655. Exact DD-652 NONE maps only to SOURCE_RESOURCE_AUTHORIZATION_REQUIRED without resolving or executing source-resource authorization. Existing DD-572 server semantics reuse the same pure Core classifier.
+
+## DD-656 Immutable Layered Evidence Acceptance
+
+### RAGCHUNK-ACLPATH-EVID-001 — Preserve exact DD-652 and nested evidence
+**Owner:** DD-656. Success is frozen and preserves the exact DD-652 parent plus nested lineage/model/provider/Document/ACL references unchanged; classification adds no persisted facts.
+
+## DD-657 Authority Boundary Acceptance
+
+### RAGCHUNK-ACLPATH-BOUND-001 — Access-path evidence is not final authorization or execution
+**Owner:** DD-657. Output exposes no inferred RAG→Document permission mapping, ResourceDescriptor/source-resource resolver, AuthorizationDecision/GuardResult, entitlement/security filter result, retrieval/ranking/grounding/citation, prompt-injection policy, provider/model routing, inference, mutation/event or AI execution authority.

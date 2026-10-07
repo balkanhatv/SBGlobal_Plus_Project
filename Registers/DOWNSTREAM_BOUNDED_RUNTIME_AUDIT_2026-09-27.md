@@ -730,3 +730,9 @@ The preserved DD-562 DENY/ALLOW/NONE effect is ACL-layer evidence only. No RAG�
 Canonical promotion basis `cbe35ba3ba32a43f37b2ee9ab19473be17ad5152` / tree `86cdb892b2a62e8052db9f44d4873255e0dee6b8` passed exact-head Core **1606/1606**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `52f961bf63d46457023421c56c457d497aec2866`.
 
 The composition remains bounded to DD-647 lineage plus optional bound-Document DD-562 ACL current-effect evidence with exact re-read continuity. DENY/ALLOW/NONE is not reinterpreted as final RAG access. No RAG permission mapping, source-resource fallback, retrieval/ranking/grounding, provider/model routing, inference, mutation/event or AI execution authority is added.
+
+## DD-653…DD-657 exact-head implementation evidence — 2026-10-07
+
+Corrected implementation basis `c35494e6f825e611f475733180fbedb8837f6d0a` / tree `7b47dbeff5acf6104fc2ec152af60150b085342f` passed Core **1614/1614**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The batch extracts one pure DD-568…DD-572 ACL access-path classifier and reuses it from the existing Document server path and the new DD-652 RAG composition.
+
+The RAG composition performs zero additional reads. Unbound evidence stays parent-only. Bound evidence adds only EXPLICIT_ACL_DENY / EXPLICIT_ACL_ALLOW / SOURCE_RESOURCE_AUTHORIZATION_REQUIRED evidence. No StorageObject prerequisite, RAG→Document permission mapping, source-resource resolution/authorization, final access decision, entitlement/security filtering, retrieval/ranking/grounding/citation, prompt-injection policy, provider/model routing, inference or AI execution authority is added.

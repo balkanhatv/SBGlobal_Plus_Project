@@ -7121,3 +7121,47 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `RAGCHUNK-DOCACL-EVID-001, RAGCHUNK-DOCACL-BOUND-001`.
+
+## DD-653 — reuse exact DD-652 RAG bound-Document ACL current-effect evidence first
+
+**Context:** DD-652 already owns DD-647 RAG lineage/model/provider evidence plus optional exact DD-562 bound-Document ACL current-effect evidence.
+
+**Decision:** Add `loadAIRAGChunkBoundDocumentAclAccessPathEvidence(...)`. Invoke DD-652 first with the exact supplied RequestContext, RAGChunk id, explicit DocumentAclPermission, trusted currentTimeIso and unchanged dependencies. Parent null/errors preserve DD-652 behavior. Classification performs zero additional reads.
+
+**Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-ACLPATH-BASE-001…002`.
+
+## DD-654 — preserve unbound RAG evidence without classification
+
+**Decision:** If DD-652 contains no `documentAcl`, return frozen `{ parent }`. Do not add `accessPathEvidence`, infer access, or infer that source-resource ACL work is unnecessary.
+
+**Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-ACLPATH-BRANCH-001`.
+
+## DD-655 — share the canonical DD-568…DD-572 ACL-path classifier
+
+**Context:** Existing DD-572 semantics classify canonical ACL effect evidence as DENY→EXPLICIT_ACL_DENY, ALLOW→EXPLICIT_ACL_ALLOW and NONE→SOURCE_RESOURCE_AUTHORIZATION_REQUIRED. That classification is independent of DD-572's physical StorageObject parent.
+
+**Decision:** Extract one pure Core classifier and refactor DD-572 to reuse it without changing DD-572's input/output contract or storage prerequisite. Apply the same helper directly to exact DD-652 `documentAcl.effectEvidence`. Do not add StorageObject binding to the RAG chain.
+
+**Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-ACLPATH-DENY-001, RAGCHUNK-ACLPATH-ALLOW-001, RAGCHUNK-ACLPATH-NONE-001` plus the existing DD-568…DD-572 acceptance suite.
+
+## DD-656 — immutable zero-read layered evidence
+
+**Decision:** Bound success returns frozen `{ parent, accessPathEvidence }`, preserving the exact DD-652 parent and every nested raw evidence reference. Classification introduces no additional persisted/resource facts.
+
+**Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-ACLPATH-EVID-001`.
+
+## DD-657 — ACL access-path evidence remains below final RAG authorization
+
+**Decision:** EXPLICIT_ACL_DENY blocks source-resource fallback only at the ACL layer. EXPLICIT_ACL_ALLOW is positive ACL-path evidence only. SOURCE_RESOURCE_AUTHORIZATION_REQUIRED identifies an unexecuted path only. Do not infer RAG→Document permission mapping, build a ResourceDescriptor, call AuthorizationDecisionService/GuardPipeline, evaluate remaining entitlement/security filters, perform retrieval/ranking/grounding/citation, apply prompt-injection policy, route providers/models, invoke inference, mutate or emit events.
+
+**Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-ACLPATH-BOUND-001`.
