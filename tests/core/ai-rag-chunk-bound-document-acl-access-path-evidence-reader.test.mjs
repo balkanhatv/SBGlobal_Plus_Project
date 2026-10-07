@@ -275,7 +275,7 @@ test("RAGCHUNK-ACLPATH-BASE-001 exact DD-652 parent executes first with exact in
   assert.equal(f.calls.acl.length, 1);
   assert.equal(result.parent.parent.source, f.values.source);
   assert.equal(result.parent.parent.document, f.values.lineageDocument);
-  assert.equal(result.parent.documentAcl.parent.candidate, f.values.aclDocument);
+  assert.equal(result.parent.documentAcl.parent.candidate.documentId, f.values.aclDocument.id);
 });
 
 test("RAGCHUNK-ACLPATH-BASE-002 DD-652 null/error short-circuits or propagates unchanged before classification", async () => {
