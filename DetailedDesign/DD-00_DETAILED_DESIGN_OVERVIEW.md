@@ -1,7 +1,7 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
-**Current checkpoint:** `DEV-AI-RAG-CHUNK-SOURCE-DOCUMENT-MODEL-PROVIDER-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `8bf2f893768eb51ee11344df1ec7394f4ca906a4` / tree `b769e833a1d7af2c93d1b4afed19826d2a018167`
-> **Current audit gate (2026-10-07):** DD-643…DD-647 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-RAG-CHUNK-BOUND-DOCUMENT-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
+**Current executable audit basis:** `52f961bf63d46457023421c56c457d497aec2866` / tree `ca0ec46e73f2d9f4e63fcae255b7d7b4679708fc`
+> **Current audit gate (2026-10-07):** DD-648…DD-652 RAG bound-Document ACL current-effect evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 

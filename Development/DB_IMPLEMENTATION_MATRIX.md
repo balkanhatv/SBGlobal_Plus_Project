@@ -1,7 +1,7 @@
 # DATABASE IMPLEMENTATION MATRIX — INDUSTRY WAVE
-**Current checkpoint:** `DEV-AI-RAG-CHUNK-SOURCE-DOCUMENT-MODEL-PROVIDER-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `8bf2f893768eb51ee11344df1ec7394f4ca906a4` / tree `b769e833a1d7af2c93d1b4afed19826d2a018167`
-> **Current audit gate (2026-10-07):** DD-643…DD-647 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-RAG-CHUNK-BOUND-DOCUMENT-ACL-CURRENT-EFFECT-EVIDENCE-READER-001`
+**Current executable audit basis:** `52f961bf63d46457023421c56c457d497aec2866` / tree `ca0ec46e73f2d9f4e63fcae255b7d7b4679708fc`
+> **Current audit gate (2026-10-07):** DD-648…DD-652 RAG bound-Document ACL current-effect evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-10-07 · **Branch:** `docs/architecture-branch-2`
 **Status:** 9 CURRENT SUPPORTED INDUSTRY TABLE SETS IMPLEMENTED · CURRENT PERSISTENCE CHECKPOINT VERIFIED
 

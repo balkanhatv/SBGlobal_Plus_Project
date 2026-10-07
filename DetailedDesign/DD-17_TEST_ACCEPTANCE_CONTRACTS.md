@@ -7224,3 +7224,43 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### RAGCHUNK-LINEAGE-BOUND-001 — No ACL/storage/provider-routing/retrieval/execution authority
 **Owner:** DD-647. Output exposes no Document ACL/access/storage/signed-url authority, Provider usability/routing/credentials, Tenant/Industry allowlist, vector/FTS retrieval/filtering/ranking/grounding/citation, AI/provider execution, mutation or event authority.
+
+## DD-648 Exact DD-647 Parent Evidence Acceptance
+
+### RAGCHUNK-DOCACL-BASE-001 — Exact DD-647 chain first
+**Owner:** DD-648. Exact supplied RequestContext/RAGChunk id and unchanged chunk/model/provider/source/document dependencies establish DD-647 before any ACL-layer access.
+
+### RAGCHUNK-DOCACL-BASE-002 — Parent absence/errors precede ACL access
+**Owner:** DD-648. DD-647 null short-circuits and parent dependency/governed errors propagate unchanged before any second Document or ACL read.
+
+## DD-649 Bound / Unbound ACL Branch Acceptance
+
+### RAGCHUNK-DOCACL-BRANCH-001 — Unbound source performs zero ACL-layer reads
+**Owner:** DD-649. If DD-647 preserves no Document, return frozen exact parent-only evidence with zero DD-562 metadata/ACL reads and do not infer source/resource access satisfaction.
+
+### RAGCHUNK-DOCACL-READ-001 — Bound source invokes exact DD-562 evidence once
+**Owner:** DD-649. Bound evidence invokes DD-562 with the exact same RequestContext, preserved Document id, explicit caller-supplied DocumentAclPermission and exact trusted currentTimeIso.
+
+### RAGCHUNK-DOCACL-READ-002 — ACL dependency/time errors preserve identity
+**Owner:** DD-649. DD-562 metadata/ACL/time/effect errors propagate unchanged with no permission inference, retry, alternate lookup or fallback.
+
+## DD-650 Bound Document Continuity Acceptance
+
+### RAGCHUNK-DOCACL-BIND-001 — Exact re-read Document continuity passes
+**Owner:** DD-650. Bound success requires exact Document id, Tenant, null-safe Industry Context, scope class, version number, sensitivity class and residency region continuity between DD-647 lineage evidence and the DD-562 re-read candidate.
+
+### RAGCHUNK-DOCACL-BIND-002 — Re-read continuity mismatch fails closed
+**Owner:** DD-650. Any relevant Document identity/version/security-scope mismatch fails closed.
+
+## DD-651 ACL Effect Evidence Acceptance
+
+### RAGCHUNK-DOCACL-EFFECT-001 — Preserve ACL-layer effect without retrieval authorization
+**Owner:** DD-651. Preserve exact DD-562 current/expired matched ACL entries and DENY/ALLOW/NONE effect evidence; do not reinterpret ALLOW as RAG retrieval authorization or choose source-resource fallback.
+
+## DD-652 Immutable Evidence / Authority Boundary Acceptance
+
+### RAGCHUNK-DOCACL-EVID-001 — Preserve exact DD-647/DD-562 references
+**Owner:** DD-652. Success is frozen and preserves exact DD-647 parent plus exact bound DD-562 envelope references without clone, normalization or mutation.
+
+### RAGCHUNK-DOCACL-BOUND-001 — No inferred RAG permission or retrieval/execution authority
+**Owner:** DD-652. Output exposes no inferred RAG→Document permission mapping, source-resource fallback, full access decision, retrieval/filter/ranking/reranking/grounding/citation, prompt-injection policy, provider/model routing, inference, mutation/event or AI execution authority.

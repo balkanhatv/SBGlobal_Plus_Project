@@ -7079,3 +7079,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/RAG_CHUNK_SOURCE_DOCUMENT_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `RAGCHUNK-LINEAGE-EVID-001, RAGCHUNK-LINEAGE-BOUND-001`.
+
+## DD-648 — reuse exact DD-647 lineage/model/provider evidence first
+
+**Context:** DD-647 already owns exact RAGChunk→RAGSource→optional current Document lineage composed with eligible embedding AIModel→AIProvider binding evidence.
+
+**Decision:** Add `loadAIRAGChunkBoundDocumentAclCurrentEffectEvidence(...)`. Invoke DD-647 once with the exact supplied RequestContext/RAGChunk id and unchanged dependencies. Parent null returns null; parent dependency/governed errors propagate unchanged. No ACL or second Document read occurs before DD-647 succeeds.
+
+**Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-DOCACL-BASE-001…002`.
+
+## DD-649 — preserve zero-read unbound branch and exact DD-562 bound branch
+
+**Decision:** If DD-647 preserves no Document, return frozen `{ parent }` with zero DD-562 reads and no access inference. If a Document is bound, invoke `loadDocumentAccessAclCurrentEffectEvidence(...)` once with the exact same RequestContext, persisted Document id, explicit supplied DocumentAclPermission and exact trusted currentTimeIso. Do not infer a RAG permission such as VIEW.
+
+**Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-DOCACL-BRANCH-001, RAGCHUNK-DOCACL-READ-001…002`.
+
+## DD-650 — require re-read Document continuity
+
+**Decision:** Bound success requires exact id/Tenant/null-safe-Industry/scope/version/sensitivity/residency continuity between DD-647 Document evidence and the DD-562 candidate. Any mismatch fails closed. StorageObject/source-resource/owner fields remain uninterpreted.
+
+**Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-DOCACL-BIND-001…002`.
+
+## DD-651 — preserve ACL-layer current-effect evidence without authorization reinterpretation
+
+**Decision:** Preserve the exact DD-562 envelope including current/expired entries and DENY/ALLOW/NONE effect evidence. Do not translate ALLOW into retrieval authority, and do not execute source-resource inheritance/fallback.
+
+**Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-DOCACL-EFFECT-001`.
+
+## DD-652 — immutable layered evidence with hard RAG access/execution boundary
+
+**Decision:** Unbound success returns frozen `{ parent }`; bound success returns frozen `{ parent, documentAcl }`, preserving exact references. Do not interpret raw RAGSource.status/sourceVersion/aclPolicyRef or RAGChunk.aclProjection, map RAG retrieval to a Document ACL permission, evaluate final RBAC/ABAC/entitlement/access, perform retrieval/ranking/grounding/citation, route providers/models, invoke inference, mutate or emit events.
+
+**Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-DOCACL-EVID-001, RAGCHUNK-DOCACL-BOUND-001`.
