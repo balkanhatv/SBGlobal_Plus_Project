@@ -606,3 +606,9 @@ State-closure correction basis `d385fbc2faefe28da212a9a77feba1776efbdec9` / tree
 The DD-598…DD-602 bounded result remains exact AIMediaRequest→AICapability persisted code-binding evidence only. Capability eligibility/currentness, entitlement/policy/allowlist, prompt/document authorization, moderation/provisioning/provider/model routing, budget/quota, media execution/publication, mutation and event authority remain separate.
 
 DD-603…DD-607 is source-audited only for exact AIMediaRequest input-document current evidence. It may read exact Document metadata and reuse DD-189 relationship/currentness floors, but it does not authorize ACL/storage/source-resource/principal/media execution.
+
+## DD-603…DD-607 exact-head implementation evidence — 2026-10-07
+
+Corrected implementation basis `02311955f29f691887f3b9e2bb011767b6300c80` / tree `7153aa91ed3eff9ddaf7a2436a7e5edaa5b1d26c` passed Core **1526/1526**, PostgreSQL **540/540** plus full bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader establishes exact AIMediaRequest-first evidence, preserves a zero-read empty input branch, reads each persisted input document id exactly once under the same RequestContext in persisted order, then applies only DD-189 relationship/currentness floors.
+
+Document ACL/access, source-resource authorization, StorageObject/signed-url access, principal currentness/ownership authorization, prompt/capability eligibility, entitlement/policy, moderation, provider/model routing, budget/quota, media execution/publication, mutation and event authority remain separately governed.

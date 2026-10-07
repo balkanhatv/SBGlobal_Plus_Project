@@ -6897,3 +6897,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIMEDIA-CAPREAD-BOUND-001 — Relationship evidence only
 **Owner:** DD-602. Output exposes no capability eligibility/currentness, entitlement/policy/allowlist decision, prompt/document authorization, moderation/provisioning/provider/model/budget decision, media execution/publication, mutation or event authority.
+
+## DD-603 Exact AIMediaRequest-First Acceptance
+
+### AIMEDIA-DOCREAD-BASE-001 — Exact request first
+**Owner:** DD-603. Exact supplied RequestContext/mediaRequestId enter AIMediaRequestReadPort once before any Document metadata access.
+
+### AIMEDIA-DOCREAD-BASE-002 — Request absence/errors precede documents
+**Owner:** DD-603. Request null returns null and request dependency/persistence errors propagate unchanged with zero Document metadata reads.
+
+## DD-604 Exact Input-Document Read Acceptance
+
+### AIMEDIA-DOCREAD-BRANCH-001 — Empty input set performs zero reads
+**Owner:** DD-604. Empty persisted inputDocumentRefs performs zero Document metadata reads and continues with empty evidence only through DD-189.
+
+### AIMEDIA-DOCREAD-READ-001 — One exact read per persisted ref
+**Owner:** DD-604. Non-empty input performs exactly one DocumentAccessMetadata read per persisted ref in persisted order with the exact supplied RequestContext and documentId.
+
+### AIMEDIA-DOCREAD-READ-002 — Missing/error fails closed
+**Owner:** DD-604. Missing Document returns null and metadata dependency errors propagate unchanged; no retry/search/fallback/substitution occurs.
+
+## DD-605 Existing DD-189 Floor Acceptance
+
+### AIMEDIA-DOCREAD-FLOOR-001 — Exact relationship/currentness evidence passes
+**Owner:** DD-605. Complete exact DD-189 Tenant/nullable-Industry + ACTIVE/CLEAN + sensitivity-ceiling + residency evidence passes and preserves exact references.
+
+### AIMEDIA-DOCREAD-FLOOR-002 — Mismatched/unsafe evidence fails closed
+**Owner:** DD-605. Missing/duplicate/mismatched/unsafe DD-189 evidence fails closed with no normalization or alternate lookup.
+
+## DD-606 Immutable Evidence Acceptance
+
+### AIMEDIA-DOCREAD-EVID-001 — Preserve exact request/document references
+**Owner:** DD-606. Success is frozen; the outer documents array is frozen in persisted ref/read order and exact request/document references plus unrelated raw metadata remain unchanged.
+
+## DD-607 Authority Boundary Acceptance
+
+### AIMEDIA-DOCREAD-BOUND-001 — Relationship/currentness evidence is not access or media authority
+**Owner:** DD-607. Output exposes no ACL/access/storage/source-resource/principal/prompt/capability/moderation/routing/budget/execution/publication/mutation/event authority.

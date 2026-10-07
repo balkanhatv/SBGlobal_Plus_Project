@@ -6707,3 +6707,43 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/AI_MEDIA_REQUEST_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AIMEDIA-CAPREAD-BOUND-001`.
+
+## DD-603 — load exact AIMediaRequest before Document metadata
+
+**Decision:** Add `loadAIMediaRequestInputDocumentCurrentEvidence(...)`. Read the exact AIMediaRequest first using the exact supplied RequestContext and mediaRequestId. Request null remains null; dependency/persistence errors propagate unchanged. No Document metadata access occurs before parent success.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_INPUT_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-DOCREAD-BASE-001…002`.
+
+## DD-604 — preserve zero-read empty branch; otherwise exact persisted-order reads
+
+**Decision:** If persisted `inputDocumentRefs` is empty, perform zero Document metadata reads. Otherwise read each persisted ref exactly once through `DocumentAccessMetadataPort.loadForContext`, in persisted ref order, using the exact supplied RequestContext and exact documentId. Missing evidence returns null; dependency errors propagate unchanged. Do not trim/normalize ids, substitute storage/source ids, search, retry or fall back.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_INPUT_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-DOCREAD-BRANCH-001, AIMEDIA-DOCREAD-READ-001…002`.
+
+## DD-605 — apply only existing DD-189 input-document floors
+
+**Decision:** Require `matchesAIMediaRequestInputDocumentBindingFloors(request, documents)`. This proves only exact evidence-set completeness plus existing Tenant/nullable-Industry, ACTIVE+CLEAN, sensitivity ceiling and residency equality. Do not add ACL, owner-principal, storage, source-resource, media-type, filename or version semantics.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_INPUT_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-DOCREAD-FLOOR-001…002`.
+
+## DD-606 — preserve immutable exact-reference evidence
+
+**Decision:** Success returns frozen `{ request, documents }`, preserving exact loaded object references. Freeze only the outer document-evidence array in persisted read order. DD-189 remains order-insensitive; no ordering business rule is created.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_INPUT_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-DOCREAD-EVID-001`.
+
+## DD-607 — input-document evidence is not Document access or media execution authority
+
+**Decision:** Do not subject-match/read ACLs, resolve source-resource authorization, read/authorize StorageObject, issue signed URLs, evaluate principal currentness/ownership, prompt/capability eligibility, entitlement/policy, moderation, provider/model routing, budget/quota, execute/publish media, mutate state or emit events.
+
+**Source audit:** `Development/AI_MEDIA_REQUEST_INPUT_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `AIMEDIA-DOCREAD-BOUND-001`.

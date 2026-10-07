@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-MEDIA-REQUEST-CAPABILITY-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `d385fbc2faefe28da212a9a77feba1776efbdec9` / tree `367d575ecb4251c10fda3e4c99aa8e03714f9a5a`
-> **Current audit gate (2026-10-07):** DD-598…DD-602 state closure passed exact-head Core/PostgreSQL/Database/Web at the basis above. DD-603…DD-607 AIMediaRequest input-document current-evidence source audit is staged and must independently pass before implementation. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-MEDIA-REQUEST-INPUT-DOCUMENT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `02311955f29f691887f3b9e2bb011767b6300c80` / tree `7153aa91ed3eff9ddaf7a2436a7e5edaa5b1d26c`
+> **Current audit gate (2026-10-07):** DD-603…DD-607 AIMediaRequest input-document current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1400,3 +1400,9 @@ Unbound requests perform zero PromptTemplate reads and do not select a default. 
 DD-125 persisted AIMediaRequest.capabilityCode → DD-109 global AICapability by-code reader → DD-202 exact persisted relationship floor → `Development/AI_MEDIA_REQUEST_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-598…DD-602 → `src/core/ai/media-request-capability-current-evidence-reader.ts` → `tests/core/ai-media-request-capability-current-evidence-reader.test.mjs` (`AIMEDIA-CAPREAD-BASE-001…002`, `AIMEDIA-CAPREAD-READ-001…002`, `AIMEDIA-CAPREAD-FLOOR-001…002`, `AIMEDIA-CAPREAD-EVID-001`, `AIMEDIA-CAPREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD598_DD602_VERIFICATION_2026-10-06.md`.
 
 This proves only exact persisted AIMediaRequest→AICapability code continuity using one exact request read and one exact global capability-by-code read. Capability lifecycle/category/requiredEntitlement/defaultPolicyClass/schemaVersion remain raw. Capability eligibility/currentness, entitlement/policy/allowlist decisions, prompt/document authorization, moderation/provisioning/provider/model routing, budget/quota, media execution/publication, mutation and events remain separate.
+
+## DD-603…DD-607 — AIMediaRequest input-document current evidence
+
+DD-125 exact visible AIMediaRequest evidence → persisted unique inputDocumentRefs → zero-read empty branch or exact same-RequestContext DD-082 DocumentAccessMetadata reads in persisted ref order → existing DD-189 exact evidence-set/Tenant/nullable-Industry/ACTIVE+CLEAN/sensitivity/residency floor → `Development/AI_MEDIA_REQUEST_INPUT_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-603…DD-607 → `src/core/ai/media-request-input-document-current-evidence-reader.ts` → `tests/core/ai-media-request-input-document-current-evidence-reader.test.mjs` (`AIMEDIA-DOCREAD-BASE-001…002`, `AIMEDIA-DOCREAD-BRANCH-001`, `AIMEDIA-DOCREAD-READ-001…002`, `AIMEDIA-DOCREAD-FLOOR-001…002`, `AIMEDIA-DOCREAD-EVID-001`, `AIMEDIA-DOCREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD603_DD607_VERIFICATION_2026-10-07.md`.
+
+Success proves only exact persisted request→input-document relationship/currentness evidence under the supplied RequestContext. ACL/access/storage/source-resource/principal/prompt/capability/moderation/routing/budget/execution/publication/mutation/event authority remains separate.
