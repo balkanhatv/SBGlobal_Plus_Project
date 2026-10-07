@@ -640,3 +640,9 @@ The initial promotion failed only an active DD-19 checkpoint-header projection u
 Implementation basis `ae94a05dd187e0a38fbe9409ca28bf0de1348b38` / tree `c1d4955e0a3cdaaa673d4f3d556e3688b72d3752` passed Core **1544/1544**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader extends exact DD-612 Generated Document→completed AIMediaRequest evidence with zero AIModel reads for non-AI Documents or one exact global model lookup by persisted Document.aiModelId for AI-generated Documents, then applies only DD-192 exact Model.id + Model.providerId continuity.
 
 AIProvider is not read. Provider/Model lifecycle, health, credential, capability, residency, sensitivity, currentness/routing, moderation/licensing approval, request-principal currentness, Document ACL/storage/signing, media publication and AI execution remain separate. No schema/RLS/route/UI/RawSource authority is added.
+
+## DD-613…DD-617 canonical promotion evidence — 2026-10-07
+
+Canonical promotion basis `142b4f3125296b67132437aaa39359a44967729d` / tree `a350711f481c6fcfe719f1e67fed43da632b49f1` passed exact-head Core **1544/1544**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains `ae94a05dd187e0a38fbe9409ca28bf0de1348b38` / tree `c1d4955e0a3cdaaa673d4f3d556e3688b72d3752`.
+
+The bounded authority remains unchanged: exact DD-612 parent + exact AIModel(id, providerId) persisted pair evidence only; no AIProvider currentness/health/credentials, Model eligibility/routing/currentness, moderation/licensing approval, Document access/storage/signing, publication or AI execution authority.
