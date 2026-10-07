@@ -6829,3 +6829,45 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `DOCAI-MODELREAD-BOUND-001`.
+
+## DD-618 — reuse exact DD-617 Generated Document + AIModel evidence first
+
+**Context:** DD-617 already owns exact Generated Document→completed AIMediaRequest→AIModel(id, providerId) evidence and the non-AI zero-model-read branch.
+
+**Decision:** Add `loadDocumentAIGeneratedModelProviderRowCurrentEvidence(...)`. Invoke DD-617 first with exact RequestContext/document id and unchanged Document/MediaRequest/Model dependencies. Parent null/errors preserve DD-617 behavior. If no Model evidence exists, return frozen parent-only evidence and perform zero AIProvider reads.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_ROW_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-PROVREAD-BASE-001…002, DOCAI-PROVREAD-BRANCH-001`.
+
+## DD-619 — read only preserved AIModel.providerId
+
+**Decision:** For model-bound evidence call global `AIProviderCatalogMetadataReadPort.loadById(parent.model.providerId)` exactly once. Missing Provider returns null and dependency errors propagate unchanged. Do not trim/normalize/search by Provider code, choose current/latest/fallback, inspect health/status to select an alternate, or resolve credentials/secrets.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_ROW_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-PROVREAD-READ-001…002`.
+
+## DD-620 — apply DD-200 only after a valid DD-617 parent
+
+**Decision:** Require only `matchesAIModelProviderBindingFloors(parent.model, provider)` for exact Provider.id == Model.providerId continuity. Malformed Model identity evidence remains fail-closed in DD-617/DD-192 before any Provider read; do not bypass or duplicate that parent floor. Provider/Model lifecycle/capability/residency/sensitivity/cost/latency/security/health/version metadata remain uninterpreted.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_ROW_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-PROVREAD-FLOOR-001…002`.
+
+## DD-621 — preserve immutable branch-specific exact references
+
+**Decision:** Non-AI/model-absent success returns frozen `{ parent }`. Model-bound success returns frozen `{ parent, provider }`, preserving exact DD-617 parent and exact Provider reference without clone, normalization or mutation.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_ROW_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-PROVREAD-EVID-001`.
+
+## DD-622 — Provider-row relationship evidence does not grant Provider/Model currentness or execution authority
+
+**Decision:** Do not interpret Provider/Model ACTIVE/current/healthy/eligible/routable state, credential refs/secrets, capability/residency/sensitivity compatibility, allowlists, provisioning, entitlement/budget, moderation/licensing approval, request-principal currentness, Document ACL/storage/signed access, publication, mutation/events or AI execution.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MODEL_PROVIDER_ROW_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-PROVREAD-BOUND-001`.

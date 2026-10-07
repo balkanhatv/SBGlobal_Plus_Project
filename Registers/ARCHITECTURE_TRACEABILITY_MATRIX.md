@@ -1,7 +1,7 @@
 # ARCHITECTURE TRACEABILITY MATRIX — PHASE 2 FRESH REVALIDATION
-**Current checkpoint:** `DEV-DOCUMENT-AI-GENERATED-MODEL-PROVIDER-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `142b4f3125296b67132437aaa39359a44967729d` / tree `a350711f481c6fcfe719f1e67fed43da632b49f1`
-> **Current audit gate (2026-10-07):** DD-613…DD-617 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-AI-GENERATED-MODEL-PROVIDER-ROW-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `52c5a3d7e82de97681c5eb495ea78962a4bb4fae` / tree `e432e50ea18cb7e2fdd7d03e50e460c617d2ec49`
+> **Current audit gate (2026-10-07):** DD-618…DD-622 corrected Generated Document + AIModel + AIProvider-row evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** PHASE-2 ARCHITECTURE TRACEABILITY PASS · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 **Upstream Foundation:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED`
 

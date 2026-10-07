@@ -7008,3 +7008,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### DOCAI-MODELREAD-BOUND-001 — No provider/model currentness or execution authority
 **Owner:** DD-617. Output exposes no AIProvider row/currentness/health/credential, Model eligibility/currentness/routing, moderation/licensing approval, Document access/storage, media publication or AI execution authority.
+
+## DD-618 Exact DD-617 Parent / Non-AI Branch Acceptance
+
+### DOCAI-PROVREAD-BASE-001 — Exact DD-617 chain first
+**Owner:** DD-618. Exact supplied RequestContext/document id and Document/MediaRequest/Model dependencies enter DD-617 unchanged before any AIProvider read.
+
+### DOCAI-PROVREAD-BASE-002 — Parent absence/errors precede AIProvider access
+**Owner:** DD-618. DD-617 null short-circuits and DD-617 dependency errors propagate unchanged before any AIProvider read.
+
+### DOCAI-PROVREAD-BRANCH-001 — Non-AI/model-absent means zero Provider reads
+**Owner:** DD-618. Non-AI/model-absent DD-617 evidence returns frozen exact parent-only evidence and performs zero AIProvider reads.
+
+## DD-619 Exact Persisted Provider Read Acceptance
+
+### DOCAI-PROVREAD-READ-001 — One exact model.providerId read
+**Owner:** DD-619. Model-bound evidence performs exactly one global AIProvider metadata read using the exact preserved AIModel.providerId.
+
+### DOCAI-PROVREAD-READ-002 — Missing/error fails without search/fallback/credential lookup
+**Owner:** DD-619. Missing Provider returns null; Provider-reader errors propagate unchanged; no Provider-code/current/latest/fallback/health/status/credential lookup occurs.
+
+## DD-620 Direct Model→Provider FK Floor Acceptance
+
+### DOCAI-PROVREAD-FLOOR-001 — Exact DD-200 binding passes
+**Owner:** DD-620. Exact Provider.id == preserved AIModel.providerId passes through the existing DD-200 direct foreign-key continuity floor.
+
+### DOCAI-PROVREAD-FLOOR-002 — Earliest source-owned malformed evidence fails closed
+**Owner:** DD-620. Wrong/malformed Provider id fails through DD-200; malformed relevant AIModel identity evidence fails earlier through DD-617/DD-192 with zero Provider reads.
+
+## DD-621 Immutable Layered Evidence Acceptance
+
+### DOCAI-PROVREAD-EVID-001 — Preserve exact parent/provider/raw metadata
+**Owner:** DD-621. Success preserves exact DD-617 parent and exact AIProvider reference without clone/normalization/mutation; raw model/provider/request/provenance metadata remain unchanged.
+
+## DD-622 Authority Boundary Acceptance
+
+### DOCAI-PROVREAD-BOUND-001 — Provider-row evidence is not currentness, credentials, routing or execution authority
+**Owner:** DD-622. Output exposes no Provider/Model currentness/health/credential/eligibility/routing, moderation/licensing approval, request-principal/Document access, storage/signing, entitlement/budget, publication, mutation/event or AI execution authority.

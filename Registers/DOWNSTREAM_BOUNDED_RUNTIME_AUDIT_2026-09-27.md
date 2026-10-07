@@ -646,3 +646,9 @@ AIProvider is not read. Provider/Model lifecycle, health, credential, capability
 Canonical promotion basis `142b4f3125296b67132437aaa39359a44967729d` / tree `a350711f481c6fcfe719f1e67fed43da632b49f1` passed exact-head Core **1544/1544**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains `ae94a05dd187e0a38fbe9409ca28bf0de1348b38` / tree `c1d4955e0a3cdaaa673d4f3d556e3688b72d3752`.
 
 The bounded authority remains unchanged: exact DD-612 parent + exact AIModel(id, providerId) persisted pair evidence only; no AIProvider currentness/health/credentials, Model eligibility/routing/currentness, moderation/licensing approval, Document access/storage/signing, publication or AI execution authority.
+
+## DD-618…DD-622 corrected implementation evidence — 2026-10-07
+
+Corrected implementation basis `52c5a3d7e82de97681c5eb495ea78962a4bb4fae` / tree `e432e50ea18cb7e2fdd7d03e50e460c617d2ec49` passed exact-head Core **1553/1553**, PostgreSQL **540/540** plus full bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Initial implementation `db24ffd8758c5343ddcdc535f04eecc68fd9cefb` exposed only an acceptance-ordering mismatch: malformed AIModel identity is already rejected by DD-617/DD-192 before DD-618 may read Provider metadata. The corrected audit/test preserves that fail-closed parent-first boundary.
+
+The bounded result remains exact DD-617 evidence plus direct Model.providerId→Provider.id row continuity only. Provider/Model lifecycle/currentness/health/credentials/eligibility/routing, allowlists/provisioning, moderation/licensing, request-principal currentness, Document ACL/storage/signing, entitlement/budget, publication, mutation/events and AI execution remain separately governed.
