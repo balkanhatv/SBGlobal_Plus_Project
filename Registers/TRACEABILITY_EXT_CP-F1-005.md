@@ -1,7 +1,7 @@
 # TRACEABILITY EXTENSION — CP-F1-005 (F-13, F-14)
 **Current checkpoint:** `DEV-AI-MEDIA-REQUEST-CAPABILITY-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `0347fc01793aa8d9928b6bee3e99871ec1c33bd4` / tree `0bc495c5a6ef7727ea0bd9358dfcc014f9a554de`
-> **Current audit gate (2026-10-07):** DD-598…DD-602 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `d385fbc2faefe28da212a9a77feba1776efbdec9` / tree `367d575ecb4251c10fda3e4c99aa8e03714f9a5a`
+> **Current audit gate (2026-10-07):** DD-598…DD-602 state closure passed exact-head Core/PostgreSQL/Database/Web at the basis above. DD-603…DD-607 AIMediaRequest input-document current-evidence source audit is staged and must independently pass before implementation. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Current traceability qualification:** stable child-ID inventory is **2,962**; parent/source-heading semantic ownership gate is **372/372 owner-reconciled, 0 NOT_CERTIFIED**; complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**.
 
 > This CP-F1-005 extension is preserved as historical Foundation-era traceability evidence. Its 2,965-item accounting and certification wording are evaluated-era evidence and do not override current source-fidelity/traceability owners.

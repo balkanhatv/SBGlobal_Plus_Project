@@ -598,3 +598,11 @@ Capability status/category/requiredEntitlement/defaultPolicyClass/schemaVersion 
 Corrected promotion basis `0347fc01793aa8d9928b6bee3e99871ec1c33bd4` / tree `0bc495c5a6ef7727ea0bd9358dfcc014f9a554de` passed exact-head Core **1517/1517**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation evidence remains anchored to `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f`.
 
 The bounded result remains exact AIMediaRequest→AICapability code-binding evidence only. Capability lifecycle/eligibility, entitlement/policy/allowlist, prompt/document authorization, moderation/provisioning/provider/model routing, budget/quota, media execution/publication, mutation and event authority remain separate.
+
+## DD-598…DD-602 state closure evidence — 2026-10-07
+
+State-closure correction basis `d385fbc2faefe28da212a9a77feba1776efbdec9` / tree `367d575ecb4251c10fda3e4c99aa8e03714f9a5a` passed exact-head Core **1517/1517**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The preceding closure failed only the active SOURCE_REGISTRY date projection; no runtime feature semantic failed.
+
+The DD-598…DD-602 bounded result remains exact AIMediaRequest→AICapability persisted code-binding evidence only. Capability eligibility/currentness, entitlement/policy/allowlist, prompt/document authorization, moderation/provisioning/provider/model routing, budget/quota, media execution/publication, mutation and event authority remain separate.
+
+DD-603…DD-607 is source-audited only for exact AIMediaRequest input-document current evidence. It may read exact Document metadata and reuse DD-189 relationship/currentness floors, but it does not authorize ACL/storage/source-resource/principal/media execution.

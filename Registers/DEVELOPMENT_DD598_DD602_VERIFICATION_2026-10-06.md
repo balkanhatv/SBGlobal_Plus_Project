@@ -42,3 +42,13 @@ Forward-only correction `0347fc01793aa8d9928b6bee3e99871ec1c33bd4` / tree `0bc49
 - Web run `37558992431` / job `112591739768`: PASS.
 
 Feature implementation evidence remains anchored to corrected implementation `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f` / tree `49e4febadfbdce76e0f6f9baeb9db12c033ce888`. This state-closure commit must independently pass the same four gates before DD-598…DD-602 is closed.
+
+## State closure verified — 2026-10-07
+
+State-closure correction HEAD `d385fbc2faefe28da212a9a77feba1776efbdec9` / tree `367d575ecb4251c10fda3e4c99aa8e03714f9a5a` passed exact-head push gates:
+- Core run `37559756582` / job `112594138668`: **1517/1517 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112594138562`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37559756626` / job `112594140954`: PASS with repository inventory **48 migrations / 42 SQL verification files**.
+- Web run `37559756615` / job `112594138568`: PASS.
+
+The immediately preceding closure commit `b2848b7868744c747f0b9239a648569f1737857a` failed only REPO-011 because `Registers/SOURCE_REGISTRY.md` retained `Updated: 2026-10-06`. `d385fbc2faefe28da212a9a77feba1776efbdec9` corrected only that active date projection. DD-598…DD-602 is closed at its bounded capability-binding evidence scope; forward development may resume only through a new source-audited batch.
