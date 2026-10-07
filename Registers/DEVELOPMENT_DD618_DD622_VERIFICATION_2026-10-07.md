@@ -44,3 +44,14 @@ Canonical promotion HEAD `2df278983ce6d339063af7513adac48874a35403` / tree `458c
 - Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
 
 Feature evidence remains anchored to corrected implementation `52c5a3d7e82de97681c5eb495ea78962a4bb4fae` / tree `e432e50ea18cb7e2fdd7d03e50e460c617d2ec49`. This state-closure commit must independently pass the same exact-head gates before DD-618…DD-622 is closed and another source audit may open.
+
+## State closure verified — 2026-10-07
+
+State-closure HEAD `8f5df2f9f866d8b745a5e917fc145109a876d22d` / tree `6f3f17a350254ad2912579ef1dc42c86e764041a` passed exact-head push gates:
+- Core run `37577334597` / job `112649058960`: **1553/1553 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112649058768`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37577334529` / job `112649058544`: PASS with repository inventory **48 migrations / 42 SQL verification files**.
+- Web run `37577334532` / job `112649058995`: PASS.
+- Pull-request Core/Database/Web workflows on the same closure HEAD also passed.
+
+DD-618…DD-622 is closed at its bounded Provider-row relationship-evidence scope. Provider/Model eligibility/routing and all Document access/publication/execution concerns remain separately governed.
