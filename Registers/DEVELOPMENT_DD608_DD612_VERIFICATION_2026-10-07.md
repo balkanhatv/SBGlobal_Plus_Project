@@ -40,3 +40,11 @@ Corrected promotion HEAD `40eea8e6f25443822760c624b01bb1959f5e2e92` / tree `c843
 Initial promotion `48aed1221b80e50076e7b4dd3c390a7a1e7b1a61` was not accepted because Core REPO-007 found only one stale active projection: `DetailedDesign/DD-19_DETAILED_DESIGN_TRACEABILITY.md` lacked the current checkpoint in its first-line projection. `40eea8e6f25443822760c624b01bb1959f5e2e92` corrected only that traceability promotion header; runtime/reader/test semantics were unchanged.
 
 Feature implementation proof remains anchored to `95372c72f3670022a49345f0d556687d413e37a5`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-608…DD-612 is closed and another source audit may open.
+
+## State closure verified — 2026-10-07
+
+State-closure HEAD `bede045a59b65b4cac69ded0f66be36186ccbd45` / tree `fed260a407e6cda879fa18b30074ef292f065752` passed exact-head push gates: Core run `37565345468` / job `112611652610` **1535/1535 PASS**; PostgreSQL same run / job `112611652357` **540/540 PASS**, fail/skip 0 plus full database bootstrap PASS; Database run `37565345456` / job `112611652471` PASS with **48 migrations / 42 SQL verification files**; Web run `37565345326` / job `112611651980` PASS.
+
+REPO-007/008/009/011 all pass. DD-608…DD-612 is closed at its bounded Generated Document→completed AIMediaRequest current-provenance scope. Provider/Model currentness/routing, moderation/licensing approval, request-principal currentness, Document ACL/storage/signed access, prompt/capability/entitlement/budget, media generation/publication, mutation and events remain separately governed.
+
+DD-613…DD-617 source audit is frozen separately for the exact DD-612 parent + one persisted AIModel id read + existing DD-192 composite Model/provider-pair floor only.
