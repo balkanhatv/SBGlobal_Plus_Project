@@ -178,12 +178,15 @@ test("RAGCHUNK-MODELPROV-BIND-002 wrong or malformed relevant Model/Provider ide
     {provider:provider({id:ids.otherProvider})},
     {provider:provider({id:"bad"})},
     {model:model({providerId:"bad"})},
-    {model:model({id:"bad"})},
   ]){
     const f=fixture(candidate);
     assert.equal(await load(f),null);
     assert.equal(f.providerCalls.length,1);
   }
+
+  const parentRejected=fixture({model:model({id:"bad"})});
+  assert.equal(await load(parentRejected),null);
+  assert.equal(parentRejected.providerCalls.length,0);
 });
 
 test("RAGCHUNK-MODELPROV-EVID-001 success is frozen and preserves exact parent/provider raw references unchanged",async()=>{
