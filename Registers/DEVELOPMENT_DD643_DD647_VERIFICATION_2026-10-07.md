@@ -27,3 +27,14 @@ Provider usability/routing/credentials/allowlists, RAGSource latest/current sele
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-643…DD-647 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-07
+
+Canonical promotion HEAD `8bf2f893768eb51ee11344df1ec7394f4ca906a4` / tree `b769e833a1d7af2c93d1b4afed19826d2a018167` passed exact-head push gates:
+- Core run `37655099305` / job `112908091418`: **1596/1596 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112908091066`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37655099284` / job `112908091717`: PASS; repository inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37655099262` / job `112908091788`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+Feature evidence remains anchored to implementation `3c23b1e034630dfa76ea9263b683b9063371f059`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-643…DD-647 is closed and another source audit may open.

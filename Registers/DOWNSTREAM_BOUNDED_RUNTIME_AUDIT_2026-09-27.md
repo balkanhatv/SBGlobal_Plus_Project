@@ -712,3 +712,9 @@ The bounded result remains exact DD-637 embedding-model eligibility plus DD-200 
 Implementation basis `3c23b1e034630dfa76ea9263b683b9063371f059` / tree `6c681a2ca41ad47edcc365b9c890bd0f332a8716` passed Core **1596/1596**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader extends exact DD-642 chunk/model/provider evidence with one exact same-context parent RAGSource read by persisted chunk.sourceId and applies DD-194, then follows DD-193 with zero Document reads when unbound or one exact same-context Document metadata read by persisted source.documentId when bound.
 
 Success remains immutable lineage evidence only. Provider usability/routing/credentials/allowlists, RAGSource latest/current selection, Document ACL/access/storage/source-resource/signed-url authority, chunk ACL interpretation, retrieval/filtering/ranking/reranking/grounding/citation/prompt-injection policy, provider/model execution, mutation and events remain separately governed.
+
+## DD-643…DD-647 canonical promotion evidence — 2026-10-07
+
+Canonical promotion basis `8bf2f893768eb51ee11344df1ec7394f4ca906a4` / tree `b769e833a1d7af2c93d1b4afed19826d2a018167` passed exact-head Core **1596/1596**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to implementation `3c23b1e034630dfa76ea9263b683b9063371f059`.
+
+The bounded result remains composed DD-642 + DD-194 + DD-193 lineage/current relationship evidence only. Provider usability/routing/credentials/allowlists, RAGSource latest/current selection, Document ACL/access/storage/source-resource/signed-url authority, chunk ACL interpretation, retrieval/filtering/ranking/reranking/grounding/citation/prompt-injection policy, provider/model execution, mutation and events remain separate.
