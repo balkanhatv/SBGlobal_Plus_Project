@@ -39,3 +39,9 @@ Canonical promotion HEAD `142b4f3125296b67132437aaa39359a44967729d` / tree `a350
 - Web run `37574706109` / job `112640882567`: PASS.
 
 Feature evidence remains anchored to implementation `ae94a05dd187e0a38fbe9409ca28bf0de1348b38`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-613…DD-617 is closed and another source audit may open.
+
+## State closure verified — 2026-10-07
+
+State-closure HEAD `744fcecb0e21a089f63fdd5ccf2751951f85bcc6` / tree `91cb587ce529fe5874b857c12b7868efd93dabb1` passed exact-head push gates: Core run `37575162539` / job `112642302038` **1544/1544 PASS**; PostgreSQL job `112642301768` **540/540 PASS**, fail/skip 0 plus full bootstrap PASS; Database run `37575162581` / job `112642302093` PASS with **48 migrations / 42 SQL verification files**; Web run `37575162555` / job `112642301801` PASS.
+
+DD-613…DD-617 is closed at its bounded evidence scope. Source-owned forward development may resume.
