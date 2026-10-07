@@ -676,3 +676,9 @@ The bounded authority remains unchanged: exact RAGSource→Document DD-193 relat
 Implementation basis `8d7406744ac6b79006d519146f6ee34a893e3dce` / tree `142ffa9332a753e95c47ee674b0e9045426c484d` passed Core **1570/1570**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader loads exact RAGChunk evidence first, then performs one exact same-RequestContext RAGSource read by persisted chunk.sourceId and applies only DD-194.
 
 Success remains direct parent relationship evidence only. RAGSource ACTIVE/latest state, DD-193 Document validity, Document/source ACL/access/storage, chunk ACL interpretation, DD-195 embedding-model eligibility, vector/search/retrieval/ranking/grounding, provider/model routing, mutation/events and AI execution remain separately governed.
+
+## DD-628…DD-632 canonical promotion evidence — 2026-10-07
+
+Canonical promotion basis `4cb6ca41b84317a3b932a7808733e8c81631dfc7` / tree `d25dc96b27d1356c4bd890a7970b467d2f5baf2e` passed exact-head Core **1570/1570**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation proof remains `8d7406744ac6b79006d519146f6ee34a893e3dce` / tree `142ffa9332a753e95c47ee674b0e9045426c484d`.
+
+The bounded authority remains unchanged: exact RAGChunk→parent RAGSource DD-194 relationship evidence only. RAGSource ACTIVE/latest state, DD-193 Document validity, Document/source ACL/access/storage, chunk ACL interpretation, DD-195 embedding-model eligibility, vector/search/retrieval/ranking/grounding, provider/model routing, mutation/events and AI execution remain separately governed.

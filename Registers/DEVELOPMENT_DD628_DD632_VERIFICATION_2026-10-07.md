@@ -29,3 +29,14 @@ This does not prove RAGSource ACTIVE/latest state, DD-193 Document validity, Doc
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-628…DD-632 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-07
+
+Canonical promotion HEAD `4cb6ca41b84317a3b932a7808733e8c81631dfc7` / tree `d25dc96b27d1356c4bd890a7970b467d2f5baf2e` passed exact-head push gates:
+- Core run `37616025234` / job `112774430635`: **1570/1570 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112774430285`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37616027147` / job `112774436561`: PASS; repository inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37616027009` / job `112774435690`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+Feature proof remains implementation-anchored to `8d7406744ac6b79006d519146f6ee34a893e3dce` / tree `142ffa9332a753e95c47ee674b0e9045426c484d`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-628…DD-632 is closed and before another source audit opens.
