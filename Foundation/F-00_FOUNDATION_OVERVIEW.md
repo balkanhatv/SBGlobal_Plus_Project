@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT FOUNDATION
 **Current checkpoint:** `DEV-AI-RAG-CHUNK-EMBEDDING-MODEL-PROVIDER-BINDING-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `27aac80f2f9da39efacb027e4e702a4c2a29892b` / tree `860fb6d45801fe4ee014c1908295e3909d4131ef`
-> **Current audit gate (2026-10-07):** DD-638…DD-642 RAGChunk embedding AIModel→AIProvider binding current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `f33e192257e5ec60ae9caea329926eb9ee4d6a7a` / tree `68e17c2a7eaaf22c29dac933dcf906634c94759d`
+> **Current audit gate (2026-10-07):** DD-638…DD-642 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 

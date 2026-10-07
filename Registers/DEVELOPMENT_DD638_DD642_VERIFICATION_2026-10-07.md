@@ -35,3 +35,14 @@ No Provider ACTIVE/current/healthy/credential authority, operation-candidate com
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-638…DD-642 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-07
+
+Canonical promotion HEAD `f33e192257e5ec60ae9caea329926eb9ee4d6a7a` / tree `68e17c2a7eaaf22c29dac933dcf906634c94759d` passed exact-head push gates:
+- Core run `37645581117` / job `112875451164`: **1586/1586 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112875450916`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37645581063` / job `112875345740`: PASS; repository inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37645581066` / job `112875345961`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-638…DD-642 is closed and another source audit may open.
