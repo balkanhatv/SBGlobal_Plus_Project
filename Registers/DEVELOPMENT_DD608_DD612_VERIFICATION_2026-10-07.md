@@ -27,3 +27,16 @@ Provider/Model eligibility/currentness/routing, moderation/licensing approval, r
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-608…DD-612 can be closed.
+
+## Corrected canonical promotion verified; state closure staged — 2026-10-07
+
+Corrected promotion HEAD `40eea8e6f25443822760c624b01bb1959f5e2e92` / tree `c84314accec0bc90de107b55d22a767a5d954dac` passed exact-head push gates:
+- Core run `37564609256` / job `112609369552`: **1535/1535 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112609369319`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37564609300` / job `112609369538`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37564609236` / job `112609369420`: PASS.
+- Pull-request Core/PostgreSQL/Database/Web on the same corrected promotion HEAD also passed.
+
+Initial promotion `48aed1221b80e50076e7b4dd3c390a7a1e7b1a61` was not accepted because Core REPO-007 found only one stale active projection: `DetailedDesign/DD-19_DETAILED_DESIGN_TRACEABILITY.md` lacked the current checkpoint in its first-line projection. `40eea8e6f25443822760c624b01bb1959f5e2e92` corrected only that traceability promotion header; runtime/reader/test semantics were unchanged.
+
+Feature implementation proof remains anchored to `95372c72f3670022a49345f0d556687d413e37a5`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-608…DD-612 is closed and another source audit may open.
