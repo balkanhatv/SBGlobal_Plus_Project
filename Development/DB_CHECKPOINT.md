@@ -7,7 +7,7 @@
 
 DD-598…DD-602 is the current governed backend-only AIMediaRequest → AICapability exact current-evidence composition. It reads the exact AIMediaRequest first, then exactly one global capability row by persisted capabilityCode and applies only the existing DD-202 exact code-binding floor.
 
-Verified canonical promotion basis `33e1abccdcdbf7394d0838f86a09de06e43ebf9f` / tree `7e8115c18128b108976910356b7e7de446e6cc47`: **1509/1509 Core**, **540/540 PostgreSQL** plus full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests.
+Verified exact-head implementation basis `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f` / tree `49e4febadfbdce76e0f6f9baeb9db12c033ce888`: **1517/1517 Core**, **540/540 PostgreSQL** plus full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests.
 
 Success proves only exact persisted AIMediaRequest→AICapability code-binding evidence. Capability status/category/requiredEntitlement/defaultPolicyClass/schemaVersion remain raw; no eligibility/currentness, entitlement/policy/allowlist decision, prompt/document authorization, moderation/provisioning/provider/model routing, budget/quota, media execution/publication, mutation or event authority is introduced.
 
