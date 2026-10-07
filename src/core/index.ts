@@ -232,6 +232,7 @@ export * from "./ai/rag-chunk-source-binding-floors.js";
 export * from "./ai/rag-chunk-source-current-evidence-reader.js";
 export * from "./ai/rag-chunk-embedding-model-eligibility-floors.js";
 export * from "./ai/rag-chunk-embedding-model-current-evidence-reader.js";
+export * from "./ai/rag-chunk-embedding-model-provider-binding-current-evidence-reader.js";
 export * from "./ai/memory-record.js";
 export * from "./ai/memory-assistant-binding-floors.js";
 export * from "./ai/memory-supersession-continuity-floors.js";
