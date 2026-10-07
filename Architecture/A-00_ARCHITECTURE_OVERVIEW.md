@@ -1,7 +1,7 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
-**Current checkpoint:** `DEV-AI-MEDIA-REQUEST-INPUT-DOCUMENT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `7c11fb74c49cfc9a79180cfd16bf9833b344693b` / tree `7875f1c96bc87b3c1a7d87e1abd36a9990b62eaf`
-> **Current audit gate (2026-10-07):** DD-603…DD-607 state closure passed exact-head Core/PostgreSQL/Database/Web at the basis above. DD-608…DD-612 Generated Document→AIMediaRequest current-evidence source audit is staged and must independently pass before implementation. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-DOCUMENT-AI-GENERATED-MEDIA-REQUEST-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `95372c72f3670022a49345f0d556687d413e37a5` / tree `9bca42dc87d3a157ec2ff18246b1b284ca5dab03`
+> **Current audit gate (2026-10-07):** DD-608…DD-612 Generated Document→AIMediaRequest current evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 

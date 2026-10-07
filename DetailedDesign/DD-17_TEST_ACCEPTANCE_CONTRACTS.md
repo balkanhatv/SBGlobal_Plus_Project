@@ -6934,3 +6934,40 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIMEDIA-DOCREAD-BOUND-001 — Relationship/currentness evidence is not access or media authority
 **Owner:** DD-607. Output exposes no ACL/access/storage/source-resource/principal/prompt/capability/moderation/routing/budget/execution/publication/mutation/event authority.
+
+## DD-608 Exact Document AI-Provenance Parent Acceptance
+
+### DOCAI-MEDIAREAD-BASE-001 — Exact Document provenance first
+**Owner:** DD-608. Exact supplied RequestContext/documentId enter DocumentAIGeneratedProvenanceReadPort once before any AIMediaRequest access.
+
+### DOCAI-MEDIAREAD-BASE-002 — Parent absence/errors precede request access
+**Owner:** DD-608. Document null returns null and dependency/persistence errors propagate unchanged with zero AIMediaRequest reads.
+
+## DD-609 Branch / Exact MediaRequest Read Acceptance
+
+### DOCAI-MEDIAREAD-BRANCH-001 — Non-AI branch performs zero request reads
+**Owner:** DD-609. Non-AI Document evidence performs zero AIMediaRequest reads and may return frozen document-only evidence only when DD-191 passes.
+
+### DOCAI-MEDIAREAD-READ-001 — One exact persisted request read
+**Owner:** DD-609. AI-generated evidence performs exactly one AIMediaRequest read with the exact supplied RequestContext and persisted aiMediaRequestId.
+
+### DOCAI-MEDIAREAD-READ-002 — Missing/error fails closed without fallback
+**Owner:** DD-609. Missing request returns null and dependency errors propagate unchanged; no retry/search/inference/fallback occurs.
+
+## DD-610 Existing DD-191 Relationship Floor Acceptance
+
+### DOCAI-MEDIAREAD-FLOOR-001 — Exact completed relationship passes
+**Owner:** DD-610. Existing DD-191 exact completed Tenant/Industry + residency + sensitivity relationship passes and preserves exact references.
+
+### DOCAI-MEDIAREAD-FLOOR-002 — Invalid relationship fails closed
+**Owner:** DD-610. Wrong/missing/incomplete/cross-scope/residency/sensitivity relationship evidence fails closed.
+
+## DD-611 Immutable Exact-Reference Evidence Acceptance
+
+### DOCAI-MEDIAREAD-EVID-001 — Preserve exact raw evidence
+**Owner:** DD-611. Success is frozen and preserves exact Document/AIMediaRequest references plus unrelated Provider/Model/provenance/moderation/licensing/request metadata unchanged.
+
+## DD-612 Authority Boundary Acceptance
+
+### DOCAI-MEDIAREAD-BOUND-001 — Provenance evidence is not publication/access/execution authority
+**Owner:** DD-612. Output exposes no Provider/Model eligibility, moderation/licensing approval, principal/document access, storage/signing, prompt/capability/budget, media execution/publication, mutation or event authority.

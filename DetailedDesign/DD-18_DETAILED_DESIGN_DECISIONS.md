@@ -6747,3 +6747,43 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/AI_MEDIA_REQUEST_INPUT_DOCUMENT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `AIMEDIA-DOCREAD-BOUND-001`.
+
+## DD-608 — establish exact Document AI-provenance evidence first
+
+**Decision:** Add `loadDocumentAIGeneratedMediaRequestCurrentEvidence(...)`. Read the exact Document AI-provenance row first with the exact supplied RequestContext/documentId. Null remains null and dependency/persistence errors propagate unchanged. No AIMediaRequest access occurs before Document evidence exists.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MEDIA_REQUEST_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-MEDIAREAD-BASE-001…002`.
+
+## DD-609 — preserve zero-read non-AI branch; otherwise exact persisted request read
+
+**Decision:** For non-AI Documents perform zero AIMediaRequest reads and apply DD-191 with absent request evidence. For AI-generated Documents require persisted aiMediaRequestId and read exactly that request once under the same exact RequestContext. Missing evidence returns null; errors propagate unchanged; no search/retry/inference/fallback.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MEDIA_REQUEST_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-MEDIAREAD-BRANCH-001, DOCAI-MEDIAREAD-READ-001…002`.
+
+## DD-610 — apply only existing DD-191 relationship/currentness floor
+
+**Decision:** Require `matchesDocumentAIGeneratedMediaRequestProvenanceFloors(document, mediaRequest?)`. This proves only non-AI absence or exact completed same-scope/residency/sensitivity relationship evidence. Do not strengthen request lifecycle/capability/media/prompt/principal/moderation semantics.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MEDIA_REQUEST_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-MEDIAREAD-FLOOR-001…002`.
+
+## DD-611 — preserve immutable branch-specific exact references
+
+**Decision:** Non-AI success returns frozen `{ document }`; AI-generated success returns frozen `{ document, mediaRequest }`. Preserve exact loaded object references without clone/normalization/mutation.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MEDIA_REQUEST_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-MEDIAREAD-EVID-001`.
+
+## DD-612 — generated-media provenance relationship does not grant access/publication/execution authority
+
+**Decision:** Do not validate Provider/Model lifecycle/eligibility/routing, moderation/licensing approval, request principal currentness, Document ACL/storage/signing, prompt/capability/entitlement/budget, media generation/publication, mutation or events.
+
+**Source audit:** `Development/DOCUMENT_AI_GENERATED_MEDIA_REQUEST_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `DOCAI-MEDIAREAD-BOUND-001`.

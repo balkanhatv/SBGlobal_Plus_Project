@@ -622,3 +622,9 @@ The bounded result remains exact AIMediaRequest→input-document relationship/cu
 ## DD-603…DD-607 state closure evidence — 2026-10-07
 
 State-closure basis `7c11fb74c49cfc9a79180cfd16bf9833b344693b` / tree `7875f1c96bc87b3c1a7d87e1abd36a9990b62eaf` passed exact-head Core **1526/1526**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. DD-603…DD-607 is therefore closed at its bounded request→input-document relationship/currentness scope. This closure does not widen Document ACL/storage/access or media execution authority.
+
+## DD-608…DD-612 exact-head implementation evidence — 2026-10-07
+
+Implementation basis `95372c72f3670022a49345f0d556687d413e37a5` / tree `9bca42dc87d3a157ec2ff18246b1b284ca5dab03` passed Core **1535/1535**, PostgreSQL **540/540** plus full bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader composes exact DD-190 Document AI-provenance evidence with zero AIMediaRequest reads for non-AI Documents or one exact same-RequestContext request read by persisted aiMediaRequestId for AI-generated Documents, then applies only DD-191.
+
+Provider/Model lifecycle/eligibility/routing, moderation/licensing approval, request-principal currentness, Document ACL/storage/signed access, prompt/capability/entitlement/budget, media generation/publication, mutation and events remain separately governed.
