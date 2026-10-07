@@ -219,7 +219,7 @@ export * from "./ai/media-request.js";
 export * from "./ai/media-request-capability-binding-floors.js";
 export * from "./ai/media-request-prompt-template-binding-floors.js";
 export * from "./ai/media-request-prompt-template-current-evidence-reader.js";
-export * from "./ai/media-request-capability-current-evidence-reader.js";
+export * from "./ai/media-request-capability-current-evidence-reader.js";\nexport * from "./ai/media-request-input-document-current-evidence-reader.js";
 export * from "./ai/rag-source.js";
 export * from "./ai/rag-source-document-binding-floors.js";
 export * from "./ai/rag-chunk-metadata.js";
