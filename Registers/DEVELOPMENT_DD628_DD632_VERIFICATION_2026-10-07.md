@@ -40,3 +40,13 @@ Canonical promotion HEAD `4cb6ca41b84317a3b932a7808733e8c81631dfc7` / tree `d25d
 - Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
 
 Feature proof remains implementation-anchored to `8d7406744ac6b79006d519146f6ee34a893e3dce` / tree `142ffa9332a753e95c47ee674b0e9045426c484d`. This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-628…DD-632 is closed and before another source audit opens.
+
+## State closure verified — 2026-10-07
+
+State-closure HEAD `7452bc1bcabeb96aff48c45bf428ff09cbdc010b` / tree `a4ef65f1523c08b58fb6136981122c10ebed2675` passed exact-head push gates:
+- Core run `37637128448` / job `112846181498`: **1570/1570 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112846181022`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37637128428` / job `112846180310`: PASS; repository inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37637128453` / job `112846181288`: PASS.
+
+DD-628…DD-632 is closed at its bounded RAGChunk→parent RAGSource DD-194 relationship-evidence scope. Forward development may resume only through a separately source-audited seam.
