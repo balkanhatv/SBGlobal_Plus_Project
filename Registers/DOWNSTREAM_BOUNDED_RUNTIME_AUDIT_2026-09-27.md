@@ -612,3 +612,9 @@ DD-603…DD-607 is source-audited only for exact AIMediaRequest input-document c
 Corrected implementation basis `02311955f29f691887f3b9e2bb011767b6300c80` / tree `7153aa91ed3eff9ddaf7a2436a7e5edaa5b1d26c` passed Core **1526/1526**, PostgreSQL **540/540** plus full bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The reader establishes exact AIMediaRequest-first evidence, preserves a zero-read empty input branch, reads each persisted input document id exactly once under the same RequestContext in persisted order, then applies only DD-189 relationship/currentness floors.
 
 Document ACL/access, source-resource authorization, StorageObject/signed-url access, principal currentness/ownership authorization, prompt/capability eligibility, entitlement/policy, moderation, provider/model routing, budget/quota, media execution/publication, mutation and event authority remain separately governed.
+
+## DD-603…DD-607 canonical promotion evidence — 2026-10-07
+
+Canonical promotion basis `007aaf85103d8ccca51fa841567c3917e4bd6ced` / tree `ba3f354d4341afabff289da020755efd156b226d` passed exact-head Core **1526/1526**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation evidence remains anchored to `02311955f29f691887f3b9e2bb011767b6300c80`.
+
+The bounded result remains exact AIMediaRequest→input-document relationship/currentness evidence only. ACL/access, source-resource/StorageObject authorization, principal/prompt/capability/moderation/routing/budget, media execution/publication, mutation and events remain separate.

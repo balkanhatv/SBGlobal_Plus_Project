@@ -31,3 +31,13 @@ No ACL/access, source-resource authorization, StorageObject/signed-url access, p
 ## Promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-603…DD-607 can be closed.
+
+## Canonical promotion verified; state closure staged — 2026-10-07
+
+Canonical promotion HEAD `007aaf85103d8ccca51fa841567c3917e4bd6ced` / tree `ba3f354d4341afabff289da020755efd156b226d` passed exact-head push gates:
+- Core run `37562709767` / job `112603381376`: **1526/1526 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112603381071`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37562709778` / job `112603381096`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37562709763` / job `112603381208`: PASS.
+
+Pull-request Core/PostgreSQL/Database/Web on the same promotion HEAD also passed. This state-closure commit must independently pass the same gates before DD-603…DD-607 is closed and another source audit may open.
