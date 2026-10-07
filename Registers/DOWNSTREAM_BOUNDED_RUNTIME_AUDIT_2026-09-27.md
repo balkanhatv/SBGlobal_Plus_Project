@@ -652,3 +652,9 @@ The bounded authority remains unchanged: exact DD-612 parent + exact AIModel(id,
 Corrected implementation basis `52c5a3d7e82de97681c5eb495ea78962a4bb4fae` / tree `e432e50ea18cb7e2fdd7d03e50e460c617d2ec49` passed exact-head Core **1553/1553**, PostgreSQL **540/540** plus full bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Initial implementation `db24ffd8758c5343ddcdc535f04eecc68fd9cefb` exposed only an acceptance-ordering mismatch: malformed AIModel identity is already rejected by DD-617/DD-192 before DD-618 may read Provider metadata. The corrected audit/test preserves that fail-closed parent-first boundary.
 
 The bounded result remains exact DD-617 evidence plus direct Model.providerId→Provider.id row continuity only. Provider/Model lifecycle/currentness/health/credentials/eligibility/routing, allowlists/provisioning, moderation/licensing, request-principal currentness, Document ACL/storage/signing, entitlement/budget, publication, mutation/events and AI execution remain separately governed.
+
+## DD-618…DD-622 canonical promotion evidence — 2026-10-07
+
+Canonical promotion basis `2df278983ce6d339063af7513adac48874a35403` / tree `458c2559fced54ddf2b5abf7ed571532c8301542` passed exact-head Core **1553/1553**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature implementation evidence remains anchored to corrected implementation `52c5a3d7e82de97681c5eb495ea78962a4bb4fae`.
+
+The bounded result remains exact DD-617 Generated Document→completed AIMediaRequest→AIModel evidence plus direct Model.providerId→AIProvider.id row continuity. Provider/Model currentness, health, credentials, eligibility/routing, compatibility/allowlists/provisioning, moderation/licensing, Document access/storage/publication, mutation/events and AI execution remain separately governed.

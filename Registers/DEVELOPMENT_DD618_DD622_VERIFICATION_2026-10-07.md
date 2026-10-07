@@ -33,3 +33,14 @@ Provider/Model currentness, lifecycle, health, credentials, capability/residency
 ## Canonical promotion gate
 
 This promotion records DD-17 acceptance contracts, DD-18 decisions, DD-19 traceability, state/register projections and machine evidence. The promotion's own exact-head Core/PostgreSQL/Database/Web gate must pass before DD-618…DD-622 state closure or another source audit.
+
+## Canonical promotion verified; state closure staged — 2026-10-07
+
+Canonical promotion HEAD `2df278983ce6d339063af7513adac48874a35403` / tree `458c2559fced54ddf2b5abf7ed571532c8301542` passed exact-head push gates:
+- Core run `37576645490` / job `112646914572`: **1553/1553 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112646914700`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37576645428` / job `112646914430`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37576645445` / job `112646914345`: PASS.
+- Pull-request Core/Database/Web workflows on the same promotion HEAD also passed.
+
+Feature evidence remains anchored to corrected implementation `52c5a3d7e82de97681c5eb495ea78962a4bb4fae` / tree `e432e50ea18cb7e2fdd7d03e50e460c617d2ec49`. This state-closure commit must independently pass the same exact-head gates before DD-618…DD-622 is closed and another source audit may open.
