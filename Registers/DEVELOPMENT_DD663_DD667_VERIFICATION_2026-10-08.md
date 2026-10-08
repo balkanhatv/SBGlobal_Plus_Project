@@ -32,3 +32,13 @@ No schema/RLS/route/frontend/RawSource or migration change. Production readiness
 ## Canonical promotion gate
 
 DD-17/18/19, D-DECISIONS/CHANGELOG, active checkpoint projections and manifest are to be committed atomically. This promotion's **own** exact-head Core/PostgreSQL/Database/Web gates must pass before state closure.
+
+## Canonical promotion verified; state closure staged — 2026-10-08
+
+Canonical promotion HEAD `c07689c874b3e562bd91df64a4828a8e51cceb95` / tree `21b002b24f245af4fb7c0bb1b56b429dae0c0828` passed exact-head push gates:
+- Core run `37759521557` / job `113252249834`: **1630/1630 PASS**, fail/skip 0.
+- PostgreSQL same run / job `113252249631`: **540/540 PASS**, fail/skip 0, full database bootstrap PASS.
+- Database run `37759521517` / job `113252249147`: **48 migrations / 42 SQL verification files PASS**.
+- Web run `37759521646` / job `113252249754`: **PASS**.
+
+The canonical promotion added traceability and governance only. Verified feature code remains `8afc17307d1775a5ac6af3e5ab16e393342bb9e8`. This state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web before DD-663…DD-667 is closed.

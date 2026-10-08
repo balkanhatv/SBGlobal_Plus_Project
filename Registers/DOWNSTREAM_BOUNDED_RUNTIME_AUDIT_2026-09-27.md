@@ -758,3 +758,7 @@ Only SOURCE_RESOURCE_AUTHORIZATION_REQUIRED carries the bounded persisted-source
 ## DD-663…DD-667 internal citation-identity implementation evidence — 2026-10-08
 
 Verified implementation `8afc17307d1775a5ac6af3e5ab16e393342bb9e8` / tree `978c4dcae03c1b8598d55b712aacb90fd92e5e45`: **1630 Core / 540 PostgreSQL / 48 migrations / 42 SQL verification files / Web PASS**. DD-662 SOURCE_RESOURCE_AUTHORIZATION_REQUIRED parent-only descriptor branch is extended with raw DD-09 §9 partial source/chunk/version identity, not full GroundingCitation or client disclosure. All other branches remain parent-only, especially explicit ACL DENY/ALLOW. No source-resource authorization, RBAC/ABAC/commercial policy, retrieval, ranking, grounding, provider/model routing, inference, mutation or AI execution added.
+
+## DD-663…DD-667 canonical promotion evidence — 2026-10-08
+
+Canonical promotion `c07689c874b3e562bd91df64a4828a8e51cceb95` / tree `21b002b24f245af4fb7c0bb1b56b429dae0c0828` exact-head verified: **1630 Core / 540 PostgreSQL / Database 48/42 / Web PASS**. Feature code proof remains `8afc17307d1775a5ac6af3e5ab16e393342bb9e8`. The internal partial citation identity does not authorize source resource, upgrade ACL ALLOW, bypass ACL DENY, disclose client citation, retrieve content, ground responses or invoke AI execution.
