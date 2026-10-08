@@ -7,7 +7,7 @@
 
 DD-673…DD-677 is the current governed backend-only scoped AIMemoryRecord optional AssistantDefinition current-binding evidence reader. It preserves exact memory evidence and conditionally loads one referenced AssistantDefinition under the identical RequestContext, applying only the existing DD-186 ACTIVE/owner applicability floor.
 
-Verified canonical promotion basis `389f833c11f00ffa31b6b282c233f72b327d2826` / tree `8866fda0b661b2706f64cb3f73ce46c45a5bb8e8`: **1639/1639 Core**, **540/540 PostgreSQL** plus full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests.
+Verified implementation basis `ac1e7c36c65370441bce27a0264ff0357ecfd443` / tree `e9b04d7d9cfa95f9244360e5ed8f37baa77c14bc`: **1649/1649 Core**, **540/540 PostgreSQL** plus full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped tests.
 
 Success preserves raw memory and optional AssistantDefinition relationship evidence only; no memory selection, principal/ACL/expiry/retention/erasure authorization, decryption, supersession traversal, cross-context carry, nested Assistant prompt/model/tool selection, RAG or AI execution authority.
 
