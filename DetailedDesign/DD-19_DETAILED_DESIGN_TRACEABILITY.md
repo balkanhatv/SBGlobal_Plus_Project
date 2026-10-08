@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-MEMORY-DIRECT-SUPERSESSION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `389f833c11f00ffa31b6b282c233f72b327d2826` / tree `8866fda0b661b2706f64cb3f73ce46c45a5bb8e8`
-> **Current audit gate (2026-10-08):** DD-668…DD-672 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-MEMORY-ASSISTANT-BINDING-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `ac1e7c36c65370441bce27a0264ff0357ecfd443` / tree `e9b04d7d9cfa95f9244360e5ed8f37baa77c14bc`
+> **Current audit gate (2026-10-08):** DD-673…DD-677 AIMemoryRecord optional AssistantDefinition current-binding evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1484,3 +1484,9 @@ DD-662 descriptor-present branch only → frozen internal identity sourceResourc
 DD-09 §17 / DD-129 persisted memory RLS + read port → migration 0012 FORCE RLS and migration 0031 direct supersession ownership → DD-187 `matchesAIMemorySupersessionContinuityFloors` → exact child read → conditional exact same-context parent read from persisted `supersedesId` → `Development/AI_MEMORY_DIRECT_SUPERSESSION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-668…DD-672 → `src/core/ai/memory-direct-supersession-current-evidence-reader.ts` → `tests/core/ai-memory-direct-supersession-current-evidence-reader.test.mjs` (`AIMEM-SUPREAD-BASE-001…002`, `AIMEM-SUPREAD-UNBOUND-001…002`, `AIMEM-SUPREAD-BOUND-001…002`, `AIMEM-SUPREAD-FLOOR-001`, `AIMEM-SUPREAD-EVID-001`, `AIMEM-SUPREAD-BOUNDARY-001`) → `Registers/DEVELOPMENT_DD668_DD672_VERIFICATION_2026-10-08.md`.
 
 Only zero-or-one exact direct parent relationship reads, total child/parent reads 1–2. No effective-memory selection, authorization, decryption, expiration/retention/erasure decision, ACL resolution, supersession chain, cross-Industry carry, prompt inclusion or AI execution.
+
+## DD-673…DD-677 — AIMemoryRecord optional AssistantDefinition current-binding evidence
+
+DD-09 §17 scoped raw AIMemoryRecord + DD-129 exact RLS record reader + migration 0031 optional `assistant_definition_id` relationship → DD-117 exact AssistantDefinition read port → DD-186 existing `matchesAIMemoryAssistantBindingFloors` → `Development/AI_MEMORY_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-673…DD-677 → `src/core/ai/memory-assistant-binding-current-evidence-reader.ts` → `tests/core/ai-memory-assistant-binding-current-evidence-reader.test.mjs` (`AIMEM-ASTREAD-BASE-001`, `AIMEM-ASTREAD-BASE-002`, `AIMEM-ASTREAD-UNBOUND-001`, `AIMEM-ASTREAD-UNBOUND-002`, `AIMEM-ASTREAD-READ-001`, `AIMEM-ASTREAD-READ-002`, `AIMEM-ASTREAD-FLOOR-001`, `AIMEM-ASTREAD-FLOOR-002`, `AIMEM-ASTREAD-EVID-001`, `AIMEM-ASTREAD-BOUND-001`) → `Registers/DEVELOPMENT_DD673_DD677_VERIFICATION_2026-10-08.md`.
+
+The optional bound branch reads the exact AssistantDefinition under the original RequestContext and checks only DD-186 id/ACTIVE/owner applicability. Unbound branch performs zero assistant reads. Neither branch authorizes memory disclosure, current/effective selection, principal/ACL/retention/expiry, supersession, prompt/RAG or AI execution.

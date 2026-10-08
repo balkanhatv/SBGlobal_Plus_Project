@@ -770,3 +770,7 @@ Implementation `c7cb65934b53812f2e20f99eb98dcde8a9959355` / tree `04cb451e2dba3f
 ## DD-668…DD-672 canonical promotion evidence — 2026-10-08
 
 Promotion `389f833c11f00ffa31b6b282c233f72b327d2826` / tree `8866fda0b661b2706f64cb3f73ce46c45a5bb8e8` passed exact-head Core **1639/1639**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The feature evidence remains at implementation `c7cb65934b53812f2e20f99eb98dcde8a9959355`. Bounded direct AIMemoryRecord supersession remains same-context child→optional direct-parent evidence only. No effective/latest memory, ACL/retention/erasure/decryption, cross-context history, disclosure, prompt composition, RAG or AI execution authority is conferred.
+
+## DD-673…DD-677 exact-head implementation evidence — 2026-10-08
+
+Implementation basis `ac1e7c36c65370441bce27a0264ff0357ecfd443` / tree `e9b04d7d9cfa95f9244360e5ed8f37baa77c14bc` passed Core **1649/1649**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Exact memory read and optional identical RequestContext AssistantDefinition read reapply only DD-186 id/ACTIVE/owner relationship. No current memory selection, principal-currentness/ACL, expiry/retention/erasure, supersession resolution, decryption, cross-context disclosure, prompt/RAG/model/tool or AI execution authority is granted.

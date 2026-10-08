@@ -7269,3 +7269,33 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Decision:** Bound success is frozen `{memory,supersededMemory}`, unbound success frozen `{memory}`; preserve exact persisted references. Never decrypt content, dereference source, select latest/current memory, traverse chains, resolve expiry/ACL/retention, carry across Industry, assemble history, include in prompts or execute AI.
 
 **Acceptance:** `AIMEM-SUPREAD-EVID-001, AIMEM-SUPREAD-BOUNDARY-001`.
+
+## DD-673 — exact scoped AIMemoryRecord evidence first
+
+**Decision:** `loadAIMemoryAssistantBindingCurrentEvidence` loads one exact memory id under the supplied RequestContext before any optional Assistant read. Null and dependency errors preserve their source behavior.
+
+**Source audit:** `Development/AI_MEMORY_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMEM-ASTREAD-BASE-001…002`.
+
+## DD-674 — unbound AssistantDefinition means zero additional reads
+
+**Decision:** On absent persisted assistantDefinitionId, apply DD-186 pure identity/scope floor and return frozen `{ memory }`. This does not select an assistant or authorize recall.
+
+**Source audit:** `Development/AI_MEMORY_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMEM-ASTREAD-UNBOUND-001…002`.
+
+## DD-675 — one exact same-context AssistantDefinition read only when bound
+
+**Decision:** Reject malformed persisted assistant id/record scope before accessing the Assistant reader. Bound branch reads exactly that assistant id under the identical RequestContext. No lookup by code/version, context elevation or fallback.
+
+**Source audit:** `Development/AI_MEMORY_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMEM-ASTREAD-READ-001…002`.
+
+## DD-676 — reapply existing DD-186 ACTIVE/applicable relationship only
+
+**Decision:** Require exact AssistantDefinition id, ACTIVE status and source-owned PLATFORM/TENANT/INDUSTRY applicability to the memory. Success returns frozen `{ memory, assistant }` with exact source references and no data mutation.
+
+**Source audit:** `Development/AI_MEMORY_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMEM-ASTREAD-FLOOR-001…002`, `AIMEM-ASTREAD-EVID-001`.
+
+## DD-677 — internal necessary evidence without recall or execution authority
+
+**Decision:** The result does not re-evaluate memory principal-currentness, ACL, expiry/retention/erasure, decryption, effective/latest selection, supersession/history, nested AssistantDefinition PromptTemplate/ToolSet/model/provider eligibility, cross-Industry carry, prompt inclusion, RAG, tool or AI execution. Existing source-provenance gaps remain unresolved.
+
+**Source audit:** `Development/AI_MEMORY_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMEM-ASTREAD-BOUND-001`.

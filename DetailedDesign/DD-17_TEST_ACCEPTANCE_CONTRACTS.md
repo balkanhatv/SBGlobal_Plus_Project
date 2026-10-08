@@ -7395,3 +7395,35 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIMEM-SUPREAD-BOUNDARY-001 — No recall/decryption/execution authority
 **Owner:** DD-672. No latest/current memory, chain traversal, expiry/retention/ACL/erasure authority, cross-context carry, client history, prompt/RAG/provider/model or AI execution authority.
+
+## DD-673…DD-677 AIMemoryRecord optional AssistantDefinition current-binding acceptance
+
+### AIMEM-ASTREAD-BASE-001 — Exact scoped memory read first, unchanged RequestContext/id.
+**Owner:** DD-673. **Acceptance:** Exact scoped memory read first, unchanged RequestContext/id.
+
+### AIMEM-ASTREAD-BASE-002 — Absent memory or memory read error short-circuits/propagates before AssistantDefinition access.
+**Owner:** DD-673. **Acceptance:** Absent memory or memory read error short-circuits/propagates before AssistantDefinition access.
+
+### AIMEM-ASTREAD-UNBOUND-001 — Valid unbound memory returns frozen child-only evidence with zero assistant reads.
+**Owner:** DD-673. **Acceptance:** Valid unbound memory returns frozen child-only evidence with zero assistant reads.
+
+### AIMEM-ASTREAD-UNBOUND-002 — Malformed unbound memory id/Tenant/Industry fails closed.
+**Owner:** DD-673. **Acceptance:** Malformed unbound memory id/Tenant/Industry fails closed.
+
+### AIMEM-ASTREAD-READ-001 — Bound branch reads persisted assistantDefinitionId exactly once under the identical RequestContext.
+**Owner:** DD-675. **Acceptance:** Bound branch reads persisted assistantDefinitionId exactly once under the identical RequestContext.
+
+### AIMEM-ASTREAD-READ-002 — Malformed bound id, hidden AssistantDefinition and dependency errors fail closed without fallback.
+**Owner:** DD-675. **Acceptance:** Malformed bound id, hidden AssistantDefinition and dependency errors fail closed without fallback.
+
+### AIMEM-ASTREAD-FLOOR-001 — Exact ACTIVE PLATFORM/TENANT/INDUSTRY ownership applies under existing DD-186 floor.
+**Owner:** DD-676. **Acceptance:** Exact ACTIVE PLATFORM/TENANT/INDUSTRY ownership applies under existing DD-186 floor.
+
+### AIMEM-ASTREAD-FLOOR-002 — Wrong id, inactive status, malformed owner, foreign Tenant or sibling Industry fail closed.
+**Owner:** DD-676. **Acceptance:** Wrong id, inactive status, malformed owner, foreign Tenant or sibling Industry fail closed.
+
+### AIMEM-ASTREAD-EVID-001 — Frozen envelope preserves exact memory/assistant/raw policy/source/content/version references.
+**Owner:** DD-676. **Acceptance:** Frozen envelope preserves exact memory/assistant/raw policy/source/content/version references.
+
+### AIMEM-ASTREAD-BOUND-001 — No principal/ACL/current-memory/supersession/retention/cross-context/prompt/RAG/provider/tool/AI execution authority.
+**Owner:** DD-677. **Acceptance:** No principal/ACL/current-memory/supersession/retention/cross-context/prompt/RAG/provider/tool/AI execution authority.
