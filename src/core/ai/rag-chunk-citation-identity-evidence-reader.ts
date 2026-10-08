@@ -67,8 +67,8 @@ export async function loadAIRAGChunkCitationIdentityEvidence(
     return Object.freeze({parent});
   }
 
-  const source = parent.parent.parent.parent.source;
-  const chunk = parent.parent.parent.parent.parent.parent.chunk;
+  const source = parent.parent.parent.source;
+  const chunk = parent.parent.parent.parent.parent.chunk;
   const citationIdentity: AIRAGChunkCitationIdentity = Object.freeze({
     sourceResourceType: source.resourceType,
     sourceResourceId: source.resourceId,
