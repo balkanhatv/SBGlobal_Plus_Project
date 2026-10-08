@@ -35,3 +35,13 @@ No schema/RLS/role/grant/route/frontend/worker/scheduler/RawSource change occurr
 ## Canonical promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-653…DD-657 state closure.
+
+## Canonical promotion verified; state closure staged — 2026-10-07
+
+Canonical promotion HEAD `6feadede72bbd1d3bfd80206d5e3f50cd7a73dfd` / tree `1f728beaa25da8efaa4fa4b31baa379683c20f03` passed exact-head push gates:
+- Core run `37663033960` / job `112935109262`: **1614/1614 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112935109257`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37663033971` / job `112935110750`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37663033957` / job `112935108549`: PASS.
+
+Pull-request Core/Database/Web workflows on the same promotion HEAD also passed. Feature evidence remains anchored to corrected implementation `c35494e6f825e611f475733180fbedb8837f6d0a`. This state-closure commit must independently pass the same four gates before DD-653…DD-657 is closed and another source audit may open.
