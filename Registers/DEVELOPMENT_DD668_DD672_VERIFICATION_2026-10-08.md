@@ -26,3 +26,14 @@ No schema/RLS/roles/grants/route/UI/RawSource changes. Production readiness is *
 ## Canonical promotion gate
 
 DD-17/18/19, D-DECISIONS/CHANGELOG, current projections and machine manifest are promoted atomically. Promotion commit must pass its own exact-head Core/PostgreSQL/Database/Web before DD-668…DD-672 state closure.
+
+## Canonical promotion verified; state closure staged — 2026-10-08
+
+Promotion HEAD `389f833c11f00ffa31b6b282c233f72b327d2826` / tree `8866fda0b661b2706f64cb3f73ce46c45a5bb8e8` passed exact-head push CI:
+- Core `37773237694` / job `113297701595`: **1639/1639 PASS**, fail/skip 0.
+- PostgreSQL same run / job `113297701899`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37773237748` / job `113297701709`: PASS, **48 migrations / 42 SQL verification files**.
+- Web run `37773237799` / job `113297702089`: PASS.
+- Pull-request Core/Database/Web workflows passed at the same promotion HEAD.
+
+The implementation proof remains `c7cb65934b53812f2e20f99eb98dcde8a9959355` / tree `04cb451e2dba3f6d45c1f223926c78c18a85c1bc`. The state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web before this batch is closed and the next source audit opens. Production readiness is not claimed.

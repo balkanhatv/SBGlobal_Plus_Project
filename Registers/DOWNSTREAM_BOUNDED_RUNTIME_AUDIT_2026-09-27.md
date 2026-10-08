@@ -766,3 +766,7 @@ Canonical promotion `c07689c874b3e562bd91df64a4828a8e51cceb95` / tree `21b002b24
 ## DD-668…DD-672 direct memory supersession evidence — 2026-10-08
 
 Implementation `c7cb65934b53812f2e20f99eb98dcde8a9959355` / tree `04cb451e2dba3f6d45c1f223926c78c18a85c1bc` passed exact-head Core **1639/1639**, PostgreSQL **540/540** plus bootstrap, Database **48/42**, Web PASS. The new internal reader performs one exact scoped AIMemoryRecord read and zero or one direct same-context superseded-parent read using the persisted id, with DD-187 non-self/Tenant/Industry/principal/class parity only. Evidence is not current/effective memory, ACL authorization, cross-context history, decryption, retention, erasure, client disclosure, prompt composition, retrieval or AI execution. No schema/RLS/route/RawSource changes.
+
+## DD-668…DD-672 canonical promotion evidence — 2026-10-08
+
+Promotion `389f833c11f00ffa31b6b282c233f72b327d2826` / tree `8866fda0b661b2706f64cb3f73ce46c45a5bb8e8` passed exact-head Core **1639/1639**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. The feature evidence remains at implementation `c7cb65934b53812f2e20f99eb98dcde8a9959355`. Bounded direct AIMemoryRecord supersession remains same-context child→optional direct-parent evidence only. No effective/latest memory, ACL/retention/erasure/decryption, cross-context history, disclosure, prompt composition, RAG or AI execution authority is conferred.
