@@ -778,3 +778,8 @@ Implementation basis `ac1e7c36c65370441bce27a0264ff0357ecfd443` / tree `e9b04d7d
 ## DD-673…DD-677 corrected canonical promotion evidence — 2026-10-08
 
 Promotion `6147f2bf0e3291e8f9e5c772d95a49bdc9f99a05` / tree `4357e77dd0d80fbcf76742defd5bda9d5b761457` passed exact-head Core **1649/1649**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, Web PASS. Feature proof remains `ac1e7c36c65370441bce27a0264ff0357ecfd443`. Optional same-context AssistantDefinition binding remains internal raw relationship evidence only; it conveys no current/effective memory, principal ACL, retention/expiry, supersession, cross-context carry, prompt/RAG or AI execution authorization.
+
+
+## DD-677 exact state closure verified — 2026-10-08
+
+State closure `9e3275f6eed593c31cbeb096471e6fc62bbc9d75` / tree `066545565322b5fd6d215269031fe92e32c15eed` passed exact-head **1649 Core / 540 PostgreSQL / Database 48/42 / Web**, no failed/skipped tests. Run/job evidence and bounded projection corrections: `Registers/CONTINUATION_STATE_CONSISTENCY_2026-10-08.md`. Feature proof remains `ac1e7c36c65370441bce27a0264ff0357ecfd443`. The state consistency correction must independently pass before the next source audit.

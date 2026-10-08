@@ -39,3 +39,8 @@ Corrected promotion HEAD `6147f2bf0e3291e8f9e5c772d95a49bdc9f99a05` / tree `4357
 The initial canonical promotion `19684d69af0cd3baf5dc8651c8403557fd5c1029` failed **REPO-011** because 14 active narrative lines retained the previous DD-672 promotion HEAD/counts. The forward-only correction `6147f2bf0e3291e8f9e5c772d95a49bdc9f99a05` aligned exactly those 14 narrative files without weakening invariants or changing runtime semantics. Feature implementation proof remains `ac1e7c36c65370441bce27a0264ff0357ecfd443` / tree `e9b04d7d9cfa95f9244360e5ed8f37baa77c14bc`.
 
 This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-673…DD-677 is closed. Production readiness is not claimed.
+
+
+## DD-677 exact state closure verified — 2026-10-08
+
+State closure `9e3275f6eed593c31cbeb096471e6fc62bbc9d75` / tree `066545565322b5fd6d215269031fe92e32c15eed` passed exact-head **1649 Core / 540 PostgreSQL / Database 48/42 / Web**, no failed/skipped tests. Run/job evidence and bounded projection corrections: `Registers/CONTINUATION_STATE_CONSISTENCY_2026-10-08.md`. Feature proof remains `ac1e7c36c65370441bce27a0264ff0357ecfd443`. The state consistency correction must independently pass before the next source audit.
