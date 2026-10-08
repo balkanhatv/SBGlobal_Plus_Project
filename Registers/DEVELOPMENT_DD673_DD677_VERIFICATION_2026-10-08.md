@@ -27,3 +27,15 @@ No schema/RLS/roles/grants/route/UI/RawSource change.
 ## Promotion gate
 
 DD-17/18/19 decisions, traceability, evidence, manifest, current projections and registers are promoted atomically. This promotion must pass its own exact-head Core/PostgreSQL/Database/Web before state closure.
+
+## Corrected canonical promotion verified; state closure staged — 2026-10-08
+
+Corrected promotion HEAD `6147f2bf0e3291e8f9e5c772d95a49bdc9f99a05` / tree `4357e77dd0d80fbcf76742defd5bda9d5b761457` passed exact-head push gates:
+- Core run `37792477013` / job `113363203790`: **1649/1649 PASS**, fail/skip 0.
+- PostgreSQL same run / job `113363204196`: **540/540 PASS**, fail/skip 0 and full database bootstrap PASS.
+- Database run `37792476994` / job `113363204201`: PASS, **48 migrations / 42 SQL verification files**.
+- Web run `37792477107` / job `113363205802`: PASS.
+
+The initial canonical promotion `19684d69af0cd3baf5dc8651c8403557fd5c1029` failed **REPO-011** because 14 active narrative lines retained the previous DD-672 promotion HEAD/counts. The forward-only correction `6147f2bf0e3291e8f9e5c772d95a49bdc9f99a05` aligned exactly those 14 narrative files without weakening invariants or changing runtime semantics. Feature implementation proof remains `ac1e7c36c65370441bce27a0264ff0357ecfd443` / tree `e9b04d7d9cfa95f9244360e5ed8f37baa77c14bc`.
+
+This state-closure commit must independently pass Core/PostgreSQL/Database/Web before DD-673…DD-677 is closed. Production readiness is not claimed.

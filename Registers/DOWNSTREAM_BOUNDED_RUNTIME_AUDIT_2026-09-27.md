@@ -774,3 +774,7 @@ Promotion `389f833c11f00ffa31b6b282c233f72b327d2826` / tree `8866fda0b661b2706f6
 ## DD-673…DD-677 exact-head implementation evidence — 2026-10-08
 
 Implementation basis `ac1e7c36c65370441bce27a0264ff0357ecfd443` / tree `e9b04d7d9cfa95f9244360e5ed8f37baa77c14bc` passed Core **1649/1649**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Exact memory read and optional identical RequestContext AssistantDefinition read reapply only DD-186 id/ACTIVE/owner relationship. No current memory selection, principal-currentness/ACL, expiry/retention/erasure, supersession resolution, decryption, cross-context disclosure, prompt/RAG/model/tool or AI execution authority is granted.
+
+## DD-673…DD-677 corrected canonical promotion evidence — 2026-10-08
+
+Promotion `6147f2bf0e3291e8f9e5c772d95a49bdc9f99a05` / tree `4357e77dd0d80fbcf76742defd5bda9d5b761457` passed exact-head Core **1649/1649**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, Web PASS. Feature proof remains `ac1e7c36c65370441bce27a0264ff0357ecfd443`. Optional same-context AssistantDefinition binding remains internal raw relationship evidence only; it conveys no current/effective memory, principal ACL, retention/expiry, supersession, cross-context carry, prompt/RAG or AI execution authorization.
