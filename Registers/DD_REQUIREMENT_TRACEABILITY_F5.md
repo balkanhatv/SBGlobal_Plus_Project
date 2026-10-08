@@ -1,7 +1,7 @@
 # FABLE 5 — REQUIREMENT-ID DETAILED DESIGN TRACEABILITY
 **Current checkpoint:** `DEV-AI-CONVERSATION-ASSISTANT-BINDING-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `42bac32a01bbef6acccaf7731533d34b5ecb0bdb` / tree `7e4d636e0e5be342d9f7367a7dc835f38f4bbe56`
-> **Current audit gate (2026-10-08):** DD-678…DD-682 implementation passed exact-head Core/PostgreSQL/Database/Web at the executable basis above; canonical promotion requires its own exact-head verification before state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `111518f2895f1aee76971128df49e47718ffbf62` / tree `6f4abeaebf4eca14fb2050a7df796f61d1a3b417`
+> **Current audit gate (2026-10-08):** DD-678…DD-682 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit requires its own independent exact-head verification before further development. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-11 · **Historical status:** FABLE 5 REMEDIATION EVIDENCE
 
 > The requirement-to-DD rows below remain preserved as evaluated-era Phase-3 traceability evidence. Fable-5 remediation subsequently completed, governed Development advanced through DD-208, and the complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**. This file does not define the current development gate and does not authorize DD-209.

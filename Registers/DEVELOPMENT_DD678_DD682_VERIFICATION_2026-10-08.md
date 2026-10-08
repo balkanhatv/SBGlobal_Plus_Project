@@ -24,3 +24,11 @@ No history/messages, owner-currentness, retention/erasure, current/effective Ass
 ## Promotion gate
 
 Canonical DD-17/18/19, traceability, registers, manifesto and active projections are staged in one forward-only Git commit. **Canonical promotion is not yet exact-HEAD CI-verified** at the time of this record. Its own Core/PostgreSQL/Database/Web pass must precede separately gated state closure. No production readiness claim.
+
+## Corrected canonical promotion exact-HEAD verification — 2026-10-08
+
+DD-678…DD-682 corrected canonical promotion `111518f2895f1aee76971128df49e47718ffbf62` / tree `6f4abeaebf4eca14fb2050a7df796f61d1a3b417` passed exact-head Core **1659/1659** (run `37808026264`, job `113417323258`), PostgreSQL **540/540** plus full bootstrap (job `113417322889`), Database **48 migrations / 42 verification files** (run `37808019834`, job `113417300027`) and Web (run `37808019846`, job `113417300319`); zero failed/skipped tests.
+
+Initial canonical promotion `56ba452322010336296631047528fd8f141cd7ce` revealed an active-basis REPO-007 projection gap: the bounded-runtime evidence register did not cite the current verified implementation basis. Forward-only append-only correction `111518f2895f1aee76971128df49e47718ffbf62` resolved the projection without changing runtime semantics or historical VC27-111 audit findings. Feature implementation proof remains `42bac32a01bbef6acccaf7731533d34b5ecb0bdb`.
+
+State closure is staged and requires its own independent exact-head Core/PostgreSQL/Database/Web gates. No schema/RLS/role/route/UI/RawSource/main changes, test weakening, history/retention/Assistant-selection privilege or AI execution authority; production readiness NOT CLAIMED.
