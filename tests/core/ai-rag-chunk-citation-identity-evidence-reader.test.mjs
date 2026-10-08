@@ -171,12 +171,18 @@ test("RAGCHUNK-CITID-ID-001 descriptor branch projects only exact persisted iden
   assert.equal(result.parent.resourceDescriptor.resourceId,"resource-1");
 
   const coreSource=source({industryContextId:undefined,scopeClass:"TENANT_CORE",
-    documentId:undefined,documentVersion:undefined,resourceType:"RAW",resourceId:""});
+    resourceType:"RAW",resourceId:""});
   const coreChunk=chunk({industryContextId:undefined,scopeClass:"TENANT_CORE"});
-  const core=fixture({source:coreSource,chunk:coreChunk,lineageDocument:null,aclDocument:null});
-  const coreResult=await load(core,{requestContext:requestContext({industryContextId:undefined,scopeClass:"TENANT_CORE"})});
+  const coreDoc=document({industryContextId:undefined,scopeClass:"TENANT_CORE"});
+  const core=fixture({source:coreSource,chunk:coreChunk,
+    lineageDocument:coreDoc,aclDocument:coreDoc,aclEntries:Object.freeze([])});
+  const coreResult=await load(core,{requestContext:requestContext({
+    industryContextId:undefined,scopeClass:"TENANT_CORE",
+  })});
   assert.ok(coreResult);
-  assert.equal("documentId" in coreResult.citationIdentity,false);
+  assert.equal(coreResult.citationIdentity.documentId,ids.document);
+  assert.equal(coreResult.citationIdentity.sourceResourceType,"RAW");
+  assert.equal("industryContextId" in coreResult.parent.resourceDescriptor,false);
 });
 test("RAGCHUNK-CITID-ID-002 no labels relevance residency or synthesized fields",async()=>{
   const f=fixture({source:source({resourceType:"",resourceId:"",sourceVersion:"raw-SRC-v1",residencyRegion:"IN-CENTRAL"})});
