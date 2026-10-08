@@ -7332,3 +7332,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### RAGCHUNK-SRCDESC-BOUND-002 — ACL branches are not bypassed/upgraded
 **Owner:** DD-662. Descriptor evidence never bypasses explicit ACL DENY, never upgrades explicit ACL ALLOW to final authorization, and never treats absent/unbound evidence as access.
+
+## DD-663 Exact DD-662 Parent and Error Acceptance
+
+### RAGCHUNK-CITID-BASE-001 — Exact parent first; zero post-parent reads
+**Owner:** DD-663. DD-662 receives exact RequestContext, chunk id, explicit DocumentAclPermission, trusted currentTimeIso and unchanged dependencies. No post-parent reads.
+
+### RAGCHUNK-CITID-BASE-002 — Parent absence/errors preserve behavior
+**Owner:** DD-663. DD-662 null short-circuits and dependency errors propagate unchanged before identity projection.
+
+## DD-664 Branch-Preserving Absence Acceptance
+
+### RAGCHUNK-CITID-BRANCH-001 — Unbound/DENY/ALLOW remain parent-only
+**Owner:** DD-664. No identity for absent descriptor, unbound, EXPLICIT_ACL_DENY or EXPLICIT_ACL_ALLOW. No bypass or final-access inference.
+
+## DD-665 Exact Internal Citation-Identity Projection Acceptance
+
+### RAGCHUNK-CITID-ID-001 — Exact source/chunk partial provenance
+**Owner:** DD-665. Only descriptor-present branch creates frozen internal sourceResourceType/sourceResourceId/documentId?/chunkId/sourceVersion from already-preserved raw source/chunk.
+
+### RAGCHUNK-CITID-ID-002 — No unsupported citation/disclosure fields
+**Owner:** DD-665. Preserve raw strings and omit safeLabel, relevanceClass, residencyClass, source-currentness, embeddingVersion substitutions and client-citation authority.
+
+## DD-666 Immutable Evidence Acceptance
+
+### RAGCHUNK-CITID-EVID-001 — Preserve exact parent and nested references
+**Owner:** DD-666. Frozen envelope/identity preserve exact DD-662 parent and nested RAG source/chunk/Document/ACL/model/provider data unchanged.
+
+## DD-667 Authority and ACL Boundary Acceptance
+
+### RAGCHUNK-CITID-BOUND-001 — Partial internal identity is not full citation
+**Owner:** DD-667. No full/client-visible GroundingCitation, final authorization, retrieval/ranking/grounding/citation, provider/model routing, inference, mutation or execution authority.
+
+### RAGCHUNK-CITID-BOUND-002 — ACL DENY/ALLOW and pending authorization remain bounded
+**Owner:** DD-667. DENY never bypassed, ALLOW never made final; descriptor branch still requires source-resource authorization.

@@ -7205,3 +7205,35 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/RAG_CHUNK_SOURCE_RESOURCE_DESCRIPTOR_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `RAGCHUNK-SRCDESC-BOUND-001…002`.
+
+## DD-663 — use DD-662 exact evidence first for internal citation identity
+
+**Context:** DD-09 §9 requires provenance fields in GroundingCitation, while DD-09 §8 requires ACL/entitlement/security filters before client-facing citation. DD-662 owns exact persisted source-resource descriptor branch evidence.
+
+**Decision:** Add `loadAIRAGChunkCitationIdentityEvidence(...)`, invoking DD-662 once with unchanged inputs/readers. Null and dependency errors preserve parent behavior, and no extra reads are introduced.
+
+**Source audit:** `Development/RAG_CHUNK_CITATION_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `RAGCHUNK-CITID-BASE-001…002`.
+
+## DD-664 — limit projection to pending source-resource authorization branch
+
+**Decision:** Only DD-662 `resourceDescriptor` presence permits internal identity projection. Unbound, explicit DENY and explicit ALLOW remain frozen `{parent}` and grant no citation access.
+
+**Source audit:** `Development/RAG_CHUNK_CITATION_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `RAGCHUNK-CITID-BRANCH-001`.
+
+## DD-665 — preserve only source-owned partial citation fields
+
+**Decision:** Project `sourceResourceType=RAGSource.resourceType`, `sourceResourceId=RAGSource.resourceId`, optional persisted `documentId`, `chunkId=RAGChunk.id`, `sourceVersion=RAGSource.sourceVersion`, and nothing else. This internal `citationIdentity` is not the full DD-09 `GroundingCitation`; safeLabel/relevanceClass are intentionally absent. No currentness/relevance/residency inference or normalization.
+
+**Source audit:** `Development/RAG_CHUNK_CITATION_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `RAGCHUNK-CITID-ID-001…002`.
+
+## DD-666 — immutable parent/identity with no new authority
+
+**Decision:** Preserve exact DD-662 parent and nested source/chunk/Document/ACL/model/provider references; freeze only the new identity and envelope. Do not mutate, clone or normalize raw metadata.
+
+**Source audit:** `Development/RAG_CHUNK_CITATION_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `RAGCHUNK-CITID-EVID-001`.
+
+## DD-667 — internal provenance evidence is not authorized citation or retrieval
+
+**Decision:** A citation identity cannot be exposed to clients, upgraded into `GroundingCitation`, or used as an authorization/retrieval/ranking/grounding/inference approval. DD-662 ACL paths and source-resource authorization remain unexecuted where applicable; full DD-09 security/citation stages require separately governed owners.
+
+**Source audit:** `Development/RAG_CHUNK_CITATION_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `RAGCHUNK-CITID-BOUND-001…002`.

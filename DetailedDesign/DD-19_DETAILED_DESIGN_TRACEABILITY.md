@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-RAG-CHUNK-SOURCE-RESOURCE-DESCRIPTOR-EVIDENCE-READER-001`
-**Current executable audit basis:** `700df106321fa324e2cddf183f63dd30b5bd04ab` / tree `21ff645d6a746758c1fc5bb72298f043d9c3386b`
-> **Current audit gate (2026-10-08):** DD-658…DD-662 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-RAG-CHUNK-CITATION-IDENTITY-EVIDENCE-READER-001`
+**Current executable audit basis:** `8afc17307d1775a5ac6af3e5ab16e393342bb9e8` / tree `978c4dcae03c1b8598d55b712aacb90fd92e5e45`
+> **Current audit gate (2026-10-08):** DD-663…DD-667 bounded internal RAG citation-identity evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1472,3 +1472,9 @@ Unbound evidence remains parent-only. Bound evidence adds only EXPLICIT_ACL_DENY
 DD-657 exact RAG lineage + ACL access-path evidence → exact persisted DD-647 RAGSource reference → DD-03 ResourceDescriptor contract → zero-read projection only for `SOURCE_RESOURCE_AUTHORIZATION_REQUIRED` → `Development/RAG_CHUNK_SOURCE_RESOURCE_DESCRIPTOR_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-658…DD-662 → `src/core/ai/rag-chunk-source-resource-descriptor-evidence-reader.ts` → `tests/core/ai-rag-chunk-source-resource-descriptor-evidence-reader.test.mjs` (`RAGCHUNK-SRCDESC-BASE-001…002`, `RAGCHUNK-SRCDESC-BRANCH-001`, `RAGCHUNK-SRCDESC-DESC-001…002`, `RAGCHUNK-SRCDESC-EVID-001`, `RAGCHUNK-SRCDESC-BOUND-001…002`) → `Registers/DEVELOPMENT_DD658_DD662_VERIFICATION_2026-10-08.md`.
 
 The projection uses only persisted source resourceType/resourceId/Tenant/null-safe Industry/sensitivity. residencyRegion remains raw and is not mapped to residencyClass. Unbound, explicit ACL DENY and explicit ACL ALLOW branches remain parent-only. Descriptor evidence is not source resolution, permission/OperationContract selection, final authorization, retrieval/grounding/routing/inference or execution authority.
+
+## DD-663…DD-667 — Internal RAG citation identity provenance (no client disclosure)
+
+DD-09 §9 partial citation fields + exact DD-662 DD-657/652/647 RAG lineage/ACL/descriptor evidence → `Development/RAG_CHUNK_CITATION_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-663…DD-667 → `src/core/ai/rag-chunk-citation-identity-evidence-reader.ts` → `tests/core/ai-rag-chunk-citation-identity-evidence-reader.test.mjs` (`RAGCHUNK-CITID-BASE-001…002`, `RAGCHUNK-CITID-BRANCH-001`, `RAGCHUNK-CITID-ID-001…002`, `RAGCHUNK-CITID-EVID-001`, `RAGCHUNK-CITID-BOUND-001…002`) → `Registers/DEVELOPMENT_DD663_DD667_VERIFICATION_2026-10-08.md`.
+
+DD-662 descriptor-present branch only → frozen internal identity sourceResourceType/sourceResourceId/documentId?/chunkId/sourceVersion. No new reads; no identity for unbound/ACL DENY/ACL ALLOW. `safeLabel` and `relevanceClass` unowned/unavailable, so this does not assemble or authorize `GroundingCitation` or reach client response, retrieval, ranking, grounding or inference.

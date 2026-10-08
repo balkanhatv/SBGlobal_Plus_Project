@@ -754,3 +754,7 @@ The descriptor is raw evidence, not proof that the source resource exists/curren
 Canonical promotion basis `700df106321fa324e2cddf183f63dd30b5bd04ab` / tree `21ff645d6a746758c1fc5bb72298f043d9c3386b` passed exact-head Core **1622/1622**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to corrected implementation `8e3d9ef57bccee287a3e714b74050ea0eccb9df9`.
 
 Only SOURCE_RESOURCE_AUTHORIZATION_REQUIRED carries the bounded persisted-source DD-03 ResourceDescriptor. Unbound/DENY/ALLOW remain parent-only. Descriptor evidence still does not resolve the source, map residencyRegion, choose permission/OperationContract, finalize authorization, retrieve/rank/ground/cite, route/infer, mutate or execute AI.
+
+## DD-663…DD-667 internal citation-identity implementation evidence — 2026-10-08
+
+Verified implementation `8afc17307d1775a5ac6af3e5ab16e393342bb9e8` / tree `978c4dcae03c1b8598d55b712aacb90fd92e5e45`: **1630 Core / 540 PostgreSQL / 48 migrations / 42 SQL verification files / Web PASS**. DD-662 SOURCE_RESOURCE_AUTHORIZATION_REQUIRED parent-only descriptor branch is extended with raw DD-09 §9 partial source/chunk/version identity, not full GroundingCitation or client disclosure. All other branches remain parent-only, especially explicit ACL DENY/ALLOW. No source-resource authorization, RBAC/ABAC/commercial policy, retrieval, ranking, grounding, provider/model routing, inference, mutation or AI execution added.
