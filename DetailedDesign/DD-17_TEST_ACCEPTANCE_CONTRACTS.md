@@ -7366,3 +7366,32 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### RAGCHUNK-CITID-BOUND-002 — ACL DENY/ALLOW and pending authorization remain bounded
 **Owner:** DD-667. DENY never bypassed, ALLOW never made final; descriptor branch still requires source-resource authorization.
+
+## DD-668…DD-672 — Direct AIMemoryRecord supersession evidence acceptance
+
+### AIMEM-SUPREAD-BASE-001 — Exact child scoped read first
+**Owner:** DD-668. Load one exact child AIMemoryRecord using the unchanged RequestContext and exact id.
+
+### AIMEM-SUPREAD-BASE-002 — Null/error before parent
+**Owner:** DD-668. Missing child short-circuits; dependency errors propagate unchanged, with no parent reads.
+
+### AIMEM-SUPREAD-UNBOUND-001 — Unbound branch parent-only
+**Owner:** DD-669. No persisted supersedesId yields frozen exact child-only evidence with zero parent reads; no currentness claim.
+
+### AIMEM-SUPREAD-UNBOUND-002 — Invalid unbound fails closed
+**Owner:** DD-669. DD-187 rejects malformed child continuity shape even without a parent id.
+
+### AIMEM-SUPREAD-BOUND-001 — Exact persisted parent and context
+**Owner:** DD-670. Bound branch reads exactly one superseded parent using the identical RequestContext object and persisted supersedesId.
+
+### AIMEM-SUPREAD-BOUND-002 — Invisible/missing/error fail closed
+**Owner:** DD-670. Missing parent returns null; parent-read errors propagate unchanged; no alternate id/context or fallback.
+
+### AIMEM-SUPREAD-FLOOR-001 — DD-187 exact direct continuity
+**Owner:** DD-671. Non-self exact id plus Tenant, nullable Industry, nullable principal and memoryClass parity are necessary; mismatches fail closed.
+
+### AIMEM-SUPREAD-EVID-001 — Immutable exact raw evidence
+**Owner:** DD-672. Frozen envelopes preserve exact persisted memory/parent objects, content/source/ACL fields, and no mutation.
+
+### AIMEM-SUPREAD-BOUNDARY-001 — No recall/decryption/execution authority
+**Owner:** DD-672. No latest/current memory, chain traversal, expiry/retention/ACL/erasure authority, cross-context carry, client history, prompt/RAG/provider/model or AI execution authority.

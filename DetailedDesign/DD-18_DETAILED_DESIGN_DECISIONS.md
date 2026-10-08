@@ -7237,3 +7237,35 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Decision:** A citation identity cannot be exposed to clients, upgraded into `GroundingCitation`, or used as an authorization/retrieval/ranking/grounding/inference approval. DD-662 ACL paths and source-resource authorization remain unexecuted where applicable; full DD-09 security/citation stages require separately governed owners.
 
 **Source audit:** `Development/RAG_CHUNK_CITATION_IDENTITY_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `RAGCHUNK-CITID-BOUND-001…002`.
+
+## DD-668 — reuse exact scoped AIMemoryRecord child read
+
+**Context:** DD-129 owns one raw RLS-protected AIMemoryRecord read; DD-09 forbids uncontrolled cross-Industry history carry.
+
+**Decision:** Add `loadAIMemoryDirectSupersessionCurrentEvidence(...)`. Read the exact child once with unchanged RequestContext/id. Null returns null; errors propagate unchanged.
+
+**Source audit:** `Development/AI_MEMORY_DIRECT_SUPERSESSION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMEM-SUPREAD-BASE-001…002`.
+
+## DD-669 — preserve no-supersession branch as raw child-only evidence
+
+**Decision:** If child.supersedesId is absent, require the existing DD-187 no-parent floor, and return frozen `{memory}` with no second read. Missing supersedesId does not establish currentness, eligibility, or history authority.
+
+**Acceptance:** `AIMEM-SUPREAD-UNBOUND-001…002`.
+
+## DD-670 — one exact same-context superseded-parent read
+
+**Decision:** If child.supersedesId exists, call the exact `AIMemoryRecordReadPort.loadForContext` once for the persisted id under the identical RequestContext. Missing/invisible parent returns null; errors propagate unchanged.
+
+**Acceptance:** `AIMEM-SUPREAD-BOUND-001…002`.
+
+## DD-671 — DD-187 direct supersession predicate only
+
+**Decision:** Apply the existing `matchesAIMemorySupersessionContinuityFloors(child,parent)` for exact id/non-self/Tenant/nullable Industry/nullable principal/memoryClass continuity. Do not infer parent SUPERSEDED, child ACTIVE, chronology, indirect cycles or effective-memory selection.
+
+**Acceptance:** `AIMEM-SUPREAD-FLOOR-001`.
+
+## DD-672 — immutable internal evidence without memory recall authority
+
+**Decision:** Bound success is frozen `{memory,supersededMemory}`, unbound success frozen `{memory}`; preserve exact persisted references. Never decrypt content, dereference source, select latest/current memory, traverse chains, resolve expiry/ACL/retention, carry across Industry, assemble history, include in prompts or execute AI.
+
+**Acceptance:** `AIMEM-SUPREAD-EVID-001, AIMEM-SUPREAD-BOUNDARY-001`.

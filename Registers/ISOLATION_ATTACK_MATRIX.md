@@ -1,8 +1,8 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
-**Current checkpoint:** `DEV-AI-RAG-CHUNK-CITATION-IDENTITY-EVIDENCE-READER-001`
-> **Current audit gate (2026-10-08):** DD-663…DD-667 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-MEMORY-DIRECT-SUPERSESSION-CURRENT-EVIDENCE-READER-001`
+> **Current audit gate (2026-10-08):** DD-668…DD-672 scoped memory direct-supersession evidence is implemented and exact-head verified at the basis above. This canonical promotion must independently pass before closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Updated:** 2026-10-08 · **Branch:** `docs/architecture-branch-2`
-> **Current executable audit basis:** `c07689c874b3e562bd91df64a4828a8e51cceb95` / tree `21b002b24f245af4fb7c0bb1b56b429dae0c0828`
+> **Current executable audit basis:** `c7cb65934b53812f2e20f99eb98dcde8a9959355` / tree `04cb451e2dba3f6d45c1f223926c78c18a85c1bc`
 
 ## Historical 2026-09-14 executable persistence overlay
 
