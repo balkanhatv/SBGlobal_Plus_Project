@@ -7298,3 +7298,37 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### RAGCHUNK-ACLPATH-BOUND-001 — Access-path evidence is not final authorization or execution
 **Owner:** DD-657. Output exposes no inferred RAG→Document permission mapping, ResourceDescriptor/source-resource resolver, AuthorizationDecision/GuardResult, entitlement/security filter result, retrieval/ranking/grounding/citation, prompt-injection policy, provider/model routing, inference, mutation/event or AI execution authority.
+
+## DD-658 Exact DD-657 Parent Acceptance
+
+### RAGCHUNK-SRCDESC-BASE-001 — Exact DD-657 parent first, zero post-parent reads
+**Owner:** DD-658. Exact RequestContext, RAGChunk id, Document ACL permission, trusted current time and dependencies enter DD-657 unchanged; successful parent evidence is reused with zero additional persistence reads.
+
+### RAGCHUNK-SRCDESC-BASE-002 — Parent null/error precedes descriptor projection
+**Owner:** DD-658. DD-657 null short-circuits and governed dependency errors propagate unchanged before descriptor projection.
+
+## DD-659 Non-Source-Resource Branch Acceptance
+
+### RAGCHUNK-SRCDESC-BRANCH-001 — Unbound/DENY/ALLOW remain parent-only
+**Owner:** DD-659. Missing access-path classification, EXPLICIT_ACL_DENY and EXPLICIT_ACL_ALLOW return frozen exact parent-only evidence with no ResourceDescriptor synthesis.
+
+## DD-660 Exact Persisted Source Descriptor Projection Acceptance
+
+### RAGCHUNK-SRCDESC-DESC-001 — Exact source identity/sensitivity projection
+**Owner:** DD-660. SOURCE_RESOURCE_AUTHORIZATION_REQUIRED projects only exact persisted RAGSource resourceType, resourceId, tenantId, optional industryContextId and sensitivityClass into a frozen DD-03 ResourceDescriptor.
+
+### RAGCHUNK-SRCDESC-DESC-002 — No unsupported synthesis
+**Owner:** DD-660. Raw resource strings remain exact; residencyRegion is not mapped to residencyClass and orgUnitId/ownerPrincipalId/state are not synthesized.
+
+## DD-661 Immutable Layered Evidence Acceptance
+
+### RAGCHUNK-SRCDESC-EVID-001 — Preserve exact DD-657 and nested raw references
+**Owner:** DD-661. Descriptor success preserves the exact DD-657 parent and nested source/Document/ACL/model/provider evidence references unchanged; parent-only branches preserve exact parent.
+
+## DD-662 Source-Descriptor Authority Boundary Acceptance
+
+### RAGCHUNK-SRCDESC-BOUND-001 — Descriptor is not source resolution or authorization
+**Owner:** DD-662. Output exposes no resolved source resource, OperationContract/permission mapping, AuthorizationDecision/GuardResult, entitlement/security/retrieval/routing/inference/mutation/event or AI execution authority.
+
+### RAGCHUNK-SRCDESC-BOUND-002 — ACL branches are not bypassed/upgraded
+**Owner:** DD-662. Descriptor evidence never bypasses explicit ACL DENY, never upgrades explicit ACL ALLOW to final authorization, and never treats absent/unbound evidence as access.

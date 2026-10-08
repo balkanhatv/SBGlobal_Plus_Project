@@ -7165,3 +7165,43 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Source audit:** `Development/RAG_CHUNK_BOUND_DOCUMENT_ACL_ACCESS_PATH_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 
 **Acceptance:** `RAGCHUNK-ACLPATH-BOUND-001`.
+
+## DD-658 — reuse exact DD-657 ACL access-path evidence first
+
+**Decision:** Add `loadAIRAGChunkSourceResourceDescriptorEvidence(...)`. Invoke DD-657 exactly once with exact supplied inputs/dependencies. Parent null returns null and governed dependency errors propagate unchanged. Perform zero persistence reads after parent success.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_RESOURCE_DESCRIPTOR_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-SRCDESC-BASE-001…002`.
+
+## DD-659 — preserve non-source-resource branches parent-only
+
+**Decision:** If DD-657 has no accessPathEvidence, or has `EXPLICIT_ACL_DENY` or `EXPLICIT_ACL_ALLOW`, return frozen `{ parent }` only. Do not synthesize a source ResourceDescriptor or reinterpret the branch.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_RESOURCE_DESCRIPTOR_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-SRCDESC-BRANCH-001`.
+
+## DD-660 — project only exact persisted RAGSource identity fields
+
+**Decision:** Only for `SOURCE_RESOURCE_AUTHORIZATION_REQUIRED`, create a frozen DD-03 ResourceDescriptor using exact persisted `resourceType`, `resourceId`, `tenantId`, optional `industryContextId` and `sensitivityClass`. Preserve raw strings. Do not map residencyRegion to residencyClass or synthesize orgUnitId, ownerPrincipalId or state.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_RESOURCE_DESCRIPTOR_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-SRCDESC-DESC-001…002`.
+
+## DD-661 — immutable layered descriptor evidence
+
+**Decision:** Descriptor branch returns frozen `{ parent, resourceDescriptor }`; all other successful branches return frozen `{ parent }`. Preserve exact nested source/Document/ACL/model/provider references without mutation or normalization.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_RESOURCE_DESCRIPTOR_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-SRCDESC-EVID-001`.
+
+## DD-662 — source descriptor evidence is not resolution or authorization authority
+
+**Decision:** Do not resolve the source resource, choose an OperationContract/permission, call AuthorizationDecisionService/GuardPipeline, evaluate entitlement/security/sensitivity/residency/step-up, override ACL DENY, finalize ACL ALLOW, perform retrieval/ranking/grounding/citation, route provider/model, invoke inference, mutate or emit events.
+
+**Source audit:** `Development/RAG_CHUNK_SOURCE_RESOURCE_DESCRIPTOR_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
+
+**Acceptance:** `RAGCHUNK-SRCDESC-BOUND-001…002`.
