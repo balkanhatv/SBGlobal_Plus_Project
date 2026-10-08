@@ -110,7 +110,7 @@ function fixture(overrides={}) {
   return {order,calls,values,readers};
 }
 async function load(f,inputOverrides={}) {
-  return loadAIRAGChunkSourceResourceDescriptorEvidence(
+  return loadAIRAGChunkCitationIdentityEvidence(
     {requestContext:requestContext(),ragChunkId:ids.chunk,documentAclPermission:"VIEW",currentTimeIso:"2026-10-07T12:00:00.000Z",...inputOverrides},
     f.readers.chunkReader,f.readers.modelReader,f.readers.providerReader,
     f.readers.sourceReader,f.readers.documentReader,f.readers.aclReader,
