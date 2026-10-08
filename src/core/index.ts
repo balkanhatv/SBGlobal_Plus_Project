@@ -243,6 +243,7 @@ export * from "./ai/memory-record.js";
 export * from "./ai/memory-assistant-binding-floors.js";
 export * from "./ai/memory-supersession-continuity-floors.js";
 export * from "./ai/memory-direct-supersession-current-evidence-reader.js";
+export * from "./ai/memory-assistant-binding-current-evidence-reader.js";
 export * from "./ai/media-request-input-document-binding-floors.js";
 export * from "./ai/operation-pre-provider-prerequisite-floors.js";
 export * from "./ai/provider-model-catalog-candidate-floors.js";
