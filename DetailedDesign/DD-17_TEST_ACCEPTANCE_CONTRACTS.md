@@ -7427,3 +7427,35 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIMEM-ASTREAD-BOUND-001 — No principal/ACL/current-memory/supersession/retention/cross-context/prompt/RAG/provider/tool/AI execution authority.
 **Owner:** DD-677. **Acceptance:** No principal/ACL/current-memory/supersession/retention/cross-context/prompt/RAG/provider/tool/AI execution authority.
+
+## DD-678…DD-682 — AIConversation optional AssistantDefinition current-binding acceptance
+
+### AICONV-ASTREAD-BASE-001 — Exact scoped AIConversation read first with unchanged RequestContext and conversationId.
+**Owner:** DD-678. **Acceptance:** Exact scoped AIConversation read first with unchanged RequestContext and conversationId.
+
+### AICONV-ASTREAD-BASE-002 — Missing conversation short-circuits; dependency errors propagate unchanged before Assistant access.
+**Owner:** DD-678. **Acceptance:** Missing conversation short-circuits; dependency errors propagate unchanged before Assistant access.
+
+### AICONV-ASTREAD-UNBOUND-001 — Valid unbound TENANT_CORE and TENANT_INDUSTRY rows return frozen exact conversation-only evidence and zero Assistant reads.
+**Owner:** DD-679. **Acceptance:** Valid unbound TENANT_CORE and TENANT_INDUSTRY rows return frozen exact conversation-only evidence and zero Assistant reads.
+
+### AICONV-ASTREAD-UNBOUND-002 — Malformed unbound conversation id/Tenant/scope fails closed without Assistant access.
+**Owner:** DD-679. **Acceptance:** Malformed unbound conversation id/Tenant/scope fails closed without Assistant access.
+
+### AICONV-ASTREAD-READ-001 — Bound row reads exact persisted assistantDefinitionId once with identical RequestContext.
+**Owner:** DD-680. **Acceptance:** Bound row reads exact persisted assistantDefinitionId once with identical RequestContext.
+
+### AICONV-ASTREAD-READ-002 — Malformed bound id/scope, null/invisible Assistant or dependency error denies/propagates without alternate lookup or privileged fallback.
+**Owner:** DD-680. **Acceptance:** Malformed bound id/scope, null/invisible Assistant or dependency error denies/propagates without alternate lookup or privileged fallback.
+
+### AICONV-ASTREAD-FLOOR-001 — DD-185 exact ACTIVE PLATFORM/TENANT/INDUSTRY owner relationship applies without changing conversation/request scope.
+**Owner:** DD-681. **Acceptance:** DD-185 exact ACTIVE PLATFORM/TENANT/INDUSTRY owner relationship applies without changing conversation/request scope.
+
+### AICONV-ASTREAD-FLOOR-002 — Wrong assistant id, invalid/inactive status or owner, foreign Tenant, sibling Industry or Industry owner for Core fails closed.
+**Owner:** DD-681. **Acceptance:** Wrong assistant id, invalid/inactive status or owner, foreign Tenant, sibling Industry or Industry owner for Core fails closed.
+
+### AICONV-ASTREAD-EVID-001 — Frozen result retains exact raw conversation/Assistant references, status, policies, timestamps and version without mutation.
+**Owner:** DD-681. **Acceptance:** Frozen result retains exact raw conversation/Assistant references, status, policies, timestamps and version without mutation.
+
+### AICONV-ASTREAD-BOUND-001 — No conversation-owner/currentness/history, retention/erasure, Assistant selection, cross-context carry, prompt/RAG/provider/tool/agent/execution authority.
+**Owner:** DD-682. **Acceptance:** No conversation-owner/currentness/history, retention/erasure, Assistant selection, cross-context carry, prompt/RAG/provider/tool/agent/execution authority.

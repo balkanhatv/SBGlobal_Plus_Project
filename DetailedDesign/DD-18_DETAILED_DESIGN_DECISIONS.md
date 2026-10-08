@@ -7299,3 +7299,33 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Decision:** The result does not re-evaluate memory principal-currentness, ACL, expiry/retention/erasure, decryption, effective/latest selection, supersession/history, nested AssistantDefinition PromptTemplate/ToolSet/model/provider eligibility, cross-Industry carry, prompt inclusion, RAG, tool or AI execution. Existing source-provenance gaps remain unresolved.
 
 **Source audit:** `Development/AI_MEMORY_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMEM-ASTREAD-BOUND-001`.
+
+## DD-678 — Read exact scoped AIConversation first
+
+**Decision:** Use DD-121 scoped port to load one exact persisted conversationId under unchanged RequestContext. Null short-circuits before Assistant access; dependency errors propagate unchanged.
+
+**Source audit:** `Development/AI_CONVERSATION_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREAD-BASE-001…002`.
+
+## DD-679 — Preserve unbound conversation branch without Assistant read
+
+**Decision:** Absent assistantDefinitionId invokes only existing DD-185 conversation identity/Tenant/scope floor. Valid TENANT_CORE/INDUSTRY record returns frozen {conversation} with identical reference and no Assistant read.
+
+**Source audit:** `Development/AI_CONVERSATION_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREAD-UNBOUND-001…002`.
+
+## DD-680 — Read only exact bound AssistantDefinition under unchanged context
+
+**Decision:** Reject malformed conversation or binding UUID/scope before dependency access. Use DD-117 read port once for exact persisted AssistantDefinition id under the same RequestContext; missing/invisible result is null. No privileged fallback, context switch, retries or code/version selection.
+
+**Source audit:** `Development/AI_CONVERSATION_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREAD-READ-001…002`.
+
+## DD-681 — Apply DD-185 direct relationship and preserve raw immutable evidence
+
+**Decision:** Reapply matchesAIConversationAssistantBindingFloors: exact Assistant id, raw ACTIVE status, owner applicability PLATFORM/TENANT/INDUSTRY. Return frozen {conversation,assistant} with raw references and no conversation status/time interpretation.
+
+**Source audit:** `Development/AI_CONVERSATION_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREAD-FLOOR-001…002, EVID-001`.
+
+## DD-682 — Necessary binding evidence does not grant conversational or AI authority
+
+**Decision:** Neither branch authorizes owner-principal currentness, messages/history access, retention/erasure, current Assistant selection, cross-Industry carry, nested prompt/tool/model selection, RAG, provider/model/tool/agent execution, routing or mutation. Existing scoped-port RLS remains unchanged.
+
+**Source audit:** `Development/AI_CONVERSATION_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREAD-BOUND-001`.
