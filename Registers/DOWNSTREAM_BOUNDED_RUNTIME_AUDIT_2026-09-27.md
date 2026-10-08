@@ -748,3 +748,9 @@ The bounded result remains exact DD-652 lineage/ACL-current-effect evidence plus
 Corrected implementation basis `8e3d9ef57bccee287a3e714b74050ea0eccb9df9` / tree `81d4644949893906cf6bf69d84cb462916f3115e` passed Core **1622/1622**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Only `SOURCE_RESOURCE_AUTHORIZATION_REQUIRED` projects a frozen DD-03 ResourceDescriptor from exact persisted RAGSource resourceType/resourceId/Tenant/null-safe Industry/sensitivity; unbound, explicit ACL DENY and explicit ACL ALLOW remain parent-only.
 
 The descriptor is raw evidence, not proof that the source resource exists/currently resolves. residencyRegion is not mapped to residencyClass; no OperationContract/permission is selected; no ACL branch is bypassed/upgraded; no final authorization, entitlement/security filtering, retrieval/ranking/grounding/citation, provider/model routing, inference, mutation/event or AI execution authority is added.
+
+## DD-658…DD-662 canonical promotion evidence — 2026-10-08
+
+Canonical promotion basis `700df106321fa324e2cddf183f63dd30b5bd04ab` / tree `21ff645d6a746758c1fc5bb72298f043d9c3386b` passed exact-head Core **1622/1622**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. Feature evidence remains anchored to corrected implementation `8e3d9ef57bccee287a3e714b74050ea0eccb9df9`.
+
+Only SOURCE_RESOURCE_AUTHORIZATION_REQUIRED carries the bounded persisted-source DD-03 ResourceDescriptor. Unbound/DENY/ALLOW remain parent-only. Descriptor evidence still does not resolve the source, map residencyRegion, choose permission/OperationContract, finalize authorization, retrieve/rank/ground/cite, route/infer, mutate or execute AI.

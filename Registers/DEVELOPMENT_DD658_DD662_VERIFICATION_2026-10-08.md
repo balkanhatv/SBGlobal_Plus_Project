@@ -31,3 +31,14 @@ No source resource is resolved; raw resource strings are preserved exactly. `res
 ## Canonical promotion gate
 
 Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-658…DD-662 state closure or another source audit.
+
+## Canonical promotion verified; state closure staged — 2026-10-08
+
+Canonical promotion HEAD `700df106321fa324e2cddf183f63dd30b5bd04ab` / tree `21ff645d6a746758c1fc5bb72298f043d9c3386b` passed exact-head push gates:
+- Core run `37740487349` / job `113189817273`: **1622/1622 PASS**, fail/skip 0.
+- PostgreSQL same run / job `113189817572`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37740487364` / job `113189817568`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37740487414` / job `113189817541`: PASS.
+- Matching pull-request Core/Database/Web gates on the same promotion HEAD also passed.
+
+This state-closure commit must independently pass the same gates before DD-658…DD-662 is closed and another source audit opens.
