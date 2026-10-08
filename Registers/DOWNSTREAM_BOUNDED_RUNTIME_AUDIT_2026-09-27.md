@@ -783,3 +783,9 @@ Promotion `6147f2bf0e3291e8f9e5c772d95a49bdc9f99a05` / tree `4357e77dd0d80fbcf76
 ## DD-677 exact state closure verified — 2026-10-08
 
 State closure `9e3275f6eed593c31cbeb096471e6fc62bbc9d75` / tree `066545565322b5fd6d215269031fe92e32c15eed` passed exact-head **1649 Core / 540 PostgreSQL / Database 48/42 / Web**, no failed/skipped tests. Run/job evidence and bounded projection corrections: `Registers/CONTINUATION_STATE_CONSISTENCY_2026-10-08.md`. Feature proof remains `ac1e7c36c65370441bce27a0264ff0357ecfd443`. The state consistency correction must independently pass before the next source audit.
+
+## DD-678…DD-682 bounded implementation evidence (not a new downstream audit) — 2026-10-08
+
+The direct AIConversation optional AssistantDefinition reader at implementation HEAD `42bac32a01bbef6acccaf7731533d34b5ecb0bdb` / tree `7e4d636e0e5be342d9f7367a7dc835f38f4bbe56` passed exact-head Core **1659/1659** (run `37806035433`, job `113410437755`), PostgreSQL **540/540** plus bootstrap (job `113410437443`), Database **48 migrations / 42 verification files** (run `37806035429`) and Web (run `37806035456`). Ten AICONV-ASTREAD acceptances preserve DD-185 direct same-context relationship evidence without conversation history, ownership-currentness, retention/erasure, Assistant selection, cross-context carry or AI execution authority.
+
+This addendum records the latest executable feature basis so that the active manifest can consistently refer to the bounded-runtime audit register. The historic VC27-111 downstream finding closure is unchanged. Canonical promotion `56ba452322010336296631047528fd8f141cd7ce` still requires its own exact-head gates; production readiness is NOT CLAIMED.
