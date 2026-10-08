@@ -238,6 +238,7 @@ export * from "./ai/rag-chunk-source-document-model-provider-current-evidence-re
 export * from "./ai/rag-chunk-bound-document-acl-current-effect-evidence-reader.js";
 export * from "./ai/rag-chunk-bound-document-acl-access-path-evidence-reader.js";
 export * from "./ai/rag-chunk-source-resource-descriptor-evidence-reader.js";
+export * from "./ai/rag-chunk-citation-identity-evidence-reader.js";
 export * from "./ai/memory-record.js";
 export * from "./ai/memory-assistant-binding-floors.js";
 export * from "./ai/memory-supersession-continuity-floors.js";
