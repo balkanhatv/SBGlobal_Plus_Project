@@ -258,3 +258,4 @@ export * from "./ai/industry-gateway-authorized-catalog-pre-routing.js";
 export * from "./ai/industry-gateway-residency-policy-evidence-pre-routing.js";
 export * from "./ai/tenant-residency-policy-context-evidence-floors.js";
 export * from "./ai/conversation-assistant-binding-current-evidence-reader.js";
+export * from "./ai/message-conversation-current-evidence-reader.js";
