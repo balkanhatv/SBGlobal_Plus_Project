@@ -7603,3 +7603,30 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIUSAGE-MODELREAD-BOUND-001 — No current eligibility, billing, principal authorization or AI execution authority
 **Owner:** DD-707. **Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs`.
+
+
+## DD-708…DD-712 — Scoped TokenUsage → AIProvider direct foreign-key evidence
+
+### AIUSAGE-PROVREAD-BASE-001 — Exact TokenUsage first: original ID, identical RequestContext, one scoped read
+**Owner:** DD-708. **Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-provider-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-PROVREAD-BASE-002 — Null usage and original dependency error stop Provider access
+**Owner:** DD-708. **Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-provider-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-PROVREAD-CHILD-001 — Invalid usage or provider linkage denied before global read
+**Owner:** DD-709. **Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-provider-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-PROVREAD-READ-001 — Read only exact persisted providerId from global catalog once
+**Owner:** DD-710. **Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-provider-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-PROVREAD-READ-002 — Missing Provider or reader failure has no fallback or retry
+**Owner:** DD-710. **Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-provider-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-PROVREAD-FLOOR-001 — DD-201 exact provider-id continuity rejects malformed/mismatched identity
+**Owner:** DD-711. **Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-provider-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-PROVREAD-EVID-001 — Frozen raw references retain decimal precision and opaque Provider metadata
+**Owner:** DD-711. **Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-provider-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-PROVREAD-BOUND-001 — No Provider eligibility, secrets, principal authorization, billing or AI execution
+**Owner:** DD-712. **Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-provider-current-evidence-reader.test.mjs`.

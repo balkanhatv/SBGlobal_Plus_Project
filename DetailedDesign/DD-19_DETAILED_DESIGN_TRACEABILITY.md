@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `060ec1244ca5b770d9ff4cbbd6c79fed9e10a463` / tree `7b92232c08a6985bad00e80a8438fd879b195bf0`
-> **Current audit gate (2026-10-09):** DD-703…DD-707 canonical promotion consistency correction independently passed exact-head Core/PostgreSQL/Database/Web. This separate state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-TOKEN-USAGE-PROVIDER-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `161c59f7abd1c7dfa58b8cad35ff329937c8cb1b` / tree `e1c2e15c0910851cc39d3b5c845c6a17e3c34235`
+> **Current audit gate (2026-10-09):** DD-708…DD-712 source audit and bounded implementation independently passed exact-head Core/PostgreSQL/Database/Web. Canonical promotion is STAGED and must independently pass its own four gates before separate state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1529,3 +1529,10 @@ Implementation `69e3b75b978b240373d01c7609efa7cd2c76726d` / tree `65ddf39cd37cad
 DD-09 §§1/6/18 → migration 0012 scoped TokenUsage with FORCE RLS / DD-122 `AITokenUsageReadPort` → migrations 0011/0014 global AIModel SELECT-only metadata / DD-108 `AIModelCatalogMetadataReadPort` → migration 0031 `token_usage_model_provider_fk` composite (model_id,provider_id) FK → DD-196 `matchesAITokenUsageModelProviderBindingFloors` → `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-703…DD-707 → `src/core/ai/token-usage-model-pair-current-evidence-reader.ts` and Core index export → `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs` (eight AIUSAGE-MODELREAD acceptance cases) → `Registers/DEVELOPMENT_DD703_DD707_VERIFICATION_2026-10-09.md`.
 
 One exact Tenant/Industry-scoped usage read precedes one exact global model metadata read. Raw references retain numeric precision, optional metadata and opaque status. No Provider lookup, principal or current model eligibility, tenant allowlisting, billing, routing, AI execution, mutation, cross-context privilege or atomic cross-record snapshot.
+
+
+## DD-708…DD-712 — Scoped TokenUsage to exact global AIProvider direct-FK evidence
+
+DD-09 §§1/6/18 → migration 0012 TokenUsage provider_id FK + Tenant/Industry FORCE RLS → DD-122 AITokenUsageReadPort exact scoped record → DD-107 AIProviderCatalogMetadataReadPort exact global catalog metadata → DD-201 matchesAITokenUsageProviderBindingFloors direct provider-ID predicate → `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-708…DD-712 → `src/core/ai/token-usage-provider-current-evidence-reader.ts` and Core index export → `tests/core/ai-token-usage-provider-current-evidence-reader.test.mjs` (eight AIUSAGE-PROVREAD acceptance cases) → `Registers/DEVELOPMENT_DD708_DD712_VERIFICATION_2026-10-09.md`.
+
+Proof is a read-only persisted direct FK relationship, not Provider/Model current eligibility, credentials, principal authorization, billing, Tenant/Industry allowlist, routing, inference, API/UI, events or mutation. Separate reads do not form an atomic snapshot.

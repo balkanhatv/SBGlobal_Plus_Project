@@ -1,7 +1,7 @@
 # DD-20C — WAVE-3 ADVERSARIAL AUDIT
-**Current checkpoint:** `DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `060ec1244ca5b770d9ff4cbbd6c79fed9e10a463` / tree `7b92232c08a6985bad00e80a8438fd879b195bf0`
-> **Current audit gate (2026-10-09):** DD-703…DD-707 canonical promotion consistency correction independently passed exact-head Core/PostgreSQL/Database/Web. This separate state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-TOKEN-USAGE-PROVIDER-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `161c59f7abd1c7dfa58b8cad35ff329937c8cb1b` / tree `e1c2e15c0910851cc39d3b5c845c6a17e3c34235`
+> **Current audit gate (2026-10-09):** DD-708…DD-712 source audit and bounded implementation independently passed exact-head Core/PostgreSQL/Database/Web. Canonical promotion is STAGED and must independently pass its own four gates before separate state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 **Historical status:** WAVE-3 ADVERSARIAL EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `810e43c9c75e3750f52cc7e1954db8f341e6d79b`  
 **Historical adversarial hypothesis:** **WAVE 3 IS NOT IMPLEMENTATION READY**
 

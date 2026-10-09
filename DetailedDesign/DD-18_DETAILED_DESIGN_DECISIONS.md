@@ -7485,3 +7485,34 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Decision:** The pair proves only persisted relationship evidence, not Provider health, catalog currentness/eligibility, authorization, Tenant/Industry allowlist, budget, billing, route or AI execution. No API/UI/write/event authority or atomic cross-read snapshot.
 
 **Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-MODELREAD-BOUND-001`.
+
+
+## DD-708 — Exact scoped TokenUsage first
+
+**Decision:** Read TokenUsage once via DD-122 using original tokenUsageId and identical RequestContext; null stops and errors propagate unchanged. No Provider lookup before scoped usage.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-PROVREAD-BASE-001, AIUSAGE-PROVREAD-BASE-002`.
+
+## DD-709 — Reject malformed persisted usage linkage
+
+**Decision:** Require usage object and DD-201 UUID shapes for usage id, Tenant, optional Industry and persisted provider id before global access. Only undefined is absent Industry. No unrelated usage/model/principal/units interpretation.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-PROVREAD-CHILD-001`.
+
+## DD-710 — Read one exact global AIProvider
+
+**Decision:** Read only the persisted usage.providerId through DD-107 global metadata loadById once; no scoped context fabrication, search/list, fallback, retry or elevated access.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-PROVREAD-READ-001, AIUSAGE-PROVREAD-READ-002`.
+
+## DD-711 — Apply DD-201 direct FK and immutable raw envelope
+
+**Decision:** Require DD-201 provider.id and usage.providerId exact case-sensitive equality; malformed/wrong/missing Provider denies. Return frozen {usage,provider} with source references and exact opaque decimal/catalog evidence unchanged.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-PROVREAD-FLOOR-001, AIUSAGE-PROVREAD-EVID-001`.
+
+## DD-712 — Do not elevate persisted evidence to authorization
+
+**Decision:** This is only the direct TokenUsage→AIProvider persisted relationship, not Provider lifecycle/health, credentials, allowlist, principal, budget/billing, routing, inference, API/UI, mutation or atomic cross-record authority.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-PROVREAD-BOUND-001`.
