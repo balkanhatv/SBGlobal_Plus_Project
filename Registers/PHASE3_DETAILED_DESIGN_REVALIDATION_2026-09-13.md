@@ -1,7 +1,7 @@
 # PHASE 3 — Detailed Design Fresh Revalidation
 **Current checkpoint:** `DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `ed20e0ee0889997a501d3981c22ccce9860ca10e` / tree `ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6`
-> **Current audit gate (2026-10-09):** DD-703…DD-707 implementation passed independent exact-head Core/PostgreSQL/Database/Web at `ed20e0ee0889997a501d3981c22ccce9860ca10e`. This canonical promotion commit must independently pass before separate state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+**Current executable audit basis:** `060ec1244ca5b770d9ff4cbbd6c79fed9e10a463` / tree `7b92232c08a6985bad00e80a8438fd879b195bf0`
+> **Current audit gate (2026-10-09):** DD-703…DD-707 canonical promotion consistency correction independently passed exact-head Core/PostgreSQL/Database/Web. This separate state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.

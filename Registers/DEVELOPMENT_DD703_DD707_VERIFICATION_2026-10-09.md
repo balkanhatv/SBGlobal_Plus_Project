@@ -42,3 +42,15 @@ PR #2 remains draft/open/unmerged; do not touch `main`, RawSource or force-push.
 With DD-703…DD-707 source audit and feature independently green, DD-17 (eight fixed executable acceptance IDs), DD-18 (five bounded decisions), DD-19 traceability, active checkpoint projections and `State/PROJECT_MANIFEST.json` are prepared as one atomic canonical promotion. Current feature and current downstream CI objects both cite the same verified implementation `ed20e0ee0889997a501d3981c22ccce9860ca10e` / tree `ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6`, Core 1703, PostgreSQL 540, Database 48/42 and Web PASS. Historical DD-698…DD-702 evidence remains unchanged.
 
 **Promotion verdict: PENDING its own exact-HEAD Core/PostgreSQL/Database/Web gates.** This text does not certify the promotion commit or future closure commit. Do not advance to DD-708 before independent verification and separate state closure. Production readiness **NOT CLAIMED**.
+
+
+## Corrected canonical promotion independently verified; state closure staged — 2026-10-09
+
+Initial promotion `bf6415b3a2a59105e3afe319c4c1c0e2bcf65a20` did **not** pass: Core 1701/1703 because REPO-011 stale continuation and REPO-007 stale active gate/current CI projection bindings. This failed head remains historical and **is not certified**. Small forward-only canonical consistency correction `060ec1244ca5b770d9ff4cbbd6c79fed9e10a463` / tree `7b92232c08a6985bad00e80a8438fd879b195bf0` repaired manifest current gates, phase, exact CI pointers, runtime-audit basis and continuation alignment without changing source implementation, acceptance tests, schema or RawSource.
+
+Independent exact-HEAD push verification of correction:
+- [Core run 37957228971](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/37957228971), job `113910710232`: **1703/1703 PASS**, 0 failed/skipped; PostgreSQL job `113910709938`: **540/540 PASS**, full bootstrap PASS.
+- [Database run 37957229108](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/37957229108), job `113910710299`: **48 migrations / 42 SQL verification files PASS**.
+- [Web run 37957229071](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/37957229071), job `113910710186`: **PASS**.
+
+After independent correction gates, active DD-17/18/19 and all 57 current checkpoint projections remain source-consistent. This **separate state-closure commit must pass its own exact-HEAD Core/PostgreSQL/Database/Web gates** before DD-707 is closed and a new batch is considered. Production readiness **NOT CLAIMED**.

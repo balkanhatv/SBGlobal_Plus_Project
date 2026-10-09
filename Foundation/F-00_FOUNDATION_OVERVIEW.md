@@ -1,7 +1,7 @@
 # SBGlobal Plus — PROJECT FOUNDATION
 **Current checkpoint:** `DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `ed20e0ee0889997a501d3981c22ccce9860ca10e` / tree `ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6`
-> **Current audit gate (2026-10-09):** DD-703…DD-707 implementation passed independent exact-head Core/PostgreSQL/Database/Web at `ed20e0ee0889997a501d3981c22ccce9860ca10e`. This canonical promotion commit must independently pass before separate state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+**Current executable audit basis:** `060ec1244ca5b770d9ff4cbbd6c79fed9e10a463` / tree `7b92232c08a6985bad00e80a8438fd879b195bf0`
+> **Current audit gate (2026-10-09):** DD-703…DD-707 canonical promotion consistency correction independently passed exact-head Core/PostgreSQL/Database/Web. This separate state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 **Document ID:** F-00 · **Version:** 1.5 (Independent Remediation Recertification Closure) · **Status:** FOUNDATION CERTIFIED — CURRENT POST-REMEDIATION EVIDENCE (see latest amendment; earlier status ledgers are historical) · **Date:** 11-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 (governing) + MASTER_PROMPT v2.5 · **Sources:** Raw Source Corpus S1 (Disorganized Data 1.md, Final v1.1) + S2.1–S2.9 (Disorganized Data 2.md) — immutable, preserved unmodified.
 

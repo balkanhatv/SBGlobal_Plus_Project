@@ -1,7 +1,7 @@
 # PHASE 4 — Cross-Layer Traceability / Isolation / Determinism Revalidation
 **Current checkpoint:** `DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `ed20e0ee0889997a501d3981c22ccce9860ca10e` / tree `ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6`
-> **Current audit gate (2026-10-09):** DD-703…DD-707 implementation passed independent exact-head Core/PostgreSQL/Database/Web at `ed20e0ee0889997a501d3981c22ccce9860ca10e`. This canonical promotion commit must independently pass before separate state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+**Current executable audit basis:** `060ec1244ca5b770d9ff4cbbd6c79fed9e10a463` / tree `7b92232c08a6985bad00e80a8438fd879b195bf0`
+> **Current audit gate (2026-10-09):** DD-703…DD-707 canonical promotion consistency correction independently passed exact-head Core/PostgreSQL/Database/Web. This separate state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-4 GATE EVIDENCE · **Date:** 2026-09-13  
 **Evaluated substantive DD HEAD:** `b4bba9c4764025af3d4546644f7c67efa463c86d`  
 **Upstream gates at evaluation:** Phase 1 Foundation PASS · Phase 2 Architecture PASS · Phase 3 DD PASS
