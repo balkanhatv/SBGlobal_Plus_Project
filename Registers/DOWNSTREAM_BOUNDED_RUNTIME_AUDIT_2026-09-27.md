@@ -843,3 +843,8 @@ Independent exact-head current corrected promotion basis `060ec1244ca5b770d9ff4c
 ## 2026-10-09 — bounded current implementation evidence pointer (not a new full vision audit)
 
 DD-708…DD-712 independently verified implementation `161c59f7abd1c7dfa58b8cad35ff329937c8cb1b` / tree `e1c2e15c0910851cc39d3b5c845c6a17e3c34235` passed Core 1711/1711, PostgreSQL 540/540, Database 48/42 and Web at runs 37960735504, 37960735634 and 37960735613. This subsequent bounded evidence reader does not reopen or imply fresh line-by-line certification of the historical VC27 audit; historical VC27-111 CLEAN/CLOSED remains separately scoped. Canonical promotion must pass its own CI before closure. Source: `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`; evidence: `Registers/DEVELOPMENT_DD708_DD712_VERIFICATION_2026-10-09.md`.
+
+
+## 2026-10-09 — independently verified DD-708…DD-712 canonical promotion pointer
+
+The subsequent canonical promotion `57c074b7521a3c5cbec30d4d122776fcdba4b541` / tree `3691e41760d35ba737ade14b57091dc8af651bfc` independently passed Core 1711/1711, PostgreSQL 540/540, Database 48/42 and Web. Exact push runs: 37961936200 / 37961936300 / 37961936212. This pointer preserves the historical VC27-111 audit's original scope; it does NOT assert a fresh complete-project vision audit or production readiness. DD-712 state closure remains separately gated. See `Registers/DEVELOPMENT_DD708_DD712_VERIFICATION_2026-10-09.md`.

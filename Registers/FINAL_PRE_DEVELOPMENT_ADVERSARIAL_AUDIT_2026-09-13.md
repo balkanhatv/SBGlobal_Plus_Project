@@ -1,7 +1,7 @@
 # FINAL PRE-DEVELOPMENT INDEPENDENT ADVERSARIAL AUDIT — 2026-09-13
 **Current checkpoint:** `DEV-AI-TOKEN-USAGE-PROVIDER-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `161c59f7abd1c7dfa58b8cad35ff329937c8cb1b` / tree `e1c2e15c0910851cc39d3b5c845c6a17e3c34235`
-> **Current audit gate (2026-10-09):** DD-708…DD-712 source audit and bounded implementation independently passed exact-head Core/PostgreSQL/Database/Web. Canonical promotion is STAGED and must independently pass its own four gates before separate state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+**Current executable audit basis:** `57c074b7521a3c5cbec30d4d122776fcdba4b541` / tree `3691e41760d35ba737ade14b57091dc8af651bfc`
+> **Current audit gate (2026-10-09):** DD-708…DD-712 canonical promotion independently passed exact-head Core/PostgreSQL/Database/Web. This separate state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as historical phase/gate evidence. Its evaluated-era authorization, certification, next-gate and next-action statements do not override the current project overlay above.

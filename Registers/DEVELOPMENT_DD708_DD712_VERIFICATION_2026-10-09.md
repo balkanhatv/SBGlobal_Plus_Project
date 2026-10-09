@@ -34,3 +34,15 @@ No Provider lifecycle/health/eligibility, credential/secret, principal currentne
 DD-17's eight fixed acceptance IDs, DD-18's five bounded decisions (DD-708…DD-712), DD-19 traceability, manifest and all 57 active checkpoint projections are prepared in this atomic canonical promotion. **This report does not certify the promotion commit until that commit's own Core/PostgreSQL/Database/Web gates pass.** If an inconsistency appears, stop and apply the smallest forward-only correction and verify the new HEAD. After independently verifying promotion, publish a separate independently verified state closure before DD-713.
 
 Invariants: **9 equal Industries / 41 Management Systems / 181 Industry tables / 2,962 preserved source requirements / exactly TENANT_STAFF_APP and TENANT_USER_APP**. PR #2 remains OPEN/DRAFT/UNMERGED; production readiness NOT CLAIMED.
+
+
+## Independently verified canonical promotion; separate state closure staged — 2026-10-09
+
+Canonical promotion `57c074b7521a3c5cbec30d4d122776fcdba4b541` / tree `3691e41760d35ba737ade14b57091dc8af651bfc` independently passed push-triggered exact-HEAD CI:
+- [Core Service Verify 37961936200](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/37961936200) / Core job `113926678704`: **1711/1711 PASS**, fail 0, skipped 0; PostgreSQL job `113926678229`: **540/540 PASS**, fail 0, skipped 0, full bootstrap PASS.
+- [Database Verify 37961936300](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/37961936300) / job `113926679003`: **48 migrations / 42 SQL verification files PASS**.
+- [Web Boundary Verify 37961936212](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/37961936212) / job `113926682081`: **PASS**.
+
+The canonical DD-17 acceptance, DD-18 decisions, DD-19 traceability, current manifest and all 57 checkpoint projections passed on the same exact promotion HEAD/tree. Historical source audit and implementation verifications remain separate, intact proof. Active current-CI metadata now points to this independently verified promotion basis, retaining the original bounded feature implementation evidence in `current_feature_verification`.
+
+**This separate state-closure commit is STAGED, not certified by the promotion's CI.** Independently verify the state-closure HEAD with Core/PostgreSQL/Database/Web before declaring DD-712 closed or moving to DD-713. The closure SHA must be resolved from Git and CI after publication; do not invent a self-referential SHA. PR #2 remains OPEN/DRAFT/UNMERGED, production readiness NOT CLAIMED.

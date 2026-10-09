@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
 **Current checkpoint:** `DEV-AI-TOKEN-USAGE-PROVIDER-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `161c59f7abd1c7dfa58b8cad35ff329937c8cb1b` / tree `e1c2e15c0910851cc39d3b5c845c6a17e3c34235`
+**Current executable audit basis:** `57c074b7521a3c5cbec30d4d122776fcdba4b541` / tree `3691e41760d35ba737ade14b57091dc8af651bfc`
 **Status:** ACTIVE · **Updated:** 2026-10-09
 
-> **Current audit gate (2026-10-09):** DD-708…DD-712 source audit and bounded implementation independently passed exact-head Core/PostgreSQL/Database/Web. Canonical promotion is STAGED and must independently pass its own four gates before separate state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+> **Current audit gate (2026-10-09):** DD-708…DD-712 canonical promotion independently passed exact-head Core/PostgreSQL/Database/Web. This separate state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 
 **Current bounded execution evidence (not a new complete-project certification):** `84dc51e5fec0069466ef298e80cf068b018bfca1` / tree `dfdaed2478e29dc1eaf30a48806a987cded0f891`; DD-688…DD-692 Core 1675/1675 and PostgreSQL 540/540, Database/Web PASS. Historical VC27-111 downstream audit remains closed.
 
