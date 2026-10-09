@@ -7394,3 +7394,34 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Decision:** Relationship evidence is not pricing, billability, finalization, invoice/tax/payment/ledger posting, quota/budget/entitlement, principal currentness, provider/model/capability eligibility or AI execution authority.
 
 **Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance family:** `AICOST-USAGEREAD-BOUND-001`.
+
+## DD-693 — Exact AIMessage first
+
+**Decision:** Read one persisted AIMessage by input messageId through DD-126 once under the identical original RequestContext. Null stops; reader errors propagate by identity.
+
+**Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVASTREAD-BASE-001, AIMSG-CONVASTREAD-BASE-002`.
+
+## DD-694 — Validate Message and exact Conversation binding
+
+**Decision:** Require the existing DD-199 message UUID/FK necessary shape before any parent access. Read only the exact persisted Conversation id once through DD-121 with unchanged RequestContext, apply DD-199 equality and deny missing/hidden/mismatched parents without fallback.
+
+**Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVASTREAD-CHILD-001, AIMSG-CONVASTREAD-CONV-001, AIMSG-CONVASTREAD-CONV-002`.
+
+## DD-695 — Return truly unbound valid scope evidence
+
+**Decision:** For absent assistantDefinitionId, require DD-185 unbound Conversation scope/identity validity and return frozen {message,conversation} raw references. No automatic default Assistant selection, third reader or expanded history permission.
+
+**Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVASTREAD-UNBOUND-001, AIMSG-CONVASTREAD-EVID-001`.
+
+## DD-696 — Read and validate optional exact bound AssistantDefinition
+
+**Decision:** For valid bound Conversation identity/scope and AssistantDefinition UUID, read only its persisted id once using identical original RequestContext through DD-117. Apply DD-185 exact id, ACTIVE and owner Tenant/Industry relationship; return frozen {message,conversation,assistant} raw references only. No PLATFORM_GLOBAL fallback.
+
+**Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVASTREAD-AST-001, AIMSG-CONVASTREAD-AST-002, AIMSG-CONVASTREAD-EVID-001`.
+
+## DD-697 — No history or AI execution authority
+
+**Decision:** Relationship evidence alone grants no conversation-owner currentness, message-content disclosure/history, retention/erasure rights, cross-Industry history portability, effective Assistant/nested prompt/ToolSet/model routing, RAG/provider/inference/tool/agent execution, API/UI route, mutation or event. Independent scoped port reads do not establish atomic snapshot.
+
+**Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVASTREAD-BOUND-001`.
+

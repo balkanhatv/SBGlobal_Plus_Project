@@ -1,7 +1,7 @@
 # Vision-Centric Deep Audit — fresh remote baseline, 2026-09-21
-**Current checkpoint:** `DEV-AI-COST-TOKEN-USAGE-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `84dc51e5fec0069466ef298e80cf068b018bfca1` / tree `dfdaed2478e29dc1eaf30a48806a987cded0f891`
-> **Current audit gate (2026-10-09):** DD-688…DD-692 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at `84dc51e5fec0069466ef298e80cf068b018bfca1` / tree `dfdaed2478e29dc1eaf30a48806a987cded0f891`. This state-closure commit must independently pass before forward work. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-MESSAGE-CONVERSATION-ASSISTANT-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `81df89fab16cd217628f944e2b8d04db9dc4a6f1` / tree `75e1c64cecc84c3751a842e99c9f7506a779b5b5`
+> **Current audit gate (2026-10-09):** DD-693…DD-697 implementation passed exact-head Core/PostgreSQL/Database/Web at `81df89fab16cd217628f944e2b8d04db9dc4a6f1` / tree `75e1c64cecc84c3751a842e99c9f7506a779b5b5`. This canonical promotion commit requires independent exact-HEAD gates and separate state-closure verification. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as dated historical Vision-audit evidence. Its evaluated-era checkpoint, verdict and continuation statements do not override the current project overlay above.

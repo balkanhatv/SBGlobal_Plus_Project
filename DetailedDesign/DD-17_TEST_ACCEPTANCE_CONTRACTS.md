@@ -7512,3 +7512,36 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AICOST-USAGEREAD-BOUND-001 — No financial posting, current eligibility, principal authorization, quota/budget or AI execution authority is granted.
 **Owner:** DD-692. **Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-cost-token-usage-current-evidence-reader.test.mjs`.
+
+## DD-693…DD-697 — AIMessage → Conversation → optional AssistantDefinition evidence
+
+### AIMSG-CONVASTREAD-BASE-001 — One exact message-first scoped read, original id, identical RequestContext.
+**Owner:** DD-693. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVASTREAD-BASE-002 — Null Message/error prevents both parent reads; original error propagates.
+**Owner:** DD-693. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVASTREAD-CHILD-001 — Invalid Message id or conversationId rejects before any Conversation access.
+**Owner:** DD-694. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVASTREAD-CONV-001 — Read persisted Conversation id once under identical RequestContext; DD-199 id equality.
+**Owner:** DD-694. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVASTREAD-CONV-002 — Missing, malformed, mismatched or errored Conversation stops Assistant access.
+**Owner:** DD-694. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVASTREAD-UNBOUND-001 — Absent Assistant FK with valid scope returns frozen two-record evidence and no Assistant read.
+**Owner:** DD-695. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVASTREAD-AST-001 — Bound scope/FK is validated, then exact Assistant id read once in the identical context.
+**Owner:** DD-696. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVASTREAD-AST-002 — Invisible/missing/inactive/foreign/sibling/mismatched Assistant denies through DD-185.
+**Owner:** DD-696. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVASTREAD-EVID-001 — Frozen two-/three-record envelopes preserve raw unchanged source references.
+**Owner:** DD-695/DD-696. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVASTREAD-BOUND-001 — No history, content, owner, effective Assistant, inference or execution authority.
+**Owner:** DD-697. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
+
