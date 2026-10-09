@@ -38,3 +38,15 @@ The smallest correction replaces only the stale current CI object with the indep
 Regression demonstration: strengthening REPO-007 against the original manifest produced **3 pass / 1 fail**, with `Stale current Core CI count: 1667 !== 1695`. The corrected manifest must pass this guard and all exact-head Core/PostgreSQL/Database/Web gates before the separate state closure. No new product feature, schema/RLS/grant, source decision, acceptance count or runtime behavior is introduced.
 
 The DD-698…DD-702 reader and mandatory PromptTemplate prerequisite factoring were also reviewed against the frozen source audit. The factoring preserves DD-179's original predicate; the composition reads each bound record once, short-circuits invalid prerequisites, preserves RequestContext and raw references, and grants no history/content or execution authority. No deviation from that bounded contract was found. This review does not claim a fresh exhaustive whole-project audit or production readiness.
+
+
+## Corrected promotion verified; separate state closure staged — 2026-10-09
+
+Current-CI correction `de6d5e199a41b81707aaccbffc02a07d6c7835df` / tree `a4942dd0335325a5cc01ce22b787b8805ecdddaa` passed independent exact-head push gates:
+
+- Core run `37941560267` / job `113856951987`: **1695/1695 PASS**, fail/skip 0, including strengthened REPO-007.
+- PostgreSQL same run / job `113856952199`: **540/540 PASS**, fail/skip 0; full bootstrap PASS.
+- Database run `37941560288` / job `113856952387`: **48 migrations / 42 SQL verification files PASS**.
+- Web run `37941560343` / job `113856952263`: **PASS**.
+
+The 57 active checkpoint projections and manifest now cite this verified correction consistently. Original feature implementation proof remains `69e3b75b978b240373d01c7609efa7cd2c76726d` / tree `65ddf39cd37cad76d4ed9a313b71cd72afd12e8f`; prior promotion and historical audit proof remain preserved. There is no self-referential closure SHA in the manifest. Closure is effective only after this commit itself passes independent exact-head Core/PostgreSQL/Database/Web. Then the next action is a source audit of another independently source-complete backend batch. PR #2 remains open/draft/unmerged. Production readiness is not claimed.
