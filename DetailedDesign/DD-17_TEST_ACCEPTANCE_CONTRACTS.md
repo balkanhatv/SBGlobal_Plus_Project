@@ -7486,3 +7486,29 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIMSG-CONVREAD-BOUND-001 — result grants no owner/history/content/retention/erasure/route/prompt/RAG/provider/tool/agent/AI execution authority.
 **Owner:** DD-687. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-current-evidence-reader.test.mjs`.
+
+## DD-688…DD-692 — AICost exact TokenUsage current evidence acceptance
+
+### AICOST-USAGEREAD-BASE-001 — Cost is read first and once, preserving requested usageId and original RequestContext.
+**Owner:** DD-688. **Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-cost-token-usage-current-evidence-reader.test.mjs`.
+
+### AICOST-USAGEREAD-BASE-002 — Null cost and cost-reader error prevent a TokenUsage read; errors propagate by identity.
+**Owner:** DD-688. **Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-cost-token-usage-current-evidence-reader.test.mjs`.
+
+### AICOST-USAGEREAD-CHILD-001 — Missing, malformed, null or non-object cost linkage rejects before parent access.
+**Owner:** DD-689. **Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-cost-token-usage-current-evidence-reader.test.mjs`.
+
+### AICOST-USAGEREAD-READ-001 — Valid cost reads exactly persisted usageId through parent scoped port under identical RequestContext.
+**Owner:** DD-690. **Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-cost-token-usage-current-evidence-reader.test.mjs`.
+
+### AICOST-USAGEREAD-READ-002 — Missing/invisible parent or reader error denies/propagates without fallback, retry or scope widening.
+**Owner:** DD-690. **Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-cost-token-usage-current-evidence-reader.test.mjs`.
+
+### AICOST-USAGEREAD-FLOOR-001 — DD-198 exact UUID/FK equality succeeds; malformed, wrong or differently-cased parent id rejects.
+**Owner:** DD-691. **Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-cost-token-usage-current-evidence-reader.test.mjs`.
+
+### AICOST-USAGEREAD-EVID-001 — Frozen {cost,usage} preserves exact records, precision-safe numeric text, opaque fields and timestamps unchanged.
+**Owner:** DD-691. **Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-cost-token-usage-current-evidence-reader.test.mjs`.
+
+### AICOST-USAGEREAD-BOUND-001 — No financial posting, current eligibility, principal authorization, quota/budget or AI execution authority is granted.
+**Owner:** DD-692. **Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-cost-token-usage-current-evidence-reader.test.mjs`.

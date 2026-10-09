@@ -7364,3 +7364,33 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Decision:** This reader adds no Conversation owner-principal currentness, history/list/message-content disclosure, decryption, source dereferencing, retention/erasure decisions, role authorization, Assistant selection, provider/model routing, RAG, prompt assembly, inference, tool/agent action, mutation or events. Both original ports retain RLS and context authority. Relationship evidence alone is not a permitted user-facing history endpoint.
 
 **Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVREAD-BOUND-001`.
+
+## DD-688 — AICost/TokenUsage exact scoped evidence
+
+**Decision:** Read one exact scoped AICost using original usageId and identical RequestContext; stop on null and propagate reader errors without touching TokenUsage.
+
+**Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance family:** `AICOST-USAGEREAD-BASE-001, BASE-002`.
+
+## DD-689 — AICost/TokenUsage exact scoped evidence
+
+**Decision:** Validate cost object and necessary cost.usageId UUID with DD-198 existing UUID semantics before parent read; do not interpret amount, currency, rate, billability or finalization.
+
+**Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance family:** `AICOST-USAGEREAD-CHILD-001`.
+
+## DD-690 — AICost/TokenUsage exact scoped evidence
+
+**Decision:** Read exactly one persisted TokenUsage id under the identical RequestContext; return null for invisible/missing parent, propagate errors unchanged; no elevation, fallback, aggregation or retry.
+
+**Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance family:** `AICOST-USAGEREAD-READ-001, READ-002`.
+
+## DD-691 — AICost/TokenUsage exact scoped evidence
+
+**Decision:** Apply existing matchesAICostTokenUsageBindingFloors exact FK UUID and id equality; return frozen {cost,usage} with unmodified source references and raw numeric text.
+
+**Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance family:** `AICOST-USAGEREAD-FLOOR-001, EVID-001`.
+
+## DD-692 — AICost/TokenUsage exact scoped evidence
+
+**Decision:** Relationship evidence is not pricing, billability, finalization, invoice/tax/payment/ledger posting, quota/budget/entitlement, principal currentness, provider/model/capability eligibility or AI execution authority.
+
+**Source audit:** `Development/AI_COST_TOKEN_USAGE_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance family:** `AICOST-USAGEREAD-BOUND-001`.
