@@ -62,20 +62,33 @@ function definitionContainsDefinition(
  * A true result is not Assistant selection, capability authorization, prompt
  * rendering, effective ToolSet resolution or AI execution authority.
  */
+/**
+ * The required PromptTemplate prerequisite from DD-179, factored for
+ * fail-closed sequencing before any optional ToolSet read. This validates
+ * only a persisted exact-id/ACTIVE/definition-containment relationship;
+ * it is not template disclosure, rendering, approval or AI authorization.
+ */
+export function matchesAIAssistantDefinitionRequiredPromptTemplateFloors(
+  assistant: PersistedAIAssistantDefinition,
+  promptTemplate: PersistedAIPromptTemplate,
+): boolean {
+  return isUuid(assistant.id)
+    && hasValidOwnerShape(assistant)
+    && isUuid(assistant.promptTemplateId)
+    && isUuid(promptTemplate.id)
+    && promptTemplate.id === assistant.promptTemplateId
+    && promptTemplate.status === "ACTIVE"
+    && definitionContainsDefinition(promptTemplate, assistant);
+}
+
 export function matchesAIAssistantDefinitionRelationshipFloors(
   assistant: PersistedAIAssistantDefinition,
   promptTemplate: PersistedAIPromptTemplate,
   toolSet?: PersistedAIToolSet,
 ): boolean {
-  if (
-    !isUuid(assistant.id)
-    || !hasValidOwnerShape(assistant)
-    || !isUuid(assistant.promptTemplateId)
-    || !isUuid(promptTemplate.id)
-    || promptTemplate.id !== assistant.promptTemplateId
-    || promptTemplate.status !== "ACTIVE"
-    || !definitionContainsDefinition(promptTemplate, assistant)
-  ) {
+  if (!matchesAIAssistantDefinitionRequiredPromptTemplateFloors(
+    assistant, promptTemplate,
+  )) {
     return false;
   }
 

@@ -261,3 +261,4 @@ export * from "./ai/conversation-assistant-binding-current-evidence-reader.js";
 export * from "./ai/message-conversation-current-evidence-reader.js";
 export * from "./ai/cost-token-usage-current-evidence-reader.js";
 export * from "./ai/message-conversation-assistant-current-evidence-reader.js";
+export * from "./ai/conversation-assistant-references-current-evidence-reader.js";
