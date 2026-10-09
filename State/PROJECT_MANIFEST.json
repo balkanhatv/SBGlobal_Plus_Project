@@ -3,7 +3,7 @@
   "updated": "2026-10-09",
   "branch": "docs/architecture-branch-2",
   "checkpoint": "DEV-AI-MESSAGE-CONVERSATION-ASSISTANT-CURRENT-EVIDENCE-READER-001",
-  "final_verdict": "DD-693…DD-697 scoped AIMessage/AIConversation/optional AssistantDefinition reader implementation 81df89fab16cd217628f944e2b8d04db9dc4a6f1 / tree 75e1c64cecc84c3751a842e99c9f7506a779b5b5 passed 1685 Core / 540 PostgreSQL / Database 48/42 / Web. Canonical promotion and subsequent state closure each require their own independent exact-head CI. Production readiness NOT CLAIMED.",
+  "final_verdict": "DD-693…DD-697 implementation 81df89fab16cd217628f944e2b8d04db9dc4a6f1 passed 1685 Core / 540 PostgreSQL / Database 48/42 / Web. Initial canonical promotion 02753f6f01aa187cc59503900feda0c944ae7330 failed two metadata consistency assertions (REPO-011, REPO-007; 1683/1685 Core). Forward-only correction pending independent exact-head gates. Production readiness NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
     "architecture": "REVALIDATED_COMPLETED_SCOPE",
@@ -57,7 +57,7 @@
     "verified_code_head": "81df89fab16cd217628f944e2b8d04db9dc4a6f1",
     "verified_code_tree": "75e1c64cecc84c3751a842e99c9f7506a779b5b5",
     "state_projection_basis_head": "81df89fab16cd217628f944e2b8d04db9dc4a6f1",
-    "promotion_head_resolution": "DD-693…DD-697 implementation verified at 81df89fab16cd217628f944e2b8d04db9dc4a6f1; this canonical promotion commit and later state-closure commit require separate exact-HEAD verification.",
+    "promotion_head_resolution": "DD-693…DD-697 implementation exact-head PASS; initial canonical promotion 02753f6f01aa187cc59503900feda0c944ae7330 failed REPO-011 and REPO-007 metadata-only consistency tests; forward-only correction pending independent verification.",
     "post_dd162_machine_verifier_boundary_audit_head": "a453fc2f2f555972cd0391a3db04bc67a6e7d497",
     "dd163_promotion_head": "a2a888eea87124c75123239d79e528e6d4facfbe",
     "dd163_promotion_tree": "13ff71a61d9022253fb6e9ade7fd601152f7e3c0",
@@ -796,8 +796,8 @@
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
     "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
-    "current_downstream_verified_head": "84dc51e5fec0069466ef298e80cf068b018bfca1",
-    "current_downstream_verified_tree": "dfdaed2478e29dc1eaf30a48806a987cded0f891",
+    "current_downstream_verified_head": "81df89fab16cd217628f944e2b8d04db9dc4a6f1",
+    "current_downstream_verified_tree": "75e1c64cecc84c3751a842e99c9f7506a779b5b5",
     "current_downstream_verified_ci": {
       "core_run_id": 37872326344,
       "core_job_id": 113632997164,
@@ -3953,7 +3953,7 @@
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD693_DD697_CANONICAL_PROMOTION_STAGED",
+    "current_phase": "DEVELOPMENT_DD693_DD697_CANONICAL_PROMOTION_CORRECTION_PENDING",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -3968,7 +3968,7 @@
       "migration_count": 48,
       "verification_file_count": 42,
       "migration_range": "0001-0048",
-      "ci_verified_head": "84dc51e5fec0069466ef298e80cf068b018bfca1",
+      "ci_verified_head": "81df89fab16cd217628f944e2b8d04db9dc4a6f1",
       "ci_run_id": 37877047670,
       "ci_job_id": 113647922618,
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD",
@@ -3982,7 +3982,7 @@
       ],
       "ci_event": "push",
       "ci_conclusion": "success",
-      "ci_verified_tree": "dfdaed2478e29dc1eaf30a48806a987cded0f891",
+      "ci_verified_tree": "75e1c64cecc84c3751a842e99c9f7506a779b5b5",
       "historical_all_stages_ci": {
         "ci_verified_head": "2c36b43a7d55c6600b71f9714389e025a06df580",
         "ci_run_id": 34800144921,
@@ -4002,14 +4002,14 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Independently verify DD-693…DD-697 canonical promotion at exact HEAD, then synchronize and independently verify the state-closure HEAD before any next batch.",
+    "next_action": "Verify DD-693…DD-697 canonical promotion at exact HEAD, then synchronize and independently verify state closure before any next batch.",
     "core_services": {
       "checkpoint": "DEV-AI-MESSAGE-CONVERSATION-ASSISTANT-CURRENT-EVIDENCE-READER-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–697 bounded implementation (DD-693…DD-697 implementation verified; canonical promotion staged)",
+      "decision": "DD-040–697 bounded implementation; DD-693…DD-697 implementation exact-head verified and canonical promotion correction pending",
       "verified_head": "81df89fab16cd217628f944e2b8d04db9dc4a6f1",
       "verified_tree": "75e1c64cecc84c3751a842e99c9f7506a779b5b5",
       "core_ci_run_id": 37878133895,
@@ -4726,7 +4726,7 @@
         "final snapshot fact/source metadata/effective-window/marker materialization",
         "public REQUIRED-idempotency core.commercial.subscription.changePlan composition after prerequisites"
       ],
-      "next_action": "Verify this DD-693…DD-697 canonical promotion at exact HEAD, then separately verify state closure.",
+      "next_action": "Verify DD-693…DD-697 canonical promotion at exact HEAD, then synchronize and independently verify state closure before any next batch.",
       "promotion_invariant_gate_head": "0cd3bd299bd2e4a0ca9b6644527d15a701ec9077",
       "promotion_invariant_gate_tree": "45ebfc04fde83fc4f5f42415d98f288cd5109169",
       "promotion_invariant_gate_web_run_id": 35757440910,
@@ -4820,7 +4820,7 @@
       }
     }
   },
-  "current_phase": "DEVELOPMENT_DD693_DD697_CANONICAL_PROMOTION_STAGED",
+  "current_phase": "DEVELOPMENT_DD693_DD697_CANONICAL_PROMOTION_CORRECTION_PENDING",
   "audit": {
     "execution_start_head": "5d779b5ff9f2cce361ce81f2901ac95edfd697cc",
     "execution_start_tree": "654c6368fd0e377d7a3c6450e5bf3317af217d93",
