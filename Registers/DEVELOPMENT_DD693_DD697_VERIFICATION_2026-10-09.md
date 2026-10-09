@@ -25,3 +25,21 @@ No Conversation-owner currentness, history/list/message-content disclosure, rete
 Implementation is independently verified. Canonical DD-17/18/19, manifest and active-projection promotion remains **PENDING** and must independently pass exact-HEAD Core/PostgreSQL/Database/Web; final state-closure commit must separately pass. Do not start DD-698 before both gates.
 
 9 equal Industries / 41 MS / 181 Industry tables / 2,962 source requirements and exactly TENANT_STAFF_APP / TENANT_USER_APP remain invariant. PR #2 remains draft/unmerged; main unchanged. Production readiness **NOT CLAIMED**.
+
+## Corrected canonical promotion closure evidence — 2026-10-09
+
+**Historical failed attempt:** commit `02753f6f01aa187cc59503900feda0c944ae7330` failed two repository-state consistency tests, REPO-011/REPO-007, at 1683/1685 Core. This failure is preserved; it was not used for authorization.
+
+**Smallest forward-only correction:** `03698d0e33293724d8df8e5e7d7f82f06ed8dd98`, tree `ad91573e00f4ac59217f3bae9259ebdbbb6ad333`. Corrected only 16 canonical narrative, manifest and historical-audit addendum files. RawSource, executable Core tests, database migrations, runtime AI code and PR/main remain unchanged.
+
+**Independent promotion exact-HEAD CI:**
+- Core Service Verify [37879250607](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/37879250607), job `113654874834`: **1685/1685 PASS**, zero fail/skip.
+- PostgreSQL job `113654874956`, same run: **540/540 PASS**, zero fail/skip, full database bootstrap.
+- Database Verify [37879250586](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/37879250586), job `113654874880`: **PASS**, 48 migrations / 42 verification files.
+- Web Boundary Verify [37879250585](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/37879250585), job `113654874897`: **PASS**.
+- The PR-triggered Core, Database and Web runs also passed the same exact corrected SHA.
+- GitHub logs explicitly asserted the tested commit. No tests weakened.
+
+**Current gated action:** DD-693…DD-697 canonical promotion passed. This state-closure projection commit is separately staged and requires its own exact-HEAD Core/PostgreSQL/Database/Web. DD-698/new independent development is not authorized until that state-closure gate passes.
+
+**Boundaries:** This proof covers only read-only exact persisted Message/Conversation/optional Assistant relationship evidence. No history/content authorization, current owner, assistant selection, RAG, inference, tool/agent, API/UI or data mutation authority. No production readiness.

@@ -1,9 +1,9 @@
 # SOURCE REGISTRY — SBGlobal Plus
 **Current checkpoint:** `DEV-AI-MESSAGE-CONVERSATION-ASSISTANT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `81df89fab16cd217628f944e2b8d04db9dc4a6f1` / tree `75e1c64cecc84c3751a842e99c9f7506a779b5b5`
+**Current executable audit basis:** `03698d0e33293724d8df8e5e7d7f82f06ed8dd98` / tree `ad91573e00f4ac59217f3bae9259ebdbbb6ad333`
 **Status:** ACTIVE · **Updated:** 2026-10-09
 
-> **Current audit gate (2026-10-09):** DD-693…DD-697 implementation passed exact-head Core/PostgreSQL/Database/Web at `81df89fab16cd217628f944e2b8d04db9dc4a6f1` / tree `75e1c64cecc84c3751a842e99c9f7506a779b5b5`. This canonical promotion commit requires independent exact-HEAD gates and separate state-closure verification. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+> **Current audit gate (2026-10-09):** DD-693…DD-697 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at `03698d0e33293724d8df8e5e7d7f82f06ed8dd98` / tree `ad91573e00f4ac59217f3bae9259ebdbbb6ad333`. This state-closure commit must independently pass exact-HEAD gates before forward development. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 
 **Current bounded execution evidence (not a new complete-project certification):** `84dc51e5fec0069466ef298e80cf068b018bfca1` / tree `dfdaed2478e29dc1eaf30a48806a987cded0f891`; DD-688…DD-692 Core 1675/1675 and PostgreSQL 540/540, Database/Web PASS. Historical VC27-111 downstream audit remains closed.
 

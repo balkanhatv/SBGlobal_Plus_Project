@@ -1,7 +1,7 @@
 # DD-00 — DETAILED DESIGN OVERVIEW
 **Current checkpoint:** `DEV-AI-MESSAGE-CONVERSATION-ASSISTANT-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `81df89fab16cd217628f944e2b8d04db9dc4a6f1` / tree `75e1c64cecc84c3751a842e99c9f7506a779b5b5`
-> **Current audit gate (2026-10-09):** DD-693…DD-697 implementation passed exact-head Core/PostgreSQL/Database/Web at `81df89fab16cd217628f944e2b8d04db9dc4a6f1` / tree `75e1c64cecc84c3751a842e99c9f7506a779b5b5`. This canonical promotion commit requires independent exact-HEAD gates and separate state-closure verification. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+**Current executable audit basis:** `03698d0e33293724d8df8e5e7d7f82f06ed8dd98` / tree `ad91573e00f4ac59217f3bae9259ebdbbb6ad333`
+> **Current audit gate (2026-10-09):** DD-693…DD-697 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at `03698d0e33293724d8df8e5e7d7f82f06ed8dd98` / tree `ad91573e00f4ac59217f3bae9259ebdbbb6ad333`. This state-closure commit must independently pass exact-HEAD gates before forward development. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 **Document ID:** DD-00 · **Wave:** 1 · **Status:** DETAILED DESIGN COMPLETE (Wave-1 governance/spine overview only) · **Date:** 2026-09-11  
 **Starting certified upstream:** CP-REM-002 @ `58a8c1647117797652fefe45f9601911425b164b`
 
