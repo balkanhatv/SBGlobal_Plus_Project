@@ -20,3 +20,21 @@ Internal `src/core/ai/conversation-assistant-references-current-evidence-reader.
 No conversation history or content, owner-principal currentness, effective Assistant/prompt/tool selection, approval/rendering, cross-Industry carry, retention/erasure, ACL, RAG/provider/model/tool/agent inference, API/UI or mutation authority. RawSource, schema/migrations/RLS/roles/grants, PR/main, mobile-app count and existing tests unchanged. Preserve 9 equal Industries, 41 canonical MS, 181 Industry tables, 2,962 requirements, and exactly TENANT_STAFF_APP/TENANT_USER_APP.
 
 **Implementation independently VERIFIED. Canonical promotion and later separate state closure NOT YET verified; both require exact-HEAD Core/PostgreSQL/Database/Web.** Production readiness **NOT CLAIMED**.
+
+
+## Promotion verified; current-CI consistency correction staged — 2026-10-09
+
+The corrected canonical promotion at `8450c2e8a342db944d05b176a1e07ebf4a5b39a7` / tree `00df04aca13efd5cb0f2f2898cea49f88b02066f` independently passed exact-head push gates, confirmed directly in all four job logs:
+
+- Core run `37883677523` / job `113668795423`: **1695/1695 PASS**, zero fail/skip.
+- PostgreSQL same run / job `113668795543`: **540/540 PASS**, zero fail/skip; full bootstrap PASS.
+- Database run `37883677454` / job `113668795203`: **48 migrations / 42 SQL verification files PASS**.
+- Web run `37883677509` / job `113668795055`: **PASS**.
+
+A continuation audit found that `github.current_downstream_verified_ci` still held DD-687 promotion run IDs and Core count 1667, despite its adjacent current HEAD/tree and development CI fields pointing to DD-702 implementation with Core 1695. `development.application_api_ui_scope_note` also still said DD-687. Existing REPO-007 checked checkpoint HEAD/tree alignment but did not compare this duplicated CI record or scope note, so the stale metadata was not detected by earlier green runs. Historical DD-687 proof already exists unchanged under `github.dd683_dd687_promotion_ci`.
+
+The smallest correction replaces only the stale current CI object with the independently re-read DD-702 implementation logs already owned by the active audit basis, explicitly binds its verified HEAD/tree, and updates the current scope note. Feature proof and all historical evidence remain separate. REPO-007 now checks CI counts, run/job IDs, database inventory, HEAD/tree binding, and current backend scope; when feature and audit HEAD coincide, all four CI evidence groups must also agree.
+
+Regression demonstration: strengthening REPO-007 against the original manifest produced **3 pass / 1 fail**, with `Stale current Core CI count: 1667 !== 1695`. The corrected manifest must pass this guard and all exact-head Core/PostgreSQL/Database/Web gates before the separate state closure. No new product feature, schema/RLS/grant, source decision, acceptance count or runtime behavior is introduced.
+
+The DD-698…DD-702 reader and mandatory PromptTemplate prerequisite factoring were also reviewed against the frozen source audit. The factoring preserves DD-179's original predicate; the composition reads each bound record once, short-circuits invalid prerequisites, preserves RequestContext and raw references, and grants no history/content or execution authority. No deviation from that bounded contract was found. This review does not claim a fresh exhaustive whole-project audit or production readiness.

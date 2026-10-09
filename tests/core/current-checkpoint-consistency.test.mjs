@@ -97,6 +97,43 @@ test("REPO-007: active checkpoint projections distinguish governed feature evide
   assert.ok(m.gates.core_services.includes(currentDecisionToken), "Stale canonical Core services gate token");
   const auditHead = m.github.current_downstream_verified_head;
   const auditTree = m.github.current_downstream_verified_tree;
+  const ci = m.github.current_downstream_verified_ci;
+  const core = m.development.core_services;
+  const database = m.development.database;
+
+  // Current CI must describe the current audit basis, not a preserved older
+  // feature/promotion run. Keep historical feature proof independently owned.
+  assert.equal(ci.core_pass, core.core_test_counts.pass, "Stale current Core CI count");
+  assert.equal(ci.postgres_pass, core.postgres_test_counts.pass, "Stale current PostgreSQL CI count");
+  assert.equal(ci.verified_head, auditHead, "Current CI is not bound to its audit HEAD");
+  assert.equal(ci.verified_tree, auditTree, "Current CI is not bound to its audit tree");
+  for (const [field, expected] of [
+    ["core_run_id", core.core_ci_run_id],
+    ["core_job_id", core.core_ci_job_id],
+    ["core_run_id", core.postgres_ci_run_id],
+    ["postgres_job_id", core.postgres_ci_job_id],
+    ["database_run_id", core.database_regression_run_id],
+    ["database_job_id", core.database_regression_job_id],
+    ["database_run_id", database.ci_run_id],
+    ["database_job_id", database.ci_job_id],
+    ["database_migrations", database.migration_count],
+    ["database_verification_files", database.verification_file_count],
+  ]) assert.equal(ci[field], expected, `Conflicting current CI ${field}`);
+  for (const field of ["core_run_id", "core_job_id", "postgres_job_id",
+    "database_run_id", "database_job_id", "web_run_id", "web_job_id"]) {
+    assert.ok(Number.isSafeInteger(ci[field]) && ci[field] > 0, `Missing current CI ${field}`);
+  }
+  if (auditHead === feature.verified_head) {
+    assert.equal(ci.core_run_id, feature.core.run_id);
+    assert.equal(ci.core_job_id, feature.core.job_id);
+    assert.equal(ci.postgres_job_id, feature.postgres.job_id);
+    assert.equal(ci.database_run_id, feature.database.run_id);
+    assert.equal(ci.database_job_id, feature.database.job_id);
+    assert.equal(ci.web_run_id, feature.web.run_id);
+    assert.equal(ci.web_job_id, feature.web.job_id);
+  }
+  assert.ok(m.development.application_api_ui_scope_note.includes(`through ${feature.decision_id}`),
+    "Stale current backend/application scope decision");
 
   for (const value of [feature, m.current_audit_overlay, m.continuation, m.development.core_services]) {
     assert.equal(value.checkpoint, m.checkpoint, "Conflicting active checkpoint");
