@@ -803,3 +803,7 @@ Implementation `e0227fc45885757b9350eb1cc0a74eb3006d39c0` / tree `75a93fdd737099
 ## DD-687 canonical promotion verified — 2026-10-09
 
 Promotion `16f246d295e91c67fdeb7426854cadcd615002de` / tree `49f9b45c4d263dd926ab2fcc17eefdeace0e1775` passed **1667 Core / 540 PostgreSQL / Database 48/42 / Web**. Exact run/job evidence: `Registers/DEVELOPMENT_DD683_DD687_VERIFICATION_2026-10-09.md`. State closure is staged and independently gated. The raw message→Conversation evidence boundary and all source/isolation invariants remain unchanged.
+
+## Later bounded implementation evidence — 2026-10-09
+
+The DD-688…DD-692 AICost → TokenUsage exact read-only evidence implementation at `c7896cbefc115e96f77a0a9859759bb1e3dab1e4` / tree `5fd94558be45924a9a521c57f21710b9157686a5` independently passed Core 1675/1675, PostgreSQL 540/540 with full bootstrap, Database 48 migrations / 42 SQL verification files, and Web exact-head push workflows (zero failed/skipped tests). This is **bounded feature executable evidence only**, not a rerun or extension of the historical VC27-111 full-project downstream audit. The original VC27-111 **CLEAN / CLOSED** verdict and its historical evaluated basis remain preserved.

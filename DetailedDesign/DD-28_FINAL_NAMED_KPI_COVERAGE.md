@@ -1,7 +1,7 @@
 # DD-28 — FINAL NAMED-KPI COVERAGE MATRIX
-**Current checkpoint:** `DEV-AI-MESSAGE-CONVERSATION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `16f246d295e91c67fdeb7426854cadcd615002de` / tree `49f9b45c4d263dd926ab2fcc17eefdeace0e1775`
-> **Current audit gate (2026-10-09):** DD-683…DD-687 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-COST-TOKEN-USAGE-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `c7896cbefc115e96f77a0a9859759bb1e3dab1e4` / tree `5fd94558be45924a9a521c57f21710b9157686a5`
+> **Current audit gate (2026-10-09):** DD-688…DD-692 implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above; canonical promotion and state closure require independent exact-head CI. Historical complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Date:** 2026-09-12 · **Historical status:** FINAL FABLE KPI REVALIDATION
 **Method:** independently extracted KPI/report metric names from all nine canonical industry/MS DD files and mapped each to stable DD-25 contract IDs. Composite labels map to each required underlying KPI rather than being accepted by fuzzy name alone.
 
