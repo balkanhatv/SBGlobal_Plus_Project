@@ -7545,3 +7545,34 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 ### AIMSG-CONVASTREAD-BOUND-001 — No history, content, owner, effective Assistant, inference or execution authority.
 **Owner:** DD-697. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-assistant-current-evidence-reader.test.mjs`.
 
+## DD-698…DD-702 — AIConversation / Assistant / required PromptTemplate / optional ToolSet evidence
+
+### AICONV-ASTREF-BASE-001 — Exact Conversation read once with original RequestContext and ID
+**Owner:** DD-698. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.
+
+### AICONV-ASTREF-BASE-002 — Absent/errored Conversation stops dependent reads
+**Owner:** DD-698. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.
+
+### AICONV-ASTREF-UNBOUND-001 — Unbound Conversation yields frozen sole evidence and no dependent reads
+**Owner:** DD-699. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.
+
+### AICONV-ASTREF-UNBOUND-002 — Malformed Conversation or optional Assistant FK denies
+**Owner:** DD-699. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.
+
+### AICONV-ASTREF-AST-001 — Read bound exact Assistant once, require DD-185 ACTIVE/applicability
+**Owner:** DD-700. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.
+
+### AICONV-ASTREF-AST-002 — Missing/inactive/foreign Assistant denies before Prompt/Tool reads
+**Owner:** DD-700. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.
+
+### AICONV-ASTREF-PROMPT-001 — Read mandatory ACTIVE and applicable PromptTemplate by exact ID
+**Owner:** DD-701. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.
+
+### AICONV-ASTREF-PROMPT-002 — Invalid/invisible PromptTemplate denies before ToolSet access
+**Owner:** DD-701. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.
+
+### AICONV-ASTREF-TOOL-001 — Read optional exact ACTIVE ToolSet only if bound
+**Owner:** DD-702. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.
+
+### AICONV-ASTREF-BOUND-001 — Frozen raw evidence confers no history/content/AI execution authorization
+**Owner:** DD-702. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.

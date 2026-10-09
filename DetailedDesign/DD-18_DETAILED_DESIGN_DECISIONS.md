@@ -7425,3 +7425,32 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 
 **Source audit:** `Development/AI_MESSAGE_CONVERSATION_ASSISTANT_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVASTREAD-BOUND-001`.
 
+## DD-698 — Read exact scoped Conversation first
+
+**Decision:** Read exactly one AIConversation with original RequestContext through DD-121. Null or dependency error stops/propagates without fallback; validate DD-185 necessary persisted identity/Tenant/Industry scope before dependent access.
+
+**Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREF-BASE-001, AICONV-ASTREF-BASE-002`.
+
+## DD-699 — Keep unbound Conversation unbound
+
+**Decision:** If assistantDefinitionId is exactly undefined, require DD-185 unbound floor; return frozen raw {conversation} and make zero Assistant/Prompt/Tool reads. Malformed scope or binding denies; no default Assistant.
+
+**Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREF-UNBOUND-001, AICONV-ASTREF-UNBOUND-002`.
+
+## DD-700 — Validate optional exact Assistant binding
+
+**Decision:** For bound UUID read one exact Assistant through DD-117 under identical RequestContext and require DD-185 exact ID/ACTIVE/owner containment. Missing, inactive, foreign or erroneous evidence stops further reads; no elevated fallback.
+
+**Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREF-AST-001, AICONV-ASTREF-AST-002`.
+
+## DD-701 — Require active applicable Prompt before Tool reads
+
+**Decision:** Validate persisted promptTemplateId UUID, read one exact scoped DD-115 Prompt under unchanged RequestContext; factor existing DD-179 required PromptTemplate ID/ACTIVE/containment necessary check for early denial, preserving existing full DD-179 semantics. No prompt rendering or approval.
+
+**Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREF-PROMPT-001, AICONV-ASTREF-PROMPT-002`.
+
+## DD-702 — Optionally validate exact ToolSet and preserve raw evidence
+
+**Decision:** If toolSetId absent, require full DD-179 without ToolSet and read none. If present, read one exact scoped DD-111 ToolSet and require full DD-179 ID/ACTIVE/containment. Return frozen original {conversation,assistant,promptTemplate[,toolSet]}; no acting-owner currentness, history/content/retention/erasure, selection/rendering, tool membership, RAG/model/provider/inference/tool/agent, API/UI or mutation. No atomic snapshot.
+
+**Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREF-TOOL-001, AICONV-ASTREF-BOUND-001`.
