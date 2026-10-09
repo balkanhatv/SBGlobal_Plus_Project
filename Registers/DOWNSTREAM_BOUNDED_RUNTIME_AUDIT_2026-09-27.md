@@ -793,3 +793,8 @@ This addendum records the latest executable feature basis so that the active man
 ## DD-682 corrected canonical promotion basis — 2026-10-08
 
 The corrected promotion HEAD `111518f2895f1aee76971128df49e47718ffbf62` / tree `6f4abeaebf4eca14fb2050a7df796f61d1a3b417` passed Core **1659/1659** (run `37808026264`), PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 verification files** (run `37808019834`) and Web (run `37808019846`). This addendum synchronizes the active executable evidence basis referenced by State/PROJECT_MANIFEST.json; it is not a new exhaustive downstream semantic audit, does not revise the historical VC27-111 closure, and does not confer conversation history, retention, Assistant selection, or AI execution authority. State closure must independently pass exact-head CI; production readiness is NOT CLAIMED.
+
+
+## DD-683…DD-687 implementation verified; canonical promotion staged — 2026-10-09
+
+Implementation `e0227fc45885757b9350eb1cc0a74eb3006d39c0` / tree `75a93fdd7370991f1c2db0ca57298917b2e52453` passed **1667 Core / 540 PostgreSQL / Database 48/42 / Web**, no failed/skipped tests. Source/code/acceptance review and exact run/job evidence: `Registers/DEVELOPMENT_DD683_DD687_VERIFICATION_2026-10-09.md`. Only direct message→Conversation relationship evidence is added; no history/content/AI execution authority. Promotion and separate state closure require their own exact-head verification.

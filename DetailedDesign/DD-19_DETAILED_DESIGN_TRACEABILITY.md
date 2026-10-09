@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-CONVERSATION-ASSISTANT-BINDING-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `111518f2895f1aee76971128df49e47718ffbf62` / tree `6f4abeaebf4eca14fb2050a7df796f61d1a3b417`
-> **Current audit gate (2026-10-08):** DD-678…DD-682 corrected canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit requires its own independent exact-head verification before further development. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-MESSAGE-CONVERSATION-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `e0227fc45885757b9350eb1cc0a74eb3006d39c0` / tree `75a93fdd7370991f1c2db0ca57298917b2e52453`
+> **Current audit gate (2026-10-09):** DD-683…DD-687 implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above. This canonical promotion must independently pass before a separately verified state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1496,3 +1496,10 @@ The optional bound branch reads the exact AssistantDefinition under the original
 DD-09 §17 conversation/history boundary + DD-121 scoped AIConversation exact read and FORCE RLS + migration 0012/migration 0031 optional Assistant relationship + DD-117 scoped AssistantDefinition exact read + DD-185 `matchesAIConversationAssistantBindingFloors` → `Development/AI_CONVERSATION_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-678…DD-682 → `src/core/ai/conversation-assistant-binding-current-evidence-reader.ts` + Core index export → `tests/core/ai-conversation-assistant-binding-current-evidence-reader.test.mjs` (AICONV-ASTREAD-BASE-001, AICONV-ASTREAD-BASE-002, AICONV-ASTREAD-UNBOUND-001, AICONV-ASTREAD-UNBOUND-002, AICONV-ASTREAD-READ-001, AICONV-ASTREAD-READ-002, AICONV-ASTREAD-FLOOR-001, AICONV-ASTREAD-FLOOR-002, AICONV-ASTREAD-EVID-001, AICONV-ASTREAD-BOUND-001) → `Registers/DEVELOPMENT_DD678_DD682_VERIFICATION_2026-10-08.md`.
 
 Unbound conversation performs zero Assistant reads; bound conversation performs one exact same-RequestContext read and only existing id/ACTIVE/owner relationship check. Frozen raw evidence does not grant owner-currentness, history/messages, retention/erasure, Assistant selection, cross-Industry carry, nested prompt/ToolSet validation, RAG, provider/tool/agent routing or AI execution authority.
+
+
+## DD-683…DD-687 — AIMessage direct Conversation current evidence
+
+DD-09 §17 conversation/privacy boundary → migration 0012 exact Conversation FK and parent-derived FORCE-RLS → DD-126 message and DD-121 Conversation scoped ports → DD-199 direct UUID/FK floor → `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-683…DD-687 → `src/core/ai/message-conversation-current-evidence-reader.ts` → `tests/core/ai-message-conversation-current-evidence-reader.test.mjs` (AIMSG-CONVREAD-BASE-001, AIMSG-CONVREAD-BASE-002, AIMSG-CONVREAD-CHILD-001, AIMSG-CONVREAD-READ-001, AIMSG-CONVREAD-READ-002, AIMSG-CONVREAD-FLOOR-001, AIMSG-CONVREAD-EVID-001, AIMSG-CONVREAD-BOUND-001) → `Registers/DEVELOPMENT_DD683_DD687_VERIFICATION_2026-10-09.md`.
+
+The original RequestContext and exact raw references are preserved. Null, invalid linkage, hidden/mismatched parent and dependency errors fail closed without context widening or fallback. This does not grant history/content disclosure, current-owner authority, retention/erasure, Assistant/model-route selection, prompt/RAG or AI execution.

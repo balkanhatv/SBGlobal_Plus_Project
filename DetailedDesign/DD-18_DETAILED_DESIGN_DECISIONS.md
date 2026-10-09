@@ -7329,3 +7329,38 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Decision:** Neither branch authorizes owner-principal currentness, messages/history access, retention/erasure, current Assistant selection, cross-Industry carry, nested prompt/tool/model selection, RAG, provider/model/tool/agent execution, routing or mutation. Existing scoped-port RLS remains unchanged.
 
 **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_BINDING_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREAD-BOUND-001`.
+
+
+## DD-683 — exact scoped AIMessage first
+
+**Decision:** Add `loadAIMessageConversationCurrentEvidence({requestContext,messageId},messageReader,conversationReader)`. Read one exact message under original RequestContext and persisted id; a null child returns null before parent access. Dependency errors propagate unchanged.
+
+**Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVREAD-BASE-001`, `AIMSG-CONVREAD-BASE-002`.
+
+
+## DD-684 — validate child necessary linkage before another read
+
+**Decision:** Check only DD-199 necessary child UUID identity and nonnull conversationId. Malformed/null/undefined/non-UUID ids fail closed without the second dependency read. Do not interpret message role/content/deletedAt/model-route/source evidence.
+
+**Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVREAD-CHILD-001`.
+
+
+## DD-685 — one exact same-context AIConversation read
+
+**Decision:** For valid child, invoke `conversationReader.loadForContext` exactly once with identical RequestContext reference and persisted `message.conversationId`. Null/invisible parent returns null; dependency errors propagate unchanged. No lookup by conversation code, elevation, cross-context rebinding, fallback, search/list or history enumeration.
+
+**Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVREAD-READ-001`, `AIMSG-CONVREAD-READ-002`.
+
+
+## DD-686 — reuse DD-199 equality and immutable raw evidence
+
+**Decision:** Apply the existing `matchesAIMessageConversationBindingFloors` to the exact returned message/Conversation, including malformed parent id and wrong-id fail-closed cases. Frozen success `{message,conversation}` preserves exact source object references, raw message content/role/source/model route/times, and raw conversation owner/scope/status/Assistant/retention/sensitivity/times. Do not normalize, clone or interpret fields outside DD-199.
+
+**Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVREAD-FLOOR-001`, `AIMSG-CONVREAD-EVID-001`.
+
+
+## DD-687 — no authorization escalation
+
+**Decision:** This reader adds no Conversation owner-principal currentness, history/list/message-content disclosure, decryption, source dereferencing, retention/erasure decisions, role authorization, Assistant selection, provider/model routing, RAG, prompt assembly, inference, tool/agent action, mutation or events. Both original ports retain RLS and context authority. Relationship evidence alone is not a permitted user-facing history endpoint.
+
+**Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIMSG-CONVREAD-BOUND-001`.

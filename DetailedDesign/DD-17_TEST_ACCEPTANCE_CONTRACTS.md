@@ -7459,3 +7459,30 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AICONV-ASTREAD-BOUND-001 — No conversation-owner/currentness/history, retention/erasure, Assistant selection, cross-context carry, prompt/RAG/provider/tool/agent/execution authority.
 **Owner:** DD-682. **Acceptance:** No conversation-owner/currentness/history, retention/erasure, Assistant selection, cross-context carry, prompt/RAG/provider/tool/agent/execution authority.
+
+
+## DD-683…DD-687 — AIMessage direct Conversation evidence acceptance
+
+### AIMSG-CONVREAD-BASE-001 — exact message read first; preserve input id and same RequestContext reference.
+**Owner:** DD-683. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVREAD-BASE-002 — null message and message-reader error preclude Conversation lookup; errors propagate.
+**Owner:** DD-683. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVREAD-CHILD-001 — malformed/null/missing message id/conversationId fails closed with no parent read.
+**Owner:** DD-684. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVREAD-READ-001 — valid child performs exactly one parent read of persisted conversationId under identical RequestContext.
+**Owner:** DD-685. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVREAD-READ-002 — missing/invisible parent or read error returns null/propagates without context widening, retries or fallback.
+**Owner:** DD-685. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVREAD-FLOOR-001 — exact DD-199 FK equality passes; mismatched/invalid parent id fails closed.
+**Owner:** DD-686. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVREAD-EVID-001 — frozen envelope preserves exact raw message+Conversation references, including opaque deleted/status/timestamp order.
+**Owner:** DD-686. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-current-evidence-reader.test.mjs`.
+
+### AIMSG-CONVREAD-BOUND-001 — result grants no owner/history/content/retention/erasure/route/prompt/RAG/provider/tool/agent/AI execution authority.
+**Owner:** DD-687. **Source audit:** `Development/AI_MESSAGE_CONVERSATION_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-message-conversation-current-evidence-reader.test.mjs`.
