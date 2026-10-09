@@ -1,7 +1,7 @@
 # ARCHITECTURE FINAL / ADVERSARIAL AUDIT — PHASE 2
 **Current checkpoint:** `DEV-AI-MESSAGE-CONVERSATION-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `e0227fc45885757b9350eb1cc0a74eb3006d39c0` / tree `75a93fdd7370991f1c2db0ca57298917b2e52453`
-> **Current audit gate (2026-10-09):** DD-683…DD-687 implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above. This canonical promotion must independently pass before a separately verified state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `16f246d295e91c67fdeb7426854cadcd615002de` / tree `49f9b45c4d263dd926ab2fcc17eefdeace0e1775`
+> **Current audit gate (2026-10-09):** DD-683…DD-687 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at the basis above. This state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Status:** HISTORICAL PHASE-2 ARCHITECTURE REVALIDATION EVIDENCE · **Date:** 2026-09-12 · **Evaluated substantive HEAD:** `9453ebb0140670984753cec9e66613475789610b`
 
 ## Pass 1 — evidence reconciliation

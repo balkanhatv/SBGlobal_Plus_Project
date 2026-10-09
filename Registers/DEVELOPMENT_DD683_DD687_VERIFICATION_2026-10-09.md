@@ -30,3 +30,14 @@ DD-17/18/19, manifest, current projections and registers are promoted together. 
 This promotion must pass its own exact-head Core/PostgreSQL/Database/Web before a separate state-closure commit. The closure must also pass at its exact HEAD before forward work.
 
 9 equal Industries / 41 MS / 181 Industry tables / 2,962 source requirements / exactly TENANT_STAFF_APP and TENANT_USER_APP remain unchanged. RawSource tree `ffe73ad4fcbbae2b9a4d908397a18082a5c35745` is unchanged. No schema/RLS/role/grant/route/UI change, main merge, force-push, test weakening or invented requirement.
+
+
+## Canonical promotion verified; state closure staged — 2026-10-09
+
+Promotion `16f246d295e91c67fdeb7426854cadcd615002de` / tree `49f9b45c4d263dd926ab2fcc17eefdeace0e1775` passed exact-head push gates:
+- Core run `37872326344` / job `113632997164`: **1667/1667 PASS**, fail/skip 0.
+- PostgreSQL same run / job `113632996941`: **540/540 PASS**, fail/skip 0; full bootstrap PASS.
+- Database run `37872326343` / job `113632996922`: **48 migrations / 42 SQL verification files PASS**.
+- Web run `37872326370` / job `113632997074`: **PASS**.
+
+Canonical decisions/acceptances/traceability and current phase/scope projections are synchronized. Feature implementation proof remains `e0227fc45885757b9350eb1cc0a74eb3006d39c0` / tree `75a93fdd7370991f1c2db0ca57298917b2e52453`. This state-closure commit is independently gated by its own exact-head Core/PostgreSQL/Database/Web runs; no self-referential commit SHA is invented. Batch closure becomes effective when those checks are green. PR #2 remains draft/unmerged; production readiness is not claimed.

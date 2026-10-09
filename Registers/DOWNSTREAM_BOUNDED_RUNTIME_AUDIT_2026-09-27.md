@@ -798,3 +798,8 @@ The corrected promotion HEAD `111518f2895f1aee76971128df49e47718ffbf62` / tree `
 ## DD-683…DD-687 implementation verified; canonical promotion staged — 2026-10-09
 
 Implementation `e0227fc45885757b9350eb1cc0a74eb3006d39c0` / tree `75a93fdd7370991f1c2db0ca57298917b2e52453` passed **1667 Core / 540 PostgreSQL / Database 48/42 / Web**, no failed/skipped tests. Source/code/acceptance review and exact run/job evidence: `Registers/DEVELOPMENT_DD683_DD687_VERIFICATION_2026-10-09.md`. Only direct message→Conversation relationship evidence is added; no history/content/AI execution authority. Promotion and separate state closure require their own exact-head verification.
+
+
+## DD-687 canonical promotion verified — 2026-10-09
+
+Promotion `16f246d295e91c67fdeb7426854cadcd615002de` / tree `49f9b45c4d263dd926ab2fcc17eefdeace0e1775` passed **1667 Core / 540 PostgreSQL / Database 48/42 / Web**. Exact run/job evidence: `Registers/DEVELOPMENT_DD683_DD687_VERIFICATION_2026-10-09.md`. State closure is staged and independently gated. The raw message→Conversation evidence boundary and all source/isolation invariants remain unchanged.
