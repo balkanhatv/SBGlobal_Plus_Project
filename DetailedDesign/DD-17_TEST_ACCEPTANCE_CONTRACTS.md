@@ -7576,3 +7576,30 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AICONV-ASTREF-BOUND-001 — Frozen raw evidence confers no history/content/AI execution authorization
 **Owner:** DD-702. **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs`.
+
+
+## DD-703…DD-707 — Scoped TokenUsage ↔ AIModel model/provider pair evidence
+
+### AIUSAGE-MODELREAD-BASE-001 — Exact TokenUsage first: original ID, identical RequestContext, one scoped read
+**Owner:** DD-703. **Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-MODELREAD-BASE-002 — Null usage and original dependency error stop catalog access
+**Owner:** DD-703. **Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-MODELREAD-CHILD-001 — Invalid usage or model/provider linkage rejected before model read
+**Owner:** DD-704. **Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-MODELREAD-READ-001 — Read only exact persisted modelId from global metadata catalog once
+**Owner:** DD-705. **Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-MODELREAD-READ-002 — Null/error model read has no fallback or retry
+**Owner:** DD-705. **Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-MODELREAD-FLOOR-001 — Reuse DD-196 exact model and provider pair, fail closed on mismatch
+**Owner:** DD-706. **Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-MODELREAD-EVID-001 — Frozen raw source references retain precision and optional metadata
+**Owner:** DD-706. **Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-MODELREAD-BOUND-001 — No current eligibility, billing, principal authorization or AI execution authority
+**Owner:** DD-707. **Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs`.

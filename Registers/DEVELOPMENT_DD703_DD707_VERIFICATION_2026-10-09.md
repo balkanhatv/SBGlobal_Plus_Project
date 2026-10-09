@@ -35,3 +35,10 @@ No schema/migration/RLS/role/grant, Industry registry, RawSource, existing test,
 **Next:** Canonically promote the eight fixed acceptance IDs, five DD decisions, DD-19 traceability, active manifest and projections with this already-verified implementation evidence. Preserve the REPO-007 current-CI consistency guard and all historical proof. Independently verify the promotion's exact HEAD with Core/PostgreSQL/Database/Web, then separately verify state closure before subsequent development. Stop forward progress if a real defect appears.
 
 PR #2 remains draft/open/unmerged; do not touch `main`, RawSource or force-push. Development remains **IN PROGRESS**; production readiness **NOT CLAIMED**.
+
+
+## Canonical promotion staged — 2026-10-09
+
+With DD-703…DD-707 source audit and feature independently green, DD-17 (eight fixed executable acceptance IDs), DD-18 (five bounded decisions), DD-19 traceability, active checkpoint projections and `State/PROJECT_MANIFEST.json` are prepared as one atomic canonical promotion. Current feature and current downstream CI objects both cite the same verified implementation `ed20e0ee0889997a501d3981c22ccce9860ca10e` / tree `ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6`, Core 1703, PostgreSQL 540, Database 48/42 and Web PASS. Historical DD-698…DD-702 evidence remains unchanged.
+
+**Promotion verdict: PENDING its own exact-HEAD Core/PostgreSQL/Database/Web gates.** This text does not certify the promotion commit or future closure commit. Do not advance to DD-708 before independent verification and separate state closure. Production readiness **NOT CLAIMED**.

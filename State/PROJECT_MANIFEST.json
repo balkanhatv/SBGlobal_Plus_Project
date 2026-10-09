@@ -2,7 +2,7 @@
   "project": "SBGlobal Plus",
   "updated": "2026-10-09",
   "branch": "docs/architecture-branch-2",
-  "checkpoint": "DEV-AI-CONVERSATION-ASSISTANT-REFERENCES-CURRENT-EVIDENCE-READER-001",
+  "checkpoint": "DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001",
   "final_verdict": "DD-698…DD-702 canonical promotion and current-CI correction de6d5e199a41b81707aaccbffc02a07d6c7835df / tree a4942dd0335325a5cc01ce22b787b8805ecdddaa passed 1695 Core / 540 PostgreSQL / Database 48/42 / Web. Current metadata and guard are synchronized. This separate state closure requires its own exact-head gates. Production readiness NOT CLAIMED.",
   "gates": {
     "foundation": "REVALIDATED_COMPLETED_SCOPE",
@@ -796,23 +796,23 @@
     "source_parent_reconciliation_tree": "4eb24c5ddab00fcc17b251df27f9dd2586e19ed0",
     "source_parent_residual_correction_head": "59db060476157d86df9fd0ed71b5ba46927617be",
     "source_parent_residual_correction_tree": "3be8e6d229afaa6cb34de0d39ed6d7e17f11e842",
-    "current_downstream_verified_head": "de6d5e199a41b81707aaccbffc02a07d6c7835df",
-    "current_downstream_verified_tree": "a4942dd0335325a5cc01ce22b787b8805ecdddaa",
+    "current_downstream_verified_head": "ed20e0ee0889997a501d3981c22ccce9860ca10e",
+    "current_downstream_verified_tree": "ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6",
     "current_downstream_verified_ci": {
-      "verified_head": "de6d5e199a41b81707aaccbffc02a07d6c7835df",
-      "verified_tree": "a4942dd0335325a5cc01ce22b787b8805ecdddaa",
-      "core_run_id": 37941560267,
-      "core_job_id": 113856951987,
-      "core_pass": 1695,
-      "postgres_job_id": 113856952199,
+      "verified_head": "ed20e0ee0889997a501d3981c22ccce9860ca10e",
+      "verified_tree": "ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6",
+      "core_run_id": 37944290544,
+      "core_job_id": 113866421961,
+      "core_pass": 1703,
+      "postgres_job_id": 113866421655,
       "postgres_pass": 540,
-      "database_run_id": 37941560288,
-      "database_job_id": 113856952387,
+      "database_run_id": 37944290612,
+      "database_job_id": 113866422318,
       "database_migrations": 48,
       "database_verification_files": 42,
-      "web_run_id": 37941560343,
-      "web_job_id": 113856952263,
-      "result": "PASS_EXACT_CURRENT_CORRECTION_HEAD"
+      "web_run_id": 37944290625,
+      "web_job_id": 113866422053,
+      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
     },
     "dd209_source_audit_head": "7cfd84d2013d3e1f0f4feaa9eb70f4cd66632787",
     "dd209_source_audit_tree": "cc45b89efda581548010eb3a19ce44bd6d7cacf2",
@@ -4002,13 +4002,33 @@
       "web_run_id": 37883677509,
       "web_job_id": 113668795055,
       "result": "PASS_EXACT_PROMOTION_HEAD"
+    },
+    "dd703_dd707_source_audit_head": "e57dc8473e26ae34bfde4c3040f8e4cde3d183bc",
+    "dd703_dd707_source_audit_tree": "9a52529af6bd22090c78c42c69da76ca03e3f87d",
+    "dd703_dd707_implementation_head": "ed20e0ee0889997a501d3981c22ccce9860ca10e",
+    "dd703_dd707_implementation_tree": "ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6",
+    "dd703_dd707_implementation_ci": {
+      "verified_head": "ed20e0ee0889997a501d3981c22ccce9860ca10e",
+      "verified_tree": "ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6",
+      "core_run_id": 37944290544,
+      "core_job_id": 113866421961,
+      "core_pass": 1703,
+      "postgres_job_id": 113866421655,
+      "postgres_pass": 540,
+      "database_run_id": 37944290612,
+      "database_job_id": 113866422318,
+      "database_migrations": 48,
+      "database_verification_files": 42,
+      "web_run_id": 37944290625,
+      "web_job_id": 113866422053,
+      "result": "PASS_EXACT_IMPLEMENTATION_HEAD"
     }
   },
   "development": {
     "authorized": true,
     "started": true,
     "performed": true,
-    "current_phase": "DEVELOPMENT_DD698_DD702_STATE_CLOSURE",
+    "current_phase": "DEVELOPMENT_DD703_DD707_CANONICAL_PROMOTION",
     "application_api_ui_started": true,
     "database": {
       "repository_implementation": "VERIFIED_CURRENT_PERSISTENCE_CHECKPOINT",
@@ -4057,27 +4077,27 @@
         "ci_job_id": 106207964280
       }
     },
-    "next_action": "Verify this DD-698…DD-702 state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-702 is closed; source-audit the next independently source-complete backend batch.",
+    "next_action": "Independently verify the DD-703…DD-707 canonical promotion commit's exact HEAD with Core/PostgreSQL/Database/Web. If all pass, create a separate state-closure commit and verify it independently before choosing the next source-complete backend batch.",
     "core_services": {
-      "checkpoint": "DEV-AI-CONVERSATION-ASSISTANT-REFERENCES-CURRENT-EVIDENCE-READER-001",
+      "checkpoint": "DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001",
       "checkpoint_file": "Development/CORE_SERVICE_CHECKPOINT.md",
       "authorization_prerequisite": "Development/AUTHORIZATION_PDP_ABAC_PERSISTENCE_PREREQUISITE.md",
       "policy_grammar": "Development/AUTHORIZATION_POLICY_GRAMMAR_V1.md",
       "physical_mapping": "Development/CORE_PERSISTENCE_ADAPTER_MAP.md",
-      "decision": "DD-040–702 bounded implementation; DD-698–702 canonical promotion and current-CI correction verified; separate state closure staged",
-      "verified_head": "de6d5e199a41b81707aaccbffc02a07d6c7835df",
-      "verified_tree": "a4942dd0335325a5cc01ce22b787b8805ecdddaa",
-      "core_ci_run_id": 37941560267,
-      "core_ci_job_id": 113856951987,
-      "tests": "1695/1695 PASS",
+      "decision": "DD-040–707 bounded implementation; DD-703–707 TokenUsage ↔ global AIModel pair evidence implemented and independently exact-head verified; canonical promotion staged",
+      "verified_head": "ed20e0ee0889997a501d3981c22ccce9860ca10e",
+      "verified_tree": "ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6",
+      "core_ci_run_id": 37944290544,
+      "core_ci_job_id": 113866421961,
+      "tests": "1703/1703 PASS",
       "core_test_counts": {
-        "tests": 1695,
-        "pass": 1695,
+        "tests": 1703,
+        "pass": 1703,
         "fail": 0,
         "skip": 0
       },
-      "postgres_ci_run_id": 37941560267,
-      "postgres_ci_job_id": 113856952199,
+      "postgres_ci_run_id": 37944290544,
+      "postgres_ci_job_id": 113866421655,
       "postgres_tests": "540/540 PASS",
       "postgres_test_counts": {
         "tests": 540,
@@ -4086,8 +4106,8 @@
         "skip": 0
       },
       "ci_tested_commit_assertion": "PASS_EXACT_BRANCH_HEAD_AND_LOGGED_TREE",
-      "database_regression_run_id": 37941560288,
-      "database_regression_job_id": 113856952387,
+      "database_regression_run_id": 37944290612,
+      "database_regression_job_id": 113866422318,
       "database_regression_result": "PASS",
       "implemented": [
         "DD-02 RequestContext resolution",
@@ -4655,7 +4675,8 @@
         "DD-678…DD-682 scoped AIConversation optional same-RequestContext AssistantDefinition direct binding evidence; DD-185 only, no history or AI execution authority",
         "DD-683…DD-687 exact scoped AIMessage/AIConversation direct-binding evidence; no history/content/AI execution authority",
         "DD-688…DD-692 exact scoped AICost → TokenUsage direct binding evidence reader (DD-198 equality only)",
-        "DD-693…DD-697 scoped AIMessage → AIConversation → optional AssistantDefinition read-only same-context evidence (DD-199 / DD-185 only); no history/content or AI execution authority"
+        "DD-693…DD-697 scoped AIMessage → AIConversation → optional AssistantDefinition read-only same-context evidence (DD-199 / DD-185 only); no history/content or AI execution authority",
+        "DD-703–707 read-only scoped TokenUsage → global AIModel persisted model/provider pair evidence (no current eligibility or AI execution authority)"
       ],
       "not_claimed": [
         "live production Clerk/provider operational validation",
@@ -4789,7 +4810,7 @@
       "promotion_invariant_gate_unique_dd": 109,
       "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
-    "application_api_ui_scope_note": "Backend/Core includes bounded implementation through DD-702; exact feature scope and tests are owned by current_feature_verification and DD-17/DD-18. First-party transports remain bounded, frontend/UI is unfinished, and evidence readers do not authorize history/content disclosure, provider/tool/agent execution or production deployment.",
+    "application_api_ui_scope_note": "Backend/Core includes bounded implementation through DD-707; source and implementation CI are exact-head verified, canonical promotion is independently gated. First-party transports remain bounded, frontend/UI unfinished; TokenUsage→AIModel pair evidence grants no current eligibility, principal authorization, billing or AI execution.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -4907,20 +4928,20 @@
     "dd": "b4bba9c4764025af3d4546644f7c67efa463c86d"
   },
   "continuation": {
-    "checkpoint": "DEV-AI-CONVERSATION-ASSISTANT-REFERENCES-CURRENT-EVIDENCE-READER-001",
-    "verified_code_head": "de6d5e199a41b81707aaccbffc02a07d6c7835df",
-    "verified_code_tree": "a4942dd0335325a5cc01ce22b787b8805ecdddaa",
-    "source_audit": "Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "Verify this DD-698…DD-702 state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-702 is closed; source-audit the next independently source-complete backend batch.",
+    "checkpoint": "DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001",
+    "verified_code_head": "ed20e0ee0889997a501d3981c22ccce9860ca10e",
+    "verified_code_tree": "ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6",
+    "source_audit": "Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "current_verification": "Registers/DEVELOPMENT_DD703_DD707_VERIFICATION_2026-10-09.md",
+    "next_action": "Independently verify the DD-703…DD-707 canonical promotion commit's exact HEAD with Core/PostgreSQL/Database/Web. If all pass, create a separate state-closure commit and verify it independently before choosing the next source-complete backend batch.",
     "main_merge": false
   },
   "current_audit_overlay": {
-    "checkpoint": "DEV-AI-CONVERSATION-ASSISTANT-REFERENCES-CURRENT-EVIDENCE-READER-001",
-    "verified_executable_basis": "de6d5e199a41b81707aaccbffc02a07d6c7835df",
-    "verified_executable_tree": "a4942dd0335325a5cc01ce22b787b8805ecdddaa",
-    "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "scope": "DD-698…DD-702 scoped Conversation/optional Assistant/required Prompt/optional ToolSet raw evidence only; implementation, canonical promotion and current-CI consistency correction verified. Separate state closure independently gated; no history/content or execution authority.",
+    "checkpoint": "DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001",
+    "verified_executable_basis": "ed20e0ee0889997a501d3981c22ccce9860ca10e",
+    "verified_executable_tree": "ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6",
+    "current_verification": "Registers/DEVELOPMENT_DD703_DD707_VERIFICATION_2026-10-09.md",
+    "scope": "DD-703…DD-707 scoped TokenUsage → global AIModel model/provider pair raw read evidence only; source and implementation verified, canonical promotion separately gated; no eligibility, billing, principal authorization or AI execution authority.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",
       "parents_total": 372,
@@ -4968,38 +4989,36 @@
     "source_requirement_text_reconciliation": "2,962 stable IDs retained; 85 mis-extracted texts restored and 21 provenance aliases explicitly located by VC27-01. Complete atomic no-loss certification remains open."
   },
   "current_feature_verification": {
-    "decision_id": "DD-702",
-    "decision": "Scoped AIConversation optional Assistant required PromptTemplate optional ToolSet raw evidence; no history or execution authority",
-    "checkpoint": "DEV-AI-CONVERSATION-ASSISTANT-REFERENCES-CURRENT-EVIDENCE-READER-001",
-    "verified_head": "69e3b75b978b240373d01c7609efa7cd2c76726d",
-    "verified_tree": "65ddf39cd37cad76d4ed9a313b71cd72afd12e8f",
-    "source_audit": "Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
+    "decision_id": "DD-707",
+    "decision": "TokenUsage exact scoped read and global AIModel model/provider pair raw evidence; no model eligibility, billing or execution authority",
+    "checkpoint": "DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001",
+    "verified_head": "ed20e0ee0889997a501d3981c22ccce9860ca10e",
+    "verified_tree": "ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6",
+    "source_audit": "Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "acceptance_ids": [
-      "AICONV-ASTREF-BASE-001",
-      "AICONV-ASTREF-BASE-002",
-      "AICONV-ASTREF-UNBOUND-001",
-      "AICONV-ASTREF-UNBOUND-002",
-      "AICONV-ASTREF-AST-001",
-      "AICONV-ASTREF-AST-002",
-      "AICONV-ASTREF-PROMPT-001",
-      "AICONV-ASTREF-PROMPT-002",
-      "AICONV-ASTREF-TOOL-001",
-      "AICONV-ASTREF-BOUND-001"
+      "AIUSAGE-MODELREAD-BASE-001",
+      "AIUSAGE-MODELREAD-BASE-002",
+      "AIUSAGE-MODELREAD-CHILD-001",
+      "AIUSAGE-MODELREAD-READ-001",
+      "AIUSAGE-MODELREAD-READ-002",
+      "AIUSAGE-MODELREAD-FLOOR-001",
+      "AIUSAGE-MODELREAD-EVID-001",
+      "AIUSAGE-MODELREAD-BOUND-001"
     ],
     "test_files": [
-      "tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs"
+      "tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs"
     ],
     "core": {
-      "run_id": 37882682441,
-      "job_id": 113665685841,
-      "tests": 1695,
-      "pass": 1695,
+      "run_id": 37944290544,
+      "job_id": 113866421961,
+      "tests": 1703,
+      "pass": 1703,
       "fail": 0,
       "skip": 0
     },
     "postgres": {
-      "run_id": 37882682441,
-      "job_id": 113665686018,
+      "run_id": 37944290544,
+      "job_id": 113866421655,
       "tests": 540,
       "pass": 540,
       "fail": 0,
@@ -5007,17 +5026,17 @@
       "full_database_bootstrap": "PASS_48_42"
     },
     "database": {
-      "run_id": 37882682477,
-      "job_id": 113665685720,
+      "run_id": 37944290612,
+      "job_id": 113866422318,
       "conclusion": "success"
     },
     "web": {
-      "run_id": 37882682534,
-      "job_id": 113665685969,
+      "run_id": 37944290625,
+      "job_id": 113866422053,
       "conclusion": "success"
     },
     "database_schema_change": false,
-    "evidence": "Registers/DEVELOPMENT_DD698_DD702_VERIFICATION_2026-10-09.md"
+    "evidence": "Registers/DEVELOPMENT_DD703_DD707_VERIFICATION_2026-10-09.md"
   },
   "historical_projection_payloads": {
     "continuation": {

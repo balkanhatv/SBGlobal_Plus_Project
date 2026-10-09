@@ -1,18 +1,18 @@
 # SBGlobal Plus — Canonical Development Branch
-**Current checkpoint:** `DEV-AI-CONVERSATION-ASSISTANT-REFERENCES-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `de6d5e199a41b81707aaccbffc02a07d6c7835df` / tree `a4942dd0335325a5cc01ce22b787b8805ecdddaa`
+**Current checkpoint:** `DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `ed20e0ee0889997a501d3981c22ccce9860ca10e` / tree `ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6`
 **Updated:** 2026-10-09 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-10-09):** DD-698…DD-702 canonical promotion and current-CI consistency correction passed exact-head Core/PostgreSQL/Database/Web. The corrected promotion basis is shown above. This separate state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+> **Current audit gate (2026-10-09):** DD-703…DD-707 implementation passed independent exact-head Core/PostgreSQL/Database/Web at `ed20e0ee0889997a501d3981c22ccce9860ca10e`. This canonical promotion commit must independently pass before separate state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 
-DD-698…DD-702 is the current governed backend-only AIConversation → optional AssistantDefinition → required PromptTemplate / optional ToolSet read-only evidence composition. It reuses DD-185 and DD-179 exact id/ACTIVE/scope-containment under the unchanged RequestContext.
+DD-703…DD-707 is the current governed backend-only read-only scoped TokenUsage → global AIModel model/provider pair evidence composition. It reuses DD-196 necessary exact UUID and model/provider equality floors after the original RequestContext-scoped usage read.
 
-Verified corrected promotion basis `de6d5e199a41b81707aaccbffc02a07d6c7835df` / tree `a4942dd0335325a5cc01ce22b787b8805ecdddaa`: **1695/1695 Core**, **540/540 PostgreSQL** with full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped Core or PostgreSQL tests.
+Verified implementation basis `ed20e0ee0889997a501d3981c22ccce9860ca10e` / tree `ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6`: **1703/1703 Core**, **540/540 PostgreSQL** with full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped Core or PostgreSQL tests.
 
-Raw references are unchanged; no conversation history/content disclosure, owner currentness, cross-Industry carry, retention/erasure, effective Assistant/prompt/tool selection, prompt rendering, RAG/provider/model/tool/agent/inference execution, API/UI or mutation authority. Separate port reads are not atomic.
+Raw scoped TokenUsage and global AIModel references are unchanged; no Provider/current model eligibility, principal authorization, Tenant/Industry allowlisting, billing, routing, RAG/media/tool/agent/inference execution, API/UI, mutation or atomic cross-record snapshot authority.
 
-Evidence: `Registers/DEVELOPMENT_DD698_DD702_VERIFICATION_2026-10-09.md`. Source audit: `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Development remains **IN PROGRESS**; production readiness **NOT CLAIMED**.
+Evidence: `Registers/DEVELOPMENT_DD703_DD707_VERIFICATION_2026-10-09.md`. Source audit: `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Development remains **IN PROGRESS**; production readiness **NOT CLAIMED**.
 
-Next: Verify this DD-698…DD-702 state-closure commit at its exact HEAD with Core/PostgreSQL/Database/Web. Once green, DD-702 is closed; source-audit the next independently source-complete backend batch.
+Next: Verify this DD-703…DD-707 canonical promotion commit at its exact HEAD with Core/PostgreSQL/Database/Web. If green, stage separate state closure and verify it independently before the next source audit.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirements**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP` as logical Tenant app classes. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.

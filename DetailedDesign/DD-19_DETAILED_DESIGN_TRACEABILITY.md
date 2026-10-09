@@ -1,7 +1,7 @@
 # DD-19 — DETAILED DESIGN TRACEABILITY — WAVES 1–3
-**Current checkpoint:** `DEV-AI-CONVERSATION-ASSISTANT-REFERENCES-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `de6d5e199a41b81707aaccbffc02a07d6c7835df` / tree `a4942dd0335325a5cc01ce22b787b8805ecdddaa`
-> **Current audit gate (2026-10-09):** DD-698…DD-702 canonical promotion and current-CI consistency correction passed exact-head Core/PostgreSQL/Database/Web. The corrected promotion basis is shown above. This separate state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+**Current checkpoint:** `DEV-AI-TOKEN-USAGE-MODEL-PAIR-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `ed20e0ee0889997a501d3981c22ccce9860ca10e` / tree `ce1a9e2c73a4f9d9f5c1c5fa41807968f76092d6`
+> **Current audit gate (2026-10-09):** DD-703…DD-707 implementation passed independent exact-head Core/PostgreSQL/Database/Web at `ed20e0ee0889997a501d3981c22ccce9860ca10e`. This canonical promotion commit must independently pass before separate state closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 **Historical status:** WAVE 1–3 / PHASE-3 REVALIDATED TRACEABILITY EVIDENCE
 
 > **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era Detailed Design evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
@@ -1522,3 +1522,10 @@ Exact first Message and persisted Conversation reads share original RequestConte
 DD-09 §17 → DD-121 scoped Conversation → DD-185/0031 direct optional AssistantDefinition ACTIVE/owner binding → DD-117 scoped Assistant → DD-179/0031/0048 required PromptTemplate and optional ToolSet ID/ACTIVE/definition containment → DD-115 PromptTemplate, DD-111 ToolSet scoped readers → `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-698…DD-702 → `src/core/ai/conversation-assistant-references-current-evidence-reader.ts`, `src/core/ai/assistant-definition-relationship-floors.ts` and Core index export → `tests/core/ai-conversation-assistant-references-current-evidence-reader.test.mjs` (10 AICONV-ASTREF acceptance cases) → `Registers/DEVELOPMENT_DD698_DD702_VERIFICATION_2026-10-09.md`.
 
 Implementation `69e3b75b978b240373d01c7609efa7cd2c76726d` / tree `65ddf39cd37cad76d4ed9a313b71cd72afd12e8f`: 1695 Core / 540 PostgreSQL / Database 48/42 / Web PASS. Frozen raw necessary relationship evidence only; no history/content, principal currentness, prompt rendering/selection, tool membership, RAG/provider/model/tool/agent execution, API/UI/mutation or atomicity. Canonical promotion and state closure separately gated.
+
+
+## DD-703…DD-707 — Scoped TokenUsage to exact global AIModel model/provider pair evidence
+
+DD-09 §§1/6/18 → migration 0012 scoped TokenUsage with FORCE RLS / DD-122 `AITokenUsageReadPort` → migrations 0011/0014 global AIModel SELECT-only metadata / DD-108 `AIModelCatalogMetadataReadPort` → migration 0031 `token_usage_model_provider_fk` composite (model_id,provider_id) FK → DD-196 `matchesAITokenUsageModelProviderBindingFloors` → `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md` → DD-703…DD-707 → `src/core/ai/token-usage-model-pair-current-evidence-reader.ts` and Core index export → `tests/core/ai-token-usage-model-pair-current-evidence-reader.test.mjs` (eight AIUSAGE-MODELREAD acceptance cases) → `Registers/DEVELOPMENT_DD703_DD707_VERIFICATION_2026-10-09.md`.
+
+One exact Tenant/Industry-scoped usage read precedes one exact global model metadata read. Raw references retain numeric precision, optional metadata and opaque status. No Provider lookup, principal or current model eligibility, tenant allowlisting, billing, routing, AI execution, mutation, cross-context privilege or atomic cross-record snapshot.

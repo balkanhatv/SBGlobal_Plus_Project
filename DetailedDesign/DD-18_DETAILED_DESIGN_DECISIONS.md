@@ -7454,3 +7454,34 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Decision:** If toolSetId absent, require full DD-179 without ToolSet and read none. If present, read one exact scoped DD-111 ToolSet and require full DD-179 ID/ACTIVE/containment. Return frozen original {conversation,assistant,promptTemplate[,toolSet]}; no acting-owner currentness, history/content/retention/erasure, selection/rendering, tool membership, RAG/model/provider/inference/tool/agent, API/UI or mutation. No atomic snapshot.
 
 **Source audit:** `Development/AI_CONVERSATION_ASSISTANT_PROMPT_TOOL_SET_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AICONV-ASTREF-TOOL-001, AICONV-ASTREF-BOUND-001`.
+
+
+## DD-703 — Exact scoped TokenUsage first
+
+**Decision:** Read TokenUsage exactly once by the original tokenUsageId and unchanged RequestContext through the existing DD-122 port. Null halts dependent access; errors propagate unchanged. No new authorization authority.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-MODELREAD-BASE-001, AIUSAGE-MODELREAD-BASE-002`.
+
+## DD-704 — Reject malformed persisted linkage before model read
+
+**Decision:** Validate one usage object and DD-196 UUID shapes for usage ID, Tenant, optional Industry, model ID and provider ID. Only undefined means absent optional Industry; fail closed before the global lookup. Do not interpret principal, capability, amount or timestamp.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-MODELREAD-CHILD-001`.
+
+## DD-705 — Read one exact global AIModel
+
+**Decision:** After valid scoped usage, read one model by persisted modelId through DD-108 global catalog metadata read port. No RequestContext substitution, lookup by code, fallback, retry, Provider lookup or privilege elevation.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-MODELREAD-READ-001, AIUSAGE-MODELREAD-READ-002`.
+
+## DD-706 — Preserve DD-196 composite pair and raw immutable evidence
+
+**Decision:** Require the existing DD-196 exact model and provider identity match, including case-sensitive equality. Return frozen `{usage,model}` containing original references, decimal text and opaque catalog data unchanged, without arithmetic/normalization.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-MODELREAD-FLOOR-001, AIUSAGE-MODELREAD-EVID-001`.
+
+## DD-707 — No eligibility, billing or execution escalation
+
+**Decision:** The pair proves only persisted relationship evidence, not Provider health, catalog currentness/eligibility, authorization, Tenant/Industry allowlist, budget, billing, route or AI execution. No API/UI/write/event authority or atomic cross-read snapshot.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_MODEL_PAIR_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-MODELREAD-BOUND-001`.
