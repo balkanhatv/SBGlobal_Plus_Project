@@ -1,7 +1,7 @@
 # SBGlobal Plus — A-00 ARCHITECTURE OVERVIEW
 **Current checkpoint:** `DEV-AI-COST-TOKEN-USAGE-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `c7896cbefc115e96f77a0a9859759bb1e3dab1e4` / tree `5fd94558be45924a9a521c57f21710b9157686a5`
-> **Current audit gate (2026-10-09):** DD-688…DD-692 implementation passed exact-head Core/PostgreSQL/Database/Web at the basis above; canonical promotion and state closure require independent exact-head CI. Historical complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
+**Current executable audit basis:** `84dc51e5fec0069466ef298e80cf068b018bfca1` / tree `dfdaed2478e29dc1eaf30a48806a987cded0f891`
+> **Current audit gate (2026-10-09):** DD-688…DD-692 canonical promotion passed exact-head Core/PostgreSQL/Database/Web at `84dc51e5fec0069466ef298e80cf068b018bfca1` / tree `dfdaed2478e29dc1eaf30a48806a987cded0f891`. This state-closure commit must independently pass before forward work. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness is **NOT CLAIMED**.
 **Document ID:** A-00 · **Version:** 1.3 · **Status:** PHASE 2 REVALIDATED ARCHITECTURE · **Date:** 12-09-2026
 **Governed by:** MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 · **Foundation baseline:** `PHASE1-RAWSOURCE-FOUNDATION-RECONCILED` (fresh Foundation WHAT/WHY/WHO) · **Phase:** Architecture (HOW). Foundation is authoritative input; Architecture revalidation must propagate every substantive Foundation correction.
 

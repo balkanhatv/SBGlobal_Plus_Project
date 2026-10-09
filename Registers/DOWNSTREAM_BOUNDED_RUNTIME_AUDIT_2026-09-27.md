@@ -807,3 +807,7 @@ Promotion `16f246d295e91c67fdeb7426854cadcd615002de` / tree `49f9b45c4d263dd926a
 ## Later bounded implementation evidence — 2026-10-09
 
 The DD-688…DD-692 AICost → TokenUsage exact read-only evidence implementation at `c7896cbefc115e96f77a0a9859759bb1e3dab1e4` / tree `5fd94558be45924a9a521c57f21710b9157686a5` independently passed Core 1675/1675, PostgreSQL 540/540 with full bootstrap, Database 48 migrations / 42 SQL verification files, and Web exact-head push workflows (zero failed/skipped tests). This is **bounded feature executable evidence only**, not a rerun or extension of the historical VC27-111 full-project downstream audit. The original VC27-111 **CLEAN / CLOSED** verdict and its historical evaluated basis remain preserved.
+
+## Exact-head canonical promotion evidence — 2026-10-09
+
+The later DD-688…DD-692 canonical promotion/correction `84dc51e5fec0069466ef298e80cf068b018bfca1` / tree `dfdaed2478e29dc1eaf30a48806a987cded0f891` passed at its own exact HEAD: Core 1675/1675, PostgreSQL 540/540 with full bootstrap, Database 48 migrations / 42 SQL verification files, Web PASS. This is **later bounded feature/projection evidence only**, not a re-audit or expansion of the historical VC27-111 complete-project verdict. The historical adjudication and its immutable evaluated basis remain preserved; production certification is not claimed.

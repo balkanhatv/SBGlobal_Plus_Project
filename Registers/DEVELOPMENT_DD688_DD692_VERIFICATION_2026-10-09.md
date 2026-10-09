@@ -26,3 +26,16 @@ No pricing/rate/billability/finalization computation, invoice/tax/payment/ledger
 ## Next gates
 
 This canonical promotion commit is only **STAGED** until its own exact-head Core/PostgreSQL/Database/Web PASS. Then separately synchronize state projections and verify the state-closure commit at its exact HEAD. Do not infer those future results from this implementation basis.
+
+## Canonical promotion correction and independent proof — 2026-10-09
+
+The initial canonical projection commit `bf08f89a3ccac6469dbc984f740a11e62e986266` failed REPO-011, REPO-007 and REPO-009 metadata consistency assertions (1672/1675 Core; no production reader failure). Targeted forward-only correction `84dc51e5fec0069466ef298e80cf068b018bfca1` / tree `dfdaed2478e29dc1eaf30a48806a987cded0f891` synchronized the 57 active projection headers, 14 current narratives, canonical manifest and downstream evidence. No assertions, tests, feature logic or historical source records were weakened.
+
+The corrected canonical promotion independently passed at exact HEAD `84dc51e5fec0069466ef298e80cf068b018bfca1`:
+- Core run `37877047684`, job `113647922914`: **1675/1675 PASS**, 0 fail/skip.
+- PostgreSQL run `37877047684`, job `113647923186`: **540/540 PASS**, 0 fail/skip; database bootstrap PASS.
+- Database run `37877047670`, job `113647922618`: **48 migrations / 42 verification files PASS**.
+- Web run `37877047672`: **PASS**.
+- Same-head PR Core/Database/Web runs `37877052615` / `37877052654` / `37877052662`: **PASS**.
+
+All DD-17/18/19 contracts, `State/PROJECT_MANIFEST.json`, active projections, and this register are at the corrected verified canonical promotion baseline. This separate state-closure commit requires its **own** exact-HEAD Core/PostgreSQL/Database/Web PASS before DD-688…DD-692 batch closure. No self-reference to the state-closure SHA is asserted. Production readiness is not claimed.
