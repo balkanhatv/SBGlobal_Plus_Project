@@ -1,0 +1,44 @@
+# DD-558…DD-562 verification — Document ACL current-effect evidence
+
+**Date:** 2026-10-05  
+**Source audit:** `Development/DOCUMENT_ACCESS_ACL_CURRENT_EFFECT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`  
+**Source-audit HEAD/tree:** `ef673b40f443b272b2a7671f51dd9c11b0571f40` / `ba39c0922239f3c0a4748a7871c4e5f2870ff39e`  
+**Implementation HEAD/tree:** `7cbf93ff1295765995bb83a97122920f958cc1f1` / `8b9907bb849f9251d77bbdd977ba456f4a437493`
+
+## Entry gate
+
+DD-553…DD-557 state closure `e1af3f91183d1798498b6d397e333708fe86e2df` / tree `5e676ea6ab9cd176b0f46f225a402e476e8fc978` passed Core **1444/1444**, PostgreSQL **536/536** plus bootstrap, Database and Web. DD-558…DD-562 source-audit HEAD subsequently passed exact-head Core/PostgreSQL/Database/Web before implementation.
+
+## Exact-head implementation gate
+
+Implementation HEAD `7cbf93ff1295765995bb83a97122920f958cc1f1` / tree `8b9907bb849f9251d77bbdd977ba456f4a437493` passed:
+- Core run `37350379587` / job `111899449548`: **1453/1453 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111899449137`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37350379415` / job `111899446019`: PASS; inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37350379688` / job `111899449933`: PASS.
+
+## Bounded result
+
+The reader reuses exact DD-542 ACL subject evidence, accepts one explicit trusted currentTimeIso, partitions only matched entries into frozen current/expired arrays using optional validUntil, preserves exact matched-entry references/order and derives ACL-layer effectEvidence with explicit DENY precedence.
+
+No upload-session policy, source-resource fallback, full authorization, RBAC/ABAC/entitlement/commercial/sensitivity/residency/step-up decision, StorageObject lookup, signer/grant/download/share/delete/mutation authority, schema/RLS/role/grant/route/frontend/RawSource change is introduced.
+
+## Promotion gate
+
+Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-558…DD-562 state closure.
+
+## Canonical promotion verified; state closure staged — 2026-10-05
+
+Canonical promotion HEAD `ebc1738ac8ffc63cc545f69e9638c326904a22b1` / tree `c0c77d73b43d95fb85d3e5dfde3734d6e6e588e5` passed exact-head push gates:
+- Core run `37351486617` / job `111903136180`: **1453/1453 PASS**, fail/skip 0.
+- PostgreSQL same run / job `111903136894`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37351486629` / job `111903136008`: PASS with **48 migrations / 42 SQL verification files**.
+- Web run `37351486542` / job `111903135184`: PASS.
+
+This state-closure commit must independently pass the same four gates before DD-558…DD-562 is closed and another source audit may open.
+
+## State closure verified — 2026-10-06
+
+State-closure HEAD `6c0bed30054c6afa4d58c9e109aec015f191d46f` passed exact-head push and pull-request gates. Push Core run `37352360093` / job `111906090482`: **1453/1453 PASS**, fail/skip 0. PostgreSQL same run / job `111906090297`: **536/536 PASS**, fail/skip 0; full database bootstrap PASS. Database push run `37352360272` / job `111906090943`: PASS. Web push run `37352360052` / job `111906089881`: PASS.
+
+DD-558…DD-562 is therefore closed at its bounded ACL-layer current/effect evidence scope. Forward development may resume only through a fresh source-owned seam.

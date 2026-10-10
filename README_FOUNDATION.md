@@ -1,22 +1,18 @@
-# SBGlobal Plus — Project Foundation (CP-F1-005)
+# SBGlobal Plus — Canonical Development Branch
+**Current checkpoint:** `DEV-AI-TOOL-DEFINITION-CAPABILITY-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
+**Updated:** 2026-10-10 · **Branch:** `docs/architecture-branch-2`
 
-**Status: FOUNDATION CERTIFIED** — granted 02-09-2026 at CP-F1-005 on dual-audit evidence (`Registers/FINAL_AUDIT_CP-F1-005.md`; certification history incl. the CP-F1-003 revocation preserved in `Foundation/F-00_FOUNDATION_OVERVIEW.md` §9–§11). Certification covers the Foundation phase only. Governed by MASTER_INSTRUCTION v2.5 + MASTER_PROMPT v2.5 (unchanged).
+> **Current audit gate (2026-10-10):** Complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111. DD-713…DD-717 state closure remains verified. DD-718…DD-722 source audit `df8164274487f5c1a1f100b6d4726af32779bdd6` and implementation `f6d4e58aa061d80a43593dd8c573c7ba7d5b8be6` / tree `261b463a924da167d53f5f2b2723b4ceffa26543` independently passed exact-HEAD Core/PostgreSQL/Database/Web (1727/1727 Core; 540/540 PostgreSQL; 48 migrations / 42 SQL verification files; Web PASS). Canonical promotion is staged pending its own exact-HEAD gates; separate DD-718…DD-722 state closure is not yet verified. Production readiness **NOT CLAIMED**.
 
-**04-09-2026 correction:** commit `b83bea9` (unnecessary brand/color canonicalization — F-06 §6.1, AC-19, RR-03) was reverted via history-preserving revert `efd16eb6`; F-06 restored to v0.1; registers restored; RR-03 withdrawn. The owner-directed corpus edit `a811a1ab` is preserved intact as ACTIVE owner intent. No history rewrite; `main` not merged.
+DD-718…DD-722 is the current governed backend-only global AIToolDefinition-by-id → exact global AICapability(code) persisted direct-FK relationship evidence composition. It reuses DD-203 UUID/code strict equality after one DD-110 global ToolDefinition read and one DD-109 exact global by-code lookup.
 
-> "SBGlobal Plus is an AI-Ready, AI-Extensible, AI-Powered, Enterprise-Grade, Multi-Tenant, Multi-Industry SaaS Platform."
-> Tagline: **One Intelligent Platform. Every Industry. Infinite Possibilities.**
+Verified current downstream audit basis `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`: **1719/1719 Core**, **540/540 PostgreSQL** with full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped Core or PostgreSQL tests. DD-718…DD-722 implementation `f6d4e58aa061d80a43593dd8c573c7ba7d5b8be6` / tree `261b463a924da167d53f5f2b2723b4ceffa26543` independently passed exact-HEAD gates: **1727/1727 Core**, **540/540 PostgreSQL**, Database/Web PASS. Canonical promotion is staged pending its own exact-HEAD CI; DD-717 state closure remains verified; production readiness **NOT CLAIMED**.
 
-## Package layout
-- `Foundation/` — canonical Foundation documents F-00…F-14 (F-13 MS depth completion; F-14 Commercial Foundation)
-- `Registers/` — Source Registry, D-INDEX, D-DECISIONS, D-CHANGELOG, D-CHECKPOINT (CP-F1-005 rev C), Traceability (section + unit + extension), No-Loss Audit, REVIEW_REQUIRED, FINAL_AUDIT_CP-F1-005
-- `State/` — PROJECT_STATE, PHASE_SUMMARY, HANDOFF_NOTE, PROJECT_MANIFEST
-- `Governing/` — MASTER_INSTRUCTION v2.5, MASTER_PROMPT v2.5 (preserved verbatim)
-- `RawSourceCorpus/` — Disorganized Data 1.md / 2.md (immutable knowledge boundary; current content per the owner-directed edit `a811a1ab`, full history preserved)
-- `BACKUP_METADATA.json` — recovery package record (latest verified: **v1.2 @ CP-F1-005** — SBGlobalPlus_FOUNDATION_RECOVERY_v1.2_CP-F1-005.zip, open-and-compare PASS)
+Raw ToolDefinition and capability source references, raw code (including valid empty strings) and opaque metadata remain unchanged. No status/currentness/eligibility, entitlement/policy, principal authorization, Tenant/Industry allowlisting, ToolSet/AgentStep authorization, OperationContract execution, approval, idempotency/audit, credentials, routing, RAG/tool/agent execution, API/UI/mutation/events or atomic snapshot authority.
 
-## Verified evidence
-Unit-level traceability 372 units / 2,965 items / 0 unmapped (+ CP-F1-005 extension, totals unchanged) · No-Loss PASS · dual final audit records · all 9 industry suites and every Foundational MS specified at Foundation depth (F-07…F-09 + F-12 + F-13) · full commercial model (F-14).
+Evidence: `Registers/DEVELOPMENT_DD718_DD722_VERIFICATION_2026-10-10.md`. Source audit: `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Development **IN PROGRESS**; production readiness **NOT CLAIMED**.
 
-## Boundaries
-Architecture has NOT started — gated on explicit user approval. Merge to `main` requires explicit approval.
+Next: Verify this DD-718…DD-722 canonical promotion at its exact HEAD with Core/PostgreSQL/Database/Web; only then create and independently verify a separate state-closure commit before DD-723.
+
+Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirement IDs**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP`. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.

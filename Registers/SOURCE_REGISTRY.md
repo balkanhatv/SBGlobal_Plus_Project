@@ -1,11 +1,52 @@
-# SOURCE REGISTRY — SBGlobal Plus Foundation Build 2
-Status: ACTIVE. Knowledge boundary: nothing outside this corpus is invented; nothing inside it is lost. The two Disorganized Data files are permanently immutable (never modified, archived, or deleted at any stage).
+# SOURCE REGISTRY — SBGlobal Plus
+**Current checkpoint:** `DEV-AI-TOOL-DEFINITION-CAPABILITY-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
+**Status:** ACTIVE · **Updated:** 2026-10-10
 
-| ID | File | Role | Tier | Integrity |
+> **Current audit gate (2026-10-10):** Complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111. DD-713…DD-717 state closure remains verified. DD-718…DD-722 source audit `df8164274487f5c1a1f100b6d4726af32779bdd6` and implementation `f6d4e58aa061d80a43593dd8c573c7ba7d5b8be6` / tree `261b463a924da167d53f5f2b2723b4ceffa26543` independently passed exact-HEAD Core/PostgreSQL/Database/Web (1727/1727 Core; 540/540 PostgreSQL; 48 migrations / 42 SQL verification files; Web PASS). Canonical promotion is staged pending its own exact-HEAD gates; separate DD-718…DD-722 state closure is not yet verified. Production readiness **NOT CLAIMED**.
+
+**Current bounded execution evidence (not a new complete-project certification):** `84dc51e5fec0069466ef298e80cf068b018bfca1` / tree `dfdaed2478e29dc1eaf30a48806a987cded0f891`; DD-688…DD-692 Core 1675/1675 and PostgreSQL 540/540, Database/Web PASS. Historical VC27-111 downstream audit remains closed.
+
+
+## Authority
+1. Primary Vision
+2. Current explicit user direction
+3. MASTER_INSTRUCTION + MASTER_PROMPT v2.5
+4. RawSourceCorpus as immutable knowledge/provenance under its governed source precedence
+5. Reconciled canonical owners: Foundation WHAT/WHY/WHO → Architecture/ADR HOW → Detailed Design exact contract → Development implementation → Verification/CI evidence
+6. Registers/State/checkpoints are projections and evidence; they cannot override product or canonical owners
+
+RawSourceCorpus is knowledge/provenance, not automatic active architecture. A current explicit user decision may supersede a source implementation requirement for active Foundation/Architecture **without changing source bytes**; the supersession must be recorded in D-DECISIONS and traceability.
+
+## Active immutable source baseline
+| ID | File | Source title / role | Accepted blob | Active status |
 |---|---|---|---|---|
-| G1 | MASTER_INSTRUCTION_v2_5.md | Governing (authority tier 3) | Governing | Preserved unmodified |
-| G2 | MASTER_PROMPT_v2_5.md | Execution prompt, lockstep v2.5 | Governing | Preserved unmodified |
-| S1 | Disorganized Data 1.md (Final v1.1) | Consolidated Architecture & PRD source | Corpus Tier 3 | IMMUTABLE — unmodified |
-| S2 | Disorganized Data 2.md (9 merged files) | S2.1 Master Dev Instruction v3.0 (Tier 1) / S2.2 Product Spec v3.0 (Tier 2) / S2.3 Engineering Standards, S2.4 Database, S2.5 Mobile, S2.6 AI, S2.7 Defaults, S2.8 UI Design System (Tier 4) / S2.9 Roadmap (Tier 5) | Corpus | IMMUTABLE — unmodified |
-| U1 | Zero-Start Foundation directive (user task) | USER-DIRECTED instruction, authority tier 2 | User | Preserved |
-| U2 | Continuation directive: RR-01/RR-02 authorization + certification + GitHub delivery | USER-DIRECTED instruction, authority tier 2 | User | Preserved |
+| S1 | `RawSourceCorpus/Disorganized Data 1.md` | **Master Enterprise Architecture & Product Requirements Source — Final v1.1** (repository-resident source corresponding to the requested Primary Source of Truth EA/PRD source) | `a9f63a64448a347edd0f2b0c74094284ee953c1b` | IMMUTABLE active source/history |
+| S2 | `RawSourceCorpus/Disorganized Data 2.md` | Master Development Instruction + Product Specification/Business Requirement + specialized standards corpus | `91c461de5e0d171f71d0bb89cd039953a1f1ecfd` | IMMUTABLE active source/history |
+
+The literal filename `Primary Source of Truth Enterprise Architecture & Product Requirements Source.md` is not present at the audited branch tree. No duplicate/renamed source is invented; S1's in-file title establishes the repository provenance mapping. Earlier source variants remain historical Git evidence only.
+
+## Current decisions
+- `UD-TECH-01`: active technology/deployment baseline.
+- `UD-PHASE-01`: Foundation = WHAT/WHY/WHO; Architecture = HOW; Detailed Design = exact schemas/endpoints/payloads/implementation mechanics.
+- `UD-SOURCE-01`: accepted S1/S2 blobs are the active immutable baseline; explicit user decisions may supersede active interpretation without rewriting source.
+- `UD-COMM-01`: canonical commercial route/lifecycle model.
+
+## Evidence rule
+`TRACEABILITY_MATRIX_UNIT.md` owns the 372 parent/source-heading inventory. `TRACEABILITY_MATRIX_REQUIREMENTS.md` preserves **2,962** source child IDs and original disposition evidence. `F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md` owns current dependency routing. `MS_COMPLETENESS_MATRIX.md` projects the 41 named MS owners. No current source requirement may depend on an external ZIP as its only evidence.
+
+## Current canonical invariants
+- 9 equal Current Supported Industry Suites; Future Industry promotion remains separately governed.
+- 41 canonical Management Systems and 181 registered Industry tables with Tenant+Industry ownership/forced-RLS verification.
+- exactly two logical Tenant mobile app classes: `TENANT_STAFF_APP` + `TENANT_USER_APP`; Platform Mobile is not a Tenant app.
+- API-first/server-authoritative, multi-tenant/multi-industry, configuration/metadata-driven, plugin/event-ready, AI-powered and secure-by-design architecture remains binding.
+
+## Current audit / continuation evidence — 2026-09-28
+
+DD-243…DD-247 is the latest canonically promoted governed backend batch at this state-closure boundary. It owns only exact AIRequest envelope integrity, immutable projection and exact operation capability/input-schema-version coherence. Context resolution/trust, live authorization/policy/quota, candidate selection/routing, credentials and AI execution remain outside this batch.
+
+Governed DD-208 promotion evidence remains `c7825bedc7e96b5010266a42c710e36086728bca` / tree `8b87deba28541da36bd4c94d9559f91121a0aae2`, recorded in `Registers/DEVELOPMENT_DD208_VERIFICATION_2026-09-26.md`.
+
+The current bounded downstream executable audit basis is `6903bf671d5b99e78d2ebc8b2d94ce55dd4411b7` / tree `66b417fde1f543200cb26e815464484daad1a34e`: **883/883 Core**, **525/525 PostgreSQL**, **48 migrations / 42 verification files**, Database/Web PASS. Current source-parent semantic ownership/status reconciliation remains **372/372 owner-reconciled, 0 NOT_CERTIFIED**. The complete-project downstream semantic/file-coverage/adversarial audit is clean / closed and remains **CLEAN / CLOSED**; DD-243…DD-247 canonical promotion is exact-head verified and state closure is staged.
+
+Next: this DD-243…DD-247 state-closure commit must independently pass exact-head Core/PostgreSQL/Database/Web. Once green, the next independently source-complete governed backend batch may be source-audited. Context trust, live policy/quota/routing/credentials and AI execution remain locked.

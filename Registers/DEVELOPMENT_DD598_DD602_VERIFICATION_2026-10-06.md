@@ -1,0 +1,54 @@
+# DD-598…DD-602 verification — AIMediaRequest capability current evidence
+
+**Date:** 2026-10-06  
+**Source audit:** `Development/AI_MEDIA_REQUEST_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`  
+**Source-audit HEAD/tree:** `9b793b3d24ce41b199725b62d57766ee4f056c72` / `035f8b97562fffa73b0f3a3818c9886649a11827`  
+**Corrected implementation HEAD/tree:** `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f` / `49e4febadfbdce76e0f6f9baeb9db12c033ce888`
+
+## Entry gate
+
+DD-593…DD-597 state closure `9ca4308f0f1049b1738ab6f806298d514b9f2f51` / tree `4acd8f4c0e06c8d0968651cef718dd3d532dd418` passed exact-head Core **1509/1509**, PostgreSQL **540/540** plus bootstrap, Database **48 migrations / 42 SQL verification files**, and Web. DD-598…DD-602 source-audit HEAD subsequently passed exact-head Core/PostgreSQL/Database/Web before implementation.
+
+## Forward-only implementation correction
+
+Initial implementation `6bbd096d7ae556204e7539ab8f40db6d361f773c` added the bounded reader and eight fixed acceptances, but an index export contained a literal `\\n` token. A source-level sanity check detected this immediately. Forward-only correction `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f` repaired only that export newline; reader/test semantics were unchanged.
+
+## Exact-head implementation verification
+
+Corrected implementation HEAD `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f` / tree `49e4febadfbdce76e0f6f9baeb9db12c033ce888` passed:
+- Core push run `37495171810` / job `112377742310`: **1517/1517 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112377741656`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database pull-request run `37495180419` / job `112377769287`: PASS on the exact corrected HEAD; repository inventory remains **48 migrations / 42 SQL verification files**.
+- Web push run `37495171609` / job `112377741857`: PASS.
+
+## Bounded result
+
+The reader loads one exact AIMediaRequest, then exactly one global AICapability row by the request's persisted capabilityCode and applies only the existing DD-202 exact code-binding floor. Success preserves exact immutable request/capability references.
+
+Capability status/category/requiredEntitlement/defaultPolicyClass/schemaVersion remain raw evidence. No capability eligibility/currentness, entitlement/policy/allowlist decision, prompt/document authorization, moderation/provisioning/provider/model routing, budget/quota, media execution/publication, mutation/event, schema/RLS/route/frontend/RawSource authority is added.
+
+## Promotion gate
+
+Canonical DD/traceability/state promotion must independently pass exact-head Core/PostgreSQL/Database/Web before DD-598…DD-602 can be closed.
+
+## Corrected canonical promotion verified; state closure staged — 2026-10-07
+
+Initial canonical promotion `42407ddc86d042c3e0101eaae920211505cda5dc` passed Database/Web/PostgreSQL but failed Core REPO-011 because 14 active checkpoint narratives retained the prior DD-593…DD-597 promotion basis/counts. No runtime or DD-598…DD-602 implementation semantics failed.
+
+Forward-only correction `0347fc01793aa8d9928b6bee3e99871ec1c33bd4` / tree `0bc495c5a6ef7727ea0bd9358dfcc014f9a554de` aligned only those active narrative projections and passed exact-head push gates:
+- Core run `37558992438` / job `112591739949`: **1517/1517 PASS**, fail/skip 0; REPO-011 PASS.
+- PostgreSQL same run / job `112591739729`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37558992491` / job `112591739764`: PASS; repository inventory remains **48 migrations / 42 SQL verification files**.
+- Web run `37558992431` / job `112591739768`: PASS.
+
+Feature implementation evidence remains anchored to corrected implementation `8ab7f7ee6ab6e439e17f75d674a06948d09afe8f` / tree `49e4febadfbdce76e0f6f9baeb9db12c033ce888`. This state-closure commit must independently pass the same four gates before DD-598…DD-602 is closed.
+
+## State closure verified — 2026-10-07
+
+State-closure correction HEAD `d385fbc2faefe28da212a9a77feba1776efbdec9` / tree `367d575ecb4251c10fda3e4c99aa8e03714f9a5a` passed exact-head push gates:
+- Core run `37559756582` / job `112594138668`: **1517/1517 PASS**, fail/skip 0.
+- PostgreSQL same run / job `112594138562`: **540/540 PASS**, fail/skip 0; full database bootstrap PASS.
+- Database run `37559756626` / job `112594140954`: PASS with repository inventory **48 migrations / 42 SQL verification files**.
+- Web run `37559756615` / job `112594138568`: PASS.
+
+The immediately preceding closure commit `b2848b7868744c747f0b9239a648569f1737857a` failed only REPO-011 because `Registers/SOURCE_REGISTRY.md` retained `Updated: 2026-10-06`. `d385fbc2faefe28da212a9a77feba1776efbdec9` corrected only that active date projection. DD-598…DD-602 is closed at its bounded capability-binding evidence scope; forward development may resume only through a new source-audited batch.

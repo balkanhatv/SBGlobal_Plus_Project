@@ -1,24 +1,18 @@
-# D-INDEX — Canonical Document Index (CP-F1-005 — Foundation Certified)
-| ID | Document | Owns | Status |
-|---|---|---|---|
-| F-00 | Foundation/F-00_FOUNDATION_OVERVIEW.md | Vision, authority, package map, status ledger, §10 forensic amendment, §11 certification amendment | ACTIVE (v1.2) |
-| F-01 | Foundation/F-01_PLATFORM_FOUNDATION.md | Business model, actors, surfaces, tenancy, subscription/entitlement anchor (§5), configuration, Core catalog, stack, NFR | SPECIFIED |
-| F-02 | Foundation/F-02_END_TO_END_WORKFLOW.md | W-01..W-15 lifecycle | SPECIFIED |
-| F-03 | Foundation/F-03_IDENTITY_SECURITY.md | Identity, RBAC+ABAC, validation chain, security/compliance, isolation | SPECIFIED |
-| F-04 | Foundation/F-04_DATA_FOUNDATION.md | 11 data categories incl. demo/media governance | SPECIFIED |
-| F-05 | Foundation/F-05_AI_FOUNDATION.md | AI layers, providers, assistants/agents, RAG, routing, governance | SPECIFIED |
-| F-06 | Foundation/F-06_EXPERIENCE_LAYER.md | Website, apps, mobile, desktop surfaces, 3-layer model, UI/UX | SPECIFIED |
-| F-07 | Foundation/F-07_INDUSTRIES_1-3.md | Healthcare & Diagnostics, Education, eCommerce/Retail | SPECIFIED (v0.2; FF-01/FF-02 resolved via F-13) |
-| F-08 | Foundation/F-08_INDUSTRIES_4-6.md | Hospitality, Manufacturing, Professional Services | SPECIFIED (FF-02 resolved via F-13) |
-| F-09 | Foundation/F-09_INDUSTRIES_7-9.md | Government, NGO/Temple/Trust, Security & Facility Mgmt | SPECIFIED (NGO-DMS review closed, F-13 §2.5) |
-| F-10 | Foundation/F-10_DESKTOP_FOUNDATION.md | Desktop foundation (RR-01) | SPECIFIED |
-| F-11 | Foundation/F-11_DATA_RESIDENCY.md | Regional Data Home model (DR-01) | SPECIFIED |
-| F-12 | Foundation/F-12_INDUSTRY_MS_DEEPENING.md | MS Specification Standard + all-suite §9 dimensions | SPECIFIED |
-| F-13 | Foundation/F-13_MS_DEPTH_COMPLETION.md | FF-01/FF-02 resolution: 8 MS depth completion + NGO-DMS closure | SPECIFIED |
-| F-14 | Foundation/F-14_COMMERCIAL_FOUNDATION.md | Plans · Subscription · License · Entitlements · Effective Access · plan-change lifecycles · commercial routes | SPECIFIED |
-| R-TMU | Registers/TRACEABILITY_MATRIX_UNIT.md (+ TRACEABILITY_EXT_CP-F1-005.md) | Unit-level traceability (372/2,965/0) + F-13/F-14 destination extension | ACTIVE |
-| R-FA | Registers/FINAL_AUDIT_CP-F1-005.md | Dual final audit record + certification decision | ACTIVE |
-| R-* | Registers/ (remaining) | Governance registers | ACTIVE |
-| ST-* | State/ (4 files) | Project state and continuity | ACTIVE |
+# D-INDEX — Current Canonical / Development Index
+**Current checkpoint:** `DEV-AI-TOOL-DEFINITION-CAPABILITY-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
+**Updated:** 2026-10-10 · **Branch:** `docs/architecture-branch-2`
 
-Certification: **FOUNDATION CERTIFIED at CP-F1-005** (F-00 §11; FINAL_AUDIT_CP-F1-005). Boundary: Foundation only. Sole open delivery item: recovery ZIP v1.2 (see D-CHECKPOINT). Non-duplication: each fact lives in exactly one document; all others cross-reference.
+> **Current audit gate (2026-10-10):** Complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111. DD-713…DD-717 state closure remains verified. DD-718…DD-722 source audit `df8164274487f5c1a1f100b6d4726af32779bdd6` and implementation `f6d4e58aa061d80a43593dd8c573c7ba7d5b8be6` / tree `261b463a924da167d53f5f2b2723b4ceffa26543` independently passed exact-HEAD Core/PostgreSQL/Database/Web (1727/1727 Core; 540/540 PostgreSQL; 48 migrations / 42 SQL verification files; Web PASS). Canonical promotion is staged pending its own exact-HEAD gates; separate DD-718…DD-722 state closure is not yet verified. Production readiness **NOT CLAIMED**.
+
+DD-718…DD-722 is the current governed backend-only global AIToolDefinition-by-id → exact global AICapability(code) persisted direct-FK relationship evidence composition. It reuses DD-203 UUID/code strict equality after one DD-110 global ToolDefinition read and one DD-109 exact global by-code lookup.
+
+Verified current downstream audit basis `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`: **1719/1719 Core**, **540/540 PostgreSQL** with full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped Core or PostgreSQL tests. DD-718…DD-722 implementation `f6d4e58aa061d80a43593dd8c573c7ba7d5b8be6` / tree `261b463a924da167d53f5f2b2723b4ceffa26543` independently passed exact-HEAD gates: **1727/1727 Core**, **540/540 PostgreSQL**, Database/Web PASS. Canonical promotion is staged pending its own exact-HEAD CI; DD-717 state closure remains verified; production readiness **NOT CLAIMED**.
+
+Raw ToolDefinition and capability source references, raw code (including valid empty strings) and opaque metadata remain unchanged. No status/currentness/eligibility, entitlement/policy, principal authorization, Tenant/Industry allowlisting, ToolSet/AgentStep authorization, OperationContract execution, approval, idempotency/audit, credentials, routing, RAG/tool/agent execution, API/UI/mutation/events or atomic snapshot authority.
+
+Evidence: `Registers/DEVELOPMENT_DD718_DD722_VERIFICATION_2026-10-10.md`. Source audit: `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Development **IN PROGRESS**; production readiness **NOT CLAIMED**.
+
+Next: Verify this DD-718…DD-722 canonical promotion at its exact HEAD with Core/PostgreSQL/Database/Web; only then create and independently verify a separate state-closure commit before DD-723.
+
+Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirement IDs**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP`. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.

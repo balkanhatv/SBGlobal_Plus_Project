@@ -1,0 +1,644 @@
+{
+  "schema_version": 1,
+  "purpose": "Pre-development recoverable Git snapshot index",
+  "created": "2026-09-13",
+  "repository": "yadavjalsingh192/SBGlobal_Plus_Project",
+  "branch": "docs/architecture-branch-2",
+  "snapshot_head": "f09c26b2d01b97d0f50b20d94bad374dbc4252c7",
+  "snapshot_tree_sha": "cb60aba0e91bab2d4eca2216233cfdbe484c1176",
+  "immutable_archive_url": "https://github.com/yadavjalsingh192/SBGlobal_Plus_Project/archive/f09c26b2d01b97d0f50b20d94bad374dbc4252c7.zip",
+  "file_count": 125,
+  "total_blob_bytes": 4048092,
+  "rawsource_expected": {
+    "RawSourceCorpus/Disorganized Data 1.md": "a9f63a64448a347edd0f2b0c74094284ee953c1b",
+    "RawSourceCorpus/Disorganized Data 2.md": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd"
+  },
+  "note": "This manifest indexes the exact Git snapshot. The ZIP endpoint was not materialized/download-verified in the current execution environment because external archive download/network access was unavailable.",
+  "files": [
+    {
+      "path": "Architecture/A-00_ARCHITECTURE_OVERVIEW.md",
+      "blob_sha": "4b249a03e73c6e2d5d85a54dc0e9b695901f15fe",
+      "size": 9345
+    },
+    {
+      "path": "Architecture/A-01_CORE_PLATFORM_ARCHITECTURE.md",
+      "blob_sha": "a7e75036dea53f910f5a3f06bdadf50611087294",
+      "size": 8754
+    },
+    {
+      "path": "Architecture/A-02_MULTITENANT_CONTEXT_ARCHITECTURE.md",
+      "blob_sha": "591dd4da9697fc4d537bc94642cbf02867fbea94",
+      "size": 6140
+    },
+    {
+      "path": "Architecture/A-03_IDENTITY_SECURITY_ACCESS_ARCHITECTURE.md",
+      "blob_sha": "4c4a240746468895363e152d6ed66ff2f77680d5",
+      "size": 6302
+    },
+    {
+      "path": "Architecture/A-04_COMMERCIAL_ENTITLEMENT_ARCHITECTURE.md",
+      "blob_sha": "be81239503ae7481d23b1d33439230c72a7458a1",
+      "size": 7066
+    },
+    {
+      "path": "Architecture/A-05_DATA_ARCHITECTURE.md",
+      "blob_sha": "7ef9f56993abb697f654d33dbe7e81c31e69cd70",
+      "size": 8258
+    },
+    {
+      "path": "Architecture/A-06_API_EVENTS_INTEGRATION_ARCHITECTURE.md",
+      "blob_sha": "298f3214b0242f610fa9e40003b506591ade28dd",
+      "size": 6198
+    },
+    {
+      "path": "Architecture/A-07_AI_PLATFORM_ARCHITECTURE.md",
+      "blob_sha": "06094f9da112b7b58f708ec7f70bd7b348cde310",
+      "size": 7883
+    },
+    {
+      "path": "Architecture/A-08_EXPERIENCE_ARCHITECTURE.md",
+      "blob_sha": "09572aaa0ea3394f06ee92463578b5dc47da1355",
+      "size": 8228
+    },
+    {
+      "path": "Architecture/A-09_INDUSTRY_SUITE_ARCHITECTURE.md",
+      "blob_sha": "cab9914dbd7470fb167c1b6098d2376ff84cce4d",
+      "size": 7155
+    },
+    {
+      "path": "Architecture/A-10_INFRASTRUCTURE_DEPLOYMENT_SCALABILITY_RESILIENCE_ARCHITECTURE.md",
+      "blob_sha": "74ece988446bb6bc9bd24f29637984c1f5db506f",
+      "size": 5532
+    },
+    {
+      "path": "Architecture/A-11_OBSERVABILITY_RELIABILITY_OPERATIONS_ARCHITECTURE.md",
+      "blob_sha": "459a9e5fc83eab78981b02c84f3e70d929d5c359",
+      "size": 4933
+    },
+    {
+      "path": "Architecture/A-12_ARCHITECTURE_DECISIONS_CONSTRAINTS_DEPENDENCIES_TRADEOFFS.md",
+      "blob_sha": "70f148c180f56daac91330b836dd36874ef8a466",
+      "size": 18481
+    },
+    {
+      "path": "Architecture/ARCHITECTURE_REVALIDATION_NOTICE.md",
+      "blob_sha": "e03d12f94099828683f9198038ac1ea8bc2076de",
+      "size": 1628
+    },
+    {
+      "path": "BACKUP_METADATA.json",
+      "blob_sha": "fda526345637ea6d1e9623347b3e6dfeb2ba71ca",
+      "size": 1201
+    },
+    {
+      "path": "DetailedDesign/DD-00_DETAILED_DESIGN_OVERVIEW.md",
+      "blob_sha": "2ce483e4463ba39f26574c207f68783dee2298a4",
+      "size": 6260
+    },
+    {
+      "path": "DetailedDesign/DD-01_DOMAIN_MODULE_BOUNDARIES.md",
+      "blob_sha": "61a30809359676929605e6d59777c7ce36556087",
+      "size": 7289
+    },
+    {
+      "path": "DetailedDesign/DD-02_TENANT_INDUSTRY_CONTEXT_DESIGN.md",
+      "blob_sha": "b3fbac10c16eaa07fe15f17b2ce3ea68f694a483",
+      "size": 6153
+    },
+    {
+      "path": "DetailedDesign/DD-03_IDENTITY_AUTHORIZATION_DESIGN.md",
+      "blob_sha": "a4ee4ddb4dd72233ad16d021aa490e620f3ea286",
+      "size": 6171
+    },
+    {
+      "path": "DetailedDesign/DD-04_COMMERCIAL_ENTITLEMENT_DESIGN.md",
+      "blob_sha": "2132dc055625aa0fbcff23c1dff7fc3aa42f796d",
+      "size": 8538
+    },
+    {
+      "path": "DetailedDesign/DD-05_DATA_MODEL_AND_DATABASE_DESIGN.md",
+      "blob_sha": "136fc58e5da0b33ccc589b6d2c6decc3d93b5010",
+      "size": 12751
+    },
+    {
+      "path": "DetailedDesign/DD-06_API_TRPC_REST_DESIGN.md",
+      "blob_sha": "65a386541cb0d6e9e31c0f08ed262dd3deb490ba",
+      "size": 10321
+    },
+    {
+      "path": "DetailedDesign/DD-07_EVENT_OUTBOX_WEBHOOK_DESIGN.md",
+      "blob_sha": "eacd46d866f7f38999f719362dfc060ca6b6db69",
+      "size": 4738
+    },
+    {
+      "path": "DetailedDesign/DD-08_DOCUMENT_STORAGE_DESIGN.md",
+      "blob_sha": "9917006e9cf174319efaaee586cff9b0126ac827",
+      "size": 5429
+    },
+    {
+      "path": "DetailedDesign/DD-09_AI_RAG_AGENT_DESIGN.md",
+      "blob_sha": "a25014f692f7e29db964ac076fa0ff523dd4ca0e",
+      "size": 14321
+    },
+    {
+      "path": "DetailedDesign/DD-10_EXPERIENCE_APPLICATION_DESIGN.md",
+      "blob_sha": "62ed4fa07aab108082775ff67fca85bb01e62aab",
+      "size": 21204
+    },
+    {
+      "path": "DetailedDesign/DD-11_MOBILE_OFFLINE_SYNC_DESIGN.md",
+      "blob_sha": "5dc98dadb391f2e434cf0f124f8af6caa823b83f",
+      "size": 8238
+    },
+    {
+      "path": "DetailedDesign/DD-12_DESKTOP_DESIGN.md",
+      "blob_sha": "ee80cccf8f5791c7ce210325789e68d37e02f1db",
+      "size": 5049
+    },
+    {
+      "path": "DetailedDesign/DD-13_INDUSTRY_SUITE_DESIGN.md",
+      "blob_sha": "4c20d0428fa61bd64193a51f77ac3e19098960e9",
+      "size": 6029
+    },
+    {
+      "path": "DetailedDesign/DD-14_INFRASTRUCTURE_DEPLOYMENT_DESIGN.md",
+      "blob_sha": "dfa080e3ca05e04c043b0fed1318909d256c7c9f",
+      "size": 11495
+    },
+    {
+      "path": "DetailedDesign/DD-15_OBSERVABILITY_OPERATIONS_DESIGN.md",
+      "blob_sha": "f93eb9c7e1c738bb72bf58e8423e82689920e884",
+      "size": 7508
+    },
+    {
+      "path": "DetailedDesign/DD-16_SECURITY_COMPLIANCE_DESIGN.md",
+      "blob_sha": "a4c39d51dd3847cf201cf6203a3f2ec2b0e60b06",
+      "size": 10481
+    },
+    {
+      "path": "DetailedDesign/DD-17_TEST_ACCEPTANCE_CONTRACTS.md",
+      "blob_sha": "015365f3cd3b9c2d11283e1c5a954545bac70c39",
+      "size": 22958
+    },
+    {
+      "path": "DetailedDesign/DD-18_DETAILED_DESIGN_DECISIONS.md",
+      "blob_sha": "9ffe581c2e3fe6a1fb0ff39c3f2dd09df111d8f7",
+      "size": 27230
+    },
+    {
+      "path": "DetailedDesign/DD-19_DETAILED_DESIGN_TRACEABILITY.md",
+      "blob_sha": "a2d1c9d720f3a41566bd31e11d99e0d400c8d04c",
+      "size": 17594
+    },
+    {
+      "path": "DetailedDesign/DD-20A_WAVE1_AUDIT.md",
+      "blob_sha": "88d29593fe6fbc10b57a636ef73f9b0dec1b7f74",
+      "size": 341
+    },
+    {
+      "path": "DetailedDesign/DD-20B_WAVE2_AUDIT.md",
+      "blob_sha": "f9c7fa35b2b3441cde8f1c08d9c7c45cecef545a",
+      "size": 351
+    },
+    {
+      "path": "DetailedDesign/DD-20C_WAVE3_ADVERSARIAL_AUDIT.md",
+      "blob_sha": "74fc0df1cc6d7fe5f02b544d2d87c1f345a96213",
+      "size": 18540
+    },
+    {
+      "path": "DetailedDesign/DD-20D_OVERALL_DETAILED_DESIGN_AUDIT.md",
+      "blob_sha": "5bda1a4eca12d1b243953017430099d07ea9b55e",
+      "size": 2095
+    },
+    {
+      "path": "DetailedDesign/DD-20H_LEGACY_COMBINED_AUDIT_HISTORY.md",
+      "blob_sha": "a9f65528f06caa2c5a64fcc935ce253ea9866f09",
+      "size": 12863
+    },
+    {
+      "path": "DetailedDesign/DD-20_DETAILED_DESIGN_FINAL_AUDIT.md",
+      "blob_sha": "1483eef648f1dffe484053a3c3b0a4e28d054d21",
+      "size": 1269
+    },
+    {
+      "path": "DetailedDesign/DD-21_MS_ACCEPTANCE_TEST_CONTRACTS.md",
+      "blob_sha": "6b9438c159aee1bc5426341082c843cb84a53a2b",
+      "size": 134024
+    },
+    {
+      "path": "DetailedDesign/DD-22H_STATE_ENUM_DERIVATION_HISTORY.md",
+      "blob_sha": "2a29c1de7ed1208a660c43edb804e327dcde5e3b",
+      "size": 381372
+    },
+    {
+      "path": "DetailedDesign/DD-22_MS_WORKFLOW_TRANSITION_MATRICES.md",
+      "blob_sha": "bc62574fa40fc08090bd273f7f109dc71b56bc4d",
+      "size": 245228
+    },
+    {
+      "path": "DetailedDesign/DD-23A_BEHAVIOR_FIELD_REGISTRY.md",
+      "blob_sha": "5c907615ab165666cbfbd44ec2e030529bfaee78",
+      "size": 12764
+    },
+    {
+      "path": "DetailedDesign/DD-23_BEHAVIORAL_CATALOGS_INDEX_CONTRACTS.md",
+      "blob_sha": "23bf72bf29a083fdb6f1303bd6c6791abfcc3e4c",
+      "size": 4375
+    },
+    {
+      "path": "DetailedDesign/DD-24_INDUSTRY_DOMAIN_RULE_DECISIONS.md",
+      "blob_sha": "f58c05db4f43ca99f91151e2d9bcae5e023c4dee",
+      "size": 21278
+    },
+    {
+      "path": "DetailedDesign/DD-25_KPI_CALCULATION_CATALOG.md",
+      "blob_sha": "807dc97606cb5d4bcc59be93485c5f4471e9c2db",
+      "size": 39431
+    },
+    {
+      "path": "DetailedDesign/DD-26_CANONICAL_SURFACES_MS_IDENTIFIERS.md",
+      "blob_sha": "6ef9e8d3058e83a23ed1ffc6e3470533f46ebb15",
+      "size": 3065
+    },
+    {
+      "path": "DetailedDesign/DD-27_41_MS_DETERMINISM_AUDIT.md",
+      "blob_sha": "6da43e0fdf6b8007ff12161fbce05b47319f17fc",
+      "size": 147642
+    },
+    {
+      "path": "DetailedDesign/DD-28_FINAL_NAMED_KPI_COVERAGE.md",
+      "blob_sha": "13bcac0fe7b9a0ba0767fe1886abbc3565e425ff",
+      "size": 31739
+    },
+    {
+      "path": "DetailedDesign/DD-29_FINAL_REVIEW_REQUIRED_SWEEP.md",
+      "blob_sha": "24223ffb424945cf83bb5984d327ea83dc47fde5",
+      "size": 1527
+    },
+    {
+      "path": "DetailedDesign/DD-30_FINAL_REQUIREMENT_TRACEABILITY_AUDIT.md",
+      "blob_sha": "88d2c099ba5458a216f6a277c6b3198708b3a179",
+      "size": 1819
+    },
+    {
+      "path": "DetailedDesign/DD-31_FINAL_DEVELOPMENT_QA_DETERMINISM.md",
+      "blob_sha": "86f26bd64bb470b86dac052f4f6c3e61637990d1",
+      "size": 2021
+    },
+    {
+      "path": "DetailedDesign/DD-CHANGELOG.md",
+      "blob_sha": "9995c1a90d2532842242e54540293460e2fe0810",
+      "size": 2321
+    },
+    {
+      "path": "DetailedDesign/DD-CHECKPOINT.md",
+      "blob_sha": "ead9f4f14d27cb964238d314db9f7e889cc47d72",
+      "size": 987
+    },
+    {
+      "path": "DetailedDesign/DD-INDEX.md",
+      "blob_sha": "b5525c85135075c65ddb67f0895d78ed16ee8d0d",
+      "size": 1462
+    },
+    {
+      "path": "DetailedDesign/DD-PHASE_STATE.md",
+      "blob_sha": "b712ef314dd436b68d2a082d9782135ddb360662",
+      "size": 910
+    },
+    {
+      "path": "DetailedDesign/DD-REVIEW_REQUIRED.md",
+      "blob_sha": "f9b8e1ae3b9b565e55b09f2805961aa8873e5ade",
+      "size": 1099
+    },
+    {
+      "path": "DetailedDesign/Industries/Education/EDU-00_DETAILED_DESIGN.md",
+      "blob_sha": "bfcd2645bad6a47d340f552be91c83e1bdeebc74",
+      "size": 34052
+    },
+    {
+      "path": "DetailedDesign/Industries/Government/GOV-00_DETAILED_DESIGN.md",
+      "blob_sha": "40d66c7bd7dc281def3a869938c567155f6fd85c",
+      "size": 22971
+    },
+    {
+      "path": "DetailedDesign/Industries/Healthcare/HLT-00_DETAILED_DESIGN.md",
+      "blob_sha": "57a85d8045c99303e8e292709b7aff6f319cccde",
+      "size": 33248
+    },
+    {
+      "path": "DetailedDesign/Industries/Hospitality/HSP-00_DETAILED_DESIGN.md",
+      "blob_sha": "940282529651fd4079d2bf93a1f18815c7870efb",
+      "size": 26727
+    },
+    {
+      "path": "DetailedDesign/Industries/Manufacturing/MFG-00_DETAILED_DESIGN.md",
+      "blob_sha": "5957f67b6126165e7b993f25d70a152829865a19",
+      "size": 28219
+    },
+    {
+      "path": "DetailedDesign/Industries/NGO-Temple-Trust/NGO-00_DETAILED_DESIGN.md",
+      "blob_sha": "5c20b7813f4cb125adf5b46b2537e9a8ae8851e7",
+      "size": 23004
+    },
+    {
+      "path": "DetailedDesign/Industries/ProfessionalServices/PSV-00_DETAILED_DESIGN.md",
+      "blob_sha": "b98d02f8f8b5b6c08b778c4e22457346ea18096b",
+      "size": 28194
+    },
+    {
+      "path": "DetailedDesign/Industries/Retail/RTL-00_DETAILED_DESIGN.md",
+      "blob_sha": "ecc64c08e0ea4b0cbaf1cfb2bff8902bcd0b1f5f",
+      "size": 32975
+    },
+    {
+      "path": "DetailedDesign/Industries/Security-Facility/SFM-00_DETAILED_DESIGN.md",
+      "blob_sha": "e1e24fc06aa2402edd241b8bd845042ec5fdd07b",
+      "size": 23001
+    },
+    {
+      "path": "DetailedDesign/WAVE3_CROSS_INDUSTRY_AUDIT.md",
+      "blob_sha": "f18978dbf06453feba697913e4a8abfd631026a0",
+      "size": 3052
+    },
+    {
+      "path": "DetailedDesign/WAVE3_MS_COMPLETENESS_MATRIX.md",
+      "blob_sha": "9b55148a35dc186e01832062f02a2bde66fec068",
+      "size": 5302
+    },
+    {
+      "path": "Foundation/F-00_FOUNDATION_OVERVIEW.md",
+      "blob_sha": "7d236333b27ade2b54df8c4b7ad773cd02114a8b",
+      "size": 25179
+    },
+    {
+      "path": "Foundation/F-01_PLATFORM_FOUNDATION.md",
+      "blob_sha": "729347b5c9b9e2af8d303e789f302caca13cbdbd",
+      "size": 15567
+    },
+    {
+      "path": "Foundation/F-02_END_TO_END_WORKFLOW.md",
+      "blob_sha": "4f600f52dcf3d989d175cdcf99b19629ffcb304b",
+      "size": 10351
+    },
+    {
+      "path": "Foundation/F-03_IDENTITY_SECURITY.md",
+      "blob_sha": "aea9e4c66093282ad4e200ba86384449d990db4c",
+      "size": 9381
+    },
+    {
+      "path": "Foundation/F-04_DATA_FOUNDATION.md",
+      "blob_sha": "018dec7a90619fec1431ebe76fb598d0594c29f9",
+      "size": 8931
+    },
+    {
+      "path": "Foundation/F-05_AI_FOUNDATION.md",
+      "blob_sha": "8972db4ef22412adce6a7682b4975d53abd194bd",
+      "size": 5683
+    },
+    {
+      "path": "Foundation/F-06_EXPERIENCE_LAYER.md",
+      "blob_sha": "6527910f288da748a8c4ecf2f7e7a641bdcd629d",
+      "size": 8491
+    },
+    {
+      "path": "Foundation/F-07_INDUSTRIES_1-3.md",
+      "blob_sha": "d28d209dc1629c1ce3ba948ee2242ae7938d4367",
+      "size": 14014
+    },
+    {
+      "path": "Foundation/F-08_INDUSTRIES_4-6.md",
+      "blob_sha": "b3c01e067f932b9c9fce0cf05b64f7d9b0bd8b69",
+      "size": 9539
+    },
+    {
+      "path": "Foundation/F-09_INDUSTRIES_7-9.md",
+      "blob_sha": "a5fb8a5e6c09bf76a3a79a71bdf9ec325abe3cb7",
+      "size": 10853
+    },
+    {
+      "path": "Foundation/F-10_DESKTOP_FOUNDATION.md",
+      "blob_sha": "b082c5ae5aae78f3d2cb346c5299155389cea1bb",
+      "size": 6270
+    },
+    {
+      "path": "Foundation/F-11_DATA_RESIDENCY.md",
+      "blob_sha": "a91692581f77278694f5b145a6f8d045355e55ab",
+      "size": 5675
+    },
+    {
+      "path": "Foundation/F-12_INDUSTRY_MS_DEEPENING.md",
+      "blob_sha": "b979a75ed7ffd94bc9bcb6749a7a312e5e398fd9",
+      "size": 15521
+    },
+    {
+      "path": "Foundation/F-13_MS_DEPTH_COMPLETION.md",
+      "blob_sha": "ee8746705aeb69fb7629c92457b128856f512cbe",
+      "size": 50371
+    },
+    {
+      "path": "Foundation/F-14_COMMERCIAL_FOUNDATION.md",
+      "blob_sha": "0cdae5bee68ef974734d0711f566909b68e5e969",
+      "size": 15204
+    },
+    {
+      "path": "Foundation/F-15_FOUNDATION_TRUTH_REVALIDATION.md",
+      "blob_sha": "ba333765ee5390796520d45025b2a3cc049211bf",
+      "size": 6641
+    },
+    {
+      "path": "Governing/MASTER_INSTRUCTION_v2_5.md",
+      "blob_sha": "63adccadfa42e91e6d49c54b940c50eee24160c2",
+      "size": 74187
+    },
+    {
+      "path": "Governing/MASTER_PROMPT_v2_5.md",
+      "blob_sha": "665e18ecc35b05f95701eed23f573869477206c2",
+      "size": 27545
+    },
+    {
+      "path": "Governing/ULTRA_DEEP_VISION_CENTRIC_PRE_DEVELOPMENT_AUDIT_MASTER_PROMPT.md",
+      "blob_sha": "fb7e87ef733d8288097efc47b16003df8b5e7795",
+      "size": 801
+    },
+    {
+      "path": "Governing/ULTRA_DEEP_VISION_CENTRIC_PRE_DEVELOPMENT_AUDIT_MASTER_PROMPT_CLEAN.md",
+      "blob_sha": "1265538305c59133bd620522a2fd63e780490747",
+      "size": 51170
+    },
+    {
+      "path": "README_FOUNDATION.md",
+      "blob_sha": "c352d2cd9754ff452ecbea7fa7a2db0744aa873d",
+      "size": 3800
+    },
+    {
+      "path": "RawSourceCorpus/Disorganized Data 1.md",
+      "blob_sha": "a9f63a64448a347edd0f2b0c74094284ee953c1b",
+      "size": 30175
+    },
+    {
+      "path": "RawSourceCorpus/Disorganized Data 2.md",
+      "blob_sha": "91c461de5e0d171f71d0bb89cd039953a1f1ecfd",
+      "size": 114748
+    },
+    {
+      "path": "Registers/ARCHITECTURE_FINAL_AUDIT.md",
+      "blob_sha": "2aace7a48fd22c1d99be1bc327a06adbd6613c0c",
+      "size": 2391
+    },
+    {
+      "path": "Registers/ARCHITECTURE_NO_LOSS_AUDIT.md",
+      "blob_sha": "1029e31ccb0d2ec56fa9c0faa9ec3babbdff6a23",
+      "size": 2282
+    },
+    {
+      "path": "Registers/ARCHITECTURE_TRACEABILITY_MATRIX.md",
+      "blob_sha": "4c51576b4af330ba32537f2a58d55301eb30ed0c",
+      "size": 4471
+    },
+    {
+      "path": "Registers/D-CHANGELOG.md",
+      "blob_sha": "e517bf1450ce01ebed7d6443316ae2070082825e",
+      "size": 11186
+    },
+    {
+      "path": "Registers/D-CHECKPOINT.md",
+      "blob_sha": "8089c2fd38b1dfc2ed1c8247a9f0449525c05410",
+      "size": 796
+    },
+    {
+      "path": "Registers/D-DECISIONS.md",
+      "blob_sha": "7e45acb42b2194e9b2839ede862ca7261eb5deee",
+      "size": 14839
+    },
+    {
+      "path": "Registers/D-INDEX.md",
+      "blob_sha": "9c04354df5068c60df48b85cb21baf2ddc687632",
+      "size": 810
+    },
+    {
+      "path": "Registers/DD_REQUIREMENT_TRACEABILITY_F5.md",
+      "blob_sha": "498b751b34cecceacd6bacf0be8e94dd2b5b2c9d",
+      "size": 88909
+    },
+    {
+      "path": "Registers/F5_DEFERRED_REQUIREMENT_DISPOSITION.md",
+      "blob_sha": "fe42a4b8ce176883f2a645d3e146058217acfbb0",
+      "size": 36920
+    },
+    {
+      "path": "Registers/F5_END_TO_END_SOURCE_REQUIREMENT_TRACEABILITY.md",
+      "blob_sha": "d005a6a2a30076df7a14a179e1dec5b11aff4b89",
+      "size": 476702
+    },
+    {
+      "path": "Registers/F5_PARTIAL_REQUIREMENT_CLOSURE.md",
+      "blob_sha": "e4bd5bb9a4540a7040f8304c85f94e4535255d69",
+      "size": 32672
+    },
+    {
+      "path": "Registers/F5_USER_DIRECTED_REQUIREMENTS.md",
+      "blob_sha": "6a7395483128e22b545a62e9798a2481a95554b6",
+      "size": 49496
+    },
+    {
+      "path": "Registers/FINAL_AUDIT_CP-F1-005.md",
+      "blob_sha": "255da801736d4fc84e97e9339400664bd30339fe",
+      "size": 5889
+    },
+    {
+      "path": "Registers/ISOLATION_ATTACK_MATRIX.md",
+      "blob_sha": "157b03e8e6499a1a5de2103cb9d8e9aa825d1658",
+      "size": 4339
+    },
+    {
+      "path": "Registers/MS_COMPLETENESS_MATRIX.md",
+      "blob_sha": "6d0dabada3c10078ca3bfb726f7699a3432d526d",
+      "size": 4308
+    },
+    {
+      "path": "Registers/NO_LOSS_AUDIT.md",
+      "blob_sha": "437ce048d5a326d540201c3c6ce1b8835cec998c",
+      "size": 2673
+    },
+    {
+      "path": "Registers/PHASE1_RAWSOURCE_FOUNDATION_RECONCILIATION_2026-09-12.md",
+      "blob_sha": "853ab4524bf7a7e0913ca328a2b1cbf8d87b4b5a",
+      "size": 7972
+    },
+    {
+      "path": "Registers/PHASE2_ARCHITECTURE_REVALIDATION_2026-09-12.md",
+      "blob_sha": "4659582aa48dd3af3e3ee77bd9cae1f0ad81cd56",
+      "size": 4077
+    },
+    {
+      "path": "Registers/PHASE3_DETAILED_DESIGN_REVALIDATION_2026-09-13.md",
+      "blob_sha": "4d3a6efef46cf174e6f1fe3e6338365abdbe09d9",
+      "size": 9455
+    },
+    {
+      "path": "Registers/PHASE4_CROSS_LAYER_TRACEABILITY_ISOLATION_2026-09-13.md",
+      "blob_sha": "0235443758640e069cbd6069901262cdc389e6b5",
+      "size": 4484
+    },
+    {
+      "path": "Registers/PROJECT_TRUTH_AUDIT_2026-09-10.md",
+      "blob_sha": "d35c8cfb1e018904215e3385a261179b23d00fb7",
+      "size": 6677
+    },
+    {
+      "path": "Registers/REVIEW_REQUIRED.md",
+      "blob_sha": "4fb5fedefc40ef34b5dbcb7b99b74ec17d2b1ebe",
+      "size": 2197
+    },
+    {
+      "path": "Registers/SOURCE_REGISTRY.md",
+      "blob_sha": "3157e8efdffa78141a3f47fac5c801af31b19c45",
+      "size": 2317
+    },
+    {
+      "path": "Registers/TRACEABILITY_EXT_CP-F1-005.md",
+      "blob_sha": "80bbb5f11d299a8981926e5b00aa5edcb27fea78",
+      "size": 1484
+    },
+    {
+      "path": "Registers/TRACEABILITY_MATRIX.md",
+      "blob_sha": "db627eb2ab0da3af2b229600df81f9530cc89c2c",
+      "size": 1045
+    },
+    {
+      "path": "Registers/TRACEABILITY_MATRIX_REQUIREMENTS.md",
+      "blob_sha": "e64570b35629724b63eebad637bc94726635e545",
+      "size": 467967
+    },
+    {
+      "path": "Registers/TRACEABILITY_MATRIX_UNIT.md",
+      "blob_sha": "11d9299462f56d25a3797535bc18a5a1cd8ce4d4",
+      "size": 58692
+    },
+    {
+      "path": "Registers/TRACEABILITY_REQUIREMENTS_REVALIDATION_F5.md",
+      "blob_sha": "1bffc1d802bca7a7e53190e55a92f7f85d2a415c",
+      "size": 552486
+    },
+    {
+      "path": "State/HANDOFF_NOTE.md",
+      "blob_sha": "50552b296b5d8f38866a9144084369b73b4291a7",
+      "size": 987
+    },
+    {
+      "path": "State/PHASE_SUMMARY.md",
+      "blob_sha": "320fc9d584c5b420e3ca896accb3023aad973ebf",
+      "size": 9816
+    },
+    {
+      "path": "State/PROJECT_MANIFEST.json",
+      "blob_sha": "09feae0301a7aa8cc0401f30465e778021d2f57d",
+      "size": 2256
+    },
+    {
+      "path": "State/PROJECT_STATE.md",
+      "blob_sha": "9d6b0a12362ebf444fc9f2446bb499f54b00ef6c",
+      "size": 1271
+    }
+  ]
+}

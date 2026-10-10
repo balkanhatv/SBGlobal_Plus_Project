@@ -1,5 +1,5 @@
 # F-14 — COMMERCIAL FOUNDATION: PLANS · SUBSCRIPTION · LICENSE · ENTITLEMENTS · EFFECTIVE ACCESS
-**Document ID:** F-14 · **Version:** 1.0 · **Status:** SPECIFIED · Created: 2026-09-02 (CP-F1-005)
+**Document ID:** F-14 · **Version:** 1.1 · **Status:** SPECIFIED · Created: 2026-09-02 (CP-F1-005)
 
 Owns the full Foundation-level commercial model. Extends F-01 §5 (tiers, entitlement chain, plan-limit dimensions, BR-SUB-01…04, BR-AFF-01 remain owned there); nothing here duplicates F-01 — this document deepens it to the Commercial Foundation standard. Provenance: tier set, limit dimensions, lifecycle states, self-serve/sales-assisted split `[SD: S2.2 §26, §38; CR-01]`; all other operational detail `[AC — logged D-DECISIONS AC-18]`. No numeric limit values are invented: concrete per-plan values are configured plan-version data governed by Super Admin; where the corpus defines values they are preserved by the plan-version record, never overridden here.
 
@@ -48,7 +48,7 @@ Owns the full Foundation-level commercial model. Extends F-01 §5 (tiers, entitl
 
 **Concept:** the enforceable grant record derived from a subscription — the bridge between commercial state and entitlement computation. Licenses instantiate: **industry licenses** (per enabled industry), **MS licenses** (per management system where plan gates them), **seat licenses** (named-user grants within plan seat limits), **surface licenses** (desktop instances where gated), **API/service-account licenses**.
 **Relationships:** Subscription 1→N Licenses; each license carries: type · subject (industry/MS/user/surface) · status (`pending → active → suspended → revoked → expired`) · validity window · limits · assignment metadata · audit trail.
-**Lifecycle rules:** created/activated on subscription activation or later assignment; **assignment** (e.g., seat→user) is auditable and reversible; **suspension** follows subscription suspension or targeted governance action (e.g., abuse) — targeted suspension affects only its subject; **revocation** is permanent with reason + approver; **expiry** follows subscription/validity window. License validation is step 4 of the validation chain (F-03 §3): an operation requires every applicable license (industry + MS + seat) valid — subscription Active/Grace alone is insufficient.
+**Lifecycle rules:** created/activated on subscription activation or later assignment; **assignment** (e.g., seat→user) is auditable and reversible; **suspension** follows subscription suspension or targeted governance action (e.g., abuse) — targeted suspension affects only its subject; **revocation** is permanent with reason + approver; **expiry** follows subscription/validity window. License validation follows Subscription validation and precedes Session/Device/API Credential validation in the canonical chain (§5; F-03 §4): an operation requires every applicable license (industry + MS + seat) valid — subscription Active/Grace alone is insufficient.
 
 ## 4. Entitlement Model
 
@@ -60,9 +60,9 @@ Owns the full Foundation-level commercial model. Extends F-01 §5 (tiers, entitl
 
 ## 5. Effective Access Model (server-authoritative)
 
-`User → Authentication → Tenant Validation → Subscription Validation → License Validation → Tenant/Industry Context → RBAC → ABAC → Entitlement Check → Security/Compliance Constraints → Effective Access Decision → Allow / Deny / Restrict / Upgrade-CTA`
+`Authenticate → Tenant → Industry Context → Subscription → License → Session/Device/API Credential → Entitlement Snapshot → RBAC → applicable ABAC/context → Security/Compliance/Residency → Resource/Workflow Rules → Effective Access Decision → Allow / Deny / Restrict / Upgrade-CTA`
 
-Owned jointly with F-03 §3–§4 (chain enforcement) — this section fixes the commercial semantics: **Plan alone never implies access**; the decision depends on subscription state (§2), license state (§3), computed entitlements (§4), tenant configuration, enabled industries, MS/module availability, RBAC, ABAC, security/compliance constraints, and platform context. Decision outcomes: **Allow** (full), **Deny** (hard, audited), **Restrict** (read-only/limited mode, e.g., Suspended), **Upgrade CTA** (capability exists but not entitled — surface renders governed upgrade path instead of silent absence). Client-side enforcement is presentation only; every decision is re-made server-side (offline clients: last-valid-session scope + revalidation on sync, F-10 §4/§6).
+Owned jointly with F-03 §3–§4 (chain enforcement) — this sequence is the canonical effective-access chain and may not be reordered into a competing model. This section fixes the commercial semantics: **Plan alone never implies access**; the decision depends on subscription state (§2), license state (§3), computed entitlements (§4), tenant configuration, enabled industries, MS/module availability, RBAC, ABAC, security/compliance constraints, and platform context. Decision outcomes: **Allow** (full), **Deny** (hard, audited), **Restrict** (read-only/limited mode, e.g., Suspended), **Upgrade CTA** (capability exists but not entitled — surface renders governed upgrade path instead of silent absence). Client-side enforcement is presentation only; every decision is re-made server-side (offline clients: last-valid-session scope + revalidation on sync, F-10 §4/§6).
 
 ## 6. Plan-Change Lifecycles
 

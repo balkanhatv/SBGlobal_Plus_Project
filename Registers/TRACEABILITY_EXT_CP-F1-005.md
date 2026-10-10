@@ -1,5 +1,11 @@
 # TRACEABILITY EXTENSION — CP-F1-005 (F-13, F-14)
-Extends Registers/TRACEABILITY_MATRIX_UNIT.md (372 units / 2,965 items / 0 unmapped — totals UNCHANGED: F-13 and F-14 introduce no new source units; both are `[AC]`/`[UD]`-labelled completions of already-mapped units). The unit matrix remains the certification evidence; this extension records destination additions only.
+**Current checkpoint:** `DEV-AI-TOOL-DEFINITION-CAPABILITY-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
+> **Current audit gate (2026-10-10):** Complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111. DD-713…DD-717 state closure remains verified. DD-718…DD-722 source audit `df8164274487f5c1a1f100b6d4726af32779bdd6` and implementation `f6d4e58aa061d80a43593dd8c573c7ba7d5b8be6` / tree `261b463a924da167d53f5f2b2723b4ceffa26543` independently passed exact-HEAD Core/PostgreSQL/Database/Web (1727/1727 Core; 540/540 PostgreSQL; 48 migrations / 42 SQL verification files; Web PASS). Canonical promotion is staged pending its own exact-HEAD gates; separate DD-718…DD-722 state closure is not yet verified. Production readiness **NOT CLAIMED**.
+**Current traceability qualification:** stable child-ID inventory is **2,962**; parent/source-heading semantic ownership gate is **372/372 owner-reconciled, 0 NOT_CERTIFIED**; complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**.
+
+> This CP-F1-005 extension is preserved as historical Foundation-era traceability evidence. Its 2,965-item accounting and certification wording are evaluated-era evidence and do not override current source-fidelity/traceability owners.
+**Historical CP-F1-005 accounting:** Extends Registers/TRACEABILITY_MATRIX_UNIT.md (372 units / 2,965 items / 0 unmapped — totals UNCHANGED at that evaluated checkpoint: F-13 and F-14 introduce no new source units; both are `[AC]`/`[UD]`-labelled completions of already-mapped units). At that checkpoint the unit matrix was treated as certification evidence; this extension records destination additions only.
 
 | Source unit(s) | Prior canonical destination | Destination addition (this pass) |
 |---|---|---|

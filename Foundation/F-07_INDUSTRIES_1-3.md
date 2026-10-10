@@ -45,6 +45,7 @@ Lab Admin · Branch Manager · Doctor (internal/external/referral/visiting/consu
 
 ## 1.6 AI, Experiences, Entitlements, Demo, Testing
 - **AI `[SD: S2.6]`:** Healthcare AI Assistant; agents: Patient, Doctor, Nurse, Laboratory, Pharmacy, Appointment, Billing; AI report summary/risk/health scores; all under F-05 guardrails (HIPAA-readiness posture).
+- **Clinical AI safety boundary `[AC — S2.2 §22 + BR-HLT-02 + F-05 guardrails]`:** AI report summaries, risk/health scores and diet/lifestyle suggestions are assistive evidence only. They cannot alter verified laboratory values/reference ranges/flags, cannot satisfy pathologist/authorized-clinician approval, and cannot autonomously publish a diagnosis, prescription or treatment decision. Any patient-facing or clinical-release use remains subject to the owning Healthcare workflow, current permissions and required clinician/pathologist review.
 - **Experiences `[SD: S2.2 §9A; F-06]`:** Laboratory Website (specialized reusable Industry experience: services, test catalogue, online booking, home collection, report download with QR verification, patient login), Staff Mobile, Patient Mobile, optional Industry Desktop.
 - **Entitlements:** HLT suite + MS/modules gated by the chain (F-01 §5). **Demo data:** synthetic DEMO-flagged patients/doctors/tests/samples/invoices — never real PII. **Testing/acceptance:** tenant-isolation suites + lifecycle acceptance: a sample completing 1.4's lifecycle produces an approved, QR-verifiable report with complete audit trail; BR-HLT-01…04 each have pass/fail scenarios.
 
