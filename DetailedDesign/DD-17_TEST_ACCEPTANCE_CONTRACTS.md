@@ -7657,3 +7657,30 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIUSAGE-CAPREAD-BOUND-001 — Relationship does not authorize eligibility, entitlement, billing or execution
 **Owner:** DD-717. **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-capability-current-evidence-reader.test.mjs`.
+
+
+## DD-718…DD-722 — AIToolDefinition → AICapability(code) direct-FK current evidence
+
+### AITOOL-CAPREAD-BASE-001 — Exact global ToolDefinition read occurs first with supplied ID
+**Owner:** DD-718. **Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-tool-definition-capability-current-evidence-reader.test.mjs`.
+
+### AITOOL-CAPREAD-BASE-002 — Missing ToolDefinition and original read errors stop capability access
+**Owner:** DD-718. **Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-tool-definition-capability-current-evidence-reader.test.mjs`.
+
+### AITOOL-CAPREAD-CHILD-001 — Validate only ToolDefinition UUID/raw capabilityCode before global lookup
+**Owner:** DD-719. **Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-tool-definition-capability-current-evidence-reader.test.mjs`.
+
+### AITOOL-CAPREAD-READ-001 — One exact global by-code lookup receives the raw persisted capabilityCode
+**Owner:** DD-720. **Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-tool-definition-capability-current-evidence-reader.test.mjs`.
+
+### AITOOL-CAPREAD-READ-002 — Missing capability or original reader error has no fallback/retry
+**Owner:** DD-720. **Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-tool-definition-capability-current-evidence-reader.test.mjs`.
+
+### AITOOL-CAPREAD-FLOOR-001 — Reuse DD-203 exact code equality without normalization
+**Owner:** DD-721. **Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-tool-definition-capability-current-evidence-reader.test.mjs`.
+
+### AITOOL-CAPREAD-EVID-001 — Frozen envelope preserves exact source references and opaque metadata
+**Owner:** DD-721. **Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-tool-definition-capability-current-evidence-reader.test.mjs`.
+
+### AITOOL-CAPREAD-BOUND-001 — Relationship evidence grants no tool authorization or execution authority
+**Owner:** DD-722. **Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-tool-definition-capability-current-evidence-reader.test.mjs`.

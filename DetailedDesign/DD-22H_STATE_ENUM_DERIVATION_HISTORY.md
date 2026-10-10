@@ -1,7 +1,7 @@
 # DD-22H — STATE ENUM DERIVATION HISTORY
-**Current checkpoint:** `DEV-AI-TOKEN-USAGE-CAPABILITY-CURRENT-EVIDENCE-READER-001`
+**Current checkpoint:** `DEV-AI-TOOL-DEFINITION-CAPABILITY-CURRENT-EVIDENCE-READER-001`
 **Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
-> **Current audit gate (2026-10-10):** Complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111. DD-713…DD-717 canonical promotion `5240e4b06c9ec798b1d36a5a1cd9436336c70eef` / tree `e7df7e43a1dc761c6c925bbd7c7678ea9797fdfe` and separate state closure `9512f7b4fcd1912e30fda3f8a7b1c4b21d286e9a` / tree `53e819a13722dfd803e2ef60fb884e287392f4cb` independently passed exact-HEAD Core/PostgreSQL/Database/Web (1719/1719 Core; 540/540 PostgreSQL; 48 migrations / 42 SQL verification files; Web PASS). DD-717 state closure is verified. Production readiness **NOT CLAIMED**.
+> **Current audit gate (2026-10-10):** Complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111. DD-713…DD-717 state closure remains verified. DD-718…DD-722 source audit `df8164274487f5c1a1f100b6d4726af32779bdd6` and implementation `f6d4e58aa061d80a43593dd8c573c7ba7d5b8be6` / tree `261b463a924da167d53f5f2b2723b4ceffa26543` independently passed exact-HEAD Core/PostgreSQL/Database/Web (1727/1727 Core; 540/540 PostgreSQL; 48 migrations / 42 SQL verification files; Web PASS). Canonical promotion is staged pending its own exact-HEAD gates; separate DD-718…DD-722 state closure is not yet verified. Production readiness **NOT CLAIMED**.
 **Historical status:** FABLE 5 REMEDIATION / STATE-DERIVATION EVIDENCE · **Date:** 2026-09-11
 **Historical authority:** Fable 5 remediation mandate · industry DD state contracts · DD-03/06/07/15 · DD-21
 

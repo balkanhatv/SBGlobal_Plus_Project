@@ -7547,3 +7547,34 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Decision:** Only the stored scoped TokenUsage capability_code to exact global AICapability(code) direct-FK relationship is proven. No ACTIVE/currentness/eligibility, entitlement/policy, principal or Tenant/Industry allowlisting, provider/model, quota/pricing/billing, routing/inference/RAG/media/tool/agent, API/UI, mutation, events or atomic snapshot.
 
 **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AIUSAGE-CAPREAD-BOUND-001.
+
+
+## DD-718 — Read the exact global AIToolDefinition first
+
+**Decision:** Call the existing DD-110 `AIToolDefinitionCatalogMetadataReadPort.loadById(toolDefinitionId)` exactly once with the supplied ID. Missing row returns null; the original read error propagates unchanged and halts capability access. No RequestContext is fabricated for this global catalog read.
+
+**Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AITOOL-CAPREAD-BASE-001, AITOOL-CAPREAD-BASE-002.
+
+## DD-719 — Reject malformed ToolDefinition linkage before capability access
+
+**Decision:** Require a returned object with valid DD-203 UUID `id` and raw string `capabilityCode` before any capability lookup. Invalid evidence returns null. Preserve exact raw code, including schema-valid empty strings; do not interpret scope, status, permission, entitlement, schema, side-effect, approval, idempotency, audit or version metadata.
+
+**Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AITOOL-CAPREAD-CHILD-001.
+
+## DD-720 — Read one exact global AICapability by raw code
+
+**Decision:** Use the existing DD-109 `AICapabilityCatalogMetadataByCodeReadPort.loadByCode(toolDefinition.capabilityCode)` exactly once. No normalization, alias, ID lookup, search/list, fallback, retry, RequestContext substitution or privilege elevation. Null returns null; original catalog errors propagate unchanged.
+
+**Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AITOOL-CAPREAD-READ-001, AITOOL-CAPREAD-READ-002.
+
+## DD-721 — Apply DD-203 strict FK equality and preserve raw references
+
+**Decision:** Reuse `matchesAIToolDefinitionCapabilityBindingFloors(toolDefinition, capability)` unchanged. Missing/malformed capability identity/code and unequal, case-different or whitespace-different codes fail closed. Return frozen `{toolDefinition, capability}` with the original source references and opaque metadata unchanged. Separate reads do not form an atomic snapshot.
+
+**Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AITOOL-CAPREAD-FLOOR-001, AITOOL-CAPREAD-EVID-001.
+
+## DD-722 — Persisted relationship is not authorization or execution
+
+**Decision:** Prove only AIToolDefinition `capability_code` → exact global AICapability `code` FK continuity. No capability currentness/eligibility, entitlement/policy, principal permission, Tenant/Industry allowlisting, ToolSet/AgentStep authorization, OperationContract execution, approval, idempotency/audit, credentials, routing, tool invocation, RAG/agent execution, API/UI, mutation or AI inference authority.
+
+**Source audit:** `Development/AI_TOOL_DEFINITION_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AITOOL-CAPREAD-BOUND-001.
