@@ -209,6 +209,7 @@ export * from "./ai/token-usage-model-provider-binding-floors.js";
 export * from "./ai/token-usage-model-pair-current-evidence-reader.js";
 export * from "./ai/token-usage-provider-binding-floors.js";
 export * from "./ai/token-usage-provider-current-evidence-reader.js";
+export * from "./ai/token-usage-capability-current-evidence-reader.js";
 export * from "./ai/token-usage-capability-binding-floors.js";
 export * from "./ai/cost.js";
 export * from "./ai/cost-token-usage-binding-floors.js";
