@@ -1,7 +1,7 @@
 # TRACEABILITY EXTENSION — CP-F1-005 (F-13, F-14)
 **Current checkpoint:** `DEV-AI-TOKEN-USAGE-CAPABILITY-CURRENT-EVIDENCE-READER-001`
 **Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
-> **Current audit gate (2026-10-10):** DD-713…DD-717 source audit and corrected bounded implementation independently passed exact-HEAD Core/PostgreSQL/Database/Web. Canonical promotion STAGED/PENDING own CI; separate state closure also needs independent verification. Complete-project downstream audit remains CLEAN/CLOSED through VC27-111. Production readiness NOT CLAIMED.
+> **Current audit gate (2026-10-10):** DD-713…DD-717 source audit and corrected bounded implementation independently passed exact-HEAD Core/PostgreSQL/Database/Web. Canonical promotion STAGED/PENDING own CI; separate state closure also needs independent verification. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness NOT CLAIMED.
 **Current traceability qualification:** stable child-ID inventory is **2,962**; parent/source-heading semantic ownership gate is **372/372 owner-reconciled, 0 NOT_CERTIFIED**; complete-project downstream semantic/file-coverage/adversarial audit is **CLEAN / CLOSED**.
 
 > This CP-F1-005 extension is preserved as historical Foundation-era traceability evidence. Its 2,965-item accounting and certification wording are evaluated-era evidence and do not override current source-fidelity/traceability owners.

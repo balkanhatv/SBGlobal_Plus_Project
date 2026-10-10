@@ -4831,7 +4831,7 @@
       "promotion_invariant_gate_unique_dd": 109,
       "post_dd162_machine_verifier_boundary_audit": "Development/API_CREDENTIAL_VERIFIER_REMAINING_BOUNDARY_AUDIT.md"
     },
-    "application_api_ui_scope_note": "Backend/Core implements bounded DD-713–717 scoped TokenUsage to global AICapability direct code-FK relationship evidence (verified) but grants no API/UI/AI execution privileges; canonical promotion and state closure require separate CI. Overall application/UI and production readiness unfinished.",
+    "application_api_ui_scope_note": "Backend/Core bounded implementation through DD-717: scoped TokenUsage→exact global AICapability(code) direct-FK raw relationship evidence only. First-party application API/UI permissions, entitlement/authorization, AI execution and production readiness NOT CLAIMED; canonical promotion and state closure remain individually gated.",
     "application_services_started": true,
     "api_transports_started": true,
     "ui_started": false,
@@ -4953,7 +4953,7 @@
     "verified_code_head": "495a19e2608c1c6bf6ec10e04954063dd12b969b",
     "verified_code_tree": "58f0d4955e62c87a16263e00111428263ade2a09",
     "source_audit": "Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
-    "current_verification": "Registers/DEVELOPMENT_DD713_DD717_VERIFICATION_2026-10-10.md",
+    "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
     "next_action": "Verify the DD-713…DD-717 canonical promotion at its exact HEAD with Core/PostgreSQL/Database/Web; only then create and independently verify a separate state-closure commit before DD-718.",
     "main_merge": false
   },
@@ -4961,7 +4961,7 @@
     "checkpoint": "DEV-AI-TOKEN-USAGE-CAPABILITY-CURRENT-EVIDENCE-READER-001",
     "verified_executable_basis": "495a19e2608c1c6bf6ec10e04954063dd12b969b",
     "verified_executable_tree": "58f0d4955e62c87a16263e00111428263ade2a09",
-    "current_verification": "Registers/DEVELOPMENT_DD713_DD717_VERIFICATION_2026-10-10.md",
+    "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
     "scope": "DD-713…DD-717 scoped TokenUsage→global AICapability(code) direct-FK raw evidence; corrected implementation exact-HEAD verified, canonical promotion staged. No capability eligibility, entitlement, principal authorization, billing/routing or AI execution.",
     "parent_source_semantic_gate": {
       "status": "PASS_EXACT_HEAD_VERIFIED",

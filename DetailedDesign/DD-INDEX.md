@@ -3,15 +3,19 @@
 **Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
 **Updated:** 2026-10-10 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-10-10):** DD-713…DD-717 source audit and corrected bounded implementation independently passed exact-HEAD Core/PostgreSQL/Database/Web. Canonical promotion STAGED/PENDING own CI; separate state closure also needs independent verification. Complete-project downstream audit remains CLEAN/CLOSED through VC27-111. Production readiness NOT CLAIMED.
+> **Current audit gate (2026-10-10):** DD-713…DD-717 source audit and corrected bounded implementation independently passed exact-HEAD Core/PostgreSQL/Database/Web. Canonical promotion STAGED/PENDING own CI; separate state closure also needs independent verification. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness NOT CLAIMED.
 
-DD-713…DD-717 is scoped TokenUsage → exact global AICapability(code) persisted direct-FK raw, read-only evidence. DD-122 scoped first; DD-109 exact raw-code global second; reuse DD-197 predicate. Corrected implementation `495a19e2608c1c6bf6ec10e04954063dd12b969b` independently passed Core 1719/1719, PostgreSQL 540/540, Database 48/42, Web. No capability eligibility/entitlement, principal or Tenant/Industry authorization, billing, Provider/Model compatibility, routing, AI execution, API/UI/mutation or atomic snapshot.
+DD-713…DD-717 is the current governed backend-only scoped TokenUsage → exact global AICapability(code) persisted direct-FK relationship evidence composition. It reuses DD-197 UUID/code and exact case-sensitive code equality floors after original DD-122 RequestContext/FORCE-RLS-scoped read and one DD-109 global exact-by-code lookup.
 
-Evidence: `Registers/DEVELOPMENT_DD713_DD717_VERIFICATION_2026-10-10.md`; audit: `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Development IN PROGRESS.
+Verified corrected implementation basis `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`: **1719/1719 Core**, **540/540 PostgreSQL** with full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped Core or PostgreSQL tests. Promotion and state closure have independent gates.
 
-Next: Independently verify the DD-713…DD-717 canonical promotion HEAD, then separately publish and verify state closure before DD-718.
+Raw TokenUsage and catalog references, numeric text and opaque metadata remain unchanged. No capability eligibility, entitlement/policy, Tenant/Industry allowlist, principal authorization, billing, model/provider compatibility, routing, RAG/media/tool/agent/inference, API/UI, events, mutations or atomic snapshot.
 
-Invariants: **9 equal Industries / 41 canonical Management Systems / 181 Industry tables / 2,962 source requirement IDs / exactly TENANT_STAFF_APP and TENANT_USER_APP**. RawSource/main unchanged; PR #2 Draft/Unmerged.
+Evidence: `Registers/DEVELOPMENT_DD713_DD717_VERIFICATION_2026-10-10.md`. Source audit: `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Development **IN PROGRESS**; production readiness **NOT CLAIMED**.
+
+Next: Verify the DD-713…DD-717 canonical promotion at its exact HEAD with Core/PostgreSQL/Database/Web; only then create and independently verify a separate state-closure commit before DD-718.
+
+Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirement IDs**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP`. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.
 
 Earlier counts and next steps below apply only to their named commits.
 
