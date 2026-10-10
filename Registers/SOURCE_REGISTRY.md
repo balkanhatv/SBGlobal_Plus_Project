@@ -3,7 +3,7 @@
 **Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
 **Status:** ACTIVE · **Updated:** 2026-10-10
 
-> **Current audit gate (2026-10-10):** Complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111. The DD-713…DD-717 canonical promotion independently passed exact-HEAD Core/PostgreSQL/Database/Web at `5240e4b06c9ec798b1d36a5a1cd9436336c70eef`; this state-closure projection correction becomes effective only if its exact HEAD passes the same four gates. Production readiness **NOT CLAIMED**.
+> **Current audit gate (2026-10-10):** Complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111. DD-713…DD-717 canonical promotion `5240e4b06c9ec798b1d36a5a1cd9436336c70eef` / tree `e7df7e43a1dc761c6c925bbd7c7678ea9797fdfe` and separate state closure `9512f7b4fcd1912e30fda3f8a7b1c4b21d286e9a` / tree `53e819a13722dfd803e2ef60fb884e287392f4cb` independently passed exact-HEAD Core/PostgreSQL/Database/Web (1719/1719 Core; 540/540 PostgreSQL; 48 migrations / 42 SQL verification files; Web PASS). DD-717 state closure is verified. Production readiness **NOT CLAIMED**.
 
 **Current bounded execution evidence (not a new complete-project certification):** `84dc51e5fec0069466ef298e80cf068b018bfca1` / tree `dfdaed2478e29dc1eaf30a48806a987cded0f891`; DD-688…DD-692 Core 1675/1675 and PostgreSQL 540/540, Database/Web PASS. Historical VC27-111 downstream audit remains closed.
 
