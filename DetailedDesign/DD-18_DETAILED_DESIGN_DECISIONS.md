@@ -7516,3 +7516,34 @@ Do not add current Tenant residency, cross-context endpoint ownership or payload
 **Decision:** This is only the direct TokenUsage→AIProvider persisted relationship, not Provider lifecycle/health, credentials, allowlist, principal, budget/billing, routing, inference, API/UI, mutation or atomic cross-record authority.
 
 **Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** `AIUSAGE-PROVREAD-BOUND-001`.
+
+
+## DD-713 — Read scoped TokenUsage first
+
+**Decision:** Read exactly one scoped persisted TokenUsage through existing DD-122 by the original ID with the same RequestContext reference. Null halts; original errors propagate. No global access before usage.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AIUSAGE-CAPREAD-BASE-001, AIUSAGE-CAPREAD-BASE-002.
+
+## DD-714 — Validate necessary persisted child code identity
+
+**Decision:** Before any global read, require a usage object, UUID usage ID/Tenant and optional Industry (only exactly undefined is absent) and typeof capabilityCode string. Preserve raw case/whitespace/empty code; do not interpret principal/model/provider/units/timing.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AIUSAGE-CAPREAD-CHILD-001.
+
+## DD-715 — Read exact global AICapability by raw persisted code
+
+**Decision:** Use DD-109 loadByCode(usage.capabilityCode) exactly once, unnormalized, no fabricated RequestContext or lookup by alternative ID, code aliases, search/list, fallback/retry or elevation. Null returns null and error identity propagates.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AIUSAGE-CAPREAD-READ-001, AIUSAGE-CAPREAD-READ-002.
+
+## DD-716 — Reuse DD-197 direct FK and frozen source references
+
+**Decision:** Fail closed on absent/malformed AICapability.id or code and nonidentical case-sensitive code. Reuse DD-197 predicate unchanged, return frozen {usage,capability} retaining references, raw decimal strings and opaque catalog metadata unchanged.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AIUSAGE-CAPREAD-FLOOR-001, AIUSAGE-CAPREAD-EVID-001.
+
+## DD-717 — Relationship evidence is never an execution permission
+
+**Decision:** Only the stored scoped TokenUsage capability_code to exact global AICapability(code) direct-FK relationship is proven. No ACTIVE/currentness/eligibility, entitlement/policy, principal or Tenant/Industry allowlisting, provider/model, quota/pricing/billing, routing/inference/RAG/media/tool/agent, API/UI, mutation, events or atomic snapshot.
+
+**Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Acceptance:** AIUSAGE-CAPREAD-BOUND-001.

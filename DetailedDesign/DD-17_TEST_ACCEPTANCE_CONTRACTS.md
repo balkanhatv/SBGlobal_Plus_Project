@@ -7630,3 +7630,30 @@ No assignee/claimant/completer currentness, due/expired result, task-action auth
 
 ### AIUSAGE-PROVREAD-BOUND-001 — No Provider eligibility, secrets, principal authorization, billing or AI execution
 **Owner:** DD-712. **Source audit:** `Development/AI_TOKEN_USAGE_PROVIDER_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-provider-current-evidence-reader.test.mjs`.
+
+
+## DD-713…DD-717 — Scoped TokenUsage → AICapability(code) direct-FK evidence
+
+### AIUSAGE-CAPREAD-BASE-001 — Exact scoped TokenUsage first: original ID and identical RequestContext
+**Owner:** DD-713. **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-capability-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-CAPREAD-BASE-002 — Null child and original usage-reader error short-circuit global read
+**Owner:** DD-713. **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-capability-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-CAPREAD-CHILD-001 — Necessary UUID, optional Industry and raw code shapes validated before lookup
+**Owner:** DD-714. **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-capability-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-CAPREAD-READ-001 — One exact persisted raw capabilityCode global by-code lookup
+**Owner:** DD-715. **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-capability-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-CAPREAD-READ-002 — Missing catalog/error returns null or original exception without fallback
+**Owner:** DD-715. **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-capability-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-CAPREAD-FLOOR-001 — DD-197 strict direct code-FK floor and missing/mismatched catalog denial
+**Owner:** DD-716. **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-capability-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-CAPREAD-EVID-001 — Frozen original raw references, exact decimals and opaque metadata
+**Owner:** DD-716. **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-capability-current-evidence-reader.test.mjs`.
+
+### AIUSAGE-CAPREAD-BOUND-001 — Relationship does not authorize eligibility, entitlement, billing or execution
+**Owner:** DD-717. **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. **Executable:** `tests/core/ai-token-usage-capability-current-evidence-reader.test.mjs`.

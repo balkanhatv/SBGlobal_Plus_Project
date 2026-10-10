@@ -1,35 +1,17 @@
 # Development verification — Vision audit and governed invariant continuation
-**Current checkpoint:** `DEV-AI-TOKEN-USAGE-PROVIDER-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `57c074b7521a3c5cbec30d4d122776fcdba4b541` / tree `3691e41760d35ba737ade14b57091dc8af651bfc`
-> **Current audit gate (2026-10-09):** DD-708…DD-712 canonical promotion independently passed exact-head Core/PostgreSQL/Database/Web. This separate state-closure commit must independently pass before batch closure. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
-**Historical verification:** 2026-09-21 · checkpoint `DEV-VISION-AUDIT-INVARIANTS-001`
+**Current checkpoint:** `DEV-AI-TOKEN-USAGE-CAPABILITY-CURRENT-EVIDENCE-READER-001`
+**Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
+**Updated:** 2026-10-10 · **Branch:** `docs/architecture-branch-2`
 
-> **Historical project overlay (2026-09-28):** this file is preserved as evaluated-era evidence and does not define the active project gate. DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. The complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED**. Production readiness is **NOT CLAIMED**.
+> **Current audit gate (2026-10-10):** DD-713…DD-717 source audit and corrected bounded implementation independently passed exact-HEAD Core/PostgreSQL/Database/Web. Canonical promotion STAGED/PENDING own CI; separate state closure also needs independent verification. Complete-project downstream audit remains CLEAN/CLOSED through VC27-111. Production readiness NOT CLAIMED.
 
-## Exact executable evidence
+DD-713…DD-717 is scoped TokenUsage → exact global AICapability(code) persisted direct-FK raw, read-only evidence. DD-122 scoped first; DD-109 exact raw-code global second; reuse DD-197 predicate. Corrected implementation `495a19e2608c1c6bf6ec10e04954063dd12b969b` independently passed Core 1719/1719, PostgreSQL 540/540, Database 48/42, Web. No capability eligibility/entitlement, principal or Tenant/Industry authorization, billing, Provider/Model compatibility, routing, AI execution, API/UI/mutation or atomic snapshot.
 
-Verified executable `20f1f5531a75a711bb88e013d38454f8c171e6b1` / tree `00aac681a7a33e8dc92c6dfb767283fcb544cdf9`: **283/283 Core**, **65/65 PostgreSQL**, **47 migrations / 41 SQL verification files bootstrap**, **Next.js 15.5.25 build** and **Database Verify PASS**. Zero failed/skipped tests. Verified executable inventory: **405 blobs / 159 Markdown / 82 source / 62 test files**.
+Evidence: `Registers/DEVELOPMENT_DD713_DD717_VERIFICATION_2026-10-10.md`; audit: `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Development IN PROGRESS.
 
-| Check | Run | Job | Result |
-|---|---:|---:|---|
-| Core | 35583982706 | 106282942423 | 283/283 PASS; fail/skip 0 |
-| PostgreSQL + bootstrap | 35583982706 | 106282942833 | 65/65 PASS; fail/skip 0; all 47/41 SQL files |
-| Database Verify | 35583986918 | 106282956510 | PASS; exact PR head checkout |
-| Next.js/Web Boundary | 35583986872 | 106282956100 | PASS; exact PR head checkout, deterministic lock/generated state |
+Next: Independently verify the DD-713…DD-717 canonical promotion HEAD, then separately publish and verify state closure before DD-718.
 
-Logs assert commit `20f1f5531a75a711bb88e013d38454f8c171e6b1` and tree `00aac681a7a33e8dc92c6dfb767283fcb544cdf9`. The earlier correction commit
-`380ae7b984624ae3842e0293b2c075ac250c08a6` independently passed 277 Core / 65 PostgreSQL plus DB/Web.
-
-## Audit result and continuation
-
-Four demonstrated audit defect groups are corrected: machine scope allowlist enforcement, validated Tenant sessionVersion propagation, typed Commercial preview values, and stale database/current-state evidence. Six REPO-001–006 checks now run in Core CI. The DD-076 prerequisite ownership source audit is complete; no missing business policy was invented.
-
-Report: `VISION_CENTRIC_AUDIT_2026-09-21.md`.
-Coverage: `VISION_CENTRIC_FILE_COVERAGE_2026-09-21.md` (all 399 baseline files;
-mechanical coverage is distinguished from substantive semantic review).
-Source audit: `../Development/COMMERCIAL_EVALUATOR_PREREQUISITE_OWNERSHIP_AUDIT.md`.
-
-Invariants: 9 Industries / 41 MS / 181 Industry tables, 2,962 source IDs/text,
+Invariants: **9 equal Industries / 41 canonical Management Systems / 181 Industry tables / 2,962 source requirement IDs / exactly TENANT_STAFF_APP and TENANT_USER_APP**. RawSource/main unchanged; PR #2 Draft/Unmerged.
 ADR-001–020 and DD-001–079. RawSource hashes stay
 `a9f63a64448a347edd0f2b0c74094284ee953c1b` and
 `91c461de5e0d171f71d0bb89cd039953a1f1ecfd`.

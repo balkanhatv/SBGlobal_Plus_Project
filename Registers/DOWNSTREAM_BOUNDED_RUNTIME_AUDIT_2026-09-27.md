@@ -848,3 +848,8 @@ DD-708…DD-712 independently verified implementation `161c59f7abd1c7dfa58b8cad3
 ## 2026-10-09 — independently verified DD-708…DD-712 canonical promotion pointer
 
 The subsequent canonical promotion `57c074b7521a3c5cbec30d4d122776fcdba4b541` / tree `3691e41760d35ba737ade14b57091dc8af651bfc` independently passed Core 1711/1711, PostgreSQL 540/540, Database 48/42 and Web. Exact push runs: 37961936200 / 37961936300 / 37961936212. This pointer preserves the historical VC27-111 audit's original scope; it does NOT assert a fresh complete-project vision audit or production readiness. DD-712 state closure remains separately gated. See `Registers/DEVELOPMENT_DD708_DD712_VERIFICATION_2026-10-09.md`.
+
+
+## 2026-10-10 — DD-713…DD-717 bounded implementation evidence pointer
+
+DD-713…DD-717 corrected implementation `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09` independently passed Core 1719/1719, PostgreSQL 540/540, Database 48/42 and Web at runs 38018578104, 38018578077 and 38018578151. It provides scoped TokenUsage → exact global AICapability(code) direct-FK raw evidence only, not a new whole-repository VC27 review, catalog eligibility, entitlement/billing, execution or production readiness. Canonical promotion and separate state closure remain individually gated. Evidence: `Registers/DEVELOPMENT_DD713_DD717_VERIFICATION_2026-10-10.md`.
