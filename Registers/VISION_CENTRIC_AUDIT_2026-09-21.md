@@ -1,7 +1,7 @@
 # Vision-Centric Deep Audit — fresh remote baseline, 2026-09-21
 **Current checkpoint:** `DEV-AI-TOKEN-USAGE-CAPABILITY-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `5240e4b06c9ec798b1d36a5a1cd9436336c70eef` / tree `e7df7e43a1dc761c6c925bbd7c7678ea9797fdfe`
-> **Current audit gate (2026-10-10):** DD-713…DD-717 canonical promotion independently passed exact-HEAD Core/PostgreSQL/Database/Web. This separate state closure requires independent exact-HEAD Core/PostgreSQL/Database/Web before DD-717 closes. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
+**Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
+> **Current audit gate (2026-10-10):** Complete-project downstream semantic/file-coverage/adversarial audit remains **CLEAN / CLOSED** through VC27-111. The DD-713…DD-717 canonical promotion independently passed exact-HEAD Core/PostgreSQL/Database/Web at `5240e4b06c9ec798b1d36a5a1cd9436336c70eef`; this state-closure projection correction becomes effective only if its exact HEAD passes the same four gates. Production readiness **NOT CLAIMED**.
 **Current project status:** complete-project downstream semantic/file-coverage/adversarial audit **CLEAN / CLOSED**; DD-225…DD-230 implementation is exact-head verified and canonical promotion is exact-head verified; state closure is staged. Production readiness is **NOT CLAIMED**.
 
 > This file is preserved as dated historical Vision-audit evidence. Its evaluated-era checkpoint, verdict and continuation statements do not override the current project overlay above.

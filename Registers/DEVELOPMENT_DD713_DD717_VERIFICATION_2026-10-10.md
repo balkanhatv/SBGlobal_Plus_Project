@@ -4,7 +4,7 @@
 **Source audit:** `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`.
 **Source-audit commit:** `eba5fa1f69ccb819ab2087dd7b42e97f8f5690a2` / tree `2ae5deac2a68155f8202c622aafec3ffeb7e7f61`.
 **Verified corrected implementation:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`.
-**Status:** SOURCE AUDIT + IMPLEMENTATION INDEPENDENTLY EXACT-HEAD VERIFIED. CANONICAL PROMOTION STAGED/PENDING OWN CI; STATE CLOSURE NOT VERIFIED.
+**Status:** SOURCE AUDIT + CORRECTED IMPLEMENTATION INDEPENDENTLY EXACT-HEAD VERIFIED. CANONICAL PROMOTION `5240e4b06c9ec798b1d36a5a1cd9436336c70eef` INDEPENDENTLY PASSED CORE/POSTGRESQL/DATABASE/WEB. STATE CLOSURE PENDING ITS OWN EXACT-HEAD CI.
 
 ## Ordered exact-HEAD verification
 
@@ -32,6 +32,11 @@ No database migration, schema, RLS, grant, role, RawSource or `main` change. No 
 
 ## Canonical and state gates
 
-This atomic promotion includes DD-17's eight fixed acceptance entries, DD-18's DD-713…DD-717 decisions, DD-19 traceability, the active manifest and 57 prior active checkpoint projections. This staged promotion is **NOT certified** until its own Core/PostgreSQL/Database/Web pass at the exact promotion HEAD. After a PASS, publish a separate independently verified state closure before advancing. Historical VC27 review is not represented as newly performed.
+This atomic promotion includes DD-17's eight fixed acceptance entries, DD-18's DD-713…DD-717 decisions, DD-19 traceability, the active manifest and 57 prior active checkpoint projections. Canonical promotion `5240e4b06c9ec798b1d36a5a1cd9436336c70eef` / tree `e7df7e43a1dc761c6c925bbd7c7678ea9797fdfe` independently passed its exact-HEAD gates:
+- [Core Service Verify 38019578643](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/38019578643): Core job `114117364506` **1719/1719 PASS**; PostgreSQL job `114117364443` **540/540 PASS** with full bootstrap.
+- [Database Verify 38019578597](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/38019578597): job `114117364263`, **48 migrations / 42 SQL verifications PASS**.
+- [Web Boundary Verify 38019578615](https://github.com/balkanhatv/SBGlobal_Plus_Project/actions/runs/38019578615): job `114117364157`, **PASS**.
+
+The earlier state-closure attempt `39e39a745c7e563a1954d4780cd8fc1f39cc473a` failed Core projection-consistency guards and is **not certified**. A forward-only projection/manifest correction is staged and must independently pass Core/PostgreSQL/Database/Web at its own exact HEAD before DD-717 state closure becomes effective. Historical VC27 review is not represented as newly performed.
 
 Invariants: **9 equal Industries / 41 canonical Management Systems / 181 Industry tables / 2,962 preserved source requirement IDs / exactly TENANT_STAFF_APP and TENANT_USER_APP**. PR #2 stays OPEN/DRAFT/UNMERGED; production readiness NOT CLAIMED.
