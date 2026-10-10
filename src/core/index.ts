@@ -155,6 +155,7 @@ export * from "./ai/model-provider-binding-floors.js";
 export * from "./ai/capability-catalog-metadata.js";
 export * from "./ai/tool-definition-catalog-metadata.js";
 export * from "./ai/tool-definition-capability-binding-floors.js";
+export * from "./ai/tool-definition-capability-current-evidence-reader.js";
 export * from "./ai/tool-set.js";
 export * from "./ai/tool-set-member.js";
 export * from "./ai/tool-set-member-definition-binding-floors.js";
