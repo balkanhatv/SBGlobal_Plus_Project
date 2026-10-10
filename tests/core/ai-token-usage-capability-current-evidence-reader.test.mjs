@@ -163,7 +163,10 @@ test("AIUSAGE-CAPREAD-EVID-001 frozen original references, opaque fields, exact 
     assert.equal(result.capability.opaqueMetadata, f.values.capability.opaqueMetadata);
     assert.equal(result.usage.inputUnits, "9007199254740993.000000000000000001");
     assert.equal(result.usage.outputUnits, "0.000000000000000009");
-    assert.equal(result.usage.mediaUnits, changes.mediaUnits);
+    assert.equal(
+      result.usage.mediaUnits,
+      Object.hasOwn(changes, "mediaUnits") ? undefined : "100000000000000000001",
+    );
     assert.equal(result.capability.schemaVersion, -999);
     assert.equal(result.capability.defaultPolicyClass, "opaque-policy");
     assert.equal(JSON.stringify([f.values, ctx]), before);
