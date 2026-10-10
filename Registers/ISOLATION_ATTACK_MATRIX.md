@@ -1,8 +1,8 @@
 # Isolation Attack Matrix — Current Core/Database Checkpoint
 **Current checkpoint:** `DEV-AI-TOKEN-USAGE-CAPABILITY-CURRENT-EVIDENCE-READER-001`
-> **Current audit gate (2026-10-10):** DD-713…DD-717 source audit and corrected bounded implementation independently passed exact-HEAD Core/PostgreSQL/Database/Web. Canonical promotion STAGED/PENDING own CI; separate state closure also needs independent verification. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness NOT CLAIMED.
+> **Current audit gate (2026-10-10):** DD-713…DD-717 canonical promotion independently passed exact-HEAD Core/PostgreSQL/Database/Web. This separate state closure requires independent exact-HEAD Core/PostgreSQL/Database/Web before DD-717 closes. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 **Updated:** 2026-10-10 · **Branch:** `docs/architecture-branch-2`
-**Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
+**Current executable audit basis:** `5240e4b06c9ec798b1d36a5a1cd9436336c70eef` / tree `e7df7e43a1dc761c6c925bbd7c7678ea9797fdfe`
 
 ## Historical 2026-09-14 executable persistence overlay
 

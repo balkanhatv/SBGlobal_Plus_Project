@@ -1,18 +1,18 @@
 # CORE SERVICE CHECKPOINT
 **Current checkpoint:** `DEV-AI-TOKEN-USAGE-CAPABILITY-CURRENT-EVIDENCE-READER-001`
-**Current executable audit basis:** `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`
+**Current executable audit basis:** `5240e4b06c9ec798b1d36a5a1cd9436336c70eef` / tree `e7df7e43a1dc761c6c925bbd7c7678ea9797fdfe`
 **Updated:** 2026-10-10 · **Branch:** `docs/architecture-branch-2`
 
-> **Current audit gate (2026-10-10):** DD-713…DD-717 source audit and corrected bounded implementation independently passed exact-HEAD Core/PostgreSQL/Database/Web. Canonical promotion STAGED/PENDING own CI; separate state closure also needs independent verification. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness NOT CLAIMED.
+> **Current audit gate (2026-10-10):** DD-713…DD-717 canonical promotion independently passed exact-HEAD Core/PostgreSQL/Database/Web. This separate state closure requires independent exact-HEAD Core/PostgreSQL/Database/Web before DD-717 closes. Complete-project downstream audit remains **CLEAN / CLOSED** through VC27-111. Production readiness **NOT CLAIMED**.
 
-DD-713…DD-717 is the current governed backend-only scoped TokenUsage → exact global AICapability(code) persisted direct-FK relationship evidence composition. It reuses DD-197 UUID/code and exact case-sensitive code equality floors after original DD-122 RequestContext/FORCE-RLS-scoped read and one DD-109 global exact-by-code lookup.
+DD-713…DD-717 is the current governed backend-only scoped TokenUsage → exact global AICapability(code) persisted direct-FK relationship evidence composition. It reuses DD-197 UUID/code strict equality after the original DD-122 RequestContext/FORCE-RLS-scoped usage read and DD-109 exact global by-code lookup.
 
-Verified corrected implementation basis `495a19e2608c1c6bf6ec10e04954063dd12b969b` / tree `58f0d4955e62c87a16263e00111428263ade2a09`: **1719/1719 Core**, **540/540 PostgreSQL** with full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS; zero failed/skipped Core or PostgreSQL tests. Promotion and state closure have independent gates.
+Verified independently promoted canonical basis `5240e4b06c9ec798b1d36a5a1cd9436336c70eef` / tree `e7df7e43a1dc761c6c925bbd7c7678ea9797fdfe`: **1719/1719 Core**, **540/540 PostgreSQL** with full bootstrap, **48 migrations / 42 SQL verification files**, Database/Web PASS, zero failed/skipped Core or PostgreSQL tests. Separate state closure is conditionally effective upon own exact-HEAD CI.
 
-Raw TokenUsage and catalog references, numeric text and opaque metadata remain unchanged. No capability eligibility, entitlement/policy, Tenant/Industry allowlist, principal authorization, billing, model/provider compatibility, routing, RAG/media/tool/agent/inference, API/UI, events, mutations or atomic snapshot.
+Raw scoped usage and global catalog source references, numeric precision and opaque metadata remain unchanged. No catalog currentness/eligibility, entitlement/policy, principal authorization, Tenant/Industry allowlisting, provider/model compatibility, pricing/billing, routing, AI inference/RAG/media/tool/agent, API/UI/mutation/events or atomic snapshot authority.
 
 Evidence: `Registers/DEVELOPMENT_DD713_DD717_VERIFICATION_2026-10-10.md`. Source audit: `Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md`. Development **IN PROGRESS**; production readiness **NOT CLAIMED**.
 
-Next: Verify the DD-713…DD-717 canonical promotion at its exact HEAD with Core/PostgreSQL/Database/Web; only then create and independently verify a separate state-closure commit before DD-718.
+Next: Independently confirm this DD-713…DD-717 state-closure HEAD passed Core/PostgreSQL/Database/Web; once green, close DD-717 and source-audit the next independently source-complete backend batch before development.
 
 Invariants: **9 equal Industries / 41 canonical MS / 181 Industry tables / 2,962 preserved source requirement IDs**; exactly `TENANT_STAFF_APP` and `TENANT_USER_APP`. RawSource unchanged; `main` unmerged; PR #2 draft/unmerged.

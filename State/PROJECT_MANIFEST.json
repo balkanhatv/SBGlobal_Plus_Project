@@ -4954,7 +4954,7 @@
     "verified_code_tree": "58f0d4955e62c87a16263e00111428263ade2a09",
     "source_audit": "Development/AI_TOKEN_USAGE_CAPABILITY_CURRENT_EVIDENCE_READER_COMPOSITION_BATCH_PREREQUISITE_OWNERSHIP_AUDIT.md",
     "current_verification": "Registers/DOWNSTREAM_BOUNDED_RUNTIME_AUDIT_2026-09-27.md",
-    "next_action": "Verify the DD-713…DD-717 canonical promotion at its exact HEAD with Core/PostgreSQL/Database/Web; only then create and independently verify a separate state-closure commit before DD-718.",
+    "next_action": "Independently confirm this DD-713…DD-717 state-closure HEAD passed Core/PostgreSQL/Database/Web; once green, close DD-717 and source-audit the next independently source-complete backend batch before development.",
     "main_merge": false
   },
   "current_audit_overlay": {
